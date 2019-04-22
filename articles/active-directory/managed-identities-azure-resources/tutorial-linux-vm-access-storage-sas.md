@@ -16,10 +16,10 @@ ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06fa483a34efa3a9486e04d894a3139d17b157b4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273954"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Zelfstudie: Toegang krijgen tot Azure Storage via SAS-referenties met een door het systeem toegewezen identiteit voor een virtuele Linux-machine (VM)
@@ -231,4 +231,4 @@ Reactie:
 In deze zelfstudie hebt u geleerd een door het systeem toegewezen beheerde identiteit voor een virtuele Linux-machine (VM) te gebruiken om toegang tot Azure Storage te krijgen met behulp van een SAS-referentie.  Zie voor meer informatie over Azure Storage SAS:
 
 > [!div class="nextstepaction"]
->[Shared access signatures (SAS) gebruiken](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+>[Shared Access Signatures (SAS) gebruiken](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)

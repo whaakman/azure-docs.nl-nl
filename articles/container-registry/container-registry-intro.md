@@ -9,10 +9,10 @@ ms.date: 04/03/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
 ms.openlocfilehash: ba75d196bdb53fab104ab6c01391e762b4a3841b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270520"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Inleiding tot privé-Docker-containerregisters in Azure
@@ -44,9 +44,9 @@ Azure biedt verschillende hulpprogramma's zoals Azure-opdrachtregelinterface, Az
 
 * **Opslagplaats** -een register bevat een of meer opslagplaatsen, dit virtuele groepen met containerinstallatiekopieën met dezelfde naam maar verschillende codes of verwerkingen zijn. Azure Container Registry ondersteunt naamruimten voor opslagplaatsen op meerdere niveaus. Met naamruimten op meerdere niveaus kunt u installatiekopieën groeperen die gerelateerd zijn aan een specifieke app, of apps groeperen die gerelateerd zijn aan specifieke ontwikkelingsteams of operationele teams. Bijvoorbeeld:
 
-  * `myregistry.azurecr.io/aspnetcore:1.0.1` Hiermee geeft u een bedrijfsbrede installatiekopie
-  * `myregistry.azurecr.io/warrantydept/dotnet-build` Hiermee geeft u een installatiekopie die wordt gebruikt voor het bouwen van .NET-apps, verdeeld over de garantieafdeling
-  * `myregistry.azurecr.io/warrantydept/customersubmissions/web` Hiermee geeft u een webinstallatiekopie, opgenomen in de app voor klantinzendingen die eigendom zijn van de garantieafdeling
+  * `myregistry.azurecr.io/aspnetcore:1.0.1` staat voor een bedrijfsbrede installatiekopie
+  * `myregistry.azurecr.io/warrantydept/dotnet-build` staat voor een installatiekopie die wordt gebruikt om .NET-apps te maken die op de garantieafdeling worden gedeeld
+  * `myregistry.azurecr.io/warrantydept/customersubmissions/web` staat voor een webinstallatiekopie, opgenomen in de app voor klantinzendingen die eigendom is van de garantieafdeling
 
 * **Installatiekopie**: installatiekopieën worden opgeslagen in een opslagplaats. Elke installatiekopie is een alleen-lezenmomentopname van een met Docker compatibele container. Azure-containerregisters kunnen zowel Windows- als Linux-installatiekopieën bevatten. U beheert de namen van de installatiekopieën voor al uw containerimplementaties. Gebruik standaard-[Docker-opdrachten](https://docs.docker.com/engine/reference/commandline/) om installatiekopieën naar een opslagplaats te pushen of een installatiekopie uit een opslagplaats op te halen. Naast containerinstallatiekopieën worden in Azure Container Registry [gerelateerde inhoudsindelingen](container-registry-image-formats.md), zoals [Helm-grafieken](container-registry-helm-repos.md), die worden gebruikt om toepassingen in Kubernetes te implementeren.
 
@@ -62,4 +62,4 @@ Azure biedt verschillende hulpprogramma's zoals Azure-opdrachtregelinterface, Az
 
 * [Een containerregister maken met Azure Portal](container-registry-get-started-portal.md)
 * [Een containerregister maken met de Azure-CLI](container-registry-get-started-azure-cli.md)
-* [OS- en framework patchen met ACR taken automatiseren](container-registry-tasks-overview.md)
+* [OS- en frameworkpatching automatiseren met ACR Tasks](container-registry-tasks-overview.md)

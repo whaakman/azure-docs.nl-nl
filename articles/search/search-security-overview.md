@@ -10,10 +10,10 @@ ms.date: 04/06/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269551"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Beveiliging en privacy in Azure Search
@@ -95,7 +95,7 @@ Standaard wordt toegang tot een index voor gebruikers bepaald door de toegangssl
 
 Als u gedetailleerde vereist, per gebruiker controle over inhoud, u kunt beveiligingsfilters voortbouwen op uw query's, documenten die zijn gekoppeld aan een bepaalde beveiligings-id geretourneerd. In plaats van vooraf gedefinieerde rollen roltoewijzingen, op basis van de identiteit wordt geïmplementeerd als een *filter* dat Trim van documenten en inhoud zoekresultaten op basis van identiteiten. De volgende tabel beschrijft de twee benaderingen voor trimming zoekresultaten van niet-geautoriseerde inhoud.
 
-| Methode | Description |
+| Methode | Beschrijving |
 |----------|-------------|
 |[Security trimming wordt geregeld op basis van id-filters](search-security-trimming-for-azure-search.md)  | De algemene werkstroom voor het implementeren van toegangsbeheer voor gebruiker identiteit-documenten. Het bevat informatie over toe te voegen beveiligings-id's naar een index en vervolgens wordt uitgelegd filteren op basis van de resultaten van niet-toegestane inhoud trim voor dat veld. |
 |[Security trimming wordt geregeld op basis van Azure Active Directory-identiteiten](search-security-trimming-for-azure-search-with-aad.md)  | In dit artikel gaat verder in op het vorige artikel, bieden stappen voor het ophalen van identiteiten van Azure Active Directory (AAD), een van de [gratis services](https://azure.microsoft.com/free/) in het Azure-cloud-platform. |

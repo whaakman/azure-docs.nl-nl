@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 26f3fe9c2483dda3b9350c110b2e8adf60dcd21e
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58803150"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Releasegeschiedenis van versie
@@ -536,7 +536,7 @@ Status: September-05-2017
 * Wanneer Azure AD Connect wachtwoord synchronisatie-Agent wordt gestart, wordt geprobeerd verbinding maken met Azure AD-bekende eindpunt voor Wachtwoordsynchronisatie. Na de verbinding is geslaagd, wordt die omgeleid naar een regiospecifiek-eindpunt. De synchronisatieagent wachtwoord caches eerder, het eindpunt regiospecifieke totdat deze opnieuw is opgestart. Nu de agent Hiermee schakelt u de cache en nieuwe pogingen met het eindpunt van de bekende als er problemen met het eindpunt regiospecifiek. Deze wijziging zorgt ervoor dat Wachtwoordsynchronisatie failover naar een ander regiospecifiek-eindpunt kunt wanneer het in de cache regiospecifiek-eindpunt is niet meer beschikbaar.
 * Voor het synchroniseren van wijzigingen vanuit een on-premises AD-forest is een AD DS-account vereist. U kunt ofwel (i) maken het AD DS-account zelf en geef de referentie naar Azure AD Connect, of (ii) een ondernemingsadministratorreferenties opgeven en kunt u Azure AD Connect het AD DS-account voor u maken. Voorheen is (i) de standaardoptie in de Azure AD Connect-wizard. Nu, (ii) is de standaardoptie.
 
-### <a name="azure-ad-connect-health"></a>Azure AD Connect Health (Engelstalig)
+### <a name="azure-ad-connect-health"></a>Azure AD Connect Health
 
 #### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen
 * Er is ondersteuning toegevoegd voor Microsoft Azure Government-Cloud- en Microsoft Cloud Duitsland.

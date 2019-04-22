@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
 ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58794016"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
@@ -512,7 +512,7 @@ Klik op de **Office 365** tegel om te openen de **Office 365** dashboard.
 
 Het dashboard bevat de kolommen in de volgende tabel. Elke kolom bevat de bovenste tien waarschuwingen per aantal die overeenkomen met criteria voor het opgegeven bereik en het tijdsbereik van die kolom. U kunt een logboekzoekopdracht waarmee de volledige lijst door te klikken op Zie alle aan de onderkant van de kolom of door te klikken op de kolomkop uitvoeren.
 
-| Kolom | Description |
+| Kolom | Beschrijving |
 |:--|:--|
 | Bewerkingen | Bevat informatie over de actieve gebruikers in uw alle bewaakte Office 365-abonnementen. Ook mogelijk om het aantal activiteiten die na verloop van tijd plaatsvinden te zien.
 | Exchange | U kunt de uitsplitsing van Exchange Server-activiteiten, zoals toevoegen-machtiging of Set-postvak. |
@@ -574,7 +574,7 @@ Deze records worden gemaakt wanneer een Active Directory-gebruiker zich probeert
 
 Deze records worden gemaakt wanneer wijzigen of toevoegingen worden aangebracht in Azure Active Directory-objecten.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -592,7 +592,7 @@ Deze records worden gemaakt wanneer wijzigen of toevoegingen worden aangebracht 
 
 Deze records worden gemaakt vanuit Data Center Security audit-gegevens.  
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | EffectiveOrganization | De naam van de tenant die de uitbreiding van bevoegdheden/cmdlet is gericht op. |
 | ElevationApprovedTime | De tijdstempel voor wanneer de uitbreiding is goedgekeurd. |
@@ -697,7 +697,7 @@ Deze eigenschappen gelden voor alle records van SharePoint.
 
 Deze records worden gemaakt wanneer configuratiewijzigingen worden aangebracht in SharePoint.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -710,7 +710,7 @@ Deze records worden gemaakt wanneer configuratiewijzigingen worden aangebracht i
 
 Deze records worden gemaakt in reactie op bestandsbewerkingen in SharePoint.
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |

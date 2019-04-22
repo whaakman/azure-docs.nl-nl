@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
 ms.openlocfilehash: 0ed6747573edf4c059eb29d28107a22706c52856
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426186"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Meldingen van Nagios en Zabbix in Azure Monitor verzamelen in Log Analytics-agent voor Linux 
@@ -92,7 +92,7 @@ Ontvang een waarschuwing records die zijn verzameld door Nagios hebben een **Typ
 
 | Eigenschap | Description |
 |:--- |:--- |
-| `Type` |*Waarschuwing* |
+| `Type` |*Ontvang een waarschuwing* |
 | `SourceSystem` |*Nagios* |
 | `AlertName` |Naam van de waarschuwing. |
 | `AlertDescription` | Beschrijving van de waarschuwing. |
@@ -108,7 +108,7 @@ Ontvang een waarschuwing die worden verzameld door Zabbix records hebben een **T
 
 | Eigenschap | Description |
 |:--- |:--- |
-| `Type` |*Waarschuwing* |
+| `Type` |*Ontvang een waarschuwing* |
 | `SourceSystem` |*Zabbix* |
 | `AlertName` | Naam van de waarschuwing. |
 | `AlertPriority` | Ernst van de waarschuwing.<br><br>niet-geclassificeerd<br>informatie<br>waarschuwing<br>gemiddeld<br>Hoog<br>na noodgevallen  |

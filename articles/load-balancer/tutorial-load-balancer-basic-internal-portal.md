@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
 ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489311"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Zelfstudie: Interne-verkeersbelasting verdelen met een Basic-load balancer in Azure Portal
@@ -112,7 +112,7 @@ In dit gedeelte configureert u de instellingen van de load balancer voor een bac
 
 De load balancer gebruikt een backend-adresgroep om verkeer te distribueren over de virtuele machines. De back-endadresgroep bevat de IP-adressen van de virtuele netwerkinterfaces (NIC's) die zijn verbonden met de load balancer. 
 
-**Voor het maken van een back-end-adresgroep bevat die VM1 en VM2:**
+**Voor het maken van een back-endadresgroep bevat die VM1 en VM2:**
 
 1. Selecteer **Alle resources** in het linkermenu en selecteer vervolgens **MyLoadBalancer** in de lijst met resources.
    
@@ -141,7 +141,7 @@ De load balancer gebruikt een backend-adresgroep om verkeer te distribueren over
 
 U gebruikt een statustest om de load balancer toe te staan de status van uw virtuele machine te bewaken. De statustest voegt dynamisch VM's toe aan de load balancer-rotatie of verwijdert ze, op basis van hun reactie op statuscontroles. 
 
-**Een statustest voor het controleren van de status van de virtuele machines maken:**
+**Voor het maken van een statustest om de status van de VM's te bewaken:**
 
 1. Selecteer **Alle resources** in het linkermenu en selecteer vervolgens **MyLoadBalancer** in de lijst met resources.
    
@@ -166,7 +166,7 @@ Een load balancer-regel bepaalt hoe het verkeer over de VM's wordt verdeeld. De 
 
 De load balancer-regel met de naam **myLoadBalancerRuleWeb** luistert op poort 80 van de front-end **LoadBalancerFrontEnd**. Met de regel wordt netwerkverkeer naar de back-endadresgroep **myBackEndPool** verzonden, ook op poort 80. 
 
-**De load balancer-regel maken:**
+**Een load balancer-regel maken, gaat als volgt:**
 
 1. Selecteer **Alle resources** in het linkermenu en selecteer vervolgens **MyLoadBalancer** in de lijst met resources.
    
@@ -199,7 +199,7 @@ Maak eerst verbinding met alle drie de virtuele machines via Extern bureaublad.
 >[!NOTE]
 >Standaard hebben de virtuele machines al de **Extern bureaublad**-poort geopend om toegang via Extern bureaublad toe te staan. 
 
-**Met extern bureaublad (RDP) bij de virtuele machines:**
+**Met Extern bureaublad naar de VM's gaat als volgt:**
 
 1. Selecteer in de portal **Alle resources** in het menu aan de linkerkant. Selecteer in de lijst met resources elke afzonderlijke VM in de resourcegroep **MyResourceGroupLB**.
    
@@ -222,7 +222,7 @@ Gebruik op elke back-endserver PowerShell om IIS te installeren en de standaard 
 >[!NOTE]
 >U kunt ook de **wizard Rollen en functies toevoegen** in **Serverbeheer** gebruiken om IIS te installeren. 
 
-**IIS installeren en bijwerken van de standaardwebpagina met PowerShell:**
+**Als u IIS wilt installeren en de standaardwebpagina wilt bijwerken met behulp van PowerShell, gaat u als volgt te werk:**
 
 1. Start vanuit het **startmenu** op MyVM1 en MyVM2 **Windows PowerShell**. 
 

@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279972"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Het maken van dynamische blauwdrukken via parameters
@@ -76,8 +76,8 @@ Een parameterwaarde die is gedefinieerd in de definitie van een blauwdruk heet e
 
 In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die u moet vervangen door uw eigen waarden:
 
-- `{YourMG}` -Vervangen door de naam van uw beheergroep
-- `{subscriptionId}` -Vervangen door uw abonnements-ID
+- Vervang `{YourMG}` door de naam van uw beheergroep
+- Vervang `{subscriptionId}` door uw abonnements-ID
 
 ##### <a name="blueprint-level-parameter"></a>Niveau blauwdrukparameter
 

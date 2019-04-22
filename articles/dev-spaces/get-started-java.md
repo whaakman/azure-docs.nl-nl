@@ -11,10 +11,10 @@ description: Snelle Kubernetes-ontwikkeling met containers en microservices in A
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
 manager: mmontwil
 ms.openlocfilehash: b69a793d1d860bf2f2a4d52a92d4bea5cf903c0c
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426304"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Aan de slag in Azure Dev Spaces met behulp van Java
@@ -108,7 +108,7 @@ U hebt nu een eenvoudige web-app die lokaal kan worden uitgevoerd. U gaat hier n
     ```
 
 Met de opdracht `azds prep` van Azure-CLI worden Docker- en Kubernetes-assets met standaardinstellingen gemaakt:
-* `./Dockerfile` Beschrijving van de app container-installatiekopie, en hoe de broncode wordt opgebouwd en wordt uitgevoerd in de container.
+* In `./Dockerfile` wordt beschreven wat de containerinstallatiekopie van de app is, en hoe de broncode is opgebouwd en wordt uitgevoerd in de container.
 * Met een [Helm-grafiek](https://docs.helm.sh) die zich onder `./charts/webfrontend` bevindt, wordt beschreven hoe de container in Kubernetes moet worden geïmplementeerd.
 
 Op dit moment is het nog niet nodig om de volledige inhoud van deze bestanden te begrijpen. Wat u wel moet weten is dat **de dezelfde assets voor 'configuratie als code' in Docker en Kubernetes kunnen worden gebruikt van ontwikkeling tot productie, waardoor er meer consistentie tussen de verschillende omgevingen bestaat.**
@@ -148,7 +148,7 @@ Open deze URL in een browservenster. Dan ziet u dat de web-app wordt geladen. Te
 > Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd in Kubernetes. Het gaat er om dat u de codewijzigingen snel en iteratief toegepast kunt zien in een Kubernetes-omgeving in de cloud.
 
 1. Druk in het terminalvenster op `Ctrl+C` (om `azds up` te stoppen).
-1. Open het codebestand met de naam `src/main/java/com/ms/sample/webfrontend/Application.java`, en het begroetingsbericht bewerken: `return "Hello from webfrontend in Azure!";`
+1. Open het codebestand met de naam `src/main/java/com/ms/sample/webfrontend/Application.java` en bewerk het welkomstbericht: `return "Hello from webfrontend in Azure!";`
 1. Sla het bestand op.
 1. Voer `azds up` uit in het terminalvenster.
 
@@ -215,9 +215,9 @@ In plaats van telkens als codewijzigingen zijn aangebracht een nieuwe containeri
 
 Vernieuw de web-app in de browser. U ziet dat uw aangepaste bericht wordt weergegeven in de gebruikersinterface.
 
-**U hebt nu een methode voor het snel herhalen op code en foutopsporing rechtstreeks in Kubernetes.** Hierna ziet u hoe u een tweede container kunt maken en aanroepen.
+**U beschikt nu over een methode om code snel te ontwikkelen en foutopsporing rechtstreeks uit te voeren in Kubernetes.** Hierna ziet u hoe u een tweede container kunt maken en aanroepen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over het ontwikkelen van meerdere services](multi-service-java.md)
+> [Informatie over ontwikkelen van meerdere services](multi-service-java.md)

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: abnarain
 ms.openlocfilehash: d63ede800f7e60db44072234f5ec74910e4c70f2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275401"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime in Azure Data Factory
@@ -156,5 +156,5 @@ Elke transformatieactiviteit heeft een gekoppelde doelrekenservice die naar een 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen:
 
-- [Een zelf-hostende integratieruntime maken](create-self-hosted-integration-runtime.md)
+- [Zelf-hostende integratie-runtime maken](create-self-hosted-integration-runtime.md)
 - [Een Azure-SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). In dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Database Managed Instance en toevoegen van de IR aan een virtueel netwerk. 

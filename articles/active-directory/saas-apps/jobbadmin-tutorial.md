@@ -16,10 +16,10 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad55656ba91c2f344024700344550849a36ed9b6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263992"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>Zelfstudie: Azure Active Directory-integratie met Jobbadmin
@@ -51,7 +51,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van Jobbadmin met Azure AD moet u Jobbadmin vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Jobbadmin uit de galerie, moet u de volgende stappen uitvoeren:**
+**Ga als volgt te werk om Jobbadmin vanuit de galerie toe te voegen:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -105,11 +105,11 @@ Ga als volgt te werk om eenmalige aanmelding bij Jobbadmin via Azure AD te confi
 
     ![Informatie over het domein van Jobbadmin en de URL's voor eenmalige aanmelding](common/sp-identifier-reply.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://<instancename>.jobnorge.no`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<instancename>.jobnorge.no`
 
-    c. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
+    c. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL, id en antwoord-URL. Neem contact op met het [ondersteuningsteam van Jobbadmin](https://www.jobbnorge.no/om-oss/kontakt-oss) om deze waarden op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
@@ -195,8 +195,8 @@ Wanneer u in het toegangsvenster op de tegel Jobbadmin klikt, wordt u automatisc
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

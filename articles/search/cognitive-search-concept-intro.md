@@ -11,10 +11,10 @@ ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c421d99f1071c7a38cfe315cc3054136f81598e0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265965"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Wat is 'cognitive search' in Azure Search?
@@ -137,6 +137,6 @@ Zie voor meer informatie over specifieke vragen of problemen [tips voor probleem
 
 ## <a name="next-steps"></a>Volgende stappen
 
-+ [Documentatie voor Cognitief zoeken](cognitive-search-resources-documentation.md)
-+ [Quickstart: Probeer cognitief zoeken in een kennismaken met de portal](cognitive-search-quickstart-blob.md)
++ [Documentatie voor cognitief zoeken](cognitive-search-resources-documentation.md)
++ [Snelstart: Probeer cognitief zoeken in een kennismaken met de portal](cognitive-search-quickstart-blob.md)
 + [Zelfstudie: Informatie over de cognitief zoeken-API 's](cognitive-search-tutorial-blob.md)

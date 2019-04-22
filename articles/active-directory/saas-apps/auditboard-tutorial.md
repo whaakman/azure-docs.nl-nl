@@ -16,10 +16,10 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b5a54fb179b9baac9e72e003b1f9b0c6697ae74b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258790"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Zelfstudie: Integratie van Azure Active Directory met AuditBoard
@@ -51,7 +51,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Als u de integratie van AuditBoard in Azure AD wilt configureren, dient u AuditBoard vanuit de galerie toe te voegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen AuditBoard uit de galerie, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit als u AuditBoard vanuit de galerie wilt toevoegen:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -107,11 +107,11 @@ Voer de volgende stappen uit als u eenmalige aanmelding van Azure AD met AuditBo
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/metadata.xml`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/assert`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/assert`
 
     c. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP geïnitieerde** modus wilt configureren:
 
-    d. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<SUBDOMAIN>.auditboardapp.com/`
+    d. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<SUBDOMAIN>.auditboardapp.com/`
 
     ![Informatie over eenmalige aanmelding van domeinen en URL's van AuditBoard](common/metadata-upload-additional-signon.png)
 
@@ -188,8 +188,8 @@ Wanneer u op de tegel AuditBoard in het toegangsvenster klikt, moet u automatisc
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 6ee3e2b452dedbf791bdc05bbc81b07531e1f075
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049310"
 ---
 # <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Een virtuele machine implementeren vanuit Azure Marketplace
@@ -31,7 +31,7 @@ In dit artikel wordt uitgelegd hoe u een vooraf geconfigureerde virtuele machine
 
 De quickstart-sjabloon voor virtuele machine van Azure-implementatie, is beschikbaar als de bestanden online [azuredeploy.json](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json).  Deze bevat de volgende parameters:
 
-|  **Parameter**        |   **Description**                                 |
+|  **Parameter**        |   **Beschrijving**                                 |
 |  -------------        |   ---------------                                 |
 | newStorageAccountName | Naam van het storage-account                       |
 | dnsNameForPublicIP    | DNS-naam voor het openbare IP-adres. Moet een kleine letter.    |

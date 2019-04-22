@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271625"
 ---
 # <a name="table-design-patterns"></a>Tabelontwerppatronen
@@ -197,7 +197,7 @@ Om in te schakelen lookup gesorteerd op achternaam met de entiteitsstructuur die
 * Index entiteiten maken in dezelfde partitie als de werknemer-entiteiten.  
 * Index entiteiten maken in een afzonderlijke partitie of een tabel.  
 
-<u>Optie #1: Blob Storage gebruiken</u>  
+<u>Optie #1: Blob storage gebruiken</u>  
 
 Voor de eerste optie, u een blob maken voor elke unieke achternaam en in elke blob-archief een lijst van de **PartitionKey** (afdeling) en **RowKey** (werknemer-ID) waarden voor werknemers die die laatste naam. Wanneer u toevoegen of verwijderen van een werknemer moet u ervoor zorgen dat de inhoud van de relevante blob uiteindelijk consistent met de werknemer-entiteiten is.  
 
@@ -1108,7 +1108,7 @@ De clienttoepassing meerdere asynchrone methoden zoals deze kunt aanroepen, en e
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Relaties modelleren](table-storage-design-modeling.md)
-- [Ontwerp voor query's](table-storage-design-for-query.md)
-- [Tabelgegevens versleutelen](table-storage-design-encrypt-data.md)
-- [Ontwerp voor gegevenswijziging](table-storage-design-for-modification.md)
+- [Waardoor relaties worden gemaakt](table-storage-design-modeling.md)
+- [Ontwerp voor het uitvoeren van query 's](table-storage-design-for-query.md)
+- [Versleutelen van gegevens in een tabel](table-storage-design-encrypt-data.md)
+- [Ontwerp voor wijziging van gegevens](table-storage-design-for-modification.md)

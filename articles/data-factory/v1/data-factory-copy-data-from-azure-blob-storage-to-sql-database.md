@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7accb8f2d97f5e4b4dc19ba93ab9edc1a4e6ce8a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 557228bafc00c3028a1fda520da8fe4ec8c7a6f2
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541330"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678714"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Zelfstudie: Gegevens kopiëren van Blob Storage naar SQL Database met behulp van Data Factory
 > [!div class="op_single_selector"]
@@ -95,7 +95,6 @@ Voorbereiden nu uw Azure-blobopslag en Azure SQL-database voor de zelfstudie doo
     ```
 2. Gebruik hulpprogramma's zoals [Azure Opslagverkenner](https://storageexplorer.com/) om de container **adftutorial** te maken en om het bestand **emp.txt** te uploaden naar de container.
 
-    ![Azure Storage Explorer. Gegevens kopiëren van Blob storage naar SQL database](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Gebruik het volgende SQL-script om de tabel **emp** te maken in uw Azure SQL Database.  
 
     ```SQL

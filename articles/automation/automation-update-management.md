@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/09/2019
+ms.date: 04/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 39e8c06228381143a6f4975e4d6415799ce16d43
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426476"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679071"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -208,9 +208,9 @@ Als u wilt een logboekzoekopdracht die informatie over de machine retourneert ui
 
 ## <a name="install-updates"></a>Updates installeren
 
-Nadat updates zijn beoordeeld voor alle Linux- en Windows-computers in uw werkruimte, kunt u de vereiste updates installeren door het maken van een *update-implementatie*. Een update-implementatie is een geplande installatie van vereiste updates voor een of meer computers. U geeft de datum en tijd voor de implementatie en een computer of groep computers die u wilt opnemen in het bereik van een implementatie. Zie voor meer informatie over computergroepen, [computergroepen in Logboeken van Azure Monitor](../azure-monitor/platform/computer-groups.md).
+Nadat updates zijn beoordeeld voor alle Linux- en Windows-computers in uw werkruimte, kunt u de vereiste updates installeren door het maken van een *update-implementatie*. Voor het maken van een Update-implementatie, moet u toegang voor schrijven naar het Automation-Account hebt en de implementatie is schrijftoegang tot de Azure virtuele machines die zijn gericht. Een update-implementatie is een geplande installatie van vereiste updates voor een of meer computers. U geeft de datum en tijd voor de implementatie en een computer of groep computers die u wilt opnemen in het bereik van een implementatie. Zie voor meer informatie over computergroepen, [computergroepen in Logboeken van Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
- Wanneer u in uw update-implementatie computergroepen, wordt het lidmaatschap van slechts één keer geëvalueerd op het moment van schema maken. Wijzigingen aan een groep worden niet weergegeven. Om op te halen om deze [dynamische groepen](#using-dynamic-groups), deze groepen worden omgezet tijdens de implementatie en zijn gedefinieerd door een query.
+Wanneer u in uw update-implementatie computergroepen, wordt het lidmaatschap van slechts één keer geëvalueerd op het moment van schema maken. Wijzigingen aan een groep worden niet weergegeven. Om op te halen om deze [dynamische groepen](#using-dynamic-groups), deze groepen worden omgezet tijdens de implementatie en zijn gedefinieerd door een query voor Azure-VM's of een opgeslagen zoekopdracht voor niet-Azure-VM's.
 
 > [!NOTE]
 > Windows virtuele machines die zijn geïmplementeerd vanuit de Azure Marketplace standaard zijn ingesteld op automatische updates ontvangen van Windows Update-Service. Dit gedrag verandert niet wanneer u deze oplossing toevoegt of Windows virtuele machines aan uw werkruimte toevoegen. Als u geen actief updates beheren met behulp van deze oplossing, wordt het standaardgedrag (automatisch updates wilt toepassen) is van toepassing.
@@ -219,13 +219,13 @@ Om te voorkomen dat updates buiten een onderhoudsperiode in Ubuntu worden toegep
 
 Virtuele machines die zijn gemaakt via de on-demand Red Hat Enterprise Linux (RHEL)-installatiekopieën die beschikbaar in de Azure Marketplace zijn zijn geregistreerd voor toegang tot de [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) die geïmplementeerd in Azure. Andere Linux-distributies moet uit de opslagplaats van de distributie van online-bestand aan de hand van de ondersteunde distributiemethoden worden bijgewerkt.
 
-Voor het maken van een nieuwe update-implementatie selecteert **update-implementatie plannen**. De **nieuwe Update-implementatie** deelvenster wordt geopend. Voer waarden in voor de eigenschappen die worden beschreven in de volgende tabel en klik vervolgens op **maken**:
+Voor het maken van een nieuwe update-implementatie selecteert **update-implementatie plannen**. De **nieuwe Update-implementatie** pagina wordt geopend. Voer waarden in voor de eigenschappen die worden beschreven in de volgende tabel en klik vervolgens op **maken**:
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 | --- | --- |
 | Name |Unieke naam voor het identificeren van de update-implementatie. |
 |Besturingssysteem| Linux of Windows|
-| Groepen om bij te werken (preview)|definieer een query op basis van een combinatie van abonnement, resourcegroepen, locaties en tags om een dynamische groep virtuele Azure-machines te bouwen voor opname in uw implementatie. Zie [Dynamische groepen](automation-update-management.md#using-dynamic-groups) voor meer informatie|
+| Groepen om bij te werken |Voor machines in Azure, door een query op basis van een combinatie van het abonnement, resourcegroepen, locaties en tags aan het bouwen van een dynamische groep virtuele Azure-machines om op te nemen in uw implementatie te definiëren. </br></br>Selecteer een bestaand opgeslagen zoekopdracht om te selecteren van een groep met niet-Azure-machines om op te nemen in de implementatie voor niet-Azure-machines. </br></br>Zie [Dynamische groepen](automation-update-management.md#using-dynamic-groups) voor meer informatie|
 | Bij te werken computers |selecteer een opgeslagen zoekopdracht of geïmporteerde groep, of kies Computer in de vervolgkeuzelijst en selecteer de afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Azure Monitorlogboeken](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Azure Monitor-logboeken |
 |Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
 |Updates opnemen/uitsluiten|Hiermee opent u de **opnemen/uitsluiten** pagina. Updates die moeten worden opgenomen of uitgesloten, worden op afzonderlijke tabbladen weergegeven. Zie [Werking van opname](automation-update-management.md#inclusion-behavior) voor meer informatie over hoe de opname wordt verwerkt |
@@ -282,7 +282,7 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 
 ### <a name="linux"></a>Linux
 
-|Classificatie  |Description  |
+|Classificatie  |Beschrijving  |
 |---------|---------|
 |Essentiële en beveiligingsupdates     | Updates voor een specifiek probleem of een probleem met de productspecifieke, productspecifieke beveiliging.         |
 |Andere Updates     | Alle overige updates die niet essentieel zijn in de aard of die niet-beveiligingsupdates.        |
@@ -567,7 +567,14 @@ Update
 
 ## <a name="using-dynamic-groups"></a>Met behulp van dynamische groepen
 
-Updatebeheer biedt de mogelijkheid om u te richten op een dynamische groep virtuele Azure-machines voor update-implementaties. Deze groepen zijn gedefinieerd door een query, wanneer een update-implementatie begint, de leden van die groep worden geëvalueerd. Dynamische groepen werken niet met klassieke virtuele machines. Bij het definiëren van uw query, kunnen de volgende items samen worden gebruikt voor het vullen van de dynamische groep
+Updatebeheer biedt de mogelijkheid om u te richten op een dynamische groep van Azure of niet-Azure-VM's voor update-implementaties. Deze groepen worden geëvalueerd tijdens de implementatie, zodat u niet hoeven deze te bewerken van uw implementatie om toe te voegen machines.
+
+> [!NOTE]
+> U moet de juiste machtigingen hebben bij het maken van een update-implementatie. Zie voor meer informatie, [Updates installeren](#install-updates).
+
+### <a name="azure-machines"></a>Azure-machines
+
+Deze groepen zijn gedefinieerd door een query, wanneer een update-implementatie begint, de leden van die groep worden geëvalueerd. Dynamische groepen werken niet met klassieke virtuele machines. Bij het definiëren van uw query, kunnen de volgende items samen worden gebruikt voor het vullen van de dynamische groep
 
 * Abonnement
 * Resourcegroepen
@@ -579,6 +586,12 @@ Updatebeheer biedt de mogelijkheid om u te richten op een dynamische groep virtu
 Preview-versie van de resultaten van een dynamische groep, klikt u op de **Preview** knop. In dit voorbeeld worden het lidmaatschap van de op dat moment wordt in dit voorbeeld wij zoeken naar computers met de tag **rol** is gelijk aan **BackendServer**. Als u meer machines hebben deze tag toegevoegd, worden ze voor alle toekomstige implementaties op basis van die groep worden toegevoegd.
 
 ![Preview-groepen](./media/automation-update-management/preview-groups.png)
+
+### <a name="non-azure-machines"></a>Niet-Azure-machines
+
+Voor niet-Azure-machines, opgeslagen zoekopdrachten ook genoemd computergroepen worden gebruikt om de dynamische groep te maken. Zie voor meer informatie over het maken van een opgeslagen zoekopdracht, [het maken van een computergroep](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Nadat de groep is gemaakt kunt u dit selecteren in de lijst met opgeslagen zoekopdrachten. Klik op **Preview** om een voorbeeld van de computers in de opgeslagen zoekopdracht op dat moment.
+
+![Groepen selecteren](./media/automation-update-management/select-groups-2.png)
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integreren met System Center Configuration Manager
 
@@ -628,7 +641,7 @@ Een virtuele machine verwijderen uit het beheer van de Update:
 Doorgaan naar de zelfstudie voor informatie over het beheren van updates voor uw virtuele machines van Windows.
 
 > [!div class="nextstepaction"]
-> [Updates en patches voor uw Windows Azure-VM's beheren](automation-tutorial-update-management.md)
+> [Updates en patches voor uw Azure Windows VM's beheren](automation-tutorial-update-management.md)
 
 * Gebruik logboekzoekopdrachten in [logboeken van Azure Monitor](../log-analytics/log-analytics-log-searches.md) om gedetailleerde updategegevens weer te geven.
 * [Waarschuwingen maken](automation-tutorial-update-management.md#configure-alerts) voor de status van de implementatie.

@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 9b945057ed0c94fbab7a9114ad1198a0f157fa4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270953"
 ---
 # <a name="azure-data-catalog-terminology"></a>Azure Data Catalog-terminologie
@@ -86,4 +86,4 @@ De registratie is de handeling van het extraheren van metagegevens van de asset 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Quickstart: Maken van een Azure Data Catalog](data-catalog-get-started.md) 
+[Snelstart: Maken van een Azure Data Catalog](data-catalog-get-started.md) 

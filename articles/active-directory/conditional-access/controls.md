@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258739"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Wat zijn besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang?
@@ -76,9 +76,9 @@ U kunt beleid voor voorwaardelijke toegang op basis van apparaat configureren. H
 
 Het apparaat moet worden geregistreerd bij Azure AD voordat deze kan worden gemarkeerd als compatibel. Voor het registreren van een apparaat, hebt u drie opties: 
 
-- [Azure AD-geregistreerde apparaten](../devices/overview.md#azure-ad-registered-devices)
-- [Azure AD-gekoppelde apparaten](../devices/overview.md#azure-ad-joined-devices)  
-- [Hybride Azure AD-gekoppelde apparaten](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- [Azure AD ingeschreven apparaten](../devices/overview.md#azure-ad-registered-devices)
+- [Azure AD gekoppelde apparaten](../devices/overview.md#azure-ad-joined-devices)  
+- [Hybride Azure AD gekoppelde apparaten](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 Zie voor meer informatie, [hoe u beheerde apparaten vereist voor toegang tot cloud-Apps met voorwaardelijke toegang](require-managed-devices.md).
 

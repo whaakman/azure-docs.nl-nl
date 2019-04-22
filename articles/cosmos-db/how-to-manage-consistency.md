@@ -1,17 +1,17 @@
 ---
 title: Informatie over het beheren van consistentie in Azure Cosmos DB
 description: Informatie over het beheren van consistentie in Azure Cosmos DB
-author: christopheranderson
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
-ms.openlocfilehash: 7dfc299c32b25ddf939aa3efcb927697307887a2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.date: 04/17/2019
+ms.author: rimman
+ms.openlocfilehash: a93bf9a9f43a0929aeb5f3d3121092739396c6a8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904318"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678442"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Consistentieniveaus in Azure Cosmos DB beheren
 
@@ -21,7 +21,7 @@ In dit artikel wordt uitgelegd hoe u consistentieniveaus beheert in Azure Cosmos
 
 ## <a name="configure-the-default-consistency-level"></a>Het standaardconsistentieniveau configureren
 
-Het standaardconsistentieniveau is het consistentieniveau dat clients standaard gebruiken. Clients kunnen deze overschrijven.
+De [consistentieniveau standaard](consistency-levels.md) is het consistentieniveau die clients standaard gebruiken. Clients kunnen deze altijd overschrijven.
 
 ### <a name="cli"></a>CLI
 
@@ -35,7 +35,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### <a name="powershell"></a>PowerShell
 
-In dit voorbeeld maakt u een nieuw Azure Cosmos DB-account waarvoor meerdere masters zijn ingeschakeld in de regio's US - oost en US - west. Het standaardconsistentiebeleid is ingesteld op Sessie.
+In dit voorbeeld maakt een nieuwe Azure Cosmos-account met meerdere regio's voor schrijven ingeschakeld, in regio's VS-Oost en VS-West. Het standaardconsistentieniveau is ingesteld op *sessie* consistentie.
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -59,15 +59,15 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
   -Properties $CosmosDBProperties
 ```
 
-### <a name="portal"></a>Portal
+### <a name="azure-portal"></a>Azure Portal
 
-Als u het standaardconsistentieniveau wilt weergeven of wijzigen, moet u zich aanmelden bij de Azure-portal. Zoek uw Azure Cosmos DB-account en open het deelvenster **Standaardconsistentie**. Selecteer het consistentieniveau dat u als nieuwe standaard wilt gebruiken en selecteer **Opslaan**.
+Als u het standaardconsistentieniveau wilt weergeven of wijzigen, moet u zich aanmelden bij de Azure-portal. Zoek uw Azure Cosmos-account en open de **Standaardconsistentie** deelvenster. Selecteer het consistentieniveau dat u als nieuwe standaard wilt gebruiken en selecteer **Opslaan**.
 
 ![Menu Consistentie in de Azure-portal](./media/how-to-manage-consistency/consistency-settings.png)
 
 ## <a name="override-the-default-consistency-level"></a>Het standaardconsistentieniveau overschrijven
 
-Clients kunnen het standaardconsistentieniveau overschrijven dat is ingesteld door de service. Deze optie kan worden ingesteld voor de volledige client of per aanvraag.
+Clients kunnen het standaardconsistentieniveau dat is ingesteld door de service overschrijven. Consistentieniveau kan worden ingesteld op een per aanvraag, waarmee het standaardconsistentieniveau ingesteld op het accountniveau onderdrukt.
 
 ### <a id="override-default-consistency-dotnet"></a>.NET SDK
 
@@ -131,6 +131,8 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 ```
 
 ## <a name="utilize-session-tokens"></a>Sessietokens gebruiken
+
+Een van de consistentieniveaus in Azure Cosmos DB is *sessie* consistentie. Dit is het standaardniveau voor Cosmos-accounts wordt standaard toegepast. Als u werkt met *sessie* consistentie, de client wordt intern gebruikmaken van de sessietoken van een met elke aanvraag lezen/query om ervoor te zorgen dat het consistentieniveau set wordt gehandhaafd.
 
 Als u sessietokens handmatig wilt beheren, haalt u het sessietoken op uit het antwoord en stelt u het in per aanvraag. Als u sessietokens niet handmatig hoeft te beheren, hoeft u deze voorbeelden niet te gebruiken. De SDK houdt sessietokens automatisch bij. Als u het sessietoken niet handmatig instelt, gebruikt de SDK standaard het meest recente sessietoken.
 
@@ -209,15 +211,18 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Metrische gegevens van aan waarschijnlijkheid gebonden veroudering (PBS) controleren
 
-Als u de metrische PBS-gegevens wilt weergeven, gaat u naar uw Azure Cosmos DB-account in de Azure-portal. Open het deelvenster **Metrische gegevens** en selecteer het tabblad **Consistentie**. Bekijk de grafiek met de naam '**Kans op sterk consistente leesbewerkingen op basis van uw werkbelasting (zie PBS)**'.
+Hoe uiteindelijke is uiteindelijke consistentie? Voor de gemiddelde aanvraag kunt bieden wij veroudering grenzen met betrekking tot versiegeschiedenis en tijd. De [ **Probabilistically gebonden veroudering (PBS)** ](http://pbs.cs.berkeley.edu/) metrische gegevens probeert te kwantificeren de kans op veroudering en wordt deze weergegeven als een metrische waarde. Als u wilt de PBS metrische gegevens weergeven, gaat u naar uw Azure Cosmos-account in Azure portal. Open het deelvenster **Metrische gegevens** en selecteer het tabblad **Consistentie**. Bekijk de grafiek met de naam '**Kans op sterk consistente leesbewerkingen op basis van uw werkbelasting (zie PBS)**'.
 
 ![PBS-grafiek in de Azure-portal](./media/how-to-manage-consistency/pbs-metric.png)
 
-Gebruik het Azure Cosmos DB-menu voor metrische gegevens om dit metrische gegeven te bekijken. Het wordt niet weergegeven in de ervaring voor metrische gegevens voor Azure Monitoring.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Lees meer informatie over het beheer van gegevensconflicten of ga verder met het volgende sleutelbegrip in Azure Cosmos DB. Zie de volgende artikelen:
 
+* [Consistentieniveaus in Azure Cosmos DB](consistency-levels.md)
 * [Conflicten tussen regio 's beheren](how-to-manage-conflicts.md)
 * [Partitionering en gegevensdistributie](partition-data.md)
+* [Optimalisatie van de consistentie in het ontwerp van moderne, gedistribueerde database-systemen](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+* [Hoge beschikbaarheid](high-availability.md)
+* [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

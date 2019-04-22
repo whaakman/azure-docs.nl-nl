@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045591"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Gegevensopname met Azure Data Explorer
@@ -62,15 +62,15 @@ Azure Data Explorer biedt SDK's die kunnen worden gebruikt voor query's en gegev
 
 Kusto biedt client-SDK die kan worden gebruikt voor het opnemen en opvragen van gegevens met:
 
-* [Python-SDK](/azure/kusto/api/python/kusto-python-client-library)
+* [Python SDK](/azure/kusto/api/python/kusto-python-client-library)
 
 * [.NET SDK](/azure/kusto/api/netfx/about-the-sdk)
 
-* [Java-SDK](/azure/kusto/api/java/kusto-java-client-library)
+* [Java SDK](/azure/kusto/api/java/kusto-java-client-library)
 
-* [Node SDK](/azure/kusto/api/node/kusto-node-client-library)
+* [Node-SDK](/azure/kusto/api/node/kusto-node-client-library)
 
-* [REST-API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
+* [REST API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Programmatische opname technieken**:
 
@@ -141,22 +141,22 @@ Schematoewijzing helpt bronvelden gegevens binden aan tabelkolommen bestemming.
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [gegevens uit Event Hub opnemen in Azure Data Explorer](ingest-data-event-hub.md)
+> [Opnemen van gegevens van Event Hub in Azure Data Explorer](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
 > [Opname van gegevens met behulp van Event Grid-abonnement in Azure Data Explorer](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [Gegevens uit Kafka opnemen in Azure Data Explorer](ingest-data-kafka.md)
+> [Opnemen van gegevens van Kafka in Azure Data Explorer](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [Gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer](python-ingest-data.md)
+> [Opname van gegevens met behulp van de Azure Data Explorer Python-bibliotheek](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Gegevens opnemen met behulp van de Node-bibliotheek voor Azure Data Explorer](node-ingest-data.md)
+> [Opname van gegevens met behulp van het knooppunt voor Azure Data Explorer-bibliotheek](node-ingest-data.md)
 
 > [!div class="nextstepaction"]
 > [Opname van gegevens met behulp van de Azure Data Explorer .NET Standard SDK (Preview)](net-standard-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Gegevens uit Logstash opnemen in Azure Data Explorer](ingest-data-logstash.md)
+> [Opname van gegevens vanuit Logstash naar Azure Data Explorer](ingest-data-logstash.md)

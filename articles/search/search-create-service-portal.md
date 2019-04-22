@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264026"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Een Azure Search-service maken in de portal
@@ -22,7 +22,7 @@ Azure Search is een zelfstandige resource die wordt gebruikt voor het toevoegen 
 
 Dit artikel bevat meer informatie over hoe u een Azure Search-resource in [Azure Portal](https://portal.azure.com/) kunt maken.
 
-[![Amet GIF-animatie](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
+[![GIF-animatie](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Hebt u liever PowerShell? Gebruik de [servicesjabloon](https://azure.microsoft.com/resources/templates/101-azure-search-create/) van Azure Resource Manager. Zie [Azure Search beheren met PowerShell](search-manage-powershell.md) voor hulp om aan de slag te gaan.
 
@@ -143,4 +143,4 @@ Een tweede service is niet vereist voor hoge beschikbaarheid. Hoge beschikbaarhe
 Nadat u een Azure Search-service hebt ingericht, kunt u in de portal verdergaan met het maken van uw eerste index.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Gegevens importeren, index en uitvoeren van query's in de portal](search-get-started-portal.md)
+> [Zelfstudie: Gegevens en index importeren, en query's uitvoeren in de portal](search-get-started-portal.md)

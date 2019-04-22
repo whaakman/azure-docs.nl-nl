@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/09/2019
 ms.author: tomfitz
 ms.openlocfilehash: 4d5e6d20cb93c339d75c12ca1c0f56eaa5cc8cdd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490755"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Functies van de resource voor Azure Resource Manager-sjablonen
@@ -27,7 +27,7 @@ Resource Manager biedt de volgende functies voor het ophalen van waarden van res
 * [Providers](#providers)
 * [Verwijzing](#reference)
 * [resourceGroup](#resourcegroup)
-* [resourceId](#resourceid)
+* [ResourceId](#resourceid)
 * [abonnement](#subscription)
 
 Waarden van parameters, variabelen of de huidige implementatie Zie [waarde implementatiefuncties](resource-group-template-functions-deployment.md).

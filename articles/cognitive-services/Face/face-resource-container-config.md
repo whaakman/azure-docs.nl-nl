@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 73fc17ae5c65cd1a6ce47a18cbe17e6c338b7aaf
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4152cf90d9de2eda15a798fbf6b5b4aa4f5646f7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882120"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677779"
 ---
 # <a name="configure-face-docker-containers"></a>Face-Docker-containers configureren
 
@@ -31,11 +31,11 @@ De **Face** container runtime-omgeving is geconfigureerd met behulp van de `dock
 
 ## <a name="apikey-configuration-setting"></a>ApiKey configuratie-instelling
 
-De `ApiKey` instelling geeft u aan de Azure-resource-sleutel die wordt gebruikt voor het bijhouden van informatie over facturering voor de container. U moet een waarde opgeven voor de ApiKey en de waarde moet een geldige sleutel voor de _Face_ resource die is opgegeven voor de [ `Billing` ](#billing-configuration-setting) configuratie-instelling.
+De `ApiKey` instelling geeft u aan de Azure-resource-sleutel die wordt gebruikt voor het bijhouden van informatie over facturering voor de container. U moet een waarde opgeven voor de ApiKey en de waarde moet een geldige sleutel voor de _Cognitive Services_ resource die is opgegeven voor de [ `Billing` ](#billing-configuration-setting) configuratie-instelling.
 
 Deze instelling kan worden gevonden in de volgende plaats:
 
-* Azure Portal: **De Face** resourcebeheer onder **sleutels**
+* Azure Portal: **Cognitive Services** resourcebeheer onder **sleutels**
 
 ## <a name="applicationinsights-setting"></a>Application Insights-instelling
 
@@ -43,11 +43,13 @@ Deze instelling kan worden gevonden in de volgende plaats:
 
 ## <a name="billing-configuration-setting"></a>Facturering van configuratie-instelling
 
-De `Billing` instelling geeft u aan de URI van het eindpunt van de _Face_ resource in Azure gebruikt voor het meten van factureringsgegevens voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige URI van het eindpunt voor een _Face_ resource in Azure. Gebruik de container rapporteert over elke 10 tot 15 minuten.
+De `Billing` instelling geeft u aan de URI van het eindpunt van de _Cognitive Services_ resource in Azure gebruikt voor het meten van factureringsgegevens voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige URI van het eindpunt voor een _Cognitive Services_ resource in Azure. Gebruik de container rapporteert over elke 10 tot 15 minuten.
 
 Deze instelling kan worden gevonden in de volgende plaats:
 
-* Azure Portal: **De Face** overzicht, met het label `Endpoint`
+* Azure Portal: **Cognitive Services** overzicht, met het label `Endpoint`
+
+Houd er rekening mee om toe te voegen de _Face_ routering naar de URI van het eindpunt, zoals wordt weergegeven in het voorbeeld. 
 
 |Vereist| Name | Gegevenstype | Description |
 |--|------|-----------|-------------|
@@ -136,12 +138,12 @@ Vervang {_argument_name_} door uw eigen waarden:
 
 | Tijdelijke aanduiding | Waarde | Indeling of voorbeeld |
 |-------------|-------|---|
-|{BILLING_KEY} | De eindpuntsleutel van de Face-resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | De facturering eindpuntwaarde inclusief regio.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
+|{BILLING_KEY} | De eindpuntsleutel van de Cognitive Services-resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | De facturering eindpuntwaarde met inbegrip van de regio en vlak routering.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
 
 > [!IMPORTANT]
 > De `Eula`, `Billing`, en `ApiKey` opties moeten worden opgegeven voor het uitvoeren van de container; anders wordt de container niet start.  Zie voor meer informatie, [facturering](face-how-to-install-containers.md#billing).
-> De waarde ApiKey is de **sleutel** van de pagina sleutels in Azure Face-Resource. 
+> De waarde ApiKey is de **sleutel** met de Azure- `Cognitive Services` resourcepagina sleutels. 
 
 ## <a name="face-container-docker-examples"></a>Face-container Docker-voorbeelden
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
 ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426219"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Oplossing status van agent in Azure Monitor
@@ -51,11 +51,11 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 | Beheergroep System Center Operations Manager | Ja | Heartbeat-gebeurtenissen worden verzameld van agents die rapporteren aan de beheergroep elke 60 seconden en vervolgens doorgestuurd naar Azure Monitor. Een directe verbinding van Operations Manager-agents naar Azure Monitor is niet vereist. Gegevens van heartbeat-gebeurtenissen uit de beheergroep doorgestuurd naar de Log Analytics-werkruimte.|
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
-Wanneer u de oplossing aan uw Log Analytics-werkruimte toevoegt, de **agentstatus** tegel wordt toegevoegd aan uw dashboard. Op deze tegel ziet u het totale aantal agents en het aantal agents dat de afgelopen 24 uur niet heeft gereageerd.<br><br> ![Tegel van de oplossing status van agent op dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+Wanneer u de oplossing aan uw Log Analytics-werkruimte toevoegt, de **agentstatus** tegel wordt toegevoegd aan uw dashboard. Op deze tegel ziet u het totale aantal agents en het aantal agents dat de afgelopen 24 uur niet heeft gereageerd.<br><br> ![De tegel Status van agent in het dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Klik op de tegel **Status van agent** om het **gelijknamige** dashboard te openen.  Het dashboard bevat de kolommen in de volgende tabel. Elke kolom bevat de tien belangrijkste gebeurtenissen naar aantal die overeenkomen met de criteria van die kolom voor de opgegeven periode. U kunt de volledige lijst met gebeurtenissen weergeven door linksonder elke kolom **Alles weergeven** te selecteren. Dit kan overigens ook door op de kolomkop te klikken.
 
-| Kolom | Description |
+| Kolom | Beschrijving |
 |--------|-------------|
 | Agent count over time | Een trend van het aantal agents gedurende een periode van zeven dagen voor Linux- en Windows-agents.|
 | Count of unresponsive agents | Een lijst met agents die in de afgelopen 24 uur geen heartbeat hebben verzonden.|

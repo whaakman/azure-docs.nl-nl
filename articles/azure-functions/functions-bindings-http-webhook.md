@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: a1d66cf4506e3b8f58572576db908812f4e2be07
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490407"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions-HTTP-triggers en bindingen
@@ -53,10 +53,10 @@ Standaard retourneert een HTTP-trigger HTTP 200 OK met een lege hoofdtekst in fu
 Zie het voorbeeld taalspecifieke:
 
 * [C#](#trigger---c-example)
-* [C#-script (.csx)](#trigger---c-script-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [Java](#trigger---java-examples)
-* [Javascript](#trigger---javascript-example)
+* [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Trigger - voorbeeld met C#
@@ -560,8 +560,8 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 | **type** | N.v.t.| Vereist: moet worden ingesteld op `httpTrigger`. |
-| **richting** | N.v.t.| Vereist: moet worden ingesteld op `in`. |
-| **naam** | N.v.t.| Vereist: de naam van de variabele die wordt gebruikt in de functiecode voor de aanvraag of de hoofdtekst van de aanvraag. |
+| **direction** | N.v.t.| Vereist: moet worden ingesteld op `in`. |
+| **De naam** | N.v.t.| Vereist: de naam van de variabele die wordt gebruikt in de functiecode voor de aanvraag of de hoofdtekst van de aanvraag. |
 | <a name="http-auth"></a>**authLevel** |  **authLevel** |Hiermee bepaalt u wat sleutels, indien van toepassing, aanwezig zijn op de aanvraag moeten om de functie aanroepen. Het autorisatieniveau kan een van de volgende waarden zijn: <ul><li><code>anonymous</code>&mdash;Er zijn geen API-sleutel is vereist.</li><li><code>function</code>&mdash;Een functie-specifieke API-sleutel is vereist. Dit is de standaardwaarde als niets wordt opgegeven.</li><li><code>admin</code>&mdash;De hoofdsleutel is vereist.</li></ul> Zie de sectie voor meer informatie over [sleutels voor de verificatieregel](#authorization-keys). |
 | **Methoden** |**Methoden** | Een matrix met de HTTP-methoden waarop de functie reageert. Indien niet opgegeven, wordt de functie reageert op alle HTTP-methoden. Zie [aanpassen van het http-eindpunt](#customize-the-http-endpoint). |
 | **route** | **Route** | Hiermee definieert u de Routesjabloon beheren waarop aanvraag-URL's die uw functie reageert. De standaardwaarde als niets wordt opgegeven is `<functionname>`. Zie voor meer informatie, [aanpassen van het http-eindpunt](#customize-the-http-endpoint). |
@@ -800,11 +800,11 @@ Gebruik de HTTP-Uitvoerbinding om te reageren op de afzender van HTTP-aanvraag. 
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand. Voor C#-klassebibliotheken, zijn er geen kenmerkeigenschappen die overeenkomen met deze *function.json* eigenschappen.
 
-|Eigenschap  |Description  |
+|Eigenschap  |Beschrijving  |
 |---------|---------|
 | **type** |Moet worden ingesteld op `http`. |
-| **richting** | Moet worden ingesteld op `out`. |
-|**naam** | De naam van de variabele in functiecode gebruikt voor het antwoord of `$return` de geretourneerde waarde gebruiken. |
+| **direction** | Moet worden ingesteld op `out`. |
+|**De naam** | De naam van de variabele in functiecode gebruikt voor het antwoord of `$return` de geretourneerde waarde gebruiken. |
 
 ## <a name="output---usage"></a>Uitvoer - gebruik
 

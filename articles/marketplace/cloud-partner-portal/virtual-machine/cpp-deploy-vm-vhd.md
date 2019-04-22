@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046679"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Een VM implementeren vanaf uw VHD 's
@@ -39,7 +39,7 @@ Zie voor meer informatie over VM-installatiekopieën, de volgende blogberichten:
 Als u hebt nog niet gedaan, installeert u Azure PowerShell en Azure CLI, met behulp van de volgende instructies:
 
 - [Azure PowerShell installeren](https://docs.microsoft.com/powershell/azure/install-Az-ps)
-- [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Azure-CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
 ## <a name="deployment-steps"></a>Implementatiestappen
@@ -62,7 +62,7 @@ Nadat de virtuele machine is geïmplementeerd, bent u klaar om [certificeren van
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
-   |  **Parameter**              |   **Description**                                                            |
+   |  **Parameter**              |   **Beschrijving**                                                            |
    |  -------------              |   ---------------                                                            |
    | Gebruikersnaam van het Storage-Account   | Naam van het opslagaccount waar de gegeneraliseerde VHD zich bevindt                    |
    | Gebruikersnaam van het Storage-Container | Naam van de container waar de gegeneraliseerde VHD zich bevindt                          |

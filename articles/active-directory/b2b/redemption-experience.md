@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e5a8d46f67553cc10bd9cdb31cf64511858948f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046492"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B-samenwerking uitnodiging inwisselen
@@ -62,7 +62,7 @@ U kunt gebruiksvoorwaarden presenteren aan de gastgebruiker tijdens de initiële
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Wat is Azure AD B2B-samenwerking? (Engelstalig artikel)](what-is-b2b.md)
+- [Wat is Azure AD B2B-samenwerking?](what-is-b2b.md)
 - [Gebruikers van Azure Active Directory B2B-samenwerking toevoegen in Azure portal](add-users-administrator.md)
 - [Hoe voeg informatiemedewerkers gebruikers van B2B-samenwerking toe aan Azure Active Directory?](add-users-information-worker.md)
 - [Gebruikers van Azure Active Directory B2B-samenwerking toevoegen met behulp van PowerShell](customize-invitation-api.md#powershell)

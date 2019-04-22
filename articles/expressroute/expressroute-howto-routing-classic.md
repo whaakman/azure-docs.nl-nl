@@ -9,15 +9,15 @@ ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 598ddaa98b0c98d2123f0084a0b8b6dfaf615deb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045710"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Peering voor een ExpressRoute-circuit (klassiek) maken en wijzigen
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure-portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure-CLI](howto-routing-cli.md)
 > * [Video - Privépeering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)

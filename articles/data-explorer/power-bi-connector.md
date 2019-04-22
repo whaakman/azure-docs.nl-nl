@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.openlocfilehash: 1be13090244a94c1bf3f731c8b6d73fa0848c393
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047599"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Quickstart: Gegevens visualiseren met behulp van de Azure Data Explorer-connector voor Power BI
@@ -48,7 +48,7 @@ Eerst maakt u verbinding met het Azure Data Explorer-helpcluster en daarna haalt
 
     ![Cluster-, database-, tabelopties](media/power-bi-connector/cluster-database-table.png)
 
-    **Instelling** | **Value** | **Beschrijving van veld**
+    **Instelling** | **Waarde** | **Beschrijving van veld**
     |---|---|---|
     | Cluster | *https://help.kusto.windows.net* | De URL voor het helpcluster. Voor andere clusters heeft de URL de notatie *https://\<ClusterName\>.\<Regio\>. kusto.windows.net*. |
     | Database | Leeg laten | Een database die wordt gehost op het cluster waarmee u verbinding maakt. Deze selecteren we in een latere stap. |
@@ -90,4 +90,4 @@ Als u het rapport dat u voor deze quickstart hebt gemaakt niet meer nodig hebt, 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Quickstart: Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-imported-query.md)
+> [Snelstart: Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-imported-query.md)

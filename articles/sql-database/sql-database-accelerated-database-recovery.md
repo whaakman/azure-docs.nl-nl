@@ -11,12 +11,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6d962a40fe0e1a7658c0d5ac30c7fd04bfb7fb0f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb88da48f8961969176fd67bf6e5fa346655aeac
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475445"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677813"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Versneld databaseherstel (preview)
 
@@ -42,11 +42,11 @@ Databaseherstel in SQL Server volgt de [ARIES](https://people.eecs.berkeley.edu/
 
 - **Analysefase**
 
-  Doorsturen scan van het transactielogboek vanaf het begin van de laatste geslaagde controlepunt (of de oudste pagina LSN) tot het einde, om te bepalen van de status van elke transactie op het moment dat SQL Server is gestopt.
+  Doorsturen scan van het transactielogboek vanaf het begin van de laatste geslaagde controlepunt (of de oudste vervuild pagina LSN) tot het einde, om te bepalen van de status van elke transactie op het moment dat SQL Server is gestopt.
 
 - **Fase opnieuw**
 
-  Doorsturen scan van het transactielogboek van de oudste niet-doorgevoerde transacties tot aan het einde, om de database naar de status op het moment van de crash was door alle bewerkingen opnieuw uitvoeren.
+  Doorsturen scan van het transactielogboek van de oudste niet-doorgevoerde transacties tot aan het einde, om de database naar de status op het moment van de crash was door opnieuw alle toegewezen bewerkingen uitvoeren.
 
 - **Fase ongedaan maken**
 
@@ -56,13 +56,13 @@ Op basis van dit ontwerp, is de tijd die nodig is de SQL database-engine voor he
 
 Bovendien wordt geannuleerd/terugdraaien van een grote transactie op basis van dit ontwerp kunt ook rekening houden met een lange tijd omdat deze de fase voor herstel van dezelfde ongedaan maken wordt gebruikt, zoals hierboven beschreven.
 
-Bovendien de SQL database-engine kan niet worden afgekapt het transactielogboek wanneer er veel transacties te voeren, omdat de bijbehorende records in logboek registreren nodig zijn voor de processen voor herstel en ongedaan maken. Sommige klanten hebben als gevolg van dit ontwerp van de SQL database-engine, het probleem dat de grootte van het transactielogboek zeer grote groeit en enorme hoeveelheden logboekruimte verbruikt.
+Bovendien de SQL database-engine kan niet worden afgekapt het transactielogboek wanneer er veel transacties te voeren, omdat de bijbehorende records in logboek registreren nodig zijn voor de processen voor herstel en ongedaan maken. Sommige klanten hebben als gevolg van dit ontwerp van de SQL database-engine, het probleem dat de grootte van het transactielogboek zeer grote groeit en enorme hoeveelheden schijfruimte verbruikt.
 
 ## <a name="the-accelerated-database-recovery-process"></a>Het proces versneld databaseherstel
 
 De bovenstaande problemen ADR opgelost door het herstelproces van SQL database-engine op volledig nieuwe:
 
-- Geef deze constante tijd/direct door te vermijden om moet scannen van het logboek van/naar het begin van de actieve transactie. Met de ADR, wordt het transactielogboek alleen verwerkt in de laatste geslaagde controlepunt (of een oudste vervuild pagina Log Sequence Number(LSN). Hersteltijd wordt hierdoor niet beïnvloed door lange transacties uitgevoerd.
+- Geef deze constante tijd/direct door te vermijden om moet scannen van het logboek van/naar het begin van de actieve transactie. Met de ADR, wordt alleen het transactielogboek verwerkt vanaf de laatste geslaagde controlepunt (of oudste vervuild pagina Log Sequence Number (LSN)). Hersteltijd wordt hierdoor niet beïnvloed door lange transacties uitgevoerd.
 - Kan de vereiste transactielogboekruimte maken omdat er niet meer nodig voor het verwerken van het logboek voor de hele transactie. Als gevolg hiervan kan het transactielogboek doelbewust als controlepunten worden afgekapt en back-ups uitgevoerd.
 
 Op hoog niveau realiseert ADR snelle databaseherstel door versiebeheer alle fysieke database aanpassingen en alleen ongedaan maken logische bewerkingen, die zijn beperkt en vrijwel onmiddellijk ongedaan kunnen worden. De transactie die vanaf het moment waarop een crash actief was zijn gemarkeerd als afgebroken en daarom alle versies die worden gegenereerd door deze transacties kunnen worden genegeerd door query's van gelijktijdige gebruikers.
@@ -73,16 +73,19 @@ Het herstelproces ADR heeft de dezelfde drie fasen als het huidige herstelproces
 
 - **Analysefase**
 
-  Het proces blijft hetzelfde als vandaag nog met het toevoegen van sLog reconstrueren en records in logboek registreren voor niet-samengestelde ops kopiëren.
+  Het proces blijft hetzelfde als vandaag nog met het toevoegen van sLog reconstrueren en records in logboek registreren voor niet-samengestelde bewerkingen te kopiëren.
+  
 - **Opnieuw** fase
 
   Onderverdeeld in twee fasen (P)
   - Fase 1
 
       Opnieuw uitvoeren van sLog (oudste niet-doorgevoerde transactie maximaal laatste controlepunt). Opnieuw uitvoeren is een snelle bewerking als alleen nodig voor het verwerken van een paar records uit de sLog.
+      
   - Fase 2
 
      Opnieuw uitvoeren van het logboek voor databasetransacties wordt gestart vanaf het laatste controlepunt (in plaats van de oudste niet-doorgevoerde transactie)
+     
 - **Fase ongedaan maken**
 
    De fase voor ongedaan maken met de ADR is voltooid vrijwel direct met behulp van sLog ongedaan maken van niet-samengestelde operations en opgeslagen versie Store (PV's) met logische terugkeren om uit te voeren rij niveau op basis van versie ongedaan maken.
@@ -97,7 +100,7 @@ Er zijn vier belangrijke onderdelen van de ADR:
 
 - **Logische ongedaan maken**
 
-  Logische terugkeren asynchroon proces verantwoordelijk is voor het uitvoeren van de rij versie op basis van ongedaan maken: directe transactie wordt teruggedraaid en ongedaan maken voor alle versies bewerkingen bieden.
+  Logische ongedaan maken is het asynchroon proces verantwoordelijk voor het uitvoeren van beveiliging op rijniveau op basis van versie ongedaan maken - instant transactie wordt teruggedraaid en ongedaan maken voor alle versies bewerkingen bieden.
 
   - Houdt van alle afgebroken transacties
   - Terugdraaien met behulp van PV's voor alle gebruikerstransacties wordt uitgevoerd

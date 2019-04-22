@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: dbdd0165e276e5c82f8d4c15ef70d3a541d76bc0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522193"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678986"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Actief leren gebruiken voor het verbeteren van uw knowledge base
 
@@ -156,7 +156,7 @@ De clienttoepassing wordt weergegeven voor alle vragen met een optie voor de geb
 
 Zodra de gebruiker een van de bestaande vragen selecteert, verzendt de clienttoepassing keuze van de gebruiker als feedback met behulp van de QnA Maker Train API. Deze feedback is voltooid voor de actieve learning feedback-lus. 
 
-Gebruik de [Azure Bot C# voorbeeld](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot) om te zien van actief leren in een end-to-end-scenario.
+Gebruik de [Azure Bot voorbeeld](https://aka.ms/activelearningsamplebot) om te zien van actief leren in een end-to-end-scenario.
 
 ## <a name="train-api"></a>API van de trein
 

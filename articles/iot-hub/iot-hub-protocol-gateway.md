@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.openlocfilehash: 9dbb7905c2a0fed65ede610577e0fa11a1deef92
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276232"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>Aanvullende protocollen ondersteunen voor IoT-Hub
@@ -41,7 +41,7 @@ Zie voor meer informatie over de Azure IoT-protocol-gateway en het gebruiken en 
 
 Zie voor meer informatie over het plannen van de implementatie van uw IoT Hub:
 
-* [Vergelijken met Event Hubs](iot-hub-compare-event-hubs.md)
+* [Met Eventhubs vergelijken](iot-hub-compare-event-hubs.md)
 
 * [Schalen, hoge beschikbaarheid en herstel na noodgevallen](iot-hub-scaling.md)
 

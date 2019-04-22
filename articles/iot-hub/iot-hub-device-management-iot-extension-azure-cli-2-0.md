@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: c5d4299d2d391a25bfab579f5f78da3718afc24c
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6b1029c5532e106c269b47e6e184b9c93faf8d09
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042996"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681417"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Gebruik de IoT-extensie voor Azure CLI voor Azure IoT Hub-Apparaatbeheer
 
@@ -49,7 +49,7 @@ Azure CLI en de IoT-extensie voor Azure CLI uitvoeren met verschillende opties.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
 
-* Voltooi de zelfstudie [instellen van uw apparaat](iot-hub-raspberry-pi-kit-node-get-started.md) die voorziet in de volgende vereisten:
+* Voltooi de [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) zelfstudie of een van de apparaat-zelfstudies, bijvoorbeeld [Raspberry Pi met node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Deze betrekking hebben op de volgende vereisten:
 
   - Een actief Azure-abonnement.
   - Een Azure IoT-hub in uw abonnement.

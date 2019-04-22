@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045481"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Wat is Azure AD identity governance?
@@ -69,19 +69,19 @@ Azure AD Privileged Identity Management (PIM) biedt extra besturingselementen di
 Hoewel er geen perfecte oplossing of de aanbeveling voor elke klant, bieden de volgende configuraties een handleiding voor welk Microsoft raadt aan om te controleren of een veilige en productieve personeelsbestand basislijn-beleid.
 
 - [Configuraties voor identiteit en Apparaattoegang](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [Bevoegde toegang beveiligen](../users-groups-roles/directory-admin-roles-secure.md)
+- [Uitgebreide toegang beveiligen](../users-groups-roles/directory-admin-roles-secure.md)
 
 
 ### <a name="access-reviews"></a>Toegangsbeoordelingen
 
 - [Wat is een toegangsbeoordeling?](access-reviews-overview.md)
 - [Gebruikerstoegang beheren met toegangsbeoordelingen](manage-user-access-with-access-reviews.md)
-- [Toegang voor gasten met toegangsbeoordelingen beheren](manage-guest-access-with-access-reviews.md)
+- [Gastentoegang beheren met toegangsbeoordelingen](manage-guest-access-with-access-reviews.md)
 - [Een toegangscontrole van Azure AD-rollen starten](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>Gebruiksvoorwaarden
 
-- [Wat kan ik doen met Gebruiksrechtovereenkomst?](../conditional-access/terms-of-use.md)
+- [Wat kan ik doen met Gebruiksvoorwaarden?](../conditional-access/terms-of-use.md)
 
 ### <a name="privileged-identity-management"></a>Privileged identity management
 

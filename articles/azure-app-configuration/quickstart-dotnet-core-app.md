@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 7c84a5c39b1a3b4a52505c053fdcfc92030237c3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 3f15b6bf5ff3cc1949794ebc1ee2a5f62158cede
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575765"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698619"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Quickstart: Maken van een .NET Core-app met App-configuratie
 
@@ -110,4 +110,4 @@ U gebruikt de [.NET Core-opdrachtregelinterface (CLI)](https://docs.microsoft.co
 In deze snelstartgids u een nieuwe app-configuratie-archief hebt gemaakt en deze gebruikt met een .NET Core-console-app via de [App configuratieprovider](https://go.microsoft.com/fwlink/?linkid=2074664). Doorgaan naar de volgende zelfstudie waarin wordt gedemonstreerd verificatie voor meer informatie over het gebruik van App-configuratie.
 
 > [!div class="nextstepaction"]
-> [Beheerde identiteiten voor de integratie van Azure-resources](./integrate-azure-managed-service-identity.md)
+> [Beheerde identiteiten voor de integratie van Azure-resources](./howto-integrate-azure-managed-service-identity.md)

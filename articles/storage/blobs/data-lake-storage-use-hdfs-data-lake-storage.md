@@ -8,57 +8,25 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 051681150501f7c5737f335f8eb48144b08bb990
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: d1c9eff08a7b9cc50ccdca4ce798ac4d0f3d35f2
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482663"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678017"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>De HDFS-CLI gebruiken met Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 kunt u beheren en toegang tot gegevens, net zoals u zou met doen een [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Of u een HDInsight-cluster die is gekoppeld of een Apache Spark-taak uitvoeren met Azure Databricks analyses uitvoeren op gegevens die zijn opgeslagen in een Azure Storage-account hebt, kunt u opdrachtregelinterface (CLI) kunt gebruiken om te halen en de geladen gegevens te manipuleren.
+U kunt toegang tot en beheer van de gegevens in uw storage-account met behulp van een opdrachtregelinterface, net zoals u zou met doen een [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Dit artikel bevat enkele voorbeelden die u helpen aan de slag.
 
-## <a name="hdfs-cli-with-hdinsight"></a>HDFS-CLI met HDInsight
+HDInsight biedt toegang tot het Distributed File System dat lokaal wordt gekoppeld aan de rekenknooppunten. U kunt toegang tot dit bestandssysteem met behulp van de shell die rechtstreeks communiceert met de HDFS- en andere bestandssystemen die ondersteuning biedt voor Hadoop.
 
-HDInsight biedt toegang tot het Distributed File System dat lokaal wordt gekoppeld aan de rekenknooppunten. Dit bestandssysteem is toegankelijk via de shell die rechtstreeks communiceert met de HDFS- en andere bestandssystemen die ondersteuning biedt voor Hadoop. Hieronder vindt u de veelgebruikte opdrachten en de koppelingen naar nuttige informatiebronnen.
+Zie voor meer informatie over de CLI HDFS, de [officiële documentatie](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) en de [handleiding voor HDFS-machtigingen](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 
->[!IMPORTANT]
->HDInsight-cluster facturering begint nadat een cluster is gemaakt en stopt als een cluster wordt verwijderd. De facturering wordt pro-rato per minuut berekend, dus u moet altijd uw cluster verwijderen wanneer het niet meer wordt gebruikt. Zie voor informatie over het verwijderen van een cluster, onze [artikel van het onderwerp](../../hdinsight/hdinsight-delete-cluster.md). Gegevens die zijn opgeslagen in een opslagaccount met Data Lake Storage Gen2 ingeschakeld blijft echter bestaan, zelfs nadat u een HDInsight-cluster wordt verwijderd.
+>[!NOTE]
+>Als u met behulp van Azure Databricks in plaats van HDInsight, en u communiceren met uw gegevens wilt met behulp van een opdrachtregelinterface, kunt u de CLI Databricks kunt gebruiken om te communiceren met het Databricks-bestandssysteem. Zie [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
 
-### <a name="create-a-file-system"></a>Een bestandssysteem maken
-
-    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
-
-* Vervang de tijdelijke aanduiding `<file-system-name>` door de naam die u aan uw bestandssysteem wilt geven.
-
-* Vervang de tijdelijke plaatsaanduiding `<storage-account-name>` door de naam van uw opslagaccount.
-
-### <a name="get-a-list-of-files-or-directories"></a>Haal een lijst van bestanden of mappen
-
-    hdfs dfs -ls <path>
-
-Vervang de `<path>` tijdelijke aanduiding door de URI van het bestandssysteem of de map van het bestandssysteem.
-
-Bijvoorbeeld: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
-
-### <a name="create-a-directory"></a>Een map maken
-
-    hdfs dfs -mkdir [-p] <path>
-
-Vervang de `<path>` tijdelijke aanduiding door de naam van het bestandssysteem hoofdmap of een map in uw bestandssysteem.
-
-Bijvoorbeeld: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
-
-### <a name="delete-a-file-or-directory"></a>Een bestand of map verwijderen
-
-    hdfs dfs -rm <path>
-
-Vervang de `<path>` tijdelijke aanduiding door de URI van het bestand of map die u wilt verwijderen.
-
-Bijvoorbeeld: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
-
-### <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>De HDFS-CLI gebruiken met een HDInsight Hadoop-cluster op Linux
+## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>De HDFS-CLI gebruiken met een HDInsight Hadoop-cluster op Linux
 
 Eerst tot stand brengen [externe toegang tot services](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). Als u kiest [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) de voorbeeld-PowerShell-code zou er als volgt uitzien:
 
@@ -72,56 +40,42 @@ hdfs dfs -mkdir /samplefolder
 ```
 De verbindingsreeks kunt u vinden op de ' SSH- + Cluster aanmelding ' sectie van de HDInsight-cluster-blade in Azure portal. SSH-referenties zijn opgegeven op het moment dat het cluster wordt gemaakt.
 
-Zie voor meer informatie over de CLI HDFS, de [officiële documentatie](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) en de [handleiding voor HDFS-machtigingen](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html). Zie voor meer informatie over de ACL's in Databricks, de [geheimen CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli).
+>[!IMPORTANT]
+>HDInsight-cluster facturering begint nadat een cluster is gemaakt en stopt als een cluster wordt verwijderd. De facturering wordt pro-rato per minuut berekend, dus u moet altijd uw cluster verwijderen wanneer het niet meer wordt gebruikt. Zie voor informatie over het verwijderen van een cluster, onze [artikel van het onderwerp](../../hdinsight/hdinsight-delete-cluster.md). Gegevens die zijn opgeslagen in een opslagaccount met Data Lake Storage Gen2 ingeschakeld blijft echter bestaan, zelfs nadat u een HDInsight-cluster wordt verwijderd.
 
-## <a name="hdfs-cli-with-azure-databricks"></a>HDFS-CLI met Azure Databricks
+## <a name="create-a-file-system"></a>Een bestandssysteem maken
 
-De Databricks biedt een eenvoudig te gebruiken CLI gebaseerd op het Databricks-REST-API. De open source-project wordt gehost op [GitHub](https://github.com/databricks/databricks-cli). Hieronder vindt u de meest gebruikte opdrachten.
+    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
 
-### <a name="get-a-list-of-files-or-directories"></a>Haal een lijst van bestanden of mappen
+* Vervang de tijdelijke aanduiding `<file-system-name>` door de naam die u aan uw bestandssysteem wilt geven.
 
-    dbfs ls [-l]
+* Vervang de tijdelijke plaatsaanduiding `<storage-account-name>` door de naam van uw opslagaccount.
 
-### <a name="create-a-directory"></a>Een map maken
+## <a name="get-a-list-of-files-or-directories"></a>Haal een lijst van bestanden of mappen
 
-    dbfs mkdirs
+    hdfs dfs -ls <path>
 
-### <a name="delete-a-file"></a>Een bestand verwijderen
+Vervang de `<path>` tijdelijke aanduiding door de URI van het bestandssysteem of de map van het bestandssysteem.
 
-    dbfs rm [-r]
+Bijvoorbeeld: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
-Een andere methode voor interactie met Databricks notebooks zijn. Hoewel een primaire taal van een laptop heeft, kunt u talen kunt combineren door de taal voor het % van magic-opdracht aan het begin van een cel op te geven. Specifiek, kunt % sh u voor de uitvoering van shell-code in het notitieblok lijkt veel op in het HDInsight-voorbeeld eerder in dit artikel.
+## <a name="create-a-directory"></a>Een map maken
 
-### <a name="get-a-list-of-files-or-directories"></a>Haal een lijst van bestanden of mappen
+    hdfs dfs -mkdir [-p] <path>
 
-    %sh ls <args>
+Vervang de `<path>` tijdelijke aanduiding door de naam van het bestandssysteem hoofdmap of een map in uw bestandssysteem.
 
-### <a name="create-a-directory"></a>Een map maken
+Bijvoorbeeld: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 
-    %sh mkdir [-p] <paths>
+## <a name="delete-a-file-or-directory"></a>Een bestand of map verwijderen
 
-### <a name="delete-a-file-or-a-directory"></a>Een bestand of een map verwijderen
+    hdfs dfs -rm <path>
 
-    %sh rm [-skipTrash] URI [URI ...]
+Vervang de `<path>` tijdelijke aanduiding door de URI van het bestand of map die u wilt verwijderen.
 
-Na het starten van het Spark-cluster in Azure Databricks, maakt u een nieuwe notebook. Het voorbeeldscript notebook ziet er als volgt uit:
+Bijvoorbeeld: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
-    #Execute basic HDFS commands invoking the shell. Display the hierarchy.
-    %sh ls /
-    #Create a sample directory.
-    %sh mkdir /samplefolder
-    #Get the ACL of the newly created directory.
-    hdfs dfs -getfacl /samplefolder
-
-Zie voor meer informatie over Databricks CLI de [officiële documentatie](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html). Zie voor meer informatie over laptops, de [notitieblokken](https://docs.azuredatabricks.net/user-guide/notebooks/index.html) gedeelte van de documentatie.
-
-## <a name="set-file-and-directory-level-permissions"></a>Bestands- en machtigingen op databaseniveau instellen
-
-U stelt en ophalen van toegangsmachtigingen op het niveau van bestanden en mappen. Hier volgt een aantal opdrachten aan de slag te gaan. 
-
-Zie voor meer informatie over bestands- en machtigingen op het niveau voor het bestandssysteem van Azure Data Lake Gen2 [toegangsbeheer in Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
-
-### <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>De toegangsbeheerlijsten (ACL's) van bestanden en mappen weergeven
+## <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>De toegangsbeheerlijsten (ACL's) van bestanden en mappen weergeven
 
     hdfs dfs -getfacl [-R] <path>
 
@@ -131,7 +85,7 @@ Voorbeeld:
 
 See [getfacl](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#getfacl)
 
-### <a name="set-acls-of-files-and-directories"></a>Stel de ACL's van bestanden en mappen
+## <a name="set-acls-of-files-and-directories"></a>Stel de ACL's van bestanden en mappen
 
     hdfs dfs -setfacl [-R] [-b|-k -m|-x <acl_spec> <path>]|[--set <acl_spec> <path>]
 
@@ -141,19 +95,19 @@ Voorbeeld:
 
 See [setfacl](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#setfacl)
 
-### <a name="change-the-owner-of-files"></a>De eigenaar van bestanden wijzigen
+## <a name="change-the-owner-of-files"></a>De eigenaar van bestanden wijzigen
 
     hdfs dfs -chown [-R] <new_owner>:<users_group> <URI>
 
 Zie [eigenaar](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chown)
 
-### <a name="change-group-association-of-files"></a>De koppeling van bestanden wijzigen
+## <a name="change-group-association-of-files"></a>De koppeling van bestanden wijzigen
 
     hdfs dfs -chgrp [-R] <group> <URI>
 
 Zie [chgrp uitvoert](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chgrp)
 
-### <a name="change-the-permissions-of-files"></a>De machtigingen van bestanden wijzigen
+## <a name="change-the-permissions-of-files"></a>De machtigingen van bestanden wijzigen
 
     hdfs dfs -chmod [-R] <mode> <URI>
 
@@ -163,4 +117,6 @@ U ziet de volledige lijst van opdrachten op de [Apache Hadoop 2.4.1 bestand Syst
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Een Azure Data Lake Storage Gen2 geschikt account gebruiken in Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md) 
+* [Een Azure Data Lake Storage Gen2 geschikt account gebruiken in Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
+
+* [Meer informatie over toegangsbeheerlijsten voor bestanden en mappen](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)

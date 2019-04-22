@@ -9,10 +9,10 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 2ba48e2a21bdee0c5698bdfa314dd3bf462c1c7e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267766"
 ---
 # <a name="starter-resource-graph-queries"></a>Starter query's van Resource Graph
@@ -22,16 +22,16 @@ Om inzicht te krijgen in query's met Azure Resource Graph moet u eerst enige bas
 We nemen de volgende starter query's door:
 
 > [!div class="checklist"]
-> - [Aantal Azure-resources](#count-resources)
-> - [Lijst met resources die zijn gesorteerd op naam](#list-resources)
-> - [Alle virtuele machines die zijn geordend op de naam in aflopende volgorde weergeven](#show-vms)
-> - [Eerste vijf virtuele machines op naam en hun type besturingssysteem weergeven](#show-sorted)
-> - [Aantal virtuele machines door het type besturingssysteem](#count-os)
-> - [Resources met opslag weergeven](#show-storage)
-> - [Lijst van alle openbare IP-adressen](#list-publicip)
-> - [Aantal resources met een IP-adressen die zijn geconfigureerd op abonnement](#count-resources-by-ip)
-> - [Lijst met resources met een specifieke tagwaarde](#list-tag)
-> - [Lijst van alle opslagaccounts met specifieke tagwaarde](#list-specific-tag)
+> - [Azure-resources tellen](#count-resources)
+> - [Een lijst van resources weergeven, gesorteerd op naam](#list-resources)
+> - [Alle virtuele machines weergeven, aflopend geordend op naam](#show-vms)
+> - [De eerste vijf virtuele machines weergeven op naam en met hun type besturingssysteem](#show-sorted)
+> - [Virtuele machines tellen op type besturingssysteem](#count-os)
+> - [Resources weergeven die opslag bevatten](#show-storage)
+> - [Een lijst van alle openbare IP-adressen weergeven](#list-publicip)
+> - [Resources tellen met IP-adressen die zijn geconfigureerd op abonnement](#count-resources-by-ip)
+> - [Een lijst weergeven van resources met een specifieke tagwaarde](#list-tag)
+> - [Een lijst weergeven van alle opslagaccounts met een specifieke tagwaarde](#list-specific-tag)
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free) aan voordat u begint.
 
@@ -94,7 +94,7 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 
 ## <a name="show-sorted"></a>De eerste vijf virtuele machines weergeven op naam en met hun type besturingssysteem
 
-Deze query gebruikt `limit` om slechts vijf overeenkomende records op te halen, gesorteerd op naam. Het type van de Azure-resource is `Microsoft.Compute/virtualMachines`. `project` vertelt Azure Resource Graph eigenschappen die u wilt opnemen.
+Deze query gebruikt `limit` om slechts vijf overeenkomende records op te halen, gesorteerd op naam. Het type van de Azure-resource is `Microsoft.Compute/virtualMachines`. `project` geeft in Azure Resource Graph aan welke eigenschappen u wilt opnemen.
 
 ```Query
 where type =~ 'Microsoft.Compute/virtualMachines'
@@ -251,7 +251,7 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where
 ```
 
 > [!NOTE]
-> In dit voorbeeld wordt `==` in plaats van het voorwaardelijke `=~` gebruikt om naar overeenkomsten te zoeken. `==` is een hoofdlettergevoelig overeenkomst.
+> In dit voorbeeld wordt `==` in plaats van het voorwaardelijke `=~` gebruikt om naar overeenkomsten te zoeken. `==` is een hoofdlettergevoelige overeenkomst.
 
 ## <a name="next-steps"></a>Volgende stappen
 

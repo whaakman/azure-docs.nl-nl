@@ -12,12 +12,12 @@ ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: 47aa88040b6010aeca4aeed696310505d1e17df9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 363803e9276a8356b52438f251391378c54f1655
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549684"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678935"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Een transactioneel consistente kopie van een Azure SQL database kopiëren
 
@@ -25,7 +25,7 @@ Azure SQL Database biedt verschillende methoden voor het maken van een transacti
 
 ## <a name="overview"></a>Overzicht
 
-Een databasekopie is een momentopname van de brondatabase vanaf het moment van de kopie-aanvraag. U kunt dezelfde server of een andere server, de servicelaag en compute-grootte of een andere compute-grootte binnen dezelfde servicelaag (edition) selecteren. Nadat de kopie voltooid is, wordt een volledig functionele, onafhankelijke database. Op dit moment kunt u upgraden en downgraden deze op elke editie. De aanmeldingen, gebruikers en machtigingen kunnen onafhankelijk van elkaar worden beheerd.  
+Een databasekopie is een momentopname van de brondatabase vanaf het moment van de kopie-aanvraag. U kunt dezelfde server of een andere server selecteren. U kunt ook houden van de servicelaag en compute-grootte of gebruik een andere compute-grootte binnen dezelfde servicelaag (editie). Nadat de kopie voltooid is, wordt een volledig functionele, onafhankelijke database. Op dit moment kunt u upgraden en downgraden deze op elke editie. De aanmeldingen, gebruikers en machtigingen kunnen onafhankelijk van elkaar worden beheerd.  
 
 > [!NOTE]
 > [Automatische databaseback-ups](sql-database-automated-backups.md) worden gebruikt bij het maken van een databasekopie.

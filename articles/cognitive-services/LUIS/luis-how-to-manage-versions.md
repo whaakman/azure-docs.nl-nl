@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: dfe23baa67c87b04a65630611ef71758beda268d
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f919651cf39d1f2c48fca87da935e49e3affa79f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754906"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678530"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Versies gebruiken om te bewerken en te testen zonder dat dit fasering of productie-apps
 
@@ -24,7 +24,7 @@ Versies kunnen u bouwt en publiceert verschillende modellen. Er is een goede gew
 
 Als u wilt werken met versies, opent u uw app door het selecteren van de naam op **mijn Apps** pagina en selecteer vervolgens **beheren** in de bovenste balk, schakelt u vervolgens **versies** in het linkernavigatievenster. 
 
-De lijst met versies laten zien welke versies worden gepubliceerd, waarin ze worden gepubliceerd, en welke versie momenteel actief is. 
+De lijst met versies ziet u welke versies worden gepubliceerd, waarin ze worden gepubliceerd, en welke versie momenteel actief is. 
 
 [![Beheersectie, pagina-versies](./media/luis-how-to-manage-versions/versions-import.png "gedeelte beheren, pagina-versies")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
@@ -67,5 +67,5 @@ Selecteer een versie in de lijst en selecteer vervolgens **Maak actief** via de 
 
 * Naar **verwijderen** een versie gebruikt, selecteert u een versie in de lijst en vervolgens **verwijderen** via de werkbalk. Selecteer **OK**. 
 * Naar **naam** een versie gebruikt, selecteert u een versie in de lijst en vervolgens **Wijzig de naam van** via de werkbalk. Voer nieuwe naam en selecteer **gedaan**. 
-* Naar **exporteren** een versie gebruikt, selecteert u een versie in de lijst en vervolgens **Export app** via de werkbalk. Het bestand wordt gedownload naar uw lokale computer. 
+* Naar **exporteren** een versie gebruikt, selecteert u een versie in de lijst en vervolgens **Export app** via de werkbalk. Kies JSON naar de export voor back-up, kiest u **exporteren voor container** naar [gebruik van deze app in een container LUIS](luis-container-howto.md).  
 

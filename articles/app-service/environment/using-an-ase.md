@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c332b20650bef2e341a935dacae835403dc56c9b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a9a6c7c47a6ea81f682f453a85ee6f8e214a09a7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630662"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678085"
 ---
 # <a name="use-an-app-service-environment"></a>Een App Service-omgeving gebruiken #
 
@@ -73,7 +73,7 @@ Een app maken in een as-omgeving:
 
     c. Selecteer de as-omgeving in de **locatie** vervolgkeuzelijst. Die als host fungeert voor een Linux-app in een as-omgeving is alleen ingeschakeld in 6 regio's, op het moment dat: **VS-West, VS-Oost, West-Europa, Noord-Europa, Australië-Oost, Zuidoost-Azië.** 
 
-    d. Selecteer een **geïsoleerd** prijscategorie. Selecteer **Selecteer**.
+    d. Selecteer een **geïsoleerd** prijscategorie. Kies **Selecteren**.
 
     e. Selecteer **OK**.
     
@@ -137,7 +137,7 @@ Met een externe as-omgeving werken deze alle publicatieopties hetzelfde. Zie voo
 
 Het belangrijkste verschil met het publiceren is met betrekking tot een ILB as-omgeving. De publicatie-eindpunten zijn met een ILB as-omgeving, alle alleen beschikbaar via de ILB. De ILB is op een privé IP-adres in de ASE-subnet in het virtuele netwerk. Als u geen toegang tot het netwerk naar de ILB, kunt u alle apps in deze as-omgeving niet publiceren. Zoals vermeld in [maken en gebruiken een ILB as-omgeving][MakeILBASE], moet u DNS configureren voor de apps in het systeem. Dit is inclusief de SCM-eindpunt. Als ze zijn niet correct gedefinieerd, kunt u niet publiceren. Er moet ook uw IDE's netwerktoegang hebben tot de ILB om te kunnen publiceren naar deze.
 
-Op internet gebaseerde CI-systemen, zoals GitHub en DevOps, Azure, werken niet met een ILB as-omgeving omdat het publicatie-eindpunt niet toegankelijk is via Internet is. In plaats hiervan moet u een CI-systeem gebruiken dat gebruikmaakt van een pull-model, bijvoorbeeld Dropbox.
+Buiten het vak werken op Internet gebaseerde CI-systemen, zoals GitHub en DevOps, Azure, niet met een ILB as-omgeving omdat het publicatie-eindpunt niet toegankelijk is via Internet is. Voor Azure DevOps, kunt u kunt dit oplossen door werken door het installeren van een zelf-hostend release-agent in uw interne netwerk waar het de ILB kan bereiken. U kunt ook kunt u ook een CI-systeem dat gebruikmaakt van een pull-model, zoals Dropbox.
 
 De publicatie-eindpunten voor apps in een ILB AS-omgeving maken gebruik van het domein waarmee de ILB AS-omgeving is gemaakt. U kunt dit zien in het publicatieprofiel van de app en in de portalblade van de app (in **overzicht** > **Essentials** en ook in **eigenschappen**). 
 

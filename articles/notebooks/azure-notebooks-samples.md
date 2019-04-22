@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
 ms.openlocfilehash: 50e24ce29b5378b3aa930c54824fd444cd823b46
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279887"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Detecteren en voorbeeldnotitieblokken gebruiken
@@ -42,6 +42,6 @@ Wanneer u een laptop die u graag zou willen verkennen hebt geïdentificeerd, vin
 ## <a name="next-steps"></a>Volgende stappen  
 
 - [Procedure: Configureren en beheren van projecten](configure-manage-azure-notebooks-projects.md)
-- [Procedure: Werken met gegevensbestanden](work-with-project-data-files.md)
+- [Procedure: Werken met bestanden](work-with-project-data-files.md)
 - [Procedure: Toegang tot gegevensresources](access-data-resources-jupyter-notebooks.md)
-- [Procedure: Azure Machine Learning Services gebruiken](use-machine-learning-services-jupyter-notebooks.md)
+- [Procedure: Use Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

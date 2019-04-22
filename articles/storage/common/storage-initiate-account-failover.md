@@ -9,10 +9,10 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: fd8eecbd20446bfde8d3a7467e2982398c3b8c19
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044960"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Initieer een failover van storage-account (preview)
@@ -108,4 +108,4 @@ az storage account failover \ --name accountName
 
 - [Disaster recovery en account-failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md)
 - [Maximaal beschikbare toepassingen met RA-GRS ontwerpen](storage-designing-ha-apps-with-ragrs.md)
-- [Zelfstudie: Een maximaal beschikbare toepassing bouwen met Blob-opslag](../blobs/storage-create-geo-redundant-storage.md) 
+- [Zelfstudie: Een maximaal beschikbare toepassing met Blob-opslag maken](../blobs/storage-create-geo-redundant-storage.md) 

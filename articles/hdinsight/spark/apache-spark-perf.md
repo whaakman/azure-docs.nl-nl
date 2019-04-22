@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: b846b19d180bf19a0d023a9cd0b92393132f47d4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283066"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Apache Spark-taken optimaliseren
@@ -41,7 +41,7 @@ Eerdere versies van Spark met rdd's abstracte gegevens, Spark 1.3 en DataFrames 
     * Serialisatie/deserialisatie overhead toegevoegd.
     * Hoge GC overhead.
     * Genereren van code geheel fasen, verbroken.
-* **Rdd 's**
+* **RDDs**
     * U hoeft niet te gebruiken van de rdd's, tenzij u moet een nieuwe aangepaste RDD bouwen.
     * Er is geen queryoptimalisatie via katalysator.
     * Er is geen geheel fase-code genereren.
@@ -61,8 +61,8 @@ Wanneer u een nieuw Spark-cluster maakt, hebt u de optie voor het selecteren van
 | Store-Type | Bestandssysteem | Snelheid | Tijdelijke | Gebruiksvoorbeelden |
 | --- | --- | --- | --- | --- |
 | Azure Blob Storage | **wasb [s]:**//url/ | **Standard** | Ja | Tijdelijke cluster |
-| Azure Data Lake Storage Gen 2| **abfs [s]:**//url/ | **Sneller** | Ja | Tijdelijke cluster |
-| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Sneller** | Ja | Tijdelijke cluster |
+| Azure Data Lake Storage Gen 2| **abfs [s]:**//url/ | **Faster** | Ja | Tijdelijke cluster |
+| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Faster** | Ja | Tijdelijke cluster |
 | Lokale HDFS | **hdfs:**//url/ | **Fastest** | Nee | Interactieve 24/7-cluster |
 
 ## <a name="use-the-cache"></a>De cache gebruiken
@@ -216,6 +216,6 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 * [Apache Spark-taken die worden uitgevoerd op Azure HDInsight](apache-spark-job-debugging.md)
 * [Resources beheren voor een Apache Spark-cluster in HDInsight](apache-spark-resource-manager.md)
 * [Apache Spark REST-API gebruiken voor het indienen van externe taken met een Apache Spark-cluster](apache-spark-livy-rest-interface.md)
-* [Tuning Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+* [Apache Spark afstemmen](https://spark.apache.org/docs/latest/tuning.html)
 * [Hoe om af te stemmen daadwerkelijk de Apache Spark-taken zodat werken ze](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Kryo serialisatie](https://github.com/EsotericSoftware/kryo)

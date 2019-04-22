@@ -29,10 +29,10 @@ ms.author:
 - btalb
 - prachank
 ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426440"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP-prestaties afstemmen voor virtuele Azure-machines
@@ -140,7 +140,7 @@ De netwerklatentie wordt geregeld door de snelheid van licht via een glasvezelka
 
 | | | | |
 |-|-|-|-|
-|**Route**|**Afstand**|**Eenzijdige tijd**|**RTT**|
+|**Route**|**afstand**|**Eenzijdige tijd**|**RTT**|
 |New York met San Francisco|4,148 km|21 ms|42 ms|
 |New York naar Londen|5,585 km|28 ms|56 ms|
 |New York met Sydney|15,993 km|80 ms|160 ms|
@@ -236,7 +236,7 @@ Dit zijn de actieve TCP-instellingen voor `AutoTuningLevel`:
 
 | | | | |
 |-|-|-|-|
-|**AutoTuningLevel**|**Schaalfactor**|**Vermenigvuldiger voor vergroten/verkleinen**|**Formule die moet worden<br/>maximale grootte berekenen**|
+|**AutoTuningLevel**|**Schaalfactor**|**Vermenigvuldiger voor vergroten/verkleinen**|**Formule aan<br/>maximale window-grootte berekenen**|
 |Uitgeschakeld|Geen|Geen|Venstergrootte|
 |Beperkt|4|2^4|Venstergrootte * (2 ^ 4)|
 |Zeer beperkt|2|2^2|Venstergrootte * (2 ^ 2)|
@@ -366,7 +366,7 @@ NTttcp is een hulpprogramma voor het testen van de TCP-prestaties van een virtue
 
 - [Bandbreedte/doorvoer testen (NTttcp)](https://aka.ms/TestNetworkThroughput)
 
-- [NTttcp Utility](https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769)
+- [Hulpprogramma voor NTttcp](https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769)
 
 ### <a name="measure-actual-bandwidth-of-a-virtual-machine"></a>Werkelijke bandbreedte van de meting van een virtuele machine
 

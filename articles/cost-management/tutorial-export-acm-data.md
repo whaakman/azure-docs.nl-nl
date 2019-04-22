@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: df893683c387f8d694500ae1ace93a5a146ea352
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6975bb872e67650b8b5729a4ac66f0825fb9a80f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496791"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678136"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Zelfstudie: Geëxporteerde gegevens maken en beheren
 
@@ -45,7 +45,13 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-a-daily-export"></a>Een dagelijkse export uitvoeren
 
-Wilt maken of weergeven van een exporteren van gegevens of voor het plannen van een exporteren, opent u het gewenste bereik in de Azure portal en selecteer **Cost analysis** in het menu. Bijvoorbeeld, gaat u naar **abonnementen**, selecteer een abonnement in de lijst en selecteer vervolgens **Cost analysis** in het menu. Aan de bovenkant van de kosten voor analyse-pagina, klikt u op **exporteren** en kies vervolgens een optie voor het exporteren. Bijvoorbeeld, klikt u op **export plannen**. Zie voor meer informatie over bereiken [begrijpen en werk met een bereik](understand-work-scopes.md).
+Wilt maken of weergeven van een exporteren van gegevens of voor het plannen van een exporteren, opent u het gewenste bereik in de Azure portal en selecteer **Cost analysis** in het menu. Bijvoorbeeld, gaat u naar **abonnementen**, selecteer een abonnement in de lijst en selecteer vervolgens **Cost analysis** in het menu. Aan de bovenkant van de kosten voor analyse-pagina, klikt u op **exporteren** en kies vervolgens een optie voor het exporteren. Bijvoorbeeld, klikt u op **export plannen**.  
+
+> [!NOTE]
+> Naast de abonnementen, kunt u uitvoer op resourcegroepen, accounts, afdelingen en inschrijvingen. Zie voor meer informatie over bereiken [begrijpen en werk met een bereik](understand-work-scopes.md).
+> 
+> 
+
 
 Klik op **toevoegen**, typ een naam voor de export en selecteer vervolgens de **dagelijkse export van de kosten maand tot heden** optie. Klik op **volgende**.
 
@@ -63,7 +69,7 @@ Het kan één tot twee uur duren voordat de export voor het eerst wordt uitgevoe
 
 ### <a name="export-schedule"></a>Exportschema
 
-Geplande exports worden beïnvloed door het tijdstip en de dag van de week waarop u de export in eerste instantie maakt. Wanneer u een geplande export maakt, wordt de export uitgevoerd op hetzelfde tijdstip van de dag voor elk volgend exemplaar van de export. Stel, u maakt een dagelijkse export om 13:00 uur. De volgende uitvoer wordt de volgende dag om 13:00 uur uitgevoerd. De huidige tijd is op dezelfde manier van invloed op alle andere exporttypen; ze worden altijd uitgevoerd op hetzelfde moment van de dag als waarop de export in eerste instantie is gemaakt. In een ander voorbeeld maakt u een wekelijkse export op maandag om 16:00 uur. Het volgende rapport wordt de maandag erna om 16:00 uur uitgevoerd. *Geëxporteerde gegevens zijn beschikbaar binnen vier uur van de uitvoeringstijd.*
+Geplande exports worden beïnvloed door het tijdstip en de dag van de week waarop u de export in eerste instantie maakt. Wanneer u een geplande export maakt, wordt de export uitgevoerd op hetzelfde tijdstip van de dag voor elk volgend exemplaar van de export. Stel, u maakt een dagelijkse export om 13:00 uur. De volgende uitvoer wordt de volgende dag om 13:00 uur uitgevoerd. De huidige tijd is op dezelfde manier van invloed op alle andere exporttypen; ze worden altijd uitgevoerd op hetzelfde moment van de dag als waarop de export in eerste instantie is gemaakt. In een ander voorbeeld maakt u een wekelijkse export op maandag om 16:00 uur. Het volgende rapport wordt de maandag erna om 16:00 uur uitgevoerd. *Geëxporteerde gegevens zijn binnen vier uur na de uitvoeringstijd beschikbaar.*
 
 Voor elke export wordt een nieuw bestand gemaakt. Oudere exports worden dus niet overschreven.
 
@@ -113,4 +119,4 @@ In deze zelfstudie heeft u het volgende geleerd:
 Ga naar de volgende zelfstudie, waarin u leert om de efficiëntie te optimaliseren en te verbeteren door inactieve en onderbenutte resources te identificeren.
 
 > [!div class="nextstepaction"]
-> [Bekijken en reageren op optimalisatie aanbevelingen](tutorial-acm-opt-recommendations.md)
+> [Aanbevelingen bekijken en hier actie op ondernemen](tutorial-acm-opt-recommendations.md)

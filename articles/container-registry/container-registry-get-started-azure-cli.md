@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Een privé-Docker-register maken in Azure - Azure CLI'
+title: 'Snelstartgids: Een privé-Docker-register maken in Azure - Azure CLI'
 description: Leer snel hoe u een persoonlijk Docker-containerregister maakt met behulp van Azure CLI.
 services: container-registry
 author: dlepow
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 37b1c8516268611a1174edfe20fef36dfb6b36c2
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 24bdd52673c65d039166dc28f9f0a0a784569a1a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295828"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678697"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Quickstart: Een privé-containerregister maken met Azure CLI
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Snelstartgids: Een privé-containerregister maken met Azure CLI
 
 Azure Container Registry is een beheerde service voor Docker-containerregisters die wordt gebruikt voor het opslaan van installatiekopieën van persoonlijke Docker-containers. In deze handleiding vindt u instructies voor het maken van een Azure Container Registry-exemplaar met behulp van Azure CLI. Gebruik vervolgens Docker-opdrachten om een containerinstallatiekopie naar het register pushen, waarna u de installatiekopie ophaalt en uitvoert vanuit het register.
 
@@ -23,7 +23,7 @@ Voor deze snelstart moet u Azure CLI uitvoeren (versie 2.0.55 of later aanbevole
 
 Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten die eenvoudig Docker configureren op elk [Mac][docker-mac]-, [Windows][docker-windows]- of [Linux][docker-linux]-systeem.
 
-Omdat Azure Cloud-Shell niet alle vereiste Docker-onderdelen bevat (de `dockerd`-daemon), kunt u de Cloud Shell niet voor deze quickstart gebruiken.
+Omdat Azure Cloud-Shell niet alle vereiste Docker-onderdelen bevat (de `dockerd`-daemon), kunt u de Cloud Shell niet voor deze snelstart gebruiken.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -68,7 +68,7 @@ Wanneer het register is gemaakt, is de uitvoer vergelijkbaar met het volgende:
 }
 ```
 
-Noteer `loginServer` in de uitvoer. Dit is de volledig gekwalificeerde registernaam (in kleine letters). In de rest van deze quickstart wordt `<acrName>` gebruikt als tijdelijke aanduiding voor de naam van het containerregister.
+Noteer `loginServer` in de uitvoer. Dit is de volledig gekwalificeerde registernaam (in kleine letters). In de rest van deze snelstart wordt `<acrName>` gebruikt als tijdelijke aanduiding voor de naam van het containerregister.
 
 ## <a name="log-in-to-registry"></a>Aanmelden bij register
 
@@ -95,13 +95,13 @@ Uitvoer:
 ```
 Result
 ----------------
-busybox
+hello-world
 ```
 
-In het volgende voorbeeld worden de tags in de **busybox**-opslagplaats vermeld.
+Het volgende voorbeeld worden de tags in de **hello-world** opslagplaats.
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository busybox --output table
+az acr repository show-tags --name <acrName> --repository hello-world --output table
 ```
 
 Uitvoer:

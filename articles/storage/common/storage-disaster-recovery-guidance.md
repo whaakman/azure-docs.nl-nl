@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 87499c1b71e243fe976e436b525e0150689d3aa1
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051186"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Disaster recovery en storage-account failover (preview) in Azure Storage
@@ -181,4 +181,4 @@ In extreme omstandigheden waarin een regio verbroken vanwege een grote ramp is, 
 
 * [Start de failover van een account (preview)](storage-initiate-account-failover.md)
 * [Maximaal beschikbare toepassingen met RA-GRS ontwerpen](storage-designing-ha-apps-with-ragrs.md)
-* [Zelfstudie: Een maximaal beschikbare toepassing bouwen met Blob-opslag](../blobs/storage-create-geo-redundant-storage.md) 
+* [Zelfstudie: Een maximaal beschikbare toepassing met Blob-opslag maken](../blobs/storage-create-geo-redundant-storage.md) 

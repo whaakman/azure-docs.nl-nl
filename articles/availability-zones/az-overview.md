@@ -17,10 +17,10 @@ ms.date: 04/02/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
 ms.openlocfilehash: 557757fc4d99fe57ad545e9d2eebcce61ddb3a8f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268718"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Wat zijn Beschikbaarheidszones in Azure?
@@ -78,7 +78,7 @@ Er is geen extra kosten voor virtuele machines die in een Beschikbaarheidszone i
 
 
 ## <a name="get-started-with-availability-zones"></a>Aan de slag met Beschikbaarheidszones
-- [Een virtuele machine maken](../virtual-machines/windows/create-portal-availability-zone.md)
+- [Maak een virtuele machine](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Toevoegen van een beheerde schijf maken met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Een schaalset voor zone-redundante virtuele-machine maken](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 - [Taakverdeling tussen VM's in zones met behulp van een Standard Load Balancer met een zone-redundante front](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)

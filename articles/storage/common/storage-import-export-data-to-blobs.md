@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283270"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>De Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Blob Storage
@@ -64,7 +64,7 @@ Voer de volgende stappen voor het voorbereiden van de schijven.
     
     De parameters die worden gebruikt worden in de volgende tabel beschreven:
 
-    |Optie  |Description  |
+    |Optie  |Beschrijving  |
     |---------|---------|
     |/j:     |De naam van het logboekbestand met de extensie jrn. Er wordt een logboekbestand gegenereerd per station. U wordt aangeraden dat u het serienummer van de schijf als de naam van het logboek gebruiken.         |
     |/ID:     |De sessie-ID. Gebruik een unieke sessie voor elk exemplaar van de opdracht.      |

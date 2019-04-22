@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267137"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Een aangepaste domeinnaam voor een Azure-cloudservice configureren
@@ -68,7 +68,7 @@ Voor het maken van een CNAME-record, moet u een nieuwe vermelding in de DNS-tabe
 
        ![snelle weergave-sectie van de site-URL][csurl]
 
-       **OF**
+       **OR**
    * Installeer en configureer [Azure Powershell](/powershell/azure/overview), en gebruik vervolgens de volgende opdracht uit:
 
        ```powershell
@@ -101,7 +101,7 @@ Voor het maken van een A-record, moet u eerst het virtuele IP-adres van uw cloud
 
        ![snelle weergave-sectie van de VIP][vip]
 
-       **OF**
+       **OR**
    * Installeer en configureer [Azure Powershell](/powershell/azure/overview), en gebruik vervolgens de volgende opdracht uit:
 
        ```powershell
@@ -130,7 +130,7 @@ In dit voorbeeld ziet u het maken van een A-record voor het hoofddomein. Als u e
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Cloudservices beheren](cloud-services-how-to-manage-portal.md)
+* [Cloud Services beheren](cloud-services-how-to-manage-portal.md)
 * [CDN-inhoud toewijzen aan een aangepast domein](../cdn/cdn-map-content-to-custom-domain.md)
 * [Algemene configuratie van uw cloudservice](cloud-services-how-to-configure-portal.md).
 * Meer informatie over het [implementeren van een cloudservice](cloud-services-how-to-create-deploy-portal.md).
@@ -141,6 +141,6 @@ In dit voorbeeld ziet u het maken van een A-record voor het hoofddomein. Als u e
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Azure Portal]: https://portal.azure.com
+[Azure-portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png

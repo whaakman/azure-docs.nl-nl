@@ -16,10 +16,10 @@ ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: bb051d37f3a1dd82d7d46bfe8b22c2ba1251be85
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259198"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hoe u een Windows SQL Server-machine inrichten in Azure portal
@@ -72,7 +72,7 @@ Er zijn meerdere tabbladen voor het configureren van een SQL Server-machine. Ten
 
 | Stap | Description |
 | --- | --- |
-| **Basisbeginselen** |[Basisinstellingen configureren](#1-configure-basic-settings) |
+| **Basisinstellingen** |[Basisinstellingen configureren](#1-configure-basic-settings) |
 | **Optionele functies** |[Optionele kenmerken configureren](#2-configure-optional-features) |
 | **SQL Server-instellingen** |[SQL Server-instellingen configureren](#3-configure-sql-server-settings) |
 | **Beoordelen en maken** | [De samenvatting bekijken](#4-review--create) |
@@ -158,10 +158,10 @@ Op de **SQL Server-instellingen** tabblad, configureer dan specifieke instelling
 | Instelling |
 | --- |
 | [Connectiviteit](#connectivity) |
-| [Authentication](#authentication) |
-| [Integratie van Azure Sleutelkluis](#azure-key-vault-integration) |
+| [Verificatie](#authentication) |
+| [Integratie van Azure Key Vault](#azure-key-vault-integration) |
 | [Opslagconfiguratie](#storage-configuration) |
-| [Automatisch patchen](#automated-patching) |
+| [Automatisch patch toepassen](#automated-patching) |
 | [Automatische back-up](#automated-backup) |
 | [R Services (Advanced Analytics)](#r-services-advanced-analytics) |
 
@@ -211,7 +211,7 @@ De volgende tabel bevat de vereiste parameters voor het configureren van de Azur
 
 | PARAMETER | BESCHRIJVING | VOORBEELD |
 | --- | --- | --- |
-| **Sleutelkluis-URL** |De locatie van de sleutelkluis. |https:\//contosokeyvault.vault.azure.net/ |
+| **Key Vault-URL** |De locatie van de sleutelkluis. |https:\//contosokeyvault.vault.azure.net/ |
 | **Principal-naam** |Principal-naam voor de Azure Active Directory-service. Deze naam wordt ook wel aangeduid als de Client-ID. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Principal-geheim** |Principal-geheim voor de Azure Active Directory-service. Dit geheim wordt ook wel aangeduid als het Clientgeheim. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **Referentienaam** |**Referentienaam**: Azure Sleutelkluis-integratie maakt u een referentie binnen SQL Server, zodat de virtuele machine toegang heeft tot de key vault. Kies een naam voor deze referentie. |mycred1 |

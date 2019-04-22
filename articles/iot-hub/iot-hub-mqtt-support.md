@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
 ms.openlocfilehash: 5c879b050fad0ac8c6467ffa29d9aee398f57aa2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276836"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communiceren met uw IoT-hub met behulp van het MQTT-protocol
@@ -244,7 +244,7 @@ De antwoordtekst bevat de sectie met eigenschappen van het dubbele apparaat, zoa
 
 De mogelijke waarden zijn:
 
-|Status | Description |
+|Status | Beschrijving |
 | ----- | ----------- |
 | 204 | Geslaagd (geen inhoud wordt geretourneerd) |
 | 429 | Te veel aanvragen (beperkt), als per [IoT-Hub beperking](iot-hub-devguide-quotas-throttling.md) |
@@ -338,7 +338,7 @@ Zie voor meer informatie over het plannen van de implementatie van uw IoT Hub:
 
 * [Azure Certified voor IoT-apparaatcatalogus](https://catalog.azureiotsolutions.com/)
 * [Aanvullende protocollen ondersteunen](iot-hub-protocol-gateway.md)
-* [Vergelijken met Event Hubs](iot-hub-compare-event-hubs.md)
+* [Met Eventhubs vergelijken](iot-hub-compare-event-hubs.md)
 * [Schalen, HA en DR](iot-hub-scaling.md)
 
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:

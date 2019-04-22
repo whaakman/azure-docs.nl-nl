@@ -8,10 +8,10 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 0e66327a04d1390061580d82716b44b25139bf67
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259453"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Overzicht van de Azure Policy-service
@@ -21,7 +21,7 @@ Governance controleert of uw organisatie haar doelen kan bereiken via een effect
 Ondervindt uw bedrijf een significant aantal IT-problemen die nooit lijken te worden opgelost?
 Goed IT-beheer omvat het plannen van uw initiatieven en het stellen van prioriteiten op strategisch niveau, zodat problemen beheerst en voorkomen kunnen worden. Hiervoor gebruikt u Azure Policy.
 
-Azure Policy is een service in Azure die u gebruiken om te maken, toewijzen en beheren van beleid. Met deze beleidsregels worden verschillende regels en effecten afgedwongen voor uw resources, zodat deze resources voldoen aan de standaarden en service level agreements in uw bedrijf. Azure Policy voorziet in deze behoefte door uw resources met toegewezen beleid te controleren op niet-naleving. U kunt bijvoorbeeld beleid hebben op basis waarvan alleen virtuele machines van een bepaalde SKU-grootte in uw omgeving zijn toegestaan. Wanneer dit beleid is geïmplementeerd, worden nieuwe en bestaande resources gecontroleerd op naleving. Met het juiste type beleid kunt u ervoor zorgen dat bestaande resources conform zijn. Verderop in deze documentatie wordt dieper ingegaan op het maken en implementeren van beleidsregels met Azure Policy.
+Azure Policy is een service in Azure die u gebruikt om beleidsregels te maken, toe te wijzen en te beheren. Met deze beleidsregels worden verschillende regels en effecten afgedwongen voor uw resources, zodat deze resources voldoen aan de standaarden en service level agreements in uw bedrijf. Azure Policy voorziet in deze behoefte door uw resources met toegewezen beleid te controleren op niet-naleving. U kunt bijvoorbeeld beleid hebben op basis waarvan alleen virtuele machines van een bepaalde SKU-grootte in uw omgeving zijn toegestaan. Wanneer dit beleid is geïmplementeerd, worden nieuwe en bestaande resources gecontroleerd op naleving. Met het juiste type beleid kunt u ervoor zorgen dat bestaande resources conform zijn. Verderop in deze documentatie wordt dieper ingegaan op het maken en implementeren van beleidsregels met Azure Policy.
 
 > [!IMPORTANT]
 > Evaluatie van de naleving van Azure Policy is nu beschikbaar voor alle toewijzingen, ongeacht de prijscategorie. Als uw toewijzingen de nalevingsgegevens niet weergeven, controleert u of het abonnement is geregistreerd bij de resourceprovider Microsoft.PolicyInsights.
@@ -144,8 +144,8 @@ Het volgende overzicht van Azure Policy is afkomstig van build 2018. Voor het do
 
 Nu u een overzicht hebt van Azure Policy en enkele van de belangrijkste geïntroduceerde concepten, ziet u hier de voorgestelde volgende stappen:
 
-- [Een beleidsdefinitie met behulp van de portal toewijzen](assign-policy-portal.md)
-- [Een beleidsdefinitie toewijzen met behulp de Azure CLI](assign-policy-azurecli.md)
-- [Een beleidsdefinitie met behulp van PowerShell toewijzen](assign-policy-powershell.md)
+- [Een beleidsdefinitie toewijzen met behulp van de portal](assign-policy-portal.md)
+- [Een beleidsdefinitie toewijzen met behulp van Azure CLI](assign-policy-azurecli.md)
+- [Een beleidsdefinitie toewijzen met behulp van PowerShell](assign-policy-powershell.md)
 - Bekijk wat een beheergroep is met [Resources organiseren met Azure-beheergroepen](..//management-groups/overview.md)
 - Bekijk [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Azure-omgeving beheren via Azure Policy) op kanaal 9

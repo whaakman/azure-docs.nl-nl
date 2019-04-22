@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 9e30337eb8acaa6dc3386f5e60285faa80dd6307
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257906"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Ondersteunde indelingen en codecs voor de compressie in Azure Data Factory
@@ -107,7 +107,7 @@ Kopieeractiviteit kan de volgende patronen van JSON-bestanden parseren:
 
     Elk bestand bevat één object of meerdere door regels gescheiden/samengevoegde objecten. Wanneer deze optie is geselecteerd in een uitvoergegevensset, produceert de kopieerbewerking een enkel JSON-bestand met één object per regel (door regels gescheiden).
 
-    * **Voorbeeld van één object JSON**
+    * **voorbeeld van JSON-bestand met één object**
 
         ```json
         {
@@ -120,7 +120,7 @@ Kopieeractiviteit kan de volgende patronen van JSON-bestanden parseren:
         }
         ```
 
-    * **Voorbeeld van JSON door regels gescheiden**
+    * **voorbeeld van JSON-bestand dat door regels is gescheiden**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
@@ -128,7 +128,7 @@ Kopieeractiviteit kan de volgende patronen van JSON-bestanden parseren:
         {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
         ```
 
-    * **samengevoegde JSON-voorbeeld**
+    * **voorbeeld van JSON-bestand met samengevoegde objecten**
 
         ```json
         {
@@ -230,8 +230,8 @@ en u wilt het kopiëren naar een Azure SQL-tabel in de volgende indeling door ge
 
 De invoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: (gedeeltelijke definitie met alleen belangrijke onderdelen). Met name:
 
-- `structure` gedeelte definieert de aangepaste kolomnamen en het bijbehorende gegevenstype tijdens het converteren van gegevens in tabelvorm. Dit gedeelte is **optioneel**, tenzij u kolommen moet toewijzen. Zie voor meer informatie, [bronkolommen gegevensset worden toegewezen aan de gegevensset doelkolommen](copy-activity-schema-and-type-mapping.md).
-- `jsonPathDefinition` Hiermee geeft u het JSON-pad voor elke kolom die aangeeft waar om op te halen van de gegevens uit. U kunt gebruiken om gegevens te kopiëren van de matrix, `array[x].property` om op te halen van de waarde van de opgegeven eigenschap van de `xth` object, of u kunt gebruiken `array[*].property` gezocht naar de waarde van een object met deze eigenschap.
+- Het gedeelte `structure` definieert de aangepaste kolomnamen en het bijbehorende gegevenstype tijdens het converteren van gegevens in tabelvorm. Dit gedeelte is **optioneel**, tenzij u kolommen moet toewijzen. Zie voor meer informatie, [bronkolommen gegevensset worden toegewezen aan de gegevensset doelkolommen](copy-activity-schema-and-type-mapping.md).
+- Met `jsonPathDefinition` geeft u het JSON-pad op voor elke kolom die aangeeft waar de gegevens moeten worden opgehaald. U kunt gebruiken om gegevens te kopiëren van de matrix, `array[x].property` om op te halen van de waarde van de opgegeven eigenschap van de `xth` object, of u kunt gebruiken `array[*].property` gezocht naar de waarde van een object met deze eigenschap.
 
 ```json
 "properties": {
@@ -268,7 +268,7 @@ De invoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: (
 }
 ```
 
-**Voorbeeld 2: cross toepassing meerdere objecten met hetzelfde patroon van de matrix**
+**Voorbeeld 2: meerdere objecten met hetzelfde patroon uit een matrix toepassen**
 
 In dit voorbeeld probeert u een JSON-hoofdobject te transformeren naar meerdere records in een tabelresultaat. Als u een JSON-bestand hebt met de volgende inhoud:
 
@@ -305,9 +305,9 @@ en u wilt het kopiëren naar een Azure SQL-tabel in de volgende indeling, door d
 
 De invoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: (gedeeltelijke definitie met alleen belangrijke onderdelen). Met name:
 
-- `structure` gedeelte definieert de aangepaste kolomnamen en het bijbehorende gegevenstype tijdens het converteren van gegevens in tabelvorm. Dit gedeelte is **optioneel**, tenzij u kolommen moet toewijzen. Zie voor meer informatie, [bronkolommen gegevensset worden toegewezen aan de gegevensset doelkolommen](copy-activity-schema-and-type-mapping.md).
+- Het gedeelte `structure` definieert de aangepaste kolomnamen en het bijbehorende gegevenstype tijdens het converteren van gegevens in tabelvorm. Dit gedeelte is **optioneel**, tenzij u kolommen moet toewijzen. Zie voor meer informatie, [bronkolommen gegevensset worden toegewezen aan de gegevensset doelkolommen](copy-activity-schema-and-type-mapping.md).
 - `jsonNodeReference` Hiermee wordt aangegeven en dat er gegevens ophalen uit de objecten met hetzelfde patroon onder **matrix** `orderlines`.
-- `jsonPathDefinition` Hiermee geeft u het JSON-pad voor elke kolom die aangeeft waar om op te halen van de gegevens uit. In dit voorbeeld `ordernumber`, `orderdate`, en `city` zijn onder het hoofdobject met JSON-pad begint met `$.`, terwijl `order_pd` en `order_price` zijn gedefinieerd met het pad dat is afgeleid van het matrixelement zonder `$.` .
+- Met `jsonPathDefinition` geeft u het JSON-pad op voor elke kolom die aangeeft waar de gegevens moeten worden opgehaald. In dit voorbeeld `ordernumber`, `orderdate`, en `city` zijn onder het hoofdobject met JSON-pad begint met `$.`, terwijl `order_pd` en `order_price` zijn gedefinieerd met het pad dat is afgeleid van het matrixelement zonder `$.` .
 
 ```json
 "properties": {

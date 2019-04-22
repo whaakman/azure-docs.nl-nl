@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: ba0f584e8026fe3828ec79c4b6c0ff5a0bb89f5a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492359"
 ---
 # <a name="connect-data-sources"></a>Verbinding maken met gegevensbronnen
@@ -42,7 +42,7 @@ De volgende gegevens verbindingsmethoden worden ondersteund door Azure Sentinel:
     - [Office 365](connect-office-365.md)
     - [Azure AD controleren, logboeken en -aanmeldingen](connect-azure-active-directory.md)
     - [Azure Activity](connect-azure-activity.md)
-    - [Azure AD-identiteitsbeveiliging](connect-azure-ad-Identity-protection.md)
+    - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Azure Security Center](connect-azure-security-center.md)
     - [Azure Information Protection](connect-azure-information-protection.md)
     - [Azure Advanced Threat Protection](connect-azure-atp.md)
@@ -58,7 +58,7 @@ De volgende gegevens verbindingsmethoden worden ondersteund door Azure Sentinel:
         - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
-        - [Fortinet](connect-fortinet.md)
+        - [De Fortinet](connect-fortinet.md)
         - [Palo Alto](connect-paloalto.md)
         - [Andere CEF-apparaten](connect-common-event-format.md)
         - [Andere apparaten Syslog](connect-syslog.md)

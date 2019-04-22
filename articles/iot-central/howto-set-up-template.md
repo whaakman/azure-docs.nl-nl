@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 602c7385b252daa7db22bd47f43afec3ad072263
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: db8c8de7a8047f7aa6a81f6a3b372d161408f1be
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904199"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679343"
 ---
-# <a name="set-up-a-device-template-new-ui-design"></a>Instellen van een apparaat-sjabloon (nieuwe gebruikersinterface ontwerp)
+# <a name="set-up-a-device-template"></a>Een sjabloon van het apparaat instellen
 
 Een apparaat-sjabloon is een blauwdruk die definieert de kenmerken en het gedrag van een type apparaat dat is verbonden met een Azure IoT Central-toepassing.
 

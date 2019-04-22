@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: diberry
 ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266934"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Zelfstudie: Een kennisdatabase maken vanuit de QnA Maker portal
@@ -67,7 +67,7 @@ Voor deze zelfstudie moet u beschikken over een bestaande [QnA Maker-service](..
     |Naam van instelling|Instellingswaarde|Doel|
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |De inhoud van de veelgestelde vragen bij die URL zijn ingedeeld met een vraag gevolgd door een antwoord. QnA Maker kan deze indeling interpreteren om vragen en de bijbehorende antwoorden te extraheren.|
-    |File |_in deze zelfstudie niet gebruikt_|Hiermee worden bestanden voor vragen en antwoorden geüpload. |
+    |File |_niet gebruikt in deze zelfstudie_|Hiermee worden bestanden voor vragen en antwoorden geüpload. |
     |De persoonlijkheid 'Heen- en weergepraat'|De vriend(in)|Dit biedt een vriendelijke en informele persoonlijkheid voor veelgestelde vragen en antwoorden. U kunt deze vragen en antwoorden later bewerken. |
 
     ![Stap 4 van het proces voor het maken van een KB](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051560"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Maak een instantie van Azure Network Watcher
@@ -111,7 +111,7 @@ Nu dat u een exemplaar van Network Watcher hebt, kunt u informatie over de besch
 * [Pakketopname](network-watcher-packet-capture-overview.md)
 * [IP-stroomverificatie](network-watcher-ip-flow-verify-overview.md)
 * [Volgende hop](network-watcher-next-hop-overview.md)
-* [Weergave van de beveiligingsgroep](network-watcher-security-group-view-overview.md)
+* [Beveiligingsgroepweergave](network-watcher-security-group-view-overview.md)
 * [NSG-stroomlogboeken](network-watcher-nsg-flow-logging-overview.md)
 * [Virtuele netwerkgateway oplossen](network-watcher-troubleshoot-overview.md)
 

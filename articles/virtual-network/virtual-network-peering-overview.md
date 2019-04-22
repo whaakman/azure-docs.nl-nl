@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: e6c5a9aa3e4e173ecfc79f4072d091493677afed
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b65bad57a300d941774f5d3e5d01967f0c13d684
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489978"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678476"
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -63,8 +63,7 @@ Wanneer virtuele netwerken gelijkwaardig zijn gemaakt, kunt u ook de gateway in 
 
 ![doorvoer bij peering van virtuele netwerken](./media/virtual-networks-peering-overview/figure04.png)
 
-Gatewayovergang wordt voor VNet-Peering en wereldwijde VNet-Peering (preview) ondersteund. U kunt externe gateways gebruiken of gatewayoverdracht toestaan in wereldwijd gekoppelde virtuele netwerken in de Preview-versie. De Preview-versie is beschikbaar in alle Azure-regio's, China-cloud-regio's en Government cloud-regio's. Er is geen opname in de whitelist is vereist. U kunt in de Preview-versie via de CLI, PowerShell, sjablonen of API testen. Portal wordt niet ondersteund in de Preview-versie.
-Gateway-doorvoer tussen virtuele netwerken die zijn gemaakt via verschillende implementatiemodellen (Resource Manager en klassiek) wordt alleen ondersteund als de gateway zich in het virtuele netwerk (Resource Manager). Zie voor meer informatie over het gebruik van een gateway voor de doorvoer, [Een VPN-gateway configureren voor de doorvoer in een virtueel netwerkpeering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Gatewaydoorvoer wordt ondersteund voor wereldwijde VNet-Peering en VNet-Peering. Gateway-doorvoer tussen virtuele netwerken die zijn gemaakt via verschillende implementatiemodellen (Resource Manager en klassiek) wordt alleen ondersteund als de gateway zich in het virtuele netwerk (Resource Manager). Zie voor meer informatie over het gebruik van een gateway voor de doorvoer, [Een VPN-gateway configureren voor de doorvoer in een virtueel netwerkpeering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Wanneer virtuele netwerken die één Azure ExpressRoute-verbinding delen, worden gekoppeld, gaat het verkeer tussen de twee netwerken via de peering-relatie (dat wil zeggen, via het backbone-netwerk van Azure). U kunt nog steeds in elk virtueel netwerk lokale gateways gebruiken om verbinding te maken met het on-premises circuit. U kunt ook een gedeelde gateway gebruiken en de doorvoer voor on-premises connectiviteit configureren.
 
@@ -99,10 +98,10 @@ Gatewayoverdracht is een peeringeigenschap die zorgt dat een virtueel netwerk ee
 
     |Azure-implementatiemodel             | Abonnement  |
     |---------                          |---------|
-    |Beide in Resource Manager              |[Dezelfde](tutorial-connect-virtual-networks-portal.md)|
-    |                                   |[Verschil](create-peering-different-subscriptions.md)|
-    |Eén in Resource Manager, één klassiek  |[Dezelfde](create-peering-different-deployment-models.md)|
-    |                                   |[Verschil](create-peering-different-deployment-models-subscriptions.md)|
+    |Beide in Resource Manager              |[Hetzelfde](tutorial-connect-virtual-networks-portal.md)|
+    |                                   |[Verschillend](create-peering-different-subscriptions.md)|
+    |Eén in Resource Manager, één klassiek  |[Hetzelfde](create-peering-different-deployment-models.md)|
+    |                                   |[Verschillend](create-peering-different-deployment-models-subscriptions.md)|
 
 * Meer informatie over het maken van een [hub-en-spoke-netwerktopologie](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Meer informatie over alle [instellingen van peering in virtuele netwerken en hoe u deze kunt aanpassen](virtual-network-manage-peering.md).

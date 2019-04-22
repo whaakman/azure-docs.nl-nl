@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
 ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281213"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
@@ -33,7 +33,7 @@ In dit artikel geeft een lijst van de ingebouwde rollen voor Azure-resources, di
 De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de naam van de rol voor een overzicht van `Actions`, `NotActions`, `DataActions`, en `NotDataActions` voor elke rol. Zie voor meer informatie over de betekenis van deze acties en hoe ze van toepassing op het beheer en vlakken [roldefinities voor Azure-resources begrijpen](role-definitions.md).
 
 
-| Ingebouwde rol | Description |
+| Ingebouwde rol | Beschrijving |
 | --- | --- |
 | [Eigenaar](#owner) | Hiermee beheert u alles, inclusief de toegang tot resources. |
 | [Inzender](#contributor) | Hiermee beheert u alles, behalve de toegang tot resources. |
@@ -44,100 +44,100 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 | [AcrPush](#acrpush) | acr push |
 | [AcrQuarantineReader](#acrquarantinereader) | acr-quarantainegegevenslezer |
 | [AcrQuarantineWriter](#acrquarantinewriter) | acr-quarantainegegevensschrijver |
-| [Inzender voor API Management-services](#api-management-service-contributor) | Kan de service en de API's beheren |
-| [Operator-rol voor de API Management-service](#api-management-service-operator-role) | Kan de service beheren, maar niet de API's |
-| [Lezerrol voor de API Management-service](#api-management-service-reader-role) | Alleen-lezentoegang tot de service en API's |
-| [Inzender voor Application Insights-onderdelen](#application-insights-component-contributor) | Kan onderdelen van Application Insights beheren |
+| [Inzender voor API Management-Services](#api-management-service-contributor) | Kan de service en de API's beheren |
+| [Rol Operator API Management-Service](#api-management-service-operator-role) | Kan de service beheren, maar niet de API's |
+| [Rol Lezer API Management-Service](#api-management-service-reader-role) | Alleen-lezentoegang tot de service en API's |
+| [Application Insights-Onderdeelinzender](#application-insights-component-contributor) | Kan onderdelen van Application Insights beheren |
 | [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Biedt de gebruiker toestemming voor het weergeven en downloaden van momentopnamen voor foutopsporing die zijn verzameld met Application Insights Snapshot Debugger. Houd er rekening mee dat deze machtigingen zijn niet opgenomen in de [eigenaar](#owner) of [Inzender](#contributor) rollen. |
-| [Operator voor Automation-taak](#automation-job-operator) | Taken maken en beheren met Automation-runbooks. |
-| [Automation-operator](#automation-operator) | Operators voor Automation kunnen taken starten, stoppen, onderbreken en hervatten |
-| [Operator voor Automation-runbook](#automation-runbook-operator) | Runbook-eigenschappen lezen: hiermee kunnen taken van de runbook worden gemaakt. |
+| [Operator voor Automation](#automation-job-operator) | Taken maken en beheren met Automation-runbooks. |
+| [Automation-Operator](#automation-operator) | Operators voor Automation kunnen taken starten, stoppen, onderbreken en hervatten |
+| [Operator voor Automation-Runbook](#automation-runbook-operator) | Runbook-eigenschappen lezen: hiermee kunnen taken van de runbook worden gemaakt. |
 | [Avere Inzender](#avere-contributor) | Kan maken en beheren van een Avere vFXT-cluster. |
 | [Avere Operator](#avere-operator) | Gebruikt door het Avere vFXT-cluster voor het beheren van het cluster |
-| [Clusterbeheerderrol voor Azure Kubernetes Service](#azure-kubernetes-service-cluster-admin-role) | Referentieactie voor clusterbeheer weergeven. |
-| [Clustergebruikersrol voor Azure Kubernetes Service](#azure-kubernetes-service-cluster-user-role) | Referentieactie voor clustergebruiker weergeven. |
-| [Eigenaar Azure Stack-registratie](#azure-stack-registration-owner) | Hiermee kunt u Azure Stack-registraties beheren. |
-| [Back-upinzender](#backup-contributor) | Hiermee kunt u de back-upservice beheren, maar u kunt geen kluizen maken of anderen toegang verlenen |
+| [Beheerdersrol voor Azure Kubernetes Service-Cluster](#azure-kubernetes-service-cluster-admin-role) | Referentieactie voor clusterbeheer weergeven. |
+| [Azure Kubernetes Service-Cluster-gebruikersrol](#azure-kubernetes-service-cluster-user-role) | Referentieactie voor clustergebruiker weergeven. |
+| [De eigenaar van de Azure Stack-registratie](#azure-stack-registration-owner) | Hiermee kunt u Azure Stack-registraties beheren. |
+| [Back-Inzender](#backup-contributor) | Hiermee kunt u de back-upservice beheren, maar u kunt geen kluizen maken of anderen toegang verlenen |
 | [Back-upoperator](#backup-operator) | Hiermee kunt u back-upservices beheren, met uitzondering van het verwijderen van back-ups, het maken van kluizen en het verlenen van toegang aan anderen |
-| [Back-uplezer](#backup-reader) | Kan de back-upservices weergeven, maar kan geen wijzigingen aanbrengen |
-| [Lezer voor facturering](#billing-reader) | Hiermee wordt leestoegang gegeven tot factureringsgegevens |
-| [Inzender voor BizTalk](#biztalk-contributor) | Hiermee beheert u BizTalk-services, maar kunt u niet de toegang tot de services beheren. |
+| [Back-Uplezer](#backup-reader) | Kan de back-upservices weergeven, maar kan geen wijzigingen aanbrengen |
+| [Facturering voor lezer](#billing-reader) | Hiermee wordt leestoegang gegeven tot factureringsgegevens |
+| [BizTalk Contributor](#biztalk-contributor) | Hiermee beheert u BizTalk-services, maar kunt u niet de toegang tot de services beheren. |
 | [Inzender voor CDN-eindpunt](#cdn-endpoint-contributor) | Kan CDN-eindpunten beheren, maar kan geen toegang verlenen aan andere gebruikers. |
 | [Lezer voor CDN-eindpunt](#cdn-endpoint-reader) | Kan CDN-eindpunten weergeven, maak kan geen wijzigingen aanbrengen. |
 | [Inzender voor CDN-profiel](#cdn-profile-contributor) | Kan CDN-profielen en de bijbehorende eindpunten beheren, maar kan geen toegang verlenen aan andere gebruikers. |
 | [Lezer voor CDN-profiel](#cdn-profile-reader) | Kan CDN-profielen en de bijbehorende eindpunten weergeven, maak kan geen wijzigingen aanbrengen. |
 | [Inzender voor klassieke netwerken](#classic-network-contributor) | Hiermee beheert u klassieke netwerken, maar kunt u niet de toegang tot de netwerken beheren. |
-| [Inzender voor klassieke opslagaccounts](#classic-storage-account-contributor) | Hiermee kunt u klassieke opslagaccounts beheren, maar niet de toegang. |
-| [De servicerol Sleuteloperator voor klassieke opslagaccounts](#classic-storage-account-key-operator-service-role) | Sleuteloperators voor klassieke opslagaccounts kunnen een lijst met sleutels voor klassieke opslagaccounts maken en de sleutels opnieuw genereren |
+| [Inzender voor klassieke Opslagaccounts](#classic-storage-account-contributor) | Hiermee kunt u klassieke opslagaccounts beheren, maar niet de toegang. |
+| [Klassieke opslag Account servicerol Sleuteloperator](#classic-storage-account-key-operator-service-role) | Sleuteloperators voor klassieke opslagaccounts kunnen een lijst met sleutels voor klassieke opslagaccounts maken en de sleutels opnieuw genereren |
 | [Inzender voor klassieke virtuele machines](#classic-virtual-machine-contributor) | Hiermee beheert u klassieke virtuele machines, maar kunt u niet de toegang tot de virtuele machines of het virtuele netwerk of opslagaccount beheren waaraan de virtuele machines zijn gekoppeld. |
-| [Inzender voor Cognitive Services](#cognitive-services-contributor) | Hiermee kunt u sleutels van Cognitive Services maken, lezen, bijwerken, verwijderen en beheren. |
-| [Lezer van Cognitive Services-gegevens (preview)](#cognitive-services-data-reader-preview) | Hiermee kunt gegevens van Cognitive Services lezen |
-| [Cognitive Services-gebruiker](#cognitive-services-user) | Hiermee kunt sleutels van Cognitive Services lezen en weergeven. |
-| [Rol van lezer voor Cosmos DB-account](#cosmos-db-account-reader-role) | Kan Azure Cosmos DB-accountgegevens lezen. Zie [Inzender voor DocumentDB-Account](#documentdb-account-contributor) voor het beheren van Azure Cosmos DB-accounts. |
+| [Inzender voor cognitive Services](#cognitive-services-contributor) | Hiermee kunt u sleutels van Cognitive Services maken, lezen, bijwerken, verwijderen en beheren. |
+| [Gegevenslezer voor cognitive Services (Preview)](#cognitive-services-data-reader-preview) | Hiermee kunt gegevens van Cognitive Services lezen |
+| [Cognitive Services User](#cognitive-services-user) | Hiermee kunt sleutels van Cognitive Services lezen en weergeven. |
+| [Rol van lezer voor cosmos DB-Account](#cosmos-db-account-reader-role) | Kan Azure Cosmos DB-accountgegevens lezen. Zie [Inzender voor DocumentDB-Account](#documentdb-account-contributor) voor het beheren van Azure Cosmos DB-accounts. |
 | [CosmosBackupOperator](#cosmosbackupoperator) | Hiermee kan een aanvraag voor herstel van een Cosmos DB-database of een container voor een account worden verzonden |
-| [Inzender Cost Management](#cost-management-contributor) | Kan kosten weergeven en kostenconfiguratie beheren (bijvoorbeeld budgetten, exports) |
-| [Reader Cost Management](#cost-management-reader) | Kan kostengegevens en configuratie weergeven (bijvoorbeeld budgetten, exports) |
-| [Inzender Data Box](#data-box-contributor) | Hiermee kunt u alles onder de Data Box-service beheren behalve toegang verlenen aan anderen. |
-| [Data Box-reader](#data-box-reader) | Hiermee kunt u de Data Box-service beheren behalve orders maken of details van orders bewerken en toegang geven aan anderen. |
+| [Inzender voor kostenbeheer](#cost-management-contributor) | Kan kosten weergeven en kostenconfiguratie beheren (bijvoorbeeld budgetten, exports) |
+| [Kostenbeheer-lezer](#cost-management-reader) | Kan kostengegevens en configuratie weergeven (bijvoorbeeld budgetten, exports) |
+| [Inzender voor Data Box](#data-box-contributor) | Hiermee kunt u alles onder de Data Box-service beheren behalve toegang verlenen aan anderen. |
+| [Data Box-lezer](#data-box-reader) | Hiermee kunt u de Data Box-service beheren behalve orders maken of details van orders bewerken en toegang geven aan anderen. |
 | [Inzender Data Factory](#data-factory-contributor) | Data factory's en de onderliggende resources hierin maken en beheren. |
-| [Ontwikkelaar voor Data Lake Analytics](#data-lake-analytics-developer) | Hiermee kunt u uw eigen taken indienen, controleren en beheren, maar geen Data Lake Analytics-accounts maken of verwijderen. |
-| [Gegevensverwijderaar](#data-purger) | Kan analytische gegevens verwijderen |
-| [DevTest Labs-gebruiker](#devtest-labs-user) | Hiermee kunt u verbinding maken met virtuele machines in Azure DevTest Labs en de virtuele machines starten, opnieuw starten en afsluiten. |
-| [Inzender voor DNS-zone](#dns-zone-contributor) | Hiermee kunt u DNS-zones en recordsets beheren in Azure DNS, maar kunt u niet bepalen wie toegang heeft. |
-| [Inzender voor het DocumentDB-account](#documentdb-account-contributor) | Kan Azure Cosmos DB-accounts beheren. Azure Cosmos DB is voorheen bekend als DocumentDB. |
-| [Inzender van abonnement voor EventGrid-gebeurtenissen](#eventgrid-eventsubscription-contributor) | Hiermee kunt u bewerkingen van abonnementen voor EventGrid-gebeurtenissen beheren. |
-| [Lezer van abonnement voor EventGrid-gebeurtenissen](#eventgrid-eventsubscription-reader) | Hiermee kunt u abonnementen voor EventGrid-gebeurtenissen lezen. |
-| [Inzender HDInsight Domain Services](#hdinsight-domain-services-contributor) | Kan bewerkingen met betrekking tot domeinservices lezen, maken, wijzigen en verwijderen die nodig zijn voor HDInsight Enterprise-beveiligingspakket |
-| [Inzender voor ISS-accounts](#intelligent-systems-account-contributor) | Hiermee beheert u Intelligent Systems-accounts, maar kunt u niet de toegang tot de accounts beheren. |
+| [Data Lake Analytics-ontwikkelaar](#data-lake-analytics-developer) | Hiermee kunt u uw eigen taken indienen, controleren en beheren, maar geen Data Lake Analytics-accounts maken of verwijderen. |
+| [Data Purger](#data-purger) | Kan analytische gegevens verwijderen |
+| [DevTest Labs User](#devtest-labs-user) | Hiermee kunt u verbinding maken met virtuele machines in Azure DevTest Labs en de virtuele machines starten, opnieuw starten en afsluiten. |
+| [Inzender voor DNS-Zone](#dns-zone-contributor) | Hiermee kunt u DNS-zones en recordsets beheren in Azure DNS, maar kunt u niet bepalen wie toegang heeft. |
+| [Inzender voor het DocumentDB-Account](#documentdb-account-contributor) | Kan Azure Cosmos DB-accounts beheren. Azure Cosmos DB is voorheen bekend als DocumentDB. |
+| [EventGrid EventSubscription Inzender](#eventgrid-eventsubscription-contributor) | Hiermee kunt u bewerkingen van abonnementen voor EventGrid-gebeurtenissen beheren. |
+| [EventGrid EventSubscription lezer](#eventgrid-eventsubscription-reader) | Hiermee kunt u abonnementen voor EventGrid-gebeurtenissen lezen. |
+| [HDInsight Domain Services-Inzender](#hdinsight-domain-services-contributor) | Kan bewerkingen met betrekking tot domeinservices lezen, maken, wijzigen en verwijderen die nodig zijn voor HDInsight Enterprise-beveiligingspakket |
+| [Inzender voor het Account van de intelligente systemen](#intelligent-systems-account-contributor) | Hiermee beheert u Intelligent Systems-accounts, maar kunt u niet de toegang tot de accounts beheren. |
 | [Inzender voor Key Vault](#key-vault-contributor) | Hiermee kunt u sleutelkluizen beheren, maar niet de toegang hiertoe. |
 | [Labmaker](#lab-creator) | Hiermee kunt u beheerde labs maken, beheren en verwijderen in uw Azure Lab-accounts. |
-| [Inzender van Log Analytics](#log-analytics-contributor) | Inzender van log Analytics kan alle controlegegevens lezen en bewerken van instellingen voor controle. Bewerken van instellingen voor controle houdt het toevoegen van de VM-extensie voor virtuele machines; lezen van opslagaccountsleutels om te kunnen verzamelen van Logboeken van Azure Storage; configureren het maken en configureren van Automation-accounts; toevoegen van oplossingen en Azure diagnostics configureren op alle Azure-resources. |
-| [Lezer van Log Analytics](#log-analytics-reader) | De lezer van Log Analytics kan alle controlegegevens weergeven en doorzoeken en de controle-instellingen weergeven, inclusief het weergeven van de configuratie van Azure Diagnostics op alle Azure-resources. |
-| [Logische app-bijdrager](#logic-app-contributor) | Hiermee kunt u logische apps beheren, maar niet de toegang hiertoe. |
-| [Logische app-operator](#logic-app-operator) | Hiermee kunt u logische apps lezen, inschakelen en uitschakelen. |
-| [Operatorrol voor beheerde toepassingen](#managed-application-operator-role) | Hiermee kunt u acties op resources van beheerde toepassingen lezen en uitvoeren |
-| [Reader Beheerde toepassingen](#managed-applications-reader) | Hiermee kunt u resources in een beheerde app lezen en JIT-toegang aanvragen. |
+| [Inzender van log Analytics](#log-analytics-contributor) | Inzender van log Analytics kan alle controlegegevens lezen en bewerken van instellingen voor controle. Bewerken van instellingen voor controle houdt het toevoegen van de VM-extensie voor virtuele machines; lezen van opslagaccountsleutels om te kunnen verzamelen van Logboeken van Azure Storage; configureren het maken en configureren van Automation-accounts; toevoegen van oplossingen en Azure diagnostics configureren op alle Azure-resources. |
+| [Lezer van log Analytics](#log-analytics-reader) | De lezer van Log Analytics kan alle controlegegevens weergeven en doorzoeken en de controle-instellingen weergeven, inclusief het weergeven van de configuratie van Azure Diagnostics op alle Azure-resources. |
+| [Logische App-bijdrager](#logic-app-contributor) | Hiermee kunt u logische apps beheren, maar niet de toegang hiertoe. |
+| [Logische App-Operator](#logic-app-operator) | Hiermee kunt u logische apps lezen, inschakelen en uitschakelen. |
+| [De Operatorrol beheerde toepassing](#managed-application-operator-role) | Hiermee kunt u acties op resources van beheerde toepassingen lezen en uitvoeren |
+| [Beheerde toepassingen-lezer](#managed-applications-reader) | Hiermee kunt u resources in een beheerde app lezen en JIT-toegang aanvragen. |
 | [Inzender beheerde identiteit](#managed-identity-contributor) | Door gebruiker toegewezen identiteit maken, lezen, bijwerken en verwijderen |
 | [Operator beheerde identiteit](#managed-identity-operator) | Door gebruiker toegewezen identiteit maken en toewijzen |
-| [Inzender beheergroep](#management-group-contributor) | Rol Inzender beheergroep |
-| [Lezer beheergroep](#management-group-reader) | Rol Lezer beheergroep |
-| [Bijdrager voor bewaking](#monitoring-contributor) | Kan alle controlegegevens lezen en bewerken van instellingen voor controle. Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
-| [Uitgever van metrische gegevens voor bewaking](#monitoring-metrics-publisher) | Hiermee kunnen metrische gegevens tegen Azure-resources worden gepubliceerd |
-| [Lezer voor bewaking](#monitoring-reader) | Kan alle controlegegevens lezen (metrische gegevens, Logboeken, enz.). Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
+| [Beheergroep-Inzender](#management-group-contributor) | Rol Inzender beheergroep |
+| [Lezer van de beheergroep](#management-group-reader) | Rol Lezer beheergroep |
+| [Controlebijdrager](#monitoring-contributor) | Kan alle controlegegevens lezen en bewerken van instellingen voor controle. Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
+| [Uitgever van de metrische gegevens controleren](#monitoring-metrics-publisher) | Hiermee kunnen metrische gegevens tegen Azure-resources worden gepubliceerd |
+| [Controlelezer](#monitoring-reader) | Kan alle controlegegevens lezen (metrische gegevens, Logboeken, enz.). Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 | [Inzender voor netwerken](#network-contributor) | Hiermee beheert u netwerken, maar kunt u niet de toegang tot de netwerken beheren. |
-| [Inzender voor het New Relic APM-account](#new-relic-apm-account-contributor) | Hiermee beheert u New Relic Application Performance Management-accounts en -toepassingen, maar kunt u niet de toegang tot de accounts en toepassingen beheren. |
-| [Lezer- en gegevenstoegang](#reader-and-data-access) | Hiermee kunt u Alles weergeven, maar kunt u verwijderen of te maken van een storage-account of een ingesloten resource niet. Er kunnen ook toegang tot alle gegevens in een opslagaccount verleend via toegang tot opslagaccountsleutels lezen/schrijven. |
-| [Inzender voor Redis-caches](#redis-cache-contributor) | Hiermee beheert u exemplaren van Redis-cache, maar kunt u niet de toegang tot de exemplaren beheren. |
-| [Inzender voor resourcebeleid (preview-versie)](#resource-policy-contributor-preview) | (Preview) Gebruikers gevuld vanuit EA, met rechten voor het maken/wijzigen voor resourcebeleid, supportticket maken en het lezen van resources/hiërarchie. |
-| [Inzender voor Scheduler-taakverzamelingen](#scheduler-job-collections-contributor) | Hiermee beheert u Scheduler-taakverzamelingen, maar kunt u niet de toegang tot de verzamelingen beheren. |
-| [Inzender voor Search-services](#search-service-contributor) | Hiermee beheert u Search-services, maar kunt u niet de toegang tot de services beheren. |
+| [Nieuwe Relic APM-Account Inzender](#new-relic-apm-account-contributor) | Hiermee beheert u New Relic Application Performance Management-accounts en -toepassingen, maar kunt u niet de toegang tot de accounts en toepassingen beheren. |
+| [Lezer en toegang tot gegevens](#reader-and-data-access) | Hiermee kunt u Alles weergeven, maar kunt u verwijderen of te maken van een storage-account of een ingesloten resource niet. Er kunnen ook toegang tot alle gegevens in een opslagaccount verleend via toegang tot opslagaccountsleutels lezen/schrijven. |
+| [Redis-Cache-Inzender](#redis-cache-contributor) | Hiermee beheert u exemplaren van Redis-cache, maar kunt u niet de toegang tot de exemplaren beheren. |
+| [Inzender voor Resourcebeleid (Preview)](#resource-policy-contributor-preview) | (Preview) Gebruikers gevuld vanuit EA, met rechten voor het maken/wijzigen voor resourcebeleid, supportticket maken en het lezen van resources/hiërarchie. |
+| [Inzender voor Scheduler-taak](#scheduler-job-collections-contributor) | Hiermee beheert u Scheduler-taakverzamelingen, maar kunt u niet de toegang tot de verzamelingen beheren. |
+| [Inzender voor Search-Services](#search-service-contributor) | Hiermee beheert u Search-services, maar kunt u niet de toegang tot de services beheren. |
 | [Beveiligingsbeheerder](#security-admin) | In Security Center: Kan weergeven beveiligingsbeleid, security-status weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, negeren van waarschuwingen en aanbevelingen |
 | [Beveiligingsbeheer (verouderd)](#security-manager-legacy) | Dit is een verouderde rol. Gebruik in plaats hiervan beveiligingsbeheerder |
 | [Beveiligingslezer](#security-reader) | In Security Center: Aanbevelingen en waarschuwingen, weergave beveiligingsbeleid van de status van de beveiliging weergeven, maar kan geen wijzigingen aanbrengen kunt weergeven |
-| [Site Recovery-inzender](#site-recovery-contributor) | Hiermee kunt u de Site Recovery-service beheren, maar geen kluizen maken of rollen toewijzen |
-| [Site Recovery-operator](#site-recovery-operator) | Hiermee kunt u failover en fallback uitvoeren, maar geen andere beheerbewerkingen voor Site Recovery |
+| [Site Recovery-Inzender](#site-recovery-contributor) | Hiermee kunt u de Site Recovery-service beheren, maar geen kluizen maken of rollen toewijzen |
+| [Site Recovery-Operator](#site-recovery-operator) | Hiermee kunt u failover en fallback uitvoeren, maar geen andere beheerbewerkingen voor Site Recovery |
 | [Site Recovery-lezer](#site-recovery-reader) | Hiermee kunt u de Site Recovery-status weergeven maar geen andere beheerbewerkingen voor Site Recovery uitvoeren |
-| [Inzender voor Spatial Anchors-account](#spatial-anchors-account-contributor) | Hiermee kunt u ruimtelijke ankers in uw account beheren, maar de ankers niet verwijderen |
-| [Eigenaar van Spatial Anchors-account](#spatial-anchors-account-owner) | Hiermee kunt u ruimtelijke ankers in uw account beheren, waaronder de ankers verwijderen |
-| [Lezer voor Spatial Anchors-account](#spatial-anchors-account-reader) | Hiermee kunt u eigenschappen van ruimtelijke ankers in uw account zoeken en lezen |
-| [Inzender voor SQL-databases](#sql-db-contributor) | Kunt u SQL-databases, maar niet de toegang tot beheren. U beheren niet ook hun beveiligingsbeleid of de bovenliggende SQL-servers. |
-| [SQL-beveiligingsbeheer](#sql-security-manager) | Hiermee kunt u beveiligingsbeleid van SQL-servers en -databases beheren, maar niet de toegang tot het beleid. |
+| [Inzender voor het Account van de ruimtelijke ankers](#spatial-anchors-account-contributor) | Hiermee kunt u ruimtelijke ankers in uw account beheren, maar de ankers niet verwijderen |
+| [De accounteigenaar ruimtelijke ankers](#spatial-anchors-account-owner) | Hiermee kunt u ruimtelijke ankers in uw account beheren, waaronder de ankers verwijderen |
+| [Ruimtelijke ankers Account Reader](#spatial-anchors-account-reader) | Hiermee kunt u eigenschappen van ruimtelijke ankers in uw account zoeken en lezen |
+| [' SQL DB Contributor '](#sql-db-contributor) | Kunt u SQL-databases, maar niet de toegang tot beheren. U beheren niet ook hun beveiligingsbeleid of de bovenliggende SQL-servers. |
+| [SQL Security Manager](#sql-security-manager) | Hiermee kunt u beveiligingsbeleid van SQL-servers en -databases beheren, maar niet de toegang tot het beleid. |
 | [Inzender voor SQL Server](#sql-server-contributor) | Hiermee kunt u SQL-servers en -databases beheren, maar niet de toegang tot en het beveiligingsbeleid van de servers en databases. |
 | [Inzender voor opslagaccounts](#storage-account-contributor) | Hiermee kunt u opslagaccounts beheren, maar niet de toegang. |
-| [De servicerol Sleuteloperator voor opslagaccounts](#storage-account-key-operator-service-role) | Sleuteloperators voor opslagaccounts kunnen een lijst met sleutels voor opslagaccounts maken en de sleutels opnieuw genereren |
-| [Bijdrager voor opslagblobgegevens](#storage-blob-data-contributor) | Hiermee wordt lees-, schrijf- en verwijdertoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
-| [Eigenaar van opslagblobgegevens](#storage-blob-data-owner) | Hiermee wordt volledige toegang toegestaan tot Azure Storage Blob-containers en -gegevens, waaronder het toewijzen van POSIX-toegangscontrole. |
-| [Lezer voor opslagblobgegevens](#storage-blob-data-reader) | Hiermee wordt leestoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
-| [Bijdrager voor opslagwachtrijgegevens](#storage-queue-data-contributor) | Hiermee wordt lees-, schrijf- en verwijdertoegang tot Azure Storage-wachtrijen en -wachtrijberichten verleend. |
-| [Berichtenprocessor voor opslagwachtrijgegevens](#storage-queue-data-message-processor) | Hiermee wordt toegang voor kort weergeven, ontvangen en verwijderen van Azure Storage-wachtrijberichten verleend |
-| [Berichtenverzender voor opslagwachtrijgegevens](#storage-queue-data-message-sender) | Hiermee kunt u Azure Storage-wachtrijberichten verzenden |
-| [Gegevenslezer voor opslagwachtrij](#storage-queue-data-reader) | Hiermee wordt leestoegang verleend voor Azure Storage-wachtrijen en -wachtrijberichten. |
+| [Storage-Account servicerol Sleuteloperator](#storage-account-key-operator-service-role) | Sleuteloperators voor opslagaccounts kunnen een lijst met sleutels voor opslagaccounts maken en de sleutels opnieuw genereren |
+| [Gegevensbijdrager voor Blob](#storage-blob-data-contributor) | Hiermee wordt lees-, schrijf- en verwijdertoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
+| [De eigenaar van een opslag-Blob-gegevens](#storage-blob-data-owner) | Hiermee wordt volledige toegang toegestaan tot Azure Storage Blob-containers en -gegevens, waaronder het toewijzen van POSIX-toegangscontrole. |
+| [Gegevenslezer voor Opslagblob](#storage-blob-data-reader) | Hiermee wordt leestoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
+| [Gegevensbijdrager voor wachtrij](#storage-queue-data-contributor) | Hiermee wordt lees-, schrijf- en verwijdertoegang tot Azure Storage-wachtrijen en -wachtrijberichten verleend. |
+| [Storage Queue Gegevensverwerker bericht](#storage-queue-data-message-processor) | Hiermee wordt toegang voor kort weergeven, ontvangen en verwijderen van Azure Storage-wachtrijberichten verleend |
+| [Storage Queue gegevens afzender](#storage-queue-data-message-sender) | Hiermee kunt u Azure Storage-wachtrijberichten verzenden |
+| [Gegevenslezer voor Opslagwachtrij](#storage-queue-data-reader) | Hiermee wordt leestoegang verleend voor Azure Storage-wachtrijen en -wachtrijberichten. |
 | [Inzender voor ondersteuningsaanvragen](#support-request-contributor) | Hiermee kunt u ondersteuningsaanvragen maken en beheren |
 | [Inzender voor Traffic Manager](#traffic-manager-contributor) | Hiermee kunt u Traffic Manager-profielen beheren, maar kunt u niet bepalen wie toegang heeft. |
 | [Beheerder van gebruikerstoegang](#user-access-administrator) | Hiermee beheert u de gebruikerstoegang tot Azure-resources. |
 | [Beheerdersaanmelding bij virtuele Machine](#virtual-machine-administrator-login) | Virtuele machines in de portal weergeven en aanmelden als beheerder |
 | [Inzender voor virtuele machines](#virtual-machine-contributor) | Hiermee beheert u virtuele machines, maar kunt u niet de toegang tot de virtuele machines of het virtuele netwerk of opslagaccount waaraan de virtuele machines zijn gekoppeld, beheren. |
-| [Gebruikersaanmelding bij virtuele machine](#virtual-machine-user-login) | Virtuele machines weergeven in de portal en aanmelden als normale gebruiker. |
+| [Gebruikersaanmelding bij virtuele Machine](#virtual-machine-user-login) | Virtuele machines weergeven in de portal en aanmelden als normale gebruiker. |
 | [Inzender voor webabonnementen](#web-plan-contributor) | Hiermee beheert u de webabonnementen voor websites, maar kunt u niet de toegang tot de abonnementen beheren. |
 | [Inzender voor websites](#website-contributor) | Hiermee beheert u websites (niet webabonnementen), maar kunt u niet de toegang tot de websites beheren. |
 
@@ -146,22 +146,22 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee beheert u alles, inclusief de toegang tot resources. |
+> | **Beschrijving** | Hiermee beheert u alles, inclusief de toegang tot resources. |
 > | **Id** | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | **Acties** |  |
 > | * | Maken en beheren van resources van alle typen |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="contributor"></a>Inzender
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee beheert u alles, behalve de toegang tot resources. |
+> | **Beschrijving** | Hiermee beheert u alles, behalve de toegang tot resources. |
 > | **Id** | b24988ac-6180-42a0-ab88-20f7382dd24c |
 > | **Acties** |  |
 > | * | Maken en beheren van resources van alle typen |
@@ -172,122 +172,122 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Blueprint/blueprintAssignments/write | Alle blauwdrukartefacten maken of bijwerken |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Alle blauwdrukartefacten verwijderen |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="reader"></a>Lezer
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee geeft u alles weer, maar kunt u niet wijzigingen aanbrengen. |
+> | **Beschrijving** | Hiermee geeft u alles weer, maar kunt u niet wijzigingen aanbrengen. |
 > | **Id** | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | **Acties** |  |
 > | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="acrdelete"></a>AcrDelete
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | ACR delete |
+> | **Beschrijving** | ACR delete |
 > | **Id** | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
 > | **Acties** |  |
 > | Microsoft.ContainerRegistry/registries/artifacts/delete | Verwijder artefact in een containerregister. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="acrimagesigner"></a>AcrImageSigner
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | acr-afbeeldingsondertekenaar |
+> | **Beschrijving** | acr-afbeeldingsondertekenaar |
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **Acties** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | Push of eruit te halen de metagegevens van inhoud vertrouwensrelatie voor een container registry. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="acrpull"></a>AcrPull
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | acr pull |
+> | **Beschrijving** | acr pull |
 > | **Id** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
 > | **Acties** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | Pull- of installatiekopieën ophalen uit een containerregister. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="acrpush"></a>AcrPush
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | acr push |
+> | **Beschrijving** | acr push |
 > | **Id** | 8311e382-0749-4cb8-b61a-304f252e45ec |
 > | **Acties** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | Pull- of installatiekopieën ophalen uit een containerregister. |
 > | Microsoft.ContainerRegistry/registries/push/write | Push- of installatiekopieën schrijven naar een containerregister. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | acr-quarantainegegevenslezer |
+> | **Beschrijving** | acr-quarantainegegevenslezer |
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Acties** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | Pull- of in quarantaine geplaatste afbeeldingen kunt verkrijgen van containerregister |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | acr-quarantainegegevensschrijver |
+> | **Beschrijving** | acr-quarantainegegevensschrijver |
 > | **Id** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **Acties** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | Pull- of in quarantaine geplaatste afbeeldingen kunt verkrijgen van containerregister |
 > | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Status van de in quarantaine plaatsen van in quarantaine geplaatste afbeeldingen schrijven/wijzigen |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="api-management-service-contributor"></a>Inzender voor API Management-services
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan de service en de API's beheren |
+> | **Beschrijving** | Kan de service en de API's beheren |
 > | **Id** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **Acties** |  |
 > | Microsoft.ApiManagement/service/* | Maken en beheren van API Management-service |
@@ -298,17 +298,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="api-management-service-operator-role"></a>Operator-rol voor de API Management-service
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan de service beheren, maar niet de API's |
+> | **Beschrijving** | Kan de service beheren, maar niet de API's |
 > | **Id** | e022efe7-f5ba-4159-bbe4-b44f577e9b61 |
 > | **Acties** |  |
 > | Microsoft.ApiManagement/service/*/read | Lezen API Management Service-exemplaren |
@@ -329,15 +329,15 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Lijst met gebruikerssleutels ophalen |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="api-management-service-reader-role"></a>Lezerrol voor de API Management-service
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Alleen-lezentoegang tot de service en API's |
+> | **Beschrijving** | Alleen-lezentoegang tot de service en API's |
 > | **Id** | 71522526-b88f-4d52-b57f-d31fc3546d0d |
 > | **Acties** |  |
 > | Microsoft.ApiManagement/service/*/read | Lezen API Management Service-exemplaren |
@@ -351,15 +351,15 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Lijst met gebruikerssleutels ophalen |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="application-insights-component-contributor"></a>Inzender voor Application Insights-onderdelen
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan onderdelen van Application Insights beheren |
+> | **Beschrijving** | Kan onderdelen van Application Insights beheren |
 > | **Id** | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -371,17 +371,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="application-insights-snapshot-debugger"></a>Application Insights Snapshot Debugger
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Biedt de gebruiker toestemming voor het weergeven en downloaden van momentopnamen voor foutopsporing die zijn verzameld met Application Insights Snapshot Debugger. Houd er rekening mee dat deze machtigingen zijn niet opgenomen in de [eigenaar](#owner) of [Inzender](#contributor) rollen. |
+> | **Beschrijving** | Biedt de gebruiker toestemming voor het weergeven en downloaden van momentopnamen voor foutopsporing die zijn verzameld met Application Insights Snapshot Debugger. Houd er rekening mee dat deze machtigingen zijn niet opgenomen in de [eigenaar](#owner) of [Inzender](#contributor) rollen. |
 > | **Id** | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -391,17 +391,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="automation-job-operator"></a>Operator voor Automation-taak
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Taken maken en beheren met Automation-runbooks. |
+> | **Beschrijving** | Taken maken en beheren met Automation-runbooks. |
 > | **Id** | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -418,17 +418,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="automation-operator"></a>Automation-operator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Operators voor Automation kunnen taken starten, stoppen, onderbreken en hervatten |
+> | **Beschrijving** | Operators voor Automation kunnen taken starten, stoppen, onderbreken en hervatten |
 > | **Id** | d3881f73-407a-4167-8283-e981cbba0404 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -453,17 +453,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="automation-runbook-operator"></a>Operator voor Automation-runbook
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Runbook-eigenschappen lezen: hiermee kunnen taken van de runbook worden gemaakt. |
+> | **Beschrijving** | Runbook-eigenschappen lezen: hiermee kunnen taken van de runbook worden gemaakt. |
 > | **Id** | 5fb5aef8-1081-4b8e-bb16-9d5d0385bab5 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -473,17 +473,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="avere-contributor"></a>Avere Inzender
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan maken en beheren van een Avere vFXT-cluster. |
+> | **Beschrijving** | Kan maken en beheren van een Avere vFXT-cluster. |
 > | **Id** | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -506,19 +506,19 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Hiermee worden de resources voor de resourcegroep opgehaald. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Hiermee wordt het resultaat van het verwijderen van een blob geretourneerd |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Hiermee wordt een blob of een lijst met blobs geretourneerd |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Hiermee wordt het resultaat van het schrijven van een blob geretourneerd |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="avere-operator"></a>Avere Operator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Gebruikt door het Avere vFXT-cluster voor het beheren van het cluster |
+> | **Beschrijving** | Gebruikt door het Avere vFXT-cluster voor het beheren van het cluster |
 > | **Id** | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
 > | **Acties** |  |
 > | Microsoft.Compute/virtualMachines/read | Hiermee worden de eigenschappen van een virtuele machine opgehaald |
@@ -533,66 +533,66 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Hiermee wordt een lijst met containers geretourneerd |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | Retourneert het resultaat van put blob-container |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Hiermee wordt het resultaat van het verwijderen van een blob geretourneerd |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Hiermee wordt een blob of een lijst met blobs geretourneerd |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Hiermee wordt het resultaat van het schrijven van een blob geretourneerd |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="azure-kubernetes-service-cluster-admin-role"></a>Clusterbeheerderrol voor Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Referentieactie voor clusterbeheer weergeven. |
+> | **Beschrijving** | Referentieactie voor clusterbeheer weergeven. |
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Acties** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Hiermee wordt de clusterAdmin-referentie van een beheerd cluster weergegeven |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="azure-kubernetes-service-cluster-user-role"></a>Clustergebruikersrol voor Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Referentieactie voor clustergebruiker weergeven. |
+> | **Beschrijving** | Referentieactie voor clustergebruiker weergeven. |
 > | **Id** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | **Acties** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Hiermee wordt de clusterUser-referentie van een beheerd cluster weergegeven |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="azure-stack-registration-owner"></a>Eigenaar Azure Stack-registratie
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u Azure Stack-registraties beheren. |
+> | **Beschrijving** | Hiermee kunt u Azure Stack-registraties beheren. |
 > | **Id** | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
 > | **Acties** |  |
 > | Microsoft.AzureStack/registrations/products/listDetails/action | Details voor een Azure Stack Marketplace-product uitgebreid opgehaald |
 > | Microsoft.AzureStack/registrations/products/read | Haalt u de eigenschappen van een Azure Stack Marketplace-product |
 > | Microsoft.AzureStack/registrations/read | Haalt u de eigenschappen van een Azure Stack-registratie |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="backup-contributor"></a>Back-upinzender
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u de back-upservice beheren, maar u kunt geen kluizen maken of anderen toegang verlenen |
+> | **Beschrijving** | Hiermee kunt u de back-upservice beheren, maar u kunt geen kluizen maken of anderen toegang verlenen |
 > | **Id** | 5e467623-bb1f-42f4-a55d-6e525e11384b |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -639,17 +639,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lijst van alle back-up Protection Intents |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="backup-operator"></a>Back-upoperator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u back-upservices beheren, met uitzondering van het verwijderen van back-ups, het maken van kluizen en het verlenen van toegang aan anderen |
+> | **Beschrijving** | Hiermee kunt u back-upservices beheren, met uitzondering van het verwijderen van back-ups, het maken van kluizen en het verlenen van toegang aan anderen |
 > | **Id** | 00c29273-979b-4161-815c-10b084fb9324 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -711,17 +711,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lijst van alle back-up Protection Intents |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="backup-reader"></a>Back-uplezer
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan de back-upservices weergeven, maar kan geen wijzigingen aanbrengen |
+> | **Beschrijving** | Kan de back-upservices weergeven, maar kan geen wijzigingen aanbrengen |
 > | **Id** | a795c7a0-d4a2-40c1-ae25-d81f01202912 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -764,17 +764,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lijst van alle back-up Protection Intents |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Hiermee worden de gebruiksgegevens voor een Recovery Services-kluis geretourneerd. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="billing-reader"></a>Lezer voor facturering
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee wordt leestoegang gegeven tot factureringsgegevens |
+> | **Beschrijving** | Hiermee wordt leestoegang gegeven tot factureringsgegevens |
 > | **Id** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -785,17 +785,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="biztalk-contributor"></a>Inzender voor BizTalk
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee beheert u BizTalk-services, maar kunt u niet de toegang tot de services beheren. |
+> | **Beschrijving** | Hiermee beheert u BizTalk-services, maar kunt u niet de toegang tot de services beheren. |
 > | **Id** | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -806,17 +806,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="cdn-endpoint-contributor"></a>Inzender voor CDN-eindpunt
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan CDN-eindpunten beheren, maar kan geen toegang verlenen aan andere gebruikers. |
+> | **Beschrijving** | Kan CDN-eindpunten beheren, maar kan geen toegang verlenen aan andere gebruikers. |
 > | **Id** | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -828,17 +828,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="cdn-endpoint-reader"></a>Lezer voor CDN-eindpunt
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan CDN-eindpunten weergeven, maak kan geen wijzigingen aanbrengen. |
+> | **Beschrijving** | Kan CDN-eindpunten weergeven, maak kan geen wijzigingen aanbrengen. |
 > | **Id** | 871e35f6-b5c1-49cc-a043-bde969a0f2cd |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -850,17 +850,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="cdn-profile-contributor"></a>Inzender voor CDN-profiel
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan CDN-profielen en de bijbehorende eindpunten beheren, maar kan geen toegang verlenen aan andere gebruikers. |
+> | **Beschrijving** | Kan CDN-profielen en de bijbehorende eindpunten beheren, maar kan geen toegang verlenen aan andere gebruikers. |
 > | **Id** | ec156ff8-a8d1-4d15-830c-5b80698ca432 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -872,17 +872,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="cdn-profile-reader"></a>Lezer voor CDN-profiel
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan CDN-profielen en de bijbehorende eindpunten weergeven, maak kan geen wijzigingen aanbrengen. |
+> | **Beschrijving** | Kan CDN-profielen en de bijbehorende eindpunten weergeven, maak kan geen wijzigingen aanbrengen. |
 > | **Id** | 8f96442b-4075-438f-813d-ad51ab4019af |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -894,17 +894,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="classic-network-contributor"></a>Inzender voor klassieke netwerken
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee beheert u klassieke netwerken, maar kunt u niet de toegang tot de netwerken beheren. |
+> | **Beschrijving** | Hiermee beheert u klassieke netwerken, maar kunt u niet de toegang tot de netwerken beheren. |
 > | **Id** | b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Autorisatie lezen |
@@ -915,17 +915,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="classic-storage-account-contributor"></a>Inzender voor klassieke opslagaccounts
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u klassieke opslagaccounts beheren, maar niet de toegang. |
+> | **Beschrijving** | Hiermee kunt u klassieke opslagaccounts beheren, maar niet de toegang. |
 > | **Id** | 86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Autorisatie lezen |
@@ -936,33 +936,33 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="classic-storage-account-key-operator-service-role"></a>De servicerol Sleuteloperator voor klassieke opslagaccounts
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Sleuteloperators voor klassieke opslagaccounts kunnen een lijst met sleutels voor klassieke opslagaccounts maken en de sleutels opnieuw genereren |
+> | **Beschrijving** | Sleuteloperators voor klassieke opslagaccounts kunnen een lijst met sleutels voor klassieke opslagaccounts maken en de sleutels opnieuw genereren |
 > | **Id** | 985d6b00-f706-48f5-a6fe-d0ca12fb668d |
 > | **Acties** |  |
 > | Microsoft.ClassicStorage/storageAccounts/listkeys/action | Hiermee worden de toegangssleutels voor de opslagaccounts weergegeven. |
 > | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | De bestaande toegangssleutels voor het opslagaccount worden geregenereerd. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="classic-virtual-machine-contributor"></a>Inzender voor klassieke virtuele machines
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee beheert u klassieke virtuele machines, maar kunt u niet de toegang tot de virtuele machines of het virtuele netwerk of opslagaccount beheren waaraan de virtuele machines zijn gekoppeld. |
+> | **Beschrijving** | Hiermee beheert u klassieke virtuele machines, maar kunt u niet de toegang tot de virtuele machines of het virtuele netwerk of opslagaccount beheren waaraan de virtuele machines zijn gekoppeld. |
 > | **Id** | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Autorisatie lezen |
@@ -983,17 +983,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="cognitive-services-contributor"></a>Inzender voor Cognitive Services
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u sleutels van Cognitive Services maken, lezen, bijwerken, verwijderen en beheren. |
+> | **Beschrijving** | Hiermee kunt u sleutels van Cognitive Services maken, lezen, bijwerken, verwijderen en beheren. |
 > | **Id** | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1014,32 +1014,32 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="cognitive-services-data-reader-preview"></a>Lezer van Cognitive Services-gegevens (preview)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt gegevens van Cognitive Services lezen |
+> | **Beschrijving** | Hiermee kunt gegevens van Cognitive Services lezen |
 > | **Id** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | **Acties** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="cognitive-services-user"></a>Cognitive Services-gebruiker
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt sleutels van Cognitive Services lezen en weergeven. |
+> | **Beschrijving** | Hiermee kunt sleutels van Cognitive Services lezen en weergeven. |
 > | **Id** | a97b65f3-24c7-4388-baec-2e87135dc908 |
 > | **Acties** |  |
 > | Microsoft.CognitiveServices/*/read |  |
@@ -1056,17 +1056,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.CognitiveServices/* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="cosmos-db-account-reader-role"></a>Rol van lezer voor Cosmos DB-account
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan Azure Cosmos DB-accountgegevens lezen. Zie [Inzender voor DocumentDB-Account](#documentdb-account-contributor) voor het beheren van Azure Cosmos DB-accounts. |
+> | **Beschrijving** | Kan Azure Cosmos DB-accountgegevens lezen. Zie [Inzender voor DocumentDB-Account](#documentdb-account-contributor) voor het beheren van Azure Cosmos DB-accounts. |
 > | **Id** | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en rollen zijn toegewezen, kan machtigingen die aan elke gebruiker lezen |
@@ -1077,33 +1077,33 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="cosmosbackupoperator"></a>CosmosBackupOperator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kan een aanvraag voor herstel van een Cosmos DB-database of een container voor een account worden verzonden |
+> | **Beschrijving** | Hiermee kan een aanvraag voor herstel van een Cosmos DB-database of een container voor een account worden verzonden |
 > | **Id** | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
 > | **Acties** |  |
 > | Microsoft.DocumentDB/databaseAccounts/backup/action | Een aanvraag indient bij de back-up configureren |
 > | Microsoft.DocumentDB/databaseAccounts/restore/action | Een restore-aanvraag verzenden |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="cost-management-contributor"></a>Inzender Cost Management
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan kosten weergeven en kostenconfiguratie beheren (bijvoorbeeld budgetten, exports) |
+> | **Beschrijving** | Kan kosten weergeven en kostenconfiguratie beheren (bijvoorbeeld budgetten, exports) |
 > | **Id** | 434105ed-43f6-45c7-a02f-909b2ba83430 |
 > | **Acties** |  |
 > | Microsoft.Consumption/* |  |
@@ -1113,17 +1113,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="cost-management-reader"></a>Reader Cost Management
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan kostengegevens en configuratie weergeven (bijvoorbeeld budgetten, exports) |
+> | **Beschrijving** | Kan kostengegevens en configuratie weergeven (bijvoorbeeld budgetten, exports) |
 > | **Id** | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
 > | **Acties** |  |
 > | Microsoft.Consumption/*/read |  |
@@ -1133,17 +1133,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="data-box-contributor"></a>Inzender Data Box
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u alles onder de Data Box-service beheren behalve toegang verlenen aan anderen. |
+> | **Beschrijving** | Hiermee kunt u alles onder de Data Box-service beheren behalve toegang verlenen aan anderen. |
 > | **Id** | add466c9-e687-43fc-8d98-dfcf8d720be5 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1153,17 +1153,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | Microsoft.Databox/* |  |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="data-box-reader"></a>Data Box-reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u de Data Box-service beheren behalve orders maken of details van orders bewerken en toegang geven aan anderen. |
+> | **Beschrijving** | Hiermee kunt u de Data Box-service beheren behalve orders maken of details van orders bewerken en toegang geven aan anderen. |
 > | **Id** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1174,17 +1174,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="data-factory-contributor"></a>Inzender Data Factory
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Data factory's en de onderliggende resources hierin maken en beheren. |
+> | **Beschrijving** | Data factory's en de onderliggende resources hierin maken en beheren. |
 > | **Id** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en rollen toewijzingen |
@@ -1196,17 +1196,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="data-lake-analytics-developer"></a>Ontwikkelaar voor Data Lake Analytics
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u uw eigen taken indienen, controleren en beheren, maar geen Data Lake Analytics-accounts maken of verwijderen. |
+> | **Beschrijving** | Hiermee kunt u uw eigen taken indienen, controleren en beheren, maar geen Data Lake Analytics-accounts maken of verwijderen. |
 > | **Id** | 47b7735b-770e-4598-a7da-8b91488b4c88 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1233,15 +1233,15 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | Maken of bijwerken van een compute-beleid. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | Een compute-beleid niet verwijderen. |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="data-purger"></a>Gegevensverwijderaar
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan analytische gegevens verwijderen |
+> | **Beschrijving** | Kan analytische gegevens verwijderen |
 > | **Id** | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | **Acties** |  |
 > | Microsoft.Insights/components/*/read |  |
@@ -1249,17 +1249,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | Opgegeven gegevens uit de werkruimte verwijderen |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="devtest-labs-user"></a>DevTest Labs-gebruiker
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u verbinding maken met virtuele machines in Azure DevTest Labs en de virtuele machines starten, opnieuw starten en afsluiten. |
+> | **Beschrijving** | Hiermee kunt u verbinding maken met virtuele machines in Azure DevTest Labs en de virtuele machines starten, opnieuw starten en afsluiten. |
 > | **Id** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en rollen toewijzingen |
@@ -1296,15 +1296,15 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotActions** |  |
 > | Microsoft.Compute/virtualMachines/vmSizes/read | Hiermee wordt een lijst weergegeven met de beschikbare grootten waarnaar de virtuele machine kan worden bijgewerkt |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="dns-zone-contributor"></a>Inzender voor DNS-zone
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u DNS-zones en recordsets beheren in Azure DNS, maar kunt u niet bepalen wie toegang heeft. |
+> | **Beschrijving** | Hiermee kunt u DNS-zones en recordsets beheren in Azure DNS, maar kunt u niet bepalen wie toegang heeft. |
 > | **Id** | befefa01-2a29-4197-83a8-272ff33ce314 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1315,17 +1315,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="documentdb-account-contributor"></a>Inzender voor het DocumentDB-account
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan Azure Cosmos DB-accounts beheren. Azure Cosmos DB is voorheen bekend als DocumentDB. |
+> | **Beschrijving** | Kan Azure Cosmos DB-accounts beheren. Azure Cosmos DB is voorheen bekend als DocumentDB. |
 > | **Id** | 5bd9cd88-fe45-4216-938b-f97437e15450 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en rollen toewijzingen |
@@ -1336,17 +1336,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="eventgrid-eventsubscription-contributor"></a>Inzender van abonnement voor EventGrid-gebeurtenissen
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u bewerkingen van abonnementen voor EventGrid-gebeurtenissen beheren. |
+> | **Beschrijving** | Hiermee kunt u bewerkingen van abonnementen voor EventGrid-gebeurtenissen beheren. |
 > | **Id** | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1359,17 +1359,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="eventgrid-eventsubscription-reader"></a>Lezer van abonnement voor EventGrid-gebeurtenissen
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u abonnementen voor EventGrid-gebeurtenissen lezen. |
+> | **Beschrijving** | Hiermee kunt u abonnementen voor EventGrid-gebeurtenissen lezen. |
 > | **Id** | 2414bbcf-6497-4faf-8c65-045460748405 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1379,34 +1379,34 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Lijst met regionale gebeurtenisabonnementen door topictype |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="hdinsight-domain-services-contributor"></a>Inzender HDInsight Domain Services
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan bewerkingen met betrekking tot domeinservices lezen, maken, wijzigen en verwijderen die nodig zijn voor HDInsight Enterprise-beveiligingspakket |
+> | **Beschrijving** | Kan bewerkingen met betrekking tot domeinservices lezen, maken, wijzigen en verwijderen die nodig zijn voor HDInsight Enterprise-beveiligingspakket |
 > | **Id** | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | **Acties** |  |
 > | Microsoft.AAD/*/read |  |
 > | Microsoft.AAD/domainServices/*/read |  |
 > | Microsoft.AAD/domainServices/oucontainer/* |  |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="intelligent-systems-account-contributor"></a>Inzender voor ISS-accounts
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee beheert u Intelligent Systems-accounts, maar kunt u niet de toegang tot de accounts beheren. |
+> | **Beschrijving** | Hiermee beheert u Intelligent Systems-accounts, maar kunt u niet de toegang tot de accounts beheren. |
 > | **Id** | 03a6d094-3444-4b3d-88af-7477090a9e5e |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en rollen toewijzingen |
@@ -1417,17 +1417,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="key-vault-contributor"></a>Inzender voor Key Vault
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u sleutelkluizen beheren, maar niet de toegang hiertoe. |
+> | **Beschrijving** | Hiermee kunt u sleutelkluizen beheren, maar niet de toegang hiertoe. |
 > | **Id** | f25e0fa2-a7c8-4377-a976-54943a77a395 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1440,15 +1440,15 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | Een voorlopig verwijderde sluitelkluis leegmaken |
 > | Microsoft.KeyVault/hsmPools/* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="lab-creator"></a>Labmaker
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u beheerde labs maken, beheren en verwijderen in uw Azure Lab-accounts. |
+> | **Beschrijving** | Hiermee kunt u beheerde labs maken, beheren en verwijderen in uw Azure Lab-accounts. |
 > | **Id** | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1459,17 +1459,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="log-analytics-contributor"></a>Inzender van Log Analytics
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Inzender van log Analytics kan alle controlegegevens lezen en bewerken van instellingen voor controle. Bewerken van instellingen voor controle houdt het toevoegen van de VM-extensie voor virtuele machines; lezen van opslagaccountsleutels om te kunnen verzamelen van Logboeken van Azure Storage; configureren het maken en configureren van Automation-accounts; toevoegen van oplossingen en Azure diagnostics configureren op alle Azure-resources. |
+> | **Beschrijving** | Inzender van log Analytics kan alle controlegegevens lezen en bewerken van instellingen voor controle. Bewerken van instellingen voor controle houdt het toevoegen van de VM-extensie voor virtuele machines; lezen van opslagaccountsleutels om te kunnen verzamelen van Logboeken van Azure Storage; configureren het maken en configureren van Automation-accounts; toevoegen van oplossingen en Azure diagnostics configureren op alle Azure-resources. |
 > | **Id** | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | **Acties** |  |
 > | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
@@ -1486,17 +1486,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Storage/storageAccounts/listKeys/action | Hiermee retourneert u de toegangssleutels voor het opgegeven opslagaccount. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="log-analytics-reader"></a>Lezer van Log Analytics
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | De lezer van Log Analytics kan alle controlegegevens weergeven en doorzoeken en de controle-instellingen weergeven, inclusief het weergeven van de configuratie van Azure Diagnostics op alle Azure-resources. |
+> | **Beschrijving** | De lezer van Log Analytics kan alle controlegegevens weergeven en doorzoeken en de controle-instellingen weergeven, inclusief het weergeven van de configuratie van Azure Diagnostics op alle Azure-resources. |
 > | **Id** | 73c42c96-874c-492b-b04d-ab87d138a893 |
 > | **Acties** |  |
 > | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
@@ -1506,15 +1506,15 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Hiermee haalt u de gedeelde sleutels voor de werkruimte. Deze sleutels worden gebruikt om agents van Microsoft Operational Insights verbinding naar de werkruimte te maken. |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="logic-app-contributor"></a>Logische app-bijdrager
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u logische apps beheren, maar niet de toegang hiertoe. |
+> | **Beschrijving** | Hiermee kunt u logische apps beheren, maar niet de toegang hiertoe. |
 > | **Id** | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1538,17 +1538,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Web/serverFarms/read | Hiermee worden de eigenschappen van een App Service-Plan |
 > | Microsoft.Web/sites/functions/listSecrets/action | Lijst met geheimen Web Apps-functies. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="logic-app-operator"></a>Logische app-operator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u logische apps lezen, inschakelen en uitschakelen. |
+> | **Beschrijving** | Hiermee kunt u logische apps lezen, inschakelen en uitschakelen. |
 > | **Id** | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1568,51 +1568,51 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Web/customApis/*/read | Lees de aangepaste API. |
 > | Microsoft.Web/serverFarms/read | Hiermee worden de eigenschappen van een App Service-Plan |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="managed-application-operator-role"></a>Operatorrol voor beheerde toepassingen
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u acties op resources van beheerde toepassingen lezen en uitvoeren |
+> | **Beschrijving** | Hiermee kunt u acties op resources van beheerde toepassingen lezen en uitvoeren |
 > | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **Acties** |  |
 > | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
 > | Microsoft.Solutions/applications/read | Hiermee wordt een lijst met toepassingen opgehaald. |
 > | Microsoft.Solutions/*/action |  |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="managed-applications-reader"></a>Reader Beheerde toepassingen
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u resources in een beheerde app lezen en JIT-toegang aanvragen. |
+> | **Beschrijving** | Hiermee kunt u resources in een beheerde app lezen en JIT-toegang aanvragen. |
 > | **Id** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
 > | **Acties** |  |
 > | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Solutions/jitRequests/* |  |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="managed-identity-contributor"></a>Inzender beheerde identiteit
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Door gebruiker toegewezen identiteit maken, lezen, bijwerken en verwijderen |
+> | **Beschrijving** | Door gebruiker toegewezen identiteit maken, lezen, bijwerken en verwijderen |
 > | **Id** | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
 > | **Acties** |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
@@ -1624,17 +1624,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="managed-identity-operator"></a>Operator beheerde identiteit
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Door gebruiker toegewezen identiteit maken en toewijzen |
+> | **Beschrijving** | Door gebruiker toegewezen identiteit maken en toewijzen |
 > | **Id** | f1a07417-d97a-45cb-824c-7a7467783830 |
 > | **Acties** |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
@@ -1645,17 +1645,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="management-group-contributor"></a>Inzender beheergroep
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Rol Inzender beheergroep |
+> | **Beschrijving** | Rol Inzender beheergroep |
 > | **Id** | 5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c |
 > | **Acties** |  |
 > | Microsoft.Management/managementGroups/delete | Beheergroep verwijderen. |
@@ -1664,32 +1664,32 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Management/managementGroups/subscriptions/write | Collega's het bestaande abonnement met de beheergroep. |
 > | Microsoft.Management/managementGroups/write | Maken of bijwerken van een beheergroep. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="management-group-reader"></a>Lezer beheergroep
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Rol Lezer beheergroep |
+> | **Beschrijving** | Rol Lezer beheergroep |
 > | **Id** | ac63b705-f282-497d-ac71-919bf39d939d |
 > | **Acties** |  |
 > | Microsoft.Management/managementGroups/read | Lijst met beheergroepen omwille van de geverifieerde gebruiker. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="monitoring-contributor"></a>Bijdrager voor bewaking
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan alle controlegegevens lezen en bewerken van instellingen voor controle. Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
+> | **Beschrijving** | Kan alle controlegegevens lezen en bewerken van instellingen voor controle. Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Id** | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | **Acties** |  |
 > | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
@@ -1717,51 +1717,51 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>Uitgever van metrische gegevens voor bewaking
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunnen metrische gegevens tegen Azure-resources worden gepubliceerd |
+> | **Beschrijving** | Hiermee kunnen metrische gegevens tegen Azure-resources worden gepubliceerd |
 > | **Id** | 3913510d-42f4-4e42-8a64-420c390055eb |
 > | **Acties** |  |
 > | Microsoft.Insights/Register/Action | De Microsoft Insights-provider registeren |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Insights/Metrics/Write | Metrische gegevens schrijven |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="monitoring-reader"></a>Lezer voor bewaking
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan alle controlegegevens lezen (metrische gegevens, Logboeken, enz.). Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
+> | **Beschrijving** | Kan alle controlegegevens lezen (metrische gegevens, Logboeken, enz.). Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Id** | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | **Acties** |  |
 > | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Een zoekquery uitgevoerd |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="network-contributor"></a>Inzender voor netwerken
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee beheert u netwerken, maar kunt u niet de toegang tot de netwerken beheren. |
+> | **Beschrijving** | Hiermee beheert u netwerken, maar kunt u niet de toegang tot de netwerken beheren. |
 > | **Id** | 4d97b98b-1d4f-4787-a291-c67834d212e7 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en rollen toewijzingen |
@@ -1772,17 +1772,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="new-relic-apm-account-contributor"></a>Inzender voor het New Relic APM-account
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee beheert u New Relic Application Performance Management-accounts en -toepassingen, maar kunt u niet de toegang tot de accounts en toepassingen beheren. |
+> | **Beschrijving** | Hiermee beheert u New Relic Application Performance Management-accounts en -toepassingen, maar kunt u niet de toegang tot de accounts en toepassingen beheren. |
 > | **Id** | 5d28c62d-5b37-4476-8438-e587778df237 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1793,33 +1793,33 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | NewRelic.APM/accounts/* |  |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="reader-and-data-access"></a>Lezer- en gegevenstoegang
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u Alles weergeven, maar kunt u verwijderen of te maken van een storage-account of een ingesloten resource niet. Er kunnen ook toegang tot alle gegevens in een opslagaccount verleend via toegang tot opslagaccountsleutels lezen/schrijven. |
+> | **Beschrijving** | Hiermee kunt u Alles weergeven, maar kunt u verwijderen of te maken van een storage-account of een ingesloten resource niet. Er kunnen ook toegang tot alle gegevens in een opslagaccount verleend via toegang tot opslagaccountsleutels lezen/schrijven. |
 > | **Id** | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | **Acties** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Hiermee retourneert u de toegangssleutels voor het opgegeven opslagaccount. |
 > | Microsoft.Storage/storageAccounts/read | Hiermee retourneert u een lijst met opslagaccounts of haalt u de eigenschappen op voor het opgegeven opslagaccount. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="redis-cache-contributor"></a>Inzender voor Redis-caches
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee beheert u exemplaren van Redis-cache, maar kunt u niet de toegang tot de exemplaren beheren. |
+> | **Beschrijving** | Hiermee beheert u exemplaren van Redis-cache, maar kunt u niet de toegang tot de exemplaren beheren. |
 > | **Id** | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en rollen toewijzingen |
@@ -1830,17 +1830,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="resource-policy-contributor-preview"></a>Inzender voor resourcebeleid (preview-versie)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | (Preview) Gebruikers gevuld vanuit EA, met rechten voor het maken/wijzigen voor resourcebeleid, supportticket maken en het lezen van resources/hiërarchie. |
+> | **Beschrijving** | (Preview) Gebruikers gevuld vanuit EA, met rechten voor het maken/wijzigen voor resourcebeleid, supportticket maken en het lezen van resources/hiërarchie. |
 > | **Id** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | **Acties** |  |
 > | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
@@ -1850,17 +1850,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.PolicyInsights/* |  |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="scheduler-job-collections-contributor"></a>Inzender voor Scheduler-taakverzamelingen
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee beheert u Scheduler-taakverzamelingen, maar kunt u niet de toegang tot de verzamelingen beheren. |
+> | **Beschrijving** | Hiermee beheert u Scheduler-taakverzamelingen, maar kunt u niet de toegang tot de verzamelingen beheren. |
 > | **Id** | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en rollen toewijzingen |
@@ -1871,17 +1871,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Scheduler/jobcollections/* | Maken en beheren van taakcollecties |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="search-service-contributor"></a>Inzender voor Search-services
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee beheert u Search-services, maar kunt u niet de toegang tot de services beheren. |
+> | **Beschrijving** | Hiermee beheert u Search-services, maar kunt u niet de toegang tot de services beheren. |
 > | **Id** | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en rollen toewijzingen |
@@ -1892,17 +1892,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Search/searchServices/* | Search-services maken en beheren |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="security-admin"></a>Beveiligingsbeheerder
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | In Security Center: Kan weergeven beveiligingsbeleid, security-status weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, negeren van waarschuwingen en aanbevelingen |
+> | **Beschrijving** | In Security Center: Kan weergeven beveiligingsbeleid, security-status weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, negeren van waarschuwingen en aanbevelingen |
 > | **Id** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1917,17 +1917,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Security/* |  |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="security-manager-legacy"></a>Beveiligingsbeheer (verouderd)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Dit is een verouderde rol. Gebruik in plaats hiervan beveiligingsbeheerder |
+> | **Beschrijving** | Dit is een verouderde rol. Gebruik in plaats hiervan beveiligingsbeheerder |
 > | **Id** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1941,17 +1941,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Security/* | Security-onderdelen en -beleid maken en beheren |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="security-reader"></a>Beveiligingslezer
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | In Security Center: Aanbevelingen en waarschuwingen, weergave beveiligingsbeleid van de status van de beveiliging weergeven, maar kan geen wijzigingen aanbrengen kunt weergeven |
+> | **Beschrijving** | In Security Center: Aanbevelingen en waarschuwingen, weergave beveiligingsbeleid van de status van de beveiliging weergeven, maar kan geen wijzigingen aanbrengen kunt weergeven |
 > | **Id** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1963,17 +1963,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | Microsoft.Management/managementGroups/read | Lijst met beheergroepen omwille van de geverifieerde gebruiker. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="site-recovery-contributor"></a>Site Recovery-inzender
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u de Site Recovery-service beheren, maar geen kluizen maken of rollen toewijzen |
+> | **Beschrijving** | Hiermee kunt u de Site Recovery-service beheren, maar geen kluizen maken of rollen toewijzen |
 > | **Id** | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -2004,17 +2004,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Storage/storageAccounts/read | Hiermee retourneert u een lijst met opslagaccounts of haalt u de eigenschappen op voor het opgegeven opslagaccount. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="site-recovery-operator"></a>Site Recovery-operator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u failover en fallback uitvoeren, maar geen andere beheerbewerkingen voor Site Recovery |
+> | **Beschrijving** | Hiermee kunt u failover en fallback uitvoeren, maar geen andere beheerbewerkingen voor Site Recovery |
 > | **Id** | 494ae006-db33-4328-bf46-533a6560a3ca |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -2075,17 +2075,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Storage/storageAccounts/read | Hiermee retourneert u een lijst met opslagaccounts of haalt u de eigenschappen op voor het opgegeven opslagaccount. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="site-recovery-reader"></a>Site Recovery-lezer
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u de Site Recovery-status weergeven maar geen andere beheerbewerkingen voor Site Recovery uitvoeren |
+> | **Beschrijving** | Hiermee kunt u de Site Recovery-status weergeven maar geen andere beheerbewerkingen voor Site Recovery uitvoeren |
 > | **Id** | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -2120,22 +2120,22 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | De bewerking Kluistoken kan worden gebruikt om op te halen Kluistoken voor kluis op back-end-bewerkingen. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="spatial-anchors-account-contributor"></a>Inzender voor Spatial Anchors-account
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u ruimtelijke ankers in uw account beheren, maar de ankers niet verwijderen |
+> | **Beschrijving** | Hiermee kunt u ruimtelijke ankers in uw account beheren, maar de ankers niet verwijderen |
 > | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
 > | **Acties** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Ruimtelijke ankers maken |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | In de buurt ruimtelijke ankers detecteren |
@@ -2144,18 +2144,18 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Verzenden van diagnostische gegevens over ter verbetering van de kwaliteit van de service Azure ruimtelijke ankers |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Eigenschappen van ruimtelijke ankers bijwerken |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="spatial-anchors-account-owner"></a>Eigenaar van Spatial Anchors-account
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u ruimtelijke ankers in uw account beheren, waaronder de ankers verwijderen |
+> | **Beschrijving** | Hiermee kunt u ruimtelijke ankers in uw account beheren, waaronder de ankers verwijderen |
 > | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
 > | **Acties** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Ruimtelijke ankers maken |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Ruimtelijke ankers verwijderen |
@@ -2165,31 +2165,31 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Verzenden van diagnostische gegevens over ter verbetering van de kwaliteit van de service Azure ruimtelijke ankers |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Eigenschappen van ruimtelijke ankers bijwerken |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="spatial-anchors-account-reader"></a>Lezer voor Spatial Anchors-account
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u eigenschappen van ruimtelijke ankers in uw account zoeken en lezen |
+> | **Beschrijving** | Hiermee kunt u eigenschappen van ruimtelijke ankers in uw account zoeken en lezen |
 > | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
 > | **Acties** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | In de buurt ruimtelijke ankers detecteren |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Hiermee worden eigenschappen van ruimtelijke ankers |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Ruimtelijke ankers zoeken |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Verzenden van diagnostische gegevens over ter verbetering van de kwaliteit van de service Azure ruimtelijke ankers |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="sql-db-contributor"></a>Inzender voor SQL-databases
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kunt u SQL-databases, maar niet de toegang tot beheren. U beheren niet ook hun beveiligingsbeleid of de bovenliggende SQL-servers. |
+> | **Beschrijving** | Kunt u SQL-databases, maar niet de toegang tot beheren. U beheren niet ook hun beveiligingsbeleid of de bovenliggende SQL-servers. |
 > | **Id** | 9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en rollen toewijzingen |
@@ -2229,15 +2229,15 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="sql-security-manager"></a>SQL-beveiligingsbeheer
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u beveiligingsbeleid van SQL-servers en -databases beheren, maar niet de toegang tot het beleid. |
+> | **Beschrijving** | Hiermee kunt u beveiligingsbeleid van SQL-servers en -databases beheren, maar niet de toegang tot het beleid. |
 > | **Id** | 056cd41c-7e88-42e1-933e-88ba6a50c9c3 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Alleen Microsoft-authorisatie |
@@ -2282,17 +2282,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="sql-server-contributor"></a>Inzender voor SQL Server
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u SQL-servers en -databases beheren, maar niet de toegang tot en het beveiligingsbeleid van de servers en databases. |
+> | **Beschrijving** | Hiermee kunt u SQL-servers en -databases beheren, maar niet de toegang tot en het beveiligingsbeleid van de servers en databases. |
 > | **Id** | 6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -2335,15 +2335,15 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Sql/servers/securityAlertPolicies/* | SQL server waarschuwing beveiligingsbeleid bewerken |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="storage-account-contributor"></a>Inzender voor opslagaccounts
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kan beheer van de storage-accounts. Biedt geen toegang tot gegevens in de storage-account. |
+> | **Beschrijving** | Kan beheer van de storage-accounts. Biedt geen toegang tot gegevens in de storage-account. |
 > | **Id** | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Alle autorisatie lezen |
@@ -2356,164 +2356,164 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Storage/storageAccounts/* | Maken en storage-accounts beheren |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="storage-account-key-operator-service-role"></a>De servicerol Sleuteloperator voor opslagaccounts
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Kunnen inhoud weergeven en opnieuw genereren van toegangssleutels voor opslag-account. |
+> | **Beschrijving** | Kunnen inhoud weergeven en opnieuw genereren van toegangssleutels voor opslag-account. |
 > | **Id** | 81a9662b-bebf-436f-a333-f67b29880f12 |
 > | **Acties** |  |
 > | Microsoft.Storage/storageAccounts/listkeys/action | Retourneert de toegangssleutels voor het opgegeven opslagaccount. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Genereer een nieuwe de toegangssleutels voor het opgegeven opslagaccount. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="storage-blob-data-contributor"></a>Bijdrager voor opslagblobgegevens
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lezen, schrijven en verwijderen van Azure Storage-containers en blobs. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Beschrijving** | Lezen, schrijven en verwijderen van Azure Storage-containers en blobs. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **Acties** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Verwijderen van een container. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retourneert een container of een lijst met containers. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | De metagegevens van een container of de eigenschappen wijzigen. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Een blob verwijderen. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Een blob of een lijst met blobs geretourneerd. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Schrijven naar een blob. |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="storage-blob-data-owner"></a>Eigenaar van opslagblobgegevens
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Biedt volledige toegang tot Azure Storage-blobcontainers en gegevens, zoals het toewijzen van POSIX-toegangsbeheer. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Beschrijving** | Biedt volledige toegang tot Azure Storage-blobcontainers en gegevens, zoals het toewijzen van POSIX-toegangsbeheer. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Acties** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* | Volledige machtigingen voor containers.  |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* | Volledige machtigingen voor blobs. |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="storage-blob-data-reader"></a>Lezer voor opslagblobgegevens
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lezen en Azure Storage-containers en blobs te vermelden. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Beschrijving** | Lezen en Azure Storage-containers en blobs te vermelden. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Acties** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retourneert een container of een lijst met containers. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Een blob of een lijst met blobs geretourneerd. |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="storage-queue-data-contributor"></a>Bijdrager voor opslagwachtrijgegevens
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lezen, schrijven en verwijderen van Azure Storage-wachtrijen en -Wachtrijberichten verleend. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Beschrijving** | Lezen, schrijven en verwijderen van Azure Storage-wachtrijen en -Wachtrijberichten verleend. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | **Acties** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Een wachtrij verwijderen. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Een wachtrij of een lijst met wachtrijen geretourneerd. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/write | Eigenschappen van metagegevens in de wachtrij of wijzigen. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Een of meer berichten uit een wachtrij verwijderen. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Bekijken of een of meer berichten ophalen uit een wachtrij. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Een bericht toevoegen aan een wachtrij. |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="storage-queue-data-message-processor"></a>Berichtenprocessor voor opslagwachtrijgegevens
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Bekijken, ophalen en verwijderen van berichten uit een Azure Storage-wachtrij. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Beschrijving** | Bekijken, ophalen en verwijderen van berichten uit een Azure Storage-wachtrij. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | **Acties** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Een bericht bekijken. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Ophalen en verwijderen van een bericht. |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="storage-queue-data-message-sender"></a>Berichtenverzender voor opslagwachtrijgegevens
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Berichten aan een Azure Storage-wachtrij toevoegen. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Beschrijving** | Berichten aan een Azure Storage-wachtrij toevoegen. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | **Acties** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Een bericht toevoegen aan een wachtrij. |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="storage-queue-data-reader"></a>Gegevenslezer voor opslagwachtrij
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lees- en Azure Storage-wachtrijen en-Wachtrijberichten. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Beschrijving** | Lees- en Azure Storage-wachtrijen en-Wachtrijberichten. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Acties** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Hiermee wordt een wachtrij of een lijst met wachtrijen geretourneerd. |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Bekijken of een of meer berichten ophalen uit een wachtrij. |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="support-request-contributor"></a>Inzender voor ondersteuningsaanvragen
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u ondersteuningsaanvragen maken en beheren |
+> | **Beschrijving** | Hiermee kunt u ondersteuningsaanvragen maken en beheren |
 > | **Id** | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Autorisatie lezen |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="traffic-manager-contributor"></a>Inzender voor Traffic Manager
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee kunt u Traffic Manager-profielen beheren, maar kunt u niet bepalen wie toegang heeft. |
+> | **Beschrijving** | Hiermee kunt u Traffic Manager-profielen beheren, maar kunt u niet bepalen wie toegang heeft. |
 > | **Id** | a4b10055-b0c7-44c2-b00f-c7b5b3550cf7 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -2524,34 +2524,34 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="user-access-administrator"></a>Beheerder van gebruikerstoegang
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee beheert u de gebruikerstoegang tot Azure-resources. |
+> | **Beschrijving** | Hiermee beheert u de gebruikerstoegang tot Azure-resources. |
 > | **Id** | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
 > | **Acties** |  |
 > | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
 > | Microsoft.Authorization/* | Machtigingen beheren |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="virtual-machine-administrator-login"></a>Beheerdersaanmelding bij virtuele Machine
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Virtuele machines in de portal weergeven en aanmelden als beheerder |
+> | **Beschrijving** | Virtuele machines in de portal weergeven en aanmelden als beheerder |
 > | **Id** | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
 > | **Acties** |  |
 > | Microsoft.Network/publicIPAddresses/read | Hiermee haalt u de definitie van een openbaar IP-adres. |
@@ -2560,18 +2560,18 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Network/networkInterfaces/read | Hiermee haalt u de definitie van een netwerk-interface.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Als een gewone gebruiker aanmelden bij een virtuele machine |
 > | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Aanmelden bij een virtuele machine met Windows-beheerders- of Linux-rootgebruikersbevoegdheden |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="virtual-machine-contributor"></a>Inzender voor virtuele machines
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee beheert u virtuele machines, maar kunt u niet de toegang tot de virtuele machines of het virtuele netwerk of opslagaccount waaraan de virtuele machines zijn gekoppeld, beheren. |
+> | **Beschrijving** | Hiermee beheert u virtuele machines, maar kunt u niet de toegang tot de virtuele machines of het virtuele netwerk of opslagaccount waaraan de virtuele machines zijn gekoppeld, beheren. |
 > | **Id** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Autorisatie lezen |
@@ -2613,17 +2613,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Storage/storageAccounts/read | Hiermee retourneert u een lijst met opslagaccounts of haalt u de eigenschappen op voor het opgegeven opslagaccount. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="virtual-machine-user-login"></a>Gebruikersaanmelding bij virtuele machine
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Virtuele machines weergeven in de portal en aanmelden als normale gebruiker. |
+> | **Beschrijving** | Virtuele machines weergeven in de portal en aanmelden als normale gebruiker. |
 > | **Id** | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | **Acties** |  |
 > | Microsoft.Network/publicIPAddresses/read | Hiermee haalt u de definitie van een openbaar IP-adres. |
@@ -2632,17 +2632,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Network/networkInterfaces/read | Hiermee haalt u de definitie van een netwerk-interface.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Als een gewone gebruiker aanmelden bij een virtuele machine |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="web-plan-contributor"></a>Inzender voor webabonnementen
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee beheert u de webabonnementen voor websites, maar kunt u niet de toegang tot de abonnementen beheren. |
+> | **Beschrijving** | Hiermee beheert u de webabonnementen voor websites, maar kunt u niet de toegang tot de abonnementen beheren. |
 > | **Id** | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Autorisatie lezen |
@@ -2654,17 +2654,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Web/serverFarms/* | Maken en beheren van server-farms |
 > | Microsoft.Web/hostingEnvironments/Join/Action | Lid wordt van een App Service Environment |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="website-contributor"></a>Inzender voor websites
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Hiermee beheert u websites (niet webabonnementen), maar kunt u niet de toegang tot de websites beheren. |
+> | **Beschrijving** | Hiermee beheert u websites (niet webabonnementen), maar kunt u niet de toegang tot de websites beheren. |
 > | **Id** | de139f84-1756-47ae-9be6-808fbbe84772 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Autorisatie lezen |
@@ -2680,14 +2680,14 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Web/serverFarms/read | Hiermee worden de eigenschappen van een App Service-Plan |
 > | Microsoft.Web/sites/* | Websites (het maken van site ook moeten schrijfmachtigingen voor de bijbehorende App Service-Plan) maken en beheren |
 > | **NotActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *geen* |  |
+> | *none* |  |
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Aangepaste rollen voor Azure-resources](custom-roles.md)
-- [Toegang tot Azure-resources met behulp van RBAC en de Azure-portal beheren](role-assignments-portal.md)
+- [Toegang tot Azure-resources beheren met op rollen gebaseerd toegangsbeheer en de Azure-portal](role-assignments-portal.md)
 - [Machtigingen in Azure Security Center](../security-center/security-center-permissions.md)

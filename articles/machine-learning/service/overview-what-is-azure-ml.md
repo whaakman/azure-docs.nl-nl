@@ -12,10 +12,10 @@ ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 26248616c6b490de00028d8ecc8a0e225da0c0a6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257107"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Wat is de Azure Machine Learning-service?
@@ -32,7 +32,7 @@ Prognoses of voorspellingen op basis van machine learning kunnen apps en apparat
 
 Azure Machine Learning Service biedt een omgeving in de cloud die u kunt gebruiken om machine learning-modellen te trainen, testen, implementeren, beheren en volgen en er gegevens voor voor te bereiden.
 
-[![Awerkstroom voor zure Machine Learning-service](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Azure Machine Learning-service-werkstroom](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning Service biedt volledige ondersteuning voor open-sourcetechnologieën. U kunt tienduizenden open source Python-pakketten met elementen van machine learning gebruiken. Voorbeelden zijn PyTorch, TensorFlow en scikit-learn.
 Dankzij de ondersteuning voor uitgebreide programma’s kunt u eenvoudig interactief gegevens verkennen en voorbereiden en vervolgens modellen ontwikkelen en testen. Voorbeelden zijn [Jupyter-notebooks](https://jupyter.org) of de extensie [Azure Machine Learning voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
@@ -89,8 +89,8 @@ U ontvangt tegoed wat u kunt uitgeven aan Azure-services. Als uw tegoed op is, k
 - [Maken van een werkruimte van de service Machine Learning](setup-create-workspace.md) aan de slag.
 
 - Volg de volledige zelfstudies: 
-  + [een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md) 
-  + [Gegevens voorbereiden en geautomatiseerde machine learning om automatisch-trein een regressiemodel gebruiken](tutorial-data-prep.md)
+  + [Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md) 
+  + [Gegevens voorbereiden en geautomatiseerde machine learning gebruiken om een regressiemodel automatisch te trainen](tutorial-data-prep.md)
 
 - Gebruik de [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) om uw gegevens voor te bereiden.
 

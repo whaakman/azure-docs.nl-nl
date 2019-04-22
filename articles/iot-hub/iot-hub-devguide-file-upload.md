@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.openlocfilehash: 217d348eacab30b90e06fe805d9cdb0cf32349ac
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050727"
 ---
 # <a name="upload-files-with-iot-hub"></a>Bestanden uploaden met IoT Hub
@@ -97,7 +97,7 @@ Wanneer een apparaat aan IoT-Hub gecommuniceerd dat het uploaden voltooid is, ge
 
 Zoals uitgelegd in [eindpunten](iot-hub-devguide-endpoints.md), IoT-Hub biedt een bestand uploaden meldingen via een gerichte service-eindpunt (**/messages/servicebound/fileuploadnotifications**) als berichten. De semantiek ontvangen voor het bestand uploaden meldingen zijn dezelfde als die voor cloud-naar-apparaat-berichten en hebben hetzelfde [bericht lifecycle](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle). Elk bericht dat wordt opgehaald uit het bestand uploaden-meldingseindpunt is een JSON-record met de volgende eigenschappen:
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 | --- | --- |
 | EnqueuedTimeUtc |De tijdstempel die aangeeft wanneer de melding is gemaakt. |
 | DeviceId |**Apparaat-id** van het apparaat waarop het bestand wordt geüpload. |
@@ -123,7 +123,7 @@ Zoals uitgelegd in [eindpunten](iot-hub-devguide-endpoints.md), IoT-Hub biedt ee
 
 Elke IoT-hub heeft de volgende configuratieopties voor het bestand uploaden meldingen:
 
-| Eigenschap | Description | Bereik en de standaard |
+| Eigenschap | Beschrijving | Bereik en de standaard |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |Hiermee bepaalt u of bestand uploaden meldingen worden geschreven naar het bestand meldingen-eindpunt. |BOOL. Standaard: De waarde True. |
 | **fileNotifications.ttlAsIso8601** |Standaard-TTL voor bestandsmeldingen uploaden. |ISO_8601 interval tot 48 uur (minimaal 1 minuut). Standaard: 1 uur. |

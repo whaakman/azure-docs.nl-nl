@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: backup
 manager: carmonm
 ms.openlocfilehash: 139ce3fd81c14f9bf97e45c8aebb83d2fb1bbe10
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426610"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Vragen over het maken back-ups van Azure-bestanden
@@ -113,5 +113,5 @@ Wanneer er op een of meer bestandsshares een nieuw beleid wordt toegepast, worde
 ## <a name="see-also"></a>Zie ook
 Deze informatie heeft alleen betrekking op het maken van back-ups van Azure-bestanden. Voor meer informatie over andere gebieden van Azure Backup, wordt u aangeraden een aantal van een van deze overige veelgestelde vragen over het maken van back-ups te raadplegen:
 -  [Veelgestelde vragen over Recovery Services-kluis](backup-azure-backup-faq.md)
--  [Azure VM Veelgestelde vragen over backup](backup-azure-vm-backup-faq.md)
--  [Veelgestelde vragen over Azure Backup agent](backup-azure-file-folder-backup-faq.md)
+-  [Veelgestelde vragen over Azure VM-back-ups](backup-azure-vm-backup-faq.md)
+-  [Veelgestelde vragen over Azure Backup-agent](backup-azure-file-folder-backup-faq.md)

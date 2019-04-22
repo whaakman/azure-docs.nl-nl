@@ -13,10 +13,10 @@ ms.date: 04/05/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: f67c2a4547ee923e5c1b49302c38693e9ffe87c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262207"
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>Visual Studio en SSDT voor SQL datawarehouse installeren
@@ -32,7 +32,7 @@ Met behulp van Visual Studio met SSDT, kunt u visueel verkennen van tabellen, we
 ## <a name="step-1-install-visual-studio"></a>Stap 1: Visual Studio installeren
 Volg deze koppelingen om te downloaden en installeren van Visual Studio. Als u al Visual Studio 2013 of hoger is geïnstalleerd, kunt u doorgaan met stap 2, SSDT installeren.
 
-1. [Visual Studio downloaden][].
+1. [Download Visual Studio][].
 2. Ga als volgt de [Visual Studio installeren] [ Installing Visual Studio] begeleiden op MSDN en kies de standaardconfiguraties.
 
 ## <a name="step-2-install-ssdt"></a>Stap 2: SSDT installeren
@@ -54,7 +54,7 @@ Nu dat u de nieuwste versie van SSDT hebt, bent u klaar om te [verbinding] [ con
 [connect]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
-[Visual Studio downloaden]: https://www.visualstudio.com/downloads/
+[Download Visual Studio]: https://www.visualstudio.com/downloads/
 [Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu

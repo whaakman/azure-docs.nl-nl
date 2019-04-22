@@ -9,10 +9,10 @@ ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 0f18467bfefdb27f2cb9c2c3f56942f679673c16
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048434"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Geregistreerde servers met Azure File Sync beheren
@@ -193,7 +193,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 Wanneer Azure File Sync wordt gehost in een virtuele machine wordt uitgevoerd op een Windows Server virtualization host, kunt u QoS voor opslag (quality of service voor opslag) om te regelen opslag i/o-gebruik. Het beleid voor QoS voor opslag kan worden ingesteld als een maximum (of een limiet, zoals hoe StorageSyncNetwork limiet hierboven wordt afgedwongen) of als een minimum (of een reservering). Minimaal in plaats van een maximum in te stellen, kunt Azure File Sync om uit te breiden naar beschikbare opslag bandbreedte gebruiken als andere werkbelastingen worden niet gebruikt. Zie voor meer informatie, [opslag Quality of Service](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
 ## <a name="see-also"></a>Zie ook
-- [Planning voor de implementatie van Azure Files Sync](storage-sync-files-planning.md)
-- [Azure Files SYNC implementeren](storage-sync-files-deployment-guide.md)
-- [Azure File Sync bewaken](storage-sync-files-monitoring.md)
-- [Problemen met Azure Files Sync oplossen](storage-sync-files-troubleshoot.md)
+- [Planning voor de implementatie van een Azure File Sync](storage-sync-files-planning.md)
+- [Azure Files Sync implementeren](storage-sync-files-deployment-guide.md)
+- [Monitor voor Azure File Sync](storage-sync-files-monitoring.md)
+- [Azure Files Sync oplossen](storage-sync-files-troubleshoot.md)

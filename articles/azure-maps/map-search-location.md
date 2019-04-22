@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: be01c9d96386804b8bc074d81041104cbf592df6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271591"
 ---
 # <a name="show-search-results-on-the-map"></a>Zoekresultaten weergeven op de kaart
@@ -72,7 +72,7 @@ Meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
 Zie de volgende artikelen voor volledige codevoorbeelden:
 
 > [!div class="nextstepaction"]
-> [Informatie ophalen uit een coördinaat](./map-get-information-from-coordinate.md)
+> [Gegevens ophalen uit een coördinaat](./map-get-information-from-coordinate.md)
 <!-- Comment added to suppress false positive warning -->
 > [!div class="nextstepaction"]
 > [Routebeschrijving van A naar B](./map-route.md)

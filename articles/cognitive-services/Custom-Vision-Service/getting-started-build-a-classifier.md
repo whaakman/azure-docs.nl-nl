@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051464"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Over het bouwen van een classificatie met Custom Vision
@@ -55,7 +55,7 @@ Navigeer in uw webbrowser naar de [Custom Vision webpagina](https://customvision
     |__Algemene__| Geoptimaliseerd voor een grote verscheidenheid aan taken voor bestandsclassificatie installatiekopie. Als geen van de andere domeinen geschikt zijn, of u niet zeker weet welk domein om te kiezen, selecteert u het algemene domein. |
     |__Voedsel__|Geoptimaliseerd voor foto's van maaltijden zoals u ze in een restaurant zou zien. Als u wilt voor het classificeren van foto's van individuele vruchten of fruit, gebruikt u het domein Food.|
     |__Oriëntatiepunten__|Geoptimaliseerd voor het herkennen van oriëntatiepunten, natuurlijke en kunstmatige. Dit domein werkt het beste als de oriëntatiepunt duidelijk zichtbaar zijn in de foto is. Dit domein werkt, zelfs als de oriëntatiepunt iets door mensen in het zicht van deze vorm.|
-    |__Retail__|Geoptimaliseerd voor afbeeldingen die in een winkelwagen catalogus of webwinkels zijn gevonden. Als u classificeren van hoge precisie tussen japonnen, broeken en shirt wilt, gebruikt u dit domein.|
+    |__Detailhandel__|Geoptimaliseerd voor afbeeldingen die in een winkelwagen catalogus of webwinkels zijn gevonden. Als u classificeren van hoge precisie tussen japonnen, broeken en shirt wilt, gebruikt u dit domein.|
     |__Compact domeinen__| Geoptimaliseerd voor de beperkingen van realtime classificatie op mobiele apparaten. De modellen die worden gegenereerd door compact domeinen kunnen worden geëxporteerd als lokaal wilt uitvoeren.|
 
 1. Selecteer ten slotte __project maken__.
@@ -130,5 +130,5 @@ Elke keer dat u uw classificatie trainen, maakt u een nieuw _iteratie_ met een e
 
 In deze handleiding, hebt u geleerd over het maken en een afbeelding classificatie-model met behulp van de website van Custom Vision te trainen. Meer informatie over de iteratief proces van het verbeteren van uw model vervolgens ophalen
 
-[Testen en opnieuw trainen van een model](test-your-model.md)
+[Een model testen en opnieuw trainen](test-your-model.md)
 

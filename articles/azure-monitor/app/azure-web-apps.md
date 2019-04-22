@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
 ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489619"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service-prestaties bewaken
@@ -101,7 +101,7 @@ Bewaking aan clientzijde is aanmelden voor ASP.NET. Aan de clientzijde bewaking 
 
      Naam: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Waarde: `true`
+     Waarde:`true`
 
    * Sla de instellingen op met **Opslaan** en start de app opnieuw met **Opnieuw opstarten**.
 
@@ -120,7 +120,7 @@ Als u wilt om een bepaalde reden Schakel bewaking aan clientzijde uit:
 
      Naam: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Waarde: `false`
+     Waarde:`false`
 
    * Sla de instellingen op met **Opslaan** en start de app opnieuw met **Opnieuw opstarten**.
 
@@ -137,7 +137,7 @@ Alleen de instellingen van de toepassing moeten worden ingesteld zodat de verzam
 |Naam van de App-instelling |  Definitie | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Belangrijkste uitbreiding, waarmee wordt bepaald runtimecontrole. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  In zijn de modus alleen essentiële functies ingeschakeld om te verzekeren van optimale prestaties. | `default` Of `recommended`. |
+|XDT_MicrosoftApplicationInsights_Mode |  In zijn de modus alleen essentiële functies ingeschakeld om te verzekeren van optimale prestaties. | `default` of `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Bepaalt of de engine voor het binaire bestand herschrijven `InstrumentationEngine` wordt ingeschakeld. Deze instelling heeft gevolgen voor de prestaties en heeft gevolgen voor koude start/opstarttijd. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Controleert of SQL en Azure-tabel tekst wordt samen met de afhankelijkheidsaanroepen worden vastgelegd. Van Prestatiewaarschuwing: deze instelling moet de `InstrumentationEngine`. | `~1` |
 

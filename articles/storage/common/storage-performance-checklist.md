@@ -9,10 +9,10 @@ ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
 ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58793965"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Controlelijst voor prestaties en schaalbaarheid van Microsoft Azure Storage
@@ -29,7 +29,7 @@ In dit artikel worden de bewezen procedures in de volgende groepen ingedeeld. Be
 * Tabellen
 * Wachtrijen  
 
-| Klaar | Onderwerp | Categorie | Vraag |
+| Klaar | Onderwerp | Category | Vraag |
 | --- | --- | --- | --- |
 | &nbsp; | Alle services |Schaalbaarheidsdoelen |[Is uw toepassing zodanig ontworpen dat de schaalbaarheidsdoelen nadert?](#subheading1) |
 | &nbsp; | Alle services |Schaalbaarheidsdoelen |[Is uw naamconventie ontworpen om in te schakelen beter taakverdeling?](#subheading47) |

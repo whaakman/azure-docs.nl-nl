@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270979"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Herstel na noodgevallen voor SQL Server instellen
@@ -40,7 +40,7 @@ Veel werkbelastingen SQL Server gebruiken als basis en deze kan worden geïntegr
 ### <a name="supported-scenarios"></a>Ondersteunde scenario's
 Site Recovery kan SQL Server beveiligen, zoals samengevat in de tabel.
 
-**Scenario** | **Op een secundaire site** | **In Azure**
+**Scenario** | **Naar een secundaire site** | **Naar Azure**
 --- | --- | ---
 **Hyper-V** | Ja | Ja
 **VMware** | Ja | Ja
@@ -101,7 +101,7 @@ Dit is wat u moet doen:
 
 1. Scripts in uw Azure Automation-account importeren. Hierin zijn de scripts voor de SQL-beschikbaarheidsgroep failover in een [virtuele machine van Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) en een [klassieke virtuele machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1).
 
-    [![Deploy naar Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![Implementeren in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. ASR-SQL-FailoverAG toevoegen als een pre-actie van de eerste groep van het herstelplan te gaan.

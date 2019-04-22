@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 30f853bd65c83b922faf008fbb5279c28f197f68
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 772401c286a50774d201703cefcbbc12f0fcf88f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339003"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678884"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Metrische waarschuwingen met dynamische drempelwaarden in Azure Monitor (Preview-versie)
 
@@ -40,6 +40,9 @@ Waarschuwingen met dynamische drempelwaarden kunnen worden geconfigureerd via Me
 Dynamische drempelwaarden continu de gegevens van de metrische gegevens uit de serie leert en probeert om modellen te maken met behulp van een set algoritmen en methoden. Deze patronen in gegevens zoals seizoensgebondenheid (per uur / dagelijks / wekelijks) detecteert en ruis metrische gegevens (zoals machine CPU of geheugen) en metrische gegevens met lage spreiding (zoals beschikbaarheid en fout-tarief) overweg kan.
 
 De drempelwaarden zijn geselecteerd in zodanig dat een afwijking van deze drempels geeft aan een anomalie in het metrische gedrag dat.
+
+> [!NOTE]
+> Detectie van seizoenspatroon is ingesteld op uur, dag of week interval. Dit betekent dat andere patronen, zoals bihourly patroon of tweewekelijkse kan niet worden gevonden.
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>Wat betekent ' gevoeligheidsinstelling ' in dynamische drempelwaarden gemiddelde?
 
@@ -73,13 +76,23 @@ Als u wilt een waarschuwing geactiveerd wanneer er een schending van een dynamis
 
 **Gegevens negeren vóór** -gebruikers kunnen eventueel ook een begindatum van waaruit het systeem moet beginnen met de berekening van de drempelwaarden van definiëren. Een typische gebruiksscenario's kan optreden wanneer een resource is een die wordt uitgevoerd in een modus voor testen en nu om aan te bieden van een productie-werkbelasting wordt gepromoveerd, en daarom het gedrag van een willekeurige statistiek tijdens de testfase moet worden genegeerd.
 
+## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>Hoe u nagaan waarom een dynamische drempelwaarden waarschuwing is geactiveerd?
+
+U kunt verkennen geactiveerde waarschuwing exemplaren in de waarschuwingsweergave door te klikken op de koppeling in het e-mailbericht of SMS-bericht of browser om te zien van de waarschuwingen bekijken in de Azure portal. [Meer informatie over de waarschuwingsweergave](alerts-overview.md#alerts-experience).
+
+De waarschuwingsweergave wordt weergegeven:
+
+- De metrische gegevens op het moment dat de drempelwaarden voor dynamische-waarschuwing wordt geactiveerd.
+- Een diagram van de periode waarin de waarschuwing was trigger met de dynamische drempelwaarden op dat punt in tijd gebruikt.
+- De mogelijkheid om feedback te geven op de waarschuwing voor dynamische drempelwaarden en waarschuwingen weergave-ervaring, waardoor kan de toekomstige detecties worden verbeterd.
+
 ## <a name="will-slow-behavior-change-in-the-metric-trigger-an-alert"></a>Trage gedrag veranderen in de metrische trigger een waarschuwing?
 
 Waarschijnlijk niet. Dynamische drempelwaarden zijn geschikt voor grote afwijkingen detecteren in plaats van langzaam problemen in ontwikkeling.
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Hoeveel gegevens wordt gebruikt om te bekijken en vervolgens drempelwaarden te berekenen?
 
-De drempelwaarden die worden weergegeven in de grafiek, voordat een waarschuwingsregel wordt gemaakt op de metrische gegevens, worden berekend op basis van genoeg historische gegevens voor het berekenen van uur of dagelijks seizoensgebonden patronen (10 dagen). Te drukken op 'Wekelijks weergave-patroon' krijgen voldoende historische gegevens voor het berekenen van de wekelijkse seizoensgebonden patronen (28 dagen). Zodra een waarschuwingsregel is gemaakt, wordt de dynamische drempelwaarden alle benodigde historische gegevens die beschikbaar is en continu leren en vertrouwd op basis van nieuwe gegevens gebruiken om te de drempelwaarden nauwkeuriger maken.
+De drempelwaarden die worden weergegeven in de grafiek, voordat een waarschuwingsregel wordt gemaakt op de metrische gegevens, worden berekend op basis van genoeg historische gegevens voor het berekenen van uur of dagelijks seizoensgebonden patronen (10 dagen). Zodra een waarschuwingsregel is gemaakt, wordt de dynamische drempelwaarden alle benodigde historische gegevens die beschikbaar is en continu leren en vertrouwd op basis van nieuwe gegevens gebruiken om te de drempelwaarden nauwkeuriger maken. Dit betekent dat nadat deze grafiek berekening ook voor wekelijkse patronen weergegeven wordt.
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Hoeveel gegevens nodig is om een waarschuwing te activeren?
 

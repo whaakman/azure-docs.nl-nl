@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261595"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Cluster uitbreiden om te voldoen aan veranderende vraag beheren
@@ -52,12 +52,12 @@ De volgende afbeelding ziet u de stroom van de volgende stappen. Meer informatie
     | **Duur (in minuten)** | Kies een passende hoeveelheid tijd voor het systeem om te controleren of terug bij het berekenen van metrische gegevens. Beginnen met de standaardwaarde van 10 minuten. |
     |  |  |
 
-    **Bewerking**
+    **Actie**
 
     | Instelling | Beschrijving en waarde |
     | --- | --- |
     | **Bewerking** | Kies de gewenste optie om te schalen of uitschalen. |
-    | **Aantal instanties** | Kies het aantal knooppunten of exemplaren die u wilt toevoegen of verwijderen wanneer een metrische voorwaarde wordt voldaan. |
+    | **Aantal exemplaren** | Kies het aantal knooppunten of exemplaren die u wilt toevoegen of verwijderen wanneer een metrische voorwaarde wordt voldaan. |
     | **Afkoelen (minuten)** | Kies een passende tijdsinterval moet worden gewacht tussen schaalbewerkingen. Beginnen met de standaardwaarde van vijf minuten. |
     |  |  |
 

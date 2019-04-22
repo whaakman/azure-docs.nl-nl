@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050941"
 ---
 # <a name="symmetric-key-attestation"></a>Attestation met behulp van een symmetrische sleutel
@@ -46,7 +46,7 @@ SAS-tokens hebben de volgende notatie:
 
 Hier vindt u de onderdelen van elke token:
 
-| Value | Description |
+| Value | Beschrijving |
 | --- | --- |
 | {handtekening} |Een tekenreeks van de HMAC-SHA256 handtekening. Voor afzonderlijke inschrijvingen, wordt deze handtekening gemaakt met behulp van de symmetrische sleutel (primair of secundair) om uit te voeren van de hash. Voor het registreren van groepen, wordt een sleutel die is afgeleid van de sleutel van de groep registratie gebruikt om uit te voeren van de hash. De hash wordt uitgevoerd op een bericht van het formulier: `URL-encoded-resourceURI + "\n" + expiry`. **Belangrijke**: De sleutel moet worden gedecodeerd op basis van base64 voordat het wordt gebruikt voor het uitvoeren van de HMAC-SHA256-berekening. Het resultaat van de handtekening moet ook zijn URL gecodeerd. |
 | {resourceURI} |De URI van het eindpunt voor clientregistratie die toegankelijk zijn met dit token beginnen met bereik-ID voor de Device Provisioning Service-exemplaar. Bijvoorbeeld: `{Scope ID}/registrations/{Registration ID}` |
@@ -114,6 +114,6 @@ Als de apparaatsleutels zijn niet geïnstalleerd in de factory, een [HSM hardwar
 
 Nu dat u een goed begrip van de symmetrische sleutel attestation hebt, bekijkt u de volgende artikelen voor meer informatie:
 
-* [Quickstart: Een gesimuleerd apparaat inrichten met symmetrische sleutels](quick-create-simulated-device-symm-key.md)
+* [Snelstart: Een gesimuleerd apparaat inrichten met symmetrische sleutels](quick-create-simulated-device-symm-key.md)
 * [Meer informatie over de concepten in automatische inrichting](./concepts-auto-provisioning.md)
 * [Aan de slag met behulp van automatische inrichting](./quick-setup-auto-provision.md) 

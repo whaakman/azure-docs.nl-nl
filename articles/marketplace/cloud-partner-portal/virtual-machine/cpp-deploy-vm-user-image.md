@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0885b187c4b9e9636144a3ab2a94b941008bec20
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046732"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Een Azure-VM van een gebruiker VHD implementeren
@@ -31,7 +31,7 @@ In dit artikel wordt uitgelegd hoe u een gegeneraliseerde VHD-installatiekopie v
 
 De Azure Resource Manager-sjabloon voor het kopiëren [VHD implementatie](cpp-deploy-json-template.md) naar een lokaal bestand met de naam `VHDtoImage.json`.  Dit bestand als u waarden opgeven voor de volgende parameters wilt bewerken. 
 
-|  **Parameter**             |   **Description**                                                              |
+|  **Parameter**             |   **Beschrijving**                                                              |
 |  -------------             |   ---------------                                                              |
 | ResourceGroupName          | Bestaande Azure-resource-groepsnaam.  Doorgaans gebruikt u dezelfde Replicatiegroep die zijn gekoppeld aan uw key vault  |
 | Sjabloonbestand               | Volledig pad naar het bestand `VHDtoImage.json`                                    |

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: 80c27d588bb8b4c60ae8432fbd3a2ac3d2db1394
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58802657"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Apache Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
@@ -41,7 +41,7 @@ Selecteer de clusternaam van uw vanaf het [ **HDInsight-clusters** ](#showCluste
 
 **Menu bovenaan:**  
 
-| Item| Description |
+| Item| Beschrijving |
 |---|---|
 |Verplaatsen|Hiermee wordt het cluster verplaatst naar een andere resourcegroep of een ander abonnement.|
 |Verwijderen|Hiermee verwijdert u het cluster. |
@@ -62,7 +62,7 @@ Selecteer de clusternaam van uw vanaf het [ **HDInsight-clusters** ](#showCluste
 
   - **Instellingenmenu**  
 
-    | Item| Beschrijving |
+    | Item| Description |
     |---|---|
     |Grootte van cluster|Controleren, verhogen en verlagen van het aantal worker-clusterknooppunten. Zie [schalen van clusters](hdinsight-administer-use-portal-linux.md#scale-clusters).|
     |Quotumlimieten|De gebruikte en beschikbare cores voor uw abonnement worden weergegeven.|
@@ -79,7 +79,7 @@ Selecteer de clusternaam van uw vanaf het [ **HDInsight-clusters** ](#showCluste
 
   - **Bewaking van menu**
 
-    | Item| Description |
+    | Item| Beschrijving |
     |---|---|
     |Waarschuwingen|De waarschuwingen en acties beheren.|
     |Metrische gegevens|Controleer de metrische gegevens voor cluster in Azure Monitor-Logboeken.|
@@ -88,7 +88,7 @@ Selecteer de clusternaam van uw vanaf het [ **HDInsight-clusters** ](#showCluste
 
   - **Ondersteuning en probleemoplossing van menu**
 
-    | Item| Description |
+    | Item| Beschrijving |
     |---|---|
     |Status van resources|Zie [overzicht van Azure resource health](../service-health/resource-health-overview.md).|
     |Nieuw ondersteuningsverzoek|Hiermee kunt u een ondersteuningsticket maken met Microsoft ondersteuning.|

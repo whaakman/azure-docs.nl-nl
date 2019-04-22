@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: db33ce748928b954f5447a82550c6ecde2188abf
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 42c08864c6908e92a7ecea336f8b1bd0606760db
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877122"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678680"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Configureren van herkennen tekst Docker-containers
 
@@ -31,11 +31,11 @@ De **tekst herkennen** container runtime-omgeving is geconfigureerd met behulp v
 
 ## <a name="apikey-configuration-setting"></a>ApiKey configuratie-instelling
 
-De `ApiKey` instelling geeft u aan de Azure-resource-sleutel die wordt gebruikt voor het bijhouden van informatie over facturering voor de container. U moet een waarde opgeven voor de ApiKey en de waarde moet een geldige sleutel voor de _Computer Vision_ resource die is opgegeven voor de [ `Billing` ](#billing-configuration-setting) configuratie-instelling.
+De `ApiKey` instelling geeft u aan de Azure `Cognitive Services` resource-sleutel die wordt gebruikt voor het bijhouden van informatie over facturering voor de container. U moet een waarde opgeven voor de ApiKey en de waarde moet een geldige sleutel voor de _Cognitive Services_ resource die is opgegeven voor de [ `Billing` ](#billing-configuration-setting) configuratie-instelling.
 
 Deze instelling kan worden gevonden in de volgende plaats:
 
-* Azure Portal: **Computer-Vision** resourcebeheer onder **sleutels**
+* Azure Portal: **Cognitive Services** resourcebeheer onder **sleutels**
 
 ## <a name="applicationinsights-setting"></a>Application Insights-instelling
 
@@ -43,11 +43,13 @@ Deze instelling kan worden gevonden in de volgende plaats:
 
 ## <a name="billing-configuration-setting"></a>Facturering van configuratie-instelling
 
-De `Billing` instelling geeft u aan de URI van het eindpunt van de _Computer Vision_ resource in Azure gebruikt voor het meten van factureringsgegevens voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige URI van het eindpunt voor een _Computer Vision_ resource in Azure. Gebruik de container rapporteert over elke 10 tot 15 minuten.
+De `Billing` instelling geeft u aan de URI van het eindpunt van de _Cognitive Services_ resource in Azure gebruikt voor het meten van factureringsgegevens voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige URI van het eindpunt voor een _Cognitive Services_ resource in Azure. Gebruik de container rapporteert over elke 10 tot 15 minuten.
 
 Deze instelling kan worden gevonden in de volgende plaats:
 
-* Azure Portal: **Computer-Vision** overzicht, met het label `Endpoint`
+* Azure Portal: **Cognitive Services** overzicht, met het label `Endpoint`
+
+Houd er rekening mee om toe te voegen de `vision/v1.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in de volgende tabel. 
 
 |Vereist| Name | Gegevenstype | Description |
 |--|------|-----------|-------------|
@@ -77,7 +79,7 @@ De Computer Vision-containers gebruik geen invoer of uitvoer koppelt training of
 
 De exacte syntaxis van de locatie van de host koppelen, is afhankelijk van het hostbesturingssysteem. Bovendien de [hostcomputer](computer-vision-how-to-install-containers.md#the-host-computer)van koppelpunten locatie is mogelijk niet toegankelijk is vanwege een conflict tussen de machtigingen die wordt gebruikt door de Docker-service-account en de host koppelen locatie machtigingen. 
 
-|Optioneel| Name | Gegevenstype | Beschrijving |
+|Optioneel| Name | Gegevenstype | Description |
 |-------|------|-----------|-------------|
 |Niet toegestaan| `Input` | String | Computer Vision-containers gebruik dit niet.|
 |Optioneel| `Output` | String | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`. Dit is de locatie van de logboeken. Dit omvat de logboeken voor containers. <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -89,16 +91,18 @@ De volgende voorbeelden gebruiken de configuratie-instellingen om te laten zien 
 * **Voortzetting van regel tekens**: De Docker-opdrachten in de volgende secties gebruiken de backslash `\`, als een voortzetting van regel tekens. Vervang of verwijder deze op basis van het hostbesturingssysteem vereisten. 
 * **Argument order**: Wijzig de volgorde van de argumenten niet, tenzij u bekend bent met Docker-containers.
 
+Houd er rekening mee om toe te voegen de `vision/v1.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in de volgende tabel. 
+
 Vervang {_argument_name_} door uw eigen waarden:
 
 | Tijdelijke aanduiding | Waarde | Indeling of voorbeeld |
 |-------------|-------|---|
-|{BILLING_KEY} | De eindpuntsleutel van de Computer Vision-resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_KEY} | De eindpuntsleutel van de Cognitive Services-resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | De facturering eindpuntwaarde inclusief regio.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
 
 > [!IMPORTANT]
 > De `Eula`, `Billing`, en `ApiKey` opties moeten worden opgegeven voor het uitvoeren van de container; anders wordt de container niet start.  Zie voor meer informatie, [facturering](computer-vision-how-to-install-containers.md#billing).
-> De waarde ApiKey is de **sleutel** van de pagina sleutels in Azure Computer Vision-Resource. 
+> De waarde ApiKey is de **sleutel** met de Azure- `Cognitive Services` resourcepagina sleutels. 
 
 ## <a name="recognize-text-container-docker-examples"></a>Herkennen tekst container Docker-voorbeelden
 

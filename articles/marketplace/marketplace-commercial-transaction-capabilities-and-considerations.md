@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3c07f7ac2b6407a3edf53fd5d3a4b402714fefbb
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731086"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678901"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace commercieel transactiemogelijkheden en aandachtspunten
 
@@ -44,7 +44,7 @@ Naast de lijst en de proefversie publicatieopties is de publicatieoptie transact
 
 ## <a name="transact-general-overview"></a>Algemeen overzicht Transact
 
-Wanneer u de publicatieoptie transact gebruikt, kunt u Microsoft verkoop en implementatie van software van derden met Azure-abonnement van de klant. De uitgever moet rekening houden met de facturering van Azure-infrastructuur-kosten en de van uitgever softwarelicentiekosten, bij het selecteren van een facturering model en type in Azure Marketplace aanbieden. 
+Wanneer u de optie publiceren transact, maakt Microsoft de verkoop van software van derden en implementatie van bepaalde typen Azure-abonnement van de klant. De uitgever moet rekening houden met de facturering van Azure-infrastructuur-kosten en de van uitgever softwarelicentiekosten, bij het selecteren van een facturering model en type in Azure Marketplace aanbieden.
 
 De Transact-publicatieoptie in Azure Marketplace wordt momenteel ondersteund voor de volgende typen: Virtuele Machines, Azure-toepassingen of SaaS-Apps.
 
@@ -58,7 +58,7 @@ Voor virtuele Machines en Azure-toepassingen, de infrastructuur van Azure-gebrui
 
 **Voor SaaS-apps**
 
-Voor SaaS-Apps, moet de uitgever-account voor Azure-infrastructuur gebruikskosten en softwarelicentiekosten als een item eenmalige kosten.  Deze wordt weergegeven als een vaste maandelijkse kosten voor de klant. Het gebruik van Azure-infrastructuur wordt beheerd en rechtstreeks aan de partner gefactureerd.  Werkelijke infrastructuur gebruikskosten zijn niet zichtbaar voor de klant.  Uitgevers is doorgaans ervoor kiezen te bundelen gebruikskosten voor Azure-infrastructuur in de software-licentie prijzen.  Software licentiekosten worden niet gemeten of op basis van verbruik.
+Voor SaaS-Apps, moet de uitgever-account voor Azure-infrastructuur gebruikskosten en softwarelicentiekosten als een item eenmalige kosten.  Deze wordt weergegeven als een vast bedrag aan de klant. Het gebruik van Azure-infrastructuur wordt beheerd en rechtstreeks aan de partner gefactureerd.  Werkelijke infrastructuur gebruikskosten zijn niet zichtbaar voor de klant.  Uitgevers is doorgaans ervoor kiezen te bundelen gebruikskosten voor Azure-infrastructuur in de software-licentie prijzen.  Software licentiekosten worden niet gemeten of op basis van verbruik.
 
 ## <a name="transact-billing-models"></a>Transact factureringsmodellen
 
@@ -165,7 +165,7 @@ Klanten kunnen ook betalen met creditcard is geregistreerd en een maandelijkse f
 
 Bijvoorbeeld, als de klant koopt via een creditcard:
 
-|Description    |    Date  |
+|Beschrijving    |    Date  |
 |----------|----------|
 |Volgorde-periode   | 15 augustus 2018 - en met 30 augustus 2018 |
 |Term beëindigen (maand)   | En met 30 augustus 2018 |
@@ -179,7 +179,7 @@ Bijvoorbeeld, als de klant koopt via een creditcard:
 
 Als de klant koopt met behulp van een Enterprise Agreement:
 
-| Description |    Date  |
+| Beschrijving |    Date  |
 |----------|----------|
 |Volgorde-periode | 15 augustus 2018 - en met 30 augustus 2018 |
 |Term beëindigen (kwartaal) | En met 30 september 2018 |

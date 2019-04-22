@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: e93a81f2c081daa58a37b1e2823d7bf0cc5a6361
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e05998f74223ead6bb4e94b86469e51791e0263f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883105"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678561"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Language Understanding Docker-containers configureren 
 
@@ -34,19 +34,19 @@ Deze container heeft de volgende configuratie-instellingen:
 |Ja|[Eula](#eula-setting)| Geeft aan dat u de licentie voor de container hebt geaccepteerd.|
 |Nee|[Fluentd](#fluentd-settings)|Logboek schrijven en, optioneel, metrische gegevens naar een Fluentd-server.|
 |Nee|[HTTP-Proxy](#http-proxy-credentials-settings)|Configureer een HTTP-proxy voor uitgaande aanvragen.|
-|Nee|[Logboekregistratie](#logging-settings)|Biedt ondersteuning voor ASP.NET Core logboekregistratie voor de container. |
-|Ja|[Hiermee wordt gekoppeld](#mount-settings)|Gegevens lezen en schrijven van de hostcomputer naar de container en van de container naar de hostcomputer.|
+|Nee|[Logging](#logging-settings)|Biedt ondersteuning voor ASP.NET Core logboekregistratie voor de container. |
+|Ja|[Mounts](#mount-settings)|Gegevens lezen en schrijven van de hostcomputer naar de container en van de container naar de hostcomputer.|
 
 > [!IMPORTANT]
 > De [ `ApiKey` ](#apikey-setting), [ `Billing` ](#billing-setting), en [ `Eula` ](#eula-setting) instellingen samen worden gebruikt en u moet geldige waarden opgeven voor alle drie deze, anders uw container start niet. Zie voor meer informatie over het gebruik van deze configuratie-instellingen voor het starten van een container [facturering](luis-container-howto.md#billing).
 
 ## <a name="apikey-setting"></a>ApiKey instelling
 
-De `ApiKey` instelling geeft u aan de Azure-resource-sleutel die wordt gebruikt voor het bijhouden van informatie over facturering voor de container. U moet een waarde opgeven voor de ApiKey en de waarde moet een geldige sleutel voor de _Language Understanding_ resource die is opgegeven voor de [ `Billing` ](#billing-setting) configuratie-instelling.
+De `ApiKey` instelling geeft u aan de Azure-resource-sleutel die wordt gebruikt voor het bijhouden van informatie over facturering voor de container. U moet een waarde opgeven voor de ApiKey en de waarde moet een geldige sleutel voor de _Cognitive Services_ resource die is opgegeven voor de [ `Billing` ](#billing-setting) configuratie-instelling.
 
 Deze instelling kan worden gevonden in de volgende locaties:
 
-* Azure Portal: **Language Understanding van** resourcebeheer onder **sleutels**
+* Azure Portal: **Cognitive Services** resourcebeheer onder **sleutels**
 * LUIS-portal: **Sleutels en eindpuntinstellingen** pagina. 
 
 Gebruik niet de starter-sleutel of de ontwerphandleiding. 
@@ -57,12 +57,15 @@ Gebruik niet de starter-sleutel of de ontwerphandleiding.
 
 ## <a name="billing-setting"></a>Facturering instellen
 
-De `Billing` instelling geeft u aan de URI van het eindpunt van de _Language Understanding_ resource in Azure gebruikt voor het meten van factureringsgegevens voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige URI van het eindpunt voor een _Language Understanding_ resource in Azure. Gebruik de container rapporteert over elke 10 tot 15 minuten.
+De `Billing` instelling geeft u aan de URI van het eindpunt van de _Cognitive Services_ resource in Azure gebruikt voor het meten van factureringsgegevens voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige URI van het eindpunt voor een _Cognitive Services_ resource in Azure. Gebruik de container rapporteert over elke 10 tot 15 minuten.
 
 Deze instelling kan worden gevonden in de volgende locaties:
 
-* Azure Portal: **Language Understanding van** overzicht, met het label `Endpoint`
+* Azure Portal: **Cognitive Services** overzicht, met het label `Endpoint`
 * LUIS-portal: **Sleutels en eindpuntinstellingen** pagina als onderdeel van de URI van het eindpunt.
+
+Houd er rekening mee te nemen de `luis/v2.0` routering in de URL, zoals wordt weergegeven in de volgende tabel:
+
 
 |Vereist| Name | Gegevenstype | Description |
 |--|------|-----------|-------------|
@@ -109,16 +112,18 @@ De volgende voorbeelden gebruiken de configuratie-instellingen om te laten zien 
 * **Voortzetting van regel tekens**: De docker-opdrachten in de volgende secties gebruiken de backslash `\`, als een voortzetting van regel tekens. Vervang of verwijder deze op basis van het hostbesturingssysteem vereisten. 
 * **Argument order**: Wijzig de volgorde van de argumenten niet, tenzij u bekend bent met docker-containers.
 
+Houd er rekening mee te nemen de `luis/v2.0` routering in de URL, zoals wordt weergegeven in de volgende tabel.
+
 Vervang {_argument_name_} door uw eigen waarden:
 
 | Tijdelijke aanduiding | Waarde | Indeling of voorbeeld |
 |-------------|-------|---|
 |{ENDPOINT_KEY} | De eindpuntsleutel van het getrainde LUIS-toepassing. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT} | De facturering eindpuntwaarde is beschikbaar op de pagina van de taal begrijpen overzicht van de Azure portal.|https://westus.api.cognitive.microsoft.com/luis/v2.0|
+|{BILLING_ENDPOINT} | De facturering waarde van het eindpunt is beschikbaar op de Azure `Cognitive Services` pagina overzicht. |https://westus.api.cognitive.microsoft.com/luis/v2.0|
 
 > [!IMPORTANT]
 > De `Eula`, `Billing`, en `ApiKey` opties moeten worden opgegeven voor het uitvoeren van de container; anders wordt de container niet start.  Zie voor meer informatie, [facturering](luis-container-howto.md#billing).
-> De waarde ApiKey is de **sleutel** pagina van de sleutels en de eindpunten in de portal LUIS en is ook beschikbaar op de pagina sleutels in Azure Language Understanding Resource. 
+> De waarde ApiKey is de **sleutel** pagina van de sleutels en de eindpunten in de portal LUIS en is ook beschikbaar in de Azure `Cognitive Services` resourcepagina sleutels. 
 
 ### <a name="basic-example"></a>Eenvoudige voorbeeld
 

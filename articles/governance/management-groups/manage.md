@@ -7,10 +7,10 @@ ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
 ms.openlocfilehash: e47ce094cd690cba4ef398bc5d5d443f7ed647e9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272475"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Uw resources beheren met beheergroepen
@@ -349,8 +349,8 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 
 Voor meer informatie over beheergroepen gaat u naar:
 
-- [Beheergroepen voor het ordenen van Azure-resources maken](create.md)
-- [Wijzigen, verwijderen of uw beheergroepen beheren](manage.md)
-- [Van beheergroepen in Azure PowerShell-Module voor Resources bekijken](/powershell/module/az.resources#resources)
-- [Bekijk beheergroepen in REST-API](/rest/api/resources/managementgroups)
-- [Van beheergroepen in Azure CLI bekijken](/cli/azure/account/management-group)
+- [Beheergroepen maken om Azure-resources te ordenen](create.md)
+- [Uw beheergroepen wijzigen, verwijderen of beheren](manage.md)
+- [Beheergroepen bekijken via de module voor Azure PowerShell-resources](/powershell/module/az.resources#resources)
+- [Beheergroepen bekijken via de REST-API](/rest/api/resources/managementgroups)
+- [Beheergroepen bekijken via de Azure-CLI](/cli/azure/account/management-group)

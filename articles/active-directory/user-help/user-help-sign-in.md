@@ -14,10 +14,10 @@ ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268350"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Meld u aan met behulp van verificatie of verificatie in twee stappen de beveiligingsgegevens
@@ -26,7 +26,7 @@ Na het instellen van verificatie in twee stappen of -beveiligingsgegevens, kunt 
 > [!Note]
 > Als u nog steeds de verificatie-ervaring voor verificatie in twee stappen, moet u uw verificatiemethoden instellen door de instructies in de [instellen van mijn account voor verificatie in twee stappen](multi-factor-authentication-end-user-first-time.md) artikel.
 > 
-> Als de beheerder de ervaring van de informatie over beveiliging is ingeschakeld, moet u uw verificatiemethoden met behulp van deze stapsgewijze artikelen instellen:<ul><li>[Beveiligingsgegevens ingesteld voor het gebruik van een verificatie-app](security-info-setup-auth-app.md)</li><li>[Beveiligingsgegevens instellen voor het gebruik van SMS-berichten verzenden](security-info-setup-text-msg.md)</li><li>[Beveiligingsgegevens ingesteld voor het gebruik van een telefonische oproep](security-info-setup-phone-number.md)</li></ul>
+> Als de beheerder de ervaring van de informatie over beveiliging is ingeschakeld, moet u uw verificatiemethoden met behulp van deze stapsgewijze artikelen instellen:<ul><li>[Beveiligingsgegevens ingesteld voor het gebruik van een verificatie-app](security-info-setup-auth-app.md)</li><li>[Beveiligingsgegevens instellen om sms-berichten te gebruiken](security-info-setup-text-msg.md)</li><li>[Beveiligingsgegevens ingesteld voor het gebruik van een telefonische oproep](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Meld u aan met behulp van een verificator-app-melding op uw mobiele apparaat
 

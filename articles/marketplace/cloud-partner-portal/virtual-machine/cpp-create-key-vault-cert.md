@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a25418f30225184424011527def468d0d3909563
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045693"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Certificaten voor Azure Key Vault maken
@@ -39,7 +39,7 @@ U kunt een nieuwe of een bestaande resourcegroep gebruiken voor dit werk.  De ee
 
 Bewerken en voer de volgende Azure Powershell-script voor het maken van het certificaatbestand (.pfx) in een lokale map.  U moet vervangen door de waarden voor de volgende parameters:
 
-|  **Parameter**        |   **Description**                                                               |
+|  **Parameter**        |   **Beschrijving**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$certroopath` | Lokale map op te slaan van het pfx-bestand op  |
 | `$location`    | Een van de Azure standaard geografische locaties  |
@@ -85,7 +85,7 @@ Bewerken en voer de volgende Azure Powershell-script voor het maken van het cert
 
 Kopieer de inhoud van de [sleutelkluis implementatiesjabloon](./cpp-key-vault-deploy-template.md) naar een bestand op uw lokale computer. (in het onderstaande voorbeeldscript van deze resource is `C:\certLocation\keyvault.json`.)  Bewerken en voer de volgende Azure Powershell-script om een Azure Key Vault-instantie en de bijbehorende resourcegroep te maken.  U moet vervangen door de waarden voor de volgende parameters:
 
-|  **Parameter**        |   **Description**                                                               |
+|  **Parameter**        |   **Beschrijving**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$postfix`            | Willekeurige numerieke tekenreeks toegevoegd aan de implementatie-id 's                     |
 | `$rgName`             | Azure (RG) de naam van resourcegroep maken                                        |

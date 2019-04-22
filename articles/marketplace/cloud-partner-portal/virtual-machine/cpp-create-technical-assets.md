@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 6f1a93c3d3059e612d8c309b263e263dbb84c67f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050098"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Technische assets voor een virtuele machine-aanbieding maken
@@ -57,7 +57,7 @@ Kies een of beide van de volgende scripts omgevingen voor het beheer van VHD's e
 
 Bovendien is het raadzaam de volgende hulpprogramma's toe te voegen aan uw ontwikkelomgeving: 
 
--   [Azure Opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-   [Azure-opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
     *   Toestel: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   Toestel: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058608"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59280550"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Aangepaste statusrapporten van Service Fabric toevoegen
 Azure Service Fabric introduceert een [statusmodel](service-fabric-health-introduction.md) ontworpen om u te markeren niet in orde cluster en de voorwaarden van toepassing op specifieke entiteiten. Maakt gebruik van het statusmodel **health rapporteurs** (onderdelen van het systeem en watchdogs). Het doel is eenvoudig en snel diagnose en herstel. Schrijvers van de service moeten om na te denken over de status van vooraf. Een voorwaarde die van invloed kan status moet worden gerapporteerd, met name als het de problemen met de vlag dicht bij de hoofdmap helpen kan. De statusinformatie bespaart tijd en moeite voor foutopsporing en onderzoek. Het nut is met name wissen nadat de service actief en werkend op schaal in de cloud is (particulier of Azure).
@@ -312,7 +312,7 @@ Op basis van de health-gegevens, kunnen schrijvers van de service en toepassing/
 
 [Systeemstatusrapporten gebruiken voor het oplossen van problemen](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-[Services lokaal bewaken en er diagnoses op uitvoeren](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[Controle en diagnose van services lokaal](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Upgrade van Service Fabric-toepassing uitvoeren](service-fabric-application-upgrade.md)
+[Service Fabric-toepassingsupgrade](service-fabric-application-upgrade.md)
 

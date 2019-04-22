@@ -2,16 +2,17 @@
 title: "Zakelijke continuïteit en herstel na noodgevallen (BCDR): Gekoppelde Azure-regio's | Microsoft Docs"
 description: Meer informatie over het Azure regioparen, om ervoor te zorgen dat toepassingen veerkrachtig tijdens het datacenterfouten zijn.
 author: rayne-wiselman
+manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 12/23/2018
+ms.date: 04/17/2019
 ms.author: raynew
-ms.openlocfilehash: d27db03977b84002b59d58327af7d14fbdc713c2
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792309"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678867"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Zakelijke continuïteit en herstel na noodgevallen (BCDR): Gekoppelde Azure-regio 's
 
@@ -37,6 +38,7 @@ Afbeelding 1: Azure regioparen
 | Europa |Europa - noord |Europa -west |
 | Frankrijk |Frankrijk - centraal|Frankrijk - zuid|
 | Duitsland |Duitsland - centraal |Duitsland - noordoost |
+| Duitsland |Duitsland - noord | Duitsland - west-centraal
 | India |India - centraal |India - zuid |
 | India |India - west |India - zuid |
 | Japan |Japan - oost |Japan - west |
@@ -45,7 +47,14 @@ Afbeelding 1: Azure regioparen
 | Noord-Amerika |US - oost 2 |US - centraal |
 | Noord-Amerika |US - noord-centraal |US - zuid-centraal |
 | Noord-Amerika |US - west 2 |US - west-centraal 
+| Noord-Amerika |VS-West 3 |US - oost
+| Noorwegen |Noorwegen - oost |Noorwegen - west
+| Zuid-Afrika | Zuid-Afrika (noord) | Zuid-Afrika (west)
+| Zweden |Zweden-centraal |Zweden-Zuid
+| Zwitserland | Zwitserland - noord | Zwitserland - west
 | VK |Verenigd Koninkrijk West |Verenigd Koninkrijk Zuid |
+| VK |VK, noord |VK, zuid 2
+| Verenigde Arabische Emiraten | VAE - noord | UAE Center
 | het Ministerie van Defensie in de VS |US DoD - oost |US DoD - centraal |
 | Amerikaanse overheid |VS (overheid) - Arizona |VS (overheid) - Texas |
 | Amerikaanse overheid |US Gov - Iowa |VS (overheid) - Virginia |
@@ -53,10 +62,11 @@ Afbeelding 1: Azure regioparen
 
 Tabel 1 - toewijzing van Azure regioparen
 
-- West-India is verschillend, omdat deze is gekoppeld aan een andere regio in één richting. De secundaire regio West-India van Zuid-India is, maar de secundaire regio Zuid-India centraal-India.
-- Brazilië-Zuid is uniek omdat deze is gekoppeld aan een regio buiten de eigen Geografie. Secundaire regio Brazilië-Zuid van is Zuid-centraal VS, maar er is geen Zuid-centraal VS van secundaire regio Brazilië-Zuid.
-- De secundaire regio VS (overheid)-Iowa is VS (overheid) Virginia, maar de secundaire regio VS (overheid)-Virginia is niet VS (overheid)-Iowa.
-- VS (overheid) Virginia secundaire regio VS (overheid)-Texas is, maar de secundaire regio VS (overheid)-Texas is niet VS (overheid) Virginia.
+- West-India is gekoppeld in één richting. De secundaire regio West-India van Zuid-India is, maar de secundaire regio Zuid-India centraal-India.
+- Brazilië-Zuid is uniek omdat deze is gekoppeld aan een regio buiten de eigen Geografie. De secundaire regio Brazilië-Zuid van is Zuid-centraal VS. Zuid-centraal VS van secundaire regio is niet Brazilië-Zuid.
+- De secundaire regio VS (overheid)-Iowa is VS (overheid) Virginia.
+- VS (overheid) Virginia secundaire regio is VS (overheid)-Texas.
+- VS (overheid)-Texas secundaire regio is VS (overheid)-Arizona.
 
 
 Wordt aangeraden dat u business continuity noodherstel (BCDR configureert) over regioparen profiteren van de beleidsregels isolatie en beschikbaarheid van Azure. Voor toepassingen die ondersteuning bieden voor meerdere actieve regio's, wordt u aangeraden beide regio's in een paar van de regio waar mogelijk. Dit zorgt ervoor dat optimale beschikbaarheid voor toepassingen en geminimaliseerd hersteltijd in het geval van een noodgeval. 

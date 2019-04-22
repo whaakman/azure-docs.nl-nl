@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: dc3543af0a10c83d8ca212957a6345c8a70cd58b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7fc42b24090b5fc68176fea2c7b993643ea24200
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279938"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678221"
 ---
-# <a name="tutorial-customize-the-azure-iot-central-operators-view-new-ui-design"></a>Zelfstudie: De operatorweergave van Azure IoT Central aanpassen (nieuw ontwerp van gebruikersinterface)
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Zelfstudie: De operatorweergave van Azure IoT Central aanpassen
 
 In deze zelfstudie leert u, als systeembouwer, hoe u de operatorweergave van uw toepassing kunt aanpassen. Wanneer u als systeembouwer een wijziging in de toepassing aanbrengt, kunt u een voorbeeld van de operatorweergave in de Microsoft Azure IoT Central-toepassing bekijken.
 
@@ -160,5 +160,5 @@ In deze zelfstudie hebt u geleerd hoe u de operatorweergave van de toepassing ku
 
 Nu u hebt geleerd hoe u de operatorweergave van de toepassing kunt aanpassen, zijn dit de voorgestelde volgende stappen:
 
-* [Bewaak uw apparaten (zoals een operator)](tutorial-monitor-devices.md)
-* [Een nieuw apparaat toevoegen aan uw toepassing (zoals een operator en een apparaat ontwikkelaars)](tutorial-add-device.md)
+* [Uw apparaten bewaken (als operator)](tutorial-monitor-devices.md)
+* [Een nieuw apparaat toevoegen aan uw toepassing (als operator en ontwikkelaar van het apparaat)](tutorial-add-device.md)

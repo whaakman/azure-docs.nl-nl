@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
 ms.openlocfilehash: 74c33d73f15c4edf63a02ea5c9a0cdcad88bb68c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049742"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migratie van Contoso: Opnieuw opbouwen van een on-premises-app naar Azure
@@ -25,10 +25,10 @@ Dit document is een in een reeks artikelen die laten zien hoe het fictieve bedri
 **Artikel** | **Details** | **Status**
 --- | --- | ---
 [Artikel 1: Overzicht](contoso-migration-overview.md) | Biedt een overzicht van de strategie voor de migratie van Contoso, de artikel-serie en de voorbeeld-apps die we gebruiken. | Beschikbaar
-[Artikel 2: een Azure-infrastructuur implementeren](contoso-migration-infrastructure.md) | Hierin wordt beschreven hoe Contoso de on-premises en Azure-infrastructuur voor migratie voorbereidt. Dezelfde infrastructuur wordt gebruikt voor alle migratieartikelen. | Beschikbaar
-[Artikel 3: Beoordeling van on-premises resources](contoso-migration-assessment.md)  | Laat zien hoe een evaluatie van een on-premises twee lagen SmartHotel360 app waarop VMware wordt uitgevoerd in Contoso. Contoso beoordeelt de virtuele machines van een app met de [Azure Migrate](migrate-overview.md) -service en de SQL Server-database van de app met de [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Beschikbaar
+[Artikel 2: Een Azure-infrastructuur implementeren](contoso-migration-infrastructure.md) | Hierin wordt beschreven hoe Contoso de on-premises en Azure-infrastructuur voor migratie voorbereidt. Dezelfde infrastructuur wordt gebruikt voor alle migratieartikelen. | Beschikbaar
+[Artikel 3: On-premises resources evalueren](contoso-migration-assessment.md)  | Laat zien hoe een evaluatie van een on-premises twee lagen SmartHotel360 app waarop VMware wordt uitgevoerd in Contoso. Contoso beoordeelt de virtuele machines van een app met de [Azure Migrate](migrate-overview.md) -service en de SQL Server-database van de app met de [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Beschikbaar
 [Artikel 4: Opnieuw hosten van een app op Azure VM's en een beheerd exemplaar van SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Ziet u hoe Contoso een lift-and-shift-migratie naar Azure voor de SmartHotel360-app uitgevoerd. Contoso migreert u de app front-end virtuele machine via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), en de app-database naar een SQL beheerd exemplaar, met behulp van de [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Beschikbaar
-[Artikel 5: Een app opnieuw hosten in Azure-VM's](contoso-migration-rehost-vm.md) | Ziet u hoe Contoso de SmartHotel360-app met behulp van Site Recovery alleen VM's migreren. | Beschikbaar
+[Artikel 5: Een app op Azure VM's opnieuw hosten](contoso-migration-rehost-vm.md) | Ziet u hoe Contoso de SmartHotel360-app met behulp van Site Recovery alleen VM's migreren. | Beschikbaar
 [Artikel 6: Een app op Azure VM's en SQL Server Always On Availability Group opnieuw hosten](contoso-migration-rehost-vm-sql-ag.md) | Ziet u hoe Contoso migreert de SmartHotel360-app. Contoso maakt gebruik van Site Recovery voor het migreren van de VM's van de app en de Database Migration service de app-database migreren naar een SQL Server-cluster dat is beveiligd door een AlwaysOn-beschikbaarheidsgroep. | Beschikbaar
 [7-artikel: Een Linux-app op Azure VM's opnieuw hosten](contoso-migration-rehost-linux-vm.md) | Ziet u hoe Contoso heeft een lift-and-shift-migratie van de Linux-osTicket-app op virtuele machines van Azure met Site Recovery | Beschikbaar
 [8-artikel: Een Linux-app op Azure VM's en Azure MySQL-Server opnieuw hosten](contoso-migration-rehost-linux-vm-mysql.md) | Ziet u hoe Contoso de osTicket Linux app overzet naar virtuele Azure-machines met behulp van Site Recovery en de app-database migreert naar een Azure MySQL-Server-exemplaar met behulp van MySQL Workbench. | Beschikbaar
@@ -98,7 +98,7 @@ Contoso evalueert het ontwerp van de voorgestelde door het samenstellen van een 
 
 **Overweging** | **Details**
 --- | ---
-**Professionals** | Met behulp van PaaS en serverloze oplossingen voor de end-to-end implementatie aanzienlijk minder beheer hoelang Contoso moet opgeven.<br/><br/> Verplaatsen naar een microservice-architectuur, kunt Contoso eenvoudig uitbreiden van de oplossing na verloop van tijd.<br/><br/> Nieuwe functionaliteit kan online worden gebracht zonder dat een van de bestaande oplossingen codebases gegevenscentrum worden verstoord.<br/><br/> De Web-App worden geconfigureerd met meerdere exemplaren met geen enkel storingspunt.<br/><br/> Automatisch schalen worden ingeschakeld zodat de app kan verschillende verkeer volumes worden verwerkt.<br/><br/> Met de overgang naar de PaaS-services Contoso buiten gebruik stellen verouderde oplossingen die worden uitgevoerd op Windows Server 2008 R2-besturingssysteem.<br/><br/> Cosmos DB heeft ingebouwde fouttolerantie, waarvoor geen configuratie door Contoso. Dit betekent dat de gegevenslaag niet langer een single point of failover is.
+**Pros** | Met behulp van PaaS en serverloze oplossingen voor de end-to-end implementatie aanzienlijk minder beheer hoelang Contoso moet opgeven.<br/><br/> Verplaatsen naar een microservice-architectuur, kunt Contoso eenvoudig uitbreiden van de oplossing na verloop van tijd.<br/><br/> Nieuwe functionaliteit kan online worden gebracht zonder dat een van de bestaande oplossingen codebases gegevenscentrum worden verstoord.<br/><br/> De Web-App worden geconfigureerd met meerdere exemplaren met geen enkel storingspunt.<br/><br/> Automatisch schalen worden ingeschakeld zodat de app kan verschillende verkeer volumes worden verwerkt.<br/><br/> Met de overgang naar de PaaS-services Contoso buiten gebruik stellen verouderde oplossingen die worden uitgevoerd op Windows Server 2008 R2-besturingssysteem.<br/><br/> Cosmos DB heeft ingebouwde fouttolerantie, waarvoor geen configuratie door Contoso. Dit betekent dat de gegevenslaag niet langer een single point of failover is.
 **Nadelen** | Containers zijn complexer dan andere opties voor de migratie. Het leerproces is mogelijk een probleem voor Contoso.  Ze introduceren een nieuw niveau van complexiteit waarmee veel van de waarde er de curve.<br/><br/> Het operationele team bij Contoso moet aan de slag om te begrijpen en ondersteuning voor Azure, containers en microservices voor de app.<br/><br/> Contoso is niet volledig DevOps geïmplementeerd voor de gehele oplossing. Contoso heeft nodig om na te denken over die voor de implementatie van services met AKS, functies en App-Services.
 
 
@@ -115,7 +115,7 @@ Contoso evalueert het ontwerp van de voorgestelde door het samenstellen van een 
 
 ### <a name="azure-services"></a>Azure-services
 
-**Service** | **Description** | **Kosten**
+**Service** | **Beschrijving** | **Kosten**
 --- | --- | ---
 [AKS](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Maakt eenvoudiger beheer, implementatie en bewerkingen van Kubernetes. Biedt een volledig beheerde Kubernetes-containerorganisatieservice.  | AKS is een gratis service.  Betaal voor alleen de virtuele machines, en de bijbehorende opslag en netwerkresources die worden verbruikt. [Meer informatie](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 [Azure Functions](https://azure.microsoft.com/services/functions/) | Versnelt de ontwikkeling met een gebeurtenisgestuurde, serverloze rekenervaring. Schalen op aanvraag.  | Betaal alleen voor de verbruikte resources. Plan, wordt in rekening gebracht op basis van per seconde resourceverbruik en uitvoeringen. [Meer informatie](https://azure.microsoft.com/pricing/details/functions/).
@@ -199,7 +199,7 @@ De Contoso-beheerders inrichten gaat als volgt:
 
 9. Nadat de implementatie is voltooid, installatie van de **kubectl** opdrachtregel-hulpprogramma. Het hulpprogramma is al geïnstalleerd op de Azure-CloudShell.
 
-    **AZ aks install-cli**
+    **az aks install-cli**
 
 10. Ze controleren of de verbinding met het cluster door het uitvoeren van de **kubectl ophalen knooppunten** opdracht. Het knooppunt is dezelfde naam als de virtuele machine in de automatisch gemaakte resourcegroep.
 

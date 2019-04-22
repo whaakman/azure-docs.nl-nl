@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: peterpr
 ms.openlocfilehash: 201b438601c9929e5ca3d292f9fc3d7b7ff64de8
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425930"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Zelfstudie: Een nieuw apparaat toevoegen aan uw Azure IoT Central-toepassing
@@ -359,7 +359,7 @@ Als operator leert u het volgende:
 Als apparaatontwikkelaar, leert u het volgende:
 
 * [Voorbereiden en verbinding maken met een apparaat DevKit (C)](howto-connect-devkit.md)
-* [Een Raspberry Pi (Python) voorbereiden en aansluiten](howto-connect-raspberry-pi-python.md)
-* [Een Raspberry Pi (C#) voorbereiden en aansluiten](howto-connect-raspberry-pi-csharp.md)
+* [Voorbereiden en verbinding maken met een Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
+* [Voorbereiden en verbinding maken met een Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
 * [Voorbereiden en verbinding maken met een Windows 10 IoT core-apparaat (C#)](howto-connect-windowsiotcore.md)
-* [Een algemene Node.js-client verbinden met uw Azure IoT Central-toepassing](howto-connect-nodejs.md)
+* [Een generieke Node.js-client verbinden met uw Azure IoT Central-toepassing](howto-connect-nodejs.md)

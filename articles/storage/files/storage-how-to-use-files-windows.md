@@ -9,10 +9,10 @@ ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
 ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048840"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Een Azure-bestandsshare gebruiken met Windows
@@ -225,7 +225,7 @@ U kunt **Openen** selecteren om een bepaalde momentopname te openen.
 
 #### <a name="restore-from-a-previous-version"></a>Terugzetten op basis van een vorige versie
 Selecteer **Terugzetten** om de inhoud van de gehele map op de aanmaaktijd van de momentopname van de share recursief naar de oorspronkelijke locatie te kopiëren.
- ![De knop Terugzetten in een waarschuwingsbericht](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
+ ![Knop Terugzetten in waarschuwingsbericht](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Windows/Windows Server beveiligen
 Als u een Azure-bestandsshare in Windows wilt koppelen, moet poort 445 toegankelijk zijn. Veel organisaties blokkeren poort 445 vanwege de beveiligingsrisico's die bij SMB 1 horen. SMB 1, ook wel bekend als CIFS (Common Internet File System), is een oud bestandssysteemprotocol in Windows en Windows Server. SMB 1 is een verouderd, inefficiënt en bovenal onveilig protocol. Het goede nieuws is dat Azure Files SMB 1 niet ondersteunt en dat alle ondersteunde versies van Windows en Windows Server het mogelijk maken om SMB 1 te verwijderen of uit te schakelen. We raden altijd [ten zeerste](https://aka.ms/stopusingsmb1) aan om de SMB 1-client en -server in Windows te verwijderen of uit te schakelen voordat u Azure-bestandsshares in een productieomgeving gebruikt.
@@ -298,13 +298,13 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 Nadat u deze registersleutel hebt gemaakt, moet u uw server opnieuw opstarten om SMB 1 uit te schakelen.
 
 ### <a name="smb-resources"></a>SMB-resources
-- [Stoppen met het gebruik van SMB-1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
-- [SMB-1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
-- [SMB-1 detecteren in uw omgeving met DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
-- [Uitschakelen van SMB 1 via Groepsbeleid](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
+- [Stoppen met SMB 1 gebruiken](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
+- [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
+- [SMB 1 detecteren in uw omgeving met DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
+- [SMB 1 uitschakelen via groepsbeleid](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
 
 ## <a name="next-steps"></a>Volgende stappen
 Raadpleeg de volgende koppelingen voor meer informatie over Azure Files:
-- [Planning voor de implementatie van Azure Files](storage-files-planning.md)
+- [Implementatie van Azure Files plannen](storage-files-planning.md)
 - [Veelgestelde vragen](../storage-files-faq.md)
 - [Problemen oplossen in Windows](storage-troubleshoot-windows-file-connection-problems.md)      

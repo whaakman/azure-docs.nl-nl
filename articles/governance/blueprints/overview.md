@@ -8,10 +8,10 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259419"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Overzicht van de service Azure blauwdrukken
@@ -85,9 +85,9 @@ Elke **gepubliceerde** **versie** van een blauwdruk kan worden toegewezen aan ee
 
 Om blauwdrukken te kunnen gebruiken, moet u zijn gemachtigd via [op rollen gebaseerd toegangsbeheer](../../role-based-access-control/overview.md) (RBAC). Om blauwdrukken te maken, moet uw account de volgende machtigingen hebben:
 
-- `Microsoft.Blueprint/blueprints/write` -De blauwdrukdefinitie van een maken
-- `Microsoft.Blueprint/blueprints/artifacts/write` -Artefacten maken in de blauwdrukdefinitie van een
-- `Microsoft.Blueprint/blueprints/versions/write` -Een blauwdruk publiceren
+- `Microsoft.Blueprint/blueprints/write` - Een blauwdrukdefinitie maken
+- `Microsoft.Blueprint/blueprints/artifacts/write` - Artefacten in een blauwdrukdefinitie maken
+- `Microsoft.Blueprint/blueprints/versions/write` - Een blauwdruk publiceren
 
 Om blauwdrukken te verwijderen, moet uw account de volgende machtigingen hebben:
 
@@ -100,8 +100,8 @@ Om blauwdrukken te verwijderen, moet uw account de volgende machtigingen hebben:
 
 Als u een blauwdruk wilt toewijzen of de toewijzing ongedaan wilt maken, heeft uw account de volgende machtigingen nodig:
 
-- `Microsoft.Blueprint/blueprintAssignments/write` -Een blauwdruk toewijzen
-- `Microsoft.Blueprint/blueprintAssignments/delete` -Een blauwdruk intrekken
+- `Microsoft.Blueprint/blueprintAssignments/write` - Een blauwdruk toewijzen
+- `Microsoft.Blueprint/blueprintAssignments/delete` - De toewijzing van een blauwdruk ongedaan maken
 
 > [!NOTE]
 > Omdat blauwdruktoewijzingen op een abonnement worden gemaakt, moeten de machtigingen voor het toewijzen van blauwdrukken en het ongedaan maken van toewijzingen worden toegekend op abonnementsbereik of worden overgenomen in een abonnementsbereik.

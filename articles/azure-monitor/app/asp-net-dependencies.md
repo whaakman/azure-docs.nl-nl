@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
 ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273104"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights instellen: Bijhouden van afhankelijkheid
@@ -167,5 +167,5 @@ Raadpleeg de onderstaande tabel en zorgen dat u hebt ervoor gekozen de juiste co
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Uitzonderingen](../../azure-monitor/app/asp-net-exceptions.md)
-* [Gebruikers- en paginagegevens toevoegen](../../azure-monitor/app/javascript.md)
+* [Gebruiker- en paginagegevens toevoegen](../../azure-monitor/app/javascript.md)
 * [Beschikbaarheid](../../azure-monitor/app/monitor-web-app-availability.md)

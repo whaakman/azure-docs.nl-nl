@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
 ms.openlocfilehash: 02b239922f481240341225ea68d8d0ee7492c48b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044171"
 ---
 # <a name="what-is-azure-data-explorer"></a>Wat is Azure Data Explorer?
@@ -44,11 +44,11 @@ Het volgende diagram toont de verschillende aspecten van het werken met Azure Da
 
 Werk in Azure Data Explorer volgt het volgende algemene patroon:
 
-1. **Database maken:** maak een *cluster* en maak vervolgens een of meer *databases* in dat cluster. [Quickstart: Een Azure Data Explorer-cluster en -database maken](create-cluster-database-portal.md)
+1. **Database maken:** maak een *cluster* en maak vervolgens een of meer *databases* in dat cluster. [Snelstart: een Azure Data Explorer-cluster en -database maken](create-cluster-database-portal.md)
 
-1. **Gegevens opnemen:** laad gegevens in databasetabellen zodat u er query's op kunt uitvoeren. [Quickstart: gegevens uit Event Hub opnemen in Azure Data Explorer](ingest-data-event-hub.md)
+1. **Gegevens opnemen:** laad gegevens in databasetabellen zodat u er query's op kunt uitvoeren. [Snelstart: Gegevens uit Event Hub opnemen in Azure Data Explorer](ingest-data-event-hub.md)
 
-1. **Query's uitvoeren op database:** gebruik onze ​​webtoepassing om query's en resultaten uit te voeren, te beoordelen en te delen. Het is beschikbaar in Azure-portal en als op zichzelf staande toepassing. Bovendien kunt u query's ook programmatisch (met behulp van een SDK) of naar een REST API-eindpunt verzenden. [Quickstart: Query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)
+1. **Query's uitvoeren op database:** gebruik onze ​​webtoepassing om query's en resultaten uit te voeren, te beoordelen en te delen. Het is beschikbaar in Azure-portal en als op zichzelf staande toepassing. Bovendien kunt u query's ook programmatisch (met behulp van een SDK) of naar een REST API-eindpunt verzenden. [Snelstart: query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)
 
 ## <a name="query-experience"></a>Query-ervaring
 
@@ -66,12 +66,12 @@ We willen graag uw feedback over Azure Data Explorer en de querytaal horen op:
   - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-explorer)
   - [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto)
   - [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto)
-- [Suggesties in Uservoice maken](https://aka.ms/AzureDataExplorer.UserVoice)
+- [Productsuggesties doen in User Voice](https://aka.ms/AzureDataExplorer.UserVoice)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Quickstart: Een Azure Data Explorer-cluster en -database maken](create-cluster-database-portal.md)
+[Snelstart: een Azure Data Explorer-cluster en -database maken](create-cluster-database-portal.md)
 
-[Quickstart: gegevens uit Event Hub opnemen in Azure Data Explorer](ingest-data-event-hub.md)
+[Snelstart: Gegevens uit Event Hub opnemen in Azure Data Explorer](ingest-data-event-hub.md)
 
-[Quickstart: Query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)
+[Snelstart: query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)

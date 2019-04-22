@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045778"
 ---
 # <a name="handle-duplicate-data-in-azure-data-explorer"></a>De verwerking van dubbele gegevens in Azure Data Explorer
@@ -122,4 +122,4 @@ Gegevensontdubbeling kan op verschillende manieren worden verwerkt. Evalueren va
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Schrijven van query's voor Azure Data Explorer](write-queries.md)
+> [Query's schrijven voor Azure Data Explorer](write-queries.md)

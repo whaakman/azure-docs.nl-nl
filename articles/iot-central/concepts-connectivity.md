@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425964"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectiviteit van apparaten in Azure IoT Central
@@ -181,7 +181,7 @@ De volgende tabel geeft een overzicht van hoe Azure IoT Central apparaatfuncties
 
 Zie voor meer informatie over het gebruik van de apparaat-SDK's, een van de volgende artikelen bijvoorbeeld code:
 
-- [Een algemene Node.js-client verbinden met uw Azure IoT Central-toepassing](howto-connect-nodejs.md)
+- [Een generieke Node.js-client verbinden met uw Azure IoT Central-toepassing](howto-connect-nodejs.md)
 - [Een Raspberry Pi-apparaat verbinden met uw Azure IoT Central-toepassing](howto-connect-raspberry-pi-python.md)
 - [Een apparaat van de kit DevDiv verbinden met uw Azure IoT Central application](howto-connect-devkit.md).
 
@@ -206,6 +206,6 @@ Alle gegevens die worden uitgewisseld tussen apparaten en uw Azure IoT Central i
 Nu dat u hebt geleerd over verbindingsmogelijkheden voor apparaten in Azure IoT Central, vindt hier u de voorgestelde volgende stappen:
 
 - [Voorbereiden en een apparaat DevKit verbinden](howto-connect-devkit.md)
-- [Voorbereiden en verbinding maken met een Raspberry Pi](howto-connect-raspberry-pi-python.md)
-- [Een algemene Node.js-client verbinden met uw Azure IoT Central-toepassing](howto-connect-nodejs.md)
+- [Raspberry Pi voorbereiden en verbinden](howto-connect-raspberry-pi-python.md)
+- [Een generieke Node.js-client verbinden met uw Azure IoT Central-toepassing](howto-connect-nodejs.md)
 - [C-SDK: Provisioning Device SDK-Client](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)

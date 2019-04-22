@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 2e53b0d582a69e10de22e85720833800d44058e3
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58793839"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Het gebruik van toegangsbeheer op basis van rollen in Azure API Management
@@ -33,7 +33,7 @@ API Management is momenteel heeft drie ingebouwde rollen en twee meer functies i
 
 De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. U kunt deze rollen toewijzen met behulp van de Azure-portal of andere hulpprogramma's, waaronder Azure [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), en [REST-API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Zie voor meer informatie over het toewijzen van ingebouwde rollen [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
-| Rol          | Leestoegang<sup>[1]</sup> | Toegang voor schrijven<sup>[2]</sup> | Service maken, verwijderen, schaal, VPN- en aangepaste domeinconfiguratie | Toegang tot de verouderde publisher-portal | Beschrijving
+| Rol          | Leestoegang<sup>[1]</sup> | Toegang voor schrijven<sup>[2]</sup> | Service maken, verwijderen, schaal, VPN- en aangepaste domeinconfiguratie | Toegang tot de verouderde publisher-portal | Description
 | ------------- | ---- | ---- | ---- | ---- | ---- 
 | Inzender voor Azure API Management-Services | ✓ | ✓ | ✓ | ✓ | Supergebruiker. Heeft volledige toegang tot de CRUD API Management-services en entiteiten (bijvoorbeeld API's en beleidsregels). Heeft toegang tot de verouderde publicatieportal. |
 | Azure API Management-Service-lezer | ✓ | | || Heeft alleen-lezen toegang tot de API Management-services en entiteiten. |

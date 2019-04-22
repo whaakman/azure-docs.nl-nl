@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
 ms.openlocfilehash: 79751dc0de8817c940355e8b64652014b1c67c35
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045897"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Time Series Insights-resources met behulp van Azure Resource Manager-sjablonen maken
@@ -35,7 +35,7 @@ Resource Manager-sjabloon is een JSON-bestand dat de infrastructuur en configura
 
 - [Overzicht van Azure Resource Manager - sjabloon implementeren](../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [Resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-- [Microsoft.TimeSeriesInsights resourcetypen](/azure/templates/microsoft.timeseriesinsights/allversions)
+- [Microsoft.TimeSeriesInsights resource types](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 De [201-timeseriesinsights-omgeving-met-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) quickstart-sjabloon is gepubliceerd op GitHub. Deze sjabloon maakt u een Time Series Insights-omgeving, een onderliggende gebeurtenisbron geconfigureerd voor het gebruiken van gebeurtenissen van een Event Hub en toegangsbeleid die toegang tot gegevens van de omgeving verlenen. Als een bestaande Event Hub is niet opgegeven, wordt een gemaakt met de implementatie.
 
@@ -93,7 +93,7 @@ Voor het maken van een parameterbestand, Kopieer de [201-timeseriesinsights-omge
 
 #### <a name="required-parameters"></a>Vereiste Parameters
 
-   | Parameter | Description |
+   | Parameter | Beschrijving |
    | --- | --- |
    | eventHubNamespaceName | De naamruimte van de bron event hub. |
    | eventHubName | De naam van de bron event hub. |

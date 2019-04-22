@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: yexu
 ms.openlocfilehash: a77041b063f043c065df9a2955e9d07b5692f592
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256257"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Quickstart: Het hulpprogramma Copy Data gebruiken om gegevens te kopiëren
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
-> * [Versie 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Versie 1:](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Huidige versie](quickstart-create-data-factory-copy-data-tool.md)
 
 In deze snelstart gebruikt u Azure Portal voor het maken van een data factory. Gebruik vervolgens het hulpprogramma Copy Data om een pijplijn te maken waarmee gegevens uit een map in Azure Blob Storage worden gekopieerd naar een andere map. 

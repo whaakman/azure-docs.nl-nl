@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: cc561bd88c18788be3ed1b9aef8a6a985af8a6f2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278544"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679989"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Maken en uitvoeren van een machine learning-pijplijn met behulp van Azure Machine Learning-SDK
 
@@ -253,8 +253,8 @@ trainStep = PythonScriptStep(
 
 Nadat u de stappen hebt gedefinieerd, kunt u de pijplijn bouwen met behulp van sommige of alle van deze stappen.
 
->[!NOTE]
->Er is geen bestand of de gegevens wordt geüpload naar de Azure Machine Learning-service wanneer u de stappen definieert of de pijplijn bouwen.
+> [!NOTE]
+> Er is geen bestand of de gegevens wordt geüpload naar de Azure Machine Learning-service wanneer u de stappen definieert of de pijplijn bouwen.
 
 ```python
 # list of steps to run
@@ -289,8 +289,12 @@ Zie voor meer informatie de [azure-pipeline-stappen pakket](https://docs.microso
 
 ## <a name="submit-the-pipeline"></a>Verzenden van de pijplijn
 
-Wanneer u de pijplijn verzendt, wordt Azure Machine Learning-service controleert de afhankelijkheden voor elke stap en uploadt een momentopname van de bronmap die u hebt opgegeven. Als er geen bronmap is opgegeven, wordt de huidige lokale map geüpload.
+Wanneer u de pijplijn verzendt, wordt Azure Machine Learning-service controleert de afhankelijkheden voor elke stap en uploadt een momentopname van de bronmap die u hebt opgegeven. Als er geen bronmap is opgegeven, wordt de huidige lokale map geüpload. De momentopname wordt ook opgeslagen als onderdeel van het experiment in uw werkruimte.
 
+> [!IMPORTANT]
+> Om te voorkomen dat bestanden worden opgenomen in de momentopname maken van een [.gitignore](https://git-scm.com/docs/gitignore) of `.amlignore` -bestand in de map en de bestanden toevoegen. De `.amlignore` bestand maakt gebruik van dezelfde syntaxis en patronen als de [.gitignore](https://git-scm.com/docs/gitignore) bestand. Als beide bestanden bestaat, de `.amlignore` bestand heeft voorrang.
+>
+> Zie voor meer informatie, [momentopnamen](concept-azure-machine-learning-architecture.md#snapshot).
 
 ```python
 # Submit the pipeline to be run

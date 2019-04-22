@@ -16,10 +16,10 @@ ms.date: 04/03/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1f03cd518a15d08971968e04fa69954951c77e0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59052355"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
@@ -126,7 +126,7 @@ Wanneer u uw gebruiksrechtovereenkomstdocument hebt voltooid, gebruikt u de volg
     | **Toegang tot cloud-apps voor alle gasten** | Beleid voor voorwaardelijke toegang wordt gemaakt voor alle gasten en alle cloud-apps. Dit beleid heeft gevolgen voor de Azure-portal. Nadat deze is gemaakt, kunt u mogelijk vereist voor het afmelden en aanmelden. |
     | **Toegang tot cloud-apps voor alle gebruikers** | Beleid voor voorwaardelijke toegang wordt gemaakt voor alle gebruikers en alle cloud-apps. Dit beleid heeft gevolgen voor de Azure-portal. Nadat deze is gemaakt, zich kunt u afmelden en opnieuw aanmelden vereist. |
     | **Aangepast beleid** | Selecteer de gebruikers, groepen en apps waarvoor deze gebruiksvoorwaarden gelden. |
-    | **Het beleid voor voorwaardelijke toegang later maken** | Deze gebruiksvoorwaarden wordt weergegeven in de lijst voor beheer verlenen bij het maken van een beleid voor voorwaardelijke toegang. |
+    | **Het voorwaardelijke toegangsbeleid later maken** | Deze gebruiksrechtovereenkomst wordt weergegeven in de lijst voor beheer verlenen bij het maken van een beleid voor voorwaardelijke toegang. |
 
     >[!IMPORTANT]
     >Controlemechanismen voor het beleid voor voorwaardelijk toegang (waaronder Gebruiksrechtovereenkomst) bieden geen ondersteuning voor handhaving op serviceaccounts. Het is raadzaam om alle serviceaccounts uit te sluiten van het beleid voor voorwaardelijke toegang.
@@ -386,5 +386,5 @@ A: Als u beide Azure AD gebruiksrechtovereenkomst hebt geconfigureerd en [Intune
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Quickstart: Gebruiksrechtovereenkomst moet zijn geaccepteerd voordat u toegang tot cloud-apps vereisen](require-tou.md)
-- [Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md)
+- [Snelstart: Gebruiksrechtovereenkomst moet zijn geaccepteerd voordat u toegang tot cloud-apps vereisen](require-tou.md)
+- [Best practices for conditional access in Azure Active Directory](best-practices.md) (Best practices voor voorwaardelijke toegang in Azure Active Directory)

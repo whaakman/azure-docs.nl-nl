@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268403"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies schrijven in Azure Cosmos DB
@@ -320,8 +320,8 @@ Meer informatie over concepten en het schrijven of gebruiken van procedures, tri
 
 * [Opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies registreren en gebruiken in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 
-* [Over het schrijven van opgeslagen procedures en triggers in Azure Cosmos DB met behulp van Javascript-Query-API](how-to-write-javascript-query-api.md)
+* [Opgeslagen procedures en triggers schrijven met de JavaScript-query-API in Azure Cosmos DB](how-to-write-javascript-query-api.md)
 
-* [Werken met Azure Cosmos DB opgeslagen procedures, triggers en gebruikersgedefinieerde functies in Azure Cosmos DB](stored-procedures-triggers-udfs.md)
+* [Werken met opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies registreren en gebruiken in Azure Cosmos DB](stored-procedures-triggers-udfs.md)
 
-* [Werken met JavaScript-taal geïntegreerd query-API in Azure Cosmos DB](javascript-query-api.md)
+* [Werken met de JavaScript-query-API in Azure Cosmos DB](javascript-query-api.md)

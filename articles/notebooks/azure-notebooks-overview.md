@@ -14,17 +14,17 @@ ms.topic: overview
 ms.date: 04/05/2019
 ms.author: kraigb
 ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280102"
 ---
 # <a name="overview-of-azure-notebooks"></a>Overzicht van Azure Notebooks
 
 Azure Notebooks is een gratis gehoste service om Jupyter-notebooks te ontwikkelen en uitvoeren in de cloud, zonder installatie. [Jupyter](https://jupyter.org/) (voorheen IPython) is een opensourceproject waarmee u eenvoudig Markdown-tekst, uitvoerbare code en permanente gegevens, afbeeldingen en visualisaties kunt combineren op één deelbaar canvas, het *notebook* (de afbeelding is ter beschikking gesteld door jupyter.org):
 
-[![Examples van Jupyter notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Voorbeelden van Jupyter Notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Vanwege deze krachtige combinatie van code, afbeeldingen en verklarende tekst is Jupyter populair geworden voor vele toepassingen, waaronder onderwijs in datawetenschap, het opschonen en transformeren van gegevens, numerieke simulatie, statistisch modelleren en de ontwikkeling van modellen voor machine learning.
 
@@ -97,7 +97,7 @@ Voor vragen over Azure Notebooks kunt u een vraag stellen op de [GitHub-opslagpl
 
 ## <a name="next-steps"></a>Volgende stappen  
 
-- [Voorbeeldnotitieblokken verkennen](azure-notebooks-samples.md)
+- [Voorbeelden van notebooks verkennen](azure-notebooks-samples.md)
 
 - Quickstarts:
 
@@ -114,9 +114,9 @@ Voor vragen over Azure Notebooks kunt u een vraag stellen op de [GitHub-opslagpl
 - Artikelen met procedures:
   
   - [Projecten maken en klonen](create-clone-jupyter-notebooks.md)
-  - [Configureren en beheren van projecten](configure-manage-azure-notebooks-projects.md)
-  - [Installeren van pakketten van binnen een laptop](install-packages-jupyter-notebook.md)
+  - [Projecten configureren en beheren](configure-manage-azure-notebooks-projects.md)
+  - [Pakketten vanuit een notebook installeren](install-packages-jupyter-notebook.md)
   - [Een diavoorstelling presenteren](present-jupyter-notebooks-slideshow.md)
   - [Werken met gegevensbestanden](work-with-project-data-files.md)
-  - [Toegang tot gegevensresources](access-data-resources-jupyter-notebooks.md)
+  - [Toegang tot gegevensbronnen](access-data-resources-jupyter-notebooks.md)
   - [Azure Machine Learning Services gebruiken](use-machine-learning-services-jupyter-notebooks.md)

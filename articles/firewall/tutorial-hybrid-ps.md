@@ -9,10 +9,10 @@ ms.date: 3/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ms.openlocfilehash: 7beb3d986b016688c4ee0a512b9406dbf3dfbb40
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051696"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Zelfstudie: Azure Firewall implementeren en configureren in een hybride netwerk met Azure PowerShell
@@ -497,4 +497,4 @@ U kunt de firewall-resources voor de volgende zelfstudie bewaren. Als u ze niet 
 Als volgende kunt u de Azure Firewall-logboeken bewaken.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Azure-Firewall-logboeken bewaken](./tutorial-diagnostics.md)
+> [Zelfstudie: Azure Firewall-logboeken bewaken](./tutorial-diagnostics.md)

@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258773"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Wat is Azure Data Box Disk?
@@ -129,8 +129,8 @@ A. Er zijn drie hulpprogramma's beschikbaar voor Data Box Disk:
  - **Het splits- en kopieerprogramma voor Data Box Disk**: U dit hulpprogramma gebruiken als u meerdere schijven gebruikt en u over een grote gegevensset beschikt die moet worden gesplitst en gekopieerd naar alle schijven. Dit hulpprogramma is momenteel beschikbaar voor Windows. Dit hulpprogramma wordt niet ondersteund met beheerde schijven. Dit hulpprogramma ook gevalideerd als de gegevens worden gekopieerd, daarom kunt u de validatiestap overslaan bij het gebruik van dit hulpprogramma.
 
 De set hulpprogramma's is beschikbaar voor zowel Windows als Linux. U kunt de set hulpprogramma's hier downloaden:
-- [Data Box-schijf toolset voor Windows downloaden](https://aka.ms/databoxdisktoolswin) 
-- [Data Box-schijf toolset voor Linux downloaden](https://aka.ms/databoxdisktoolslinux)
+- [Data Box Disk-toolset voor Windows downloaden](https://aka.ms/databoxdisktoolswin) 
+- [Data Box Disk-toolset voor Linux downloaden](https://aka.ms/databoxdisktoolslinux)
  
 ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>V. Kan ik Data Box Disk gebruiken om gegevens over te brengen naar Azure Files en vervolgens de gegevens gebruiken met Azure File Sync? 
 A. Azure Files met Data Box-schijf worden ondersteund, maar werkt niet goed met Azure File Sync. Metagegevens worden niet bewaard als de gegevens uit een bestand wordt gebruikt met Azure File Sync.

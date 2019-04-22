@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 5a7531be73a872d9c088a0bf02a8686f947c220a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047361"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Voorbereiden van uw container technische activa
@@ -50,7 +50,7 @@ Kies een of beide van de volgende scripts omgevingen voor het beheer van uw cont
 
 Bovendien is het raadzaam de volgende hulpprogramma's toe te voegen aan uw ontwikkelomgeving:
 
--   [Azure Opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-   [Azure-opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
     *   Toestel: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   Toestel: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)

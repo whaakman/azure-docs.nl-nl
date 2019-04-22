@@ -12,10 +12,10 @@ ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
 ms.openlocfilehash: e94134a0c7c3b44a2e4734fe1e91a19f3e26851c
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425760"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Aan de slag in Azure Dev Spaces met .NET Core en Visual Studio
@@ -128,7 +128,7 @@ Klik boven aan de pagina op de koppeling **About** om het onderbrekingspunt te a
 Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd in Kubernetes. Het gaat er om dat u de codewijzigingen snel en iteratief toegepast kunt zien in een Kubernetes-omgeving in de cloud.
 
 ### <a name="update-a-content-file"></a>Een inhoudsbestand bijwerken
-1. Zoek het bestand `./Views/Home/Index.cshtml` en bewerk de HTML-code. Wijzig bijvoorbeeld regel 70 `<h2>Application uses</h2>` naar ongeveer als volgt: `<h2>Hello k8s in Azure!</h2>`
+1. Zoek het bestand `./Views/Home/Index.cshtml` en bewerk de HTML-code. Wijzig bijvoorbeeld regel 70 waar `<h2>Application uses</h2>` staat in iets als: `<h2>Hello k8s in Azure!</h2>`
 1. Sla het bestand op.
 1. Ga naar de browser en vernieuw de pagina. De bijgewerkte HTML-code wordt op de webpagina weergegeven.
 
@@ -138,7 +138,7 @@ Wat is er gebeurd? Voor bewerkingen van inhoudsbestanden, zoals HTML en CSS, hoe
 Het bijwerken van codebestanden vereist iets meer werk, omdat een .NET Core-app bijgewerkte binaire toepassingsbestanden moet bouwen en produceren.
 
 1. Stop de foutopsporing in Visual Studio.
-1. Open het codebestand met de naam `Controllers/HomeController.cs`, en bewerken van het bericht dat op de pagina over wordt weergegeven: `ViewData["Message"] = "Your application description page.";`
+1. Open het codebestand met de naam `Controllers/HomeController.cs` en bewerk het bericht dat op de pagina Info wordt weergegeven: `ViewData["Message"] = "Your application description page.";`
 1. Sla het bestand op.
 1. Druk op **F5** als u de foutopsporing weer wilt starten. 
 
@@ -149,4 +149,4 @@ Vernieuw de web-app in de browser en ga naar de pagina Info. U ziet dat uw aange
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over het ontwikkelen van meerdere services](multi-service-netcore-visualstudio.md)
+> [Informatie over ontwikkelen van meerdere services](multi-service-netcore-visualstudio.md)

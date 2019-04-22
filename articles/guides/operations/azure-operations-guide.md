@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
 ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051167"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Aan de slag voor Azure IT-operators
@@ -491,5 +491,5 @@ U kunt beveiligde Azure-netwerken met behulp van een netwerkbeveiligingsgroep. N
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een Windows-VM maken](../../virtual-machines/windows/quick-create-portal.md)
+- [Een Windows VM maken](../../virtual-machines/windows/quick-create-portal.md)
 - [Een Linux-VM maken](../../virtual-machines/linux/quick-create-portal.md)

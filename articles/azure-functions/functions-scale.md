@@ -14,10 +14,10 @@ ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266921"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions-schaal en hosting
@@ -42,7 +42,7 @@ Wanneer u een functie-app maakt, kiest u het hostingabonnement voor functies in 
 
 Wanneer u het verbruiksabonnement gebruikt, worden instanties van de Azure Functions-host dynamisch toegevoegd en verwijderd op basis van het aantal binnenkomende gebeurtenissen. Dit plan serverloze automatisch wordt geschaald en u betaalt voor computerresources alleen wanneer uw functies worden uitgevoerd. In een verbruiksabonnement verloopt een functie-uitvoering na een periode die is geconfigureerd.
 
-Facturering is gebaseerd op aantal uitvoeringen, uitvoeringstijd en geheugen dat wordt gebruikt. Facturering wordt samengevoegd voor alle functies in een functie-app. Zie voor meer informatie de [Azure Functions-pagina met prijzen].
+Facturering is gebaseerd op aantal uitvoeringen, uitvoeringstijd en geheugen dat wordt gebruikt. Facturering wordt samengevoegd voor alle functies in een functie-app. Zie voor meer informatie de [Pagina prijzen voor Azure Functions].
 
 Het verbruiksabonnement is de standaardinstelling hostingabonnement en biedt de volgende voordelen:
 
@@ -157,7 +157,7 @@ Er zijn veel aspecten van een functie-app die is van invloed op hoe goed deze wo
 
 ### <a name="billing-model"></a>Factureringsmodel
 
-De facturering voor het abonnement Consumption wordt in detail beschreven op de [Azure Functions-pagina met prijzen]. Gebruik op het niveau van de functie-app wordt geaggregeerd en telt alleen de tijd die de functiecode wordt uitgevoerd. Hier volgen de eenheden voor facturering:
+De facturering voor het abonnement Consumption wordt in detail beschreven op de [Pagina prijzen voor Azure Functions]. Gebruik op het niveau van de functie-app wordt geaggregeerd en telt alleen de tijd die de functiecode wordt uitgevoerd. Hier volgen de eenheden voor facturering:
 
 * **Resourceverbruik in gigabyte-seconden (GB-s)**. Berekend als een combinatie van de grootte van geheugen en de runtime voor alle functies in een functie-app. 
 * **Uitvoeringen**. Geteld telkens wanneer een functie wordt uitgevoerd in reactie op een trigger voor de gebeurtenis.

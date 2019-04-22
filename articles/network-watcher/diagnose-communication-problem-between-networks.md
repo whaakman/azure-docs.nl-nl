@@ -16,10 +16,10 @@ ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
 ms.openlocfilehash: 4f5fbbb9d06f9fcb8858625b57957fc18c5c1f1f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046902"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Zelfstudie: Communicatieproblemen tussen netwerken onderzoeken met de Azure-portal
@@ -115,4 +115,4 @@ Als u alleen voor deze zelfstudie een VPN-gateway hebt gemaakt met het script in
 In deze zelfstudie hebt u geleerd hoe u een probleem met een virtuele netwerkgateway onderzoekt. Misschien wilt u netwerkcommunicatie naar en van een virtuele machine in een logboek vastleggen zodat u het logboek kunt controleren op afwijkingen. Ga naar de volgende zelfstudie als u wilt weten hoe u dat doet.
 
 > [!div class="nextstepaction"]
-> [Logboek netwerkverkeer naar en van een virtuele machine](network-watcher-nsg-flow-logging-portal.md)
+> [Netwerkverkeer van en naar een VM in een logboek vastleggen](network-watcher-nsg-flow-logging-portal.md)

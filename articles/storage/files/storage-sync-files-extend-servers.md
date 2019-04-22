@@ -9,10 +9,10 @@ ms.date: 10/23/2018
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 9d7162eca3c2979b1dd333bdaf95c7c43e875b9d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049135"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Zelfstudie: Windows-bestandsservers uitbreiden met Azure File Sync
@@ -220,7 +220,7 @@ Om Azure File Sync te implementeren, plaatst u eerst een resource van een **opsl
 
    | Value | Beschrijving |
    | ----- | ----- |
-   | **Name** | Een unieke naam (per abonnement) voor opslagsynchronisatieservice.<br><br>Gebruik voor deze zelfstudie _afssyncservice02_. |
+   | **Naam** | Een unieke naam (per abonnement) voor opslagsynchronisatieservice.<br><br>Gebruik voor deze zelfstudie _afssyncservice02_. |
    | **Abonnement** | Het Azure-abonnement dat u gebruikt voor deze zelfstudie. |
    | **Resourcegroep** | De resourcegroep die de opslagsynchronisatieservice bevat.<br><br>Gebruik voor deze zelfstudie _afsresgroup101918_. |
    | **Locatie** | US - oost |
@@ -283,11 +283,11 @@ Een synchronisatiegroep definieert de synchronisatietopologie voor een verzameli
 
 1. Voer de volgende gegevens in om een synchronisatiegroep met een cloudeindpunt te maken:
 
-   | Value | Description |
+   | Value | Beschrijving |
    | ----- | ----- |
-   | **Naam van synchronisatiegroep** | Deze naam moet uniek zijn binnen de opslagsynchronisatieservice, maar het mag een willekeurige naam zijn die u makkelijk kunt onthouden. Gebruik voor deze zelfstudie *afssyncgroup*.|
+   | **Naam synchronisatiegroep** | Deze naam moet uniek zijn binnen de opslagsynchronisatieservice, maar het mag een willekeurige naam zijn die u makkelijk kunt onthouden. Gebruik voor deze zelfstudie *afssyncgroup*.|
    | **Abonnement** | Het abonnement waar u de opslagsynchronisatieservice voor deze zelfstudie hebt geïmplementeerd. |
-   | **Storage-account** | Kies **Opslagaccount selecteren**. Selecteer in het deelvenster dat verschijnt het opslagaccount met de Azure-bestandsshare die u hebt gemaakt. Gebruik voor deze zelfstudie *afsstoracct101918*. |
+   | **Opslagaccount** | Kies **Opslagaccount selecteren**. Selecteer in het deelvenster dat verschijnt het opslagaccount met de Azure-bestandsshare die u hebt gemaakt. Gebruik voor deze zelfstudie *afsstoracct101918*. |
    | **Azure-bestandsshare** | De naam van de Azure-bestandsshare die u hebt gemaakt. Gebruik voor deze zelfstudie *afsfileshare*. |
 
 1. Selecteer **Maken**.
@@ -309,7 +309,7 @@ Een servereindpunt vertegenwoordigt een specifieke locatie op een geregistreerde
    | Value | Description |
    | **Geregistreerde server** | De naam van de server die u hebt gemaakt. Gebruik voor deze zelfstudie *afsvm101918*. |
    | **Pad** | Het Windows Server-pad naar het station dat u hebt gemaakt. Gebruik in deze zelfstudie *f:\filestosync*. |
-   | **Cloud-opslaglagen** | Voor deze zelfstudie uitgeschakeld laten. |
+   | **Cloudopslaglagen** | Voor deze zelfstudie uitgeschakeld laten. |
    | **Beschikbare volumeruimte** | Voor deze zelfstudie leeg laten. |
 
 1. Selecteer **Maken**.
@@ -327,4 +327,4 @@ Uw bestanden zijn nu gesynchroniseerd met uw Azure-bestandsshare en Windows Serv
 In deze zelfstudie hebt u de basisstappen geleerd voor het uitbreiden van de opslagcapaciteit van een Windows-server met Azure File Sync. Zie voor meer inzicht in het plannen van een Azure File Sync-implementatie:
 
 > [!div class="nextstepaction"]
-> [Azure File Sync-implementatie plannen](./storage-sync-files-planning.md)
+> [Planning voor de implementatie van Azure File Sync](./storage-sync-files-planning.md)

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: d69271f65c326237a380624d994d8f5339537114
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271115"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Zelfstudie: Azure Active Directory-integratie met Pingboard
@@ -109,7 +109,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Pingboard, moet u de
 
     a. In het tekstvak **Id** typt u een URL: `http://app.pingboard.com/sp`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<entity-id>.pingboard.com/auth/saml/consume`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<entity-id>.pingboard.com/auth/saml/consume`
 
 5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
@@ -210,7 +210,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Pingboard. Pingboard ondersteunt automatisch gebruikers inrichten, dit is standaard ingeschakeld. U kunt [hier](pingboard-provisioning-tutorial.md) meer informatie vinden over het configureren van het automatisch inrichten van gebruikers.
 
-**Als u moet de gebruiker handmatig hebt gemaakt, voert u de volgende stappen uit:**
+**Als u de gebruiker handmatig moet maken, voert u de volgende stappen uit:**
 
 1. Meld u aan uw bedrijf Pingboard site als een beheerder.
 
@@ -247,9 +247,9 @@ Wanneer u op de tegel Pingboard in het toegangsvenster, moet u worden automatisc
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268758"
 ---
 # <a name="what-is-azure-maps"></a>Wat is Azure Maps?
@@ -139,9 +139,9 @@ Controleer of dat de locatie van uw huidige IP-adres niet in een van de niet-ond
 Meer informatie over de nieuwe functies van Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Route-Matrix, van Isochronen, IP-lookup, en nog veel meer](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
+> [Routematrix, isochronen, IP opzoeken en meer](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
 
 Probeer een voorbeeldapp die laat zien de Azure-kaarten:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Een webtoepassing maken](quick-demo-map-app.md)
+> [Snelstart: Een web-app maken](quick-demo-map-app.md)

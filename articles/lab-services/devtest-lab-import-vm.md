@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 4585d151e286917c67586a02539a10ade32bdd4c
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9d5b7f32cb298315a5816562f548bcdafbdeb5cf
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094518"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682305"
 ---
 # <a name="import-vms-from-another-lab-in-azure-devtest-labs"></a>VM's importeren uit een andere lab in Azure DevTest Labs
 De service Azure DevTest Labs aanzienlijk wordt verbeterd beheer van virtuele machines (VM's) voor de ontwikkeling en testactiviteiten. Hiermee kunt u een virtuele machine van een lab verplaatsen naar een andere als het team of wijzigen van de vereisten voor de infrastructuur. Hier volgen enkele algemene scenario's denkbaar waarin om dit te doen: 
@@ -42,7 +42,7 @@ Als u een virtuele machine importeren uit een testomgeving naar een andere, moet
 U kunt op dit moment een virtuele machine in een testomgeving importeren in een ander alleen met behulp van Azure PowerShell en REST-API.
 
 ### <a name="use-powershell"></a>PowerShell gebruiken
-Download het PowerShell-script bestand ImportVirtualMachines.ps1 van [Azure DevTest Lab Git-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImportVirtualMachines) naar uw lokale schijf. 
+Download het PowerShell-script bestand ImportVirtualMachines.ps1 van [Azure DevTest Lab Git-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines) naar uw lokale schijf. 
 
 #### <a name="import-a-single-vm"></a>Een enkele virtuele machine importeren
 Voer het script ImportVirtualMachines.ps1 voor het importeren van een enkele virtuele machine uit een bron-lab in een lab bestemming. U kunt een nieuwe naam voor de virtuele machine die wordt gekopieerd met behulp van de paramer DestinationVirtualMachineName opgeven. 

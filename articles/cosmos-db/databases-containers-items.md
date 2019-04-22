@@ -4,15 +4,15 @@ description: In dit artikel wordt beschreven hoe u het maken en gebruiken van Az
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f3bec1b279c07e62e246ebfa933b3942e38406de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 8eaca83b7ea89737a63fe56a18505c8df7e93fdc
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762891"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678791"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Werken met databases, containers en items
 
@@ -61,7 +61,7 @@ U kunt instellen [Time To Live (TTL)](time-to-live.md) op geselecteerde items in
 
 Met behulp van [Change Feed](change-feed.md), u kunt zich abonneren op het bewerkingenlogboek die wordt beheerd voor elk van de logische partities van de container. Het logboek van alle updates die worden uitgevoerd op de container samen met de Change Feed biedt de vóór en na afbeeldingen van de items. Zie [over het bouwen van reactieve toepassingen met behulp van Change Feed](serverless-computing-database.md). U kunt ook de bewaartermijn voor de Feed wijzigen configureren met behulp van het beleid voor de container-wijzigingenfeed. 
 
-U kunt registreren [opgeslagen procedures, triggers, de gebruiker gedefinieerde functies (UDF's)](stored-procedures-triggers-udfs.md) en [samenvoegen procedures](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy-with-a-stored-procedure) met uw Azure Cosmos-container. 
+U kunt registreren [opgeslagen procedures, triggers, de gebruiker gedefinieerde functies (UDF's)](stored-procedures-triggers-udfs.md) en [samenvoegen procedures](how-to-manage-conflicts.md) met uw Azure Cosmos-container. 
 
 Kunt u een [unique key-beperking](unique-keys.md) voor uw Azure Cosmos-container. Zorg ervoor dat een of meer waarden per partitiesleutel logische met een unieke sleutel beleid. Nadat een container is gemaakt met een unieke sleutel beleid, voorkomt u dat het maken van een nieuwe of bijgewerkte items met waarden die de waarden die zijn opgegeven door de unieke key-beperking te dupliceren. Zie voor meer informatie, [Unique key-beperkingen](unique-keys.md).
 
@@ -117,7 +117,7 @@ Elke Azure Cosmos-item heeft de volgende eigenschappen van het systeem gedefinie
 |_etag | Door het systeem gegenereerde | Entity-tag voor Optimistisch gelijktijdigheidbeheer gebruikt | Ja | Nee | Nee | Nee | Nee |
 |_ts | Door het systeem gegenereerde | De tijdstempel van de laatste update van het item | Ja | Nee | Nee | Nee | Nee |
 |_self | Door het systeem gegenereerde | Adresseerbare URI van het item | Ja | Nee | Nee | Nee | Nee |
-|id | Een van beide | Gebruiker gedefinieerde unieke naam binnen een logische partitie. Als de gebruiker niet de id opgeeft, wordt een automatisch gegenereerd. | Ja | Ja | Ja | Ja | Ja |
+|id | Een van beide | Gebruiker gedefinieerde unieke naam binnen een logische partitie. Als de gebruiker niet de ID opgeeft, wordt een automatisch gegenereerd. | Ja | Ja | Ja | Ja | Ja |
 |Willekeurige, door de gebruiker gedefinieerde eigenschappen | Door de gebruiker gedefinieerde routes | Gebruiker gedefinieerde eigenschappen die worden weergegeven in de API-eigen weergave (JSON, BSON, CQL, enz.) | Ja | Ja | Ja | Ja | Ja |
 
 ### <a name="operations-on-items"></a>Bewerkingen op items

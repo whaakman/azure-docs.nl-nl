@@ -12,10 +12,10 @@ ms.author: clauren
 ms.date: 1/23/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2cd2d328d33744854bc525e5ecf1dfa3b6e4bcc8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275434"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Beheren, implementeren en bewaken van modellen met Azure Machine Learning-Service
@@ -33,7 +33,7 @@ De implementatiewerkstroom bevat de volgende stappen uit:
 
 Elke stap kan worden uitgevoerd, onafhankelijk van elkaar of als onderdeel van een met één implementatieopdracht. Bovendien kunt u integreren implementatie in een **CI/CD-werkstroom** zoals geïllustreerd in deze afbeelding.
 
-[!['Azure Machine Learning continue integratie/continue implementatie (CI/CD) cyclus '](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[!['Azure Machine Learning continue integratie/continue implementatie (CI/CD) cyclus'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## <a name="step-1-register-model"></a>Stap 1: Model registreren
 
@@ -75,7 +75,7 @@ U kunt geregistreerde installatiekopieën implementeren naar de cloud of naar ed
 
 Webservice-implementaties zijn ook doorzoekbaar. Bijvoorbeeld, u kunt zoeken naar alle implementaties van een specifiek model of een afbeelding.
 
-[![Inferencing doelen](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Inferentietaken doelen](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 U kunt uw installatiekopieën implementeren naar de volgende implementatiedoelen in de cloud:
 

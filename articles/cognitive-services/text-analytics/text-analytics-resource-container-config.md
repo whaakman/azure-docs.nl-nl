@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3cb6f4563cf45b9ccd377dec3db4ebab095c8a09
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 137d7aa48595e3f21ee99c6ebe23babd7a2d32b5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885431"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677762"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configureren van de Text Analytics docker-containers
 
@@ -31,11 +31,11 @@ Text Analytics biedt elke container met een gemeenschappelijk framework van de c
 
 ## <a name="apikey-configuration-setting"></a>ApiKey configuratie-instelling
 
-De `ApiKey` instelling geeft u aan de Azure-resource-sleutel die wordt gebruikt voor het bijhouden van informatie over facturering voor de container. U moet een waarde opgeven voor de ApiKey en de waarde moet een geldige sleutel voor de _Tekstanalyse_ resource die is opgegeven voor de [ `Billing` ](#billing-configuration-setting) configuratie-instelling.
+De `ApiKey` instelling geeft u aan de Azure-resource-sleutel die wordt gebruikt voor het bijhouden van informatie over facturering voor de container. U moet een waarde opgeven voor de ApiKey en de waarde moet een geldige sleutel voor de _Cognitive Services_ resource die is opgegeven voor de [ `Billing` ](#billing-configuration-setting) configuratie-instelling.
 
 Deze instelling kan worden gevonden in de volgende plaats:
 
-* Azure Portal: **De Text Analytics** resourcebeheer onder **sleutels**
+* Azure Portal: **Cognitive Services** resourcebeheer onder **sleutels**
 
 ## <a name="applicationinsights-setting"></a>Application Insights-instelling
 
@@ -43,11 +43,13 @@ Deze instelling kan worden gevonden in de volgende plaats:
 
 ## <a name="billing-configuration-setting"></a>Facturering van configuratie-instelling
 
-De `Billing` instelling geeft u aan de URI van het eindpunt van de _Tekstanalyse_ resource in Azure gebruikt voor het meten van factureringsgegevens voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige URI van het eindpunt voor een __Tekstanalyse_ resource in Azure. Gebruik de container rapporteert over elke 10 tot 15 minuten.
+De `Billing` instelling geeft u aan de URI van het eindpunt van de _Cognitive Services_ resource in Azure gebruikt voor het meten van factureringsgegevens voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige URI van het eindpunt voor een __Cognitive Services_ resource in Azure. Gebruik de container rapporteert over elke 10 tot 15 minuten.
 
 Deze instelling kan worden gevonden in de volgende plaats:
 
-* Azure Portal: **De Text Analytics** overzicht, met het label `Endpoint`
+* Azure Portal: **Cognitive Services** overzicht, met het label `Endpoint`
+
+U moet toevoegen de `text/analytics/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende BILLING_ENDPOINT_URI-voorbeeld.
 
 |Vereist| Name | Gegevenstype | Description |
 |--|------|-----------|-------------|
@@ -89,16 +91,18 @@ De volgende voorbeelden gebruiken de configuratie-instellingen om te laten zien 
 * **Voortzetting van regel tekens**: De docker-opdrachten in de volgende secties gebruiken de backslash `\`, als een voortzetting van regel tekens. Vervang of verwijder deze op basis van het hostbesturingssysteem vereisten. 
 * **Argument order**: Wijzig de volgorde van de argumenten niet, tenzij u bekend bent met docker-containers.
 
+U moet toevoegen de `text/analytics/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende BILLING_ENDPOINT_URI-voorbeeld.
+
 Vervang {_argument_name_} door uw eigen waarden:
 
 | Tijdelijke aanduiding | Waarde | Indeling of voorbeeld |
 |-------------|-------|---|
-|{BILLING_KEY} | De eindpuntsleutel van de Text Analytics-resource die beschikbaar is op de pagina van de Text Analytics sleutels van de Azure portal. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | De facturering waarde van het eindpunt is beschikbaar op de pagina van de Text Analytics overzicht van de Azure portal.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|{BILLING_KEY} | De eindpuntsleutel van de `Cognitive Services` beschikbaar zijn op de Azure resource `Cognitive Services` op de pagina sleutels. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | De facturering waarde van het eindpunt is beschikbaar op de Azure `Cognitive Services` pagina overzicht.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
 > [!IMPORTANT]
 > De `Eula`, `Billing`, en `ApiKey` opties moeten worden opgegeven voor het uitvoeren van de container; anders wordt de container niet start.  Zie voor meer informatie, [facturering](how-tos/text-analytics-how-to-install-containers.md#billing).
-> De waarde ApiKey is de **sleutel** van de pagina sleutels in Azure Text Analytics-Resource. 
+> De waarde ApiKey is de **sleutel** met de Azure- `Cognitive Services` resourcepagina sleutels. 
 
 ## <a name="keyphrase-extraction-container-docker-examples"></a>Keyphrase extractie container docker-voorbeelden
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
 ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046067"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Het Model met de Voorspellings-API gebruiken
@@ -136,8 +136,8 @@ Wanneer u de toepassing uitvoert, wordt u gevraagd om in te voeren van een pad n
 
 In deze handleiding, hebt u geleerd hoe u om in te dienen afbeeldingen aan uw aangepaste installatiekopie classificatie/detector en een antwoord via een programma met de C# SDK. Hierna leert hoe u end-to-end scenario's met C#, of aan de slag met een andere taal SDK.
 
-* [Quickstart: .NET SDK](csharp-tutorial.md)
-* [Quickstart: Python-SDK](python-tutorial.md)
-* [Quickstart: Java-SDK](java-tutorial.md)
-* [Quickstart: Node SDK](node-tutorial.md)
-* [Quickstart: Go-SDK](go-tutorial.md)
+* [Snelstartgids: .NET SDK](csharp-tutorial.md)
+* [Snelstart: Python-SDK](python-tutorial.md)
+* [Snelstart: Java SDK](java-tutorial.md)
+* [Snelstart: Node-SDK](node-tutorial.md)
+* [Snelstart: Go SDK](go-tutorial.md)

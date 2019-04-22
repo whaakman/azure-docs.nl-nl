@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 796bea3c64ef7fc03367707461d13e0ea2514b8b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051748"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Hoe u kunt gebruiker-gebruikersregistratie en productabonnement delegeren
@@ -72,7 +72,7 @@ Nu moet u maken de **delegatie-eindpunt**. Het heeft een aantal acties uitvoeren
 5. Als de gebruiker melden die u moet een bijbehorende account voor hen in API Management maken. [Maken van een gebruiker] met de API Management REST-API. Wanneer in dat geval, zorg ervoor dat u de gebruikers-ID ingesteld op dezelfde waarde als in uw archief van de gebruiker of een id die u kunt bijhouden van.
 6. Wanneer de gebruiker is geverifieerd:
    
-   * [een single-sign-on (SSO)-token aanvragen] via de API Management REST-API
+   * [aanvraag voor een eenmalige aanmelding (SSO)-token] via de API Management REST-API
    * een queryparameter returnUrl toevoegen aan de SSO-URL die u hebt ontvangen van de API-aanroep hierboven:
      
      > Bijvoorbeeld: https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
@@ -185,7 +185,7 @@ Zie de volgende video voor meer informatie over overdracht:
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
 [aanvraag voor een eenmalige aanmelding (SSO)-token]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[een gebruiker maken]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
+[Maken van een gebruiker]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
 [aanroepen van de REST-API voor het product abonnement]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
 [voorbeeldcode hieronder]: #delegate-example-code

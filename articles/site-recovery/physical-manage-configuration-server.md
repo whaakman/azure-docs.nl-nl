@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050132"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>De configuratieserver voor herstel na noodgevallen van fysieke beheren
@@ -175,7 +175,7 @@ Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijz
 2. Start de cspsconfigtool.exe met behulp van de snelkoppeling op het bureaublad.
 3. Klik op de **kluis registratie** tabblad.
 4. Een nieuwe registratiebestand downloaden via de portal en geef deze als invoer voor het hulpprogramma.
-      ![register-configuratie-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+      ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Geef de details van de proxyserver en klikt u op de **registreren** knop.  
 6. Open een opdrachtvenster Admin PowerShell.
 7. De volgende opdracht uitvoeren

@@ -12,10 +12,10 @@ ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 97c44c9285ec7a29827361111599db37bc6a86f3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282573"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Betrouwbaarheidsscore van een kennisdatabase QnA Maker
@@ -93,5 +93,5 @@ Wanneer er geen goede overeenkomst is gevonden door de kerntechnologie, wordt de
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
-> [Ondersteunde gegevensbronnen](./data-sources-supported.md)
+> [Gegevensbronnen die worden ondersteund](./data-sources-supported.md)
 

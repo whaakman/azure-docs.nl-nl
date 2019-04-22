@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
 ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050974"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Zelfstudie: HTTPS configureren in een aangepast Front Door-domein
@@ -241,7 +241,7 @@ In de volgende tabel wordt de bewerkingsvoortgang weergegeven die plaatsvindt na
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-1. *Wie is de certificaatprovider en welk type certificaat wordt gebruikt?*
+1. *Wie is de certificaatprovider en welk type certificaat is gebruikt?*
 
     Er wordt een gereserveerd/specifiek certificaat, geleverd via Digicert, gebruikt voor uw aangepaste domein. 
 
@@ -249,15 +249,15 @@ In de volgende tabel wordt de bewerkingsvoortgang weergegeven die plaatsvindt na
 
     Azure Front Door Service maakt gebruik van SNI TLS/SSL.
 
-3. *Ik niet wat gebeurt er als het domein verificatie-e-mailbericht ontvangen van DigiCert?*
+3. *Wat moet ik doen als ik geen verificatie-e-mail voor het domein heb ontvangen van DigiCert?*
 
     Als u beschikt over een CNAME-vermelding voor uw aangepaste domein die rechtstreeks verwijst naar de hostnaam van uw eindpunt (en u niet de subdomeinnaam afdverify gebruikt), ontvangt u een dergelijke verificatie-e-mail niet. Validatie wordt dan automatisch uitgevoerd. In andere gevallen waarbij u geen CNAME-vermelding hebt en binnen 24 uur geen e-mail hebt ontvangen, neemt u contact op met Microsoft Ondersteuning.
 
-4. *Maakt gebruik van een SAN-certificaat minder veilig dan een toegewezen certificaat?*
+4. *Is het gebruik van een SAN-certificaat minder veilig dan wanneer ik een toegewezen certificaat gebruik?*
     
     Voor een SAN-certificaat gelden dezelfde standaarden voor versleuteling en beveiliging als voor een toegewezen certificaat. Alle verleende SSL-certificaten maken gebruik van SHA-256 voor verbeterde serverbeveiliging.
 
-5. *Heb ik een Caa-record nodig bij mijn DNS-provider?*
+5. *Heb ik een CAA-record nodig bij mijn DNS-provider?*
 
     Nee, een CAA-record is momenteel niet vereist. Als u er echter wel een hebt, moet deze DigiCert bevatten als een geldige CA.
 

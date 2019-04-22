@@ -10,10 +10,10 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045830"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Zelfstudie: Deel 2: de gerouteerde berichten weergeven
@@ -310,4 +310,4 @@ In deze zelfstudie 2-onderdeel, hebt u geleerd hoe u routering van berichten naa
 Ga door naar de volgende zelfstudie voor informatie over het beheren van de toestand van een IoT-apparaat. 
 
 > [!div class="nextstepaction"]
-> [Instellen en gebruiken van metrische en diagnostische gegevens met een IoT-Hub](tutorial-use-metrics-and-diags.md)
+> [Metrische gegevens en diagnostische gegevens instellen en gebruiken met een IoT Hub](tutorial-use-metrics-and-diags.md)

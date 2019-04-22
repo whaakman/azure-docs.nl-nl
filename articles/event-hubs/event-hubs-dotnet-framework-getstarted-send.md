@@ -1,6 +1,6 @@
 ---
-title: Gebeurtenissen verzenden met behulp van .NET Framework - Azure Event Hubs | Microsoft Docs
-description: Dit artikel bevat een overzicht voor het maken van een Fraemwork .NET-toepassing die gebeurtenissen naar Azure Event Hubs verzendt.
+title: Verzenden en ontvangen van gebeurtenissen met .NET Framework - Azure Event Hubs | Microsoft Docs
+description: Dit artikel bevat een overzicht voor het maken van een .NET Framework-toepassing die gebeurtenissen naar Azure Event Hubs verzendt.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -13,37 +13,36 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 062dc707dea99ed6e5e04905a13572c234f0c172
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0cccf6f6187f894faadbe4f572d75c483638aafd
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091153"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679241"
 ---
-# <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Gebeurtenissen verzenden naar Azure Event Hubs met behulp van .NET Framework
+# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Gebeurtenissen verzenden of ontvangen van gebeurtenissen uit Azure Event Hubs met behulp van .NET Framework
 Azure Event Hubs is een big data-platform voor het streamen van gegevens en een gebeurtenisopneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Event Hubs kan gebeurtenissen, gegevens of telemetrie die wordt geproduceerd door gedistribueerde software en apparaten verwerken en opslaan. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Zie [Overzicht van Event Hubs](event-hubs-about.md) en [Functies van Event Hubs](event-hubs-features.md) voor een gedetailleerd overzicht van Event Hubs.
 
-In deze zelfstudie laat zien hoe gebeurtenissen verzenden naar een event hub met een consoletoepassing die is geschreven in C# met behulp van .NET Framework. 
+Deze zelfstudie laat zien hoe u .NET Framework-consoletoepassingen in maakt C# gebeurtenissen te verzenden of ontvangen van gebeurtenissen van een Event hub. 
 
 ## <a name="prerequisites"></a>Vereisten
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
-* [Microsoft Visual Studio 2017 of hoger](https://visualstudio.com).
+- [Microsoft Visual Studio 2017 of hoger](https://visualstudio.com).
+- **Maak een Event Hubs-naamruimte en een event hub**. In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Volg de procedure in [dit artikel](event-hubs-create.md) om een naamruimte en een Event Hub te maken. Vervolgens kunt u de **verbindingsreeks voor de event hub-naamruimte** met de instructies in het artikel: [Verbindingstekenreeks ophalen](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). U gebruikt de verbindingsreeks later in deze zelfstudie.
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Een Event Hubs-naamruimte en een Event Hub maken
-In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Volg de procedure in [dit artikel](event-hubs-create.md) om een naamruimte en een Event Hub te maken en ga daarna verder met de volgende stappen in deze zelfstudie.
+## <a name="send-events"></a>Gebeurtenissen verzenden 
+Deze sectie leest u hoe u een .NET Framework-consoletoepassing voor het verzenden van gebeurtenissen naar een event hub maakt. 
 
-De verbindingsreeks voor de event hub-naamruimte ophalen met de instructies in het artikel: [-verbindingsreeks ophalen](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). U de verbindingsreeks later in deze zelfstudie.
-
-## <a name="create-a-console-application"></a>Een consoletoepassing maken
+### <a name="create-a-console-application"></a>Een consoletoepassing maken
 
 Maak in Visual Studio een nieuw Visual C# bureaublad-app-project met behulp van de projectsjabloon**Consoletoepassing**. Noem het project **Afzender**.
    
 ![Consoletoepassing maken](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
 
-## <a name="add-the-event-hubs-nuget-package"></a>Het Event Hubs NuGet-pakket toevoegen
+### <a name="add-the-event-hubs-nuget-package"></a>Het Event Hubs NuGet-pakket toevoegen
 
 1. Klik in Solution Explorer met de rechtermuisknop op het project **Afzender** en klik op **NuGet-pakketten beheren voor oplossing**. 
 2. Klik op het tabblad **Bladeren** en zoek vervolgens naar `WindowsAzure.ServiceBus`. Klik op **Installeren** en accepteer de gebruiksvoorwaarden. 
@@ -52,7 +51,7 @@ Maak in Visual Studio een nieuw Visual C# bureaublad-app-project met behulp van 
    
     Er wordt door Visual Studio een verwijzing naar het [ NuGet-pakket Azure Service Bus-bibliotheek](https://www.nuget.org/packages/WindowsAzure.ServiceBus) gedownload, geïnstalleerd en toegevoegd.
 
-## <a name="write-code-to-send-messages-to-the-event-hub"></a>Code schrijven om berichten te verzenden naar de event hub
+### <a name="write-code-to-send-messages-to-the-event-hub"></a>Code schrijven om berichten te verzenden naar de event hub
 
 1. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
    
@@ -103,14 +102,131 @@ Maak in Visual Studio een nieuw Visual C# bureaublad-app-project met behulp van 
       ```
 5. Voer het programma uit en controleer of er geen fouten zijn.
   
-Gefeliciteerd. U hebt nu berichten verzonden naar een Event Hub.
+## <a name="receive-events"></a>Gebeurtenissen ontvangen
+In deze sectie schrijft u een .NET Framework-consoletoepassing die berichten van een event hub met behulp van ontvangt de [Event Processor Host](event-hubs-event-processor-host.md). De [EventProcessorHost](event-hubs-event-processor-host.md) is een .NET-klasse die het ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten en parallelle ontvangst van deze Event Hubs te beheren. Met de EventProcessorHost kunt u gebeurtenissen splitsen over meerdere ontvangers, zelfs als deze worden gehost in verschillende knooppunten. In dit voorbeeld wordt het gebruik van de EventProcessorHost gedemonstreerd voor één ontvanger. De [Uitgeschaalde gebeurtenisverwerking] [ Scale out Event Processing with Event Hubs] voorbeeld ziet u hoe u de Event Processor Host met meerdere ontvangers.
 
+[!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
+
+### <a name="create-a-console-application"></a>Een consoletoepassing maken
+
+Maak in Visual Studio een nieuw Visual C# bureaublad-app-project met behulp van de projectsjabloon**Consoletoepassing**. Noem het project **Ontvanger**.
+   
+![Consoletoepassing maken](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp1.png)
+
+### <a name="add-the-event-hubs-nuget-package"></a>Het Event Hubs NuGet-pakket toevoegen
+
+1. Klik in Solution Explorer met de rechtermuisknop op het project **Ontvanger** en klik op **NuGet-pakketten beheren voor oplossing**.
+2. Klik op het tabblad **Bladeren** en zoek vervolgens naar `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
+   
+    ![Zoeken naar Event Processor Host NuGet-pakket](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
+   
+    Door Visual Studio wordt een verwijzing naar het [ NuGet-pakket Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), inclusief alle bijbehorende afhankelijkheden, gedownload, geïnstalleerd en toegevoegd.
+
+### <a name="implement-the-ieventprocessor-interface"></a>De IEventProcessor-interface implementeren
+
+1. Klik met de rechtermuisknop op het project **Ontvanger**, klik op **Toevoegen** en op **Klasse**. Noem de nieuwe klasse **SimpleEventProcessor** en klik op **Toevoegen** om de klasse te maken.
+   
+    ![De klasse SimpleEventProcessor toevoegen](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
+2. Voeg de volgende instructies toe aan het begin van het bestand SimpleEventProcessor.cs:
+    
+      ```csharp
+      using Microsoft.ServiceBus.Messaging;
+      using System.Diagnostics;
+      ```
+    
+3. Vervang de volgende code voor de hoofdtekst van de klasse:
+    
+      ```csharp
+      class SimpleEventProcessor : IEventProcessor
+      {
+        Stopwatch checkpointStopWatch;
+        
+        async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
+        {
+            Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
+            if (reason == CloseReason.Shutdown)
+            {
+                await context.CheckpointAsync();
+            }
+        }
+        
+        Task IEventProcessor.OpenAsync(PartitionContext context)
+        {
+            Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
+            this.checkpointStopWatch = new Stopwatch();
+            this.checkpointStopWatch.Start();
+            return Task.FromResult<object>(null);
+        }
+        
+        async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+        {
+            foreach (EventData eventData in messages)
+            {
+                string data = Encoding.UTF8.GetString(eventData.GetBytes());
+        
+                Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
+                    context.Lease.PartitionId, data));
+            }
+        
+            //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
+            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
+            {
+                await context.CheckpointAsync();
+                this.checkpointStopWatch.Restart();
+            }
+        }
+      }
+      ```
+    
+      Deze klasse wordt aangeroepen door de **EventProcessorHost** om gebeurtenissen te verwerken die worden ontvangen van de Event Hub. De klasse `SimpleEventProcessor` gebruikt een stopwatch om periodiek de controlepuntmethode voor de context **EventProcessorHost** aan te roepen. Op deze manier gaat er nooit meer werk verloren dan in vijf minuten kan worden verwerkt, als de ontvanger opnieuw wordt opgestart.
+
+### <a name="update-the-main-method-to-use-simpleeventprocessor"></a>De Main-methode bijwerken voor gebruik van SimpleEventProcessor
+
+1. Voeg in de klasse **Program** de volgende `using`-instructie toe aan het begin van het bestand:
+    
+      ```csharp
+      using Microsoft.ServiceBus.Messaging;
+      ```
+    
+2. Vervang de `Main` methode in de `Program` klasse met de volgende code wordt vervangen door de naam van de event hub en de verbindingsreeks op naamruimteniveau die u eerder hebt opgeslagen, en de storage-account en de sleutel die u in de vorige secties hebt gekopieerd. 
+    
+      ```csharp
+      static void Main(string[] args)
+      {
+        string eventHubConnectionString = "{Event Hubs namespace connection string}";
+        string eventHubName = "{Event Hub name}";
+        string storageAccountName = "{storage account name}";
+        string storageAccountKey = "{storage account key}";
+        string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
+        
+        string eventProcessorHostName = Guid.NewGuid().ToString();
+        EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
+        Console.WriteLine("Registering EventProcessor...");
+        var options = new EventProcessorOptions();
+        options.ExceptionReceived += (sender, e) => { Console.WriteLine(e.Exception); };
+        eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>(options).Wait();
+        
+        Console.WriteLine("Receiving. Press enter key to stop worker.");
+        Console.ReadLine();
+        eventProcessorHost.UnregisterEventProcessorAsync().Wait();
+      }
+      ```
+    
+3. Voer het programma uit en controleer of er geen fouten zijn.
+  
 ## <a name="next-steps"></a>Volgende stappen
-In deze snelstartgids hebt u berichten verzonden naar een event hub met behulp van .NET Framework. Zie voor meer informatie over gebeurtenissen ontvangen van een event hub met behulp van .NET Framework, [ontvangen van gebeurtenissen van event hub - .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md).
+Lees de volgende artikelen: 
 
-<!-- Images. -->
-[19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
-[20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
-[21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
-[22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
+- [EventProcessorHost](event-hubs-event-processor-host.md)
+- [Functies en de belangrijkste termen in de Azure Event Hubs](event-hubs-features.md).
+- [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)
 
+
+<!-- Links -->
+[EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[Event Hubs overview]: event-hubs-about.md
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Event Hubs Programming Guide]: event-hubs-programming-guide.md
+[Azure Storage account]:../storage/common/storage-create-storage-account.md
+[Event Processor Host]: event-hubs-event-processor-host.md
+[Azure portal]: https://portal.azure.com
