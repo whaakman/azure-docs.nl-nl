@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 7bbba92b7a26f74c636cc97134a1a2f2303347bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275624"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Zelfstudie: Azure Active Directory-integratie met Nimblex
@@ -107,9 +107,9 @@ Voor het configureren van Azure AD eenmalige aanmelding met Nimblex, moet u de v
 
     ![Nimblex domein en URL's, eenmalige aanmelding informatie](common/sp-identifier-reply.png)
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<YOUR APPLICATION PATH>/Login.aspx`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<YOUR APPLICATION PATH>/Login.aspx`
 
-    b. Typ in het vak **Id** een URL met het volgende patroon: `https://<YOUR APPLICATION PATH>/`
+    b. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<YOUR APPLICATION PATH>/`
 
     c. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<path-to-application>/SamlReply.aspx`
 
@@ -224,9 +224,9 @@ Wanneer u op de tegel Nimblex in het toegangsvenster, moet u worden automatisch 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

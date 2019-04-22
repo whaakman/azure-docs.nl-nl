@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265828"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Inzicht in Cloudyn-rapporten voor kosten
@@ -85,7 +85,7 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
        - Eenmalig
        - Ondersteuning
        - Gebruikskosten
-     - **Klant**
+     - **De klant**
        - Selecteer een specifieke klant, meerdere klanten, of alle klanten.
      - **Accountnaam**
        - De naam van het account of abonnement. In Azure is de naam van het Azure-abonnement.
@@ -99,11 +99,11 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
        - De cloudprovider waarin activa en kosten gekoppeld worden.
      - **Regio**
        - De regio waar de resource wordt gehost.
-     - **Beschikbaarheidszone**
+     - **Binnen een Beschikbaarheidszone**
        - AWS geïsoleerd locaties binnen een regio.
      - **Resourcetype**
        - Het type resource in gebruik.
-     - **Subtype**
+     - **Sub-Type**
        - Selecteer het subtype.
      - **Bewerking**
        - Selecteer de bewerking of **Show all**.
@@ -116,7 +116,7 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
        - Positie
      - **Type van de kosten in rekening gebracht**
        - Selecteer negatieve of positieve kosten type of beide.
-     - **Tenancy**
+     - **Tenants**
        - Of een virtuele machine wordt uitgevoerd als een toegewezen machine.
      - **Gebruikstype**
        - Gebruikstype zijn eenmalige kosten of terugkerende kosten.
@@ -141,7 +141,7 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
 
    Selecteer onder afschrijving, **afgeschreven kosten** of **werkelijke kosten**.
 
-8. **Oplossing**
+8. **Resolutie**
 
     Gebruik het probleem zou moeten de resolutie van de tijd binnen het geselecteerde datumbereik selecteren. De resolutie van uw tijd bepaalt hoe eenheden worden weergegeven in het rapport en kunnen worden:
     - Dagelijks
@@ -154,7 +154,7 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
 
     Toewijzingsregels gebruiken om te passen of uitschakelen van de kostentoewijzing kosten opnieuw berekenen. U kunt inschakelen of uitschakelen van de herberekening van de toewijzing van kosten voor factureringsgegevens. De herberekening is van toepassing op de geselecteerde categorieën in het rapport. Hiermee kunt u beoordelen effect herberekening voor de toewijzing van kosten op basis van onbewerkte gegevens van de facturering.
 
-10. **Niet-gecategoriseerd**
+10. **Niet-gecategoriseerde**
 
     Gebruik niet-gecategoriseerd wilt opnemen of uitsluiten van niet-gecategoriseerde kosten in het rapport.
 

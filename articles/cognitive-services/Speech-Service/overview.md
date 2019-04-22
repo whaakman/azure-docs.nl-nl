@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/03/2019
 ms.author: erhopf
 ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010189"
 ---
 # <a name="what-are-the-speech-services"></a>Wat zijn de Speech Services?
@@ -26,9 +26,9 @@ Azure Speech Services zijn van spraak naar tekst, tekst naar spraak en spraakomz
 
 Deze functies zijn vormen van de Azure-Services voor spraak. Gebruik de koppelingen in deze tabel voor meer informatie over algemene scenario's voor elke functie of de API-verwijzing bladeren.
 
-| Service | Functie | Description | SDK | REST |
+| Service | Functie | Beschrijving | SDK | REST |
 |---------|---------|-------------|-----|------|
-| [Spraak naar tekst](speech-to-text.md) | Spraak-naar-tekst | Spraak-naar-tekst transcribes audiostreams naar tekst in realtime die uw toepassingen, hulpprogramma's of apparaten kunnen gebruiken of weergeven. Gebruik spraak-naar-tekst met [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) worden afgeleid van de gebruiker intents van getranscribeerde spraak- en act op gesproken opdrachten. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Spraak-naar-tekst](speech-to-text.md) | Spraak-naar-tekst | Spraak-naar-tekst transcribes audiostreams naar tekst in realtime die uw toepassingen, hulpprogramma's of apparaten kunnen gebruiken of weergeven. Gebruik spraak-naar-tekst met [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) worden afgeleid van de gebruiker intents van getranscribeerde spraak- en act op gesproken opdrachten. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Batch transcriptie](batch-transcription.md) | Batch transcriptie kunt asynchrone transcriptie van spraak-naar-tekst van grote hoeveelheden gegevens. Dit is een REST gebaseerde service die gebruikmaakt van hetzelfde eindpunt als aanpassing en Modelbeheer. | Nee | [Ja](https://westus.cris.ai/swagger/ui/index) |
 | | [Aanpassing](#customize-your-speech-experience) | Als u van spraak-naar-tekst voor de opname- en schrijffouten in een unieke omgeving gebruikmaakt, kunt u maken en trainen aangepaste akoestische, taal en de uitspraak modellen adres omgevingsgeluid of branchespecifieke vocabulaire. | Nee | [Ja](https://westus.cris.ai/swagger/ui/index) |
 | [Tekst naar spraak](text-to-speech.md) | Tekst naar spraak | Tekst naar spraak converteert invoertekst naar menselijke kunstmatige spraak. Kies uit de standard stemmen en neurale stemmen (Zie [taalondersteuning](language-support.md)). | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
@@ -50,9 +50,9 @@ We bieden snelstartgidsen in de populairste programmeertalen, elk ontworpen dat 
 
 | Spraak-naar-tekst (SDK) | Vertaling (SDK) | Text to Speech (REST) | Text to Speech (SDK) |
 |-------------------|-------------------|-----------------------|-----------------------|
-| [C#, .NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) | [Python (Windows, Linux, macOS)](quickstart-python-text-to-speech.md) | [C#, .NET Framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) |
-| [JavaScript (browser)](quickstart-js-browser.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET Core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) |
-| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js (Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) |
+| [C#, .NET core (Windows)](quickstart-csharp-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) | [Python (Windows, Linux, macOS)](quickstart-python-text-to-speech.md) | [C#, .NET framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) |
+| [JavaScript (Browser)](quickstart-js-browser.md) | [C#, .NET core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET Core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) |
+| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js (Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) |
 | [Java (Windows, Linux)](quickstart-java-jre.md) | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) | |
 
 Nadat u een kans om de spraak-Services te gebruiken hebt, Probeer onze zelfstudie u hoe u leert voor het herkennen van intenties van gesproken inhoud met behulp van de SDK van spraak en LUIS.
@@ -75,16 +75,16 @@ Azure Speech Services werkt goed met ingebouwde modellen, kunt u echter verder a
 |----------------|-------|-------------|
 | Spraak naar tekst | [Akoestisch model](how-to-customize-acoustic-models.md) | Maak een aangepast akoestisch model voor toepassingen, hulpprogramma's, of apparaten die worden gebruikt in het bijzonder omgevingen, zoals in een auto of op een fabriek, elk met specifieke opname voorwaarden. Voorbeelden zijn onder meer accenten zijn niet toegestaan spraak, specifieke achtergrondgeluiden of met behulp van een specifieke microfoon voor de opname. |
 | | [Taalmodel](how-to-customize-language-model.md) | Maak een aangepast taalmodel ter verbetering van transcriptie van veld-specifieke vocabulaire en grammatica, zoals medische terminologie of IT-jargon. |
-| | [Uitspraak van model](how-to-customize-pronunciation.md) | Met een aangepaste uitspraak-model, kunt u de fonetische vorm en de weergave van een woord of een term kunt definiëren. Dit is handig voor het verwerken van aangepaste voorwaarden, zoals productnamen of afkortingen. Alles wat u nodig hebt om te beginnen is een uitspraak van bestand--een eenvoudige txt-bestand. |
+| | [Uitspraakmodel](how-to-customize-pronunciation.md) | Met een aangepaste uitspraak-model, kunt u de fonetische vorm en de weergave van een woord of een term kunt definiëren. Dit is handig voor het verwerken van aangepaste voorwaarden, zoals productnamen of afkortingen. Alles wat u nodig hebt om te beginnen is een uitspraak van bestand--een eenvoudige txt-bestand. |
 | Tekst naar spraak | [Spraakstijl](how-to-customize-voice-font.md) | Aangepaste spraakstijlen kunnen u een herkenbare, één van een unieke stem voor uw merk maken. Het duurt slechts een kleine hoeveelheid gegevens aan de slag. Hoe meer gegevens dat u opgeeft, wordt de meer natuurlijke en menselijke uw spraakstijl klinkt. |
 
 ## <a name="reference-docs"></a>Referentiedocumenten
 
 * [Speech-SDK](speech-sdk-reference.md)
-* [Speech Devices SDK](speech-devices-sdk.md)
-* [REST-API: Spraak-naar-tekst](rest-speech-to-text.md)
-* [REST-API: Tekst naar spraak](rest-text-to-speech.md)
-* [REST-API: Batch transcriptie en aanpassen](https://westus.cris.ai/swagger/ui/index)
+* [Spraak apparaten SDK](speech-devices-sdk.md)
+* [REST API: Spraak-naar-tekst](rest-speech-to-text.md)
+* [REST API: Text-to-speech](rest-text-to-speech.md)
+* [REST API: Batch transcriptie en aanpassen](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Volgende stappen
 

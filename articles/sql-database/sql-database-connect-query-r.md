@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: cgronlun
 ms.date: 04/04/2019
 ms.openlocfilehash: f5d43794ba80e4791c8bf24ad404069a8329518e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051220"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Quickstart: Machine Learning Services (met R) gebruiken in Azure SQL Database (preview)
@@ -104,7 +104,7 @@ De volgende oefening is gericht op het eerste interactiemodel: R-code doorgeven 
 
 2. Ervan uitgaande dat u alles juist hebt ingesteld, wordt nu het juiste resultaat berekend, en wordt via de R-functie `print` het resultaat geretourneerd in het **Berichtvenster**.
 
-    **Resultaten**
+    **Results**
 
     ```text
     STDOUT message(s) from external script: 
@@ -139,7 +139,7 @@ Op dit moment kijken we alleen naar de standaardinvoer- en uitvoervariabelen van
     SELECT * FROM RTestData
     ```
 
-    **Resultaten**
+    **Results**
 
     ![Inhoud van de RTestData-tabel](./media/sql-database-connect-query-r/select-rtestdata.png)
 
@@ -155,7 +155,7 @@ Op dit moment kijken we alleen naar de standaardinvoer- en uitvoervariabelen van
     WITH RESULT SETS (([NewColName] INT NOT NULL));
     ```
 
-    **Resultaten**
+    **Results**
 
     ![Uitvoer van R-script waarmee gegevens uit een tabel worden geretourneerd](./media/sql-database-connect-query-r/r-output-rtestdata.png)
 
@@ -192,7 +192,7 @@ Op dit moment kijken we alleen naar de standaardinvoer- en uitvoervariabelen van
     WITH RESULT SETS (([Col1] CHAR(20) NOT NULL));
     ```
 
-    **Resultaten**
+    **Results**
 
     ![Resultaten doorzoeken met @script als invoer](./media/sql-database-connect-query-r/r-data-generated-output.png)
 
@@ -211,7 +211,7 @@ Als u wilt zien welke versie van R is geïnstalleerd in uw SQL database, doet u 
 
 2. Met de R-functie `print` wordt de versie geretourneerd in het **Berichtvenster**. In de voorbeelduitvoer hieronder ziet u dat R-versie 3.4.4 is geïnstalleerd in de SQL-database.
 
-    **Resultaten**
+    **Results**
 
     ```text
     STDOUT message(s) from external script:
@@ -248,7 +248,7 @@ Microsoft biedt een aantal R-pakketten waarin Machine Learning Services vooraf z
 
 2. De uitvoer komt uit `installed.packages()` in R en wordt geretourneerd als een resultatenset.
 
-    **Resultaten**
+    **Results**
 
     ![Geïnstalleerde pakketten in R](./media/sql-database-connect-query-r/r-installed-packages.png)
 
@@ -359,7 +359,7 @@ U kunt een model trainen met R en dit model opslaan in een tabel in de SQL-datab
     VALUES ('latest model', @model)
     ```
 
-    **Resultaten**
+    **Results**
 
     ![Getraind model met extra uitvoer](./media/sql-database-connect-query-r/r-train-model-with-additional-output.png)
 
@@ -414,7 +414,7 @@ Gebruik het model dat u in de vorige sectie hebt gemaakt, om voorspellingen te s
 
    + De kolomnamen die worden gebruikt in het R-script, worden niet per se doorgegeven aan de uitvoer van de opgeslagen procedure. Hier hebben we het WITH RESULTS-component gebruikt om een aantal nieuwe kolomnamen te definiëren.
 
-     **Resultaten**
+     **Results**
 
      ![Resultatenset voor het voorspellen van de remafstand](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
 
@@ -473,7 +473,7 @@ Als u een pakket wilt gebruiken dat nog niet is geïnstalleerd in de SQL-databas
     View(r)
     ```
 
-    **Resultaten**
+    **Results**
 
     ![Inhoud van de RTestData-tabel](./media/sql-database-connect-query-r/r-verify-package-install.png)
 
@@ -497,7 +497,7 @@ Als u een pakket wilt gebruiken dat nog niet is geïnstalleerd in de SQL-databas
 
     U ziet het volgende resultaat op het tabblad Berichten.
 
-    **Resultaten**
+    **Results**
 
     ```text
     STDOUT message(s) from external script:
@@ -520,8 +520,8 @@ Als u een pakket wilt gebruiken dat nog niet is geïnstalleerd in de SQL-databas
 
 Zie de onderstaande artikelen over Machine Learning Services voor meer informatie. Sommige van deze artikelen zijn bestemd voor SQL Server, maar de meeste informatie is ook van toepassing op Machine Learning Services (met R) in Azure SQL Database.
 
-- [Azure SQL Database-Machine Learning-Services (met R)](sql-database-machine-learning-services-overview.md)
+- [Azure SQL Database Machine Learning Services (met R)](sql-database-machine-learning-services-overview.md)
 - [SQL Server Machine Learning-services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Zelfstudie: Informatie over R gebruiken in SQL Server-database-analyse](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [End-to-end data science-overzicht voor het R- en SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
+- [Zelfstudie: Informatie over in-database analyse met behulp van R in SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
+- [End-to-end data science walkthrough for R and SQL Server (Overzicht van end-to-end-informatiewetenschap voor R en SQL Server)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
 - [Zelfstudie: RevoScaleR R-functies gebruiken met SQL Server-gegevens](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)

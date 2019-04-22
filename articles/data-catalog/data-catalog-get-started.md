@@ -1,5 +1,5 @@
 ---
-title: Maken van een Azure Data Catalog
+title: Een Azure Data Catalog maken
 description: Een snelstartgids voor het maken van een Azure Data Catalog.
 author: markingmyname
 ms.author: maghan
@@ -7,13 +7,13 @@ ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 04/05/2019
 ms.openlocfilehash: 66d178497f3403579990340b88a1153905b2a2bf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271030"
 ---
-# <a name="quickstart-create-an-azure-data-catalog"></a>Quickstart: Maken van een Azure Data Catalog
+# <a name="quickstart-create-an-azure-data-catalog"></a>Quickstart: Een Azure Data Catalog maken
 
 Azure Data Catalog is een volledig beheerde cloudservice die als een registratie- en detectiesysteem voor gegevensassets van ondernemingen fungeert. Zie [Wat is Azure Data Catalog?](overview.md) voor een gedetailleerd overzicht.
 

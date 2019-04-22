@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012948"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Automatische IoT-Apparaatbeheer op schaal met Azure portal
@@ -202,7 +202,7 @@ Wanneer u een configuratie verwijdert, worden alle dubbele apparaten op de volge
 
 In dit artikel hebt u geleerd hoe u kunt configureren en controleren van IoT-apparaten op schaal. Volg deze koppelingen voor meer informatie over het beheren van Azure IoT Hub:
 
-* [Uw IoT-Hub apparaatidentiteiten bulksgewijs beheren](iot-hub-bulk-identity-mgmt.md)
+* [De identiteiten van uw IoT Hub-apparaten bulksgewijs beheren](iot-hub-bulk-identity-mgmt.md)
 * [Metrische gegevens van IoT Hub](iot-hub-metrics.md)
 * [Controle van bewerkingen](iot-hub-operations-monitoring.md)
 

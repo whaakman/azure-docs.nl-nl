@@ -9,10 +9,10 @@ ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 328edac78624c192ee139c40fe0ed1853423c639
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051365"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
@@ -164,12 +164,12 @@ Een servereindpunt kan synchronisatieactiviteiten niet aanmelden voor de volgend
 Dit probleem wordt verwacht als u een cloudeindpunt maken en gebruiken van een Azure-bestandsshare die gegevens bevat. De wijziging opsomming taak scant voor wijzigingen in de Azure-bestandsshare moet voltooien voordat de bestanden kunnen worden gesynchroniseerd tussen de eindpunten van de cloud en server. De tijd voor het voltooien van de taak is afhankelijk van de grootte van de naamruimte in de Azure-bestandsshare. De status van eindpunt moet worden bijgewerkt nadat de wijziging opsomming-taak is voltooid.
 
 ### <a id="broken-sync"></a>Hoe controleer ik health sync?
-# [<a name="portal"></a>Portal](#tab/portal1)
+# <a name="portaltabportal1"></a>[Portal](#tab/portal1)
 Binnen elke groep voor synchronisatie, kunt u inzoomen op de afzonderlijke servereindpunten voor de status van de laatste voltooide synchronisatiesessies. Een kolom met groene status en de bestanden niet synchroniseren waarde 0 geven aan dat synchronisatie werkt zoals verwacht. Als dit niet het geval is, ziet u hieronder voor een lijst met algemene synchronisatiefouten en verwerken van bestanden die niet worden gesynchroniseerd. 
 
 ![Een schermafbeelding van de Azure-portal](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
-# [<a name="server"></a>Server](#tab/server)
+# <a name="servertabserver"></a>[Server](#tab/server)
 Ga naar de logboekbestanden met telemetrie van de server, die kunnen worden gevonden in de Event Viewer op `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Gebeurtenis 9102 komt overeen met de synchronisatiesessie van een voltooide. Zoek de meest recente gebeurtenis met ID 9102 voor de meest recente status van synchronisatie. SyncDirection kunt u zien als deze sessie een uploaden of downloaden was. Als de HResult 0 is, zijn de synchronisatiesessie is voltooid. Een niet-nul-HResult betekent dat er een fout opgetreden tijdens de synchronisatie is; Zie hieronder voor een lijst met veelvoorkomende fouten. Als de PerItemErrorCount groter dan 0 is, betekent dit dat sommige bestanden of mappen is niet juist gesynchroniseerd. Het is mogelijk dat een HResult 0, maar een PerItemErrorCount die groter is dan 0.
 
 Hieronder volgt een voorbeeld van een uploaden is voltooid. Om het te kort te houden, worden slechts enkele van de waarden in elke 9102 gebeurtenis hieronder vermeld. 
@@ -201,10 +201,10 @@ Soms synchronisatiesessies algemene mislukken of een niet-nul-PerItemErrorCount 
 ---
 
 ### <a name="how-do-i-monitor-the-progress-of-a-current-sync-session"></a>Hoe controleer ik de voortgang van een huidige synchronisatiesessie?
-# [<a name="portal"></a>Portal](#tab/portal1)
+# <a name="portaltabportal1"></a>[Portal](#tab/portal1)
 In de groep voor synchronisatie, gaat u naar het desbetreffende servereindpunt en kijken naar het gedeelte activiteit van de synchronisatie om te zien van het aantal bestanden geüpload of gedownload in de huidige synchronisatiesessie. Houd er rekening mee dat deze status wordt vertraagd circa 5 minuten, en als uw synchronisatiesessie klein genoeg is om te worden voltooid binnen deze periode is deze niet kan worden gerapporteerd in de portal. 
 
-# [<a name="server"></a>Server](#tab/server)
+# <a name="servertabserver"></a>[Server](#tab/server)
 Zoekt u naar de meest recente 9302 in de telemetrie in het gebeurtenislogboek op de server (Ga in de logboeken voor toepassingen en Services Logs\Microsoft\FileSync\Agent\Telemetry). Deze gebeurtenis geeft aan dat de status van de huidige synchronisatiesessie. TotalItemCount geeft aan hoeveel bestanden die moeten worden gesynchroniseerd, AppliedItemCount het aantal bestanden die tot nu toe zijn gesynchroniseerd en PerItemErrorCount het aantal bestanden die niet worden gesynchroniseerd (Zie hieronder voor het omgaan met dit).
 
 ```
@@ -219,14 +219,14 @@ PerItemErrorCount: 1006.
 ---
 
 ### <a name="how-do-i-know-if-my-servers-are-in-sync-with-each-other"></a>Hoe weet ik of mijn servers synchroon met elkaar zijn?
-# [<a name="portal"></a>Portal](#tab/portal1)
+# <a name="portaltabportal1"></a>[Portal](#tab/portal1)
 Voor elke server in een bepaalde synchronisatiegroep, zorg ervoor dat:
 - De tijdstempels voor de laatste synchronisatie heeft geprobeerd voor zowel uploaden en downloaden zijn recente.
 - De status is groen voor zowel uploaden en downloaden.
 - In het veld synchronisatieactiviteiten wordt zeer weinig of geen bestanden om te synchroniseren.
 - Het veld niet synchroniseren van bestanden is 0 voor zowel uploaden en downloaden.
 
-# [<a name="server"></a>Server](#tab/server)
+# <a name="servertabserver"></a>[Server](#tab/server)
 Bekijk de voltooide synchronisatiesessies, die zijn gemarkeerd door 9102 gebeurtenissen in het gebeurtenislogboek van de telemetrie voor elke server (in de logboeken, gaat u naar `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`). 
 
 1. Op elke server, die u wilt Zorg ervoor dat het meest recente uploaden en downloaden van sessies is voltooid. Om dit te doen, Controleer of de HResult en PerItemErrorCount 0 voor zowel uploaden en downloaden zijn (het veld SyncDirection geeft aan of een bepaalde sessie een sessie uploaden of downloaden). Houd er rekening mee dat als u een synchronisatiesessie laatst voltooide niet ziet, is het waarschijnlijk dat een synchronisatiesessie wordt momenteel uitgevoerd, die kan worden verwacht als u zojuist hebt toegevoegd of gewijzigd van een grote hoeveelheid gegevens.
@@ -608,14 +608,14 @@ Deze fout treedt op vanwege een intern probleem opgetreden met de synchronisatie
 
 ### <a name="common-troubleshooting-steps"></a>Algemene stappen voor probleemoplossing
 <a id="troubleshoot-storage-account"></a>**Controleer of dat het opslagaccount bestaat.**  
-# [<a name="portal"></a>Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Navigeer naar de groep voor synchronisatie binnen de Opslagsynchronisatieservice.
 2. Selecteer het cloudeindpunt in de groep voor synchronisatie.
 3. Noteer de naam van de Azure file share in het geopende deelvenster.
 4. Selecteer het gekoppelde opslagaccount. Als deze koppeling is mislukt, is het opslagaccount waarnaar wordt verwezen, verwijderd.
     ![Een schermafbeelding van het detailpaneel van cloud-eindpunt met een koppeling naar het opslagaccount.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 # Variables for you to populate based on your configuration
 $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
@@ -713,12 +713,12 @@ if ($storageAccount -eq $null) {
 ---
 
 <a id="troubleshoot-network-rules"></a>**Controleer of dat het opslagaccount bevat geen netwerkregels.**  
-# [<a name="portal"></a>Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Eenmaal in de storage-account, selecteert u **Firewalls en virtuele netwerken** aan de linkerkant van het opslagaccount.
 2. In de storage-account, de **zodat toegang vanaf alle netwerken** keuzerondje moet worden geselecteerd.
     ![Een schermafbeelding van de storage-account firewall- en regels uitgeschakeld.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
@@ -729,12 +729,12 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 ---
 
 <a id="troubleshoot-azure-file-share"></a>**Zorg ervoor dat de Azure-bestandsshare bestaat.**  
-# [<a name="portal"></a>Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Klik op **overzicht** op de tabel links om terug te keren naar de pagina van het belangrijkste opslagaccount.
 2. Selecteer **bestanden** om de lijst met bestandsshares weer te geven.
 3. Controleer of de bestandsshare waarnaar wordt verwezen door de cloudeindpunt wordt weergegeven in de lijst met bestandsshares (u moet hebben opgemerkt dit in stap 1 hierboven).
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 $fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
@@ -748,7 +748,7 @@ if ($fileShare -eq $null) {
 ---
 
 <a id="troubleshoot-rbac"></a>**Zorg ervoor dat Azure File Sync heeft toegang tot het opslagaccount.**  
-# [<a name="portal"></a>Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Klik op **toegangsbeheer (IAM)** op de linker inhoudsopgave.
 1. Klik op de **roltoewijzingen** tabblad aan de lijst met de gebruikers en toepassingen (*service-principals*) die toegang hebben tot uw storage-account.
 1. Controleer of **hybride File Sync-Service** wordt weergegeven in de lijst met de **Reader en gegevenstoegang** rol. 
@@ -761,7 +761,7 @@ if ($fileShare -eq $null) {
     - In de **rol** veld **Reader en toegang tot gegevens**.
     - In de **Selecteer** veld, typt u **hybride File Sync-Service**, selecteer de rol en klikt u op **opslaan**.
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
 $foundSyncPrincipal = $false
 Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
@@ -905,7 +905,7 @@ Als het probleem niet is opgelost, moet u het hulpprogramma AFSDiag uitvoeren:
 6. Een ZIP-bestand met Logboeken en logboekbestanden voor tracering wordt opgeslagen in de uitvoermap die u hebt opgegeven.
 
 ## <a name="see-also"></a>Zie ook
-- [Azure File Sync bewaken](storage-sync-files-monitoring.md)
+- [Monitor voor Azure File Sync](storage-sync-files-monitoring.md)
 - [Veelgestelde vragen over Azure Files](storage-files-faq.md)
-- [Problemen met Azure Files oplossen in Windows](storage-troubleshoot-windows-file-connection-problems.md)
-- [Problemen met Azure Files oplossen in Linux](storage-troubleshoot-linux-file-connection-problems.md)
+- [Problemen met Azure Files in Windows oplossen](storage-troubleshoot-windows-file-connection-problems.md)
+- [Problemen met Azure Files in Linux oplossen](storage-troubleshoot-linux-file-connection-problems.md)

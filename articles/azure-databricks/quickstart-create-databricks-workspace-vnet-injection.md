@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 295b64b10f9f78ca6224d60fb84c6d1310aaa42e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288199"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Quickstart: Een Azure Databricks-werkruimte in een Virtueelnetwerk maken
@@ -53,7 +53,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 2. Onder **Azure Databricks Service**, toepassen van de volgende instellingen:
 
-    |Instelling|Voorgestelde waarde|Description|
+    |Instelling|Voorgestelde waarde|Beschrijving|
     |-------|---------------|-----------|
     |Naam van de werkruimte|databricks-quickstart|Selecteer een naam voor uw Azure Databricks-werkruimte.|
     |Abonnement|\<Uw abonnement\>|Selecteer het Azure-abonnement dat u wilt gebruiken.|

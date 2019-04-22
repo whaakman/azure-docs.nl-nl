@@ -17,10 +17,10 @@ ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a404b5e6769c7bb91b4f7b5830cea18372ec456d
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007151"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Met behulp van systeem voor meerdere domeinen Identity Management (SCIM) voor het automatisch inrichten van gebruikers en groepen uit Azure Active Directory voor toepassingen
@@ -260,7 +260,7 @@ Deze sectie vindt voorbeeld SCIM aanvragen verzonden door de Azure AD SCIM-clien
 #### <a name="get-user"></a>Gebruiker ophalen
 
 ###### <a name="request"></a>Aanvraag
-*/Users/5d48a0a8e9f04aa38008 ophalen* 
+*GET /Users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response"></a>Antwoord
 *HTTP/1.1 200 OK*
@@ -1265,7 +1265,7 @@ Groep resources worden aangeduid met de schema-id en `urn:ietf:params:scim:schem
 * [Expressies schrijven voor kenmerktoewijzingen](functions-for-customizing-application-data.md)
 * [Bereikfilters toevoegen voor het inrichten van gebruikers](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Meldingen over accountinrichting](user-provisioning.md)
-* [Lijst met handleidingen voor het integreren van SaaS-apps](../saas-apps/tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps](../saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [0]: ./media/use-scim-to-provision-users-and-groups/scim-figure-1.png

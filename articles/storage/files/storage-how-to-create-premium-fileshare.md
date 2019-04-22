@@ -9,10 +9,10 @@ ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288424"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Over het maken van een premium Azure-bestandsshare
@@ -58,7 +58,7 @@ Elk opslagaccount moet behoren tot een Azure-resourcegroep. Een resourcegroep is
 
 Wanneer de resource van uw opslagaccount is gemaakt, navigeert u naar deze.
 
-### <a name="create-a-premium-file-share"></a>Een premium-bestandsshare maken
+### <a name="create-a-premium-file-share"></a>Een Premium-bestandsshare maken
 
 1. Schuif in het menu links voor het opslagaccount naar de **File-service** sectie en selecteer vervolgens **Files (preview)**.
 1. Selecteer **+ bestandsshare** om een premium-bestandsshare te maken.
@@ -67,7 +67,7 @@ Wanneer de resource van uw opslagaccount is gemaakt, navigeert u naar deze.
 > [!NOTE]
 > Share ingerichte grootte is opgegeven door het quotum voor de bestandsshare, bestandsshares worden in rekening gebracht voor de ingerichte grootte, raadpleegt u de [pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/files/) voor meer informatie.
 
-   ![Een premium-bestandsshare maken](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
+   ![Een Premium-bestandsshare maken](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
 ### <a name="clean-up-resources"></a>Resources opschonen
 
@@ -121,7 +121,7 @@ U kunt een FileStorage (preview) storage-account maken vanuit PowerShell met de 
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
 ```
 
-### <a name="create-a-premium-file-share"></a>Een premium-bestandsshare maken
+### <a name="create-a-premium-file-share"></a>Een Premium-bestandsshare maken
 
 Nu dat u een FileStorage-account hebt, kunt u een premium-bestandsshare maken. Gebruik de [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet een te maken.
 
@@ -156,7 +156,7 @@ az login
 
 Om te communiceren met premium-bestanden met behulp van de CLI, hebt u een extensie toevoegen aan uw shell.
 
-Om dit te doen, voer de volgende opdracht uit met behulp van de Cloud Shell of een lokale shell: `az extension add --name storage-preview`
+Dit doet u als volgt: voer met behulp van Cloud Shell of een lokale shell de volgende opdracht in: `az extension add --name storage-preview`
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -192,7 +192,7 @@ STORAGEKEY=$(az storage account keys list \
     --query "[0].value" | tr -d '"')
 ```
 
-### <a name="create-a-premium-file-share"></a>Een premium-bestandsshare maken
+### <a name="create-a-premium-file-share"></a>Een Premium-bestandsshare maken
 
 Nu dat u een FileStorage-account hebt, kunt u een premium-bestandsshare maken. Gebruik de [az storage share maken](/cli/azure/storage/share) opdracht een te maken.
 

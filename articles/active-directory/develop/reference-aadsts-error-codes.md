@@ -18,10 +18,10 @@ ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 69440fb99439231cdc046ef48bddfa852c17924c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271795"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codes van verificatie- en autorisatiefouten
@@ -153,7 +153,7 @@ Zoek naar informatie over de AADSTS foutcodes die zijn geretourneerd door de sec
 | AADSTS70007 | UnsupportedResponseMode - de app heeft een niet-ondersteunde waarde van geretourneerd `response_mode` bij het aanvragen van een token.  |
 | AADSTS70008 | ExpiredOrRevokedGrant - het vernieuwingstoken dat is vanwege inactiviteit verlopen. Het token is uitgegeven voor XXX en voor een bepaalde hoeveelheid tijd inactief is. |
 | AADSTS70011 | InvalidScope - het bereik dat wordt aangevraagd door de app is ongeldig. |
-| AADSTS70012 | MsaServerError - een server-fout is opgetreden tijdens het verifiëren van een gebruiker beheerde Serviceaccounts (consument). Probeer het opnieuw. Als dit probleem blijft bestaan, [opent u een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError - een server-fout is opgetreden tijdens het verifiëren van een gebruiker beheerde Serviceaccounts (consument). Probeer het opnieuw. Als de pogingen mislukken blijven, [een ondersteuningsticket openen](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending - stroom voor OAuth 2.0 apparaatfout. Autorisatie is in behandeling. Het apparaat wordt opnieuw geprobeerd de aanvraag polling. |
 | AADSTS70018 | BadVerificationCode - ongeldige verificatiecode vanwege een gebruiker te typen in de verkeerde gebruikerscode waarmee de stroom van apparaat. Autorisatie is niet goedgekeurd. |
 | AADSTS70019 | CodeExpired - verificatiecode is verlopen. Laat de gebruiker de aanmelding opnieuw. |

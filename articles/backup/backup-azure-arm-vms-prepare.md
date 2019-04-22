@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
 ms.openlocfilehash: 142ffdadf4adb1ee07f3592624cbdddfb310b580
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264553"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Back-up van virtuele Azure-machines in een Recovery Services-kluis
@@ -175,7 +175,7 @@ De Backup-extensie die wordt uitgevoerd op de virtuele machine moet uitgaande to
 - Als u uitvoert in problemen met VM's verbinding te maken, of als u een foutbericht weergegeven **ExtensionSnapshotFailedNoNetwork** bij een poging om verbinding te maken, moet u toegang expliciet toestaan, zodat de back-upextensie met Azure openbaar IP-adres communiceren kan adressen voor back-upverkeer. Toegang tot methoden worden samengevat in de volgende tabel.
 
 
-**Optie** | **Bewerking** | **Details** 
+**Optie** | **Actie** | **Details** 
 --- | --- | --- 
 **Instellen van NSG-regels** | Toestaan dat de [Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> U kunt een regel waarmee toegang tot de Azure Backup-service met behulp toevoegen in plaats van zodat en elk adresbereik beheert, een [servicetag](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [Meer informatie](../virtual-network/security-overview.md#service-tags) over service-tags.<br/><br/> Services tags Vereenvoudig het toegangsbeheer van en geen extra kosten in rekening worden gebracht.
 **Een proxy implementeren** | Implementeer een HTTP-proxy-server voor het routeren van verkeer. | Biedt toegang tot het geheel van Azure en niet alleen opslag.<br/><br/> Nauwkeurige controle over de URL's voor opslag is toegestaan.<br/><br/> Toegang tot één punt van internet voor VM's.<br/><br/> Extra kosten voor de proxy.

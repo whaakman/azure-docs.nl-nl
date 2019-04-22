@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
 ms.openlocfilehash: 9ef7dd7603b93f6b15988cc4cca089f0486eb3b0
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010113"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
@@ -271,7 +271,7 @@ context.log(message)
 Kunt u schrijven naar de streaminglogboeken functie op het standaardniveau voor tracering. Op `context.log`, extra logboekregistratie methoden zijn beschikbaar waarmee u de functie Logboeken op andere traceringsniveaus:
 
 
-| Methode                 | Description                                |
+| Methode                 | Beschrijving                                |
 | ---------------------- | ------------------------------------------ |
 | **fout (_bericht_)**   | Schrijft naar foutniveau logboekregistratie of lager.   |
 | **waarschuwing (_bericht_)**    | Schrijft naar waarschuwingsniveau logboekregistratie of lager. |
@@ -348,11 +348,11 @@ HTTP- en webhook-triggers en HTTP-output bindingen met de aanvraag en respons ob
 
 De `context.req` (aanvraag)-object heeft de volgende eigenschappen:
 
-| Eigenschap      | Description                                                    |
+| Eigenschap      | Beschrijving                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _hoofdtekst_        | Een object dat de hoofdtekst van de aanvraag bevat.               |
-| _Headers_     | Een object dat de aanvraagheaders bevat.                   |
-| _method_      | De HTTP-methode van de aanvraag.                                |
+| _body_        | Een object dat de hoofdtekst van de aanvraag bevat.               |
+| _headers_     | Een object dat de aanvraagheaders bevat.                   |
+| _Methode_      | De HTTP-methode van de aanvraag.                                |
 | _originalUrl_ | De URL van de aanvraag.                                        |
 | _params_      | Een object dat de routering parameters van de aanvraag bevat. |
 | _query_       | Een object met de queryparameters.                  |
@@ -365,8 +365,8 @@ De `context.res` (antwoord)-object heeft de volgende eigenschappen:
 
 | Eigenschap  | Description                                               |
 | --------- | --------------------------------------------------------- |
-| _hoofdtekst_    | Een object dat de hoofdtekst van het antwoord bevat.         |
-| _Headers_ | Een object met de antwoordheaders.             |
+| _body_    | Een object dat de hoofdtekst van het antwoord bevat.         |
+| _headers_ | Een object met de antwoordheaders.             |
 | _isRaw_   | Geeft aan dat de opmaak is overgeslagen voor het antwoord.    |
 | _status_  | De HTTP-statuscode van het antwoord.                     |
 
@@ -628,4 +628,4 @@ Zie de volgende bronnen voor meer informatie:
 + [Naslaginformatie over Azure Functions voor ontwikkelaars](functions-reference.md)
 + [Azure Functions-triggers en bindingen](functions-triggers-bindings.md)
 
-['azure func functionapp publiceren']: functions-run-local.md#project-file-deployment
+[`func azure functionapp publish`]: functions-run-local.md#project-file-deployment

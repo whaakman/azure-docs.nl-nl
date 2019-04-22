@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
 ms.openlocfilehash: 938efe79d4f9f0b9003fcf83196df80d71d16e75
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009424"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Quickstart: Spraak herkennen met de Speech-SDK voor .NET Core
@@ -32,7 +32,7 @@ U moet een abonnementssleutel Speech Services voor het voltooien van deze Quicks
 
 Voor deze snelstart zijn de volgende zaken vereist:
 
-* [.NET Core SDK](https://dotnet.microsoft.com/download)
+* [.NET Core-SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * Een Azure-abonnementssleutel voor de Spraakservice. [Gratis downloaden](get-started.md).
 
@@ -71,7 +71,7 @@ Voor deze snelstart zijn de volgende zaken vereist:
 Op GitHub vindt u aanvullende voorbeelden, zoals hoe u spraak kunt lezen vanuit een audiobestand.
 
 > [!div class="nextstepaction"]
-> [Verken C# voorbeelden op GitHub](https://aka.ms/csspeech/samples)
+> [C#-voorbeelden op GitHub bekijken](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Zie ook
 

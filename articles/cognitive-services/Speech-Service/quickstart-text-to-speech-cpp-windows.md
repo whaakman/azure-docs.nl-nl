@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
 ms.openlocfilehash: 732816ce10836d5828e7f325a3eb3fe31627d4f4
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012239"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Quickstart: Nabootsen van gesproken tekst in C++ op Windows met behulp van de spraak-SDK
@@ -64,9 +64,9 @@ U moet een abonnementssleutel Speech Services voor het voltooien van deze Quicks
 Aanvullende voorbeelden, zoals het opslaan van spraak naar een geluidsbestand, zijn beschikbaar op GitHub.
 
 > [!div class="nextstepaction"]
-> [C++-voorbeelden op GitHub verkennen](https://aka.ms/csspeech/samples)
+> [C++-voorbeelden op GitHub bekijken](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Zie ook
 
 - [Spraakstijlen aanpassen](how-to-customize-voice-font.md)
-- [Spraakvoorbeelden opnemen](record-custom-voice-samples.md)
+- [Record voice-voorbeelden](record-custom-voice-samples.md)

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: bf3582036a28603c3b6ef33a2af28cb61926d91f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267749"
 ---
 # <a name="create-a-custom-policy-definition"></a>Een aangepaste beleidsdefinitie maken
@@ -445,4 +445,4 @@ In deze zelfstudie hebt u de volgende taken uitgevoerd:
 Gebruik vervolgens de aangepaste beleidsdefinitie om een beleid te maken en toe te wijzen:
 
 > [!div class="nextstepaction"]
-> [Maken en een beleidsdefinitie toewijzen](../how-to/programmatically-create.md#create-and-assign-a-policy-definition)
+> [Een beleidsdefinitie maken en toewijzen](../how-to/programmatically-create.md#create-and-assign-a-policy-definition)

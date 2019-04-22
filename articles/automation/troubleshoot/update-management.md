@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: 22e3ea1c90946902fc2a16d947ff2884e5e0a44b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274583"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Oplossen van problemen met updatebeheer
@@ -45,7 +45,7 @@ Deze fout kan worden veroorzaakt door de volgende redenen:
 1. Ga naar, [netwerkplanning](../automation-hybrid-runbook-worker.md#network-planning) voor meer informatie over welke adressen en poorten moeten worden toegestaan voor het beheer van updates om te werken.
 2. Als een gekloonde installatiekopie:
    1. In uw Log Analytics-werkruimte, verwijdert u de virtuele machine van de opgeslagen zoekopdracht voor de Bereikconfiguratie `MicrosoftDefaultScopeConfig-Updates` als deze wordt weergegeven. Opgeslagen zoekopdrachten kunnen u vinden onder **algemene** in uw werkruimte.
-   2. Voer `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
+   2. Voer `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force` uit.
    3. Voer `Restart-Service HealthService` opnieuw starten de `HealthService`. Dit wordt opnieuw maken van de sleutel en een nieuwe UUID genereren.
    4. Als dit niet werkt, sysprep de installatiekopie van het eerste en de MMA-agent installeren na de gebeurtenis.
 

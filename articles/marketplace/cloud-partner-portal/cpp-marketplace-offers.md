@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pbutlerm
 ms.openlocfilehash: f537a43f5d4d0431e1659daa258e0c1453f2295b
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010569"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure en AppSource-Marketplace-aanbiedingen
@@ -56,7 +56,7 @@ De volgende tabel bevat de huidige aanbieding die worden ondersteund door de [Cl
 | [Consulting Services](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Beide | Microsoft gekwalificeerde consultants kunnen hun domeinspecifieke services op Azure Marketplace of AppSource vermelden.  Hun ervaring helpt klanten hun problemen evalueren en het maken en implementeren van de juiste oplossingen om te voldoen aan hun zakelijke doelstellingen.  |
 | [Container](./containers/cpp-containers-offer.md)  | Azure | Oplossing is een Docker-containerinstallatiekopie ingericht als een service op basis van Kubernetes of Azure Container instances. |
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Een pakket die uitgebreider is dan deze enterprise resourceplanning (ERP) en de business management-systeem. |
-| [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Een pakket dat de klant is een uitbreiding resource klantrelatiebeheer (CRM) systeem, via de sales, service, project-service en veld-servicemodules  |
+| [Dynamics 365 voor Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Een pakket dat de klant is een uitbreiding resource klantrelatiebeheer (CRM) systeem, via de sales, service, project-service en veld-servicemodules  |
 | [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Een pakket dat deze enterprise resource planning (ERP-)-service die ondersteuning biedt voor geavanceerde is een uitbreiding voor Financiën, bewerkingen, productie en toeleveringsbeheer |
 | [IoT Edge-module](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Een compatibel is met Docker-container die wordt uitgevoerd op een IoT Edge-apparaat.  Het bevat kleine rekenkundige modules die gebruikmaken van een combinatie van aangepaste code, andere Azure-services en services 3rd derden. |
 | [Power BI App](./power-bi/cpp-power-bi-offer.md) | AppSource | Een Power BI-app die aanpasbare Power BI-inhoud pakketten, met inbegrip van gegevenssets, rapporten en dashboards |

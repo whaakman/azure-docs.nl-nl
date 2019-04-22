@@ -11,10 +11,10 @@ ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0e14131ce45d20b99c1b5d5885cb1eb24c975d03
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269109"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Quickstart: Verken Azure Search REST API's met Postman
@@ -228,7 +228,7 @@ Deze query zoekt de term 'motel' en retourneert het aantal documenten in de zoek
 
 
 ## <a name="get-index-properties"></a>Indexeigenschappen ophalen
-U kunt ook query toepassen op systeemgegevens om op te halen aantal documenten en opslagverbruik: `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
+U kunt ook een query toepassen op systeemgegevens om het aantal documenten en het opslagverbruik op te vragen: `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
 
 In Postman moet uw aanvraag er ongeveer als volgt uitzien en bevat de reactie het aantal documenten en de gebruikte ruimte in bytes.
 
@@ -274,7 +274,7 @@ De volgende voorbeeldquery is afkomstig uit het artikel [Zoekindex (Azure Search
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
 
-**Nadat de spaties zijn vervangen door + (in lastRenovationDate + desc):**
+**Nadat de spaties zijn vervangen door + (in lastRenovationDate+desc):**
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 
@@ -286,8 +286,8 @@ Klik in Fiddler op het tabblad **Inspectors**, klik op het tabblad **Headers** e
 
 REST-clients zijn zeer nuttig voor onvoorbereide verkenning, maar nu u weet hoe de REST API's werken, kunt u een stapje verdergaan met code. Raadpleeg de volgende koppelingen voor de volgende stappen:
 
-+ [Quickstart: Een index maken met .NET SDK](search-create-index-dotnet.md)
-+ [Quickstart: Maken van een index (REST) met behulp van PowerShell](search-create-index-rest-api.md)
++ [Snelstart: Een index maken met .NET SDK](search-create-index-dotnet.md)
++ [Snelstart: Maken van een index (REST) met behulp van PowerShell](search-create-index-rest-api.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/fiddler-url.png

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
 ms.openlocfilehash: 537450dbc386a94fa5c2e0d9334435dce041a32f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266134"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor de Linux-besturingssysteem in uw Service Fabric-cluster
@@ -173,8 +173,7 @@ Voor uw gemak powershell (Undeploy.ps1) en (Undeploy.sh) bash-scripts vindt u sa
 
 ## <a name="view-the-update-results"></a>De Update-resultaten weergeven
 
-De patch orchestration-app beschikbaar REST-API's om de historische resultaten voor de gebruiker weer te geven. Hieronder volgt een voorbeeld-resultaat:
-```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
+De patch orchestration-app beschikbaar REST-API's om de historische resultaten voor de gebruiker weer te geven. Hieronder volgt een voorbeeld-resultaat: ```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
 ```json
 [ 
   { 

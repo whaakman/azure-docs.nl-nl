@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 02/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 1418a9815e155a0c491fc65b16307fa2755bd964
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008899"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Zelfstudie: Een apparaatfirmware-updateproces implementeren
@@ -115,10 +115,10 @@ De back-endtoepassing maakt de volgende configuratie:
 
 De configuratie bevat de volgende secties:
 
-* `content` Hiermee geeft u de eigenschappen van de firmware gewenst verzonden naar de geselecteerde apparaten.
-* `metrics` Hiermee geeft u de query's om uit te voeren dat rapport de status van de firmware-update.
-* `targetCondition` de apparaten voor het ontvangen van de firmware-update selecteert.
-* `priorty` Hiermee stelt u de relatieve prioriteit van deze configuratie op andere configuraties.
+* `content` geeft de gewenste eigenschappen van de firmware op die naar de geselecteerde apparaten worden verzonden.
+* `metrics` geeft de uit te voeren query's op voor het rapporteren van de status van de firmware-update.
+* `targetCondition` selecteert de apparaten die de firmware-update moeten ontvangen.
+* `priorty` stelt de relatieve prioriteit van deze configuratie in ten opzichte van andere configuraties.
 
 De back-endapplicatie gebruikt de volgende code om de configuratie voor het instellen van de gewenste eigenschappen te maken:
 

@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
 ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010546"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Verifiëren en toegang krijgen tot bronnen met beheerde identiteiten in Azure Logic Apps
@@ -37,7 +37,7 @@ Voor toegang tot resources in andere tenants Azure Active Directory (Azure AD) e
 
 Voor het systeem toegewezen beheerde identiteiten moet u niet handmatig maken die identiteit. Als u een systeem toegewezen beheerde identiteit voor uw logische app instelt, kunt u de volgende manieren gebruiken: 
 
-* [Azure Portal](#azure-portal) 
+* [Azure-portal](#azure-portal) 
 * [Azure Resource Manager-sjablonen](#template) 
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) 
 
@@ -61,7 +61,7 @@ Inschakelen om in te schakelen op een systeem toegewezen beheerde identiteit voo
 
    | Eigenschap | Waarde | Description | 
    |----------|-------|-------------| 
-   | **Object-id** | <*identity-resource-ID*> | De beheerde een Globally Unique Identifier (GUID) die door het systeem toegewezen aangeeft identiteit voor uw logische app in een Azure AD-tenant | 
+   | **Object-ID** | <*identity-resource-ID*> | De beheerde een Globally Unique Identifier (GUID) die door het systeem toegewezen aangeeft identiteit voor uw logische app in een Azure AD-tenant | 
    ||| 
 
 <a name="template"></a>

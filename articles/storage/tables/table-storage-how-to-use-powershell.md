@@ -9,10 +9,10 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
 ms.openlocfilehash: 840c2793928816c6346e2039a38678585f8e0bc7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273121"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure Table storage bewerkingen uitvoeren met Azure PowerShell 
@@ -161,7 +161,7 @@ In dit artikel met instructies, hebt u geleerd over algemene Azure Table storage
 
 Zie de volgende artikelen voor meer informatie.
 
-* [PowerShell-cmdlets voor Storage](/powershell/module/az.storage#storage)
+* [PowerShell Storage-cmdlets](/powershell/module/az.storage#storage)
 
 * [Werken met Azure-tabellen vanuit PowerShell - Module-v2.0 AzureRmStorageTable/AzTable PS](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 

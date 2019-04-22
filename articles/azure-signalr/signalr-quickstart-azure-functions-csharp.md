@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.openlocfilehash: df1b2cdd265b9cf48801174d1f0cd9936eae5f8b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264984"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Snelstart: Een chatruimte maken met Azure Functions en SignalR Service met behulp van C\#
@@ -76,4 +76,4 @@ Meld u met uw Azure-account aan bij Azure Portal op <https://portal.azure.com/>.
 In deze snelstartgids hebt gemaakt en is een realtime toepassing zonder server wordt uitgevoerd in Visual Studio. Nu volgt meer informatie over het ontwikkelen en implementeren van Azure Functions met behulp van Visual Studio Code.
 
 > [!div class="nextstepaction"]
-> [Ontwikkel Azure Functions met Visual Studio](../azure-functions/functions-develop-vs.md)
+> [Azure Functions ontwikkelen met Visual Studio](../azure-functions/functions-develop-vs.md)

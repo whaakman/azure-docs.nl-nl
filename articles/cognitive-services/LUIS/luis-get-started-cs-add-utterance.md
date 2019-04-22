@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.date: 04/08/2019
 ms.author: diberry
 ms.openlocfilehash: e9f8d274d81cdefbf9dfb41708cd537b2d60471a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273461"
 ---
 # <a name="quickstart-change-model-using-c"></a>Snelstartgids: Model wijzigen met behulp van C#
@@ -140,4 +140,4 @@ Verwijder wanneer u klaar bent met de snelstart alle bestanden die in de snelsta
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"] 
-> [Een LUIS-app via een programma maken](luis-tutorial-node-import-utterances-csv.md) 
+> [Programmatisch een LUIS-app bouwen](luis-tutorial-node-import-utterances-csv.md) 

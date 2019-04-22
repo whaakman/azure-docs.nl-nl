@@ -10,10 +10,10 @@ ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: f9cadfcf0c027f4aec4f9d4928872709ee7d3e99
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008966"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Voorbeeld: Synoniemen toevoegen voor Azure Search in C#
@@ -37,8 +37,8 @@ Voor de zelfstudie gelden de volgende vereisten:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Search-service](search-create-service-portal.md)
-* [.NET-bibliotheek Microsoft.Azure.Search](https://aka.ms/search-sdk)
-* [Het gebruik van Azure Search via een .NET-toepassing](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [Microsoft.Azure.Search .NET-bibliotheek](https://aka.ms/search-sdk)
+* [Weten hoe u Azure Search gebruikt via een .NET-toepassing](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Overzicht
 
@@ -175,4 +175,4 @@ De snelste manier om op te schonen nadat een voorbeeld is door de resourcegroep 
 In dit voorbeeld de [synoniemen REST-API](https://aka.ms/rgm6rq) in C# code voor het maken en regels voor apparaatgroeptoewijzing plaatsen en vervolgens de synoniemtoewijzing aanroepen op een query. Aanvullende informatie vindt u in de referentiedocumentatie voor de [.NET-SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) en [REST-API](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
-> [Over het gebruik van synoniemen in Azure Search](search-synonyms.md)
+> [Synoniemen gebruiken in Azure Search](search-synonyms.md)

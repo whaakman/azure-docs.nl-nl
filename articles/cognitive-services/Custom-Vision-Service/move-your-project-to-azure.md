@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
 ms.openlocfilehash: 6fac6531ea0a39796de13f95aee33b30dc91f131
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274447"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure"></a>Uw project beperkte proefversie verplaatsen naar Azure
@@ -33,7 +33,7 @@ De [migratiescript](https://github.com/Azure-Samples/custom-vision-move-project)
     - Als u een Azure-account niet hebt [maken van een account](https://azure.microsoft.com/free/) gratis.
     - Voor een inleiding tot de Azure-concepten van abonnementen en resources, raadpleegt u de [ontwikkelaarshandleiding van Azure.](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#manage-your-subscriptions).
 -  [Python](https://www.python.org/downloads/)
-- [Pip](https://pip.pypa.io/en/stable/installing/)
+- [PIP](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Custom Vision resources maken in Azure portal
 

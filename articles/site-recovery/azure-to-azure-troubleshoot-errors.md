@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
 ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269619"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Problemen met Azure-naar-Azure-VM-replicatie oplossen
@@ -157,9 +157,9 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Probleem 1: Kan niet registreren van virtuele machine van Azure met Site Recovery (151195) </br>
 - **Mogelijke oorzaak** </br>
   - Kan geen verbinding maken met site recovery-eindpunten vanwege een probleem met de DNS-omzetting.
-  - Dit komt vaker voor tijdens het opnieuw beveiligen, wanneer u een failover hebt uitgevoerd voor de virtuele machine maar de DNS-server niet bereikbaar is vanuit de DR-regio.
+  - Dit wordt vaker gezien tijdens opnieuw beveiliging wanneer u de virtuele machine failover, maar de DNS-server niet bereikbaar vanaf de DR-regio is.
 
-- **Oplossing**
+- **Resolutie**
    - Als u aangepaste DNS gebruikt, zorg ervoor dat is de DNS-server toegankelijk vanuit de regio voor herstel na noodgevallen. Om te controleren of u een aangepaste DNS-server gaat u naar de virtuele machine > herstel na noodgevallen netwerk > DNS-servers. Probeer toegang tot de DNS-server van de virtuele machine. Als deze niet toegankelijk is vervolgens toegankelijk maken door Failover-overschakeling uitvoeren van de DNS-server of het maken van de line-of-site tussen DR-netwerk en DNS.
 
     ![COM-fout](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
@@ -169,7 +169,7 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
 - **Mogelijke oorzaak** </br>
   - Verbinding kan niet worden gemaakt met Office 365-verificatie en identiteit IP4-eindpunten.
 
-- **Oplossing**
+- **Resolutie**
   - Azure Site Recovery toegang tot Office 365-IP-adressen bereiken zijn vereist voor verificatie.
     Als u van Azure Network security group (NSG) regels/firewall-proxy gebruikmaakt voor het beheren van uitgaande netwerkverbindingen op de virtuele machine, controleert u of dat u communicatie met O365-IP-bereiken toestaan. Maak een [Azure Active Directory (AAD)-servicetag](../virtual-network/security-overview.md#service-tags) op basis van NSG-regel voor het toestaan van toegang tot alle IP-adressen die overeenkomen met AAD
       - Als er nieuwe adressen worden toegevoegd aan de Azure Active Directory (AAD) in de toekomst, moet u nieuwe NSG-regels maken.
@@ -181,7 +181,7 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
 - **Mogelijke oorzaak** </br>
   - Kan geen verbinding maken met Azure Site Recovery service-eindpunten.
 
-- **Oplossing**
+- **Resolutie**
   - Azure Site Recovery vereist toegang tot [Site Recovery-IP-adresbereiken](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) , afhankelijk van de regio. Zorg ervoor dat het ip-bereiken zijn toegankelijk is vanaf de virtuele machine vereist.
 
 
@@ -190,15 +190,15 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
   - De aangepaste proxy-instellingen zijn ongeldig en ASR Mobility Service-agent heeft geen automatische detectie de proxy-instellingen van Internet Explorer
 
 
-- **Oplossing**
+- **Resolutie**
   1. Mobility Service-agent detecteert de proxy-instellingen van Internet Explorer op Windows en /etc/environment op Linux.
   2. Als u liever proxy alleen voor ASR Mobility-Service instellen, kunt u de proxygegevens in ProxyInfo.conf dat zich bevindt in opgeven:</br>
      - ``/usr/local/InMage/config/`` op ***Linux***
-     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
+     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` op ***Windows***
   3. De ProxyInfo.conf moet de proxy-instellingen in de volgende INI-indeling hebben.</br>
                 *[proxy]*</br>
-                *Address=http://1.2.3.4*</br>
-                *Port=567*</br>
+                *Adres =http://1.2.3.4*</br>
+                *Poort 567 =*</br>
   4. ASR Mobility Service-agent ondersteunt alleen ***niet-geverifieerde proxy's***.
 
 
@@ -305,7 +305,7 @@ De GRUB-configuratiebestanden (' / boot/grub/menu.lst ', ' / boot/grub/grub.cfg 
 
 
 - De volgende regel wordt uit het bestand WORMGATEN **/boot/grub2/grub.cfg**. <br>
-  *Linux /boot/vmlinuz-3.12.49-11-default **hoofdmap = / dev/sda2** ${extra_cmdline} **hervatten = / dev/sda1** splash = op de achtergrond stille showopts*
+  *linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
 
 
 - De volgende regel wordt uit het bestand WORMGATEN **/boot/grub/menu.lst**

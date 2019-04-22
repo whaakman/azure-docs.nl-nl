@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264060"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Uw Microsoft Azure-factuur weergeven en downloaden
@@ -38,7 +38,7 @@ Voor de meeste abonnementen, kunt u uw factuur downloaden vanuit de Azure-portal
 
 1. Selecteer uw abonnement uit de [pagina abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in de Azure portal als [een gebruiker met toegang tot facturen](billing-manage-access.md).
 
-2. Selecteer **facturen**.
+2. Selecteer **Facturen**.
 
     ![Schermafbeelding van de facturerings- en gebruik de optie](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
@@ -55,9 +55,9 @@ Zie voor meer informatie over uw factuur [meer informatie over uw factuur voor M
 Facturen worden gegenereerd voor elke [facturering profiel](billing-mca-overview.md#understand-billing-profiles) in de Microsoft-overeenkomst voor de klant. U moet een factureringsprofiel eigenaar, Inzender, lezer, of factuur manager voor het downloaden van facturen van de Azure-portal.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Zoeken op **kosten Management en facturering**.
+1. Zoek naar **kostenbeheer en facturering**.
 1. Selecteer een profiel voor facturering. Afhankelijk van uw toegang moet u mogelijk eerst een factureringsaccount selecteren.
-1. Selecteer **facturen**.
+1. Selecteer **Facturen**.
 1. In het raster factuur vindt u de rij van de factuur die u wilt downloaden.
 1. Klik op het weglatingsteken (`...`) aan het einde van de rij.
     ![Schermafbeelding van de drie puntjes aan het einde van de rij](./media/billing-download-azure-invoice/billingprofile-invoicegrid.png)
@@ -98,7 +98,7 @@ U kunt uw factuur per e-mail aan met de volgende stappen hierboven en klik op Af
 Als u een KLANTOVEREENKOMST van Microsoft hebt, kunt u meldt zich aan uw factuur in een e-mailbericht niet ophalen. Alle facturering profiel eigenaren, bijdragers lezers en factuur managers de factuur wordt ontvangen via e-mail. Lezers bijwerken niet de voorkeur van de factuur e-mailadres.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Zoeken op **kosten Management en facturering**.
+1. Zoek naar **kostenbeheer en facturering**.
 1. Selecteer een profiel voor facturering. Afhankelijk van uw toegang moet u mogelijk eerst een factureringsaccount selecteren.
 1. Onder **instellingen**, selecteer **eigenschappen**.
 1. Onder **e-Mailfactuur**, selecteer **Update e factuur voorkeur**.
@@ -135,7 +135,7 @@ Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://
 
 Zie voor meer informatie over uw factuur en de kosten in rekening gebracht:
 
-- [Uw Microsoft Azure-gebruik en -kosten weergeven en downloaden](billing-download-azure-daily-usage.md)
+- [Weergeven en downloaden van uw Microsoft Azure-gebruik en kosten](billing-download-azure-daily-usage.md)
 - [Meer informatie over uw factuur voor Microsoft Azure](billing-understand-your-bill.md)
 - [Meer informatie over uw Azure-factuur](billing-understand-your-invoice.md)
 - [Meer informatie over uw Microsoft Azure gedetailleerd gebruik](billing-understand-your-usage.md)

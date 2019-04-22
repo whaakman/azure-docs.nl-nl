@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
 ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009268"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Quickstart: Gesproken tekst herkennen in Objective-C in iOS met behulp van de Speech SDK
@@ -52,16 +52,16 @@ Maak in de dialoogvensters die volgen de volgende selecties:
     1. Voer een relevante organisatienaam en organisatie-id in, als u al een Apple-ontwikkelaarsaccount hebt. Voor testdoeleinden kunt u elke naam kiezen, zoals `testorg`. Om de app te kunnen ondertekenen, hebt u een geschikt inrichtingsprofiel nodig. Raadpleeg de [Apple-site voor ontwikkelaars](https://developer.apple.com/) voor meer informatie.
     1. Zorg ervoor dat Objective-C als de taal voor het project is gekozen.
     1. Schakel alle selectievakjes voor tests en essentiële gegevens uit.
-    ![Instellingen voor het project](media/sdk/qs-objectivec-project-settings.png)
+    ![Projectinstellingen](media/sdk/qs-objectivec-project-settings.png)
 1. Projectmap selecteren
     1. Kies uw basismap waarin u het project wilt plaatsen. Hiermee maakt u een `helloworld`-map in uw basismap die alle bestanden voor het Xcode-project bevat.
     1. Schakel het maken van een Git-opslagplaats uit voor dit voorbeeldproject.
     1. Pas de paden naar de SDK aan in de *projectinstellingen*.
         1. Op het tabblad **Algemeen**, onder de header **Ingesloten binaire bestanden** voegt u de SDK-bibliotheek toe als framework: **Ingesloten binaire bestanden toevoegen** > **Overige toevoegen...** > Navigeer naar uw basismap en kies het bestand `MicrosoftCognitiveServicesSpeech.framework`. Hiermee wordt de SDK-bibliotheek automatisch toegevoegd aan de kop **Linked Framework and Libraries**.
-        ![Toegevoegde Framework](media/sdk/qs-objectivec-framework.png)
+        ![Framework toegevoegd](media/sdk/qs-objectivec-framework.png)
         1. Ga naar het tabblad **Build Settings** en activeer **alle** instellingen.
         1. Voeg de map `$(SRCROOT)/..` toe aan de *Framework Search Paths* onder de kop **Search Paths**.
-        ![Framework zoekpad instelling](media/sdk/qs-objectivec-framework-search-paths.png)
+        ![Instelling voor Framework Search Paths](media/sdk/qs-objectivec-framework-search-paths.png)
 
 ## <a name="set-up-the-ui"></a>De gebruikersinterface instellen
 
@@ -102,5 +102,5 @@ Vervang de automatisch gegenereerde XML door deze code:
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Verken Objective-C-voorbeelden op GitHub](https://aka.ms/csspeech/samples)
+> [Objective-C-voorbeelden op GitHub verkennen](https://aka.ms/csspeech/samples)
 

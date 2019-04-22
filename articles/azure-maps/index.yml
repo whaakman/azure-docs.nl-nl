@@ -34,9 +34,9 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/azure-maps/tutorial-search-location">Zoeken naar nuttige plaatsen</a>
-          - html: <a href="/azure/azure-maps/tutorial-route-location">Route naar een nuttige plaats</a>
-          - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Routes op basis van vervoersoptie</a>
+          - html: <a href="/azure/azure-maps/tutorial-search-location">Zoeken naar bezienswaardigheden</a>
+          - html: <a href="/azure/azure-maps/tutorial-route-location">Route naar bezienswaardigheden</a>
+          - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Routes per vervoersoptie</a>
           - html: <a href="/azure/azure-maps/tutorial-create-store-locator">Een winkellocator maken</a>
       - html: <b>REST API-zelfstudies</b>
       - type: paragraph

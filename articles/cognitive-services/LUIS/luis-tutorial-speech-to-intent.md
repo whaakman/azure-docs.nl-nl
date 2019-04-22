@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/08/2018
 ms.author: diberry
 ms.openlocfilehash: 9d6173ee25f28aa884513d126c06a8a7c722098d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273835"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>De Speech-service integreren in uw Language Understanding-app
@@ -66,7 +66,7 @@ In dit artikel wordt het audioapparaat op uw computer gebruikt. Dat kan een head
 
 De Speech-SDK is al opgenomen als verwijzing. 
 
-[![Screenshot van Visual Studio 2017 Microsoft.CognitiveServices.Speech NuGet-pakket weergeven](./media/luis-tutorial-speech-to-intent/nuget-package.png "schermopname van Visual Studio 2017 weergeven Microsoft.CognitiveServices.Speech NuGet-pakket")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![Schermopname van Visual Studio 2017 met Microsoft.CognitiveServices.Speech NuGet-pakket](./media/luis-tutorial-speech-to-intent/nuget-package.png "Schermopname van Visual Studio 2017 met Microsoft.CognitiveServices.Speech NuGet-pakket")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>De C#-code wijzigen
 Open het bestand `Program.cs` en wijzig de volgende variabelen:
@@ -74,7 +74,7 @@ Open het bestand `Program.cs` en wijzig de volgende variabelen:
 |Naam van de variabele|Doel|
 |--|--|
 |LUIS_assigned_endpoint_key|Komt overeen met de toegekende waarde van de subsleutelwaarde van de eindpunt-URL van de pagina Publiceren|
-|LUIS_endpoint_key_region|Komt overeen met de eerste subdomein eindpunt-URL, bijvoorbeeld `westus`|
+|LUIS_endpoint_key_region|Komt overeen met het eerste subdomein van de eindpunt-URL, bijvoorbeeld `westus`|
 |LUIS_app_ID|Komt overeen met de route van de eindpunt-URL na **apps /**|
 
 De Human Resources-intenties zijn al toegewezen aan het bestand `Program.cs`.
@@ -98,6 +98,6 @@ Vergeet niet om de map te verwijderen wanneer u klaar bent met de voorbeeldcode.
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [LUIS integreren met een BOT](luis-csharp-tutorial-build-bot-framework-sample.md)
+> [LUIS integreren met een bot](luis-csharp-tutorial-build-bot-framework-sample.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

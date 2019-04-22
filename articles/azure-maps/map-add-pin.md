@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 2580f1177bf9e6e3a92934f88a5d8ab51894e8d9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269483"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Een symbool laag toevoegen aan een kaart
@@ -85,7 +85,7 @@ Zie de volgende artikelen voor meer voorbeelden van code toevoegen aan uw kaarte
 > [Een vorm toevoegen](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Een bubbellaag toevoegen](map-add-bubble-layer.md)
+> [Een bellendiagram laag toevoegen](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
 > [HTML-Makers toevoegen](map-add-bubble-layer.md)

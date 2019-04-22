@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
 ms.openlocfilehash: a013189e45b1c1c8eeb88d62a718d495c0c415a2
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012246"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Quickstart: Bootsen spraak met de spraak-SDK voor .NET Framework (Windows)
@@ -66,9 +66,9 @@ Als u dit project wilt voltooien, hebt u het volgende nodig:
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Verken C# voorbeelden op GitHub](https://aka.ms/csspeech/samples)
+> [C#-voorbeelden op GitHub bekijken](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Zie ook
 
 - [Spraakstijlen aanpassen](how-to-customize-voice-font.md)
-- [Spraakvoorbeelden opnemen](record-custom-voice-samples.md)
+- [Record voice-voorbeelden](record-custom-voice-samples.md)

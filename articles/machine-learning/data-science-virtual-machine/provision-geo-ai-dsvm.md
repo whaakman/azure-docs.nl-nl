@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
 ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008835"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Een geografisch kunstmatige intelligentie-Machine in Azure inrichten 
@@ -42,12 +42,12 @@ Hier volgt de procedure voor het maken van een exemplaar van de Geo AI Data Scie
 
 1. Navigeer naar de virtuele machine weergeven op [Azure-portal](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
 2. Selecteer de **maken** onder in de wizard een moeten worden genomen.
-![maken-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
+![create-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
 3. De wizard die wordt gebruikt voor het maken van de Geo-DSVM vereist **invoer** voor elk van de **vier stappen** geïnventariseerd aan de rechterkant van de volgende afbeelding. Hier volgen de invoer die nodig zijn voor elk van deze stappen configureren:
 
 
 
-   - **Basics**
+   - **Basisinstellingen**
 
       1. **Naam**: Naam van de data science-server die u maakt.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274039"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Controleer de status van Azure IoT Hub en snel problemen vaststellen
@@ -343,7 +343,7 @@ IoT Hub registreert dit logboek wanneer een bericht weergegeven met de eigenscha
 
 Hier `durationMs` niet is berekend als de klok van de IoT Hub mogelijk niet gesynchroniseerd met de apparaatklok en een duur van de berekening kan dus misleidend. Het is raadzaam schrijven logica met behulp van de tijdstempels in de `properties` sectie om vast te leggen van pieken in de latentie van apparaat-naar-cloud.
 
-| Eigenschap | Type | Description |
+| Eigenschap | Type | Beschrijving |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | Geheel getal | De grootte van apparaat-naar-cloud bericht in bytes |
 | **deviceId** | Tekenreeks van ASCII-7-bits alfanumerieke tekens | De identiteit van het apparaat |
@@ -377,7 +377,7 @@ IoT Hub registreert dit logboek bij het bericht met geldige trace-eigenschappen 
 
 In de `properties` sectie, dit logboek bevat aanvullende informatie over bericht inkomend verkeer.
 
-| Eigenschap | Type | Description |
+| Eigenschap | Type | Beschrijving |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **isRoutingEnabled** | String | True of false, geeft u aan of Routering van berichten is ingeschakeld in de IoT-Hub |
 | **parentSpanId** | String | De [bereik-id](https://w3c.github.io/trace-context/#parent-id) van het bericht bovenliggende, die in dit geval de D2C message-tracering zijn |
@@ -409,10 +409,10 @@ IoT Hub records dit melden wanneer [routering](iot-hub-devguide-messages-d2c.md)
 
 In de `properties` sectie, dit logboek bevat aanvullende informatie over bericht inkomend verkeer.
 
-| Eigenschap | Type | Description |
+| Eigenschap | Type | Beschrijving |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **endpointName** | String | De naam van het eindpunt van de routering |
-| **EndpointType** | String | Het type van het eindpunt van de routering |
+| **endpointType** | String | Het type van het eindpunt van de routering |
 | **parentSpanId** | String | De [bereik-id](https://w3c.github.io/trace-context/#parent-id) van de bovenliggende bericht dat de IoT Hub inkomend bericht tracering in dit geval zou zijn |
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Lezen Logboeken uit Azure Event Hubs

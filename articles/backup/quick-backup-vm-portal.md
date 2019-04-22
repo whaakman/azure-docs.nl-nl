@@ -12,10 +12,10 @@ ms.date: 7/17/2018
 ms.author: saurse
 ms.custom: mvc
 ms.openlocfilehash: d167ed012e3f0e45988c88b64040208d87623518
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275479"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Een back-up van een virtuele machine maken in Azure
@@ -94,4 +94,4 @@ Als u nog een zelfstudie wilt volgen waarin wordt uitgelegd hoe u gegevens terug
 In deze quickstart hebt u een Recovery Services-kluis gemaakt, de beveiliging op een VM ingeschakeld en het eerste herstelpunt gemaakt. Volg de andere zelfstudies als u nog meer wilt weten over Azure Backup en Recovery Services.
 
 > [!div class="nextstepaction"]
-> [Back-up van meerdere virtuele machines van Azure](./tutorial-backup-vm-at-scale.md)
+> [Back-up maken van meerdere virtuele Azure-machines](./tutorial-backup-vm-at-scale.md)

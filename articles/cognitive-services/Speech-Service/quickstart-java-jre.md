@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
 ms.openlocfilehash: fe565d63e72b5ec2798dde03ba4f4bd9ff4f48a7
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009396"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Quickstart: Spraak herkennen met de Speech-SDK voor Java
@@ -43,7 +43,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
 Als u werkt met Windows (64-bits) Zorg ervoor dat u Microsoft Visual C++ Redistributable hebt geïnstalleerd voor uw platform.
-* [Microsoft Visual C++ Redistributable voor Visual Studio 2017 downloaden](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+* [Download Microsoft Visual C++ Redistributable voor Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 
 ## <a name="create-and-configure-project"></a>Project maken en configureren
@@ -80,10 +80,10 @@ De volgende 15 seconden aan spraakinvoer vanuit uw microfoon worden herkend en g
 Op GitHub vindt u aanvullende voorbeelden, zoals hoe u spraak kunt lezen vanuit een audiobestand.
 
 > [!div class="nextstepaction"]
-> [Java-voorbeelden op GitHub bekijken](https://aka.ms/csspeech/samples)
+> [Bekijk Java-voorbeelden op GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Zie ook
 
-- [Quickstart: Omzetten van spraak, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
+- [Snelstart: Omzetten van spraak, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
 - [Akoestische modellen aanpassen](how-to-customize-acoustic-models.md)
 - [Taalmodellen aanpassen](how-to-customize-language-model.md)

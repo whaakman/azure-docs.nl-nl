@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 00154ac3c94a1f43872aff3be29ddd108a4173f0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268838"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Zelfstudie: Azure Active Directory-integratie met Springer-koppeling
@@ -107,11 +107,11 @@ Voor het configureren van Azure AD eenmalige aanmelding met Springer-koppeling, 
 
     a. In het tekstvak **Id** typt u een URL: `https://fsso.springer.com`
 
-    b. Typ een URL in het tekstvak **Antwoord-URL**: `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
+    b. In het tekstvak **Antwoord-URL** typt u een URL: `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
 
     c. Klik op **Extra URL's instellen**.
 
-    d. In de **Relaystatus** tekstvak typt u een URL: `https://link.springer.com`
+    d. In het tekstvak **Relaystatus** typt u een URL: `https://link.springer.com`
 
 5. Als u wilt configureren van de toepassing in **SP** gestart modus, de volgende stap uitvoeren:
 
@@ -203,9 +203,9 @@ Wanneer u op de tegel Springer-koppeling in het toegangsvenster, moet u worden a
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: pareshmu
 ms.openlocfilehash: 01e48a7f78be16d51878b5458174a35253841539
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006531"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
 > [!div class="op_single_selector"]
-> * [Locaties per Provider](expressroute-locations.md)
+> * [Locaties per provider](expressroute-locations.md)
 > * [Providers per locatie](expressroute-locations-providers.md)
 
 
@@ -42,7 +42,7 @@ In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-l
 
 | **Geopolitieke regio** | **Zone** | **Azure-regio's** | **ExpressRoute-locaties** |
 | --- | --- | --- | --- |
-| **Australië Government** | 1 | Australië Centraal, Australië Centraal 2 |Canberra, Canberra2 |
+| **Australië - overheid** | 1 | Australië Centraal, Australië Centraal 2 |Canberra, Canberra2 |
 | **Europa** | 1 |Frankrijk - centraal, Frankrijk - zuid, Europa - noord, Europa - west, VK - west, VK - zuid |Amsterdam, Amsterdam2, Dublin, Londen, London2, Marseille, Newport(Wales), Parijs, Zürich |
 | **Noord-Amerika** | 1 |US - oost, US - west, US - oost 2, US - west 2, US - centraal, US - zuid-centraal, US - noord-centraal, US - west-centraal, Canada Centraal, Canada Oost |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
 | **Azië** | 2 |Azië - oost, Azië - zuidoost |Hongkong, Kuala Lumpur, Singapore, Singapore2, Taipei |
@@ -60,7 +60,7 @@ De volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nat
 | **Geopolitieke regio** | **Azure-regio's** | **ExpressRoute-locaties** |
 | --- | --- | --- |
 | **Cloud van de Amerikaanse overheid** |US Gov - AZ, US Gov - Iowa, US Gov - TX, US Gov - Virginia, US DoD - centraal, US DoD - oost  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
-| **China East** |China - oost, China - oost2 |Shanghai, Shanghai2 |
+| **China - oost** |China - oost, China - oost2 |Shanghai, Shanghai2 |
 | **China - noord** |China - noord, China - noord2 |Beijing, Beijing2 |
 | **Duitsland** |Duitsland Centraal, Duitsland Oost |Berlijn, Frankfurt |
 
@@ -72,7 +72,7 @@ De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor e
 
 
 ### <a name="production-azure"></a>Productie-Azure
-| **Locatie** | **Peering locatie-eigenaar** | **Serviceproviders** |
+| **Locatie** | **Eigenaar peeringlocatie** | **Serviceproviders** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
 | **Amsterdam2** | Interxion | DE-CIX, Interxion |
@@ -141,8 +141,8 @@ De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor e
 ### <a name="china"></a>China
 | **Locatie** | **Serviceproviders** |
 | --- | --- |
-| **Peking** |China Telecom |
-| **Beijing2** | GDS |
+| **Beijing** |China Telecom |
+| **Peking2** | GDS |
 | **Shanghai** |China Telecom |
 | **Shanghai2** | GDS |
 
@@ -172,7 +172,7 @@ Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u a
   * Volg de stappen in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) (Een ExpressRoute-circuit maken) om connectiviteit in te stellen.
 
 ## <a name="c1partners"></a>Connectiviteit via additionele serviceproviders
-| **Locatie** | **Exchange** | **Connectiveitsproviders** |
+| **Locatie** | **Exchange** | **Connectiviteitsproviders** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Telecity | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, MainOne, Nianet, Post, Proximus, TDC Erhverv, Telecom Italia Sparkle, Telia |
 | **Kaapstad** | Teraco | MTN |
@@ -202,7 +202,7 @@ Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u a
 ## <a name="expressroute-system-integrators"></a>ExpressRoute-SI's
 Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften kan lastig zijn, al naargelang de schaal van uw netwerk. U kunt alle SI's uit de volgende tabel gebruiken om u te helpen met de voorbereidingen voor ExpressRoute.
 
-| **Continent** | **System integrators** |
+| **Continent** | **Systeemintegratie** |
 | --- | --- |
 | **Azië** |Avanade Inc., OneAs1a |
 | **Australië** | Ensyst, IT Consultancy, MOQdigital, Vigilant.IT |

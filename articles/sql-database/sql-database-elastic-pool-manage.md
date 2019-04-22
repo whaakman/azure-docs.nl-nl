@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: debf91f04cff3cb9705ebc5915e2e665679230a9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267579"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Elastische pools in Azure SQL Database beheren
@@ -72,12 +72,12 @@ Maken en beheren van elastische pools voor SQL Database met de [Azure CLI](/cli/
 > Zie voor de Azure CLI-voorbeeldscripts, [CLI gebruiken om te verplaatsen van een Azure SQL database in een elastische SQL-groep](scripts/sql-database-move-database-between-pools-cli.md) en [gebruik Azure CLI voor het schalen van een elastische SQL-pool in Azure SQL Database](scripts/sql-database-scale-pool-cli.md).
 >
 
-| Cmdlet | Description |
+| Cmdlet | Beschrijving |
 | --- | --- |
 |[AZ sql elastic-pool maken](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|Hiermee maakt u een elastische pool.|
 |[AZ sql elastic-pool list](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|Retourneert een lijst van elastische pools in een server.|
 |[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|Retourneert een lijst met databases in een elastische pool.|
-|[AZ sql elastic-pool-edities](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|Ook bevat beschikbare groep DTU-instellingen, de maximale opslag, en per database-instellingen. Om te reduceren uitgebreidheid, extra opslaglimieten en per database instellingen standaard zijn verborgen.|
+|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|Ook bevat beschikbare groep DTU-instellingen, de maximale opslag, en per database-instellingen. Om te reduceren uitgebreidheid, extra opslaglimieten en per database instellingen standaard zijn verborgen.|
 |[AZ sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Een elastische pool-updates.|
 |[AZ sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Hiermee verwijdert u de elastische pool.|
 
@@ -89,7 +89,7 @@ Om te maken en verplaatsen van databases binnen de bestaande elastische groepen 
 > U kan maken, bijwerken of verwijderen van een Azure SQL Database elastische pool met behulp van Transact-SQL. U kunt toevoegen of verwijderen van databases in een elastische pool en u kunt de DMV's gebruiken om informatie over bestaande elastische pools te retourneren.
 >
 
-| Opdracht | Description |
+| Opdracht | Beschrijving |
 | --- | --- |
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Hiermee maakt een nieuwe database in een bestaande groep of als een individuele database. U moet zijn verbonden met de hoofddatabase om een nieuwe database te maken.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Een database verplaatsen naar, uit of tussen elastische pools.|
@@ -101,7 +101,7 @@ Om te maken en verplaatsen van databases binnen de bestaande elastische groepen 
 
 Als u wilt maken en beheren van SQL Database elastische pools en gepoolde databases, gebruikt u deze REST-API-aanvragen.
 
-| Opdracht | Description |
+| Opdracht | Beschrijving |
 | --- | --- |
 |[Elastische pools - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Hiermee maakt u een nieuwe elastische pool of een bestaande elastische pool-updates.|
 |[Elastische pools - verwijderen](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Hiermee verwijdert u de elastische pool.|

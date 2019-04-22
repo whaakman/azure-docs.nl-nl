@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: chlandsi
 ms.openlocfilehash: 55fc671d926880375b0420e0eafb6dc63f170ba6
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012197"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Quickstart: Het herkennen van gesproken tekst in Objective-C in macOS met behulp van de spraak-SDK
@@ -52,7 +52,7 @@ Maak in de dialoogvensters die volgen de volgende selecties:
     1. Zorg ervoor dat Objective-C als de taal voor het project is gekozen.
     1. Schakel de selectievakjes om te gebruiken van communicatie en een toepassing op basis van een document maken. De eenvoudige gebruikersinterface voor de voorbeeld-app via een programma gemaakt.
     1. Schakel alle selectievakjes voor tests en essentiële gegevens uit.
-    ![Instellingen voor het project](media/sdk/qs-objectivec-macos-project-settings.png)
+    ![Projectinstellingen](media/sdk/qs-objectivec-macos-project-settings.png)
 1. Projectmap selecteren
     1. Kies een map op het project worden geplaatst. Hiermee maakt u een `helloworld`-map in uw basismap die alle bestanden voor het Xcode-project bevat.
     1. Schakel het maken van een Git-opslagplaats uit voor dit voorbeeldproject.
@@ -92,5 +92,5 @@ Maak in de dialoogvensters die volgen de volgende selecties:
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Verken Objective-C-voorbeelden op GitHub](https://aka.ms/csspeech/samples)
+> [Objective-C-voorbeelden op GitHub verkennen](https://aka.ms/csspeech/samples)
 

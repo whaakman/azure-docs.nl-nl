@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
 ms.openlocfilehash: 2853bd5539a40e3b38927f619756fe37a4cec984
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006860"
 ---
 # <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>Quickstart: Communicate to device applications in C# via IoT Hub device streams (preview) (Communiceren met apparaattoepassingen in C# via IoT Hub-apparaatstreams (preview))
@@ -34,7 +34,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 De Preview-versie van apparaat stromen is momenteel alleen ondersteund voor IoT-Hubs die zijn gemaakt in de volgende regio's:
 
   - **US - centraal**
-  - **US - centraal EUAP**
+  - **VS-midden EUAP**
 
 De twee voorbeeldtoepassingen die u uitvoert in deze snelstartgids zijn geschreven in C#. .NET Core SDK 2.1.0 of hoger moet zijn geïnstalleerd op uw ontwikkelcomputer.
 
@@ -171,4 +171,4 @@ In deze quickstart hebt u een IoT-hub ingesteld, een apparaat geregistreerd, een
 Gebruik de onderstaande koppelingen voor meer informatie over apparaatstreams:
 
 > [!div class="nextstepaction"]
-> [Overzicht van de stromen van apparaat](./iot-hub-device-streams-overview.md)
+> [Overzicht van apparaatstreams](./iot-hub-device-streams-overview.md)

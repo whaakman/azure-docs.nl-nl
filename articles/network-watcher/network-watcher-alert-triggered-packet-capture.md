@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: c7bfd36bb4e36b10487edbbaa40421f067c9ed3e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048755"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Pakketopname gebruiken voor proactieve netwerkbewaking met waarschuwingen en Azure Functions
@@ -75,7 +75,7 @@ De eerste stap is het maken van een Azure-functie voor het verwerken van de waar
 
 2. Op de **functie-App** blade, voer de volgende waarden in en selecteer vervolgens **OK** om de app te maken:
 
-    |**Instelling** | **Value** | **Details** |
+    |**Instelling** | **Waarde** | **Details** |
     |---|---|---|
     |**Naam van app**|PacketCaptureExample|De naam van de functie-app.|
     |**Abonnement**|[Uw abonnement] Het abonnement waarvoor u wilt maken van de functie-app.||
@@ -88,11 +88,11 @@ De eerste stap is het maken van een Azure-functie voor het verwerken van de waar
 
 4. Selecteer **HttpTrigger-Powershell**, en voer vervolgens de resterende gegevens. Selecteer ten slotte voor het maken van de functie **maken**.
 
-    |**Instelling** | **Value** | **Details** |
+    |**Instelling** | **Waarde** | **Details** |
     |---|---|---|
     |**Scenario**|Experimenteel|Type scenario|
     |**Een naam voor de functie opgeven**|AlertPacketCapturePowerShell|Naam van de functie|
-    |**Autorisatieniveau**|Function|Machtigingsniveau voor de functie|
+    |**Verificatieniveau**|Function|Machtigingsniveau voor de functie|
 
 ![Voorbeeld van de functies][functions1]
 
@@ -344,14 +344,14 @@ Waarschuwingen kunnen worden geconfigureerd om te melden personen wanneer een sp
 
 Ga naar een bestaande virtuele machine en vervolgens een waarschuwingsregel toevoegen. Meer gedetailleerde informatie over het configureren van waarschuwingen kan worden gevonden op [waarschuwingen maken in Azure Monitor voor Azure-services - Azure-portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Voer de volgende waarden in de **waarschuwingsregel** blade, en selecteer vervolgens **OK**.
 
-  |**Instelling** | **Value** | **Details** |
+  |**Instelling** | **Waarde** | **Details** |
   |---|---|---|
-  |**Name**|TCP_Segments_Sent_Exceeded|De naam van de waarschuwingsregel.|
-  |**Description**|TCP-segmenten verzonden heeft de drempel|De beschrijving voor de waarschuwingsregel.|
+  |**Naam**|TCP_Segments_Sent_Exceeded|De naam van de waarschuwingsregel.|
+  |**Beschrijving**|TCP-segmenten verzonden heeft de drempel|De beschrijving voor de waarschuwingsregel.|
   |**Gegevens**|TCP-segmenten verzonden| De metrische gegevens te gebruiken om de waarschuwing te activeren. |
-  |**Voorwaarde**|Groter dan| De voorwaarde om te gebruiken bij het evalueren van de metrische gegevens.|
+  |**voorwaarde**|Groter dan| De voorwaarde om te gebruiken bij het evalueren van de metrische gegevens.|
   |**Drempelwaarde**|100| De waarde van de metrische gegevens die de waarschuwing wordt geactiveerd. Deze waarde moet worden ingesteld op een geldige waarde voor uw omgeving.|
-  |**Periode**|In de afgelopen vijf minuten| Bepaalt de periode waarin om te zoeken naar de drempelwaarde voor de metrische gegevens.|
+  |**Period**|In de afgelopen vijf minuten| Bepaalt de periode waarin om te zoeken naar de drempelwaarde voor de metrische gegevens.|
   |**Webhook**|[webhook-URL van de functie-app]| De webhook-URL van de functie-app die in de vorige stappen is gemaakt.|
 
 > [!NOTE]

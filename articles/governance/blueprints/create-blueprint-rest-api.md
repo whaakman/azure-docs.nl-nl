@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 043b67d4b4c708f2d243f9be04fb2a706591947b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273155"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Een Azure Blueprint definiëren en toewijzen met REST API
@@ -70,8 +70,8 @@ De eerste stap bij het definiëren van een standaardpatroon voor naleving bestaa
 
 In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die u moet vervangen door uw eigen waarden:
 
-- `{YourMG}` -Vervangen door de ID van de beheergroep
-- `{subscriptionId}` -Vervangen door uw abonnements-ID
+- Vervang `{YourMG}` door de ID van uw beheergroep
+- Vervang `{subscriptionId}` door uw abonnements-ID
 
 > [!NOTE]
 > Blauwdrukken kunnen ook worden gemaakt op abonnementsniveau. Zie voor een voorbeeld [blauwdruk maken abonnement voorbeeld](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
@@ -336,9 +336,9 @@ Nadat een blauwdruk is gepubliceerd met REST API, kan deze worden toegewezen aan
 
 In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die u moet vervangen door uw eigen waarden:
 
-- `{tenantId}` -Vervangen door uw tenant-ID
-- `{YourMG}` -Vervangen door de ID van de beheergroep
-- `{subscriptionId}` -Vervangen door uw abonnements-ID
+- Vervang `{tenantId}` door uw tenant-id
+- Vervang `{YourMG}` door de ID van uw beheergroep
+- Vervang `{subscriptionId}` door uw abonnements-ID
 
 1. Geef in de Azure Blueprint-service-principal de rol **Eigenaar** op in het doelabonnement. De AppId statisch is (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), maar de service-principal-ID is afhankelijk van de tenant. U kunt voor uw tenant details aanvragen met de volgende REST API. Deze gebruikt [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md), die een andere autorisatie heeft.
 

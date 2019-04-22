@@ -16,10 +16,10 @@ ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e37b35f87920016f81bda60fe8a9b6f1714eaae
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277255"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Zelfstudie: Azure Active Directory-integratie met MobileIron
@@ -51,7 +51,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Om de integratie van MobileIron te configureren in Azure AD, moet u MobileIron vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen MobileIron uit de galerie, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om MobileIron vanuit de galerie toe te voegen:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -107,7 +107,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://www.mobileiron.com/<key>`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
     c. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
@@ -194,7 +194,7 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij MobileIron, moeten ze worden ingericht voor MobileIron.  
 In het geval van MobileIron is dat een handmatige taak.
 
-**Voer de volgende stappen uit als u een gebruikersaccount wilt inrichten:**
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
 1. Meld u als beheerder aan bij de bedrijfssite van MobileIron.
 
@@ -222,9 +222,9 @@ Wanneer u in het toegangsvenster op de tegel MobileIron klikt, wordt u automatis
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: abnarain
 ms.openlocfilehash: adec7b90d5c38ed85f4b6f9ada8a530eff3846b9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272509"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Zelfstudie: Gegevens van een on-premises SQL-serverdatabase naar Azure Blob Storage kopiëren
@@ -365,7 +365,7 @@ In deze stap gaat u uw on-premises SQL Server-exemplaar aan de data factory kopp
     > [!IMPORTANT]
     > Selecteer de sectie op basis van de verificatie die u gebruikt om verbinding te maken met SQL Server.
 
-    **Met behulp van SQL-verificatie (sa):**
+    **SQL-verificatie gebruiken (sa):**
 
     ```json
     {

@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: tomfitz
 ms.openlocfilehash: 93df0c196d78a4685ff82108354b82a07d67695d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256920"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Via een programma maken Azure Enterprise-abonnementen (preview)
@@ -40,7 +40,7 @@ Nadat u bent toegevoegd aan een Azure EA-inschrijving als de eigenaar van een Ac
 
 Als u wilt de volgende opdrachten uitvoeren, u moet zijn aangemeld op de accounteigenaar *basismap*, dit is de map die abonnementen zijn gemaakt standaard.
 
-# [<a name="rest"></a>REST](#tab/rest)
+# <a name="resttabrest"></a>[REST](#tab/rest)
 
 De aanvraag om alle inschrijvingsaccounts weer te geven:
 
@@ -73,7 +73,7 @@ Azure reageert met een lijst met alle inschrijvingsaccounts u toegang tot hebt:
 }
 ```
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Gebruik de [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet om alle inschrijvingsaccounts u toegang tot hebt weer te geven.
 
@@ -89,7 +89,7 @@ ObjectId                               | PrincipalName
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
-# [<a name="azure-cli"></a>Azure-CLI](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure-CLI](#tab/azure-cli)
 
 Gebruik de [az facturering inschrijvingsaccount lijst](https://aka.ms/EASubCreationPublicPreviewCLI) opdracht om een lijst van alle inschrijvingsaccounts u toegang tot hebt.
 
@@ -130,7 +130,7 @@ Gebruik de `principalName` eigenschap aan het account dat u wilt dat abonnemente
 
 Het volgende voorbeeld wordt een aanvraag voor het maken van abonnement met de naam *Dev Team abonnement* en abonnement *MS-AZR - 0017P* (normale EA). Het inschrijvingsaccount is `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (aanduidingswaarde, deze waarde is een GUID), is het inschrijvingsaccount voor SignUpEngineering@contoso.com. Deze voegt eventueel ook twee gebruikers als RBAC-eigenaren voor het abonnement.
 
-# [<a name="rest"></a>REST](#tab/rest)
+# <a name="resttabrest"></a>[REST](#tab/rest)
 
 Gebruik de `id` van de `enrollmentAccount` in het pad van de aanvraag voor het abonnement te maken.
 
@@ -151,7 +151,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 }
 ```
 
-| De naam van element  | Vereist | Type   | Description                                                                                               |
+| De naam van element  | Vereist | Type   | Beschrijving                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Nee      | String | De weergavenaam van het abonnement. Indien niet opgegeven, ingesteld op de naam van de aanbieding, zoals "Microsoft Azure Enterprise."                                 |
 | `offerType`   | Ja      | String | De aanbieding van het abonnement. De twee opties voor EA [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (gebruik in productieomgevingen) en [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (ontwikkelen/testen, moet [ingeschakeld met behulp van de EA-portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
@@ -159,7 +159,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 In het antwoord je weer toegang krijgen een `subscriptionOperation` object voor de bewaking. Wanneer het abonnement is gemaakt, de `subscriptionOperation` object retourneerde een `subscriptionLink` -object met de abonnements-ID.
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Voor het gebruik van deze preview-module installeren door te voeren `Install-Module Az.Subscription -AllowPrerelease` eerste. Om ervoor te zorgen `-AllowPrerelease` werkt, installeert u een recente versie van PowerShellGet van [PowerShellGet-Module ophalen](/powershell/gallery/installing-psget).
 
@@ -180,7 +180,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 Zie voor een volledige lijst met alle parameters [New-AzSubscription](/powershell/module/az.subscription.preview).
 
-# [<a name="azure-cli"></a>Azure-CLI](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure-CLI](#tab/azure-cli)
 
 Voor het gebruik van deze preview-extensie installeren door te voeren `az extension add --name subscription` eerste.
 

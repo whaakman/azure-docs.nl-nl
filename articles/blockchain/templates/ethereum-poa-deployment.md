@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274787"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
@@ -208,7 +208,7 @@ Onder **basisbeginselen**, waarden opgeven voor standard parameters voor elke im
 
 Hier volgt een gedetailleerde beschrijving van elke parameter:
 
-Parameternaam|Description|Toegestane waarden|Standaardwaarden
+Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
 ---|---|---|---
 Maak een nieuwe netwerk- of toevoegen aan bestaande netwerk?|Een nieuw netwerk maken of lid van een bestaande consortium network|Nieuwe Join bestaande maken|Create New
 E-mailadres (optioneel)|U ontvangt een e-mailmelding wanneer uw implementatie is voltooid met informatie over uw implementatie.|Geldig e-mailadres|N.v.t.
@@ -228,7 +228,7 @@ Geef vervolgens onder implementatie regio's, invoer voor het aantal regio('s) im
 
 Hier volgt een gedetailleerde beschrijving van elke parameter:
 
-  Parameternaam|Description|Toegestane waarden|Standaardwaarden
+  Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
   ---|---|---|---
   Aantal regio('s)|Aantal regio's om de consortium-netwerk te implementeren|1, 2, 3, 4, 5|1
   Eerste regio|Eerste regio voor de implementatie van het netwerk consortium|Alle toegestaan Azure-regio 's|N.v.t.
@@ -291,7 +291,7 @@ De blade controle kunt u een resource van Azure Monitor-logboeken voor uw netwer
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-  Parameternaam|Description|Toegestane waarden|Standaardwaarden
+  Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
   ---|---|---|---
 Bewaking|Optie voor het inschakelen van bewaking|In- of uitschakelen|Inschakelen
 Verbinding maken met bestaande Azure Monitor-Logboeken|Maak een nieuw exemplaar van Azure Monitor Logboeken of Word lid van een bestaand exemplaar|Maak een nieuwe of bestaande koppelen|Nieuwe maken

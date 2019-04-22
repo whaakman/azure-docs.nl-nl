@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
 ms.openlocfilehash: 244779e647c4b184b036b1a5ea77aac199be5994
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269398"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
@@ -730,7 +730,7 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
 ## <a name="review-the-results"></a>De resultaten bekijken
 Voer in SQL Server Management Studio de volgende query's uit op de SQL-doeldatabase om te controleren of de gegevens van de brontabellen naar de doeltabellen zijn gekopieerd: 
 
-**Query’s uitvoeren** 
+**Query** 
 ```sql
 select * from customer_table
 ```
@@ -747,7 +747,7 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-**Query’s uitvoeren**
+**Query**
 
 ```sql
 select * from project_table
@@ -764,7 +764,7 @@ project2    2016-02-02 01:23:00.000
 project3    2017-03-04 05:16:00.000
 ```
 
-**Query’s uitvoeren**
+**Query**
 
 ```sql
 select * from watermarktable
@@ -816,7 +816,7 @@ VALUES
 ## <a name="review-the-final-results"></a>De eindresultaten bekijken
 Voer in SQL Server Management Studio de volgende query's uit op de doeldatabase om te controleren dat de bijgewerkte/nieuwe gegevens van de brontabellen naar de doeltabellen zijn gekopieerd. 
 
-**Query’s uitvoeren** 
+**Query** 
 ```sql
 select * from customer_table
 ```
@@ -835,7 +835,7 @@ PersonID    Name    LastModifytime
 
 Let op de nieuwe waarden van **Name** en **LastModifytime** voor de **PersonID** voor nummer 3. 
 
-**Query’s uitvoeren**
+**Query**
 
 ```sql
 select * from project_table
@@ -855,7 +855,7 @@ NewProject  2017-10-01 00:00:00.000
 
 Let erop dat de invoer van **NewProject** toegevoegd is aan project_table. 
 
-**Query’s uitvoeren**
+**Query**
 
 ```sql
 select * from watermarktable
@@ -892,6 +892,6 @@ In deze zelfstudie hebt u de volgende stappen uitgevoerd:
 Ga naar de volgende zelfstudie voor meer informatie over het transformeren van gegevens met behulp van een Spark-cluster in Azure:
 
 > [!div class="nextstepaction"]
->[Incrementeel gegevens uit een Azure SQL Database naar Azure Blob-opslag met behulp van technologie voor wijzigingen bijhouden](tutorial-incremental-copy-change-tracking-feature-powershell.md)
+>[Incrementeel gegevens kopiëren van Azure SQL Database naar Azure Blob Storage met behulp van technologie voor het bijhouden van wijzigingen](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 

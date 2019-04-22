@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: monhaber
 ms.openlocfilehash: 63ee603f83d0c2de3bc89b8792ada4a61edb7e00
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006751"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Verzamelen van gegevens in Azure Security Center
@@ -77,7 +77,7 @@ Security center kan automatisch een standaardwerkruimte voor het opslaan van de 
 Een werkruimte te selecteren die zijn gemaakt door Security Center:
 
 1. Onder **configuratie van de standaardwerkruimte**, selecteer werkruimten die zijn gemaakt door Security center gebruiken.
-   ![Een prijscategorie selecteren][10] 
+   ![Prijscategorie selecteren][10] 
 
 1. Klik op **Opslaan**.<br>
     Security Center maakt u een nieuwe resource-groep en de standaard werkruimte in die geolocatie en verbindt de agent voor de desbetreffende werkruimte. De naamconventie voor de werkruimte en de resource is:<br>
@@ -138,7 +138,7 @@ Selecteer een bestaande Log Analytics-werkruimte:
      
     b.  Selecteer de gewenste werkruimte waarin u van plan bent om te koppelen van de agent door te klikken op **instellingen bewerken** in de kolom met de instellingen van het gewenste abonnement in de lijst.
         ![Selecteer werkruimte][8] c. De prijscategorie instellen.
-        ![Een prijscategorie selecteren][9] 
+        ![Prijscategorie selecteren][9] 
    
    >[!NOTE]
    >Als de werkruimte is al een **Security** of **SecurityCenterFree** oplossing is ingeschakeld, de prijzen wordt automatisch ingesteld. 
@@ -254,9 +254,9 @@ U kunt Microsoft Monitoring Agent, handmatig installeren, zodat Security Center 
    a.  Selecteer in het hoofdmenu van Security Center **beveiligingsbeleid**.
      
    b.  Selecteer de werkruimte waarin u van plan bent om de agent verbinding te maken. Zorg ervoor dat de werkruimte zich in hetzelfde abonnement u in Security Center en dat u lees-/ schrijfmachtigingen beschikt in de werkruimte hebben.
-       ![Werkruimte selecteren][8]
+       ![Selecteer een werkruimte][8]
 3. De prijscategorie instellen.
-   ![Een prijscategorie selecteren][9] 
+   ![Prijscategorie selecteren][9] 
    >[!NOTE]
    >Als de werkruimte is al een **Security** of **SecurityCenterFree** oplossing is ingeschakeld, de prijzen wordt automatisch ingesteld. 
    > 

@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006722"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Informatie over toewijzingen voor Azure-resources te weigeren
@@ -59,7 +59,7 @@ Dit artikel wordt beschreven hoe weigeren toewijzingen zijn gedefinieerd.
 Voor ondersteuning weigeren toewijzingen, de **System-Defined Principal** is geïntroduceerd. Deze principal vertegenwoordigt alle gebruikers, groepen, service-principals en beheerde identiteiten in Azure AD-adreslijst. Als de principal-ID een nul GUID is `00000000-0000-0000-0000-000000000000` en het type principal `SystemDefined`, de principal vertegenwoordigt alle beveiligings-principals. `SystemDefined` kan worden gecombineerd met `ExcludePrincipals` voor het weigeren van alle beveiligings-principals met uitzondering van bepaalde gebruikers. `SystemDefined` heeft de volgende beperkingen:
 
 - Alleen in kan worden gebruikt `Principals` en kan niet worden gebruikt `ExcludePrincipals`.
-- `Principals[i].Type` Moet worden ingesteld op `SystemDefined`.
+- `Principals[i].Type` moet worden ingesteld op `SystemDefined`.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276640"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Voorbeeld van de trein Azure Sentinel
@@ -49,7 +49,7 @@ Nadat u verbinding maakt met uw gegevensbronnen, kunt u kiezen uit een galerie m
 1. Ga in de Azure-portal.
 2. Zorg ervoor dat het abonnement waarin Azure Sentinel is gemaakt, is geselecteerd. 
 3. Zoeken naar Azure Sentinel. 
-   ![zoeken](./media/quickstart-onboard/search-product.png)
+   ![search](./media/quickstart-onboard/search-product.png)
 
 1. Klik op **+ toevoegen**.
 1. Selecteer de werkruimte die u wilt gebruiken of een nieuwe maken. U kunt Azure Sentinel uitvoeren op meer dan één werkruimte, maar de gegevens is geïsoleerd voor één werkruimte.

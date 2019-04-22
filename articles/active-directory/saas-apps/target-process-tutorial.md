@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: ffb5da8abd9673d4922aeb4854b3dfa80349f284
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268327"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Zelfstudie: Integratie van Azure Active Directory met TargetProcess
@@ -52,7 +52,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 U moet TargetProcess vanuit de galerie aan uw lijst met beheerde SaaS-apps toevoegen om de integratie van TargetProcess in Azure AD te configureren.
 
-**Als u wilt toevoegen TargetProcess uit de galerie, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om TargetProcess vanuit de galerie toe te voegen:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -106,9 +106,9 @@ Voer de volgende stappen uit om eenmalige aanmelding in Azure AD te configureren
 
     ![Informatie over TargetProcess-domein en URL’s voor eenmalige aanmelding](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<subdomain>.tpondemand.com/`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<subdomain>.tpondemand.com/`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://<subdomain>.tpondemand.com/`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<subdomain>.tpondemand.com/`
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [klantenserviceteam van TargetProcess](mailto:support@targetprocess.com) om deze waarden op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
@@ -135,7 +135,7 @@ Voer de volgende stappen uit om eenmalige aanmelding in Azure AD te configureren
 
 2. Als u op **TargetProcess instellen** klikt nadat u de extensie aan de browser hebt toegevoegd, wordt u doorgestuurd naar de TargetProcess-toepassing. Geef hier de referenties voor de beheerder op om u aan te melden bij TargetProcess. In de browserextensie wordt de toepassing automatisch voor u geconfigureerd en worden stappen 3-7 geautomatiseerd.
 
-    **Als u wilt de toepassing handmatig configureren de volgende stappen uitvoeren:**
+    **Voer de volgende stappen uit als u de toepassing handmatig wilt configureren:**
 
 3. Meld u bij uw TargetProcess-toepassing aan als beheerder.
 
@@ -231,8 +231,8 @@ Als u op de tegel TargetProcess in het toegangsvenster klikt, wordt u automatisc
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

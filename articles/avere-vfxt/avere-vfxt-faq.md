@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
 ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264451"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Veelgestelde vragen over Avere vFXT for Azure
@@ -286,9 +286,9 @@ Nee, Avere vFXT clusters vereist 'always on' service. De clusters kunnen worden 
 
 Lees deze artikelen voor meer informatie over het plannen en implementeren van uw eigen systeem om te beginnen met Avere vFXT voor Azure:
 
-* [Uw Avere vFXT-systeem plannen](avere-vfxt-deploy-plan.md)
+* [Plan uw Avere vFXT-systeem](avere-vfxt-deploy-plan.md)
 * [Implementatie-overzicht](avere-vfxt-deploy-overview.md)
 * [Voorbereidingen voor het maken van een cluster van Avere vFXT](avere-vfxt-prereqs.md)
-* [De Avere vFXT-cluster implementeren](avere-vfxt-deploy.md)
+* [Het Avere vFXT-cluster implementeren](avere-vfxt-deploy.md)
 
 Voor meer informatie over de mogelijkheden en use cases voor Avere vFXT, gaat u naar [Avere vFXT voor Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

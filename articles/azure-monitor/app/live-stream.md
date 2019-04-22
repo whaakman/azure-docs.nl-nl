@@ -14,10 +14,10 @@ ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009962"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Bewaking en Diagnose met een latentie van 1 seconde
@@ -34,7 +34,7 @@ Met Live Metrics Stream, kunt u het volgende doen:
 * Alle Windows prestaties teller live bewaken.
 * Eenvoudig Zoek een server die u ondervindt problemen en filter die alle de KPI/live-feed naar alleen die server.
 
-[![Ltieve Metrics Stream-video](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[![Live Metrics Stream-video](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
 Live metrische gegevens worden momenteel ondersteund voor ASP.NET, ASP.NET Core, Azure Functions, Java en Node.js-apps.
 
@@ -210,4 +210,4 @@ Zijn er geen gegevens? Als uw toepassing zich in een beveiligd netwerk: Live Met
 * [Bewaking met Application Insights wordt gebruikt](../../azure-monitor/app/usage-overview.md)
 * [Met behulp van diagnostische gegevens doorzoeken](../../azure-monitor/app/diagnostic-search.md)
 * [Profiler](../../azure-monitor/app/profiler.md)
-* [Snapshot Debugger](../../azure-monitor/app/snapshot-debugger.md)
+* [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md)
