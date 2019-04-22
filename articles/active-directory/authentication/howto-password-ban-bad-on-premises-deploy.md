@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904624"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Wachtwoordbeveiliging in Azure AD implementeren
@@ -45,7 +45,7 @@ Nadat de functie voor een redelijke termijn in de controlemodus gestart is, kunt
 * Verbinding met het netwerk moet bestaan tussen ten minste één domeincontroller in elk domein en ten minste één server die als host fungeert de proxy-service voor beveiliging met een wachtwoord. Deze connectiviteit moet de domeincontroller voor toegang tot RPC-eindpunt-mapper-poort 135 en de RPC-server-poort op de proxy-service toestaan. De RPC-server-poort is standaard een dynamische RPC-poort, maar deze kan worden geconfigureerd voor [gebruik van een statische poort](#static).
 * Alle machines die als host de proxy-service fungeren moeten netwerktoegang hebben tot de volgende eindpunten:
 
-    |**Eindpunt**|**Doel**|
+    |**Endpoint**|**Doel**|
     | --- | --- |
     |`https://login.microsoftonline.com`|Verificatieaanvragen|
     |`https://enterpriseregistration.windows.net`|Functionaliteit van Azure AD wachtwoord beveiliging|

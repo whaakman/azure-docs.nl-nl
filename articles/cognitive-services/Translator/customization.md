@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.openlocfilehash: b9a182da0ce03bf3964b6da30f1ed68de38c8141
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918226"
 ---
 # <a name="customize-your-text-translations"></a>Pas uw tekstomzettingen
@@ -47,7 +47,7 @@ Meer informatie over de verschillende niveaus van aanpassen op basis van beschik
 
 ## <a name="custom-translator-versus-hub"></a>Aangepaste Translator ten opzichte van de Hub
 
-|   | **Centraal punt** | **Custom Translator**|
+|   | **Hub** | **Aangepaste Translator**|
 |:-----|:----:|:----:|
 |Functiestatus aanpassen   | Algemene beschikbaarheid  | Algemene beschikbaarheid |
 | Tekst-API-versie  | Alleen v2   | Alleen v3 |

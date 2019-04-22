@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
 ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916022"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Live streamen met Azure Media Services v3
@@ -68,7 +68,7 @@ Bij gebruik van live-codering met Media Services zou u uw on-premises live-encod
 Voor meer informatie over de werkstroom voor live streaming in Media Services v3, moet u eerst controleren en begrijpen van de volgende concepten: 
 
 - [Streaming-eindpunten](streaming-endpoint-concept.md)
-- [Live gebeurtenissen en live uitvoer](live-events-outputs-concept.md)
+- [Livegebeurtenissen en live-uitvoer](live-events-outputs-concept.md)
 - [Streaming-locators](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Algemene stappen
@@ -87,10 +87,10 @@ Voor meer informatie over de werkstroom voor live streaming in Media Services v3
 
 ## <a name="other-important-articles"></a>Andere belangrijke artikelen
 
-- [Aanbevolen live-encoders](recommended-on-premises-live-encoders.md)
+- [Aanbevolen live coderingsprogramma 's](recommended-on-premises-live-encoders.md)
 - [Een cloud-DVR gebruiken](live-event-cloud-dvr.md)
 - [Live gebeurtenistypen vergelijking van functies](live-event-types-comparison.md)
-- [Staten en facturering](live-event-states-billing.md)
+- [Statussen en facturering](live-event-states-billing.md)
 - [Latentie](live-event-latency.md)
 
 ## <a name="next-steps"></a>Volgende stappen

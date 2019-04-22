@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
 ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895576"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Maken van werkstromen op basis van gebeurtenissen of acties worden uitgevoerd met behulp van webhooks en Azure Logic Apps
@@ -82,7 +82,7 @@ Hier vindt u meer informatie over de triggers en acties die webhook ondersteunt.
 
 ## <a name="webhook-triggers"></a>Webhook-triggers
 
-| Bewerking | Beschrijving |
+| Bewerking | Description |
 | --- | --- |
 | HTTP-webhook |Abonneren op een callback-URL voor een service die de URL om te worden geactiveerd logische app zo nodig kunt aanroepen. |
 
@@ -93,7 +93,7 @@ Hier vindt u meer informatie over de triggers en acties die webhook ondersteunt.
 Abonneren op een callback-URL voor een service die de URL om te worden geactiveerd logische app zo nodig kunt aanroepen.
 Een * betekent vereist veld.
 
-| Weergavenaam | Naam van eigenschap | Beschrijving |
+| Weergavenaam | Naam van eigenschap | Description |
 | --- | --- | --- |
 | Abonneren methode * |method |HTTP-methode moet worden gebruikt voor de abonnementsaanvraag |
 | Abonneren URI * |uri |HTTP-URI moet worden gebruikt voor de abonnementsaanvraag |
@@ -118,7 +118,7 @@ Webhook-aanvraag
 
 ## <a name="webhook-actions"></a>Webhookacties
 
-| Bewerking | Beschrijving |
+| Bewerking | Description |
 | --- | --- |
 | HTTP-webhook |Abonneren op een callback-URL voor een service die de URL om te hervatten van een werkstroomstap naar behoefte kunt aanroepen. |
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
 ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894454"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding Frequently Asked Questions (FAQ)
@@ -296,9 +296,9 @@ De volgende functies zijn uitgebracht op de Build 2018-conferentie:
 Aanvullende ontwerpen [API-routes](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) zijn opgenomen.
 
 Video's:
-* [Azure Friday At Build 2018: Cognitive Services - taal (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [Azure Friday Build 2018: Cognitive Services - taal (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
 * [Build 2018 AI Show - wat is er nieuw met Language Understanding Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Build 2018-sessie - Bot intelligentie, spraak-mogelijkheden en NLU aanbevolen procedures](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Build 2018-sessie - Bot-intelligentie, spraakmogelijkheden en aanbevolen NLU-procedures](https://channel9.msdn.com/events/Build/2018/BRK3208)
 * [Build 2018 - LUIS-Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projecten:

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917308"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Wat is het servicemodel van Cloud en hoe ik een pakket?
@@ -110,7 +110,7 @@ Bevat de definities voor certificaten die nodig zijn voor een rol. Het vorige co
 **LocalResources**  
 Bevat de definities voor de resources voor lokale opslag. Een lokale opslag-resource is een gereserveerde map op het bestandssysteem van de virtuele machine waarop een exemplaar van een rol wordt uitgevoerd.
 
-**Importeren**  
+**Invoer**  
 Bevat de definities voor de geïmporteerde modules. Het vorige codevoorbeeld ziet u de modules voor verbinding met extern bureaublad en Azure-verbinding.
 
 **Opstarten**  
@@ -143,7 +143,7 @@ Het configuratiebestand van de service wordt niet geleverd met de toepassing, ma
 
 U kunt verwijzen naar de [configuratieschema Service](/previous-versions/azure/reference/ee758710(v=azure.100)) voor een beter beeld van het XML-schema dat hier wordt gebruikt, maar hier volgt een korte uitleg van de elementen:
 
-**Exemplaren**  
+**exemplaren**  
 Hiermee configureert u het aantal actieve instanties voor de rol. Om te voorkomen dat uw cloudservice mogelijk niet langer beschikbaar is tijdens upgrades, is het raadzaam dat u meer dan één exemplaar van uw web gerichte rollen implementeren. Meer dan één exemplaar implementeert, u voldoet aan de richtlijnen in de [Azure Compute-Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/), die garandeert dat externe connectiviteit van 99,95% voor internetgerichte rollen wanneer twee of meer rolinstanties geïmplementeerd voor een service.
 
 **ConfigurationSettings**  

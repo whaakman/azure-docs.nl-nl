@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: magattus
 ms.openlocfilehash: 76e7817be81a97c8d1a0b9ca2fea8378c3c733e1
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916476"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Een Azure CDN-eindpunt leegmaken
@@ -59,7 +59,7 @@ In deze zelfstudie helpt u bij het opschonen van de activa van alle edge-knooppu
    > [!TIP]
    > Paden moeten worden opgegeven voor het opschonen van Logboeken en moet een relatieve URL die geschikt zijn voor de volgende [reguliere expressie](/dotnet/standard/base-types/regular-expression-language-quick-reference). **Alles leegmaken** en **leegmaken met jokertekens** niet wordt ondersteund door **Azure CDN van Akamai** op dit moment.
    > > Opschonen van één URL `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
-   > > Querytekenreeks `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
+   > > Query-tekenreeks `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
    > > Leegmaken met jokertekens `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`. 
    > 
    > Meer **pad** tekstvakken worden weergegeven nadat voert u tekst kunt u een lijst met meerdere elementen te maken.  U kunt assets kan verwijderen uit de lijst door te klikken op de knop met het weglatingsteken (...).

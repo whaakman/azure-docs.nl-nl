@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
 ms.openlocfilehash: db204c0e881200f667484daf4348c336f94a0ce7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916679"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Maak een Back-up van SQL Server op Azure oplossen
@@ -169,8 +169,7 @@ Deze problemen kunnen worden veroorzaakt door een of meer van de volgende redene
   * Virtuele machine is afgesloten gedurende een langere periode vanwege waarvan de configuratie van de extensie erop verlopen
   * Virtuele machine is verwijderd en een andere virtuele machine is gemaakt met dezelfde naam en in dezelfde resourcegroep bevinden als de verwijderde virtuele machine
   * Een van de knooppunten AG de volledige back-upconfiguratie is ontvangen, dit kan gebeuren op het moment van registratie van de beschikbaarheid van groep naar de kluis of wanneer een nieuw knooppunt wordt toegevoegd  <br>
-   
-In de bovenstaande scenario's, is het aanbevolen voor het activeren van de bewerking op de virtuele machine opnieuw te registreren. Deze optie is alleen beschikbaar via PowerShell en is binnenkort beschikbaar in Azure portal.
+    In de bovenstaande scenario's, is het aanbevolen voor het activeren van de bewerking op de virtuele machine opnieuw te registreren. Deze optie is alleen beschikbaar via PowerShell en is binnenkort beschikbaar in Azure portal.
 
 
 ## <a name="next-steps"></a>Volgende stappen

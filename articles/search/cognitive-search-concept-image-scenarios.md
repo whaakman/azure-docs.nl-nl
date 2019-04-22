@@ -12,10 +12,10 @@ ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: f1491d6b87816dfc70e94e01653567bda101d045
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916968"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Hoe worden verwerkt en extraheer informatie uit afbeeldingen in scenario's met cognitief zoeken
@@ -32,7 +32,7 @@ Als onderdeel van documenten kraken, moet u er een nieuwe set parameters voor de
 
 U uitschakelen normalisering van de installatiekopie niet. Genormaliseerde installatiekopieën verwacht dat de vaardigheden die installatiekopieën herhalen.
 
-| Configuratieparameter | Beschrijving |
+| Configuratieparameter | Description |
 |--------------------|-------------|
 | imageAction   | Ingesteld op 'none' als er is geen actie moet worden uitgevoerd wanneer de ingesloten afbeeldingen of afbeeldingen zijn opgetreden. <br/>Ingesteld op 'generateNormalizedImages' voor het genereren van een matrix van genormaliseerde installatiekopieën als onderdeel van het document kraken.<br/>Ingesteld op 'generateNormalizedImagePerPage' voor het genereren van een matrix van genormaliseerde afbeeldingen waar elke pagina voor PDF-bestanden in uw gegevensbron en wordt gerenderd in een afbeelding van de uitvoer.  De functionaliteit is hetzelfde als 'generateNormalizedImages' voor niet-PDF-bestandstypen.<br/>Een optie die geen 'none', de afbeeldingen weergegeven de *normalized_images* veld. <br/>De standaardwaarde is 'none'. Deze configuratie is alleen relevant zijn voor blob-gegevensbronnen, als 'dataToExtract' is ingesteld op "contentAndMetadata." <br/>Maximaal 1000 afbeeldingen worden geëxtraheerd uit een bepaald document. Als er meer dan 1000 afbeeldingen in een document, wordt de eerste 1000 worden geëxtraheerd en wordt er een waarschuwing gegenereerd. |
 |  normalizedImageMaxWidth | De maximale breedte (in pixels) voor genormaliseerde installatiekopieën die worden gegenereerd. De standaardwaarde is 2000.|

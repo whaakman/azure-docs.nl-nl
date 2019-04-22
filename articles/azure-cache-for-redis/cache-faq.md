@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: yegu
 ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895593"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Veelgestelde vragen over Azure Cache voor Redis
@@ -35,7 +35,7 @@ Als uw vraag hier niet wordt weergegeven, laat het ons weten en wij helpen u een
 ## <a name="azure-cache-for-redis-basics"></a>Azure Cache voor Redis-basisbeginselen
 De veelgestelde vragen over de in deze sectie betrekking hebben op sommige van de basisprincipes van Azure Cache voor Redis.
 
-* [Wat is Azure Cache voor Redis?](#what-is-azure-cache-for-redis)
+* [Wat is Azure voor Redis-Cache?](#what-is-azure-cache-for-redis)
 * [Hoe kan ik aan de slag met Azure Cache voor Redis?](#how-can-i-get-started-with-azure-cache-for-redis)
 
 De volgende veelgestelde vragen gaan over basisconcepten en vragen over Azure Cache voor Redis en in een van de andere secties van de veelgestelde vragen worden beantwoord.
@@ -184,7 +184,7 @@ Zie voor meer informatie over het gebruik van Azure Cache voor Redis met PowerSh
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>Wat doet de StackExchange.Redis-configuratie-opties?
 StackExchange.Redis bevat veel opties. In deze sectie vertelt over een aantal van de algemene instellingen. Zie voor meer informatie over de StackExchange.Redis-opties, [StackExchange.Redis configuratie](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
-| ConfigurationOptions | Description | Aanbeveling |
+| ConfigurationOptions | Beschrijving | Aanbeveling |
 | --- | --- | --- |
 | AbortOnConnectFail |Wanneer is ingesteld op true, wordt de verbinding wordt niet opnieuw verbinding maken na een netwerkstoring op een. |Ingesteld op false en laat StackExchange.Redis automatisch opnieuw verbinding maken. |
 | ConnectRetry |Het aantal keren laten herhalen verbindingspogingen tijdens de eerste verbinding. |Zie de volgende opmerkingen voor hulp. |

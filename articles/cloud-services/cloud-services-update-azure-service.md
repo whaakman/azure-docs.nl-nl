@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917221"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Het bijwerken van een service in de cloud
@@ -187,6 +187,6 @@ Het volgende diagram illustreert hoe een service bevat twee rollen worden gedist
 >
 
 ## <a name="next-steps"></a>Volgende stappen
-[Cloudservices beheren](cloud-services-how-to-manage-portal.md)  
-[Cloud Services bewaken](cloud-services-how-to-monitor.md)  
-[Cloudservices configureren](cloud-services-how-to-configure-portal.md)  
+[Cloud Services beheren](cloud-services-how-to-manage-portal.md)  
+[Cloudservices controleren](cloud-services-how-to-monitor.md)  
+[Cloud Services configureren](cloud-services-how-to-configure-portal.md)  

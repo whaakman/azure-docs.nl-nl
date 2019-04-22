@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917614"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Over het configureren en uitvoeren van opstarttaken voor een cloudservice
@@ -120,7 +120,7 @@ De volgende beschrijft de kenmerken van de **taak** -element in de [ServiceDefin
   > 
   
     Om ervoor te zorgen dat uw batchbestand wordt beëindigd met een **errorlevel** gelijk is aan nul, geeft u de opdracht `EXIT /B 0` aan het einde van uw batch-bestand-proces.
-* **Achtergrond**  
+* **background**  
   Taken worden asynchroon uitgevoerd in combinatie met het starten van de rol.
 * **voorgrond**  
   Taken worden asynchroon uitgevoerd in combinatie met het starten van de rol. Het belangrijkste verschil tussen een **voorgrond** en een **achtergrond** taak is die een **voorgrond** taak wordt voorkomen dat de rol van recycling of wordt uitgeschakeld totdat de taak is beëindigd. De **achtergrond** taken beschikt niet over deze beperking.
@@ -128,13 +128,13 @@ De volgende beschrijft de kenmerken van de **taak** -element in de [ServiceDefin
 ## <a name="environment-variables"></a>Omgevingsvariabelen
 Omgevingsvariabelen zijn een manier om door te geven informatie op een opstarttaak. Bijvoorbeeld, kunt u het pad naar een blob met een programma te installeren, of poortnummers die uw functie wilt gebruiken of instellingen voor het beheren van functies van uw opstarttaak plaatsen.
 
-Er zijn twee soorten omgevingsvariabelen voor opstarttaken; statische omgevingsvariabelen en omgevingsvariabelen op basis van de leden van de [RoleEnvironment] klasse. Beide zijn de [omgeving] sectie van de [ServiceDefinition.csdef] bestands- en beide gebruiken de [variabele] element en **naam** het kenmerk.
+Er zijn twee soorten omgevingsvariabelen voor opstarttaken; statische omgevingsvariabelen en omgevingsvariabelen op basis van de leden van de [RoleEnvironment] klasse. Beide zijn de [omgeving] sectie van de [ServiceDefinition.csdef] bestands- en beide gebruiken de [Variable] element en **naam** het kenmerk.
 
-Maakt gebruik van statische omgevingsvariabelen de **waarde** kenmerk van de [variabele] element. Het bovenstaande voorbeeld wordt de omgevingsvariabele **MyVersionNumber** heeft een statische waarde van "**1.0.0.0**'. Een ander voorbeeld zou zijn om te maken van een **StagingOrProduction** omgevingsvariabele die u handmatig met waarden van instellen kunt '**staging**'of'**productie**' om uit te voeren opstarten van de verschillende acties op basis van de waarde van de **StagingOrProduction** omgevingsvariabele.
+Maakt gebruik van statische omgevingsvariabelen de **waarde** kenmerk van de [Variable] element. Het bovenstaande voorbeeld wordt de omgevingsvariabele **MyVersionNumber** heeft een statische waarde van "**1.0.0.0**'. Een ander voorbeeld zou zijn om te maken van een **StagingOrProduction** omgevingsvariabele die u handmatig met waarden van instellen kunt '**staging**'of'**productie**' om uit te voeren opstarten van de verschillende acties op basis van de waarde van de **StagingOrProduction** omgevingsvariabele.
 
-Omgevingsvariabelen op basis van de leden van de klasse RoleEnvironment gebruik niet de **waarde** kenmerk van de [variabele] element. In plaats daarvan de [RoleInstanceValue] onderliggend element met de juiste **XPath** waarde van het kenmerk, worden gebruikt voor het maken van een omgevingsvariabele op basis van een specifiek lid van de [ RoleEnvironment] klasse. Waarden voor de **XPath** kenmerk voor toegang tot verschillende [RoleEnvironment] waarden vindt [hier](cloud-services-role-config-xpath.md).
+Omgevingsvariabelen op basis van de leden van de klasse RoleEnvironment gebruik niet de **waarde** kenmerk van de [Variable] element. In plaats daarvan de [RoleInstanceValue] onderliggend element met de juiste **XPath** waarde van het kenmerk, worden gebruikt voor het maken van een omgevingsvariabele op basis van een specifiek lid van de [RoleEnvironment] klasse. Waarden voor de **XPath** kenmerk voor toegang tot verschillende [RoleEnvironment] waarden vindt [hier](cloud-services-role-config-xpath.md).
 
-Bijvoorbeeld, om te maken van een omgevingsvariabele die is '**waar**"wanneer het exemplaar wordt uitgevoerd in de rekenemulator en"**false**"bij het uitvoeren in de cloud, gebruikt u de volgende [variabele ] en [RoleInstanceValue] elementen:
+Bijvoorbeeld, om te maken van een omgevingsvariabele die is '**waar**"wanneer het exemplaar wordt uitgevoerd in de rekenemulator en"**false**"bij het uitvoeren in de cloud, gebruikt u de volgende [Variable] en [RoleInstanceValue] elementen:
 
 ```xml
 <Startup>
@@ -165,6 +165,6 @@ Meer informatie over het uitvoeren van sommige [veelvoorkomende opstarttaken](cl
 [Opstarten]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Omgeving]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variabele]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx

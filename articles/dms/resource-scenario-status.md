@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/04/2019
 ms.openlocfilehash: f25bc9bc3a958b2fa97ae4d5ab3715b602110393
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915472"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status van het migratiescenario's ondersteund door Azure Database Migration Service
@@ -41,13 +41,13 @@ De volgende tabel ziet u Azure Database Migration Service ondersteuning voor off
 
 | Doel  | Bron | Ondersteuning | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL Database** | SQL Server | ✔ | Algemene beschikbaarheid |
+| **Azure SQL DB** | SQL Server | ✔ | Algemene beschikbaarheid |
 |   | RDS SQL |  |  |
 |   | Oracle |  |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | Algemene beschikbaarheid |
 |   | RDS SQL |  |  |
 |   | Oracle |  |   |
-| **Azure SQL-VM** | SQL Server | ✔ | Algemene beschikbaarheid |
+| **Azure SQL VM** | SQL Server | ✔ | Algemene beschikbaarheid |
 |   | Oracle |   |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | Openbare preview |
 | **Azure DB voor MySQL** | MySQL |   |   |
@@ -60,13 +60,13 @@ De volgende tabel ziet u Azure Database Migration Service ondersteuning voor onl
 
 | Doel  | Bron | Ondersteuning | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL Database** | SQL Server | ✔ | Algemene beschikbaarheid |
+| **Azure SQL DB** | SQL Server | ✔ | Algemene beschikbaarheid |
 |   | RDS SQL | ✔ | Algemene beschikbaarheid |
 |   | Oracle |  |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | Algemene beschikbaarheid |
 |   | RDS SQL | ✔ | Algemene beschikbaarheid |
 |   | Oracle | ✔ | Beperkte Preview-versie |
-| **Azure SQL-VM** | SQL Server |   |   |
+| **Azure SQL VM** | SQL Server |   |   |
 |   | Oracle  |  |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | Openbare preview |
 | **Azure DB voor MySQL** | MySQL | ✔ | Algemene beschikbaarheid |

@@ -14,10 +14,10 @@ ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
 ms.openlocfilehash: 9f48303396d1ecd03fdffd2c6ab1e0c122615a21
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005745"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
@@ -319,7 +319,7 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
     
     Opmerking: De URL mislukt mogelijk niet in browsers die een soepelere validatie van HTTP-headers. Zie dit blogbericht voor een gedetailleerde uitleg van dit probleem: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
     
-* *Ik zie niet alle gerelateerde telemetrie aan de serverzijde op testfouten?*
+* *Ik zie geen gerelateerde telemetriegegevens van de server om testfouten vast te stellen*
     
     Als u Application Insights hebt ingesteld voor uw app aan serverzijde, kan dit komen doordat er [steekproeven](../../azure-monitor/app/sampling.md) worden uitgevoerd. Selecteer een andere beschikbaarheidsset-resultaat.
 
@@ -335,7 +335,7 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 
     De twee voorwaarden kunnen door elkaar worden gebruikt. 'Beschikbaarheidstest' is een algemenere term waar niet alleen webtests met meerdere stappen, maar ook tests met enkele URL-ping onder vallen.
     
-* *Ik wil graag beschikbaarheidstests gebruiken voor onze interne server die achter een firewall wordt uitgevoerd.*
+* *Ik wil graag beschikbaarheidstests gebruiken op onze interne server die achter een firewall wordt uitgevoerd.*
 
     Er zijn twee mogelijke oplossingen:
     
@@ -380,7 +380,7 @@ Gebruik de nieuwe waarschuwing ervaring/bijna realtime waarschuwingen als u meld
 
 [Problemen oplossen][qna]
 
-[IP-adressen van de webtest-agents](../../azure-monitor/app/ip-addresses.md)
+[IP-adressen van webtest-agents](../../azure-monitor/app/ip-addresses.md)
 
 <!--Link references-->
 

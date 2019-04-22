@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
 ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895965"
 ---
 # <a name="what-is-video-indexer"></a>Wat is Video Indexer?
@@ -79,6 +79,6 @@ Hieronder vindt u enkele scenario's waarin Video Indexer van pas kan komen:
 
 U kunt aan de slag met Video Indexer. Raadpleeg voor meer informatie de volgende artikelen:
 
-- [Aan de slag met de website Video Indexer](video-indexer-get-started.md)
-- [Verwerken met Video Indexer REST-API-inhoud](video-indexer-use-apis.md)
-- [Visual widgets insluiten in uw toepassing](video-indexer-embed-widgets.md)
+- [Aan de slag met de Video Indexer-website](video-indexer-get-started.md)
+- [REST-API van Video Indexer gebruiken](video-indexer-use-apis.md)
+- [Video Indexer-widgets insluiten in uw toepassingen](video-indexer-embed-widgets.md)

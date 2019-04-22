@@ -11,10 +11,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 8b7c2a088dc917c319acf6cad251ad53367a14b6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895034"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Mainframe opnieuw hosten op Azure virtual machines
@@ -53,7 +53,7 @@ TmaxSoft OpenFrame is een populaire mainframe rehosting oplossing gebruikt in li
 Aan de slag gaan:
 
 - [Aan de slag met TmaxSoft OpenFrame](./tmaxsoft/get-started.md)
-- [eBook downloaden](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-azure/)
+- [Ebook downloaden](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-azure/)
 
 ## <a name="ibm-zdt-120"></a>IBM zD&T 12.0
 
@@ -92,7 +92,7 @@ Met Azure IaaS, zoals een virtuele machine, bieden specifieke functies failover-
 
 Mainframes doorgaans opschalen, terwijl cloud omgevingen scale-out. Azure biedt een scala aan [Linux](/azure/virtual-machines/linux/sizes) en [Windows](/azure/virtual-machines/windows/sizes) grootten om te voldoen aan uw behoeften. De cloud kan ook worden geschaald omhoog of omlaag overeenkomst gebruiker exacte specificaties. Rekenkracht, opslag, en services [schaal](/azure/architecture/best-practices/auto-scaling) on-demand onder een factureringsmodel op basis van gebruik.
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 
 In de cloud, hebt u een scala aan opties voor flexibele, schaalbare opslag en u betaalt alleen voor wat u nodig hebt. [Azure Storage](/azure/storage/common/storage-introduction) biedt een hoge mate schaalbare opslag voor gegevensobjecten, een bestandssysteemservice voor de cloud, een berichtenarchief voor betrouwbare en een NoSQL-archief. Beheerde en onbeheerde schijven bieden voor virtuele machines, permanente, beveiligde schijfopslag.
 
@@ -119,7 +119,7 @@ Zie ook:
 - [Technische documenten over mainframe-onderwerpen](mainframe-white-papers.md)
 - [Mainframe-migratie](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [Problemen oplossen](/azure/virtual-machines/troubleshooting/)
-- [Duidelijke informatie over mainframe-migratie naar Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
+- [Mainframe ontrafelen aan Azure-migratie](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

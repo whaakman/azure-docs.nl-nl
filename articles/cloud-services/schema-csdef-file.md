@@ -14,10 +14,10 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 4e018af7df64c9ed8050a3c618cf2645d5509cdd
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918498"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>De definitie van Schema (.csdef-bestand) voor Azure Cloud Services
@@ -57,17 +57,17 @@ De basisindeling van het servicedefinitiebestand is als volgt.
 ## <a name="schema-definitions"></a>Schemadefinities
 De volgende onderwerpen wordt beschreven voor het schema:
 
-- [LoadBalancerProbe-schema](schema-csdef-loadbalancerprobe.md)
-- [WebRole-schema](schema-csdef-webrole.md)
-- [WorkerRole-schema](schema-csdef-workerrole.md)
-- [NetworkTrafficRules-schema](schema-csdef-networktrafficrules.md)
+- [LoadBalancerProbe Schema](schema-csdef-loadbalancerprobe.md)
+- [WebRole Schema](schema-csdef-webrole.md)
+- [WorkerRole Schema](schema-csdef-workerrole.md)
+- [NetworkTrafficRules Schema](schema-csdef-networktrafficrules.md)
 
 ##  <a name="ServiceDefinition"></a> ServiceDefinition-Element
 De `ServiceDefinition` -element is het element op het hoogste niveau van het servicedefinitiebestand.
 
 De volgende tabel beschrijft de kenmerken van de `ServiceDefinition` element.
 
-| Kenmerk               | Beschrijving |
+| Kenmerk               | Description |
 | ----------------------- | ----------- |
 | naam                    |Vereist. De naam van de service. De naam moet uniek zijn binnen het serviceaccount.|
 | topologyChangeDiscovery | Optioneel. Hiermee geeft u het type topologie wijzigingsmelding. Mogelijke waarden zijn:<br /><br /> -   `Blast` -De update zo snel mogelijk verzendt naar alle rolinstanties. Als u kiest, moet de rol van de update topologie zonder wordt opnieuw opgestart overweg kan met zijn.<br />-   `UpgradeDomainWalk` – Verzendt de update naar elke rolinstantie in een sequentiële wijze nadat het vorige exemplaar heeft de update is geaccepteerd.|

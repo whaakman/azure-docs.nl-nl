@@ -9,15 +9,15 @@ ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
 ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904114"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection voor Azure Storage
 
-Advanced Threat Protection voor Azure Storage biedt een extra laag met beveiligingsinformatie die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van opslagaccounts gedetecteerd. Deze extra beveiliging kunt u om bedreigingen zonder de noodzaak om te worden van een beveiligingsexpert of beheren van controle beveiligingssystemen. 
+Advanced Threat Protection voor Azure Storage biedt een extra laag met beveiligingsinformatie voor de detectie van ongebruikelijke en mogelijk schadelijke pogingen om toegang te verkrijgen tot of aanvallen op opslagaccounts. Deze extra beveiliging kunt u om bedreigingen zonder de noodzaak om te worden van een beveiligingsexpert of beheren van controle beveiligingssystemen. 
 
 Beveiligingswaarschuwingen worden geactiveerd bij afwijkingen in de activiteit is uitgevoerd.  Deze waarschuwingen zijn geïntegreerd met [Azure Security Center](https://azure.microsoft.com/services/security-center/), en ook via e-mail worden verzonden naar alle abonnementsbeheerders met details van verdachte activiteiten en aanbevelingen voor het onderzoeken en bedreigingen verhelpen.
 
@@ -80,7 +80,7 @@ Rest-API-opdrachten gebruiken voor het maken, bijwerken of de instelling van Adv
 
 Gebruik de volgende PowerShell-cmdlets:
 
-  * [Advanced Threat Protection inschakelen](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [Enable Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
   * [Ophalen van Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
   * [Advanced Threat Protection uitschakelen](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 

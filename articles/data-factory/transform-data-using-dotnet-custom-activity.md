@@ -12,16 +12,16 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904573"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1](v1/data-factory-use-custom-activities.md)
+> * [Versie 1:](v1/data-factory-use-custom-activities.md)
 > * [Huidige versie](transform-data-using-dotnet-custom-activity.md)
 
 Er zijn twee soorten activiteiten die u in een Azure Data Factory-pijplijn gebruiken kunt.
@@ -382,7 +382,7 @@ Als de groep met behulp van de standaard [autoScaleEvaluationInterval](https://m
 Zie de volgende artikelen waarin wordt uitgelegd hoe het transformeren van gegevens op andere manieren:
 
 * [U-SQL-activiteit](transform-data-using-data-lake-analytics.md)
-* [Componentactiviteit](transform-data-using-hadoop-hive.md)
+* [Hive-activiteit](transform-data-using-hadoop-hive.md)
 * [Pig-activiteit](transform-data-using-hadoop-pig.md)
 * [MapReduce-activiteit](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop-streamingactiviteit](transform-data-using-hadoop-streaming.md)

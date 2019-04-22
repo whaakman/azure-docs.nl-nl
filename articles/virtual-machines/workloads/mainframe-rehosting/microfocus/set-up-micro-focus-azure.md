@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: 33d0baf10df1882baf212c3e2c2683c8ca072fcc
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896437"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Micro Focus Enterprise Server 4.0 en Enterprise Developer 4.0 installeren op Azure
@@ -38,7 +38,7 @@ Voordat u aan de slag, bekijkt u deze vereisten voldoet:
 > [!NOTE]
 > Er is een best practice voor het instellen van een site-naar-site virtueel particulier netwerk (VPN)-tunnel of een jumpbox, zodat u toegang tot de Azure VM's kunt beheren.
 
-## <a name="install-enterprise-server"></a>Enterprise-Server installeren
+## <a name="install-enterprise-server"></a>Enterprise-server installeren
 
 1. Voor betere beveiliging en beheerbaarheid, houd rekening met het maken van een nieuwe resourcegroep voor dit project, bijvoorbeeld **RGMicroFocusEntServer**. Gebruik het eerste deel van de naam in Azure om het type resource zodat u gemakkelijk te herkennen in een lijst toe te wijzen.
 

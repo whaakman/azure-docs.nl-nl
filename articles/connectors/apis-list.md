@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
 ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895880"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connectors voor Azure Logic Apps
@@ -35,8 +35,8 @@ Connectors zijn beschikbaar als ingebouwde triggers en acties of beheerde connec
   |---|---|
   | [**Beheerde API-connectors**](#managed-api-connectors) | Het maken van logische apps die gebruikmaken van services zoals Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, en nog veel meer. | 
   | [**On-premises connectors**](#on-premises-connectors) | Na het installeren en instellen van de [on-premises gegevensgateway][gateway-doc], deze connectors helpt om uw logische apps toegang tot on-premises systemen, zoals SQL Server, SharePoint Server, Oracle DB, bestandsshares en anderen. | 
-  | [**Integratieaccountconnectoren**](#integration-account-connectors) | Beschikbaar wanneer u maken en voor een integratie-account, deze transformatie connectors betaalt en XML-validatie, coderen en decoderen van platte bestanden en verwerken van business-to-business (B2B) berichten met AS2, EDIFACT en X12 protocollen. | 
-  | [**Bedrijfsconnectoren**](#enterprise-connectors) | Bieden toegang tot bedrijfssystemen zoals SAP en IBM MQ tegen extra kosten. |
+  | [**Integratieaccountconnectors**](#integration-account-connectors) | Beschikbaar wanneer u maken en voor een integratie-account, deze transformatie connectors betaalt en XML-validatie, coderen en decoderen van platte bestanden en verwerken van business-to-business (B2B) berichten met AS2, EDIFACT en X12 protocollen. | 
+  | [**Enterprise-connectors**](#enterprise-connectors) | Bieden toegang tot bedrijfssystemen zoals SAP en IBM MQ tegen extra kosten. |
   ||| 
 
   Bijvoorbeeld, als u van Microsoft BizTalk Server gebruikmaakt, uw logische apps kunnen verbinding maken met en communiceren met uw BizTalk-Server met behulp van de [BizTalk Server-connector](#on-premises-connectors). 
@@ -176,7 +176,7 @@ Als u aangepaste API Apps of connectors openbare voor iedereen die het gebruik i
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zoek de [volledige lijst van connectors](https://docs.microsoft.com/connectors)
-* [Uw eerste logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Aangepaste connectors voor logische apps maken](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Aangepaste API's maken voor logische apps](../logic-apps/logic-apps-create-api-app.md)
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
 ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905534"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Een toepassingsgateway configureren met een interne load balancer (ILB)-eindpunt
@@ -30,7 +30,7 @@ In dit artikel leert u hoe u:
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u aan bij Azure portal op <https://portal.azure.com>
+Aanmelden bij Azure Portal op <https://portal.azure.com>
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
@@ -81,7 +81,7 @@ De back-endpool wordt gebruikt voor het routeren van aanvragen naar de back-ends
 ### <a name="install-iis"></a>IIS installeren
 
 1. Open de interactieve shell en zorg ervoor dat deze is ingesteld op **PowerShell**.
-    ![privé-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
+    ![private-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Voer de volgende opdracht uit om IIS op de virtuele machine te installeren:
 
    ```azurepowershell

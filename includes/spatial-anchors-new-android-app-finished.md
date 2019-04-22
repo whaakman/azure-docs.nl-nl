@@ -7,10 +7,10 @@ ms.topic: include
 ms.author: rgarcia
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: fcc6c10419b46d31fde20001fefccb32b7a421ce
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58919593"
 ---
 ## <a name="putting-everything-together"></a>Alles plaatsen bij elkaar
@@ -247,4 +247,4 @@ public class MainActivity extends AppCompatActivity {
 In deze zelfstudie hebt u gezien hoe u maakt een nieuwe Android-app die ARCore functionaliteit kan worden geïntegreerd met Azure ruimtelijke ankers. Ga voor meer informatie over de Azure Spatial Anchors-bibliotheek door naar de handleiding over het maken en vinden van ankers.
 
 > [!div class="nextstepaction"]
-> [Ankers maken en vinden met Azure Spatial Anchors](/azure/spatial-anchors/create-locate-anchors-overview)
+> [Create and locate anchors using Azure Spatial Anchors](/azure/spatial-anchors/create-locate-anchors-overview) (Ankers maken en vinden met Azure Spatial Anchors)

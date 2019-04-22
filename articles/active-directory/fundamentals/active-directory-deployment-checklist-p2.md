@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e9ee0d6fab96c84eee8a520d01d97faddab49f2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904182"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory-functie-Implementatiehandleiding
@@ -46,7 +46,7 @@ In deze fase inschakelen beheerders basislijn beveiligingsfuncties die u het mak
 | [Meer dan één globale beheerder aanwijzen](../users-groups-roles/directory-emergency-access.md) | Ten minste twee alleen in de cloud permanente global administrator-accounts voor gebruik toewijzen als zich een noodsituatie. Deze accounts zijn niet dagelijks worden gebruikt en lange en complexe wachtwoorden moeten hebben. | Azure AD Free |
 | [Niet-globale beheerdersrollen gebruik waar mogelijk](../users-groups-roles/directory-assign-admin-roles.md) | Geef uw beheerders alleen de benodigde toegang tot alleen de gebieden die ze nodig hebben toegang tot. Niet alle beheerders moeten globale beheerders. | Azure AD Free |
 | [Privileged Identity Management inschakelen voor het bijhouden van gebruik van beheerder-rol](../privileged-identity-management/pim-getting-started.md) | Privileged Identity Management om te beginnen met het bijhouden van het gebruik van administratieve rollen inschakelen. | Azure AD Premium P2 |
-| [Implementatie van selfservice voor wachtwoord opnieuw instellen](../authentication/howto-sspr-deployment.md) | Aanroepen van de helpdesk verminderen van wachtwoorden door medewerkers opnieuw in te stellen hun eigen wachtwoorden met behulp van beleid toe te laten u als een beheerder kan bepalen. | Azure AD Basic |
+| [Selfservice voor wachtwoordherstel implementeren](../authentication/howto-sspr-deployment.md) | Aanroepen van de helpdesk verminderen van wachtwoorden door medewerkers opnieuw in te stellen hun eigen wachtwoorden met behulp van beleid toe te laten u als een beheerder kan bepalen. | Azure AD Basic |
 | [Maak een lijst met organisatie-specifieke aangepaste uitgesloten wachtwoorden](../authentication/howto-password-ban-bad-configure.md) | Voorkomen dat gebruikers wachtwoorden die gewone woorden of zinsdelen van uw organisatie of maken. | Azure AD Basic |
 | [On-premises integratie met Azure AD wachtwoordbeveiliging inschakelen](../authentication/concept-password-ban-bad-on-premises.md) | De lijst met uitgesloten wachtwoorden naar uw on-premises adreslijst, om ervoor te zorgen wachtwoorden set on-premises zijn ook in overeenstemming met de globale uitbreiden en tenant-specifieke verboden lijsten met wachtwoorden. | Azure AD Premium P1 |
 | [Richtlijnen voor het wachtwoord van Microsofts inschakelen](https://www.microsoft.com/research/publication/password-guidance/) | Stop waarvoor gebruikers hun wachtwoord volgens een vast schema wijzigen, uitschakelen complexiteitsvereisten voldoen en uw gebruikers zijn meer apt hun wachtwoord onthouden en houd ze iets dat is beveiligd. | Azure AD Free |

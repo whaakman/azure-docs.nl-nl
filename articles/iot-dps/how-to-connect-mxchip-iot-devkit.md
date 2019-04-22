@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: jeffya
 ms.openlocfilehash: 80e4895e0b276e701a6d7f10d8fc67649db0f188
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904488"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Gebruik automatische inrichting van Azure IoT Hub Device Provisioning Service voor het registreren van de MXChip IoT DevKit met IoT Hub
@@ -83,10 +83,10 @@ In de apparaatcode, moet u opgeven de [eindpunt voor Apparaatinrichting](/azure/
   ![Device Provisioning Service-eindpunt](media/how-to-connect-mxchip-iot-devkit/endpoint.png)
 
 1. Vul de `registrationId` variabele in de code. Alleen alfanumerieke tekens, kleine letters, en het afbreekstreepje combinatie met een maximum van 128 tekens is toegestaan. Ook de waarde genoteerd.
-  ![Registratie-id](media/how-to-connect-mxchip-iot-devkit/registration-id.png)
+  ![Registratie-ID](media/how-to-connect-mxchip-iot-devkit/registration-id.png)
 
 1. Klik op `F1`, typt en selecteer **Azure IoT-apparaat Workbench: Uploaden apparaatcode**. Het begint compileren en de code uploaden naar DevKit.
-  ![Device Upload](media/how-to-connect-mxchip-iot-devkit/device-upload.png)
+  ![Apparaat uploaden](media/how-to-connect-mxchip-iot-devkit/device-upload.png)
 
 ## <a name="generate-x509-certificate"></a>X.509-certificaat genereren
 
@@ -108,10 +108,10 @@ De [attestation-mechanisme](/azure/iot-dps/concepts-device#attestation-mechanism
 ## <a name="create-a-device-enrollment-entry"></a>Een vermelding voor apparaatinschrijving maken
 
 1. Open de Service van uw apparaat inrichten in de Azure-portal, gaat u voor het beheren van inschrijvingen sectie en op **afzonderlijke registratie toevoegen**.
-  ![Afzonderlijke inschrijving toevoegen](media/how-to-connect-mxchip-iot-devkit/add-enrollment.png)
+  ![Afzonderlijke registratie toevoegen](media/how-to-connect-mxchip-iot-devkit/add-enrollment.png)
 
 1. Klik op het pictogram naast **primaire PEM- of cer-certificaatbestand** het uploaden van de `.pem` bestand dat is gegenereerd.
-  ![.Pem uploaden](media/how-to-connect-mxchip-iot-devkit/upload-pem.png)
+  ![Upload .pem](media/how-to-connect-mxchip-iot-devkit/upload-pem.png)
 
 ## <a name="verify-the-devkit-is-registered-with-azure-iot-hub"></a>Controleer of dat de DevKit is geregistreerd bij Azure IoT Hub
 
@@ -122,7 +122,7 @@ Druk op de **opnieuw** knop op uw DevKit. U ziet **DPS verbonden!** op het scher
 1. Registratie is gelukt verzendt de Device Provisioning-service de IoT Hub-URI, apparaat-ID en de versleutelde sleutel terug naar het apparaat.
 1. De IoT Hub-clienttoepassing op het apparaat verbinding maakt met uw hub.
 1. U ziet het apparaat worden weergegeven in de IoT Hub Device Explorer op geslaagde verbinding met de hub.
-  ![Apparaat geregistreerd](./media/how-to-connect-mxchip-iot-devkit/device-registered.png)
+  ![Apparaat is geregistreerd](./media/how-to-connect-mxchip-iot-devkit/device-registered.png)
 
 ## <a name="problems-and-feedback"></a>Problemen en feedback
 

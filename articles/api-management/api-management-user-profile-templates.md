@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58903757"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Profielsjablonen van de gebruiker in Azure API Management
@@ -30,7 +30,7 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
   
 -   [Abonnementen](#Subscriptions)  
   
--   [Applicaties](#Applications)  
+-   [Toepassingen](#Applications)  
   
 -   [Accountgegevens bijwerken](#UpdateAccountInfo)  
   
@@ -318,14 +318,14 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
 ### <a name="controls"></a>Besturingselementen  
  Deze sjabloon mogelijk gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
   
--   [abonnement annuleren](api-management-page-controls.md#subscription-cancel)  
+-   [subscription-cancel](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>Gegevensmodel  
   
 > [!NOTE]
 >  De [profiel](#Profile), [toepassingen](#Applications), en [abonnementen](#Subscriptions) sjablonen voor het gegevensmodel met dezelfde delen en ontvangen van dezelfde sjabloongegevens.  
   
-|Eigenschap|Type|Description|  
+|Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
 |`firstName`|string|De voornaam van de huidige gebruiker.|  
 |`lastName`|string|De achternaam van de huidige gebruiker.|  

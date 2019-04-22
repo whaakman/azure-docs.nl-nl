@@ -16,10 +16,10 @@ ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894915"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Diagnostische logboekregistratie inschakelen voor apps in Azure App Service
@@ -61,7 +61,7 @@ Als u activeert **toepassingsdiagnose**, u er ook voor kiezen de **niveau**. De 
 |**Fout** | Kritieke fout |
 |**Waarschuwing** | Waarschuwing, fout, kritiek|
 |**Informatie** | Info, waarschuwing, fout, kritiek|
-|**Uitgebreid** | Tracering, foutopsporing, Info, waarschuwing, fout, kritiek (alle categorieën) |
+|**uitgebreide** | Tracering, foutopsporing, Info, waarschuwing, fout, kritiek (alle categorieën) |
 |-|-|
 
 Voor **toepassingslogboeken**, kunt u de optie voor het systeem van bestand tijdelijk voor foutopsporing inschakelen. Deze optie nu schakelt automatisch in 12 uur. U kunt ook inschakelen op de optie blob storage een blobcontainer om te schrijven Logboeken om te selecteren.

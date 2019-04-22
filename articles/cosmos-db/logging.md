@@ -8,10 +8,10 @@ ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904862"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registratie in diagnoselogboek in Azure Cosmos DB 
@@ -440,20 +440,20 @@ De volgende tabel beschrijft de inhoud van elke logboekvermelding.
 
 | Azure Storage-veld of eigenschap | Azure Monitor-eigenschap Logboeken | Description |
 | --- | --- | --- |
-| **time** | **TimeGenerated** | De datum en tijd (UTC) wanneer de bewerking opgetreden. |
-| **resourceId** | **Resource** | Het Azure Cosmos DB-account waarvoor de logboeken zijn ingeschakeld.|
-| **category** | **Categorie** | Voor Azure Cosmos DB-Logboeken is **DataPlaneRequests** is de enige beschikbare waarde. |
-| **operationName** | **OperationName** | Naam van de bewerking. Deze waarde kan zijn dat een van de volgende bewerkingen: Maken, bijwerken, lezen, ReadFeed, verwijderen, vervangen, worden uitgevoerd, SqlQuery, Query, JSQuery, Head, HeadFeed of Upsert.   |
-| **properties** | N.v.t. | De inhoud van dit veld worden beschreven in de rijen die volgen. |
-| **activityId** | **activityId_g** | De unieke GUID voor de geregistreerde bewerking. |
-| **userAgent** | **userAgent_s** | Een tekenreeks waarmee de clientagent van de gebruiker die de aanvraag uitvoert. De indeling is {gebruiker agent name} / {version}.|
+| **tijd** | **TimeGenerated** | De datum en tijd (UTC) wanneer de bewerking opgetreden. |
+| **ResourceId** | **Resource** | Het Azure Cosmos DB-account waarvoor de logboeken zijn ingeschakeld.|
+| **Categorie** | **Categorie** | Voor Azure Cosmos DB-Logboeken is **DataPlaneRequests** is de enige beschikbare waarde. |
+| **OperationName** | **OperationName** | Naam van de bewerking. Deze waarde kan zijn dat een van de volgende bewerkingen: Maken, bijwerken, lezen, ReadFeed, verwijderen, vervangen, worden uitgevoerd, SqlQuery, Query, JSQuery, Head, HeadFeed of Upsert.   |
+| **Eigenschappen** | N.v.t. | De inhoud van dit veld worden beschreven in de rijen die volgen. |
+| **ActivityId** | **activityId_g** | De unieke GUID voor de geregistreerde bewerking. |
+| **UserAgent** | **userAgent_s** | Een tekenreeks waarmee de clientagent van de gebruiker die de aanvraag uitvoert. De indeling is {gebruiker agent name} / {version}.|
 | **requestResourceType** | **requestResourceType_s** | Het type van de toegang tot bronnen. Deze waarde kan een van de volgende resourcetypen zijn: Database, Container, Document, bijlage, gebruikers, machtigingen, StoredProcedure, Trigger, UserDefinedFunction of aanbieding. |
 | **statusCode** | **statusCode_s** | De reactiestatus van de bewerking. |
 | **requestResourceId** | **ResourceId** | De resourceId die betrekking hebben op de aanvraag. De waarde kan verwijzen naar databaseRid, collectionRid of documentRid, afhankelijk van de bewerking die wordt uitgevoerd.|
 | **clientIpAddress** | **clientIpAddress_s** | IP-adres van de client. |
 | **requestCharge** | **requestCharge_s** | Het aantal ru's die worden gebruikt door de bewerking |
 | **collectionRid** | **collectionId_s** | De unieke ID voor de verzameling.|
-| **duur** | **duration_s** | De duur van de bewerking, in tikken. |
+| **Duur** | **duration_s** | De duur van de bewerking, in tikken. |
 | **requestLength** | **requestLength_s** | De lengte van de aanvraag, in bytes. |
 | **responseLength** | **responseLength_s** | De lengte van het antwoord, in bytes.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Deze waarde is niet leeg zijn wanneer [brontokens](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) worden gebruikt voor verificatie. De waarde verwijst naar de resource-ID van de gebruiker. |
