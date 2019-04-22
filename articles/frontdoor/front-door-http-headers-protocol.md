@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861839"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Protocolondersteuning voor HTTP-headers in Azure voordeur Service
@@ -54,7 +54,7 @@ Alle headers worden verzonden naar de voordeur vanaf de back-end zijn ook doorge
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een Front Door maken](quickstart-create-front-door.md)
+- [Maken van een voordeur](quickstart-create-front-door.md)
 - [De werking van de voordeur](front-door-routing-architecture.md)
 
 <!--Image references-->

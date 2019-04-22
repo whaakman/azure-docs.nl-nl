@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
 ms.openlocfilehash: fbd876ad46342dec7e2e73b92d3aafbd37cc205b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892293"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>U moet kiezen als Azure AD Domain Services is geschikt voor uw use-casescenario
@@ -40,7 +40,7 @@ De volgende tabel kunt u kiezen tussen het gebruik van Azure AD Domain Services 
 | [**Beveiligde implementaties**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Er moet een beheerder voor het beveiligen van de implementatie. |
 | [**DNS-server**](active-directory-ds-comparison.md#dns-server) |**&#x2713;**(beheerde service) |**&#x2713;** |
 | [**Domein- of administrator-bevoegdheden**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
-| [**Lid maken van domein**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
+| [**Aan domein toevoegen**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Domeinverificatie met behulp van NTLM en Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
 | [**Kerberos-beperkte overdracht**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|op basis van resource|op basis van een resource & op basis van een account|
 | [**Aangepaste OE-structuur**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |

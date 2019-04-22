@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.openlocfilehash: 012eacb172acfdeb0b82343c484c664a3f75310e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876699"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Kosten voor meerdere regio's in Azure Cosmos DB optimaliseren
@@ -31,7 +31,7 @@ In een systeem met meerdere masters, schrijft de netto beschikbare ru's voor ope
 
 U kunt u een container in West-Amerika hebt ingericht met doorvoer 10 K RU/s en 1 TB aan gegevens van deze maand worden opgeslagen. Stel dat u toevoegt drie regio's: VS-Oost, Noord-Europa en Oost-Azië, elk met dezelfde opslag en doorvoer en u wilt dat de mogelijkheid om te schrijven naar de containers in alle vier regio's van uw wereldwijd gedistribueerde app. Uw totale maandfactuur (uitgaande van 31 dagen) in een maand is als volgt:
 
-|**Item**|**Gebruik (maandelijks)**|**Tarief**|**Maandelijkse kosten**|
+|**Item**|**Gebruik (maandelijks)**|**Snelheid**|**Maandelijkse kosten**|
 |----|----|----|----|
 |Doorvoerfactuur voor container in West-Amerika (meerdere regio's de schrijven) |10 K RU/s * 24 uur per dag * 31 |$0,016 per 100 RU/s per uur |$1,190.40 |
 |Doorvoerfactuur voor 3 extra regio's: VS-Oost, Noord-Europa en Oost-Azië (meerdere regio's de schrijven) |(3 + 1) * 10 K RU/s * 24 uur per dag * 31 |$0,016 per 100 RU/s per uur |$4,761.60 |

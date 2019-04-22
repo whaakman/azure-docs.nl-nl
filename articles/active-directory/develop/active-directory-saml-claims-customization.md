@@ -19,10 +19,10 @@ ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878567"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedure: In het SAML-token voor bedrijfstoepassingen uitgegeven claims aanpassen
@@ -62,10 +62,10 @@ Uit de **id indeling kiezen** vervolgkeuzelijst, kunt u een van de volgende opti
 | NameID-indeling | Description |
 |---------------|-------------|
 | **Standaard** | Azure AD wordt de standaardindeling voor de gegevensbron gebruikt. |
-| **Permanent** | Azure AD wordt Persistent gebruikt als de NameID-indeling. |
+| **Persistent** | Azure AD wordt Persistent gebruikt als de NameID-indeling. |
 | **EmailAddress** | Azure AD gebruikt EmailAddress als de NameID-indeling. |
-| **Niet opgegeven** | Azure AD gebruikt als de NameID-indeling niet opgegeven. |
-| **Tijdelijke** | Azure AD wordt tijdelijk gebruikt als de NameID-indeling. |
+| **Niet-opgegeven** | Azure AD gebruikt als de NameID-indeling niet opgegeven. |
+| **Transient** | Azure AD wordt tijdelijk gebruikt als de NameID-indeling. |
 
 Zie voor meer informatie over het kenmerk NameIDPolicy [Single Sign-On SAML-protocol](single-sign-on-saml-protocol.md).
 
@@ -73,7 +73,7 @@ Zie voor meer informatie over het kenmerk NameIDPolicy [Single Sign-On SAML-prot
 
 Selecteer de gewenste bron voor de `NameIdentifier` (of NameID) claim. U kunt kiezen uit de volgende opties.
 
-| Name | Beschrijving |
+| Name | Description |
 |------|-------------|
 | Email | E-mailadres van de gebruiker |
 | userprincipalName | User principal name (UPN) van de gebruiker |
@@ -89,7 +89,7 @@ Zie voor meer informatie, [tabel 3: Id-waarden per bron](active-directory-claims
 
 U kunt ook de claims transformaties-functies gebruiken.
 
-| Function | Description |
+| Function | Beschrijving |
 |----------|-------------|
 | **ExtractMailPrefix()** | Hiermee verwijdert u het domeinachtervoegsel van het e-mailadres of de user principal name. Alleen het eerste deel van de naam van de gebruiker wordt doorgegeven via geëxtraheerd (bijvoorbeeld 'joe_smith' in plaats van joe_smith@contoso.com). |
 | **Join()** | Lid wordt van een kenmerk met een geverifieerd domein. Als de geselecteerde gebruiker-id-waarde een domein heeft, wordt deze de gebruikersnaam voor het toevoegen van het geverifieerde domein voor geselecteerde extraheren. Bijvoorbeeld, als u het e-mailbericht (joe_smith@contoso.com) als de waarde van de gebruiker-id en selecteer contoso.onmicrosoft.com als het geverifieerde domein voor, resulteert dit in joe_smith@contoso.onmicrosoft.com. |

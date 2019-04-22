@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 4/1/2019
 ms.author: victorh
 ms.openlocfilehash: f686c8ac53db2d128cf5bb20f252c547348e5ac7
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58863097"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Wat is er nieuw in Azure Application Gateway?
@@ -25,7 +25,7 @@ Azure Application Gateway wordt regelmatig bijgewerkt. Als u wilt bijhouden met 
 
 ## <a name="new-features"></a>Nieuwe functies
 
-|Functie  |Beschrijving  |Datum toegevoegd  |
+|Functie  |Description  |Datum toegevoegd  |
 |---------|---------|---------|
 |Koptekst CRUD/Regeneraties     |U kunt nu de HTTP-headers herschrijven. Zie [zelfstudie: Een toepassingsgateway maken en te herschrijven van HTTP-headers](tutorial-http-header-rewrite-powershell.md) voor meer informatie.|December 2018|
 |Lijst met de configuratie en uitsluiting van WAF     |Er is meer opties voor het configureren van uw WAF en fout-positieven toegevoegd. Zie [Web application firewall-aanvraaglimieten grootte en uitsluitingslijsten](application-gateway-waf-configuration.md) voor meer informatie.|December 2018|

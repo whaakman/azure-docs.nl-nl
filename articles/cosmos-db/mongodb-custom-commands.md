@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876885"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB-extensie-opdrachten gebruiken voor het beheren van gegevens die zijn opgeslagen in Azure Cosmos DB-API voor MongoDB 
@@ -43,7 +43,7 @@ De opdracht create database extensie maakt een nieuwe MongoDB-database. Naam van
 
 De volgende tabel beschrijft de parameters in de opdracht:
 
-|**Veld**|**Type** |**Description** |
+|**Veld**|**Type** |**Beschrijving** |
 |---------|---------|---------|
 | CustomAction   |  string  |   De naam van de aangepaste opdracht, moet deze 'CreateDatabase'.      |
 | offerThroughput | int  | Ingerichte doorvoer die u op de database instelt. Deze parameter is optioneel. |
@@ -118,7 +118,7 @@ Met de opdracht get-database extension retourneert het databaseobject. Naam van 
 De volgende tabel beschrijft de parameters in de opdracht:
 
 
-|**Veld**|**Type** |**Description** |
+|**Veld**|**Type** |**Beschrijving** |
 |---------|---------|---------|
 |  CustomAction   |   string      |   Naam van de aangepaste opdracht. Moet "GetDatabase"|
         
@@ -160,7 +160,7 @@ De opdracht voor gegevensextensies verzameling maken maakt een nieuwe MongoDB-ve
 
 De volgende tabel beschrijft de parameters in de opdracht:
 
-|**Veld**|**Type** |**Description** |
+|**Veld**|**Type** |**Beschrijving** |
 |---------|---------|---------|
 | CustomAction    | string | Naam van de aangepaste opdracht. 'CreateDatabase' moet zijn     |
 | verzameling      | string | Naam van de verzameling                                   |
@@ -205,7 +205,7 @@ De opdracht voor gegevensextensies verzameling update werkt de eigenschappen die
 
 De volgende tabel beschrijft de parameters in de opdracht:
 
-|**Veld**|**Type** |**Description** |
+|**Veld**|**Type** |**Beschrijving** |
 |---------|---------|---------|
 |  CustomAction   |   string      |   Naam van de aangepaste opdracht. Moet 'UpdateCollection'.      |
 |  verzameling   |   string      |   Naam van de verzameling.       |
@@ -240,7 +240,7 @@ De opdracht get-verzameling aangepaste retourneert het verzamelingsobject.
 De volgende tabel beschrijft de parameters in de opdracht:
 
 
-|**Veld**|**Type** |**Description** |
+|**Veld**|**Type** |**Beschrijving** |
 |---------|---------|---------|
 | CustomAction    |   string      |   Naam van de aangepaste opdracht. Moet 'GetCollection'.      |
 | verzameling    |    string     |    Naam van de verzameling.     |
@@ -250,7 +250,7 @@ De volgende tabel beschrijft de parameters in de opdracht:
 Als de opdracht is geslaagd, bevat het antwoord een document met de volgende velden
 
 
-|**Veld**|**Type** |**Description** |
+|**Veld**|**Type** |**Beschrijving** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   De status van de reactie. 1 == geslaagd. 0 mislukte ==.      |
 | `database`    |    `string`     |   Naam van de database.      |
@@ -275,7 +275,7 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 
 Als niet is opgegeven, bevat een aangepast antwoord een document met de volgende velden:
 
-|**Veld**|**Type** |**Description** |
+|**Veld**|**Type** |**Beschrijving** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   De status van de reactie. 1 == geslaagd. 0 mislukte ==.      |
 | `code`    |   `int`      |   Alleen geretourneerd wanneer de opdracht is mislukt (dat wil zeggen ok == 0). Bevat de MongoDB-foutcode. Dit is een optionele antwoord-parameter.      |
@@ -285,5 +285,5 @@ Als niet is opgegeven, bevat een aangepast antwoord een document met de volgende
 
 Vervolgens kunt u doorgaan met het leren van de volgende Azure Cosmos DB-concepten: 
 
-* [Indexeren in Azure Cosmos DB](../cosmos-db/index-policy.md)
-* [Gegevens in Azure Cosmos DB met time to live van automatisch laten verlopen](../cosmos-db/time-to-live.md)
+* [Indexering in Azure Cosmos DB](../cosmos-db/index-policy.md)
+* [Gegevens in Azure Cosmos DB automatisch laten verlopen met TTL](../cosmos-db/time-to-live.md)

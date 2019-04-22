@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
 ms.openlocfilehash: 29efa963a254913e3d4744ade1d161c5c8ce42e4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893347"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Een Xamarin.Android-app maken
@@ -71,7 +71,7 @@ Als u er problemen zijn met het bouwen van de oplossing, voert u NuGet Package M
 Alle ondersteuningspakketten waarnaar wordt verwezen in uw project, moeten dezelfde versie hebben. Het [Azure Mobile Apps NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) heeft `Xamarin.Android.Support.CustomTabs`-afhankelijkheid voor het Android-platform, dus als uw project gebruikmaakt van nieuwere ondersteuningspakketten, moet u dit pakket met de vereiste versie rechtstreeks installeren om conflicten te voorkomen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Voeg offlinesynchronisatie toe aan uw app](app-service-mobile-xamarin-android-get-started-offline-data.md)
+* [Offlinesynchronisatie toevoegen aan uw app](app-service-mobile-xamarin-android-get-started-offline-data.md)
 * [Verificatie toevoegen aan uw app](app-service-mobile-xamarin-android-get-started-users.md)
 * [Pushmeldingen toevoegen aan uw Xamarin.Android-app](app-service-mobile-xamarin-android-get-started-push.md)
 * [De beheerde client gebruiken voor Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)

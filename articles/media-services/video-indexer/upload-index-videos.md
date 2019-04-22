@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
 ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893449"
 ---
 # <a name="upload-and-index-your-videos"></a>Uw video's uploaden en indexeren  
@@ -85,9 +85,9 @@ Een URL die wordt gebruikt om de klant (met een POST-aanvraag) op de hoogte te s
 
 Gebruik deze parameter als onbewerkte of externe opnamen achtergrondgeluiden bevatten. Deze parameter wordt gebruikt voor het configureren van het indexeringsproces. U kunt de volgende waarden opgeven:
 
-- `Default` – Te indexeren en extraheren van inzichten met behulp van zowel audio en video
-- `AudioOnly` – Te indexeren en extraheren van inzichten met behulp van audio alleen (wordt genegeerd video)
-- `DefaultWithNoiseReduction` – Index en het inzicht van zowel audio en video, tijdens het toepassen van ruis vermindering algoritmen op audiostream
+- `Default`: indexeren en inzichten extraheren met behulp van zowel audio als video
+- `AudioOnly`: indexeren en inzichten extraheren met behulp van alleen audio (video wordt genegeerd)
+- `DefaultWithNoiseReduction`: indexeren en inzichten extraheren met behulp van zowel audio als video, waarbij algoritmen voor ruisvermindering worden toegepast op de audiostroom
 
 De prijs is afhankelijk van de geselecteerde optie voor indexering.  
 

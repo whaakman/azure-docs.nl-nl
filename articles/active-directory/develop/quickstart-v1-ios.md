@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9d986ccbf92192c1fb7375e9db1fb398ed86a829
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879961"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Quickstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een iOS-app
@@ -112,8 +112,8 @@ Nu u een toepassing hebt in Azure AD, kunt u ADAL installeren en uw aan identite
 
 1. Open in het snelstartproject het plist-bestand `settings.plist`.
 1. Vervang de waarden van de elementen in de sectie overeenkomstig de waarden die u hebt ingevoerd in de Azure Portal. Uw code verwijst naar deze waarden wanneer deze gebruikmaakt van ADAL.
-    * `tenant` is het domein van uw Azure AD-tenant, bijvoorbeeld contoso.onmicrosoft.com.
-    * `clientId` is de client-ID van uw toepassing die u hebt gekopieerd uit de portal.
+    * `tenant` is het domein van de Azure AD-tenant, bijvoorbeeld contoso.onmicrosoft.com.
+    * `clientId` is de client-id van uw toepassing die u hebt gekopieerd uit de portal.
     * `redirectUri` is de omleidings-URL die u in de portal hebt geregistreerd.
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Stap 4: ADAL gebruiken om tokens op te halen uit Azure AD
@@ -259,5 +259,5 @@ Als naslaginformatie wordt het volledige voorbeeld (zonder uw configuratiewaarde
 
 Nu kunt u verdergaan met aanvullende scenario's. U wordt geadviseerd eerst de volgende te proberen:
 
-* [Een Node.JS-Web-API met Azure AD beveiligen](quickstart-v1-nodejs-webapi.md)
+* [Een Node.JS Web API beveiligen met Azure AD](quickstart-v1-nodejs-webapi.md)
 * Informatie over [SSO tussen apps inschakelen voor iOS met behulp van ADAL](howto-v1-enable-sso-ios.md)  

@@ -16,10 +16,10 @@ ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
 ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893738"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Zelfstudie: een cache-aside-leaderboard maken in ASP.NET
@@ -688,8 +688,8 @@ In deze sectie richt u een nieuwe SQL Azure-database in voor de app die moet wor
 
     | Tijdelijke aanduiding | Voorgestelde waarde |
     | --- | --- |
-    | *{your_username}* | Gebruik de **aanmeldgegevens van de serverbeheerder** voor de databaseserver die u net hebt gemaakt. |
-    | *{your_password}* | Gebruik het wachtwoord voor de databaseserver die u net hebt gemaakt. |
+    | *{uw_gebruikersnaam}* | Gebruik de **aanmeldgegevens van de serverbeheerder** voor de databaseserver die u net hebt gemaakt. |
+    | *{uw_wachtwoord}* | Gebruik het wachtwoord voor de databaseserver die u net hebt gemaakt. |
 
     Door de gebruikersnaam en het wachtwoord toe te voegen als een toepassingsinstelling, worden uw gebruikersnaam en wachtwoord niet opgenomen in de code. Met deze methode beschermt u deze referenties.
 

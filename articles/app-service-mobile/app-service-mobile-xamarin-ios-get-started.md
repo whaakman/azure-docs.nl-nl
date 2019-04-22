@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 03fb286bd24bb12f3a1e508627a2de156e185568
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892429"
 ---
 # <a name="create-a-xamarinios-app"></a>Een Xamarin.iOS-app maken
@@ -49,7 +49,7 @@ Volg de onderstaande stappen voor het configureren van het serverproject voor he
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-xamarinios-app"></a>De Xamarin iOS-app downloaden en uitvoeren
-1. Open de [Azure Portal] in een browservenster.
+1. Open de [Azure-portal] in een browservenster.
 2. Klik op de blade Instellingen voor uw Mobile App op **Aan de slag** > **Xamarin.iOS**. Klik in stap 3 op **Een nieuwe app maken** als deze optie nog niet is geselecteerd.  Klik vervolgens op de knop **Downloaden**.
 
       Een clienttoepassing die verbinding maakt met uw mobiele back-end wordt gedownload. Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
@@ -71,7 +71,7 @@ Volg de onderstaande stappen voor het configureren van het serverproject voor he
 >
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Voeg offlinesynchronisatie toe aan uw app](app-service-mobile-xamarin-ios-get-started-offline-data.md)
+* [Offlinesynchronisatie toevoegen aan uw app](app-service-mobile-xamarin-ios-get-started-offline-data.md)
 * [Verificatie toevoegen aan uw app](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Pushmeldingen toevoegen aan uw Xamarin.Android-app](app-service-mobile-xamarin-ios-get-started-push.md)
 * [De beheerde client gebruiken voor Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
@@ -88,4 +88,4 @@ Volg de onderstaande stappen voor het configureren van het serverproject voor he
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.com/
+[Azure-portal]: https://portal.azure.com/

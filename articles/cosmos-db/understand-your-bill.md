@@ -8,10 +8,10 @@ ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: d3bfe1b54409fd57f7535bac2362dc7040975061
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877626"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Meer informatie over uw factuur voor Azure Cosmos DB
@@ -94,7 +94,7 @@ U kunt toevoegen/verwijderen Azure-regio's overal ter wereld bij uw Azure Cosmos
 
 Stel, dat u hebt een Azure Cosmos-container in West-Amerika. De container wordt gemaakt met doorvoer 10 K RU/sec. en u deze maand 1 TB aan gegevens opslaan. Stel dat u drie regio's (VS-Oost, Noord-Europa en Oost-Azië) toevoegen aan uw Azure Cosmos-account, elk met de dezelfde opslag en doorvoer. Uw totale maandfactuur zal worden (uitgaande van 30 dagen in een maand). Uw factuur wordt als volgt: 
 
-|**Item** |**Gebruik (maand)** |**Tarief** |**Maandelijkse kosten** |
+|**Item** |**Gebruik (maand)** |**Snelheid** |**Maandelijkse kosten** |
 |---------|---------|---------|-------|
 |Doorvoerfactuur voor container in US - west      | 10 K RU/sec. * 24 * 30    |$0.008 per 100 RU/sec. per uur   |$576|
 |Doorvoerfactuur voor drie extra regio's: US - oost, Europa - noord en Azië - oost       | 3 * 10K RU/sec. * 24 * 30    |$0.008 per 100 RU/sec. per uur  |$1,728|
@@ -108,7 +108,7 @@ Stel, dat u hebt een Azure Cosmos-container in West-Amerika. De container wordt 
 
 Stel dat u een Azure Cosmos-container maken in VS-West. De container wordt gemaakt met doorvoer 10 K RU/sec. en u deze maand 1 TB aan gegevens opslaan. Stel dat u toevoegt drie regio's (VS-Oost, Noord-Europa en Oost-Azië), elk met dezelfde opslag en doorvoer en u wilt dat de mogelijkheid om te schrijven naar de containers in alle regio's die zijn gekoppeld aan uw Azure Cosmos-account. Uw totale maandfactuur zal worden (uitgaande van 30 dagen in een maand) als volgt:
 
-|**Item** |**Gebruik (maand)**|**Tarief** |**Maandelijkse kosten** |
+|**Item** |**Gebruik (maand)**|**Snelheid** |**Maandelijkse kosten** |
 |---------|---------|---------|-------|
 |Doorvoerfactuur voor container in West-Amerika (alle regio's worden geschreven)       | 10 K RU/sec. * 24 * 30    |$0,016 per 100 RU/sec. per uur    |$1,152 |
 |Doorvoerfactuur voor 3 extra regio's: VS-Oost, Noord-Europa en Oost-Azië (alle regio's worden geschreven)        | (3 + 1) * 10 K RU/sec. * 24 * 30    |$0,016 per 100 RU/sec. per uur   |$4,608 |
@@ -178,7 +178,7 @@ De wijzigingen in de totale ingerichte doorvoer 720 kantooruren voor de maand zi
 
 De totale maandelijkse factuur wordt worden (uitgaande van 30 dagen/720 uur per maand) wordt als volgt berekend:
 
-|**Uren**  |**RU/s** |**Item** |**Gebruik (per uur)** |**Kosten** |
+|**Uur**  |**RU/s** |**Item** |**Gebruik (per uur)** |**Kosten** |
 |---------|---------|---------|-------|-------|
 |[0-100] |D1:10K <br/>D2:30K <br/>C1:20K |Doorvoerfactuur voor container in West-Amerika (alle regio's worden geschreven)  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$960  |
 | | |Doorvoerfactuur voor 2 regio's: VS-Oost, Noord-Europa (alle regio's worden geschreven)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2,880  |
@@ -234,7 +234,7 @@ Azure Cosmos DB gereserveerde capaciteit kunt u om aan te schaffen ingerichte do
 
 Uw totale factuur (zonder gereserveerde capaciteit) zijn (uitgaande 30 dagen of uren 720): 
 
-|**Regio**| **Prijs per 100 RU/s per uur**|**Eenheden (RU/s)**|**Gefactureerd bedrag (per uur)**| **Gefactureerd bedrag (per maand)**|
+|**Regio**| **Prijs per 100 RU/s per uur**|**Eenheden (RU/s)**|**Gefactureerd bedrag (per uur)**| **Gefactureerd bedrag (maandelijks)**|
 |----|----|----|----|----|
 |US - oost|$0.008 |50 K|$4|$2,880 |
 |Japan - oost|$0.009 |50 K| $4.50 |$3,240 |
@@ -248,7 +248,7 @@ Laten we eens dat u in plaats daarvan gereserveerde capaciteit hebt gekocht. U k
 
 Wat u daadwerkelijk hebt aangeschaft, is een tegoed van $8 per uur voor 100 K RU/sec. met behulp van de catalogusprijs in VS-Oost, voor de prijs van $6.40 per uur. U kunt vervolgens tekenen omlaag vanaf deze reservering vooraf betaalde doorvoer op uurbasis voor de capaciteit van de ingerichte doorvoer in een globale Azure-regio op de desbetreffende regionale prijzen instellen voor uw abonnement. In dit voorbeeld, waarin u 50 K RU/sec. elke in VS-Oost en Japan-Oost inricht, u kunt tekenen $8.00 waard is om van de ingerichte doorvoer per uur, en wordt de overschrijding van $0,50 per uur (of $360/ maand) in rekening gebracht. 
 
-|**Regio**| **Prijs per 100 RU/s per uur**|**Eenheden (RU/s)**| **Gefactureerd bedrag (per uur)**| **Gefactureerd bedrag (per maand)**|
+|**Regio**| **Prijs per 100 RU/s per uur**|**Eenheden (RU/s)**| **Gefactureerd bedrag (per uur)**| **Gefactureerd bedrag (maandelijks)**|
 |----|----|----|----|----|
 |US - oost|$0.008 |50 K|$4|$2,880 |
 |Japan - oost|$0.009 |50 K| $4.50 |$3,240 |

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/18/2019
 ms.author: mlottner
 ms.openlocfilehash: 49decb2d67c8ff16f9912fea8e8ece1a3bd9feb5
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58863029"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Maak kennis met Azure Security Center voor IoT
@@ -56,7 +56,7 @@ Gebruik geavanceerde analyses en de Microsoft Intelligent Security Graph om een 
 In dit overzicht, hebt u geleerd over de functies en services van ASC voor IoT. Zie voor meer informatie over ASC voor IoT-architectuur, vereisten, en leer hoe u aan de slag, de volgende artikelen:
 
 - [Architectuur](architecture.md)
-- [Servicevereisten](service-prerequisites.md)
+- [Service-vereisten](service-prerequisites.md)
 - [Aan de slag](getting-started.md)
 - [Uw oplossing definiëren](quickstart-configure-your-solution.md)
 - [ASC voor veelgestelde vragen over IoT](resources-frequently-asked-questions.md)

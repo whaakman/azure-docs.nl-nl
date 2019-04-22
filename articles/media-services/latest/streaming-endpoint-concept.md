@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881015"
 ---
 # <a name="streaming-endpoints"></a>Streaming-eindpunten
@@ -39,10 +39,10 @@ Er zijn twee typen **streaming-eindpunten**: **Standard** en **Premium**. Het ty
 
 In de tabel worden de typen beschreven:  
 
-|Type|Schaaleenheden|Beschrijving|
+|Type|Schaaleenheden|Description|
 |--------|--------|--------|  
 |**Standaard streaming-eindpunt** (aanbevolen)|0|De Streaming-eindpunt wordt standaard een **Standard** typt, maar kan worden gewijzigd in het type Premium.<br/> Het type Standard is de aanbevolen optie voor vrijwel alle streaming scenario's en doelgroepen van elke grootte. Bij het **Standard**-type wordt uitgaande bandbreedte automatisch geschaald. De doorvoer van dit type Streaming-eindpunt is maximaal 600 Mbps. Video-fragmenten in de cache opgeslagen in het CDN, moet u de bandbreedte van het Streaming-eindpunt niet gebruiken.<br/>Voor klanten met extreem hoge eisen biedt Media Services **Premium** streaming-eindpunten, die kunnen worden gebruikt om de capaciteit uit te schalen voor de grootste doelgroepen op internet. Als u verwacht grote doelgroepen en gelijktijdige viewers dat, contact met ons op amsstreaming\@microsoft.com voor informatie over de noodzaak om te verplaatsen naar de **Premium** type. |
-|**Premium Streaming Endpoint**|>0|**Premium**-streaming-eindpunten zijn geschikt voor geavanceerde workloads omdat er gebruik wordt gemaakt van toegewezen, schaalbare bandbreedtecapaciteit. U verplaatst naar een **Premium** type door aan te passen `scaleUnits`. `scaleUnits` bieden u speciale uitgangscapaciteit die kan worden aangeschaft per 200 Mbps. Bij gebruik van het **Premium**-type biedt elke ingeschakelde eenheid extra bandbreedte voor de toepassing. |
+|**Premium-streaming-eindpunt**|>0|**Premium**-streaming-eindpunten zijn geschikt voor geavanceerde workloads omdat er gebruik wordt gemaakt van toegewezen, schaalbare bandbreedtecapaciteit. U verplaatst naar een **Premium** type door aan te passen `scaleUnits`. `scaleUnits` bieden u speciale uitgangscapaciteit die kan worden aangeschaft per 200 Mbps. Bij gebruik van het **Premium**-type biedt elke ingeschakelde eenheid extra bandbreedte voor de toepassing. |
  
 ## <a name="comparing-streaming-types"></a>Streaming typen vergelijken
 

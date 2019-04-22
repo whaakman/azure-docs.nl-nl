@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: c5814b188c73ea03094d7dae565e40ca09e705c2
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862434"
 ---
 # <a name="security-module"></a>Beveiligingsmodule
@@ -48,5 +48,5 @@ Zie [maken security moduledubbel](quickstart-create-security-twin.md) en [securi
 
 ## <a name="see-also"></a>Zie ook
 - [ASC voor IoT-Preview](overview.md)
-- [Beveiligingsagents implementeren](how-to-deploy-agent.md)
+- [Beveiliging-agents implementeren](how-to-deploy-agent.md)
 - [Security agent verificatiemethoden](concept-security-agent-authentication-methods.md)

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.openlocfilehash: ebc6388f1ebc7546ffda07095ead50797bde4e8b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884683"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Verkeer controleren volgens een schema met Azure Logic Apps
@@ -59,7 +59,7 @@ Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="htt
 
    | Instelling | Waarde | Beschrijving | 
    | ------- | ----- | ----------- | 
-   | **Name** | LA-TravelTime | De naam voor uw logische app | 
+   | **Naam** | LA-TravelTime | De naam voor uw logische app | 
    | **Abonnement** | <*your-Azure-subscription-name*> | De naam van uw Azure-abonnement | 
    | **Resourcegroep** | LA-TravelTime-RG | De naam van de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) die wordt gebruikt om verwante resources te organiseren | 
    | **Locatie** | US - oost 2 | De regio waar u informatie over uw logische app opslaat | 
@@ -78,8 +78,7 @@ Voeg vervolgens u het terugkeerpatroon [trigger](../logic-apps/logic-apps-overvi
 
    ![De trigger "Planning - Terugkeerpatroon" zoeken en toevoegen](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
-2. Op de vorm **Terugkeerpatroon** kiest u de knop met het **beletselteken** (**...** ) en kiest u **Naam wijzigen**. Wijzig de naam van de trigger met deze beschrijving:
-```Check travel time every weekday morning```
+2. Op de vorm **Terugkeerpatroon** kiest u de knop met het **beletselteken** (**...** ) en kiest u **Naam wijzigen**. Wijzig de naam van de trigger met deze beschrijving: ```Check travel time every weekday morning```
 
    ![Naam trigger wijzigen](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
@@ -130,8 +129,7 @@ Nu u een trigger hebt, voegt u een [actie](../logic-apps/logic-apps-overview.md#
    | **API-sleutel** | <*your-Bing-Maps-key*> | Voer de sleutel voor Bing Kaarten in die u eerder hebt ontvangen. Leer <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">hoe u een sleutel kunt verkrijgen</a> als u geen sleutel voor Bing Kaarten hebt. | 
    | | | |  
 
-4. Wijzig de naam van de actie met deze beschrijving:
-```Get route and travel time with traffic```
+4. Wijzig de naam van de actie met deze beschrijving: ```Get route and travel time with traffic```
 
 5. Geef details op voor de actie **Route ophalen** zoals hier wordt weergegeven en beschreven, bijvoorbeeld:
 
@@ -139,14 +137,14 @@ Nu u een trigger hebt, voegt u een [actie](../logic-apps/logic-apps-overview.md#
 
    | Instelling | Waarde | Description |
    | ------- | ----- | ----------- |
-   | **Beginpunt 1** | <*start-location*> | Het beginpunt van uw route | 
-   | **Beginpunt 2** | <*end-location*> | De bestemming van uw route | 
-   | **Avoid** | Geen | Items die u wilt vermijden op uw route, zoals snelwegen, tolwegen, enzovoort | 
+   | **Routepunt 1** | <*start-location*> | Het beginpunt van uw route | 
+   | **Routepunt 2** | <*end-location*> | De bestemming van uw route | 
+   | **Vermijden** | Geen | Items die u wilt vermijden op uw route, zoals snelwegen, tolwegen, enzovoort | 
    | **Optimaliseren** | timeWithTraffic | Een parameter voor het optimaliseren van uw route, zoals afstand, reistijd in actuele verkeerssituatie, enzovoort. Selecteer deze parameter: "timeWithTraffic" | 
    | **Afstandseenheid** | <*your-preference*> | De afstandseenheid die voor de route wordt gebruikt. In dit artikel wordt gebruikgemaakt van deze eenheid: "Mijl"  | 
    | **Vervoermiddel** | Auto | Het vervoermiddel voor uw route. Selecteer deze modus: "Driving" | 
-   | **Datum / tijd-doorvoer** | Geen | Alleen van toepassing op het vervoermiddel openbaar vervoer | 
-   | **Notering datum / tijd** | Geen | Alleen van toepassing op het vervoermiddel openbaar vervoer | 
+   | **Datum/tijd openbaar vervoer** | Geen | Alleen van toepassing op het vervoermiddel openbaar vervoer | 
+   | **Notering datum/tijd** | Geen | Alleen van toepassing op het vervoermiddel openbaar vervoer | 
    |||| 
 
    Zie [Een route berekenen](https://msdn.microsoft.com/library/ff701717.aspx) voor meer informatie over deze parameters.
@@ -167,16 +165,15 @@ De hiervoor genoemde actie **Route ophalen** retourneert standaard de actuele re
 
    ![Selecteer de actie "Variabelen - Variabele initialiseren"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
 
-3. Wijzig de naam van deze actie met deze beschrijving:
-```Create variable to store travel time```
+3. Wijzig de naam van deze actie met deze beschrijving: ```Create variable to store travel time```
 
 4. Geef details op voor uw variabele zoals hier wordt beschreven:
 
    | Instelling | Waarde | Beschrijving | 
    | ------- | ----- | ----------- | 
-   | **Name** | travelTime | De naam van uw variabele | 
+   | **Naam** | travelTime | De naam van uw variabele | 
    | **Type** | Geheel getal | Het gegevenstype van uw variabele | 
-   | **Value** | Een expressie die de actuele reistijd van seconden naar minuten converteert (zie de stappen onder deze tabel). | De beginwaarde van uw variabele | 
+   | **Waarde** | Een expressie die de actuele reistijd van seconden naar minuten converteert (zie de stappen onder deze tabel). | De beginwaarde van uw variabele | 
    |||| 
 
    1. Als u de expressie voor het veld **Waarde** wilt maken, klikt u in het veld, zodat de lijst met dynamische inhoud wordt weergegeven. 
@@ -193,7 +190,7 @@ De hiervoor genoemde actie **Route ophalen** retourneert standaard de actuele re
       Als uw browser breed wordt weergegeven, komt de lijst met dynamische inhoud tevoorschijn. 
       Als uw browser smal wordt weergegeven, verschijnt er een inline lijst met parameters onder het invoervak dat momenteel de focus heeft.
 
-   2. Voer deze expressie in de expressie-editor: ```div(,60)```
+   2. Voer deze expressie in in de expressie-editor: ```div(,60)```
 
       ![Voer deze expressie in "div(,60)"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-2.png)
 
@@ -222,7 +219,7 @@ Vervolgens voegt u een voorwaarde toe waarmee wordt gecontroleerd of de actuele 
 
 1. Kies onder de vorige actie voor **+ Nieuwe stap** > **Een voorwaarde toevoegen**. 
 
-2. Wijzig de naam van de voorwaarde in deze beschrijving: ```If travel time exceeds limit```
+2. Wijzig de naam van de voorwaarde met deze beschrijving: ```If travel time exceeds limit```
 
 3. Maak een voorwaarde waarmee wordt gecontroleerd of **travelTime** groter is dan de door u opgegeven limiet zoals hier wordt weergegeven en beschreven:
 
@@ -259,8 +256,7 @@ Voeg nu de actie toe die ervoor zorgt dat u een e-mailbericht ontvangt als de re
 
    Logic Apps maakt een verbinding met uw e-mailaccount.
 
-4. Wijzig de naam van de actie met deze beschrijving:
-```Send email with travel time```
+4. Wijzig de naam van de actie met deze beschrijving: ```Send email with travel time```
 
 5. Voer het e-mailadres van de ontvanger in het vak **Aan** in. Voor testdoeleinden dient u uw e-mailadres te gebruiken.
 

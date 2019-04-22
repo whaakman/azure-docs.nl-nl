@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882409"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Uitvoeren van acties op basis van status van de groep met een bereik in Azure Logic Apps
@@ -65,7 +65,7 @@ U kunt uw logische app op elk gewenst moment opslaan, zo vaak Sla uw werk.
 
    1. Als u nog een verbinding met Bing kaarten hebt, wordt u gevraagd om een verbinding te maken.
 
-      | Instelling | Waarde | Description |
+      | Instelling | Waarde | Beschrijving |
       | ------- | ----- | ----------- |
       | **Verbindingsnaam** | BingMapsConnection | Geef een naam op voor uw verbinding. | 
       | **API-sleutel** | <*your-Bing-Maps-key*> | Voer de sleutel voor Bing Kaarten in die u eerder hebt ontvangen. | 
@@ -79,13 +79,13 @@ U kunt uw logische app op elk gewenst moment opslaan, zo vaak Sla uw werk.
 
       | Instelling | Waarde | Description |
       | ------- | ----- | ----------- |
-      | **Beginpunt 1** | <*Start*> | Voer beginpunt van uw route. | 
-      | **Beginpunt 2** | <*end*> | Voer de bestemming van uw route. | 
-      | **Avoid** | Geen | Voer items om te voorkomen op uw route, zoals snelwegen, tolwegen, enzovoort. Zie voor mogelijke waarden [een route berekenen](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Routepunt 1** | <*Start*> | Voer beginpunt van uw route. | 
+      | **Routepunt 2** | <*end*> | Voer de bestemming van uw route. | 
+      | **Vermijden** | Geen | Voer items om te voorkomen op uw route, zoals snelwegen, tolwegen, enzovoort. Zie voor mogelijke waarden [een route berekenen](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **Optimaliseren** | timeWithTraffic | Selecteer een parameter voor het optimaliseren van uw route, zoals afstand, tijd met informatie over de huidige gegevensverkeer, enzovoort. In dit voorbeeld maakt gebruik van deze waarde: "timeWithTraffic" | 
       | **Afstandseenheid** | <*your-preference*> | Voer de Afstandseenheid die voor het berekenen van uw route. In dit voorbeeld maakt gebruik van deze waarde: "Mijl" | 
       | **Vervoermiddel** | Auto | Geef de vervoersoptie voor uw route. In dit voorbeeld wordt deze waarde "Aangedreven" | 
-      | **Datum / tijd-doorvoer** | Geen | Van toepassing op het vervoermiddel openbaar alleen. | 
+      | **Datum/tijd openbaar vervoer** | Geen | Van toepassing op het vervoermiddel openbaar alleen. | 
       | **Doorvoer datumtype Type** | Geen | Van toepassing op het vervoermiddel openbaar alleen. | 
       ||||  
 

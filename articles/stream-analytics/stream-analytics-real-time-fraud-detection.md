@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883714"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Aan de slag met Azure Stream Analytics: Fraudebewaking in realtime
@@ -184,7 +184,7 @@ Nu dat u een stream van gesprekgebeurtenissen hebt, kunt u een Stream Analytics-
  
 3. Klik op **Stroominvoer toevoegen** en selecteer **Event Hub**. Vul vervolgens de nieuwe pagina met invoer met de volgende informatie:
 
-   |**Instelling**  |**Voorgestelde waarde**  |**Description**  |
+   |**Instelling**  |**Voorgestelde waarde**  |**Beschrijving**  |
    |---------|---------|---------|
    |Invoeralias  |  CallStream   |  Voer een unieke naam in voor de invoer van de taak.   |
    |Abonnement   |  \<Uw abonnement\> |  Selecteer het Azure-abonnement waaraan de Event Hub die u hebt gemaakt.   |
@@ -354,7 +354,7 @@ Als u een bestaande blob storage-account hebt, kunt u die kunt gebruiken. Voor d
 
 4. In de **uitvoer** deelvenster, klikt u op **toevoegen** en selecteer **Blob storage**. Vul vervolgens de nieuwe pagina in de uitvoer met de volgende informatie:
 
-   |**Instelling**  |**Voorgestelde waarde**  |**Description**  |
+   |**Instelling**  |**Voorgestelde waarde**  |**Beschrijving**  |
    |---------|---------|---------|
    |Uitvoeralias  |  CallStream-FraudulentCalls   |  Voer een unieke naam in voor de uitvoer van de taak.   |
    |Abonnement   |  \<Uw abonnement\> |  Selecteer het Azure-abonnement met het opslagaccount dat u hebt gemaakt. Het opslagaccount kan voor hetzelfde of een ander abonnement gelden. Voor dit voorbeeld wordt aangenomen dat u een opslagaccount voor hetzelfde abonnement hebt gemaakt. |
@@ -415,7 +415,7 @@ U kunt deze zelfstudie met het volgende artikel:
 
 Zie voor meer informatie over Stream Analytics in het algemeen in deze artikelen:
 
-* [Kennismaking met Azure Stream Analytics](stream-analytics-introduction.md)
-* [Scale Azure Stream Analytics jobs (Azure Stream Analytics-taken schalen)](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference (Naslaggids voor Azure Stream Analytics Query)](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Management REST API Reference (REST API-naslaggids voor Azure Stream Analytics Management)](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
+* [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
+* [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -653,7 +653,7 @@ Bij het verplaatsen van gegevens naar en van Azure SQL Database, worden de volge
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numerieke |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
@@ -661,7 +661,7 @@ Bij het verplaatsen van gegevens naar en van Azure SQL Database, worden de volge
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object * |
-| text |String, Char[] |
+| tekst |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |

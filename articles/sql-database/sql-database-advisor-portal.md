@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58863199"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Zoeken en toepassen van aanbevelingen voor prestaties
@@ -39,7 +39,7 @@ Aanbevelingen voor prestaties worden weergegeven in de tabel die vergelijkbaar i
 
 Aanbevelingen worden gesorteerd op hun mogelijke invloed op de prestaties in de volgende categorieën:
 
-| Impact | Description |
+| Impact | Beschrijving |
 |:--- |:--- |
 | Hoog |Aanbevelingen voor hoge impact moeten de meeste impact prestaties bieden. |
 | Middelgroot |Normale impact aanbevelingen voor moeten de prestaties verbeteren, maar niet aanzienlijk. |
@@ -128,7 +128,7 @@ Aanbevelingen die zich in een **in behandeling**, **Validating**, of **succes** 
 
 Toepassen van een aanbeveling mogelijk niet onmiddellijk plaatsvindt. De portal bevat informatie over de status van de aanbeveling. Hier volgen de mogelijke statussen die een index, kan zich in:
 
-| Status | Beschrijving |
+| Status | Description |
 |:--- |:--- |
 | In behandeling |Aanbeveling opdracht is ontvangen en gepland voor uitvoering van toepassing. |
 | In uitvoering |De aanbeveling is toegepast. |

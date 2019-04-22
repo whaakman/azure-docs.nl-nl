@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
 ms.openlocfilehash: f3ae69cb6c8e2a60488b4f1ff3df1bb8ab0c04ea
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861975"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Azure Security Center voor IoT-beveiligingswaarschuwingen
@@ -81,7 +81,7 @@ Zie voor meer informatie, [aangepaste waarschuwingen maken](quickstart-create-cu
 
 ## <a name="built-in-alerts-for-iot-hub"></a>Ingebouwde waarschuwingen voor IoT-Hub
 
-| Severity | Name                                                                         | Beschrijving                                                                                                                                                                                                                                                                                                                            |
+| Severity | Name                                                                         | Description                                                                                                                                                                                                                                                                                                                            |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Middelgroot   | Nieuw certificaat toegevoegd aan een IoT-Hub                                    |Nieuw certificaat toegevoegd aan een IoT-hub. Als deze toevoeging niet door een geautoriseerde partij gemaakt is, kan dit wijzen op schadelijke activiteiten.                                                                                                                                                                                                    |
 | Middelgroot   | Certificaat is verwijderd van een IoT-Hub                                    | Het certificaat is verwijderd van een IoT-hub. Als deze actie niet door een geautoriseerde partij gemaakt is, kan dit wijzen op schadelijke activiteiten.                                                                                                                                                                                                |

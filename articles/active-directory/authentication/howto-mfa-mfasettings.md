@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885992"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
@@ -30,25 +30,25 @@ U hebt toegang tot de instellingen in verband met multi-factor Authentication va
 
 Sommige van deze instellingen gelden voor MFA-Server en/of de Azure MFA.
 
-| Functie | Beschrijving |
+| Functie | Description |
 | ------- | ----------- |
 | Accountvergrendeling | Tijdelijk Vergrendel accounts in de multi-factor authentication-service als er te veel verificatiepogingen in een rij geweigerd. Deze functie is alleen van toepassing op gebruikers die een pincode om te verifiëren. (MFA-Server) |
 | [Gebruikers blokkeren/deblokkeren](#block-and-unblock-users) | Gebruikt voor het blokkeren van bepaalde gebruikers op de MFA-Server (on-premises) geen multi-factor Authentication-aanvragen worden ontvangen. Alle verificatiepogingen voor geblokkeerde gebruikers worden automatisch geweigerd. Gebruikers blijven geblokkeerd gedurende 90 dagen vanaf het moment dat ze worden geblokkeerd. |
 | [Fraudewaarschuwing](#fraud-alert) | Configureren van instellingen in verband met de gebruikers de mogelijkheid voor het rapporteren van frauduleuze controle aanvragen |
 | Meldingen | Meldingen van gebeurtenissen van MFA-Server inschakelen. |
 | [OATH-tokens](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | In de cloud-Azure MFA-omgevingen gebruikt voor het beheren van OATH-tokens voor gebruikers. |
-| [Instellingen voor telefoongesprek](#phone-call-settings) | Configureer instellingen met betrekking tot telefoongesprekken en begroeting voor cloud en on-premises omgevingen. |
+| [Instellingen van telefoongesprekken](#phone-call-settings) | Configureer instellingen met betrekking tot telefoongesprekken en begroeting voor cloud en on-premises omgevingen. |
 | Providers | Hiermee wordt een bestaande verificatieproviders weergegeven dat u mogelijk hebt gekoppeld aan uw account. Nieuwe verificatieproviders kunnen niet worden gemaakt vanaf 1 September 2018 |
 
 ## <a name="manage-mfa-server"></a>MFA-server beheren
 
 Instellingen in deze sectie zijn alleen voor MFA-Server.
 
-| Functie | Beschrijving |
+| Functie | Description |
 | ------- | ----------- |
 | Serverinstellingen | MFA-Server downloaden en activeringsreferenties voor het initialiseren van uw omgeving te genereren |
 | [Eenmalige bypass](#one-time-bypass) | Toestaan dat een gebruiker verifiëren zonder verificatie in twee stappen uitvoeren voor een beperkte periode. |
-| [Regels voor opslaan in cache](#caching-rules) |  Opslaan in cache wordt voornamelijk gebruikt wanneer de on-premises systemen, zoals VPN, verzenden meerdere aanvragen voor verificatie, terwijl de eerste aanvraag nog steeds uitgevoerd wordt. Deze functie kunt de volgende aanvragen voor het automatisch uitgevoerd nadat de gebruiker is geslaagd voor de eerste verificatie wordt uitgevoerd. |
+| [Regels voor caching](#caching-rules) |  Opslaan in cache wordt voornamelijk gebruikt wanneer de on-premises systemen, zoals VPN, verzenden meerdere aanvragen voor verificatie, terwijl de eerste aanvraag nog steeds uitgevoerd wordt. Deze functie kunt de volgende aanvragen voor het automatisch uitgevoerd nadat de gebruiker is geslaagd voor de eerste verificatie wordt uitgevoerd. |
 | Serverstatus | Zie de status van uw on-premises MFA-servers met inbegrip van versie, status, IP-adres, en laatste communicatie tijd en datum. |
 
 ## <a name="activity-report"></a>Activiteitenrapport
@@ -333,7 +333,7 @@ U kunt de verificatiemethoden die beschikbaar voor uw gebruikers zijn. De volgen
 
 Wanneer uw gebruikers hun account voor Azure multi-factor Authentication registreren, kiezen ze hun gewenste verificatiemethode uit de opties die u hebt ingeschakeld. Richtlijnen voor het registratieproces voor de gebruiker is opgegeven in [instellen van mijn account voor verificatie in twee stappen](../user-help/multi-factor-authentication-end-user-first-time.md).
 
-| Methode | Description |
+| Methode | Beschrijving |
 |:--- |:--- |
 | Bellen naar telefoon |Plaatst een geautomatiseerd telefoongesprek. De gebruiker beantwoordt het gesprek en drukt # in het toetsenblok van de telefoon om te verifiëren. Het telefoonnummer is niet gesynchroniseerd met on-premises Active Directory. |
 | Sms-bericht naar telefoon |Verzendt een SMS-bericht met een verificatiecode. De gebruiker wordt gevraagd de verificatiecode invoeren in de interface van aanmelding. Dit proces heet SMS in één richting. SMS in twee richtingen betekent dat de gebruiker tekst weer een bepaalde code moet. SMS in twee richtingen is afgeschaft en wordt niet ondersteund na 14 November 2018. Gebruikers die zijn geconfigureerd voor SMS in twee richtingen worden automatisch overgeschakeld naar de _oproep naar telefoon_ verificatie op dat moment.|

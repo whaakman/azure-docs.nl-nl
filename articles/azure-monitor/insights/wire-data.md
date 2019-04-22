@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.openlocfilehash: d295a5a7eae2bdc7983e7271aa11bce1840b92dd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882069"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Wire Data 2.0 (Preview) solution in Azure Monitor
@@ -58,7 +58,7 @@ Maar aangezien u metagegevens bekijkt, is dat niet per se nuttig voor een diepga
 
 Wire Data haalt zijn gegevens uit de Microsoft-agent voor afhankelijkheden. De Agent voor afhankelijkheden, is afhankelijk van de Log Analytics-agent voor de verbindingen met Azure Monitor. Dit betekent dat een server de Log Analytics-agent geïnstalleerd en geconfigureerd met de agent voor afhankelijkheden moet hebben. De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door Wire Data.
 
-| **Verbonden bron** | **Ondersteund** | **Description** |
+| **Verbonden bron** | **Ondersteund** | **Beschrijving** |
 | --- | --- | --- |
 | Windows-agents | Ja | Wire Data analyseert en verzamelt gegevens van Windows-agentcomputers. <br><br> Naast de [Log Analytics-agent voor Windows](../../azure-monitor/platform/agent-windows.md), Windows-agents vereist de Microsoft-Agent voor afhankelijkheden. Zie de [ondersteunde besturingssystemen](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
 | Linux-agents | Ja | Wire Data analyseert en verzamelt gegevens van Linux-agentcomputers.<br><br> Naast de [Log Analytics-agent voor Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), Linux-agents vereist de Microsoft-Agent voor afhankelijkheden. Zie de [ondersteunde besturingssystemen](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
@@ -187,7 +187,7 @@ De agent voor afhankelijkheden wordt geïnstalleerd op computers met Windows via
 Gebruik de volgende stappen voor het installeren van de agent voor afhankelijkheden op elke computer met Windows:
 
 1. De volgende stappen in Log Analytics-agent installeren [gegevens verzamelen van Windows-computers die worden gehost in uw omgeving](../../azure-monitor/platform/agent-windows.md).
-2. Download de Windows-Afhankelijkheidsagent via de koppeling in de vorige sectie en vervolgens uitvoeren met behulp van de volgende opdracht uit: `InstallDependencyAgent-Windows.exe`
+2. Download de Windows-agent voor afhankelijkheden met behulp van de koppeling in de vorige sectie en voer de agent uit met behulp van de volgende opdracht: `InstallDependencyAgent-Windows.exe`
 3. Volg de wizard om de agent te installeren.
 4. Als de agent voor afhankelijkheden niet start, controleert u de logboeken voor uitgebreide foutinformatie. Voor Windows-agents is dit de logboekmap: %Programfiles%\Microsoft Dependency Agent\logs.
 
@@ -197,7 +197,7 @@ Gebruik opties uit de volgende tabel om de agent te installeren vanaf een opdrac
 
 InstallDependencyAgent-Windows.exe /?
 
-| **Vlag** | **Description** |
+| **Vlag** | **Beschrijving** |
 | --- | --- |
 | <code>/?</code> | Een lijst met de opdrachtregelopties ophalen. |
 | <code>/S</code> | Een installatie op de achtergrond uitvoeren zonder gebruikersvragen. |
@@ -222,7 +222,7 @@ Als u een overzicht van de installatievlaggen wilt zien, voert u als volgt het i
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Vlag** | **Description** |
+| **Vlag** | **Beschrijving** |
 | --- | --- |
 | <code>-help</code> | Een lijst met de opdrachtregelopties ophalen. |
 | <code>-s</code> | Een installatie op de achtergrond uitvoeren zonder gebruikersvragen. |
@@ -388,7 +388,7 @@ Wire Data verzamelt metagegevens over netwerkverkeer met behulp van de agents di
 
 Een record met het type _WireData_ is gemaakt voor elk type invoergegevens. WireData-records hebben eigenschappen die worden weergegeven in de volgende tabel:
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |---|---|
 | Computer | De naam van de computer waar gegevens zijn verzameld |
 | TimeGenerated | Tijd van de record |

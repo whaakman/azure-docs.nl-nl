@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891885"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-handleiding voor ontwikkelaars
@@ -105,7 +105,7 @@ Problemen met fouten die afkomstig zijn van de bindingen? Controleer de [foutcod
 Zie de volgende bronnen voor meer informatie:
 
 * [Azure Functions-triggers en bindingen](functions-triggers-bindings.md)
-* [Code en Azure Functions lokaal testen](./functions-develop-local.md)
+* [Azure-functies lokaal programmeren en testen](./functions-develop-local.md)
 * [Aanbevolen procedures voor Azure Functions](functions-best-practices.md)
 * [Azure Functions C# referentie voor ontwikkelaars](functions-reference-csharp.md)
 * [Referentie voor ontwikkelaars van Azure Functions-NodeJS](functions-reference-node.md)

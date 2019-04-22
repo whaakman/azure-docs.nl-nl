@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 02091f1b650e3e9932f9924bf36a5841861d3b1e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876952"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Bestandssysteembewerkingen in Azure Data Lake Storage Gen1 met .NET SDK
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java-SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST-API](data-lake-store-data-operations-rest-api.md)
+> * [REST API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 >
@@ -47,7 +47,7 @@ Dit codevoorbeeld beschikbaar [in GitHub](https://github.com/Azure-Samples/data-
 
    | Eigenschap | Value |
    | --- | --- |
-   | Categorie |Templates/Visual C#/Windows |
+   | Category |Templates/Visual C#/Windows |
    | Template |Console Application |
    | Name |CreateADLApplication |
 
@@ -59,8 +59,8 @@ Dit codevoorbeeld beschikbaar [in GitHub](https://github.com/Azure-Samples/data-
    2. Controleer op het tabblad **NuGet Package Manager** of **Package source** is ingesteld op **nuget.org** en of het selectievakje **Include prerelease** is ingeschakeld.
    3. Zoek en installeer de volgende NuGet-pakketten:
 
-      * `Microsoft.Azure.DataLake.Store` : In deze zelfstudie wordt versie 1.0.0 gebruikt.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` : In deze zelfstudie wordt versie 2.3.1 gebruikt.
+      * `Microsoft.Azure.DataLake.Store`: in deze zelfstudie wordt versie 1.0.0 gebruikt.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication`: in deze zelfstudie wordt versie 2.3.1 gebruikt.
     
       Sluit de **NuGet Package Manager**.
 
@@ -182,4 +182,4 @@ Hier volgen enkele voorbeelden over het gebruik van de Data Lake Storage Gen1 be
 * [Naslaginformatie over Data Lake Storage Gen1 .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Bescherm uw gegevens in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)

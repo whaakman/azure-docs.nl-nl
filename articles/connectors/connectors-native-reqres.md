@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892820"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Aan de slag met de aanvraag- en -onderdelen
@@ -76,7 +76,7 @@ Hier volgen de details voor de trigger die ondersteuning biedt voor deze connect
 ## <a name="response-action"></a>Reactie
 Hier volgen de details voor de actie die ondersteuning biedt voor deze connector. Er is een één-reactie die alleen kan worden gebruikt wanneer deze is voorzien van een aanvraag als trigger.
 
-| Bewerking | Description |
+| Bewerking | Beschrijving |
 | --- | --- |
 | Antwoord |Retourneert een antwoord naar de gecorreleerde HTTP-aanvraag |
 

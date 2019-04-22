@@ -11,10 +11,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
 ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882052"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Zelfstudie: Beveiliging van een beheerd exemplaar in Azure SQL Database met behulp van Azure AD-server-principals (aanmeldingen)
@@ -50,9 +50,9 @@ Zorg dat u over het volgende beschikt als u de zelfstudie wilt uitvoeren:
 - Een beheerd exemplaar van Azure SQL Database
   - Volg dit artikel: [Snelstart: Een beheerd exemplaar van Azure SQL Database maken](sql-database-managed-instance-get-started.md)
 - Toegang krijgen tot uw beheerde exemplaar en [het inrichten van een Azure AD-beheerder voor het beheerde exemplaar](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Voor meer informatie zie:
-    - [Verbinding maken met uw toepassing naar een beheerd exemplaar](sql-database-managed-instance-connect-app.md) 
-    - [Connectiviteitsarchitectuur beheerd exemplaar](sql-database-managed-instance-connectivity-architecture.md)
-    - [Configureren en beheren van Azure Active Directory-verificatie met behulp van SQL](sql-database-aad-authentication-configure.md)
+    - [Uw toepassing verbinding laten maken met een beheerd exemplaar](sql-database-managed-instance-connect-app.md) 
+    - [Connectiviteitsarchitectuur van beheerde exemplaren](sql-database-managed-instance-connectivity-architecture.md)
+    - [Verificatie van Azure Active Directory configureren en beheren met SQL](sql-database-aad-authentication-configure.md)
 
 ## <a name="limiting-access-to-your-managed-instance"></a>De toegang tot uw beheerde exemplaar beperken
 
@@ -65,11 +65,11 @@ Beheerde exemplaren kunnen alleen worden geopend via een particulier IP-adres. E
 
 De eerste Azure AD-server-principal (aanmelding) moet worden gemaakt met het standaard SQL Server-account (niet-Azure AD) dat een `sysadmin` is. Zie de volgende artikelen voor voorbeelden van verbinding maken met uw beheerd exemplaar:
 
-- [Quickstart: Configureren van virtuele Azure-machine verbinding maken met een beheerd exemplaar](sql-database-managed-instance-configure-vm.md)
-- [Quickstart: Een punt-naar-site-verbinding naar een beheerd exemplaar van on-premises configureren](sql-database-managed-instance-configure-p2s.md)
+- [Snelstart: Azure VM configureren om verbinding te maken met een beheerd exemplaar](sql-database-managed-instance-configure-vm.md)
+- [Snelstart: Vanuit on-premises een punt-naar-site-verbinding configureren naar een beheerd exemplaar](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> De Azure AD-beheerder die werd gebruikt voor het instellen van het beheerde exemplaar kan niet worden gebruikt om een Azure AD-server-principal (aanmelding) binnen het beheerde exemplaar te maken. U moet de eerste Azure AD-server-principal (aanmelding) maken met een SQL Server-account dat een `sysadmin` is. Dit is een tijdelijke beperking die wordt verwijderd zodra Azure AD-server-principals (aanmeldingen) algemeen beschikbaar zijn. U kunt de volgende fout wordt weergegeven als u probeert een Azure AD-beheerdersaccount gebruiken om te maken van de aanmelding: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+> De Azure AD-beheerder die werd gebruikt voor het instellen van het beheerde exemplaar kan niet worden gebruikt om een Azure AD-server-principal (aanmelding) binnen het beheerde exemplaar te maken. U moet de eerste Azure AD-server-principal (aanmelding) maken met een SQL Server-account dat een `sysadmin` is. Dit is een tijdelijke beperking die wordt verwijderd zodra Azure AD-server-principals (aanmeldingen) algemeen beschikbaar zijn. U krijgt de volgende fout te zien als u probeert een Azure AD-beheerdersaccount te gebruiken om de aanmelding te maken: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
 1. Meld u aan bij uw beheerde exemplaar met behulp van een standaard SQL Server-account (niet-azure AD) dat een `sysadmin` is, met behulp van [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
@@ -441,12 +441,12 @@ Query's tussen meerdere databases worden ondersteund voor Azure AD-accounts met 
 
 Zie het artikel [Beveiligingsfuncties voor mogelijkheden van beheerde exemplaren](sql-database-managed-instance.md#azure-sql-database-security-features) voor een uitgebreide lijst met manieren om uw database te beveiligen. De volgende beveiligingsfuncties worden besproken:
 
-- [Controle van het beheerde exemplaar](sql-database-managed-instance-auditing.md) 
+- [Controle van beheerde exemplaren](sql-database-managed-instance-auditing.md) 
 - [Altijd versleuteld](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) 
 - [Dynamische gegevensmaskering](/sql/relational-databases/security/dynamic-data-masking)
 - [Beveiliging op rijniveau](/sql/relational-databases/security/row-level-security) 
-- [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="managed-instance-capabilities"></a>Mogelijkheden van beheerde exemplaren
 

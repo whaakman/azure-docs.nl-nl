@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ae01b0fb088035240e670c16d4d457d8abda1bfa
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58848927"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Maak een zelftest-client voor het vooraf valideren van een installatiekopie van een virtuele machine van Azure
@@ -69,7 +69,7 @@ Request body:    The Request body parameters should use the following JSON forma
 De volgende tabel beschrijft de API-velden.
 
 
-|      Veld         |    Description    |
+|      Veld         |    Beschrijving    |
 |  ---------------   |  ---------------  |
 |  Autorisatie     |  De tekenreeks 'Bearer xxxx-xxxx-xxxx-xxxxx' bevat het clienttoken van Azure Active Directory (AD), die kan worden gemaakt met behulp van PowerShell.          |
 |  DSN-naam           |  DNS-naam van de virtuele machine om te testen    |

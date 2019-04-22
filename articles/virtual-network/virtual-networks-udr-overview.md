@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop;kumud
 ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878499"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
@@ -98,7 +98,7 @@ U kunt de onderstaande 'volgende hoptypen' opgeven wanneer u een door de gebruik
 
 **VNet-peering** en **VirtualNetworkServiceEndpoint** kunt u niet opgeven als het 'volgende hoptype' in door de gebruiker gedefinieerde routes. Routes met het hoptype **VNet-peering** of **VirtualNetworkServiceEndpoint** worden alleen gemaakt door Azure, wanneer u peering van virtuele netwerken of een service-eindpunt configureert.
 
-**Volgende hoptypen via Azure-hulpprogramma 's**
+**'Volgende hoptypen' in Azure-hulpprogramma's**
 
 De naam die wordt weergegeven en waarnaar wordt verwezen voor 'volgende hoptypen' is verschillend voor de Azure-portal en voor opdrachtregelprogramma's, evenals voor het implementatiemodel Azure Resource Manager en het klassieke implementatiemodel. De onderstaande tabel bevat de namen die worden gebruikt om te verwijzen naar elk 'volgend hoptype' in de verschillende hulpprogramma's en [implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
@@ -181,7 +181,7 @@ Ter illustratie van de concepten in dit artikel, wordt in de volgende secties aa
 ### <a name="requirements"></a>Vereisten
 
 1. Implementeer twee virtuele netwerken in dezelfde Azure-regio en zorg dat resources kunnen communiceren tussen de virtuele netwerken.
-2. Zorg dat een on-premises netwerk veilig kan communiceren met beide virtuele netwerken via een VPN-tunnel over internet. *U kunt ook een ExpressRoute-verbinding kan worden gebruikt, maar in dit voorbeeld wordt een VPN-verbinding wordt gebruikt.*
+2. Zorg dat een on-premises netwerk veilig kan communiceren met beide virtuele netwerken via een VPN-tunnel over internet. *U kunt ook een ExpressRoute-verbinding gebruiken, maar in dit voorbeeld wordt een VPN-verbinding gebruikt.*
 3. Voor één subnet in één virtueel netwerk:
  
     - Laat al het uitgaande verkeer vanuit het subnet, behalve naar Azure Storage en binnen het subnet, geforceerd langs een virtueel netwerkapparaat lopen, voor controle en logboekregistratie.
@@ -255,8 +255,8 @@ De routetabel voor *Subnet2* bevat alle standaardroutes van Azure, plus de optio
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Maken van een door de gebruiker gedefinieerde routetabel met routes en een virtueel netwerkapparaat](tutorial-create-route-table-portal.md)
-- [BGP configureren voor een Azure VPN-Gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Maken van een gebruiker gedefinieerde route - Azure-portal](tutorial-create-route-table-portal.md)
+- [Het configureren van BGP op Azure VPN-Gateways met behulp van PowerShell](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [BGP gebruiken met ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Alle routes weergeven voor een subnet](diagnose-network-routing-problem.md). Een door de gebruiker gedefinieerde routetabel bevat alleen door de gebruiker gedefinieerde routes, niet de standaard- en BGP-routes voor een subnet. Als u alle routes weergeeft, ziet u de standaardroutes, de BGP-routes en de door de gebruiker gedefinieerde routes voor het subnet waarin een netwerkinterface zich bevindt.
 - [Het 'volgende hoptype' bepalen](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) tussen een virtuele machine en een doel-IP-adres. De functie Azure Network Watcher maakt het mogelijk om te bepalen of verkeer een subnet verlaat en wordt doorgestuurd naar wat volgens u de bestemming moet zijn.

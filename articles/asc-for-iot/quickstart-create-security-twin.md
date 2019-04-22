@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 16b5525973b93bc6b073c50c0c657dcbb4679040
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862213"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Quickstart: Maken van een azureiotsecurity moduledubbel
@@ -67,7 +67,7 @@ Om te controleren of er een dubbel van de module beveiliging voor een specifiek 
 
 1. Selecteer in uw Azure-IoT-Hub, **IoT-apparaten** uit de **Explorers** menu.    
 1. De apparaat-ID invoeren, of Selecteer een optie in de **apparaat queryveld** en klikt u op **query uitvoeren op apparaten**. 
-    ![Query uitvoeren op apparaten](./media/quickstart/verify-security-module-twin.png)
+    ![Query-apparaten](./media/quickstart/verify-security-module-twin.png)
 1. Selecteer het apparaat of dubbelklik erop om de details Apparaatpagina te openen. 
 1. Selecteer de **Module identiteiten** in het menu en bevestigt u sprake is van de **azureiotsecurity** module in de lijst van module-id's die zijn gekoppeld aan het apparaat. 
     ![Modules die zijn gekoppeld aan een apparaat](./media/quickstart/verify-security-module-twin-3.png)

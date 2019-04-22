@@ -12,10 +12,10 @@ author: marthalc
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885488"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Uw Azure Machine Learning-modellen met Application Insights bewaken
@@ -85,15 +85,15 @@ U kunt in- en uitschakelen van Application Insights in Azure portal.
 
 1. Op de **implementaties** tabblad, selecteert u de service waar u Application Insights inschakelen.
 
-   [![Lis van de services op het tabblad implementaties](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+   [![Lijst met services op het tabblad implementaties](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
 3. Selecteer **Bewerken**.
 
-   [![Eknop bewerken](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Knop bewerken](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 4. In **geavanceerde instellingen**, selecteer de **diagnose van AppInsights inschakelen** selectievakje.
 
-   [![Sgeselecteerd selectievakje in voor het inschakelen van diagnostische gegevens](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+   [![Het selectievakje is ingeschakeld voor het inschakelen van diagnostische gegevens](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. Selecteer **Update** aan de onderkant van het scherm om de wijzigingen toe te passen. 
 
@@ -101,11 +101,11 @@ U kunt in- en uitschakelen van Application Insights in Azure portal.
 1. In de [Azure-portal](https://portal.azure.com), opent u uw werkruimte.
 1. Selecteer **implementaties**, selecteert u de service en selecteer **bewerken**.
 
-   [![Ude knop bewerken SE](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Gebruik de knop bewerken](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. In **geavanceerde instellingen**, schakel de **diagnose van AppInsights inschakelen** selectievakje. 
 
-   [![Cselectievakje hebt voor het inschakelen van diagnostische gegevens](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+   [![Het selectievakje is uitgeschakeld voor het inschakelen van diagnostische gegevens](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. Selecteer **Update** aan de onderkant van het scherm om de wijzigingen toe te passen. 
  
@@ -119,12 +119,12 @@ Om dit te bekijken:
 
 1. Selecteer de **overzicht** tabblad om te bekijken van een set van metrische gegevens voor uw service.
 
-   [![OMigratieo](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
+   [![Overzicht](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
 3. Als u wilt zoeken in uw aangepaste traceringen, selecteer **Analytics**.
 4. Selecteer in de schemasectie **traceringen**. Selecteer vervolgens **uitvoeren** uw query uit te voeren. Gegevens moeten worden weergegeven in een tabelindeling en moet worden toegewezen aan uw aangepaste aanroepen in de scoring-bestand. 
 
-   [![Caangepaste traceringen](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
+   [![Aangepaste traceringen](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Zie voor meer informatie over het gebruik van Application Insights, [wat is Application Insights?](../../azure-monitor/app/app-insights-overview.md).
     

@@ -17,10 +17,10 @@ ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ce13f053c2adee6a9a347a4162b60cc6d6b40eda
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58849764"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensies voor virtuele machines en functies voor Windows
@@ -418,7 +418,7 @@ U kunt ook verwijderen een extensie in de Azure-portal als volgt:
 4. Kies **verwijderen**.
 
 ## <a name="common-vm-extensions-reference"></a>Algemene referentie van de VM-extensies
-| Extensienaam | Beschrijving | Meer informatie |
+| Extensienaam | Description | Meer informatie |
 | --- | --- | --- |
 | Aangepaste Scriptextensie voor Windows |Scripts uitvoeren op een virtuele machine van Azure |[Aangepaste Scriptextensie voor Windows](custom-script-windows.md) |
 | DSC-extensie voor Windows |PowerShell DSC (Desired State Configuration)-extensie |[DSC-extensie voor Windows](dsc-overview.md) |

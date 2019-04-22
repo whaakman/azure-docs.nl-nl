@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
 ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885873"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - Veelgestelde vragen
@@ -93,7 +93,7 @@ Ja.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Welke besturingssystemen worden ondersteund voor back-up?
 Azure Backup biedt ondersteuning voor deze besturingssystemen voor back-ups van bestanden en mappen en apps die zijn beveiligd door Azure Backup Server en DPM.
 
-**OS** | **SKU** | **Details**
+**Besturingssysteem** | **SKU** | **Details**
 --- | --- | ---
 Werkstation | |
 Windows 10 64-bits | Enterprise, Pro, Home | Machines moeten worden uitgevoerd, de meest recente servicepacks en updates.

@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891681"
 ---
 # <a name="manage-database-roles-and-users"></a>Databaserollen en gebruikers beheren
@@ -43,13 +43,13 @@ Wanneer u een project voor tabellair model maakt, kunt u rollen maken en gebruik
   
 4.  Selecteer een van de volgende machtigingen:  
   
-    |Machtiging|Beschrijving|  
+    |Machtiging|Description|  
     |----------------|-----------------|  
     |**Geen**|Leden kunnen het modelschema niet wijzigen en kunnen geen gegevens op te vragen.|  
     |**Lezen**|Leden kunnen gegevens (op basis van rijfilters) op te vragen, maar kunnen het modelschema niet wijzigen.|  
     |**Lezen en verwerken**|Leden kunnen opvragen uitgevoerd proces en proces alle bewerkingen en gegevens (op basis van beveiliging op rijniveau filters), maar kunnen het modelschema niet wijzigen.|  
-    |**Verwerken**|Leden kunnen verwerken en proces alle bewerkingen uitvoeren. Kan het modelschema niet wijzigen en kan geen gegevens op te vragen.|  
-    |**Beheerder**|Leden kunnen het modelschema wijzigen en alle gegevens op te vragen.|   
+    |**Proces**|Leden kunnen verwerken en proces alle bewerkingen uitvoeren. Kan het modelschema niet wijzigen en kan geen gegevens op te vragen.|  
+    |**de beheerder**|Leden kunnen het modelschema wijzigen en alle gegevens op te vragen.|   
   
 5.  Als de rol die u niet maken is gelezen of de machtigingen lezen en verwerken, kunt u rijfilters toevoegen met behulp van een DAX-formule. Klik op de **Row Filters** tabblad, en vervolgens selecteert u een tabel en klik vervolgens op de **DAX Filter** veld en typ vervolgens een DAX-formule.
   
@@ -122,9 +122,9 @@ In dit voorbeeld wordt worden een externe B2B-gebruiker en een groep toegevoegd 
 
 De [SqlServer](/sql/analysis-services/powershell/analysis-services-powershell-reference) module biedt taakspecifieke database management-cmdlets en de algemene Invoke-ASCmd cmdlet die een TMSL Tabular Model Scripting Language ()-query of het script accepteert. De volgende cmdlets worden gebruikt voor het beheren van databaserollen en gebruikers.
   
-|Cmdlet|Description|
+|Cmdlet|Beschrijving|
 |------------|-----------------| 
-|[Voeg RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Lid toevoegen aan een databaserol.| 
+|[Add-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Lid toevoegen aan een databaserol.| 
 |[Remove-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Een lid verwijderen uit een databaserol.|   
 |[Invoke-ASCmd](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Voer een TMSL-script.|
 

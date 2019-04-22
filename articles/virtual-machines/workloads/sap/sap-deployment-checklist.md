@@ -17,10 +17,10 @@ ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878720"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP-werkbelasting op Azure controlelijst voor planning en implementatie 
@@ -79,7 +79,7 @@ In deze fase is een migratie van SAP-workload naar Azure openbare cloud gepland.
 7.  Gegevensreductie en gegevensmigratie plannen voor SAP-gegevens migreren naar Azure. Voor SAP NetWeaver-systemen heeft SAP richtlijnen over het behouden van het volume van een groot aantal gegevens beperkt. SAP gepubliceerd [deze ingrijpende handleiding](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) over het gegevensbeheer van in SAP ERP-systemen. Echter bepaalde inhoud is van toepassing op NetWeaver en S/4HANA-systemen in het algemeen.
 8.  Definieer en geautomatiseerde implementatie bepalen. Doel van automation achter implementaties van een op Azure is om te implementeren in een deterministische wijze en deterministische resultaten krijgt. Veel klanten Power Shell of op basis van CLI-scripts gebruiken. Maar er zijn verschillende open-source-technologieën die kunnen worden gebruikt voor het implementeren van Azure-infrastructuur voor SAP en zelfs SAP-software te installeren. Voorbeelden vindt u in GitHub:
     1.  [Geautomatiseerde SAP-oplossingen in Azure-Cloud](https://github.com/Azure/sap-hana)
-    2.  [SAP HANA-installatie](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
+    2.  [SAP HANA Installation](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  Definieer een reguliere ontwerp en implementatie revisie uitgebracht tussen u als klant, systeemintegrator, Microsoft en andere betrokken partijen
 
  
@@ -99,7 +99,7 @@ De test kunt uitvoeren voordat u parallel aan het project plannen en voorbereide
       3.  Evalueren en te testen van de grootte van uw Azure-VM's met betrekking tot de maximale doorvoer en de netwerkdoorvoer van de verschillende VM-typen die u hebt gekozen in de planningsfase. De gegevens kunnen worden gevonden:
           1.  [Grootten voor Windows virtuele machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Het is belangrijk rekening houden met de **schijfdoorvoer, met maximale zonder caching** voor schaling
           2.  [Grootten voor virtuele Linux-machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) is het belangrijk om te overwegen de **schijfdoorvoer, met maximale zonder caching** voor schaling
-   2. Opslag
+   2. Storage
       1.  Gebruik [Azure Standard-SSD-opslag](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) als minimale voor lagen van SAP-toepassing voor virtuele machines en voor implementatie van gevoelige niet-prestaties DBMS-systemen
       2.  We bevelen niet te gebruiken [Azure standaard harde schijven](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd) in het algemeen
       2.  Gebruik [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) voor elke DBMS-VM's die op afstand gevoelige prestaties

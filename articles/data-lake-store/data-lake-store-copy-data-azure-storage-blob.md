@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: be66fd51b37c0e62b2b757a88ee1db9319b2093a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879808"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Gegevens kopiëren van Azure Storage-Blobs naar Azure Data Lake Storage Gen1
@@ -179,6 +179,6 @@ AdlCopy ondersteunt het kopiëren van gegevens met duizenden bestanden en mappen
 * 1.0.13 - als u gegevens naar dezelfde Gen1 van Azure Data Lake Storage-account voor meerdere adlcopy opdrachten kopieert, u hoeft niet opnieuw in te voeren van uw referenties voor elke uitvoering niet meer. Adlcopy nu opgeslagen in de cache die gegevens voor verschillende runs.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Bescherm uw gegevens in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics gebruiken met Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight gebruiken met Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

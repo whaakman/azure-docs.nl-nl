@@ -14,10 +14,10 @@ ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
 ms.openlocfilehash: 8db65fd9a1f271aea4ceb345f4d9dfbb6b9ff8a6
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877377"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Java ondernemingsgids voor App Service onder Linux
@@ -119,5 +119,4 @@ App Service biedt hulpprogramma's om u te helpen bij het oplossen van problemen 
 
 -   Logboekregistratie inschakelen door te klikken op **diagnostische logboeken** in het navigatiedeelvenster links. Klik op **bestandssysteem** instellen van uw quotum en retentie opslagperiode en sla uw wijzigingen. U vindt deze logboeken onder `/home/LogFiles/`.
 -   [SSH gebruiken om te verbinden met het exemplaar van de](app-service-linux-ssh-support.md) om Logboeken voor het uitvoeren van toepassingen weer te geven.
--   Selectievakje diagnostische logboeken de **diagnostische logboeken** deelvenster van de Portal of met behulp van de Azure CLI-opdracht:
-`az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group>`
+-   Selectievakje diagnostische logboeken de **diagnostische logboeken** deelvenster van de Portal of met behulp van de Azure CLI-opdracht: `az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group>`

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883238"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Herstel na noodgevallen in Azure Service Fabric
@@ -139,7 +139,7 @@ In zowel zelfstandige Service Fabric-clusters en Azure is 'Primaire knooppunttyp
 ## <a name="next-steps"></a>Volgende stappen
 - Leer hoe u verschillende storingen simuleren met de [testbaarheid framework](service-fabric-testability-overview.md)
 - Lezen van andere bronnen voor herstel na noodgevallen en hoge beschikbaarheid. Microsoft heeft een grote hoeveelheid informatie over deze onderwerpen worden gepubliceerd. Hoewel sommige van deze documenten naar specifieke technieken voor gebruik in andere producten verwijzen, bevatten ze veel algemene aanbevolen procedures die u in de context van Service Fabric ook toepassen kunt:
-  - [Controlelijst voor beschikbaarheid](../best-practices-availability-checklist.md)
+  - [Beschikbaarheidscontrolelijst](../best-practices-availability-checklist.md)
   - [Een Dr-herstelanalyse uitvoeren](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen][dr-ha-guide]
 - Meer informatie over [ondersteuningsopties voor Service Fabric](service-fabric-support.md)

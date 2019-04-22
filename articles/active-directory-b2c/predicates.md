@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 0dfe6553778092c33f9e1bd55ac7a7ae65137a6e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880998"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikaten en PredicateValidations
@@ -33,7 +33,7 @@ De **predicaat** element definieert een basisvalidatie om te controleren of de w
 
 De **predikaten** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | Predicaat | 1: n | Een lijst met predicaten. | 
 
@@ -46,20 +46,20 @@ De **predicaat** element bevat de volgende kenmerken:
 
 De **predicaat** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | Een foutbericht weergegeven voor gebruikers als de controle is mislukt. Deze tekenreeks kan worden gelokaliseerd met behulp van de [taalaanpassing](localization.md) |
 | Parameters | 1:1 | De parameters voor het type van de validatie van de tekenreeks. | 
 
 De **Parameters** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | Parameter | 1: n | De parameters voor het type van de validatie van de tekenreeks. | 
 
 De **Parameter** element bevat de volgende kenmerken:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | Id | 1:1 | De id van de parameter. |
 
@@ -132,7 +132,7 @@ Terwijl de predicaten definiëren de validatie om te controleren op basis van ee
 
 De **PredicateValidations** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | PredicateValidation | 1: n | Een lijst van predikaat validatie. | 
 
@@ -144,13 +144,13 @@ De **PredicateValidation** element bevat het volgende kenmerk:
 
 De **PredicateValidation** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | PredicateGroups | 1: n | Een lijst van predikaat groepen. | 
 
 De **PredicateGroups** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | PredicateGroup | 1: n | Een lijst met predicaten. | 
 
@@ -169,7 +169,7 @@ De **PredicateGroup** element bevat de volgende elementen:
 
 De **PredicateReferences** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | MatchAtLeast | Nee | Hiermee geeft u op dat de waarde moet overeenkomen met ten minste dat veel definities voor de invoer predikaat moet zijn geaccepteerd. |
 

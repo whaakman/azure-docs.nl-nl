@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: 98aabf5330589bf80f1653bb2882c015a4bc133c
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862103"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Metrische gegevens en Logboeken in Azure voordeur Service bewaken
@@ -29,7 +29,7 @@ Met behulp van Azure voordeur Service, kunt u resources kunt controleren op de v
 
 Metrische gegevens zijn een functie voor bepaalde Azure-resources die u kunt prestatiemeteritems bekijken in de portal. Hier volgen de beschikbare voordeur metrische gegevens:
 
-| Gegevens | De naam van de metrische gegevens weergeven | Eenheid | Dimensies | Description |
+| Gegevens | De naam van de metrische gegevens weergeven | Eenheid | Dimensies | Beschrijving |
 | --- | --- | --- | --- | --- |
 | RequestCount | Aantal aanvragen | Count | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Het aantal aanvragen van clients geleverd door de voordeur.  |
 | RequestSize | Aanvraaggrootte | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Het aantal bytes dat als aanvragen van clients naar de voordeur worden verzonden. |

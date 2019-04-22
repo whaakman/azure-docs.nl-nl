@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883391"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indexeren van Cosmos DB met behulp van een Azure Search-indexeerfunctie
@@ -169,11 +169,11 @@ Formuleer een POST-aanvraag voor het maken van een gegevensbron:
 
 De hoofdtekst van de aanvraag bevat de definitie van de gegevensbron, waaronder de volgende velden moet:
 
-| Veld   | Beschrijving |
+| Veld   | Description |
 |---------|-------------|
-| **naam** | Vereist. Kies een naam voor uw data source-object. |
+| **De naam** | Vereist. Kies een naam voor uw data source-object. |
 |**type**| Vereist. Moet `documentdb`. |
-|**referenties** | Vereist. Moet u een Cosmos DB-verbindingsreeks.<br/>Voor de SQL-collecties zijn tekenreeksen voor databaseverbindingen in deze indeling: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Voor MongoDB-verzamelingen toevoegen **API-soort MongoDb =** op de verbindingstekenreeks:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Vermijd poortnummers in de eindpunt-url. Als u het poortnummer opgeeft, worden Azure Search kan geen index van uw Azure Cosmos DB-database.|
+|**credentials** | Vereist. Moet u een Cosmos DB-verbindingsreeks.<br/>Voor de SQL-collecties zijn tekenreeksen voor databaseverbindingen in deze indeling: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Voor MongoDB-verzamelingen toevoegen **API-soort MongoDb =** op de verbindingstekenreeks:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Vermijd poortnummers in de eindpunt-url. Als u het poortnummer opgeeft, worden Azure Search kan geen index van uw Azure Cosmos DB-database.|
 | **container** | Bevat de volgende elementen: <br/>**name**: Vereist. Geef de ID van de databaseverzameling worden geïndexeerd.<br/>**query**: Optioneel. U kunt een query voor het samenvoegen van een willekeurige JSON-document in een vast schema dat Azure Search kunt indexeren.<br/>Query's worden niet ondersteund voor MongoDB-verzamelingen. |
 | **dataChangeDetectionPolicy** | Aanbevolen. Zie [gewijzigd documenten te indexeren](#DataChangeDetectionPolicy) sectie.|
 |**dataDeletionDetectionPolicy** | Optioneel. Zie [verwijderd documenten te indexeren](#DataDeletionDetectionPolicy) sectie.|

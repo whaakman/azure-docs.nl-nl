@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
 ms.openlocfilehash: d793b105e6d73c98739cd05d6e19a218413d7813
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861992"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Quickstart: Aangepaste waarschuwingen maken
@@ -63,7 +63,7 @@ Beveiligingsgroepen gebruikt om uw apparaten te groeperen in logische categorie√
 
 De volgende tabel bevat een samenvatting van waarschuwingen die beschikbaar zijn voor aanpassing.
 
-| Severity | Name                                                                                                    | Gegevensbron | Description                                                                                                                                     |
+| Severity | Name                                                                                                    | Gegevensbron | Beschrijving                                                                                                                                     |
 |----------|---------------------------------------------------------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | Laag      | Aangepaste waarschuwing - nummer van cloud naar apparaat-berichten in AMQP-protocol is niet in het toegestane bereik          | IoT Hub     | Het bedrag van cloud naar apparaat-berichten (AMQP-protocol) in een bepaalde periode is niet in de geconfigureerde het toegestane bereik                                  |
 | Laag      | Aangepaste waarschuwing - aantal geweigerde cloud naar apparaat-berichten in AMQP-protocol is niet in het toegestane bereik | IoT Hub     | Het bedrag van cloud naar apparaat-berichten (AMQP-protocol) die zijn geweigerd door het apparaat in een bepaalde periode is niet in de geconfigureerde het toegestane bereik |

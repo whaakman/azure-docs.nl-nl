@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: d1f9d77d1f87e8d201e2cb034401bb3cae14f41b
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862910"
 ---
 # <a name="security-agent-authentication-methods"></a>Security agent verificatiemethoden 
@@ -114,4 +114,4 @@ Bewerken _LocalConfiguration.json_ met de volgende parameters:
 ## <a name="see-also"></a>Zie ook
 - [Beveiligingsoverzicht van agents](security-agent-architecture.md)
 - [Security-agent implementeren](how-to-deploy-agent.md)
-- [Toegang tot onbewerkte beveiligingsgegevens](how-to-security-data-access.md)
+- [Toegang tot onbewerkte security gegevens](how-to-security-data-access.md)

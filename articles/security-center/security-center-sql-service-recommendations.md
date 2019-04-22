@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
 ms.openlocfilehash: 479e6d222c9fc7d007252bab12e807ec337ea9e6
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880777"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Beveiligen van Azure SQL-service en -gegevens in Azure Security Center
@@ -51,7 +51,7 @@ Als u controle wilt inschakelen, hoeft u alleen maar **AAN** te selecteren onder
 
 ## <a name="data-and-storage-recommendations"></a>Aanbevelingen voor gegevens en opslag
 
-|Resourcetype|Beveiligingsscore|Aanbeveling|Description|
+|Resourcetype|Beveiligingsscore|Aanbeveling|Beschrijving|
 |----|----|----|----|
 |Storage-account|20|Veilige overdracht naar het opslagaccount vereisen|Veilige overdracht is een optie die ervoor zorgt dat uw storage-account om te accepteren van aanvragen van beveiligde verbindingen (HTTPS). Gebruik van HTTPS-verificatie tussen de server en de service garandeert en gegevens die onderweg zijn beschermd tegen aanvallen op toepassingslagen, zoals man-in-the-middle, niet kan worden afgeluisterd en sessiehijacking netwerk.|
 |Redis|20|Alleen beveiligde verbindingen naar uw Azure-Cache voor Redis inschakelen|Schakel alleen verbindingen met SSL-beveiliging met Azure-Cache voor Redis. Gebruik van beveiligde verbindingen zorgt ervoor dat de verificatie tussen de server en de service en gegevens die onderweg zijn beschermd tegen aanvallen op toepassingslagen, zoals man-in-the-middle, niet kan worden afgeluisterd en sessiehijacking netwerk.|
@@ -70,9 +70,9 @@ Als u controle wilt inschakelen, hoeft u alleen maar **AAN** te selecteren onder
 ## <a name="see-also"></a>Zie ook
 Zie de volgende onderwerpen voor meer informatie over aanbevelingen die betrekking hebben op andere typen Azure-resources:
 
-* [Beveiligen van uw virtuele machines in Azure Security Center](security-center-virtual-machine-recommendations.md)
-* [Beveiligen van uw toepassingen in Azure Security Center](security-center-application-recommendations.md)
-* [Beveiligen van uw netwerk in Azure Security Center](security-center-network-recommendations.md)
+* [Protecting your virtual machines in Azure Security Center](security-center-virtual-machine-recommendations.md) (Uw virtuele machines beveiligen in Azure Security Center)
+* [Protecting your applications in Azure Security Center](security-center-application-recommendations.md) (Uw toepassingen beveiligen in Azure Security Center)
+* [Protecting your network in Azure Security Center](security-center-network-recommendations.md) (Uw netwerk beveiligen in Azure Security Center)
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 

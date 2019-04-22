@@ -12,10 +12,10 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893387"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Aanroepen van REST-eindpunten met HTTP + Swagger-connector in Azure Logic Apps
@@ -81,7 +81,7 @@ Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die gede
 ## <a name="http--swagger-actions"></a>HTTP + Swagger-acties
 Een actie is een bewerking die wordt uitgevoerd door de werkstroom die gedefinieerd in een logische app. HTTP + Swagger-connector heeft een mogelijke actie. [Meer informatie over acties](../connectors/apis-list.md).
 
-| Bewerking | Description |
+| Bewerking | Beschrijving |
 | --- | --- |
 | HTTP + Swagger |Voert u een HTTP-aanroep en keert de inhoud van de reactie |
 
@@ -113,7 +113,7 @@ HTTP-antwoord
 ### <a name="http-responses"></a>HTTP-antwoorden
 U kunt bepaalde antwoorden krijgen bij het maken van aanroepen naar verschillende acties. Hieronder volgt een tabel waarin de bijbehorende antwoorden en beschrijvingen.
 
-| Name | Description |
+| Name | Beschrijving |
 | --- | --- |
 | 200 |OK |
 | 202 |Geaccepteerd |

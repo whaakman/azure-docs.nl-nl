@@ -19,10 +19,10 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0a20c2e6524b0c466f5c45578e0ba8eaad351ea
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881882"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Quickstart: Bouw een Xamarin-app die Microsoft-aanmelding integreert
@@ -104,7 +104,7 @@ Nu u een toepassing hebt in Azure AD, kunt u ADAL installeren en uw aan identite
 
 Bijna alle verificatielogica van de app ligt opgesloten in `DirectorySearcher.SearchByAlias(...)`. In de platform-specifieke projecten hoeft alleen maar een contextuele parameter te worden doorgegeven aan de `DirectorySearcher`-PCL.
 
-1. Open DirectorySearcher.cs en voeg een nieuwe parameter toe aan de `SearchByAlias(...)`-methode. `IPlatformParameters` is de contextuele parameter die kapselt de platform-specifieke objecten die ADAL moet de verificatie uitvoeren.
+1. Open DirectorySearcher.cs en voeg een nieuwe parameter toe aan de `SearchByAlias(...)`-methode. `IPlatformParameters` is de contextuele parameter waarin de platform-specifieke objecten zijn opgenomen die ADAL nodig heeft om de verificatie uit te voeren.
 
     ```csharp
     public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
@@ -130,7 +130,7 @@ Bijna alle verificatielogica van de app ligt opgesloten in `DirectorySearcher.Se
     ...
     ```
 
-    `AcquireTokenAsync(...)` eerst probeert te retourneren van een token voor de aangevraagde resource (in dit geval de Graph-API) zonder dat gebruikers hun referenties invoeren (via opslaan in cache of vernieuwen van oude tokens) wordt gevraagd. Gebruikers krijgen zo nodig de Azure AD-aanmeldingspagina te zien voordat het aangevraagde token wordt verkregen.
+    `AcquireTokenAsync(...)` probeert eerst een token voor de aangevraagde resource te retourneren (in dit geval de Graph API) zonder dat gebruikers hun referenties hoeven in te voeren (via caching of het vernieuwen van oude tokens). Gebruikers krijgen zo nodig de Azure AD-aanmeldingspagina te zien voordat het aangevraagde token wordt verkregen.
 4. Koppel het toegangstoken aan de Graph API-aanvraag in de kop **Autorisatie**:
 
     ```csharp

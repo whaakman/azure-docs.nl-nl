@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
 ms.openlocfilehash: f23cf78bfca48b3a78e234520d645abdb354038f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878465"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot in C# met Bot Framework 3.x en de Azure-Web-app-bot
@@ -49,9 +49,9 @@ Bouw met behulp van C# een chatbot met ingebouwd taalbegrip (LUIS). Deze chatbot
    * Stel **appnaam** op de naam van uw bot. De naam wordt gebruikt als het subdomein wanneer uw bot wordt geïmplementeerd naar de cloud (bijvoorbeeld mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
    * Selecteer het abonnement [resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service-plan en [locatie](https://azure.microsoft.com/regions/).
    * Voor **Bot sjabloon**selecteert:
-       * **SDK v3**
+       * **SDK-v3**
        * **C#**
-       * **Taal begrijpen**
+       * **Taalbegrip**
    * Selecteer de **LUIS-App locatie**. Dit is het ontwerpen van [regio](luis-reference-regions.md) in de app is gemaakt.
    * Selecteer het selectievakje bevestiging voor de juridische kennisgeving. De voorwaarden van de juridische kennisgeving staan hieronder het selectievakje in.
 

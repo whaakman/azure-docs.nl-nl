@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: b2398e7db7ed91dee8d85c0c50058bb15b9f4c7e
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894129"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR-taken naar te verwijzen: YAML
@@ -79,7 +79,7 @@ az configure --defaults acr=myregistry
 
 Taakeigenschappen is doorgaans worden weergegeven aan de bovenkant van een `acr-task.yaml` -bestand en algemene eigenschappen die gedurende de volledige uitvoering van de stappen van de van toepassing zijn. Sommige van deze algemene eigenschappen kunnen worden overschreven in een afzonderlijke stap.
 
-| Eigenschap | Type | Optioneel | Description | Onderdrukking ondersteund | Standaardwaarde |
+| Eigenschap | Type | Optioneel | Beschrijving | Onderdrukking ondersteund | Standaardwaarde |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Ja | De versie van de `acr-task.yaml` bestand zoals geparseerd door de taken van de ACR-service. Terwijl ACR taken streeft ernaar om te behouden voor achterwaartse compatibiliteit, kunt deze waarde ACR-taken voor compatibiliteit binnen een opgegeven versie. Als u niets opgeeft, kunt u standaard naar de nieuwste versie. | Nee | Geen |
 | `stepTimeout` | Int (seconden) | Ja | Het maximum aantal seconden dat een stap kunt uitvoeren. Als de eigenschap voor een taak is opgegeven, wordt de standaardwaarde ingesteld `timeout` eigenschap van de stappen uit. Als de `timeout` eigenschap is opgegeven voor een stap dit vervangt de eigenschap die is opgegeven door de taak. | Ja | 600 (10 minuten) |
@@ -92,7 +92,7 @@ Taakeigenschappen is doorgaans worden weergegeven aan de bovenkant van een `acr-
 
 Het geheime object heeft de volgende eigenschappen.
 
-| Eigenschap | Type | Optioneel | Beschrijving | Standaardwaarde |
+| Eigenschap | Type | Optioneel | Description | Standaardwaarde |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | string | Nee | De id van de geheime sleutel. | Geen |
 | `akv` | string | Ja | De geheime URL van de Azure Key Vault (AKV). | Geen |
@@ -362,7 +362,7 @@ Met behulp van de standaard `docker run` image reference overeenkomst, `cmd` afb
 
 Elk staptype biedt ondersteuning voor diverse eigenschappen die geschikt zijn voor het betreffende type. De volgende tabel bevat alle beschikbare stapeigenschappen. Niet alle stap typen ondersteuning voor alle eigenschappen. Als u wilt zien welke van deze eigenschappen zijn beschikbaar voor elk staptype, Zie de [cmd](#cmd), [bouwen](#build), en [push](#push) stap type in de secties.
 
-| Eigenschap | Type | Optioneel | Beschrijving | Standaardwaarde |
+| Eigenschap | Type | Optioneel | Description | Standaardwaarde |
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | bool | Ja | Of de container moet worden losgekoppeld wanneer wordt uitgevoerd. | `false` |
 | `disableWorkingDirectoryOverride` | bool | Ja | Of u wilt uitschakelen `workingDirectory` functionaliteit overschrijven. Gebruik deze in combinatie met `workingDirectory` hebben volledige controle over de werkmap van de container. | `false` |

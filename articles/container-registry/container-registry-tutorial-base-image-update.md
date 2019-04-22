@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: a5d89051ef479cf9d87ca8f921e05c6d0be12b8c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892174"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Zelfstudie: Builds van containerinstallatiekopieën automatiseren wanneer een basisinstallatiekopie wordt bijgewerkt in een Azure-containerregister 
@@ -45,9 +45,9 @@ In deze zelfstudie wordt ervan uitgegaan dat u de stappen van de eerste twee zel
 
 Als u de eerste twee zelfstudies nog niet hebt afgerond, moet u dit doen voordat u verdergaat:
 
-[In de cloud met Azure Container Registry taken installatiekopieën compileren](container-registry-tutorial-quick-task.md)
+[Zelfstudie: containerinstallatiekopieën bouwen in de cloud met Azure Container Registry Tasks](container-registry-tutorial-quick-task.md)
 
-[Compileren van de container-installatiekopieën met Azure Container Registry taken automatiseren](container-registry-tutorial-build-task.md)
+[Builds van containerinstallatiekopieën automatiseren met Azure Container Registry Tasks](container-registry-tutorial-build-task.md)
 
 ### <a name="configure-the-environment"></a>De omgeving configureren
 

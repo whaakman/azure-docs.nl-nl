@@ -9,10 +9,10 @@ ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876814"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Gegevens migreren naar een Azure Cosmos DB Table-API-account
@@ -39,7 +39,7 @@ Het opdrachtregelprogramma voor Azure Cosmos DB-gegevensmigratie (dt.exe) kan wo
 Als u tabelgegevens wilt migreren, moet u de volgende taken uitvoeren:
 
 1. Download het migratieprogramma op [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
-2. Voer `dt.exe` uit met de opdrachtregelargumenten voor uw scenario. `dt.exe` heeft een opdracht in de volgende indeling:
+2. Voer `dt.exe` uit met de opdrachtregelargumenten voor uw scenario. `dt.exe` wordt uitgevoerd met een opdracht in de volgende indeling:
 
    ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
@@ -76,7 +76,7 @@ Als u de verbindingsreeks voor de bron wilt ophalen bij het importeren uit een A
 
 [Voorbeeld van Azure Table Storage-opdracht](#azure-table-storage)
 
-[Voorbeeldopdracht in Azure Cosmos DB Table-API (preview)](#table-api-preview)
+[Voorbeeld van opdracht voor Azure Cosmos DB Table-API (preview)](#table-api-preview)
 
 ### <a name="command-line-target-settings"></a>Doelinstellingen voor opdrachtregel
 
@@ -147,4 +147,4 @@ In deze zelfstudie hebt u het volgende geleerd:
 U kunt nu verdergaan met de volgende zelfstudie om te leren hoe u query's uitvoert op gegevens met de Azure Cosmos DB Table-API. 
 
 > [!div class="nextstepaction"]
->[Hoe kan ik gegevens op te vragen?](../cosmos-db/tutorial-query-table.md)
+>[Hoe kan ik query’s uitvoeren op gegevens?](../cosmos-db/tutorial-query-table.md)

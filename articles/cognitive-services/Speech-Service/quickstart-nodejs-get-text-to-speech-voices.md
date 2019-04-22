@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 62187ddbe587a81038f8424b079e3c0c313d1ae2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58887095"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Quickstart: De lijst met tekst naar spraak stemmen met behulp van Node.js
@@ -27,7 +27,7 @@ Deze snelstartgids moet een [Azure Cognitive Services-account](https://docs.micr
 
 Voor deze snelstart zijn de volgende zaken vereist:
 
-* [Knooppunt 8.12.x of hoger](https://nodejs.org/en/)
+* [Node 8.12.x of hoger](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) of uw favoriete teksteditor
 * De sleutel van een Azure-abonnement voor de spraakservices. [Vraag een gratis! ](get-started.md).
 

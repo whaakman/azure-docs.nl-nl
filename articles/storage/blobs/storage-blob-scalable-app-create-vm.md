@@ -11,10 +11,10 @@ ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
 ms.openlocfilehash: a5b6c22b3917784b20ad11bddf200d1546c48597
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882866"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Een virtuele machine en een opslagaccount maken voor een schaalbare toepassing
@@ -136,4 +136,4 @@ In deel één van de reeks hebt u geleerd hoe u een opslagaccount maakt, een vir
 Ga naar deel twee van de reeks om grote hoeveelheden gegevens te uploaden naar een opslagaccount met behulp van exponentiële gelijktijdige uitvoering en opnieuw proberen.
 
 > [!div class="nextstepaction"]
-> [Uploaden van grote aantallen grote bestanden gelijktijdig naar een opslagaccount](storage-blob-scalable-app-upload-files.md)
+> [Grote aantallen grote bestanden gelijktijdig uploaden naar een opslagaccount](storage-blob-scalable-app-upload-files.md)

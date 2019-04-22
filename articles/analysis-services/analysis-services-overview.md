@@ -9,10 +9,10 @@ ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 8eccc79969ce1a474fe0b22f2c250f8e31281550
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893126"
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
@@ -255,10 +255,10 @@ Analysis Services heeft een zeer actieve gebruikerscommunity. Doe mee op [het Az
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Aanmelden voor een gratis proefversie van Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   
+> [Meld u aan voor een gratis proefversie van Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   
 
 > [!div class="nextstepaction"]
-> [Quickstart: Een server maken - portal](analysis-services-create-server.md)   
+> [Snelstartgids: Een server maken - portal](analysis-services-create-server.md)   
 
 > [!div class="nextstepaction"]
-> [Quickstart: Een server maken - PowerShell](analysis-services-create-powershell.md)  
+> [Snelstartgids: Een server maken - PowerShell](analysis-services-create-powershell.md)  

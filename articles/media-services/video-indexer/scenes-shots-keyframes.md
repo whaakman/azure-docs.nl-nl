@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: dfa41dc695cf6ab357a9cd4cdbd32454b6dd107d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896408"
 ---
-# <a name="scenes-shots-and-keyframes"></a>Schermen, foto's en hoofdframes
+# <a name="scenes-shots-and-keyframes"></a>Scènes, opnamen en sleutelframes
 
 Video Indexer biedt ondersteuning voor segmenteren video's in de tijdelijke eenheden op basis van structurele en semantische eigenschappen. Deze mogelijkheid kan klanten eenvoudig zoeken, beheren en hun video-inhoud op basis van verschillende granulaties bewerken. Bijvoorbeeld, gebaseerd op de schermen, foto's en hoofdframes, in dit onderwerp beschreven. De **scènedetectie** functie is momenteel in preview.   
 
-![Schermen, foto's en hoofdframes](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
+![Scènes, opnamen en sleutelframes](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
 
 ## <a name="scene-detection-preview"></a>Scènedetectie (preview)
 

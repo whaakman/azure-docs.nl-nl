@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 90d576fd00a39f7e871cbe0922ce131dfbe38ff0
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862162"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Een aangepaste test maken voor Application Gateway met behulp van de portal
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-probe-portal.md)
+> * [Azure-portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -49,9 +49,9 @@ Tests worden geconfigureerd in een proces in twee stappen via de portal. De eers
 
 1. Op de **test toevoegen** blade, vul de vereiste gegevens voor de test en klikt u op wanneer u klaar bent **OK**.
 
-   |**Instelling** | **Value** | **Details**|
+   |**Instelling** | **Waarde** | **Details**|
    |---|---|---|
-   |**Name**|customProbe|Deze waarde is een beschrijvende naam in de test die toegankelijk is in de portal.|
+   |**Naam**|customProbe|Deze waarde is een beschrijvende naam in de test die toegankelijk is in de portal.|
    |**Protocol**|HTTP of HTTPS | Het protocol dat gebruikmaakt van de statustest.|
    |**Host**|i.e contoso.com|Deze waarde is de naam van de host die wordt gebruikt voor de test. Van toepassing alleen als er meerdere sites is geconfigureerd in Application Gateway, anders gebruiken '127.0.0.1'. Deze waarde verschilt van de naam van de VM-host.|
    |**Pad**|/ of een ander pad|De rest van de volledige url voor de aangepaste test. Een geldig pad begint met '/'. Voor het standaardpad van http:\//contoso.com gewoon gebruiken '/' |
