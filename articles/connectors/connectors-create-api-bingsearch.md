@@ -55,9 +55,9 @@ Of, als de verbinding al bestaat, geeft u de benodigde gegevens voor de trigger.
 
    | Eigenschap | Vereist | Value | Description |
    |----------|----------|-------|-------------|
-   | Zoekquery | Ja | <*woorden zoeken*> | Voer in de trefwoorden die u wilt gebruiken. |
+   | Search Query | Ja | <*woorden zoeken*> | Voer in de trefwoorden die u wilt gebruiken. |
    | Market | Ja | <*Landinstelling*> | De landinstelling zoeken. De standaardwaarde is "en-US", maar kunt u een andere waarde. |
-   | Veilig zoeken | Ja | <*zoeken op serverniveau*> | Het filterniveau voor het uitsluiten van inhoud voor volwassenen. De standaardwaarde is 'Gemiddeld', maar u kunt een ander niveau selecteren. |
+   | Safe Search | Ja | <*zoeken op serverniveau*> | Het filterniveau voor het uitsluiten van inhoud voor volwassenen. De standaardwaarde is 'Gemiddeld', maar u kunt een ander niveau selecteren. |
    | Count | Nee | <*aantal resultaten*> | Het opgegeven aantal resultaten retourneren. De standaardwaarde is 20, maar u kunt een andere waarde opgeven. Het werkelijke aantal geretourneerde resultaten kan zijn dat kleiner is dan het opgegeven getal. |
    | Offset | Nee | <*skip-value*> | Het aantal resultaten dat moet worden overgeslagen voordat het retourneren van resultaten |
    |||||
@@ -106,9 +106,9 @@ Selecteer de actie die u wilt in de lijst met acties.
 
    | Eigenschap | Vereist | Value | Description |
    |----------|----------|-------|-------------|
-   | Zoekquery | Ja | <*search-expression*> | Voer een expressie voor het uitvoeren van query's de resultaten van de trigger. U kunt selecteren in de velden in de lijst met dynamische inhoud of maakt u een expressie met de opbouwfunctie voor expressies. |
+   | Search Query | Ja | <*search-expression*> | Voer een expressie voor het uitvoeren van query's de resultaten van de trigger. U kunt selecteren in de velden in de lijst met dynamische inhoud of maakt u een expressie met de opbouwfunctie voor expressies. |
    | Market | Ja | <*Landinstelling*> | De landinstelling zoeken. De standaardwaarde is "en-US", maar kunt u een andere waarde. |
-   | Veilig zoeken | Ja | <*zoeken op serverniveau*> | Het filterniveau voor het uitsluiten van inhoud voor volwassenen. De standaardwaarde is 'Gemiddeld', maar u kunt een ander niveau selecteren. |
+   | Safe Search | Ja | <*zoeken op serverniveau*> | Het filterniveau voor het uitsluiten van inhoud voor volwassenen. De standaardwaarde is 'Gemiddeld', maar u kunt een ander niveau selecteren. |
    | Count | Nee | <*aantal resultaten*> | Het opgegeven aantal resultaten retourneren. De standaardwaarde is 20, maar u kunt een andere waarde opgeven. Het werkelijke aantal geretourneerde resultaten kan zijn dat kleiner is dan het opgegeven getal. |
    | Offset | Nee | <*skip-value*> | Het aantal resultaten dat moet worden overgeslagen voordat het retourneren van resultaten |
    |||||
