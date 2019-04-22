@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 89e0b6b5bedf36c89bf3a54f4baf42f7019625c0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051461"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Apparaten inrichten met Azure IoT Hub Device Provisioning Service
@@ -110,7 +110,7 @@ Voor elk Azure-abonnement gelden standaardquotalimieten. Deze limieten kunnen in
 
 Meer informatie over quotalimieten vindt u hier:
 
-* [Azure-abonnement en Servicelimieten](../azure-subscription-service-limits.md)
+* [Azure-abonnement en servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Gerelateerde Azure-onderdelen
 Device Provisioning Service maakt het mogelijk om het inrichten van apparaten met Azure IoT Hub te automatiseren. Lees hier meer informatie over [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).

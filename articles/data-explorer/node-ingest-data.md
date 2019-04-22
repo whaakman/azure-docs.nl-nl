@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
 ms.openlocfilehash: d530ed3710a3406e5cd8115d615e91d5056a5f8c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047650"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Snelstart: Gegevens opnemen met behulp van de Node-bibliotheek voor Azure Data Explorer
@@ -24,7 +24,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](htt
 
 Naast een Azure-abonnement hebt u het volgende nodig om deze snelstart te voltooien:
 
-* [Een testcluster en de database](create-cluster-database-portal.md)
+* [Een cluster en database voor testdoeleinden](create-cluster-database-portal.md)
 
 * [Node.js](https://nodejs.org/en/download/) geïnstalleerd op uw ontwikkelcomputer
 

@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dad05221376fa5871aadf6d89dcb15dff55a6dfa
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490711"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft identity-platform-protocollen
@@ -64,7 +64,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 Waar de `{tenant}` kan duren voordat een van de vier verschillende waarden:
 
-| Value | Beschrijving |
+| Value | Description |
 | --- | --- |
 | `common` | Kunnen gebruikers met persoonlijke Microsoft-accounts en werk-of schoolaccounts van Azure AD aan te melden bij de toepassing. |
 | `organizations` | Hiermee kunt u alleen gebruikers met een werk-of schoolaccounts van Azure AD aan te melden bij de toepassing. |
