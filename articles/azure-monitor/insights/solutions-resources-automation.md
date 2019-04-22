@@ -113,7 +113,7 @@ De eigenschappen van automation-taken worden beschreven in de volgende tabel.
 
 | Eigenschap | Description |
 |:--- |:--- |
-| Runbook |De naam van één entiteit met de naam van het runbook te starten. |
+| runbook |De naam van één entiteit met de naam van het runbook te starten. |
 | parameters |De entiteit voor elke parameterwaarde vereist voor het runbook. |
 
 De taak bevat de naam van het runbook en een parameterwaarden worden verzonden naar het runbook.  De taak moet [afhankelijk zijn van]( solutions-solution-file.md#resources) het runbook dat deze wordt gestart nadat het runbook moet worden gemaakt voordat de taak.  Als er meerdere runbooks die moet worden gestart, kunt u de volgorde definiëren door een taak die afhankelijk zijn van andere taken die u moeten eerst worden uitgevoerd.
@@ -171,8 +171,8 @@ De eigenschappen voor de referentie-resources worden in de volgende tabel beschr
 
 | Eigenschap | Description |
 |:--- |:--- |
-| Gebruikersnaam |Gebruikersnaam voor de referentie. |
-| wachtwoord |Wachtwoord voor de referentie. |
+| userName |Gebruikersnaam voor de referentie. |
+| password |Wachtwoord voor de referentie. |
 
 
 ## <a name="schedules"></a>Planningen
@@ -242,8 +242,8 @@ De eigenschappen voor taakschema's worden in de volgende tabel beschreven.
 
 | Eigenschap | Description |
 |:--- |:--- |
-| Schemanaam |Één **naam** entiteit met de naam van de planning. |
-| runbooknaam  |Één **naam** entiteit met de naam van het runbook.  |
+| schedule name |Één **naam** entiteit met de naam van de planning. |
+| runbook name |Één **naam** entiteit met de naam van het runbook.  |
 
 
 
@@ -272,7 +272,7 @@ De eigenschappen voor variabele resources worden in de volgende tabel beschreven
 | description | Optionele beschrijving voor de variabele. |
 | isEncrypted | Hiermee geeft u op of de variabele moet worden versleuteld. |
 | type | Deze eigenschap heeft momenteel geen effect.  Het gegevenstype van de variabele wordt bepaald door de aanvankelijke waarde. |
-| waarde | De waarde voor de variabele. |
+| value | De waarde voor de variabele. |
 
 > [!NOTE]
 > De **type** eigenschap heeft momenteel geen invloed op de variabele die wordt gemaakt.  Het gegevenstype voor de variabele wordt bepaald door de waarde.  
@@ -282,9 +282,9 @@ Als u de aanvankelijke waarde voor de variabele instelt, moet deze worden geconf
 | Gegevenstype | Description | Voorbeeld | Wordt omgezet in |
 |:--|:--|:--|:--|
 | string   | Waarde tussen dubbele aanhalingstekens.  | "\"Hallo wereld\"" | "Hallo wereld" |
-| numerieke  | Een numerieke waarde met enkele aanhalingstekens.| "64" | 64 |
-| booleaans  | **de waarde True** of **false** tussen aanhalingstekens.  Houd er rekening mee dat deze waarde een kleine letter moet. | "true" | true |
-| datum/tijd | Geserialiseerde date-waarde.<br>U kunt de cmdlet ConvertTo Json in PowerShell gebruiken voor het genereren van deze waarde voor een bepaalde datum.<br>Voorbeeld: get-date "5/24/2017 13:14:57" \| ConvertTo Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| numeric  | Een numerieke waarde met enkele aanhalingstekens.| "64" | 64 |
+| boolean  | **de waarde True** of **false** tussen aanhalingstekens.  Houd er rekening mee dat deze waarde een kleine letter moet. | "true" | true |
+| datetime | Geserialiseerde date-waarde.<br>U kunt de cmdlet ConvertTo Json in PowerShell gebruiken voor het genereren van deze waarde voor een bepaalde datum.<br>Voorbeeld: get-date "5/24/2017 13:14:57" \| ConvertTo Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Modules
 Uw oplossing hoeft niet te definiëren [algemene modules](../../automation/automation-integration-modules.md) gebruikt door uw runbooks omdat ze altijd beschikbaar zijn in uw Automation-account.  U hoeft een resource voor elke andere module die wordt gebruikt door uw runbooks bevatten.
