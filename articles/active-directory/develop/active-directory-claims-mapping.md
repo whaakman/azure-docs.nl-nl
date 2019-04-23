@@ -14,11 +14,11 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260303"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791333"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedure: Claims worden weergegeven in tokens voor een specifieke app in een tenant (Preview) aanpassen
 
@@ -44,7 +44,7 @@ Een claims toewijzen van beleid is een type **beleid** -object dat Hiermee wijzi
 
 Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze worden gebruikt in tokens.
 
-| Claim instellen | Description |
+| Claim instellen | Beschrijving |
 |---|---|
 | Core claimset | Aanwezig zijn in elke token, ongeacht het beleid. Deze claims worden ook beschouwd als beperkt, en kunnen niet worden gewijzigd. |
 | Basic claimset | Bevat de claims die worden gegenereerd door de standaardwaarde voor tokens (naast de core claimset). U kunt weglaten of basic claims wijzigen met behulp van de claims toewijzen van beleid. |
@@ -142,7 +142,7 @@ Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze w
 | onprem_sam_account_name |
 | onprem_sid |
 | openid2_id |
-| wachtwoord |
+| password |
 | platf |
 | polids |
 | pop_jwk |
@@ -384,7 +384,7 @@ Op basis van de gekozen methode, wordt een set van invoer en uitvoer verwacht. D
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabel 5: Kenmerken die zijn toegestaan als een gegevensbron voor de NameID van SAML
 
-|Bron|Id|Description|
+|Bron|Id|Beschrijving|
 |-----|-----|-----|
 | Gebruiker | mail|E-mailadres|
 | Gebruiker | userprincipalname|User principal name|

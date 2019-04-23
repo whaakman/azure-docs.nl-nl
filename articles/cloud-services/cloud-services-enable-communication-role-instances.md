@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
 ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918158"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792470"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Inschakelen van de communicatie voor rolinstanties in azure
 Cloud service-rollen communiceren via de interne en externe verbindingen. Externe verbindingen worden genoemd **invoer eindpunten** tijdens interne verbindingen heten **interne eindpunten**. Dit onderwerp wordt beschreven hoe u wijzigt de [servicedefinition](cloud-services-model-and-package.md#csdef) om eindpunten te maken.

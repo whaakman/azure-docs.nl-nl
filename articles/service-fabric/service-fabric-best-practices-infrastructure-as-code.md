@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 9224ecebed35a631514c5254703ad2694675d40e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049617"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59793811"
 ---
 # <a name="infrastructure-as-code"></a>Infrastructure als code
 
@@ -53,7 +53,7 @@ New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -
 
 ## <a name="azure-service-fabric-resources"></a>Azure Service Fabric-resources
 
-U kunt toepassingen en services implementeren naar uw Service Fabric-cluster via Azure Resource Manager. Zie [toepassingen en services als Azure Resource Manager-resources beheren](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) voor meer informatie. Hieronder vindt u een best practice Service Fabric-toepassing specifieke resources om op te nemen in uw sjabloonresources Resource Manager.
+U kunt toepassingen en services implementeren in uw Service Fabric-cluster via Azure Resource Manager. Zie [toepassingen en services als Azure Resource Manager-resources beheren](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) voor meer informatie. Hieronder vindt u een best practice Service Fabric-toepassing specifieke resources om op te nemen in uw sjabloonresources Resource Manager.
 
 ```json
 {

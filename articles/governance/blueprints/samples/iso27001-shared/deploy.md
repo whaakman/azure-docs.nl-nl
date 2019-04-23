@@ -8,11 +8,11 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: d27f2495c70dbe6e10fb3adf5370a31903be3abf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267920"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792398"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Het voorbeeld van de blauwdruk ISO 27001 gedeelde Services implementeren
 
@@ -105,7 +105,7 @@ Nadat de kopie van het voorbeeld van de blauwdruk is **gepubliceerd**, deze kan 
 
 De volgende tabel geeft een lijst van de blauwdruk artefact parameters:
 
-|Naam van het artefact|Type artefact|Parameternaam|Description|
+|Naam van het artefact|Type artefact|Parameternaam|Beschrijving|
 |-|-|-|-|
 |[Preview]: Log Analytics-Agent voor Linux VM-Schaalsets (VMSS) implementeren|Beleidstoewijzing|Optioneel: Lijst met VM-installatiekopieën waarop ondersteunde Linux-besturingssysteem toe te voegen aan het bereik|(Optioneel) Standaardwaarde is _['geen']_.|
 |[Preview]: Log Analytics-Agent voor Linux-VM's implementeren|Beleidstoewijzing|Optioneel: Lijst met VM-installatiekopieën waarop ondersteunde Linux-besturingssysteem toe te voegen aan het bereik|(Optioneel) Standaardwaarde is _['geen']_.|

@@ -16,11 +16,11 @@ ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
 ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918515"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792817"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Automation-scenario's voor het beheer van facturering en kosten
 
@@ -44,7 +44,7 @@ U kunt de facturering gebruiken en kosten van beheer-API's in verschillende scen
 
 ## <a name="scenario-to-api-mapping"></a>Scenario voor de API-toewijzing
 
-|         API        | Factuurafstemming    | Cross-kosten    | Kosten optimaliseren    | Kosten bijhouden    | Midmonth uitgaven    | Waarschuwingen    |
+|         API        | Factuurafstemming    | Cross-kosten    | Kostenoptimalisatie    | Kosten bijhouden    | Midmonth uitgaven    | Waarschuwingen    |
 |:---------------------------:|:-------------------------:|:----------------:|:--------------------:|:----------------:|:------------------:|:---------:|
 | Budgetten                     |                           |                  |           X          |                  |                    |     X     |
 | Marketplace-kosten                |             X             |         X        |           X          |         X        |          X         |     X     |
