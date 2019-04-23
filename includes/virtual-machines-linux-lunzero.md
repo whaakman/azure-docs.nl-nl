@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 87dd3680aae3e87f78ab2dbe70c44b2008706747
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279566"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60188222"
 ---
 Bij het toevoegen van gegevensschijven met een Linux VM, kan er fouten optreden als een schijf niet op LUN 0 bestaat. Als u een schijf handmatig met behulp van toevoegt de `azure vm disk attach-new` opdracht en geeft u een LUN (`--lun`) in plaats van het Azure-platform om te bepalen van de juiste LUN toe te staan, Let erop dat een schijf al bestaat / wordt aangelegd op LUN 0. 
 

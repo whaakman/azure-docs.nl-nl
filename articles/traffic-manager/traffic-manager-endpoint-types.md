@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
 ms.openlocfilehash: 3f41edef56b238d8789264d00d73998794fec7eb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881992"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60188710"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager-eindpunten
 Microsoft Azure Traffic Manager kunt u bepalen hoe netwerkverkeer wordt gedistribueerd naar implementaties van toepassingen die worden uitgevoerd in verschillende datacenters. U configureren elke implementatie van toepassing als een 'eindpunt' in Traffic Manager. Bij het Traffic Manager een DNS-aanvraag ontvangt, kiest deze een eindpunt beschikbaar om te retourneren in de DNS-antwoord. Traffic manager wordt de basis van de keuze van de huidige status van endpoint en de verkeersrouteringsmethode. Zie voor meer informatie, [hoe Traffic Manager werkt](traffic-manager-how-it-works.md).
