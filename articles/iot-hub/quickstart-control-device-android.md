@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: e3b0c0703cb46087db38121055117b50f97ad03f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 4f9f4ccb53f9530122f0a2463f8f45b596856282
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006569"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149679"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Snelstart: Een apparaat beheren dat is verbonden met een IoT-hub (Android)
 
@@ -125,15 +125,13 @@ De Device SDK-voorbeeldtoepassing kan worden uitgevoerd op een fysiek Android-ap
    > * De versies van de Android Gradle-invoegtoepassing en Gradle waarnaar wordt verwezen in het project zijn verouderd voor uw versie van Android Studio. Ga als volgt [deze instructies](https://developer.android.com/studio/releases/gradle-plugin) om te verwijzen naar en installeren van de juiste versie van de invoegtoepassing en gradle zijn voor uw installatie.
    > * De gebruiksrechtovereenkomst voor de Android SDK is niet ondertekend. Volg de instructies in de uitvoer van de Build ondertekenen van de gebruiksrechtovereenkomst en downloadt u de SDK.
 
-
 4. Zodra de build is voltooid, klikt u op **Uitvoeren** > **App uitvoeren**. Configureer de app om te worden uitgevoerd op een fysiek Android-apparaat of een Android-emulator. Zie [Uw app uitvoeren](https://developer.android.com/training/basics/firstapp/running-app) voor meer informatie over het uitvoeren van een Android-app op een fysiek apparaat of een emulator.
 
 5. Zodra de app wordt geladen, klikt u op de knop **Start** om telemetrie te verzenden naar de IoT-hub:
 
-    ![Toepassing](media/quickstart-send-telemetry-android/sample-screenshot.png)
+    ![Schermopname van voorbeeld van android-clientapp apparaat](media/quickstart-control-device-android/sample-screenshot.png)
 
 Deze app moet actief blijven op een fysiek apparaat of op een emulator, terwijl u het Service SDK-voorbeeld uitvoert om het telemetrie-interval bij te werken tijdens runtime.
-
 
 ## <a name="read-the-telemetry-from-your-hub"></a>De telemetrie van uw hub lezen
 
@@ -146,12 +144,12 @@ In deze sectie gebruikt u Azure Cloud Shell met de [IoT-extensie](https://docs.m
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
+
     In de volgende schermafbeelding ziet u de uitvoer op het moment dat de IoT-hub de telemetrie ontvangt die is verzonden met het Android-apparaat:
 
-      ![Lees de apparaatberichten met de Azure CLI](media/quickstart-send-telemetry-android/read-data.png)
+      ![Lees de apparaatberichten met de Azure CLI](media/quickstart-control-device-android/read-data.png)
 
 Met de telemetrie-app wordt standaard elke 5 seconden telemetrie verzonden vanaf het Android-apparaat. In de volgende sectie gebruikt u de aanroep van de directe methode om het telemetrie-interval voor het Android IoT-apparaat bij te werken.
-
 
 ## <a name="call-the-direct-method"></a>De directe methode aanroepen
 
@@ -180,7 +178,6 @@ Een IoT Hub-back-endservicetoepassing wordt gewoonlijk uitgevoerd in de cloud, w
    > * De versies van de Android Gradle-invoegtoepassing en Gradle waarnaar wordt verwezen in het project zijn verouderd voor uw versie van Android Studio. Ga als volgt [deze instructies](https://developer.android.com/studio/releases/gradle-plugin) om te verwijzen naar en installeren van de juiste versie van de invoegtoepassing en gradle zijn voor uw installatie.
    > * De gebruiksrechtovereenkomst voor de Android SDK is niet ondertekend. Volg de instructies in de uitvoer van de Build ondertekenen van de gebruiksrechtovereenkomst en downloadt u de SDK.
 
-
 4. Zodra de build is voltooid, klikt u op **Uitvoeren** > **App uitvoeren**. Configureer de app om te worden uitgevoerd op een afzonderlijk fysiek Android-apparaat of een Android-emulator. Zie [Uw app uitvoeren](https://developer.android.com/training/basics/firstapp/running-app) voor meer informatie over het uitvoeren van een Android-app op een fysiek apparaat of een emulator.
 
 5. Zodra de app wordt geladen, werkt u de waarde **Berichtinterval instellen** bij naar **1000** en klikt u op **Aanroepen**.
@@ -192,8 +189,6 @@ Een IoT Hub-back-endservicetoepassing wordt gewoonlijk uitgevoerd in de cloud, w
 6. De app ontvangt een bevestiging dat de methode wel of niet wordt uitgevoerd.
 
     ![Bevestiging directe methode](media/quickstart-control-device-android/direct-method-ack.png)
-
-
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

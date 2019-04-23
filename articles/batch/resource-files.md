@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: f6693de861658c7174614e80906ee83633fcb313
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501089"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995622"
 ---
 # <a name="creating-and-using-resource-files"></a>Het maken en gebruiken van bestanden
 
@@ -72,7 +72,7 @@ Een alternatief voor het genereren van een SAS-URL is het inschakelen van anonie
 
 In plaats van te configureren en het maken van een SAS-URL, kunt u de naam van uw Azure storage-container gebruiken voor toegang tot uw blob-gegevens. De opslagcontainer moet in de Azure storage-account dat gekoppeld aan uw Batch-account, bekend als het account autostorage gebruikt. De containernaam van de opslag van een account autostorage, kunt u als volgt te omzeilen, configureren en het maken van een SAS-URL voor toegang tot een opslagcontainer.
 
-In dit voorbeeld veronderstellen we dat de gegevens moet worden gebruikt voor het maken van resource al in een Azure Storage-account dat is gekoppeld aan uw Batch-account is. Als u geen account autostorage hebt, raadpleegt u de stappen in [maken van een Batch-account](/create-a-batch-account.md) voor meer informatie over het maken en een account koppelen.
+In dit voorbeeld veronderstellen we dat de gegevens moet worden gebruikt voor het maken van resource al in een Azure Storage-account dat is gekoppeld aan uw Batch-account is. Als u geen account autostorage hebt, raadpleegt u de stappen in [maken van een Batch-account](batch-account-create-portal.md) voor meer informatie over het maken en een account koppelen.
 
 Met behulp van een gekoppelde storage-account, moet u niet maken en configureren van een SAS-URL naar een opslagcontainer. Geef in plaats daarvan de naam van de storage-container in uw gekoppelde storage-account.
 

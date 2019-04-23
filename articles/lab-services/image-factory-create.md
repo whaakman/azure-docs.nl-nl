@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: e51c56f54a4e30b5e9094388ed92aa0a62ba0840
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cf1bb31614c04d6073bc40c510fc43b2f8e4e189
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796307"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148982"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>De fabrieksinstellingen van een aangepaste installatiekopie maken in Azure DevTest Labs
-Dit artikel leest u over het instellen van de fabrieksinstellingen van een aangepaste installatiekopie met behulp van voorbeelden van scripts beschikbaar in de [Git-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory).
+Dit artikel leest u over het instellen van de fabrieksinstellingen van een aangepaste installatiekopie met behulp van voorbeelden van scripts beschikbaar in de [Git-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory).
 
 ## <a name="whats-an-image-factory"></a>Wat is een installatiekopie factory?
 Een afbeelding factory is een configuratie als code-oplossing die u bouwt en distribueert afbeeldingen automatisch met de gewenste configuraties op een geregelde. De afbeeldingen in de fabriek installatiekopie altijd up-to-date zijn en het voortdurende onderhoud is bijna nul wanneer het hele proces is geautomatiseerd. En omdat de vereiste configuraties al in de afbeelding, bespaart u de tijd van het systeem handmatig configureren nadat een virtuele machine is gemaakt met het Basisbesturingssysteem.
@@ -39,7 +39,7 @@ De oplossing kunt de snelheid van het maken van virtuele machines vanuit aangepa
 
 ![Weergave op hoog niveau van de oplossing](./media/create-image-factory/high-level-view-of-solution.png)
 
-Er is een [VSTS-extensie voor DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) waarmee u kunt afzonderlijke stappen uitvoeren: 
+Er is een [VSTS-extensie voor DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) waarmee u kunt afzonderlijke stappen uitvoeren:
 
 - Aangepaste installatiekopie maken
 - VM maken

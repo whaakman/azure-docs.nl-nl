@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563367"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011232"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Voorbeeld: de Computer Vision-API aanroepen
 
@@ -47,10 +47,9 @@ Functies worden onderverdeeld op:
 
 Voor elke aanroep naar de Computer Vision-API is een abonnementssleutel vereist. Deze sleutel moet worden doorgegeven via een tekenreeksparameter of zijn opgegeven in de aanvraagheader.
 
-Raadpleeg [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md
-) als u een abonnementssleutel wilt verkrijgen.
+Als u wilt ophalen van een gratis proefversie sleutel, Zie [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Of, volg de instructies in [een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) abonneren op de Computer Vision en haal uw sleutel.
 
-1. Het doorgeven van de abonnementssleutel via een querytekenreeks; zie onder voor een voorbeeld met de Computer Vision-API:
+1. De abonnementssleutel kan worden doorgegeven via een querytekenreeks. Hieronder ziet u een voorbeeld met de Computer Vision-API:
 
 ```https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>```
 

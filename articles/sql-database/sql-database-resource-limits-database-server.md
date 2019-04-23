@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 03/01/2019
-ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 04/18/2019
+ms.openlocfilehash: 04a5b98daf94275c6a95503c518248abeaeaeaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093885"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998274"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database-resourcebeperkingen voor Azure SQL Database-server
 
@@ -55,7 +55,7 @@ Als hoge compute-gebruik worden aangetroffen, wordt een risicobeperking opties z
 - Het compute vergroten van de database of elastische pool voor de database met meer rekenresources. Zie [schalen van één database-resources](sql-database-single-database-scale.md) en [resources voor elastische pool schalen](sql-database-elastic-pool-scale.md).
 - Query's te verminderen van het Resourcegebruik van elke query te optimaliseren. Zie voor meer informatie, [Query afstemmen/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 
 Wanneer ruimte in database gebruikt de maximaal toegestane grootte is bereikt, database ingevoegd en niet bijwerken waarmee u de grootte van de gegevens te verhogen en -clients ontvangen een [foutbericht](sql-database-develop-error-messages.md). Database selecteren en doorgaan met verwijderen te voltooien.
 
@@ -75,7 +75,7 @@ Als hoog gebruik van sessie- of werkrollen worden aangetroffen, wordt een risico
 - Optimaliseren query's om te verlagen van het Resourcegebruik van elke query als de oorzaak van het toegenomen worker-gebruik is vanwege conflicten over rekenresources. Zie voor meer informatie, [Query afstemmen/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="transaction-log-rate-governance"></a>Transaction Log tarief Governance 
-Transaction log tarief governance is een proces in Azure SQL Database gebruikt voor het beperken van hoge opname-tarieven voor workloads zoals bulksgewijs invoegen, SELECT INTO en indexbuilds. Deze limieten worden bijgehouden en worden afgedwongen op het niveau dan een seconde voor het aantal records genereren van logboekbestanden, beperkende doorvoer, ongeacht hoeveel IOs kan worden uitgegeven voor de gegevensbestanden.  Transactietarieven log generatie op dit moment worden lineair geschaald tot een tijdstip dat is afhankelijk van de hardware, snelheid toegestaan met de maximumgrootte van het logboek wordt 48 MB/s met de vCore model kopen. 
+Transaction log tarief governance is een proces in Azure SQL Database gebruikt voor het beperken van hoge opname-tarieven voor workloads zoals bulksgewijs invoegen, SELECT INTO en indexbuilds. Deze limieten worden bijgehouden en worden afgedwongen op het niveau dan een seconde voor het aantal records genereren van logboekbestanden, beperkende doorvoer, ongeacht hoeveel IOs kan worden uitgegeven voor de gegevensbestanden.  Transactietarieven log generatie op dit moment worden lineair geschaald tot een tijdstip dat is afhankelijk van de hardware, snelheid toegestaan met de maximumgrootte van het logboek wordt 96 MB/s met de vCore model kopen. 
 
 > [!NOTE]
 > De daadwerkelijke fysieke IOs aan logbestanden van transacties worden niet geregeld of die beperkt zijn. 
@@ -98,7 +98,7 @@ Vormgeven van logboek tarief resourceregeling verkeer wordt opgehaald via de vol
 |||
 
 Als een frequentielimiet van logboekbestanden die de gewenste schaalbaarheid is die worden aangetroffen, houd rekening met de volgende opties:
-- Schaal omhoog naar een grotere laag om op te halen van de maximale 48 MB/s log snelheid. 
+- Schaal omhoog naar een grotere laag om op te halen van de maximale 96 MB/s log snelheid. 
 - Als gegevens worden geladen tijdelijke, kan dat wil zeggen staging-gegevens in een ETL-proces, deze worden geladen in tempdb (die minimaal wordt geregistreerd). 
 - Voor analytische scenario's door in een geclusterde columnstore gedekt-tabel te laden. Dit beperkt de vereiste log snelheid vanwege compressie. Deze techniek neemt CPU-gebruik en is alleen van toepassing op gegevenssets die baat bij een geclusterde columnstore-indexen hebben. 
 

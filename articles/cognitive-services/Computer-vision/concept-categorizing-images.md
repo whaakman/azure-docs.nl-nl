@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 07fdaa22532f48cc39b6c524d85fdfe625f8b80c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: 257da397e11843ee96e93f7b3e9bc5ada29822cf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337125"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995571"
 ---
-# <a name="categorize-images"></a>Categoriseren van beelden
+# <a name="categorize-images-by-subject-matter"></a>Categoriseer installatiekopieën op basis van onderwerp
 
 Naast de labels en een beschrijving, Computer Vision geeft als resultaat de taxonomie op basis van categorieën gedetecteerd in een afbeelding. In tegenstelling tot tags, categorieën zijn ingedeeld in een erfelijke hiërarchie bovenliggend/onderliggend en er zijn minder van deze (in plaats van duizenden tags 86). Alle namen worden in het Engels. Categorisatie kan worden gedaan door zelf of naast het nieuwere model van de labels.
 
@@ -53,7 +53,7 @@ De volgende JSON-antwoord wordt geïllustreerd wat Computer Vision geretourneerd
 
 De volgende tabel ziet u een set typische installatiekopie en de categorie die is geretourneerd door de Computer Vision voor elke afbeelding.
 
-| Installatiekopie | Categorie |
+| Image | Category |
 |-------|----------|
 | ![Vier personen zich voordeed samen als een familie](./Images/family_photo.png) | people_group |
 | ![Een puppy zit in een grassy veld](./Images/cute_dog.png) | animal_dog |

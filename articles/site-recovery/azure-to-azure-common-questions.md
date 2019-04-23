@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 03/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 66d57677b216130316c6a3ddd9a6cff993540808
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 52a5022b49bac990321c3cf8661aa2a04e93b39a
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649880"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149730"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Veelgestelde vragen: Replicatie van Azure naar Azure
 
@@ -67,7 +67,7 @@ Met Site Recovery kunt u repliceren en herstellen van virtuele machines tussen e
 
 Nee, Site Recovery is geen verbinding met internet vereist. Maar dit vereist toegang tot de Site Recovery-URL's en IP-adressen, zoals vermeld in [in dit artikel](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
-### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Kan ik afzonderlijke resourcegroep voor de afzonderlijke lagen te gebruiken of de toepassing repliceren? 
+### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Kan ik afzonderlijke resourcegroep voor de afzonderlijke lagen te gebruiken of de toepassing repliceren?
 Ja, kunt u repliceert u de toepassing en de configuratie van het herstel na noodgevallen in afzonderlijke resourcegroep te houden.
 Bijvoorbeeld, hebt u een toepassing met elke app, db en web in afzonderlijke resourcegroep lagen, hebt u klikken op de [wizard replicatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) drie keer op alle lagen te beveiligen. ASR kan deze drie lagen in drie verschillende resourcegroep wordt gerepliceerd.
 
@@ -89,11 +89,12 @@ Vandaag de dag kunnen de meeste toepassingen herstellen van crash-consistente mo
 ### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>Wat is de frequentie van de crash-consistent herstelpunt punt generatie?
 Site Recovery maakt een crash-consistente herstelpunt om de 5 minuten.
 
-### <a name="what-is-an-application-consistent-recovery-point"></a>Wat is een toepassingsconsistente herstelpunt? 
-Toepassingsconsistente herstelpunten zijn gemaakt op basis van toepassingsconsistente momentopnamen. Toepassingsconsistente herstelpunten vastleggen dezelfde gegevens als crash-consistente momentopnamen, met de toevoeging van alle gegevens in het geheugen en alle lopende transacties. Vanwege de extra inhoud toepassingsconsistente momentopnamen zijn het meest betrokken en nemen de langste om uit te voeren. Het wordt aangeraden de toepassingsconsistente herstelpunten voor database-besturingssystemen en toepassingen, zoals SQL Server.
+### <a name="what-is-an-application-consistent-recovery-point"></a>Wat is een toepassingsconsistente herstelpunt?
+Toepassingsconsistente herstelpunten zijn gemaakt op basis van toepassingsconsistente momentopnamen. Toepassingsconsistente herstelpunten vastleggen dezelfde gegevens als crash-consistente momentopnamen, met de toevoeging van alle gegevens in het geheugen en alle lopende transacties.
+Vanwege de extra inhoud toepassingsconsistente momentopnamen zijn het meest betrokken en nemen de langste om uit te voeren. Het wordt aangeraden de toepassingsconsistente herstelpunten voor database-besturingssystemen en toepassingen, zoals SQL Server.
 
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Wat zijn de gevolgen van toepassingsconsistente herstelpunten op de prestaties van toepassingen?
-Overweegt toepassingsconsistente herstelpunten bevat alle gegevens in het geheugen en in proces hiervoor het framework zoals VSS in windows stilleggen de toepassing. Dit, kan als heel vaak gedaan hebben invloed op de prestaties als de werkbelasting al bezet is. Is doorgaans het nodig om niet te gebruiken met lage frequentie voor app-consistente herstelpunten voor niet-workloads van databases en zelfs voor database-workload 1 uur is dit voldoende. 
+Overweegt toepassingsconsistente herstelpunten bevat alle gegevens in het geheugen en in proces hiervoor het framework zoals VSS in windows stilleggen de toepassing. Dit, kan als heel vaak gedaan hebben invloed op de prestaties als de werkbelasting al bezet is. Is doorgaans het nodig om niet te gebruiken met lage frequentie voor app-consistente herstelpunten voor niet-workloads van databases en zelfs voor database-workload 1 uur is dit voldoende.
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Wat is de minimale frequentie van toepassingsconsistente recovery point generatie?
 Site Recovery maakt een toepassingsconsistente herstelpunt met een minimale frequentie van binnen 1 uur.
@@ -216,7 +217,11 @@ Dat hangt ervan af op de situatie. Bijvoorbeeld, als de bronregio VM bestaat, zi
 Na het opnieuw beveiligen is de hoeveelheid tijd voor failback meestal vergelijkbaar met de tijd voor de failover van de primaire regio naar een secundaire regio.
 
 ## <a name="capacity"></a>Capaciteit
-### <a name="does-site-recovery-work-with-reserved-instance"></a>Werkt Site Recovery met gereserveerde instantie?
+
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Hoe wordt capaciteit kan worden gegarandeerd in de doelregio voor Azure VM's?
+Het team van Azure Site Recovery (ASR) werkt met Azure capaciteit management-team om te plannen voor voldoende infrastructuurcapaciteit, in een poging om ervoor te zorgen dat virtuele machines die zijn beveiligd met ASR voor disaster recovery met succes worden geïmplementeerd in de regio van het herstel na noodgevallen Wanneer de ASR-failoverbewerkingen worden geïnitieerd.
+
+### <a name="does-site-recovery-work-with-reserved-instances"></a>Werkt Site Recovery met gereserveerde instanties?
 Ja, u kunt kopen [exemplaren reserveren](https://azure.microsoft.com/pricing/reserved-vm-instances/) in de DR-regio en ASR failover-bewerkingen worden gebruikt. </br> Er is geen aanvullende configuratie vereist van de klanten.
 
 

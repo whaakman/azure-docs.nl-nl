@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2c15cac7897e25018057aa47cc2043050ed0ae5b
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
-ms.translationtype: MT
+ms.openlocfilehash: cb5a08730b47cb5df3116aa4a54554ef0ee6f260
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413197"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149747"
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Labs automatisch met behulp van Azure Resource Manager-sjablonen en PowerShell maken of wijzigen
 
@@ -28,7 +28,7 @@ DevTest Labs biedt veel Azure Resource Manager-sjablonen en PowerShell-scripts d
 In dit artikel begeleidt u bij het proces van het gebruik van deze sjablonen en scripts voor het automatiseren van het maken, wijzigen en implementeren van uw labs. In dit artikel leest u ook waar u meer informatie over het gebruik van PowerShell voor het uitvoeren van enkele veelvoorkomende taken in DevTest Labs kunt vinden.
 
 ## <a name="step-1-gather-your-templates-and-scripts"></a>Stap 1: Verzamelen van de sjablonen en -scripts
-U kunt vinden en-klare [Azure Resource Manager-sjablonen](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) en [PowerShell-scripts](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) op onze openbare [GitHub-opslagplaats](https://github.com/Azure/azure-devtestlab). Gebruik deze-is, of ze aanpassen aan uw behoeften en op te slaan in uw eigen [Git-opslagplaats voor persoonlijke](devtest-lab-add-artifact-repo.md).
+U kunt vinden en-klare [Azure Resource Manager-sjablonen](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) en [PowerShell-scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts) op onze openbare [GitHub-opslagplaats](https://github.com/Azure/azure-devtestlab). Gebruik deze-is, of ze aanpassen aan uw behoeften en op te slaan in uw eigen [Git-opslagplaats voor persoonlijke](devtest-lab-add-artifact-repo.md).
 
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>Stap 2: Uw Azure Resource Manager-sjabloon aanpassen
 U kunt de stappen op [uw eerste Azure Resource Manager-sjabloon maken](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) als u een sjabloon voor nooit hebt gemaakt.

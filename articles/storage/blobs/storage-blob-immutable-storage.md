@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/18/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: 32328b89e8a220269f0d07c3700566db5b899d5b
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 7fd9992db79b2517256d85ca3fd8f3bf409afa48
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445687"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996019"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store kritieke zakelijke gegevens in Azure Blob-opslag
 
@@ -41,7 +41,7 @@ Onveranderbare storage ondersteunt het volgende:
 
 - **Configuratie van de container op serverniveau**: Gebruikers kunnen configureren voor op tijd gebaseerd bewaarbeleid en juridisch tags op het niveau van de container. Met behulp van eenvoudige container-niveau instellingen, kunnen gebruikers maken en op tijd gebaseerd bewaarbeleid vergrendelen, uit te breiden retentie intervallen, instellen en schakel juridische bewaring en meer. Dit beleid van toepassing op alle blobs in de container, bestaande en nieuwe.
 
-- **Ondersteuning voor logboekregistratie controleren**: Elke container bevat een logboek. Het bevat maximaal vijf tijd gebaseerd bewaren-opdrachten voor het beleid voor het vergrendelde op tijd gebaseerd bewaren, met een maximum van drie logboeken voor extensies van retentie-interval. Het logboek bevat voor het bewaren op basis van tijd, de gebruikers-ID, het opdrachttype, de tijdstempels en de retentie-interval. Het logboek bevat de gebruikers-ID, het opdrachttype, de tijdstempels voor juridische bewaring en juridisch tags. Dit logboek worden bewaard gedurende de levensduur van de container, in overeenstemming met de seconde 17a-4(f)-regelgeving. De [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md) ziet u een meer uitgebreide logboek van alle activiteiten van het besturingselement vlak; tijdens het inschakelen van [diagnostische logboeken van Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) blijven behouden en gegevens vlak bewerkingen weergegeven. Het is de verantwoordelijkheid van de gebruiker voor het opslaan van deze logboeken permanent mogelijk zijn vereist voor wettelijke of andere doeleinden.
+- **Ondersteuning voor logboekregistratie controleren**: Elke container bevat het controlelogboek van een beleid. U ziet maximaal zeven op basis van tijd bewaren-opdrachten voor het vergrendelde op tijd gebaseerd bewaarbeleid en bevat de gebruikers-ID, het opdrachttype, de tijdstempels en de retentie-interval. Het logboek bevat de gebruikers-ID, het opdrachttype, de tijdstempels voor juridische bewaring en juridisch tags. Dit logboek worden bewaard gedurende de levensduur van het beleid, in overeenstemming met de seconde 17a-4(f)-regelgeving. De [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md) ziet u een meer uitgebreide logboek van alle activiteiten van het besturingselement vlak; tijdens het inschakelen van [diagnostische logboeken van Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) blijven behouden en gegevens vlak bewerkingen weergegeven. Het is de verantwoordelijkheid van de gebruiker voor het opslaan van deze logboeken permanent mogelijk zijn vereist voor wettelijke of andere doeleinden.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
@@ -82,15 +82,28 @@ De volgende tabel bevat de typen van blob-bewerkingen die zijn uitgeschakeld voo
 
 <sup>1</sup> met deze toepassing kan deze bewerkingen te maken van een nieuwe blob eenmaal. Alle volgende overschrijven bewerkingen op een bestaand blobpad in een onveranderbare container zijn niet toegestaan.
 
+## <a name="supported-values"></a>Ondersteunde waarden
+
+### <a name="time-based-retention"></a>Tijd gebaseerd bewaren
+- Voor een opslagaccount is het maximum aantal containers met vergrendeld op basis van tijd onveranderbare beleid 1000.
+- Het minimale retentie-interval is 1 dag. Het maximum is 146,000 dagen (400 jaar).
+- Voor een container is het maximum aantal bewerkingen om uit te breiden een bewaarinterval voor vergrendeld op basis van tijd onveranderbare beleid 5.
+- Voor een container worden maximaal 7 auditlogboeken van de tijd gebaseerd bewaren beleid bewaard voor de duur van het beleid.
+
+### <a name="legal-hold"></a>Juridische bewaring
+- Voor een opslagaccount is het maximum aantal containers met een instelling voor juridische bewaring 1000.
+- Voor een container is het maximum aantal tags voor juridische bewaring 10.
+- De minimale lengte van een juridische bewaring-tag is 3 alfanumerieke tekens. De maximale lengte is 23 alfanumerieke tekens.
+- Voor een container houdt maximaal 10 juridische logboeken worden bewaard voor de duur van het beleid voor controle van beleid.
+
 ## <a name="pricing"></a>Prijzen
 
 Er is geen extra kosten voor het gebruik van deze functie. De prijs is onveranderbaar gegevens op dezelfde manier als normale, veranderlijke gegevens. Informatie over prijzen voor Azure Blob Storage, Zie de [Azure Storage-pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="getting-started"></a>Aan de slag
-Onveranderbare opslag is alleen beschikbaar voor algemeen gebruik v2 en Blob Storage-Accounts. Deze account moet worden beheerd via [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Zie voor meer informatie over het bijwerken van een bestaand opslagaccount voor algemeen gebruik v1 [een storage-account upgraden](../common/storage-account-upgrade.md).
+Onveranderbare opslag is alleen beschikbaar voor algemeen gebruik v2 en Blob Storage-Accounts. Deze accounts moeten worden beheerd via [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Zie voor meer informatie over het bijwerken van een bestaand opslagaccount voor algemeen gebruik v1 [een storage-account upgraden](../common/storage-account-upgrade.md).
 
 De meest recente versies van de [Azure-portal](https://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), en [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) onveranderbare storage ondersteuning voor Azure Blob-opslag. [Bibliotheek clientondersteuning](#client-libraries) is ook beschikbaar.
-
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -152,16 +165,6 @@ De volgende clientbibliotheken bieden ondersteuning voor onveranderbare opslag v
 - [Python-clientbibliotheek versie 2.0.0 Release Candidate 2 en hoger](https://pypi.org/project/azure-mgmt-storage/2.0.0rc2/)
 - [Java-clientbibliotheek](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/storage/resource-manager/Microsoft.Storage/preview/2018-03-01-preview)
 
-## <a name="supported-values"></a>Ondersteunde waarden
-
-- De minimale bewaarinterval is één dag. Het maximum is 146,000 dagen (400 jaar).
-- Voor een opslagaccount is het maximum aantal containers met vergrendeld beleid voor onveranderbare 1000.
-- Voor een opslagaccount is het maximum aantal containers met een instelling voor juridische bewaring 1000.
-- Voor een container is het maximum aantal tags voor juridische bewaring 10.
-- De maximale lengte van een juridische bewaring-tag is 23 alfanumerieke tekens. De minimale lengte is drie tekens.
-- Voor een container is het maximum aantal toegestane retentie-interval uitbreidingen voor vergrendelde onveranderbare beleid drie.
-- Voor een container met een vergrendelde onveranderbare beleid houdt een maximum van vijf logboeken van het beleid op basis van tijd bewaren en maximaal 10 juridische beleid logboeken worden bewaard voor de duur van de container.
-
 ## <a name="faq"></a>Veelgestelde vragen
 
 **Kunt u de documentatie van de naleving van de WORM geven?**
@@ -178,7 +181,7 @@ Nee, kunt u onveranderbare opslag aan een bestaande of nieuwe algemeen gebruik v
 
 **Kan ik een juridische bewaring en de tijd gebaseerd bewaarbeleid toepassen?**
 
-Een container kan zowel een juridische bewaring en een op tijd gebaseerd bewaarbeleid hebben op hetzelfde moment. Alle blobs in die container blijven in de status van de onveranderbare, totdat alle juridische bewaring zijn uitgeschakeld, zelfs als de daadwerkelijke bewaarperiode is verlopen. Daarentegen blijft een blob in een onveranderbare status totdat de daadwerkelijke bewaarperiode is verlopen, zelfs als alle juridische bewaring zijn gewist.
+Ja, kan een container zowel een juridische bewaring en een op tijd gebaseerd bewaarbeleid hebben op hetzelfde moment. Alle blobs in die container blijven in de status van de onveranderbare, totdat alle juridische bewaring zijn uitgeschakeld, zelfs als de daadwerkelijke bewaarperiode is verlopen. Daarentegen blijft een blob in een onveranderbare status totdat de daadwerkelijke bewaarperiode is verlopen, zelfs als alle juridische bewaring zijn gewist.
 
 **Beleid voor juridische bewaring zijn alleen bedoeld voor gerechtelijke procedure of zijn er andere scenario's voor gebruiken?**
 
@@ -208,7 +211,7 @@ Ja. Wanneer een op tijd gebaseerd bewaarbeleid wordt gemaakt, is in een *ontgren
 
 Ja. [Voorlopig verwijderen voor Azure Blob storage](storage-blob-soft-delete.md) geldt voor alle containers in een storage-account, onafhankelijk van een juridische bewaring of een op tijd gebaseerd bewaarbeleid. Het is raadzaam om voorlopig verwijderen voor extra beveiliging inschakelen voordat een onveranderbare WORM-beleidsregels worden toegepast en bevestigd. 
 
-**Is de functie beschikbaar in landelijke en overheidsclouds?**
+**Waar is de functie beschikbaar?**
 
 Onveranderbare storage is beschikbaar in openbare Azure-, China en overheid regio's. Als onveranderbare opslag niet beschikbaar in uw regio is, neem contact op met ondersteuning voor e-mailbericht azurestoragefeedback@microsoft.com.
 

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 7fc0d3a2e29a2aaa06d88f25828ff676d615939d
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579152"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149560"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -23,12 +23,39 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 + De Azure Machine Learning [ **belangrijkste SDK voor Python**](https://aka.ms/aml-sdk)
 + De Azure Machine Learning [ **Dataprep-SDK**](https://aka.ms/data-prep-sdk)
 
+## <a name="2019-04-17"></a>2019-04-17
+
+### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning Data Prep SDK v1.1.2
+
+Opmerking: Data Prep Python SDK wordt niet meer geïnstalleerd `numpy` en `pandas` pakketten. Zie [installatie-instructies bijgewerkt](https://aka.ms/aml-data-prep-installation).
+
++ **Nieuwe functies**
+  + U kunt nu de transformatie Pivot gebruiken.
+    + Gebruiksaanwijzing: [Pivot notebook](https://aka.ms/aml-data-prep-pivot-nb)
+  + U kunt nu reguliere expressies gebruiken in de systeemeigen functies.
+    + Voorbeelden:
+      + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
+      + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
+  + U kunt nu `to_upper`  en `to_lower`  functies in expressietaal.
+  + U ziet nu het aantal unieke waarden van elke kolom in een gegevensprofiel.
+  + Voor sommige van de meest gebruikte lezer stappen, kunt u nu doorgeven de `infer_column_types` argument. Als deze is ingesteld op `True`, Data Prep probeert te detecteren en kolomtypen automatisch worden geconverteerd.
+    + `inference_arguments` nu is afgeschaft.
+  + U kunt nu aanroepen `Dataflow.shape`.
+
++ **Fouten opgelost en verbeteringen**
+  + `keep_columns` accepteert nu een extra optioneel argument `validate_column_exists`, die controleert of het resultaat van `keep_columns` wordt geen kolommen bevatten.
+  + Alle stappen van de lezer (die uit een bestand lezen) accepteren nu een extra optioneel argument `verify_exists`.
+  + Verbeterde prestaties lezen vanuit pandas dataframe en ophalen van gegevens profielen.
+  + Een bug opgelost waar de segmentering van één stap van een gegevensstroom is mislukt met een één-index.
+
 ## <a name="2019-04-15"></a>2019-04-15
 
 ### <a name="azure-portal"></a>Azure-portal
++ **Nieuwe functies**
   + U kunt nu opnieuw indienen voor een bestaand Script uitvoeren op een bestaande externe compute-cluster. 
   + U kunt nu een gepubliceerde pijplijn uitvoeren met nieuwe parameters op het tabblad pijplijnen. 
   + De details van uitvoering biedt nu ondersteuning voor een nieuwe momentopname voor het bestand. U kunt een momentopname van de map weergeven wanneer u een specifieke uitvoering verzonden. U kunt ook de laptop die is ingediend bij het starten van de uitvoering downloaden.
+   + U kunt nu bovenliggende wordt uitgevoerd vanuit de Azure-Portal annuleren.
 
 ## <a name="2019-04-08"></a>2019-04-08
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: adbe101455bc200bc6be439920736b756f08b695
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: dfe08152f986ccac3dabe7b3bb21e7653ee812a4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667987"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011177"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Zo wilt u meer informatie over Service Fabric?
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices.  Service Fabric is een grote-gebied, en er is veel te leren.  In dit artikel biedt een overzicht van Service Fabric en beschrijft de belangrijkste concepten, programmeermodellen, levensduur van toepassingen, testen, clusters en statuscontrole. Lees de [overzicht](service-fabric-overview.md) en [wat zijn microservices?](service-fabric-overview-microservices.md) voor een inleiding en hoe Service Fabric kan worden gebruikt om te maken van microservices. In dit artikel bevat een uitgebreide lijst met inhoud, maar koppelen aan het overzicht en artikelen aan de slag voor elk gebied van Service Fabric. 
@@ -165,7 +165,7 @@ Rapportage kan worden gedaan in:
 * Interne watchdogs die worden uitgevoerd op de Service Fabric-knooppunten, maar niet zijn geïmplementeerd als een Service Fabric-services.
 * Externe watchdogs die de resource van buiten het Service Fabric-cluster (bijvoorbeeld monitoring-service, zoals Gomez)-test.
 
-Buiten het vak een health Service Fabric-onderdelen rapport over alle entiteiten in het cluster. [Systeemstatusrapporten](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) bieden inzicht in het cluster en de toepassing functionaliteit en de vlag problemen via health. Voor toepassingen en services controleren systeemstatusrapporten of entiteiten worden geïmplementeerd en correct vanuit het perspectief van de Service Fabric-runtime gedragen zich. De rapporten niet bieden een statuscontrole van de bedrijfslogica van de service of vastgelopen processen te detecteren. Specifieke gezondheidsinformatie toevoegen aan de logica van uw service, [implementeren aangepaste health reporting](service-fabric-report-health.md) in uw services.
+Buiten het vak een health Service Fabric-onderdelen rapport over alle entiteiten in het cluster. [Systeemstatusrapporten](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) bieden inzicht in het cluster en de toepassing functionaliteit en de vlag problemen via health. Voor toepassingen en services controleren systeemstatusrapporten of entiteiten worden geïmplementeerd en correct vanuit het perspectief van de Service Fabric-runtime gedragen zich. De rapporten bieden een statuscontrole van de bedrijfslogica van de service of niet detecteren van processen die niet meer reageren. Specifieke gezondheidsinformatie toevoegen aan de logica van uw service, [implementeren aangepaste health reporting](service-fabric-report-health.md) in uw services.
 
 Service Fabric biedt verschillende manieren voor het [statusrapporten weergeven](service-fabric-view-entities-aggregated-health.md) samengevoegd in de health store:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) of andere hulpprogramma's voor visualisatie.

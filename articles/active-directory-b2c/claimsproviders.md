@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5068692d5f12b5b6c8b0476a789123ef9fd1dc75
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: MT
+ms.openlocfilehash: 2d862d07a65c3fb28b49a82692ea575f787b9750
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508807"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008746"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -41,7 +41,7 @@ Een claimprovider bestaat uit een set [technische profielen](technicalprofiles.m
 
 De **ClaimsProviders** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | ClaimsProvider | 1: n | Een erkende claimprovider die kan worden gebruikt in verschillende gebruikers reizen. |
 
@@ -49,13 +49,13 @@ De **ClaimsProviders** element bevat het volgende element:
 
 De **ClaimsProvider** element bevat de volgende onderliggende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ---------- | ----------- |
 | Domain | 0:1 | Een tekenreeks zijn met de naam van de claimprovider. Bijvoorbeeld, als uw claimprovider het technische profiel Facebook bevat, is de domeinnaam Facebook.com. Deze domeinnaam wordt gebruikt voor alle technische profielen die zijn gedefinieerd in de claimprovider, tenzij deze overschreven door het technische profiel. Naam van het domein kan ook worden verwezen een **domain_hint**. Zie voor meer informatie de **aanmelden omleiden naar een provider voor sociale** sectie van [instellen direct aanmelden met behulp van Azure Active Directory B2C](direct-signin.md). |
 | DisplayName | 0:1 | Een tekenreeks zijn met de naam van de claimprovider die kan worden weergegeven aan gebruikers. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Een set technische profielen die worden ondersteund door de claimprovider |
 
-**ClaimsProvider** organiseert uw technische profielen betrekking hebben op de claimprovider. Het volgende voorbeeld ziet u de Azure Active Directory-claimprovider met de technische Azure Active Directory-profielen:
+**ClaimsProvider** organiseert hoe uw technische profielen in verband met de claimprovider. Het volgende voorbeeld ziet u de Azure Active Directory-claimprovider met de technische Azure Active Directory-profielen:
 
 ```XML
 <ClaimsProvider>

@@ -2,18 +2,18 @@
 title: Aantekeningen toevoegen aan gegevensbronnen in Azure Data Catalog
 description: Aantekeningen toevoegen aan gegevensassets in Azure Data Catalog, met inbegrip van beschrijvende namen, tags, beschrijvingen en experts markeren artikel met instructies.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 39fd84882b42a1890358991b62afc1e393f6daa9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: 3a66c8c5963972828723dd74ffe560a0e2240165
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407829"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011128"
 ---
 # <a name="how-to-annotate-data-sources"></a>Aantekeningen toevoegen aan gegevensbronnen
 ## <a name="introduction"></a>Inleiding
@@ -37,7 +37,7 @@ Data Catalog ondersteunt de volgende typen aantekeningen:
 | Aantekening | Opmerkingen |
 | --- | --- |
 | Beschrijvende naam |Beschrijvende namen kunnen worden opgegeven op het niveau van het asset gegevens, zodat de gegevensassets gemakkelijker te begrijpen. Beschrijvende namen zijn handig als de naam van het onderliggende object cryptisch, verkorte of anderszins niet zinvol is voor gebruikers is. |
-| Beschrijving |Beschrijvingen kunnen worden opgegeven tijdens de gegevensasset en het kenmerk / kolomniveaus. Beschrijvingen van aantekeningen in vrije korte tekst waarin wordt beschreven van de gebruiker zijn perspectief op de gegevensasset of het gebruik ervan. |
+| Description |Beschrijvingen kunnen worden opgegeven tijdens de gegevensasset en het kenmerk / kolomniveaus. Beschrijvingen van aantekeningen in vrije korte tekst waarin wordt beschreven van de gebruiker zijn perspectief op de gegevensasset of het gebruik ervan. |
 | Tags (gebruiker tags) |Labels kunnen worden opgegeven tijdens de gegevensasset en het kenmerk / kolomniveaus. Gebruiker-tags zijn aangepaste labels die kunnen worden gebruikt voor het categoriseren van gegevensassets of kenmerken. |
 | Tags (woordenlijst tags) |Labels kunnen worden opgegeven tijdens de gegevensasset en het kenmerk / kolomniveaus. Verklarende woordenlijst tags zijn centraal gedefinieerd Woordenlijsttermen die kunnen worden gebruikt voor het categoriseren van gegevensassets of met behulp van een algemene zakelijke taxonomie kenmerken. Zie voor meer informatie [De zakelijke woordenlijst instellen voor Governed Tagging](data-catalog-how-to-business-glossary.md) |
 | Experts |Experts kunnen worden opgegeven op het niveau van de gegevens asset. Experts kunnen geven aan welke gebruikers of groepen met deskundige perspectieven van de gegevens en fungeren als contactpunten voor gebruikers die de geregistreerde gegevensbronnen detecteren en vragen hebt die niet worden beantwoord door de bestaande aantekeningen. |

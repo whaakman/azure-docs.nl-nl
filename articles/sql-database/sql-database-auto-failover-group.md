@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/19/2019
+ms.openlocfilehash: f382cc547640969f934b94405b635c9e84f10791
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848386"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009065"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Automatische failover-groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases
 
@@ -40,7 +40,7 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
 ## <a name="auto-failover-group-terminology-and-capabilities"></a>Automatische failover-groep terminologie en mogelijkheden
 
-- **Failover-groep**
+- **Failover-groep (mist)**
 
   Een failovergroep is een groep databases die worden beheerd door één SQL Database-server of in een beheerd exemplaar van één die fungeren als kan failover als één eenheid naar een andere regio in het geval alle of een primaire databases niet beschikbaar vanwege een storing in de primaire regio.
 
@@ -77,11 +77,11 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
   - **SQL Database-server DNS CNAME-record voor lezen / schrijven-listener**
 
-     Op een SQL-Database-server, de DNS-CNAME-record voor de failovergroep die naar de huidige primaire URL verwijst heeft een onjuiste indeling als `failover-group-name.database.windows.net`.
+     Op een SQL-Database-server, de DNS-CNAME-record voor de failovergroep die naar de huidige primaire URL verwijst heeft een onjuiste indeling als `<fog-name>.database.windows.net`.
 
   - **Beheerd exemplaar DNS CNAME-record voor lezen / schrijven-listener**
 
-     In een Managed Instance, de DNS-CNAME-record voor de failovergroep die naar de huidige primaire URL verwijst heeft een onjuiste indeling als `failover-group-name.zone_id.database.windows.net`.
+     In een Managed Instance, de DNS-CNAME-record voor de failovergroep die naar de huidige primaire URL verwijst heeft een onjuiste indeling als `<fog-name>.zone_id.database.windows.net`.
 
 - **Failover-groep alleen-lezen-listener**
 
@@ -89,11 +89,11 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
   - **SQL Database-server DNS CNAME-record voor alleen-lezen-listener**
 
-     Op een SQL-Database-server, de DNS-CNAME-record voor de alleen-lezen-listener die naar de URL van de secundaire verwijst is opgemaakt als `failover-group-name.secondary.database.windows.net`.
+     Op een SQL-Database-server, de DNS-CNAME-record voor de alleen-lezen-listener die naar de URL van de secundaire verwijst is opgemaakt als `'.secondary.database.windows.net`.
 
   - **Beheerd exemplaar DNS CNAME-record voor alleen-lezen-listener**
 
-     In een Managed Instance, de DNS-CNAME-record voor de alleen-lezen-listener die naar de URL van de secundaire verwijst is opgemaakt als `failover-group-name.zone_id.database.windows.net`.
+     In een Managed Instance, de DNS-CNAME-record voor de alleen-lezen-listener die naar de URL van de secundaire verwijst is opgemaakt als `<fog-name>.zone_id.database.windows.net`.
 
 - **Automatische failover-beleid**
 
@@ -156,11 +156,11 @@ Bij het ontwerpen van een service met zakelijke continuïteit in gedachten, volg
 
 - **Gebruik van lezen / schrijven-listener voor OLTP-werkbelasting**
 
-  Bij het uitvoeren van OLTP-bewerkingen, gebruik `failover-group-name.database.windows.net` als de server de URL en de verbindingen automatisch worden doorgestuurd naar de primaire. Deze URL wordt niet gewijzigd na de failover. Houd er rekening mee dat de failover omvat het bijwerken van die de DNS-record, zodat de clientverbindingen worden omgeleid naar de nieuwe primaire pas nadat de client-DNS-cache vernieuwd wordt.
+  Bij het uitvoeren van OLTP-bewerkingen, gebruik `<fog-name>.database.windows.net` als de server de URL en de verbindingen automatisch worden doorgestuurd naar de primaire. Deze URL wordt niet gewijzigd na de failover. Houd er rekening mee dat de failover omvat het bijwerken van die de DNS-record, zodat de clientverbindingen worden omgeleid naar de nieuwe primaire pas nadat de client-DNS-cache vernieuwd wordt.
 
 - **Gebruik van alleen-lezen-listener voor de werkbelasting van alleen-lezen**
 
-  Als u een logisch geïsoleerde alleen-lezen-werkbelasting die is gevoelig voor bepaalde veroudering van de gegevens hebt, kunt u de secundaire database in de toepassing. Gebruik voor alleen-lezen-sessies, `failover-group-name.secondary.database.windows.net` als de server de URL en de verbinding automatisch omgeleid naar de secundaire server. Het is ook raadzaam dat u aan te in de verbindingsreeks kunt u lezen wat lezen geven met behulp van **ApplicationIntent = alleen-lezen**.
+  Als u een logisch geïsoleerde alleen-lezen-werkbelasting die is gevoelig voor bepaalde veroudering van de gegevens hebt, kunt u de secundaire database in de toepassing. Gebruik voor alleen-lezen-sessies, `<fog-name>.secondary.database.windows.net` als de server de URL en de verbinding automatisch omgeleid naar de secundaire server. Het is ook raadzaam dat u aan te in de verbindingsreeks kunt u lezen wat lezen geven met behulp van **ApplicationIntent = alleen-lezen**.
 
 - **Worden voorbereid voor verslechtering van prestaties**
 
@@ -206,7 +206,7 @@ Als uw toepassing gebruikmaakt van beheerd exemplaar als de gegevenslaag, volgt 
 
 - **Gebruik van lezen / schrijven-listener voor OLTP-werkbelasting**
 
-  Bij het uitvoeren van OLTP-bewerkingen, gebruik `failover-group-name.zone_id.database.windows.net` als de server de URL en de verbindingen automatisch worden doorgestuurd naar de primaire. Deze URL wordt niet gewijzigd na de failover. De failover omvat het bijwerken van de DNS-record, zodat de clientverbindingen worden omgeleid naar de nieuwe primaire pas nadat de client-DNS-cache vernieuwd wordt. Omdat de secundaire-exemplaar de DNS-zone met de primaire deelt, kunnen de clienttoepassing opnieuw tot stand te brengen met hetzelfde SAN-certificaat is mogelijk.
+  Bij het uitvoeren van OLTP-bewerkingen, gebruik `<fog-name>.zone_id.database.windows.net` als de server de URL en de verbindingen automatisch worden doorgestuurd naar de primaire. Deze URL wordt niet gewijzigd na de failover. De failover omvat het bijwerken van de DNS-record, zodat de clientverbindingen worden omgeleid naar de nieuwe primaire pas nadat de client-DNS-cache vernieuwd wordt. Omdat de secundaire-exemplaar de DNS-zone met de primaire deelt, kunnen de clienttoepassing opnieuw tot stand te brengen met hetzelfde SAN-certificaat is mogelijk.
 
 - **Rechtstreeks verbinding maken met secundaire geo-replicatie voor alleen-lezen query 's**
 
@@ -214,8 +214,8 @@ Als uw toepassing gebruikmaakt van beheerd exemplaar als de gegevenslaag, volgt 
 
   > [!NOTE]
   > In bepaalde Servicelagen, Azure SQL Database ondersteunt het gebruik van [alleen-lezen replica's](sql-database-read-scale-out.md) laden saldo alleen-lezen querywerkbelastingen met behulp van de capaciteit van een alleen-lezen replica en het gebruik van de `ApplicationIntent=ReadOnly` parameter in de verbinding tekenreeks. Wanneer u een secundaire geo-replicatie hebt geconfigureerd, kunt u deze mogelijkheid verbinding maken met een alleen-lezen replica op de primaire locatie of in de geografisch gerepliceerde locatie.
-  > - Gebruiken voor verbinding met een alleen-lezen replica op de primaire locatie, `failover-group-name.zone_id.database.windows.net`.
-  > - Gebruiken voor verbinding met een alleen-lezen replica op de secundaire locatie, `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - Gebruiken voor verbinding met een alleen-lezen replica op de primaire locatie, `<fog-name>.zone_id.database.windows.net`.
+  > - Gebruiken voor verbinding met een alleen-lezen replica op de secundaire locatie, `<fog-name>.secondary.zone_id.database.windows.net`.
 
 - **Worden voorbereid voor verslechtering van prestaties**
 
@@ -306,7 +306,7 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: Failover van de SQL-database met individuele databases en elastische pools beheren
 
-| Cmdlet | Description |
+| Cmdlet | Beschrijving |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Met deze opdracht wordt een failovergroep gemaakt en geregistreerd op de primaire en secundaire servers|
 | [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Hiermee verwijdert u de failovergroep van de server en verwijdert alle secundaire databases opgenomen in de groep |
@@ -351,7 +351,7 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST-API: SQL database failover-groepen met één en gepoolde databases beheren
 
-| API | Beschrijving |
+| API | Description |
 | --- | --- |
 | [Maken of bijwerken van de Failovergroep](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Hiermee maken of bijwerken van een failovergroep |
 | [Failover-groep verwijderen](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Hiermee verwijdert u de failovergroep van de server |
@@ -364,7 +364,7 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 
 ### <a name="rest-api-manage-failover-groups-with-managed-instances-preview"></a>REST-API: Failover-groepen beheren met beheerde instanties (preview)
 
-| API | Description |
+| API | Beschrijving |
 | --- | --- |
 | [Maken of bijwerken van de Failovergroep](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Hiermee maken of bijwerken van een failovergroep |
 | [Failover-groep verwijderen](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Hiermee verwijdert u de failovergroep van de server |

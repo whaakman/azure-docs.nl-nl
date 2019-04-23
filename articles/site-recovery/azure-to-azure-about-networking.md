@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sujayt
-ms.openlocfilehash: 42db22d39a7c87363cf97f874c85955a09cbe653
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651540"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149311"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Over netwerken in Azure naar Azure-replicatie
 
@@ -48,7 +48,7 @@ Als u van een URL-gebaseerde firewallproxy gebruikmaakt voor het beheren van uit
 
 **URL** | **Details**  
 --- | ---
-*.blob.core.windows.net | Vereist dat gegevens kunnen worden geschreven naar de cache-opslagaccount in de regio van de gegevensbron van de virtuele machine. Als u weet alle cache storage-accounts voor uw virtuele machines wat, kunt u whitelist de specifc storage-account-URL's (Ex: cache1.blob.core.windows.net en cache2.blob.core.windows.net) in plaats van *. blob.core.windows.net
+*.blob.core.windows.net | Vereist dat gegevens kunnen worden geschreven naar de cache-opslagaccount in de regio van de gegevensbron van de virtuele machine. Als u weet alle cache storage-accounts voor uw virtuele machines wat, kunt u goedgekeurde lijst de specifieke storage-account-URL's (Ex: cache1.blob.core.windows.net en cache2.blob.core.windows.net) in plaats van *. blob.core.windows.net
 login.microsoftonline.com | Vereist voor autorisatie en verificatie van de Site Recovery-service-URL's.
 *.hypervrecoverymanager.windowsazure.com | Vereist zodat de communicatie van Site Recovery-service zich van de virtuele machine voordoen kan. U kunt de bijbehorende 'Site Recovery IP-adres' gebruiken als uw firewallproxy biedt ondersteuning voor IP-adressen.
 *.servicebus.windows.net | Vereist zodat de Site Recovery-gegevens voor controle en diagnostische gegevens van de virtuele machine kunnen worden geschreven. U kunt de bijbehorende 'Site Recovery bewaking IP-adres' gebruiken als uw firewallproxy biedt ondersteuning voor IP-adressen.
@@ -96,13 +96,19 @@ Site Recovery-IP-adresbereiken zijn als volgt:
    VK, zuid 2 | 13.87.37.4| 13.87.34.139
    VK, noord | 51.142.209.167 | 13.87.102.68
    Korea - centraal | 52.231.28.253 | 52.231.32.85
-   Korea - zuid | 52.231.298.185 | 52.231.200.144
+   Korea - zuid | 52.231.198.185 | 52.231.200.144
    Frankrijk - centraal | 52.143.138.106 | 52.143.136.55
    Frankrijk - zuid | 52.136.139.227 |52.136.136.62
    Australië-centraal| 20.36.34.70 | 20.36.46.142
    Australië - centraal 2| 20.36.69.62 | 20.36.74.130
    Zuid-Afrika (west) | 102.133.72.51 | 102.133.26.128
    Zuid-Afrika (noord) | 102.133.160.44 | 102.133.154.128
+   VS (overheid) - Virginia | 52.227.178.114 | 23.97.0.197
+   US Gov - Iowa | 13.72.184.23 | 23.97.16.186
+   VS (overheid) - Arizona | 52.244.205.45 | 52.244.48.85
+   VS (overheid) - Texas | 52.238.119.218 | 52.238.116.60
+   US DoD - oost | 52.181.164.103 | 52.181.162.129
+   US DoD - centraal | 52.182.95.237 | 52.182.90.133
 ## <a name="example-nsg-configuration"></a>Voorbeeld van de NSG-configuratie
 
 In dit voorbeeld laat zien hoe het configureren van NSG-regels voor een virtuele machine om te repliceren.

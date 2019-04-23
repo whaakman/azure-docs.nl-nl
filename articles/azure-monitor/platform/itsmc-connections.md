@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 64a4e7a181f7bd24e305ef5ee8d3d6657c3f394b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 0ff73e342a668fef6d405783c130cf216f8003b4
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081284"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149962"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Verbinding maken met ITSM-producten en services met IT Service Management-Connector
 In dit artikel bevat informatie over het configureren van de verbinding tussen uw ITSM-product/service en de IT Service Management-Connector (ITSMC) in Log Analytics om uw werkitems centraal te beheren. Zie voor meer informatie over ITSMC [overzicht](../../azure-monitor/platform/itsmc-overview.md).
@@ -103,7 +103,7 @@ Voer het script door te geven van de volgende vereiste gegevens:
 
 - Details van de Azure-abonnement
 - Naam van de resourcegroep
-- Locatie
+- Location
 - Service Manager-server-gegevens (naam, domein, gebruikersnaam en wachtwoord)
 - Voorvoegsel van de site de naam voor uw Web-app
 - Service Bus-Namespace.
@@ -185,11 +185,12 @@ De volgende secties bevatten informatie over hoe u verbinding maken met uw Servi
 ### <a name="prerequisites"></a>Vereisten
 Zorg ervoor dat de volgende vereisten wordt voldaan:
 - ITSMC geïnstalleerd. Meer informatie: [Toevoegen van IT Service Management Connector-oplossing](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow ondersteunde versies: Kingston, Jakarta, Istanbul, Helsinki, Geneva.
+- ServiceNow ondersteunde versies: London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 
 **ServiceNow Admins moet het volgende in de ServiceNow-exemplaar doen**:
 - Client-ID en clientgeheim voor de ServiceNow-product te genereren. Zie de volgende informatie zoals vereist voor meer informatie over het maken van de client-ID en -geheim:
 
+    - [Instellen van OAuth voor Londen](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Instellen van OAuth voor Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Instellen van OAuth voor Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Instellen van OAuth voor Istanboel](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

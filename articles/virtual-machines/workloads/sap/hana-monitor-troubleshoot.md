@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71970a74817665c97a9522fbc9a68dd3834252b9
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 15b3fb4ae483e5b0e4f930d0dc08de6d198d0e5f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616353"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005244"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Bewaken en problemen oplossen vanaf de HANA-zijde
 
@@ -63,7 +63,7 @@ De Load-grafiek kan hoog CPU-verbruik of hoge verbruik in het verleden weergeven
 
 ![De Load-grafiek kan hoog CPU-verbruik of hoge verbruik weergeven in het verleden](./media/troubleshooting-monitoring/image4-load-graph.png)
 
-Een waarschuwing geactiveerd vanwege hoog CPU-verbruik wordt mogelijk veroorzaakt door verschillende oorzaken hebben, met inbegrip van, maar niet beperkt tot: uitvoeren van bepaalde transacties, het laden van gegevens, verkeerd van taken, langlopende SQL-instructies en ongeldige query-prestaties (bijvoorbeeld met BW op HANA kubussen).
+Een waarschuwing geactiveerd vanwege hoog CPU-verbruik wordt mogelijk veroorzaakt door verschillende oorzaken hebben, met inbegrip van, maar niet beperkt tot: uitvoeren van bepaalde transacties, het laden van gegevens, taken die niet reageren, langlopende SQL-instructies en prestaties van ongeldige query's (bijvoorbeeld: met BW op HANA kubussen).
 
 Raadpleeg de [SAP HANA probleemoplossing: CPU gerelateerde zorgt ervoor dat en -oplossingen](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) site voor gedetailleerde stappen voor probleemoplossing.
 

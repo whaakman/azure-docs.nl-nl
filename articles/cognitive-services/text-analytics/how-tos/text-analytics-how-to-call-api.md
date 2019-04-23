@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 9d0a803f8a397d3c24f083188b6186acf4dde809
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122872"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011236"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Over het aanroepen van de Text Analytics REST-API
 
@@ -26,7 +26,7 @@ Elke aanvraag moet uw toegangssleutel en een HTTP-eindpunt bevatten. Het eindpun
 Intrekken Text Analytics is staatloos, zodat er geen gegevensassets die u zijn wilt beheren. De tekst is geüpload, na ontvangst, geanalyseerd en resultaten direct worden geretourneerd naar de aanroepende toepassing.
 
 > [!Tip]
-> Voor eenmalige-aanroepen om te zien hoe de API werkt, kunt u een POST-aanvragen verzenden vanuit de ingebouwde **API testconsole**, beschikbaar op elke [API-document pagina](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Er zijn geen instellingen en de enige vereisten zijn een toegangssleutel en de JSON-documenten in de aanvraag plakken. 
+> Voor eenmalige-aanroepen om te zien hoe de API werkt, kunt u een POST-aanvragen verzenden vanuit de ingebouwde **API testconsole**, beschikbaar op elke [API-document pagina](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Er zijn geen instellingen en de enige vereisten zijn een toegangssleutel en de JSON-documenten in de aanvraag plakken. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -60,10 +60,10 @@ De service accepteert aanvragen van maximaal 1 MB in grootte. Als u Postman (of 
 
    Resource-eindpunt zijn als volgt te werk (uw regio kan verschillen):
 
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
 2. Stel de drie aanvraagheaders:
 
@@ -81,10 +81,10 @@ De service accepteert aanvragen van maximaal 1 MB in grootte. Als u Postman (of 
 
 5. In enkele JSON-documenten in een indeling die geldig is voor de beoogde analyse te plakken. Zie de volgende onderwerpen voor meer informatie over een bepaalde analyse:
 
-   + [Taaldetectie](text-analytics-how-to-language-detection.md)  
-   + [Sleuteltermextractie](text-analytics-how-to-keyword-extraction.md)  
-   + [Sentimentanalyse](text-analytics-how-to-sentiment-analysis.md)  
-   + [Herkenning van entiteit (Preview)](text-analytics-how-to-entity-linking.md)  
+  + [Taaldetectie](text-analytics-how-to-language-detection.md)  
+  + [Sleuteltermextractie](text-analytics-how-to-keyword-extraction.md)  
+  + [Sentimentanalyse](text-analytics-how-to-sentiment-analysis.md)  
+  + [Herkenning van entiteit](text-analytics-how-to-entity-linking.md)  
 
 
 6. Klik op **verzenden** dien de aanvraag. U kunt maximaal 100 aanvragen per minuut indienen. 

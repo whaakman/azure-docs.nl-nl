@@ -7,18 +7,17 @@ ms.service: app-service
 ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
-ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 29f2b725972f5ce92e756cb21621a19850ba9386
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: MT
+ms.author: msangapu-msft
+ms.openlocfilehash: 02ebd0629fed9037054a5c22931f3e99c09073c4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732937"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998597"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Inhoud leveren vanuit Azure Storage in App Service onder Linux
 
-Deze handleiding wordt beschreven hoe u aan het leveren van statische inhoud in App Service on Linux met behulp van [Azure Storage](/azure/storage/common/storage-introduction). De volgende voordelen beveiligde inhoud, inhoud draagbaarheid, de toegang tot meerdere apps en meerdere methoden voor overdracht. In deze handleiding leert u hoe u inhoud leveren in Azure Storage door [aangepaste opslag configureren](https://blogs.msdn.microsoft.com/appserviceteam/2018/09/24/announcing-bring-your-own-storage-to-app-service/).
+Deze handleiding wordt beschreven hoe u aan het leveren van statische inhoud in App Service on Linux met behulp van [Azure Storage](/azure/storage/common/storage-introduction). De volgende voordelen beveiligde inhoud, inhoud draagbaarheid, de toegang tot meerdere apps en meerdere methoden voor overdracht. In deze handleiding leert u hoe u inhoud leveren in Azure Storage door aangepaste opslag configureren.
 
 ## <a name="prerequisites"></a>Vereisten
 

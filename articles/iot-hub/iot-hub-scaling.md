@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 0214fbbe1ecc0d0b6b20b740ec898f24cf5b58ec
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
-ms.translationtype: MT
+ms.openlocfilehash: 8be2e59898ea5fcca1dbf1710974d0420941973e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571291"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002133"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Kies de juiste IoT Hub-laag voor uw oplossing
 
@@ -83,7 +83,7 @@ Het verschil tussen de lagen basic en standard van IoT Hub-betekent dat sommige 
 | [Verzenden van apparaatgebeurtenis](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Ja | Ja |
 | Verzenden van gebeurtenissen van module | Ja | Ja |
 | [Uploadstatus bestand bijwerken](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Ja | Ja |
-| [Bulkbewerking voor apparaat](/rest/api/iot-dps/runbulkenrollmentoperation/runbulkenrollmentoperation) | Ja, met uitzondering van IoT Edge-mogelijkheden | Ja | 
+| [Bulkbewerking voor apparaat](/rest/api/iot-dps/runbulkenrollmentoperation/runbulkenrollmentgroupoperation) | Ja, met uitzondering van IoT Edge-mogelijkheden | Ja | 
 | [Opdracht wachtrij leegmaken](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Ja |
 | [Ophalen van apparaatdubbel](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Ja |
 | Ophalen van de moduledubbel |   | Ja |

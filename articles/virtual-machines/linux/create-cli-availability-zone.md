@@ -16,18 +16,18 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: ee714cd87676c519c1bbfca2c08b62287299114e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: MT
+ms.openlocfilehash: cdd9910bfef96f56cfa8c8e81363ff9bdb40f444
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700618"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005499"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Een Linux-machine maken in een beschikbaarheidszone met Azure CLI
 
 In dit artikel wordt stapsgewijs uitgelegd met de Azure CLI een Linux-VM maken in een Azure-beschikbaarheidszone. Een [beschikbaarheidszone](../../availability-zones/az-overview.md) is een fysiek afgescheiden zone in een Azure-regio. Gebruik beschikbaarheidszones om uw apps en gegevens te beschermen tegen het onwaarschijnlijke risico van een storing of het verloren gaan van een heel datacenter.
 
-Als u een beschikbaarheidszone wilt gebruiken, maakt u een virtuele machine in een [ondersteunde Azure-regio](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
+Als u een beschikbaarheidszone wilt gebruiken, maakt u een virtuele machine in een [ondersteunde Azure-regio](../../availability-zones/az-overview.md#services-support-by-region).
 
 Zorg ervoor dat u de meest recente hebt geïnstalleerd [Azure CLI](/cli/azure/install-az-cli2) en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index).
 
@@ -102,7 +102,7 @@ Het maken van de virtuele machine kan een paar minuten duren. Wanneer de virtuel
 
 Wanneer de virtuele machine in een beschikbaarheidszone is geïmplementeerd, wordt een beheerde schijf voor de virtuele machine in dezelfde beschikbaarheidszone gemaakt. Een openbaar IP-adres wordt standaard ook gemaakt in de zone. De volgende voorbeelden krijg informatie over deze resources.
 
-Om te bevestigen dat de beheerde schijf van de virtuele machine in de beschikbaarheidszone bevindt, gebruikt u de [az vm show](/cli/azure/vm) opdracht om de schijf-id. In dit voorbeeld wordt de schijf-id opgeslagen in een variabele die wordt gebruikt in een latere stap. 
+Om te bevestigen dat de beheerde schijf van de virtuele machine in de beschikbaarheidszone bevindt, gebruikt u de [az vm show](/cli/azure/vm) opdracht om de schijf-ID. In dit voorbeeld wordt de schijf-ID opgeslagen in een variabele die wordt gebruikt in een latere stap. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)

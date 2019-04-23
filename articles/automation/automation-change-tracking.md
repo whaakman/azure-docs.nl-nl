@@ -10,18 +10,21 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74b099c648fa4dd1c735cc76c82efbc102d9843c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 5e997d9e9f38fee52cd9fc007fe12cac68e3aa5a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443042"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008678"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden
 
 Dit artikel helpt u de oplossing wijzigingen bijhouden gebruiken voor het herkennen van wijzigingen in uw omgeving. De oplossing houdt de wijzigingen in Windows en Linux-software, Windows en Linux-bestanden, Windows-registersleutels, Windows-services en Linux-daemons. Wijzigingen in de configuratie te identificeren, kunt u operationele problemen identificeren.
 
 Wijzigingen in de geïnstalleerde software, services voor Windows, Windows-register en bestanden en Linux-daemons op de bewaakte servers worden verzonden naar de service Azure Monitor in de cloud voor verwerking. Logica wordt toegepast op de ontvangen gegevens en de cloudservice registreert de gegevens. Met behulp van de informatie op het dashboard voor wijzigingen bijhouden, kunt u gemakkelijk zien van de wijzigingen die zijn aangebracht in uw serverinfrastructuur.
+
+> [!NOTE]
+> Azure Automation-wijzigingen bijhouden houdt wijzigingen in virtuele machines. Zie voor het bijhouden van eigenschapswijzigingen voor Azure Resource Manager-, Azure Resource Graph [wijzigingsoverzicht](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="supported-windows-operating-systems"></a>Ondersteunde Windows-besturingssystemen
 
@@ -76,7 +79,7 @@ Gebruik de volgende stappen voor het configureren van bestand bijhouden op Linux
 
 |Eigenschap  |Description  |
 |---------|---------|
-|Ingeschakeld     | Hiermee bepaalt u als de instelling wordt toegepast.        |
+|Enabled     | Hiermee bepaalt u als de instelling wordt toegepast.        |
 |Itemnaam     | Beschrijvende naam van het bestand moet worden bijgehouden.        |
 |Groep     | De groepsnaam van een voor logisch groeperen van bestanden.        |
 |Pad invoeren     | Het pad om te controleren op het bestand. Bijvoorbeeld: "/etc/*.conf"       |
@@ -99,7 +102,7 @@ Gebruik de volgende stappen uit om te configureren op Windows-computers bijhoude
 
 |Eigenschap  |Description  |
 |---------|---------|
-|Ingeschakeld     | Hiermee bepaalt u als de instelling wordt toegepast.        |
+|Enabled     | Hiermee bepaalt u als de instelling wordt toegepast.        |
 |Itemnaam     | Beschrijvende naam van het bestand moet worden bijgehouden.        |
 |Groep     | De groepsnaam van een voor logisch groeperen van bestanden.        |
 |Pad invoeren     | Het pad voor het controleren op het bestand, bijvoorbeeld: "C:\temp\\\*.txt"<br>U kunt ook omgevingsvariabelen gebruiken zoals ' %winDir%\System32\\\*. * "       |
@@ -131,7 +134,7 @@ Gebruik de volgende stappen voor het configureren van sleutel-register traceren 
 
 |Eigenschap  |Description  |
 |---------|---------|
-|Ingeschakeld     | Hiermee bepaalt u als de instelling wordt toegepast.        |
+|Enabled     | Hiermee bepaalt u als de instelling wordt toegepast.        |
 |Itemnaam     | Beschrijvende naam van de registersleutel moet worden bijgehouden.        |
 |Groep     | De groepsnaam van een voor logisch groeperen van registersleutels.        |
 |Windows-registersleutel   | Het pad naar het controleren van de registersleutel. Bijvoorbeeld: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup      |

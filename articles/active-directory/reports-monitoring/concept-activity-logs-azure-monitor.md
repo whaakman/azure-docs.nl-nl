@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory-activiteitenlogboeken in Azure Monitor (preview) | Microsoft Docs
-description: Inleiding tot Azure Active Directory-activiteit wordt geregistreerd in Azure Monitor (preview)
+title: Azure Active Directory-activiteitenlogboek registreert in Azure Monitor | Microsoft Docs
+description: Inleiding tot Azure Active Directory-activiteit wordt geregistreerd in Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0469f69f026c578de9598401e69262279669d19f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 7fbb90e95c07c66f45d49076f0570ac028c37244
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436299"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011398"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure AD-activiteitenlogboeken in Azure Monitor (preview)
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure activiteitenlogboeken AD in Azure Monitor
 
-U kunt nu activiteitenlogboeken van Azure Active Directory (Azure AD) naar verschillende eindpunten voor de lange termijn bewaren en gegevens inzichten versturen. De openbare preview van Azure AD-Logboeken in Azure Monitor kunt u:
+U kunt activiteitenlogboeken van Azure Active Directory (Azure AD) route verschillende eindpunten voor de lange termijn bewaren en gegevens inzichten. Deze functie kunt u naar:
 
 * Activiteitenlogboeken archiveren Azure AD naar Azure storage-account, de gegevens behouden gedurende een lange periode.
 * Activiteitenlogboeken naar een Azure event hub voor analyses, met behulp van populaire Security Information and Event Management (SIEM) hulpprogramma's, zoals Splunk en QRadar Stream Azure AD.

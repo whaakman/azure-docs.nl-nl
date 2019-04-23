@@ -1,29 +1,29 @@
 ---
-title: Azure CLI of PowerShell-opdrachten in een Azure AD-identiteit voor toegang tot blob- en wachtrijservices gegevens uitvoeren | Microsoft Docs
-description: Azure CLI en PowerShell ondersteunt aangemeld met een Azure AD-identiteit opdrachten uitvoeren op Azure Storage-blob en wachtrijen met gegevens. Een toegangstoken is opgegeven voor de sessie en gebruikt voor de aanroepende operations autorisatie. Machtigingen zijn afhankelijk van de RBAC-rol die is toegewezen aan de Azure AD-identiteit.
+title: Azure CLI of PowerShell-opdrachten uitvoeren met Azure AD-referenties voor toegang tot gegevens voor blob of een wachtrij | Microsoft Docs
+description: Azure CLI en PowerShell ondersteuning voor aanmelden met Azure AD-referenties opdrachten uitvoeren op Azure Storage-blob en wachtrijen met gegevens. Een toegangstoken is opgegeven voor de sessie en gebruikt voor de aanroepende operations autorisatie. Machtigingen zijn afhankelijk van de RBAC-rol die is toegewezen aan de Azure AD beveiligings-principal.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a0972beff48e07b6ce8afdcec10581300f59ed41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 96be1e600c8d5895cc0eb5b058ce17f7265fa0a9
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786995"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149645"
 ---
-# <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>Een Azure AD-identiteit voor toegang tot blob- en wachtrijservices gegevens met CLI of PowerShell gebruiken
+# <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Azure CLI of PowerShell-opdrachten uitvoeren met Azure AD-referenties voor toegang tot gegevens voor blob of een wachtrij
 
-Azure Storage biedt extensies voor Azure CLI en PowerShell waarmee u zich aanmelden en het uitvoeren van opdrachten in het script onder de identiteit van een Azure Active Directory (Azure AD). De identiteit van de Azure AD kan een gebruiker, groep of toepassing service-principal, of kan een [beheerde identiteit voor de Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md). U kunt machtigingen voor toegang tot blob- en wachtrijservices gegevens naar de Azure AD-identiteit via op rollen gebaseerd toegangsbeheer (RBAC) toewijzen. Zie voor meer informatie over RBAC-rollen in Azure Storage, [beheren rechten voor het Azure Storage-gegevens met RBAC](storage-auth-aad-rbac.md).
+Azure Storage biedt extensies voor Azure CLI en PowerShell waarmee u zich aanmelden en opdrachten in het script uitvoeren met Azure Active Directory (Azure AD)-referenties. Wanneer u zich aanmeldt bij Azure CLI of PowerShell met Azure AD-referenties, wordt een OAuth 2.0-toegangstoken geretourneerd. Dit token wordt automatisch door de CLI of PowerShell gebruikt om bewerkingen voor het volgende gegevens op basis van storage Blob of een wachtrij. Voor ondersteunde bewerkingen hoeft u niet meer om door te geven van een sleutel of een SAS-token met de opdracht.
 
-Wanneer u zich aanmeldt bij Azure CLI of PowerShell met een Azure AD-identiteit, wordt een toegangstoken voor toegang tot Azure Storage onder die identiteit geretourneerd. Dit token wordt vervolgens automatisch gebruikt door de CLI of PowerShell om bewerkingen op Azure Storage. Voor ondersteunde bewerkingen hoeft u niet meer om door te geven van een sleutel of een SAS-token met de opdracht.
+U kunt machtigingen toewijzen aan blob- en wachtrijservices gegevens naar een beveiligings-principal voor Azure AD via op rollen gebaseerd toegangsbeheer (RBAC). Zie voor meer informatie over RBAC-rollen in Azure Storage, [beheren rechten voor het Azure Storage-gegevens met RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="supported-operations"></a>Ondersteunde bewerkingen
 
-De extensies worden ondersteund voor bewerkingen voor containers en wachtrijen. Welke bewerkingen u kunt aanroepen, is afhankelijk van de machtigingen verleend aan de Azure AD-identiteit in waarmee u zich aanmelden bij Azure CLI of PowerShell. Machtigingen voor het Azure Storage-containers of wachtrijen worden toegewezen via op rollen gebaseerd toegangsbeheer (RBAC). Bijvoorbeeld, als een gegevenslezer-rol wordt toegewezen aan de identiteit, kunt klikt u vervolgens u uitvoeren scripting opdrachten die gegevens uit een container of de wachtrij lezen. Als een inzender Data-rol wordt toegewezen aan de identiteit, kunt u opdrachten in het script dat lezen, schrijven of verwijderen van een container of wachtrij of de gegevens die ze bevatten uitvoeren. 
+De extensies worden ondersteund voor bewerkingen voor containers en wachtrijen. Welke bewerkingen u kunt aanroepen, is afhankelijk van de machtigingen verleend aan de beveiligings-principal van Azure AD in waarmee u zich aanmelden bij Azure CLI of PowerShell. Machtigingen voor het Azure Storage-containers of wachtrijen worden toegewezen via op rollen gebaseerd toegangsbeheer (RBAC). Bijvoorbeeld, als u zijn toegewezen de **gegevenslezer voor Opslagblob** rol, dan hebt u opdrachten in het script die gegevens uit een container of een wachtrij lezen kunt uitvoeren. Als u zijn toegewezen de **Blob Inzender** rol, dan hebt u opdrachten in het script dat lezen, schrijven of verwijderen van een container of wachtrij of de gegevens die ze bevatten kunt uitvoeren. 
 
 Zie voor meer informatie over de machtigingen die vereist zijn voor elke Azure Storage-bewerking in een container of een wachtrij [machtigingen voor het aanroepen van REST-bewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
 
@@ -129,5 +129,5 @@ Het volgende voorbeeld ziet hoe u een container maken in een nieuw opslagaccount
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor meer informatie over RBAC-rollen voor Azure-opslag, [beheren-toegangsrechten aan opslag van gegevens met RBAC](storage-auth-aad-rbac.md).
-- Zie voor meer informatie over het gebruik van beheerde identiteiten voor Azure-resources met Azure Storage, [verifiëren toegang tot blobs en wachtrijen met Azure beheerde identiteiten voor Azure-Resources](storage-auth-aad-msi.md).
+- Zie voor meer informatie over het gebruik van beheerde identiteiten voor Azure-resources met Azure Storage, [verifiëren van toegang tot blobs en wachtrijen met Azure Active Directory en beheerde identiteiten voor Azure-Resources](storage-auth-aad-msi.md).
 - Zie voor informatie over het toestaan van toegang tot containers en wachtrijen van binnen uw storage-toepassingen, [gebruik Azure AD met opslagtoepassingen](storage-auth-aad-app.md).

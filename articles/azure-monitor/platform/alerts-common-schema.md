@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 8f8dcff0b72ea92e835c0702113a9cb6a7678e86
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851727"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149373"
 ---
 # <a name="common-alert-schema"></a>Algemeen waarschuwingsschema
 
@@ -39,14 +39,14 @@ Het algemene schema van de waarschuwing wordt voornamelijk zelf manifest in uw m
 |:---|:---|
 | Sms | Een consistente SMS-sjabloon voor alle typen waarschuwingen. |
 | Email | Een consistente en gedetailleerde e-mailsjabloon, zodat u eenvoudig problemen in een oogopslag vaststellen. Ingesloten deep-koppelingen naar de waarschuwing exemplaar op de portal en de betreffende resource zorgen ervoor dat u snel kunt gaan in het herstelproces van. |
-| Webhook/Logic App/Azure-functie | Een consistente JSON-structuur voor alle typen waarschuwingen, waarmee u eenvoudig integraties over de verschillende typen waarschuwingen. |
+| Webhook/Logic App/Azure-functie/Automation-Runbook | Een consistente JSON-structuur voor alle typen waarschuwingen, waarmee u eenvoudig integraties over de verschillende typen waarschuwingen. |
 
 Het nieuwe schema wordt ook een rijkere ervaring voor waarschuwingen verbruik in zowel de Azure-portal en Azure mobile app inschakelen in de nabije toekomst. 
 
-[Meer informatie over de schemadefinities voor Webhooks/Logic Apps/Azure Functions.](https://aka.ms/commonAlertSchemaDefinitions)
+[Meer informatie over de schemadefinities voor Webhooks/Logic Apps/Azure Functions/Automation-Runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
 
 > [!NOTE]
-> De volgende acties bieden geen ondersteuning voor het algemene waarschuwing schema: ITSM-Connector, Automation-Runbook.
+> De volgende acties bieden geen ondersteuning voor het algemene waarschuwing schema: ITSM-Connector.
 
 ## <a name="how-do-i-enable-the-common-alert-schema"></a>Hoe kan ik het algemene schema van de waarschuwing inschakelen?
 
@@ -54,11 +54,10 @@ U kunt ervoor kiezen of opt-out aan het algemene schema Waarschuwing via actiegr
 
 > [!NOTE]
 > 1. De volgende waarschuwingstypen ondersteuning voor het algemene schema standaard (geen opt-in vereist):
->     * Waarschuwingen voor anomaliedetectie
+>     * Waarschuwingen voor slimme detectie
 > 1. De volgende waarschuwingstypen ondersteuning momenteel geen voor het algemene schema:
->     * Status van de service-waarschuwingen
->     * Activiteitenlogboek - beveiligingswaarschuwingen
 >     * Waarschuwingen die zijn gegenereerd door [Azure Monitor voor virtuele machines](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
+>     * Waarschuwingen die zijn gegenereerd door [Azure Cost Management](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
 
 ### <a name="through-the-azure-portal"></a>Via de Azure-portal
 
@@ -69,7 +68,7 @@ U kunt ervoor kiezen of opt-out aan het algemene schema Waarschuwing via actiegr
 
 ### <a name="through-the-action-groups-rest-api"></a>Via de actiegroepen REST-API
 
-U kunt ook de [actie groepen API](https://docs.microsoft.com/rest/api/monitor/actiongroups) te schrijven voor het algemene schema van de waarschuwing. Tijdens het maken van de [maken of bijwerken](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API-aanroep kunt u instellen de vlag 'useCommonAlertSchema' op 'true' (opt-in) of 'onwaar' (voor opt-out) voor het gebruik van de volgende acties - webhook-e-mailadres/logic app/Azure-functie.
+U kunt ook de [actie groepen API](https://docs.microsoft.com/rest/api/monitor/actiongroups) te schrijven voor het algemene schema van de waarschuwing. Tijdens het maken van de [maken of bijwerken](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API-aanroep kunt u instellen de vlag 'useCommonAlertSchema' op 'true' (opt-in) of 'onwaar' (voor opt-out) voor het gebruik van de volgende acties - webhook-e-mailadres/logic app/Azure-functie/automation-runbook.
 
 Bijvoorbeeld, de volgende aanvraagtekst aangebracht in de [maken of bijwerken](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST-API wordt het volgende doen:
 
@@ -125,7 +124,7 @@ Bijvoorbeeld, de volgende aanvraagtekst aangebracht in de [maken of bijwerken](h
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Algemene waarschuwing schemadefinities voor Webhooks/Logic Apps/Azure Functions.](https://aka.ms/commonAlertSchemaDefinitions)
+- [Algemene waarschuwing schemadefinities voor Webhooks/Logic Apps/Azure Functions/Automation-Runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
 
 
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4b8e04babfffaf49d3719d8a7e90af16598814f4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58906120"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998903"
 ---
 # <a name="application-gateway-configuration-overview"></a>Overzicht van de configuratie van de Application Gateway
 
@@ -228,9 +228,9 @@ Kies listener als het doel van omleiding omleiden van verkeer van één listener
 ![Dialoogvenster voor Application Gateway-onderdelen](./media/configuration-overview/configure-redirection.png)
 
 Zie voor meer informatie over HTTP-naar-HTTPS-omleiding:
-- [HTTP-naar-HTTP-omleiding met behulp van Azure portal](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
-- [HTTP-naar-HTTP-omleiding met behulp van PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
-- [HTTP-HTTP-omleiding met behulp van de Azure CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
+- [Omleiding van HTTP naar HTTPS met behulp van Azure portal](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
+- [Omleiding van HTTP naar HTTPS met behulp van PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
+- [Omleiding van HTTP naar HTTPS met behulp van de Azure CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
 
 ##### <a name="external-site"></a>Externe site
 

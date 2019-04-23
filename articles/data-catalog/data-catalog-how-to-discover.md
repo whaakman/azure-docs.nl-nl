@@ -1,17 +1,17 @@
 ---
 title: Detecteren van gegevensbronnen in Azure Data Catalog
 description: In dit artikel ziet u hoe u voor het detecteren van geregistreerde gegevensassets met Azure Data Catalog, met inbegrip van zoeken en filteren met behulp van de treffers markeren mogelijkheden van de Azure Data Catalog-portal.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.openlocfilehash: 892a0909f68d89acc463d37edd466dba6a721177
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b21bf1b50152130d7b6edd227c87fcaca28c1e6a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792145"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007862"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Detecteren van gegevensbronnen in Azure Data Catalog
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 00f64deaa5e02f9bb74baaf86bfdf71690a3345d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: ec79f6a9b255d44e66b901a0aae263c8dbbf2863
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248245"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149857"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Quota en limieten voor schalen in DevTest Labs
 Als u in DevTest Labs werkt, zult u merken dat er bepaalde standaardlimieten voor sommige Azure-resources, die invloed kunnen zijn op de DevTest Labs-service zijn. Deze limieten worden aangeduid als **quota**.
@@ -28,7 +28,7 @@ Als u in DevTest Labs werkt, zult u merken dat er bepaalde standaardlimieten voo
 
 U kunt elke Azure-resource gebruiken totdat u het quotum bereikt. Elk abonnement heeft afzonderlijke quotums en gebruik per abonnement wordt bijgehouden.
 
-Elk abonnement heeft bijvoorbeeld een standaardquotum van 20 kernen. Dus als u virtuele machines in uw testomgeving met vier kernen maakt, kunt klikt u vervolgens u alleen maken vijf virtuele machines. 
+Elk abonnement heeft bijvoorbeeld een standaardquotum van 20 kernen. Dus als u virtuele machines in uw testomgeving met vier kernen maakt, kunt klikt u vervolgens u alleen maken vijf virtuele machines.
 
 [Azure-abonnement en Servicelimieten](https://docs.microsoft.com/azure/azure-subscription-service-limits) vindt u enkele van de meest voorkomende quota's voor Azure-resources. De resources die het meest gebruikt in een testomgeving en voor die u kunt tegenkomen quota, VM-kernen, openbare IP-adressen, de netwerkinterface, beheerde schijven, toewijzing van RBAC-rol en ExpressRoute-circuits bevatten.
 
@@ -67,4 +67,4 @@ Deze stappen ziet u hoe u aanvraagt via de [Azure-portal](https://go.microsoft.c
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### <a name="next-steps"></a>Volgende stappen
-* Verken de [DevTest Labs Azure Resource Manager QuickStart-sjablonen](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Verken de [DevTest Labs Azure Resource Manager QuickStart-sjablonen](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

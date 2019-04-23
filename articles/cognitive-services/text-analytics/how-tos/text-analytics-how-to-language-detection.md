@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 8197d091763709282c42379a7ca0ea802e5c6fdf
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 4ccb8665c9880e21897c81ed4b4ff534e52bb6d1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886768"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002269"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Voorbeeld: Taal detecteren met Text Analytics
 
-De [Taaldetectie-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) evalueert tekstinvoer voor elk document en retourneert de taal-id's met een score die wijst op de sterkte van de analyse. Text Analytics herkent maximaal 120 talen.
+De [Taaldetectie-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) evalueert tekstinvoer voor elk document en retourneert de taal-id's met een score die wijst op de sterkte van de analyse. Text Analytics herkent maximaal 120 talen.
 
 Deze mogelijkheid is handig voor inhoudsarchieven die willekeurige tekst verzamelen, waarin de taal onbekend is. U kunt de resultaten van deze analyse parseren om te bepalen welke taal wordt gebruikt in het ingevoerde document. Het antwoord retourneert ook een score die overeenkomt met het vertrouwen van het model (een waarde tussen 0 en 1).
 
@@ -27,9 +27,9 @@ Deze mogelijkheid is handig voor inhoudsarchieven die willekeurige tekst verzame
 
 ## <a name="preparation"></a>Voorbereiding
 
-U moet JSON-documenten in deze indeling hebben: id, tekst
+U moet de JSON-documenten in deze indeling hebben: Tekst-ID
 
-De documentgrootte moet minder dan 5120 tekens per document bevatten en u kunt maximaal 1000 items (id's) per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Hier volgt een voorbeeld van de inhoud die u voor taaldetectie kan indienen.
+De documentgrootte moet minder dan maximaal 5120 tekens per document zijn, en u kunt maximaal 1000 items (id's) per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Hier volgt een voorbeeld van de inhoud die u voor taaldetectie kan indienen.
 
    ```
     {
@@ -62,16 +62,16 @@ De documentgrootte moet minder dan 5120 tekens per document bevatten en u kunt m
 
 Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Analytics-API aanroepen](text-analytics-how-to-call-api.md). De volgende punten zijn voor uw gemak opnieuw geformuleerd:
 
-+ Maak een **POST**-aanvraag. Bekijk de API-documentatie voor deze aanvraag: [API voor taaldetectie](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
++ Maak een **POST**-aanvraag. Bekijk de API-documentatie voor deze aanvraag: [API voor taaldetectie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 
-+ Stel het HTTP-eindpunt voor taaldetectie in, met behulp van een Text Analytics-resource in Azure of een geïnstantieerde [Text Analytics-container](text-analytics-how-to-install-containers.md). Deze moet de `/languages`-resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages` bevatten
++ Stel het HTTP-eindpunt voor taaldetectie in, met behulp van een Text Analytics-resource in Azure of een geïnstantieerde [Text Analytics-container](text-analytics-how-to-install-containers.md). Deze moet de `/languages`-resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages` bevatten
 
 + Stel een aanvraagheader in om de toegangssleutel voor de Text Analytics-bewerkingen op te nemen. Zie voor meer informatie [Eindpunten en toegangssleutels zoeken](text-analytics-how-to-access-key.md).
 
 + Verstrek in de hoofdtekst van de aanvraag de JSON-documentenverzameling die u hebt voorbereid voor deze analyse
 
 > [!Tip]
-> Gebruik [Postman](text-analytics-how-to-call-api.md) of open de **API-testconsole** in de [documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) om de aanvraag te structureren en POST deze in de service.
+> Gebruik [Postman](text-analytics-how-to-call-api.md) of open de **API-testconsole** in de [documentatie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) om de aanvraag te structureren en POST deze in de service.
 
 ## <a name="step-2-post-the-request"></a>Stap 2: Plaats de aanvraag
 
@@ -206,8 +206,8 @@ Resulterende uitvoer bestaat uit de overheersende taal, met een score van minder
 
 In dit artikel hebt u concepten en werkstroom geleerd voor taaldetectie met behulp van de Text Analytics in Cognitive Services. Hier volgt een snelle herinnering van de belangrijkste punten eerder uitgelegd en gedemonstreerd:
 
-+ [Taaldetectie API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) is beschikbaar in 120 talen.
-+ JSON-documenten in de aanvraagbody omvatten een id en tekst.
++ [Taaldetectie API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) is beschikbaar in 120 talen.
++ JSON-documenten in de hoofdtekst van de aanvraag bevatten een ID en de tekst.
 + POST-aanvraag is een `/languages`-eindpunt die een persoonlijke [toegangssleutel en een eindpunt](text-analytics-how-to-access-key.md) gebruikt die geldig zijn voor uw abonnement.
 + Antwoorduitvoer, die uit de taal-id's voor elk document-ID bestaat, kan worden gestreamd naar alle apps die JSON accepteert, met inbegrip van Excel en Power BI om er maar een paar te noemen.
 

@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 4/03/2019
 ms.author: aahi
-ms.openlocfilehash: 7c6fda2238aa53c4dc1a0f15ef1aaee263e4a8f8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 62d34b859a0cf71320c478b7cab4a2914e5ee308
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489345"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011687"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Zoekquery's verzenden naar de Bing visuele zoekopdrachten-API
 
@@ -98,7 +98,7 @@ Hier volgen de headers die in uw aanvraag moeten worden opgegeven. De `Content-T
 | <a name="location" />X-Search-Location   | Optionele aanvraagheader.<br /><br /> Een met puntkomma's gescheiden lijst met sleutel-waardeparen die de geografische locatie van de client beschrijven. Bing gebruikt de locatie-informatie om het gedrag van Veilig Zoeken te bepalen en relevante lokale inhoud te retourneren. Geef het sleutel-waardepaar op als \<sleutel\>:\<waarde\>. Hier volgen de sleutels die u gebruikt om de locatie van de gebruiker op te geven.<br /><br /><ul><li>lat&mdash;Vereist. De breedtegraad van de locatie van de client, in graden. De breedtegraad moet groter dan of gelijk zijn aan -90.0 en kleiner dan of gelijk aan +90.0. Negatieve waarden geven zuidelijke breedtegraden aan, en positieve waarden noordelijke.<br /><br /></li><li>long&mdash;Vereist. De lengtegraad van de locatie van de client, in graden. De lengtegraad moet groter dan of gelijk zijn aan -180.0 en kleiner dan of gelijk aan +180.0. Negatieve waarden geven westelijke lengtegraden aan, en positieve waarden oostelijke.<br /><br /></li><li>re&mdash;Vereist. De straal, in meters, die de horizontale nauwkeurigheid van de coördinaten aangeeft. Geef de waarde door die wordt geretourneerd door de locatieservice van het apparaat. Typische waarden mogelijk 22 m voor GPS/Wi-Fi, 380 m voor cel tower triangulatie en 18.000 m voor reverse lookup van IP.<br /><br /></li><li>ts&mdash;Optioneel. Het UTC-UNIX-tijdstempel van wanneer de client op de locatie was. (Het UNIX-tijdstempel is het aantal seconden sinds 1 januari 1970.)<br /><br /></li><li>head&mdash;Optioneel. De relatieve koers of reisrichting van de client. Geef de reisrichting op als graden van 0 t/m 360, gerekend met de klok mee ten opzichte van het ware noorden. Geef deze sleutel alleen op als de `sp`-sleutel niet nul is.<br /><br /></li><li>sp&mdash;Optioneel. De horizontale snelheid, in meters per seconde, waarmee het clientapparaat reist.<br /><br /></li><li>alt&mdash;Optioneel. De hoogte van het clientapparaat, in meters.<br /><br /></li><li>are&mdash;Optioneel. De straal, in meters, die de verticale nauwkeurigheid van de coördinaten aangeeft. Geef deze sleutel alleen op als u de `alt`-sleutel opgeeft.<br /><br /></li></ul> **OPMERKING:** Hoewel veel van de sleutels optioneel zijn, de informatie die u opgeeft, hoe nauwkeuriger de resultaten van de locatie zijn.<br /><br /> **OPMERKING:** Hoewel dit optioneel is, wordt u aangeraden altijd opgeven om de geografische locatie van de gebruiker. Het opgeven van de locatie is vooral belangrijk als het IP-adres van de client de fysieke locatie van de gebruiker niet nauwkeurig weergeeft (bijvoorbeeld als de client VPN gebruikt). Voor optimale resultaten, moet u deze header bevatten en de `X-MSEdge-ClientIP` header, maar ten minste, moet u deze header bevatten.       |
 
 > [!NOTE]
-> Houd er rekening mee dat de [Bing zoeken-API gebruiken en weergavevereisten](/../bing-web-search/use-display-requirements.md) moet voldoen aan beleid met alle van toepassing zijnde wetten, waaronder met betrekking tot gebruik van deze headers. In bepaalde rechtsgebieden, zoals Europa, is het bijvoorbeeld vereist om toestemming van de gebruiker te verkrijgen voordat bepaalde traceringsapparaten op gebruikersapparaten wordt geplaatst.
+> Houd er rekening mee dat de [Bing zoeken-API gebruiken en weergavevereisten](../../bing-web-search/use-display-requirements.md) moet voldoen aan beleid met alle van toepassing zijnde wetten, waaronder met betrekking tot gebruik van deze headers. In bepaalde rechtsgebieden, zoals Europa, is het bijvoorbeeld vereist om toestemming van de gebruiker te verkrijgen voordat bepaalde traceringsapparaten op gebruikersapparaten wordt geplaatst.
 
 <a name="content-form-types" />
 

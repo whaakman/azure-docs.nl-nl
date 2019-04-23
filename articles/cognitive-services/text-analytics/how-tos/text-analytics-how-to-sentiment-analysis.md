@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 7287a9ddbd84960dcde790d813a6204e9e790094
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 0c42e7f8b1fffb9cf998f4cee8d30405a8df74a4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887417"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011296"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Voorbeeld: Sentiment detecteren met Text Analytics
 
-De [Sentimentanalyse-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) evalueert tekstinvoer en retourneert een gevoelsscore voor elk document, variërend van 0 (negatief) tot 1 (positief).
+De [Sentimentanalyse-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) evalueert tekstinvoer en retourneert een gevoelsscore voor elk document, variërend van 0 (negatief) tot 1 (positief).
 
 Deze mogelijkheid is handig voor het detecteren van een positief en negatief gevoel in sociale media, klantbeoordelingen en discussieforums. Inhoud is die u hebt opgegeven; modellen en trainingsgegevens worden geleverd door de service.
 
@@ -37,7 +37,7 @@ Sentimentanalyse wordt uitgevoerd op het hele document, in plaats van een gevoel
 
 Gevoelsanalyse produceert een hoger kwaliteitsresultaat wanneer u ze kleinere segmenten van tekst aanbiedt om op te werken. Dit is het tegenovergestelde van sleuteltermextractie, wat beter presteert op grotere blokken tekst. Overweeg dienovereenkomstig herstructurering van de invoer voor de beste resultaten uit beide bewerkingen.
 
-U moet JSON-documenten in deze indeling hebben: id, tekst, taal
+U moet de JSON-documenten in deze indeling hebben: -ID, tekst-, taal
 
 De documentgrootte moet minder dan maximaal 5120 tekens per document zijn, en u kunt maximaal 1000 items (id's) per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Hier volgt een voorbeeld van de inhoud die u voor gevoelsanalyse kan indienen.
 
@@ -77,16 +77,16 @@ De documentgrootte moet minder dan maximaal 5120 tekens per document zijn, en u 
 
 Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Analytics-API aanroepen](text-analytics-how-to-call-api.md). De volgende punten zijn voor uw gemak opnieuw geformuleerd:
 
-+ Maak een **POST**-aanvraag. Bekijk de API-documentatie voor deze aanvraag: [Sentimentanalyse-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
++ Maak een **POST**-aanvraag. Bekijk de API-documentatie voor deze aanvraag: [Sentimentanalyse-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
-+ Stel het HTTP-eindpunt in voor sentimentanalyse, met behulp van een Text Analytics-resource in Azure of een geïnstantieerde [Text Analytics-container](text-analytics-how-to-install-containers.md). Deze moet de `/sentiment`-resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment` bevatten
++ Stel het HTTP-eindpunt in voor sentimentanalyse, met behulp van een Text Analytics-resource in Azure of een geïnstantieerde [Text Analytics-container](text-analytics-how-to-install-containers.md). Deze moet de `/sentiment`-resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment` bevatten
 
 + Stel een aanvraagheader in om de toegangssleutel voor de Text Analytics-bewerkingen op te nemen. Zie voor meer informatie [Eindpunten en toegangssleutels zoeken](text-analytics-how-to-access-key.md).
 
 + Verstrek in de hoofdtekst van de aanvraag de JSON-documentenverzameling die u hebt voorbereid voor deze analyse.
 
 > [!Tip]
-> Gebruik [Postman](text-analytics-how-to-call-api.md) of open de **API-testconsole** in de [documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) om de aanvraag te structureren en POST deze in de service.
+> Gebruik [Postman](text-analytics-how-to-call-api.md) of open de **API-testconsole** in de [documentatie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) om de aanvraag te structureren en POST deze in de service.
 
 ## <a name="step-2-post-the-request"></a>Stap 2: Plaats de aanvraag
 
@@ -135,8 +135,8 @@ Het volgende voorbeeld ziet het antwoord voor de documentenverzameling in dit ar
 
 In dit artikel hebt u concepten en de werkstroom geleerd voor gevoelsanalyse met behulp van Text Analytics in Cognitive Services. Samenvatting:
 
-+ [Gevoelsanalyse API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) is beschikbaar voor de geselecteerde talen.
-+ JSON-documenten in de aanvraagbody omvatten een id, tekst en taalcode.
++ [Gevoelsanalyse API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) is beschikbaar voor de geselecteerde talen.
++ JSON-documenten in de aanvraagtekst omvatten een code-ID, tekst en taal.
 + POST-aanvraag is een `/sentiment`-eindpunt die een persoonlijke [toegangssleutel en een eindpunt](text-analytics-how-to-access-key.md) gebruikt die geldig zijn voor uw abonnement.
 + Antwoorduitvoer, die uit een gevoelsscore voor elk document-ID bestaat, kan worden gestreamd naar alle apps die JSON, met inbegrip van Excel en Power BI om er maar enkele te noemen, accepteren.
 

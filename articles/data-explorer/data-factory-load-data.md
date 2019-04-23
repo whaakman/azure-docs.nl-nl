@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: c3c5484d865c73a6f478ffc9ad4c3fc86c2c8170
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618998"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005363"
 ---
-# <a name="copy-data-from-azure-data-factory-to-azure-data-explorer"></a>Gegevens kopiëren van Azure Data Factory naar Azure Data Explorer
+# <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Gegevens kopiëren naar Azure Data Explorer met behulp van Azure Data Factory 
 
 Azure Data Explorer is een snelle, volledig beheerde data analytics-service voor realtime analyse van grote volumes aan gegevensstromen van verschillende bronnen, zoals toepassingen, websites en IoT-apparaten. Iteratief gegevens verkennen en identificeren van patronen en afwijkingen te verbeteren van producten en verbetert de ervaringen voor klanten, bewaken van apparaten en bewerkingen te vergroten. Ontdek nieuwe vragen en krijg antwoorden binnen enkele minuten. Azure Data Factory is een volledig beheerde cloud-gebaseerde service voor gegevensintegratie. U kunt de service aan uw Azure Data Explorer-database met gegevens uit uw bestaande systeem te vullen en bespaar tijd bij het bouwen van uw analyseoplossingen.
 
@@ -32,7 +32,7 @@ In dit artikel leest u hoe de gegevens kopiëren van Data Factory-hulpprogramma 
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint.
 * [Een cluster van Azure Data Explorer en -database](create-cluster-database-portal.md)
-* Amazon S3.
+* De bron van gegevens.
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
@@ -147,10 +147,6 @@ Azure Data Explorer nieuwe gekoppelde service is gemaakt om te kopiëren van de 
 
     ![ADX doelgegevensarchief](media/data-factory-load-data/destination-data-store.png)
 
-1. In **uitvoerbestand of uitvoermap kiezen**, voer de naam van de uitvoer instellingen vast en selecteer **volgende**.
-
-    ![Geef de map voor uitvoer](media/data-factory-load-data/specify-path.png)
-
 1. In **tabeltoewijzing**, stel de naam van de doel-tabel en selecteer **volgende**.
 
     ![Bestemming gegevensset tabeltoewijzing](media/data-factory-load-data/destination-dataset-table-mapping.png)
@@ -186,6 +182,8 @@ Azure Data Explorer nieuwe gekoppelde service is gemaakt om te kopiëren van de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het bewerken van gekoppelde services, gegevenssets en pijplijnen in de [Data Factory-UI](/azure/data-factory/quickstart-create-data-factory-portal)
+* Meer informatie over de [connector voor Azure Data Explorer](/azure/data-factory/connector-azure-data-explorer) in Azure Data Factory.
+
+* Meer informatie over het bewerken van gekoppelde services, gegevenssets en pijplijnen in de [Data Factory-UI](/azure/data-factory/quickstart-create-data-factory-portal).
 
 * Meer informatie over [query's van Azure Data Explorer](/azure/data-explorer/web-query-data) voor het opvragen van gegevens.

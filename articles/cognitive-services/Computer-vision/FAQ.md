@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 2e04d86e7067db98c8399cfc3e202457b8f253d6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 579a47e70f292222914723606d032737b98822bc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351946"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004870"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Veelgestelde vragen over de computer Vision-API
 
@@ -37,28 +37,9 @@ ms.locfileid: "58351946"
 
 -----
 
-**Vraag**: *Welke talen worden ondersteund met Computer Vision?*
-
-**antwoord**: Enkele ondersteunde talen:
-
-| | | Ondersteunde talen | | |
-|---------------- |------------------ |------------------ |--------------------------- |--------------------
-| Deens (da-DK)  | Nederlands (nl-NL)     | Engels           | Fins (fi-FI)            |Frans (fr-FR)
-| Duits (nl-nl)  | Grieks (el-GR)     | Hongaars (hu-HU) | Italiaans (it-IT)            | Japans (ja-JP)
-| Koreaans (ko-KR)  | Noors (nb-NO) | Pools (pl-PL)    | Portugees (pt-BR) (pt-PT) | Russisch (ru-RU/s)
-| Spaans (es-ES)   | Zweeds (sv-SV)     | Turks (tr-TR)   |                            |
-
------
-
 **Vraag**: *Kan Computer Vision worden gebruikt om te lezen licentie platen?*
 
 **antwoord**: De Vision-API biedt goede tekst-detectie met OCR, maar deze momenteel niet is geoptimaliseerd voor licentie-elementen. We zijn voortdurend gewerkt aan onze services te verbeteren en OCR voor automatische licentie plaat erkenning aan onze lijst met functieaanvragen hebt toegevoegd.
-
------
-
-**Vraag**: *Welke talen worden ondersteund voor handschriftherkenning?*
-
-**antwoord**: Op dit moment wordt alleen Engels ondersteund.
 
 -----
 

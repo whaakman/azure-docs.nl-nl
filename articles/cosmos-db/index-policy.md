@@ -1,76 +1,109 @@
 ---
 title: Azure Cosmos DB indexeringsbeleid
-description: Begrijp hoe indexering werkt in Azure Cosmos DB. Informatie over het configureren en wijzigen van het indexeringsbeleid voor automatische indexering en betere prestaties.
-author: rimman
+description: Informatie over het configureren en wijzigen van de standaardbeleidsregels voor indexering van beleid voor automatisch indexeren en betere prestaties in Azure Cosmos DB.
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: 6998db1679e67f8ac4bf7c81ea9373c66a9618ee
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: thweiss
+ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278561"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005091"
 ---
-# <a name="index-policy-in-azure-cosmos-db"></a>Index-beleid in Azure Cosmos DB
+# <a name="indexing-policies-in-azure-cosmos-db"></a>Indexering in Azure Cosmos DB
 
-U kunt overschrijven de standaardbeleidsregels voor indexering van beleid voor een Azure Cosmos-container door het configureren van de volgende parameters:
+Elke container heeft in Azure Cosmos DB, een indexeringsbeleid die bepaalt hoe de items van de container moeten worden geïndexeerd. De standaardbeleidsregels voor indexering van beleid voor nieuwe gemaakt containers indexen elke eigenschap van elk item, bereik indexen voor een tekenreeks of getal en ruimtelijke indexen voor een GeoJSON-object van type punt. Hiermee kunt u hoge queryprestaties zonder te denken over het indexeren en indexbeheer vooraf ophalen.
 
-* **Of -items en paden uitsluiten bij de index**: U kunt uitsluiten of specifieke items in de index bevatten bij het invoegen of vervangen door de items in een container. U kunt ook opnemen of uitsluiten van specifieke paden/eigenschappen containers worden geïndexeerd. Paden kunnen bevatten jokertekenpatronen, bijvoorbeeld: *.
+In sommige gevallen kunt u dit automatisch gedrag beter aan uw vereisten negeren. U kunt het indexeringsbeleid van een container aanpassen door in te stellen de *indexering modus*, en opnemen of uitsluiten *eigenschappaden*.
 
-* **Index typen configureren**: Daarnaast om een bereik geïndexeerde paden, u kunt andere typen toevoegen van indexen, zoals ruimtelijke.
+## <a name="indexing-mode"></a>Indexering modus
 
-* **Configureren van index modi**: Met behulp van het indexeringsbeleid voor een container, kunt u verschillende modi voor indexering zoals *consistente* of *geen*.
+Azure Cosmos DB ondersteunt twee modi voor indexering:
 
-## <a name="indexing-modes"></a>Modi indexeren
+- **Consistente**: Als het indexeringsbeleid van de container is ingesteld op een consistente, wordt de index synchroon bijgewerkt wanneer u maken, bijwerken of verwijderen van items. Dit betekent dat de consistentie van uw lezen query's worden de [consistentie geconfigureerd voor het account](consistency-levels.md).
 
-Azure Cosmos DB ondersteunt twee modi voor indexering die u op een Azure Cosmos-container via indexeringsbeleid kunt configureren:
+- **Geen**: Als het indexeringsbeleid van de container is ingesteld op None, is indexeren effectief uitgeschakeld op die container. Dit wordt vaak gebruikt als een container wordt gebruikt als een zuivere sleutel-waardearchief zonder de noodzaak voor secundaire indexen. Het kan ook helpen versnellen bulksgewijs bewerkingen invoegen.
 
-* **Consistente**: Als een Azure Cosmos-container-beleid is ingesteld op *consistente*, volgt u de query's op een specifieke container hetzelfde consistentieniveau als het account dat is opgegeven voor punt-leesbewerkingen (bijvoorbeeld: sterk, gebonden veroudering, sessie, of uiteindelijke). 
+## <a name="including-and-excluding-property-paths"></a>Opnemen en uitsluiten van eigenschappaden
 
-  De index wordt synchroon bijgewerkt tijdens het bijwerken van de items. Bijvoorbeeld, resulteert invoegen, vervangen, update en delete-bewerkingen op een item in de index-update. Consistente indexeren biedt ondersteuning voor consistente-query's leiden die invloed hebben op de doorvoer van schrijfbewerkingen. De vermindering van de doorvoer van schrijfbewerkingen, is afhankelijk van de 'paden opgenomen in de index"en de 'consistentieniveau'. Consistente indexering modus is ontworpen om de index up-to-date houden met alle updates en voor het bieden van direct query's.
+Een aangepast indexeringsbeleid kunt eigenschappaden die expliciet zijn opgenomen of uitgesloten van het indexeren opgeven. U kunt door het aantal paden die zijn geïndexeerd optimaliseert, verlaag de hoeveelheid opslag die wordt gebruikt door de container en verbeteren van de latentie van schrijfbewerkingen. Deze paden zijn gedefinieerd met het volgende [de methode die wordt beschreven in de sectie met indexering overzicht](index-overview.md#from-trees-to-property-paths) met de volgende toevoegingen:
 
-* **Geen**: Een container met een geen Indexmodus geen index die is gekoppeld heeft. Dit wordt vaak gebruikt als Azure Cosmos-database wordt gebruikt als een sleutel / waarde-opslag en items zijn alleen toegankelijk voor de ID-eigenschap.
+- eindigt op een pad naar een scalaire waarde (tekenreeks of getal) `/?`
+- elementen van een matrix samen worden opgelost door middel van de `/[]` notatie (in plaats van `/0`, `/1` enz.)
+- de `/*` jokertekens kan worden gebruikt zodat deze overeenkomt met alle elementen onder het knooppunt
 
-  > [!NOTE]
-  > Configureren van de indexing-modus als een *geen* heeft een neveneffect van het verwijderen van alle bestaande indexen. U moet deze optie gebruiken als uw patronen voor databasetoegang ID vereisen of self link alleen.
+Het voorbeeld nemen opnieuw:
 
-Query-consistentieniveaus worden die vergelijkbaar is met de reguliere leesbewerkingen bijgehouden. Azure Cosmos-database wordt een fout geretourneerd als u de container met een query een *geen* indexering modus. U kunt de query's uitvoeren als scans via de expliciete **x-ms-documentdb-enable-scan** -header in de REST-API of de **EnableScanInQuery** optie vragen via de .NET SDK. Sommige query functies, zoals ORDER BY worden momenteel niet ondersteund met **EnableScanInQuery**, omdat ze een bijbehorende index verplichten.
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 }
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
+
+- de `headquarters`van `employees` pad is `/headquarters/employees/?`
+- de `locations`' `country` pad is `/locations/[]/country/?`
+- het pad op naar iets onder `headquarters` is `/headquarters/*`
+
+Wanneer een pad expliciet is opgenomen in het indexeringsbeleid, heeft deze ook om te definiëren welke typen index moeten worden toegepast op het opgegeven pad en voor elk indextype, het gegevenstype deze index is van toepassing op:
+
+| Indextype | Doel-gegevenstypen toegestaan |
+| --- | --- |
+| Bereik | Tekenreeks of getal |
+| Ruimtelijk | Point, LineString of veelhoek |
+
+We kunnen bijvoorbeeld de `/headquarters/employees/?` pad en opgeven dat een `Range` index moet worden toegepast op het opgegeven pad voor zowel `String` en `Number` waarden.
+
+### <a name="includeexclude-strategy"></a>Strategie voor opnemen/uitsluiten
+
+Alle indexeringsbeleid heeft om op te nemen van pad naar de hoofdmap `/*` als een opgenomen of als een uitgesloten-pad.
+
+- Het pad naar de hoofdmap als u wilt uitsluiten selectief paden die niet hoeven te worden geïndexeerd bevatten. Dit is de aanbevolen aanpak omdat het Azure Cosmos DB is een nieuwe eigenschap die kan worden toegevoegd aan uw model proactief index kunt.
+- Sluit het hoofdpad selectief om paden te nemen die moeten worden geïndexeerd.
+
+Zie [in deze sectie](how-to-manage-indexing-policy.md#indexing-policy-examples) voor indexering beleid voorbeelden.
 
 ## <a name="modifying-the-indexing-policy"></a>Wijzigen van het indexeringsbeleid
 
-In Azure Cosmos DB, kunt u het indexeringsbeleid van een container op elk gewenst moment bijwerken. Een wijziging in het indexeringsbeleid op een Azure Cosmos-container kan leiden tot een wijziging in de vorm van de index. Deze wijziging is van invloed op de paden die kunnen worden geïndexeerd, hun precisie en het consistentiemodel van de index zelf. Een wijziging in het indexeringsbeleid effectief vereist een transformatie van de oude index in een nieuwe index.
+Indexeringsbeleid van de container kan worden bijgewerkt op elk gewenst moment [met behulp van de Azure-portal of een van de ondersteunde SDK's](how-to-manage-indexing-policy.md). Een update aan voor het indexeringsbeleid activeert een transformatie van de oude index naar de nieuwe versie, die wordt uitgevoerd op het online en op locatie (zodat er geen extra opslagruimte wordt gebruikt tijdens de bewerking). Index van het oude beleid is efficiënt omgezet naar het nieuwe beleid zonder gevolgen voor de beschikbaarheid voor schrijven of de doorvoer die is ingericht voor de container. Index transformatie is een asynchrone bewerking en de tijd die nodig zijn om te voltooien is afhankelijk van de ingerichte doorvoer, het aantal items en de omvang ervan. 
 
-### <a name="index-transformations"></a>Index transformaties
+> [!NOTE]
+> Terwijl opnieuw indexeren uitgevoerd wordt, worden query's mogelijk niet de overeenkomende resultaten retourneren, en zal dit doen zonder eventuele fouten retourneren. Dit betekent dat de resultaten van query zijn mogelijk inconsistent totdat de index-transformatie is voltooid. Het is mogelijk om bij te houden van de voortgang van de index transformatie [met behulp van een van de SDK's](how-to-manage-indexing-policy.md).
 
-Alle transformaties van de index worden online uitgevoerd. De items die zijn geïndexeerd per het oude beleid zijn efficiënt per het nieuwe beleid getransformeerd zonder gevolgen voor de beschikbaarheid voor schrijven of de doorvoer die is ingericht voor de container. De consistentie van lezen en schrijven van bewerkingen die worden uitgevoerd met behulp van de REST-API, SDK's, of met behulp van opgeslagen procedures en triggers wordt niet beïnvloed tijdens de transformatie van de index.
+Als het nieuwe indexeringsbeleid-modus is ingesteld op een consistente, kan er geen andere indexering beleidswijziging worden toegepast, terwijl de transformatie van de index uitgevoerd wordt. Een actieve transformatie van de index kan worden geannuleerd door het indexeringsbeleid-modus is ingesteld op None (die de index wordt onmiddellijk worden verwijderd).
 
-Indexeringsbeleid wijzigen is een asynchrone bewerking en de tijd om de bewerking te voltooien, is afhankelijk van het aantal items, ingerichte doorvoer en de grootte van de items. Uw query kan niet alle overeenkomende resultaten retourneren als de query's met behulp van de index die wordt gewijzigd terwijl opnieuw indexeren uitgevoerd wordt, en eventuele fouten/fouten wordt niet geretourneerd door de query's. Wordt uitgevoerd opnieuw indexeren, zijn query's uiteindelijk consistent, ongeacht de indexering modus-configuratie. Nadat de index blijft transformatie is voltooid, om consistente resultaten te bekijken. Dit geldt voor query's dat is uitgegeven door de interfaces, zoals REST-API, SDK's, of opgeslagen procedures en triggers. Index transformatie wordt asynchroon uitgevoerd op de achtergrond, op de replica's met behulp van de ongebruikte bronnen die beschikbaar voor specifieke replica's zijn.
+## <a name="indexing-policies-and-ttl"></a>Beleid voor indexering en TTL
 
-Alle transformaties van index worden gemaakt op locatie. Azure Cosmos DB biedt twee kopieën van de index niet behouden. Daarom is er geen extra schijfruimte vereist of in uw containers wordt verbruikt, terwijl index transformatie wordt uitgevoerd.
+De [Time-to-Live (TTL) functie](time-to-live.md) vereist indexering actief zijn op de container is ingeschakeld. Dit betekent dat:
 
-Wanneer u het indexeringsbeleid wijzigt, worden de wijzigingen worden toegepast om te verplaatsen van de oude index naar de nieuwe index en zijn voornamelijk gebaseerd op de indexering modus-configuraties. Indexering configuraties spelen een belangrijke rol in vergelijking met andere eigenschappen op, zoals opgenomen/uitgesloten paden, index-typen en precisie.
+- het is niet mogelijk om te activeren TTL voor een container waarin de indexing-modus is ingesteld op None,
+- het is niet mogelijk om in te stellen de indexing-modus op None voor een container waarin de TTL is geactiveerd.
 
-Als de oude en nieuwe beleidsregels indexeren **consistente** indexeren, Azure Cosmos-database een online-index transformatie uitvoert. U kunt een andere indexering beleidswijziging met consistente indexering modus terwijl de transformatie uitgevoerd wordt niet toepassen. Wanneer u op geen modus indexeren verplaatst, wordt de index onmiddellijk verwijderd. Verplaatsen naar geen is handig als u wilt een transformatie in uitvoering annuleren en opnieuw beginnen met een ander beleid voor indexering.
+Voor scenario's waarbij er geen eigenschapspad moet worden geïndexeerd, maar TTL-waarde is vereist, kunt u een indexeringsbeleid met:
 
-## <a name="modifying-the-indexing-policy---examples"></a>Wijzigen van het indexeringsbeleid - voorbeelden
+- een indexering modus ingesteld op consistente, en
+- Er zijn geen opgenomen pad, en
+- `/*` Als het enige uitgesloten-pad.
 
-Hier volgen de meest voorkomende gebruiksvoorbeelden wanneer u wilt een indexeringsbeleid bijwerken:
+## <a name="obsolete-attributes"></a>Verouderd kenmerken
 
-* Als u wilt om consistente resultaten tijdens normale werking, maar terugvallen op de **geen** indexering modus tijdens bulkimport voor gegevens.
+Als u werkt met de indexing-beleid, kunnen de volgende kenmerken die nu verouderd zijn optreden:
 
-* Als u beginnen met de indexing-onderdelen op uw huidige Azure-Cosmos-containers wilt. U kunt bijvoorbeeld gebruik georuimtelijke uitvoeren van query's, waarvoor de ruimtelijke index type of ORDER BY / bereik-query's, waarvoor het type tekenreeks bereik index tekenreeks.
-
-* Als u de eigenschappen die wilt moeten worden geïndexeerd en wijzig ze na verloop van tijd om aan te passen aan uw workloads handmatig selecteren.
-
-* Als u de indexering precisie om de queryprestaties te verbeteren of om te beperken van de verbruikte opslag af te stemmen wilt.
+- `automatic` een Booleaanse waarde gedefinieerd in de hoofdmap van een beleid voor indexering. Het is nu genegeerd en kan worden ingesteld op `true`, wanneer het hulpprogramma dat u gebruikt dit vereist.
+- `precision` is een getal dat is gedefinieerd op het indexniveau van de voor opgenomen paden. Het is nu genegeerd en kan worden ingesteld op `-1`, wanneer het hulpprogramma dat u gebruikt dit vereist.
+- `hash` een index-type dat nu door het type bereik vervangen is is.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Lees meer over indexeren in de volgende artikelen:
 
-* [Overzicht van indexeren](index-overview.md)
-* [Indextypen](index-types.md)
-* [Indexpaden](index-paths.md)
-* [Indexeringsbeleid beheren](how-to-manage-indexing-policy.md)
+- [Indexering-overzicht](index-overview.md)
+- [Indexeringsbeleid beheren](how-to-manage-indexing-policy.md)

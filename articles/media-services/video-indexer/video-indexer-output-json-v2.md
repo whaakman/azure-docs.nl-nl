@@ -1,5 +1,5 @@
 ---
-title: Bekijk de Video Indexer-uitvoer geproduceerd door de v2-API
+title: Bekijk de Azure Media Services Video Indexer-uitvoer geproduceerd door de v2-API
 titlesuffix: Azure Media Services
 description: In dit onderwerp wordt de Video Indexer-uitvoer geproduceerd door de v2-API gecontroleerd.
 services: media-services
@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280210"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011314"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de API
 
@@ -32,13 +32,13 @@ In dit artikel onderzoekt de JSON-inhoud die wordt geretourneerd door de **Video
 
 ## <a name="root-elements"></a>Basis-elementen
 
-|Name|Description|
+|Name|Beschrijving|
 |---|---|
 |accountId|Van de afspeellijst VI account-ID.|
 |id|Van de afspeellijst-ID.|
 |naam|De naam van de afspeellijst.|
 |description|Beschrijving van de afspeellijst.|
-|Gebruikersnaam|De naam van de gebruiker die de afspeellijst gemaakt.|
+|userName|De naam van de gebruiker die de afspeellijst gemaakt.|
 |gemaakt|Aanmaaktijd van de afspeellijst.|
 |privacyMode|Van de afspeellijst privacymodus (privé/openbaar).|
 |state|Van de afspeellijst (geüploade, verwerking, verwerkt, is mislukt, de in quarantaine geplaatste).|
@@ -72,7 +72,7 @@ In dit artikel onderzoekt de JSON-inhoud die wordt geretourneerd door de **Video
 
 In deze sectie bevat een overzicht van de inzichten.
 
-|Kenmerk | Beschrijving|
+|Kenmerk | Description|
 |---|---|
 |naam|De naam van de video. Bijvoorbeeld: Azure Monitor.|
 |id|De ID van de video. Bijvoorbeeld: 63c6d532ff.|
@@ -148,7 +148,7 @@ De inzichten zijn een set van dimensies (bijvoorbeeld regels tekst, gezichten, m
 
 Een gezicht mogelijk een ID, een naam, een miniatuur, andere metagegevens en een lijst van de tijdelijke exemplaren (bijvoorbeeld: 00: 00:05 – 00:00:10, 00:01:00-00:02:30 en 00:41:21: 00:41:49.) Elke tijdelijke instantie kan aanvullende metagegevens hebben. Bijvoorbeeld, coördinaten van het gezichtsrechthoek (20,230,60,60).
 
-|Versie|De codeversie|
+|Version|De codeversie|
 |---|---|
 |sourceLanguage|Van de video source-taal (ervan uitgaande dat één master taal). In de vorm van een [BCP-47](https://tools.ietf.org/html/bcp47) tekenreeks.|
 |language|De insights-taal (vertaald uit de source-taal). In de vorm van een [BCP-47](https://tools.ietf.org/html/bcp47) tekenreeks.|
@@ -279,40 +279,24 @@ Voorbeeld:
 |instanties|Een lijst met tijdsbereik waar dit sleutelwoord wordt weergegeven (een trefwoord kan meerdere keren voorkomen).|
 
 ```json
-"keywords": [
 {
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
+    id: 0,
+    text: "technology",
+    confidence: 1,
+    language: "en-US",
+    instances: [{
+            adjustedStart: "0:05:15.782",
+            adjustedEnd: "0:05:16.249",
+            start: "0:05:15.782",
+            end: "0:05:16.249"
     },
     {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
+            adjustedStart: "0:04:54.761",
+            adjustedEnd: "0:04:55.228",
+            start: "0:04:54.761",
+            end: "0:04:55.228"
+    }]
 }
-] 
 ```
 
 #### <a name="faces"></a>faces

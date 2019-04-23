@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/08/2019
+ms.date: 04/18/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 2ab29c6e41204104320f4c2f583a24e53786bf3c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360543"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004768"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -111,7 +111,7 @@ Replicatie van nieuwe virtuele machines naar een opslagaccount is alleen beschik
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>Kan ik het type beheerde schijf wijzigen nadat de machine is beveiligd?
 
-Ja, u kunt eenvoudig [wijzigen van het type beheerde schijf](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Echter, als u het type beheerde schijf kunt, wachten op nieuwe herstelpunten moeten worden gegenereerd als u wilt testen van failover of testfailover na de wijziging.
+Ja, u kunt eenvoudig [wijzigen van het type beheerde schijf](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Voordat u het type wijzigt, zorg ervoor dat u de SAS-URL voor de schijf intrekken door te gaan naar de resource beheerde schijf op de Azure-portal. Annuleren van de overzichtsblade een continue export. Zodra de SAS-URL is ingetrokken, moet u het type van de schijf wijzigen binnen enkele minuten. Echter, als u het type beheerde schijf wijzigt, wachten op nieuwe herstelpunten moeten worden gegenereerd door Azure Site Recovery. Gebruik de nieuwe herstelpunten voor testfailover of failover voortaan.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Kan ik replicatie van beheerde schijven naar niet-beheerde schijven wisselen?
 

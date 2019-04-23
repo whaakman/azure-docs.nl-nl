@@ -8,18 +8,17 @@ services: site-recovery
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 4f13c1beb23687b46074671fe01a0f42b26c8c03
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 399dcd744819cf4cb5d9f5f9636967c34e186a0e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312917"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004598"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Configuratie van serververeisten voor noodherstel van VMware naar Azure
 
 U implementeert een on-premises configuratieserver wanneer u [Azure Site Recovery](site-recovery-overview.md) voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure.
 
-- De configuratie van server coördinaten communicatie tussen on-premises VMware en Azure. Deze beheert de gegevensreplicatie.
 - De configuratie van server coördinaten communicatie tussen on-premises VMware en Azure. Deze beheert de gegevensreplicatie.
 - [Meer informatie](vmware-azure-architecture.md) over de onderdelen van de configuratieserver en processen.
 

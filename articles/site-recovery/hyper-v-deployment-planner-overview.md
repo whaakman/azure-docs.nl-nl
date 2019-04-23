@@ -2,17 +2,17 @@
 title: Over de Azure Site Recovery Deployment Planner voor herstel na noodgevallen van Hyper-V-machines naar Azure | Microsoft Docs
 description: Meer informatie over de noodherstel van Azure Site Recovery Deployment Planner Hyper-V naar Azure.
 author: mayurigupta13
-manager: garavd
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/18/2019
 ms.author: mayg
-ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e40a6b69b1cc4785b3055eaa31905c9ee88170e2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360269"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001504"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Over de Azure Site Recovery Deployment Planner voor Hyper-V-noodherstel naar Azure
 
@@ -73,7 +73,7 @@ Het hulpprogramma levert de volgende gegevens:
 | | **VMware naar Azure** |**Hyper-V naar Azure**|**Azure naar Azure**|**Hyper-V naar secundaire site**|**VMware naar secundaire site**
 --|--|--|--|--|--
 Ondersteunde scenario's |Ja|Ja|Nee|Ja*|Nee
-Ondersteunde versie | vCenter 6.5, 6.0 of 5.5| WindowsServer 2016, Windows Server 2012 R2 | N.v.t. |WindowsServer 2016, Windows Server 2012 R2|N.v.t.
+Ondersteunde versie | vCenter 6.7, 6.5, 6.0 of 5.5| WindowsServer 2016, Windows Server 2012 R2 | N.v.t. |WindowsServer 2016, Windows Server 2012 R2|N.v.t.
 Ondersteunde configuratie|vCenter, ESXi| Hyper-V-cluster, Hyper-V-host|N.v.t.|Hyper-V-cluster, Hyper-V-host|N.v.t.|
 Aantal servers dat kan worden geprofileerd per exemplaar van de Azure Site Recovery Deployment Planner |Eén (virtuele machines die horen bij een VMware vCenter Server of een ESXi-server kunnen worden geprofileerd op een tijdstip)|Meerdere (VM's op meerdere hosts of hostclusters kunnen tegelijk profiel zijn)| N.v.t. |Meerdere (VM's op meerdere hosts of hostclusters kunnen tegelijk profiel zijn)| N.v.t.
 
@@ -82,7 +82,7 @@ Aantal servers dat kan worden geprofileerd per exemplaar van de Azure Site Recov
 ## <a name="prerequisites"></a>Vereisten
 Het hulpprogramma heeft drie belangrijke fasen voor Hyper-V: lijst ophalen met de VM, profilering en generatie rapportage. Er is ook een voerde optie, waarmee alleen doorvoer wordt berekend. De vereisten voor de server waarop de verschillende fasen moeten worden uitgevoerd worden in de volgende tabel weergegeven:
 
-| Serververeiste | Beschrijving |
+| Serververeiste | Description |
 |---|---|
 |VM-lijst ophalen, profileren en meten van doorvoer |<ul><li>Besturingssysteem: Microsoft Windows Server 2016 of Microsoft Windows Server 2012 R2 </li><li>Machineconfiguratie: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable voor Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internettoegang tot Azure vanaf deze server</li><li>Azure Storage-account</li><li>Beheerderstoegang op de server</li><li>Minimaal 100 GB vrije schijfruimte (uitgaande van 1000 virtuele machines met een gemiddelde van elk drie schijven, geprofileerd voor 30 dagen)</li><li>De virtuele machine waarop u de Azure Site Recovery ontwikkelingsplannertool uitvoert moet worden toegevoegd aan de TrustedHosts-lijst van alle Hyper-V-servers.</li><li>Alle Hyper-V-servers moeten worden geprofileerd moeten worden toegevoegd aan de TrustedHosts-lijst van de client VM van waar het hulpprogramma wordt uitgevoerd. [Meer informatie voor het toevoegen van servers in de lijst TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> Het hulpprogramma moet met Beheerdersrechten worden uitgevoerd vanuit PowerShell of de opdrachtregelconsole op de client</ul></ul>|
 | Rapporten genereren | Een Windows-pc of Windows-server met Microsoft Excel 2013 of hoger |
@@ -132,7 +132,7 @@ Als u een eerdere versie van de implementatieplanner hebt, doe dan het volgende:
   >Elke nieuwe implementatieplanner is een cumulatieve update van het ZIP-bestand. U hoeft dus niet de nieuwste bestanden naar de vorige map te kopiëren. U kunt een nieuwe map maken en deze gebruiken.
 
 ## <a name="version-history"></a>Versiegeschiedenis
-De meest recente versie van het hulpprogramma Azure Site Recovery Deployment Planner is 2.3.
+De meest recente versie van het hulpprogramma Azure Site Recovery Deployment Planner is 2.4.
 Raadpleeg [versiegeschiedenis van Azure Site Recovery Deployment Planner](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) pagina voor de oplossingen die zijn toegevoegd in elke update.
 
 

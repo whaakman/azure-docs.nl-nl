@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fca78c86849ef8210bb3aaeb8ad96e1fba3d7c05
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 2fe31271fa84bc4170bd431a4aadbcafc0df9086
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542485"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148965"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Het plaatsen van een aankondiging naar een lab in Azure DevTest Labs
 
@@ -37,8 +37,8 @@ De functie aankondiging is bedoeld om te worden gebruikt voor tijdelijke melding
 
 1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecteer indien nodig, **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst. (Uw lab mogelijk al worden weergegeven op het Dashboard onder **alle Resources**).
-1. Selecteer in het lab waarin u wilt plaatsen van een aankondiging uit de lijst met labs.  
-1. Op van het lab **overzicht** gedeelte **configuratie en het beleid**.  
+1. Selecteer in het lab waarin u wilt plaatsen van een aankondiging uit de lijst met labs.
+1. Op van het lab **overzicht** gedeelte **configuratie en het beleid**.
 
     ![Knop voor configuratie en het beleid](./media/devtest-lab-announcements/devtestlab-config-and-policies.png)
 
@@ -83,7 +83,7 @@ Als u niet meer weergeven van deze aankondiging voor labgebruikers wilt, Ga teru
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-sjabloon
-U kunt een aankondiging opgeven als onderdeel van een Azure Resource Manager-sjabloon, zoals wordt weergegeven in het volgende voorbeeld: 
+U kunt een aankondiging opgeven als onderdeel van een Azure Resource Manager-sjabloon, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```json
 {
@@ -119,7 +119,7 @@ U kunt een aankondiging opgeven als onderdeel van een Azure Resource Manager-sja
                 "support": {
                     "markdown": "",
                     "enabled": "Enabled"
-                }                
+                }
             },
             "resources": [
                 {
@@ -167,4 +167,4 @@ U kunt een Azure Resource Manager-sjabloon implementeren met behulp van een van 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Als u een lab-beleid instellen of wijzigt, is het raadzaam om te posten van een aankondiging om gebruikers te informeren. [Beleid en planningen instellen](devtest-lab-set-lab-policy.md) bevat informatie over het toepassen van beperkingen en conventies voor uw abonnement met behulp van aangepast beleid.
-* Verken de [DevTest Labs Azure Resource Manager QuickStart-sjablonen](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Verken de [DevTest Labs Azure Resource Manager QuickStart-sjablonen](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 75073058647f8e27a048e5ba0673a3d7e3f6a465
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 974062b06c58ee23a001066a70a08675e2e94e48
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311251"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008108"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Offline PlayReady Streaming voor Windows 10  
 
@@ -27,9 +27,12 @@ ms.locfileid: "58311251"
 > * [Versie 3](../latest/offline-plaready-streaming-for-windows-10.md)
 > * [Versie 2](offline-playready-streaming-windows-10.md)
 
+> [!NOTE]
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
+
 Azure Media Services ondersteunt offline downloaden/afspelen met DRM-beveiliging. In dit artikel bevat informatie over offline ondersteuning van Azure Media Services voor Windows 10/PlayReady-clients. U kunt lezen over de offlinemodus-ondersteuning voor iOS/FairPlay- en Android/Widevine-apparaten in de volgende artikelen:
 
-- [Offline FairPlay Streaming voor iOS](media-services-protect-hls-with-offline-fairplay.md)
+- [Offline FairPlay-streaming voor iOS](media-services-protect-hls-with-offline-fairplay.md)
 - [Offline Widevine Streaming voor Android](offline-widevine-for-android.md)
 
 ## <a name="overview"></a>Overzicht

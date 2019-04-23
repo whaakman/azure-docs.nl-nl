@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 133f42ebce1472c799bb1ade86e421665d7ba7a3
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: d5cc15b0b6ef673396be0cf5bce7ca79cc676b35
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682886"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Zelfstudie: Azure Active Directory-integratie met eDigitalResearch
 
@@ -195,7 +195,7 @@ Wanneer u op de tegel eDigitalResearch in het toegangsvenster, moet u worden aut
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 

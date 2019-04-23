@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: MT
+ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313072"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998614"
 ---
 # <a name="detect-color-schemes-in-images"></a>Kleurenschema's detecteren in afbeeldingen
 
@@ -30,7 +30,7 @@ Computer Vision retourneert ook een Booleaanse waarde die aangeeft of een afbeel
 
 Het volgende voorbeeld wordt de JSON-antwoord geretourneerd door visie op de Computer bij het detecteren van het kleurenschema van de installatiekopie van het voorbeeld. In dit geval wordt de installatiekopie van het voorbeeld is niet een zwart-wit-installatiekopie, maar de dominante voorgrond en achtergrondkleuren zijn zwart en de dominante kleuren voor de afbeelding als een geheel zwart-wit zijn.
 
-![Berglandschap](./Images/mountain_vista.png)
+![Mountain buitengebruik zonsondergang met van een persoon silhouet](./Images/mountain_vista.png)
 
 ```json
 {
@@ -54,7 +54,7 @@ Het volgende voorbeeld wordt de JSON-antwoord geretourneerd door visie op de Com
 
 De volgende tabel ziet u de geretourneerde voorgrond, achtergrond en de kleuren van de afbeelding van elke voorbeeldafbeelding.
 
-| Installatiekopie | Dominante kleuren |
+| Image | Dominante kleuren |
 |-------|-----------------|
 |![Een wit bloem met een groene achtergrond](./Images/flower.png)| Voorgrond: Zwart<br/>Achtergrond: Wit<br/>Kleuren: Zwart, wit-groen|
 ![Een trein een station wilt doorlopen](./Images/train_station.png) | Voorgrond: Zwart<br/>Achtergrond: Zwart<br/>Kleuren: Zwart |
@@ -63,7 +63,7 @@ De volgende tabel ziet u de geretourneerde voorgrond, achtergrond en de kleuren 
 
  De volgende tabel ziet de accentkleur van de geretourneerde als een hexadecimale waarde van elke voorbeeldafbeelding de HTML-kleur.
 
-| Installatiekopie | Accentkleur |
+| Image | Accentkleur |
 |-------|--------------|
 |![Een persoon die permanent op een rock mountain zonsondergang](./Images/mountain_vista.png) | #BB6D10 |
 |![Een wit bloem met een groene achtergrond](./Images/flower.png) | #C6A205 |
@@ -73,7 +73,7 @@ De volgende tabel ziet u de geretourneerde voorgrond, achtergrond en de kleuren 
 
 De volgende tabel ziet de Computer Vision-zwart-wit-evaluatie in de voorbeeld-installatiekopieën.
 
-| Installatiekopie | Zwart- wit? |
+| Image | Zwart- wit? |
 |-------|----------------|
 |![Een zwart-wit beeld van de gebouwen in Manhattan](./Images/bw_buildings.png) | true |
 |![Een blauwe huis en de voorste yard](./Images/house_yard.png) | false |

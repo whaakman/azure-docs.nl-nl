@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 2eb57268aece081423b6b0beaa314a244b6fdd8f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 50cd039395b477a93d050458c2a014e768fc5f0a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456003"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995673"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Snelstart: Een Azure Data Lake Storage Gen2-opslagaccount maken
 
-Azure Data Lake Storage Gen2 biedt [ondersteuning voor een hiërarchische naamruimteservice](data-lake-storage-introduction.md) met een systeemeigen, op mappen gebaseerd bestandssysteem dat is toegesneden op Hadoop Distributed File System (HDFS). Toegang tot Data Lake Storage Gen2-gegevens uit HDFS is beschikbaar via het [ABFS-stuurprogramma](data-lake-storage-abfs-driver.md).
+Azure Data Lake Storage Gen2 [biedt ondersteuning voor een hiërarchische naamruimte](data-lake-storage-introduction.md) waarmee u een systeemeigen op basis van een directory die is ontworpen om te werken met het Hadoop Distributed File System (HDFS)-bestandssysteem. Toegang tot Data Lake Storage Gen2-gegevens uit HDFS is beschikbaar via het [ABFS-stuurprogramma](data-lake-storage-abfs-driver.md).
 
 In deze snelstart wordt gedemonstreerd hoe u een account maakt met [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) of [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -29,7 +29,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 |-----------|--------------|
 |Portal     | Geen         |
 |PowerShell | Voor deze snelstart is Az.Storage-versie **0.7** of later van de PowerShell-module vereist. Voer de opdracht `Get-Module -ListAvailable Az.Storage` uit om uw huidige versie te vinden. Als er geen resultaten worden weergegeven wanneer u deze opdracht uitvoert, of als een andere versie dan **0.7** wordt weergegeven, dan moet u een upgrade van uw powershell-module uitvoeren. Zie de sectie [Upgrade uitvoeren van uw powershell-module](#upgrade-your-powershell-module) van deze handleiding.
-|CLI        | U kunt u aanmelden bij Azure en Azure CLI-opdrachten uitvoeren. Dit kan op twee manieren: <ul><li>U kunt CLI-opdrachten uitvoeren vanuit Azure Portal, in Azure Cloud Shell </li><li>U kunt de CLI installeren en CLI-opdrachten lokaal uitvoeren</li></ul>|
+|CLI        | U kunt zich aanmelden bij Azure en Azure CLI-opdrachten uitvoeren op twee manieren: <ul><li>U kunt CLI-opdrachten uitvoeren vanuit Azure Portal, in Azure Cloud Shell </li><li>U kunt de CLI installeren en CLI-opdrachten lokaal uitvoeren</li></ul>|
 
 Wanneer u werkt met de opdrachtregel, hebt u de mogelijkheid om de Azure Cloud-shell of de CLI lokaal te installeren.
 
@@ -112,7 +112,7 @@ Ga als volgt te werk om een resourcegroep te verwijderen in Azure Portal:
 
 Installeer eerst de meest recente versie van de [ PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget)-module.
 
-Voer vervolgens een upgrade uit van uw powershell-module, meld u aan bij uw Azure-abonnement, maak een resourcegroep en vervolgens een opslagaccount.
+Klik, upgrade van uw powershell-module, zich aanmelden bij uw Azure-abonnement een resourcegroep maken en vervolgens een opslagaccount maken.
 
 ### <a name="upgrade-your-powershell-module"></a>De PowerShell-module upgraden
 
@@ -128,7 +128,7 @@ De module Az.Storage installeren
 Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
 
-### <a name="log-in-to-your-azure-subscription"></a>Aanmelden bij uw Azure-abonnement
+### <a name="sign-in-to-your-azure-subscription"></a>Aanmelden bij uw Azure-abonnement
 
 Gebruik de opdracht `Login-AzAccount` en volg de instructies op het scherm om te verifiëren.
 
@@ -176,9 +176,9 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="create-an-account-using-azure-cli"></a>Een account maken met Azure CLI
 
-Meld u aan bij [Azure Portal](https://portal.azure.com) om Azure Cloud Shell te starten.
+Voor het starten van Azure Cloud Shell, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com).
 
-Als u zich wilt aanmelden bij de lokale installatie van de CLI, voert u de opdracht voor aanmelden uit:
+Als u aanmelden bij de lokale installatie van de CLI wilt, voert u de opdracht voor aanmelden uit:
 
 ```cli
 az login

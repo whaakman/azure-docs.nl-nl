@@ -1,19 +1,19 @@
 ---
 title: Maken en beheren van Azure Database voor MySQL-VNet-service-eindpunten en regels met behulp van Azure CLI | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u maken en beheren van Azure Database voor MySQL-VNet-service-eindpunten en regels met behulp van Azure CLI-opdrachtregel.
-author: mbolz
+author: bolzmj
 ms.author: mbolz
 manager: jhubbard
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.openlocfilehash: 5c0364e2629bbf466e97d473fbd261444317de55
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: MT
+ms.openlocfilehash: 199a5ead9856c5f9cba404ce89611efe2d78de8d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427987"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004377"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-using-azure-cli"></a>Maken en beheren van Azure Database voor MySQL-VNet-service-eindpunten met behulp van Azure CLI
 Virtueel netwerk (VNet) services-eindpunten en regels uitbreiden privé-adresruimte van een Virtueelnetwerk met uw Azure Database voor MySQL-server. Met behulp van handige opdrachten van Azure-opdrachtregelinterface (CLI), kunt u maken, bijwerken, verwijderen, lijst en VNet-service-eindpunten en regels voor het beheren van uw server weergeven. Zie voor een overzicht van Azure Database voor MySQL-VNet-service-eindpunten, met inbegrip van beperkingen, [Azure Database for MySQL-Server VNet-service-eindpunten](concepts-data-access-and-security-vnet.md). VNet-service-eindpunten zijn beschikbaar in alle ondersteunde regio's voor Azure Database for MySQL.

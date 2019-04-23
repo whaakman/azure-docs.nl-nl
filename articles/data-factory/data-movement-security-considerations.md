@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 1a575a172e4ff567cc20442c7a9779e1d52dbbba
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099981"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996119"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Beveiligingsoverwegingen voor het verplaatsen van gegevens in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -137,9 +137,9 @@ De volgende tabel geeft een overzicht van het netwerk en aanbevelingen voor de c
 
 | Bron      | Doel                              | Netwerkconfiguratie                    | Installatie van integratieruntime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | IPSec-VPN (punt-naar-site of site-naar-site) | De zelf-hostende integratieruntime kan worden geïnstalleerd van on-premises of op een Azure-machine in een virtueel netwerk. |
-| On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | ExpressRoute (persoonlijke peering)           | De zelf-hostende integratieruntime kan worden geïnstalleerd van on-premises of op een Azure-machine in een virtueel netwerk. |
-| On-premises | Azure-services waarvoor een openbaar eindpunt | ExpressRoute (openbare peering)            | De zelf-hostende integratieruntime moet geïnstalleerd on-premises worden. |
+| On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | IPSec-VPN (punt-naar-site of site-naar-site) | De zelf-hostende integratieruntime moet worden geïnstalleerd op een Azure-machine in het virtuele netwerk.  |
+| On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | ExpressRoute (persoonlijke peering)           | De zelf-hostende integratieruntime moet worden geïnstalleerd op een Azure-machine in het virtuele netwerk.  |
+| On-premises | Azure-services waarvoor een openbaar eindpunt | ExpressRoute (Microsoft-peering)            | De zelf-hostende integratieruntime kan worden geïnstalleerd on-premises of op een virtuele machine van Azure. |
 
 De volgende afbeeldingen ziet het gebruik van zelf-hostende integratieruntime voor het verplaatsen van gegevens tussen een on-premises database en Azure-services met behulp van ExpressRoute- en IPSec-VPN (met Azure Virtual Network):
 
@@ -158,7 +158,7 @@ In een onderneming is een bedrijfsfirewall wordt uitgevoerd op de centrale-route
 
 De volgende tabel bevat de vereisten voor uitgaande poort en het domein voor zakelijke firewalls:
 
-| Domeinnamen                  | Uitgaande poorten | Description                              |
+| Domeinnamen                  | Uitgaande poorten | Beschrijving                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443            | Vereist door de zelf-hostende integratieruntime verbinding maken met services voor gegevensverplaatsing in Data Factory. |
 | `*.frontend.clouddatahub.net` | 443            | Vereist door de zelf-hostende integratieruntime verbinding maken met de Data Factory-service. |
@@ -174,7 +174,7 @@ De volgende tabel bevat de vereisten van de binnenkomende poort voor de Windows 
 
 | Poorten voor inkomend verkeer | Description                              |
 | ------------- | ---------------------------------------- |
-| 8050 (TCP)    | Vereist voor de PowerShell-cmdlet voor versleuteling, zoals beschreven in [versleutelen referenties voor on-premises gegevensarchieven in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), en door de toepassing Referentiebeheer veilig referenties instellen voor on-premises gegevensopslagexemplaren in de zelf-hostende integratieruntime. |
+| 8060 (TCP)    | Vereist voor de PowerShell-cmdlet voor versleuteling, zoals beschreven in [versleutelen referenties voor on-premises gegevensarchieven in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), en door de toepassing Referentiebeheer veilig referenties instellen voor on-premises gegevensopslagexemplaren in de zelf-hostende integratieruntime. |
 
 ![Vereisten voor de gateway-poort](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
@@ -193,7 +193,7 @@ De volgende cloud-gegevensarchieven vereisen dat u goedgekeurde IP-adres van de 
 
 **Kan de zelf-hostende integratieruntime worden gedeeld met andere data factory's?**
 
-We bieden deze functie nog geen ondersteuning. We werken actief erop.
+Ja. [Hier](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-runtime-infrastructure-with-multiple-data-factories/) vindt u meer informatie.
 
 **Wat zijn de Poortvereisten voor de zelf-hostende integratieruntime om te werken?**
 

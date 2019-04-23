@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 56378e94bf448da4c3047c30be3ae25887f113b5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6182662cb0da7fa5bcd3f329ada9ca5851490724
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792214"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007879"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Onderzoeken van een verdachte IoT-apparaat
 
@@ -43,7 +43,7 @@ Standaard slaat ASC voor IoT uw beveiligingswaarschuwingen en aanbevelingen in u
 Om te zoeken de werkruimte voor logboekanalyse voor gegevensopslag:
 
 1. Open uw IoT-hub. 
-1. Klik op **Security**en selecteer vervolgens **instellingen**.
+1. Onder **Security**, klikt u op **overzicht**, en selecteer vervolgens **instellingen**.
 1. Wijzig de configuratiedetails van uw Log Analytics-werkruimte. 
 1. Klik op **Opslaan**. 
 
@@ -94,7 +94,7 @@ Deze gegevens gebruiken om te detecteren:
 
 ### <a name="open-ports"></a>Poorten openen
 
-Als u wilt zoeken gebruik out welke poorten in het apparaat zijn momenteel in gebruik of werden gebruikt de volgende kql-query: 
+Als u wilt weten welke poorten in het apparaat zijn momenteel in gebruik of zijn gebruikt, gebruikt u de volgende kql-query: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -147,12 +147,12 @@ Als u wilt weten gebruik gebruikers dat aangemeld bij het apparaat de volgende k
 
     Use the query results to discover:
   1. Welke gebruikers aangemeld op het apparaat?
-  2. Moeten de gebruikers die in het logboek geregistreerd om aan te melden?
+  2. Zijn de gebruikers die aangemeld, moet zich aanmelden?
   3. De gebruikers die vastgelegd in verbinding maken vanaf de verwachte of onverwachte IP-adressen?
   
 ### <a name="process-list"></a>Proceslijst
 
-Nagaan of de lijst is als het verwachte gebruik de volgende kql-query: 
+Als u wilt weten als de lijst is zoals verwacht, gebruikt u de volgende kql-query: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -188,4 +188,5 @@ Nagaan of de lijst is als het verwachte gebruik de volgende kql-query:
   3. Bevat alle uitvoeringen vanaf de opdrachtregel de juiste en de verwachte argumenten?
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Neem na onderzoek van een apparaat en krijgen een beter begrip van de risico's, kunt u overwegen [configureren van aangepaste waarschuwingen](quickstart-create-custom-alerts.md) voor het verbeteren van de beveiligingsstatus van uw IoT-oplossing. Als u nog een agent apparaat hebt, kunt u overwegen [implementeren van een beveiligingsagent](how-to-deploy-agent.md) of [wijzigen van de configuratie van een bestaand apparaat agent](how-to-agent-configuration.md) voor het verbeteren van de resultaten. 

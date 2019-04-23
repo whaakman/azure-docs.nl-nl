@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 4b1c829a417d050b4d931611d9f2952e01582f04
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089468"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008208"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Azure Resource Manager-sjablonen voor de consistentie van de cloud ontwikkelen
 
@@ -673,5 +673,5 @@ Houd rekening met de volgende tips voor het testen en automatisering:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Overwegingen met betrekking tot Azure Resource Manager-sjabloon](../azure-stack/user/azure-stack-develop-templates.md)
+* [Overwegingen met betrekking tot Azure Resource Manager-sjabloon](/azure-stack/user/azure-stack-develop-templates)
 * [Aanbevolen procedures voor Azure Resource Manager-sjablonen](resource-group-authoring-templates.md)

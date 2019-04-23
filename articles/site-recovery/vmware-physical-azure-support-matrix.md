@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/22/2019
 ms.author: raynew
-ms.openlocfilehash: 94fd70dccf367d43b1caaa9f3a11ed934f9950ea
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: dc455b5256f9c04e1e0af2c1ff3fea04af54d90b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618053"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149444"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -74,11 +74,12 @@ Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2-5,11<b>\*\*</b>, 6.1-6.1
 
 **Ondersteunde versie** | **Azure Site Recovery Mobility Service versie** | **Kernelversie** |
 --- | --- | --- |
+14.04 TNS | [9,24] [9,24 UR] | 3.13.0-24-Generic naar 3.13.0-167-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-143-generic,<br/>4.15.0-1023-Azure naar 4.15.0-1040-azure |
 14.04 TNS | [9.23][9.23 UR] | 3.13.0-24-Generic naar 3.13.0-165-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-142-generic,<br/>4.15.0-1023-Azure naar 4.15.0-1037-azure |
 14.04 TNS | [9.22][9.22 UR] | 3.13.0-24-Generic naar 3.13.0-164-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-140-generic,<br/>4.15.0-1023-Azure naar 4.15.0-1036-azure |
 14.04 TNS | [9.21][9.21 UR] | 3.13.0-24-Generic naar 3.13.0-163-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-140-generic,<br/>4.15.0-1023-Azure naar 4.15.0-1035-azure |
-14.04 TNS | [9.20][9.20 UR] | 3.13.0-24-Generic naar 3.13.0-153-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-138-generic,<br/>4.15.0-1023-Azure naar 4.15.0-1025-azure |
 |||
+16.04 LTS | [9.23] [9,24 UR] | 4.4.0-21-Generic naar 4.4.0-143-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-46-generic<br/>4.11.0-1009-Azure naar 4.11.0-1018-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1040-azure|
 16.04 LTS | [9.23][9.23 UR] | 4.4.0-21-Generic naar 4.4.0-142-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-45-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1037-azure|
 16.04 LTS | [9.22][9.22 UR] | 4.4.0-21-Generic naar 4.4.0-140-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-43-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1036-azure|
 16.04 LTS | [9.21][9.21 UR] | 4.4.0-21-Generic naar 4.4.0-140-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-42-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1035-azure|
@@ -89,19 +90,20 @@ Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2-5,11<b>\*\*</b>, 6.1-6.1
 
 **Ondersteunde versie** | **Azure Site Recovery Mobility Service versie** | **Kernelversie** |
 --- | --- | --- |
-Debian 7 | [9.20][9.20 UR],[9.21][9.21 UR], [9.22][9.22 UR],[9.23][9.23 UR]| 3.2.0-4-AMD64 naar 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.21][9.21 UR], [9.22][9.22 UR],[9.23][9.23 UR], [9,24] [9.24 UR]| 3.2.0-4-AMD64 naar 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR],[9.22][9.22 UR],[9.23][9.23 UR] | 3.16.0-4-amd64 to 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.8-amd64 |
+Debian 8 | [9.21][9.21 UR],[9.22][9.22 UR],[9.23][9.23 UR], [9,24] [9.24 UR] | 3.16.0-4-amd64 to 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.8-amd64 |
 
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 ondersteunde versies van de kernel
 
 **Release** | **De versie van de Mobility-service** | **Kernelversie** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3 en SP4) | [9.23][9.23 UR] | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.79-default</br></br>SP4 4.12.14-94.41-default naar 4.12.14-95.6-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3 en SP4) | [9,24] [9,24 UR] | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default naar 4.4.175-94.79-default</br></br>SP4 4.12.14-94.41-default naar 4.12.14-95.6-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3 en SP4) | [9.23][9.23 UR] | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.69-default</br></br>SP4 4.12.14-94.41-default naar 4.12.14-95.6-default |
 SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | [9.22][9.22 UR] | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | [9.21][9.21 UR] | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.156-94.72-default |
-SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | [9.20][9.20 UR] | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.156-94.64-default |
+
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux-systemen/Gast bestandsopslag
 
@@ -116,7 +118,7 @@ Apparaat/koppelpunt punt naamconventie | De naam van apparaat of de naam van kop
 Mappen | Voordat u [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. De volgende mappen (indien ingesteld als afzonderlijke partities /-bestandssystemen) alle moeten op dezelfde schijf als besturingssysteem op de bronserver: / (hoofd), bevinden, / usr, / usr/local, /var, / etc.</br>2. bevinden moet zich op een partitie op schijf en niet een LVM-volume.<br/><br/> Van [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) bovenstaande beperkingen zijn en hoger, niet van toepassing. bevinden op LVM-volume op meer dan één schijven wordt niet ondersteund.
 Opstartmap | Meerdere opstartschijven op een virtuele machine wordt niet ondersteund. <br/><br/> Een virtuele machine zonder opstartschijf kan niet worden beveiligd.
 
-Vrije schijfruimte | 2 GB op de/root-partitie <br/><br/> 250 MB op de installatiemap XFSv5 | XFSv5 functies op XFS bestandssystemen, zoals metagegevens controlesom worden van Mobility Service versie 9.10 stationstoewijzingen ondersteund. Gebruik het hulpprogramma xfs_info om te controleren of de superblock XFS voor de partitie. Als ftype is ingesteld op 1, klikt u vervolgens zijn XFSv5 functies in gebruik.
+Vrije schijfruimte | 2 GB op de/root-partitie <br/><br/> 250 MB op de installatiemap XFSv5 | XFSv5 functies op XFS bestandssystemen, zoals metagegevens controlesom worden van Mobility Service versie 9.10 stationstoewijzingen ondersteund. Gebruik het hulpprogramma xfs_info om te controleren of de superblock XFS voor de partitie. Als `ftype` is ingesteld op 1, XFSv5 functies worden gebruikt.
 
 ## <a name="vmdisk-management"></a>Beheer van de virtuele machine/schijf
 
@@ -181,6 +183,14 @@ Schijf Gast/server-hot toevoegen of verwijderen | Nee
 Gast/server - schijf uitsluiten | Ja
 Gast/server MPIO (Multipath I/O) | Nee
 Gast/server EFI/UEFI opstarten | Ondersteund bij het migreren van VMware-machines of fysieke servers met Windows Server 2012 of later naar Azure.<br/><br/> U kunt alleen virtuele machines repliceren voor migratie. Failback naar on-premises wordt niet ondersteund.<br/><br/> De server mag niet meer dan vier partities hebben op de besturingssysteemschijf.<br/><br/> Mobility Service versie 9.13 of hoger vereist.<br/><br/> Alleen NTFS wordt ondersteund.
+
+## <a name="replication-channels"></a>Replicatie-kanalen
+
+|**Type replicatie**   |**Ondersteund**  |
+|---------|---------|
+|Offloaded Data Transfer (ODX)    |       Nee  |
+|Offline seeding        |   Nee      |
+| Azure Data Box | Nee
 
 
 ## <a name="azure-storage"></a>Azure Storage

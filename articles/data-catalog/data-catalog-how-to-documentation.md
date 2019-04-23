@@ -2,18 +2,18 @@
 title: Het vastleggen van gegevensbronnen in Azure Data Catalog
 description: Het vastleggen van gegevensassets in Azure Data Catalog markeren artikel met instructies.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 053b1701-b848-4ada-b726-6f485caa9961
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: a7379ffea173cdae3b10a751b0d83e06e679e3c5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: 9049e0b25db37f296e27476fbb93418d13c4dcc1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406206"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005267"
 ---
 # <a name="document-data-sources"></a>Gegevensbronnen documenteren
 ## <a name="introduction"></a>Inleiding
@@ -39,9 +39,9 @@ Het voordeel van **Azure Data Catalog** documentatie kunt u de gegevenscatalogus
 
 Het niveau van de documentatie kan variëren van met een beschrijving van de kenmerken en de waarde van een container van de asset gegevens voor een gedetailleerde beschrijving van het tabelschema in een container. Het niveau van de documentatie die moet worden aangestuurd door de behoeften van uw bedrijf. Maar in het algemeen zijn hier enkele voordelen en nadelen van het vastleggen van gegevens:
 
-* Documenteer slechts een container: alle inhoud is op één plek, maar mogelijk niet over de benodigde informatie voor gebruikers om een gefundeerde beslissing nemen.
-* Alleen de tabellen document: inhoud is specifiek voor dat object, maar uw gebruikers beschikken over meerdere locaties voor documenten.
-* Containers en tabellen: meest uitgebreide benadering, maar mogelijk meer onderhoud van de documenten introduceren.
+* Document slechts een container: Alle inhoud is op één plek, maar mogelijk niet over de benodigde informatie voor gebruikers om een gefundeerde beslissing nemen.
+* Alleen de tabellen document: Inhoud is specifiek voor dat object, maar uw gebruikers beschikken over meerdere locaties voor documenten.
+* Document-containers en tabellen: Meest uitgebreide benadering, maar mogelijk meer onderhoud van de documenten introduceren.
 
 ## <a name="summary"></a>Samenvatting
 Gegevensbronnen documenteren **Azure Data Catalog** een boodschap over uw gegevensassets kunt maken in zoveel mogelijk details als u nodig hebt.  U kunt met behulp van koppelingen, koppelen aan inhoud die is opgeslagen in een bestaande opslagplaats voor inhoud, die uw bestaande documenten en gegevens combineert. Wanneer uw gebruikers de juiste gegevensassets detecteren, kunnen ze een volledige set documentatie hebben.

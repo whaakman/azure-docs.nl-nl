@@ -1,7 +1,6 @@
 ---
 title: API's voor het automatiseren van Azure-reservering | Microsoft Docs
 description: Meer informatie over de Azure API's die u gebruiken kunt via een programma om reserveringsinformatie te verkrijgen.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 7e5697073b9406d915eda99a5e71e3123c48073a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 246278df61d4f13e2634a1cdfc5ff6b635cecbbf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880212"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008205"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API's voor het automatiseren van Azure-reservering
 
@@ -55,7 +54,7 @@ Als u vindt dat van uw organisatie reserveringen onder gebruikt worden:
 
 - Zorg ervoor dat de virtuele machines die uw organisatie maakt overeenkomen met de VM-grootte die in de reservering.
 - Controleer of grootte-instantieflexibiliteit op. Zie voor meer informatie, [reserveringen beheren - wijziging optimaliseren voor gereserveerde VM-instanties](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
-- Het bereik van de reservering gedeeld zodat deze van toepassing is grotere schaal wijzigen. Zie voor meer informatie, [reserveringen beheren - wijzigen van het bereik voor een reservering](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation).
+- Het bereik van de reservering gedeeld zodat deze van toepassing is grotere schaal wijzigen. Zie voor meer informatie, [reserveringen beheren - wijzigen van het bereik voor een reservering](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 - De niet-gebruikte hoeveelheid uitwisselen. Zie voor meer informatie, [reserveringen - annuleringen en uitwisselingen beheren](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges).
 
 ## <a name="give-access-to-reservations"></a>Toegang verlenen tot reserveringen
@@ -68,7 +67,7 @@ De lijst met alle reserveringen ophalen dat een gebruiker toegang tot met behulp
 
 ## <a name="split-or-merge-reservation"></a>Reservering van splitsen of samenvoegen
 
-Nadat u meer dan één exemplaar van de resource binnen een reservering koopt, kunt u exemplaren binnen deze reservering toewijzen aan verschillende abonnementen. U kunt het reserveringsbereik wijzigen zodat deze van toepassing op alle abonnementen binnen de context van de dezelfde facturering. Maar voor cost management of budgettering doeleinden, kunt u de scope als 'enkel abonnement' behouden en exemplaren van de reservering toewijzen aan een specifiek abonnement. 
+Nadat u meer dan één exemplaar van de resource binnen een reservering koopt, kunt u exemplaren binnen deze reservering toewijzen aan verschillende abonnementen. U kunt het reserveringsbereik wijzigen zodat deze van toepassing op alle abonnementen binnen de context van de dezelfde facturering. Maar voor cost management of budgettering doeleinden, kunt u de scope als 'enkel abonnement' behouden en exemplaren van de reservering toewijzen aan een specifiek abonnement.
 
 Als u wilt splitsen een reservering, gebruikt u de API [reservering - gesplitst](/rest/api/reserved-vm-instances/reservation/split). U kunt ook een reservering splitsen met behulp van PowerShell. Zie voor meer informatie, [reserveringen - reservering splitsen in twee reserveringen beheren](billing-manage-reserved-vm-instance.md#split-a-single-reservation-into-two-reservations).
 
@@ -76,7 +75,7 @@ Als u wilt samenvoegen twee reserveringen in één reservering, gebruiken de API
 
 ## <a name="change-scope-for-a-reservation"></a>Bereik wijzigen voor een reservering
 
-Het bereik van een reservering kan worden voor één abonnement of voor alle abonnementen in de context van de facturering. Als u het bereik aan één abonnement hebt ingesteld, wordt de reservering wordt vergeleken met het uitvoeren van resources in het geselecteerde abonnement. Als u het bereik op gedeelde, Azure komt overeen met de reservering naar resources die worden uitgevoerd in alle abonnementen binnen de context van de facturering instellen. De context van de facturering is afhankelijk van het abonnement dat u hebt gebruikt om de reservering kopen. Zie voor meer informatie, [-reserveringen beheren - het bereik wijzigen](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation).
+Het bereik van een reservering kan worden voor één abonnement of voor alle abonnementen in de context van de facturering. Als u het bereik aan één abonnement hebt ingesteld, wordt de reservering wordt vergeleken met het uitvoeren van resources in het geselecteerde abonnement. Als u het bereik op gedeelde, Azure komt overeen met de reservering naar resources die worden uitgevoerd in alle abonnementen binnen de context van de facturering instellen. De context van de facturering is afhankelijk van het abonnement dat u hebt gebruikt om de reservering kopen. Zie voor meer informatie, [-reserveringen beheren - het bereik wijzigen](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 U kunt het bereik via een programma wijzigen met de API [reservering - Update](/rest/api/reserved-vm-instances/reservation/update).
 

@@ -1,5 +1,5 @@
 ---
-title: Wat is bewaking van Azure Active Directory? (preview) | Microsoft Docs
+title: Wat is bewaking van Azure Active Directory? | Microsoft Docs
 description: Biedt een algemeen overzicht van Azure Active Directory-bewaking.
 services: active-directory
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de416d18505d0258da446318b3dc6a9853ff13e7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: d63f8440ca527a746f73574bc156037d85fc3599
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434854"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009025"
 ---
-# <a name="what-is-azure-active-directory-monitoring-preview"></a>Wat is bewaking van Azure Active Directory? (preview)
+# <a name="what-is-azure-active-directory-monitoring"></a>Wat is bewaking van Azure Active Directory?
 
 Met bewaking van Azure Active Directory (Azure AD), kunt u nu uw Azure AD-activiteitenlogboeken naar verschillende eindpunten routeren. U kunt deze vervolgens behouden voor later gebruik of integreren met SIEM-hulpprogramma's (Security Information and Event Management) van derden om meer inzicht in uw omgeving te verkrijgen.
 

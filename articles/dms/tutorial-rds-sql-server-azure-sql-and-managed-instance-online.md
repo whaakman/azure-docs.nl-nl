@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Database Migration Service gebruiken om uit te voeren van een online migratie van extern bureaublad-services SQL Server naar Azure SQL Database of een beheerd exemplaar voor Azure SQL Database | Microsoft Docs'
-description: Leer hoe u een online migratie uitvoeren van extern bureaublad-services SQL Server naar Azure SQL Database of een beheerd exemplaar voor Azure SQL Database met behulp van de Azure Database Migration Service.
+title: 'Zelfstudie: Azure Database Migration Service gebruiken voor een online migratie van extern bureaublad-services SQL Server naar Azure SQL Database of naar een beheerd exemplaar voor Azure SQL Database | Microsoft Docs'
+description: Meer informatie over het uitvoeren van een online migratie van extern bureaublad-services SQL Server naar Azure SQL Database of naar een Azure SQL-Database beheerd exemplaar met behulp van de Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 4990b5f42291856c3695b4bf0eb6ec4084e9214e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/20/2019
+ms.openlocfilehash: 7294236a7b79ad093480e9063d886dd30ccf7fc1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886400"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998971"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Zelfstudie: SQL-Server voor extern bureaublad-services migreren naar Azure SQL Database of een Azure SQL-Database beheerd exemplaar online met behulp van DMS
 U kunt de Azure Database Migration Service gebruiken voor het migreren van de databases van een extern bureaublad-services SQL Server-exemplaar naar [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) of een [Azure SQL Database managed instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) met minimale downtime. In deze zelfstudie, migreert u de **Adventureworks2012** database hersteld naar een extern bureaublad-services SQL Server exemplaar van SQL Server 2012 (of hoger) naar Azure SQL Database of een Azure SQL-Database beheerd exemplaar met behulp van de Azure Database Migration De service.
@@ -187,7 +187,14 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
  
 3. Selecteer + **Nieuw migratieproject**.
 4. Geef in het scherm **Nieuw migratieproject** een naam op voor het project, selecteer in het tekstvak **Bronservertype** de optie **AWS RDS voor SQL Server** en selecteer in het tekstvak **Doelservertype** de optie **Azure SQL Database**.
+
+    > [!NOTE]
+    > Type doelserver, selecteert u **Azure SQL Database** beheerd exemplaar voor het migreren naar zowel een Azure SQL Database singleton-database en ook over een Azure SQL Database.
+
 5. Selecteer in de sectie **Het type activiteit kiezen** de optie **Onlinegegevensmigratie**.
+
+    > [!IMPORTANT]
+    > Zorg ervoor dat u selecteert **Online gegevensmigratie**; offline migraties worden niet ondersteund voor dit scenario.
 
     ![Azure Database Migration Service-project maken](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-create-project4.png)
 
@@ -233,7 +240,7 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
 
 4.  Selecteer **Opslaan** nadat u de volgende **Geavanceerde instellingen voor onlinemigratie** hebt ingesteld.
     
-    | Instelling | Beschrijving |
+    | Instelling | Description |
     | ------------- | ------------- |
     | **Maximale aantal tabellen om parallel te laden** | Geeft het aantal tabellen aan dat DMS gelijktijdig tijdens de migratie uitvoert. De standaardwaarde is 5, maar deze kan worden ingesteld op een optimale waarde om te voldoen aan specifieke migratiebehoeften op basis van elke POC-migratie. |
     | **Wanneer de brontabel wordt afgekapt** | Geeft aan of DMS de doeltabel tijdens de migratie afkapt. Deze instelling kan nuttig zijn als een of meer tabellen zijn afgekapt als onderdeel van het migratieproces. |

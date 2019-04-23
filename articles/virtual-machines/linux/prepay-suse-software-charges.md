@@ -1,7 +1,6 @@
 ---
-title: Plannen voor SUSE Linux - Azure-reserveringen kopen | Microsoft Docs
-description: Ontdek hoe u vooruitbetaalt voor uw gebruik van SUSE en bespaart geld ten opzichte van de kosten voor betalen per gebruik.
-services: virtual-machines-linux
+title: Betaal vooruit voor software - reserveringen voor Azure-abonnement | Microsoft Docs
+description: Meer informatie over hoe u kunt Vooruitbetalen voor software-abonnement om geld te besparen ten opzichte van uw betalen per gebruik.
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -11,52 +10,62 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2019
-ms.author: yashar
-ms.openlocfilehash: 4f70a34febcf0b39d051053a6ddd9abe5c9a6726
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: MT
+ms.date: 04/12/2019
+ms.author: banders
+ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745976"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011092"
 ---
-# <a name="prepay-for-suse-software-plans-from-azure-reservations"></a>Betaal vooruit voor SUSE-software plannen uit de Azure-reserveringen
+# <a name="prepay-for-azure-software-plans"></a>Betaal vooruit voor Azure-software plannen
 
-Betaal vooruit voor uw gebruik van SUSE en bespaart geld ten opzichte van de kosten voor betalen per gebruik. De kortingen zijn alleen van toepassing op SUSE meters en niet op het gebruik van de virtuele machine. U kunt de reserveringen voor virtuele machines om nog meer besparen afzonderlijk te kopen.
+Wanneer u voor uw gebruik van de software SUSE- en Red Hat in Azure vooruitbetaalt, kunt u geld besparen ten opzichte van uw betalen per gebruik. De kortingen die gelden alleen voor SUSE- en Red Hat meters en niet op het gebruik van de virtuele machine. U kunt de reserveringen voor virtuele machines afzonderlijk voor nog meer ruimtebesparing kopen.
 
-U kunt plannen voor SUSE-software in Azure portal kunt kopen. Een abonnement aanschaffen:
+U kunt kopen SUSE- en Red Hat softwareabonnementen in Azure portal. Een abonnement aanschaffen:
 
-- U moet zich in een rol van eigenaar voor ten minste één Enterprise of abonnement op gebruiksbasis.
-- Voor Enterprise-abonnementen, **gereserveerde instanties toevoegen** moet zijn ingeschakeld in de [EA-portal](https://ea.azure.com). Of, als deze instelling is uitgeschakeld, moet u een EA-beheerder voor het abonnement zijn.
-- Voor het programma Cloud Solution Provider (CSP) kopen de beheerder agents of sales-agents de SUSE-abonnementen.
+- U moet de rol van eigenaar voor ten minste één Enterprise of betalen per gebruik-abonnement hebben.
+- Voor Enterprise-abonnementen, de **gereserveerde instanties toevoegen** optie moet zijn ingeschakeld in de [EA-portal](https://ea.azure.com/). Als de instelling is uitgeschakeld, moet u een EA-beheerder voor het abonnement zijn.
+- Voor het programma Cloud Solution Provider (CSP) kopen de beheerder agents of sales-agents de software-abonnement.
 
-## <a name="buy-a-suse-software-plan"></a>Koop een abonnement SUSE-software
+## <a name="buy-a-software-plan"></a>Een softwareabonnement kopen
 
-1. Ga naar [reserveringen](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) in Azure portal.
-1. Selecteer **toevoegen** en selecteer SUSE Linux.
-1. Vul de vereiste velden in. Alle SUSE Linux VM die overeenkomt met de kenmerken van wat u koopt de korting opgehaald. Het werkelijke aantal implementaties die aan de korting is afhankelijk van het bereik en de hoeveelheid die is geselecteerd.
+1. Aanmelden bij de Azure-portal en Ga naar [reserveringen](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+2. Klik op **toevoegen** en selecteer vervolgens het plan van de software die u wilt kopen.
+Vul de vereiste velden in. Alle SUSE Linux-VM of RedHat VM die overeenkomt met de kenmerken van wat u koopt krijgen korting. Het werkelijke aantal implementaties die aan de korting is afhankelijk van het bereik en de hoeveelheid die is geselecteerd.
+3. Selecteer een abonnement. Het wordt gebruikt om te betalen voor het abonnement.
+De betalingswijze abonnement, wordt in rekening gebracht de kosten vooraf voor de reservering. Het abonnementstype moet een Enterprise Agreement (getallen bieden: MS-AZR-0017P of MS-AZR - 0148 P) en betalen per gebruik (getallen bieden: MS-AZR-0003P of MS-AZR - 0023 P).
+    - Voor een Enterprise-abonnement worden de kosten in mindering gebracht op het toezeggingsbedrag of ze worden in rekening gebracht als overschrijding.
+    - Voor een betalen per gebruik-abonnement, de kosten worden in rekening gebracht op van het abonnement of creditcard of factuur betalingswijze wordt gebruikt.
+4. Selecteer een bereik. Het bereik kan betrekking hebben op één abonnement of meerdere abonnementen (gedeeld bereik).
+    - Enkel abonnement - korting van het abonnement wordt toegepast op de overeenkomende gebruik in het abonnement.
+    - Gedeeld - wordt-korting van het plan toegepast op de overeenkomende-exemplaren in een abonnement in de context van de facturering. Voor zakelijke klanten, de context van de facturering van de inschrijving en bevat alle abonnementen in de registratie. Voor klanten van betalen per gebruik wordt de context van de facturering alle betalen per gebruik-abonnementen die zijn gemaakt door de accountbeheerder.
+5. Selecteer een product om de VM-grootte en het afbeeldingstype te kiezen. De korting geldt voor de geselecteerde VM-grootte alleen.
+6. Selecteer een termijn van één jaar of drie jaar.
+7. Kies een volume, is het aantal vooruitbetaalde VM-exemplaren die de korting voor facturering krijgt.
+8. Het product toevoegen aan de winkelwagen, beoordeling en inkoop.
 
-    | Veld      | Description|
-    |:------------|:--------------|
-    |Name        |De naam van deze aankoop.|
-    |Abonnement|Het abonnement dat wordt gebruikt om te betalen voor dit plan. De betalingswijze voor het abonnement wordt in rekening gebracht de kosten vooraf voor de reservering. Het abonnementstype moet een enterprise agreement (getallen bieden: MS-AZR-0017P of MS-AZR - 0148 P) en betalen per gebruik (getallen bieden: MS-AZR-0003P of MS-AZR - 0023 P). Voor een Enterprise-abonnement worden de kosten in mindering gebracht op het toezeggingsbedrag of ze worden in rekening gebracht als overschrijding. Voor een Betalen per gebruik-abonnement worden de kosten in rekening gebracht op de creditcard of de factuurbetalingswijze van het abonnement.|
-    |Bereik       |Het bereik kan betrekking hebben op één abonnement of meerdere abonnementen (gedeeld bereik). Als u selecteert: <ul><li>Eén abonnement - korting van het abonnement wordt toegepast op SUSE Linux-gebruik in dit abonnement. </li><li>Gedeeld - wordt korting van het abonnement toegepast op SUSE Linux-gebruik in alle abonnementen in de context van de facturering. Voor zakelijke klanten, gedeeld bereik is van de inschrijving en bevat alle abonnementen binnen de inschrijving. Voor klanten van betalen per gebruik is het gedeelde bereik alle betalen per gebruik-abonnementen die zijn gemaakt door de accountbeheerder.</li></ul>|
-    |Softwareabonnement     |Selecteer de SUSE Linux-plan. Zie [Begrijpen hoe de korting voor reservering van SUSE Linux Enterprise-software wordt toegepast](../../billing/billing-understand-suse-reservation-charges.md) voor meer informatie.|
-    |VM-grootte     |Prijsinformatie voor SUSE Linux, is afhankelijk van het aantal vcpu's op de virtuele machine. Selecteer de optie die het aantal vcpu's op uw SUSE Linux VM's vertegenwoordigt.|
-    |Termijn        |Één of drie jaar.|
-    |Hoeveelheid    |Het aantal virtuele machines die u wilt dit plan SUSE Linux voor kopen. Het aantal is het aantal actieve instanties van SUSE Linux die de korting voor facturering krijgt.|
-1. Selecteer **Aankoop**.
-1. Selecteer **deze reservering weergeven** om te zien van de status van uw aankoop.
+De reserveringskorting wordt automatisch toegepast op de meter voor software die u vooraf betaalt. VM-rekenkosten in rekening gebracht niet zijn gekoppeld aan het abonnement. U kunt de VM-reserveringen afzonderlijk kopen.
 
-De reserveringskorting wordt automatisch toegepast op alle actieve SUSE virtuele machines die overeenkomt met de reservering. De korting geldt alleen voor de SUSE-meter. De VM-rekenkosten in rekening gebracht vallen niet onder dit plan.
+## <a name="discount-applies-to-different-suse-vm-sizes"></a>Korting is van toepassing op andere SUSE VM-grootten
 
-## <a name="discount-applies-to-different-vm-sizes-with-instance-size-flexibility"></a>Korting geldt voor verschillende VM-grootten met een grootte-instantieflexibiliteit
+Plannen voor SUSE Linux bieden, zoals gereserveerde VM-instanties, instantieflexibiliteit grootte. Uw korting geldt zelfs wanneer u implementeert een virtuele machine die een andere grootte van de SUSE-planning die u hebt gekocht. Zie voor meer informatie, [te begrijpen hoe de korting voor software-plan wordt toegepast](../../billing/billing-understand-suse-reservation-charges.md).
 
-Plannen voor SUSE Linux bieden, zoals gereserveerde VM-instanties, instantieflexibiliteit grootte. Dit betekent dat uw korting geldt zelfs wanneer het implementeren van een virtuele machine die een andere grootte van de SUSE-planning die u hebt gekocht. Zie voor meer informatie, [te begrijpen hoe de reserveringskorting van SUSE Linux Enterprise software wordt toegepast](../../billing/billing-understand-suse-reservation-charges.md).
+## <a name="redhat-plan-discount"></a>Korting voor Red Hat-abonnement
+
+Abonnementen zijn alleen beschikbaar voor Red Hat Enterprise Linux virtuele machines. De korting geldt niet voor virtuele machines van Red Hat Enterprise Linux SAP HANA of Red Hat Enterprise Linux SAP Business Apps-VM's.
+
+Red Hat plan kortingen gelden alleen voor de VM-grootte die u hebt geselecteerd op het moment van aankoop. RHEL-abonnementen kunnen niet worden terugbetaald of die na de aankoop worden uitgewisseld.
+
 
 ## <a name="cancellation-and-exchanges-not-allowed"></a>Annulering en uitwisselingen niet toegestaan
 
-Het is niet mogelijk om een SUSE-abonnement dat u hebt gekocht te annuleren of uit te wisselen. Controleer uw gebruik om er zeker van te zijn dat u het juiste abonnement koopt. Zie [Begrijpen hoe de korting voor reservering van SUSE Linux Enterprise-software wordt toegepast](../../billing/billing-understand-suse-reservation-charges.md) voor meer informatie.
+U kunt geen annuleren of exchange een SUSE of Red Hat-abonnement dat u hebt gekocht. Controleer uw gebruik om er zeker van te zijn dat u het juiste abonnement koopt. Zie voor meer informatie om te bepalen wat u wilt kopen, [te begrijpen hoe de korting voor software-plan wordt toegepast](../../billing/billing-understand-suse-reservation-charges.md).
+
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
+
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -69,7 +78,3 @@ Zie de volgende artikelen voor meer informatie:
 - [Begrijpen hoe de reserveringskorting SUSE wordt toegepast](../../billing/billing-understand-suse-reservation-charges.md)
 - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](../../billing/billing-understand-reserved-instance-usage.md)
 - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](../../billing/billing-understand-reserved-instance-usage-ea.md)
-
-## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
-
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

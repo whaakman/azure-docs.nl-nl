@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 5a3d6e51a71f6aab742fe042d6e6e281192319a4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: abb85d568e26e4b6f85b960a2560aae570daf201
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523015"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149177"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Een fabrieksinstallatiekopie uitvoeren vanuit Azure DevOps
 In dit artikel bevat informatie over alle de voorbereidingen die nodig zijn voor het uitvoeren van de factory-afbeelding van Azure DevOps (voorheen Visual Studio Team Services).
@@ -29,15 +29,15 @@ In dit artikel bevat informatie over alle de voorbereidingen die nodig zijn voor
 De eerste stap bij het instellen van de installatiekopie factory is het maken van een lab in Azure DevTest Labs. In dit testlab wordt de afbeelding factory lab waar we de virtuele machines maken en opslaan van aangepaste installatiekopieën. In dit lab wordt beschouwd als onderdeel van het algehele proces voor de installatiekopie van factory. Zodra u een lab hebt gemaakt, zorg ervoor dat de naam worden opgeslagen omdat u hebt deze later nodig.
 
 ## <a name="scripts-and-templates"></a>Scripts en -sjablonen
-De volgende stap in de fabriek installatiekopie voor uw team vast te stellen is om te begrijpen wat er beschikbaar is. De afbeelding factory scripts en -sjablonen zijn beschikbaar openbaar in de [DevTest Labs GitHub-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory). Hier volgt een overzicht van de onderdelen:
+De volgende stap in de fabriek installatiekopie voor uw team vast te stellen is om te begrijpen wat er beschikbaar is. De afbeelding factory scripts en -sjablonen zijn beschikbaar openbaar in de [DevTest Labs GitHub-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory). Hier volgt een overzicht van de onderdelen:
 
-- Afbeelding Factory. Het is de hoofdmap. 
+- Afbeelding Factory. Het is de hoofdmap.
     - De configuratie. De invoer voor de installatiekopie-factory
         - GoldenImages. Deze map bevat JSON-bestanden die staan voor de definities van aangepaste installatiekopieën.
         - Labs.json. Het bestand waarin teams zich registreren voor het ontvangen van specifieke aangepaste installatiekopieën.
 - Scripts. De engine voor de factory installatiekopie.
 
-De artikelen in deze sectie vindt u meer informatie over deze scripts en sjablonen. 
+De artikelen in deze sectie vindt u meer informatie over deze scripts en sjablonen.
 
 ## <a name="create-an-azure-devops-team-project"></a>Een Azure DevOps team-project maken
 Azure DevOps kunt u de broncode opslaan, voert u de Azure PowerShell op één plek. U kunt plannen dat periodiek wordt uitgevoerd installatiekopieën om up-to-date te houden. Er zijn goede voorzieningen voor het vastleggen van de resultaten om eventuele problemen te diagnosticeren.  U kunt alle kabelboom /-engine die verbinding kunnen maken met Azure en Azure PowerShell kunt uitvoeren met behulp van Azure DevOps is echter geen vereiste, gebruiken.
@@ -47,7 +47,7 @@ Als u een bestaande DevOps-account of een project dat u wilt gebruiken in plaats
 Als u wilt beginnen, moet u een gratis account maken in Azure DevOps. Ga naar https://www.visualstudio.com/ en selecteer **voor gratis aan de slag** direct onder **Azure DevOps** (voorheen VSTS). U moet een unieke naam kiezen en zorg ervoor dat u kiest voor het beheren van code met Git. Nadat deze is gemaakt, sla de URL naar uw teamproject. Hier volgt een voorbeeld-URL: `https://<accountname>.visualstudio.com/MyFirstProject`.
 
 ## <a name="check-in-the-image-factory-to-git"></a>Controleer in de factory, de installatiekopie met Git
-Alle PowerShell, sjablonen en configuratie voor de factory installatiekopie bevinden zich in de [openbare DevTest Labs GitHub-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory). De snelste manier om op te halen van de code in uw nieuwe teamproject is voor het importeren van een opslagplaats. Hiermee haalt de hele DevTest Labs-opslagplaats (je krijgt dus extra docs en voorbeelden). 
+Alle PowerShell, sjablonen en configuratie voor de factory installatiekopie bevinden zich in de [openbare DevTest Labs GitHub-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory). De snelste manier om op te halen van de code in uw nieuwe teamproject is voor het importeren van een opslagplaats. Hiermee haalt de hele DevTest Labs-opslagplaats (je krijgt dus extra docs en voorbeelden).
 
 1. Ga naar het Azure DevOps-project dat u in de vorige stap hebt gemaakt (URL eruitziet **https:\//\<accountname >.visualstudio.com/MyFirstProject**).
 2. Selecteer **importeren van een opslagplaats**.
@@ -67,9 +67,9 @@ Op dit moment, beschikt u over de bronbestanden die zijn opgeslagen in een Git-o
 1. Selecteer eerst **Build instellen** op de startpagina van uw DevOps-Project:
 
     ![Build-knop Instellingen](./media/set-up-devops-lab/setup-build-button.png)
-2. Geef een **naam** voor de build (bijvoorbeeld: Bouwen en leveren van afbeeldingen bij Azure DevTest Labs). 
-3. Selecteer een **leeg** build-definitie en selecteer **toepassen** te maken van uw build. 
-4. In deze fase, kunt u **gehoste** voor de build-agent. 
+2. Geef een **naam** voor de build (bijvoorbeeld: Bouwen en leveren van afbeeldingen bij Azure DevTest Labs).
+3. Selecteer een **leeg** build-definitie en selecteer **toepassen** te maken van uw build.
+4. In deze fase, kunt u **gehoste** voor de build-agent.
 5. **Sla** de build-definitie.
 
     ![Definitie van de build](./media/set-up-devops-lab/build-definition.png)
@@ -87,7 +87,7 @@ Ter vereenvoudiging van de opdrachtregelparameters, bevatten de sleutelwaarden w
 | MachineUserName | ImageFactoryUser | De ingebouwde Administrator-account-gebruikersnaam voor de virtuele machines. Dit is een tijdelijke account. |
 | StandardTimeoutMinutes | 30 | De time-out voor die we voor normale werking van Azure wachten moet. |
 | SubscriptionId |  0000000000-0000-0000-0000-0000000000000 | De ID van het abonnement waarin het lab bestaat en dat het service-eindpunt heeft toegang tot. |
-| VMSize | Standard_A3 | De grootte van de virtuele machine moet worden gebruikt voor de **maken** stap. De virtuele machines die zijn gemaakt, zijn tijdelijke. De grootte moet het account dat [ingeschakeld voor de testomgeving](devtest-lab-set-lab-policy.md). Controleer of er voldoende [quotum voor kerngeheugens van abonnement](../azure-subscription-service-limits.md). 
+| VMSize | Standard_A3 | De grootte van de virtuele machine moet worden gebruikt voor de **maken** stap. De virtuele machines die zijn gemaakt, zijn tijdelijke. De grootte moet het account dat [ingeschakeld voor de testomgeving](devtest-lab-set-lab-policy.md). Controleer of er voldoende [quotum voor kerngeheugens van abonnement](../azure-subscription-service-limits.md).
 
 ![Variabelen maken](./media/set-up-devops-lab/configure-build-variables.png)
 
@@ -95,27 +95,27 @@ Ter vereenvoudiging van de opdrachtregelparameters, bevatten de sleutelwaarden w
 De volgende stap is het instellen van de service principal. Dit is een identiteit in Azure Active Directory waarmee de DevOps-build-agent werkt met Azure namens de gebruiker. Om in te stellen, start u met het toevoegen van Azure PowerShell bouwen eerst.
 
 1. Selecteer **taak toevoegen**.
-2. Zoeken naar **Azure PowerShell**. 
+2. Zoeken naar **Azure PowerShell**.
 3. Als u deze vinden, selecteert u **toevoegen** de taak wordt toegevoegd aan de build. Als u dit doet, ziet u de taak als toegevoegd aan de linkerkant weergegeven.
 
 ![Stap PowerShell instellen](./media/set-up-devops-lab/set-up-powershell-step.png)
 
-De snelste manier om het instellen van een service principal is om te laten Azure DevOps doen dat voor ons. 
+De snelste manier om het instellen van een service principal is om te laten Azure DevOps doen dat voor ons.
 
 1. Selecteer de **taak** u zojuist hebt toegevoegd.
-2. Voor **Azure verbindingstype**, kiest u **Azure Resource Manager**. 
-3. Selecteer de **beheren** koppeling voor het instellen van de service-principal. 
+2. Voor **Azure verbindingstype**, kiest u **Azure Resource Manager**.
+3. Selecteer de **beheren** koppeling voor het instellen van de service-principal.
 
 Zie voor meer informatie dit [blogbericht](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). Wanneer u selecteert de **beheren** koppeling, komt u in de juiste plaats in DevOps (tweede schermopname in het blogbericht) voor het instellen van de verbinding met Azure. Zorg ervoor dat u kiest **Azure Resource Manager-Service-eindpunt** wanneer u dit instelt.
 
 ## <a name="complete-the-build-task"></a>Voltooien van de build-taak
-Als u de opbouwtaak selecteert, ziet u alle informatie in het rechterdeelvenster die moet worden ingevuld. 
+Als u de opbouwtaak selecteert, ziet u alle informatie in het rechterdeelvenster die moet worden ingevuld.
 
-1. Eerst, een naam voor de build-taak: **Maken van virtuele Machines**. 
+1. Eerst, een naam voor de build-taak: **Maken van virtuele Machines**.
 2. Kies de **service-principal** u hebt gemaakt door te kiezen **Azure Resource Manager**
-3. Kies de **service-eindpunt**. 
+3. Kies de **service-eindpunt**.
 4. Voor **scriptpad**, selecteer **... (ellips)**  aan de rechterkant.
-5. Navigeer naar **MakeGoldenImageVMs.ps1** script. 
+5. Navigeer naar **MakeGoldenImageVMs.ps1** script.
 6. Scriptparameters moeten er als volgt: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
 
     ![Voltooien van de build-definitie](./media/set-up-devops-lab/complete-build-definition.png)
@@ -126,5 +126,5 @@ We controleren of u alles correct ingesteld door een nieuwe build queuing hebben
 
 ![Virtuele machines in het lab](./media/set-up-devops-lab/vms-in-lab.png)
 
-## <a name="next-steps"></a>Volgende stappen 
+## <a name="next-steps"></a>Volgende stappen
 De eerste stap bij het instellen van de installatiekopie van factory op basis van Azure DevTest Labs is voltooid. In het volgende artikel in de reeks krijgt u de virtuele machines gegeneraliseerd en opgeslagen in aangepaste installatiekopieën. Vervolgens hebben deze gedistribueerd naar uw labs. Zie het volgende artikel in de reeks: [Aangepaste installatiekopieën opslaan en distribueren naar meerdere labs](image-factory-save-distribute-custom-images.md).

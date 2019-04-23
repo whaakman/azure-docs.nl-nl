@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 6ca4156c19adbeea72ae268fe62638d40919b08f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: MT
+ms.openlocfilehash: 5a97a40ba48db9f73471d5fd778ceb5cb9070964
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699613"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011325"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Seriële Console gebruiken voor SysRq en NMI aanroepen
 
 ## <a name="system-request-sysrq"></a>Systeem-aanvraag (SysRq)
-Een SysRq is een opeenvolging van sleutels die worden geïnterpreteerd door de bewerking system kernel Linux, die een set vooraf gedefinieerde acties kan activeren. Deze opdrachten worden vaak gebruikt bij het oplossen van de virtuele machine of herstel kan niet worden uitgevoerd via een traditioneel beheer (bijvoorbeeld, als de virtuele machine is vastgelopen). Met de functie SysRq van de seriële Console van Azure nabootsen drukken op de SysRq sleutel en de tekens die zijn ingevoerd op een fysieke toetsenbord.
+Een SysRq is een opeenvolging van sleutels die worden geïnterpreteerd door de bewerking system kernel Linux, die een set vooraf gedefinieerde acties kan activeren. Deze opdrachten worden vaak gebruikt bij het oplossen van de virtuele machine of herstel kan niet worden uitgevoerd via een traditioneel beheer (bijvoorbeeld, als de virtuele machine niet reageert). Met de functie SysRq van de seriële Console van Azure nabootsen drukken op de SysRq sleutel en de tekens die zijn ingevoerd op een fysieke toetsenbord.
 
 Wanneer de reeks SysRq wordt geleverd, wordt de configuratie van de kernel bepalen hoe het systeem reageert. Zie voor meer informatie over het inschakelen en uitschakelen van SysRq de *beheerdershandleiding voor de SysRq* [tekst](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
 
@@ -99,7 +99,7 @@ Voor distributie-specifieke documentatie over SysRq en stappen voor het configur
 - [Verzamelen crash-Logboeken](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="non-maskable-interrupt-nmi"></a>Niet te maskeren Interrupt (NMI) 
-Een niet-maskeren interrupt (NMI) is ontworpen voor het maken van een signaal dat software op een virtuele machine worden niet genegeerd. In het verleden zijn NMIs gebruikt om te controleren op hardwareproblemen op systemen die specifieke reactietijden vereist.  NMI vandaag, programmeurs en systeembeheerders vaak gebruikt als een mechanisme voor foutopsporing of problemen met systemen die zijn vastgelopen.
+Een niet-maskeren interrupt (NMI) is ontworpen voor het maken van een signaal dat software op een virtuele machine worden niet genegeerd. In het verleden zijn NMIs gebruikt om te controleren op hardwareproblemen op systemen die specifieke reactietijden vereist.  NMI vandaag, programmeurs en systeembeheerders vaak gebruikt als een mechanisme voor foutopsporing of problemen met systemen die niet reageren.
 
 De seriële Console kan worden gebruikt voor het verzenden van een NMI met een Azure-machine via het toetsenbordpictogram in de opdrachtbalk die hieronder wordt weergegeven. Zodra de NMI wordt geleverd, worden de virtuele-machineconfiguratie bepalen hoe het systeem reageert.  Linux-besturingssystemen kunnen worden geconfigureerd voor crashes en het besturingssysteem van een geheugendump maken ontvangt een NMI.
 

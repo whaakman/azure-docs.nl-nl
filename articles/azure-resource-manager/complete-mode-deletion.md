@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: b38b1af8c72b814813804a49642668c28f3898d6
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: MT
+ms.openlocfilehash: fded37fee844a01f4d51518f2ca56dcf575704b2
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302691"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150146"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Verwijderen van de Azure-resources voor volledige-implementaties
 Dit artikel wordt beschreven hoe resourcetypen verwijderen als deze niet in een sjabloon die is geïmplementeerd in de modus voor volledig verwerken.
@@ -23,24 +23,24 @@ De resourcetypen die zijn gemarkeerd met `No` worden niet automatisch verwijderd
 Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, download [voltooien modus deletion.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/complete-mode-deletion.csv).
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | DomainServices | Ja | 
 | DomainServices/oucontainer | Nee | 
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | diagnosticSettings | Nee | 
 | diagnosticSettingsCategories | Nee | 
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | supportProviders | Nee | 
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | aadsupportcases | Nee | 
 | addsservices | Nee | 
@@ -52,7 +52,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | services | Nee | 
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Configuraties | Nee | 
 | generateRecommendations | Nee | 
@@ -60,7 +60,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | suppressions | Nee | 
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | actionRules | Nee | 
 | waarschuwingen | Nee | 
@@ -72,24 +72,24 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | smartGroups | Nee | 
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | servers | Ja | 
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | reportFeedback | Nee | 
 | service | Ja | 
 | validateServiceName | Nee | 
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | attestationProviders | Nee | 
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | classicAdministrators | Nee | 
 | denyAssignments | Nee | 
@@ -104,7 +104,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | roleDefinitions | Nee | 
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | automationAccounts | Ja | 
 | automationAccounts/configurations | Ja | 
@@ -114,7 +114,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | automationAccounts/webhooks | Nee | 
 
 ## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Omgevingen | Nee | 
 | omgevingen/accounts | Nee | 
@@ -122,24 +122,24 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | omgevingen/accounts/naamruimten/configuraties | Nee | 
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | b2cDirectories | Ja | 
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | registraties | Ja | 
 | registrations/customerSubscriptions | Nee | 
 | registraties/producten | Nee | 
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | batchAccounts | Ja | 
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | billingAccounts | Nee | 
 | billingAccounts/billingProfiles | Nee | 
@@ -193,18 +193,18 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | usagePlans | Nee | 
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | mapApis | Ja | 
 | updateCommunicationPreference | Nee | 
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | BizTalk | Ja | 
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | blueprintAssignments | Nee | 
 | blueprintAssignments/assignmentOperations | Nee | 
@@ -215,20 +215,20 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | versies-blauwdrukken-artefacten | Nee | 
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | botServices | Ja | 
 | botServices/channels | Nee | 
 | botServices/connections | Nee | 
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Redis | Ja | 
 | RedisConfigDefinition | Nee | 
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | appliedReservations | Nee | 
 | calculatePrice | Nee | 
@@ -247,7 +247,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | validateReservationOrder | Nee | 
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | edgenodes | Nee | 
 | Profielen | Ja | 
@@ -257,14 +257,14 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | validateProbe | Nee | 
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | certificateOrders | Ja | 
 | certificateOrders/certificaten | Nee | 
 | validateCertificateRegistrationInformation | Nee | 
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Mogelijkheden | Nee | 
 | domainNames | Nee | 
@@ -283,12 +283,12 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | virtualMachines/diagnosticSettings | Nee | 
 
 ## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | classicInfrastructureResources | Nee | 
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Mogelijkheden | Nee | 
 | expressRouteCrossConnections | Nee | 
@@ -302,10 +302,10 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | virtualNetworks/virtualNetworkPeerings | Nee | 
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Mogelijkheden | Nee | 
-| Schijven | Nee | 
+| schijven | Nee | 
 | images | Nee | 
 | osImages | Nee | 
 | osPlatformImages | Nee | 
@@ -318,21 +318,21 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | vmImages | Nee | 
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | accounts | Ja | 
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | RateCard | Nee | 
 | UsageAggregates | Nee | 
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | availabilitySets | Ja | 
-| Schijven | Ja | 
+| schijven | Ja | 
 | images | Ja | 
 | restorePointCollections | Ja | 
 | restorePointCollections/restorePoints | Nee | 
@@ -350,7 +350,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | virtualMachineScaleSets/virtualMachines/networkInterfaces | Nee | 
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | AggregatedCost | Nee | 
 | Tegoeden | Nee | 
@@ -373,13 +373,13 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | UsageDetails | Nee | 
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | containerGroups | Ja | 
 | serviceAssociationLinks | Nee | 
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | registers | Ja | 
 | registers/builds | Nee | 
@@ -405,24 +405,24 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | webhooks-registers-ping | Nee | 
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | containerServices | Ja | 
 | managedClusters | Ja | 
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | toepassingen | Ja | 
 | updateCommunicationPreference | Nee | 
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | accounts | Ja | 
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Waarschuwingen | Nee | 
 | BillingAccounts | Nee | 
@@ -436,7 +436,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Rapporten | Nee | 
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | hubs | Ja | 
 | hubs/authorizationPolicies | Nee | 
@@ -453,33 +453,33 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | hubs/widgetTypes | Nee | 
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | taken | Ja | 
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | DataBoxEdgeDevices | Ja | 
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | werkruimten | Ja | 
 | workspaces/virtualNetworkPeerings | Nee | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | catalogi | Ja | 
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | connectionManagers | Ja | 
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | dataFactories | Ja | 
 | dataFactories/diagnosticSettings | Nee | 
@@ -488,7 +488,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | factories/integrationRuntimes | Nee | 
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | accounts | Ja | 
 | accounts/dataLakeStoreAccounts | Nee | 
@@ -496,34 +496,34 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | accounts/storageAccounts/containers | Nee | 
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | accounts | Ja | 
 | accounts/eventGridFilters | Nee | 
 | accounts/firewallRules | Nee | 
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | services | Ja | 
 | Services-projecten | Ja | 
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | servers | Ja | 
 | servers/recoverableServers | Nee | 
 | servers/virtualNetworkRules | Nee | 
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | servers | Ja | 
 | servers/recoverableServers | Nee | 
 | servers/virtualNetworkRules | Nee | 
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | servers | Ja | 
 | servers/advisors | Nee | 
@@ -534,7 +534,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | servers/waitStatistics | Nee | 
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | IotHubs | Ja | 
 | IotHubs/eventGridFilters | Nee | 
@@ -542,12 +542,12 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Het gebruik van | Nee | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Domeincontrollers | Ja | 
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Labs | Ja | 
 | Labs/serviceRunners | Ja | 
@@ -555,13 +555,13 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Schema 's | Ja | 
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | databaseAccountNames | Nee | 
 | databaseAccounts | Ja | 
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | domeinen | Ja | 
 | domains/domainOwnershipIdentifiers | Nee | 
@@ -570,14 +570,14 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | validateDomainRegistrationInformation | Nee | 
 
 ## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | lcsprojects | Nee | 
 | lcsprojects/clouddeployments | Nee | 
 | lcsprojects/connectors | Nee | 
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | domeinen | Ja | 
 | domeinen/onderwerpen | Nee | 
@@ -587,7 +587,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | topicTypes | Nee | 
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Clusters | Ja | 
 | naamruimten | Ja | 
@@ -598,13 +598,13 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Event hubs-naamruimten/consumergroups | Nee | 
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | database | Nee | 
 | Providers | Nee | 
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | registreren | Nee | 
 | galleryitems | Nee | 
@@ -620,29 +620,29 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | retrieveresourcesbyid | Nee | 
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | guestConfigurationAssignments | Nee | 
 | software | Nee | 
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | hanaInstances | Ja | 
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
-| Clusters | Ja | 
+| Clusters | Nee | 
 | clusters/toepassingen | Nee | 
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | taken | Ja | 
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | labelGroups | Nee | 
 | labelGroups/labels | Nee | 
@@ -651,7 +651,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | labelGroups/labels/subLabels/conditions | Nee | 
 
 ## <a name="microsoftinsights"></a>microsoft.insights
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | actiongroups | Ja | 
 | activityLogAlerts | Ja | 
@@ -683,23 +683,23 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | werkmappen | Ja | 
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | diagnosticSettings | Nee | 
 | diagnosticSettingsCategories | Nee | 
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | IoTApps | Ja | 
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Graph | Ja | 
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | deletedVaults | Nee | 
 | Kluizen | Ja | 
@@ -707,7 +707,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Kluizen/geheimen | Nee | 
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Clusters | Ja | 
 | clusters/databases | Nee | 
@@ -715,41 +715,41 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | clusters/databases/eventhubconnections | Nee | 
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | labaccounts | Ja | 
 | gebruikers | Nee | 
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | accounts | Ja | 
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | accounts | Ja | 
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | logboeken | Nee | 
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | integrationAccounts | Ja | 
 | Werkstromen | Ja | 
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | commitmentPlans | Ja | 
 | webServices | Ja | 
 | Workspaces | Ja | 
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | accounts | Ja | 
 | accounts/werkruimten | Ja | 
@@ -759,24 +759,24 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | teamAccounts/workspaces/projects | Ja | 
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | accounts | Ja | 
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | werkruimten | Ja | 
 | workspaces/computes | Nee | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Identiteiten | Nee | 
 | userAssignedIdentities | Ja | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | getEntities | Nee | 
 | managementGroups | Nee | 
@@ -785,13 +785,13 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | tenantBackfillStatus | Nee | 
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | accounts | Ja | 
 | accounts/eventGridFilters | Nee | 
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Aanbiedingen | Nee | 
 | offerTypes | Nee | 
@@ -805,19 +805,19 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | producten | Nee | 
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | classicDevServices | Ja | 
 | updateCommunicationPreference | Nee | 
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Overeenkomsten | Nee | 
 | offertypes | Nee | 
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | mediaservices | Ja | 
 | mediaservices/accountFilters | Nee | 
@@ -837,12 +837,12 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | transformaties-mediaservices-taken | Nee | 
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | projecten | Ja | 
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | applicationGateways | Ja | 
 | applicationSecurityGroups | Ja | 
@@ -868,7 +868,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | dnszones/TXT | Nee | 
 | expressRouteCircuits | Ja | 
 | expressRouteServiceProviders | Nee | 
-| frontdoors | Ja | 
+| ingangen | Ja | 
 | frontdoorWebApplicationFirewallPolicies | Ja | 
 | getDnsResourceReference | Nee | 
 | interfaceEndpoints | Ja | 
@@ -903,13 +903,13 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | webApplicationFirewallPolicies | Ja | 
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | naamruimten | Ja | 
 | namespaces/notificationHubs | Ja | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | apparaten | Nee | 
 | linkTargets | Nee | 
@@ -920,7 +920,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | workspaces/query | Nee | 
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | managementassociations | Nee | 
 | managementconfigurations | Ja | 
@@ -928,7 +928,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | weergaven | Ja | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | policyEvents | Nee | 
 | policyStates | Nee | 
@@ -936,35 +936,35 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | herstelbewerkingen | Nee | 
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | consoles | Nee | 
 | dashboards | Ja | 
 | userSettings | Nee | 
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | workspaceCollections | Ja | 
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Capaciteit | Ja | 
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | accounts | Ja | 
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | backupProtectedItems | Nee | 
 | Kluizen | Ja | 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | naamruimten | Ja | 
 | naamruimten/authorizationrules | Nee | 
@@ -974,13 +974,13 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | namespaces/wcfrelays/authorizationrules | Nee | 
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | bronnen | Nee | 
 | subscriptionsStatus | Nee | 
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | availabilityStatuses | Nee | 
 | childAvailabilityStatuses | Nee | 
@@ -990,7 +990,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | meldingen | Nee | 
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | implementaties | Nee | 
 | Implementaties/operations | Nee | 
@@ -1009,25 +1009,25 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Tenants | Nee | 
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | toepassingen | Ja | 
 | saasresources | Nee | 
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | stromen | Ja | 
 | taakverzamelingen | Ja | 
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | resourceHealthMetadata | Nee | 
 | searchServices | Ja | 
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | advancedThreatProtectionSettings | Nee | 
 | waarschuwingen | Nee | 
@@ -1041,7 +1041,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | externalSecuritySolutions | Nee | 
 | InformationProtectionPolicies | Nee | 
 | jitNetworkAccessPolicies | Nee | 
-| controle | Nee | 
+| bewaking | Nee | 
 | monitoring/antimalware | Nee | 
 | bewaking/basislijn | Nee | 
 | bewaking/patch | Nee | 
@@ -1062,13 +1062,13 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | workspaceSettings | Nee | 
 
 ## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | diagnosticSettings | Nee | 
 | diagnosticSettingsCategories | Nee | 
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | naamruimten | Ja | 
 | naamruimten/authorizationrules | Nee | 
@@ -1083,13 +1083,13 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | premiumMessagingRegions | Nee | 
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Clusters | Ja | 
 | clusters/toepassingen | Nee | 
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | toepassingen | Ja | 
 | Gateways | Ja | 
@@ -1098,12 +1098,12 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | volumes | Ja | 
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | SignalR | Ja | 
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | applianceDefinitions | Ja | 
 | apparaten | Ja | 
@@ -1112,7 +1112,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | jitRequests | Ja | 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | managedInstances | Ja |
 | managedInstances/databases | Ja (Zie opmerking hieronder) |
@@ -1140,14 +1140,14 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | SqlVirtualMachineGroups | Ja | 
 | SqlVirtualMachineGroups/AvailabilityGroupListeners | Nee | 
 | SqlVirtualMachines | Ja | 
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | storageAccounts | Ja | 
 | storageAccounts/blobServices | Nee | 
@@ -1158,7 +1158,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Het gebruik van | Nee | 
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | storageSyncServices | Ja | 
 | storageSyncServices/registeredServers | Nee | 
@@ -1168,12 +1168,12 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | storageSyncServices/workflows | Nee | 
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | managers | Ja | 
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | streamingjobs | Ja (Zie opmerking hieronder) | 
 | streamingjobs/diagnosticSettings | Nee | 
@@ -1182,25 +1182,25 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 > U kunt een label niet toevoegen als streamingjobs wordt uitgevoerd. Stop de resource als een tag wilt toevoegen.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | CreateSubscription | Nee | 
 | SubscriptionDefinitions | Nee | 
 | SubscriptionOperations | Nee | 
 
 ## <a name="microsoftsupport"></a>microsoft.support
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | supporttickets | Nee | 
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | providerRegistrations | Ja | 
 | bronnen | Ja | 
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Omgevingen | Ja | 
 | environments/accessPolicies | Nee | 
@@ -1208,14 +1208,14 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | omgevingen/referenceDataSets | Ja | 
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | account | Ja | 
 | -/ accountextensie | Ja | 
 | account/project | Ja | 
 
 ## <a name="microsoftweb"></a>Microsoft.Web
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | apiManagementAccounts | Nee | 
 | apiManagementAccounts/apiAcls | Nee | 
@@ -1262,18 +1262,18 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | verifyHostingEnvironmentVnet | Nee | 
 
 ## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | diagnosticSettings | Nee | 
 | diagnosticSettingsCategories | Nee | 
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | DeviceServices | Ja | 
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
-| Resourcetype | Modus voor volledig verwijderen |
+| Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
 | Onderdelen | Nee | 
 | componentsSummary | Nee | 

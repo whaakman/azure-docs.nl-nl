@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: magattus
-ms.openlocfilehash: 1370785f730fbbc9ceaea67e4f615de7d2041204
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 53002fba9883d4ae0276ee1d91e915587f89177b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990609"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007675"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN-dekking door Metro 
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ In dit artikel geeft een lijst met huidige metro's met point-of-presence (POP)-l
 | Afrika | Kaapstad, Zuid-Afrika<br />Johannesburg, Zuid-Afrika | Johannesburg, Zuid-Afrika | Zuid-Afrika |
 | Midden-Oosten | Dubai, Verenigde Arabische Emiraten | Muscat, Oman<br />Fujirah, Verenigde Arabische Emiraten | Qatar<br />Verenigde Arabische Emiraten |
 | India | Chennai, India<br />Mumbai, India<br />New Delhi, India | Bangalore, India<br />Chennai, India<br />Mumbai, India<br />New Delhi, India<br /> | India |
-| Azië | Hongkong SAR<br />Osaka, Japan<br />Tokio, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Filippijnen<br />Singapore<br />Busan, South Korea<br />Seoul, Zuid-Korea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hongkong SAR<br />Batam, Indonesië<br />Jakarta, Indonesië<br />Osaka, Japan<br />Tokio, Japan<br />Singapore<br />Busan, South Korea<br />Seoul, Zuid-Korea<br />Kaohsiung, Taiwan | Hongkong SAR<br />Indonesië<br />Israël<br />Japan<br />Macau<br />Maleisië<br />Filipijnen<br />Singapore<br />Zuid-Korea<br />Taiwan<br />Thailand<br />Turkije<br />Vietnam |
+| Azië | Hongkong SAR<br />Osaka, Japan<br />Tokio, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Filippijnen<br />Singapore<br />Busan, South Korea<br />Seoul, Zuid-Korea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hongkong SAR<br />Batam, Indonesië<br />Jakarta, Indonesië<br />Osaka, Japan<br />Tokio, Japan<br />Singapore<br />Busan, South Korea<br />Seoul, Zuid-Korea<br />Kaohsiung, Taiwan | Hongkong SAR<br />Indonesië<br />Israël<br />Japan<br />Macau SAR<br />Maleisië<br />Filipijnen<br />Singapore<br />Zuid-Korea<br />Taiwan<br />Thailand<br />Turkije<br />Vietnam |
 | Australië en Nieuw-Zeeland | Brisbane, Australië<br />Melbourne, Australië<br />Perth, Australië<br />Sydney, Australië<br />Auckland, New Zealand | Melbourne, Australië<br />Sydney, Australië<br />Auckland, New Zealand | Australië<br />Nieuw-Zeeland |
 
 

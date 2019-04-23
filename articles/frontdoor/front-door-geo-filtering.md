@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: a7b4975a81c0966e5cbff0c8b940c9231e66f32b
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
-ms.translationtype: MT
+ms.openlocfilehash: 1d6343705e8d27fb2d22827cf792de332861456e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407637"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007964"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Wat is een geo-filteren op een domein voordeur voor Azure?
 
@@ -132,11 +132,11 @@ U kunt een beleid voor geo-filtering configureren voor uw voordeur met behulp va
 | LT | Litouwen|
 | LU | Luxemburg|
 | LV | Letland|
-| LY | Libië|
+| LY | Libië |
 | MA | Marokko|
 | MD | Moldavië, Republiek|
 | MG | Madagascar|
-| MK | Macedonië (FYROM)|
+| MK | Noord-Macedonië|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Mongolië|

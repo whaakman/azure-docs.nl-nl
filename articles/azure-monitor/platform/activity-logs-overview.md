@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496876"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995656"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Abonnement-activiteit controleren met de Azure-activiteitenlogboek
 
@@ -65,6 +65,9 @@ Hier volgen enkele dingen die u met het activiteitenlogboek kunt doen:
 * Deze opvragen via PowerShell-Cmdlet, CLI of REST-API.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Query uitvoeren op het activiteitenlogboek in Azure portal
+
+> [!NOTE] 
+> Het activiteitenlogboek slaat de logboeken in de back-end voor 90 dagen. Als u wilt de gegevens verder wilt behouden, configureert u een **Logboekprofiel** zoals hieronder wordt beschreven. 
 
 U kunt uw activiteitenlogboek weergeven op verschillende plaatsen binnen de Azure-portal:
 * De **activiteitenlogboek** die toegankelijk is door te zoeken naar het activiteitenlogboek onder **alle services** in het navigatiedeelvenster links.

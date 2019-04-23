@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/01/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: ebe2c2b488e3d71597dd24f5504a14dd7ce6671e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791538"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998648"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Over het instellen van waarschuwingen voor problemen met de prestaties in Azure Monitor voor containers
 Azure Monitor voor containers bewaakt de prestaties van containerworkloads die zijn geïmplementeerd in Azure Container Instances of in het beheerde Kubernetes-clusters die worden gehost in Azure Kubernetes Service (AKS).
@@ -285,5 +285,5 @@ Volg deze stappen voor het maken van een waarschuwing in Azure Monitor met behul
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Weergave [Meld u voorbeelden van](container-insights-analyze.md#search-logs-to-analyze-data) voor meer informatie over vooraf gedefinieerde query's en voorbeelden om te evalueren of aanpassen voor andere scenario's voor de waarschuwing.
-* Zie voor meer informatie over Azure Monitor en andere aspecten van uw AKS-cluster bewaken, [weergave Azure Kubernetes Service health](container-insights-analyze.md).
+- Weergave [Meld u voorbeelden van](container-insights-log-search.md#search-logs-to-analyze-data) om te zien van vooraf gedefinieerde query's en voorbeelden om te evalueren of aanpassen voor waarschuwingen, visualiseren en analyseren van uw clusters.
+- Zie voor meer informatie over Azure Monitor en andere aspecten van uw AKS-cluster bewaken, [weergave Azure Kubernetes Service health](container-insights-analyze.md).

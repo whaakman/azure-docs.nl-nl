@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6834ab15f3d46b8b7116a48b0e970f553eb65ba8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 46c387ab175bfd3613e00be8e7b3a899aa025a7f
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521811"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149270"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
@@ -134,7 +134,7 @@ Meer informatie voor [ASP.NET](api-filtering-sampling.md) of [Java](java-filter-
 
 ## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Hoe worden stad, land en andere gegevens geo-locatie berekend?
 
-We controleren of het IP-adres (IPv4 of IPv6) van de webclient met behulp van [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
+We controleren of het IP-adres (IPv4 of IPv6) van de webclient met behulp van [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
 * Telemetrie van de browser: We verzamelen van de afzender IP-adres.
 * Servertelemetrie: De module Application Insights verzamelt IP-adres van de client. Het is niet verzameld als `X-Forwarded-For` is ingesteld.

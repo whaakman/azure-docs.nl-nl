@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: f0959ff8b8ea5ce8d5516d25fdf0faf29dbcd994
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 62ad2e2b294a0589c9d52ddbce1339b8d55062e4
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629598"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149033"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Back-up en herstellen van virtuele Azure-machines met PowerShell
 
@@ -31,7 +31,6 @@ In dit artikel leert u het volgende:
 - [Meer informatie](backup-azure-recovery-services-vault-overview.md) over Recovery Services-kluizen.
 - [Bekijk](backup-architecture.md#architecture-direct-backup-of-azure-vms) de architectuur voor Azure VM backup, [meer informatie over](backup-azure-vms-introduction.md) het back-upproces en [bekijken](backup-support-matrix-iaas.md) ondersteuning, beperkingen en vereisten.
 - Bekijk de PowerShell-objecthiërarchie voor Recovery Services.
-
 
 ## <a name="recovery-services-object-hierarchy"></a>Recovery Services-objecthiërarchie
 
@@ -54,7 +53,7 @@ Om te beginnen met:
     ```powershell
     Get-Command *azrecoveryservices*
     ```
- 
+
     De aliassen en cmdlets voor back-up van Azure, Azure Site Recovery en de Recovery Services-kluis worden weergegeven. De volgende afbeelding is een voorbeeld van wat u ziet. Het is niet de volledige lijst met cmdlets.
 
     ![lijst met Recovery Services](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
@@ -77,9 +76,11 @@ Om te beginnen met:
     ```
 
 6. U kunt controleren of de Providers is geregistreerd met de volgende opdrachten:
+
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
+
     In de uitvoer van de opdracht, de **RegistrationState** moet wijzigen naar **geregistreerde**. Als niet het geval is, alleen wordt uitgevoerd de **[registreren AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)** cmdlet opnieuw uit.
 
 
@@ -241,9 +242,49 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Als u van de Azure Government-cloud gebruikmaakt, gebruikt u de ff281ffe-705c-4f53-9f37-a40e6f2c68f3 waarde voor de parameter ServicePrincipalName in [Set AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
 >
 
+## <a name="monitoring-a-backup-job"></a>Bewaking van een back-uptaak
+
+U kunt langlopende bewerkingen, zoals back-uptaken controleren zonder gebruik van de Azure-portal. Als u de status van een taak wordt uitgevoerd, gebruikt de [Get-AzRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet. Deze cmdlet haalt de back-uptaken voor een bepaalde kluis en die vault is opgegeven in de context van de kluis. Het volgende voorbeeld wordt de status van een taak wordt uitgevoerd als een matrix en slaat de status in de $joblist-variabele.
+
+```powershell
+$joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress"
+$joblist[0]
+```
+
+De uitvoer lijkt op die in het volgende voorbeeld:
+
+```
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   ----------
+V2VM             Backup               InProgress            4/23/2016                5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+```
+
+In plaats van deze taken voor de voltooiing - dit is niet nodig als u meer code - polling gebruiken de [wacht AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) cmdlet. Deze cmdlet wordt de uitvoering onderbroken totdat de taak is voltooid of de opgegeven time-outwaarde is bereikt.
+
+```powershell
+Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
+```
+
+## <a name="manage-azure-vm-backups"></a>Back-ups van Azure-VM's beheren
+
 ### <a name="modify-a-protection-policy"></a>Een beveiligingsbeleid wijzigen
 
 Gebruiken voor het wijzigen van het beveiligingsbeleid, [Set AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) de SchedulePolicy of RetentionPolicy objecten te wijzigen.
+
+#### <a name="modifying-scheduled-time"></a>Geplande tijd wijzigen
+
+Wanneer u een beveiligingsbeleid maakt, krijgt het een begintijd standaard. De volgende voorbeelden ziet hoe u de begintijd van een beveiligingsbeleid wijzigen.
+
+````powershell
+$SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that the customer wants to start the backup)
+$UtcTime = $UtcTime.ToUniversalTime()
+$SchPol.ScheduleRunTimes[0] = $UtcTime
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -SchedulePolicy $SchPol
+````
+
+#### <a name="modifying-retention"></a>Retentie wijzigen
 
 Het volgende voorbeeld wordt de bewaarperiode voor herstelpunten en 365 dagen.
 
@@ -267,14 +308,15 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 
 De standaardwaarde is 2, gebruiker de waarde met een minimum van 1 en maximaal 5 kan instellen. Voor wekelijkse back-up beleid, wordt de periode is ingesteld op 5 en kan niet worden gewijzigd.
 
-## <a name="trigger-a-backup"></a>Een back-up activeren
+### <a name="trigger-a-backup"></a>Een back-up activeren
 
-Gebruik [back-up-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) voor het activeren van een back-uptaak. Als dit de eerste back-up is, is een volledige back-up. Volgende back-ups duren voordat een incrementele kopie. Zorg ervoor dat u **[Set AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext)** om in te stellen van de context van de kluis voordat de back-uptaak wordt geactiveerd. Het volgende voorbeeld wordt ervan uitgegaan dat de context van de kluis is al ingesteld.
+Gebruik [back-up-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) voor het activeren van een back-uptaak. Als dit de eerste back-up is, is een volledige back-up. Volgende back-ups duren voordat een incrementele kopie. Het volgende voorbeeld wordt een virtuele machine back-up moet worden bewaard gedurende 60 dagen.
 
 ```powershell
 $namedContainer = Get-AzRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
 $item = Get-AzRecoveryServicesBackupItem -Container $namedContainer -WorkloadType "AzureVM"
-$job = Backup-AzRecoveryServicesBackupItem -Item $item
+$endDate = (Get-Date).AddDays(60).ToUniversalTime()
+$job = Backup-AzRecoveryServicesBackupItem -Item $item -VaultId $targetVault.ID -ExpiryDateTimeUTC $endDate
 ```
 
 De uitvoer lijkt op die in het volgende voorbeeld:
@@ -290,28 +332,42 @@ V2VM              Backup              InProgress          4/23/2016             
 >
 >
 
-## <a name="monitoring-a-backup-job"></a>Bewaking van een back-uptaak
+### <a name="change-policy-for-backup-items"></a>Beleid voor back-upitems wijzigen
 
-U kunt langlopende bewerkingen, zoals back-uptaken controleren zonder gebruik van de Azure-portal. Als u de status van een taak wordt uitgevoerd, gebruikt de [Get-AzRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet. Deze cmdlet haalt de back-uptaken voor een bepaalde kluis en die vault is opgegeven in de context van de kluis. Het volgende voorbeeld wordt de status van een taak wordt uitgevoerd als een matrix en slaat de status in de $joblist-variabele.
+Gebruiker kan bestaande beleid wijzigen of wijzigen van het beleid van het item waarvan een back-up is gemaakt van Policy1 in Policy2. Als u wilt overschakelen van beleid voor een item waarvan een back-up is gemaakt, gewoon ophalen van het desbetreffende beleid en back-up item maken en gebruiken de [inschakelen AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) opdracht met de back-upitem als de parameter.
+
+````powershell
+$TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
+$anotherBkpItem = Get-AzRecoveryServicesBackupItem -WorkloadType AzureVM -BackupManagementType AzureVM -Name "<BackupItemName>"
+Enable-AzRecoveryServicesBackupProtection -Item $anotherBkpItem -Policy $TargetPol1
+````
+
+De opdracht wordt er gewacht tot de configureren back-up is voltooid en de volgende uitvoer retourneert.
 
 ```powershell
-$joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress"
-$joblist[0]
-```
-
-De uitvoer lijkt op die in het volgende voorbeeld:
-
-```
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
-------------     ---------            ------               ---------                 -------                   ----------
-V2VM             Backup               InProgress            4/23/2016                5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+------------     ---------            ------               ---------                 -------                   -----
+TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
 ```
 
-In plaats van deze taken voor de voltooiing - dit is niet nodig als u meer code - polling gebruiken de [wacht AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) cmdlet. Deze cmdlet wordt de uitvoering onderbroken totdat de taak is voltooid of de opgegeven time-outwaarde is bereikt.
+### <a name="stop-protection"></a>Beveiliging stoppen
 
-```powershell
-Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
-```
+#### <a name="retain-data"></a>Gegevens behouden
+
+Als de gebruiker wil stop de beveiliging, kunnen ze gebruiken de [uitschakelen AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS-cmdlet. Hiermee stopt u de geplande back-ups maar de back omhoog totdat nu altijd wordt bewaard.
+
+````powershell
+$bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -Name "<backup item name>" -VaultId $targetVault.ID
+Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID
+````
+
+#### <a name="delete-backup-data"></a>back-upgegevens verwijderen
+
+Om volledig verwijdert de opgeslagen back-upgegevens in de kluis, gewoon toevoegen '-'RemoveRecoveryPoints vlag/overschakelen naar de [opdracht Beveiliging uitschakelen](#retain-data).
+
+````powershell
+Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID -RemoveRecoveryPoints
+````
 
 ## <a name="restore-an-azure-vm"></a>Een Azure-VM herstellen
 

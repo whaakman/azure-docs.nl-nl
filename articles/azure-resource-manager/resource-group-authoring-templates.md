@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2019
+ms.date: 04/18/2019
 ms.author: tomfitz
-ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 94ed3c876ece827e4decd2b5b14332f5e854ab83
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492190"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004428"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Informatie over de structuur en de syntaxis van Azure Resource Manager-sjablonen
 
@@ -265,7 +265,7 @@ Vervolgens, verwijzen naar de subeigenschappen van de parameter met behulp van d
 
 Deze voorbeeldsjablonen laten zien voor sommige scenario's voor het gebruik van parameters. Te testen hoe parameters worden verwerkt in verschillende scenario's implementeren.
 
-|Template  |Beschrijving  |
+|Template  |Description  |
 |---------|---------|
 |[parameters met functies voor standaardwaarden](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstreert hoe u sjabloonfuncties gebruiken bij het definiëren van de standaardwaarden voor parameters. De sjabloon implementeren niet alle resources. Deze parameterwaarden constructs en die waarden retourneert. |
 |[Parameter-object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Ziet u met behulp van een object voor een parameter. De sjabloon implementeren niet alle resources. Deze parameterwaarden constructs en die waarden retourneert. |
@@ -495,8 +495,8 @@ Definieert u resources met de volgende structuur:
 |:--- |:--- |:--- |
 | voorwaarde | Nee | Booleaanse waarde die aangeeft of de resource tijdens deze implementatie worden ingericht. Wanneer `true`, de resource is gemaakt tijdens de implementatie. Wanneer `false`, de bron voor deze implementatie wordt overgeslagen. Zie [voorwaarde](#condition). |
 | apiVersion |Ja |De versie van de REST-API moet worden gebruikt voor het maken van de resource. Zie het vaststellen van de beschikbare waarden [sjabloonverwijzing](/azure/templates/). |
-| type |Ja |Het type van de resource. Deze waarde is een combinatie van de naamruimte van de resourceprovider en het resourcetype (zoals **Microsoft.Storage/storageAccounts**). Zie het vaststellen van de beschikbare waarden [sjabloonverwijzing](/azure/templates/). |
-| naam |Ja |Naam van de resource De naam moet URI-onderdeel beperkingen gedefinieerd in RFC3986 volgen. Azure-services die beschikbaar maken van de naam van de resource buiten partijen valideren de naam om te controleren of het is bovendien een poging tot het vervalsen van een andere identiteit niet. |
+| type |Ja |Het type van de resource. Deze waarde is een combinatie van de naamruimte van de resourceprovider en het resourcetype (zoals **Microsoft.Storage/storageAccounts**). Zie het vaststellen van de beschikbare waarden [sjabloonverwijzing](/azure/templates/). Voor een onderliggende resource, is de indeling van het type afhankelijk van of deze is genest in de bovenliggende resource of buiten de bovenliggende resource gedefinieerd. Zie [onderliggende resources](#child-resources). |
+| naam |Ja |Naam van de resource De naam moet URI-onderdeel beperkingen gedefinieerd in RFC3986 volgen. Azure-services die beschikbaar maken van de naam van de resource buiten partijen valideren de naam om te controleren of het is bovendien een poging tot het vervalsen van een andere identiteit niet. Voor een onderliggende resource, is de indeling van de naam van de afhankelijk van of deze is genest in de bovenliggende resource of buiten de bovenliggende resource gedefinieerd. Zie [onderliggende resources](#child-resources). |
 | location |Varieert |Geografische locaties van de opgegeven resource wordt ondersteund. U kunt een van de beschikbare locaties selecteren, maar meestal is het zinvol om te kiezen die zich in de buurt van uw gebruikers. Meestal is het ook verstandig om de resources die met elkaar in dezelfde regio communiceren te plaatsen. De meeste resourcetypen een locatie vereist, maar sommige typen (zoals een roltoewijzing) vereisen een locatie. |
 | tags |Nee |Tags die gekoppeld aan de resource zijn. Labels toevoegen om in te delen logisch resources in uw abonnement. |
 | opmerkingen |Nee |Uw notities voor het documenteren van de resources in uw sjabloon. Zie voor meer informatie, [opmerkingen in sjablonen](resource-group-authoring-templates.md#comments). |
@@ -506,11 +506,11 @@ Definieert u resources met de volgende structuur:
 | sku | Nee | Sommige resources zijn waarden toegestaan die definiëren van de SKU om het te implementeren. Bijvoorbeeld, kunt u het type redundantie voor een opslagaccount. |
 | type | Nee | Sommige resources kunnen een waarde die bepaalt het type resource dat u implementeert. Bijvoorbeeld, kunt u het type van de Cosmos DB te maken. |
 | plan | Nee | Sommige resources zijn waarden toegestaan die in de planning definiëren wilt implementeren. U kunt bijvoorbeeld opgeven dat de marketplace-installatiekopie voor een virtuele machine. | 
-| bronnen |Nee |Onderliggende resources die afhankelijk zijn van de resource wordt gedefinieerd. Geef alleen resourcetypen die zijn toegestaan door het schema van de bovenliggende resource. De volledig gekwalificeerde type van de onderliggende resource bevat het type van de bovenliggende resource, zoals **Microsoft.Web/sites/extensions**. Afhankelijkheid van de bovenliggende resource is niet impliciet. Afhankelijkheid zijn opgetreden, moet u expliciet definiëren. |
+| bronnen |Nee |Onderliggende resources die afhankelijk zijn van de resource wordt gedefinieerd. Geef alleen resourcetypen die zijn toegestaan door het schema van de bovenliggende resource. Afhankelijkheid van de bovenliggende resource is niet impliciet. Afhankelijkheid zijn opgetreden, moet u expliciet definiëren. Zie [onderliggende resources](#child-resources). |
 
 ### <a name="condition"></a>Voorwaarde
 
-Wanneer u tijdens de implementatie van al dan niet om een resource te maken beslissen moet, gebruikt u de `condition` element. De waarde voor dit element wordt omgezet in waar of ONWAAR. Wanneer de waarde true is, wordt de resource is gemaakt. Wanneer de waarde false is, wordt de resource is niet gemaakt. De waarde kan alleen worden toegepast op de hele resource.
+Wanneer u tijdens de implementatie of een resource maken beslissen moet, gebruikt u de `condition` element. De waarde voor dit element wordt omgezet in waar of ONWAAR. Wanneer de waarde true is, wordt de resource is gemaakt. Wanneer de waarde false is, wordt de resource is niet gemaakt. De waarde kan alleen worden toegepast op de hele resource.
 
 Meestal gebruikt u deze waarde als u wilt maken van een nieuwe resource of gebruik een bestaande resourcegroep. Bijvoorbeeld, om op te geven of een nieuw opslagaccount wordt geïmplementeerd of een bestaand opslagaccount wordt gebruikt, gebruikt u het:
 
@@ -652,45 +652,57 @@ In sommige resourcetypen, kunt u ook een reeks onderliggende resources definiër
 
 ```json
 {
-  "name": "exampleserver",
+  "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Sql/servers",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver",
   ...
   "resources": [
     {
-      "name": "exampledatabase",
+      "apiVersion": "2017-10-01-preview",
       "type": "databases",
-      "apiVersion": "2014-04-01",
+      "name": "exampledatabase",
       ...
     }
   ]
 }
 ```
 
-Wanneer genest, het type is ingesteld op `databases` , maar het type volledige resource `Microsoft.Sql/servers/databases`. U geen opgeeft `Microsoft.Sql/servers/` omdat ervan wordt uitgegaan van het type van de bovenliggende resource. De naam van de onderliggende bron is ingesteld op `exampledatabase` , maar de volledige naam bevat de naam van de bovenliggende. U geen opgeeft `exampleserver` omdat ervan wordt uitgegaan van de bovenliggende resource.
-
-De indeling van het type van de onderliggende bron is: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
-
-De indeling van de naam van de onderliggende bron is: `{parent-resource-name}/{child-resource-name}`
-
 Maar u hoeft de database in de server. U kunt de onderliggende resource op het hoogste niveau definiëren. U kunt deze methode gebruiken als de bovenliggende resource is niet geïmplementeerd in dezelfde sjabloon of wilt gebruiken `copy` om meer dan één onderliggende resource te maken. Met deze methode moet u het type volledige resource en omvatten de naam van de bovenliggende resource in de naam van de onderliggende resource.
 
 ```json
 {
-  "name": "exampleserver",
+  "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Sql/servers",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver",
   "resources": [ 
   ],
   ...
 },
 {
-  "name": "exampleserver/exampledatabase",
+  "apiVersion": "2017-10-01-preview",
   "type": "Microsoft.Sql/servers/databases",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver/exampledatabase",
   ...
 }
 ```
+
+De waarden die u voor het type en de naam opgeven, afhankelijk van waar de onderliggende bron is gedefinieerd in de bovenliggende resource of buiten de bovenliggende resource.
+
+Wanneer in de bovenliggende resource is genest, gebruiken:
+
+```json
+"type": "{child-resource-type}",
+"name": "{child-resource-name}",
+```
+
+Wanneer gedefinieerd buiten de bovenliggende resource, gebruiken:
+
+```json
+"type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
+"name": "{parent-resource-name}/{child-resource-name}",
+```
+
+Wanneer genest, het type is ingesteld op `databases` , maar het type volledige resource is nog steeds `Microsoft.Sql/servers/databases`. U geen opgeeft `Microsoft.Sql/servers/` omdat ervan wordt uitgegaan van het type van de bovenliggende resource. De naam van de onderliggende bron is ingesteld op `exampledatabase` , maar de volledige naam bevat de naam van de bovenliggende. U geen opgeeft `exampleserver` omdat ervan wordt uitgegaan van de bovenliggende resource.
 
 Bij het maken van een volledig gekwalificeerde verwijzing naar een resource, is de volgorde te combineren segmenten van het type en de naam niet gewoon een samenvoeging van de twee. In plaats daarvan nadat de naamruimte van het gebruik van een reeks *typenaam/* paren van minst specifiek voor meest specifieke:
 
@@ -724,8 +736,8 @@ Het volgende voorbeeld ziet u de structuur van de uitvoerdefinitie van een:
 |:--- |:--- |:--- |
 | outputName |Ja |De naam van de uitvoerwaarde. Moet een geldige JavaScript-id. |
 | voorwaarde |Nee | Booleaanse waarde die aangeeft of deze uitvoer waarde wordt geretourneerd. Wanneer `true`, de waarde is opgenomen in de uitvoer voor de implementatie. Wanneer `false`, de uitvoerwaarde wordt overgeslagen voor deze implementatie. Als niet is opgegeven, is de standaardwaarde `true`. |
-| type |Ja |Type van de uitvoerwaarde. Uitvoerwaarden ondersteuning van de dezelfde typen als sjabloon invoerparameters die zijn opgegeven. |
-| waarde |Ja |De sjabloontaalexpressie dat wordt geëvalueerd en geretourneerd als de uitvoerwaarde. |
+| type |Ja |Type van de uitvoerwaarde. Uitvoerwaarden ondersteuning van de dezelfde typen als sjabloon invoerparameters die zijn opgegeven. Als u opgeeft **securestring** voor het uitvoertype de waarde wordt niet weergegeven in de geschiedenis van de implementatie en kan niet worden opgehaald uit een andere sjabloon. Voor het gebruik van een geheime waarde in meer dan één sjabloon, het geheim opslaan in een Key Vault en verwijzen naar het geheim in het parameterbestand. Zie voor meer informatie, [Azure Key Vault gebruikt om door te geven beveiligde parameterwaarde tijdens de implementatie van](resource-manager-keyvault-parameter.md). |
+| value |Ja |De sjabloontaalexpressie dat wordt geëvalueerd en geretourneerd als de uitvoerwaarde. |
 
 ### <a name="define-and-use-output-values"></a>Definiëren en uitvoerwaarden
 

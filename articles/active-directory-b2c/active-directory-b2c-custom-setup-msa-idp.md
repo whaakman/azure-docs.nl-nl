@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4bcc51c3efce95178dbb190eb86cb7ac8e224cd0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 842d9497333d02a9f7918d86cd7d76e84b504063
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187518"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002105"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Instellen van aanmelding met een Microsoft-account met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ Voor het gebruik van een Microsoft-account als id-provider in Azure AD B2C, moet
 1. Aanmelden bij de [Portal voor Appregistratie Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) met uw Microsoft-accountreferenties.
 2. Selecteer in de rechterbovenhoek **een app toevoegen**.
 3. Voer een **toepassingsnaam**, en klik vervolgens op **maken** 
-4. Selecteer **nieuw wachtwoord genereren** en zorg ervoor dat u het wachtwoord moet worden gebruikt wanneer u de id-provider configureren. Ook kopiëren de **toepassings-Id**. 
+4. Selecteer **nieuw wachtwoord genereren** en zorg ervoor dat u het wachtwoord moet worden gebruikt wanneer u de id-provider configureren. Ook kopiëren de toepassings-ID. 
 5. Voer `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Omleidings-URL's**. Vervang `your-tenant-name` met de naam van uw tenant.
 6. Selecteer **Opslaan**.
 
@@ -44,8 +44,8 @@ Voor het gebruik van een Microsoft-account als id-provider in Azure AD B2C, moet
 U moet voor het opslaan van het wachtwoord dat u hebt gegenereerd en eerder zijn vastgelegd in uw Azure AD B2C-tenant.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
-3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
+2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant. Selecteer de **map- en abonnementsfilter** in het bovenste menu en kiest u de map waarin uw tenant.
+3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer op de pagina overzicht **Identiteitsfunctie: PREVIEW**.
 5. Selecteer **Beleidssleutels** en selecteer vervolgens **toevoegen**.
 6. Voor **opties**, kiest u `Manual`.
@@ -88,7 +88,7 @@ U kunt Azure AD als een claimprovider definiëren door toe te voegen de **Claims
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
             <OutputClaim ClaimTypeReferenceId="email" />
           </OutputClaims>
@@ -141,13 +141,13 @@ De **ClaimsProviderSelection** element is vergelijkbaar met een id-provider-knop
 Nu dat u een knop op locatie hebt, die u wilt koppelen aan een actie. De actie, wordt in dit geval is voor Azure AD B2C om te communiceren met een Twitter-account voor het ontvangen van een token.
 
 1. Zoek de **OrchestrationStep** die bevat `Order="2"` in de gebruikersbeleving.
-2. Voeg de volgende **ClaimsExchange** element ervoor te zorgen dat u dezelfde waarde voor **Id** die u hebt gebruikt voor **TargetClaimsExchangeId**:
+2. Voeg de volgende **ClaimsExchange** element ervoor te zorgen dat u dezelfde waarde voor de ID die u gebruikt voor **TargetClaimsExchangeId**:
 
     ```xml
     <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
     ```
     
-    Werk de waarde van **TechnicalProfileReferenceId** naar de **Id** van het technische profiel dat u eerder hebt gemaakt. Bijvoorbeeld `MSA-OIDC`.
+    Werk de waarde van **TechnicalProfileReferenceId** aan de ID van het technische profiel dat u eerder hebt gemaakt. Bijvoorbeeld `MSA-OIDC`.
 
 3. Sla de *TrustFrameworkExtensions.xml* -bestand en upload het opnieuw om te verifiëren.
 
@@ -156,9 +156,9 @@ Nu dat u een knop op locatie hebt, die u wilt koppelen aan een actie. De actie, 
 Communicatie met Azure AD B2c vindt plaats via een toepassing die u in uw tenant maakt. Deze sectie vindt u optionele stappen die u uitvoeren kunt voor het maken van een testtoepassing als u dat nog niet hebt gedaan.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
-3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
-4. Selecteer **toepassingen**, en selecteer vervolgens **toevoegen**.
+2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant. Selecteer de **map- en abonnementsfilter** in het bovenste menu en kiest u de map waarin uw tenant.
+3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
+4. Selecteer **Toepassingen** en vervolgens **Toevoegen**.
 5. Voer een naam voor de toepassing, bijvoorbeeld *testapp1*.
 6. Voor **Web-App / Web-API**, selecteer `Yes`, en voer vervolgens `https://jwt.ms` voor de **antwoord-URL**.
 7. Klik op **Create**.

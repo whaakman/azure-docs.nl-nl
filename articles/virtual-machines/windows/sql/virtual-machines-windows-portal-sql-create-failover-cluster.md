@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3bb829e7cc99ee0d6e2d02f7ed3880d6c0226123
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486315"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011364"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configureren van SQL Server-failovercluster-exemplaar op Azure Virtual Machines
 
@@ -399,7 +399,7 @@ De load balancer maken:
 
    - **Naam**: Een naam voor de statustest.
    - **Protocol**: TCP.
-   - **Poort**: Ingesteld op een beschikbare TCP-poort. Deze poort is een open firewallpoort vereist. Gebruik de [dezelfde poort](#ports) u op de firewall instellen voor de statustest.
+   - **Poort**: Instellen op de poort die u hebt gemaakt in de firewall voor de statustest in [in deze stap](#ports). In dit artikel wordt het voorbeeld maakt gebruik van TCP-poort `59999`.
    - **Interval**: 5 seconden.
    - **Drempelwaarde voor onjuiste status**: 2 achtereenvolgende mislukte pogingen.
 
@@ -421,7 +421,7 @@ De load balancer maken:
    - **Statustest**: Gebruik de statustest die u eerder hebt geconfigureerd.
    - **Sessiepersistentie**: Geen.
    - **Time-out (minuten)**: 4.
-   - **Zwevend IP (direct server return)**: Ingeschakeld
+   - **Zwevend IP (direct server return)**: Enabled
 
 1. Klik op **OK**.
 

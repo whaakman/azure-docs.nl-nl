@@ -4,17 +4,17 @@ description: Informatie over het oplossen van problemen met de updatebeheer-agen
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/14/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: d4331942526b3dbda376605db2618ceeaec3f60a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 864fe70d7702680f21234a1a15c02515b19f770b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165995"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149611"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Inzicht in de resultaten van Windows-agent in beheer van updates
 
@@ -25,6 +25,9 @@ De volgende lijst worden de gereedheid van de drie statussen, kan een virtuele m
 * **Gereed** -de update-agent is geïmplementeerd en is minder dan 1 uur geleden laatst gezien.
 * **De verbinding verbroken** -de update-agent is geïmplementeerd en er is meer dan 1 uur geleden laatst gezien.
 * **Niet geconfigureerd** -de update-agent is niet gevonden of onboarding nog niet voltooid.
+
+> [!NOTE]
+> Er is mogelijk een korte vertraging tussen wat de Azure-portal wordt weergegeven en de huidige status van de machine.
 
 ## <a name="start-the-troubleshooter"></a>De probleemoplosser voor starten
 

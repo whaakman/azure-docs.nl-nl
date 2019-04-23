@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: a1743e677e1005e5b4479c1d431b6b8bdbe77c8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d1db228f4c73cc00cd32ca6ae5b86056db68f05b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848691"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148948"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Meld u aan bij een virtuele Linux-machine in Azure met behulp van Azure Active Directory-verificatie (Preview)
 
@@ -43,7 +43,7 @@ Er zijn tal van voordelen van het gebruik van Azure AD-verificatie voor aanmeldi
 
 De volgende Linux-distributies worden momenteel ondersteund tijdens de Preview-versie van deze functie:
 
-| Distributie | Versie |
+| Distributie | Version |
 | --- | --- |
 | CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
@@ -83,7 +83,7 @@ Het maken van de virtuele machine en de ondersteunende resources duurt enkele mi
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>De Azure AD-aanmelding VM-extensie installeren
 
-Om aan te melden met een Linux-VM met Azure AD-referenties, het Azure Active Directory-logboek in VM-extensie te installeren. VM-extensies zijn kleine toepassingen die taken van configuratie- en automatiseringstaken na de implementatie op Azure virtual machines bieden. Gebruik [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) voor het installeren van de *AADLoginForLinux* -extensie op de virtuele machine met de naam *myVM* in de *myResourceGroup* resource groep:
+Om aan te melden met een Linux-VM met Azure AD-referenties, installeert u de Azure Active Directory-aanmelding VM-extensie. VM-extensies zijn kleine toepassingen die taken van configuratie- en automatiseringstaken na de implementatie op Azure virtual machines bieden. Gebruik [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) voor het installeren van de *AADLoginForLinux* -extensie op de virtuele machine met de naam *myVM* in de *myResourceGroup* resource groep:
 
 ```azurecli-interactive
 az vm extension set \

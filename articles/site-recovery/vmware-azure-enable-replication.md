@@ -1,17 +1,17 @@
 ---
 title: Schakel replicatie van VMware-VM's voor herstel na noodgevallen naar Azure met Azure Site Recovery | Microsoft-Docs
 description: In dit artikel wordt beschreven hoe u virtuele VMware-machines inschakelen voor replicatie naar Azure voor herstel na noodgevallen met behulp van Azure Site Recovery.
-author: mayurigupta13
+author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 3/6/2019
+ms.date: 4/18/2019
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: 472ff7810852bd03ef322cd5eb647c3d61f09b01
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.author: ramamill
+ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418105"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004734"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Schakel replicatie naar Azure voor VMware-VM 's
 
@@ -89,7 +89,7 @@ Controleer vervolgens of de eigenschappen van de virtuele bronmachine. Houd er r
     ![Venster met eigenschappen van berekening en netwerk](./media/vmware-azure-enable-replication/vmproperties.png)
 
     * Azure VM-naam: Wijzig de naam om te voldoen aan vereisten voor Azure, indien nodig.
-    * Doel-VM-grootte of VM-type: De standaard-VM-grootte wordt gekozen op basis van het VM-grootte van de gegevensbron. U kunt een andere VM-grootte op basis van uw behoeften op elk gewenst moment voordat de failover selecteren. Houd er rekening mee dat de grootte van de VM-schijf is ook gebaseerd op de grootte van de bronschijf en kan alleen worden gewijzigd na een failover. Meer informatie over schijven en IOPS-tarieven op [schaalbaarheids- en prestatiedoelen voor VM-schijven op Windows](../virtual-machines/windows/disk-scalability-targets.md).
+    * Doel-VM-grootte of VM-type: De standaard-VM-grootte wordt gekozen op basis van een aantal parameters die het aantal schijven, NIC aantal, CPU-aantal kernen, geheugen en beschikbare VM-rol-grootten in Azure-doelregio opnemen. Azure Site Recovery kiest de eerste, beschikbare VM-grootte is dat voldoet aan alle criteria. U kunt een andere VM-grootte op basis van uw behoeften op elk gewenst moment voordat de failover selecteren. Houd er rekening mee dat de grootte van de VM-schijf is ook gebaseerd op de grootte van de bronschijf en kan alleen worden gewijzigd na een failover. Meer informatie over schijven en IOPS-tarieven op [schaalbaarheids- en prestatiedoelen voor VM-schijven op Windows](../virtual-machines/windows/disk-scalability-targets.md).
 
     *  Resourcegroep: U kunt een [resourcegroep](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines), uit die een virtuele machine een onderdeel van een post-failover wordt. U kunt deze instelling op elk gewenst moment voordat de failover te wijzigen. Na een failover, als u de virtuele machine naar een andere resourcegroep migreren, de beveiligingsinstellingen voor die virtuele machine worden verbroken.
     * Beschikbaarheidsset: U kunt een [beschikbaarheidsset](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) als uw virtuele machine moet een onderdeel van een post-failover. Wanneer u een beschikbaarheidsset selecteert, houd rekening met de volgende informatie:

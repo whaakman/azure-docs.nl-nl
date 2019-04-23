@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 79854c71410c7e796961f23c8c31a4d0809cd69c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 2a4c4c7431752ade60161af84b4cc15f010af656
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527979"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995741"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box-blobopslag via REST API's  
 
@@ -39,9 +39,14 @@ Zorg voordat u begint voor het volgende:
 5. [Download AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417) op de hostcomputer. U gebruikt AzCopy om gegevens te kopiëren van uw hostcomputer naar Azure Data Box-blobopslag.
 
 
-## <a name="connect-to-data-box-blob-storage"></a>Verbinding maken met Data Box-blobopslag
+## <a name="connect-via-http-or-https"></a>Verbinding maken via http of https
 
-U kunt verbinding maken met Data Box-blobopslag via *http* of *https*. *https* is de veiligste en aanbevolen verbindingsmethode voor Data Box-blobopslag. *Http* wordt gebruikt voor verbindingen via vertrouwde netwerken. De stappen kunnen verschillen, afhankelijk van of u verbinding maakt met Data Box-blobopslag via *http* of *https*.
+U kunt verbinding maken met Data Box-blobopslag via *http* of *https*.
+
+- *HTTPS* is de beveiligde en aanbevolen manier om verbinding maken met gegevens in Blob-opslag.
+- *Http* wordt gebruikt voor verbindingen via vertrouwde netwerken.
+
+De stappen om verbinding te verschillen wanneer u verbinding met gegevens in Blob-opslag via maken *http* of *https*,.
 
 ## <a name="connect-via-http"></a>Verbinding maken via http
 
@@ -52,11 +57,11 @@ Voor een verbinding met Data Box-blobopslag via REST API's via *http* zijn de vo
 
 Deze stappen worden afzonderlijk beschreven in de volgende gedeelten.
 
-#### <a name="add-device-ip-address-and-blob-service-endpoint-to-the-remote-host"></a>Het IP-adres van het apparaat en het blobservice-eindpunt aan de externe host toevoegen
+### <a name="add-device-ip-address-and-blob-service-endpoint"></a>IP-apparaatadres toevoegen en blob-service-eindpunt
 
 [!INCLUDE [data-box-add-device-ip](../../includes/data-box-add-device-ip.md)]
 
-#### <a name="configure-partner-software-and-verify-connection"></a>Partnersoftware configureren en verbinding controleren
+### <a name="configure-partner-software-and-verify-connection"></a>Partnersoftware configureren en verbinding controleren
 
 [!INCLUDE [data-box-configure-partner-software](../../includes/data-box-configure-partner-software.md)]
 
@@ -67,8 +72,8 @@ Deze stappen worden afzonderlijk beschreven in de volgende gedeelten.
 Voor een verbinding met Azure-blobopslag via REST API's via https zijn de volgende stappen vereist:
 
 - Het certificaat downloaden van Azure Portal
-- De hostcomputer voorbereiden voor extern beheer
-- De apparaat-IP en het blobservice-eindpunt aan de externe host toevoegen
+- Importeer het certificaat op de client of de externe host
+- De apparaat-IP toevoegen en blob-service-eindpunt voor de client of de externe host
 - Software van derden configureren en de verbinding controleren
 
 Deze stappen worden afzonderlijk beschreven in de volgende gedeelten.
@@ -83,20 +88,15 @@ Gebruik Azure Portal om het certificaat te downloaden.
 
     ![Certificaat downloaden in Azure Portal](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  
-### <a name="prepare-the-host-for-remote-management"></a>De host voorbereiden voor extern beheer
+### <a name="import-certificate"></a>Certificaat importeren 
 
-Volg deze stappen om de Windows-client voor te bereiden voor een externe verbinding die gebruikmaakt van een *https*-sessie:
+Toegang tot gegevens in Blob storage via HTTPS, is een SSL-certificaat vereist voor het apparaat. De manier waarop dit certificaat beschikbaar wordt gesteld aan de clienttoepassing is afhankelijk van de toepassing voor besturingssystemen en -distributies. Sommige toepassingen hebben toegang tot het certificaat nadat deze zijn geïmporteerd in het certificaatarchief van het systeem, terwijl andere toepassingen geen maken gebruik van dit mechanisme.
 
-- Importeer het CER-bestand in het basisarchief van de client of de externe host.
-- Voeg het IP-adres van het apparaat en het blobservice-eindpunt voor het hostbestand op uw Windows-client.
+Specifieke informatie voor sommige toepassingen wordt vermeld in deze sectie. Raadpleeg de documentatie voor de toepassing en het besturingssysteem dat wordt gebruikt voor meer informatie over andere toepassingen.
 
-De bovenstaande procedures worden hieronder beschreven.
+Volg deze stappen voor het importeren van de `.cer` -bestand in het basisarchief van een client met Windows of Linux. Op een Windows-systeem, kunt u Windows PowerShell of de gebruikersinterface van Windows Server gebruiken om te importeren en het certificaat installeren op uw systeem.
 
-#### <a name="import-the-certificate-on-the-remote-host"></a>Het certificaat importeren op de externe host
-
-U kunt Windows PowerShell of de gebruikersinterface van Windows Server gebruiken om het certificaat te importeren en te installeren op uw hostsysteem.
-
-**PowerShell gebruiken**
+#### <a name="use-windows-powershell"></a>Gebruik Windows PowerShell
 
 1. Start een Windows PowerShell-sessie als beheerder.
 2. Typ in de opdrachtprompt:
@@ -105,9 +105,9 @@ U kunt Windows PowerShell of de gebruikersinterface van Windows Server gebruiken
     Import-Certificate -FilePath C:\temp\localuihttps.cer -CertStoreLocation Cert:\LocalMachine\Root
     ```
 
-**Gebruikersinterface van Windows Server gebruiken**
+#### <a name="use-windows-server-ui"></a>Gebruikersinterface van WindowsServer gebruiken
 
-1.  Klik met de rechtermuisknop op het CER-bestand en selecteer **Certificaat installeren**. Hiermee start u de wizard Certificaat importeren.
+1.  Met de rechtermuisknop op de `.cer` bestand en selecteer **installeren certificaat**. Deze actie start de Wizard Certificaat importeren.
 2.  Selecteer bij **Archieflocatie** de optie **Lokale computer** en klik op **Volgende**.
 
     ![Certificaat importeren met PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
@@ -120,13 +120,29 @@ U kunt Windows PowerShell of de gebruikersinterface van Windows Server gebruiken
 
     ![Certificaat importeren met PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
-### <a name="to-add-device-ip-address-and-blob-service-endpoint-to-the-remote-host"></a>Het IP-adres van het apparaat en het blobservice-eindpunt aan de externe host toevoegen
+#### <a name="use-a-linux-system"></a>Een Linux-systeem gebruiken
 
-Voer dezelfde stappen uit als bij het maken van een verbinding via *http*.
+Distributie is afhankelijk van de methode om een certificaat te importeren.
 
-### <a name="configure-partner-software-to-establish-connection"></a>Partnersoftware configureren om een verbinding tot stand te brengen
+Verschillende, zoals Ubuntu en Debian, gebruikt u de `update-ca-certificates` opdracht.  
 
-Voer dezelfde stappen uit als bij het maken van een verbinding via *http*. Het enige verschil is dat u de optie *HTTP gebruiken* uitgeschakeld laat.
+- Wijzig de naam van het bestand met Base64 gecodeerd certificaat in een `.crt` extensie en kopieer het naar de `/usr/local/share/ca-certificates directory`.
+- Voer de opdracht `update-ca-certificates` uit.
+
+Recente versies van RHEL, Fedora en CentOS maken gebruik van de `update-ca-trust` opdracht.
+
+- Kopieer het certificaatbestand in de `/etc/pki/ca-trust/source/anchors` directory.
+- Voer `update-ca-trust` uit.
+
+Raadpleeg de documentatie die specifiek zijn voor uw distributie voor meer informatie.
+
+### <a name="add-device-ip-address-and-blob-service-endpoint"></a>IP-apparaatadres toevoegen en blob-service-eindpunt 
+
+Volg dezelfde stappen om te [IP-apparaatadres toevoegen en blob-service-eindpunt als u verbinding maakt via *http*](#add-device-ip-address-and-blob-service-endpoint).
+
+### <a name="configure-partner-software-and-verify-connection"></a>Partnersoftware configureren en verbinding controleren
+
+Volg de stappen voor het [configureren van de partnersoftware die u hebt gebruikt tijdens het verbinding maken via *http*](#configure-partner-software-and-verify-connection). Het enige verschil is dat u de optie *HTTP gebruiken* uitgeschakeld laat.
 
 ## <a name="copy-data-to-data-box"></a>Gegevens kopiëren naar Data Box
 
@@ -199,7 +215,6 @@ Als u alleen resources wilt kopiëren die niet in het doel bestaan, geeft u zowe
 #### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
-
 
 In de laatste stap gaat u het apparaat voorbereiden voor verzending.
 

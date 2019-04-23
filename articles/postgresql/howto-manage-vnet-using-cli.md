@@ -1,18 +1,18 @@
 ---
 title: Maken en beheren van Azure Database voor PostgreSQL-VNet-service-eindpunten en regels met behulp van Azure CLI
 description: In dit artikel wordt beschreven hoe u maken en beheren van Azure Database voor PostgreSQL-VNet-service-eindpunten en regels met behulp van Azure CLI-opdrachtregel.
-author: mbolz
+author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.openlocfilehash: 67ca81e385bbb7aaddddc6af9aa9bcbd45005e20
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: MT
+ms.openlocfilehash: 7dc5a49e8b27d1a4e4126bef1cce638373e056fb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416731"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008729"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-using-azure-cli"></a>Maken en beheren van Azure Database voor PostgreSQL-VNet-service-eindpunten met behulp van Azure CLI
 Virtueel netwerk (VNet) services-eindpunten en regels uitbreiden privé-adresruimte van een Virtueelnetwerk met uw Azure Database for PostgreSQL-server. Met behulp van handige opdrachten van Azure-opdrachtregelinterface (CLI), kunt u maken, bijwerken, verwijderen, lijst en VNet-service-eindpunten en regels voor het beheren van uw server weergeven. Zie voor een overzicht van Azure Database voor PostgreSQL-VNet-service-eindpunten, met inbegrip van beperkingen, [Azure Database for PostgreSQL-Server VNet-service-eindpunten](concepts-data-access-and-security-vnet.md). VNet-service-eindpunten zijn beschikbaar in alle ondersteunde regio's voor Azure Database for PostgreSQL.

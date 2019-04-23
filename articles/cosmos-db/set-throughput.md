@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
-ms.openlocfilehash: 1f8bec6fbf0bce9a3ac272231058a96a5d9e84cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ed3a171e60c078975de7003cdf599f0bac62c402
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762494"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004751"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Doorvoer voor containers en databases inrichten
 
@@ -88,7 +88,7 @@ U kunt de minimale doorvoer van een container of een database programmatisch met
 
 Bij het gebruik van de .NET SDK, de [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) methode kunt u de minimale doorvoer van een container of een database ophalen. 
 
-U kunt de ingerichte doorvoer van een container of een database schalen op elk gewenst moment. U kunt de bewerking omlaag schalen na de niet-actieve periode van vier uur uitvoeren. De niet-actieve periode is gedefinieerd als de periode wanneer er geen aanbieding vervangen (waaronder omhoog en omlaag schalen) in een container of een database. 
+U kunt de ingerichte doorvoer van een container of een database schalen op elk gewenst moment. 
 
 ## <a name="comparison-of-models"></a>Vergelijking van modellen
 

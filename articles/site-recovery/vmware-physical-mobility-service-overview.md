@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 3b354492778426d1e3c31e53e277fd9be1e22c93
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 929a4e4366c9e94ed4e1915406914991624f6baa
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048109"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149628"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Over de Mobility-service voor VMware-VM's en fysieke servers
 
@@ -115,7 +115,7 @@ Tijdens de push-installatie van de mobility-agent, de volgende stappen worden ui
 #### <a name="installation-settings"></a>Installatie-instellingen
 **Instelling** | **Details**
 --- | ---
-Gebruik | UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
+Gebruik | UnifiedAgent.exe /Role <MS/MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
 Setup-logboeken | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 / Rol | De van de verplichte installatieparameter. Hiermee geeft u op of de Mobility-service (MS) of een master target (MT) moet worden geïnstalleerd.
 /InstallLocation| Een optionele parameter. Hiermee geeft u de installatielocatie van de Mobility-service (een map).
@@ -154,7 +154,7 @@ Agent-logboeken voor configuratie | Under %ProgramData%\ASRSetupLogs\ASRUnifiedA
 #### <a name="installation-settings"></a>Installatie-instellingen
 **Instelling** | **Details**
 --- | ---
-Gebruik | . / install -d \<installatielocatie > - r < MS|MT> -v VmWare -q
+Gebruik | . / install -d <Install Location> - r < MS/MT > - v en VmWare - q
 -r | De van de verplichte installatieparameter. Hiermee geeft u op of de Mobility-service (MS) of een master target (MT) moet worden geïnstalleerd.
 -d | Een optionele parameter. Hiermee geeft u de installatielocatie van de Mobility-service: /usr/local/ASR.
 -v | Verplicht. Hiermee geeft u het platform waarop de Mobility-Service is geïnstalleerd. **VMware** voor VMware-machines/fysieke servers; **Azure** voor Azure VM's.
