@@ -373,7 +373,7 @@ Om gegevens te kopiëren naar Azure SQL Data Warehouse, stelt u het sink-type in
 | rejectType | Hiermee geeft u op of de **rejectValue** optie is een letterlijke waarde of een percentage.<br/><br/>Toegestane waarden zijn **waarde** (standaard) en **Percentage**. | Nee |
 | rejectSampleValue | Bepaalt het aantal rijen om op te halen voordat PolyBase berekent het percentage van geweigerde rijen opnieuw.<br/><br/>Toegestane waarden zijn 1, 2, enzovoort. | Ja, als de **rejectType** is **percentage**. |
 | useTypeDefault | Hiermee geeft u ontbrekende waarden in de tekstbestanden verwerken als PolyBase worden gegevens opgehaald uit het tekstbestand.<br/><br/>Meer informatie over deze eigenschap in de sectie argumenten [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Toegestane waarden zijn **waar** en **False** (standaard). | Nee |
-| WriteBatchSize | Voegt de gegevens in de SQL-tabel wanneer de buffergrootte bereikt **writeBatchSize**. Geldt alleen wanneer PolyBase wordt niet gebruikt.<br/><br/>De toegestane waarde is **geheel getal** (aantal rijen). | Nee. De standaardwaarde is 10000. |
+| writeBatchSize | Voegt de gegevens in de SQL-tabel wanneer de buffergrootte bereikt **writeBatchSize**. Geldt alleen wanneer PolyBase wordt niet gebruikt.<br/><br/>De toegestane waarde is **geheel getal** (aantal rijen). | Nee. De standaardwaarde is 10000. |
 | writeBatchTimeout | Wachttijd voor de bewerking voor het invoegen van batch worden voltooid voordat er een optreedt time-out. Geldt alleen wanneer PolyBase wordt niet gebruikt.<br/><br/>De toegestane waarde is **timespan**. Voorbeeld: "00: 30:00 ' (30 minuten). | Nee |
 | preCopyScript | Geef een SQL-query voor de Kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in Azure SQL Data Warehouse in elke uitvoering. Gebruik deze eigenschap voor het opschonen van de vooraf geladen gegevens. | Nee |
 
@@ -564,36 +564,36 @@ Wanneer u gegevens van of naar Azure SQL Data Warehouse kopieert, worden de volg
 | Azure SQL Data Warehouse-gegevenstype | Data Factory tussentijdse gegevenstype |
 |:--- |:--- |
 | bigint | Int64 |
-| binaire bestanden | Byte[] |
-| bits | Booleaans |
-| CHAR | Tekenreeks, Char] |
+| binary | Byte[] |
+| bit | Boolean |
+| char | String, Char[] |
 | date | DateTime |
-| Datum en tijd | DateTime |
+| Datetime | DateTime |
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
-| decimaal | decimaal |
-| FILESTREAM-kenmerk (varbinary(max)) | Byte[] |
-| Float | Double-waarde |
+| Decimal | Decimal |
+| FILESTREAM attribute (varbinary(max)) | Byte[] |
+| Float | Double |
 | image | Byte[] |
 | int | Int32 |
-| money | decimaal |
-| nchar | Tekenreeks, Char] |
-| ntext | Tekenreeks, Char] |
-| numerieke | decimaal |
-| nvarchar | Tekenreeks, Char] |
-| echte | Enkelvoudig |
-| ROWVERSION | Byte[] |
+| money | Decimal |
+| nchar | String, Char[] |
+| ntext | String, Char[] |
+| numerieke | Decimal |
+| nvarchar | String, Char[] |
+| real | Single |
+| rowversion | Byte[] |
 | smalldatetime | DateTime |
 | smallint | Int16 |
-| smallmoney | decimaal |
+| smallmoney | Decimal |
 | sql_variant | Object |
-| tekst | Tekenreeks, Char] |
+| tekst | String, Char[] |
 | time | TimeSpan |
-| tijdstempel | Byte[] |
+| timestamp | Byte[] |
 | tinyint | Byte |
-| uniqueidentifier | GUID |
+| uniqueidentifier | Guid |
 | varbinary | Byte[] |
-| varchar | Tekenreeks, Char] |
+| varchar | String, Char[] |
 | xml | Xml |
 
 ## <a name="next-steps"></a>Volgende stappen

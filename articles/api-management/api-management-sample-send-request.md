@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 2c4e5d0117f046343b140ef2b2c46c074c835075
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505648"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796525"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Externe services van de Azure API Management-service gebruiken
 Het beleid dat beschikbaar is in Azure API Management-service kan een breed scala aan nuttig werk op basis van alleen de inkomende aanvraag, de uitgaande antwoord, en informatie over de standaardconfiguratie. Echter, de mogelijkheid om te communiceren met externe services van API Management beleid opent u veel meer mogelijkheden.

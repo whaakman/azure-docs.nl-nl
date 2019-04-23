@@ -1,55 +1,48 @@
-items:
 - name: Documentatie voor Azure Portal
   href: index.yml
 - name: Overzicht
   items:
-  - name: Over de Azure-portal
-    href: azure-portal-overview.md
-  - name: Ondersteunde browsers en apparaten
-    href: azure-portal-supported-browsers-devices.md
+    - name: Over de Azure-portal
+      href: azure-portal-overview.md
+    - name: Ondersteunde browsers en apparaten
+      href: azure-portal-supported-browsers-devices.md
 - name: Concepten
   items:
-  - name: Azure-dashboards maken en delen
-    href: azure-portal-dashboards.md
-  - name: Dashboards met op rollen gebaseerd toegangsbeheer delen
-    href: azure-portal-dashboard-share-access.md
-  - name: Op programmatische wijze Azure-dashboards maken
-    href: azure-portal-dashboards-create-programmatically.md
+    - name: Azure-dashboards maken en delen
+      href: azure-portal-dashboards.md
+    - name: Dashboards met op rollen gebaseerd toegangsbeheer delen
+      href: azure-portal-dashboard-share-access.md
+    - name: Op programmatische wijze Azure-dashboards maken
+      href: azure-portal-dashboards-create-programmatically.md
 - name: Handleidingen
   items:
-  - name: Hoog contrast inschakelen of het thema wijzigen
-    href: azure-portal-change-theme-high-contrast.md
-  - name: Favorieten toevoegen, verwijderen en sorteren
-    href: azure-portal-add-remove-sort-favorites.md
-  - name: Een aangepaste markdown-tegel gebruiken
-    href: azure-portal-markdown-tile.md
-  - name: Gebruikersinstellingen exporteren of verwijderen
-    href: azure-portal-export-delete-settings.md
-  - name: Videoserie met instructies voor de Azure-portal
-    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
+    - name: Hoog contrast inschakelen of het thema wijzigen
+      href: azure-portal-change-theme-high-contrast.md
+    - name: 'Favorieten toevoegen, verwijderen en sorteren'
+      href: azure-portal-add-remove-sort-favorites.md
+    - name: Een aangepaste markdown-tegel gebruiken
+      href: azure-portal-markdown-tile.md
+    - name: Gebruikersinstellingen exporteren of verwijderen
+      href: azure-portal-export-delete-settings.md
+    - name: Videoserie met instructies voor de Azure-portal
+      href: 'https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR'
 - name: Naslaginformatie
   items:
-  - name: Sneltoetsen
-    href: azure-portal-keyboard-shortcuts.md
-  - name: Structuur van Azure-dashboards
-    href: azure-portal-dashboards-structure.md
+    - name: Sneltoetsen
+      href: azure-portal-keyboard-shortcuts.md
+    - name: Structuur van Azure-dashboards
+      href: azure-portal-dashboards-structure.md
 - name: Resources
   items:
-  - name: Azure-roadmap
-    href: https://azure.microsoft.com/updates/
-  - name: Uw vaardigheden ontwikkelen met Microsoft Learn
-    href: /learn/browse/?products=azure-portal
-  - name: Prijscalculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Regionale beschikbaarheid
-    href: https://azure.microsoft.com/regions/services/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-management-portal
-  - name: Azure-video's
-    href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
-ms.openlocfilehash: 3846b9198d79be1a9580919a97e568c6a2467b12
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047982"
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/updates/'
+    - name: Uw vaardigheden ontwikkelen met Microsoft Learn
+      href: /learn/browse/?products=azure-portal
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-management-portal'
+    - name: Azure-video's
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest'
