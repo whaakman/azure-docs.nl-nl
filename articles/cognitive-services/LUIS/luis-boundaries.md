@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 51f5355e365d0dcf7a103deab3356f015e75641e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 58f6d6cf8bf16f7c35bab35a69cfcdf8759f66ae
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897506"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006825"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Grenzen voor uw LUIS-model en de sleutels
 LUIS heeft verschillende gebieden van de grens. De eerste is de [model grens](#model-boundaries), welke besturingselementen intents, entiteiten en functies van LUIS. Het tweede gedeelte [quotalimieten](#key-limits) op basis van het type sleutel. Is van een derde deel van de grenzen van de [combinatie op het toetsenbord](#keyboard-controls) voor het beheren van de website van LUIS. Een vierde gebied is de [world regiotoewijzing](luis-reference-regions.md) tussen de LUIS website ontwerpen en de LUIS [eindpunt](luis-glossary.md#endpoint) API's. 
@@ -47,16 +47,16 @@ Als uw app de grenzen van LUIS-model en de grenzen overschrijdt, kunt u overwege
 
 * Standaard teken maximaal is 50 tekens. 
 
-## <a name="intent-and-entity-naming"></a>Doel en de naamgeving van entiteit
-Gebruik de volgende tekens niet in de namen van intentie en entiteit:
+<a name="intent-and-entity-naming"></a>
 
-|Teken|Name|
+## <a name="object-naming"></a>Naamgeving van
+
+Gebruik de volgende tekens niet in de volgende namen.
+
+|Object|Tekens uitsluiten|
 |--|--|
-|`{`|Accolade links|
-|`}`|Accolade rechts|
-|`[`|Haakje openen|
-|`]`|Haakje sluiten|
-|`\`|Backslash|
+|Doel-, entiteits-en rol|`:`<br>`$`|
+|Versienaam|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## <a name="key-usage"></a>Sleutelgebruik
 

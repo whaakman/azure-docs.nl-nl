@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 11/18/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bf777917bc2e09f08cbfaac6334bf9bda198f01
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: a8fefc2eb2e642b5c7ac93b8a1cfc25a54c3b646
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439381"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996166"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Foutcodes voor aanmeldingsactiviteiten rapport 
 
@@ -174,9 +174,11 @@ U kunt ook programmatisch toegang verkrijgen tot de aanmelding via de [rapportag
 |81012|Dit is een fout optreedt. Hiermee wordt aangegeven dat gebruiker zich aanmelden bij Azure AD verschilt van de gebruiker is aangemeld bij het apparaat. U kunt deze code in de logboeken negeren.|
 |90010|De aanvraag wordt niet ondersteund om verschillende redenen. Bijvoorbeeld, de aanvraag wordt gedaan met behulp van een niet-ondersteunde aanvraag-methode (alleen POST-methode wordt ondersteund) of het token-ondertekening algoritme dat is aangevraagd, wordt niet ondersteund. Neem contact op met de ontwikkelaar van de toepassing.|
 |90014| Er ontbreekt een vereist veld voor een protocolbericht, neem contact op met de eigenaar van de toepassing. Als u eigenaar van de toepassing bent, zorgt u ervoor dat u de vereiste parameters voor de aanmeldingsaanvraag hebt. |
+|90051| Ongeldige Delegeringstoken. Ongeldige nationale Cloud-ID ({cloudId}) is opgegeven.|
 |90072| Het account moet eerst worden toegevoegd als een externe gebruiker in de tenant. Afmelden en aanmelden met een andere Azure AD account.|
 |90094| De toekenning zijn beheerdersrechten vereist. Vraag de beheerder van de tenant voor toestemming voor deze toepassing.|
 |500133| De verklaring valt niet binnen het bereik van geldige tijd. Zorg ervoor dat het toegangstoken niet voordat u deze gebruikt voor een verklaring van de gebruiker is verlopen of vraag een nieuw token.|
+|530021|Aanvraag voldoet niet aan de vereisten van de app voor voorwaardelijke toegang goedgekeurd.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

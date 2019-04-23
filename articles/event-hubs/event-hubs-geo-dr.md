@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3a7cc7703a6b33eef4c7a10f927b4747bc1d417c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: MT
+ms.openlocfilehash: 56077d018c1ae62809d51fc66d7f5aff93fb4c02
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562183"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002694"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Eventhubs - Geo-noodherstel 
 
@@ -107,7 +107,7 @@ Houd rekening met de volgende punten moet rekening houden met deze release:
 Biedt ondersteuning voor de Event Hubs standaard-SKU [Beschikbaarheidszones](../availability-zones/az-overview.md), bieden foutgeïsoleerde locaties binnen een Azure-regio. 
 
 > [!NOTE]
-> De ondersteuning voor Beschikbaarheidszones voor Azure Event Hubs standaard is alleen beschikbaar in [Azure-regio's](../availability-zones/az-overview.md#regions-that-support-availability-zones) waar beschikbaarheidszones aanwezig zijn.
+> De ondersteuning voor Beschikbaarheidszones voor Azure Event Hubs standaard is alleen beschikbaar in [Azure-regio's](../availability-zones/az-overview.md#services-support-by-region) waar beschikbaarheidszones aanwezig zijn.
 
 U kunt Beschikbaarheidszones inschakelen op nieuwe naamruimten, met behulp van de Azure portal. Eventhubs biedt geen ondersteuning voor migratie van bestaande naamruimten. U kunt zoneredundantie niet uitschakelen nadat deze is ingeschakeld op uw naamruimte.
 

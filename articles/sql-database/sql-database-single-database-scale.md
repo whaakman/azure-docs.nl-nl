@@ -7,17 +7,17 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/20/2019
-ms.openlocfilehash: c6dc49204c0a7e1cb0d1116e29746eed2fe52f8d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.date: 04/18/2019
+ms.openlocfilehash: 471ded9cd94623929630155f1a3c613bf00576a8
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286258"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006247"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Schalen van één database-resources in Azure SQL Database
 
@@ -27,7 +27,7 @@ In dit artikel wordt beschreven hoe u de reken- en opslagresources die beschikba
 > [!IMPORTANT]
 > De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
-## <a name="change-compute-resources-vcores-or-dtus"></a>Wijziging rekenresources (vCores of dtu's)
+## <a name="change-compute-size-vcores-or-dtus"></a>Compute wijziging van grootte (vCores of dtu's)
 
 Wanneer u hebt gekozen het aantal vCores of dtu's, u kunt een individuele database omhoog of omlaag schalen dynamisch op basis van het feitelijke gebruik met behulp van de [Azure-portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [ PowerShell](/powershell/module/az.sql/set-azsqldatabase), wordt de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
@@ -67,6 +67,37 @@ De latentie te wijzigen van de servicelaag of de compute-grootte van een individ
 > [!TIP]
 > Als u wilt bewaken in voortgang van bewerkingen, Zie: [Beheren met behulp van de REST-API voor SQL operations](https://docs.microsoft.com/rest/api/sql/operations/list), [bewerkingen met behulp van CLI beheren](/cli/azure/sql/db/op), [bewaken van bewerkingen met behulp van T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) en deze twee PowerShell-opdrachten: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) en [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
+### <a name="cancelling-service-tier-changes-or-compute-rescaling-operations"></a>Annuleren van wijzigingen in de service tier of compute schaling operations aanpassen
+
+Een servicelaag wijzigen of compute-schaling aanpassen bewerking kan worden geannuleerd.
+
+#### <a name="azure-portal"></a>Azure Portal
+
+Navigeer in de overzichtsblade van de database naar **meldingen** en klik op de tegel die aangeeft dat er een bewerking uitgevoerd waarmee:
+
+![Lopende bewerking](media/sql-database-single-database-scale/ongoing-operations.png)
+
+Klik op de knop met de naam **deze bewerking annuleren**.
+
+![De annuleringsbewerking](media/sql-database-single-database-scale/cancel-ongoing-operation.png)
+
+#### <a name="powershell"></a>PowerShell
+
+Instellen van een PowerShell-opdrachtprompt de `$ResourceGroupName`, `$ServerName`, en `$DatabaseName`, en voer de volgende opdracht:
+
+```PowerShell
+$OperationName = (az sql db op list --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --query "[?state=='InProgress'].name" --out tsv)
+if(-not [string]::IsNullOrEmpty($OperationName))
+    {
+        (az sql db op cancel --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --name $OperationName)
+        "Operation " + $OperationName + " has been canceled"
+    }
+    else
+    {
+        "No service tier change or compute rescaling operation found"
+    }
+```
+
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Aanvullende overwegingen bij het wijzigen van grootte van laag of schaling aanpassen compute-service
 
 - Als u een upgrade naar een hogere servicelaag uitvoert of grootte van compute, wordt de maximale grootte van de database niet verhogen, tenzij u expliciet een groter formaat (maxsize) opgeeft.
@@ -77,7 +108,7 @@ De latentie te wijzigen van de servicelaag of de compute-grootte van een individ
 - De mogelijkheden om de service te herstellen verschillen voor de verschillende servicelagen. Als u een downgrade uitvoert op de **Basic** laag, wordt er een lagere bewaarperiode voor back-up. Zie [back-ups van Azure SQL Database](sql-database-automated-backups.md).
 - De nieuwe eigenschappen voor de database worden pas toegepast nadat de wijzigingen zijn voltooid.
 
-### <a name="billing-during-rescaling"></a>Facturering tijdens schaling aanpassen
+### <a name="billing-during-compute-rescaling"></a>Facturering tijdens schaling van compute aanpassen
 
 U worden in rekening gebracht voor elk uur bestaat in een database met behulp van de hoogste servicelaag + compute-grootte die tijdens dat uur, ongeacht het gebruik of of de database minder dan een uur actief is toegepast. Als u een individuele database maken en deze vijf minuten later verwijdert weerspiegelt uw factuur een post voor één database-uur.
 
@@ -102,9 +133,9 @@ U worden in rekening gebracht voor elk uur bestaat in een database met behulp va
 > [!IMPORTANT]
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
 
-## <a name="dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>DTU gebaseerde aankoopmodel: Beperkingen van P11 en P15 wanneer de maximale grootte van meer dan 1 TB
+## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>Beperkingen voor P11 en P15 wanneer maximale grootte van meer dan 1 TB
 
-Voor de Premium-laag is er meer dan 1 TB aan opslagruimte beschikbaar in alle regio's, met uitzondering van: China - oost, China - noord, Duitsland - centraal, Duitsland - noordoost, US - west-centraal, US - DoD-regio's en US Government - centraal. In deze regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Raadpleeg [P11-P15 huidige beperkingen](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) voor meer informatie. De volgende overwegingen en beperkingen van toepassing op P11 en P15-databases met een maximale grootte die groter zijn dan 1 TB:
+Voor de Premium-laag is er meer dan 1 TB aan opslagruimte beschikbaar in alle regio's, met uitzondering van: China - oost, China - noord, Duitsland - centraal, Duitsland - noordoost, US - west-centraal, US - DoD-regio's en US Government - centraal. In deze regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. De volgende overwegingen en beperkingen van toepassing op P11 en P15-databases met een maximale grootte die groter zijn dan 1 TB:
 
 - Als de maximale grootte voor een database P11 of P15 is ooit ingesteld op een waarde groter is dan 1 TB, vervolgens kan deze alleen kan worden hersteld of gekopieerd naar een P11 of P15-database.  De database kan vervolgens worden afgestemd op een andere compute-grootte, mits de hoeveelheid ruimte die is toegewezen op het moment van de bewerking opnieuw schalen niet de grenzen van de maximale grootte van de nieuwe grootte voor de compute overschrijdt.
 - Voor scenario's met actieve geo-replicatie:

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a5d34b2964d805cdbeced0d4fad3dd889da9f3e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: b8ee1bdfece35d774cdc79595a495b0b3719a836
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900621"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996642"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Quickstart: een iOS-app maken met Azure Spatial Anchors, in Swift of Objective-C
 
@@ -88,15 +88,15 @@ De volgende stap is het configureren van de app voor het gebruik van uw account-
 
 # <a name="swifttabopenproject-swift"></a>[Swift](#tab/openproject-swift)
 
-Open `iOS/Swift/SampleSwift/ViewController.swift`.
+Open `iOS/Swift/SampleSwift/ViewControllers/BaseViewController.swift`.
 
-Zoek het veld `SpatialAnchorsAccountKey` en vervang `Set me` met de accountsleutel.
+Zoek het veld `spatialAnchorsAccountKey` en vervang `Set me` met de accountsleutel.
 
-Zoek het veld `SpatialAnchorsAccountId` en vervang `Set me` met de account-id.
+Zoek het veld `spatialAnchorsAccountId` en vervang `Set me` met de account-id.
 
 # <a name="objective-ctabopenproject-objc"></a>[Objective-C](#tab/openproject-objc)
 
-Open `iOS/Objective-C/SampleObjC/ViewController.m`.
+Open `iOS/Objective-C/SampleObjC/BaseViewController.m`.
 
 Zoek het veld `SpatialAnchorsAccountKey` en vervang `Set me` met de accountsleutel.
 

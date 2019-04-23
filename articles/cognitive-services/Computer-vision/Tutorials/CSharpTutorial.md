@@ -1,22 +1,22 @@
 ---
 title: 'Voorbeeld: Een app voor afbeeldingsverwerking ontdekken in C#'
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Ontdek een eenvoudige Windows-app die gebruikmaakt van de Computer Vision-API in Microsoft Cognitive Services. Voer OCR uit, maak miniaturen en werk met visuele kenmerken in een afbeelding.
+titleSuffix: Azure Cognitive Services
+description: Verken een eenvoudige Windows-app die gebruikmaakt van de Computer Vision-API in Azure Cognitive Services. Voer OCR uit, maak miniaturen en werk met visuele kenmerken in een afbeelding.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 02/08/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a23e45cb1e75305f41c81077c90282352327b72d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 63b5130e3cade54a2fbc432b2391ad3ee1ea8a1a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310939"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004020"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Voorbeeld: Een app voor afbeeldingsverwerking ontdekken met C#
 
@@ -33,7 +33,7 @@ Een eenvoudige Windows-toepassing verkennen die Computer Vision gebruikt om opti
 Voordat u met de voorbeeld-app gaat werken, moet zijn voldaan aan de volgende vereisten:
 
 * U hebt [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) of hoger nodig.
-* U moet beschikken over een abonnementssleutel voor Computer Vision. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie over het verkrijgen van een abonnementssleutel.
+* U moet beschikken over een abonnementssleutel voor Computer Vision. U krijgt een gratis proefversie sleutel van [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Of, volg de instructies in [een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) abonneren op de Computer Vision en haal uw sleutel.
 
 ## <a name="get-the-sample-app"></a>De voorbeeld-app downloaden
 
@@ -88,7 +88,7 @@ U kunt de voorbeeld-app uitvoeren om te zien hoe deze samenwerkt met u en de Com
 
 1. Selecteer onder **Select a scenario** in het navigatiedeelvenster een van de scenario's die momenteel zijn opgenomen in de voorbeeld-app:  
 
-   | Scenario | Beschrijving |
+   | Scenario | Description |
    |----------|-------------|
    |Analyze Image | Maakt gebruik van de bewerking [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) voor het analyseren van een lokale of externe afbeelding. U kunt de visuele kenmerken en de taal voor de analyse kiezen en zowel de afbeelding als de resultaten bekijken.  |
    |Analyze Image with Domain Model | Maakt gebruik van de bewerking [List Domain Specific Models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) voor het weergeven van een lijst met de domeinmodellen waaruit u kunt kiezen, en de bewerking [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) voor het analyseren van een lokale of externe afbeelding met behulp van het geselecteerde domeinmodel. U kunt ook de taal voor de analyse kiezen. |

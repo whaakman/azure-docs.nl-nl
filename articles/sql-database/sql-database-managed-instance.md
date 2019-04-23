@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: 15b7bfc9e1d747fcefdbba03ca254a9604197b5f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/16/2019
+ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361817"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002745"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Geavanceerde beveiliging van gegevens met virtuele netwerken en in de buurt van 100% compatibiliteit van SQL-Database gebruiken
 
@@ -54,7 +54,7 @@ Beheerd exemplaar combineert het beste functies die beschikbaar zijn in Azure SQ
 
 De belangrijkste functies van beheerde exemplaren worden weergegeven in de volgende tabel:
 
-|Functie | Beschrijving|
+|Functie | Description|
 |---|---|
 | SQL Server-versie / build | SQL Server Database Engine (meest recente stabiel) |
 | Automatische back-ups beheren | Ja |
@@ -126,7 +126,7 @@ De Implementatieoptie voor beheerd exemplaar combineert geavanceerde beveiliging
 Een beheerd exemplaar biedt extra beveiligingsisolatie van andere tenants in de Azure-cloud. Isolatie bevat:
 
 - [Implementatie van systeemeigen virtuele netwerk](sql-database-managed-instance-connectivity-architecture.md) en verbinding met uw on-premises-omgeving met behulp van Azure Express Route- of VPN-Gateway.
-- SQL-eindpunt wordt alleen weergegeven via een privé IP-adres, zodat u veilige connectiviteit van Azure privé of hybride netwerken.
+- In een standaardimplementatie, wordt SQL-eindpunt alleen weergegeven via een privé IP-adres, zodat u veilige connectiviteit van Azure privé of hybride netwerken.
 - Één tenant met toegewezen onderliggende infrastructuur (compute, storage).
 
 Het volgende diagram geeft een overzicht van de verschillende connectiviteitsopties voor uw toepassingen:

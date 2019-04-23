@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 2abec4d9d74cf58503dec667080f478b1fec06ff
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485149"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000722"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Met behulp van de oplossing Serviceoverzicht in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met Servicetoewijzing kun u uw servers weergeven op de manier waarop ze hun waarde voor u hebben: als onderling verbonden systemen die essentiële services leveren. Servicetoewijzing toont verbindingen tussen servers, processen, latentie van binnenkomende en uitgaande verbindingen en poorten voor elke via TCP verbonden architectuur. Na installatie van een agent is er geen verdere configuratie vereist.
@@ -142,7 +142,7 @@ Klik op het menu van de drie puntjes naast de groepnaam van de in de lijst met g
 ## <a name="role-icons"></a>Rolpictogrammen
 Bepaalde processen bepaalde functies op machines bedienen: web-servers, toepassingsservers en -database. Serviceoverzicht annotates proces- en machinegrenzen vakken met Rolpictogrammen voor het identificeren van in een oogopslag de rol van een proces of de server wordt afgespeeld.
 
-| Functiepictogram | Description |
+| Functiepictogram | Beschrijving |
 |:--|:--|
 | ![Webserver](media/service-map/role-web-server.png) | Webserver |
 | ![App-server](media/service-map/role-application-server.png) | Toepassingsserver |
@@ -299,22 +299,22 @@ Voor het beheren van kosten en complexiteit, vertegenwoordigen verbinding record
 
 | Eigenschap | Description |
 |:--|:--|
-|Richting |Richting van de verbinding met de waarde is *inkomende* of *uitgaande* |
-|Machine |De FQDN-naam van de computer |
-|Verwerken |Identiteit van het proces of groepen van processen, de verbinding initiëren/accepteren |
-|SourceIp |IP-adres van de bron |
-|DestinationIp |IP-adres van de bestemming |
-|DestinationPort |Poortnummer van de bestemming |
-|Protocol |Het protocol dat wordt gebruikt voor de verbinding.  Waarden is *tcp*. |
+| `Direction` |Richting van de verbinding met de waarde is *inkomende* of *uitgaande* |
+| `Machine` |De FQDN-naam van de computer |
+| `Process` |Identiteit van het proces of groepen van processen, de verbinding initiëren/accepteren |
+| `SourceIp` |IP-adres van de bron |
+| `DestinationIp` |IP-adres van de bestemming |
+| `DestinationPort` |Poortnummer van de bestemming |
+| `Protocol` |Het protocol dat wordt gebruikt voor de verbinding.  Waarden is *tcp*. |
 
 Voor het account voor de impact van groepering, informatie over het aantal gegroepeerde fysieke verbindingen vindt u in de volgende eigenschappen van de record:
 
 | Eigenschap | Description |
 |:--|:--|
-|LinksEstablished |Het aantal fysieke netwerkverbindingen die zijn gemaakt tijdens de rapportage venster |
-|LinksTerminated |Het aantal fysieke netwerkverbindingen die tijdens de rapportage venster zijn beëindigd |
-|LinksFailed |Het aantal fysieke netwerkverbindingen die zijn mislukt tijdens het rapportage venster. Deze informatie is momenteel alleen beschikbaar voor uitgaande verbindingen. |
-|LinksLive |Het aantal fysieke netwerkverbindingen die aan het einde van de rapportage venster geopend waren|
+| `LinksEstablished` |Het aantal fysieke netwerkverbindingen die zijn gemaakt tijdens de rapportage venster |
+| `LinksTerminated` |Het aantal fysieke netwerkverbindingen die tijdens de rapportage venster zijn beëindigd |
+| `LinksFailed` |Het aantal fysieke netwerkverbindingen die zijn mislukt tijdens het rapportage venster. Deze informatie is momenteel alleen beschikbaar voor uitgaande verbindingen. |
+| `LinksLive` |Het aantal fysieke netwerkverbindingen die aan het einde van de rapportage venster geopend waren|
 
 #### <a name="metrics"></a>Metrische gegevens
 
@@ -322,12 +322,12 @@ Naast de verbinding aantal metrische gegevens, informatie over de hoeveelheid ge
 
 | Eigenschap | Description |
 |:--|:--|
-|BytesSent |Totaal aantal bytes dat is verzonden tijdens het rapportage venster |
-|BytesReceived |Totaal aantal bytes dat is ontvangen tijdens het rapportage venster |
-|Antwoorden |Het aantal antwoorden is waargenomen tijdens het rapportage venster. 
-|ResponseTimeMax |De grootste reactietijd (milliseconden) waargenomen tijdens het rapportage venster.  Als er geen waarde is de eigenschap leeg.|
-|ResponseTimeMin |De kleinste reactietijd (milliseconden) waargenomen tijdens het rapportage venster.  Als er geen waarde is de eigenschap leeg.|
-|ResponseTimeSum |De som van alle reactietijden (milliseconden) die is waargenomen tijdens het rapportage venster.  Als er geen waarde, is de eigenschap leeg|
+| `BytesSent` |Totaal aantal bytes dat is verzonden tijdens het rapportage venster |
+| `BytesReceived` |Totaal aantal bytes dat is ontvangen tijdens het rapportage venster |
+| `Responses` |Het aantal antwoorden is waargenomen tijdens het rapportage venster. 
+| `ResponseTimeMax` |De grootste reactietijd (milliseconden) waargenomen tijdens het rapportage venster.  Als er geen waarde is de eigenschap leeg.|
+| `ResponseTimeMin` |De kleinste reactietijd (milliseconden) waargenomen tijdens het rapportage venster.  Als er geen waarde is de eigenschap leeg.|
+| `ResponseTimeSum` |De som van alle reactietijden (milliseconden) die is waargenomen tijdens het rapportage venster.  Als er geen waarde, is de eigenschap leeg|
 
 Het derde type gegevens dat wordt gerapporteerd reactietijd is: hoe lang bij een aanroeper wachten op een aanvraag die wordt verzonden via een verbinding moet worden verwerkt en beantwoord door het externe eindpunt uitgeven. De reactietijd gerapporteerd is een schatting van de waarde true reactietijd van de onderliggende toepassingsprotocol. Dit wordt berekend op basis van heuristiek op basis van de observatie van de stroom van gegevens tussen de bron en doel-end van een fysieke netwerkverbinding. Conceptueel gezien, is het verschil tussen het moment dat de laatste byte van een aanvraag verlaat de afzender, en de tijd wanneer de laatste byte van het antwoord terug naar het binnenkomt. Deze twee tijdstempels worden gebruikt om de aanvraag- en gebeurtenissen op een bepaalde fysieke verbinding afbakenen. Het verschil tussen deze vertegenwoordigt de reactietijd van een enkele aanvraag. 
 
@@ -348,26 +348,26 @@ Het IP-adres van het externe uiteinde van een verbinding is voor het gemak opgen
 
 | Eigenschap | Description |
 |:--|:--|
-|RemoteCountry |De naam van het betreffende land RemoteIp hosten.  Bijvoorbeeld, *Verenigde Staten* |
-|RemoteLatitude |De breedtegraad geolocatie.  Bijvoorbeeld, *47.68* |
-|RemoteLongitude |De lengtegraad geolocatie.  Bijvoorbeeld, *-122.12* |
+| `RemoteCountry` |De naam van het betreffende land RemoteIp hosten.  Bijvoorbeeld, *Verenigde Staten* |
+| `RemoteLatitude` |De breedtegraad geolocatie.  Bijvoorbeeld, *47.68* |
+| `RemoteLongitude` |De lengtegraad geolocatie.  Bijvoorbeeld, *-122.12* |
 
 #### <a name="malicious-ip"></a>Schadelijk IP
 Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is ingeschakeld met bekende schadelijke activiteiten. Als de RemoteIp wordt geïdentificeerd als schadelijk de volgende eigenschappen worden ingevuld (ze zijn leeg is, wanneer het IP-adres wordt niet als schadelijk beschouwd) in de volgende eigenschappen van de record:
 
 | Eigenschap | Description |
 |:--|:--|
-|MaliciousIp |Het adres RemoteIp |
-|IndicatorThreadType |Threat indicator gedetecteerd is een van de volgende waarden *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *pua's*, *Watchlist*.   |
-|Description |Beschrijving van de waargenomen bedreiging. |
-|TLPLevel |Niveau van stoplicht Protocol (TLP) is een van de gedefinieerde waarden, *wit*, *groen*, *oranje*, *Red*. |
-|Betrouwbaarheid |Waarden zijn *0-100*. |
-|Severity |Waarden zijn *0 – 5*, waarbij *5* is het meest ernstige en *0* is helemaal niet ernstig. Standaardwaarde is *3*.  |
-|FirstReportedDateTime |De eerste keer dat de provider meldt de indicator. |
-|LastReportedDateTime |De laatste keer dat de indicator is gezien door Interflow. |
-|IsActive |Geeft aan dat indicatoren zijn uitgeschakeld met *waar* of *False* waarde. |
-|ReportReferenceLink |Koppelingen naar rapporten met betrekking tot een bepaalde zichtbaar zijn. |
-|AdditionalInformation |Bevat aanvullende informatie, indien van toepassing, over de bedreiging waargenomen. |
+| `MaliciousIp` |Het adres RemoteIp |
+| `IndicatorThreadType` |Threat indicator gedetecteerd is een van de volgende waarden *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *pua's*, *Watchlist*.   |
+| `Description` |Beschrijving van de waargenomen bedreiging. |
+| `TLPLevel` |Niveau van stoplicht Protocol (TLP) is een van de gedefinieerde waarden, *wit*, *groen*, *oranje*, *Red*. |
+| `Confidence` |Waarden zijn *0-100*. |
+| `Severity` |Waarden zijn *0 – 5*, waarbij *5* is het meest ernstige en *0* is helemaal niet ernstig. Standaardwaarde is *3*.  |
+| `FirstReportedDateTime` |De eerste keer dat de provider meldt de indicator. |
+| `LastReportedDateTime` |De laatste keer dat de indicator is gezien door Interflow. |
+| `IsActive` |Geeft aan dat indicatoren zijn uitgeschakeld met *waar* of *False* waarde. |
+| `ReportReferenceLink` |Koppelingen naar rapporten met betrekking tot een bepaalde zichtbaar zijn. |
+| `AdditionalInformation` |Bevat aanvullende informatie, indien van toepassing, over de bedreiging waargenomen. |
 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL records
 Records met een type *ServiceMapComputer_CL* inventarisgegevens voor servers met Service Map agents hebt. Deze records hebben de eigenschappen in de volgende tabel:
@@ -399,7 +399,7 @@ Records met een type *ServiceMapProcess_CL* beschikken over inventarisgegevens v
 
 | Eigenschap | Description |
 |:--|:--|
-| `Type | *ServiceMapProcess_CL* |
+| `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
 | `ResourceId` | De unieke id voor een proces in de werkruimte |
 | `ResourceName_s` | De unieke id voor een proces binnen de computer waarop deze wordt uitgevoerd|

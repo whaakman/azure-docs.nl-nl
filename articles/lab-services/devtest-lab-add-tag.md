@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 38ec93afd27ac75a97a28fef59bd10fafdf963c9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: e4d9aeb527461cc7292235fef1de0abdfa4242bd
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247038"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148914"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Labels toevoegen aan een lab in Azure DevTest Labs
 
@@ -42,8 +42,8 @@ Elke tag bestaat uit een **naam**/**waarde** paar. U kunt bijvoorbeeld een label
 
 1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecteer indien nodig, **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst. Uw lab mogelijk al worden weergegeven op het Dashboard onder **alle Resources**.
-1. Selecteer in de lijst met labs, in het lab waarin u wilt toevoegen of beheren van tags.  
-1. Op van het lab **overzicht** gedeelte **configuratie en het beleid**.  
+1. Selecteer in de lijst met labs, in het lab waarin u wilt toevoegen of beheren van tags.
+1. Op van het lab **overzicht** gedeelte **configuratie en het beleid**.
 
     ![Knop voor configuratie en het beleid](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
@@ -56,7 +56,7 @@ Elke tag bestaat uit een **naam**/**waarde** paar. U kunt bijvoorbeeld een label
 
 Voor tags gelden de volgende beperkingen:
 
-* Elke resource of resourcegroep mag maximaal 15 combinaties van tagnaam en -waarde hebben. Deze beperking geldt alleen voor tags die direct worden toegepast op de resourcegroep of resource. Een resourcegroep kan veel bronnen bevatten die elk 15 combinaties van tagnaam en -waarde bevatten. 
+* Elke resource of resourcegroep mag maximaal 15 combinaties van tagnaam en -waarde hebben. Deze beperking geldt alleen voor tags die direct worden toegepast op de resourcegroep of resource. Een resourcegroep kan veel bronnen bevatten die elk 15 combinaties van tagnaam en -waarde bevatten.
 * De tagnaam is beperkt tot 512 tekens en de tagwaarde is beperkt tot 256 tekens. Voor opslagaccounts is de tagnaam beperkt tot 128 tekens en de tagwaarde beperkt tot 256 tekens.
 * Tags die zijn toegepast op de resourcegroep, worden niet overgenomen door de resources in deze resourcegroep.
 
@@ -66,4 +66,4 @@ Voor tags gelden de volgende beperkingen:
 
 ## <a name="next-steps"></a>Volgende stappen
 * U kunt beperkingen en conventies met behulp van aangepaste beleidsregels toepassen voor uw abonnement. Een beleid dat u definieert mogelijk dat alle resources een waarde hebben voor een bepaalde tag. Zie voor meer informatie, [beleid en planningen instellen](devtest-lab-set-lab-policy.md).
-* Verken de [DevTest Labs Azure Resource Manager QuickStart-sjablonen](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Verken de [DevTest Labs Azure Resource Manager QuickStart-sjablonen](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

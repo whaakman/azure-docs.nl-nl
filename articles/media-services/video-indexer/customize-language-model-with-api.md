@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: c2c722331c95e72bae5605606564a2083e2802e3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ca1e66d20b19c1a5b85a4f4ff1c433331116bee7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075029"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002031"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Een taalmodel met Video Indexer-API's aanpassen
 
@@ -47,7 +47,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 --data-ascii "{body}" 
 ```
 
-[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-PersonModel?).
+[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?).
 
 ### <a name="request-parameters"></a>Aanvraagparameters
 
@@ -118,7 +118,7 @@ Hieronder vindt u de aanvraag in Curl.
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Train?accessToken={accessToken}"
 ```
  
-[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5bac3cf761779a6c2ab27?).
+[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train).
 
 ### <a name="request-parameters"></a>Aanvraagparameters
 
@@ -183,7 +183,7 @@ Hieronder vindt u de aanvraag in Curl.
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}"
 ```
  
-[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5ba53782606e91f65be9d?).
+[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete).
 
 ### <a name="request-parameters"></a>Aanvraagparameters 
 
@@ -225,7 +225,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 --data-ascii "{body}" 
 ```
  
-[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b3ce85f4684240bdb78f?).
+[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update).
 
 ### <a name="request-parameters"></a>Aanvraagparameters 
 
@@ -236,7 +236,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |modelId|string|Ja|De taal model-id (gegenereerd wanneer het taalmodel wordt gemaakt).|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 |modelName|string|Nee|Nieuwe naam die u tot het model geven kunt|
-|inschakelen|booleaans|Nee|Kiezen of alle bestanden onder dit model worden ingeschakeld (true) of uitgeschakeld (ONWAAR)|
+|inschakelen|boolean|Nee|Kiezen of alle bestanden onder dit model worden ingeschakeld (true) of uitgeschakeld (ONWAAR)|
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -294,7 +294,7 @@ Hieronder vindt u de aanvraag in Curl.
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}?fileName={string}&enable={string}"
 ```
  
-[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b60547f33c1c2b2d1375?).
+[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update).
 
 ### <a name="request-parameters"></a>Aanvraagparameters 
 
@@ -306,7 +306,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |fileId|string|Ja|Id van het bestand dat moet worden bijgewerkt (gegenereerd wanneer het bestand geüpload bij het maken of bijwerken van het taalmodel is)|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 |fileName|string|Nee|Naam van de bestandsnaam om te werken|
-|inschakelen|booleaans|Nee|Bijwerken of dit bestand is (true) of uitgeschakeld (ONWAAR) in het taalmodel|
+|inschakelen|boolean|Nee|Bijwerken of dit bestand is (true) of uitgeschakeld (ONWAAR) in het taalmodel|
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -344,7 +344,7 @@ Hieronder vindt u de aanvraag in Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}"
 ```
  
-[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b4fcbd9b437d27d53f16).
+[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get).
 
 ### <a name="request-parameters-and-request-body"></a>Parameters van de aanvraag en de hoofdtekst van de aanvraag
 
@@ -409,7 +409,7 @@ Hieronder vindt u de aanvraag in Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language?accessToken={accessToken}"
 ```
  
-[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b4979e6ecbd30faa6f75?).
+[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get).
 
 ### <a name="request-parameters"></a>Aanvraagparameters
 
@@ -480,7 +480,7 @@ Hieronder vindt u de aanvraag in Curl.
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}"
 ```
  
-[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b57b5de51e64ee52242e).
+[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete).
 
 ### <a name="request-parameters"></a>Aanvraagparameters 
 
@@ -517,7 +517,7 @@ Hieronder vindt u de aanvraag in Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}"
 ```
  
-[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b73f9e6416d7a9965b42).
+[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model).
 
 ### <a name="request-parameters"></a>Aanvraagparameters 
 
@@ -566,7 +566,7 @@ Hieronder vindt u de aanvraag in Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}/download?accessToken={accessToken}"
 ```
  
-[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b99e522cb47bd9679122).
+[Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?).
 
 ### <a name="request-parameters"></a>Aanvraagparameters 
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 6be897cc1ae11b8d3032e3ffc669eac05dafe5b2
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522312"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995996"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps met behulp van een integratie van service-omgeving (ISE)
 
@@ -67,30 +67,31 @@ Zie voor meer informatie over de integratie van service-omgevingen, [toegang tot
 
 Voor het goed werkt en blijven toegankelijk is, moet de integratie van service-omgeving (ISE) specifieke poorten zijn beschikbaar in het virtuele netwerk. Anders als een van deze poorten niet beschikbaar zijn, u mogelijk geen toegang meer voor uw ISE, te werken. Wanneer u een ISE in een virtueel netwerk gebruikt, is een veelvoorkomend probleem voor setup heeft een of meer geblokkeerde poorten. Voor verbindingen tussen uw ISE en het doelsysteem, de connector die u mogelijk ook een eigen port requirements for Windows. Bijvoorbeeld, als u met een FTP-systeem kunnen communiceren met behulp van de FTP-connector, zorg ervoor dat de poort die u op dat de FTP-systeem, zoals poort 21 voor het verzenden van opdrachten, beschikbaar is.
 
-Voor het beheren van het verkeer tussen subnetten van het virtuele netwerk waarin u uw ISE implementeren, kunt u instellen [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) voor deze subnetten door [netwerkverkeer filteren tussen subnetten](../virtual-network/tutorial-filter-network-traffic.md). Deze tabellen beschrijven de poorten in het virtuele netwerk dat gebruikmaakt van uw ISE en waar deze poorten ophalen gebruikt. De [servicetag](../virtual-network/security-overview.md#service-tags) vertegenwoordigt een groep IP-adresvoorvoegsels die helpen bij het minimaliseren van complexiteit bij het maken van beveiligingsregels.
+Voor het beheren van het verkeer tussen subnetten van het virtuele netwerk waarin u uw ISE implementeren, kunt u instellen [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) voor deze subnetten door [netwerkverkeer filteren tussen subnetten](../virtual-network/tutorial-filter-network-traffic.md). Deze tabellen beschrijven de poorten in het virtuele netwerk dat gebruikmaakt van uw ISE en waar deze poorten ophalen gebruikt. De [Resource Manager-servicetags](../virtual-network/security-overview.md#service-tags) vertegenwoordigt een groep IP-adresvoorvoegsels die helpen bij het minimaliseren van complexiteit bij het maken van beveiligingsregels.
 
 > [!IMPORTANT]
 > Voor de interne communicatie binnen de subnetten van ISE vereist is dat u alle poorten binnen deze subnetten openen.
 
-| Doel | Richting | Poorten | Bronservicetag | Doelservicetag | Opmerkingen |
+| Doel | Direction | Poorten | Bronservicetag | Doelservicetag | Opmerkingen |
 |---------|-----------|-------|--------------------|-------------------------|-------|
-| Communicatie van Azure Logic Apps | Uitgaand | 80 & 443 | VIRTUAL_NETWORK | INTERNET | De poort, is afhankelijk van de externe service waarmee de Logic Apps-service communiceert |
-| Azure Active Directory | Uitgaand | 80 & 443 | VIRTUAL_NETWORK | AzureActiveDirectory | |
-| Afhankelijk van Azure Storage | Uitgaand | 80 & 443 | VIRTUAL_NETWORK | Opslag | |
-| Intersubnet communicatie | Inkomende en uitgaande | 80 & 443 | VIRTUAL_NETWORK | VIRTUAL_NETWORK | Voor de communicatie tussen subnetten |
-| Communicatie met Azure Logic Apps | Inkomend | 443 | INTERNET  | VIRTUAL_NETWORK | Het IP-adres voor de computer of service die een aanvraag als trigger of een webhook die deel uitmaakt van uw logische app aanroepen. Sluiten of te blokkeren van deze poort wordt voorkomen dat HTTP-aanroepen naar logic apps met triggers voor aanvragen.  |
-| Logische app uitvoeringsgeschiedenis | Inkomend | 443 | INTERNET  | VIRTUAL_NETWORK | Geschiedenis van de uitvoering van het IP-adres voor de computer van waaruit u de logische app weergeven. Hoewel sluiten of te blokkeren van deze poort wordt niet dat u de uitvoeringsgeschiedenis bekijken voorkomen, kunt u de invoer niet weergeven en uitvoer voor elke stap in die de geschiedenis uitvoeren. |
-| Verbindingsbeheer | Uitgaand | 443 | VIRTUAL_NETWORK  | INTERNET | |
-| Diagnostische logboeken en metrische gegevens publiceren | Uitgaand | 443 | VIRTUAL_NETWORK  | AzureMonitor | |
-| Ontwerper van logische Apps - dynamische eigenschappen | Inkomend | 454 | INTERNET  | VIRTUAL_NETWORK | Aanvragen afkomstig zijn van de Logic Apps [toegang hebben tot eindpunt inkomende IP-adressen in die regio](../logic-apps/logic-apps-limits-and-config.md#inbound). |
-| Service Management-App-afhankelijkheid | Inkomend | 454 & 455 | AppServiceManagement | VIRTUAL_NETWORK | |
-| Connector-implementatie | Inkomend | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Dit is nodig voor het implementeren en bijwerken van connectors. Sluiten of te blokkeren van deze poort zorgt ervoor dat de ISE-implementaties mislukken en voorkomt u dat updates van de connector of oplossingen. |
-| Azure SQL-afhankelijkheid | Uitgaand | 1433 | VIRTUAL_NETWORK | SQL |
-| Azure Resource Health | Uitgaand | 1886 | VIRTUAL_NETWORK | INTERNET | Voor het publiceren van de integriteitsstatus van de op Resource Health |
-| API Management - beheereindpunt | Inkomend | 3443 | APIManagement  | VIRTUAL_NETWORK | |
-| Afhankelijkheid van logboek naar Event Hub-beleid en de monitoring agent | Uitgaand | 5672 | VIRTUAL_NETWORK  | EventHub | |
-| Toegang tot Azure Cache voor instanties van Redis tussen Rolinstanties | Inkomend <br>Uitgaand | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | Ook voor ISE voor gebruik met Azure Cache voor Redis, moet u openen deze [binnenkomende en uitgaande poorten die worden beschreven in de Cache van Azure voor veelgestelde vragen over Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-| Azure Load Balancer | Inkomend | * | AZURE_LOAD_BALANCER | VIRTUAL_NETWORK |  |
+| Communicatie van Azure Logic Apps | Uitgaand | 80 & 443 | VirtualNetwork | Internet | De poort, is afhankelijk van de externe service waarmee de Logic Apps-service communiceert |
+| Azure Active Directory | Uitgaand | 80 & 443 | VirtualNetwork | AzureActiveDirectory | |
+| Afhankelijk van Azure Storage | Uitgaand | 80 & 443 | VirtualNetwork | Storage | |
+| Intersubnet communicatie | Inkomende en uitgaande | 80 & 443 | VirtualNetwork | VirtualNetwork | Voor de communicatie tussen subnetten |
+| Communicatie met Azure Logic Apps | Inkomend | 443 | Internet  | VirtualNetwork | Het IP-adres voor de computer of service die een aanvraag als trigger of een webhook die deel uitmaakt van uw logische app aanroepen. Sluiten of te blokkeren van deze poort wordt voorkomen dat HTTP-aanroepen naar logic apps met triggers voor aanvragen.  |
+| Logische app uitvoeringsgeschiedenis | Inkomend | 443 | Internet  | VirtualNetwork | Geschiedenis van de uitvoering van het IP-adres voor de computer van waaruit u de logische app weergeven. Hoewel sluiten of te blokkeren van deze poort wordt niet dat u de uitvoeringsgeschiedenis bekijken voorkomen, kunt u de invoer niet weergeven en uitvoer voor elke stap in die de geschiedenis uitvoeren. |
+| Verbindingsbeheer | Uitgaand | 443 | VirtualNetwork  | Internet | |
+| Diagnostische logboeken en metrische gegevens publiceren | Uitgaand | 443 | VirtualNetwork  | AzureMonitor | |
+| Communicatie van Azure Traffic Manager | Inkomend | 443 | AzureTrafficManager | VirtualNetwork | |
+| Ontwerper van logische Apps - dynamische eigenschappen | Inkomend | 454 | Internet  | VirtualNetwork | Aanvragen afkomstig zijn van de Logic Apps [toegang hebben tot eindpunt inkomende IP-adressen in die regio](../logic-apps/logic-apps-limits-and-config.md#inbound). |
+| Service Management-App-afhankelijkheid | Inkomend | 454 & 455 | AppServiceManagement | VirtualNetwork | |
+| Connector-implementatie | Inkomend | 454 & 3443 | Internet  | VirtualNetwork | Dit is nodig voor het implementeren en bijwerken van connectors. Sluiten of te blokkeren van deze poort zorgt ervoor dat de ISE-implementaties mislukken en voorkomt u dat updates van de connector of oplossingen. |
+| Azure SQL-afhankelijkheid | Uitgaand | 1433 | VirtualNetwork | SQL |
+| Azure Resource Health | Uitgaand | 1886 | VirtualNetwork | Internet | Voor het publiceren van de integriteitsstatus van de op Resource Health |
+| API Management - beheereindpunt | Inkomend | 3443 | APIManagement  | VirtualNetwork | |
+| Afhankelijkheid van logboek naar Event Hub-beleid en de monitoring agent | Uitgaand | 5672 | VirtualNetwork  | EventHub | |
+| Toegang tot Azure Cache voor instanties van Redis tussen Rolinstanties | Inkomend <br>Uitgaand | 6379-6383 | VirtualNetwork  | VirtualNetwork | Ook voor ISE voor gebruik met Azure Cache voor Redis, moet u openen deze [binnenkomende en uitgaande poorten die worden beschreven in de Cache van Azure voor veelgestelde vragen over Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Azure Load Balancer | Inkomend | * | AzureLoadBalancer | VirtualNetwork |  |
 ||||||
 
 <a name="create-environment"></a>
@@ -114,7 +115,7 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
 
    ![Geef details van de omgeving](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Eigenschap | Vereist | Value | Description |
+   | Eigenschap | Vereist | Value | Beschrijving |
    |----------|----------|-------|-------------|
    | **Abonnement** | Ja | <*Azure-subscription-name*> | Het Azure-abonnement moet worden gebruikt voor uw omgeving |
    | **Resourcegroep** | Ja | <*Azure-resource-group-name*> | De Azure-resourcegroep waar u om uw omgeving te maken |

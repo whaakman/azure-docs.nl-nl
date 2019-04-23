@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/20/2019
+ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8e75a6344e517fb0343343f557cb7211f49cfed8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 1cc3d3eca4063a8120851a9d3de1a85292eacb11
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838309"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011058"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Beheer de toegang tot Azure-resources met behulp van RBAC en Azure CLI
 
@@ -27,7 +27,7 @@ ms.locfileid: "57838309"
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het beheren van toegang, hebt u een van de volgende nodig:
+Voor het beheren van toegang, moet u een van de volgende:
 
 * [Bash in Azure Cloudshell](/azure/cloud-shell/overview)
 * [Azure-CLI](/cli/azure)
@@ -111,7 +111,7 @@ az role definition list --name "Contributor"
       "/"
     ],
     "description": "Lets you manage everything except access to resources.",
-    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
     "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
     "permissions": [
       {
@@ -204,12 +204,12 @@ az role assignment list --all --assignee patlong@contoso.com --output json | jq 
 {
   "principalName": "patlong@contoso.com",
   "roleDefinitionName": "Backup Operator",
-  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+  "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 }
 {
   "principalName": "patlong@contoso.com",
   "roleDefinitionName": "Virtual Machine Contributor",
-  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+  "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 }
 ```
 
@@ -221,20 +221,20 @@ U kunt de toewijzing van functies die beschikbaar zijn voor een resourcegroep ge
 az role assignment list --resource-group <resource_group>
 ```
 
-Het volgende voorbeeld worden de roltoewijzingen voor de *pharma-verkoop-projectforecast* resourcegroep:
+Het volgende voorbeeld worden de roltoewijzingen voor de *pharma sales* resourcegroep:
 
 ```azurecli
-az role assignment list --resource-group pharma-sales-projectforecast --output json | jq '.[] | {"roleDefinitionName":.roleDefinitionName, "scope":.scope}'
+az role assignment list --resource-group pharma-sales --output json | jq '.[] | {"roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
 ```Output
 {
   "roleDefinitionName": "Backup Operator",
-  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+  "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 }
 {
   "roleDefinitionName": "Virtual Machine Contributor",
-  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+  "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 }
 
 ...
@@ -249,13 +249,38 @@ In RBAC verleent u toegang door een roltoewijzing te maken.
 Gebruik voor het maken van een roltoewijzing voor een gebruiker op de resource-groepsbereik [az roltoewijzing maken](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
-az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
+az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
 ```
 
-In het volgende voorbeeld wordt de *Inzender voor virtuele machines* rol *patlong\@contoso.com* gebruiker op de *pharma-verkoop-projectforecast* Groepsbereik van de resource:
+In het volgende voorbeeld wordt de *Inzender voor virtuele machines* rol *patlong\@contoso.com* gebruiker op de *pharma sales* groepsbereik van de resource:
 
 ```azurecli
-az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
+az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales
+```
+
+### <a name="create-a-role-assignment-using-the-unique-role-id"></a>Een roltoewijzing met behulp van de unieke ID maken
+
+Er zijn een paar keer wanneer de naam van een rol kan wijzigen, bijvoorbeeld:
+
+- U uw eigen aangepaste rol worden gebruikt en u besluit om de naam te wijzigen.
+- U gebruikt een preview-functie die heeft **(Preview)** in de naam. Wanneer de functie wordt uitgebracht, wordt de rol wordt gewijzigd.
+
+> [!IMPORTANT]
+> Een preview-versie wordt geleverd zonder een service level agreement, en het wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
+> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+
+Zelfs als de naam van een rol is gewijzigd, wordt de rol-ID niet wijzigen. Als u scripts of automation gebruikt om uw roltoewijzingen te maken, is het aanbevolen om te gebruiken van de unieke ID in plaats van de naam van de rol. Daarom zijn uw scripts kans om te werken als een rol is gewijzigd.
+
+Gebruik voor het maken van een roltoewijzing met behulp van de unieke ID in plaats van de naam van de rol [az roltoewijzing maken](/cli/azure/role/assignment#az-role-assignment-create).
+
+```azurecli
+az role assignment create --role <role_id> --assignee <assignee> --resource-group <resource_group>
+```
+
+In het volgende voorbeeld wordt de [Inzender voor virtuele machines](built-in-roles.md#virtual-machine-contributor) rol *patlong\@contoso.com* gebruiker op de *pharma sales* groepsbereik van de resource. Als u de unieke ID, kunt u [az role definitielijst](/cli/azure/role/definition#az-role-definition-list) of Zie [ingebouwde rollen voor Azure-resources](built-in-roles.md).
+
+```azurecli
+az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee patlong@contoso.com --resource-group pharma-sales
 ```
 
 ### <a name="create-a-role-assignment-for-a-group"></a>Een roltoewijzing voor een groep maken
@@ -263,19 +288,19 @@ az role assignment create --role "Virtual Machine Contributor" --assignee patlon
 Gebruik voor het maken van een roltoewijzing voor een groep [az roltoewijzing maken](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
-az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
 In het volgende voorbeeld wordt de *lezer* rol die u wilt de *Anne Mack Team* groep met ID 22222222-2222-2222-2222-222222222222 op het abonnementsbereik. Als u de ID van de groep, kunt u [az ad group list](/cli/azure/ad/group#az-ad-group-list) of [az ad group show](/cli/azure/ad/group#az-ad-group-show).
 
 ```azurecli
-az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111
+az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/00000000-0000-0000-0000-000000000000
 ```
 
 In het volgende voorbeeld wordt de *Inzender voor virtuele machines* rol die u wilt de *Anne Mack Team* groep met ID 22222222-2222-2222-2222-222222222222 met een resource-bereik voor een virtueel netwerk met de naam *pharma-verkoop-project-netwerk*:
 
 ```azurecli
-az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourcegroups/pharma-sales-projectforecast/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
+az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
 ```
 
 ### <a name="create-a-role-assignment-for-an-application"></a>Een roltoewijzing voor een toepassing maken
@@ -283,13 +308,13 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 Gebruik voor het maken van een rol voor een toepassing [az roltoewijzing maken](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
-az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-In het volgende voorbeeld wordt de *Inzender voor virtuele machines* rol aan een toepassing met object-ID 44444444-4444-4444-4444-444444444444 op de *pharma-verkoop-projectforecast* resourcegroep de scope. Als u de object-ID van de toepassing, kunt u [az ad app-lijst](/cli/azure/ad/app#az-ad-app-list) of [az ad app show](/cli/azure/ad/app#az-ad-app-show).
+In het volgende voorbeeld wordt de *Inzender voor virtuele machines* rol aan een toepassing met object-ID 44444444-4444-4444-4444-444444444444 op de *pharma sales* groepsbereik van de resource. Als u de object-ID van de toepassing, kunt u [az ad app-lijst](/cli/azure/ad/app#az-ad-app-list) of [az ad app show](/cli/azure/ad/app#az-ad-app-show).
 
 ```azurecli
-az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
+az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales
 ```
 
 ## <a name="remove-access"></a>Toegang intrekken
@@ -297,19 +322,19 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 In RBAC, als u wilt verwijderen van toegang, verwijdert u een roltoewijzing met behulp van [az-roltoewijzing verwijderen](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
-az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
+az role assignment delete --assignee <assignee> --role <role_name_or_id> --resource-group <resource_group>
 ```
 
-Het volgende voorbeeld verwijdert u de *Inzender voor virtuele machines* roltoewijzing van de *patlong\@contoso.com* gebruiker op de *pharma-verkoop-projectforecast* resourcegroep:
+Het volgende voorbeeld verwijdert u de *Inzender voor virtuele machines* roltoewijzing van de *patlong\@contoso.com* gebruiker op de *pharma sales* resourcegroep:
 
 ```azurecli
-az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast
+az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales
 ```
 
 Het volgende voorbeeld verwijdert u de *lezer* rol van de *Anne Mack Team* groep met ID 22222222-2222-2222-2222-222222222222 op het abonnementsbereik. Als u de ID van de groep, kunt u [az ad group list](/cli/azure/ad/group#az-ad-group-list) of [az ad group show](/cli/azure/ad/group#az-ad-group-show).
 
 ```azurecli
-az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
+az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

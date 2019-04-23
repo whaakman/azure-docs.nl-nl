@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f4d232d4d6043ede3979db67e5cd35130d931bef
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 008d6d2a9a4a20e9fd083e9e2f009396a7f14df2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369442"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995911"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Quickstart: Een containerinstantie in Azure met behulp van de Azure-portal implementeren
 
@@ -35,31 +35,29 @@ Selecteer **Een nieuwe resource maken** > **Containers** > **Container Instances
 
 ![Begin met het maken van een nieuwe containerinstantie in Azure Portal][aci-portal-01]
 
-Voer de waarden voor de volgende tekstvakken in: **Containernaam**, **Containerinstallatiekopie** en **Resourcegroep**. Laat de andere waarden op de standaardwaarden staan en selecteer vervolgens **OK**.
+Op de **basisbeginselen** pagina, voer de volgende waarden in de **resourcegroep**, **containernaam**, en **containerinstallatiekopie** tekstvakken. Laat de andere waarden op de standaardwaarden staan en selecteer vervolgens **OK**.
 
+* Resourcegroep: **Nieuwe maken** > `myresourcegroup`
 * Containernaam: `mycontainer`
 * Containerinstallatiekopie: `mcr.microsoft.com/azuredocs/aci-helloworld`
-* Resourcegroep: **Nieuwe maken** > `myResourceGroup`
 
 ![Basisinstellingen configureren voor een nieuwe containerinstantie in Azure Portal][aci-portal-03]
 
-In deze Quick Start laat de standaardinstelling van **openbare** implementeren van de openbare Microsoft `aci-helloworld` installatiekopie. Deze installatiekopie bevat een kleine web-app die is geschreven in Node.js en die een statische HTML-pagina dient.
+In deze Quick Start u de standaardwaarde gebruiken **afbeeldingstype** van **openbare** implementeren van de openbare Microsoft `aci-helloworld` installatiekopie. Deze installatiekopie van Linux-pakketten een kleine web-app die is geschreven in Node.js die een statische HTML-pagina dient.
 
-Geef onder **configuratie** een **DNS-naamlabel** op voor uw container. De naam moet uniek zijn binnen Azure-regio waarin u de containerinstantie maken. De container zal openbaar bereikbaar zijn op `<dns-name-label>.<region>.azurecontainer.io`. Als u een foutbericht 'DNS-naamlabel niet beschikbaar' ontvangt, probeert u een ander DNS-naamlabel.
-
-Laat de overige instellingen in **Configuratie** op de standaardwaarden staan. Klik vervolgens op **OK** om de configuratie te valideren.
+Op de **netwerken** pagina, Geef een **DNS-naamlabel** voor de container. De naam moet uniek zijn binnen Azure-regio waarin u de containerinstantie maken. De container zal openbaar bereikbaar zijn op `<dns-name-label>.<region>.azurecontainer.io`. Als u een foutbericht 'DNS-naamlabel niet beschikbaar' ontvangt, probeert u een ander DNS-naamlabel.
 
 ![Een nieuwe containerinstantie configureren in Azure Portal][aci-portal-04]
 
-Wanneer de validatie is voltooid, ziet u een overzicht van de containerinstellingen. Selecteer **OK** om de aanvraag voor de containerimplementatie te verzenden.
+Laat de overige instellingen op de standaardwaarden staan en selecteer vervolgens **revisie + maken**.
+
+Wanneer de validatie is voltooid, ziet u een overzicht van de containerinstellingen. Selecteer **maken** aanvraag voor de containerimplementatie te verzenden.
 
 ![Overzicht van de instellingen voor een nieuwe containerinstantie in Azure Portal][aci-portal-05]
 
 Wanneer de implementatie is gestart, wordt een melding weergegeven dat de implementatie wordt uitgevoerd. Er wordt nog een melding weergegeven wanneer de containergroep is geïmplementeerd.
 
-![Voortgang van het maken van een nieuwe containerinstantie in Azure Portal][aci-portal-08]
-
-Open het overzicht voor de containergroep door te navigeren naar **Resourcegroepen** > **myResourceGroup** > **mycontainer**. Noteer de **FQDN** (de FQDN-naam) van de container-instantie, evenals de **Status**.
+Het overzicht voor de containergroep openen door te navigeren naar **resourcegroepen** > **myresourcegroup** > **mycontainer**. Noteer de **FQDN** (de FQDN-naam) van de container-instantie, evenals de **Status**.
 
 ![Overzicht van containergroepen in Azure Portal][aci-portal-06]
 

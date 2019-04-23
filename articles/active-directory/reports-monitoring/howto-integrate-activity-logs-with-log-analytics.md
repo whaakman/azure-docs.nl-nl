@@ -1,6 +1,6 @@
 ---
-title: Stream logboeken van Azure Active Directory naar Azure Monitor-Logboeken (preview) | Microsoft Docs
-description: Meer informatie over het Azure Active Directory-logboeken integreren met Azure Monitor-Logboeken (preview)
+title: Stream logboeken van Azure Active Directory naar Azure Monitor-Logboeken | Microsoft Docs
+description: Meer informatie over het Azure Active Directory-logboeken integreren met Azure Monitor-Logboeken
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 056a529101ffc39170ea057832bcd50b283505be
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436266"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010932"
 ---
-# <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>Azure AD-logboeken integreren met Azure Monitor-Logboeken (preview)
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Azure AD-logboeken integreren met Azure Monitor-Logboeken
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Logboeken in Azure Monitor kunt u om gegevens te doorzoeken op specifieke gebeurtenissen te zoeken, trends te analyseren en voert u de correlatie over verschillende gegevensbronnen. Met de integratie van Azure AD activiteitenlogboeken in Azure Monitor-Logboeken, kunt u taken, zoals nu uitvoeren:
 
@@ -37,8 +39,6 @@ De volgende video van een Ignite-sessie ziet u de voordelen van het gebruik van 
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
 
 In dit artikel leert u hoe u Azure Active Directory (Azure AD)-logboeken integreren met Azure Monitor.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="supported-reports"></a>Ondersteunde rapporten
 
@@ -60,7 +60,7 @@ U hebt het volgende nodig om deze functie te gebruiken:
 * Een gebruiker die een *globale beheerder* of *beveiligingsbeheerder* voor de Azure-tenant is.
 * Een Log Analytics-werkruimte in uw Azure-abonnement. Meer informatie over het [een Log Analytics-werkruimte maken](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
-## <a name="send-logs-to-azure-monitor-logs"></a>Logboeken verzenden naar logboeken van Azure Monitor
+## <a name="send-logs-to-azure-monitor"></a>Logboeken verzenden naar Azure Monitor
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
 

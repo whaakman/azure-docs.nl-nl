@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ea1b4bd904a9936c401f6b0ea6ac9663c20bc92b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: 3645945400bcc58cdf11721458bfab529d89f0b7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400049"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009987"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>JavaScript-voorbeelden voor gebruik in Azure Active Directory B2C
 
@@ -140,7 +140,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-In de code, Vervang `terms-of-use-url` met de koppeling naar de voorwaarden van de gebruiksrechtovereenkomst. Maak een nieuw gebruikerskenmerk met de naam voor uw directory **termsOfUse** en neemt u **termsOfUse** als een gebruikerskenmerk voor de gebruikersstroom.
+In de code, Vervang `termsOfUseUrl` met de koppeling naar de voorwaarden van de gebruiksrechtovereenkomst. Maak een nieuw gebruikerskenmerk met de naam voor uw directory **termsOfUse** en neemt u **termsOfUse** als een gebruikerskenmerk voor de gebruikersstroom.
 
 ## <a name="next-steps"></a>Volgende stappen
 

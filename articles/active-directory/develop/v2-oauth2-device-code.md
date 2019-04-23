@@ -6,30 +6,29 @@ documentationcenter: ''
 author: CelesteDG
 manager: mtillman
 editor: ''
-ms.assetid: 780eec4d-7ee1-48b7-b29f-cd0b8cb41ed3
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/20/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14291a6e8f9c4cde3c8777969047ebaa77e42b59
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 703416788d123798774802613d71b30e8fbdaa9b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500444"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999804"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft identity-platform en de stroom voor OAuth 2.0-apparaat code
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Microsoft identity-platform ondersteunt de [apparaat verlenen](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), waarmee gebruikers zich aanmelden bij de invoer beperkte apparaten zoals een smart-tv's, IoT-apparaat of een printer.  Om in te schakelen met deze stroom, heeft het apparaat de gebruiker gaat u naar een webpagina in een browser op een ander apparaat te melden.  Als de gebruiker zich aangemeld heeft, wordt het apparaat kunnen toegangstokens ophalen en vernieuwingstokens zo nodig is.  
+De Microsoft identity-platform ondersteunt de [apparaat verlenen](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), waarmee gebruikers zich aanmelden bij de invoer beperkte apparaten zoals een smart-tv's, IoT-apparaat of een printer.  Om in te schakelen met deze stroom, heeft het apparaat de gebruiker gaat u naar een webpagina in een browser op een ander apparaat te melden.  Als de gebruiker zich aangemeld heeft, wordt het apparaat kunnen toegangstokens ophalen en vernieuwingstokens zo nodig is.  
 
 > [!IMPORTANT]
 > Op dit moment ondersteunt het eindpunt van de Microsoft identity platform alleen de apparaat-stroom voor Azure AD-tenants, maar geen persoonlijke accounts.  Dit betekent dat u een eindpunt dat is ingesteld als een tenant moet gebruiken of de `organizations` eindpunt.  
@@ -43,11 +42,11 @@ Microsoft identity-platform ondersteunt de [apparaat verlenen](https://tools.iet
 
 De stroom van het hele apparaat lijkt op het volgende diagram. We beschrijven elk van de stappen verderop in dit artikel.
 
-![Stroom voor apparaatcode](media/v2-oauth2-device-flow/v2-oauth-device-flow.png)
+![Stroom voor apparaatcode](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
 
 ## <a name="device-authorization-request"></a>Autorisatie-aanvraag voor apparaat
 
-De client moet eerst contact op met de authentication-server voor een apparaat- en -code, gebruikt voor het starten van verificatie.  De client worden verzameld van deze aanvraag uit de `/devicecode` eindpunt. In deze aanvraag moet de client ook de machtigingen die nodig zijn om te verkrijgen van de gebruiker bevatten.  Vanaf het moment dat deze aanvraag wordt verzonden, heeft de gebruiker slechts 15 minuten aan te melden bij (de gebruikelijke waarde voor `expires_in`), zodat alleen deze aanvraag maken wanneer de gebruiker heeft aangegeven dat ze klaar om aan te melden bij.
+De client moet eerst contact op met de authentication-server voor een apparaat- en code die wordt gebruikt om te starten verificatie. De client worden verzameld van deze aanvraag uit de `/devicecode` eindpunt. In deze aanvraag moet de client ook de machtigingen die nodig zijn om te verkrijgen van de gebruiker bevatten. Vanaf het moment dat deze aanvraag wordt verzonden, heeft de gebruiker slechts 15 minuten aan te melden bij (de gebruikelijke waarde voor `expires_in`), zodat alleen deze aanvraag maken wanneer de gebruiker heeft aangegeven dat ze klaar om aan te melden bij.
 
 > [!TIP]
 > Probeer deze aanvraag wordt uitgevoerd in Postman.
@@ -74,15 +73,15 @@ scope=user.read%20openid%20profile
 
 Een geslaagde reactie is een JSON-object met de vereiste gegevens zodat de gebruiker zich aanmeldt.  
 
-| Parameter | Indeling | Description |
+| Parameter | Indeling | Beschrijving |
 | ---              | --- | --- |
-|`device_code`     | String | Een lange tekenreeks die wordt gebruikt om te controleren of de sessie tussen de client en de autorisatie-server.  Dit wordt gebruikt door de client om aan te vragen van het toegangstoken van de autorisatie-server. |
-|`user_code`       | String | Een korte tekenreeks aan de gebruiker, gebruikt voor het identificeren van de sessie op een tweede apparaat weergegeven.|
+|`device_code`     | String | Een lange tekenreeks die wordt gebruikt om te controleren of de sessie tussen de client en de autorisatie-server. Deze parameter wordt gebruikt om aan te vragen van het toegangstoken van de autorisatieserver de client. |
+|`user_code`       | String | Een korte tekenreeks aan de gebruiker die wordt gebruikt voor het identificeren van de sessie op een tweede apparaat weergegeven.|
 |`verification_uri`| URI | De URI die de gebruiker moet te gaan met de `user_code` om te kunnen aanmelden. |
-|`verification_uri_complete`|URI| Een URI combineren de `user_code` en de `verification_uri`, die wordt gebruikt voor niet-tekstuele verzending naar de gebruiker (bijvoorbeeld via Bluetooth op een apparaat of via een QR-code).  |
-|`expires_in`      |  int| Het aantal seconden voordat de `device_code` en `user_code` verlopen. |
+|`verification_uri_complete`| URI | Een URI die combineert de `user_code` en de `verification_uri`, die wordt gebruikt voor niet-tekstuele verzending naar de gebruiker (bijvoorbeeld via Bluetooth op een apparaat of via een QR-code).  |
+|`expires_in`      | int | Het aantal seconden voordat de `device_code` en `user_code` verlopen. |
 |`interval`        | int | Het aantal seconden dat de client tussen navragen aanvragen wachten moet. |
-| `message`        | String | Een leesbare tekenreeks met instructies voor de gebruiker.  Dit kan worden gelokaliseerd door een **queryparameter** in de aanvraag van het formulier `?mkt=xx-XX`, vullen in de juiste taal voor de cultuur. |
+| `message`        | String | Een leesbare tekenreeks met instructies voor de gebruiker. Dit kan worden gelokaliseerd door een **queryparameter** in de aanvraag van het formulier `?mkt=xx-XX`, vullen in de juiste taal voor de cultuur. |
 
 ## <a name="authenticating-the-user"></a>Verifiëren van de gebruiker
 
@@ -107,15 +106,14 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 ### <a name="expected-errors"></a>Verwachte fouten
 
-Omdat de stroom van het apparaat een polling-protocol is, moet uw client verwacht voor het ontvangen van fouten voordat de verificatie van de gebruiker is voltooid.  
+De stroom van het apparaat is een polling-protocol, zodat de client verwacht moet te ontvangen ze foutberichten voordat de verificatie van de gebruiker is voltooid.  
 
-| Fout | Beschrijving | Clientactie |
+| Fout | Description | Clientactie |
 | ------ | ----------- | -------------|
-| `authorization_pending` | De gebruiker is nog niet voltooid verificatie, maar niet de stroom is geannuleerd. | De aanvraag opnieuw nadat ten minste `interval` seconden. |
+| `authorization_pending` | De gebruiker verifiëren nog niet voltooid, maar de stroom is niet geannuleerd. | De aanvraag opnieuw nadat ten minste `interval` seconden. |
 | `authorization_declined` | De eindgebruiker de autorisatieaanvraag geweigerd.| Stop polling en terugkeren naar een niet-geverifieerde status.  |
-| `bad_verification_code`|De `device_code` verzonden naar de `/token` eindpunt is niet herkend. | Controleer of dat de client de juiste verzendt `device_code` in de aanvraag. |
-| `expired_token` | Ten minste `expires_in` seconden zijn verstreken en verificatie is niet meer mogelijk is met dit `device_code`. | Stop polling en terugkeren naar een niet-geverifieerde status. |
-
+| `bad_verification_code`| De `device_code` verzonden naar de `/token` eindpunt is niet herkend. | Controleer of dat de client de juiste verzendt `device_code` in de aanvraag. |
+| `expired_token` | Ten minste `expires_in` seconden zijn verstreken en verificatie is niet meer mogelijk is met dit `device_code`. | Polling beëindigen en terugkeren naar een niet-geverifieerde status. |
 
 ### <a name="successful-authentication-response"></a>Verificatie is geslaagd antwoord
 
@@ -132,7 +130,7 @@ Een geslaagde respons token ziet er als:
 }
 ```
 
-| Parameter | Indeling | Beschrijving |
+| Parameter | Indeling | Description |
 | --------- | ------ | ----------- |
 | `token_type` | String| Altijd 'Bearer. |
 | `scope` | Tekenreeksen gescheiden door spaties | Als een toegangstoken is geretourneerd, zijn dit de scopes die het toegangstoken is ongeldig voor. |
@@ -141,4 +139,4 @@ Een geslaagde respons token ziet er als:
 | `id_token`   | JWT | Uitgegeven als de oorspronkelijke `scope` parameter opgenomen de `openid` bereik.  |
 | `refresh_token` | Ondoorzichtige tekenreeks | Uitgegeven als de oorspronkelijke `scope` parameter opgenomen `offline_access`.  |
 
-Het vernieuwingstoken dat kan worden gebruikt om nieuwe toegangstokens verkrijgen en vernieuwingstokens met behulp van dezelfde stroom uiteengezet in de [OAuth Code flow-documentatie](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  
+U kunt het vernieuwingstoken dat nieuwe toegangstokens verkrijgen en vernieuwen met behulp van dezelfde stroom beschreven in de [OAuth Code flow-documentatie](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  

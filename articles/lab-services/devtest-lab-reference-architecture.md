@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 61e76369a4d73bd171c9e5c2462b3f261681ba00
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: bcb154f7cffb92ef23fc2606e1f604bb12f8d1a3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551380"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996608"
 ---
 # <a name="azure-devtest-labs---reference-architecture-for-an-enterprise"></a>Azure DevTest Labs - referentiearchitectuur voor een onderneming
 In dit artikel biedt een referentiearchitectuur voor het implementeren van een oplossing op basis van Azure DevTest Labs in een onderneming. Het bevat on-premises connectiviteit via Expressroute, een extern bureaublad-gateway voor virtuele machines op afstand aan te melden, verbinding met een artefactopslagplaats voor privé-artefacts en andere PaaS-services die worden gebruikt in een testomgeving.
@@ -37,7 +37,7 @@ De belangrijkste elementen in de referentiearchitectuur zijn:
     - Alle netwerkverkeer binnen en buiten de cloudomgeving via een on-premises firewall voor beveiliging/nalevingsredenen forceren
 - **Netwerkbeveiligingsgroepen**: Een veelgebruikte manier voor het beperken van verkeer naar de cloudomgeving (of binnen de cloudomgeving) op basis van de bron en doel-IP-adressen is het gebruik van een [netwerkbeveiligingsgroep](../virtual-network/security-overview.md). Bijvoorbeeld, zodat alleen het netwerkverkeer dat afkomstig is van het bedrijfsnetwerk in netwerken van het lab.
 - **Extern bureaublad-gateway**:  Ondernemingen blokkeren doorgaans uitgaande verbindingen met extern bureaublad op de firewall van het bedrijf. Om in te schakelen verbinding met de cloud gebaseerde omgeving in DevTest Labs, er zijn verschillende opties, zoals het gebruik een [extern bureaublad-gateway](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture) (whitelist het statische IP-adres voor de gateway load balancer) of [zodat alle binnenkomende RDP-verkeer](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) via de Express Route/Site-naar-Site VPN-verbinding. Het is een algemene overweging bij het plannen van een implementatie van DevTest Labs in de onderneming.
-- **Azure-netwerken (VNets, subnetten)**:  De [Azure-netwerken](../networking/networking-overview.md) topologie is een ander belangrijk onderdeel voor de algehele architectuur van DevTest Labs. Hiermee kunt resources van labs om te communiceren (of niet), toegang tot on-premises (of niet) en toegang tot internet (of niet). Het architectuurdiagram bevat de meest voorkomende manier klanten maken gebruik van DevTest Labs (alle labs die zijn verbonden via [VNet-Peering](../virtual-network/virtual-network-peering-overview.md) met behulp van een [hub-spoke-model](/architecture/reference-architectures/hybrid-networking/hub-spoke) naar de Express Route/Site-naar-Site VPN-verbinding met on-premises), maar sinds DevTest Labs maakt gebruik van Azure Networking direct er geen beperkingen voor het instellen van de netwerkinfrastructuur.
+- **Azure-netwerken (VNets, subnetten)**:  De [Azure-netwerken](../networking/networking-overview.md) topologie is een ander belangrijk onderdeel voor de algehele architectuur van DevTest Labs. Hiermee kunt resources van labs om te communiceren (of niet), toegang tot on-premises (of niet) en toegang tot internet (of niet). Het architectuurdiagram bevat de meest voorkomende manier klanten maken gebruik van DevTest Labs (alle labs die zijn verbonden via [VNet-Peering](../virtual-network/virtual-network-peering-overview.md) met behulp van een [hub-spoke-model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) naar de Express Route/Site-naar-Site VPN-verbinding met on-premises), maar sinds DevTest Labs maakt gebruik van Azure Networking direct er geen beperkingen voor het instellen van de netwerkinfrastructuur.
 - **DevTest Labs**:  DevTest Labs is een belangrijk onderdeel van de algehele architectuur. Zie voor meer informatie over de service, [over DevTest Labs](devtest-lab-overview.md).
 - **Virtuele machines en andere bronnen (SaaS, PaaS, IaaS)**:  Een van de belangrijke werkbelastingen, ondersteund door DevTest Labs zijn virtuele machines samen met andere Azure-resources.  DevTest Labs kunt u eenvoudig en snel een onderneming toegang geven tot Azure-resources (inclusief virtuele Machines en andere Azure-Resources).  Meer informatie over toegang tot Azure voor [ontwikkelaars](devtest-lab-developer-lab.md) en [testers](devtest-lab-test-env.md).
 

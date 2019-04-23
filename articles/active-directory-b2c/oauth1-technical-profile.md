@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86de73394d96d1122abce44504d2b0fd99a01841
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3fe839de8cbaa0b321b0b0602b000b7575224dde
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915779"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010055"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technisch profiel OAuth1 definiëren in een aangepast beleid voor Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C biedt ondersteuning voor de [OAuth 1.0-protocol](https://tools.ietf.org/html/rfc5849) id-provider. Dit artikel beschrijft de details van een technisch profiel voor interactie met een claimprovider die ondersteuning biedt voor dit gestandaardiseerde protocol. Technisch profiel dat u met een OAuth1 kan federeren met OAuth1 op basis van id-provider, zoals Twitter, zodat u kunt gebruikers om aan te melden met hun bestaande sociale of ondernemings-id's.
+Azure Active Directory (Azure AD) B2C biedt ondersteuning voor de [OAuth 1.0-protocol](https://tools.ietf.org/html/rfc5849) id-provider. Dit artikel beschrijft de details van een technisch profiel voor interactie met een claimprovider die ondersteuning biedt voor dit gestandaardiseerde protocol. OAuth1 technische profiel, kunt u communiceren met een OAuth1 op basis van id-provider, zoals Twitter. Federatie met de id-provider, kunnen gebruikers melden zich aan met hun bestaande sociale of ondernemings-id's.
 
 ## <a name="protocol"></a>Protocol
 
@@ -46,7 +46,7 @@ De **OutputClaimsTransformations** element kan bevatten een verzameling van **Ou
 
 Het volgende voorbeeld ziet u de claims die wordt geretourneerd door de Twitter-id-provider:
 
-- De **user_id** claim die is toegewezen aan de **socialIdpUserId** claim.
+- De **user_id** claim die is toegewezen aan de **issuerUserId** claim.
 - De **screen_name** claim die is toegewezen aan de **displayName** claim.
 - De **e** claim zonder naam toewijzingen.
 
@@ -57,7 +57,7 @@ Het technische profiel retourneert ook claims die niet zijn geretourneerd door d
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="user_id" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="user_id" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="screen_name" />
   <OutputClaim ClaimTypeReferenceId="email" />
   <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="twitter.com" />
@@ -87,7 +87,7 @@ De **CryptographicKeys** element bevat het volgende kenmerk:
 
 ## <a name="redirect-uri"></a>Omleidings-URI
 
-Wanneer u de omleidings-URL van uw id-provider configureren, voert u `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Vervang **tenant** met de naam van uw tenant (bijvoorbeeld: contosob2c.onmicrosoft.com) en **policyId** met de id van uw beleid (bijvoorbeeld b2c_1a_policy). De omleidings-URI moet zich in alleen kleine letters. U moet een omleiding UR voor alle beleidsregels die gebruikmaken van aanmelding bij de id-provider toevoegen. 
+Wanneer u de omleidings-URL van uw id-provider configureren, voert u `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Vervang **tenant** met de naam van uw tenant (bijvoorbeeld: contosob2c.onmicrosoft.com) en **policyId** met de id van uw beleid (bijvoorbeeld b2c_1a_policy). De omleidings-URI moet zich in alleen kleine letters. Voeg een Omleidings-URL voor alle beleidsregels die gebruikmaken van aanmelding bij de id-provider. 
 
 Als u de **b2clogin.com** domein in plaats van **login.microsoftonline.com** Zorg ervoor dat u b2clogin.com in plaats van login.microsoftonline.com.
 

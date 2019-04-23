@@ -13,22 +13,22 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/29/2019
+ms.date: 04/18/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: c65c797612e179a9f3c02696d827131f5c830b3c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: 6876ffd76c5a7ba5745e8014bca2abdc5e5264a2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755905"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999821"
 ---
-# <a name="what-is-azure-media-services-v3"></a>Wat is Azure Media Services v3?
+# <a name="azure-media-services-v3-overview"></a>Overzicht van Azure Media Services v3
 
 Azure Media Services is een cloudgebaseerd platform waarmee u oplossingen bouwt die videostreaming van broadcast-kwaliteit mogelijk maken, de toegankelijkheid en distributie verbeteren, inhoud analyseren en nog veel meer. Ongeacht of u een ontwikkelaar van toepassingen, een callcenter, een overheidsinstelling of een entertainmentbedrijf bent, is Media Services het perfecte hulpmiddel bij het maken van toepassingen die media-ervaringen van uitzonderlijke kwaliteit willen aanbieden aan grote doelgroepen, op alle populaire mobiele apparaten en in de meestgebruikte browsers van dit moment. 
 
 > [!NOTE]
-> U kunt de Azure-portal op dit moment niet gebruiken om v3-resources te beheren. Gebruik de [REST-API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), of een van de ondersteunde [SDK's](developers-guide.md).
+> U kunt momenteel geen gebruik maken van de Azure-portal om v3-resources te beheren. Gebruik de [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) of een van de ondersteunde [SDK's](developers-guide.md).
 
 ## <a name="what-can-i-do-with-media-services"></a>Wat kan ik doen met Media Services?
 
@@ -46,7 +46,7 @@ Met Media Services kunt u diverse mediawerkstromen bouwen in de cloud. Hier volg
 
 ## <a name="how-can-i-get-started-with-v3"></a>Hoe ga ik aan de slag met v3? 
 
-Informatie over het coderen en inpakken van inhoud, streamen van video's op aanvraag, live uitzenden, analyseren van uw video's met Media Services v3. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u veilig on-demand of live video- of audiostromen levert aan miljoenen gebruikers.
+Informatie over coderen en verpakken van content, video-streaming op aanvraag, live uitzenden en het analyseren van uw video's met Media Services v3. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u veilig on-demand of live video- of audiostromen levert aan miljoenen gebruikers.
 
 Controleer voordat u begint met het ontwikkelen, [basisconcepten](concepts-overview.md)<br/>
 
@@ -74,11 +74,15 @@ Artikelen bevatten voorbeelden van code die laten zien hoe u om een taak te volt
 
 * [Een account maken - CLI](create-account-cli-how-to.md)
 * [Toegang tot API's - CLI](access-api-cli-how-to.md)
-* [Begin te ontwikkelen met SDK 's](developers-guide.md)
+* [Begin met ontwikkelen met SDK's](developers-guide.md)
 * [Coderen met HTTPS als invoer - taak .NET](job-input-from-http-how-to.md)  
 * [Monitor voor gebeurtenissen - Portal](monitor-events-portal-how-to.md)
 * [Dynamisch versleutelen met multi-DRM - .NET](protect-with-drm.md) 
 * [Coderen met een aangepaste transformatie - CLI](custom-preset-cli-howto.md)
+
+## <a name="provide-feedback"></a>Feedback geven
+
+Bekijk de [Azure Media Services-community](media-services-community.md) artikel om te zien van verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

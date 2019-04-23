@@ -1,28 +1,28 @@
 ---
 title: 'Objectdetectie: Computer Vision'
 titleSuffix: Azure Cognitive Services
-description: Concepten met betrekking tot objectdetectie van met behulp van de Computer Vision-API.
+description: Meer informatie over concepten met betrekking tot de mogelijkheid voor het detecteren van object van de Computer Vision-API - gebruik en limieten.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7e3311aab74f58e3936039393eab76dee12b83ea
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 012ab849c926de332da55361c79c76c5a1311169
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496935"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001844"
 ---
-# <a name="object-detection"></a>Objectdetectie
+# <a name="detect-common-objects-in-images"></a>Algemene objecten in afbeeldingen detecteren
 
 Objectdetectie van het is vergelijkbaar met [tagging](concept-tagging-images.md), maar de API retourneert de omsluitende vak coördinaten (in pixels) van elk gevonden object. Als een afbeelding bijvoorbeeld een hond, kat en persoon bevat, zal de detectiebewerking deze objecten vermelden, samen met hun coördinaten in de afbeelding. U kunt deze functionaliteit gebruiken voor het verwerken van de relaties tussen de objecten in een afbeelding. Ook kunt u bepalen of er meerdere exemplaren van dezelfde tag in een afbeelding zijn.
 
-De API voor het detecteren van toepassing is tags op basis van de objecten of levensonderhoud dingen geïdentificeerd in de afbeelding. Er is op dit moment geen formeel relatie tussen de labels taxonomie en de object-detectie taxonomie. Op het niveau van een concept vindt de API detecteren alleen u objecten en levensonderhoud dingen, terwijl de API-code kan ook contextuele termen, zoals 'binnenshuis', die met het omsluitende kaders kunnen niet worden vertaald.
+De API voor het detecteren van toepassing is tags op basis van de objecten of levensonderhoud dingen geïdentificeerd in de afbeelding. Er is momenteel geen formeel relatie tussen de labels taxonomie en de object-detectie taxonomie. Op het niveau van een concept vindt de API detecteren alleen u objecten en levensonderhoud dingen, terwijl de API-code kan ook contextuele termen, zoals 'binnenshuis', die met het omsluitende kaders kunnen niet worden vertaald.
 
 ## <a name="object-detection-example"></a>Voorbeeld van een object-detectie
 

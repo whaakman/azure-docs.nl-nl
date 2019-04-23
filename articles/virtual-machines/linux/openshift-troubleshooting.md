@@ -4,7 +4,7 @@ description: Problemen met OpenShift-implementatie in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: joraio
+manager: mdotson
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: c65e76fb9453e93e856c76f397d187f9ee740fbd
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: af6746e7246b8783e5bdbef34cf1b57427aa7ebb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540343"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001113"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>OpenShift-implementatie in Azure oplossen
 
@@ -42,9 +42,9 @@ SSH naar de ansible-playbook-host. Gebruik de master-0-host voor de sjabloon OKD
 
 ## <a name="log-files"></a>Logboekbestanden
 
-De logboekbestanden voor de host-voorbereiding-scripts (stderr en stdout) bevinden zich in /var/lib/waagent/custom-script/download/0 op alle hosts. Als er is een fout tijdens de voorbereiding van de host opgetreden, bekijkt u deze logboekbestanden om te bepalen van de fout.
+De logboekbestanden voor de host-voorbereiding-scripts (stderr en stdout) bevinden zich in `/var/lib/waagent/custom-script/download/0` op alle hosts. Als er is een fout tijdens de voorbereiding van de host opgetreden, bekijkt u deze logboekbestanden om te bepalen van de fout.
 
-Als de voorbereiding van scripts is uitgevoerd, klikt u vervolgens moet de logboekbestanden in de map /var/lib/waagent/custom-script/download/1 van de host ansible-playbook worden onderzocht. Als de fout is opgetreden tijdens de werkelijke installatie van OpenShift, wordt de stdout-bestand de volgende fout weergegeven. Deze informatie gebruiken om contact op met ondersteuning voor verdere ondersteuning.
+Als de voorbereiding van scripts met succes is uitgevoerd, klikt u vervolgens de logboekbestanden de `/var/lib/waagent/custom-script/download/1` directory van de host ansible-playbook moet worden onderzocht. Als de fout is opgetreden tijdens de werkelijke installatie van OpenShift, wordt de stdout-bestand de volgende fout weergegeven. Deze informatie gebruiken om contact op met ondersteuning voor verdere ondersteuning.
 
 Voorbeeld van uitvoer
 
@@ -93,11 +93,11 @@ De meest voorkomende fouten tijdens de installatie zijn:
 
 ### <a name="private-key-has-a-passphrase"></a>Persoonlijke sleutel heeft een wachtwoordzin
 
-Hier ziet u een foutbericht weergegeven dat machtiging is geweigerd voor SSH. SSH naar de ansible-playbook-host om te controleren op een wachtwoordzin op de persoonlijke sleutel.
+Hier ziet u een foutbericht weergegeven dat machtiging is geweigerd voor ssh. SSH naar de ansible-playbook-host om te controleren op een wachtwoordzin op de persoonlijke sleutel.
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>Key vault-geheim met persoonlijke sleutel is niet correct gemaakt
 
-De persoonlijke sleutel is opgenomen in de host met ansible-playbook - ~/.ssh/id_rsa. Controleer of dat dit bestand juist is. Testen door een SSH-sessie op een van de clusterknooppunten van de host ansible-playbook te openen.
+De persoonlijke sleutel is gekopieerd naar de host met ansible-playbook - ~/.ssh/id_rsa. Controleer of dat dit bestand juist is. Testen door een SSH-sessie op een van de clusterknooppunten van de host ansible-playbook te openen.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>Referenties voor service-principal zijn niet correct opgegeven
 

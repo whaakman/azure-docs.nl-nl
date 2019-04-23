@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b402fa754105b734bfc7abbd2790a2a12afc6ff4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 60938f26c27b9f94046b1be8e3d0cb6b247017c9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523355"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997781"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Zelfstudie: Een door het Windows-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot de Azure AD Graph API
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
-Deze zelfstudie laat zien hoe u toegang krijgt tot de Microsoft Graph API met een door het systeem toegewezen beheerde identiteit voor een virtuele Windows-machine (VM) om de groepslidmaatschappen te kunnen ophalen. Beheerde entiteiten voor Azure-resources worden automatisch beheerd in Azure en stellen u in staat om te verifiëren bij services die Microsoft Azure AD-verificatie ondersteunen, zonder referenties in code te hoeven invoegen.  Tijdens deze zelfstudie gaat u voor uw VM-identiteitsabonnement query's uitvoeren in Azure AD-groepen. Groepsgegevens worden vaak gebruikt bij het nemen van autorisatiebeslissingen. Achter de schermen wordt de beheerde identiteit van uw VM in Azure AD vertegenwoordigd door een **service-principal**. Voordat u de groepsquery uitvoert, voegt u de service-principal van de VM-identiteit toe aan een groep in Azure AD. U kunt dit doen met Azure PowerShell, Azure AD PowerShell of Azure CLI.
+Deze zelfstudie leert u hoe u een systeem toegewezen beheerde identiteit voor een Windows virtuele machine (VM) gebruikt voor toegang tot de Azure AD Graph API om op te halen van de groepslidmaatschappen. Beheerde entiteiten voor Azure-resources worden automatisch beheerd in Azure en stellen u in staat om te verifiëren bij services die Microsoft Azure AD-verificatie ondersteunen, zonder referenties in code te hoeven invoegen.  Tijdens deze zelfstudie gaat u voor uw VM-identiteitsabonnement query's uitvoeren in Azure AD-groepen. Groepsgegevens worden vaak gebruikt bij het nemen van autorisatiebeslissingen. Achter de schermen wordt de beheerde identiteit van uw VM in Azure AD vertegenwoordigd door een **service-principal**. Voordat u de groepsquery uitvoert, voegt u de service-principal van de VM-identiteit toe aan een groep in Azure AD. U kunt dit doen met Azure PowerShell, Azure AD PowerShell of Azure CLI.
 
 > [!div class="checklist"]
 > * Verbinding maken met Azure AD

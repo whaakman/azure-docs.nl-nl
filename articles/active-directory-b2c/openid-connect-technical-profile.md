@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a13ca362bf08b86297641061992f0820f0b624c5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e8bfa5a3e60efe860b5e7197d96ebe5ce3a86030
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916764"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001402"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technisch OpenId Connect-profiel te definiëren in een aangepast beleid voor Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C biedt ondersteuning voor de [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) protocol-id-provider. OpenID Connect 1.0 definieert een identiteitslaag bovenop OAuth 2.0 en vertegenwoordigt de status van de techniek in moderne-verificatieprotocollen.  Technisch profiel dat u met een OpenId Connect kan federeren met OpenId Connect op basis van id-provider, zoals Azure AD, zodat u kunt gebruikers om aan te melden met hun bestaande sociale of ondernemings-id's.
+Azure Active Directory (Azure AD) B2C biedt ondersteuning voor de [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) protocol-id-provider. OpenID Connect 1.0 definieert een identiteitslaag bovenop OAuth 2.0 en vertegenwoordigt de status van de techniek in moderne-verificatieprotocollen. Een technisch profiel is OpenId Connect, kunt u met een OpenId verbinding maken op basis van id-provider, zoals Azure AD federeren. Federatie met een id-provider, kunnen gebruikers melden zich aan met hun bestaande sociale of ondernemings-id's.
 
 ## <a name="protocol"></a>Protocol
 
@@ -52,7 +52,7 @@ De **OutputClaimsTransformations** element kan bevatten een verzameling van **Ou
 
 Het volgende voorbeeld ziet u de claims die wordt geretourneerd door de Microsoft-Account-id-provider:
 
-- De **sub** claim die is toegewezen aan de **socialIdpUserId** claim.
+- De **sub** claim die is toegewezen aan de **issuerUserId** claim.
 - De **naam** claim die is toegewezen aan de **displayName** claim.
 - De **e** zonder naam toewijzingen.
 
@@ -65,7 +65,7 @@ Het technische profiel retourneert ook claims die niet zijn geretourneerd door d
 <OutputClaims>
   <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
   <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
   <OutputClaim ClaimTypeReferenceId="email" />
 </OutputClaims>
@@ -81,7 +81,7 @@ Het technische profiel retourneert ook claims die niet zijn geretourneerd door d
 | ProviderName | Nee | De naam van de id-provider. |
 | response_types | Nee | Het reactietype op basis van de OpenID Connect Core 1.0-specificatie. Mogelijke waarden: `id_token`, `code`, of `token`. |
 | response_mode | Nee | De methode die de id-provider gebruikt voor het verzenden van het resultaat terug naar Azure AD B2C. Mogelijke waarden: `query`, `form_post` (standaard), of `fragment`. |
-| scope | Nee | Het bereik van de aanvraag voor toegang tot gedefinieerd op basis van de OpenID Connect Core 1.0-specificatie. Zoals `openid`, `profile`, en `email`. |
+| scope | Nee | Het bereik van de aanvraag die is gedefinieerd op basis van de OpenID Connect Core 1.0-specificatie. Zoals `openid`, `profile`, en `email`. |
 | HttpBinding | Nee | De verwachte HTTP-binding met de toegang tot tokens en claims token-eindpunten. Mogelijke waarden: `GET` of `POST`.  |
 | ValidTokenIssuerPrefixes | Nee | Een sleutel die kan worden gebruikt voor het aanmelden bij elk van de tenants bij het gebruik van een multitenant-id-provider zoals Azure Active Directory. |
 | UsePolicyInRedirectUri | Nee | Hiermee wordt aangegeven of een beleidsregel gebruiken bij het maken van de omleidings-URI. Wanneer u uw toepassing in de id-provider configureert, moet u de omleidings-URI opgeven. De omleidings-URI verwijst naar Azure AD B2C, `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` (login.microsoftonline.com kan worden gewijzigd met de tenant-name.b2clogin.com).  Als u opgeeft `false`, moet u een omleidings-URI voor elk beleid dat u toevoegen. Bijvoorbeeld: `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp`. |
@@ -98,7 +98,7 @@ De **CryptographicKeys** element bevat het volgende kenmerk:
 
 ## <a name="redirect-uri"></a>Redirect Uri
  
-Wanneer u de omleidings-URI van uw id-provider configureren, voert u `https://login.microsoftonline.com/te/tenant/oauth2/authresp`. Vervang **tenant** met de naam van uw tenant (bijvoorbeeld: contosob2c.onmicrosoft.com) of van de tenant-id. De omleidings-URI moet zich in alleen kleine letters.
+Wanneer u de omleidings-URI van uw id-provider configureren, voert u `https://login.microsoftonline.com/te/tenant/oauth2/authresp`. Vervang **tenant** met de naam van uw tenant (bijvoorbeeld: contosob2c.onmicrosoft.com) of van de tenant-ID. De omleidings-URI moet zich in alleen kleine letters.
 
 Als u de **b2clogin.com** domein in plaats van **login.microsoftonline.com** Zorg ervoor dat u b2clogin.com in plaats van login.microsoftonline.com.
 

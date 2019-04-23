@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c067d6f02ceeca9bf390ab5421dcfe463e9f758d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 63bb5c6338cf230c2bb47cb0a2c03810053f970a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699078"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002575"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Troubleshoot Desired State Configuration (DSC)
 
@@ -41,6 +41,31 @@ Deze fout is een tijdelijk probleem dat is gepland om te worden omgezet.
 * Gebruik de Az-Cmdlet "Remove-AzAutomationDscConfiguration" te verwijderen van de configuratie.
 * De documentatie voor deze cmdlet niet is nog bijgewerkt.  Raadpleeg de documentatie voor de AzureRM-module tot die tijd.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
+
+### <a name="failed-to-register-agent"></a>Scenario: Registratie van Dsc-Agent is mislukt
+
+#### <a name="issue"></a>Probleem
+
+Wanneer u probeert om uit te voeren `Set-DscLocalConfigurationManager` of een andere DSC-cmdlet het foutbericht weergegeven:
+
+```error
+Registration of the Dsc Agent with the server
+https://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-0000-0000-000000000000 failed. The
+underlying error is: Failed to register Dsc Agent with AgentId 00000000-0000-0000-0000-000000000000 with the server htt
+ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-0000-0000-000000000000/Nodes(AgentId='00000000-0000-0000-0000-000000000000'). .
+    + CategoryInfo          : InvalidResult: (root/Microsoft/...gurationManager:String) [], CimException
+    + FullyQualifiedErrorId : RegisterDscAgentCommandFailed,Microsoft.PowerShell.DesiredStateConfiguration.Commands.Re
+   gisterDscAgentCommand
+    + PSComputerName        : <computerName>
+```
+
+#### <a name="cause"></a>Oorzaak
+
+Deze fout wordt meestal veroorzaakt door een firewall, de machine wordt achter een proxyserver of andere netwerkfouten.
+
+#### <a name="resolution"></a>Oplossing
+
+Controleer of dat de computer toegang heeft tot de juiste eindpunten voor Azure Automation DSC en probeer het opnieuw. Zie voor een lijst met poorten en -adressen die nodig zijn, [netwerkplanning](../automation-dsc-overview.md#network-planning)
 
 ### <a name="failed-not-found"></a>Scenario: Knooppunt zich in de status mislukt met een 'Niet gevonden'-fout
 

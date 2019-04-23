@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 54a51c567e8dd655ee3a575d1d4887ec6e094e40
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 93803a7d885bb68c1d5d6637eaf90fb090dabeb2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684053"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000263"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -36,7 +36,7 @@ Om uit te voeren de LUIS-container, moet u het volgende hebt:
 |--|--|
 |Docker-Engine| U moet de Docker-Engine zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **Op Windows**, Docker moet ook worden geconfigureerd ter ondersteuning van Linux-containers.<br><br>|
 |Vertrouwd zijn met Docker | U hebt een basiskennis hebt van Docker-kernconcepten zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van basic `docker` opdrachten.| 
-|Azure `Cognitive Services` resource en LUIS [app-pakket](/luis-how-to-start-new-app.md#export-app-for-containers) bestand |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>* A _Cognitive Services_ Azure-resource en de bijbehorende facturering sleutel voor de facturering URI van het eindpunt. Beide waarden zijn beschikbaar op de pagina overzicht en sleutels voor de resource en zijn verplicht om de container te starten. U moet toevoegen de `luis/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende BILLING_ENDPOINT_URI-voorbeeld. <br>* Een getraind of gepubliceerde app verpakt als een gekoppelde invoer voor de container met de bijbehorende App-ID. U kunt de pakketbestanden ophalen vanuit de LUIS-portal of de API's voor ontwerpen. Als uw LUIS-verpakte app uit de [API's ontwerpen](#authoring-apis-for-package-file), moet u ook uw _ontwerpen sleutel_.<br><br>Deze vereisten worden gebruikt voor de opdrachtregelargumenten doorgeven aan de volgende variabelen:<br><br>**{AUTHORING_KEY}** : Deze sleutel wordt gebruikt voor het ophalen van de app-pakket van de LUIS-service in de cloud en de logboeken voor query's uploaden naar de cloud. De indeling is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Deze ID wordt gebruikt om de App te selecteren. De indeling is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: Deze sleutel wordt gebruikt voor het starten van de container. U vindt de eindpuntsleutel op twee plaatsen. De eerste is de Azure-portal binnen de _Cognitive Services_ lijst met resources van sleutels. De eindpuntsleutel is ook beschikbaar in de LUIS-portal op de sleutels en het eindpunt instellingenpagina. Gebruik niet de starter-sleutel.<br><br>**{BILLING_ENDPOINT}**: Een voorbeeld is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>De [ontwerpen en eindpuntsleutel](luis-boundaries.md#key-limits) hebben verschillende doeleinden. Gebruik deze niet door elkaar. |
+|Azure `Cognitive Services` resource en LUIS [app-pakket](luis-how-to-start-new-app.md#export-app-for-containers) bestand |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>* A _Cognitive Services_ Azure-resource en de bijbehorende facturering sleutel voor de facturering URI van het eindpunt. Beide waarden zijn beschikbaar op de pagina overzicht en sleutels voor de resource en zijn verplicht om de container te starten. U moet toevoegen de `luis/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende BILLING_ENDPOINT_URI-voorbeeld. <br>* Een getraind of gepubliceerde app verpakt als een gekoppelde invoer voor de container met de bijbehorende App-ID. U kunt de pakketbestanden ophalen vanuit de LUIS-portal of de API's voor ontwerpen. Als uw LUIS-verpakte app uit de [API's ontwerpen](#authoring-apis-for-package-file), moet u ook uw _ontwerpen sleutel_.<br><br>Deze vereisten worden gebruikt voor de opdrachtregelargumenten doorgeven aan de volgende variabelen:<br><br>**{AUTHORING_KEY}** : Deze sleutel wordt gebruikt voor het ophalen van de app-pakket van de LUIS-service in de cloud en de logboeken voor query's uploaden naar de cloud. De indeling is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Deze ID wordt gebruikt om de App te selecteren. De indeling is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: Deze sleutel wordt gebruikt voor het starten van de container. U vindt de eindpuntsleutel op twee plaatsen. De eerste is de Azure-portal binnen de _Cognitive Services_ lijst met resources van sleutels. De eindpuntsleutel is ook beschikbaar in de LUIS-portal op de sleutels en het eindpunt instellingenpagina. Gebruik niet de starter-sleutel.<br><br>**{BILLING_ENDPOINT}**: Een voorbeeld is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>De [ontwerpen en eindpuntsleutel](luis-boundaries.md#key-limits) hebben verschillende doeleinden. Gebruik deze niet door elkaar. |
 
 ### <a name="authoring-apis-for-package-file"></a>API's ontwerpen voor pakketbestand
 
@@ -84,7 +84,7 @@ Als de container op de [hostcomputer](#the-host-computer), de volgende procedure
 ![Proces voor het gebruik van de container Language Understanding (LUIS)](./media/luis-container-how-to/luis-flow-with-containers-diagram.jpg)
 
 1. [Pakket exporteren](#export-packaged-app-from-luis) voor de container van LUIS-portal of LUIS APIs.
-1. Pakketbestand verplaatsen naar de vereiste **invoer** map op de [hostcomputer](#the-host-computer). Wijzig, alter, of niet decomprimeren van LUIS-pakketbestand.
+1. Pakketbestand verplaatsen naar de vereiste **invoer** map op de [hostcomputer](#the-host-computer). Wijzig, alter, overschrijven, of niet decomprimeren van LUIS-pakketbestand.
 1. [Uitvoeren van de container](##run-the-container-with-docker-run), met de vereiste _invoer koppelpunt_ en instellingen voor facturering. Meer [voorbeelden](luis-container-configuration.md#example-docker-run-commands) van de `docker run` opdrachten zijn beschikbaar. 
 1. [Uitvoeren van query's van de container voorspelling eindpunt](#query-the-containers-prediction-endpoint). 
 1. Wanneer u klaar bent met de container [importeren van de eindpunt-logboeken](#import-the-endpoint-logs-for-active-learning) uit de uitvoer koppelen aan de LUIS-portal en [stoppen](#stop-the-container) de container.
@@ -113,7 +113,7 @@ De invoer Koppelmap mag de **productie**, **fasering**, en **Trained** versies v
 |Productie|Get, Post|Azure en de container|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
-> Wijzig, alter, of niet decomprimeren van de LUIS-pakketbestanden.
+> Niet wijzigen, alter, overschrijven of de pakketbestanden LUIS decomprimeren.
 
 ### <a name="packaging-prerequisites"></a>Verpakking-vereisten
 
@@ -273,9 +273,9 @@ De queryparameters configureren hoe en wat wordt geretourneerd in antwoord op de
 |--|--|--|
 |`q`|string|Utterance van de gebruiker.|
 |`timezoneOffset`|getal|U kunt de timezoneOffset [wijzigt de tijdzone](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) die worden gebruikt door de vooraf gedefinieerde entiteit datetimeV2.|
-|`verbose`|booleaans|Retourneert alle intents en hun scores wanneer ingesteld op true. Standaard is ingesteld op false, die alleen het belangrijkste doel retourneert.|
-|`staging`|booleaans|Query retourneert uit de resultaten van de omgeving voor fasering als is ingesteld op true. |
-|`log`|booleaans|Logboekregistratie van query's, die later kunnen worden gebruikt voor [actief leren](luis-how-to-review-endpoint-utterances.md). De standaardinstelling is true.|
+|`verbose`|boolean|Retourneert alle intents en hun scores wanneer ingesteld op true. Standaard is ingesteld op false, die alleen het belangrijkste doel retourneert.|
+|`staging`|boolean|Query retourneert uit de resultaten van de omgeving voor fasering als is ingesteld op true. |
+|`log`|boolean|Logboekregistratie van query's, die later kunnen worden gebruikt voor [actief leren](luis-how-to-review-endpoint-utterances.md). De standaardinstelling is true.|
 
 ### <a name="query-published-app"></a>Gepubliceerde app query
 

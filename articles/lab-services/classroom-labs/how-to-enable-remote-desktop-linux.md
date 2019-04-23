@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: 28f963ab807cbd679b7efe8b034ab91f2893198e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 6985bd0bbae858ad258e723ef4d6d6d687b2c86e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58659453"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005346"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Inschakelen en extern bureaublad gebruiken voor virtuele Linux-machines in een lab in Azure Lab Services
 In dit artikel laat zien hoe de volgende taken uitvoeren:
@@ -35,6 +35,7 @@ Tijdens het maken van lab docenten kunnen inschakelen **verbinding met extern bu
 > [!IMPORTANT] 
 > Inschakelen van **verbinding met extern bureaublad** alleen wordt geopend de **RDP** poort op Linux-machines. U, als een docent verbinding maken met de Linux-machine via SSH voor de eerste keer en RDP en GUI-pakketten installeren zodat u kunt verbinding maken met de Linux-machine met behulp van RDP later opnieuw. Vervolgens kunt u **publiceren** de installatiekopie dat studenten RDP in op de student virtuele Linux-machines kunnen. 
 
+## <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
 De verbinding met extern bureaublad wordt momenteel ondersteund voor de volgende besturingssystemen:
 
 - openSUSE Leap 42,3

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 707e0aecdaf2a579d086e012519182078c1a6303
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: e0277180f0d768bbcc83a0d8d05fbc4b8b25301e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313223"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006026"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Veelgestelde vragen over Azure multi-factor Authentication
 
@@ -142,7 +142,7 @@ Als uw organisatie geen oudere clients, moet u uw gebruikers te maken van app-wa
 > [!NOTE]
 > Moderne verificatie voor Office 2013 clients
 >
-> App-wachtwoorden zijn alleen nodig is voor apps die moderne verificatie niet ondersteunen. Office 2013 clients ondersteunen moderne-verificatieprotocollen, maar moeten worden geconfigureerd. Nieuwere Office-clients ondersteunen automatisch moderne-verificatieprotocollen. Zie voor meer informatie de [Office 2013 modern authentication public preview aankondiging](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> App-wachtwoorden zijn alleen nodig is voor apps die moderne verificatie niet ondersteunen. Office 2013 clients ondersteunen moderne-verificatieprotocollen, maar moeten worden geconfigureerd. Moderne verificatie is nu beschikbaar voor elke klant met de update van maart 2015 of hoger voor Office 2013. Zie voor meer informatie de [Office 2013 modern authentication openbare preview aangekondigd](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 **V: Mijn gebruikers zeggen dat ze niet soms de SMS-bericht ontvangen of ze tweerichtings-SMS-berichten beantwoorden maar de verificatie een optreedt time-out.**
 

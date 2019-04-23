@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-logboeken archiveren in een opslagaccount (preview) | Microsoft Docs'
-description: Informatie over het instellen van Azure Diagnostics voor het pushen van Azure Active Directory-logboeken naar een opslagaccount (preview)
+title: Zelfstudie - archief Azure Active Directory-logboeken naar een opslagaccount | Microsoft Docs
+description: Meer informatie over het instellen van Azure Diagnostics naar een storage-account pushen en Azure Active Directory-Logboeken
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d34b41e780466d9ab734b9dbd0e58016dba7b10
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 0198fe1ce61c8f78e315d1166a7ea03aae20d592
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434718"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999498"
 ---
-# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Zelfstudie: Azure AD-logboeken archiveren in een Azure-opslagaccount (preview)
+# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Zelfstudie: Logboeken van Azure AD naar Azure storage-account archiveren
 
 In deze zelfstudie leert u diagnostische instellingen van Azure Monitor instellen voor het routeren van Azure Active Directory (AD)-logboeken naar een Azure-opslagaccount.
 

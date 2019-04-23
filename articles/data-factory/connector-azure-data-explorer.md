@@ -1,5 +1,5 @@
 ---
-title: Gegevens kopiëren naar of van Azure Data Explorer met behulp van Azure Data Factory | Microsoft Docs
+title: Gegevens kopiëren naar of van Azure Data Explorer met behulp van Azure Data Factory
 description: Meer informatie over het kopiëren van gegevens naar of van Azure Data Explorer met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: orspod
-ms.openlocfilehash: 756ede9cc90655163d6d53aa3ca920d2a15fb43d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.author: orspodek
+ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682488"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009358"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Explorer met behulp van Azure Data Factory
 
@@ -219,4 +219,7 @@ Om gegevens te kopiëren naar Azure Data Explorer, stelt u de eigenschap type in
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
+
+* Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
+
+* Meer informatie over [gegevens kopiëren van Azure Data Factory naar Azure Data Explorer](/azure/data-explorer/data-factory-load-data).

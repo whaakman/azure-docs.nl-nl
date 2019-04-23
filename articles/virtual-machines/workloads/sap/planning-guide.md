@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9e12171a8596bc9caba3bf9065bbb943139ccde
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d4798f8c3e262129135a6677ccf90dc0fb3be7f2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501328"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999532"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie van SAP NetWeaver
 
@@ -1141,8 +1141,8 @@ U kunt ook de VHD's kopiëren tussen abonnementen. Lees voor meer informatie, [i
 
 De basisprincipes van de logica van de cmdlet PS ziet er als volgt:
 
-* Maken van de context van een opslagaccount voor de **bron** storage-account met *New-AzStorageContext* -Zie <https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext>
-* Maken van de context van een opslagaccount voor de **doel** storage-account met *New-AzStorageContext* -Zie <https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext>
+* Maken van de context van een opslagaccount voor de **bron** storage-account met *New-AzStorageContext* -Zie <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* Maken van de context van een opslagaccount voor de **doel** storage-account met *New-AzStorageContext* -Zie <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
 * Het exemplaar bij starten
 
 ```powershell

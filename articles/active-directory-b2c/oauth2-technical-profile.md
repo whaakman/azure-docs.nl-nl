@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fde556c60f823f4bd287ca5672503158c7292f51
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e92378cca445191f42708bd6348b1c75b29da1a1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918923"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009834"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technisch profiel OAuth2 definiëren in een aangepast beleid voor Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C biedt ondersteuning voor de id-provider van de OAuth2-protocol. Dit is de primaire protocol voor de gedelegeerde verificatie en autorisatie. Zie voor meer informatie de [RFC 6749 de OAuth 2.0 machtiging Framework](https://tools.ietf.org/html/rfc6749). U kunt federeren met een OAuth2-technische profiel met OAuth2 op basis van id-provider, zoals Facebook en Live.com, zodat u kunt gebruikers om aan te melden met hun bestaande sociale of ondernemings-id's.
+Azure Active Directory (Azure AD) B2C biedt ondersteuning voor de id-provider van de OAuth2-protocol. OAuth2 is het primaire protocol voor de gedelegeerde verificatie en autorisatie. Zie voor meer informatie de [RFC 6749 de OAuth 2.0 machtiging Framework](https://tools.ietf.org/html/rfc6749). Het technische profiel van een OAuth2, kunt u federeren met een OAuth2 op basis van id-provider, zoals Facebook. Federatie met een id-provider, kunnen gebruikers melden zich aan met hun bestaande sociale of ondernemings-id's.
 
 ## <a name="protocol"></a>Protocol
 
@@ -54,7 +54,7 @@ Het volgende voorbeeld ziet u de claims die wordt geretourneerd door de Facebook
 
 - De **first_name** claim is toegewezen aan de **givenName** claim.
 - De **achternaam** claim is toegewezen aan de **achternaam** claim.
-- De **displayName** claim zonder Gebruikersnaamtoewijzing...
+- De **displayName** claim zonder naam-toewijzing.
 - De **e** claim zonder naam toewijzingen.
 
 Het technische profiel retourneert ook claims die niet zijn geretourneerd door de id-provider: 
@@ -64,7 +64,7 @@ Het technische profiel retourneert ook claims die niet zijn geretourneerd door d
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="id" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
   <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
   <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="last_name" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
@@ -76,7 +76,7 @@ Het technische profiel retourneert ook claims die niet zijn geretourneerd door d
 
 ## <a name="metadata"></a>Metagegevens
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | client_id | Ja | De toepassings-id van de id-provider. |
 | IdTokenAudience | Nee | De doelgroep van het id_token. Als u opgeeft, wordt Azure AD B2C controleert of het token in een claim die wordt geretourneerd door de id-provider is en gelijk aan de versie die is opgegeven is. |
@@ -90,7 +90,7 @@ Het technische profiel retourneert ook claims die niet zijn geretourneerd door d
 | ClaimsEndpointFormat | Nee | De waarde van de indeling queryreeks-parameter. U kunt bijvoorbeeld de waarde als instellen `json` in deze LinkedIn claims eindpunt `https://api.linkedin.com/v1/people/~?format=json`. | 
 | ProviderName | Nee | De naam van de id-provider. |
 | response_mode | Nee | De methode die de id-provider gebruikt voor het verzenden van het resultaat terug naar Azure AD B2C. Mogelijke waarden: `query`, `form_post` (standaard), of `fragment`. |
-| scope | Nee | Het bereik van de aanvraag voor toegang op basis van de OAuth2-specificatie identity provider gedefinieerd. Zoals `openid`, `profile`, en `email`. |
+| scope | Nee | Het bereik van de aanvraag die is gedefinieerd op basis van de OAuth2-specificatie identity provider. Zoals `openid`, `profile`, en `email`. |
 | HttpBinding | Nee | De verwachte HTTP-binding met de toegang tot tokens en claims token-eindpunten. Mogelijke waarden: `GET` of `POST`.  |
 | ResponseErrorCodeParamName | Nee | De naam van de parameter die het foutbericht geretourneerd via een HTTP 200 (Ok bevat). |
 | ExtraParamsInAccessTokenEndpointResponse | Nee | Bevat de extra parameters die kunnen worden geretourneerd in het antwoord van **AccessTokenEndpoint** door sommige id-providers. Bijvoorbeeld, het antwoord van **AccessTokenEndpoint** bevat, zoals een extra parameter `openid`, dit is een verplichte parameter naast de access_token in een **ClaimsEndpoint** aanvraag query tekenreeks. Meerdere namen van parameters moeten worden voorafgegaan en door de door komma's gescheiden ',' scheidingsteken. |
@@ -100,9 +100,9 @@ Het technische profiel retourneert ook claims die niet zijn geretourneerd door d
 
 De **CryptographicKeys** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
-| client_secret | Ja | Het clientgeheim van de toepassing van id-provider. De cryptografische sleutel is alleen vereist als de **response_types** metagegevens is ingesteld op `code`. In dit geval wordt Azure AD B2C een aanroep voor het uitwisselen van de autorisatiecode voor een toegangstoken. Als de metagegevens is ingesteld op `id_token` kunt u de cryptografische sleutel weglaten.  |  
+| client_secret | Ja | Het clientgeheim van de toepassing van id-provider. De cryptografische sleutel is alleen vereist als de **response_types** metagegevens is ingesteld op `code`. In dit geval wordt Azure AD B2C een aanroep voor het uitwisselen van de autorisatiecode voor een toegangstoken. Als de metagegevens is ingesteld op `id_token`, kunt u de cryptografische sleutel weglaten. |  
 
 ## <a name="redirect-uri"></a>Omleidings-URI
 

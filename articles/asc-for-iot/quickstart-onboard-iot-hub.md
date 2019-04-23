@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 59021d09f2af9d430b118acdeb8aa977094e683e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862383"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010557"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Quickstart: In IoT Hub-service inschakelen
 
@@ -45,7 +45,7 @@ In dit artikel bevat een uitleg over het inschakelen van de Azure Security Cente
 Schakel beveiliging van uw IoT-Hub door het volgende doen: 
 
 1. Open uw **IoT-Hub** in Azure portal. 
-2. Selecteer en open **Security** in het menu links. 
+2. Onder de **Security** menu, klikt u op **overzicht**, klikt u vervolgens op **Start preview**. 
 3. Kies **IoT-beveiliging inschakelen**. 
 4. Geef de details van uw Log Analytics-werkruimte. 
    - Er ook voor kiezen om op te slaan **ruwe gebeurtenissen** naast de standaard-gegevenstypen van opslag door te laten de **onbewerkte gebeurtenis** in-/ uitschakelen **op**. 

@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: d1e941e41871de4a11641254f40c53285b096807
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: f2569b29ab6124f1cfa22fa745d45082c213a6be
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546300"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003465"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Machtigingen op bestands- en mapniveau instellen voor Azure Data Lake Storage Gen2 met behulp van Azure Storage Explorer
 
@@ -29,7 +29,7 @@ In dit artikel leert u hoe u Azure Storage Explorer kunt gebruiken om:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor de beste weergave van het proces vragen wij u om onze [snelstart voor Azure Storage Explorer](data-lake-storage-Explorer.md) te voltooien. Hierdoor wordt gewaarborgd dat uw opslagaccount in de meest geschikte staat is (bestandssysteem dat is gemaakt en gegevens die ernaar zijn geüpload).
+Voor de beste weergave van het proces vragen wij u om onze [snelstart voor Azure Storage Explorer](data-lake-storage-Explorer.md) te voltooien. Dit zorgt ervoor dat uw storage-account wordt in de meest geschikte status (bestandssysteem gemaakt en geüpload naar deze gegevens).
 
 ## <a name="managing-access"></a>Toegang beheren
 

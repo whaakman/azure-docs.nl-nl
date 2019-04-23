@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 67bb81675dabd8aef28693a958a0ac39b1b441e7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: e1d119f3c7c5d6dbdb570d362c53b80dad7886bd
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549237"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148999"
 ---
 # <a name="set-up-azure-devtest-labs-infrastructure-in-your-enterprise"></a>Instellen van Azure DevTest Labs-infrastructuur in uw onderneming
-Ondernemingen zijn snel overstappen op de cloud vanwege de [voordelen](/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) die flexibiliteit, flexibiliteit en besparingen bevatten. Een algemene eerste stap voor klanten op de cloud is om te beginnen met werkbelastingen voor ontwikkelen en testen.  DevTest Labs biedt [functies](devtest-lab-concepts.md) die profiteren van de onderneming en ondersteuning [enterprise dev/test-scenario's key](devtest-lab-guidance-get-started.md).
+Ondernemingen zijn snel overstappen op de cloud vanwege de [voordelen](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) die flexibiliteit, flexibiliteit en besparingen bevatten. Een algemene eerste stap voor klanten op de cloud is om te beginnen met werkbelastingen voor ontwikkelen en testen.  DevTest Labs biedt [functies](devtest-lab-concepts.md) die profiteren van de onderneming en ondersteuning [enterprise dev/test-scenario's key](devtest-lab-guidance-get-started.md).
 
 Er is een gemeenschappelijke set problemen bij het migreren van deze werkbelastingen naar de cloud:
 
@@ -34,7 +34,11 @@ Er is een gemeenschappelijke set problemen bij het migreren van deze werkbelasti
 - [Aan de slag met een bewijs van concept](devtest-lab-guidance-orchestrate-implementation.md)
 
 ## <a name="intended-audience"></a>Doelgroep
-De zeer sterk gericht op Enterprise-documentatie is bedoeld voor IT-planners, architecten en -managers die verantwoordelijk zijn voor het tot stand brengen en controleren van algemene implementaties en toezicht houden op operations procedures zijn. Als gevolg hiervan in dit document ligt de nadruk op het algehele proces en aanbevolen ontwerpprincipes ter bevordering van een omgeving veilig en stabiel ontwikkeling/testen, hetgeen uiteindelijk ingebruikname van Azure DevTest Labs binnen een organisatie aanstuurt.
+De zeer sterk gericht op enterprise-documentatie is bedoeld voor IT-planners, architecten en -managers die verantwoordelijk zijn voor het tot stand brengen en controleren van algemene implementaties en toezicht houden op operations procedures zijn. Als gevolg hiervan in dit document ligt de nadruk op het algehele proces en aanbevolen ontwerpprincipes ter bevordering van een omgeving veilig en stabiel ontwikkeling/testen, hetgeen uiteindelijk ingebruikname van Azure DevTest Labs binnen een organisatie aanstuurt.
+
+## <a name="enterprise-customers"></a>Zakelijke klanten
+
+DevTest Labs veel huidige DevTest Labs enterprise-klanten kunnen gebruiken voor ontwikkeling en voor het testen van workloads in hun organisatie. [Meer informatie](https://azure.microsoft.com/en-us/case-studies/?term=DevTest+labs).
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Referentiearchitectuur voor een onderneming](devtest-lab-reference-architecture.md)

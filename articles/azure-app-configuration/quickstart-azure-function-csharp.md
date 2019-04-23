@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 7d38120c530b89230893b85829d201c14a8cba04
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8167f10391f426c50120a224eea44e6db846fbb1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59697291"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003238"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Quickstart: Een Azure-functie maken met app-configuratie
 
@@ -38,6 +38,14 @@ Als u wilt doen in deze Quick Start, installeert u [Visual Studio 2017](https://
 ## <a name="create-an-app-configuration-store"></a>Een app-configuratiearchief maken
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Selecteer **sleutel/waarde-Explorer** > **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
+
+    | Sleutel | Value |
+    |---|---|
+    | TestApp:Settings:Message | Gegevens van Azure App Configuration |
+
+    Laat **Label** en **inhoudstype** voorlopig leeg.
 
 ## <a name="create-a-function-app"></a>Een functie-app maken
 
@@ -114,4 +122,4 @@ Als u wilt doen in deze Quick Start, installeert u [Visual Studio 2017](https://
 In deze snelstartgids hebt gemaakt van een nieuwe app-configuratiearchief en deze gebruikt met een Azure-functie. Doorgaan naar de volgende zelfstudie waarin wordt gedemonstreerd verificatie voor meer informatie over het gebruik van App-configuratie.
 
 > [!div class="nextstepaction"]
-> [Beheerde identiteiten voor de integratie van Azure-resources](./howto-integrate-azure-managed-service-identity.md)
+> [Integratie van beheerde identiteit](./howto-integrate-azure-managed-service-identity.md)

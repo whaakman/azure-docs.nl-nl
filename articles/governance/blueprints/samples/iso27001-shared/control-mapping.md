@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: bd945d49949afb679a376ce98b866fc5dee54ade
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9290609136d1314762d9f716531464ad2496fb63
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699233"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005295"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Toewijzing van het besturingselement van het voorbeeld van de blauwdruk ISO 27001 gedeelde Services
 
@@ -155,7 +155,7 @@ Deze blauwdruk kunt u ervoor zorgen systeemgebeurtenissen worden vastgelegd door
 
 ## <a name="a1244-clock-synchronization"></a>Synchronisatie van computerklokken A.12.4.4
 
-Deze blauwdruk kunt u ervoor zorgen systeemgebeurtenissen worden vastgelegd door toe te wijzen zeven Azure Policy-definities die die controle-instellingen op de Azure-resources. Logboeken in Azure, is afhankelijk van interne klokken aan te brengen van een record tijd gecorreleerde gebeurtenissen op resources.
+Deze blauwdruk kunt u ervoor zorgen systeemgebeurtenissen worden vastgelegd door toe te wijzen zeven Azure Policy-definities die de instellingen voor op Azure-resources controleren. Logboeken in Azure, is afhankelijk van interne klokken aan te brengen van een record tijd gecorreleerde gebeurtenissen op resources.
 
 - [Preview]: Implementatie van de afhankelijkheid Agent - VM-installatiekopie (OS) niet-vermelde controleren
 - [Preview]: Implementatie van de Agent in VMSS - VM-installatiekopie (OS) niet-vermelde afhankelijkheden controleren

@@ -6,19 +6,25 @@ author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/13/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: 8386d1c43761cfb27746b003d136419f72d7d4ae
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: d5a13e4466234d73bafe8dbe76cae92955cf64bd
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648534"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010293"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Begrijpen hoe de reserveringskorting wordt toegepast op Azure Cosmos DB
 
 Nadat u een Azure Cosmos DB gereserveerde capaciteit koopt, wordt de reserveringskorting wordt automatisch toegepast op Azure Cosmos DB-resources die overeenkomen met de kenmerken en de hoeveelheid van de reservering. Een reservering bevat informatie over de doorvoer die is ingericht voor Azure Cosmos DB-resources. Het niet wordt behandeld in software, netwerken, opslag, of vooraf gedefinieerde container kosten in rekening gebracht.
+
+## <a name="how-reservation-discount-is-applied"></a>Hoe reserveringskorting wordt toegepast
+
+Een reserveringskorting is '*gebruik-it-of-verliezen-it*'. Dus als u geen overeenkomende resources voor elk uur, verliest klikt u een reserveringshoeveelheid voor dat uur. U niet uitvoeren voor het doorsturen van niet-gebruikte gereserveerde uur.
+
+Als u een resource wordt afgesloten, past de reserveringskorting automatisch naar een andere overeenkomende resource in het opgegeven bereik. Als er geen overeenkomende bronnen u in het opgegeven bereik vindt, wordt de gereserveerde uren *verloren*.
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>De reserveringskorting wordt toegepast op Azure Cosmos DB-accounts
 

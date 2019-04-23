@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 9b8418dba12748915666c6a91ee65b37c0f59ace
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 026717dff2b6883eb643497dec91226e4afe8133
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803777"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150214"
 ---
-Azure biedt de volgende ingebouwde RBAC-rollen voor toegang tot gegevens in de opslag:
+Azure biedt de volgende ingebouwde RBAC-rollen voor het verlenen van toegang tot blob- en wachtrijservices gegevens met behulp van Azure AD en OAuth:
 
 - [Storage Blob Gegevenseigenaar](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner): Eigendom instellen en beheren van POSIX-toegangsbeheer voor Azure Data Lake Storage Gen2 (preview). Zie voor meer informatie, [toegangsbeheer in Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-access-control.md).
 - [Gegevensbijdrager voor Blob](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Gebruiken om machtigingen voor lezen/schrijven/verwijderen naar Blob storage-resources te verlenen.
@@ -25,7 +25,5 @@ Azure biedt de volgende ingebouwde RBAC-rollen voor toegang tot gegevens in de o
 - [Opslaggegevens wachtrij bericht Processor](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): Gebruiken om toegang te verlenen peek, ophalen en machtigingen voor het verwijderen naar berichten in wachtrijen van Azure Storage.
 - [Opslaggegevens wachtrij bericht afzender](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Gebruiken om te verlenen machtigingen toevoegen aan berichten in wachtrijen van Azure Storage.
 
-> [!IMPORTANT]
-> RBAC-roltoewijzingen duurt maximaal vijf minuten worden doorgegeven.
-
-Voor meer informatie over hoe u de ingebouwde rollen voor Azure Storage zijn gedefinieerd, Zie [begrijpen roldefinities](../articles/role-based-access-control/role-definitions.md#management-and-data-operations-preview). Zie voor meer informatie over het maken van aangepaste RBAC-rollen [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../articles/role-based-access-control/custom-roles.md). 
+> [!NOTE]
+> Houd er rekening mee dat RBAC-roltoewijzingen maximaal vijf minuten duurt worden doorgegeven.

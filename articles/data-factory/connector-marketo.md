@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 94ecf05272ecb29f914bb00fa407a564fef96c17
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: MT
+ms.openlocfilehash: d6d6517a85997265021573b2f9d481c81283c216
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562076"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148829"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Gegevens kopiëren van Marketo met Azure Data Factory (Preview)
 
@@ -33,7 +33,7 @@ U kunt gegevens uit Marketo kopiëren naar een ondersteunde sink-gegevensopslag.
 Azure Data Factory biedt een ingebouwde stuurprogramma als connectiviteit wilt inschakelen, dus hoeft u stuurprogramma voor gebruik van deze connector handmatig installeren.
 
 >[!NOTE]
->Deze connector Marketo is gebaseerd op de Marketo REST-API. Houd er rekening mee dat de Marketo heeft [limiet voor gelijktijdige aanvraag](http://developers.marketo.com/rest-api/) op servicezijde. Als u fouten zeggen bereikt "Fout bij het gebruik van REST-API: Max. frequentie overschreden '100' met in-20' seconden (606) ' of ' Fout bij het gebruik van REST-API: Gelijktijdige toegang beperken via '10' (615 kan) bereikt ", overwegen om te beperken van de uitvoeringen van de activiteit gelijktijdige kopiëren als u wilt verkleinen het aantal aanvragen naar de service.
+>Deze connector Marketo is gebaseerd op de Marketo REST-API. Houd er rekening mee dat de Marketo heeft [limiet voor gelijktijdige aanvraag](https://developers.marketo.com/rest-api/) op servicezijde. Als u fouten zeggen bereikt "Fout bij het gebruik van REST-API: Max. frequentie overschreden '100' met in-20' seconden (606) ' of ' Fout bij het gebruik van REST-API: Gelijktijdige toegang beperken via '10' (615 kan) bereikt ", overwegen om te beperken van de uitvoeringen van de activiteit gelijktijdige kopiëren als u wilt verkleinen het aantal aanvragen naar de service.
 
 ## <a name="getting-started"></a>Aan de slag
 

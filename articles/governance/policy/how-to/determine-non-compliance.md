@@ -3,16 +3,16 @@ title: Oorzaken van niet-naleving bepalen
 description: Wanneer een resource niet-compatibele is, zijn er veel mogelijke oorzaken. Leer hoe u meer informatie over de oorzaak van de niet-naleving.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 03/30/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 8a593e92d7f24885c35043b874528e881d2e021e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0af3fd8596bf558f9d5cc97c95be773aa40954cc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276096"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994999"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Oorzaken van niet-naleving bepalen
 
@@ -124,6 +124,8 @@ Als onderdeel van een nieuwe **openbare preview**, de afgelopen 14 dagen van de 
    ![Beleid wijzigen geschiedenis Visual Diff op de pagina overzicht wijzigen](../media/determine-non-compliance/change-history-visual-diff.png)
 
 De _visual diff_ aides bij het identificeren van wijzigingen aan een resource. De wijzigingen gedetecteerd kunnen niet worden gerelateerd aan de huidige nalevingsstatus van de resource.
+
+Gegevens van de wijzigingsgeschiedenis wordt geleverd door [Azure Resource Graph](../../resource-graph/overview.md). Als u wilt deze gegevens buiten de Azure-portal een query uitvoert, Zie [wijzigingen van resources ophalen](../../resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

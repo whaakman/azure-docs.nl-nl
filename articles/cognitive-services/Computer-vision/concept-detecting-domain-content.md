@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 92859667e1dc53b9c6ca9e46a2db1c6dc335ae37
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339008"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994483"
 ---
 # <a name="detect-domain-specific-content"></a>Domeinspecifieke inhoud detecteren
 
@@ -30,7 +30,7 @@ U kunt een installatiekopie met behulp van het gekozen domeinspecifieke model do
 
 Hieronder volgt een voorbeeld van een JSON-antwoord geretourneerd door de **modellen/beroemdheden/analyseren** API voor de opgegeven installatiekopie:
 
-![Satya Nadella standing](./images/satya.jpeg)
+![Satya Nadella standing, smiling](./images/satya.jpeg)
 
 ```json
 {
@@ -100,7 +100,7 @@ De volgende JSON-antwoord bevat hoe domeinspecifieke analyse kunnen worden opgen
 
 Computer Vision ondersteunt momenteel de volgende domeinspecifieke modellen:
 
-| Name | Description |
+| Name | Beschrijving |
 |------|-------------|
 | beroemdheden | Herkenning van beroemdheden, ondersteund voor installatiekopieën geclassificeerd de `people_` categorie |
 | Oriëntatiepunten | Oriëntatiepunten spraakherkenning, ondersteund voor installatiekopieën geclassificeerd de `outdoor_` of `building_` categorieën |

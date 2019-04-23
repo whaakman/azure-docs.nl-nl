@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 192966eef20ac59ac3a6eb14d7d450357989b851
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7479d9a230bd28c2ed2e4c8c79ba9301028af36c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879689"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007624"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub hoge beschikbaarheid en herstel na noodgevallen
 
@@ -82,8 +82,6 @@ De handmatige failover-optie is altijd beschikbaar voor gebruik, ongeacht of de 
 > - Test oefeningen moeten niet worden uitgevoerd op IoT-hubs die worden gebruikt in uw productieomgeving.
 >
 > - Handmatige failover moet niet worden gebruikt als een mechanisme voor het migreren van permanent uw hub tussen de Azure geo gekoppelde regio's. In dat geval zou leiden tot een langere latentie voor de bewerkingen worden uitgevoerd op de hub van apparaten homed in de oude primaire regio.
->
-> - Handmatige failover is momenteel in preview en is niet beschikbaar in de volgende Azure-regio's. VS-Oost, VS-West, Noord-Europa, West-Europa, Brazilië-Zuid, VS Zuid-centraal.
 
 ### <a name="failback"></a>Failback
 

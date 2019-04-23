@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database Machine Learning-Services met R (preview)-overzicht
-description: In dit onderwerp worden beschreven van Azure SQL Database Machine Learning-Services (met R) en wordt uitgelegd hoe het werkt.
+description: In dit artikel wordt beschreven van Azure SQL Database Machine Learning-Services (met R) en wordt uitgelegd hoe het werkt.
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -11,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: e6d6250da4df6ab267ef28f8f15a73c8cbc68618
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 172bf201e2327f5ae8db0ac3c82f2f07e3f0ffc9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762056"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997475"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Azure SQL Database Machine Learning-Services met R (preview)
 
@@ -35,7 +35,7 @@ Machine Learning-Services is een functie van Azure SQL Database, die wordt gebru
 
 ## <a name="what-you-can-do-with-r"></a>U kunt doen met R
 
-Gebruik de kracht van de taal R om geavanceerde analyses en in-database machine learning te bieden. Deze mogelijkheid zorgt voor berekeningen en verwerking op de plaats waar de gegevens zich bevinden, u hoeft de gegevens niet op te halen via het netwerk. Maak ook gebruik van de kracht van zakelijke R-pakketten om geavanceerde analyses op schaal te bieden.
+Gebruik de kracht van de taal R om geavanceerde analyses en in-database machine learning te bieden. Deze mogelijkheid zorgt voor berekeningen en verwerking op de plaats waar de gegevens zich bevinden, u hoeft de gegevens niet op te halen via het netwerk. U kunt ook gebruikmaken van de kracht van R-pakketten voor enterprise leveren van geavanceerde analyses op schaal.
 
 Machine Learning-services bevatten een basisdistributie van R, overlapt met zakelijke R-pakketten van Microsoft. R-functies en -algoritmen van Microsoft zijn ontworpen voor zowel schaal als bruikbaarheid en bieden voorspellende analyses, statistische modellen, gegevensvisualisaties en toonaangevende algoritmen voor machine learning.
 
@@ -43,13 +43,15 @@ Machine Learning-services bevatten een basisdistributie van R, overlapt met zake
 
 Meest voorkomende open-source R-pakketten zijn vooraf geïnstalleerd in Machine Learning-Services. De volgende R-pakketten van Microsoft zijn ook opgenomen:
 
-| R-pakket | Description|
+| R-pakket | Beschrijving|
 |-|-|
-| [Microsoft R Open](https://mran.microsoft.com/rro) | Microsoft R Open is de verbeterde distributie van R van Microsoft. Het is een volledig open source-platform voor statistische analyse en datatechnologie. Het is gebaseerd op en 100% compatibel met R en meer mogelijkheden voor verbeterde prestaties en reproduceerbaarheid bevat. |
+| [Microsoft R Open](https://mran.microsoft.com/rro) | Microsoft R Open is de verbeterde distributie van R van Microsoft. Het is een volledige open source-platform voor statistische analyse en datatechnologie. Het is gebaseerd op en 100% compatibel met R en meer mogelijkheden voor verbeterde prestaties en reproduceerbaarheid bevat. |
 | [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | RevoScaleR is de primaire tapewisselaar voor schaalbare r-functies in deze bibliotheek een van de meest gebruikte zijn. Gegevenstransformaties en manipuleren, statistische overzichten, visualisatie en vele vormen van modellen en analyses zijn gevonden in deze bibliotheken. Functies in deze bibliotheken worden ook automatisch de workloads verdelen over beschikbare cores voor parallelle verwerking, met de mogelijkheid om te werken op segmenten van de gegevens die worden gecoördineerd en worden beheerd door de berekenings-engine. |
 | [MicrosoftML (R)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) | MicrosoftML toegevoegd machine learning-algoritmen voor het maken van aangepaste modellen voor tekstanalyse, analyse van de afbeelding en sentimentanalyse. |
 
-Naast de vooraf geïnstalleerde pakketten, kunt u [toevoeging pakketten installeren](sql-database-connect-query-r.md#add-package).
+<!-- Add this back when the new package-related article is written
+In addition to the pre-installed packages, you can [install additional packages](sql-database-quickstart-r-create-script.md#add-a-package).
+-->
 
 <a name="signup"></a>
 
@@ -61,7 +63,7 @@ Als u zich voor de openbare preview-versie, de volgende stappen uit:
 
 2. Stuur een e-mailbericht naar Microsoft op [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) om u te registreren voor de openbare preview. De openbare preview van Machine Learning Services (met R) in SQL Database is niet standaard ingeschakeld.
 
-Zodra u zijn geregistreerd in het programma, Microsoft zullen we u aan de openbare preview en R inschakelen voor uw bestaande of nieuwe database.
+Nadat u bent geregistreerd voor het programma, Microsoft zullen we u aan de openbare preview en R inschakelen voor uw bestaande of nieuwe database.
 
 Machine Learning-Services met R wordt niet aanbevolen voor productie-werkbelasting tijdens de openbare preview.
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3541376331725fddcd58d94625f5d761ef159c97
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 95ba3c905541d2168dcbbc1bb2c1bc1d05468cb5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526492"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006417"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>De taal detecteren-container implementeren in Azure Kubernetes Service
 
@@ -325,7 +325,7 @@ In deze sectie wordt de **kubectl** CLI om te communiceren met de Azure Kubernet
     |Line 78<br> `image` De eigenschap|Installatiekopie-locatie voor de installatiekopie van de taal in uw Container Registry<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |Regel 95<br> `name` De eigenschap|Container Registry geheim voor de installatiekopie, aangeduid als `<client-secret>` in een vorige sectie.|
     |Regel 91<br> `apiKey` De eigenschap|Uw tekstsleutel voor de analytics-resource|
-    |Regel 92<br> `billing` De eigenschap|De facturering-eindpunt voor de text analytics-resource.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |Regel 92<br> `billing` De eigenschap|De facturering-eindpunt voor de text analytics-resource.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
     Omdat de **apiKey** en **facturering eindpunt** zijn ingesteld als onderdeel van de definitie van de Kubernetes-indeling, de website-container hoeft niet te weten over deze of ze doorgeven als onderdeel van de aanvraag. De container website verwijst naar de container van de detectie van taal door de naam van de orchestrator `language`. 
 

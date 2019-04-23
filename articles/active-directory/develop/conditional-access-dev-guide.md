@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c02f094def3828d0839025f4b7dea48ee64adcc8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 3346f7a5af2a22cb7b7ece312fc367a874095668
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543183"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001045"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Richtlijnen voor ontwikkelaars voor voorwaardelijke toegang van Azure Active Directory
 
@@ -104,7 +104,7 @@ De volgende secties worden besproken algemene scenario's die, hoe complexer. De 
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: Uitvoeren van de stroom op-andere gebruikers-of App
 
-In dit scenario doorlopen we het geval waarin een systeemeigen app een webservice /-API-aanroepen. Op zijn beurt biedt deze service [hij 'op-andere gebruikers-of' stroom voor het aanroepen van een downstream-service. In ons geval we ons beleid voor voorwaardelijke toegang hebt toegepast op de downstream-service (Web API 2) en worden met behulp van een systeemeigen app in plaats van een server/daemon-app. 
+In dit scenario doorlopen we het geval waarin een systeemeigen app een webservice /-API-aanroepen. Deze service wordt op zijn beurt de stroom 'op-andere gebruikers-of' om aan te roepen een downstream-service. In ons geval we ons beleid voor voorwaardelijke toegang hebt toegepast op de downstream-service (Web API 2) en worden met behulp van een systeemeigen app in plaats van een server/daemon-app. 
 
 ![Uitvoeren van het diagram van de stroom op-andere gebruikers-of App](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -145,7 +145,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![App-toegang tot meerdere aanvragen van een nieuw token-services](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-Als de app van de ADAL-bibliotheek gebruikmaakt, een fout opgetreden bij het verkrijgen van het token wordt altijd opnieuw uitgevoerd interactief. Wanneer deze interactieve aanvraag optreedt, heeft de gebruiker de mogelijkheid om te voldoen aan de voorwaardelijke toegang. Dit is van toepassing, tenzij de aanvraag is een `AcquireTokenSilentAsync` of `PromptBehavior.Never` in dat geval de app nodig heeft om uit te voeren een interactieve ```AcquireToken``` aanvraag voor het gebruik end geven de mogelijkheid om te voldoen aan het beleid.
+Als de app van de ADAL-bibliotheek gebruikmaakt, een fout opgetreden bij het verkrijgen van het token wordt altijd opnieuw uitgevoerd interactief. Wanneer deze interactieve aanvraag optreedt, heeft de gebruiker de mogelijkheid om te voldoen aan de voorwaardelijke toegang. Dit is van toepassing, tenzij de aanvraag is een `AcquireTokenSilentAsync` of `PromptBehavior.Never` in dat geval de app nodig heeft om uit te voeren een interactieve ```AcquireToken``` aanvraag voor het geven van de eindgebruiker de mogelijkheid om te voldoen aan het beleid.
 
 ## <a name="scenario-single-page-app-spa-using-adaljs"></a>Scenario: App met één pagina (SPA) met behulp van ADAL.js
 

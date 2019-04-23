@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 98aabf5330589bf80f1653bb2882c015a4bc133c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 16770ea0a320b3d9f081cc21a102ab050a6467f6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862103"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009749"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Metrische gegevens en Logboeken in Azure voordeur Service bewaken
 
@@ -29,7 +29,7 @@ Met behulp van Azure voordeur Service, kunt u resources kunt controleren op de v
 
 Metrische gegevens zijn een functie voor bepaalde Azure-resources die u kunt prestatiemeteritems bekijken in de portal. Hier volgen de beschikbare voordeur metrische gegevens:
 
-| Gegevens | De naam van de metrische gegevens weergeven | Eenheid | Dimensies | Beschrijving |
+| Gegevens | De naam van de metrische gegevens weergeven | Eenheid | Dimensies | Description |
 | --- | --- | --- | --- | --- |
 | RequestCount | Aantal aanvragen | Count | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Het aantal aanvragen van clients geleverd door de voordeur.  |
 | RequestSize | Aanvraaggrootte | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Het aantal bytes dat als aanvragen van clients naar de voordeur worden verzonden. |
@@ -65,7 +65,7 @@ Activiteitenlogboeken bieden inzicht in de bewerkingen uitgevoerd op Azure-resou
 
 Diagnostische logboeken configureren voor uw Service voordeur:
 
-1. Selecteer uw Azure API Management-service.
+1. Selecteer uw Azure-voordeur-service.
 
 2. Kies **diagnostische instellingen**.
 
@@ -73,7 +73,7 @@ Diagnostische logboeken configureren voor uw Service voordeur:
 
 Voordeur Service biedt momenteel diagnostische logboeken (ingedeeld in batches per uur). Diagnoselogboeken bieden afzonderlijke API-aanvragen waarbij elk item in het volgende schema:
 
-| Eigenschap  | Description |
+| Eigenschap  | Beschrijving |
 | ------------- | ------------- |
 | ClientIp | Het IP-adres van de client die de aanvraag heeft ingediend. |
 | ClientPort | De IP-poort van de client die de aanvraag heeft ingediend. |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 6fe8cccf60e60ada34e3b7847964958cf6e03c4a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c8baa4d2355adf99ce188d632ac50901db29a758
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788832"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997696"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Om weer te geven van de container realtime met Azure Monitor-logboeken voor containers (preview)
 Deze functie momenteel in preview is, biedt realtime inzicht in uw logboeken voor containers in de Azure Kubernetes Service (AKS) (stdout/stderr) zonder de kubectl-opdrachten uit te voeren. Wanneer u deze optie selecteert, nieuwe deelvenster wordt weergegeven onder de tabel containers prestaties gegevens op de **Containers** weergeven.  Hier ziet u live logboekregistratie die zijn gegenereerd door de engine container om verder te helpen bij het oplossen van problemen in realtime. **Inzender** toegang tot de cluster-bron is vereist voor deze functie te gebruiken.
@@ -65,7 +65,7 @@ Als u Kubernetes RBAC-autorisatie hebt ingeschakeld, moet u om toe te passen clu
 2. De binding van de regel cluster maken met de volgende opdracht: `kubectl create -f LogReaderRBAC.yaml`. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>AKS met Azure Active Directory configureren
-AKS kan worden geconfigureerd voor het gebruik van Azure Active Directory (AD) voor verificatie van de gebruiker. Als u dit voor het eerst configureert, Zie [Integreer Azure Active Directory met Azure Kubernetes Service](../../aks/aad-integration.md). Tijdens de stappen voor het maken van de [clienttoepassing](../../aks/aad-integration.md#create-client-application) en geef de **omleidings-URI**, moet u een andere URI toevoegen aan de lijst met `https://ininprodeusuxbase.microsoft.com/*`.  
+AKS kan worden geconfigureerd voor het gebruik van Azure Active Directory (AD) voor verificatie van de gebruiker. Als u dit voor het eerst configureert, Zie [Integreer Azure Active Directory met Azure Kubernetes Service](../../aks/azure-ad-integration.md). Tijdens de stappen voor het maken van de [clienttoepassing](../../aks/azure-ad-integration.md#create-client-application) en geef de **omleidings-URI**, moet u een andere URI toevoegen aan de lijst met `https://ininprodeusuxbase.microsoft.com/*`.  
 
 >[!NOTE]
 >Configureren van verificatie met Azure Active Directory voor eenmalige aanmelding kan alleen worden uitgevoerd tijdens de eerste implementatie van een nieuw AKS-cluster. U kunt eenmalige aanmelding niet configureren op voor een AKS-cluster die al zijn geïmplementeerd.  
@@ -92,4 +92,5 @@ Als u wilt onderbreken automatisch schuiven en bepalen het gedrag van het deelve
 ![Live logboeken deelvenster onderbreken live bekijken](./media/container-insights-live-logs/live-logs-pane-pause-01.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Om door te gaan met het leren over het gebruik van Azure Monitor en controleren van andere aspecten van uw AKS-cluster [weergave Azure Kubernetes Service health](container-insights-analyze.md).
+- Om door te gaan met het leren over het gebruik van Azure Monitor en controleren van andere aspecten van uw AKS-cluster [weergave Azure Kubernetes Service health](container-insights-analyze.md).
+- Weergave [Meld u voorbeelden van](container-insights-log-search.md#search-logs-to-analyze-data) om te zien van vooraf gedefinieerde query's en voorbeelden om te evalueren of aanpassen voor waarschuwingen, visualiseren en analyseren van uw clusters.

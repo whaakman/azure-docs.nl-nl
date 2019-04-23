@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: 8269cde7c1be5ba5671bafdae850d88c43db27ea
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: MT
+ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497924"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996506"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Backup Server installeren op Azure Stack
 
@@ -61,7 +61,7 @@ Als gedeeld met andere virtuele machines, het opslagaccount grootte en IOPS-limi
 Elke virtuele machine van Azure Stack wordt geleverd met tijdelijke disk-opslag, die beschikbaar is voor de gebruiker als volume `D:\`. Het lokale faseringsgebied dat Azure Backup nodig kan worden geconfigureerd dat het zich `D:\`, en de cachelocatie kan worden geplaatst op `C:\`. Op deze manier moet er is geen opslag verzinken weg van de gegevensschijven die zijn gekoppeld aan de virtuele machine van Azure Backup Server.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Back-upgegevens opslaan op de lokale schijf en in Azure
-Azure Backup-Server slaat de back-upgegevens op Azure-schijven die zijn gekoppeld aan de virtuele machine, voor operationeel herstel. Nadat de schijven en de opslagruimte zijn gekoppeld aan de virtuele machine, beheert Azure Backup Server opslag voor u. De hoeveelheid back-upgegevens opslag is afhankelijk van het aantal en de grootte van schijven die zijn gekoppeld aan elk [virtuele machine van Azure Stack](../azure-stack/user/azure-stack-storage-overview.md). Elke grootte van virtuele machine in Azure Stack is een maximum aantal schijven dat kan worden gekoppeld aan de virtuele machine. A2 is bijvoorbeeld vier schijven. A3 is acht schijven. A4 is 16 schijven. Bepaalt de back-upopslag van de totale nogmaals, de grootte en het aantal schijven.
+Azure Backup-Server slaat de back-upgegevens op Azure-schijven die zijn gekoppeld aan de virtuele machine, voor operationeel herstel. Nadat de schijven en de opslagruimte zijn gekoppeld aan de virtuele machine, beheert Azure Backup Server opslag voor u. De hoeveelheid back-upgegevens opslag is afhankelijk van het aantal en de grootte van schijven die zijn gekoppeld aan elk [virtuele machine van Azure Stack](/azure-stack/user/azure-stack-storage-overview). Elke grootte van virtuele machine in Azure Stack is een maximum aantal schijven dat kan worden gekoppeld aan de virtuele machine. A2 is bijvoorbeeld vier schijven. A3 is acht schijven. A4 is 16 schijven. Bepaalt de back-upopslag van de totale nogmaals, de grootte en het aantal schijven.
 
 > [!IMPORTANT]
 > U moet **niet** operationele herstelgegevens (back-up) op Azure Backup-Server-gekoppelde schijven meer dan vijf dagen bewaren.
@@ -73,7 +73,7 @@ Voor het opslaan van back-upgegevens in Azure, maak of gebruik een Recovery Serv
  
 ### <a name="scaling-deployment"></a>Schalen van implementatie
 Als u de schaal van uw implementatie wilt, hebt u de volgende opties:
-  - Opschalen: verhoog de grootte van de Azure Backup Server virtuele machine van een reeks D-serie en verhogen van de lokale opslag [per de instructies van de virtuele machine Azure Stack](../azure-stack/user/azure-stack-manage-vm-disks.md).
+  - Opschalen: verhoog de grootte van de Azure Backup Server virtuele machine van een reeks D-serie en verhogen van de lokale opslag [per de instructies van de virtuele machine Azure Stack](/azure-stack/user/azure-stack-manage-vm-disks).
   - Gegevens overdragen via: verzend oudere gegevens naar Azure en bewaar alleen de nieuwste gegevens op de opslag die is gekoppeld aan de Azure Backup-Server.
   - Uitschalen - toevoegen van meer back-up van Azure-Servers om de werkbelastingen te beveiligen.
 

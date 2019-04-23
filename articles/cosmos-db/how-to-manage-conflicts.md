@@ -1,21 +1,244 @@
 ---
 title: Informatie over het beheren van conflicten tussen regio’s in Azure Cosmos DB
 description: Informatie over het beheren van conflicten in Azure Cosmos DB
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/15/2019
-ms.author: rimman
-ms.openlocfilehash: 6f4e6fce88815490ceffd7456cde045b38e32b29
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.date: 04/16/2019
+ms.author: mjbrown
+ms.openlocfilehash: fb9850548f0bfb71b797830eb0d5fdfddbc32306
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680210"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997016"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Conflictoplossingsbeleid beheren in Azure Cosmos DB
 
 Wanneer meerdere clients naar hetzelfde item schrijven, kunnen met schrijfbewerkingen in meerdere regio's, veroorzaakt een conflict optreden. Wanneer er een conflict optreedt, kunt u het conflict kan oplossen met behulp van verschillende conflict resolutie beleid. In dit artikel wordt beschreven hoe u conflict resolutie beleidsregels beheren.
+
+## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Het conflictoplossingsbeleid 'last writer wins' maken
+
+Deze voorbeelden laten zien hoe u een container kunt instellen met het conflictoplossingsbeleid 'last writer wins'. Het standaardpad voor laatste schrijver wins is het tijdstempelveld of de `_ts` eigenschap. Dit kan ook worden ingesteld op een door de gebruiker gedefinieerde pad voor een numeriek type. Een conflict in de wins-de hoogste waarde. Als het pad is niet ingesteld of als deze waarde ongeldig is, wordt standaard `_ts`. Conflicten met dit beleid is opgelost, niet weergegeven in de feed conflict. Dit beleid kan worden gebruikt door alle API's.
+
+### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
+
+```csharp
+DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
+  UriFactory.CreateDatabaseUri(this.databaseName), new DocumentCollection
+  {
+      Id = this.lwwCollectionName,
+      ConflictResolutionPolicy = new ConflictResolutionPolicy
+      {
+          Mode = ConflictResolutionMode.LastWriterWins,
+          ConflictResolutionPath = "/myCustomId",
+      },
+  });
+```
+
+### <a id="create-custom-conflict-resolution-policy-lww-java-async"></a>Java Async SDK
+
+```java
+DocumentCollection collection = new DocumentCollection();
+collection.setId(id);
+ConflictResolutionPolicy policy = ConflictResolutionPolicy.createLastWriterWinsPolicy("/myCustomId");
+collection.setConflictResolutionPolicy(policy);
+DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
+```
+
+### <a id="create-custom-conflict-resolution-policy-lww-java-sync"></a>Java Sync SDK
+
+```java
+DocumentCollection lwwCollection = new DocumentCollection();
+lwwCollection.setId(this.lwwCollectionName);
+ConflictResolutionPolicy lwwPolicy = ConflictResolutionPolicy.createLastWriterWinsPolicy("/myCustomId");
+lwwCollection.setConflictResolutionPolicy(lwwPolicy);
+DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, lwwCollection);
+```
+
+### <a id="create-custom-conflict-resolution-policy-lww-javascript"></a>Node.js/JavaScript/TypeScript SDK
+
+```javascript
+const database = client.database(this.databaseName);
+const { container: lwwContainer } = await database.containers.createIfNotExists(
+  {
+    id: this.lwwContainerName,
+    conflictResolutionPolicy: {
+      mode: "LastWriterWins",
+      conflictResolutionPath: "/myCustomId"
+    }
+  }
+);
+```
+
+### <a id="create-custom-conflict-resolution-policy-lww-python"></a>Python SDK
+
+```python
+udp_collection = {
+                'id': self.udp_collection_name,
+                'conflictResolutionPolicy': {
+                    'mode': 'LastWriterWins',
+                    'conflictResolutionPath': '/myCustomId'
+                    }
+                }
+udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+```
+
+## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Een aangepaste conflict resolutie beleid met behulp van een opgeslagen procedure maken
+
+Deze voorbeelden laten zien hoe u een container kunt instellen met aangepast conflictoplossingsbeleid met een opgeslagen procedure om het conflict op te lossen. Deze conflicten worden niet weergegeven in de conflictfeed tenzij er een fout is in de opgeslagen procedure. Nadat het beleid is gemaakt met de container die u wilt maken van de opgeslagen procedure. De SDK voor .NET-voorbeeld hieronder toont een voorbeeld van deze. Dit beleid wordt alleen op Core (SQL) Api ondersteund.
+
+### <a name="sample-custom-conflict-resolution-stored-procedure"></a>Voorbeeld van aangepaste conflictoplossing opgeslagen procedure
+
+Aangepaste conflict resolutie opgeslagen procedures moeten worden geïmplementeerd met behulp van de functiehandtekening hieronder wordt weergegeven. Naam van de functie hoeft niet overeen met de naam die wordt gebruikt bij het registreren van de opgeslagen procedure met de container maar deze vereenvoudigen naamgeving. Hier volgt een beschrijving van de parameters die moeten worden geïmplementeerd voor deze opgeslagen procedure.
+
+- **incomingItem**: Het item wordt ingevoegd of bijgewerkt in de doorvoer die een conflict tussen het genereert. Is null voor de bewerking verwijderen.
+- **existingItem**: Het momenteel toegewezen item. Deze waarde is null in een update- en null voor het invoegen of verwijderen.
+- **isTombstone**: Booleaanse waarde waarmee wordt aangegeven als de incomingItem is in conflict met een eerder verwijderde item. Indien waar, is ook existingItem null zijn.
+- **conflictingItems**: Matrix van de doorgevoerde versie van alle items in de container die met incomingItem op id conflicteren of een andere unieke index-eigenschappen.
+
+> [!IMPORTANT]
+> Net zoals met alle opgeslagen procedures, kunt een aangepaste oplossing procedure krijgen tot gegevens met dezelfde partitiesleutel en kunt uitvoeren van een invoegen, bijwerken of verwijderen bewerking voor het oplossen van conflicten.
+
+
+In dit opgeslagen voorbeeldprocedure wordt veroorzaakt een conflict opgelost door het selecteren van de laagste waarde van de `/myCustomId` pad.
+
+```javascript
+function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
+  var collection = getContext().getCollection();
+
+  if (!incomingItem) {
+      if (existingItem) {
+
+          collection.deleteDocument(existingItem._self, {}, function (err, responseOptions) {
+              if (err) throw err;
+          });
+      }
+  } else if (isTombstone) {
+      // delete always wins.
+  } else {
+      if (existingItem) {
+          if (incomingItem.myCustomId > existingItem.myCustomId) {
+              return; // existing item wins
+          }
+      }
+
+      var i;
+      for (i = 0; i < conflictingItems.length; i++) {
+          if (incomingItem.myCustomId > conflictingItems[i].myCustomId) {
+              return; // existing conflict item wins
+          }
+      }
+
+      // incoming item wins - clear conflicts and replace existing with incoming.
+      tryDelete(conflictingItems, incomingItem, existingItem);
+  }
+
+  function tryDelete(documents, incoming, existing) {
+      if (documents.length > 0) {
+          collection.deleteDocument(documents[0]._self, {}, function (err, responseOptions) {
+              if (err) throw err;
+
+              documents.shift();
+              tryDelete(documents, incoming, existing);
+          });
+      } else if (existing) {
+          collection.replaceDocument(existing._self, incoming,
+              function (err, documentCreated) {
+                  if (err) throw err;
+              });
+      } else {
+          collection.createDocument(collection.getSelfLink(), incoming,
+              function (err, documentCreated) {
+                  if (err) throw err;
+              });
+      }
+  }
+}
+```
+
+### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
+
+```csharp
+DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
+  UriFactory.CreateDatabaseUri(this.databaseName), new DocumentCollection
+  {
+      Id = this.udpCollectionName,
+      ConflictResolutionPolicy = new ConflictResolutionPolicy
+      {
+          Mode = ConflictResolutionMode.Custom,
+          ConflictResolutionProcedure = string.Format("dbs/{0}/colls/{1}/sprocs/{2}", this.databaseName, this.udpCollectionName, "resolver"),
+      },
+  });
+
+//Create the stored procedure
+await clients[0].CreateStoredProcedureAsync(
+UriFactory.CreateStoredProcedureUri(this.databaseName, this.udpCollectionName, "resolver"), new StoredProcedure
+{
+    Id = "resolver",
+    Body = File.ReadAllText(@"resolver.js")
+});
+```
+
+### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java Async SDK
+
+```java
+DocumentCollection collection = new DocumentCollection();
+collection.setId(id);
+ConflictResolutionPolicy policy = ConflictResolutionPolicy.createCustomPolicy("resolver");
+collection.setConflictResolutionPolicy(policy);
+DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
+```
+
+Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
+
+### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>Java Sync SDK
+
+```java
+DocumentCollection udpCollection = new DocumentCollection();
+udpCollection.setId(this.udpCollectionName);
+ConflictResolutionPolicy udpPolicy = ConflictResolutionPolicy.createCustomPolicy(
+        String.format("dbs/%s/colls/%s/sprocs/%s", this.databaseName, this.udpCollectionName, "resolver"));
+udpCollection.setConflictResolutionPolicy(udpPolicy);
+DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
+```
+
+Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
+
+### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript"></a>Node.js/JavaScript/TypeScript SDK
+
+```javascript
+const database = client.database(this.databaseName);
+const { container: udpContainer } = await database.containers.createIfNotExists(
+  {
+    id: this.udpContainerName,
+    conflictResolutionPolicy: {
+      mode: "Custom",
+      conflictResolutionProcedure: `dbs/${this.databaseName}/colls/${
+        this.udpContainerName
+      }/sprocs/resolver`
+    }
+  }
+);
+```
+
+Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
+
+### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python SDK
+
+```python
+udp_collection = {
+  'id': self.udp_collection_name,
+  'conflictResolutionPolicy': {
+      'mode': 'Custom',
+      'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
+      }
+  }
+udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+```
+
+Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
+
 
 ## <a name="create-a-custom-conflict-resolution-policy"></a>Aangepast conflictoplossingsbeleid maken
 
@@ -82,158 +305,9 @@ manual_collection = {
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Een aangepaste conflict resolutie beleid met behulp van een opgeslagen procedure maken
-
-Deze voorbeelden laten zien hoe het instellen van een container met een aangepaste conflict resolutie beleid met behulp van een opgeslagen procedure het conflict op te lossen. Deze conflicten worden niet weergegeven in de conflictfeed tenzij er een fout is in de opgeslagen procedure.
-
-### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
-
-```csharp
-DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
-  UriFactory.CreateDatabaseUri(this.databaseName), new DocumentCollection
-  {
-      Id = this.udpCollectionName,
-      ConflictResolutionPolicy = new ConflictResolutionPolicy
-      {
-          Mode = ConflictResolutionMode.Custom,
-          ConflictResolutionProcedure = string.Format("dbs/{0}/colls/{1}/sprocs/{2}", this.databaseName, this.udpCollectionName, "resolver"),
-      },
-  });
-```
-
-Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
-
-### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java Async SDK
-
-```java
-DocumentCollection collection = new DocumentCollection();
-collection.setId(id);
-ConflictResolutionPolicy policy = ConflictResolutionPolicy.createCustomPolicy("resolver");
-collection.setConflictResolutionPolicy(policy);
-DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
-```
-
-Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
-
-### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>Java Sync SDK
-
-```java
-DocumentCollection udpCollection = new DocumentCollection();
-udpCollection.setId(this.udpCollectionName);
-ConflictResolutionPolicy udpPolicy = ConflictResolutionPolicy.createCustomPolicy(
-        String.format("dbs/%s/colls/%s/sprocs/%s", this.databaseName, this.udpCollectionName, "resolver"));
-udpCollection.setConflictResolutionPolicy(udpPolicy);
-DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
-```
-
-Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
-
-### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript"></a>Node.js/JavaScript/TypeScript SDK
-
-```javascript
-const database = client.database(this.databaseName);
-const { container: udpContainer } = await database.containers.createIfNotExists(
-  {
-    id: this.udpContainerName,
-    conflictResolutionPolicy: {
-      mode: "Custom",
-      conflictResolutionProcedure: `dbs/${this.databaseName}/colls/${
-        this.udpContainerName
-      }/sprocs/resolver`
-    }
-  }
-);
-```
-
-Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
-
-### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python SDK
-
-```python
-udp_collection = {
-  'id': self.udp_collection_name,
-  'conflictResolutionPolicy': {
-    'mode': 'Custom',
-    'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
-    }
-}
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
-```
-
-Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
-
-## <a name="create-a-last-writer-wins-lww-conflict-resolution-policy"></a>Laatste schrijver Wins (LWW) conflict resolutie beleid maken
-
-Deze voorbeelden laten zien hoe u een container kunt instellen met het conflictoplossingsbeleid 'last writer wins'. Als het pad niet is ingesteld of ongeldig is, wordt het standaard ingesteld op de eigenschap `_ts`. Deze eigenschap is het tijdstempelveld. Deze conflicten, niet weergegeven in de feed conflict.
-
-### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
-
-```csharp
-DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
-  UriFactory.CreateDatabaseUri(this.databaseName), new DocumentCollection
-  {
-      Id = this.lwwCollectionName,
-      ConflictResolutionPolicy = new ConflictResolutionPolicy
-      {
-          Mode = ConflictResolutionMode.LastWriterWins,
-          ConflictResolutionPath = "/regionId",
-      },
-  });
-```
-
-### <a id="create-custom-conflict-resolution-policy-lww-java-async"></a>Java Async SDK
-
-```java
-DocumentCollection collection = new DocumentCollection();
-collection.setId(id);
-ConflictResolutionPolicy policy = ConflictResolutionPolicy.createLastWriterWinsPolicy(conflictResolutionPath);
-collection.setConflictResolutionPolicy(policy);
-DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
-```
-
-### <a id="create-custom-conflict-resolution-policy-lww-java-sync"></a>Java Sync SDK
-
-```java
-DocumentCollection lwwCollection = new DocumentCollection();
-lwwCollection.setId(this.lwwCollectionName);
-ConflictResolutionPolicy lwwPolicy = ConflictResolutionPolicy.createLastWriterWinsPolicy("/regionId");
-lwwCollection.setConflictResolutionPolicy(lwwPolicy);
-DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, lwwCollection);
-```
-
-### <a id="create-custom-conflict-resolution-policy-lww-javascript"></a>Node.js/JavaScript/TypeScript SDK
-
-```javascript
-const database = client.database(this.databaseName);
-const { container: lwwContainer } = await database.containers.createIfNotExists(
-  {
-    id: this.lwwContainerName,
-    conflictResolutionPolicy: {
-      mode: "LastWriterWins",
-      conflictResolutionPath: "/regionId"
-    }
-  }
-);
-```
-
-Als u de eigenschap `conflictResolutionPath` weglaat, wordt het standaard ingesteld op de eigenschap `_ts`.
-
-### <a id="create-custom-conflict-resolution-policy-lww-python"></a>Python SDK
-
-```python
-udp_collection = {
-                'id': self.udp_collection_name,
-                'conflictResolutionPolicy': {
-                    'mode': 'Custom',
-                    'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
-                    }
-                }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
-```
-
 ## <a name="read-from-conflict-feed"></a>Lezen uit conflictfeed
 
-Deze voorbeelden laten zien hoe u kunt lezen uit de conflictfeed van een container. Veroorzaakt een conflict weergegeven in het conflict feed alleen als ze niet automatisch, bijvoorbeeld, opgelost zijn u hebt ervoor gekozen een handmatige conflict resolutie beleid en de opgeslagen procedure niet registreren.
+Deze voorbeelden laten zien hoe u kunt lezen uit de conflictfeed van een container. Veroorzaakt een conflict weergegeven in het conflict alleen als ze zijn niet automatisch opgelost of als een beleid voor aangepaste feed.
 
 ### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK
 

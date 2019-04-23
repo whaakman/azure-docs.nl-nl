@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ab8a231d4d44cfe2bfaf7c003ca57772a7a1814
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d230fa97d009f0ee2a3bc86a0b6b7c8d40687a46
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896395"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010276"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Certificaatassets in Azure Automation
 
@@ -33,7 +33,7 @@ De cmdlets in de volgende tabel worden gebruikt voor AzureRM, maken en beheren v
 |[New-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Hiermee maakt u een nieuw certificaat in Azure Automation.|
 [Remove-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Hiermee verwijdert u een certificaat van Azure Automation.|
 |[Set-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Hiermee stelt u de eigenschappen voor een bestaand certificaat, met inbegrip van het certificaatbestand uploaden en het instellen van het wachtwoord voor een pfx-bestand.|
-|[Add-AzureCertificate](/previous-versions/azure/dn495214)|Hiermee wordt een certificaat voor de opgegeven cloudservice geüpload.|
+|[Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate)|Hiermee wordt een certificaat voor de opgegeven cloudservice geüpload.|
 
 ## <a name="activities"></a>Activiteiten
 
@@ -50,7 +50,7 @@ De activiteiten in de volgende tabel worden gebruikt voor toegang tot de certifi
 
 De functie in de volgende tabel wordt gebruikt voor toegang tot de certificaten in een Python2-runbook.
 
-| Function | Description |
+| Function | Beschrijving |
 |:---|:---|
 | automationassets.get_automation_certificate | Informatie over een certificaatasset opgehaald. |
 

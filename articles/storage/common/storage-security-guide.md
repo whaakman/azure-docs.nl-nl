@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 329782a436924355dbdfbb5db260e88795394697
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 74be21629a884313e74a824bb34fb5b66f5db61d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650118"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005983"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
 
@@ -302,7 +302,7 @@ U kunt genereren en beheren van uw eigen versleutelingssleutels voor de versleut
   Dit artikel geeft een uitleg van de client-side-versleuteling en bevat voorbeelden van het gebruik van de storage-clientbibliotheek voor het versleutelen en ontsleutelen van resources van de vier storage-services. Het is ook het vertelt over Azure Key Vault.
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Met behulp van Azure Disk Encryption voor het versleutelen van schijven die worden gebruikt door uw virtuele machines
-Azure Disk Encryption is een nieuwe functie. Deze functie kunt u voor het versleutelen van de besturingssysteemschijven en gegevensschijven die zijn gebruikt door een virtuele IaaS-Machine. De stations zijn versleuteld met versleutelingstechnologie van industriestandaard BitLocker voor Windows. De schijven worden versleuteld met behulp van de technologie DM-Crypt voor Linux. Dit is geïntegreerd met Azure Key Vault kunt u controleren en beheren van de versleutelingssleutels voor de schijf.
+Azure Disk Encryption kunt u de besturingssysteemschijven en gegevensschijven die wordt gebruikt door een virtuele IaaS-Machine versleutelen. De stations zijn versleuteld met versleutelingstechnologie van industriestandaard BitLocker voor Windows. De schijven worden versleuteld met behulp van de technologie DM-Crypt voor Linux. Dit is geïntegreerd met Azure Key Vault kunt u controleren en beheren van de versleutelingssleutels voor de schijf.
 
 De oplossing ondersteunt de volgende scenario's voor IaaS-VM's als ze zijn ingeschakeld in Microsoft Azure:
 

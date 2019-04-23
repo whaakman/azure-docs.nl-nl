@@ -1,7 +1,6 @@
 ---
 title: Reserveringen voor Azure-resources weergeven | Microsoft Docs
 description: Leer hoe u Azure reserveringen weergeven in Azure portal.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,31 +10,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: bf18d845b7128c8d6f740555f1a0f791767240ae
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650220"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995520"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Azure reserveringen weergeven in Azure portal
 
 Afhankelijk van uw abonnementstype en machtigingen zijn er een aantal manieren om weer te geven reserveringen voor Azure.
 
-## <a name="view-reservations-as-owner-or-reader"></a>Reserveringen weergeven als de eigenaar of lezer
+## <a name="view-purchased-reservations"></a>Reserveringen weergeven die zijn gekocht
 
-Standaard, wanneer u een reservering koopt vindt u en de accountbeheerder de reservering. U en de accountbeheerder krijgt automatisch de rol van eigenaar van de reservering. Als u wilt dat anderen om de reservering weer te geven, moet u ze als toevoegen een **eigenaar** of **lezer** op de reservering. Zie voor meer informatie, [toevoegen of wijzigen van de gebruikers die een reservering kunnen beheren](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
- 
+Standaard, wanneer u een reservering koopt vindt u en de accountbeheerder de reservering. U en de accountbeheerder krijgt automatisch de rol van eigenaar van de reserveringsorder en de reservering. Als u wilt dat anderen om de reservering weer te geven, moet u ze als toevoegen een **eigenaar** of **lezer** op de reserveringsorder of de reservering.
+
+Zie voor meer informatie, [toevoegen of wijzigen van de gebruikers die een reservering kunnen beheren](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+
 Om een reservering als een eigenaar of lezer, weer te geven
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Zoeken op **reserveringen**.
-
-    ![Schermafbeelding van zoeken in Azure portal](./media/billing-view-reservation/portal-reservation-search.png)
-
-1. U ziet een lijst van de reserveringen waar u de rol eigenaar of lezer hebt.
+2. Zoeken op **reserveringen**.
+    ![Schermafbeelding van zoeken in Azure portal](./media/billing-view-reservation/portal-reservation-search.png)  
+3. De lijst bevat alle reserveringen waar u de rol eigenaar of lezer hebt. Elke reservering ziet u de laatste bekende gebruikspercentage.  
+    ![Voorbeeld van een lijst van reserveringen](./media/billing-view-reservation/view-reservations.png)
+4. Selecteer een reservering en de trend van gebruik voor de afgelopen vijf dagen.  
+    ![Trend van voorbeeld tonen reservering gebruik](./media/billing-view-reservation/reservation-utilization.png)
+5. U krijgt ook de [reservering gebruik](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) met behulp van de API voor het gebruik van de gereserveerde instantie en met de [Microsoft Azure Consumption Insights Power BI-inhoudspakket](/power-bi/service-connect-to-azure-consumption-insights).
 
 Als u wilt wijzigen van het bereik van een reservering, wijzigen die een reservering kan beheren of gesplitste een reservering Zie [Azure-reserveringen beheren](billing-manage-reserved-vm-instance.md).
 
@@ -46,7 +49,7 @@ Als u wilt wijzigen van het bereik van een reservering, wijzigen die een reserve
 Transacties van de reservering bekijken in Azure-portal
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Zoeken op **kosten Management en facturering**.
+1. Zoek naar **kostenbeheer en facturering**.
 
     ![Schermafbeelding van zoeken in Azure portal](./media/billing-view-reservation/portal-cm-billing-search.png)
 

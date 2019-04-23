@@ -1,64 +1,99 @@
 ---
 title: Indexeren in Azure Cosmos DB
 description: Begrijp hoe indexering werkt in Azure Cosmos DB.
-author: rimman
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: ecf53251020ce1b639a5bf8da65f5d31ff699db9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: thweiss
+ms.openlocfilehash: 3bb8913725acf04f71aba8b4c4350235f2c44dfb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265692"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996727"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexeren in Azure Cosmos DB - overzicht
 
-Azure Cosmos DB is een schema-agnostische database en kunt u het herhalen voor uw toepassing snel zonder dat u hoeft te bekommeren om schema's of indexbeheer. Standaard indexeert Azure Cosmos DB automatisch alle items in de container zonder schema of secundaire indexen van ontwikkelaars.
+Azure Cosmos DB is een schema-agnostische database waarmee u het herhalen voor uw toepassing zonder dat u hoeft te bekommeren om schema's of indexbeheer. Standaard Azure Cosmos DB worden automatisch geïndexeerd elke eigenschap voor alle items in uw [container](databases-containers-items.md#azure-cosmos-containers) zonder te definiëren van een schema of secundaire indexen te configureren.
 
-## <a name="items-as-trees"></a>Items als structuren
+Het doel van dit artikel is waarin wordt uitgelegd hoe gegevens in Azure Cosmos DB worden geïndexeerd en hoe indexen wordt gebruikt om queryprestaties te verbeteren. Het verdient aanbeveling om te gaan via deze sectie daarna wordt ingegaan op het aanpassen van [indexeringsbeleid](index-policy.md).
 
-Projectie van items in een container als JSON-documenten en vertegenwoordigen als structuren, Azure Cosmos DB normaliseert zowel de structuur en de waarden voor items in de uniforme concept van een **dynamisch gecodeerd padstructuur** . In deze weergave wordt elk label in een JSON-document, waaronder de namen van eigenschappen en de bijbehorende waarden, een knooppunt van de structuur. De knooppunten van de structuur van de werkelijke waarden en de tussenliggende knooppunten bevatten de schema-informatie. De volgende afbeelding ziet u de structuren die zijn gemaakt voor twee items (1 en 2) in een Azure Cosmos-container:
+## <a name="from-items-to-trees"></a>Van items die moeten worden structuren
 
-![Boomstructuur voor twee verschillende items in een Azure Cosmos-container](./media/index-overview/indexing-as-tree.png)
+Telkens wanneer een item is opgeslagen in een container, is de inhoud ervan weergegeven als een JSON-document vervolgens geconverteerd naar een boomstructuur. Dat houdt in dat elke eigenschap van dat item wordt weergegeven als een knooppunt in een boomstructuur. Een pseudo-hoofdknooppunt wordt als een ouder voor alle eigenschappen van de eerste niveau van het item gemaakt. De bladknooppunten bevatten de werkelijke scalaire waarden die worden uitgevoerd door een item.
 
-Een pseudo-hoofdknooppunt wordt gemaakt als de werkelijke knooppunten die overeenkomen met de labels in het JSON-document onder een bovenliggend element. De geneste gegevensstructuren station de hiërarchie in de structuur. Tussenliggende kunstmatige knooppunten met het label met numerieke waarden (bijvoorbeeld 0, 1,...) worden gebruikt voor de vertegenwoordiging van opsommingen en matrix van indexen.
+Houd rekening met dit item als een voorbeeld:
 
-## <a name="index-paths"></a>Indexpaden
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 },
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
 
-Azure Cosmos DB-items in een Azure Cosmos-container als JSON-documenten en index als structuren projecten. Vervolgens kunt u het beleid van de index voor paden in de structuur afstemmen. U kunt opnemen in of paden uitsluiten van het indexeren. Dit kan bieden verbeterde schrijfprestaties en verlaag de indexopslag voor scenario's waarbij de querypatronen vooruit bekend. Zie voor meer informatie, [Index paden](index-paths.md).
+Deze zou worden vertegenwoordigd door de volgende structuur:
 
-## <a name="indexing-under-the-hood"></a>Indexering: Achter de schermen
+![Het vorige item weergegeven als een boomstructuur](./media/index-overview/item-as-tree.png)
 
-Azure Cosmos-database is van toepassing *automatische indexering* tot de gegevens, waarbij elk pad in een boomstructuur is geïndexeerd, tenzij u configureert als u wilt uitsluiten van de bepaalde paden.
+Houd er rekening mee hoe matrices worden gecodeerd in de structuur: elke vermelding in een matrix een tussenliggende knooppunt met het label met de index van dat item binnen de matrix opgehaald (0, 1 enz.).
 
-Azure Cosmos-database gebruik omgekeerd index gegevensstructuur voor het opslaan van de gegevens van elk item en om efficiënt weergave voor het uitvoeren van query's mogelijk te maken. De structuur van de index is een document dat is opgesteld met de vereniging van alle van de structuren voor de afzonderlijke items in een container. De structuur van de index neemt na verloop van tijd toe naarmate er nieuwe items worden toegevoegd of bestaande artikelen zijn bijgewerkt in de container. In tegenstelling tot de relationele database indexeren, Azure Cosmos DB niet opnieuw opstarten het indexeren vanaf het begin, zoals nieuwe velden worden ingevoerd. Nieuwe items worden toegevoegd aan de bestaande indexstructuur. 
+## <a name="from-trees-to-property-paths"></a>Van structuren naar eigenschappaden
 
-Elk knooppunt van de structuur van de index is een vermelding die waarden voor het label en de positie, met de naam bevat de *term*, en de id's van de artikelen, met de naam de *boekingen*. De berichten in de accolades (bijvoorbeeld {1,2}) in de omgekeerde index afbeelding overeenkomen met de items zoals *Document1* en *Document2* met de labelwaarde van het opgegeven. Een belangrijk implicatie van gelijkmatig verwerking van zowel de schema-labels en de exemplaarwaarden is dat alles is verpakt in een grote index. Een exemplaarwaarde die is nog steeds in de knooppunten wordt niet herhaald, kan het zijn in verschillende rollen voor items met verschillende schema labels, maar het is dezelfde waarde. De volgende afbeelding ziet u omgekeerde indexering voor twee verschillende items:
+De reden waarom transformeert van items in de structuren in Azure Cosmos DB is omdat deze eigenschappen worden verwezen door de paden binnen deze structuren toestaat. We kunnen als u het pad voor een eigenschap, de structuur van het hoofdknooppunt met die eigenschap passeren en de labels van elk knooppunt van de betreffende samenvoegen.
 
-![Index indexeren achter de schermen, omgekeerd](./media/index-overview/inverted-index.png)
+Hier volgen de paden voor elke eigenschap van de voorbeeld-item die hierboven worden beschreven:
 
-> [!NOTE]
-> De omgekeerde index kan worden weergegeven die vergelijkbaar is met de indexering structuren gebruikt in een zoekmachine in het domein van het ophalen van gegevens. Met deze methode kunt Azure Cosmos DB u zoeken naar de database voor elk item, ongeacht de schemastructuur.
+    /locations/0/country: "Germany"
+    /locations/0/city: "Berlin"
+    /locations/1/country: "France"
+    /locations/1/city: "Paris"
+    /headquarters/country: "Belgium"
+    /headquarters/employees: 250
+    /exports/0/city: "Moscow"
+    /exports/1/city: "Athens"
 
-Voor het pad genormaliseerde codeert de index het forward pad helemaal vanaf de hoofdmap op de waarde, samen met de informatie van de waarde. Het pad en de waarde zijn gecodeerd om te voorzien in verschillende typen geïndexeerd, zoals het bereik, ruimtelijke, enzovoort. De waarde codering is ontworpen om unieke waarde of een samenstelling van een set met paden te geven.
+Wanneer een item wordt geschreven, indexeert Azure Cosmos DB effectief van elke eigenschap pad en de bijbehorende waarde.
+
+## <a name="index-kinds"></a>Index-typen
+
+Azure Cosmos DB ondersteunt momenteel twee soorten indexen:
+
+De **bereik** index type wordt gebruikt voor:
+
+- gelijkheid query's: `SELECT * FROM container c WHERE c.property = 'value'`
+- bereik van query's: `SELECT * FROM container c WHERE c.property > 'value'` (werkt voor `>`, `<`, `>=`, `<=`, `!=`)
+- `ORDER BY` query's: `SELECT * FROM container c ORDER BY c.property`
+- `JOIN` query's: `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+
+Bereik indexen kunnen worden gebruikt voor scalaire waarden (tekenreeks of getal).
+
+De **ruimtelijke** index type wordt gebruikt voor:
+
+- georuimtelijke afstand query's: `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
+- georuimtelijke binnen query's: `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+
+Ruimtelijke indexen kunnen worden gebruikt op de juiste indeling [GeoJSON](geospatial.md) objecten. Punten, LineStrings en polygonen worden momenteel ondersteund.
 
 ## <a name="querying-with-indexes"></a>Query's uitvoeren met indexen
 
-De omgekeerde index Hiermee kan een query de documenten die aan het querypredicaat snel identificeren. De omgekeerde index is door te behandelen de schema- en de exemplaarwaarden op uniforme wijze in termen van paden, ook een structuur. De index en de resultaten kunnen worden geserialiseerd naar een geldig JSON-document en dus geretourneerd als de documenten zelf als ze worden geretourneerd in de boomstructuur. Deze methode kunt recursing boven de resultaten voor extra query's. De volgende afbeelding toont een voorbeeld van het indexeren in een point-query:  
+De paden die is opgehaald bij het indexeren van gegevens wordt het eenvoudiger voor het opzoeken van de index bij het verwerken van een query. Door die overeenkomt met de `WHERE` component van een query met de lijst met geïndexeerde paden, is het mogelijk om de items die aan het querypredicaat zeer snel te identificeren.
 
-![Voorbeeld van punt](./media/index-overview/index-point-query.png)
+Neem bijvoorbeeld de volgende query: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Het pad met rood gemarkeerde wordt er gezocht naar het querypredicaat (filteren op items, te waarbij elke locatie "Frankrijk" heeft als de land/regio):
 
-Voor een bereikquery *GermanTax* is een [de gebruiker gedefinieerde functie](stored-procedures-triggers-udfs.md#udfs) uitgevoerd als onderdeel van de verwerking van query's. De gebruiker gedefinieerde functie wordt elke geregistreerde, JavaScript-functie die de biedt uitgebreide programming logica geïntegreerd in de query. De volgende afbeelding toont een voorbeeld van het indexeren in een bereikquery:
+![Die overeenkomt met een specifiek pad binnen een structuur](./media/index-overview/matching-path.png)
 
-![Voorbeeld van bereik](./media/index-overview/index-range-query.png)
+> [!NOTE]
+> Een `ORDER BY` component *altijd* moet een bereik te indexeren en zal mislukken als het pad wordt verwezen naar een niet heeft.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over het indexeren in de volgende artikelen:
 
 - [Indexeringsbeleid](index-policy.md)
-- [Indextypen](index-types.md)
-- [Indexpaden](index-paths.md)
 - [Indexeringsbeleid beheren](how-to-manage-indexing-policy.md)

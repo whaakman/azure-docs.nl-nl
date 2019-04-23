@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8558168b7eb35743c0fd590ded17ef13446533c4
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617815"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006179"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing
 
@@ -24,7 +24,7 @@ Dit artikel wordt beschreven hoe u, als een apparaat-ontwikkelaar, een MXChip Io
 Als u wilt de stappen in dit artikel hebt voltooid, moet u de volgende bronnen:
 
 1. Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie de [snelstart over het maken van een toepassing](quick-deploy-iot-central.md).
-1. Een apparaat DevKit. Als u wilt een apparaat DevKit kopen, gaat u naar [MXChip IoT DevKit](http://mxchip.com/az3166).
+1. Een apparaat DevKit. Als u wilt een apparaat DevKit kopen, gaat u naar [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/).
 
 ## <a name="sample-devkits-application"></a>Voorbeeldtoepassing Devkits
 
@@ -239,7 +239,7 @@ Instellingen voor in-/ uitschakelen
 | --------------- | ------------ | ---------- | --------- |
 | Apparaateigenschappen | Aantal die   | dieNumber  | getal    |
 | Apparaateigenschappen | Locatie van het apparaat   | location  | location    |
-| Tekst            | Geproduceerd In     | manufacturedIn   | N/A       |
+| Text            | Geproduceerd In     | manufacturedIn   | N/A       |
 
 ### <a name="commands"></a>Opdrachten
 

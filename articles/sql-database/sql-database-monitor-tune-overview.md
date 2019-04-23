@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1afe1b437d82759cdfd085f018c31db33264dbf5
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 0c93888af16ed7f7162f38c73be5f6330c886c65
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683170"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001572"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Prestaties bewaken en afstemmen
 
@@ -85,9 +85,9 @@ Als u vaststelt dat er een prestatieprobleem is uitgevoerd met betrekking tot, w
 > [!IMPORTANT]
 > Zie voor een verzameling een T-SQL-query's deze DMV's gebruiken voor het oplossen van problemen met het gebruik van de CPU, [prestatieproblemen identificeren CPU](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
 
-### <a name="troubleshoot-queries-with-parameter-sensitive-query-execution-plan-issues"></a>Query's met de parameter-gevoelige query uitvoering plan problemen oplossen
+### <a name="ParamSniffing"></a> Query's met de parameter-gevoelige query uitvoering plan problemen oplossen
 
-Probleem met de parameter gevoelige plan (PSP) verwijst naar een scenario waarbij het queryoptimalisatieprogramma genereert een plan voor het uitvoeren van query die is geoptimaliseerd voor een specifieke parameterwaarde (of een set waarden) en het in de cache-abonnement is niet optimaal zijn voor de parameterwaarden die worden gebruikt in opeenvolgende uitvoeringen. Plannen voor niet-optimale kunnen vervolgens leiden tot prestatieproblemen van query's en de algehele doorvoer verslechtering van de werkbelasting.
+Probleem met de parameter gevoelige plan (PSP) verwijst naar een scenario waarbij het queryoptimalisatieprogramma genereert een plan voor het uitvoeren van query die is geoptimaliseerd voor een specifieke parameterwaarde (of een set waarden) en het in de cache-abonnement is niet optimaal zijn voor de parameterwaarden die worden gebruikt in opeenvolgende uitvoeringen. Plannen voor niet-optimale kunnen vervolgens leiden tot prestatieproblemen van query's en de algehele doorvoer verslechtering van de werkbelasting. Zie voor meer informatie over het bekijken van de parameter en de verwerking van query's, de [Query verwerken Architecture Guide](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide.md7#ParamSniffing).
 
 Er zijn verschillende oplossingen die worden gebruikt voor het oplossen van problemen, elk met een bijbehorende optimalisatie- en nadelen:
 
@@ -102,17 +102,17 @@ Er zijn verschillende oplossingen die worden gebruikt voor het oplossen van prob
 
 Zie voor meer informatie over het oplossen van dit soort problemen:
 
-- Dit [Pluk een parameter](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/) blogbericht
-- Dit [elephant en muis parameter bekijken](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) blogbericht
-- Dit [dynamische sql ten opzichte van de kwaliteit van de planning voor query's met parameters](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) blogbericht
+- Dit [ik een parameter Pluk](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) blogbericht
+- Dit [dynamische sql ten opzichte van de kwaliteit van de planning voor query's met parameters](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) blogbericht
+- Dit [optimalisatietechnieken van SQL-Query in SQL Server: Parameter Sniffing](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/) blogbericht
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Het compileren activiteit vanwege onjuiste parameterisering oplossen
 
 Wanneer een query letterlijke waarden heeft, de database-engine kiest voor het automatisch voorzien van de instructie of een gebruiker kan deze expliciet voorzien om te reduceren aantal compileert. Een groot aantal compileert van een query met behulp van de hetzelfde patroon, maar andere letterlijke waarden kan leiden tot intensief CPU-gebruik. Op dezelfde manier als u een query die nog steeds letterlijke tekenreeksen zijn slechts gedeeltelijk voorzien, heeft de database-engine geen parameter van het verder.  Hieronder volgt een voorbeeld van een gedeeltelijk geparameteriseerde query:
 
 ```sql
-select * from t1 join t2 on t1.c1=t2.c1
-where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
+SELECT * FROM t1 JOIN t2 ON t1.c1 = t2.c1
+WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
 ```
 
 In het voorgaande voorbeeld `t1.c1` duurt `@p1` maar `t2.c2` blijft houden GUID als letterlijke waarde. In dit geval, als u de waarde voor wijzigt `c2`, de query wordt beschouwd als een andere query en een nieuwe verzameling wordt uitgevoerd. De oplossing is ook voorzien van de GUID compilaties in het voorgaande voorbeeld, verminderen.
@@ -120,24 +120,24 @@ In het voorgaande voorbeeld `t1.c1` duurt `@p1` maar `t2.c2` blijft houden GUID 
 De volgende query geeft het aantal query's op queryhash om te bepalen als een query goed met parameters of niet:
 
 ```sql
-   SELECT  TOP 10  
-      q.query_hash
-      , count (distinct p.query_id ) AS number_of_distinct_query_ids
-      , min(qt.query_sql_text) AS sampled_query_text
-   FROM sys.query_store_query_text AS qt
-      JOIN sys.query_store_query AS q
-         ON qt.query_text_id = q.query_text_id
-      JOIN sys.query_store_plan AS p 
-         ON q.query_id = p.query_id
-      JOIN sys.query_store_runtime_stats AS rs 
-         ON rs.plan_id = p.plan_id
-      JOIN sys.query_store_runtime_stats_interval AS rsi
-         ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
-   WHERE
-      rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
-      AND query_parameterization_type_desc IN ('User', 'None')
-   GROUP BY q.query_hash
-   ORDER BY count (distinct p.query_id) DESC
+SELECT  TOP 10  
+  q.query_hash
+  , count (distinct p.query_id ) AS number_of_distinct_query_ids
+  , min(qt.query_sql_text) AS sampled_query_text
+FROM sys.query_store_query_text AS qt
+  JOIN sys.query_store_query AS q
+     ON qt.query_text_id = q.query_text_id
+  JOIN sys.query_store_plan AS p 
+     ON q.query_id = p.query_id
+  JOIN sys.query_store_runtime_stats AS rs 
+     ON rs.plan_id = p.plan_id
+  JOIN sys.query_store_runtime_stats_interval AS rsi
+     ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+WHERE
+  rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+  AND query_parameterization_type_desc IN ('User', 'None')
+GROUP BY q.query_hash
+ORDER BY count (distinct p.query_id) DESC
 ```
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>Opgelost probleem query's of geef andere bronnen
@@ -183,7 +183,7 @@ In scenario's met hoge CPU, de Query Store en wacht statistieken zijn niet altij
 - Hoge CPU in beslag nemen query's mogelijk nog steeds uitgevoerd en de query's zijn nog niet klaar
 - De hoge CPU in beslag nemen query's worden uitgevoerd wanneer een failover is opgetreden
 
-Query Store en wacht statistieken bij te houden dynamische beheerweergaven alleen resultaten weergeven voor query's is voltooid en is een time-out en gegevens voor instructies dat momenteel wordt uitgevoerd (tot ze voltooid), worden niet weergegeven.  De dynamische Beheerweergave [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) kunt u query's dat momenteel wordt uitgevoerd en de bijbehorende werknemer bijhouden.
+Query Store en wacht statistieken bij te houden dynamische beheerweergaven alleen resultaten weergeven voor query's is voltooid en is een time-out en gegevens voor instructies dat momenteel wordt uitgevoerd (tot ze voltooid), worden niet weergegeven. De dynamische Beheerweergave [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) kunt u query's dat momenteel wordt uitgevoerd en de bijbehorende werknemer bijhouden.
 
 Zoals u in het vorige diagram, zijn de meest voorkomende wacht:
 
@@ -198,6 +198,8 @@ Zoals u in het vorige diagram, zijn de meest voorkomende wacht:
 > - [Identificeren van problemen met de i/o-prestaties](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identificeer `tempdb` prestatieproblemen](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Wachten op het verlenen van geheugen identificeren](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
+> - [TigerToolbox - wacht en vergrendelingen](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
+> - [TigerToolbox - usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
 ## <a name="improving-database-performance-with-more-resources"></a>Verbetering van de prestaties van de database met andere bronnen
 

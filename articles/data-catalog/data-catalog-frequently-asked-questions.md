@@ -2,18 +2,18 @@
 title: Veelgestelde vragen over Azure Data Catalog
 description: Veelgestelde vragen over Azure Data Catalog, met inbegrip van mogelijkheden voor detectie van gegevensbronnen, aantekening en beheren.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231461"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998446"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Veelgestelde vragen over Azure Data Catalog
 In dit artikel vindt u antwoorden op veelgestelde vragen met betrekking tot de service Azure Data Catalog.
@@ -27,10 +27,10 @@ Data Catalog uitdagingen het hoofd van gegevensbron detectie en de 'donkere gege
 ## <a name="what-are-its-target-audiences"></a>Wat zijn de doelgroepen?
 Data Catalog is ontworpen voor technische en niet-technische gebruikers, met inbegrip van:
 
-* Ontwikkelaars kunnen en BI- en analyse-professionals: personen die verantwoordelijk zijn voor het maken van gegevens en analyses inhoud zodat anderen deze kunnen gebruiken.
-* Gegevens stewards: personen die de kennis op over de gegevens, wat het betekent en hoe deze is bedoeld om te worden gebruikt.
-* Gegevensgebruikers: mensen die eraan moeten kunnen eenvoudig ontdekken, begrijpen en verbinding maken met de gegevens die ze nodig hebben voor hun werk doen met behulp van het hulpprogramma van hun keuze.
-* Centrale IT: mensen die nodig hebben om honderden gegevensbronnen kunnen worden gedetecteerd door zakelijke gebruikers en die moeten toezicht over hoe gegevens worden gebruikt en door wie onderhouden.
+* Ontwikkelaars kunnen en BI- en analyse-professionals: Personen die verantwoordelijk zijn voor het maken van gegevens en analyses inhoud zodat anderen deze kunnen gebruiken.
+* Gegevens stewards: Personen die de kennis op over de gegevens, wat het betekent en hoe deze is bedoeld om te worden gebruikt.
+* Gebruikers van gegevens: Mensen die eraan moeten kunnen eenvoudig ontdekken, begrijpen en verbinding maken met de gegevens die ze nodig hebben voor hun werk doen met behulp van het hulpprogramma van hun keuze.
+* Centrale IT: Mensen die nodig hebben om honderden gegevensbronnen kunnen worden gedetecteerd door zakelijke gebruikers en die moeten toezicht over hoe gegevens worden gebruikt en door wie onderhouden.
 
 ## <a name="what-is-its-availability-by-region"></a>Wat is de beschikbaarheid per regio?
 Data Catalog-services zijn momenteel beschikbaar in de volgende datacenters:

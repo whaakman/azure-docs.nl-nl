@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: aeaf8fb5112fe9f6d8f2ca77ed9c1fd244fd9603
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877068"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000042"
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services-community  
 
@@ -37,10 +37,13 @@ Deze community-pagina voor Azure Media Services (AMS) worden verschillende manie
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="discussion"></a>Discussie
+
 ### <a name="twitter"></a>Twitter
+
 Gebruik de [ @MSFTAzureMedia ](https://twitter.com/MSFTAzureMedia) twitter-handle contact met ons opnemen of Voer de updates op Twitter. U kunt de [ @AzureSupport ](https://twitter.com/azuresupport) twitter-handle het aanvragen van ondersteuning op Twitter.  
 
 ### <a name="online-forums"></a>Onlineforums
+
 De volgende forums kunnen worden gebruikt voor het stellen van vragen over de huidige producten en -functies.
 
 MSDN is momenteel de primaire communityforum van Media Services-team.
@@ -48,9 +51,11 @@ MSDN is momenteel de primaire communityforum van Media Services-team.
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
 Het team controleert ook vragen gemarkeerd op Stack Overflow met de 'azure-media-services'.
+
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="contact-the-team"></a>Contact opnemen met het team
+
 Azure Media Services primaire e-mailadres is: **amshelp\@microsoft.com**.
 
 De volgende tabel geeft een lijst van e-mailadres van de functie sub teams:

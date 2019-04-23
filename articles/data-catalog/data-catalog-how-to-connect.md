@@ -2,18 +2,18 @@
 title: Verbinding maken met gegevensbronnen in Azure Data Catalog
 description: Verbinding maken met gegevensbronnen die zijn gedetecteerd met Azure Data Catalog markeren artikel met instructies.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 973077b56f1a777d917a94f9c1470e6f8c15a489
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: c64340491dba11870364610a6c2ff62e25c1328a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405051"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000569"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Verbinding maken met gegevensbronnen
 ## <a name="introduction"></a>Inleiding
@@ -37,8 +37,8 @@ Bij het gebruik van de ' Open in... " menu voor gegevensbronnen in de Azure Data
 
 | Open in de toepassing | Bestandsextensie / -protocol | Ondersteunde toepassingsversies |
 | --- | --- | --- |
-| Excel |ODC |Excel 2010 of hoger |
-| Excel (Top 1000) |ODC |Excel 2010 of hoger |
+| Excel |.odc |Excel 2010 of hoger |
+| Excel (Top 1000) |.odc |Excel 2010 of hoger |
 | Power Query |.xlsx |Excel 2016 of Excel 2010 of Excel 2013 met de Power Query voor Excel-invoegtoepassing geïnstalleerd |
 | Power BI Desktop |.pbix |Power BI Desktop juli 2016 of hoger |
 | SQL Server Data Tools |vsweb:// |Visual Studio 2013 Update 4 of hoger met SQL Server-hulpprogramma's geïnstalleerd |

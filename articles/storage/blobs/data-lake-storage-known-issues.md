@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: normesta
-ms.openlocfilehash: 89cfdbdaa034bae5ca736ccb9164255b833ed75d
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.openlocfilehash: d56fb411eb032e5e6227d68cd8abe02c0e30850b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194705"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006859"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Bekende problemen met Azure Data Lake Storage Gen2
 
@@ -47,13 +47,13 @@ Niet-beheerde schijven van de virtuele Machine (VM) is afhankelijk van het uitge
 
 BLOB Storage-API's en Azure Data Lake Gen2 API's zijn niet compatibel met elkaar uit.
 
-Als u hulpprogramma's, toepassingen, services of scripts die gebruikmaken van Blob-API's hebt en u wilt gebruiken voor het werken met alle inhoud die u naar uw account uploadt, klikt u vervolgens niet inschakelt een hiërarchische naamruimte op uw Blob storage-account tot de Blob-API's worden compatibel met Azure Data Lake Gen2 API's. Met behulp van een storage-account zonder een hiërarchische naamruimte toegangsbeheerlijsten betekent dat u geen toegang tot specifieke functies van Data Lake Storage Gen2, zoals de directory en bestandssysteem vervolgens hebt.
+Als u hulpprogramma's, toepassingen, services of scripts die gebruikmaken van Blob-API's hebt en u wilt gebruiken voor het werken met alle inhoud die u naar uw account uploadt, klikt u vervolgens niet inschakelt een hiërarchische naamruimte op uw Blob storage-account tot de Blob-API's worden compatibel met Azure Data Lake Gen2 API's. Met behulp van een storage-account zonder een hiërarchische naamruimte betekent dat u geen toegang tot specifieke functies van Data Lake Storage Gen2, zoals map- en systeemtoegangscontrolelijsten vervolgens hebt.
 
 ## <a name="azure-storage-explorer"></a>Azure Opslagverkenner
 
 Als u wilt weergeven of Data Lake Storage Gen2 accounts beheren met behulp van Azure Storage Explorer, hebt u ten minste versie `1.6.0` van het hulpprogramma die beschikbaar is als een [gratis download](https://azure.microsoft.com/features/storage-explorer/).
 
-Houd er rekening mee dat de versie van Storage Explorer die is ingesloten in de Azure Portal biedt momenteel geen ondersteuning voor bekijken of beheren van Data Lake Storage Gen2 accounts met de functie voor hiërarchische naamruimte ingeschakeld.
+Houd er rekening mee dat de versie van Storage Explorer die is ingesloten in de Azure-portal biedt momenteel geen ondersteuning voor bekijken of beheren van Data Lake Storage Gen2 accounts met de functie voor hiërarchische naamruimte ingeschakeld.
 
 ## <a name="blob-viewing-tool"></a>Hulpprogramma voor BLOB weergeven
 

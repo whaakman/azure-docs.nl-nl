@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-logboeken streamen naar een Azure Event Hub (preview) | Microsoft Docs'
-description: Informatie over het instellen van Azure Diagnostics voor het pushen van Azure Active Directory-logboeken naar een Event Hub (preview)
+title: Zelfstudie - Stream Azure Active Directory-logboeken naar een Azure event hub | Microsoft Docs
+description: Meer informatie over het instellen van Azure Diagnostics naar een event hub pushen en Azure Active Directory-Logboeken
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e85a3c43054aeb758eb1e0da9ce1086bfa653180
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 906da7ac6b0086e4efca7c38171668a08f687d19
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436928"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995590"
 ---
-# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Zelfstudie: Azure Active Directory-logboeken streamen naar een Azure Event Hub (preview)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Zelfstudie: Azure Active Directory-logboeken Stream naar een Azure event hub
 
 In deze zelfstudie leert u hoe u de diagnostische instellingen van Azure Monitor instelt voor het streamen van Azure AD-logboeken (Azure Active Directory) naar een Azure Event Hub. Gebruik dit mechanisme om uw logboeken te integreren met externe SIEM-hulpprogramma's (Security Information and Event Management), zoals Splunk en QRadar.
 

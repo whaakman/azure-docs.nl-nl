@@ -2,18 +2,18 @@
 title: Azure Data Catalog-voorbeelden voor ontwikkelaars
 description: In dit artikel biedt een overzicht van de beschikbare developer-voorbeelden voor de REST-API van Data Catalog.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 0dc23edd-04d8-49fc-841e-d132fb109ce7
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: a4f88b63fa91dcec52b86be568ef4c98ee82c277
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: 1f62a5583b7beef2dc535065a6c0d3bcb34fe7b4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404322"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009630"
 ---
 # <a name="data-catalog-developer-samples"></a>Voorbeelden voor ontwikkelaars van Data Catalog
 Aan de slag met behulp van de REST-API van Data Catalog Data Catalog-apps ontwikkelen. De REST-API van Data Catalog is een op REST gebaseerde API die programmatische toegang tot Data Catalog-resources om te registreren biedt en annoteren van en zoeken naar gegevensassets via een programma.

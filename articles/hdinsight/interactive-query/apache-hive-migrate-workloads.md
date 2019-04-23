@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 04/15/2019
-ms.openlocfilehash: 708df64802ace17fa77b4e0a695c9f1c3bd18a77
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 958a3249fd2e8af9faeb827f07efc21c8184a100
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59610227"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006978"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Azure HDInsight 3.6 Hive-workloads migreren naar HDInsight 4.0
 
@@ -54,7 +54,31 @@ Uw Hive-workloads, omvat mogelijk een combinatie van ACID- en niet-ACID-tabellen
 alter table myacidtable compact 'major';
 ```
 
-Deze compressie is vereist omdat HDInsight 3.6-en HDInsight 4.0 ACID ACID verschillende delta's te begrijpen. Compressie dwingt een schone lei dat ervoor consistentie van de tabel zorgt. Nadat de compressie voltooid is, worden de vorige stappen voor migratie van metastore en tabel voldoende zijn voor elk HDInsight 3.6 ACID-tabellen gebruiken in HDInsight 4.0.
+Deze compressie is vereist omdat HDInsight 3.6-en HDInsight 4.0 ACID ACID delta's anders begrijpen. Compressie wordt een schone lei dat ervoor consistentie zorgt afgedwongen. Sectie 4 van de [migratiedocumentatie Hive](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.3.0/bk_ambari-upgrade-major/content/prepare_hive_for_upgrade.html) bevat richtlijnen voor het bulksgewijs compressie van HDInsight 3.6 ACID-tabellen.
+
+Nadat u de metastore migratie en comprimeren de stappen hebt voltooid, kunt u de werkelijke datawarehouse kunt migreren. Nadat u de migratie van de Hive-warehouse hebt voltooid, wordt het magazijn 4.0 HDInsight de volgende eigenschappen hebben:
+
+* Externe tabellen in HDInsight 3.6 worden externe tabellen in HDInsight 4.0
+* Niet-transactionele beheerde tabellen in HDInsight 3.6 zijn externe tabellen in HDInsight 4.0
+* Transactionele beheerde tabellen in HDInsight 3.6 worden beheerde tabellen in HDInsight 4.0
+
+Mogelijk moet u de eigenschappen van de datawarehouse aanpassen voordat u de migratie uitvoert. Bijvoorbeeld, als u verwacht dat sommige tabel wordt gebruikt door een derde partij (zoals een HDInsight 3.6-cluster), moet die tabel externe zodra de migratie voltooid is. In HDInsight 4.0 worden alle beheerde tabellen transactionele. Beheerde tabellen in HDInsight 4.0 mag daarom alleen worden geopend door 4.0 HDInsight-clusters.
+
+Wanneer de eigenschappen van de tabel correct zijn ingesteld, voert u het hulpprogramma voor migratie van Hive datawarehouse uit vanaf een van de hoofdknooppunten van het cluster met behulp van de SSH-shell:
+
+1. Verbinding maken met het hoofdknooppunt van het cluster via SSH. Zie voor instructies [verbinding maken met HDInsight met behulp van SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
+1. Open een aanmeldingsshell als de Hive-gebruiker door te voeren `sudo su - hive`
+1. De versie van de stack Hortonworks Data Platform bepalen door het uitvoeren van `ls /usr/hdp`. Hiermee wordt een versietekenreeks in die u moet gebruiken in de volgende opdracht weergegeven.
+1. De volgende opdracht uitvoeren vanuit de shell. Vervang `${{STACK_VERSION}}` met de tekenreeks in de vorige stap:
+
+```bash
+/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true  -m automatic  automatic  --modifyManagedTables --oldWarehouseRoot /apps/hive/warehouse
+```
+
+Nadat het hulpprogramma voor migratie is voltooid, worden uw Hive-warehouse gereed voor HDInsight 4.0. 
+
+> [!Important]
+> Beheerde tabellen in HDInsight 4.0 (inclusief tabellen gemigreerd vanuit 3.6) mag niet worden geopend door andere services of toepassingen, inclusief clusters in HDInsight 3.6.
 
 ## <a name="secure-hive-across-hdinsight-versions"></a>Beveiligde Hive in HDInsight-versies
 
@@ -74,9 +98,9 @@ In HDInsight 4.0, is met Beeline HiveCLI vervangen. HiveCLI is een thrift-client
 
 In HDInsight 3.6 is de GUI-client voor interactie met Hive-server de Ambari Hive-weergave. HDInsight 4.0 wordt vervangen door de Hive-weergave met Hortonworks Data Analytics Studio (DAS). DAS niet geleverd met HDInsight-clusters out-of-box en is niet een officieel ondersteund-pakket. Echter, DAS kan worden geïnstalleerd op het cluster als volgt:
 
-1. Download de [DAS pakket installatiescript](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-mpack.sh) en uitvoeren op beide hoofdknooppunten cluster. Met dit script niet worden uitgevoerd als een scriptactie.
-2. Download de [DAS-script voor installatie service](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-component.sh) en voer deze uit als een scriptactie. Selecteer **hoofdknooppunten** als het knooppunttype van de keuze van de interface van de actie script.
-3. Nadat het script voltooid is, gaat u naar Ambari en selecteer **Data Analytics Studio** uit de lijst met services. Alle DAS-services zijn gestopt. Selecteer in de rechterbovenhoek **acties** en **Start**. U kunt nu uitvoeren en fouten opsporen in query's met DAS.
+Start een scriptactie op basis van uw cluster, met 'Hoofdknooppunten' als het knooppunttype voor de uitvoering. Plak de volgende URI in het tekstvak gemarkeerd als 'Bash-Script URI': https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+
+
 
 Wanneer DAS is geïnstalleerd, als u de query's die u hebt uitgevoerd in de viewer voor query's niet ziet, voert u de volgende stappen uit:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Metagegevens genereren voor Azure Storage-afbeeldingen'
+title: 'Zelfstudie: Metagegevens voor Azure-installatiekopieën genereren'
 titleSuffix: Azure Cognitive Services
 description: In deze zelfstudie leert u hoe u de Azure Computer Vision-service integreert in een web-app om metagegevens voor afbeeldingen te genereren.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: e5124b07a5aff67d53213149565ddae4ea6dda33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447996"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005979"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Zelfstudie: Computer Vision gebruiken voor het genereren van afbeeldingsmetagegevens te genereren in Azure Storage
 
@@ -52,11 +52,11 @@ U moet een Computer Vision-resource maken voor uw Azure-account. Deze resource b
 
 1. Ga terug naar het menu van uw resourcegroep en klik op het Computer Vision-API-abonnement dat u zojuist hebt gemaakt. Kopieer de URL onder **Eindpunt** naar een plaats waar u de URL eenvoudig en snel weer kunt ophalen. Klik vervolgens op **Toegangssleutels weergeven**.
 
-    ![De toegangssleutels weergeven](../Images/copy-vision-endpoint.png)
+    ![Azure portal op de pagina met de eindpunt-URL en toegang tot sleutels koppeling-die worden beschreven](../Images/copy-vision-endpoint.png)
 
 1. In het volgende venster kopieert u de waarde van **sleutel 1** naar het klembord.
 
-    ![De toegangssleutel kopiëren](../Images/copy-vision-key.png)
+    ![Dialoogvenster sleutels beheren met de knop kopiëren die worden beschreven](../Images/copy-vision-key.png)
 
 ## <a name="add-computer-vision-credentials"></a>Computer Vision-referenties toevoegen
 
@@ -136,7 +136,7 @@ Sla de wijzigingen in Visual Studio op en druk op **Ctrl+F5** om de toepassing i
 
 Als u alle gekoppelde metagegevens wilt bekijken, gebruikt u Azure Storage Explorer om de opslagcontainer te gebruiken die u voor afbeeldingen gebruikt. Klik met de rechtermuisknop op een van de blobs in de container en selecteer **Eigenschappen**. In het dialoogvenster ziet u een lijst met sleutel-waardeparen. De door de computer gegenereerde afbeeldingsbeschrijving wordt opgeslagen in het item Bijschrift en de zoektrefwoorden worden opgeslagen in Tag0, Tag1, enzovoort. Wanneer u klaar bent, klikt u op **Annuleren** om het dialoogvenster te sluiten.
 
-![De metagegevens van de blob](../Images/blob-metadata.png)
+![Afbeelding dialoogvenster eigenschappenvenster met metagegevenstags vermeld](../Images/blob-metadata.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

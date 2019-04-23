@@ -1,6 +1,6 @@
 ---
 title: Meldingen verzenden naar Universal Windows Platform-apps met behulp van Azure Notification Hubs | Microsoft Docs
-description: In deze zelfstudie leert u hoe u Azure Notification Hubs gebruikt om meldingen naar een Windows Universal Platform-toepassing te pushen.
+description: Het gebruik van Azure Notification Hubs pushmeldingen verzendt naar een Windows Universal Platform-toepassing vertrouwt.
 services: notification-hubs
 documentationcenter: windows
 author: jwargo
@@ -15,23 +15,23 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 093528dff09c71b999d58f0285044340fa0ec360
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: b9fa54a24c5d96f0d3ad48034907f2c6fe5cb385
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403201"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006927"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Zelfstudie: Meldingen verzenden naar Universeel Windows-platform-apps met behulp van Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-In deze zelfstudie maakt u een Notification Hub om pushmeldingen te verzenden naar een UWP-app (Universal Windows Platform). U maakt een lege Windows Store-app die pushmeldingen ontvangt via Windows Push Notification Service (WNS). Vervolgens kunt u uw Notification Hub gebruiken om pushmeldingen te verzenden naar alle apparaten waarop uw app wordt uitgevoerd.
+In deze zelfstudie maakt u een Notification Hub om pushmeldingen te verzenden naar een UWP-app (Universal Windows Platform). U maakt een lege Windows Store-app die pushmeldingen ontvangt via Windows Push Notification Service (WNS). Daarna gebruikt u de notification hub voor het uitzenden van pushmeldingen kunt verzenden naar alle apparaten waarop uw app.
 
 > [!NOTE]
 > De volledige code voor deze zelfstudie vindt u op [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
 
-In deze zelfstudie voert u de volgende stappen uit:
+U uitvoeren de volgende stappen:
 
 > [!div class="checklist"]
 > * Een app maken in Windows Store
@@ -45,6 +45,11 @@ In deze zelfstudie voert u de volgende stappen uit:
 - [Microsoft Visual Studio Community 2015 of hoger](https://www.visualstudio.com/products/visual-studio-community-vs).
 - [Ontwikkelhulpprogramma's voor UWP-apps geïnstalleerd](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 - Een actief Windows Store-account
+- Bevestig dat **meldingen ophalen uit de apps en andere afzenders** instelling is ingeschakeld. 
+    - Start **instellingen** venster op uw computer.
+    - Selecteer de **System** tegel.
+    - Selecteer **meldingen en acties** in het menu links. 
+    - Bevestig dat de **meldingen ophalen uit de apps en andere afzenders** instelling is ingeschakeld. Als deze niet is ingeschakeld, inschakelen. 
 
 Het voltooien van deze zelfstudie is een vereiste voor alle andere Notification Hubs-zelfstudies voor UWP-apps.
 
@@ -170,8 +175,7 @@ U kunt het ontvangen van meldingen in de app snel testen door meldingen te verze
     ![Melding](./media/notification-hubs-windows-store-dotnet-get-started/test-notification-message.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-
-In deze zelfstudie hebt u meldingen verzonden naar al uw Windows-apparaten via de portal of een console-app. Ga verder met de volgende zelfstudie als u wilt weten hoe u pushmeldingen kunt verzenden naar specifieke apparaten:
+U kunt meldingen uitgezonden naar al uw Windows-apparaten hebt verzonden met behulp van de portal of een console-app. Ga verder met de volgende zelfstudie als u wilt weten hoe u pushmeldingen kunt verzenden naar specifieke apparaten:
 
 > [!div class="nextstepaction"]
 >[Pushmeldingen verzenden naar specifieke apparaten](

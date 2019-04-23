@@ -3,16 +3,16 @@ title: Overzicht van Azure Resource Graph
 description: Begrijpen hoe de Azure Resource Graph-service mogelijk maakt complexe query's uitvoeren met resources op schaal.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/29/2019
+ms.date: 03/30/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 28efdabc024fd32c83ba966b15284ec6ff368d4d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d76a5b32403bd14f18181580f891925130808922
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788991"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002881"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Overzicht van de Azure Resource Graph-service
 
@@ -21,11 +21,13 @@ Azure Resource Graph is een service in Azure die is ontworpen om Azure Resource 
 - De mogelijkheid om resources op te vragen met geavanceerde opties voor filteren, groeperen en sorteren op resource-eigenschappen.
 - De mogelijkheid om resources iteratief te verkennen op basis van governancevereisten en de resulterende expressie te converteren naar een beleidsdefinitie.
 - De mogelijkheid om de impact van het toepassen van een beleid in een grote cloudomgeving te beoordelen.
+- Mogelijkheid om te [informatie over wijzigingen in de resource-eigenschappen](./how-to/get-resource-changes.md) (preview).
 
 In deze documentatie komt elke mogelijkheid gedetailleerd aan bod.
 
 > [!NOTE]
-> Azure Resource Graph wordt gebruikt door de nieuwe bladerervaring Alle resources van de Azure Portal. Het is bedoeld voor klanten met een nodig voor het beheren van grootschalige omgevingen.
+> Azure Resource-grafiek wordt gebruikt door de nieuwe Bladeren ' alle bronnen ' en de Azure-beleid van Azure portal [wijzigingsoverzicht](../policy/how-to/determine-non-compliance.md#change-history-preview).
+> _Visual diff_. Het is ontworpen om u te helpen klanten grootschalige omgevingen beheren.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Hoe Resource Graph Azure Resource Manager aanvult
 
@@ -33,13 +35,19 @@ Azure Resource Manager verzendt momenteel gegevens naar een beperkte resourcecac
 
 Met Azure Resource Graph hebt u toegang tot de eigenschappen die de resourceproviders retourneren zonder dat u elke resourceprovider afzonderlijk moet aanroepen. Zoek voor een lijst van ondersteunde resourcetypen, een **Ja** in de [Resources voor volledige-implementaties](../../azure-resource-manager/complete-mode-deletion.md) tabel.
 
+Met Azure Resource Graph, kunt u het volgende doen:
+
+- Toegang tot de eigenschappen die zijn geretourneerd door de resourceproviders zonder afzonderlijke aanroepen naar elke resourceprovider.
+- Weergeven van de afgelopen 14 dagen van de wijzigingsgeschiedenis die zijn aangebracht in de bron om te zien wat er eigenschappen gewijzigd en wanneer. (preview)
+
 ## <a name="the-query-language"></a>De querytaal
 
 Nu u weet wat Azure Resource Graph is, leert u hoe u query's kunt maken.
 
 Het is belangrijk te weten dat de querytaal van Azure Resource Graph is gebaseerd op de [querytaal van Kusto](../../data-explorer/data-explorer-overview.md) die wordt gebruikt door Azure Data Explorer.
 
-Voor meer informatie over bewerkingen en functies die kunnen worden gebruikt met Azure Resource Graph raadpleegt u eerst [De querytaal van Resource Graph](./concepts/query-language.md). Zie [Resources verkennen](./concepts/explore-resources.md) als u de resources wilt bekijken.
+Voor meer informatie over bewerkingen en functies die kunnen worden gebruikt met Azure Resource Graph raadpleegt u eerst [De querytaal van Resource Graph](./concepts/query-language.md).
+Zie [Resources verkennen](./concepts/explore-resources.md) als u de resources wilt bekijken.
 
 ## <a name="permissions-in-azure-resource-graph"></a>Machtigingen in Azure Resource Graph
 
@@ -58,7 +66,7 @@ Resourcegrafiek biedt ondersteuning voor Azure CLI, Azure PowerShell en Azure SD
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Uw eerste query uitvoeren met [Azure CLI](first-query-azurecli.md)
-- Uw eerste query uitvoeren met [Azure PowerShell](first-query-powershell.md)
-- Beginnen met [Starter query's](./samples/starter.md)
-- Uw kennis vergroten met [Geavanceerde query's](./samples/advanced.md)
+- Voer uw eerste query's uitvoeren met [Azure CLI](first-query-azurecli.md).
+- Voer uw eerste query's uitvoeren met [Azure PowerShell](first-query-powershell.md).
+- Beginnen met [Starter query's](./samples/starter.md).
+- Vergroot u uw kennis met [geavanceerde query's](./samples/advanced.md).

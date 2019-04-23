@@ -2,14 +2,14 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 4/11/2019
+ms.date: 4/20/2019
 ms.author: tamram
-ms.openlocfilehash: b3e2f018a3f1ba2563ba8cf2df6dfd4959be592e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: d96f400332b7953b34a157b3b52cf00bb20db76e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59737047"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012495"
 ---
 | Resource | Doel        |
 |----------|---------------|
@@ -23,4 +23,4 @@ ms.locfileid: "59737047"
 | Maximum aantal opgeslagen toegangsbeleid per blob-container | 5 |
 |Doeldoorvoer van één blob |Maximaal Inkomend/uitgaand verkeer opslagaccountlimieten<sup>1</sup> |
 
-<sup>1</sup> enkel object doorvoer is afhankelijk van verschillende factoren, waaronder, maar niet beperkt tot: gelijktijdigheid van taken, de grootte van de bewerking, prestatielaag, snelheid van de bron voor uploads en bestemming voor het downloaden.
+<sup>1</sup> enkel object doorvoer is afhankelijk van verschillende factoren, waaronder, maar niet beperkt tot: gelijktijdigheid, aanvraaggrootte, prestatielaag, snelheid van de bron voor uploads en bestemming voor het downloaden. Om te profiteren van [hoge doorvoer blok-blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) prestatieverbeteringen, gebruikt u een grootte van de aanvraag Blob plaatsen of Put-blokken van > 4 MiB (> 256 MiB voor premium-prestaties blok-blobopslag of voor Data Lake Storage Gen2).

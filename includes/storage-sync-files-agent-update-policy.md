@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: tamram
-ms.openlocfilehash: fa0edaaa3ee785f89faceb51419d360752bb9825
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 4f59f68c1598f737ea7cb3a0e8046fc0779ed9d3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58051797"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60118500"
 ---
 De Azure File Sync-agent wordt bijgewerkt regelmatig nieuwe functionaliteit toe te voegen en om problemen te verhelpen. Het is raadzaam om dat u bij het configureren van Microsoft Update om updates voor de Azure File Sync-agent als ze beschikbaar.
 
@@ -25,11 +25,16 @@ Er zijn vier goedgekeurd en getest manieren om de Azure File Sync-agent-updates 
     De AfsUpdater.exe bevindt zich in de map voor agentinstallatie. Dubbelklik op het uitvoerbare bestand te downloaden en installeren van agentupdates. 
 3. **Patch uitvoeren voor een bestaande Azure File Sync-agent met behulp van een bestand van de patch voor Microsoft Update of een uitvoerbaar bestand .msp. De meest recente updatepakket van Azure File Sync kan worden gedownload vanaf de [Microsoft Update-catalogus](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
     Uitvoeren van een uitvoerbaar bestand .msp, werkt de Azure File Sync-installatie met dezelfde methode die automatisch door Microsoft Update wordt gebruikt in de vorige upgrade-pad. Uitvoering van een patch voor Microsoft Update, wordt een in-place upgrade van een Azure File Sync-installatie uitvoeren.
-4. **Download het nieuwste installatieprogramma van Azure File Sync-agent van de [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). Het downloaden van het installatieprogramma is een Microsoft Installer-pakket, of een uitvoerbaar bestand MSI.**  
+4. **Download het nieuwste installatieprogramma van Azure File Sync-agent van de [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257).**  
     Als u een bestaande installatie van de Azure File Sync-agent bijwerken, verwijdert u de oude versie en installeert u de meest recente versie van het gedownloade installatieprogramma. De serverregistratie, synchronisatiegroepen en andere instellingen worden beheerd door het installatieprogramma van Azure File Sync.
 
+#### <a name="automatic-agent-lifecycle-management"></a>Levenscyclusbeheer voor automatisch agentbeheer
+Met de agent-versie 6, heeft het bestand sync-team een functie van de automatische upgrade agent geïntroduceerd. U kunt een van twee modi selecteren en opgeven van een onderhoudsvenster waarin de upgrade wordt uitgevoerd op de server. Deze functie is ontworpen voor hulp bij het levenscyclusbeheer van de agent door het aanbieden van een guardrail zo wordt voorkomen dat de agent van verlopen of waardoor het een zonder gedoe, blijf op de huidige instelling.
+1. De **standaardinstelling** wordt geprobeerd om te voorkomen dat de agent van verlopen. Binnen 21 dagen van de geplaatste vervaldatum van een agent probeert de agent zelf bijwerken. Een poging om te upgraden van één keer per week in 21 dagen vóór de vervaldatum en in het geselecteerde onderhoudsvenster wordt gestart. **Deze optie heeft geen elimineert de noodzaak voor het nemen van reguliere Microsoft Update-patches.**
+2. U kunt eventueel selecteren dat de agent automatisch zelf bijgewerkt, als een nieuwe agentversie beschikbaar. Dit wordt ook optreden tijdens het geselecteerde onderhoudsvenster en toestaan dat de server om te profiteren van nieuwe functies en verbeteringen zodra deze algemeen beschikbaar komen. Dit is de aanbevolen, zorgeloos instelling dat belangrijke agent-versies, evenals reguliere update patches voor uw server.
+
 #### <a name="agent-lifecycle-and-change-management-guarantees"></a>Agent garanties voor levenscyclus en wijzigen
-Azure File Sync is een cloudservice, waardoor continu introductie van nieuwe functies en functionaliteit. Dit betekent dat een specifieke versie van de Azure File Sync-agent kan alleen worden ondersteund voor een beperkte periode. Het kader van uw implementatie, hebben de volgende regels om te waarborgen dat u voldoende tijd en de melding voor agent-updates of upgrades worden uitgevoerd in een proces voor het beheren van uw wijziging:
+Azure File Sync is een cloudservice, die voortdurend nieuwe functies en verbeteringen worden. Dit betekent dat een specifieke versie van de Azure File Sync-agent kan alleen worden ondersteund voor een beperkte periode. Het kader van uw implementatie, garanderen de volgende regels dat u voldoende tijd en de melding voor agent-updates of upgrades worden uitgevoerd in een proces voor het beheren van uw wijziging:
 
 - Primaire agent-versies worden ondersteund voor ten minste zes maanden vanaf de datum van de eerste release.
 - We garanderen dat er is een overlapping van ten minste drie maanden, tussen de ondersteuning van grote agent-versies. 

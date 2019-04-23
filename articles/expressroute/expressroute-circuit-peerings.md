@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: mialdridm
 ms.custom: seodec18
-ms.openlocfilehash: 095d637eac5478c65ca3f15cc845518a94aa5149
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.openlocfilehash: 35cee297156cf64deeef8c9c6b514ec8176f9ca5
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080330"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149965"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute-circuits en -peering
 
@@ -30,7 +30,7 @@ Een ExpressRoute-circuit vertegenwoordigt een logische verbinding tussen uw on-p
 
 ExpressRoute-circuits toewijzen niet aan een fysieke entiteiten. Een circuit wordt uniek geïdentificeerd door een standaard die GPT als een servicesleutel (s-sleutel aangeroepen). De servicesleutel is de enige informatie die worden uitgewisseld tussen Microsoft en de connectiviteitsprovider. De s-sleutel is niet een geheim om veiligheidsredenen. Er is een 1:1-toewijzing tussen een ExpressRoute-circuit en de s-sleutel.
 
-Nieuwe ExpressRoute-circuits twee onafhankelijke peerings kunnen opnemen: persoonlijke peering en Microsoft-peering. Terwijl bestaande ExpressRoute-circuits drie de peerings kunnen bevatten: Azure openbare, persoonlijke Azure- en Microsoft. Elke peering is een combinatie van een onafhankelijke BGP-sessies, elk van deze toch toe geconfigureerd voor hoge beschikbaarheid. Er is een 1: n (1 < = N < = 3) toewijzing tussen een ExpressRoute-circuit en routering van domeinen. Een ExpressRoute-circuit kan hebben een, twee of alle drie de peerings per ExpressRoute-circuit is ingeschakeld.
+Nieuwe ExpressRoute-circuits kunnen twee onafhankelijke peerings omvatten: Persoonlijke peering en Microsoft-peering. Terwijl bestaande ExpressRoute-circuits drie de peerings bevat: Azure openbare Azure en Microsoft. Elke peering is een combinatie van een onafhankelijke BGP-sessies, elk van deze toch toe geconfigureerd voor hoge beschikbaarheid. Er is een 1: n (1 < = N < = 3) toewijzing tussen een ExpressRoute-circuit en routering van domeinen. Een ExpressRoute-circuit kan hebben een, twee of alle drie de peerings per ExpressRoute-circuit is ingeschakeld.
 
 Elk circuit heeft een vaste bandbreedte (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 10 Gbps) en is toegewezen aan een connectiviteitsprovider en een locatie. De bandbreedte die u selecteert, wordt gedeeld door alle circuitpeerings
 
@@ -38,7 +38,7 @@ Elk circuit heeft een vaste bandbreedte (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 
 Standaardquota en limieten gelden voor elk ExpressRoute-circuit. Raadpleeg de [Azure-abonnement en Servicelimieten, Quotums en beperkingen](../azure-subscription-service-limits.md) pagina voor actuele informatie over quota.
 
 ## <a name="routingdomains"></a>ExpressRoute-peering
-Een ExpressRoute-circuit heeft meerdere Routering domeinen/peerings die ermee verbonden zijn: Azure openbare, Azure privé- en Microsoft. Elke peering identiek is geconfigureerd op twee routers (in actief / actief- of delen van belasting configureren) voor hoge beschikbaarheid. Azure-services worden aangemerkt als *openbare Azure* en *Azure privé* om weer te geven van de IP-adressen van schema's.
+Een ExpressRoute-circuit heeft meerdere Routering domeinen/peerings gekoppeld: Azure openbaar, Azure privé, en Microsoft. Elke peering identiek is geconfigureerd op twee routers (in actief / actief- of delen van belasting configureren) voor hoge beschikbaarheid. Azure-services worden aangemerkt als *openbare Azure* en *Azure privé* om weer te geven van de IP-adressen van schema's.
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
@@ -56,6 +56,10 @@ De verbinding met Microsoft online services (Office 365, Dynamics 365 en Azure P
 Zie de [pagina met veelgestelde vragen](expressroute-faqs.md) voor meer informatie over de services die worden ondersteund, kosten en informatie over de configuratie. Zie de [ExpressRoute-locaties](expressroute-locations.md) pagina voor meer informatie over de lijst van connectiviteitsproviders bieden ondersteuning voor Microsoft-peering.
 
 ### <a name="publicpeering"></a>Openbare Azure-peering (afgeschaft voor nieuwe circuits)
+
+> [!Note]
+> Openbare Azure-peering heeft 1 NAT IP-adres dat is gekoppeld aan elke BGP-sessie. Voor meer dan 2 NAT IP-adressen, verplaats [Microsoft-peering](https://docs.microsoft.com/en-us/azure/expressroute/how-to-move-peering), waar u kunt uw eigen NAT-toewijzingen configureren, evenals routefilters voor advertenties selectief voorvoegsel gebruiken. 
+>
 
 Services zoals Azure Storage, SQL-databases en Websites worden aangeboden op openbare IP-adressen. U kunt privé verbinding maken met services die worden gehost op openbare IP-adressen, met inbegrip van VIP's van uw cloudservices, via de openbare peering routeringsdomein. U kunt het openbare peering domein verbinden met uw Perimeternetwerk en verbinding maken met alle Azure-services op hun openbare IP-adressen van uw WAN zonder verbinding maken via internet.
 

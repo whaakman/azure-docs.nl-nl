@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 201fef6b3e773daa18ae252d1d5734d8d87419b5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.openlocfilehash: 42f6fefa930a36fbfcca7b3f792cc749723f7b99
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287125"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001487"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor verificatie en autorisatie in Azure Kubernetes Service (AKS)
 
@@ -84,6 +84,8 @@ roleRef:
 
 Wanneer *developer1\@contoso.com* wordt geverifieerd op basis van het AKS-cluster, hebben volledige machtigingen voor resources in de *Financiën-app* naamruimte. In deze manier, u logische manier apart en beheer de toegang tot resources. Kubernetes RBAC moet worden gebruikt in combinatie met Azure AD-integratie, zoals beschreven in de vorige sectie.
 
+Zie voor meer informatie over Azure AD-groepen gebruiken voor het beheren van toegang tot het Kubernetes-resources met RBAC, [toegang tot resources met behulp van op rollen gebaseerd toegangsbeheer en Azure Active Directory-identiteiten in AKS-cluster beheren] [ azure-ad-rbac].
+
 ## <a name="use-pod-identities"></a>Pod-identiteiten gebruiken
 
 **Aanbevolen procedurerichtlijn** -vaste referenties binnen schillen of containerinstallatiekopieën niet gebruiken omdat ze zich op risico's van blootstelling of misbruik. Gebruik in plaats daarvan pod-id's automatisch om toegang te vragen met behulp van een centraal oplossing voor Azure AD-identiteit.
@@ -128,8 +130,9 @@ Zie voor meer informatie over de bewerkingen voor een cluster in AKS, de volgend
 
 <!-- INTERNAL LINKS -->
 [aks-concepts-identity]: concepts-identity.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration-cli.md
 [managed-identities:]: ../active-directory/managed-identities-azure-resources/overview.md
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
+[azure-ad-rbac]: azure-ad-rbac.md

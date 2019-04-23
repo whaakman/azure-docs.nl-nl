@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: cb61366a672a48cdc84e14f40d889e646e0e23b8
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545396"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150010"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -130,14 +130,6 @@ Zie voor meer informatie over het controleren van machtigingen voor gebruikersto
 ### <a name="enable-network-watcher"></a>Network Watcher inschakelen
 
 Voor het analyseren van netwerkverkeer, moet u beschikken over een bestaande netwerk-watcher of [een network watcher inschakelen](network-watcher-create.md) verkeer in elke regio waarvoor u nsg's die u wilt analyseren voor. Traffic analytics kan worden ingeschakeld voor nsg's die worden gehost in een van de [ondersteunde regio's](#supported-regions).
-
-### <a name="re-register-the-network-resource-provider"></a>De netwerkresourceprovider opnieuw te registreren
-
-Voordat u traffic analytics gebruiken kunt, moet u uw netwerkresourceprovider opnieuw registreren. Klik op **uitproberen** in de volgende code in de Azure Cloud Shell openen. De Cloud Shell legt u in automatisch in uw Azure-abonnement. Nadat de Cloud Shell geopend is, voert u de volgende opdracht om de netwerkresourceprovider opnieuw te registreren:
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
-```
 
 ### <a name="select-a-network-security-group"></a>Selecteer een netwerkbeveiligingsgroep
 

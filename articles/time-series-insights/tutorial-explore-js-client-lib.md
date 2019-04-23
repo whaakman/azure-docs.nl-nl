@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: 8ed3213a40370b1ab2beb15a989a22017b058d65
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5e3005eb8f548e562e037431ae5fd89f82ec2100
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812069"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150078"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Zelfstudie: De JavaScript-clientbibliotheek van Azure Time Series Insights ontdekken
 
@@ -28,6 +28,9 @@ In deze zelfstudie komen deze onderwerpen aan bod:
 > * De TSI-voorbeeldtoepassing.
 > * De JavaScript-clientbibliotheek van TSI.
 > * Hoe de voorbeeldtoepassing de bibliotheek gebruikt om TSI gegevens te visualiseren.
+
+> [!NOTE]
+> De bronbestanden van de Time Series Insights-voorbeeld-toepassing kunnen worden gevonden in de opgegeven [voorbeeldopslagplaats in GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 
 ## <a name="video"></a>Video: 
 
@@ -57,7 +60,7 @@ In deze zelfstudie wordt de Time Series Insights-voorbeeldtoepassing gebruikt om
 
 ### <a name="page-source-and-structure"></a>Paginabron en -structuur
 
-Laten we eerst eens kijken naar de HTML- en JavaScript-broncode achter de pagina die wordt weergegeven in uw browser. We gaan niet alle elementen bespreken, maar alleen de hoofdonderdelen, zodat u een goed beeld krijgt van de werking van de pagina:
+Eerst gaan we bekijken de [HTML en JavaScript-broncode](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) die zich achter de pagina die wordt weergegeven in uw browser. We gaan niet alle elementen bespreken, maar alleen de hoofdonderdelen, zodat u een goed beeld krijgt van de werking van de pagina:
 
 1. Open **Ontwikkelhulpprogramma's** in uw browser. Bekijk de HTML-elementen waaruit de huidige pagina bestaat, ook wel de HTML- of DOM-structuur genoemd.
 
@@ -101,7 +104,7 @@ Hoewel we de TSI-clientbibliotheek **tsclient.js** niet in detail gaan bekijken,
 
 De volgende concepten zijn universeel en van toepassing op de API's van de TSI-clientbibliotheek in het algemeen.
 
-### <a name="authentication"></a>Verificatie
+### <a name="authentication"></a>Authentication
 
 Zoals eerder gezegd, is dit voorbeeld een SPA (single-page application) die voor de verificatie van gebruikers gebruik maakt van de OAuth 2.0-ondersteuning in ADAL. Hier volgen enkele aandachtspunten voor deze sectie van het script:
 
@@ -109,7 +112,7 @@ Zoals eerder gezegd, is dit voorbeeld een SPA (single-page application) die voor
 
 2. Later vraagt de toepassing een 'toegangstoken' op bij Azure AD. Het toegangstoken wordt uitgegeven voor een beperkte set machtigingen voor een specifieke service/API-id https://api.timeseries.azure.com. De service-/API-id wordt ook wel het token 'doelgroep' genoemd. De tokenmachtigingen worden namens de aangemelde gebruiker uitgegeven. De id voor de service/API is nog een andere eigenschap die wordt opgenomen in de registratie van de toepassing bij Azure AD. Wanneer ADAL het toegangstoken aan de toepassing heeft geretourneerd, wordt dit doorgegeven als een 'bearer-token' bij toegang tot de API's van TSI.
 
-   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=145-204&highlight=4-9,36-39)]
+   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=4-9,36-39)]
 
 ### <a name="control-identification"></a>Identificatie van besturingselementen
 
@@ -138,7 +141,7 @@ Voor het vullen en weergeven van grafiekbesturingselementen wordt een algemeen p
 
    **aggregateExpression-parameters**
 
-   | Parameter | Beschrijving | Voorbeeld |
+   | Parameter | Description | Voorbeeld |
    | --------- | ----------- | ------- |
    | `predicateObject` | De expressie voor het filteren van gegevens. |`{predicateString: "Factory = 'Factory3'"}` |
    | `measureObject`   | De eigenschapsnaam van de meting die wordt gebruikt. | `{property: 'Temperature', type: "Double"}` |
@@ -157,7 +160,7 @@ Voor het vullen en weergeven van grafiekbesturingselementen wordt een algemeen p
 
    **getAggregates parameters**
 
-   | Parameter | Beschrijving | Voorbeeld |
+   | Parameter | Description | Voorbeeld |
    | --------- | ----------- | ------- |
    | `token`     | Het toegangstoken voor de TSI-API. |  `authContext.getTsiToken()` Zie de sectie [Verificatie](#authentication) voor meer informatie. |
    | `envFQDN`   | De FQDN (Fully Qualified Domain Name) voor de TSI-omgeving. | Vanuit Azure Portal is dat bijvoorbeeld: `10000000-0000-0000-0000-100000000108.env.timeseries.azure.com`. |
@@ -191,7 +194,7 @@ Bekijk de code achter sommige standaardbesturingselementen voor grafieken die in
 
 In stap 3 in de sectie [Paginabron en -structuur](#page-source-and-structure) hebt u gezien dat grafiekbesturingselementen in rijen op de pagina worden gerangschikt, waarbij elk element een beschrijvende titelrij heeft. In dit voorbeeld worden de drie grafieken gevuld onder de titel 'Multiple Chart Types From the Same Data' `<div>`. Ze worden gekoppeld aan de drie `<div>`-elementen onder de titel:
 
-[!code-javascript[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
+[!code-html[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
 
 In de volgende sectie met JavaScript-code worden patronen gebruikt die eerder zijn beschreven: maak TSI-samenvoegingsexpressies, voer ze uit om TSI-gegevens op te vragen en geef de drie grafieken weer. U ziet de drie typen die uit de naamruimte `tsiClient.ux` worden gebruikt: `LineChart`, `BarChart` en `PieChart`. Hiermee worden de respectieve grafieken gemaakt en weergegeven. Ook belangrijk om te weten is dat alle drie de grafieken dezelfde samengevoegde expressiegegevens kunnen gebruiken, namelijk `transformedResult`:
 
@@ -283,9 +286,12 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * API's in de JavaScript-clientbibliotheek van TSI gebruiken.
 > * JavaScript gebruiken om grafiekbesturingselementen te maken en vullen met TSI gegevens.
 
-Zoals besproken, wordt in de TSI-voorbeeldtoepassing een demo-gegevensset gebruikt. Ga naar het volgende artikel voor informatie over het maken van een eigen TSI-omgeving en gegevensset:
+Zoals wordt weergegeven, wordt in de TSI-voorbeeldtoepassing maakt gebruik van een voorbeeldgegevensset. Ga naar het volgende artikel voor informatie over het maken van een eigen TSI-omgeving en gegevensset:
 
 > [!div class="nextstepaction"]
 > [Zelfstudie: Een Azure Time Series Insights-omgeving maken](tutorial-create-populate-tsi-environment.md)
 
+Of de bronbestanden van TSI voorbeeld van toepassing op:
 
+> [!div class="nextstepaction"]
+> [Opslagplaats TSI voorbeeld-app](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)

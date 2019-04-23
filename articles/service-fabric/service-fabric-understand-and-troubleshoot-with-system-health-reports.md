@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 4322fd60bb30b9eb6ac18c72e75127006acf5149
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528183"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007454"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Systeemstatusrapporten gebruiken om fouten op te lossen
 Azure Service Fabric-onderdelen bieden systeemstatusrapporten op alle entiteiten in het cluster kant. De [health store](service-fabric-health-introduction.md#health-store) maken en verwijderen van de entiteiten die zijn gebaseerd op systeemrapporten van het. Ook worden ze in een hiërarchie die entiteit interacties worden vastgelegd.
@@ -29,7 +29,7 @@ Azure Service Fabric-onderdelen bieden systeemstatusrapporten op alle entiteiten
 > 
 > 
 
-Systeemstatusrapporten bieden inzicht in het cluster en de functionaliteit van de toepassing en de vlag problemen. Voor toepassingen en services controleren systeemstatusrapporten of entiteiten worden geïmplementeerd en correct vanuit het perspectief van de Service Fabric zich gedragen. De rapporten bieden niet een statuscontrole van de bedrijfslogica van de service of detectie van vastgelopen processen. Services van de gebruiker kunnen de health-gegevens met informatie die specifiek zijn voor de logica verrijken.
+Systeemstatusrapporten bieden inzicht in het cluster en de functionaliteit van de toepassing en de vlag problemen. Voor toepassingen en services controleren systeemstatusrapporten of entiteiten worden geïmplementeerd en correct vanuit het perspectief van de Service Fabric zich gedragen. De rapporten bieden niet een statuscontrole van de bedrijfslogica van de service of detectie van processen die niet reageren. Services van de gebruiker kunnen de health-gegevens met informatie die specifiek zijn voor de logica verrijken.
 
 > [!NOTE]
 > Statusrapporten die zijn verzonden door de gebruiker watchdogs zijn alleen zichtbaar *nadat* de onderdelen van het systeem een entiteit maken. Wanneer een entiteit wordt verwijderd, worden alle statusrapporten die zijn gekoppeld aan deze automatisch verwijderd door de health-store. Hetzelfde geldt wanneer een nieuw exemplaar van de entiteit is gemaakt. Een voorbeeld is wanneer een nieuw exemplaar van de stateful persistent gemaakte service-replica wordt gemaakt. Alle rapporten die zijn gekoppeld aan het oude exemplaar worden verwijderd en wordt deze verwijderd uit de store.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: fb7302497d4331a9e39c8a3c50393646b663f7d8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 81aa38c1c7783c7e0357f8f69f4d4484d26873e9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283134"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006945"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Zelfstudie: Azure Active Directory-integratie met RealtimeBoard
 
@@ -131,7 +131,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met RealtimeBoard, moet 
 
 ### <a name="configure-realtimeboard-single-sign-on"></a>RealtimeBoard voor eenmalige aanmelding configureren
 
-Het configureren van eenmalige aanmelding op **RealtimeBoard** zijde, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** en toepassing van de gekopieerde URL's van Azure portal om te [RealtimeBoard ondersteuning team](). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Het configureren van eenmalige aanmelding op **RealtimeBoard** zijde, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** en juiste URL's van Azure-portal naar gekopieerd RealtimeBoard ondersteuningsteam. Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 

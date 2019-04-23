@@ -4,7 +4,7 @@ description: Een overzicht van OpenShift in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: joraio
+manager: mdotson
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/01/2019
+ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: 826085df8d928cab0a05527be8c464af5f4e9180
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 53bed2131e81ee5ed0f46bde389262ee8349339a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002514"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006953"
 ---
 # <a name="openshift-in-azure"></a>OpenShift in Azure
 
@@ -32,15 +32,7 @@ OpenShift bevat Kubernetes voor containerindeling en beheer. Wordt toegevoegd sp
 - Eenvoudige implementatie en schalen.
 - Op de lange termijn onderhoud van de levenscyclus voor teams en toepassingen.
 
-Er zijn meerdere versies van OpenShift beschikbaar:
-
-- OpenShift Container Platform
-- OpenShift op Azure (volledig beheerde OpenShift rond eind Q1 CY2019 binnenkort)
-- OKD (voorheen OpenShift Origin)
-- OpenShift Dedicated
-- OpenShift Online
-
-De vijf versies in dit artikel besproken, zijn slechts twee die momenteel beschikbaar voor klanten om te implementeren in Azure: OpenShift Containerplatform en OKD.
+Er zijn meerdere versies van OpenShift beschikbaar.  Van deze versies zijn slechts twee die momenteel beschikbaar voor klanten om te implementeren in Azure: OpenShift Container Platform en OKD (voorheen OpenShift Origin).
 
 ## <a name="openshift-container-platform"></a>OpenShift Container Platform
 
@@ -48,29 +40,19 @@ Containerplatform is een bedrijfsklare [commerciële versie](https://www.openshi
 
 Omdat klanten 'eigenaar' van het platform, kunnen ze deze installeren in hun on-premises datacenter of in een openbare cloud (zoals Azure).
 
-## <a name="openshift-on-azure"></a>OpenShift On Azure
+## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
-OpenShift op Azure is een volledig beheerde van OpenShift uitvoeren in Azure. Deze service is gezamenlijk beheerd en ondersteund door Microsoft en Red Hat. Het cluster implementeert in Azure-abonnement van de klant. De service is momenteel in Private Preview en is gepland voor algemene beschikbaarheid rond eind Q1 CY2019. Voor klanten die interesse hebben in die deel uitmaken van de Private Preview, vult u de [Nominatieformulier](https://aka.ms/openshiftazureinterest).  Meer informatie zal worden opgegeven omdat de aanbieding wordt verkregen dichter bij algemene beschikbaarheid.
+Azure Red Hat OpenShift is een volledig beheerde van OpenShift uitvoeren in Azure. Deze service is gezamenlijk beheerd en ondersteund door Microsoft en Red Hat. Het cluster implementeert in Azure-abonnement van de klant. De service is gepland voor algemene beschikbaarheid rond mei 2019. Afzonderlijke documentatie voor de beheerde service zijn beschikbaar nadat de service is de algemene beschikbaarheid.
 
-## <a name="okd-formerly-openshift-origin"></a>OKD (voorheen OpenShift Origin)
+## <a name="okd"></a>OKD
 
 OKD is een [open-source](https://www.okd.io/) upstream-project van OpenShift die community ondersteund. OKD kan worden geïnstalleerd op een CentOS of Red Hat Enterprise Linux (RHEL).
-
-## <a name="openshift-dedicated"></a>OpenShift Dedicated
-
-Toegewezen is een Red Hat-beheerde *één tenant* OpenShift die gebruikmaakt van OpenShift Container Platform. Red Hat beheert alle van de onderliggende infrastructuur (VM's, OpenShift-cluster, netwerken, opslag, enzovoort.). Het cluster is specifiek voor één klant en wordt uitgevoerd in een openbare cloud (zoals Azure). Een eerste cluster bevat vier knooppunten van de toepassingen en alle kosten worden jaarlijks en betaalde kosten vooraf.
-
-## <a name="openshift-online"></a>OpenShift Online
-
-Online is een Red Hat-beheerde *multitenant* OpenShift die gebruikmaakt van Container-Platform. Red Hat beheert alle van de onderliggende infrastructuur (zoals virtuele machines, OpenShift-cluster, netwerken en opslag). 
-
-Met deze versie, de klant wordt geïmplementeerd containers, maar heeft geen controle over welke hosts de containers worden uitgevoerd. Omdat Online met meerdere tenants is, kunnen de containers zich bevinden op dezelfde VM-hosts als containers van andere klanten. De kosten zijn per container.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Algemene vereisten voor OpenShift configureren in Azure](./openshift-prerequisites.md)
 - [OpenShift Containerplatform in Azure implementeren](./openshift-container-platform.md)
-- [OKD in Azure implementeren](./openshift-okd.md)
+- [Implementeren van OpenShift Container Platform zelfbeheerde Marketplace-aanbieding](./openshift-marketplace-self-managed.md)
 - [OpenShift in Azure Stack implementeren](./openshift-azure-stack.md)
 - [Taken na de implementatie](./openshift-post-deployment.md)
 - [OpenShift-implementatie oplossen](./openshift-troubleshooting.md)

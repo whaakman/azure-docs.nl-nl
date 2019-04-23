@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 87e1e57a969fc5e65302dcce44231773f7e74b3a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 33d8e18dcec98710443623c03651aa568aa37009
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548822"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010378"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Geautomatiseerde machine learning-experimenten configureren
 
@@ -179,7 +179,7 @@ Zie de [GitHub-site](https://github.com/Azure/MachineLearningNotebooks/tree/mast
 
 ## <a name="configure-your-experiment-settings"></a>Uw experiment-instellingen configureren
 
-Er zijn diverse opties, kunt u uw geautomatiseerde machine learning-experiment configureren. Deze parameters zijn ingesteld door het instantiëren van een `AutoMLConfig` object. Zie de [AutoMLConfig klasse](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) voor een volledige lijst met parameters.  
+Er zijn diverse opties, kunt u uw geautomatiseerde machine learning-experiment configureren. Deze parameters zijn ingesteld door het instantiëren van een `AutoMLConfig` object. Zie de [AutoMLConfig klasse](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) voor een volledige lijst met parameters.  
 
 Voorbeelden zijn:
 
@@ -210,7 +210,7 @@ Voorbeelden zijn:
         n_cross_validations=5)
     ```
 
-De drie verschillende `task` parameterwaarden bepalen de lijst met algoritmen om toe te passen.  Gebruik de `whitelist` of `blacklist` parameters voor het verder aanpassen iteraties met de beschikbare algoritmen wilt opnemen of uitsluiten. De lijst met ondersteunde modellen kan worden gevonden op [SupportedAlgorithms klasse](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py)
+De drie verschillende `task` parameterwaarden bepalen de lijst met algoritmen om toe te passen.  Gebruik de `whitelist` of `blacklist` parameters voor het verder aanpassen iteraties met de beschikbare algoritmen wilt opnemen of uitsluiten. De lijst met ondersteunde modellen kan worden gevonden op [SupportedAlgorithms klasse](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py).
 
 ## <a name="primary-metric"></a>Primaire metrische gegevens
 De primaire metric; zoals wordt weergegeven in de bovenstaande voorbeelden bepaalt de metrische gegevens moet worden gebruikt tijdens het trainen van het model voor optimalisatie. De primaire metrische gegevens die u kunt selecteren, wordt bepaald door het taaktype dat u kiest. Hieronder vindt u een lijst met beschikbare metrische gegevens.
@@ -240,43 +240,6 @@ Als u `preprocess=True`, de volgende gegevens voorverwerkingsstappen automatisch
 
 ## <a name="ensemble-models"></a>Ensembles modellen
 Ensembles learning verbetert de resultaten van machine learning en predictive prestaties door te veel modellen in plaats van met één modellen zoekfunctionaliteit door te combineren. Wanneer met behulp van machine learning geautomatiseerde, kunt u dit later ensembles modellen met behulp van de [Caruana ensembles selectie algoritme met gesorteerde ensembles initialisatie](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). De iteratie ensembles weergegeven als de laatste iteratie van de uitvoering.
-
-## <a name="time-series-forecasting"></a>Time Series-prognoses
-Voor time series prognoses taaktype hebt u aanvullende parameters te definiëren.
-1. time_column_name - dit is een vereiste parameter waarin de naam van de kolom zijn gedefinieerd in uw trainingen met datum/tijd gegevensreeks. 
-1. max_horizon - Hiermee definieert u de hoeveelheid tijd die u wilt om te voorspellen op basis van de periodiciteit van de trainingsgegevens. Zo hebt u trainingsgegevens met dagelijkse tijd korrels, definieert u hoe ver uit in de dagen die u wilt dat het model te trainen voor.
-1. grain_column_names - Hiermee definieert u de naam van de kolommen die afzonderlijke time series-gegevens in uw trainingsgegevens bevatten. Als u bent verkoopprognoses van een bepaalde merk door store, zou u kolommen store en merk definiëren als uw kolommen tijdsinterval.
-
-Zie het voorbeeld van deze instellingen hieronder wordt gebruikt, laptop-voorbeeld is beschikbaar [hier](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
-
-```python
-# Setting Store and Brand as grains for training.
-grain_column_names = ['Store', 'Brand']
-nseries = data.groupby(grain_column_names).ngroups
-
-# View the number of time series data with defined grains
-print('Data contains {0} individual time-series.'.format(nseries))
-```
-
-```python
-time_series_settings = {
-    'time_column_name': time_column_name,
-    'grain_column_names': grain_column_names,
-    'drop_column_names': ['logQuantity'],
-    'max_horizon': n_test_periods
-}
-
-automl_config = AutoMLConfig(task='forecasting',
-                             debug_log='automl_oj_sales_errors.log',
-                             primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
-                             X=X_train,
-                             y=y_train,
-                             n_cross_validations=5,
-                             path=project_folder,
-                             verbosity=logging.INFO,
-                             **time_series_settings)
-```
 
 ## <a name="run-experiment"></a>Experiment uit te voeren
 

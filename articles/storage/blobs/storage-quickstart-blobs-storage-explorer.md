@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Azure Storage Explorer gebruiken om een blob te maken in de objectopslag'
+title: 'Quickstart: Azure Storage Explorer gebruiken om een blob te maken in de objectopslag'
 description: In deze snelstart maakt u een container en een blob met behulp van Azure Storage Explorer. Hierna leert u hoe u de blob naar uw lokale computer downloadt en hoe u alle blobs in een container bekijkt. U leert ook hoe u een momentopname van een blob maakt, hoe u containertoegangsbeleid beheert en hoe u een handtekening voor gedeelde toegang maakt.
 services: storage
 author: tamram
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: tamram
-ms.openlocfilehash: eef05a5b52e807a4db058682f034f6762cb93b9f
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 3424b46dff8f2904f41d0e8c1acf96788c51773f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711188"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994466"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Snelstart: Azure Storage Explorer gebruiken om een blob te maken in de objectopslag
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Quickstart: Azure Storage Explorer gebruiken om een blob te maken in de objectopslag
 
 In deze snelstart maakt u een container en een blob met behulp van [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Hierna leert u hoe u de blob naar uw lokale computer downloadt en hoe u alle blobs in een container bekijkt. U leert ook hoe u een momentopname van een blob maakt, hoe u containertoegangsbeleid beheert en hoe u een handtekening voor gedeelde toegang maakt.
 
@@ -39,7 +39,7 @@ Selecteer **Een Azure-account toevoegen** en klik op **Aanmelden...** . Volg de 
 
 ![Het venster Microsoft Azure Storage Explorer - Verbinding maken](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-Wanneer de verbinding tot stand is gebracht, wordt Azure Storage Explorer geladen en ziet u het tabblad **Explorer**. Deze weergave biedt u inzicht in al uw Azure Storage-accounts, evenals lokale opslag die is geconfigureerd via de [Azure-opslagemulator](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)-accounts of [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)-omgevingen.
+Wanneer de verbinding tot stand is gebracht, wordt Azure Storage Explorer geladen en ziet u het tabblad **Explorer**. Deze weergave biedt u inzicht in al uw Azure Storage-accounts, evenals lokale opslag die is geconfigureerd via de [Azure-opslagemulator](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)-accounts of [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)-omgevingen.
 
 ![Het venster Microsoft Azure Storage Explorer - Verbinding maken](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 

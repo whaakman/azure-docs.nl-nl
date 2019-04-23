@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: fa7dfbf9e535d010675942900bad208d3f15e556
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b0a2d81d2490ded460f4bbb98ebce0b943ba91df
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698379"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010906"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Toewijzing van de controle van het voorbeeld met ISO 27001-as-omgeving/SQL werkbelasting blauwdruk
 
@@ -155,7 +155,7 @@ Deze blauwdruk kunt u ervoor zorgen systeemgebeurtenissen worden vastgelegd door
 
 ## <a name="a1244-clock-synchronization"></a>Synchronisatie van computerklokken A.12.4.4
 
-Deze blauwdruk kunt u ervoor zorgen systeemgebeurtenissen worden vastgelegd door toe te wijzen zeven Azure Policy-definities die die controle-instellingen op de Azure-resources. Logboeken in Azure, is afhankelijk van interne klokken aan te brengen van een record tijd gecorreleerde gebeurtenissen op resources.
+Deze blauwdruk kunt u ervoor zorgen systeemgebeurtenissen worden vastgelegd door toe te wijzen zeven Azure Policy-definities die de instellingen voor op Azure-resources controleren. Logboeken in Azure, is afhankelijk van interne klokken aan te brengen van een record tijd gecorreleerde gebeurtenissen op resources.
 
 - [Preview]: Implementatie van de afhankelijkheid Agent - VM-installatiekopie (OS) niet-vermelde controleren
 - [Preview]: Implementatie van de Agent in VMSS - VM-installatiekopie (OS) niet-vermelde afhankelijkheden controleren

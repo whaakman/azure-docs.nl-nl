@@ -1,7 +1,6 @@
 ---
 title: Self-servicegebruikers worden uitgewisseld en terugbetalingen voor Azure-reserveringen | Microsoft Docs
 description: Leer hoe u kunt exchange- of Azure reserveringen terugbetaling.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -11,20 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/5/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 54578746ea8029a760663edc456660f98358abc5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281978"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009307"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Self-servicegebruikers worden uitgewisseld en terugbetalingen voor Azure-reserveringen
 
 Azure-reserveringen bieden flexibiliteit om te voldoen aan uw groeiende behoeften. U kunt een reservering voor een andere reservering van hetzelfde type kan uitwisselen. Als u deze niet meer nodig hebt, kunt u ook een reservering, maximaal 50.000 USD per jaar, terugbetaling.
 
 Selfservice exchange en annuleren mogelijkheid is niet beschikbaar voor US Government Enterprise Agreement-klanten. Andere voor de Amerikaanse overheid abonnementstypen zoals betalen per gebruik en CSP worden ondersteund.
+
+U moet de eigenaar toegang hebben op de Reserveringsorder worden omgeruild of een bestaande reservering terugbetaling.
 
 ## <a name="exchange-an-existing-reserved-instance"></a>Een bestaande gereserveerde instantie uitwisselen
 
@@ -39,7 +40,7 @@ U kunt uw reservering met drie snelle stappen in exchange de [Azure-portal](http
 
 Een reservering voor restitutie, gaat u naar **Reserveringsdetails** en klikt u op **restitutie**.
 
-## <a name="how-return-and-exchange-transactions-are-processed"></a>Hoe Ga terug en exchange-transacties worden verwerkt
+## <a name="how-transactions-are-processed"></a>Hoe transacties worden verwerkt
 
 Eerst Microsoft Hiermee annuleert u de bestaande reservering en het bedrag naar rato voor deze reservering restituties. Als er een exchange, worden de nieuwe aankoop wordt verwerkt. Microsoft verwerkt met behulp van een van de volgende methoden, afhankelijk van het accounttype en de betalingswijze restituties:
 
@@ -49,7 +50,7 @@ Wordt toegevoegd aan de monetaire toezegging voor de uitwisseling en als de oors
 
 Als de oorspronkelijke aankoop gedaan als overschrijding, verstrekt Microsoft een factuur.
 
-### <a name="pay-as-you-go-invoice-payment-customers-and-cloud-solution-provider-program"></a>Klanten van betalen per gebruik factureren betaling en Cloud solution provider-programma
+### <a name="pay-as-you-go-invoice-payments-and-csp-program"></a>Betalen per gebruik factuurbetalingen en CSP-programma
 
 De oorspronkelijke aankoop factuur voor reservering is geannuleerd en vervolgens een nieuwe factuur voor restitutie is gemaakt. Voor de uitwisseling toont de nieuwe factuur de terugbetaling en de nieuwe aankoop. De terug te betalen bedrag wordt aangepast op basis van de aankoop. Als u alleen een reservering gerestitueerd, het bedrag naar rato blijft van toepassing op Microsoft en deze wordt aangepast op basis van een toekomstige reserveringsaankoop.
 
@@ -74,7 +75,7 @@ De oorspronkelijke factuur wordt geannuleerd en een nieuwe factuur wordt gemaakt
 - Alleen de eigenaren van de reservering kunnen een restitutie verwerken. [Meer informatie over het toevoegen of wijzigen van de gebruikers die een reservering kunnen beheren](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - Microsoft behoudt zich het recht om rekening te brengen van een boete 12% voor alle retourneert, hoewel de boete is niet op dit moment in rekening gebracht.
 
-## <a name="exchange-a-non-premium-storage-vm-reservation-for-a-premium-storage-reservation"></a>Wisselen van een niet-premium-opslag reservering van de virtuele machine voor een premium storage-reservering
+## <a name="exchange-non-premium-storage-for-premium-storage"></a>Exchange niet-premium-opslag voor premium-opslag
 
 U kunt een reservering voor een VM-grootte die biedt geen ondersteuning voor premiumopslag naar een overeenkomende VM-grootte die is gekocht kan uitwisselen. Bijvoorbeeld, een _F1_ voor een _F1s_. Als u de exchange, gaat u naar de Details van de reservering en klikt u op **Exchange**. De uitwisseling niet opnieuw instellen van de termijn van de gereserveerde instantie of maak een nieuwe transactie.
 

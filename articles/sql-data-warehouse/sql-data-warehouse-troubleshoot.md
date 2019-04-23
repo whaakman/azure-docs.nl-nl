@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a5b4d9fac1d2fb3ec1a45f34784552b2d41f2cf1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: dc78fbc93d625b39379e07f240eef7fbad10d194
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679326"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003850"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Oplossen van problemen met Azure SQL datawarehouse
 In dit artikel geeft een lijst met veelgestelde vragen voor het oplossen van problemen.
@@ -33,7 +33,7 @@ In dit artikel geeft een lijst met veelgestelde vragen voor het oplossen van pro
 | Probleem                                                        | Oplossing                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Visual Studio-Objectverkenner ontbreekt AAD-gebruikers           | Dit is een bekend probleem.  Als tijdelijke oplossing, bekijk de gebruikers in [sys.database_principals][sys.database_principals].  Zie [verificatie met Azure SQL Data Warehouse] [ Authentication to Azure SQL Data Warehouse] voor meer informatie over het gebruik van Azure Active Directory met SQL Data Warehouse. |
-| Handmatig uitvoeren van scripts, met behulp van de wizard uitvoeren van scripts of via SSMS verbinding maken met is traag, vastgelopen of producent-fouten | Zorg ervoor dat gebruikers zijn gemaakt in de database master. In scriptopties, ook voor zorgen dat de engine-editie is ingesteld als 'Microsoft Azure SQL Data Warehouse Edition' en engine-type is 'Microsoft Azure SQL Database'. |
+| Handmatig uitvoeren van scripts, met behulp van de wizard uitvoeren van scripts of via SSMS verbinding maken met is traag, reageert niet of produceren van fouten | Zorg ervoor dat gebruikers zijn gemaakt in de database master. In scriptopties, ook voor zorgen dat de engine-editie is ingesteld als 'Microsoft Azure SQL Data Warehouse Edition' en engine-type is 'Microsoft Azure SQL Database'. |
 | Genereren van scripts mislukt in SSMS                             | Genereren van een script voor SQL datawarehouse mislukt als de optie '-script genereren voor afhankelijke objecten'-optie is ingesteld op 'True'. Als tijdelijke oplossing, handmatig gebruikers moeten gaan naar Extra -> Options -> SQL Server Object Explorer script genereren voor afhankelijke opties -> en ingesteld op false |
 
 ## <a name="performance"></a>Prestaties

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 57630d1fa95c2133e592f691add8c515ca718afb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833428"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999464"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Failback naar on-premises van Azure oplossen
 
@@ -33,7 +33,7 @@ Deze fout treedt op wanneer:
 * De Azure-VM kan de on-premises configuratieserver niet bereiken. De virtuele machine kan niet worden gedetecteerd en geregistreerd bij de configuratieserver.
 * De service InMage Scout application niet wordt uitgevoerd op de virtuele Azure-machine na een failover. De service is vereist voor communicatie met de on-premises configuratieserver.
 
-Dit probleem oplossen:
+Los dit probleem als volgt op:
 
 * Controleer of de Azure VM-netwerk de virtuele Azure-machine om te communiceren met de on-premises configuratieserver toestaat. U kunt een site-naar-site-VPN-verbinding instellen voor uw on-premises datacenter of een Azure ExpressRoute-verbinding configureren met persoonlijke peering in het virtuele netwerk van de virtuele machine van Azure.
 * Als de virtuele machine met de on-premises configuratieserver communiceren kan, moet u zich aanmelden bij de virtuele machine. Controleer de service InMage Scout application. Als u ziet dat deze niet wordt uitgevoerd, start u de service handmatig. Controleer dat de service het opstarttype is ingesteld op **automatische**.
@@ -44,7 +44,7 @@ Dit probleem oplossen:
 
 Dit probleem kan gebeuren als er al een virtuele machine met dezelfde naam op de hoofddoelserver waarop u bent failback.
 
-Dit probleem oplossen:
+Los dit probleem als volgt op:
 
 * Selecteer een andere hoofddoelserver op een andere host zodat de machine opnieuw beveiligen op een andere host maakt, waarbij de namen niet conflicteren.
 * U kunt ook vMotion gebruiken het hoofddoel verplaatsen naar een andere host waar de conflicterende namen niet uitgevoerd. Als de bestaande virtuele machine een losse virtuele machine is, de naam wijzigen zodat de nieuwe virtuele machine kan worden gemaakt op dezelfde ESXi-host.
@@ -54,9 +54,9 @@ Dit probleem oplossen:
 
 **De virtuele machine wordt niet uitgevoerd, vastgelopen, of is niet toegankelijk.**
 
-Dit probleem oplossen:
+Los dit probleem als volgt op:
 
-Als u wilt een failover-virtuele machine opnieuw beveiligen, moet de virtuele machine van Azure worden uitgevoerd zodat de Mobility-Service wordt geregistreerd bij de on-premises configuratieserver en kan beginnen met het repliceren door te communiceren met de processerver. Als de machine zich op een onjuiste wordt niet uitgevoerd (vastgelopen status- of afsluiten omlaag) of via het netwerk, kan de configuratieserver niet bereiken Mobility-Service op de virtuele machine om te beginnen met opnieuw beveiligen.
+Als u wilt een failover-virtuele machine opnieuw beveiligen, moet de virtuele machine van Azure worden uitgevoerd zodat de Mobility-Service wordt geregistreerd bij de on-premises configuratieserver en kan beginnen met het repliceren door te communiceren met de processerver. Als de machine zich op een netwerk onjuist of is niet uitgevoerd (niet meer reageert of afsluiten), kan de configuratieserver niet bereiken Mobility-Service op de virtuele machine om te beginnen met opnieuw beveiligen.
 
 * Start de VM opnieuw zodat deze weer on-premises communicatie kan starten.
 * Start opnieuw op de taak opnieuw beveiligen na het starten van de virtuele machine van Azure.
@@ -78,7 +78,7 @@ Deze sectie beschrijft veelvoorkomende fouten die tijdens de failback optreden.
 
 Dit probleem treedt op wanneer de on-premises VM op een host die niet over voldoende geheugen ingericht naar is gebracht. 
 
-Dit probleem oplossen:
+Los dit probleem als volgt op:
 
 * Inrichten van meer geheugen op de ESXi-host.
 * Bovendien kunt u vMotion op de virtuele machine verplaatsen naar een andere ESXi-host die voldoende geheugen heeft voor het opstarten van de VM.

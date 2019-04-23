@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 61bb5601cf20e9f6e4fba1300d8f84c9d039e564
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225090"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002677"
 ---
 # <a name="get-started-with-storage-explorer"></a>Aan de slag met Storage Explorer
 
@@ -99,7 +99,7 @@ Bovendien kunt u wereldwijd en nationaal werken met opslagaccounts in Azure:
 
 2. In het linkerdeelvenster ziet u nu alle Azure accounts die u hebt aangemeld bij. Voor verbinding met een ander account, selecteert u **een account toevoegen**
 
-3. Als u zich aanmelden bij een nationale cloud of een Azure Stack wilt, klikt u op de **Azure-omgeving** vervolgkeuzelijst te selecteren welke Azure-cloud u wilt gebruiken. Nadat u uw omgeving hebt gekozen, klikt u op de **aanmelden...**  knop. Als u met Azure Stack aanmeldt zich, Zie [Storage Explorer verbinden met een Azure Stack-abonnement](azure-stack/user/azure-stack-storage-connect-se.md) voor meer informatie.
+3. Als u zich aanmelden bij een nationale cloud of een Azure Stack wilt, klikt u op de **Azure-omgeving** vervolgkeuzelijst te selecteren welke Azure-cloud u wilt gebruiken. Nadat u uw omgeving hebt gekozen, klikt u op de **aanmelden...**  knop. Als u met Azure Stack aanmeldt zich, Zie [Storage Explorer verbinden met een Azure Stack-abonnement](/azure-stack/user/azure-stack-storage-connect-se) voor meer informatie.
 
     ![Meld u aan optie][2]
 

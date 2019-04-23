@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a66969504dee5ba526cdccbbb39471ef5af971c0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439329"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006451"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Beheer de toegang tot Azure-resources met behulp van RBAC en de REST-API
 
@@ -28,7 +28,7 @@ ms.locfileid: "57439329"
 
 ## <a name="list-access"></a>Toegang opvragen
 
-In RBAC, de toegang van de lijst, u lijst maken met de roltoewijzingen. Lijst van roltoewijzingen, gebruikt u een van de [roltoewijzingen - lijst](/rest/api/authorization/roleassignments/list) REST-API's. Uw om resultaten te verfijnen, geeft u een bereik en een optioneel filter. Voor het aanroepen van de API, u moet toegang hebben tot de `Microsoft.Authorization/roleAssignments/read` bewerking bij het opgegeven bereik. Verschillende [ingebouwde rollen voor Azure-resources](built-in-roles.md) toegang krijgen tot deze bewerking.
+In RBAC, de toegang van de lijst, u lijst maken met de roltoewijzingen. Lijst van roltoewijzingen, gebruikt u een van de [roltoewijzingen - lijst](/rest/api/authorization/roleassignments/list) REST-API's. Uw om resultaten te verfijnen, geeft u een bereik en een optioneel filter.
 
 1. Beginnen met de volgende aanvraag:
 

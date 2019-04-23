@@ -5,22 +5,27 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/02/2019
+ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c5e6a44409e082f10a532759e3403f6b5801fdca
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 6c83298b102d6782647f3baebf6f98e43cb3ad7f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551660"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011840"
 ---
 Opslag geoptimaliseerde VM-grootten bieden een snelle doorvoer van schijfgegevens en IO- en zijn ideaal voor Big Data, SQL, NoSQL-databases, gegevensopslag en grote transactionele databases.  Voorbeelden zijn onder meer Cassandra, MongoDB, Cloudera en Redis. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals lokale opslag en doorvoer netwerkbandbreedte voor elke grootte geoptimaliseerde.
 
 De Lsv2-serie functies hoge doorvoer en lage latentie en rechtstreeks toegewezen lokale NVMe-opslag die wordt uitgevoerd op de [AMD EPYC &trade; 7551 processor](https://www.amd.com/en/products/epyc-7000-series) met een alle core versterking van 2.55 GHz en een maximale versterking van 3.0 GHz. De VM's uit de Lsv2-serie zijn verkrijgbaar in groottes van 8 tot 80 vCPU in een simultane multithreading configuratie.  Er is 8 GiB geheugen per vCPU en één 1,92 TB NVMe SSD M.2-apparaat per 8 vCPU's, met maximaal 19,2 TB (10 x 1,92 TB) beschikbaar op de L80s v2.
 
 > [!NOTE]
-> De Lsv2-serie VM's zijn geoptimaliseerd voor het gebruik van de lokale schijf op het knooppunt rechtstreeks gekoppeld aan de virtuele machine, in plaats van met behulp van duurzame gegevensschijven. Hiermee kunt u meer IOPs / doorvoer voor uw workloads. De Lsv2-serie biedt geen ondersteuning voor het maken van een lokale cache voor het verhogen van de IOPS haalbare door duurzame gegevensschijven. De hoge doorvoer en IOPS van de lokale schijf kunt de Lsv2-serie VM's ideaal voor NoSQL-archieven, zoals Apache Cassandra en MongoDB waarmee gegevens worden gerepliceerd op meerdere virtuele machines voor persistentie in het geval van het uitvallen van één virtuele machine.
+> De Lsv2-serie VM's zijn geoptimaliseerd voor het gebruik van de lokale schijf op het knooppunt rechtstreeks gekoppeld aan de virtuele machine, in plaats van met behulp van duurzame gegevensschijven. Hiermee kunt u meer IOPs / doorvoer voor uw workloads. De Lsv2 en Ls-serie bieden geen ondersteuning voor het maken van een lokale cache voor het verhogen van de IOPs haalbare door duurzame gegevensschijven.
+>
+> De hoge doorvoer en IOPs van de lokale schijf maakt de Lsv2 en Ls-serie VM's ideaal voor NoSQL-archieven, zoals Apache Cassandra en MongoDB waarmee gegevens worden gerepliceerd op meerdere virtuele machines voor persistentie in het geval van het uitvallen van één virtuele machine.
+>
+> Zie voor meer informatie, [optimaliseren op de virtuele machines van de Lsv2-serie](../articles/virtual-machines/linux/storage-performance.md).  
+
 
 ## <a name="lsv2-series"></a>Lsv2-serie
 

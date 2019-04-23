@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/22/2019
-ms.openlocfilehash: 32d5d0d25c843be1cba1916e7679faa930e8e645
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.date: 04/13/2019
+ms.openlocfilehash: d9b9aae8bea323e5aac74a2e317b82d4cb43568f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671833"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60118502"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties
 
@@ -35,6 +35,12 @@ U kunt de reservering aanbevelingen gebruiken om te bepalen van de reserveringen
 - Azure Advisor biedt aanschafaanbevelingen voor afzonderlijke abonnementen.  
 - Aankoop aanbevelingen ophalen voor zowel gedeeld bereik en bereik van één abonnement kunt u de API's. Zie voor meer informatie, [gereserveerd exemplaar aankoop aanbeveling API's voor zakelijke klanten](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - Kopen voor EA-klanten, aanbevelingen voor gedeelde en één abonnement bereiken zijn beschikbaar met de [Azure Consumption Insights Power BI-inhoudspakket](/power-bi/service-connect-to-azure-consumption-insights).
+
+### <a name="classic-vms-and-cloud-services"></a>Klassieke virtuele machines en cloudservices
+
+Gereserveerde VM-exemplaren automatisch van toepassing op zowel klassieke virtuele machines en cloudservices als grootte-instantieflexibiliteit is ingeschakeld. Er zijn speciale SKU's voor klassieke virtuele machines of cloudservices niet. Hetzelfde VM-SKU's op hen van toepassing.
+
+U kunt bijvoorbeeld uw klassieke virtuele machines of cloudservices converteren naar Azure Resource Manager gebaseerde virtuele machines. In dit voorbeeld de reserveringskorting automatisch toegepast op de overeenkomende virtuele machines. Er is niet nodig om te *exchange* een gereserveerde instantie voor bestaande - deze automatisch van toepassing is.
 
 ### <a name="analyze-your-usage-information"></a>De informatie over het gebruik analyseren
 U moet uw informatie over het gebruik om te bepalen welke reserveringen die u moet aanschaffen analyseren.
@@ -64,7 +70,7 @@ Gereserveerde VM-instanties zijn beschikbaar voor de meeste VM-grootten met enke
 3. Selecteer **toevoegen** naar een nieuwe reservering kopen.
 4. Vul de vereiste velden in. Actieve virtuele machine-exemplaren die overeenkomen met de kenmerken die u in aanmerking komen voor het ophalen van de reserveringskorting. Het werkelijke nummer van uw VM-exemplaren die aan de korting is afhankelijk van het bereik en de hoeveelheid die is geselecteerd.
 
-    | Veld      | Description|
+    | Veld      | Beschrijving|
     |------------|--------------|
     |Name        |De naam van deze reservering.|
     |Abonnement|Het abonnement dat wordt gebruikt om te betalen voor de reservering. De betalingswijze voor het abonnement wordt in rekening gebracht de kosten vooraf voor de reservering. Het abonnementstype moet een enterprise agreement (getallen bieden: MS-AZR-0017P of MS-AZR - 0148 P) en betalen per gebruik (getallen bieden: MS-AZR-0003P of MS-AZR - 0023 P). Voor een Enterprise-abonnement worden de kosten in mindering gebracht op het toezeggingsbedrag of ze worden in rekening gebracht als overschrijding. Voor een Betalen per gebruik-abonnement worden de kosten in rekening gebracht op de creditcard of de factuurbetalingswijze van het abonnement.|    
@@ -74,14 +80,8 @@ Gereserveerde VM-instanties zijn beschikbaar voor de meeste VM-grootten met enke
     |Optimaliseren voor     |VM-instantieflexibiliteit grootte van toepassing is de reserveringskorting op andere virtuele machines in dezelfde [groep voor VM-grootte](https://aka.ms/RIVMGroups). Capaciteitsprioriteit bepaalt de volgorde van Datacenter-capaciteit voor uw implementaties. Dit biedt extra vertrouwen ontstaat in uw vermogen om te starten van de VM-exemplaren, wanneer u ze nodig hebt. Capaciteitsprioriteit is alleen beschikbaar als het reserveringsbereik Eén abonnement is. |
     |Termijn        |Één of drie jaar.|
     |Hoeveelheid    |Het aantal exemplaren dat u hebt gekocht in de reservering. Het aantal is het aantal actieve VM-exemplaren die de korting voor facturering krijgt. Bijvoorbeeld, als u 10 Standard_D2 VM's in de VS-Oost, geeft vervolgens u hoeveelheid 10 te optimaliseren voor alle machines die worden uitgevoerd. |
-5. U kunt de kosten van de reservering weergeven wanneer u selecteert **kosten berekenen**.
 
-    ![Schermafbeelding alvorens het kopen van reserveringen](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvminstance-purchase.png)
-
-6. Selecteer **Aankoop**.
-7. Selecteer **deze reservering weergeven** om te zien van de status van uw aankoop.
-
-    ![Schermopname na de aankoop van de reservering verzenden](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
 ## <a name="change-a-reservation-after-purchase"></a>Een reservering na de aankoop wijzigen
 

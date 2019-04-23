@@ -2,18 +2,18 @@
 title: Azure Data Catalog-concepten voor ontwikkelaars
 description: Inleiding tot de belangrijkste concepten in Azure Data Catalog conceptuele model als weergegeven met de REST-API-catalogus.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: bca006ab33379f52281f77fb5a04a24022bac373
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 42e4b545a48bcbd0ad4b7faf077ebdbfe21648b1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314550"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006689"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure Data Catalog-concepten voor ontwikkelaars
 Microsoft **Azure Data Catalog** is een volledig beheerde cloudservice die mogelijkheden voor detectie van gegevensbronnen en crowdsourcing metagegevens van de gegevensbron biedt. Ontwikkelaars kunnen de service via de REST-API's gebruiken. Informatie over de concepten die zijn geïmplementeerd in de service is het belangrijk is voor ontwikkelaars om te integreren in is **Azure Data Catalog**.
@@ -78,14 +78,14 @@ De UX kan vervolgens kiezen hoe u de combinatie van weergeven. Er zijn drie vers
 Zoals geïntroduceerd in de sectie van de belangrijkste concepten, de **Azure Data Catalog** objectmodel-items, die activa of aantekeningen worden kunnen bevat. Objecten hebben eigenschappen die optioneel of vereist worden kunnen. Sommige eigenschappen zijn van toepassing op alle items. Sommige eigenschappen zijn van toepassing op alle activa. Sommige eigenschappen zijn van toepassing alleen op specifieke asset typen.
 
 ### <a name="system-properties"></a>Systeemeigenschappen
-<table><tr><td><b>De naam van eigenschap</b></td><td><b>Gegevenstype</b></td><td><b>Opmerkingen</b></td></tr><tr><td>tijdstempel</td><td>DateTime</td><td>De laatste keer dat het item is gewijzigd. Dit veld wordt gegenereerd door de server als een item wordt toegevoegd en telkens wanneer een item wordt bijgewerkt. De waarde van deze eigenschap wordt genegeerd op invoer van de bewerkingen te publiceren.</td></tr><tr><td>id</td><td>URI</td><td>De absolute url van het item (alleen-lezen). Dit is de unieke adresseerbare URI voor het item.  De waarde van deze eigenschap wordt genegeerd op invoer van de bewerkingen te publiceren.</td></tr><tr><td>type</td><td>String</td><td>Het type van de asset (alleen-lezen).</td></tr><tr><td>etag</td><td>String</td><td>Een tekenreeks die overeenkomt met de versie van het item dat kan worden gebruikt voor Optimistisch gelijktijdigheidbeheer bij het uitvoeren van bewerkingen die items in de catalogus bijwerken. ' * ' kan worden gebruikt om een willekeurige waarde.</td></tr></table>
+<table><tr><td><b>De naam van eigenschap</b></td><td><b>Gegevenstype</b></td><td><b>Opmerkingen</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>De laatste keer dat het item is gewijzigd. Dit veld wordt gegenereerd door de server als een item wordt toegevoegd en telkens wanneer een item wordt bijgewerkt. De waarde van deze eigenschap wordt genegeerd op invoer van de bewerkingen te publiceren.</td></tr><tr><td>id</td><td>URI</td><td>De absolute url van het item (alleen-lezen). Dit is de unieke adresseerbare URI voor het item.  De waarde van deze eigenschap wordt genegeerd op invoer van de bewerkingen te publiceren.</td></tr><tr><td>type</td><td>String</td><td>Het type van de asset (alleen-lezen).</td></tr><tr><td>etag</td><td>String</td><td>Een tekenreeks die overeenkomt met de versie van het item dat kan worden gebruikt voor Optimistisch gelijktijdigheidbeheer bij het uitvoeren van bewerkingen die items in de catalogus bijwerken. ' * ' kan worden gebruikt om een willekeurige waarde.</td></tr></table>
 
 ### <a name="common-properties"></a>Algemene eigenschappen
 Deze eigenschappen zijn van toepassing op alle root asset typen en alle aantekeningentypen.
 
 <table>
 <tr><td><b>De naam van eigenschap</b></td><td><b>Gegevenstype</b></td><td><b>Opmerkingen</b></td></tr>
-<tr><td>fromSourceSystem</td><td>Booleaans</td><td>Geeft aan of de gegevens van het item is afgeleid van een bronsysteem (zoals Sql Server-Database, Oracle-Database) of door een gebruiker geschreven.</td></tr>
+<tr><td>fromSourceSystem</td><td>Boolean</td><td>Geeft aan of de gegevens van het item is afgeleid van een bronsysteem (zoals Sql Server-Database, Oracle-Database) of door een gebruiker geschreven.</td></tr>
 </table>
 
 ### <a name="common-root-properties"></a>Algemene eigenschappen van hoofdmap
@@ -99,13 +99,13 @@ Deze eigenschappen zijn van toepassing op alle niet-singleton aantekeningentypen
 
 <table>
 <tr><td><b>De naam van eigenschap</b></td><td><b>Gegevenstype</b></td><td><b>Opmerkingen</b></td></tr>
-<tr><td>sleutel</td><td>String</td><td>Een gebruiker opgegeven sleutel, die de aantekening in de huidige verzameling wordt aangeduid. Lengte van de sleutel kan niet groter zijn dan 256 tekens.</td></tr>
+<tr><td>key</td><td>String</td><td>Een gebruiker opgegeven sleutel, die de aantekening in de huidige verzameling wordt aangeduid. Lengte van de sleutel kan niet groter zijn dan 256 tekens.</td></tr>
 </table>
 
 ### <a name="root-asset-types"></a>Hoofdmap asset typen
 Hoofdmap asset typen zijn de typen die staan voor de verschillende typen gegevensassets dat kunnen worden geregistreerd in de catalogus. Er is een weergave, waarin wordt beschreven asset en aantekeningen opgenomen in de weergave voor elk type hoofdmap. Weergavenaam moet worden gebruikt in het bijbehorende {view_name} url-segment bij het publiceren van een asset met behulp van REST-API.
 
-<table><tr><td><b>Assettype (weergavenaam)</b></td><td><b>Aanvullende eigenschappen</b></td><td><b>Gegevenstype</b></td><td><b>Toegestane aantekeningen</b></td><td><b>Opmerkingen</b></td></tr><tr><td>Tabel ('tabellen')</td><td></td><td></td><td>Description<p>FriendlyName<p>Label<p>Schema<p>ColumnDescription<p>ColumnTag<p> Expert<p>Preview<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentatie<p></td><td>Een tabel vertegenwoordigt geen tabellaire gegevens.  Bijvoorbeeld: SQL-tabel, SQL-weergave, Tabellaire Analysis Services-tabel, Analysis Services Multidimensional dimensie, Oracle-tabel, enzovoort.   </td></tr><tr><td>Meting ("metingen")</td><td></td><td></td><td>Description<p>FriendlyName<p>Label<p>Expert<p>AccessInstruction<p>Documentatie<p></td><td>Dit type vertegenwoordigt een Analysis Services-meting.</td></tr><tr><td></td><td>meting</td><td>Kolom</td><td></td><td>Metagegevens met een beschrijving van de meting</td></tr><tr><td></td><td>isCalculated </td><td>Booleaans</td><td></td><td>Hiermee geeft u als de meting is berekend of niet.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Fysieke container voor de meting</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Description<p>FriendlyName<p>Label<p>Expert<p>AccessInstruction<p>Documentatie</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Fysieke container voor de meting</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>Een numerieke MDX-expressie of een berekening waarmee de doelwaarde van de KPI wordt geretourneerd.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>Een numerieke MDX-expressie die als resultaat de werkelijke waarde van de KPI geeft.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>Een MDX-expressie die de status van de KPI op een gegeven moment in-time vertegenwoordigt.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>Een MDX-expressie die wordt geëvalueerd als de waarde van de KPI na verloop van tijd. De trend mag elk criterium op basis van tijd, dat is handig in een specifieke zakelijke context.</td>
+<table><tr><td><b>Assettype (weergavenaam)</b></td><td><b>Aanvullende eigenschappen</b></td><td><b>Gegevenstype</b></td><td><b>Toegestane aantekeningen</b></td><td><b>Opmerkingen</b></td></tr><tr><td>Tabel ('tabellen')</td><td></td><td></td><td>Beschrijving<p>FriendlyName<p>Label<p>Schema<p>ColumnDescription<p>ColumnTag<p> Expert<p>Preview<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentatie<p></td><td>Een tabel vertegenwoordigt geen tabellaire gegevens.  Bijvoorbeeld: SQL-tabel, SQL-weergave, Tabellaire Analysis Services-tabel, Analysis Services Multidimensional dimensie, Oracle-tabel, enzovoort.   </td></tr><tr><td>Meting ("metingen")</td><td></td><td></td><td>Beschrijving<p>FriendlyName<p>Label<p>Expert<p>AccessInstruction<p>Documentatie<p></td><td>Dit type vertegenwoordigt een Analysis Services-meting.</td></tr><tr><td></td><td>meting</td><td>Kolom</td><td></td><td>Metagegevens met een beschrijving van de meting</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>Hiermee geeft u als de meting is berekend of niet.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Fysieke container voor de meting</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Beschrijving<p>FriendlyName<p>Label<p>Expert<p>AccessInstruction<p>Documentatie</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Fysieke container voor de meting</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>Een numerieke MDX-expressie of een berekening waarmee de doelwaarde van de KPI wordt geretourneerd.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>Een numerieke MDX-expressie die als resultaat de werkelijke waarde van de KPI geeft.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>Een MDX-expressie die de status van de KPI op een gegeven moment in-time vertegenwoordigt.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>Een MDX-expressie die wordt geëvalueerd als de waarde van de KPI na verloop van tijd. De trend mag elk criterium op basis van tijd, dat is handig in een specifieke zakelijke context.</td>
 <tr><td>Rapport ('rapporten")</td><td></td><td></td><td>Description<p>FriendlyName<p>Label<p>Expert<p>AccessInstruction<p>Documentatie<p></td><td>Dit type vertegenwoordigt een SQL Server Reporting Services-rapport </td></tr><tr><td></td><td>assetCreatedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>String</td><td></td><td></td></tr><tr><td>Container ("containers")</td><td></td><td></td><td>Description<p>FriendlyName<p>Label<p>Expert<p>AccessInstruction<p>Documentatie<p></td><td>Dit type vertegenwoordigt een container van andere items, zoals een SQL-database, een Azure-Blobs-container of een Analysis Services-model.</td></tr></table>
 
 ### <a name="annotation-types"></a>Aantekeningentypen
@@ -189,7 +189,7 @@ Algemene typen kunnen worden gebruikt als de typen voor eigenschappen, maar er z
 <tr><td></td><td>type</td><td>string</td><td>het gegevenstype van de kolom of het kenmerk. De toegestane typen, is afhankelijk van de sourceType gegevens van de asset.  Alleen een subset van de typen wordt ondersteund.</td></tr>
 <tr><td></td><td>maxLength</td><td>int</td><td>De maximale lengte van de kolom of het kenmerk. Afgeleid van gegevensbron. Alleen van toepassing op bepaalde typen gegevensbronnen.</td></tr>
 <tr><td></td><td>precisie</td><td>byte</td><td>De precisie voor de kolom of het kenmerk. Afgeleid van gegevensbron. Alleen van toepassing op bepaalde typen gegevensbronnen.</td></tr>
-<tr><td></td><td>isNullable</td><td>Booleaans</td><td>Of de kolom aan de waarde null hebben of niet is toegestaan. Afgeleid van gegevensbron. Alleen van toepassing op bepaalde typen gegevensbronnen.</td></tr>
+<tr><td></td><td>isNullable</td><td>Boolean</td><td>Of de kolom aan de waarde null hebben of niet is toegestaan. Afgeleid van gegevensbron. Alleen van toepassing op bepaalde typen gegevensbronnen.</td></tr>
 <tr><td></td><td>expressie</td><td>string</td><td>Als de waarde een berekende kolom is, bevat dit veld in de expressie waarmee de waarde wordt uitgedrukt. Afgeleid van gegevensbron. Alleen van toepassing op bepaalde typen gegevensbronnen.</td></tr>
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 56b164d9612fd1bef8caf9ae0de679f65595bc39
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: ce9bca3f11911677a6009b4cfe0c3f6413b9f837
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629482"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009239"
 ---
 # <a name="quickstart-create-a-hololens-unity-app-that-uses-azure-spatial-anchors"></a>Quickstart: Maken van een HoloLens Unity-app die gebruikmaakt van Azure ruimtelijke ankers
 
@@ -78,6 +78,8 @@ Wanneer de export voltooid is, verschijnt er een map met de geëxporteerde HoloL
 Dubbelklik in de map **HelloAR U3D.sln** aan het project openen in Visual Studio.
 
 Wijzigt de **oplossingsconfiguratie** te **Release**, wijzigen de **Oplossingsplatform** te **x86**, en selecteer **apparaat**  van de doel-implementatieopties.
+
+Als u HoloLens 2, gebruikt u **ARM** als de **Oplossingsplatform**, in plaats van **x86**.
 
    ![Visual Studio-configuratie](./media/get-started-unity-hololens/visual-studio-configuration.png)
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 51c45fdb0c96e84d3f37f485279aa805361f3818
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a8132735d1af08055e9341608dcac0564ed4b927
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798926"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996455"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Opdrachtregelprogramma's gebruiken om te starten en stoppen van virtuele machines van Azure DevTest Labs
 In dit artikel wordt beschreven hoe u Azure PowerShell of Azure CLI gebruiken om te starten of stoppen van virtuele machines in een lab in Azure DevTest Labs. U kunt PowerShell/CLI-scripts voor het automatiseren van deze bewerkingen kunt maken. 
@@ -34,7 +34,7 @@ In sommige scenario's kunt u echter voor het automatiseren van starten en stoppe
 - Gebruik dit als een taak in een CI/CD-werkstroom voor aan het begin van de stroom gestart, gebruikt u de virtuele machines als machines opzetten, testen machines, of een infrastructuur en vervolgens de virtuele machines stoppen wanneer het proces voltooid is. Een voorbeeld hiervan is de aangepaste installatiekopie factory met Azure DevTest Labs.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-De volgende PowerShell-script wordt een virtuele machine gestart in een testomgeving. [Aanroepen AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azurermps-6.13.0) is de primaire focus voor dit script. De **ResourceId** parameter is de volledig gekwalificeerde resource-ID voor de virtuele machine in het lab. De **actie** parameter is de locatie waar de **Start** of **stoppen** opties zijn afhankelijk van wat u nodig hebt ingesteld.
+De volgende PowerShell-script wordt een virtuele machine gestart in een testomgeving. [Aanroepen AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) is de primaire focus voor dit script. De **ResourceId** parameter is de volledig gekwalificeerde resource-ID voor de virtuele machine in het lab. De **actie** parameter is de locatie waar de **Start** of **stoppen** opties zijn afhankelijk van wat u nodig hebt ingesteld.
 
 ```powershell
 # The id of the subscription

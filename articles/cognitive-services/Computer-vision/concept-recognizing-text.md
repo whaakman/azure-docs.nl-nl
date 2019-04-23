@@ -1,5 +1,5 @@
 ---
-title: Afgedrukte, handgeschreven tekst herkennen - Computer Vision
+title: Computer Vision, afgedrukt/handgeschreven tekst herkennen
 titleSuffix: Azure Cognitive Services
 description: Concepten met betrekking tot het herkennen van afdrukken en handgeschreven tekst in afbeeldingen met behulp van de Computer Vision-API.
 services: cognitive-services
@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9bb574fcb9782aad41ea0fd276b8addee19caf01
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
-ms.translationtype: MT
+ms.openlocfilehash: f7fd13b0b6df0b07543216e3c612520e528c1176
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588972"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998229"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Afgedrukte en handgeschreven tekst herkennen
 
-Computer Vision biedt een aantal services die Detecteer en extraheer gedrukte of handgeschreven tekst die wordt weergegeven in afbeeldingen. Dit is handig in tal van scenario's zoals notities maken, medische dossiers, beveiliging en bankieren. De volgende drie secties gedetailleerd drie verschillende tekstherkenning API's, elk geoptimaliseerd voor verschillende gebruiksvoorbeelden.
+Computer Vision biedt een aantal services die Detecteer en extraheer gedrukte of handgeschreven tekst die wordt weergegeven in afbeeldingen. Dit is handig in tal van scenario's zoals notities, medische dossiers, beveiliging en bankieren. De volgende drie secties gedetailleerd drie verschillende tekstherkenning API's, elk geoptimaliseerd voor verschillende gebruiksvoorbeelden.
 
 ## <a name="read-api"></a>Lezen-API
 
@@ -45,13 +45,11 @@ Als u van een abonnement gratis-laag gebruikmaakt, verwerkt de lezen-API alleen 
 
 ## <a name="ocr-optical-character-recognition-api"></a>OCR (optische tekenherkenning) API
 
-Computer-Vision-API voor optische tekenherkenning (OCR) is vergelijkbaar met de API lezen, maar deze wordt synchroon uitgevoerd en niet is geoptimaliseerd voor grote documenten. Het maakt gebruik van een eerdere opname-model, maar werkt met meer talen.
-
-OCR 25 talen worden ondersteund: Arabisch, Chinees (traditioneel), Chinees (vereenvoudigd), Deens, Duits, Engels, Fins, Frans, Grieks, Hongaars, Italiaans, Japans, Koreaans, Nederlands, Noors, Pools, Portugees, Roemeens, Russisch, Servisch (Cyrillisch en Latijns) Slowaaks, Spaans, Tsjechisch, Turks en Zweeds. OCR detecteert automatisch de taal van de gedetecteerde tekst.
+Computer-Vision-API voor optische tekenherkenning (OCR) is vergelijkbaar met de API lezen, maar deze wordt synchroon uitgevoerd en niet is geoptimaliseerd voor grote documenten. Het maakt gebruik van een eerdere opname-model, maar werkt met meer talen. Zie [taalondersteuning](language-support.md#text-recognition) voor een volledige lijst van de ondersteunde talen.
 
 Indien nodig, corrigeert OCR de rotatie van de herkende tekst door de verschuiving van de rotatiesnelheid in graden over de afbeelding van de horizontale as worden geretourneerd. OCR biedt ook de frame-coördinaten van elk woord, zoals te zien is in de volgende afbeelding.
 
-![Een diagram met een afbeelding wordt gedraaid en de tekst wordt gelezen en afgebakend](./Images/vision-overview-ocr.png)
+![Een afbeelding wordt gedraaid en de tekst wordt gelezen en afgebakend](./Images/vision-overview-ocr.png)
 
 Zie de [OCR-referentiedocumenten](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) voor meer informatie.
 

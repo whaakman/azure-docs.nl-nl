@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: juliako
-ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4a29da2b070133f87ca5fdab0be607368c83790f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881015"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999447"
 ---
 # <a name="streaming-endpoints"></a>Streaming-eindpunten
 
@@ -39,7 +39,7 @@ Er zijn twee typen **streaming-eindpunten**: **Standard** en **Premium**. Het ty
 
 In de tabel worden de typen beschreven:  
 
-|Type|Schaaleenheden|Description|
+|Type|Schaaleenheden|Beschrijving|
 |--------|--------|--------|  
 |**Standaard streaming-eindpunt** (aanbevolen)|0|De Streaming-eindpunt wordt standaard een **Standard** typt, maar kan worden gewijzigd in het type Premium.<br/> Het type Standard is de aanbevolen optie voor vrijwel alle streaming scenario's en doelgroepen van elke grootte. Bij het **Standard**-type wordt uitgaande bandbreedte automatisch geschaald. De doorvoer van dit type Streaming-eindpunt is maximaal 600 Mbps. Video-fragmenten in de cache opgeslagen in het CDN, moet u de bandbreedte van het Streaming-eindpunt niet gebruiken.<br/>Voor klanten met extreem hoge eisen biedt Media Services **Premium** streaming-eindpunten, die kunnen worden gebruikt om de capaciteit uit te schalen voor de grootste doelgroepen op internet. Als u verwacht grote doelgroepen en gelijktijdige viewers dat, contact met ons op amsstreaming\@microsoft.com voor informatie over de noodzaak om te verplaatsen naar de **Premium** type. |
 |**Premium-streaming-eindpunt**|>0|**Premium**-streaming-eindpunten zijn geschikt voor geavanceerde workloads omdat er gebruik wordt gemaakt van toegewezen, schaalbare bandbreedtecapaciteit. U verplaatst naar een **Premium** type door aan te passen `scaleUnits`. `scaleUnits` bieden u speciale uitgangscapaciteit die kan worden aangeschaft per 200 Mbps. Bij gebruik van het **Premium**-type biedt elke ingeschakelde eenheid extra bandbreedte voor de toepassing. |
@@ -52,7 +52,6 @@ Functie|Standard|Premium
 ---|---|---
 Gratis voor de eerste 15 dagen| Ja |Nee
 Doorvoer |Maximaal 600 Mbps wanneer Azure CDN wordt niet gebruikt. Schalen met CDN.|200 Mbps per streaming-eenheid (SU). Schalen met CDN.
-SLA | 99.9|99,9 (200 Mbps per SU).
 CDN|Azure CDN, van derden CDN of er is geen CDN.|Azure CDN, van derden CDN of er is geen CDN.
 Facturering is Pro rata| Dagelijks|Dagelijks
 Dynamische versleuteling|Ja|Ja

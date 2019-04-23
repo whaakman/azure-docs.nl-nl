@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 2372f49c7280ee5c817f3d2f98cc80a196dae5f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879196"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000586"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-ends en back-end-pools in Azure voordeur Service
 Dit artikel beschrijft de concepten over het toewijzen van de implementatie van uw app met Azure voordeur Service. Hierin wordt ook uitgelegd de verschillende termen in de configuratie van de voordeur over app-back-ends.
@@ -26,7 +26,7 @@ Een back-end is gelijk aan het exemplaar van de implementatie van een app in een
 
 Back-ends voor voordeur Service verwijzen naar de hostnaam of het openbare IP-adres van uw app, die aanvragen van clients kan fungeren. Back-ends mag niet worden verward met de databaselaag, storage-laag, enzovoort. Back-ends moet worden weergegeven als het openbare eindpunt van de back-end van uw app. Wanneer u een back-end in een pool van de back-end voordeur toevoegt, moet u ook het volgende toevoegen:
 
-- **Back-end hosttype**. Het type resource dat u wilt toevoegen. Voordeur Service biedt ondersteuning voor automatische detectie van back-ends voor uw app in appservice, cloudservice of opslag. Als u een andere resource in Azure of zelfs een niet-Azure back-end wilt, selecteer **aangepaste host**.
+- **Back-end hosttype**. Het type resource dat u wilt toevoegen. Voordeur Service biedt ondersteuning voor automatische detectie van uw app-back-ends van appservice, cloudservice of opslag. Als u een andere resource in Azure of zelfs een niet-Azure back-end wilt, selecteer **aangepaste host**.
 
     >[!IMPORTANT]
     >Niet tijdens de configuratie valideren API's als de back-end niet toegankelijk is vanaf de voordeur omgevingen is. Zorg ervoor dat voordeur uw back-end kunnen bereiken.
@@ -43,7 +43,7 @@ Back-ends voor voordeur Service verwijzen naar de hostnaam of het openbare IP-ad
 
 Aanvragen die door de voordeur doorgestuurd naar een back-end bevatten een veld van de host-header die de back-end gebruikt voor het ophalen van de betreffende resource. De waarde voor dit veld wordt meestal afkomstig is van de back-end van de URI en heeft de host en poort.
 
-Bijvoorbeeld: een verzoek voor www\.contoso.com heeft de host-header www\.contoso.com. Als u Azure portal gebruiken voor het configureren van uw back-end, is de standaardwaarde voor dit veld de hostnaam van de back-end. Als uw back-end contoso-westus.azurewebsites.net in Azure portal is, worden de waarde automatisch ingevuld voor back-end van de host-header contoso-westus.azurewebsites.net. Echter, als u Azure Resource Manager-sjablonen of een andere methode gebruiken zonder dat u dit veld expliciet instelt, voordeur Service stuurt de naam van de binnenkomende host de waarde voor de host-header. Als de aanvraag is gedaan voor www\.contoso.com en uw back-end is contoso-westus.azurewebsites.net waarvoor een veld leeg header, voordeur Service wordt de host-header ingesteld als www\.contoso.com.
+Bijvoorbeeld: een verzoek voor www\.contoso.com heeft de host-header www\.contoso.com. Als u Azure portal gebruiken voor het configureren van uw back-end, is de standaardwaarde voor dit veld de hostnaam van de back-end. Als uw back-end contoso-westus.azurewebsites.net in Azure portal is, worden de waarde automatisch ingevuld voor de host-header van het back-end-contoso-westus.azurewebsites.net. Echter, als u Azure Resource Manager-sjablonen of een andere methode gebruiken zonder dat u dit veld expliciet instelt, voordeur Service stuurt de naam van de binnenkomende host de waarde voor de host-header. Als de aanvraag is gedaan voor www\.contoso.com en uw back-end is contoso-westus.azurewebsites.net waarvoor een veld leeg header, voordeur Service wordt de host-header ingesteld als www\.contoso.com.
 
 De meeste back-ends Apps (Azure Web Apps, Blob storage en Cloud Services) vereisen dat de hostheader overeenkomt met het domein van de back-end. De frontend-host die u routes naar uw back-end gebruikt echter een andere hostnaam, zoals www\.contoso.azurefd.net.
 
@@ -83,7 +83,7 @@ Load balancing-instellingen voor de back endpool definiëren hoe we statuscontro
 
 - **Voorbeeld van een grootte**. Hiermee geeft u het aantal voorbeelden van statuscontroles we moet rekening houden met voor back-end evalueren.
 
-- **Geslaagde samplegrootte**. Hiermee definieert u de samplegrootte zoals eerder vermeld, het aantal geslaagde voorbeelden die nodig zijn voor het aanroepen van de back-end in orde. Stel bijvoorbeeld een voordeur health test-interval is 30 seconden, samplegrootte is 5 seconden en geslaagde samplegrootte is 3 seconden. Telkens wanneer we de status evalueren de tests voor uw back-end, kijken we naar de laatste vijf voorbeelden meer dan 150 seconden (5 x 30). Ten minste drie geslaagde tests zijn vereist om aan te geven van de back-end als in orde.
+- **Geslaagde samplegrootte**. Hiermee definieert u de samplegrootte zoals eerder vermeld, het aantal geslaagde voorbeelden die nodig zijn voor het aanroepen van de back-end in orde. Stel bijvoorbeeld een voordeur health test-interval is 30 seconden, samplegrootte is 5 en geslaagde samplegrootte is 3. Telkens wanneer we de status evalueren de tests voor uw back-end, kijken we naar de laatste vijf voorbeelden meer dan 150 seconden (5 x 30). Ten minste drie geslaagde tests zijn vereist om aan te geven van de back-end als in orde.
 
 - **Latentie gevoeligheid (extra latentie)**. Hiermee definieert u of u wilt dat de voordeur aan de aanvraag verzenden naar de back-ends binnen het bereik van latentie meting gevoeligheid of de aanvraag doorsturen naar de dichtstbijzijnde back-end.
 

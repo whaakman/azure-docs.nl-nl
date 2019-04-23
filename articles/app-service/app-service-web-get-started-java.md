@@ -15,27 +15,30 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: 6bf0562d222bce07f74ef5355ad0e3d6b8844c33
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 3af585ede27536dfb644dd374e54183c3539d585
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096619"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007352"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Uw eerste Java-web-app in Azure maken
 
 [Azure App Service](overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. In deze Quickstart leert u hoe u een Java-web-app implementeert in App Service met behulp van de [Eclipse IDE voor Java EE-ontwikkelaars](https://www.eclipse.org/).
 
-> [!NOTE]
->
-> De stappen in deze snelstart laten zien hoe u de Eclipse IDE kunt gebruiken voor het publiceren van een Java-web-app naar App Service. U kunt de IntelliJ IDEA Ultimate Edition of Community Edition gebruiken. Zie [Create a Hello World web app for Azure using IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) (Een Hallo wereld-web-app voor Azure maken met IntelliJ) voor meer informatie.
->
+> [!IMPORTANT]
+> Azure App Service onder Linux is ook een optie voor het hosten van Java WebApps zelf op Linux met behulp van beheerde Tomcat, Java SE en WildFly aanbiedingen. Als u geïnteresseerd bent in aan de slag met App Service onder Linux, raadpleegt u [Quick Start: Een Java-app maken in App Service on Linux](containers/quickstart-java.md).
 
 Wanneer u deze quickstart hebt voltooid en uw toepassing in een webbrowser bekijkt, ziet uw toepassing er ongeveer als volgt uit:
 
 !['Hello Azure'! voorbeeld van web-app](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+> [!NOTE]
+>
+> De stappen in deze snelstart laten zien hoe u de Eclipse IDE kunt gebruiken voor het publiceren van een Java-web-app naar App Service. U kunt de IntelliJ IDEA Ultimate Edition of Community Edition gebruiken. Zie [Create a Hello World web app for Azure using IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) (Een Hallo wereld-web-app voor Azure maken met IntelliJ) voor meer informatie.
+>
 
 ## <a name="prerequisites"></a>Vereisten
 

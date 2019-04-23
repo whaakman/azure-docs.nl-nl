@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: c27244af6da01163fa9ab554b6b9c1d9c99bab23
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: d107a9dae29f18b90ba7c23198c0cc1f97d83c70
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104570"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003085"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Gegevens van de StorSimple 5000-7000-serie migreren naar Azure File Sync
 
 > [!IMPORTANT]
-> Op 31 juli 2019 bereiken de StorSimple 5000/7000-serie het einde van de ondersteuningstatus (EOS). U wordt aangeraden dat de StorSimple 5000/7000-serie klanten naar een van de alternatieven zoals beschreven in het document migreren.
+> 9 juli 2019 bereiken de StorSimple 5000/7000-serie het einde van de ondersteuningstatus (EOS). U wordt aangeraden dat de StorSimple 5000/7000-serie klanten naar een van de alternatieven zoals beschreven in het document migreren.
 
 Migratie van gegevens is het proces van het verplaatsen van gegevens van de ene opslaglocatie naar de andere. Dit omvat een exacte kopie van de huidige gegevens van een organisatie van het ene apparaat naar een ander apparaat te maken, bij voorkeur zonder onderbreken of uitschakelen van actieve toepassingen, en vervolgens alle invoer/uitvoer (I/O) activiteit wordt omgeleid naar het nieuwe apparaat. 
 

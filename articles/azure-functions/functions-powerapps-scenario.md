@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 49000d4fd61e7cd061b415d50545a7f5ee56f3fb
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: afb97c1c14422f15a3fc2c00b2101c4a36675556
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579120"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002476"
 ---
 # <a name="call-a-function-from-powerapps"></a>Een functie van PowerApps aanroepen
 De [PowerApps](https://powerapps.microsoft.com) platform is ontworpen voor zakelijke deskundigen om apps zonder traditionele toepassingscode te bouwen. Professionele ontwikkelaars kunnen Azure Functions gebruiken om uit te breiden de functionaliteit van PowerApps, terwijl het afschermen van PowerApps-appbouwers van de technische details.
@@ -38,6 +38,9 @@ In dit onderwerp leert u hoe u:
 > * Besturingselementen voor het weergeven van gegevens in de app toevoegen.
 > * Besturingselementen voor de functie aanroepen en weergeven van gegevens toevoegen.
 > * De app om te bepalen of een herstel rendabele uitvoeren.
+
+> [!IMPORTANT]
+> De OpenAPI-functie is momenteel in preview en is alleen beschikbaar voor versie 1.x van de Azure Functions-runtime.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -146,7 +149,7 @@ Nu dat de gegevensbronnen in de app beschikbaar zijn, toevoegen u een scherm aan
 
     ![Galerievelden wijzigen](media/functions-powerapps-scenario/change-fields.png)
     
-    + **Body1** LastServiceDate =
+    + **Body1** = LastServiceDate
     + **Subtitle2** ServiceRequired =
     + **Title2** = Title 
 

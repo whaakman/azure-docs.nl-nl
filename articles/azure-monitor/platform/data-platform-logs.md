@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798943"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003680"
 ---
 # <a name="logs-in-azure-monitor"></a>Logboeken in Azure Monitor
 
@@ -76,7 +76,7 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 
 ### <a name="azure-tenant-and-subscription"></a>Azure-tenant en -abonnement
 
-| Gegevens | Description |
+| Gegevens | Beschrijving |
 |:---|:---|
 | Auditlogboeken van Azure Active Directory | Geconfigureerd via diagnostische instellingen voor elke map. Zie [logboeken van Azure AD integreren met Azure Monitor logboeken](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
 | Activiteitenlogboeken | Standaard afzonderlijk opgeslagen en kan worden gebruikt voor bijna realtime waarschuwingen. Installeer de oplossing Activity Log Analytics om te schrijven naar Log Analytics-werkruimte. Zie [verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics](collect-activity-logs.md). |
@@ -92,7 +92,7 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 
 ### <a name="virtual-machines"></a>Virtuele machines
 
-| Gegevens | Description |
+| Gegevens | Beschrijving |
 |:---|:---|
 |  Agent-gegevensbronnen | Gegevensbronnen die worden verzameld van [Windows](agent-windows.md) en [Linux](../learn/quick-collect-linux-computer.md) agents zijn gebeurtenissen, prestatiegegevens en aangepaste logboeken. Zie [Agent gegevensbronnen in Azure Monitor](data-sources.md) voor een lijst van gegevensbronnen en gegevens over de configuratie. |
 | Bewakingsoplossingen | Bewakingsoplossingen schrijven gegevens dat ze verzamelen van agents aan de Log Analytics-werkruimte. Zie [details van de verzameling gegevens voor de beheeroplossingen in Azure](../insights/solutions-inventory.md) voor een overzicht van oplossingen. Zie [bewakingsoplossingen in Azure Monitor](../insights/solutions.md) voor meer informatie over het installeren en gebruiken van oplossingen. |
@@ -112,7 +112,7 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 
 | Gegevens | Description |
 |:---|:---|
-| Azure Monitor voor Containers | Inventaris-en prestatiegegevens verzameld door [Azure Monitor voor containers](../insights/container-insights-overview.md). Zie [Container gegevensverzameling details](../insights/container-insights-analyze.md#container-data-collection-details) voor een lijst van de tabellen. |
+| Azure Monitor voor containers | Inventaris-en prestatiegegevens verzameld door [Azure Monitor voor containers](../insights/container-insights-overview.md). Zie [Container gegevensverzameling details](../insights/container-insights-log-search.md#container-records) voor een lijst van de tabellen. |
 | Azure Monitor voor virtuele machines | Map-en prestatiegegevens verzameld door [Azure Monitor voor virtuele machines](../insights/vminsights-overview.md). Zie [hoe u logboeken van Azure Monitor opvragen voor virtuele machines](../insights/vminsights-log-search.md) voor meer informatie over het opvragen van deze gegevens. |
 
 ### <a name="custom"></a>Aangepast telefoonnummer 
@@ -124,7 +124,7 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 
 ### <a name="security"></a>Beveiliging
 
-| Gegevens | Beschrijving |
+| Gegevens | Description |
 |:---|:---|
 | Azure Security Center | [Azure Security Center](/azure/security-center/) worden gegevens opgeslagen die worden verzameld in een Log Analytics-werkruimte waar deze kan worden geanalyseerd met andere logboekgegevens. Zie [verzamelen van gegevens in Azure Security Center](../../security-center/security-center-enable-data-collection.md) voor meer informatie over de configuratie van de standaardwerkruimte. |
 | Azure Sentinel | [Azure Sentinel](/azure/sentinel/) gegevens uit gegevensbronnen worden opgeslagen in een Log Analytics-werkruimte. Zie [verbinding maken met gegevensbronnen](/azure/sentinel/connect-data-sources).  |

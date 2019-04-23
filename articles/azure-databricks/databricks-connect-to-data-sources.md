@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: 8055b5d7e6c53abc385a99d9190a38603ebb968b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: MT
+ms.openlocfilehash: f2b7136ec21416e31c2af658974577023a4494de
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417443"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997931"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Verbinding maken met gegevensbronnen van Azure Databricks
 
@@ -31,7 +31,7 @@ De volgende lijst bevat de gegevensbronnen in Azure die u met Azure Databricks g
 - [Azure SQL-database](https://docs.azuredatabricks.net/spark/latest/data-sources/sql-databases.html)
 
     Deze koppeling bevat de DataFrame-API voor het verbinden met SQL-databases met behulp van JDBC en het beheer van de parallelle uitvoering van leesbewerkingen via de JDBC-interface. In dit onderwerp bevat gedetailleerde voorbeelden van het gebruik van de Scala-API met verkorte Python en Spark SQL-voorbeelden aan het einde.
-- [Azure Data Lake Store](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html)
+- [Azure Data Lake Store](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)
 
     Deze koppeling bevat voorbeelden over het gebruik van de service-principal voor Azure Active Directory om te verifiëren met Data Lake Store. Ook vindt u instructies over hoe u toegang tot de gegevens in Data Lake Store vanuit Azure Databricks.
 

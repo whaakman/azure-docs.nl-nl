@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 3e83c1629848083ae4d899ae01ae32c2c946b2b3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450939"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995061"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Connected Services in Visual Studio gebruiken voor verbinding met de Computer Vision-API
 
@@ -38,15 +38,15 @@ Dit artikel en de bijbehorende artikelen bieden details over het gebruik van de 
 1. In **Solution Explorer** kiest u **Connected Service** > **Toevoegen**.
    De Connected Service-pagina wordt weergegeven met services die u aan uw project kunt toevoegen.
 
-   ![Schermafbeelding van een contextmenu in een Visual Studio-project: Toevoegen > Connected Service](../media/vs-common/Connected-Service-Menu.PNG)
+   ![met de rechtermuisknop op het menu op een Visual Studio-project: Toevoegen > Connected Service](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. Kies **Microsoft Cognitive Services Computer Vision-API** in het menu van de beschikbare services.
 
-   ![het menu Connected Services, met 'Afbeeldingen analyseren met Computer Vision' gemarkeerd](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![Menu van de gekoppelde Services: Analyseer afbeeldingen... Geeft een overzicht](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    Als u bent aangemeld bij Visual Studio en een Azure-abonnement hebt dat is gekoppeld aan uw account, wordt een pagina weergegeven met een vervolgkeuzelijst met uw abonnementen.
 
-   ![Een venster Computer Vision-API van Visual Studio met de vervolgkeuzelijst Abonnement gemarkeerd](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![Computer Vision-API-venster met de vervolgkeuzelijst van het abonnement is gemarkeerd](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Selecteer het abonnement dat u wilt gebruiken, en kies een naam voor de Computer Vision-API, of kies de koppeling Bewerken om de automatisch gegenereerde naam te wijzigen, en kies de resourcegroep en prijscategorie.
 
@@ -98,7 +98,7 @@ Dit artikel en de bijbehorende artikelen bieden details over het gebruik van de 
 
 1. Klik met de rechtermuisknop op het afbeeldingsbestand, kies Eigenschappen en kies vervolgens **Kopiëren indien nieuwer**. 
 
-   ![Een venster met eigenschappen van een afbeelding; 'Naar uitvoermap kopiëren' is ingesteld op Kopiëren indien nieuwer](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![eigenschappenvenster van de installatiekopie; Kopiëren naar de uitvoermap die zijn ingesteld op kopiëren indien nieuwer](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Vervang de configuratiemethode door de volgende code voor toegang tot de Computer Vision-API en test een afbeelding.
 

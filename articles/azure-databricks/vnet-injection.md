@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: c29d2e1df0979481c0c8a1e1f2cd4d22b013212a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227628"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003442"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Azure Databricks implementeren in uw virtuele netwerk (Preview)
 
@@ -37,7 +37,7 @@ U kunt de interface Azure Databricks-werkruimte-implementatie in Azure portal ge
 
 Het virtuele netwerk dat u uw Azure Databricks-werkruimte te implementeren, moet voldoen aan de volgende vereisten:
 
-### <a name="location"></a>Locatie
+### <a name="location"></a>Location
 
 Het virtuele netwerk moet zich bevinden op dezelfde locatie bevinden als de Azure Databricks-werkruimte.
 
@@ -121,7 +121,7 @@ Als u deze sjabloon gebruiken zonder de sjabloon netwerk groepen ook gebruik te 
 
 Als u geen gebruik maakt de [Azure-portal](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) of [Azure Resource Manager-sjablonen](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) voor het maken van uw netwerk-beveiligingsgroepen, moet u handmatig het verkeer naar de volgende lijst met toegestane adressen in uw subnetten.
 
-|Richting|Protocol|Bron|Bronpoort|Doel|Doelpoort|
+|Direction|Protocol|Bron|Bronpoort|Doel|Doelpoort|
 |---------|--------|------|-----------|-----------|----------------|
 |Inkomend|\*|VirtualNetwork|\*|\*|\*|
 |Inkomend|\*|Besturingselement vlak NAT IP|\*|\*|22|
@@ -188,7 +188,7 @@ Mogelijke oorzaak: Container kan niet communiceren met de hosting-exemplaar of D
 
 ### <a name="notebook-command-errors"></a>Laptop opdracht fouten
 
-**Opdracht is vastgelopen**
+**Opdracht reageert niet**
 
 Mogelijke oorzaak: communicatie met de worker-naar-worker is geblokkeerd. Oplossen door ervoor te zorgen dat de beveiligingsregels voor binnenkomend verkeer te voldoen aan de vereisten.
 

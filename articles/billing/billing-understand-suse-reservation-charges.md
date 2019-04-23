@@ -1,7 +1,6 @@
 ---
-title: 'De reserveringskorting plan SUSE-en-gebruik: Azure | Microsoft Docs'
-description: Meer informatie over hoe SUSE plan kortingen zijn toegepast op SUSE-software op virtuele machines.
-services: billing
+title: Korting op software-plan - Azure | Microsoft Docs
+description: Meer informatie over hoe software plan kortingen zijn toegepast op de software op virtuele machines.
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,22 +10,46 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2018
+ms.date: 04/12/2019
 ms.author: banders
-ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bcbf5ab48f3476a911fc4ade1eb0c395fb335d43
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917784"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002728"
 ---
-# <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Begrijpen hoe de SUSE Linux Enterprise-hulpprogramma voor het abonnement van de software-reserveringskorting wordt toegepast voor Azure
+# <a name="azure-software-plan-discount"></a>Azure-software plan korting
 
-Nadat u een SUSE Linux-abonnement koopt, wordt de korting wordt automatisch toegepast op geïmplementeerde SUSE virtuele machines (VM's) die overeenkomen met de reservering. Een plan voor SUSE Linux dekt de kosten van het uitvoeren van de SUSE-software op een Azure-VM.
+Abonnementen voor Azure-software voor SUSE- en Red Hat zijn reserveringen die betrekking hebben op de geïmplementeerde VM's. De korting voor software-plan wordt toegepast op het softwaregebruik van geïmplementeerde VM's die overeenkomen met de reservering.
 
-Als u wilt het juiste SUSE Linux-abonnement kopen, moet u begrijpen welke SUSE virtuele machines die u uitvoert en het aantal vcpu's op deze virtuele machines. Gebruik de volgende secties voor het identificeren van uw CSV-bestand van het gebruik van wat van plan bent om te kopen.
+Wanneer u een virtuele machine afsluit, wordt automatisch de korting toegepast op een andere overeenkomende virtuele machine, indien beschikbaar. Een softwareabonnement dekt de kosten van het uitvoeren van de software op een virtuele machine. Andere kosten in rekening gebracht, zoals rekentijd, opslag en netwerken worden afzonderlijk in rekening gebracht.
 
-## <a name="discount-applies-to-different-vm-sizes"></a>Korting is van toepassing op andere VM-grootten
+Als u wilt het juiste abonnement kopen, moet u inzicht in uw VM-gebruik en het aantal vcpu's op deze virtuele machines. Gebruik de volgende secties voor het identificeren van wat wilt kopen, op basis van de gebruiksgegevens.
+
+## <a name="how-reservation-discount-is-applied"></a>Hoe reserveringskorting wordt toegepast
+
+Een reserveringskorting is '*gebruik-it-of-verliezen-it*'. Dus als u geen overeenkomende resources voor elk uur, verliest klikt u een reserveringshoeveelheid voor dat uur. U niet uitvoeren voor het doorsturen van niet-gebruikte gereserveerde uur.
+
+Als u een resource wordt afgesloten, past de reserveringskorting automatisch naar een andere overeenkomende resource in het opgegeven bereik. Als er geen overeenkomende bronnen u in het opgegeven bereik vindt, wordt de gereserveerde uren *verloren*.
+
+## <a name="review-redhat-vm-usage-before-you-buy"></a>Bekijk het RedHat VM voor gebruik voordat u aanschaft
+
+Naam van het product van uw gegevens over gebruik verkrijgen en de Red Hat-abonnement kopen met hetzelfde type en grootte.
+
+Bijvoorbeeld, als uw gebruik product heeft **Red Hat Enterprise Linux - 1-4 vCPU, VM-licentie**, u moet aanschaffen **Red Hat Enterprise Linux** voor **1-4 vCPU VM**.
+
+<!--ADD RHEL SCREENSHOT -->
+
+## <a name="review-suse-vm-usage-before-you-buy"></a>Bekijk het SUSE VM voor gebruik voordat u aanschaft
+
+Naam van het product van uw gegevens over gebruik verkrijgen en de SUSE-abonnement kopen met hetzelfde type en grootte.
+
+Bijvoorbeeld, als uw verbruik is voor het product **SUSE Linux Enterprise Server prioriteit - 2-4 vCPU ondersteuning voor virtuele machine**, u moet aanschaffen **SUSE Linux Enterprise Server prioriteit** voor **2-4 vCPU**.
+
+![Voorbeeld van het selecteren van het product te kopen](./media/billing-understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
+
+## <a name="discount-applies-to-different-vm-sizes-for-suse-plans"></a>Korting is van toepassing op andere VM-grootten voor SUSE-abonnementen
 
 Net als de gereserveerde VM-instanties, SUSE plannen bieden aankopen instantieflexibiliteit grootte. Dit betekent dat uw korting geldt zelfs wanneer u een virtuele machine met een aantal verschillende vCPU's implementeren. De korting is van toepassing op andere VM-grootten in de software-plan.
 
@@ -39,8 +62,6 @@ Bijvoorbeeld, als u een plan voor SUSE Linux Enterprise Server voor HPC Priority
 - of 0.77 of over 77% van een virtuele machine met 5 of meer vcpu's.
 
 De verhouding voor 5 of meer vcpu's is 2.6. Dus een reservering voor SUSE met een virtuele machine met 5 of meer vcpu's bevat informatie over een alleen-gedeelte van de softwarekosten voor, die ongeveer 77% is.
-
-## <a name="understand-suse-vm-usage-before-you-buy"></a>SUSE VM-gebruik begrijpen voordat u kopen
 
 De volgende tabellen worden de software-abonnement die kunt u een reservering voor kopen, hun bijbehorende gebruik meters en de verhouding voor elk weergegeven.
 
@@ -122,6 +143,10 @@ Namen van de Azure portal marketplace:
 |SLES 3-4 kernen vcpu 's |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|
 |SLES 5 + vcpu's |7b349b65-d906-42e5-833f-b2af38513468|2.30769| D8s_v3|
 
+## <a name="need-help-contact-us"></a>Hulp nodig? Contact opnemen
+
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie over reserveringen, de volgende artikelen:
@@ -132,7 +157,3 @@ Zie voor meer informatie over reserveringen, de volgende artikelen:
 - [Azure-reserveringen beheren](billing-manage-reserved-vm-instance.md)
 - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
 - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)
-
-## <a name="need-help-contact-us"></a>Hulp nodig? Contact opnemen
-
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

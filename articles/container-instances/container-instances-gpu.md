@@ -6,20 +6,20 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: cc47ca07a843daf5cc35d23b838761166d39bdcc
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351368"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000654"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Containerinstanties die gebruikmaken van GPU-resources implementeren
 
 Voor het uitvoeren van bepaalde rekenintensieve workloads op Azure Container Instances, implementeert u uw [containergroepen](container-instances-container-groups.md) met *GPU resources*. De containerinstanties in de groep hebben toegang tot een of meer NVIDIA Tesla-GPU's tijdens het uitvoeren van containerworkloads zoals CUDA- en deep learning-toepassingen.
 
-Zoals u in dit artikel, kunt u GPU resources toevoegen wanneer u een containergroep met behulp van implementeert een [YAML-bestand](container-instances-multi-container-yaml.md) of [Resource Manager-sjabloon](container-instances-multi-container-group.md).
+In dit artikel laat zien hoe GPU resources toevoegen wanneer u een containergroep met behulp van implementeert een [YAML-bestand](container-instances-multi-container-yaml.md) of [Resource Manager-sjabloon](container-instances-multi-container-group.md). Wanneer u een containerinstantie met behulp van de Azure portal implementeert, kunt u ook GPU-bronnen opgeven.
 
 > [!IMPORTANT]
 > Deze functie is momenteel in preview en sommige [gelden beperkingen](#preview-limitations). Preview-versies worden beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
@@ -61,7 +61,7 @@ Bij het implementeren van resources voor GPU, stelt u CPU en geheugenbronnen ges
 
 * **Prijzen** - vergelijkbaar met containergroepen zonder GPU-resources, Azure facturen voor de resources die worden gebruikt via de *duur* van de containergroep van een met GPU-resources. De duur wordt berekend op basis van de tijd voor het ophalen van uw eerste containerinstallatiekopie totdat de containergroep wordt beëindigd. Deze omvatten niet de tijd voor het implementeren van de containergroep.
 
-  Prijzen zijn voor containergroepen met GPU-bronnen dan voor containergroepen zonder hoger. Zie [prijsinformatie](https://azure.microsoft.com/pricing/details/container-instances/).
+  Zie [prijsinformatie](https://azure.microsoft.com/pricing/details/container-instances/).
 
 * **CUDA-stuurprogramma's** - Container instances met GPU-resources zijn al ingericht met NVIDIA CUDA-stuurprogramma's en verbeteren van de container, zodat u containerinstallatiekopieën kunt gebruiken die is ontwikkeld voor CUDA-werkbelastingen.
 

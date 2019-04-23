@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 9d52114f5d01beca53ed48ee2114dc98cc20f3a2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 6afc07f98905469b06622e7829ec4a215b94845e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682421"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994602"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Herschrijf de HTTP-aanvraag- en reactieheaders met Azure Application Gateway - Azure portal
 
@@ -26,7 +26,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-U moet een Application Gateway-v2 SKU sinds de mogelijkheid tot herschrijven van de koptekst wordt niet ondersteund voor de v1-SKU. Als u de v2-SKU hebt, maakt u een [Application Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps>) voordat u begint.
+U moet een Application Gateway-v2 SKU sinds de mogelijkheid tot herschrijven van de koptekst wordt niet ondersteund voor de v1-SKU. Als u de v2-SKU hebt, maakt u een [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) voordat u begint.
 
 ## <a name="what-is-required-to-rewrite-a-header"></a>Wat is vereist voor het herschrijven van een koptekst
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 4c4c03fffa5786bf3a50f4d2c03511f0a2de0f48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: 9ee4a9fb5c63061eed32389b5672652aad01208a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250948"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994933"
 ---
 # <a name="api-management-authentication-policies"></a>API Management-verificatiebeleid
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -29,6 +29,8 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 -   [Verifiëren met Basic](api-management-authentication-policies.md#Basic) -verificatie met een back-endservice basisverificatie wordt gebruikt.  
   
 -   [Verifiëren met clientcertificaat](api-management-authentication-policies.md#ClientCertificate) -verificatie met een back endservice met behulp van clientcertificaten.  
+
+-   [Verifiëren met beheerde identiteit](api-management-authentication-policies.md#ManagedIdentity) -verificatie met de [beheerde identiteit](../active-directory/managed-identities-azure-resources/overview.md) voor de API Management-service.  
   
 ##  <a name="Basic"></a> Verifiëren met Basic  
  Gebruik de `authentication-basic` beleid om te verifiëren met een back-endservice basisverificatie wordt gebruikt. Dit beleid wordt de HTTP-autorisatie-header effectief ingesteld op de waarde die overeenkomt met de referenties die zijn opgegeven in het beleid.  
@@ -47,16 +49,16 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="elements"></a>Elementen  
   
-|Naam|Beschrijving|Vereist|  
+|Name|Description|Vereist|  
 |----------|-----------------|--------------|  
 |verificatie-basic|Root-element.|Ja|  
   
 ### <a name="attributes"></a>Kenmerken  
   
-|Naam|Beschrijving|Vereist|Standaard|  
+|Name|Description|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |gebruikersnaam|Hiermee geeft u de gebruikersnaam van de Basic-referentie.|Ja|N/A|  
-|wachtwoord|Hiermee geeft u het wachtwoord van de Basic-referentie.|Ja|N/A|  
+|password|Hiermee geeft u het wachtwoord van de Basic-referentie.|Ja|N/A|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -82,13 +84,13 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="elements"></a>Elementen  
   
-|Naam|Beschrijving|Vereist|  
+|Name|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
 |certificaat voor clientverificatie|Root-element.|Ja|  
   
 ### <a name="attributes"></a>Kenmerken  
   
-|Naam|Beschrijving|Vereist|Standaard|  
+|Name|Description|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |vingerafdruk|De vingerafdruk voor het clientcertificaat.|Ja|N/A|  
   
@@ -98,7 +100,42 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 -   **Beleid secties:** inkomend  
   
 -   **Beleid bereiken:** API  
+
+##  <a name="ManagedIdentity"></a> Verifiëren met beheerde identiteit  
+ Gebruik de `authentication-managed-identity` beleid om te verifiëren met een back endservice met behulp van de beheerde identiteit van de API Management-service. De beheerde identiteit dit beleid effectief gebruikt voor het ophalen van een toegangstoken van Azure Active Directory voor toegang tot de opgegeven resource. 
   
+### <a name="policy-statement"></a>Beleidsverklaring  
+  
+```xml  
+<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+```  
+  
+### <a name="example"></a>Voorbeeld  
+  
+```xml  
+<authentication-managed-identity resource="https://graph.windows.net" output-token-variable-name="test-access-token" ignore-error="true" /> 
+```  
+  
+### <a name="elements"></a>Elementen  
+  
+|Name|Beschrijving|Vereist|  
+|----------|-----------------|--------------|  
+|verificatie-beheerde identiteit |Root-element.|Ja|  
+  
+### <a name="attributes"></a>Kenmerken  
+  
+|Name|Description|Vereist|Standaard|  
+|----------|-----------------|--------------|-------------|  
+|Bron|tekenreeks. De App-ID-URI van de doel-web-API (beveiligde resource) in Azure Active Directory.|Ja|N/A|  
+|uitvoer-token-variabele-naam|tekenreeks. Naam van de contextvariabele die token waarde als een objecttype ontvangt `string`.|Nee|N/A|  
+|ignore-error|Booleaanse waarde. Indien ingesteld op `true`, de pijplijn beleid blijft om uit te voeren, zelfs als een toegangstoken is niet opgehaald.|Nee|false|  
+  
+### <a name="usage"></a>Gebruik  
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+  
+-   **Beleid secties:** inkomend  
+  
+-   **Beleid bereiken:** wereldwijd, product, API, bewerking  
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie werken met beleidsregels voor:

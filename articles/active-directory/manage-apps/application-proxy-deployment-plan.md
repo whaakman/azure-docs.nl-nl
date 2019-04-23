@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04-04-2019
 ms.author: barbaraselden
 ms.reviewer: ''
-ms.openlocfilehash: fe8f9f271599d688878d61aee64273690d02c2b8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 44393f80ab6ea01f0c2f52cb01dcd6241fab3d2d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685760"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000705"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Een Azure AD Application Proxy-implementatie plannen
 
@@ -158,7 +158,7 @@ De volgende ontwerpelementen moeten het succes van uw implementatie test rechtst
 3. Vervolgens voegt u de methode voor eenmalige aanmelding voor uw toepassing en test opnieuw voor het valideren van toegang.
 4. Voorwaardelijke toegang en de MFA-beleid als vereiste toepassen. Testen en valideren van toegang.
 
-**Hulpprogramma's voor probleemoplossing**: Als het oplossen van problemen altijd starten door het valideren van toegang tot de gepubliceerde toepassing vanuit de browser op de host van de connector en bevestigt u dat de toepassing werkt zoals verwacht. De eenvoudiger uw instellingen, het gemakkelijker om te bepalen van de hoofdoorzaak te achterhalen, dus houd rekening met probeert te reproduceren van problemen met een minimale configuratie zoals het gebruik van slechts één connector en er is geen eenmalige aanmelding. In sommige gevallen kan Webfoutopsporing hulpprogramma's, zoals van Telerik Fiddler onmisbaar om toegang of inhoud problemen in toepassingen die worden geopend via een proxy te bewijzen. Fiddler kan ook fungeren als een proxy te traceren en foutopsporing kunt uitvoeren voor mobiele platforms zoals iOS en Android verkeer en vrijwel alles dat kan worden geconfigureerd om te worden gerouteerd via een proxy. Zie de [problemen oplossen met](/application-proxy-troubleshoot.md) voor meer informatie.
+**Hulpprogramma's voor probleemoplossing**: Als het oplossen van problemen altijd starten door het valideren van toegang tot de gepubliceerde toepassing vanuit de browser op de host van de connector en bevestigt u dat de toepassing werkt zoals verwacht. De eenvoudiger uw instellingen, het gemakkelijker om te bepalen van de hoofdoorzaak te achterhalen, dus houd rekening met probeert te reproduceren van problemen met een minimale configuratie zoals het gebruik van slechts één connector en er is geen eenmalige aanmelding. In sommige gevallen kan Webfoutopsporing hulpprogramma's, zoals van Telerik Fiddler onmisbaar om toegang of inhoud problemen in toepassingen die worden geopend via een proxy te bewijzen. Fiddler kan ook fungeren als een proxy te traceren en foutopsporing kunt uitvoeren voor mobiele platforms zoals iOS en Android verkeer en vrijwel alles dat kan worden geconfigureerd om te worden gerouteerd via een proxy. Zie de [problemen oplossen met](application-proxy-troubleshoot.md) voor meer informatie.
 
 ## <a name="implement-your-solution"></a>Uw oplossing implementeren
 

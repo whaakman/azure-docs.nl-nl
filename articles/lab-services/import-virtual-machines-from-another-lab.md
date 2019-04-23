@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 9cd2e5e211fcda7c59469d3b09e9c9e5bdefdbd6
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: ca6ed58cfabb5027830828812c4820c1b586875c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546580"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148897"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Virtuele machines importeren uit een andere lab in Azure DevTest Labs
-In dit artikel bevat informatie over hoe u virtuele machines van een andere lab in uw testomgeving importeren. 
+In dit artikel bevat informatie over hoe u virtuele machines van een andere lab in uw testomgeving importeren.
 
 ## <a name="scenarios"></a>Scenario's
-Hier volgen enkele scenario's waarin u wilt importeren van virtuele machines van een lab naar een andere lab: 
+Hier volgen enkele scenario's waarin u wilt importeren van virtuele machines van een lab naar een andere lab:
 
 - Een persoon in het team wordt verplaatst naar een andere groep binnen de onderneming en wil uitvoeren van het bureaublad van ontwikkelaars bij het nieuwe team Azure DevTest Labs.
 - De groep heeft bereikt een [abonnementsniveau quotum](../azure-subscription-service-limits.md) en wil de teams in een paar abonnementen opsplitsen
@@ -34,8 +34,8 @@ Deze functie kunt u voor het importeren van virtuele machines in een testomgevin
 
 Het proces duurt enige tijd en wordt beïnvloed door de volgende factoren:
 
-- Getal of de grootte van de schijven die zijn gekoppeld aan de bron-VM (omdat het is een kopieerbewerking en niet een verplaatsingsbewerking) 
-- De afstand naar de bestemming (bijvoorbeeld VS-Oost regio aan Zuidoost-Azië).  
+- Getal of de grootte van de schijven die zijn gekoppeld aan de bron-VM (omdat het is een kopieerbewerking en niet een verplaatsingsbewerking)
+- De afstand naar de bestemming (bijvoorbeeld VS-Oost regio aan Zuidoost-Azië).
 
 Zodra het proces voltooid is, blijft de bron virtuele Machine afsluiten en de nieuwe op een wordt uitgevoerd in de doel-testomgeving.
 
@@ -47,12 +47,12 @@ Er zijn twee belangrijke beperkingen rekening mee moet houden bij het plannen vo
 - Deze functie wordt momenteel ondersteund alleen via Powershell en REST-API.
 
 ## <a name="use-powershell"></a>PowerShell gebruiken
-ImportVirtualMachines.ps1 bestand downloaden via de [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). U kunt het script gebruiken voor het importeren van een enkele virtuele machine of alle virtuele machines in het lab bron in het lab bestemming. 
+ImportVirtualMachines.ps1 bestand downloaden via de [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). U kunt het script gebruiken voor het importeren van een enkele virtuele machine of alle virtuele machines in het lab bron in het lab bestemming.
 
 ### <a name="use-powershell-to-import-a-single-vm"></a>PowerShell gebruiken voor het importeren van een enkele virtuele machine
 Dit powershell-script wordt uitgevoerd, moet identificeren van de bron-VM en het doel-lab en eventueel een nieuwe naam moet worden gebruikt voor de doelmachine opgeven:
 
-```powershell 
+```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
                             -SourceDevTestLabName "<Name of the source lab>" `
                             -SourceVirtualMachineName "<Name of the VM to be imported from the source lab> " `
@@ -63,7 +63,7 @@ Dit powershell-script wordt uitgevoerd, moet identificeren van de bron-VM en het
 
 ### <a name="use-powershell-to-import-all-vms-in-the-source-lab"></a>PowerShell gebruiken voor het importeren van alle virtuele machines in de bron-lab
 Als de virtuele bronmachine niet is opgegeven, worden alle virtuele machines in de DevTest Labs automatisch geïmporteerd in het script.  Bijvoorbeeld:
- 
+
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
                             -SourceDevTestLabName "<Name of the source lab>" `
@@ -83,7 +83,7 @@ POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/reso
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende artikelen: 
+Zie de volgende artikelen:
 
 - [Beleidsregels op te stellen voor een lab](devtest-lab-get-started-with-lab-policies.md)
 - [Veelgestelde vragen](devtest-lab-faq.md)

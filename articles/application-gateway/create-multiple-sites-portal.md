@@ -1,24 +1,24 @@
 ---
-title: Een toepassingsgateway die als host fungeert voor meerdere web sites - Azure portal maken
-description: Informatie over het maken van een application gateway die als host fungeert voor meerdere sites met behulp van de Azure portal.
+title: 'Zelfstudie: een toepassingsgateway die als host fungeert voor meerdere sites met behulp van de Azure portal maken'
+description: In deze zelfstudie leert u hoe u een toepassingsgateway die als host fungeert voor meerdere sites met behulp van de Azure portal maken.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 2/20/2019
+ms.topic: tutorial
+ms.date: 4/18/2019
 ms.author: victorh
-ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 3e27a79c7a6e3d39679118f532dd464a32463d69
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080164"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999022"
 ---
-# <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Maken en configureren van een toepassingsgateway voor het hosten van meerdere websites met behulp van de Azure-portal
+# <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Zelfstudie: Maken en configureren van een toepassingsgateway voor het hosten van meerdere websites met behulp van de Azure-portal
 
-U kunt de Azure portal gebruiken om [configureren met het hosten van meerdere websites](multiple-site-overview.md) bij het maken van een [toepassingsgateway](overview.md). In dit artikel definieert u de back-end-adresgroepen met behulp van virtuele machines. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. In dit artikel wordt ervan uitgegaan dat u voorbeelden van meerdere domeinen en maakt gebruik van de eigenaar bent *www.contoso.com* en *www.fabrikam.com*.
+U kunt de Azure portal gebruiken om [configureren met het hosten van meerdere websites](multiple-site-overview.md) bij het maken van een [toepassingsgateway](overview.md). In deze zelfstudie definieert u de back-end-adresgroepen met behulp van virtuele machines. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. In deze zelfstudie wordt ervan uitgegaan dat u eigenaar bent van meerdere domeinen en voorbeelden gebruikt van *www.contoso.com* en *www.fabrikam.com*.
 
-In dit artikel leert u het volgende:
+In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een toepassingsgateway maken
@@ -146,7 +146,7 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
 
 Regels worden afgehandeld in de volgorde waarop ze staan vermeld. Verkeer wordt omgeleid volgens de eerste regel die overeenkomt, ongeacht de specificiteit. Als u bijvoorbeeld een regel hebt die van een basislistener gebruikmaakt en een regel die via dezelfde poort van een listener voor meerdere sites gebruikmaakt, moet de regel voor de listener voor meerdere sites vermeld worden vóór de regel met de basislistener, opdat de regel voor meerdere sites kan functioneren zoals het hoort. 
 
-In dit voorbeeld maakt u twee nieuwe regels en verwijdert u de standaardregel die is gemaakt toen u de toepassingsgateway maakte. 
+In dit voorbeeld moet u twee nieuwe regels maken en verwijderen van de standaardregel gemaakt tijdens het maken van de toepassingsgateway.
 
 1. Klik op **regels** en klik vervolgens op **Basic**.
 2. Voer *contosoRule* voor de naam.
@@ -179,6 +179,18 @@ Als de toepassingsgateway met het bijbehorende openbare IP-adres is gemaakt, kun
 
     ![Fabrikam-site testen in toepassingsgateway](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Wanneer u de bij de toepassingsgateway gemaakte resources niet meer nodig hebt, verwijdert u de resourcegroep. Als u de resourcegroep verwijdert, worden ook de toepassingsgateway en alle gerelateerde resources verwijderd.
+
+Ga als volgt te werk om de resourcegroep te verwijderen:
+
+1. Selecteer **Resourcegroepen** in het linkermenu van de Azure-portal.
+2. Zoek en selecteer **myResourceGroupAG** in de lijst op de pagina **Resourcegroepen**.
+3. Selecteer **Resourcegroep verwijderen** op de **pagina van de resourcegroep**.
+4. Voer *myResourceGroupAG* in bij **TYP DE RESOURCEGROEPNAAM** en selecteer vervolgens **Verwijderen**
+
 ## <a name="next-steps"></a>Volgende stappen
 
-[App Service configureren met Application Gateway](create-web-app.md)
+> [!div class="nextstepaction"]
+> [Meer informatie over wat u met Azure Application Gateway doen kunt](application-gateway-introduction.md)

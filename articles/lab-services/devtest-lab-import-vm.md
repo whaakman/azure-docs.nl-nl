@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 9d5b7f32cb298315a5816562f548bcdafbdeb5cf
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: cb4a3ec9be82957b4c0366ec232f1147c52d0251
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682305"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148769"
 ---
 # <a name="import-vms-from-another-lab-in-azure-devtest-labs"></a>VM's importeren uit een andere lab in Azure DevTest Labs
-De service Azure DevTest Labs aanzienlijk wordt verbeterd beheer van virtuele machines (VM's) voor de ontwikkeling en testactiviteiten. Hiermee kunt u een virtuele machine van een lab verplaatsen naar een andere als het team of wijzigen van de vereisten voor de infrastructuur. Hier volgen enkele algemene scenario's denkbaar waarin om dit te doen: 
+De service Azure DevTest Labs aanzienlijk wordt verbeterd beheer van virtuele machines (VM's) voor de ontwikkeling en testactiviteiten. Hiermee kunt u een virtuele machine van een lab verplaatsen naar een andere als het team of wijzigen van de vereisten voor de infrastructuur. Hier volgen enkele algemene scenario's denkbaar waarin om dit te doen:
 
 - Een persoon in het team wordt verplaatst naar een andere groep binnen de onderneming en wil development VM's uitvoeren met het nieuwe team lab.
 - De groep heeft de abonnement quotum bereikt en wil om op te splitsen up teams in meerdere abonnementen.
@@ -42,10 +42,10 @@ Als u een virtuele machine importeren uit een testomgeving naar een andere, moet
 U kunt op dit moment een virtuele machine in een testomgeving importeren in een ander alleen met behulp van Azure PowerShell en REST-API.
 
 ### <a name="use-powershell"></a>PowerShell gebruiken
-Download het PowerShell-script bestand ImportVirtualMachines.ps1 van [Azure DevTest Lab Git-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines) naar uw lokale schijf. 
+Download het PowerShell-script bestand ImportVirtualMachines.ps1 van [Azure DevTest Lab Git-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines) naar uw lokale schijf.
 
 #### <a name="import-a-single-vm"></a>Een enkele virtuele machine importeren
-Voer het script ImportVirtualMachines.ps1 voor het importeren van een enkele virtuele machine uit een bron-lab in een lab bestemming. U kunt een nieuwe naam voor de virtuele machine die wordt gekopieerd met behulp van de paramer DestinationVirtualMachineName opgeven. 
+Voer het script ImportVirtualMachines.ps1 voor het importeren van een enkele virtuele machine uit een bron-lab in een lab bestemming. U kunt een nieuwe naam voor de virtuele machine die wordt gekopieerd met behulp van de paramer DestinationVirtualMachineName opgeven.
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source VM>" `
@@ -58,7 +58,7 @@ Voer het script ImportVirtualMachines.ps1 voor het importeren van een enkele vir
 
 
 #### <a name="importing-all-vms"></a>Importeren van alle virtuele machines
-Wanneer u het script ImportVirtualMachines.ps1 uitvoert als u een virtuele machine in het lab bron niet opgeeft, importeert het script alle virtuele machines in de bron-lab in de doel-testomgeving. 
+Wanneer u het script ImportVirtualMachines.ps1 uitvoert als u een virtuele machine in het lab bron niet opgeeft, importeert het script alle virtuele machines in de bron-lab in de doel-testomgeving.
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source VM>" `
@@ -68,7 +68,7 @@ Wanneer u het script ImportVirtualMachines.ps1 uitvoert als u een virtuele machi
 ```
 
 ### <a name="use-rest-api"></a>REST API gebruiken
-Aanroepen van de REST-API op basis van de doel-/ doel-lab en doorgeven in het lab bron, het abonnement en de VM-informatie als parameters zoals weergegeven in het volgende voorbeeld: 
+Aanroepen van de REST-API op basis van de doel-/ doel-lab en doorgeven in het lab bron, het abonnement en de VM-informatie als parameters zoals weergegeven in het volgende voorbeeld:
 
 ```json
 POST https://management.azure.com/subscriptions/<ID of the target/destination subscription>/resourceGroups/<Name of the resource group that contains the destination lab>/providers/Microsoft.DevTestLab/labs/<Name of the lab to which the VMs are copied>/ImportVirtualMachine?api-version=2017-04-26-preview
@@ -82,5 +82,3 @@ POST https://management.azure.com/subscriptions/<ID of the target/destination su
 
 - Zie voor meer informatie over grootte wijzigen van een virtuele machine [vergroten of verkleinen van een virtuele machine](devtest-lab-resize-vm.md).
 - Zie voor informatie over een virtuele machine opnieuw te implementeren, [een virtuele machine opnieuw implementeren](devtest-lab-redeploy-vm.md).
-
-

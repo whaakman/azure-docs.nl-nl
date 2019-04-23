@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c719bcaca91f9a6e77d79735283cf2c68404ef16
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b0d1722df2bfe5116de2676dfc930d6050731bbd
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680533"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005023"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technische SAML-profiel te definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -96,7 +96,7 @@ De **OutputClaimsTransformations** element kan bevatten een verzameling van **Ou
  
 Het volgende voorbeeld ziet u de claims die wordt geretourneerd door de Facebook-id-provider:
 
-- De **socialIdpUserId** claim is toegewezen aan de **assertionSubjectName** claim.
+- De **issuerUserId** claim is toegewezen aan de **assertionSubjectName** claim.
 - De **first_name** claim is toegewezen aan de **givenName** claim.
 - De **achternaam** claim is toegewezen aan de **achternaam** claim.
 - De **displayName** claim zonder naam toewijzingen.
@@ -109,7 +109,7 @@ Het technische profiel retourneert ook claims die niet zijn geretourneerd door d
  
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="assertionSubjectName" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="assertionSubjectName" />
   <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
   <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="last_name" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
@@ -124,7 +124,7 @@ Het technische profiel retourneert ook claims die niet zijn geretourneerd door d
 | Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | PartnerEntity | Ja | URL van de metagegevens van de SAML-identiteitsprovider. Kopieer de metagegevens van de id-provider en toe te voegen in het CDATA-element `<![CDATA[Your IDP metadata]]>` |
-| WantsSignedRequests | Nee | Geeft aan of het technische profiel vereist dat alle van de uitgaande verificatieaanvragen moeten worden ondertekend. Mogelijke waarden: `true` of `false`. De standaardwaarde is `true`. Wanneer de waarde is ingesteld op `true`, wordt de **SamlMessageSigning** cryptografische sleutel moet worden opgegeven en alle uitgaande verificatieaanvragen zijn ondertekend. Als de waarde is ingesteld op `false`, wordt de **SigAlg** en **handtekening** parameters (querytekenreeks of parameter plaatsen) worden weggelaten uit de aanvraag. Deze metagegevens bepaalt ook de metagegevens van de **AuthnRequestsSigned** kenmerk, die wordt uitgevoerd in de metagegevens van de Azure AD B2C technisch profiel dat wordt gedeeld met de id-provider. Azure AD B2C niet ondertekenen van de aanvraag als **WantsSignedRequests** in het technische profiel metagegevens is ingesteld op `false` en de metagegevens van de id-provider **WantAuthnRequestsSigned** is ingesteld op `false` of niet opgegeven. |
+| WantsSignedRequests | Nee | Geeft aan of het technische profiel vereist dat alle van de uitgaande verificatieaanvragen moeten worden ondertekend. Mogelijke waarden: `true` of `false`. De standaardwaarde is `true`. Wanneer de waarde is ingesteld op `true`, wordt de **SamlMessageSigning** cryptografische sleutel moet worden opgegeven en alle uitgaande verificatieaanvragen zijn ondertekend. Als de waarde is ingesteld op `false`, wordt de **SigAlg** en **handtekening** parameters (querytekenreeks of parameter plaatsen) worden weggelaten uit de aanvraag. Deze metagegevens bepaalt ook de metagegevens van de **AuthnRequestsSigned** kenmerk, die wordt uitgevoerd in de metagegevens van de Azure AD B2C technisch profiel dat wordt gedeeld met de id-provider. Azure AD B2C niet ondertekenen van de aanvraag als de waarde van **WantsSignedRequests** in het technische profiel metagegevens is ingesteld op `false` en de metagegevens van de id-provider **WantAuthnRequestsSigned** is ingesteld op `false` of niet opgegeven. |
 | XmlSignatureAlgorithm | Nee | De methode die Azure AD B2C gebruikt voor het ondertekenen van de SAML-aanvraag. Deze metagegevens bepaalt de waarde van de **SigAlg** parameter (querytekenreeks of parameter plaatsen) in de SAML-aanvraag. Mogelijke waarden: `Sha256`, `Sha384`, `Sha512`, of `Sha1`. Zorg ervoor dat u de handtekeningalgoritme configureren aan beide zijden met dezelfde waarde. Gebruik alleen de algoritme die ondersteuning biedt voor uw certificaat. | 
 | WantsSignedAssertions | Nee | Geeft aan of het technische profiel is vereist dat alle inkomende bevestigingen zijn ondertekend. Mogelijke waarden: `true` of `false`. De standaardwaarde is `true`. Als de waarde is ingesteld op `true`, alle asserties sectie `saml:Assertion` verzonden door de identiteit van de Azure AD B2C-provider moet worden ondertekend. Als de waarde is ingesteld op `false`, de id-provider mag niet de asserties ondertekenen, maar zelfs als dit het geval, Azure AD B2C de handtekening niet gevalideerd. Deze metagegevens bepaalt ook de markering voor metagegevens **WantsAssertionsSigned**, die wordt uitgevoerd in de metagegevens van de Azure AD B2C technisch profiel dat wordt gedeeld met de id-provider. Als u de validatie van asserties uitschakelt, ook kunt u de validatie van de handtekening antwoord uitschakelen (Zie voor meer informatie, **ResponsesSigned**). |
 | ResponsesSigned | Nee | Mogelijke waarden: `true` of `false`. De standaardwaarde is `true`. Als de waarde is ingesteld op `false`, de id-provider mag niet het SAML-antwoord ondertekenen, maar zelfs als dit het geval, Azure AD B2C de handtekening niet gevalideerd. Als de waarde is ingesteld op `true`, het SAML-antwoord dat is verzonden door de id-provider naar Azure AD B2C is ondertekend en moet worden gevalideerd. Als u de validatie van SAML-antwoord uitschakelt, ook kunt u de validatie van de handtekening assertion uitschakelen (Zie voor meer informatie, **WantsSignedAssertions**). |

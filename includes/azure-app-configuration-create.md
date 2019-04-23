@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: 0f066915046e363932652c104fabe96ed0a9d4c4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 9b86f2e05e2cb42470061bd6398b4200607f2418
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227181"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012282"
 ---
 1. Voor het maken van een nieuwe app-configuratiearchief, moet u zich aanmelden bij de [Azure-portal](https://aka.ms/azconfig/portal). Selecteer in de linkerbovenhoek van de pagina **+ een resource maken**. In de **Marketplace doorzoeken** Voer **Appconfiguratie** en druk op Enter.
 
@@ -23,7 +23,7 @@ ms.locfileid: "58227181"
 
 3. Op de **Appconfiguratie** > **maken** pagina, voer de volgende instellingen.
 
-    | Instelling | Voorgestelde waarde | Description |
+    | Instelling | Voorgestelde waarde | Beschrijving |
     |---|---|---|
     | **Resourcenaam** | Wereldwijd unieke naam | Voer een unieke resourcenaam in voor de resource van het app-configuratiearchief. De naam moet een tekenreeks zijn van 1 tot 63 tekens die alleen cijfers, letters en het teken `-` mag bevatten. De naam mag niet beginnen of eindigen met de `-` teken en opeenvolgende `-` tekens zijn niet geldig.  |
     | **Abonnement** | Uw abonnement | Selecteer het Azure-abonnement dat u wilt gebruiken om App Configuration te testen. Als uw account slechts één abonnement heeft, wordt deze automatisch geselecteerd en de **abonnement** vervolgkeuzelijst wordt niet weergegeven. |
@@ -35,14 +35,3 @@ ms.locfileid: "58227181"
 4. Selecteer **Maken**. De implementatie kan een paar minuten langer duren.
 
 5. Nadat de implementatie is voltooid, selecteert u **instellingen** > **toegangssleutels**. Maak een notitie van een van beide de alleen-lezen of een primaire Lees-/ verbindingsreeks primaire sleutel. Met deze verbindingsreeks later kunt u uw toepassing configureren voor het communiceren met de app-configuratie-store die u hebt gemaakt.
-
-6. Selecteer **sleutel/waarde-Explorer** > **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
-
-    | Sleutel | Value |
-    |---|---|
-    | TestApp:Settings:BackgroundColor | Wit |
-    | TestApp:Settings:FontSize | 24 |
-    | TestApp:Settings:FontColor | Zwart |
-    | TestApp:Settings:Message | Gegevens van Azure App Configuration |
-
-    Laat **Label** en **inhoudstype** voorlopig leeg.

@@ -1,17 +1,17 @@
 ---
 title: De Azure Active Directory-beleid configureren voor Azure Data Catalog
 description: U kunt een situatie kan optreden wanneer u zich kunt aanmelden bij de Azure Data Catalog-portal, maar wanneer u probeert te melden bij het registratiehulpprogramma voor gegevensbronnen, er wordt een foutbericht weergegeven.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/06/2019
-ms.openlocfilehash: 558f8845f5469bf157188e20f1ec65a07ff8355f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e69a7e3bd104d0fb82b248b6560d4fd082c88426
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59363029"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996438"
 ---
 # <a name="azure-active-directory-policy-configuration"></a>Azure Active Directory-beleid configureren
 

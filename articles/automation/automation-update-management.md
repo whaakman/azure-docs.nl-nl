@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679071"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149696"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -208,7 +208,7 @@ Als u wilt een logboekzoekopdracht die informatie over de machine retourneert ui
 
 ## <a name="install-updates"></a>Updates installeren
 
-Nadat updates zijn beoordeeld voor alle Linux- en Windows-computers in uw werkruimte, kunt u de vereiste updates installeren door het maken van een *update-implementatie*. Voor het maken van een Update-implementatie, moet u toegang voor schrijven naar het Automation-Account hebt en de implementatie is schrijftoegang tot de Azure virtuele machines die zijn gericht. Een update-implementatie is een geplande installatie van vereiste updates voor een of meer computers. U geeft de datum en tijd voor de implementatie en een computer of groep computers die u wilt opnemen in het bereik van een implementatie. Zie voor meer informatie over computergroepen, [computergroepen in Logboeken van Azure Monitor](../azure-monitor/platform/computer-groups.md).
+Nadat updates zijn beoordeeld voor alle Linux- en Windows-computers in uw werkruimte, kunt u de vereiste updates installeren door het maken van een *update-implementatie*. Voor het maken van een Update-implementatie, moet u toegang voor schrijven naar het Automation-Account- en schrijftoegang tot de Azure virtuele machines die zijn gericht in de implementatie hebben. Een update-implementatie is een geplande installatie van vereiste updates voor een of meer computers. U geeft de datum en tijd voor de implementatie en een computer of groep computers die u wilt opnemen in het bereik van een implementatie. Zie voor meer informatie over computergroepen, [computergroepen in Logboeken van Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
 Wanneer u in uw update-implementatie computergroepen, wordt het lidmaatschap van slechts één keer geëvalueerd op het moment van schema maken. Wijzigingen aan een groep worden niet weergegeven. Om op te halen om deze [dynamische groepen](#using-dynamic-groups), deze groepen worden omgezet tijdens de implementatie en zijn gedefinieerd door een query voor Azure-VM's of een opgeslagen zoekopdracht voor niet-Azure-VM's.
 
@@ -221,7 +221,7 @@ Virtuele machines die zijn gemaakt via de on-demand Red Hat Enterprise Linux (RH
 
 Voor het maken van een nieuwe update-implementatie selecteert **update-implementatie plannen**. De **nieuwe Update-implementatie** pagina wordt geopend. Voer waarden in voor de eigenschappen die worden beschreven in de volgende tabel en klik vervolgens op **maken**:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | Name |Unieke naam voor het identificeren van de update-implementatie. |
 |Besturingssysteem| Linux of Windows|
@@ -269,7 +269,7 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 
 ### <a name="windows"></a>Windows
 
-|Classificatie  |Description  |
+|Classificatie  |Beschrijving  |
 |---------|---------|
 |Essentiële updates     | Een update voor een specifiek probleem die een kritieke bug niet-beveiliging.        |
 |Beveiligingsupdates     | Een update voor een probleem met de productspecifieke, productspecifieke beveiliging.        |
@@ -282,7 +282,7 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 
 ### <a name="linux"></a>Linux
 
-|Classificatie  |Beschrijving  |
+|Classificatie  |Description  |
 |---------|---------|
 |Essentiële en beveiligingsupdates     | Updates voor een specifiek probleem of een probleem met de productspecifieke, productspecifieke beveiliging.         |
 |Andere Updates     | Alle overige updates die niet essentieel zijn in de aard of die niet-beveiligingsupdates.        |
@@ -333,8 +333,8 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## <a name="third-party"></a> Externe patches voor Windows
 
-Beheer van updates is afhankelijk van WSUS of Windows Update voor het patchen van ondersteunde Windows-systemen. Hulpprogramma's zoals [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
-) (Updates Publisher) kunt u aangepaste updates naar WSUS te publiceren. In dit scenario kunt updatebeheer patch-machines die gebruikmaken van WSUS als de update-opslagplaats met software van derden. Zie voor informatie over het configureren van Updates Publisher, [installeren Updates Publisher](/sccm/sum/tools/install-updates-publisher).
+Beheer van updates is afhankelijk van de opslagplaats lokaal geconfigureerde update voor het vullen van de ondersteunde Windows-systemen. Dit is WSUS of Windows Update. Hulpprogramma's zoals [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) kunt u aangepaste updates naar WSUS te publiceren. In dit scenario kunt updatebeheer patch-machines die gebruikmaken van System Center Configuration Manager als de update-opslagplaats met software van derden. Zie voor informatie over het configureren van Updates Publisher, [installeren Updates Publisher](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Netwerken plannen
 

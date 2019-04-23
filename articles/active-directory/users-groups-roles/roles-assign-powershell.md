@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d982ea49bdc24ccd9894c98435f1e3012d9dd156
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: f6877c3e547d625cf58129a546dae798b37a24ae
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59581046"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000892"
 ---
 # <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>Met behulp van PowerShell van Azure Active Directory-beheerdersrollen toewijzen
 
-U kunt automatiseren hoe u rollen toewijzen aan gebruikersaccounts met behulp van Azure PowerShell. In dit artikel wordt de [Azure Active Directory PowerShell versie 2](https:/docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
+U kunt automatiseren hoe u rollen toewijzen aan gebruikersaccounts met behulp van Azure PowerShell. In dit artikel wordt de [Azure Active Directory PowerShell versie 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
 
 ## <a name="prepare-powershell"></a>Voorbereiden van PowerShell
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 61f82771e53ac9bb594484b29bb109a03cee674b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553729"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012494"
 ---
 #### <a name="process-automation"></a>Procesautomatisering
 
@@ -22,6 +22,7 @@ ms.locfileid: "57553729"
 | Maximum aantal nieuwe taken die elke 30 seconden per Azure Automation-account (nonscheduled taken) kunnen worden verzonden |100 |Wanneer deze limiet is bereikt, mislukken de volgende aanvragen om een taak te maken. De client ontvangt een foutbericht.|
 | Maximum aantal gelijktijdige taken die worden uitgevoerd op hetzelfde exemplaar van de tijd per Automation-account (nonscheduled taken) |200 |Wanneer deze limiet is bereikt, mislukken de volgende aanvragen om een taak te maken. De client ontvangt een foutbericht.|
 | Maximale opslaggrootte van de metagegevens van de taak voor een rolling periode van 30 dagen | 10 GB (ongeveer 4 miljoen taken)|Wanneer deze limiet is bereikt, mislukken de volgende aanvragen om een taak te maken. |
+| Maximale stream limiet|1MB|Één stroom kan niet groter zijn dan 1 MB.|
 | Maximumaantal modules die elke 30 seconden per Automation-account kan worden geïmporteerd |5 ||
 | Maximale grootte van een module |100 MB ||
 | Taak-runtime, gratis laag |500 minuten per abonnement per kalendermaand ||

@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5416c576e6392b7c5714ef83f152453aeff8d964
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685769"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010887"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Problemen vaststellen en oplossen van problemen bij het gebruik van Azure Cosmos DB-Trigger in Azure Functions
 
@@ -31,7 +31,7 @@ In dit artikel wordt altijd verwijzen naar Azure Functions V2 wanneer de runtime
 
 De belangrijkste functionaliteit van het pakket met de uitbreiding is om ondersteuning te bieden voor de Azure Cosmos DB-trigger en bindingen. Dit omvat ook de [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), dit is handig als u werken met Azure Cosmos DB via een programma wilt zonder gebruik te maken van de trigger en bindingen.
 
-Als de Azure Cosmos DB SDK gebruiken, zorg ervoor dat u niet aan uw project een andere NuGet-pakketverwijzing toevoegen naar wilt. In plaats daarvan **laat de SDK-verwijzing oplossen via de Azure Functions-uitbreidingspakket**.
+Als wilt gebruiken de Azure Cosmos DB SDK, zorg ervoor dat u een andere NuGet-pakketverwijzing niet aan uw project toevoegen. In plaats daarvan **laat de SDK-verwijzing oplossen via de Azure Functions-uitbreidingspakket**.
 
 Bovendien, als u handmatig het maken van uw eigen exemplaar van de [Azure Cosmos DB SDK-client](./sql-api-sdk-dotnet-core.md), u moet volgen het patroon dat u hoeft slechts één exemplaar van de client [met behulp van een Singleton-patroon benadering](../azure-functions/manage-connections.md#documentclient-code-example-c) . Dit proces zal voorkomen dat de mogelijke socket problemen in uw activiteiten.
 

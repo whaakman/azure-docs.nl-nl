@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e5078176b14835938c190daa031c12055ba9ffc3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918634"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996353"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -113,7 +113,7 @@ De resultaten weergeven in CSV:
 ### <a name="system-requirements"></a>Systeemvereisten
 - Een server met Windows Server 2012 R2, Windows Server 2016 of Windows Server 2019:
 
-    | Versie | Ondersteunde SKU 's | Ondersteunde implementatieopties |
+    | Version | Ondersteunde SKU 's | Ondersteunde implementatieopties |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
     | Windows Server 2016 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |

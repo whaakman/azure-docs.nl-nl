@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ff8ef576a0dae0f03cc0c80f83ce0c24cf3945a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 40a7bba99068ebc2368e413199cf966bd2e4f25c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093732"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002898"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Zelfstudie: Handmatige failover uitvoeren voor een IoT-hub (openbare preview)
 
@@ -49,9 +49,6 @@ In deze zelfstudie voert u de volgende taken uit:
 
     **Regio**: selecteer een regio bij u in de buurt die deel uitmaakt van de preview. In deze zelfstudie wordt `westus2` gebruikt. Er kan alleen een failover tussen Azure-regio's worden uitgevoerd die geografische gekoppeld zijn. De regio die geografisch met westus2 is gekoppeld, is WestCentralUS.
     
-   > [!NOTE]
-   > Handmatige failover is momenteel in openbare preview en is *niet* beschikbaar in de volgende Azure-regio's: US - oost, US - west, Noord-Europa, West-Europa, Brazilië-Zuid en US - zuid-centraal.
-
    **Naam IoT-hub**: geef een naam op voor de IoT-hub. De naam van de hub moet wereldwijd uniek zijn. 
 
    ![Schermopname met het deelvenster Basis voor het maken van een IoT-hub](./media/tutorial-manual-failover/create-hub-02-basics.png)

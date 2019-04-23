@@ -1,5 +1,5 @@
 ---
-title: Gebruik Microsoft identity-platform aan te melden bij de gebruikers met behulp van ROPC | Azure
+title: Gebruik Microsoft identity-platform aan te melden bij de gebruikers met behulp van resource-eigenaar wachtwoord (ROPC)-referentietoekenning | Azure
 description: Ondersteuning voor browser zonder verificatie van stromen met behulp van de resource-eigenaar wachtwoord-referentietoekenning.
 services: active-directory
 documentationcenter: ''
@@ -12,23 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/20/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c1372263bfa3f684d30ad583bfb6a9d434c3cc2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9cfa28cae87c8a9a97e1c64b96f75ae4c6eab08d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59499934"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004938"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft identity-platform en de wachtwoordreferenties van OAuth 2.0-resource-eigenaar
 
-Microsoft identity-platform ondersteunt de [wachtwoordreferenties van resource-eigenaar (ROPC) verlenen](https://tools.ietf.org/html/rfc6749#section-4.3), waarmee een toepassing aan te melden bij de gebruikers hun wachtwoord direct kan verwerken. De stroom ROPC vereist een hoge mate van blootstelling van vertrouwen en de gebruiker en ontwikkelaars gebruik deze stroom alleen wanneer de andere, beter te beveiligen, stromen kunnen niet worden gebruikt.
+Microsoft identity-platform ondersteunt de [wachtwoordreferenties van resource-eigenaar (ROPC) verlenen](https://tools.ietf.org/html/rfc6749#section-4.3), waarmee een toepassing aan te melden bij de gebruikers hun wachtwoord direct kan verwerken. De stroom ROPC een hoge mate van blootstelling van vertrouwen en de gebruiker is vereist en moet u deze stroom alleen gebruiken wanneer andere, beter te beveiligen, stromen kunnen niet worden gebruikt.
 
 > [!IMPORTANT]
+>
 > * Het eindpunt van de Microsoft identity-platform ondersteunt alleen ROPC voor Azure AD-tenants, geen persoonlijke accounts. Dit betekent dat u een tenant-specifieke eindpunt moet gebruiken (`https://login.microsoftonline.com/{TenantId_or_Name}`) of de `organizations` eindpunt.
 > * Persoonlijke accounts die worden uitgenodigd voor een Azure AD-tenant niet ROPC gebruiken.
 > * Accounts waarvoor geen wachtwoorden kunnen niet aanmelden via ROPC. Voor dit scenario raden wij aan dat u een andere stroom voor uw app in plaats daarvan.
@@ -38,7 +39,7 @@ Microsoft identity-platform ondersteunt de [wachtwoordreferenties van resource-e
 
 Het volgende diagram toont de ROPC-stroom.
 
-![ROPC stroom](media/v2-oauth2-ropc/v2-oauth-ropc.png)
+![ROPC stroom](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
 ## <a name="authorization-request"></a>Autorisatie-aanvraag
 
@@ -69,11 +70,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type` | Vereist | Moet worden ingesteld op `password`. |
 | `username` | Vereist | E-mailadres van de gebruiker. |
 | `password` | Vereist | Wachtwoord van de gebruiker. |
-| `scope` | Aanbevolen | Een door spaties gescheiden lijst van [scopes](v2-permissions-and-consent.md), of de machtigingen die de app nodig heeft. Deze bereiken moeten worden gegeven vooraf door een beheerder of door de gebruiker in een interactieve stroom. |
+| `scope` | Aanbevolen | Een door spaties gescheiden lijst van [scopes](v2-permissions-and-consent.md), of de machtigingen die de app nodig heeft. In een interactieve stroom, de beheerder of de gebruiker moet toestemming geven tot deze bereiken tevoren. |
 
 ### <a name="successful-authentication-response"></a>Verificatie is geslaagd antwoord
 
-Hier volgt een voorbeeld van een geslaagde respons token:
+Het volgende voorbeeld ziet u een geslaagde respons token:
 
 ```json
 {
@@ -101,11 +102,11 @@ U kunt het vernieuwingstoken dat nieuwe toegangstokens verkrijgen en vernieuwen 
 
 Als de gebruiker de juiste gebruikersnaam of wachtwoord is niet opgegeven of de client nog niet de aangevraagde toestemming verkregen, mislukt de verificatie.
 
-| Fout | Description | Clientactie |
+| Fout | Beschrijving | Clientactie |
 |------ | ----------- | -------------|
 | `invalid_grant` | De verificatie is mislukt | De referenties zijn onjuist of de client geen toestemming voor de aangevraagde bereiken. Als de scopes niet zijn verleend, een `consent_required` fout wordt geretourneerd. Als dit het geval is, moet de client de gebruiker doorsturen naar een interactieve prompt met behulp van een webweergave of in de browser. |
 | `invalid_request` | De aanvraag is niet goed samengesteld. | Het machtigingstype wordt niet ondersteund op de `/common` of `/consumers` verificatie contexten.  Gebruik `/organizations` in plaats daarvan. |
-| `invalid_client` | De app is niet goed ingesteld | Dit kan gebeuren als de `allowPublicClient` eigenschap niet is ingesteld op ' True ' in de [toepassingsmanifest](reference-app-manifest.md). De `allowPublicClient` eigenschap is nodig omdat de toekenning ROPC beschikt niet over een omleidings-URI. Azure AD kan niet vaststellen of de app een openbare client-toepassing of een vertrouwelijke client-toepassing, tenzij de eigenschap is ingesteld. Houd er rekening mee dat ROPC wordt alleen ondersteund voor openbare client-apps. |
+| `invalid_client` | De app is niet goed ingesteld | Dit kan gebeuren als de `allowPublicClient` eigenschap niet is ingesteld op ' True ' in de [toepassingsmanifest](reference-app-manifest.md). De `allowPublicClient` eigenschap is nodig omdat de toekenning ROPC beschikt niet over een omleidings-URI. Azure AD kan niet vaststellen of de app een openbare client-toepassing of een vertrouwelijke client-toepassing, tenzij de eigenschap is ingesteld. ROPC wordt alleen ondersteund voor openbare client-apps. |
 
 ## <a name="learn-more"></a>Meer informatie
 

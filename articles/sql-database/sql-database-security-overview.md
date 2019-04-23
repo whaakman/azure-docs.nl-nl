@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523695"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001079"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Een overzicht van de mogelijkheden van Azure SQL Database-beveiliging
 
@@ -88,9 +88,9 @@ SQL-Database voor beveiliging van gegevens van de klant door de mogelijkheden vo
 
 SQL Database auditing houdt databaseactiviteiten bij en zorgt voor naleving van beveiligingsstandaarden door databasegebeurtenissen naar een auditlogboek in een klanten van Azure storage-account. Controle, kunnen gebruikers actieve bewaken, evenals analyseren en onderzoeken van de historische activiteit voor het identificeren van mogelijke bedreigingen of vermoedelijke schendingen van misbruik en beveiliging. Voor meer informatie, Zie het Engelstalige artikel [SQL Database Auditing](sql-database-auditing.md).  
 
-### <a name="threat-detection"></a>Detectie van bedreigingen
+### <a name="advanced-threat-protection"></a>Advanced Threat Protection
 
-Threat detection verbetert de controle door een analyse van controlelogboeken voor het gedrag van ongebruikelijke en potentieel schadelijke probeert te openen of misbruik te maken van databases. Waarschuwingen worden voor verdachte activiteiten of afwijkende toegangspatronen, zoals SQL-injectieaanvallen, potentiële gegevens is binnengedrongen en wachtwoord beveiligingsaanvallen gemaakt. Meldingen voor geconstateerde bedreigingen worden weergegeven in de [Azure Security Center](https://azure.microsoft.com/services/security-center/), waarbij de details van de verdachte activiteiten zijn opgegeven en aanbevelingen voor nader onderzoek samen met de acties die aan het oplossen van de bedreiging. Detectie van bedreigingen kost $15/server/maand. Het is gratis voor de eerste 60 dagen. Zie voor meer informatie, [aan de slag met SQL Database Threat detection](sql-database-threat-detection.md).
+Advanced Threat Protection analyseert uw SQL Server-logboeken voor het detecteren van ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van databases. Waarschuwingen worden gemaakt voor verdachte activiteiten, zoals SQL-injectie, potentiële gegevens is binnengedrongen en brute force-aanvallen of afwijkingen in toegang patronen om af te vangen bevoegdheden escalaties en geschonden referenties gebruiken. Waarschuwingen worden weergegeven in de [Azure Security Center](https://azure.microsoft.com/services/security-center/), waarbij de details van de verdachte activiteiten zijn opgegeven en aanbevelingen voor nader onderzoek samen met de acties die aan het oplossen van de bedreiging. Advanced Threat Protection kan worden ingeschakeld per server voor een extra kosten. Zie voor meer informatie, [aan de slag met SQL Database Advanced Threat Protection](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 

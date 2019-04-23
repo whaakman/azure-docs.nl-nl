@@ -2,23 +2,23 @@
 title: Algemene scenario’s Azure Data Catalog
 description: Een overzicht van veelvoorkomende scenario's voor Azure Data Catalog, met inbegrip van de registratie en detectie van waardevolle gegevensbronnen, self-service business intelligence inschakelen en het vastleggen van bestaande kennis over gegevensbronnen en processen.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 531c5890cb2164b51d7b383d0b1fdd1b92d9e8eb
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: e95cc64b9086a6fb4c5e2d42521a5fd3f44244ba
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405026"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010803"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Algemene scenario’s Azure Data Catalog
 In dit artikel geeft algemene scenario's waar Azure Data Catalog meer waarde halen uit de bestaande gegevensbronnen van uw organisatie kan helpen.
 
-## <a name="scenario-1-registration-of-central-data-sources"></a>Scenario 1: De registratie van centrale gegevensbronnen
+## <a name="scenario-1-registration-of-central-data-sources"></a>Scenario 1: Registratie van de centrale gegevensbronnen
 Organisaties hebben vaak veel waardevolle gegevensbronnen. Deze gegevensbronnen zijn line-of-business, online transactieverwerking (OLTP)-systemen, Datawarehouses en business intelligence en analyse-databases. Het aantal systemen en de overlapping tussen, groeit doorgaans na verloop van tijd naarmate uw bedrijfsbehoeften zich ontwikkelen en het bedrijf zelf zich verder via bijvoorbeeld fusies en aankopen ontwikkelt.
 
 Het kan lastig zijn voor leden van de organisatie om te weten waar u de gegevens binnen deze gegevensbronnen. Vragen als volgt zijn alle te veel voorkomt:

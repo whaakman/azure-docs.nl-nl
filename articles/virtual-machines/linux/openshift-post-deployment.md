@@ -4,7 +4,7 @@ description: Extra taken voor na een OpenShift-cluster is geïmplementeerd.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: joraio
+manager: mdotson
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: cf3a3ca1f751ce9eed5ee5c5397c1d9c864a1dd6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: fba29cd55f2d765faa107de3a8961032ef44deec
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903672"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997392"
 ---
 # <a name="post-deployment-tasks"></a>Taken na de implementatie
 
@@ -151,30 +151,9 @@ Zorg ervoor dat de tekst wordt uitgelijnd correct onder identityProviders. De te
 
 Start opnieuw op de master OpenShift-services op alle hoofdknooppunten:
 
-**OpenShift Container Platform (OCP) met meerdere modellen**
-
 ```bash
-sudo systemctl restart atomic-openshift-master-api
-sudo systemctl restart atomic-openshift-master-controllers
-```
-
-**OpenShift Container Platform met één master**
-
-```bash
-sudo systemctl restart atomic-openshift-master
-```
-
-**OKD met meerdere modellen**
-
-```bash
-sudo systemctl restart origin-master-api
-sudo systemctl restart origin-master-controllers
-```
-
-**OKD met één master**
-
-```bash
-sudo systemctl restart origin-master
+sudo /usr/local/bin/master-restart api
+sudo /usr/local/bin/master-restart controllers
 ```
 
 In de console van OpenShift ziet u nu twee opties voor verificatie: htpasswd_auth en [App-registratie].
@@ -186,7 +165,7 @@ Er zijn drie manieren om toe te voegen van de Log Analytics-agent voor OpenShift
 - Azure Monitor VM-extensie inschakelen op elk knooppunt van OpenShift
 - De Log Analytics-agent installeren als een OpenShift-daemon-set
 
-De volledige instructies vindt u hier: https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.
+Lees de volledige [instructies](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift) voor meer informatie.
 
 ## <a name="configure-metrics-and-logging"></a>Metrische gegevens en logboekregistratie configureren
 
@@ -196,74 +175,9 @@ De OpenShift Container Platform Marketplace-aanbieding biedt ook een optie voor 
 
 Als metrische gegevens / logboekregistratie niet is ingeschakeld tijdens de installatie van het cluster, ze eenvoudig achteraf kunnen worden ingeschakeld.
 
-### <a name="ansible-inventory-pre-work"></a>Ansible voorraad vooraf werk
-
-Controleer of het ansible-inventarisatiebestand (/ ansible/etc/hosts) heeft de betreffende variabelen voor metrische gegevens / logboekregistratie. Het inventarisatiebestand kan worden gevonden op verschillende hosts op basis van de sjabloon die wordt gebruikt.
-
-Voor de sjabloon van OpenShift Container en de Marketplace-aanbieding, worden de inventarisatiebestand bevindt zich op bastionhost. Voor de sjabloon OKD de inventarisatiebestand bevindt zich op de master-0-host of het bastionhost op basis van de vertakking in gebruik.
-
-1. Bewerk het bestand /etc/ansible/hosts en voeg de volgende regels toe na de sectie id-Provider (# HTPasswdPasswordIdentityProvider inschakelen). Als deze regels al aanwezig zijn zijn, niet deze opnieuw toevoegen.
-
-   OpenShift / OKD versies 3,9 en lager
-
-   ```yaml
-   # Setup metrics
-   openshift_hosted_metrics_deploy=false
-   openshift_metrics_cassandra_storage_type=dynamic
-   openshift_metrics_start_cluster=true
-   openshift_metrics_hawkular_nodeselector={"type":"infra"}
-   openshift_metrics_cassandra_nodeselector={"type":"infra"}
-   openshift_metrics_heapster_nodeselector={"type":"infra"}
-   openshift_hosted_metrics_public_url=https://metrics.$ROUTING/hawkular/metrics
-
-   # Setup logging
-   openshift_hosted_logging_deploy=false
-   openshift_hosted_logging_storage_kind=dynamic
-   openshift_logging_fluentd_nodeselector={"logging":"true"}
-   openshift_logging_es_nodeselector={"type":"infra"}
-   openshift_logging_kibana_nodeselector={"type":"infra"}
-   openshift_logging_curator_nodeselector={"type":"infra"}
-   openshift_master_logging_public_url=https://kibana.$ROUTING
-   ```
-
-   OpenShift / OKD versies 3.10 en hoger
-
-   ```yaml
-   # Setup metrics
-   openshift_metrics_install_metrics=false
-   openshift_metrics_start_cluster=true
-   openshift_metrics_hawkular_nodeselector={"node-role.kubernetes.io/infra":"true"}
-   openshift_metrics_cassandra_nodeselector={"node-role.kubernetes.io/infra":"true"}
-   openshift_metrics_heapster_nodeselector={"node-role.kubernetes.io/infra":"true"}
-
-   # Setup logging
-   openshift_logging_install_logging=false
-   openshift_logging_fluentd_nodeselector={"logging":"true"}
-   openshift_logging_es_nodeselector={"node-role.kubernetes.io/infra":"true"}
-   openshift_logging_kibana_nodeselector={"node-role.kubernetes.io/infra":"true"}
-   openshift_logging_curator_nodeselector={"node-role.kubernetes.io/infra":"true"}
-   openshift_logging_master_public_url=https://kibana.$ROUTING
-   ```
-
-3. $ROUTING vervangen door de tekenreeks die wordt gebruikt voor de optie openshift_master_default_subdomain in hetzelfde bestand /etc/ansible/hosts.
-
 ### <a name="azure-cloud-provider-in-use"></a>Azure Cloud-Provider in gebruik
 
 SSH naar de bastionomgeving knooppunt of het eerste hoofdknooppunt (op basis van sjabloon en de vertakking in gebruik) met behulp van de referenties die zijn opgegeven tijdens de implementatie. Geef de volgende opdracht uit:
-
-**OpenShift Containerplatform 3.7 en lager**
-
-```bash
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True \
--e openshift_metrics_cassandra_storage_type=dynamic
-
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True \
--e openshift_hosted_logging_storage_kind=dynamic
-```
-
-**OpenShift Containerplatform 3,9 en hoger**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
@@ -271,75 +185,17 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metric
 -e openshift_metrics_cassandra_storage_type=dynamic
 
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-logging/config.yml \
--e openshift_logging_install_logging=True \
--e openshift_logging_es_pvc_dynamic=true
-```
-
-**OKD 3.7 en lager**
-
-```bash
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True \
--e openshift_metrics_cassandra_storage_type=dynamic
-
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True \
--e openshift_hosted_logging_storage_kind=dynamic
-```
-
-**OKD 3,9 en hoger**
-
-```bash
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True \
--e openshift_metrics_cassandra_storage_type=dynamic
-
-ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 -e openshift_logging_install_logging=True \
 -e openshift_logging_es_pvc_dynamic=true
 ```
 
 ### <a name="azure-cloud-provider-not-in-use"></a>Azure Cloud-Provider niet in gebruik
 
-SSH naar de bastionomgeving knooppunt of het eerste hoofdknooppunt (op basis van sjabloon en de vertakking in gebruik) met behulp van de referenties die zijn opgegeven tijdens de implementatie. Geef de volgende opdracht uit:
-
-
-**OpenShift Containerplatform 3.7 en lager**
-
-```bash
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True
-
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True
-```
-
-**OpenShift Containerplatform 3,9 en hoger**
-
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
 -e openshift_metrics_install_metrics=True
 
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-logging/config.yml \
--e openshift_logging_install_logging=True
-```
-
-**OKD 3.7 en lager**
-
-```bash
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True
-
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True
-```
-
-**OKD 3,9 en hoger**
-
-```bash
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True
-ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 -e openshift_logging_install_logging=True
 ```
 
@@ -348,8 +204,9 @@ ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 Open Service Broker voor Azure of OSBA, kunt u Azure Cloud Services rechtstreeks vanuit OpenShift inrichten. OSBA in een implementatie van Open Service Broker-API voor Azure. De Open Service Broker-API is een specificatie die een gemeenschappelijke taal voor cloud-providers die systeemeigen cloudtoepassingen gebruiken kunnen voor het beheren van cloudservices zonder de vergrendeling in definieert.
 
 Als u wilt installeren OSBA op OpenShift, volgt u de instructies die u hier: https://github.com/Azure/open-service-broker-azure#openshift-project-template. 
+> [!NOTE]
+> Alleen de stappen in de sectie OpenShift projectsjabloon, maken en niet de volledige installatie-sectie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Aan de slag met OpenShift Container Platform](https://docs.openshift.com/container-platform)
-- [Aan de slag met OKD](https://docs.okd.io/latest)

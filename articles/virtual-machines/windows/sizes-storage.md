@@ -13,23 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/15/2019
+ms.date: 04/17/2019
 ms.author: jonbeck
-ms.openlocfilehash: 517e3b7d6a0ad81e1afb6664a0b9b2f59a0479da
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: MT
+ms.openlocfilehash: 6bf073356137588075da3d9dcc220eee36ac59cf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54350367"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006657"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Grootten van virtuele machines met geoptimaliseerde opslag
 
-
-
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
 
-
 ## <a name="other-sizes"></a>Andere grootten
+
 - [Algemeen doel](sizes-general.md)
 - [Geoptimaliseerde rekenkracht](sizes-compute.md)
 - [Geoptimaliseerd geheugen](sizes-memory.md)
@@ -38,5 +36,7 @@ ms.locfileid: "54350367"
 - [Vorige generaties](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Meer informatie over hoe u [Azure compute units (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.
 
+Meer informatie over het [optimaliseren op de virtuele machines van de Lsv2-serie](storage-performance.md).

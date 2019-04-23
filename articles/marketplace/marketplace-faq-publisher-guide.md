@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: 2eabe0c234df6165b78e2dc55dcdc73067aabaa6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 34b9fadc976d3f37612f59a7fc8520c48b178f5c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273223"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009022"
 ---
 # <a name="marketplace-faqs"></a>Veelgestelde vragen over Marketplace
 
@@ -488,7 +488,7 @@ Afhankelijkheden voor Azure Marketplace-aankopen worden niet automatisch beheerd
 
 Azure Marketplace is beschikbaar voor klanten van Microsoft Azure in de volgende landen:
 
-Algerije, Argentinië, Australië, Bahrein, Belarus, België, Brazilië, Bulgarije, Canada, Chili, Colombia, Costa Rica, Cyprus, Denemarken, Dominicaanse Republiek, Duitsland, Ecuador, Egypte, El Salvador, Estland, Filipijnen, Finland, Frankrijk, Griekenland, Guatemala, Hongkong SAR, Hongarije, Ierland, IJsland, India, Indonesië, Israël, Italië, Japan, Jordanië, Kazachstan, Kenia, Koeweit, Kroatië, Letland, Liechtenstein, Litouwen, Luxemburg, Voormalige Joegoslavische Republiek Macedonië, Maleisië, Malta, Marokko, Mexico, Montenegro, Nederland, Nieuw Zeeland, Nigeria, Noorwegen, Oekraïne, Oman, Oostenrijk, Pakistan, Panama, Paraguay, Peru, Polen, Portugal, Puerto Rico, Qatar, Roemenië, Rusland, Saoedi-Arabië, Servië, Singapore, Slovenië, Slowakije, Spanje, Sri Lanka, Taiwan, Thailand, Trinidad en Tobago, Tsjechische Republiek, Tunesië, Turkije, Uruguay, Verenigde Arabische Emiraten, Verenigde Staten, Verenigd Koninkrijk, Venezuela, Zweden, Zwitserland, Zuid-Afrika, Zuid-Korea.
+Algerije, Argentinië, Australië, Oostenrijk, Bahrein, Belarus, België, Brazilië, Bulgarije, Canada, Chili, Colombia, Costa Rica, Kroatië, Cyprus, Tsjechië, Denemarken, Dominicaanse Republiek, Ecuador, Egypte, El Salvador, Estland, Finland, Frankrijk, Duitsland, Griekenland , Guatemala, Hongkong, Hongarije, IJsland, India, Indonesië, Ierland, Israël, Italië, Japan, Jordanië, Kazachstan, Kenia, Koeweit, Letland, Liechtenstein, Litouwen, Luxemburg, Noord Macedonië, Maleisië, Malta, Mexico, Montenegro, Marokko, Nederland, nieuw -Zeeland, Nigeria, Noorwegen, Oman, Pakistan, Panama, Paraguay, Peru, Filippijnen, Polen, Portugal, Porto Rico, Qatar, Roemenië, Rusland, Saoedi-Arabië, Servië, Singapore, Slowakije, Slovenië, Zuid-Afrika, Zuid-Korea, Spanje, Sri Lanka, Zweden, Zwitserland, Taiwan, Thailand, Trinidad en Tobago, Tunesië, Turkije, Oekraïne, Verenigde Arabische Emiraten, Verenigd Koninkrijk, Verenigde Staten, Uruguay, Venezuela.
 
 **Hoe definieer ik mijn geografische beschikbaarheid om in te schakelen in verschillende landen verkopen?**
 

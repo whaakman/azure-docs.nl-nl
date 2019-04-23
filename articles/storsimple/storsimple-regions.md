@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 7e35aa8120c455b8cc0d0881a9ceb5120c57deff
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: ff2ea89c257a4941c801f3056450e005a9b37039
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969665"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996047"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Beschikbare regio's voor uw StorSimple
 
@@ -67,9 +67,9 @@ Afhankelijk van het model, kunnen de StorSimple-apparaten beschikbaar zijn in ve
 
 Als u een StorSimple 8100 of 8600 fysiek apparaat, is het apparaat is beschikbaar in de volgende landen.
 
-| #  | Land        | #  | Land     | #  | Land      | #  | Land              |
+| #  | Land/regio        | #  | Land/regio     | #  | Land/regio      | #  | Land/regio              |
 |----|----------------|----|-------------|----|--------------|----|----------------------|
-| 1  | Australië      | 16 | Hongkong   | 31 | Nieuw-Zeeland  | 46 | Zuid-Afrika         |
+| 1  | Australië      | 16 | Hongkong SAR| 31 | Nieuw-Zeeland  | 46 | Zuid-Afrika         |
 | 2  | Oostenrijk        | 17 | Hongarije     | 32 | Nigeria      | 47 | Zuid-Korea          |
 | 3  | Bahrein        | 18 | IJsland     | 33 | Noorwegen       | 48 | Spanje                |
 | 4  | België        | 19 | India       | 34 | Peru         | 49 | Sri Lanka            |
@@ -80,7 +80,7 @@ Als u een StorSimple 8100 of 8600 fysiek apparaat, is het apparaat is beschikbaa
 | 9  | Tsjechië | 24 | Japan       | 39 | Qatar        | 54 | Turkije               |
 | 10 | Denemarken        | 25 | Kenia       | 40 | Roemenië      | 55 | Oekraïne              |
 | 11 | Egypte          | 26 | Koeweit      | 41 | Rusland       | 56 | Verenigde Arabische Emiraten |
-| 12 | Finland        | 27 | Macau       | 42 | Saoedi-Arabië | 57 | Verenigd Koninkrijk       |
+| 12 | Finland        | 27 | Macau SAR   | 42 | Saoedi-Arabië | 57 | Verenigd Koninkrijk       |
 | 13 | Frankrijk         | 28 | Maleisië    | 43 | Singapore    | 58 | Verenigde Staten        |
 | 14 | Duitsland        | 29 | Mexico      | 44 | Slowakije     | 59 | Vietnam              |
 | 15 | Griekenland         | 30 | Nederland | 45 | Slovenië     | 60 | Kroatië              |

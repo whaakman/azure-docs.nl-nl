@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630791"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006791"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Stream Azure diagnostische logboeken naar Log Analytics-werkruimte in Azure Monitor
 
@@ -107,7 +107,7 @@ Omdat veel resources verzenden gegevenstypen worden verzonden naar dezelfde tabe
  
 De tabel AzureDiagnostics eruit als volgt met wat voorbeeldgegevens:  
  
-| ResourceProvider | Categorie | A | B | C | D | E | F | G | H | I |
+| ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
 | Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
@@ -124,7 +124,7 @@ Azure Data Factory, vanwege een zeer uitgebreide set zich aanmeldt, is een resou
 - *Parameters van de gebruiker gedefinieerd voor elke activiteit in de pijplijn*: Er is een nieuwe kolom die is gemaakt voor elke parameter van de gebruiker een unieke naam op basis van een activiteit. 
 - *Invoer en uitvoer*: deze variëren van activiteit-naar-activiteit en genereren van een grote hoeveelheid kolommen vanwege hun uitgebreide aard. 
  
-Als met de bredere tijdelijke oplossing voorstellen die hieronder, het verdient aanbeveling om te isoleren van ADF Logboeken in hun eigen werkruimte te minimaliseren, de kans dat deze logboeken die invloed hebben op andere typen logboeken die worden verzameld in uw werkruimten. We verwachten hebt gecureerd logboeken voor Azure Data Factory beschikbaar door mid April 2019.
+Als met de bredere tijdelijke oplossing voorstellen die hieronder, het verdient aanbeveling om te isoleren van ADF Logboeken in hun eigen werkruimte te minimaliseren, de kans dat deze logboeken die invloed hebben op andere typen logboeken die worden verzameld in uw werkruimten. We verwachten hebben een samengesteld bieden logboeken voor Azure Data Factory beschikbaar binnenkort.
  
 #### <a name="workarounds"></a>Tijdelijke oplossingen
 Korte termijn, totdat de limiet van 500-kolom is gedefinieerd, is het aanbevolen om te typen uitgebreide gegevens verdelen in afzonderlijke werkruimten te verminderen van de mogelijkheid om de limiet hebt bereikt.

@@ -1,6 +1,6 @@
 ---
-title: Analyseren van activiteitenlogboeken van Azure Active Directory met behulp van Azure Monitor-Logboeken (preview) | Microsoft Docs
-description: Informatie over het analyseren van activiteitenlogboeken van Azure Active Directory met behulp van Azure Monitor-Logboeken (preview)
+title: Activiteitenlogboeken van Azure Active Directory met behulp van Azure Monitor-logboeken analyseren | Microsoft Docs
+description: Informatie over het analyseren van activiteitenlogboeken van Azure Active Directory met behulp van Azure Monitor-Logboeken
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
-ms.reviewer: dhanyahk
+ms.date: 04/18/2019
+ms.author: priyamo
+ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e195dd0e52b4938e829ea0aec1f4cc3ef7107c0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 1651bb2898a2bd1e3e0c3fbbce77dc4106d76e7a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436801"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005533"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Analyseren van Azure AD-activiteitenlogboeken met Azure Monitor-Logboeken (preview)
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analyseren van Azure AD-activiteitenlogboeken met Azure Monitor-Logboeken
 
 Nadat u [integreren van Azure AD-activiteitenlogboeken met Azure Monitor logboeken](howto-integrate-activity-logs-with-log-analytics.md), kunt u de kracht van Azure Monitor-logboeken voor inzicht in uw omgeving. U kunt ook installeren de [analytics weergaven voor Azure AD-activiteit zich logboeken](howto-install-use-log-analytics-views.md) voor toegang tot vooraf gemaakte rapporten met betrekking tot controle en aanmeldingsgebeurtenissen in uw omgeving.
 

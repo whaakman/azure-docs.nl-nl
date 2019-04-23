@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: 99a29536ccf9d4ad87bcd0aa29659306c3553972
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 4c388f012cd52f0adea93ae62cc31832488fca74
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119391"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997628"
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Gegevens kopiëren van Azure Database voor MySQL met behulp van Azure Data Factory
 
@@ -143,6 +143,7 @@ Om gegevens te kopiëren uit een Azure Database voor MySQL, stelt u het brontype
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **AzureMySqlSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
+| queryCommandTimeout | Er is een time-out opgetreden voor de wachttijd voordat de queryaanvraag. De standaardwaarde is 120 minuten (02: 00:00) | Nee |
 
 **Voorbeeld:**
 

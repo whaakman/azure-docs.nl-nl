@@ -4,7 +4,7 @@ description: Vereisten voor het implementeren van OpenShift in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: joraio
+manager: mdotson
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: f4fd33b250bf1f79610f4363e85b97be87892d78
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: d8a9b82e51c837af6343ddf851545d02299aa527
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449960"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001643"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Algemene vereisten voor het implementeren van OpenShift in Azure
 
@@ -28,19 +28,19 @@ Dit artikel worden algemene vereisten voor het implementeren van OpenShift Conta
 
 De installatie van OpenShift Ansible-playbooks gebruikt. Ansible maakt gebruik van Secure Shell (SSH) verbinding maken met alle clusterhosts stappen van de installatie te voltooien.
 
-Wanneer u ansible initieert de SSH-verbinding met de externe hosts, niet kan deze een wachtwoord opgeven. Om deze reden, de persoonlijke sleutel kan geen een wachtwoord (wachtwoordzin) die zijn gekoppeld aan het of de implementatie mislukt.
+Wanneer ansible de SSH-verbinding met de externe hosts maakt, niet kan er een wachtwoord opgeven. Om deze reden, de persoonlijke sleutel kan geen een wachtwoord (wachtwoordzin) die zijn gekoppeld aan het of de implementatie mislukt.
 
-Omdat de virtuele machines (VM's) via Azure Resource Manager-sjablonen implementeren, wordt dezelfde openbare sleutel wordt gebruikt voor toegang tot alle virtuele machines. U moet de bijbehorende persoonlijke sleutel invoeren in de virtuele machine die wordt uitgevoerd ook alle playbooks. Om dit te doen veilig, kunt u een Azure key vault gebruiken om door te geven van de persoonlijke sleutel in de virtuele machine.
+Omdat de virtuele machines (VM's) via Azure Resource Manager-sjablonen implementeren, wordt dezelfde openbare sleutel wordt gebruikt voor toegang tot alle virtuele machines. De bijbehorende persoonlijke sleutel moet zich op de virtuele machine die wordt uitgevoerd ook alle playbooks. Voor het veilig uitvoeren van deze actie wordt een Azure-sleutelkluis gebruikt om de persoonlijke sleutel doorgeven aan de virtuele machine.
 
-Als er een nodig voor permanente opslag voor containers, klikt u vervolgens zijn persistent volumes vereist. OpenShift ondersteunt Azure virtuele harde schijven (VHD's) voor deze mogelijkheid, maar Azure moet eerst worden geconfigureerd als de cloudprovider.
+Als er een nodig voor permanente opslag voor containers, klikt u vervolgens zijn persistent volumes vereist. OpenShift ondersteunt Azure virtuele harde schijven (VHD's) voor permanente volumes, maar Azure moet eerst worden geconfigureerd als de cloudprovider.
 
 In dit model OpenShift:
 
-- Hiermee maakt u een VHD-object in een Azure Storage-account of een beheerde schijf.
+- Hiermee maakt u een VHD-object in een Azure storage-account of een beheerde schijf.
 - Hiermee koppelt u de VHD naar een virtuele machine en het volume geformatteerd.
 - Hiermee wordt het volume voor de schil gekoppeld.
 
-Voor deze configuratie werkt, moet OpenShift toegangsmachtigingen voor deze taken kunnen uitvoeren in Azure. U doen dit met een service-principal. De service-principal is een security-account in Azure Active Directory waaraan machtigingen voor resources is verleend.
+Voor deze configuratie werkt, moet OpenShift toegangsmachtigingen voor deze taken kunnen uitvoeren in Azure. Een service-principal wordt gebruikt voor dit doel. De service-principal is een security-account in Azure Active Directory waaraan machtigingen voor resources is verleend.
 
 De service-principal moet toegang hebben tot de storage-accounts en virtuele machines die gezamenlijk het cluster. Als alle OpenShift-clusterresources voor een enkele resourcegroep implementeert, kan de service-principal kan machtigingen in deze resourcegroep worden verleend.
 
@@ -60,7 +60,7 @@ az login
 ```
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Het verdient een speciale resourcegroep gebruiken voor het hosten van de key vault. Deze groep is gescheiden van de resourcegroep waarin de clusterbronnen OpenShift implementeren.
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. U moet een speciale resourcegroep gebruiken voor het hosten van de key vault. Deze groep is gescheiden van de resourcegroep waarin de clusterbronnen OpenShift implementeren.
 
 Het volgende voorbeeld wordt een resourcegroep met de naam *keyvaultrg* in de *eastus* locatie:
 
@@ -136,6 +136,33 @@ Noteer de toepassings-id-eigenschap geretourneerd door de opdracht:
 
 Zie voor meer informatie over service-principals [een Azure service-principal maken met Azure CLI](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
+## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Vereisten van toepassing alleen op Resource Manager-sjabloon
+
+Geheimen moet worden gemaakt voor de persoonlijke SSH-sleutel (**sshPrivateKey**), Azure AD-clientgeheim (**aadClientSecret**), het beheerderswachtwoord OpenShift (**openshiftPassword** ), en de sleutel voor het wachtwoord of de activering van Red Hat Doelabonnementbeheerder (**rhsmPasswordOrActivationKey**).  Bovendien als aangepaste SSL-certificaten worden gebruikt, klikt u vervolgens zes aanvullende geheimen moet worden gemaakt: **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**, en **masterkeyfile**.  Deze parameters worden in meer detail beschreven.
+
+De sjabloon wordt verwezen naar specifieke geheime namen zodat u **moet** gebruik de namen van de vet boven (hoofdlettergevoelig weergegeven).
+
+### <a name="custom-certificates"></a>Aangepaste certificaten
+
+Standaard de sjabloon wordt een OpenShift-cluster implementeren met zelfondertekende certificaten voor de webconsole OpenShift en het routeringsdomein. Als u gebruiken van aangepaste SSL-certificaten wilt, 'routingCertType' naar 'custom' en 'masterCertType' naar 'custom' instellen.  U moet de CA-certificaat en sleutel-bestanden in de PEM-indeling voor de certificaten.  Het is mogelijk het gebruik van aangepaste certificaten voor één, maar niet op de andere.
+
+U moet deze bestanden opslaan in Key Vault-geheimen.  Gebruik de dezelfde Key Vault als het account dat wordt gebruikt voor de persoonlijke sleutel.  In plaats van 6 aanvullende invoer voor de namen van de geheime nodig hebt, is de sjabloon vastgelegde specifieke geheime namen voor elk van de SSL-certificaat-bestanden te gebruiken.  De gegevens van het certificaat van de informatie in de volgende tabel Store.
+
+| Geheime naam      | Certificaatbestand   |
+|------------------|--------------------|
+| mastercafile     | hoofdbestand CA     |
+| mastercertfile   | basispagina-certificaat-bestand   |
+| masterkeyfile    | de hoofdsleutel van bestand    |
+| routingcafile    | Routering CA-bestand    |
+| routingcertfile  | Routering certificaatbestand  |
+| routingkeyfile   | Routering sleutelbestand   |
+
+Maak de geheimen met Azure CLI. Hieronder volgt een voorbeeld.
+
+```bash
+az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certificates/masterca.pem
+```
+
 ## <a name="next-steps"></a>Volgende stappen
 
 In dit artikel komen de volgende onderwerpen aan bod:
@@ -146,4 +173,4 @@ In dit artikel komen de volgende onderwerpen aan bod:
 Vervolgens implementeert u een OpenShift-cluster:
 
 - [Implementeren van OpenShift Containerplatform](./openshift-container-platform.md)
-- [OKD implementeren](./openshift-okd.md)
+- [Implementeren van OpenShift Container Platform zelfbeheerde Marketplace-aanbieding](./openshift-marketplace-self-managed.md)

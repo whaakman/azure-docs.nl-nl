@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: d71e08a548809ef0de47c4a865af531732a88a4b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 33deea0805ffa89bcc6a64f34a97a4e080690da9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59697274"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008814"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Quickstart: Een .NET Framework-app maken met Azure-appconfiguratie
 
@@ -36,6 +36,14 @@ Als u wilt doen in deze Quick Start, installeert u [Visual Studio 2017](https://
 ## <a name="create-an-app-configuration-store"></a>Een app-configuratiearchief maken
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Selecteer **sleutel/waarde-Explorer** > **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
+
+    | Sleutel | Value |
+    |---|---|
+    | TestApp:Settings:Message | Gegevens van Azure App Configuration |
+
+    Laat **Label** en **inhoudstype** voorlopig leeg.
 
 ## <a name="create-a-net-console-app"></a>Een .NET Core-consoletoepassing maken
 
@@ -106,4 +114,4 @@ Als u wilt doen in deze Quick Start, installeert u [Visual Studio 2017](https://
 In deze snelstartgids hebt gemaakt van een nieuwe app-configuratiearchief en deze gebruikt met een .NET Framework-consoletoepassing. Doorgaan naar de volgende zelfstudie waarin wordt gedemonstreerd verificatie voor meer informatie over het gebruik van App-configuratie.
 
 > [!div class="nextstepaction"]
-> [Beheerde identiteiten voor de integratie van Azure-resources](./howto-integrate-azure-managed-service-identity.md)
+> [Integratie van beheerde identiteit](./howto-integrate-azure-managed-service-identity.md)

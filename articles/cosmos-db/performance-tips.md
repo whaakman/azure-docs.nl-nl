@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: cf90f7231362d147914e22419c9008d2628a483f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 81adf643541b5a4486694026acec49129ef8e5a6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861890"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000620"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Tips voor betere prestaties voor Azure Cosmos DB en .NET
 
@@ -48,8 +48,8 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
      |Verbindingsmodus  |Ondersteunde protocollen  |Ondersteunde SDK 's  |API/Service-poort  |
      |---------|---------|---------|---------|
      |Gateway  |   HTTPS    |  Alle SDK 's    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
-     |Rechtstreeks    |    HTTPS     |  .NET en Java-SDK    |   Poorten binnen het bereik van 10.000 20.000    |
-     |Rechtstreeks    |     TCP    |  .NET SDK    | Poorten binnen het bereik van 10.000 20.000 |
+     |Direct    |    HTTPS     |  .NET en Java-SDK    |   Poorten binnen het bereik van 10.000 20.000    |
+     |Direct    |     TCP    |  .NET SDK    | Poorten binnen het bereik van 10.000 20.000 |
 
      Azure Cosmos DB biedt een eenvoudige en open RESTful-programmeermodel via HTTPS. Daarnaast biedt deze een efficiënte TCP-protocol, dat is ook RESTful in het communicatiemodel en is beschikbaar via de .NET-client-SDK. Zowel Direct via TCP- en HTTPS gebruik van SSL voor initiële verificatie en versleuteling van verkeer. Gebruik indien mogelijk de TCP-protocol voor de beste prestaties.
 
@@ -85,6 +85,11 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 4. **Verhoog het aantal threads/taken**
 
     Omdat aanroepen naar Azure Cosmos DB zijn gemaakt via het netwerk, moet u mogelijk de graad van parallelle uitvoering van de aanvragen verschillen, zodat de clienttoepassing in de taakwachtrij doorbrengt weinig tijd wachten tussen aanvragen. Bijvoorbeeld, als u gebruikt. De NET [taak parallelle bibliotheek](https://msdn.microsoft.com//library/dd460717.aspx), maken in de volgorde van 100s van taken lezen of schrijven naar Azure Cosmos DB.
+
+5. **Versneld netwerken inschakelen**
+
+   Om u te lagere latentie en jitter van CPU, raden we aan dat de client virtuele machines zijn versnelde netwerken ingeschakeld. Zie de [maken van een Windows-machine met versnelde netwerken](../virtual-network/create-vm-accelerated-networking-powershell.md) of [maken van een virtuele Linux-machine met versnelde netwerken](../virtual-network/create-vm-accelerated-networking-cli.md) artikelen om in te schakelen van versneld netwerken.
+
 
 ## <a name="sdk-usage"></a>SDK Usage
 1. **Installeer de meest recente SDK**

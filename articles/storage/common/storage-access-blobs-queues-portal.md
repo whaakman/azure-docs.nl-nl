@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b56cbfbc9dfde8b1a7d43d55ee85c34fde385902
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 5eba650ac2a052f264d82260e9fc07bf195235da
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58846388"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148931"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Gebruik de Azure-portal voor het openen van blob of een wachtrij
 
@@ -41,13 +41,13 @@ Wanneer u probeert te krijgen tot blob of een wachtrij gegevens in Azure portal,
 Voor toegang tot blob of een wachtrij gegevens vanuit de Azure-portal met behulp van uw Azure AD-account, moeten beide van de volgende instructies geldt voor u zijn:
 
 - U bent de Azure Resource Manager toegewezen [lezer](../../role-based-access-control/built-in-roles.md#reader) rol, ten minste binnen het bereik op het niveau van het storage-account of hoger. De **lezer** rol, de meest beperkte machtigingen hebben, maar ook een andere Azure Resource Manager-rol die toegang tot beheer van de resources van opslagaccount verleent acceptabel is.
-- U bent toegewezen ofwel een ingebouwde of aangepaste rol die toegang tot de blobs of wachtrijgegevens biedt.
+- U bent toegewezen ofwel een ingebouwde of aangepaste rol die toegang tot de gegevens voor blob of een wachtrij biedt.
 
 De **lezer** roltoewijzing of een andere Azure Resource Manager-roltoewijzing is nodig zodat de gebruiker kan weergeven en storage-account management-resources in de Azure-portal te navigeren. De RBAC-rollen die toegang tot gegevens voor blob of een wachtrij verlenen Verleen geen toegang tot opslag account management-resources. Voor toegang tot blob of een wachtrij gegevens in de portal, moet de gebruiker machtigingen om te navigeren van resources voor storage-account. Zie voor meer informatie over deze vereiste [toewijzen van de rol van lezer voor portaltoegang](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
 De ingebouwde rollen die ondersteuning bieden voor toegang tot uw gegevens blob of een wachtrij zijn onder andere:
 
-- [Storage Blob Gegevenseigenaar](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Voor POSIX toegangsbeheer voor Azure Data Lake Storage Gen2 (preview).
+- [Storage Blob Gegevenseigenaar](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Voor POSIX-toegangsbeheer voor Azure Data Lake Storage Gen2.
 - [Gegevensbijdrager voor Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Machtigingen voor lezen/schrijven/verwijderen van blobs.
 - [Gegevenslezer voor Opslagblob](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Alleen-lezen machtigingen voor blobs.
 - [Gegevensbijdrager voor wachtrij](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Machtigingen voor lezen/schrijven/verwijderen voor wachtrijen.

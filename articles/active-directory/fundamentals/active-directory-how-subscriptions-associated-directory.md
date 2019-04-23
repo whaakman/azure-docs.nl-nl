@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3322e49c6fdc590b785806f67b5081700bf8b37b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b141de4c22ba1ba1325982d8e027fa46e0909fbb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788620"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009851"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Koppelen of een Azure-abonnement toevoegen aan uw Azure Active Directory-tenant
 
@@ -76,7 +76,7 @@ Nadat u een abonnement op een andere map hebt gekoppeld, is er mogelijk extra st
 
 1. Als u alle sleutelkluizen hebt, moet u een tenant-id in de vorm van de sleutelkluis. Zie voor meer informatie, [een tenant-ID van key vault wijzigen na een verplaatsing van een abonnement](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. Als u een Azure-Stack met behulp van dit abonnement hebt geregistreerd, moet u opnieuw registreren. Zie voor meer informatie, [Azure Stack registreren met Azure](../../azure-stack/azure-stack-registration.md).
+2. Als u een Azure-Stack met behulp van dit abonnement hebt geregistreerd, moet u opnieuw registreren. Zie voor meer informatie, [Azure Stack registreren met Azure](/azure-stack/operator/azure-stack-registration).
 
 
 

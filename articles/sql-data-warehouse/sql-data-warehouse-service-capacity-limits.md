@@ -10,28 +10,28 @@ ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 131a2102ec3ede930de3cad7516e486d793fec3d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: MT
+ms.openlocfilehash: 3ed1f251c8c09a52def517f4c94ed2ca1420eda8
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250552"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999634"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Capaciteitslimieten voor SQL Data Warehouse
 Maximale waarden voor verschillende onderdelen van Azure SQL Data Warehouse is toegestaan.
 
 ## <a name="workload-management"></a>Werklastbeheer
-| Categorie | Beschrijving | Maximum |
+| Category | Beschrijving | Maximum |
 |:--- |:--- |:--- |
 | [Datawarehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Maximale DWU voor een enkele SQL Data Warehouse | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Datawarehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Standaard DTU per server |54,000<br></br>Elke SQL-server (bijvoorbeeld myserver.database.windows.net) heeft standaard een DTU-quotum van 54.000, waarmee maximaal DW6000c. Dit quotum is gewoon een veiligheidsbeperking. U kunt uw quotum door verhogen [het maken van een ondersteuningsticket](sql-data-warehouse-get-started-create-support-ticket.md) en selecteren *quotum* als het aanvraagtype.  Voor het berekenen van uw DTU moeten, de vermenigvuldigt u 7,5 met het totale aantal DWU die nodig zijn, of 9.0 vermenigvuldigen met de totale cDWU die nodig zijn. Bijvoorbeeld:<br></br>DW6000 x 7.5 = 45.000 dtu's<br></br>DW6000c x 9.0 = 54.000 dtu's.<br></br>U kunt uw huidige DTU-verbruik van de SQL server-optie weergeven in de portal. Zowel onderbroken als niet-onderbroken databases tellen mee voor het DTU-quotum. |
-| Databaseverbinding |Gelijktijdige sessies op openen |1024<br/><br/>Elk van de actieve sessies 1024 kan aanvragen met een SQL Data Warehouse-database verzenden op hetzelfde moment. Opmerking: Er zijn beperkingen voor het aantal query's die gelijktijdig kan worden uitgevoerd. Wanneer de limiet voor gelijktijdigheid wordt overschreden, de aanvraag wordt verwerkt in een interne wachtrij waar wacht om te worden verwerkt. |
+| Databaseverbinding |Maximum aantal gelijktijdige sessies openen |1024<br/><br/>Het aantal gelijktijdige sessies op open varieert op basis van de geselecteerde DWU. DWU500c en sessies opent hierboven ondersteuning voor een maximum van 1024. DWU400c en lager bieden ondersteuning voor een maximum aantal gelijktijdige openstaande sessielimiet van 512 bytes. Opmerking: Er zijn beperkingen voor het aantal query's die gelijktijdig kan worden uitgevoerd. Wanneer de limiet voor gelijktijdigheid wordt overschreden, de aanvraag wordt verwerkt in een interne wachtrij waar wacht om te worden verwerkt. |
 | Databaseverbinding |Maximale hoeveelheid geheugen voor voorbereide instructies |20 MB |
 | [Werklastbeheer](resource-classes-for-workload-management.md) |Maximum aantal gelijktijdige query 's |128<br/><br/> SQL Data Warehouse kan een maximum van 128 gelijktijdige query's en wachtrijen resterende query's worden uitgevoerd.<br/><br/>Het aantal gelijktijdige query's kan afnemen wanneer gebruikers worden toegewezen aan hogere resourceklassen of wanneer het SQL Data Warehouse heeft een lagere [datawarehouse unit](memory-and-concurrency-limits.md) instelling. Sommige query's, zoals DMV-query's, zijn altijd toegestaan te worden uitgevoerd en niet van invloed op de limiet voor gelijktijdige query's. Zie voor meer informatie over het uitvoeren van gelijktijdige query's, de [gelijktijdigheid maximumwaarden](memory-and-concurrency-limits.md#concurrency-maximums) artikel. |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |Maximum GB |399 GB per DW100. Daarom wordt bij DWU1000, tempdb 3,99 TB grootte. |
 
 ## <a name="database-objects"></a>Databaseobjecten
-| Categorie | Beschrijving | Maximum |
+| Category | Description | Maximum |
 |:--- |:--- |:--- |
 | Database |Max. grootte | Gen1: 240 TB gecomprimeerd op schijf. Deze ruimte is onafhankelijk van tempdb- of logboekpad ruimte, en daarom deze ruimte wordt toegewezen aan de permanente tabellen.  Geclusterde columnstore-compressie wordt geschat op 5 X.  Deze compressie kan de database uitbreiden tot ongeveer 1 PB wanneer alle tabellen de geclusterde columnstore (de standaard-tabeltype worden). <br/><br/> Gen2: 240TB voor rowstore en onbeperkte opslag voor columnstore-tabellen |
 | Tabel |Max. grootte |60 TB gecomprimeerd op schijf |
@@ -52,12 +52,12 @@ Maximale waarden voor verschillende onderdelen van Azure SQL Data Warehouse is t
 | Weergave |Kolommen per weergeven |1,024 |
 
 ## <a name="loads"></a>Loads
-| Categorie | Beschrijving | Maximum |
+| Category | Description | Maximum |
 |:--- |:--- |:--- |
 | Polybase-Loads |MB per rij |1<br/><br/>Polybase laadt alleen op rijen die kleiner zijn dan 1 MB en kunnen niet worden geladen naar VARCHAR(MAX), NVARCHAR(MAX) of VARBINARY(MAX).<br/><br/> |
 
 ## <a name="queries"></a>Query's
-| Categorie | Beschrijving | Maximum |
+| Category | Description | Maximum |
 |:--- |:--- |:--- |
 | Query’s uitvoeren |In de wachtrij query's voor gebruikerstabellen. |1000 |
 | Query’s uitvoeren |Gelijktijdige query's op systeemweergaven. |100 |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 733d27549542d3ebdd0cfba429aeaaab9f8be473
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 23f0110b3418e2df0434438247340f88678268ad
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370300"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000926"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps-dekking voor geocodering
 
@@ -106,14 +106,14 @@ De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onde
 | Fiji                                                |                  |                |              |      ✓     |          ✓         |
 | Frans-Polynesië                                    |                 |                |              |      ✓     |          ✓         |
 | Heard- en McDonald-eilanden                   |                 |                |              |      ✓     |          ✓         |
-| Hongkong SAR                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Hongkong SAR                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesië                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | India                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japan                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Korea                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
-| Macau SAR                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Macau SAR                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Maleisië                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Micronesia                                          |                 |                |              |      ✓     |          ✓         |
 | Mongolië                                            |                 |                |              |      ✓     |          ✓         |
@@ -189,7 +189,7 @@ De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onde
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Litouwen                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Luxemburg                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Macedonië (FYROM)                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Noord-Macedonië                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moldavië                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Monaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |

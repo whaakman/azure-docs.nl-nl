@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: magattus
-ms.openlocfilehash: cc866691aac884def72030345bb4dfcbe87ea689
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: MT
+ms.openlocfilehash: eac699a68558f0a8c9f94f0a8b75aabee561ebb3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092266"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005988"
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Azure CDN POP-locaties op afkorting
 > [!div class="op_single_selector"]
@@ -30,71 +30,71 @@ ms.locfileid: "49092266"
 
 In dit artikel geeft een lijst van POP-locaties, gesorteerd op basis van POP-afkorting voor **Azure CDN van Verizon**.
 
-Afkorting | Locatie | Regio
+Afkorting | Location | Regio
 | --- | --- | --- |
-AGA | Atlanta, Georgië, Verenigde Staten | Noord-Amerika: oostkust-VS
-AGB | Atlanta, Georgië, Verenigde Staten | Noord-Amerika: oostkust-VS
-AKL | Auckland, Nieuw-Zeeland | Azië
+AGA | Atlanta, Georgië, Verenigde Staten | Noord-Amerika: Oostkust VS
+AGB | Atlanta, Georgië, Verenigde Staten | Noord-Amerika: Oostkust VS
+AKL | Auckland, New Zealand | Azië
 AMA | Amsterdam, Nederland | Europa
 AMB | Amsterdam, Nederland | Europa
 AMS | Amsterdam, Nederland | Europa
 INFORMATIE | Stockholm, Zweden | Europa
-ATL | Atlanta, Georgië, Verenigde Staten | Noord-Amerika: oostkust-VS
+ATL | Atlanta, Georgië, Verenigde Staten | Noord-Amerika: Oostkust VS
 BAQ | Barranquilla, Colombia | Latijns-Amerika
 BLR | Bangalore, India | Azië
-BNJ | Één, New Jersey, Verenigde Staten | Noord-Amerika: oostkust-VS
-BOS | Boston, Massachusetts, Verenigde Staten | Noord-Amerika: oostkust-VS
+BNJ | Newark, New Jersey, USA | Noord-Amerika: Oostkust VS
+BOS | Boston, Massachusetts, USA | Noord-Amerika: Oostkust VS
 BTH | Batam, Indonesië | Azië
 BUE | Buenos Aires, Argentinië | Latijns-Amerika
-BUR | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: westkust-VS
+BUR | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: Westkust VS
 CDG | Parijs, Frankrijk | Europa
 CGH | Sao Paulo, Brazilië | Latijns-Amerika
 CGK | Jakarta, Indonesië | Azië
-CHA | Chicago, Illinois, Verenigde Staten | Noord-Amerika: oostkust-VS
-CHOHUNG | Chicago, Illinois, Verenigde Staten | Noord-Amerika: oostkust-VS
-CNJ | Één, New Jersey, Verenigde Staten | Noord-Amerika: oostkust-VS
+CHA | Chicago, Illinois, USA | Noord-Amerika: Oostkust VS
+CHB | Chicago, Illinois, USA | Noord-Amerika: Oostkust VS
+CNJ | Newark, New Jersey, USA | Noord-Amerika: Oostkust VS
 CPH | Kopenhagen, Denemarken | Europa
-VOLGENS | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: westkust-VS
-CVA | Ashburn, Virginia, VS | Noord-Amerika: oostkust-VS
-DAA | Dallas, Texas, VS | Noord-Amerika: Centrale westkust-VS
-SCHAR | Dallas, Texas, VS | Noord-Amerika: Centrale westkust-VS
-DCA | Ashburn, Virginia, VS | Noord-Amerika: oostkust-VS
-DCB | Ashburn, Virginia, VS | Noord-Amerika: oostkust-VS
-DCC | Ashburn, Virginia, VS | Noord-Amerika: oostkust-VS
+CPM | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: Westkust VS
+CVA | Ashburn, Virginia, USA | Noord-Amerika: Oostkust VS
+DAA | Dallas, Texas, USA | Noord-Amerika: Westkust centrale VS
+SCHAR | Dallas, Texas, USA | Noord-Amerika: Westkust centrale VS
+DCA | Ashburn, Virginia, USA | Noord-Amerika: Oostkust VS
+DCB | Ashburn, Virginia, USA | Noord-Amerika: Oostkust VS
+DCC | Ashburn, Virginia, USA | Noord-Amerika: Oostkust VS
 DEL | Noida, India | Azië
-DEN | Denver, Colorado, Verenigde Staten | Noord-Amerika: VS-midden
-DFW | Dallas, Texas, VS | Noord-Amerika: VS-midden
-EWR | New York, New York, VS | Noord-Amerika: oostkust-VS
+DEN | Denver, Colorado, USA | Noord-Amerika: VS-midden
+DFW | Dallas, Texas, USA | Noord-Amerika: VS-midden
+EWR | New York, New York, VS | Noord-Amerika: Oostkust VS
 EZE | Buenos Aires, Argentinië | Latijns-Amerika
 FCN | Frankfurt, Duitsland | Europa
-FLL | Miami, Florida, Verenigde Staten | Noord-Amerika: oostkust-VS
+FLL | Miami, Florida, USA | Noord-Amerika: Oostkust VS
 FRA | Frankfurt, Duitsland | Europa
 FRB | Frankfurt, Duitsland | Europa
 FRC | Frankfurt, Duitsland | Europa
 FRF | Frankfurt, Duitsland | Europa
-FTW | Dallas, Texas, VS | Noord-Amerika: VS-midden
-FTY | Atlanta, Georgië, Verenigde Staten | Noord-Amerika: oostkust-VS
+FTW | Dallas, Texas, USA | Noord-Amerika: VS-midden
+FTY | Atlanta, Georgië, Verenigde Staten | Noord-Amerika: Oostkust VS
 GB | Rio de Janeiro, Brazilië | Latijns-Amerika
 GRU | Sao Paulo, Brazilië | Latijns-Amerika
 HEL | Helsinki, Finland | Europa
-HHP | Hongkong | Azië
-HKC | Hongkong | Azië
-HKG | Hongkong | Azië
+HHP | Hongkong SAR | Azië
+HKC | Hongkong SAR | Azië
+HKG | Hongkong SAR | Azië
 HND | Tokio, Japan | Azië
-IAD | Ashburn, Virginia, VS | Noord-Amerika: oostkust-VS
+IAD | Ashburn, Virginia, USA | Noord-Amerika: Oostkust VS
 ICN | Seoul, Korea | Azië
 ITM | Osaka, Japan | Azië
-JFK | New York, New York, Verenigde Staten | Noord-Amerika: oostkust-VS
+JFK | New York, New York, Verenigde Staten | Noord-Amerika: Oostkust VS
 JNB | Johannesburg, Zuid-Afrika | Europa
 KHH | Kaohsiung, Taiwan | Azië
 KIX | Osaka, Japan | Azië
-DUPLICAATADRES | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: westkust-VS
-LAB | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: westkust-VS
-LAM | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: westkust-VS
-LAN | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: westkust-VS
-SLORDIG | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: westkust-VS
-LV | Londen, Verenigd Koninkrijk | Europa
-LGA | New York, New York, Verenigde Staten | Noord-Amerika: oostkust-VS
+LAA | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: Westkust VS
+LAB | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: Westkust VS
+LAM | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: Westkust VS
+LAN | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: Westkust VS
+LAX | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: Westkust VS
+LCY | Londen, Verenigd Koninkrijk | Europa
+LGA | New York, New York, Verenigde Staten | Noord-Amerika: Oostkust VS
 LHA | Londen, Verenigd Koninkrijk | Europa
 LHB | Londen, Verenigd Koninkrijk | Europa
 LHM | Londen, Verenigd Koninkrijk | Europa
@@ -102,47 +102,47 @@ LHN | Londen, Verenigd Koninkrijk | Europa
 LHR | Londen, Verenigd Koninkrijk | Europa
 LIM | Lima, Peru | Latijns-Amerika
 MAA | Chennai, India | Azië
-GEKKE | Madrid, Spanje | Europa
+MAD | Madrid, Spanje | Europa
 MDE | Medellin, Colombia | Latijns-Amerika
-MDW | Chicago, Illinois, Verenigde Staten | Noord-Amerika: oostkust-VS
+MDW | Chicago, Illinois, USA | Noord-Amerika: Oostkust VS
 MEB | Melbourne, Australië | Azië
 MEL | Melbourne, Australië | Azië
 MEX | Mexico-stad, Mexico | Noord-Amerika
-ERVAN | Miami, Florida, Verenigde Staten | Noord-Amerika: oostkust-VS
-MIB | Miami, Florida, Verenigde Staten | Noord-Amerika: oostkust-VS
-MIC | Miami, Florida, Verenigde Staten | Noord-Amerika: oostkust-VS
-MEVR | Marseille, Frankrijk | Europa
+MIA | Miami, Florida, USA | Noord-Amerika: Oostkust VS
+MIB | Miami, Florida, USA | Noord-Amerika: Oostkust VS
+MIC | Miami, Florida, USA | Noord-Amerika: Oostkust VS
+MRS | Marseille, Frankrijk | Europa
 MXP | Milaan, Italië | Europa
 NAG | Mumbai, India | Azië
 NDL | Delhi, India | Azië
 NRT | Tokio, Japan | Azië
-NYA | New York, New York, Verenigde Staten | Noord-Amerika: oostkust-VS
-NYB | New York, New York, Verenigde Staten | Noord-Amerika: oostkust-VS
+NYA | New York, New York, Verenigde Staten | Noord-Amerika: Oostkust VS
+NYB | New York, New York, Verenigde Staten | Noord-Amerika: Oostkust VS
 OMM | Muscat, Oman | Midden-Oosten
-ORDER | Chicago, Illinois, Verenigde Staten | Noord-Amerika: VS-midden
+ORDER | Chicago, Illinois, USA | Noord-Amerika: VS-midden
 SCHIEDENISITEMS | Parijs, Frankrijk | Europa
-OXR | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: westkust-VS
+OXR | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: Westkust VS
 ADRESBOEK | Parijs, Frankrijk | Europa
-PAE | Seattle, Washington, Verenigde Staten | Noord-Amerika: westkust-VS
+PAE | Seattle, Washington, Verenigde Staten | Noord-Amerika: Westkust VS
 PBC | Puebla, Mexico | Noord-Amerika
-PHL | Philadelphia, Pennsylvania, Verenigde Staten | Noord-Amerika: oostkust-VS
-UIT TE | Mumbai, India | Azië
+PHL | Philadelphia, Pennsylvania, USA | Noord-Amerika: Oostkust VS
+PNQ | Mumbai, India | Azië
 POX | Parijs, Frankrijk | Europa
 QRO | Santiago de Querétaro, Mexico | Noord-Amerika
-RHV | San Jose, Californië, VS | Noord-Amerika: westkust-VS
+RHV | San Jose, Californië, VS | Noord-Amerika: Westkust VS
 RIB | Rio de Janeiro, Brazilië | Latijns-Amerika
 RIX | Riga, Letland | Europa
 RTM | Amsterdam, Nederland | Europa
-SAA | San Jose, Californië, VS | Noord-Amerika: westkust-VS
-SAB | San Jose, Californië, VS | Noord-Amerika: westkust-VS
-SQL | Valparaíso, Chili | Latijns-Amerika
-ZEE | Seattle, Washington, Verenigde Staten | Noord-Amerika: westkust-VS
-SEB | Seattle, Washington, Verenigde Staten | Noord-Amerika: westkust-VS
-SEC. | Seattle, Washington, Verenigde Staten | Noord-Amerika: westkust-VS
+SAA | San Jose, Californië, VS | Noord-Amerika: Westkust VS
+SAB | San Jose, Californië, VS | Noord-Amerika: Westkust VS
+SCL | Valparaíso, Chile | Latijns-Amerika
+SEA | Seattle, Washington, Verenigde Staten | Noord-Amerika: Westkust VS
+SEB | Seattle, Washington, Verenigde Staten | Noord-Amerika: Westkust VS
+SEC | Seattle, Washington, Verenigde Staten | Noord-Amerika: Westkust VS
 GB | Singapore | Azië
 SIN | Singapore | Azië
-SJC | San Jose, Californië, VS | Noord-Amerika: westkust-VS
-SJO | San Jose, Californië, VS | Noord-Amerika: westkust-VS
+SJC | San Jose, Californië, VS | Noord-Amerika: Westkust VS
+SJO | San Jose, Californië, VS | Noord-Amerika: Westkust VS
 STO | Stockholm, Zweden | Europa
 SYD | Sydney, Australië | Azië
 TIR | Chennai, India | Azië
@@ -150,9 +150,9 @@ TKA | Tokio, Japan | Azië
 TKB | Tokio, Japan | Azië
 TOJ | Madrid, Spanje | Europa
 VAE | Fujairah, Verenigde Arabische Emiraten | Europa
-UIO | Rights Reserved | Latijns-Amerika
+UIO | Quito, Ecuador | Latijns-Amerika
 TAPES | Wenen, Oostenrijk | Europa
-VNY | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: westkust-VS
+VNY | Los Angeles, Californië, Verenigde Staten | Noord-Amerika: Westkust VS
 WAW | Warschau, Polen | Europa
 
 

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: fb684a59362e0f7b6ccdc2ca05fda1b89def2835
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: feafb983a7b9e4aea6091753842b03a65ccd3ca5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351844"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001555"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Hoe u kunt video's in realtime analyseren
 
@@ -194,7 +194,7 @@ De tweede voorbeeld-app is iets interessanter, en stelt u in staat om te kiezen 
 
 In de meeste modi is er een zichtbare vertraging tussen de livevideo aan de linkerkant en de gevisualiseerde analyse aan de rechterkant. Deze vertraging is de tijd die nodig is om de API-aanroep te maken. De uitzondering hierop is in de modus EmotionsWithClientFaceDetect, waarin gezichtsdetectie lokaal wordt uitgevoerd op de clientcomputer met behulp van OpenCV, voordat er afbeeldingen naar Cognitive Services worden verzonden. Op deze manier wordt het gedetecteerde gezicht direct gevisualiseerd en worden de emoties later bijgewerkt zodra de API-aanroep is uitgevoerd. Dit demonstreert de mogelijkheid van een 'hybride' benadering, waarbij bepaalde eenvoudige verwerkingen kunnen worden uitgevoerd op de client, waarna de API's van Cognitive Services kunnen worden gebruikt om dit waar nodig te verbeteren met een meer geavanceerde analyse.
 
-![Schermafbeelding van de LiveCameraSample-app waarin een afbeelding met tags wordt weergegeven](../../Video/Images/FramebyFrame.jpg)
+![Schermafbeelding van LiveCameraSample app tonen installatiekopie met tags weergegeven](../../Video/Images/FramebyFrame.jpg)
 
 ### <a name="integrating-into-your-codebase"></a>Integreren in de codebase
 
@@ -216,7 +216,7 @@ De voorzieningen voor afbeeldingen, spraak, video of tekstbegrip van VideoFrameA
 
 ## <a name="summary"></a>Samenvatting
 
-In deze handleiding hebt u geleerd hoe u bijna in realtime analyses van live-videostreams kunt uitvoeren met behulp van de Face-, Computer Vision- en Emotion-API's en hoe u onze voorbeeldcode kunt gebruiken om snel aan de slag te gaan. U kunt uw eigen app gaan bouwen met behulp van API-sleutels die u gratis kunt ophalen op de [registratiepagina voor Microsoft Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). 
+In deze handleiding hebt u geleerd hoe u bijna in realtime analyses van live-videostreams kunt uitvoeren met behulp van de Face-, Computer Vision- en Emotion-API's en hoe u onze voorbeeldcode kunt gebruiken om snel aan de slag te gaan. U kunt uw eigen app gaan bouwen met behulp van API-sleutels die u gratis kunt ophalen op de [registratiepagina voor Azure Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). 
 
 U kunt feedback en suggesties achterlaten in de [GitHub-opslagplaats](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). Voor meer uitgebreide API-feedback kunt u terecht op onze  [UserVoice-site](https://cognitive.uservoice.com/).
 

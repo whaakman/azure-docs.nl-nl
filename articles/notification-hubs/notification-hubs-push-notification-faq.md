@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 60dbef0f0d6532c9cd30c59902236b7ae4e70b0e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 642e586371a0ce6abe362f8b10b54bfd8baff678
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524188"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998920"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Pushmeldingen verzenden met Azure Notification Hubs: Veelgestelde vragen
 
@@ -53,17 +53,6 @@ Voor de lagen Basic en Standard Notification Hubs kunnen correct geconfigureerde
 
 > [!NOTE]
 > Omdat pushmeldingen te verzenden, is afhankelijk van derden Platform Notification Systems (zoals Apple APNS en Google FCM), is er geen SLA-garantie voor de levering van deze berichten. Nadat de batches Notification Hubs stuurt naar Platform Notification Systems (SLA gegarandeerd), is de verantwoordelijkheid van de Platform Notification Systems leveren de pushes (er wordt geen SLA gegarandeerd).
-
-### <a name="which-customers-are-using-notification-hubs"></a>Welke klanten Notification Hubs gebruiken?
-
-Veel klanten Notification Hubs gebruiken. Sommige die aandacht vereist die worden hier vermeld:
-
-* Sochi 2014: Honderden belangengroepen, 3 miljoen apparaten en 150 miljoen meldingen verzonden binnen twee weken. [Casestudy: Sochi]
-* Skanska: [Casestudy: Skanska]
-* Seattle tijden: [Casestudy: Seattle tijden]
-* Mural.LY: [Casestudy: Mural.ly]
-* 7Digital: [Casestudy: 7Digital]
-* Bing Apps: Tientallen miljoenen apparaten verzenden 3 miljoen berichten per dag.
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Hoe ik upgraden en downgraden van mijn hub of de naamruimte naar een andere laag?
 
@@ -219,11 +208,6 @@ U kunt ook programmatisch toegang tot metrische gegevens. Raadpleeg voor meer in
 [Azure-portal]: https://portal.azure.com
 [Prijzen van Notification Hubs]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[Casestudy: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
-[Casestudy: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
-[Casestudy: Seattle tijden]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[Casestudy: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
-[Casestudy: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [Notification Hubs REST-API 's]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Notification Hubs aan de slag-zelfstudies]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Zelfstudie voor chrome-Apps]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/

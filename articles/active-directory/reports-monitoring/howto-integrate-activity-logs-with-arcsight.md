@@ -1,6 +1,6 @@
 ---
-title: Over het integreren van Azure Active Directory-logboeken met ArcSight met behulp van Azure Monitor (preview) | Microsoft Docs
-description: Meer informatie over het integreren van Azure Active Directory-logboeken met ArcSight met behulp van Azure Monitor (preview)
+title: Over het integreren van Azure Active Directory-logboeken met ArcSight met behulp van Azure Monitor | Microsoft Docs
+description: Meer informatie over het integreren van Azure Active Directory-logboeken met ArcSight met behulp van Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/03/2018
+ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bd7101c641cf69112975cd0431a08ec74f99aac
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 08a265637274f396497da37706391bf44e0c9107
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438101"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996303"
 ---
-# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor-preview"></a>Logboeken van Azure Active Directory integreren met ArcSight met behulp van Azure Monitor (preview)
+# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Logboeken van Azure Active Directory integreren met ArcSight met behulp van Azure Monitor
 
 [Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) is een beveiliging en -gebeurtenissen (SIEM) beheeroplossing waarmee u kunt detecteren en direct reageren op bedreigingen in uw platform. Nu kunt u logboeken van Azure Active Directory (Azure AD) doorsturen naar ArcSight met behulp van Azure Monitor met behulp van de connector ArcSight voor Azure AD. Deze functie kunt u voor het bewaken van uw tenant voor inbreuk op de beveiliging met behulp van ArcSight.  
 
@@ -59,4 +59,4 @@ Downloaden en open de [configuratiehandleiding voor ArcSight SmartConnector voor
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Configuratiehandleiding voor ArcSight SmartConnector voor Azure Monitor Event Hub](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+[Configuratiehandleiding voor ArcSight SmartConnector voor Azure Monitor Event Hub](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)

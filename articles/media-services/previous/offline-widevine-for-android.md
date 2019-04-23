@@ -12,20 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 9570982e18f2698400c2798dd3e29b0ca6160b8c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 55d59871ee72f755fcd881e4f89e56e6d6d1d84e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309739"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995316"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine streaming voor Android  
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Versie 3](../latest/offline-widevine-for-android.md)
 > * [Versie 2](offline-widevine-for-android.md)
+
+> [!NOTE]
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
 
 Naast het beveiligen van inhoud voor het streamen van online inhoud media abonnement en verhuur services aanbieding downloadbare inhoud die werkt als u niet met internet verbonden bent. U moet mogelijk voor het downloaden van inhoud naar uw telefoon of tablet om te worden afgespeeld in vliegtuigmodus wanneer voor een paar dagen losgekoppeld van het netwerk. Aanvullende scenario's, waarin u wilt mogelijk om inhoud te downloaden:
 

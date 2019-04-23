@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 73ceb0a92b97e90b1fdb0c5562d623505e86b870
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784889"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006485"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer widgets insluiten in uw toepassingen
 
@@ -28,7 +28,7 @@ Vanaf versie 2, bevat de widget basis-URL van het account regio. Bijvoorbeeld, e
 
 De widget **Inzichten** bevat alle visuele inzichten die tijdens het indexeringsproces zijn opgehaald uit uw video. De widget voor inzichten ondersteunt de volgende optionele URL-parameters:
 
-|Name|Definitie|Description|
+|Name|Definitie|Beschrijving|
 |---|---|---|
 |widgets|Tekenreeksen gescheiden door komma's|Hiermee beheert u welke inzichten u wilt weergeven. <br/>Voorbeeld: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` geeft alleen inzichten over personen en merken weer in de gebruikersinterface<br/>Beschikbare opties: mensen, trefwoorden, aantekeningen, merken, gevoelens, transcript, zoeken.<br/>niet ondersteund via de URL bij version=2<br/><br/>**Opmerking:** De widgets URL-parameter wordt niet ondersteund in versie 2. |
 
@@ -69,9 +69,9 @@ Als u een **persoonlijke** video wilt insluiten, moet u een toegangstoken doorge
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
-Gebruik de API [**Inzichtenwidget ophalen**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) om de inhoud van de widget Inzichten op te halen, of gebruik [**Toegangstoken van video ophalen**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) en voeg deze toe als een queryparameter aan de URL, zoals hierboven. Geef deze URL op als de waarde **src** van de **iframe**.
+Gebruik de API [**Inzichtenwidget ophalen**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) om de inhoud van de widget Inzichten op te halen, of gebruik [**Toegangstoken van video ophalen**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) en voeg deze toe als een queryparameter aan de URL, zoals hierboven. Geef deze URL op als de waarde **src** van de **iframe**.
 
-Als u de inzichtmogelijkheden wilt bewerken (zoals we in de webtoepassing hebben gedaan) in uw ingesloten widget, moet u een toegangstoken doorgeven met machtigingen voor bewerken. Gebruik [**Inzichtenwidget ophalen**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) of [**Toegangstoken van video ophalen**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) met **&allowEdit=true**. 
+Als u de inzichtmogelijkheden wilt bewerken (zoals we in de webtoepassing hebben gedaan) in uw ingesloten widget, moet u een toegangstoken doorgeven met machtigingen voor bewerken. Gebruik [**Inzichtenwidget ophalen**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) of [**Toegangstoken van video ophalen**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) met **&allowEdit=true**. 
 
 ## <a name="widgets-interaction"></a>Interactie van widgets
 

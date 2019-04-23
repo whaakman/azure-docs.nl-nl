@@ -8,26 +8,26 @@ ms.topic: include
 ms.date: 04/01/2019
 ms.author: jehollan
 ms.custom: include file
-ms.openlocfilehash: e3d3c2791cdc87784a20bcfbb3624c0fe0410b2a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f01ad6e1e6444a417300b38009ac9fbbe5cdbc88
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59528587"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012554"
 ---
-1. Ga naar de Azure-portal
-2. Een nieuwe resource toevoegen door te klikken op de **een resource maken** knop in de Azure portal
-3. Selecteer **Serverloze functie-App**
-4. Geef al uw informatie in de instellingen voor het maken en stel uw **Hosting plan** naar **App Service-Plan**:
+1. Ga naar Azure Portal.
+2. Een nieuwe resource toevoegen door het selecteren van de **een resource maken** knop in de Azure portal.
+3. Selecteer **Serverloze functie-App**.
+4. Geef al uw informatie in de instellingen voor het maken en stel uw **abonnement voor webhosting** naar **App Service-Plan**:
     
     ![Functie-app maken](./media/functions-premium-create/create-function-app-plan.png)  
 
-    1. Selecteer het niveau van een Premium plannen (EP) Service-Plan. 
+    1. Selecteer een Premium-abonnement (EP) voor het service-plan. 
         ![Premium-abonnement selecteren](./media/functions-premium-create/hosting-plan.png)  
 
     1. Valideer uw voltooide schema-instellingen.  
         ![Voltooide app service-plan](./media/functions-premium-create/create-app-service-plan.png)  
     
-1. Uw app en een plan instellingen controleren en klikt u op **maken**
+1. Uw app en een plan instellingen controleren en selecteer **maken**.
 
     ![Voltooide app service-plan](./media/functions-premium-create/create-function-app.png)  

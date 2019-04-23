@@ -9,14 +9,17 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: b5ad1a790f79b11b978c32c5751a6b9333f24c85
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994933"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003697"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Realtime Twitter-sentimentanalyse in Azure Stream Analytics
+
+> [!IMPORTANT] 
+> Maken van de Twitter-toepassing is niet langer beschikbaar is via [apps.twitter.com](https://apps.twitter.com/). In deze zelfstudie wordt momenteel wordt bijgewerkt met de nieuwe Twitter-API.
 
 Meer informatie over het bouwen van een sentiment-analyse-oplossing voor analyse van sociale media door te brengen van realtime Twitter-gebeurtenissen naar Azure Event Hubs. U kunt vervolgens schrijven die een Azure Stream Analytics-query voor het analyseren van de gegevens en een opslaan van de resultaten voor later gebruik of gebruik een dashboard en [Power BI](https://powerbi.com/) waarmee u inzicht in realtime kunt.
 
@@ -282,7 +285,7 @@ De volgende tabel bevat de velden die deel uitmaken van de JSON streamen van geg
 |Onderwerp | Het onderwerp dat overeenkomt met het opgegeven trefwoord|
 |SentimentScore | De gevoelsscore van Sentiment140|
 |Auteur | De Twitter-handle die de tweet verzonden|
-|Tekst | De volledige hoofdtekst van de tweet|
+|Text | De volledige hoofdtekst van de tweet|
 
 
 ## <a name="create-an-output-sink"></a>Maken van een uitvoer-sink

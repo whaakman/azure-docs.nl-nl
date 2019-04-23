@@ -1,24 +1,23 @@
 ---
 title: Azure-reserveringen beheren | Microsoft Docs
 description: Informatie over het bereik van abonnement wijzigen en toegang voor Azure-reserveringen beheren.
-services: billing
+ms.service: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
 editor: ''
-ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904438"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994946"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Reserveringen voor Azure-resources beheren
 
@@ -29,7 +28,19 @@ Als u Azure Reserved Virtual Machine Instances hebt gekocht, kunt u de instellin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="change-the-scope-for-a-reservation"></a>Het bereik voor een reservering wijzigen
+## <a name="reservation-order-and-reservation"></a>Reserveringsorder en reservering
+
+Wanneer u van een reservering koopt, worden twee objecten gemaakt: **Reserveringsorder** en **reservering**.
+
+Op het moment van aankoop heeft een Reserveringsorder één reservering daaronder. Acties zoals splitsen, samenvoegen, gedeeltelijke restitutie of exchange maken nieuwe reserveringen onder de **Reserveringsorder**.
+
+Als u wilt een Reserveringsorder weergeven, gaat u naar **reserveringen** > Selecteer de reservering en klik vervolgens op de **Reserveringsorder-ID**.
+
+![Voorbeeld van details van de reservering met de Reserveringsorder-ID ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
+
+Een reservering machtigingen worden overgenomen van de reserveringsorder.
+
+## <a name="change-the-reservation-scope"></a>Het reserveringsbereik wijzigen
 
  De reserveringskorting is van toepassing op virtuele machines, SQL databases, Azure Cosmos DB of andere bronnen die overeenkomen met uw reservering en uitvoeren in het reserveringsbereik. De context van de facturering is afhankelijk van het abonnement dat u gebruikt de reservering kopen.
 
@@ -47,9 +58,12 @@ Het bereik is alleen van toepassing op de aanbieding voor betalen per gebruik MS
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Gebruikers toevoegen of wijzigen die een reservering kunnen beheren
 
-U kunt het beheer van een reservering delegeren door personen toe te voegen aan rollen voor de reservering. De standaardinstelling is dat de persoon die de reservering heeft gekocht en de accountbeheerder de rol van eigenaar hebben voor de reservering.
+U kunt reservering beheer delegeren door personen toe te voegen aan de rollen op de reserveringsorder of de reservering. De persoon die de reserveringsorder en de accountbeheerder wordt geplaatst hebben standaard de rol van eigenaar van de reserveringsorder en de reservering.
 
-U kunt onafhankelijk toegang tot reserveringen beheren van de abonnementen die aan de reserveringskorting. Als u iemand machtigingen geven voor het beheren van een reservering, die geen geeft deze rechten het abonnement te beheren. En als u iemand machtigingen voor het beheren van een abonnement binnen het bereik van de reservering geeft, dat deze rechten voor het beheren van de reservering niet geeft.
+U kunt toegang tot de reserveringen orders en reserveringen onafhankelijk van de abonnementen die aan de reserveringskorting beheren. Wanneer u iemand machtigingen voor het beheren van een reserveringsorder of de reservering geeft, geeft geen deze machtiging voor het beheren van het abonnement. Op dezelfde manier als u iemand machtigingen voor het beheren van een abonnement binnen het bereik van de reservering geeft, geeft geen deze rechten voor het beheren van de reserveringsorder of de reservering.
+
+Als u een exchange- of restitutie, moet de gebruiker toegang hebben tot de reserveringsorder. Wanneer iemand machtigingen verlenen, is het raadzaam te machtigen om de volgorde van de reservering, niet de reservering.
+
 
 Om te delegeren van beheer van toegang voor een reservering:
 

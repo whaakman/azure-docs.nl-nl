@@ -17,18 +17,18 @@ ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7ed2830b704d379e2ecc5a5e548f831800af56d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: d9d2e9aa5e5e805b302763f5417110cdd078eb3b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526381"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997594"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Quickstart: De Microsoft Graph-API aanroepen vanuit de Universeel Windows-platformtoepasing (UWP)
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-Deze quickstart bevat een codevoorbeeld dat laat zien hoe een UWP-toepassing (Universeel Windows-platform) kan worden gebruikt om gebruikers aan te melden met persoonlijke accounts, en werk- en schoolaccounts, een toegangstoken op te halen en de Microsoft Graph API aan te roepen.
+In deze snelstartgids bevat een codevoorbeeld van die laat zien hoe een Universal Windows Platform (UWP)-toepassing kunt aanmelden van gebruikers met persoonlijke accounts of werk en schoolaccounts, een toegangstoken en de Microsoft Graph-API aanroepen.
 
 ![Laat zien hoe de voorbeeld-app die is gegenereerd door deze Quick Start werkt](media/quickstart-v2-uwp/uwp-intro.svg)
 
@@ -72,7 +72,7 @@ Deze quickstart bevat een codevoorbeeld dat laat zien hoe een UWP-toepassing (Un
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Stap 2: uw Visual Studio-project downloaden
 
- - [Download het Visual Studio 2017-project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+ - [Download het Visual Studio-project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Stap 3: uw Visual Studio-project configureren
 
@@ -89,7 +89,7 @@ Deze quickstart bevat een codevoorbeeld dat laat zien hoe een UWP-toepassing (Un
 > - `Enter_the_Application_Id_here`: de toepassings-id voor de toepassing die u hebt geregistreerd.
 >
 > > [!TIP]
-> > Zoeken naar de waarden van *toepassings-ID*, gaat u naar de **overzicht** pagina
+> > De waarde van *toepassings-ID*, gaat u naar de **overzicht** sectie in de portal
 
 #### <a name="step-4-run-your-application"></a>Stap 4: Uw toepassing uitvoeren
 
@@ -119,7 +119,7 @@ U kunt de verwijzing voor MSAL toevoegen door de volgende code toe te voegen:
 using Microsoft.Identity.Client;
 ```
 
-Vervolgens initialiseert u MSAL met de volgende code:
+Vervolgens is MSAL geïnitialiseerd met de volgende code:
 
 ```csharp
 public static IPublicClientApplication PublicClientApp;
@@ -133,11 +133,11 @@ PublicClientApp = new PublicClientApplicationBuilder.Create(ClientId)
 
 ### <a name="requesting-tokens"></a>Tokens aanvragen
 
-MSAL biedt twee methoden die worden gebruikt voor het verkrijgen van tokens interactief: `AcquireTokenInteractive` en `AcquireTokenSilent`.
+MSAL biedt twee methoden voor het verkrijgen van tokens in een UWP-app: `AcquireTokenInteractive` en `AcquireTokenSilent`.
 
 #### <a name="get-a-user-token-interactively"></a>Een gebruikerstoken interactief ophalen
 
-In sommige situaties moet afdwingen gebruikers werken interactief met het eindpunt van de Microsoft identity-platform via een pop-upvenster ofwel hun om referenties te valideren of om toestemming te geven. Voorbeelden zijn:
+In sommige situaties moet dat gebruikers kunnen communiceren met het eindpunt van de Microsoft identity-platform via een pop-upvenster ofwel hun om referenties te valideren of om toestemming te geven. Voorbeelden zijn:
 
 - De eerste keer dat gebruikers zich aanmelden bij de toepassing
 - Wanneer gebruikers mogelijk hun referenties opnieuw moeten opgeven omdat het wachtwoord is verlopen
@@ -155,7 +155,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 #### <a name="get-a-user-token-silently"></a>Een gebruikerstoken op de achtergrond ophalen
 
-U wilt niet dat de gebruiker telkens wanneer deze toegang nodig heeft tot een resource, de referenties moet laten valideren. In de meeste gevallen wilt u tokens ophalen en verlengen zonder tussenkomst van de gebruiker. U kunt de methode `AcquireTokenSilent` voor het verkrijgen van tokens gebruiken voor toegang tot beveiligde resources na de eerste methode `AcquireTokenAsync`:
+Gebruik de `AcquireTokenSilent` methode voor het verkrijgen van tokens voor toegang tot beveiligde resources na de eerste `AcquireTokenAsync` methode. U wilt niet dat de gebruiker voor het valideren van hun referenties telkens wanneer ze nodig hebben voor toegang tot een resource. De meeste gevallen wilt u token aankopen en verlenging zonder tussenkomst van de gebruiker
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

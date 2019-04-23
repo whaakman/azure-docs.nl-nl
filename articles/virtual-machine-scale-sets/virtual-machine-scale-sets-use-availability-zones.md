@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 24cff3a2ec4d0bed7a030ca430eaa698eb4a7325
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7fa903f65a6c7d244ff424eae4a0def258b50bbc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278765"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994704"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Maken van een virtuele-machineschaalset die gebruikmaakt van Beschikbaarheidszones
 
@@ -62,7 +62,7 @@ Wanneer u een virtuele-machineschaalset implementeert, kunt u kiezen om één Be
 
 Wanneer u een schaalset maken in een enkele zone, u bepaalt welke zone alle deze VM-exemplaren in de uitgevoerd en de schaalset wordt beheerd en automatisch wordt geschaald alleen in deze zone. Een zone-redundante schaalset kunt u één schaalset die meerdere zones omvat maken. Als de VM-exemplaren zijn gemaakt, wordt standaard worden ze gelijkmatig verdeeld over zones. Moet een onderbreking optreedt op een van de zones, een schaalset wordt niet automatisch worden uitgebreid om capaciteit te vergroten. Een best practice is het configureren van regels voor automatisch schalen op basis van CPU-en geheugengebruik. De regels voor automatisch schalen kunnen de schaal die is ingesteld om te reageren op een verlies van de VM-exemplaren in een zone door nieuwe instanties in de resterende operationele zones uitschaling.
 
-Als u wilt gebruiken voor Beschikbaarheidszones, moet uw schaalset worden gemaakt in een [ondersteunde Azure-regio](../availability-zones/az-overview.md#regions-that-support-availability-zones). U kunt een schaalset die gebruikmaakt van Beschikbaarheidszones met een van de volgende manieren maken:
+Als u wilt gebruiken voor Beschikbaarheidszones, moet uw schaalset worden gemaakt in een [ondersteunde Azure-regio](../availability-zones/az-overview.md#services-support-by-region). U kunt een schaalset die gebruikmaakt van Beschikbaarheidszones met een van de volgende manieren maken:
 
 - [Azure-portal](#use-the-azure-portal)
 - Azure-CLI

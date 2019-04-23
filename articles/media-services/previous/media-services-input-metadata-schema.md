@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: cdca2823962c442c9142fa439795269f419aa489
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: fa4487b07f130947ac5da2a5dbae6776b06acbe7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189679"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009891"
 ---
 # <a name="input-metadata"></a>Invoermetagegevens 
 
@@ -48,7 +48,7 @@ Bekijk een voorbeeld XML aan het einde van dit artikel: [XML-voorbeeld](media-se
  Bekijk een voorbeeld XML aan het einde van dit artikel: [XML-voorbeeld](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Kenmerken
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **Naam**<br /><br /> Vereist |**xs:String** |Asset-bestandsnaam. |
 | **Grootte**<br /><br /> Vereist |**xs:long** |Grootte van het assetbestand in bytes. |
@@ -65,7 +65,7 @@ Bekijk een voorbeeld XML aan het einde van dit artikel: [XML-voorbeeld](media-se
 > 
 
 ### <a name="child-elements"></a>Onderliggende elementen
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **Programs**<br /><br /> minOccurs="0" | |Verzameling van alle [programma's-element](media-services-input-metadata-schema.md#Programs) wanneer het assetbestand MPEG-TS-indeling heeft. |
 | **VideoTracks**<br /><br /> minOccurs="0" | |Elk bestand fysiek activum mag nul of meer video's worden bijgehouden in een indeling voor de juiste container interleaved. Dit element bevat een verzameling van alle [VideoTracks](media-services-input-metadata-schema.md#VideoTracks) die deel uitmaken van het assetbestand. |
@@ -122,7 +122,7 @@ Het type vertegenwoordigt een specifieke video bijhouden in het assetbestand.
 Bekijk een voorbeeld XML aan het einde van dit artikel: [XML-voorbeeld](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Kenmerken
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **FourCC**<br /><br /> Vereist |**xs:String** |Video-codec code code. |
 | **Profiel** |**xs: tekenreeks** |Profiel van de video bijhouden. |
@@ -146,7 +146,7 @@ Bekijk een voorbeeld XML aan het einde van dit artikel: [XML-voorbeeld](media-se
 Bekijk een voorbeeld XML aan het einde van dit artikel: [XML-voorbeeld](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Kenmerken
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **sleutel**<br /><br /> Vereist |**xs:String** |De sleutel in het sleutel/waarde-paar. |
 | **value**<br /><br /> Vereist |**xs:String** |De waarde in het sleutel/waarde-paar. |
@@ -170,7 +170,7 @@ Bekijk een voorbeeld XML aan het einde van dit artikel: [XML-voorbeeld](media-se
 Bekijk een voorbeeld XML aan het einde van dit artikel: [XML-voorbeeld](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Kenmerken
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **Standaard**<br /><br /> Vereist |**xs: int** |Dit kenmerk ingesteld op 1 om aan te geven dat dit de standaardpresentatie. |
 | **Dub**<br /><br /> Vereist |**xs:int** |Dit kenmerk ingesteld op 1 om aan te geven dat dit de Nagesynchroniseerde presentatie. |
@@ -179,7 +179,7 @@ Bekijk een voorbeeld XML aan het einde van dit artikel: [XML-voorbeeld](media-se
 | **Lyrics**<br /><br /> Vereist |**xs:int** |Dit kenmerk ingesteld op 1 om aan te geven dat dit nummer bevat teksten. |
 | **Karaoke**<br /><br /> Vereist |**xs:int** |Dit kenmerk ingesteld op 1 om aan te geven dat dit verwijst naar de track karaoke (achtergrondmuziek, geen zang). |
 | **Geforceerde**<br /><br /> Vereist |**xs:int** |Dit kenmerk ingesteld op 1 om aan te geven dat dit de geforceerde presentatie. |
-| **HearingImpaired**<br /><br /> Vereist |**xs:int** |Dit kenmerk ingesteld op 1 om aan te geven dit nummer voor de slechthorenden. |
+| **HearingImpaired**<br /><br /> Vereist |**xs:int** |Dit kenmerk ingesteld op 1 om aan te geven deze bijhouden voor mensen die slechthorend zijn. |
 | **VisualImpaired**<br /><br /> Vereist |**xs:int** |Dit kenmerk ingesteld op 1 om aan te geven deze bijhouden voor slechtzienden. |
 | **CleanEffects**<br /><br /> Vereist |**xs: int** |Dit kenmerk ingesteld op 1 om aan te geven dat deze bijhouden schone gevolgen heeft. |
 | **AttachedPic**<br /><br /> Vereist |**xs: int** |Dit kenmerk ingesteld op 1 om aan te geven deze bijhouden afbeeldingen. |
@@ -208,7 +208,7 @@ Wrapper-element met meerdere **programma** elementen.
  Bekijk een voorbeeld XML aan het einde van dit artikel: [XML-voorbeeld](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="elements"></a>Elementen
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **AudioTrack**<br /><br /> minOccurs = "0" maxOccurs = "niet-gebonden" |[AudioTrackType (overgenomen van TrackType)](media-services-input-metadata-schema.md#AudioTrackType) |Bevat informatie over audionummers in het assetbestand. |
 

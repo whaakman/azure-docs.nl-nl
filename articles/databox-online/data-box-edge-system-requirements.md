@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006360"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996744"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box-Edge-systeemvereisten
 
@@ -82,7 +82,7 @@ U wordt aangeraden dat u uw firewall-regels voor uitgaand verkeer, op basis van 
 
 | URL-patroon                      | Onderdeel of functionaliteit                     |   
 |----------------------------------|---------------------------------------------|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft-containerregister (vereist)               |
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft-containerregister (vereist)               |
 | https://\*.azurecr.io                     | Persoonlijke en van derden container Registry (optioneel) | 
 | https://\*.azure-devices.net              | IoT Hub-toegang (vereist)                             | 
 
@@ -94,7 +94,7 @@ U wordt aangeraden dat u uw firewall-regels voor uitgaand verkeer, op basis van 
 
 | URL-patroon                      | Onderdeel of functionaliteit                     |  
 |----------------------------------|---------------------------------------------|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft-containerregister (vereist)               |
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft-containerregister (vereist)               |
 | https://\*.azure-devices.us              | IoT Hub-toegang (vereist)           |
 | https://\*.azurecr.us                    | Persoonlijke en van derden container Registry (optioneel) | 
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: e3fc5a3dc5dc40078ca3a4733f6a2ba11da450f1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b97d21503e8dcd75906581faf1851533bcd69fa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681213"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009341"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -399,22 +399,29 @@ Meer informatie over het gebruik van PolyBase te laden efficiënt SQL Data Wareh
 
 Met behulp van [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) is een efficiënte manier om een grote hoeveelheid gegevens in Azure SQL Data Warehouse laden met hoge doorvoer. Met behulp van PolyBase in plaats van het standaardmechanisme voor BULKINSERT ziet u een grote toename in de doorvoer. Zie [prestaties verwijzing](copy-activity-performance.md#performance-reference) voor een gedetailleerde vergelijking. Zie voor een overzicht met een use case [1 TB laden in Azure SQL Data Warehouse](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse).
 
-* Als de brongegevens bevinden zich in Azure Blob storage of Azure Data Lake Store en de indeling compatibel met PolyBase, rechtstreeks van de kopie in Azure SQL Data Warehouse is met behulp van PolyBase. Zie voor meer informatie,  **[directe kopiëren met behulp van PolyBase](#direct-copy-by-using-polybase)**.
+* Als de brongegevens bevinden zich in **Azure Blob, Azure Data Lake Storage Gen1 of Azure Data Lake Storage Gen2**, en de **indeling is compatibel PolyBase**, kunt u activiteit kopiëren om aan te roepen rechtstreeks PolyBase zodat Azure SQL Data Warehouse ophalen van de gegevens uit de bron. Zie voor meer informatie,  **[directe kopiëren met behulp van PolyBase](#direct-copy-by-using-polybase)**.
 * Als de bron-gegevensopslag en -indeling wordt niet oorspronkelijk ondersteund door PolyBase, gebruikt u de **[gefaseerd kopiëren met behulp van PolyBase](#staged-copy-by-using-polybase)** functie in plaats daarvan. De functie gefaseerd kopiëren biedt u ook betere doorvoer. De gegevens wordt automatisch geconverteerd in PolyBase-compatibele indeling. En de gegevens worden opgeslagen in Azure Blob-opslag. Vervolgens worden de gegevens in SQL Data Warehouse geladen.
 
 ### <a name="direct-copy-by-using-polybase"></a>Directe kopiëren met behulp van PolyBase
 
-SQL Data Warehouse PolyBase biedt rechtstreeks ondersteuning voor Azure BLOB Storage en Azure Data Lake Store. Het service-principal gebruikt als een bron en vereisten voor een specifieke indeling heeft. Als de brongegevens voldoet aan de criteria die in deze sectie beschreven, moet u PolyBase gebruiken om te kopiëren direct van de bron-gegevensopslag naar Azure SQL Data Warehouse. Gebruik anders [gefaseerd kopiëren met behulp van PolyBase](#staged-copy-by-using-polybase).
+SQL Data Warehouse PolyBase biedt rechtstreeks ondersteuning voor Azure BLOB Storage, Azure Data Lake Storage Gen1 en Gen2 Azure Data Lake-opslag. Als de brongegevens voldoet aan de criteria die in deze sectie beschreven, moet u PolyBase gebruiken om te kopiëren rechtstreeks vanuit de bron-gegevensopslag naar Azure SQL Data Warehouse. Gebruik anders [gefaseerd kopiëren met behulp van PolyBase](#staged-copy-by-using-polybase).
 
 > [!TIP]
-> Meer informatie om gegevens te kopiëren efficiënt van Data Lake Store met SQL Data Warehouse, [Azure Data Factory kunt u nog gemakkelijker en handige om inzichten te verwerven in gegevens bij het gebruik van Data Lake Store met SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
+> Meer informatie voor het kopiëren van gegevens efficiënt naar SQL Data Warehouse, [Azure Data Factory kunt u nog gemakkelijker en handige om inzichten te verwerven in gegevens bij het gebruik van Data Lake Store met SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
 
 Als aan de vereisten zijn niet voldaan, wordt Azure Data Factory controleert of de instellingen en automatisch terugvalt op het mechanisme BULKINSERT voor de verplaatsing van gegevens.
 
-1. De **bron gekoppelde service** type Azure Blob-opslag is (**Azure BLOB Storage**/**AzureStorage**) met **sleutelverificatie account**  of Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) met **service-principal verificatie**.
-2. De **invoergegevensset** type **AzureBlob** of **AzureDataLakeStoreFile**. Het indelingstype onder `type` eigenschappen is **OrcFormat**, **ParquetFormat**, of **TextFormat**, met de volgende configuraties:
+1. De **bron gekoppelde service** is met de volgende typen en verificatiemethoden:
 
-   1. `fileName` filteren op jokerteken bevat.
+    | Type gegevensopslag ondersteunde bron | Ondersteunde bron-verificatietype |
+    |:--- |:--- |
+    | [Azure Blob](connector-azure-blob-storage.md) | Verificatie van account-sleutel |
+    | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Verificatie van service-principal |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Verificatie van account-sleutel |
+
+2. De **gegevensset bronopmaak** is van het **ParquetFormat**, **OrcFormat**, of **TextFormat**, met de volgende configuraties:
+
+   1. `folderPath` en `fileName` niet filteren op jokerteken bevatten.
    2. `rowDelimiter` moet **\n**.
    3. `nullValue` is een ingesteld op **lege tekenreeks** ("") of als standaard, links en `treatEmptyAsNull` als standaard links of ingesteld op true.
    4. `encodingName` is ingesteld op **utf-8**, dit is de standaardwaarde.
@@ -423,7 +430,7 @@ Als aan de vereisten zijn niet voldaan, wordt Azure Data Factory controleert of 
 
       ```json
       "typeProperties": {
-        "folderPath": "<blobpath>",
+        "folderPath": "<path>",
         "format": {
             "type": "TextFormat",
             "columnDelimiter": "<any delimiter>",
@@ -431,10 +438,6 @@ Als aan de vereisten zijn niet voldaan, wordt Azure Data Factory controleert of 
             "nullValue": "",
             "encodingName": "utf-8",
             "firstRowAsHeader": <any>
-        },
-        "compression": {
-            "type": "GZip",
-            "level": "Optimal"
         }
       },
       ```
@@ -592,7 +595,7 @@ Wanneer u gegevens van of naar Azure SQL Data Warehouse kopieert, worden de volg
 | timestamp | Byte[] |
 | tinyint | Byte |
 | uniqueidentifier | Guid |
-| varbinary | Byte[] |
+| Varbinary | Byte[] |
 | varchar | String, Char[] |
 | xml | Xml |
 

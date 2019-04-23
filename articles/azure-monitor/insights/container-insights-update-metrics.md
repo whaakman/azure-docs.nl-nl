@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 15be0039006d322c3d5e19d4ef141d1543c7b1c0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 2f500ea127d3f2042e7c97eeace592b4da8d8d0e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580671"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995979"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Het bijwerken van Azure Monitor voor containers om in te schakelen van metrische gegevens
 Azure Monitor voor containers introduceert ondersteuning voor het verzamelen van metrische gegevens van Azure Kubernetes-Services (AKS) clusters knooppunten en schillen en aan het archief van de metrische gegevens over Azure Monitor worden geschreven. Deze wijziging is bedoeld om verbeterde tijdigheid te leveren bij het weergeven van statistische berekeningen (Avg, Count, Max, Min, Sum) in de prestatiegrafieken vastmaken prestatiegrafieken weergegeven in Azure portal-dashboards, ondersteuning en ondersteuning voor metrische waarschuwingen.
@@ -35,7 +35,7 @@ Bijwerken van het cluster ter ondersteuning van deze nieuwe mogelijkheden kan wo
 Een toegewezen verwerken de **bewaking metrische gegevens Publisher** rol aan de service-principal van het cluster zodat de gegevens die worden verzameld door de agent kan worden gepubliceerd naar uw clusters-resource. Machtiging voor push-metrische gegevens naar de resource alleen bewaking van metrische gegevens over uitgever heeft, kan niet het wijzigen van een staat, bijwerken van de resource of geen gegevens lezen. Zie voor meer informatie over de rol [bewaking metrische gegevens uitgeversrol](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
 ## <a name="prerequisites"></a>Vereisten 
-Voordat u begint, zorgt u ervoor dat u lid van bent de **[eigenaar](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.mds#owner)** rol op de bron van de AKS-cluster te verzamelen van knooppunt en pod metrische gegevens voor aangepaste prestaties. 
+Voordat u begint, zorgt u ervoor dat u lid van bent de **[eigenaar](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.md#owner)** rol op de bron van de AKS-cluster te verzamelen van knooppunt en pod metrische gegevens voor aangepaste prestaties. 
 
 Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lokaal gebruikt. U moet worden uitgevoerd van Azure CLI versie 2.0.59 of hoger. Voor het identificeren van uw versie uitvoeren `az --version`. Als u wilt installeren of upgraden van de Azure CLI, Zie [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 

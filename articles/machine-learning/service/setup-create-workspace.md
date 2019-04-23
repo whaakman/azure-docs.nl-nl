@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/21/2019
-ms.openlocfilehash: e2304f45cef2db720adf4430868205c00714034f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.date: 04/19/2019
+ms.openlocfilehash: cc6c93420e939e90e12b989def491199fd2c6b15
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547945"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006995"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Een Azure Machine Learning-service-werkruimte maken
 
@@ -27,7 +27,9 @@ In dit artikel leert u hoe u een werkruimte maken met behulp van deze methoden:
 * Een Azure Resource Manager-sjabloon
 * De [Azure Machine Learning CLI](#cli)
 
-De werkruimte die u maakt met behulp van de stappen die u hier in kan worden gebruikt als een vereiste voor andere zelfstudies en artikelen met procedures. 
+De werkruimte die u maakt met behulp van de stappen die u hier in kan worden gebruikt als een vereiste voor andere zelfstudies en artikelen met procedures.
+
+Als u een script gebruiken wilt voor het instellen van geautomatiseerde machine learning in een lokale Python-omgeving raadpleegt u de [Azure/MachineLearningNotebooks GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) voor instructies.  
 
 Wanneer u een werkruimte maakt zijn de volgende Azure-resources automatisch (als ze regionaal beschikbaar) toegevoegd:
  

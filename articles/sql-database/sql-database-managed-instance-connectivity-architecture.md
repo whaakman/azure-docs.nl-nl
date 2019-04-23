@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
-ms.date: 02/26/2019
-ms.openlocfilehash: 82b533f7293e00469a5b92b02e8d58967379a585
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/16/2019
+ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59497063"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006128"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architectuur van de verbinding voor een beheerd exemplaar in Azure SQL Database
 
@@ -111,7 +111,7 @@ Implementeer een beheerd exemplaar in een speciaal subnet binnen het virtuele ne
 |mi_subnet   |Alle           |Alle     |MI-SUBNET        |MI-SUBNET  |Toestaan |
 
 > [!IMPORTANT]
-> Zorg ervoor dat er slechts één binnenkomende regel voor poorten 9000, 9003, 1438, 1440, 1452 en een uitgaande regel voor de poorten 80, 443, 12000. Beheerd exemplaar inrichten via Azure Resource Manager implementaties mislukken als er regels voor binnenkomende en uitvoer afzonderlijk voor elke poort zijn geconfigureerd. Als deze poorten in afzonderlijke regels worden, mislukt de implementatie met foutcode `VnetSubnetConflictWithIntendedPolicy`
+> Zorg ervoor dat er slechts één binnenkomende regel voor poorten 9000, 9003, 1438, 1440, 1452 en een uitgaande regel voor de poorten 80, 443, 12000. Beheerd exemplaar inrichten via Azure Resource Manager implementaties mislukken als er regels voor binnenkomende en uitgaande afzonderlijk voor elke poort zijn geconfigureerd. Als deze poorten in afzonderlijke regels worden, mislukt de implementatie met foutcode `VnetSubnetConflictWithIntendedPolicy`
 
 \* MI-SUBNET verwijst naar het IP-adresbereik voor het subnet in het formulier 10.x.x.x/y. U kunt deze informatie vinden in de Azure-portal in de subneteigenschappen van het.
 

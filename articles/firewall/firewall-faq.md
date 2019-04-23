@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 4/17/2019
 ms.author: victorh
-ms.openlocfilehash: a89a7e3abbb94465a2ea5eb61eda3e967c26d1f0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: fcff4ff141dbac84d0b96c166c36018b0cc09d8e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680823"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997560"
 ---
 # <a name="azure-firewall-faq"></a>Veelgestelde vragen over de Firewall van Azure
 
@@ -137,7 +137,7 @@ Ja. De firewall, subnet, VNet en het openbare IP-adres moeten zich in dezelfde r
 
 Nee. NAT-regels toevoegen impliciet een overeenkomende regel om de vertaalde verkeer te staan. U kunt dit gedrag overschrijven door expliciet een verzameling netwerkregels toe te voegen met regels voor weigeren die overeenkomen met het omgezette verkeer. Zie [Verwerkingslogica voor Azure Firewall-regels](/articles/firewall/rule-processing.md) voor meer informatie over de verwerkingslogica voor Azure Firewall-regels.
 
-## <a name="how-to-wildcards-work-in-an-application-rule-target-fqdn"></a>Hoe op jokertekens werken in het doel in een toepassing-regel FQDN?
+## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Hoe werken jokertekens in het doel in een toepassing-regel FQDN?
 
 Als u configureert ***. contoso.com**, hierdoor *anyvalue*. contoso.com, maar niet contoso.com (het toppunt van de domein). Als u toestaan dat het toppunt van het domein wilt, moet u deze expliciet configureren als een doel-FQDN.
 

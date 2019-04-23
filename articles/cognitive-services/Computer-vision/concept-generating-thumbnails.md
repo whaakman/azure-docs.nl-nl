@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cea8522a9f3eb8fa98821c1cb08d92a9524d5ce4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8bbc86f5c6fe0f30968a1ba5bd5fa28160ef6963
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876796"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002431"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Genereren van miniaturen smart bijgesneden met Computer Vision
 
@@ -38,15 +38,15 @@ U krijgt ook de onbewerkte selectiekader box-coördinaten van deze dezelfde *int
 
 De miniatuur van het gegenereerde kan sterk verschillen, afhankelijk van wat u voor de hoogte, breedte en slim bijsnijden opgeeft, zoals wordt weergegeven in de volgende afbeelding.
 
-![Miniaturen](./Images/thumbnail-demo.png)
+![Een installatiekopie mountain naast verschillende bijsnijden configuraties](./Images/thumbnail-demo.png)
 
 De volgende tabel ziet u standaard miniatuurweergaven die worden gegenereerd door de Computer Vision voor installatiekopieën van het voorbeeld. De miniaturen zijn gegenereerd voor een opgegeven doel-hoogte en breedte van 50 pixels, met een slim bijsnijden ingeschakeld.
 
-| Installatiekopie | Miniatuur |
+| Image | Miniatuur |
 |-------|-----------|
-|![Een persoon die permanent op een rock mountain zonsondergang](./Images/mountain_vista.png) | ![Buitengebruik Mountain miniatuur](./Images/mountain_vista_thumbnail.png) |
+|![Mountain buitengebruik zonsondergang met van een persoon silhouet](./Images/mountain_vista.png) | ![Miniatuur van buitengebruik Mountain zonsondergang met van een persoon silhouet](./Images/mountain_vista_thumbnail.png) |
 |![Een wit bloem met een groene achtergrond](./Images/flower.png) | ![Vision analyseren bloem miniatuur](./Images/flower_thumbnail.png) |
-|![Een vrouw die op het plafond van een gebouw apartment](./Images/woman_roof.png) | ![Vrouw plafond miniatuur](./Images/woman_roof_thumbnail.png) |
+|![Een vrouw die op het plafond van een gebouw apartment](./Images/woman_roof.png) | ![miniatuur van een vrouw die op het plafond van een gebouw apartment](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Volgende stappen
 

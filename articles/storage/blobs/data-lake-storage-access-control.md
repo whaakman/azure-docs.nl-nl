@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e8d7d77128acd4bdb81a99ac6756a5e28b4a408f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802949"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001589"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Toegangsbeheer in Azure Data Lake Storage Gen2
 
@@ -285,7 +285,7 @@ Er wordt een GUID weergegeven als de betekenis van een gebruiker en dat de gebru
 
 Bij het definiëren van ACL's voor service-principals, is het belangrijk dat u de Object-ID (OID) van de *service-principal* voor de appregistratie van de die u hebt gemaakt. Het is belangrijk te weten dat geregistreerde apps een afzonderlijke service-principal in de specifieke hebben Azure AD-tenant. Geregistreerde apps hebben een OID die zichtbaar is in de Azure-portal, maar de *service-principal* heeft een andere (verschillende) OID.
 
-Als u de OID voor de service-principal die overeenkomt met een app-registratie, kunt u de `az ad sp show` opdracht. Geef de toepassings-ID als de parameter. Hier volgt een voorbeeld over het verkrijgen van de OID voor de service-principal die overeenkomt met de appregistratie van een met App-Id = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Voer de volgende opdracht uit in de Azure CLI:
+Als u de OID voor de service-principal die overeenkomt met een app-registratie, kunt u de `az ad sp show` opdracht. Geef de toepassings-ID als de parameter. Hier volgt een voorbeeld over het verkrijgen van de OID voor de service-principal die overeenkomt met de appregistratie van een met App-ID = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Voer de volgende opdracht uit in de Azure CLI:
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`

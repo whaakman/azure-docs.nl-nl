@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: ca6667a5353d253743a45d5db742811d8e15ed31
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: fd420ea3fc4faae7fe4510a72204d71acaa3549a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682114"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009922"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Zelfstudie: Azure Active Directory-integratie met Rackspace SSO
 
@@ -72,7 +72,7 @@ Voor het configureren van de integratie van Rackspace SSO in Azure AD, moet u Ra
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Rackspace SSO op basis van een testgebruiker met de naam **Britta Simon**.
-Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Rackspace SSO tot stand worden gebracht.
+Als u eenmalige aanmelding voor Rackspace, wordt de gebruikers Rackspace automatisch gemaakt de eerste keer dat ze zich aanmelden bij de portal Rackspace. 
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Rackspace SSO, moet u de volgende bouwstenen voltooien:
 
@@ -80,8 +80,8 @@ Om te configureren en testen van Azure AD eenmalige aanmelding met Rackspace SSO
 2. **[Configureer Rackspace SSO Single Sign-On](#configure-rackspace-sso-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
 3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Maak Rackspace SSO testgebruiker](#create-rackspace-sso-test-user)**  : als u wilt een equivalent van Britta Simon in Rackspace SSO die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+1. **[Instellen van het kenmerk toewijzen in het Configuratiescherm Rackspace](#set-up-attribute-mapping-in-the-rackspace-control-panel)**  - Rackspace rollen toewijzen aan Azure AD-gebruikers.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -121,21 +121,21 @@ Voor het configureren van Azure AD eenmalige aanmelding met Rackspace SSO, moet 
 
     ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-6. Op de **Rackspace SSO instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
-
-    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
-
-    a. Aanmeldings-URL
-
-    b. Azure AD-id
-
-    c. Afmeldings-URL
+Dit bestand worden geüpload naar Rackspace voor het vullen van de vereiste configuratie-instellingen van identiteitsfederatie.
 
 ### <a name="configure-rackspace-sso-single-sign-on"></a>Configureren van eenmalige aanmelding Rackspace Single Sign-On
 
-Het configureren van eenmalige aanmelding op **Rackspace SSO** zijde, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** en toepassing van de gekopieerde URL's van Azure portal om te [Rackspace SSO-ondersteuningsteam ](https://support.rackspace.com/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Het configureren van eenmalige aanmelding op **Rackspace SSO** aan clientzijde:
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+1. Zie de documentatie bij [een id-Provider toevoegen aan het Configuratiescherm](https://developer.rackspace.com/docs/rackspace-federation/gettingstarted/add-idp-cp/)
+1. Dit leidt u door de stappen voor het:
+    1. Een nieuwe id-Provider maken
+    1. Geef een e-mailadresdomein dat gebruikers wordt gebruikt voor het identificeren van uw bedrijf bij het aanmelden.
+    1. Upload de **federatieve metagegevens-XML** eerder hebt gedownload van het Configuratiescherm van Azure.
+
+Hiermee correct configureert u de standaard SSO-instellingen die nodig zijn voor Azure en Rackspace om verbinding te maken.
+
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -185,15 +185,58 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-### <a name="create-rackspace-sso-test-user"></a>Rackspace SSO testgebruiker maken
+### <a name="set-up-attribute-mapping-in-the-rackspace-control-panel"></a>Instellen van het kenmerk toewijzen in het Configuratiescherm Rackspace
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Rackspace SSO. Werken met [Rackspace SSO-ondersteuningsteam](https://support.rackspace.com/) om toe te voegen de gebruikers in het Rackspace SSO-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+Rackspace maakt gebruik van een **kenmerk toewijzen van beleid** Rackspace rollen en groepen toewijzen aan uw gebruikers voor eenmalige aanmelding. De **kenmerk toewijzen van beleid** zet Azure AD-SAML-claims in de configuratie van gebruikersvelden Rackspace is vereist. Meer documentatie kunt u vinden in de Rackspace [kenmerk toewijzing basisbeginselen documentatie](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/). Enkele overwegingen:
 
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+* Als u toewijzen van verschillende niveaus van Rackspace toegang met behulp van Azure AD-groepen wilt, moet u de claim van groepen in Azure inschakelen **Rackspace SSO** instellingen voor eenmalige aanmelding. De **kenmerk toewijzen van beleid** wordt vervolgens gebruikt zodat deze overeenkomen met die groepen op de gewenste Rackspace rollen en groepen:
+
+    ![De groepen claim instellingen](common/sso-groups-claim.png)
+
+* Standaard verzendt Azure AD de UID van Azure AD-groepen in de SAML-claim, ten opzichte van de naam van de groep. Als u uw on-premises Active Directory naar Azure AD synchroniseert, hebt u echter de optie voor het verzenden van de werkelijke namen van de groepen:
+
+    ![De groepen claim instellingen voor de naam van](common/sso-groups-claims-names.png)
+
+Het volgende voorbeeld **kenmerk toewijzen van beleid** laat zien:
+1. Als u de naam van de gebruiker van de Rackspace op de `user.name` SAML-claim. Een claim kan worden gebruikt, maar het meest worden gebruikt in dit instellen op een veld met de e-mailadres van de gebruiker is.
+1. Instellen van de rollen Rackspace `admin` en `billing:admin` van een gebruiker die door die overeenkomt met een Azure AD-groep, door de naam of groep UID. Een *vervanging* van `"{0}"` in de `roles` veld wordt gebruikt en wordt vervangen door de resultaten van de `remote` expressies.
+1. Met behulp van de `"{D}"` *standaard vervanging* om te laten Rackspace aanvullende SAML-velden ophalen door te zoeken naar standaard en bekende SAML-claims in de SAML-exchange.
+
+```yaml
+---
+mapping:
+    rules:
+    - local:
+        user:
+          domain: "{D}"
+          name: "{At(http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name)}"
+          email: "{D}"
+          roles:
+              - "{0}"
+          expire: "{D}"
+      remote:
+          - path: |
+              (
+                if (mapping:get-attributes('http://schemas.microsoft.com/ws/2008/06/identity/claims/groups')='7269f9a2-aabb-9393-8e6d-282e0f945985') then ('admin', 'billing:admin') else (),
+                if (mapping:get-attributes('http://schemas.microsoft.com/ws/2008/06/identity/claims/groups')='MyAzureGroup') then ('admin', 'billing:admin') else ()
+              )
+            multiValue: true
+  version: RAX-1
+```
+> [!TIP]
+> Zorg ervoor dat u een teksteditor die YAML-syntaxis valideert bij het bewerken van uw beleid-bestand.
+
+Zie de Rackspace [kenmerk toewijzing basisbeginselen documentatie](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/) voor meer voorbeelden.
+
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel Rackspace SSO in het toegangsvenster, moet u worden automatisch aangemeld bij de Rackspace SSO waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+
+U kunt ook de **valideren** knop in de **Rackspace SSO** eenmalige aanmelding-instellingen:
+
+   ![Eenmalige aanmelding knop valideren](common/sso-validate-sign-on.png)
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

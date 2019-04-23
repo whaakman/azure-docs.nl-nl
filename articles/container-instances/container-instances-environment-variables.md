@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 4a4b19338d96094f28b4f4bedd8042723f67f10a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606885"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994772"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Omgevingsvariabelen instellen in de container instances
 
@@ -143,14 +143,11 @@ Azure:\
 
 ## <a name="azure-portal-example"></a>Voorbeeld van Azure portal
 
-Om in te stellen omgevingsvariabelen bij het starten van een container in Azure portal, geeft u deze in de **configuratie** pagina bij het maken van de container.
+Om in te stellen omgevingsvariabelen bij het starten van een container in Azure portal, geeft u deze in de **Geavanceerd** pagina bij het maken van de container.
 
-Wanneer u met de portal implementeert, kunt u momenteel maximaal drie variabelen en moet u deze invoeren in deze indeling: `"variableName":"value"`
-
-Als u wilt zien, start de [aci-wordcount] [ aci-wordcount] container met de *NumWords* en *MinLength* variabelen.
-
-1. In **configuratie**, stel de **beleid voor opnieuw opstarten** naar *bij fout*
-2. Voer `"NumWords":"5"` selecteren voor de eerste variabele **Ja** onder **toevoegen van aanvullende omgevingsvariabelen**, en voer `"MinLength":"8"` voor de tweede variabele. Selecteer **OK** om te controleren en vervolgens de container te implementeren.
+1. Op de **Geavanceerd** pagina, stelt u de **beleid voor opnieuw opstarten** naar *bij fout*
+2. Onder **omgevingsvariabelen**, voer `NumWords` met een waarde van `5` voor de eerste variabele en voer `MinLength` met een waarde van `8` voor de tweede variabele. 
+1. Selecteer **revisie + maken** om te controleren en vervolgens de container te implementeren.
 
 ![Portal-pagina met omgeving variabele inschakelen-knop en tekstvakken][portal-env-vars-01]
 

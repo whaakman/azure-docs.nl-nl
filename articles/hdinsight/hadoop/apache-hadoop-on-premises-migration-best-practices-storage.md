@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: ae435c379a55ee2b3246cb3e757b79295c57988e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: f3ac60eb45c86b6cd2ded0340ac6bde478086464
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338289"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000059"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - opslag aanbevolen procedures
 
@@ -89,9 +89,9 @@ Raadpleeg voor meer informatie de volgende artikelen:
 - [Maken van HDInsight-clusters met Data Lake Storage met behulp van Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Data Lake Storage gebruiken met Azure HDInsight-clusters](../hdinsight-hadoop-use-data-lake-store.md)
 
-### <a name="azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2 (preview)
+### <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 is de meest recente opslag biedt en is in Preview-versie op het moment van schrijven van dit document. Het verenigt de belangrijkste mogelijkheden van de eerste generatie van Azure Data Lake-opslag met een Hadoop-compatibel bestand system eindpunt, rechtstreeks geïntegreerd in Azure Blob Storage. Deze uitbreiding combineert de voordelen van het schalen en kosten van opslag van objecten met de betrouwbaarheid en prestaties meestal alleen met on-premises bestandssystemen die zijn gekoppeld.
+Azure Data Lake Storage Gen2 is de meest recente opslag bieden. Het verenigt de belangrijkste mogelijkheden van de eerste generatie van Azure Data Lake-opslag met een Hadoop-compatibel bestand system eindpunt, rechtstreeks geïntegreerd in Azure Blob Storage. Deze uitbreiding combineert de voordelen van het schalen en kosten van opslag van objecten met de betrouwbaarheid en prestaties meestal alleen met on-premises bestandssystemen die zijn gekoppeld.
 
 ADLS Gen 2 is gebouwd boven [Azure Blob-opslag](../../storage/blobs/storage-blobs-introduction.md) en kunt u samenwerken met gegevens met behulp van beide beschermingsparadigma in het systeem en de object-opslag. Functies van [Azure Data Lake Storage Gen1](../../data-lake-store/index.md), zoals de semantiek van het bestandssysteem, op bestandsniveau beveiliging en schaal worden gecombineerd met lage kosten, gelaagde opslag, mogelijkheden voor hoge beschikbaarheid/noodherstel herstel en een grote SDK/hulpprogramma's -ecosysteem van [Azure Blob-opslag](../../storage/blobs/storage-blobs-introduction.md). In Data Lake Storage Gen2 blijven alle kenmerken van de opslag van objecten tijdens het toevoegen van de voordelen van een interface file system geoptimaliseerd voor analytics werkbelastingen.
 
@@ -115,7 +115,7 @@ Een van de volgende indelingen kan worden gebruikt voor toegang tot gegevens die
 
 Raadpleeg voor meer informatie de volgende artikelen:
 
-- [Inleiding tot de preview van Azure Data Lake Storage Gen2](../../storage/data-lake-storage/introduction.md)
+- [Inleiding tot Azure Data Lake Storage Gen2](../../storage/data-lake-storage/introduction.md)
 - [Het bestandssysteem van Azure Blob-stuurprogramma (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
 - [Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
