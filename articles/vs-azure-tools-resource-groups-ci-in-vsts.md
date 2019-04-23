@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
 ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047315"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59786919"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Continue integratie in Azure DevOps-Services met behulp van Azure Resource Group deployment projecten
 Voor het implementeren van een Azure-sjabloon, kunt u taken uitvoeren in verschillende fasen: Bouw, Test, kopiëren naar Azure (ook wel "Staging"), en implementeren van sjablonen. Er zijn twee verschillende manieren om sjablonen te implementeren met Azure DevOps-Services. Beide methoden bieden dezelfde resultaten, daarom kiest die het beste past bij uw werkstroom.

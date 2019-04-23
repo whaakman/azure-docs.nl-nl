@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
 ms.openlocfilehash: 0788a62de701cb85a65c7053006e28cf4fffe5cb
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862587"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789071"
 ---
 # <a name="access-your-security-data"></a>Toegang tot uw beveiligingsgegevens 
 
@@ -149,7 +149,7 @@ SecurityRecommendation
 | take 2
 ```
     
-| TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Beschrijving | RecommendationAdditionalData |
+| TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Description | RecommendationAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
 | 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Middelgroot | Actief | Strikte firewallregel in de invoer keten is gevonden | Er is een regel in de firewall aangetroffen die een patroon met veel machtigingen voor een groot aantal IP-adressen of poorten bevat. | {'Regels': ' [{\"bronadres\":\"\",\"bronpoort\":\"\",\"DestinationAddress\":\" \" \"DestinationPort\":\"1337\"}] "} |
 | 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Middelgroot | Actief | Strikte firewallregel in de invoer keten is gevonden | Er is een regel in de firewall aangetroffen die een patroon met veel machtigingen voor een groot aantal IP-adressen of poorten bevat. | {'Regels': ' [{\"bronadres\":\"\",\"bronpoort\":\"\",\"DestinationAddress\":\" \" \"DestinationPort\":\"1337\"}] "} |
