@@ -32,10 +32,10 @@ De gegevens voor de geofence bevindt of een set van geofences wordt vertegenwoor
 
 | Name | Type | Vereist  | Description |
 | :------------ |:------------: |:---------------:| :-----|
-| startTime | Datum en tijd  | true | Het begin van datum-tijd van de geldigheid periode. |
-| endTime   | Datum en tijd  | true |  De einddatum /-tijd van de geldigheid periode. |
+| startTime | DateTime  | true | Het begin van datum-tijd van de geldigheid periode. |
+| endTime   | DateTime  | true |  De einddatum /-tijd van de geldigheid periode. |
 | recurrenceType | string | false |   Het type terugkeerpatroon van de periode. De waarde kan zijn `Daily`, `Weekly`, `Monthly`, of `Yearly`. Standaardwaarde is `Daily`.|
-| businessDayOnly | Booleaans | false |  Geeft aan of de gegevens alleen geldig tijdens de werkdagen is. Standaardwaarde is `false`.|
+| businessDayOnly | Boolean | false |  Geeft aan of de gegevens alleen geldig tijdens de werkdagen is. Standaardwaarde is `false`.|
 
 
 * Alle coördinaat waarden worden weergegeven als [breedtegraad, lengtegraad] gedefinieerd in `WGS84`.
