@@ -10,11 +10,11 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918141"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797104"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisch ontwerpen in Azure Automation
 
@@ -44,7 +44,7 @@ U kunt de besturingselementen aan de onderkant van het canvas in-en uitzoomen.
 
 Het besturingselement bibliotheek is waar u het selecteert [activiteiten](#activities) om toe te voegen aan uw runbook. U toevoegen ze aan het papier waar u deze aan andere activiteiten verbinden. Het bevat vier secties wordt beschreven in de volgende tabel:
 
-| Sectie | Description |
+| Sectie | Beschrijving |
 |:--- |:--- |
 | Cmdlets |Bevat alle cmdlets die kunnen worden gebruikt in uw runbook. Cmdlets zijn ingedeeld door de module. Alle modules die u hebt geïnstalleerd in uw automation-account zijn beschikbaar. |
 | Runbooks |Bevat de runbooks in uw automation-account. Deze runbooks kunnen worden toegevoegd aan het canvas om te worden gebruikt als onderliggende runbooks. Alleen runbooks van hetzelfde type als het runbook wordt bewerkt core worden weergegeven; Grafische worden runbooks alleen op PowerShell gebaseerde runbooks weergegeven, terwijl voor grafische PowerShell Workflow-runbooks alleen PowerShell-werkstroom runbooks worden weergegeven. |

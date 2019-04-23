@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
 ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916730"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798040"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Met behulp van Azure Monitor voor virtuele machines (preview) de kaart om te begrijpen van toepassingsonderdelen
 De gedetecteerde toepassingsonderdelen weergeven op Windows en Linux-machines uitvoeren in uw omgeving kan worden waargenomen op twee manieren met Azure Monitor voor virtuele machines van een virtuele machine rechtstreeks of via groepen virtuele machines van Azure Monitor Azure. 

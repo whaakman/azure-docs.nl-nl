@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 402cd4723791c0bc33db22c8857d1b785862f596
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850610"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797839"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Verzamelen van IIS-logboeken in Azure Monitor
 Internet Information Services (IIS) slaat gebruikersactiviteit in logboekbestanden die kunnen worden verzameld door Azure Monitor en opgeslagen als [logboekgegevens](data-platform.md).
@@ -40,7 +40,7 @@ Azure Monitor verzamelt IIS-logboekvermeldingen van elke agent die telkens wanne
 ## <a name="iis-log-record-properties"></a>Record-eigenschappen van IIS-logboek
 IIS-logboekrecords zijn een type **W3CIISLog** en hebben de eigenschappen in de volgende tabel:
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--- |:--- |
 | Computer |De naam van de computer waarop de gebeurtenis is verzameld. |
 | cIP |IP-adres van de client. |

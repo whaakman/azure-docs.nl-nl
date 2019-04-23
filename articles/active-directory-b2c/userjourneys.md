@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: ccc1f94b9411a158b5c60509e09bd3edc0a61640
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59277592"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59795150"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -41,7 +41,7 @@ De **UserJourney** element bevat het volgende kenmerk:
 
 De **UserJourney** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | OrchestrationSteps | 1: n | De volgorde van een indeling die moet worden gevolgd door voor een geslaagde transactie. Elke gebruikersbeleving bestaat uit een geordende lijst met de orchestration-stappen die worden uitgevoerd in de reeks. Als er een stap mislukt, wordt de transactie mislukt. |
 
@@ -55,7 +55,7 @@ Om op te geven van de geordende lijst indelingsstappen, een **OrchestrationSteps
 
 De **OrchestrationSteps** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | OrchestrationStep | 1: n | Een geordende indelingsstap. | 
 
@@ -90,7 +90,7 @@ De **voorwaarden** element bevat het volgende element:
 
 De **voorwaarde** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | `Type` | Ja | Het type selectievakje of de query uit te voeren voor deze voorwaarde. De waarde kan zijn **ClaimsExist**, dat aangeeft dat de acties die moeten worden uitgevoerd als de opgegeven claims aanwezig is in de huidige claimset van de gebruiker, of **ClaimEquals**, dat aangeeft dat de acties moet worden uitgevoerd als de opgegeven claim bestaat en de waarde gelijk aan de opgegeven waarde is. |
 | `ExecuteActionsIf` | Ja | Gebruik een test waar of ONWAAR om te bepalen als de acties in de eerste voorwaarde moeten worden uitgevoerd. | 

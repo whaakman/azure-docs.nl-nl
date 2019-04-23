@@ -1,57 +1,50 @@
-items:
 - name: Documentatie voor Avere vFXT
   href: index.yml
 - name: Overzicht
   items:
-  - name: Wat is Avere vFXT for Azure?
-    href: avere-vfxt-overview.md
+    - name: Wat is Avere vFXT for Azure?
+      href: avere-vfxt-overview.md
 - name: Concepten
   items:
-  - name: Uw Avere vFXT-systeem plannen
-    href: avere-vfxt-deploy-plan.md
-  - name: Implementatie-overzicht voor Avere vFXT
-    href: avere-vfxt-deploy-overview.md
+    - name: Uw Avere vFXT-systeem plannen
+      href: avere-vfxt-deploy-plan.md
+    - name: Implementatie-overzicht voor Avere vFXT
+      href: avere-vfxt-deploy-overview.md
 - name: Handleidingen
   items:
-  - name: Voorbereiden op het maken van de Avere vFXT
-    href: avere-vfxt-prereqs.md
-  - name: Het vFXT-cluster implementeren
-    href: avere-vfxt-deploy.md
-  - name: Het hulpprogramma voor clusterconfiguratie openen
-    href: avere-vfxt-cluster-gui.md
-  - name: Ondersteuningsuploads inschakelen
-    href: avere-vfxt-enable-support.md
-  - name: Opslag configureren
-    href: avere-vfxt-add-storage.md
-  - name: Het Avere vFXT-cluster koppelen
-    href: avere-vfxt-mount-clients.md
-  - name: Gegevens naar het Avere vFXT-cluster verplaatsen
-    href: avere-vfxt-data-ingest.md
-  - name: Het Avere vFXT-cluster beheren
-    href: avere-vfxt-manage-cluster.md
-  - name: Clustertuning aanpassen
-    href: avere-vfxt-tuning.md
+    - name: Voorbereiden op het maken van de Avere vFXT
+      href: avere-vfxt-prereqs.md
+    - name: Het vFXT-cluster implementeren
+      href: avere-vfxt-deploy.md
+    - name: Het hulpprogramma voor clusterconfiguratie openen
+      href: avere-vfxt-cluster-gui.md
+    - name: Ondersteuningsuploads inschakelen
+      href: avere-vfxt-enable-support.md
+    - name: Opslag configureren
+      href: avere-vfxt-add-storage.md
+    - name: Het Avere vFXT-cluster koppelen
+      href: avere-vfxt-mount-clients.md
+    - name: Gegevens naar het Avere vFXT-cluster verplaatsen
+      href: avere-vfxt-data-ingest.md
+    - name: Het Avere vFXT-cluster beheren
+      href: avere-vfxt-manage-cluster.md
+    - name: Clustertuning aanpassen
+      href: avere-vfxt-tuning.md
 - name: Resources
   items:
-  - name: Hulp bij uw systeem
-    href: avere-vfxt-open-ticket.md
-  - name: Demonstratieprojecten
-    href: avere-vfxt-demo-links.md
-  - name: Veelgestelde vragen over Avere vFXT for Azure
-    href: avere-vfxt-faq.md
-  - name: Aanvullende documentatie
-    items:
+    - name: Hulp bij uw systeem
+      href: avere-vfxt-open-ticket.md
+    - name: Demonstratieprojecten
+      href: avere-vfxt-demo-links.md
+    - name: Veelgestelde vragen over Avere vFXT for Azure
+      href: avere-vfxt-faq.md
     - name: Aanvullende documentatie
-      href: avere-vfxt-additional-resources.md
-    - name: DNS-configuratie voor Avere-cluster
-      href: avere-vfxt-configure-dns.md
-    - name: Toestaan dat niet-eigenaren Avere vFXT implementeren
-      href: avere-vfxt-non-owner.md
-  - name: Whitepapers
-    href: avere-vfxt-whitepapers.md
-ms.openlocfilehash: df511c29ca2477206e2e4ddf9e1fd440da47dedc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257549"
+      items:
+        - name: Aanvullende documentatie
+          href: avere-vfxt-additional-resources.md
+        - name: DNS-configuratie voor Avere-cluster
+          href: avere-vfxt-configure-dns.md
+        - name: Toestaan dat niet-eigenaren Avere vFXT implementeren
+          href: avere-vfxt-non-owner.md
+    - name: Whitepapers
+      href: avere-vfxt-whitepapers.md

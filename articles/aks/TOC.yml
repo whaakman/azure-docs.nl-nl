@@ -1,330 +1,324 @@
-items:
 - name: Azure Kubernetes Service (AKS)
   href: ./index.yml
 - name: Overzicht
   items:
-  - name: Meer informatie over AKS
-    href: intro-kubernetes.md
+    - name: Meer informatie over AKS
+      href: intro-kubernetes.md
 - name: Snelstartgidsen
-  items:
-  - name: Een AKS-cluster maken - CLI
-    href: kubernetes-walkthrough.md
-  - name: Een AKS-cluster maken - Portal
-    href: kubernetes-walkthrough-portal.md
-  - name: Toepassingen ontwikkelen
-    items:
-    - name: Java (VS Code en CLI) gebruiken
-      href: ../dev-spaces/quickstart-java.md
-      maintainContext: true
-    - name: .NET Core (VS Code en CLI) gebruiken
-      href: ../dev-spaces/quickstart-netcore.md
-      maintainContext: true
-    - name: .NET Core (Visual Studio 2017) gebruiken
-      href: ../dev-spaces/quickstart-netcore-visualstudio.md
-      maintainContext: true
-    - name: Node.js (VS Code en CLI) gebruiken
-      href: ../dev-spaces/quickstart-nodejs.md
-      maintainContext: true
-    expanded: true
   expanded: true
+  items:
+    - name: Een AKS-cluster maken - CLI
+      href: kubernetes-walkthrough.md
+    - name: Een AKS-cluster maken - Portal
+      href: kubernetes-walkthrough-portal.md
+    - name: Toepassingen ontwikkelen
+      expanded: true
+      items:
+        - name: Java (VS Code en CLI) gebruiken
+          href: ../dev-spaces/quickstart-java.md
+          maintainContext: true
+        - name: .NET Core (VS Code en CLI) gebruiken
+          href: ../dev-spaces/quickstart-netcore.md
+          maintainContext: true
+        - name: .NET Core (Visual Studio 2017) gebruiken
+          href: ../dev-spaces/quickstart-netcore-visualstudio.md
+          maintainContext: true
+        - name: Node.js (VS Code en CLI) gebruiken
+          href: ../dev-spaces/quickstart-nodejs.md
+          maintainContext: true
 - name: Zelfstudies
   items:
-  - name: 1 - Een toepassing voorbereiden voor AKS
-    href: tutorial-kubernetes-prepare-app.md
-  - name: 2 - Een containerregister maken
-    href: tutorial-kubernetes-prepare-acr.md
-  - name: 3 - Een Kubernetes-cluster maken
-    href: tutorial-kubernetes-deploy-cluster.md
-  - name: 4 - Een toepassing uitvoeren
-    href: tutorial-kubernetes-deploy-application.md
-  - name: 5 - De schaal van een toepassing aanpassen
-    href: tutorial-kubernetes-scale.md
-  - name: 6 - Een toepassing bijwerken
-    href: tutorial-kubernetes-app-update.md
-  - name: 7 - Een cluster upgraden
-    href: tutorial-kubernetes-upgrade-cluster.md
+    - name: 1 - Een toepassing voorbereiden voor AKS
+      href: tutorial-kubernetes-prepare-app.md
+    - name: 2 - Een containerregister maken
+      href: tutorial-kubernetes-prepare-acr.md
+    - name: 3 - Een Kubernetes-cluster maken
+      href: tutorial-kubernetes-deploy-cluster.md
+    - name: 4 - Een toepassing uitvoeren
+      href: tutorial-kubernetes-deploy-application.md
+    - name: 5 - De schaal van een toepassing aanpassen
+      href: tutorial-kubernetes-scale.md
+    - name: 6 - Een toepassing bijwerken
+      href: tutorial-kubernetes-app-update.md
+    - name: 7 - Een cluster upgraden
+      href: tutorial-kubernetes-upgrade-cluster.md
 - name: Concepten
   items:
-  - name: Clusters en werkbelastingen
-    href: concepts-clusters-workloads.md
-  - name: Toegang en identiteit
-    href: concepts-identity.md
-  - name: Beveiliging
-    href: concepts-security.md
-  - name: Netwerken
-    href: concepts-network.md
-  - name: Storage
-    href: concepts-storage.md
-  - name: Schalen
-    href: concepts-scale.md
-  - name: Aanbevolen procedures
-    href: best-practices.md
-    items:
-    - name: Voor clusteroperators
+    - name: Clusters en werkbelastingen
+      href: concepts-clusters-workloads.md
+    - name: Toegang en identiteit
+      href: concepts-identity.md
+    - name: Beveiliging
+      href: concepts-security.md
+      items: null
+    - name: Netwerken
+      href: concepts-network.md
+    - name: Storage
+      href: concepts-storage.md
+    - name: Schalen
+      href: concepts-scale.md
+    - name: Aanbevolen procedures
+      href: best-practices.md
       items:
-      - name: Multitenancy en clusterisolatie
-        href: operator-best-practices-cluster-isolation.md
-      - name: Standaard Scheduler-functies
-        href: operator-best-practices-scheduler.md
-      - name: Geavanceerde Scheduler-functies
-        href: operator-best-practices-advanced-scheduler.md
-      - name: Verificatie en autorisatie
-        href: operator-best-practices-identity.md
-      - name: Clusterbeveiliging
-        href: operator-best-practices-cluster-security.md
-      - name: Beheer van containerinstallatiekopieën
-        href: operator-best-practices-container-image-management.md
-      - name: Netwerken
-        href: operator-best-practices-network.md
-      - name: Opslag
-        href: operator-best-practices-storage.md
-      - name: Bedrijfscontinuïteit en herstel na noodgevallen
-        href: operator-best-practices-multi-region.md
-    - name: Voor app-ontwikkelaars
-      items:
-      - name: Resourcebeheer
-        href: developer-best-practices-resource-management.md
-      - name: Pod-beveiliging
-        href: developer-best-practices-pod-security.md
-  - name: Quota en regionale limieten
-    href: container-service-quotas.md
-  - name: Van ACS naar AKS migreren
-    href: acs-aks-migration.md
-  - name: Ondersteunde Kubernetes-versie
-    href: supported-kubernetes-versions.md
+        - name: Voor clusteroperators
+          items:
+            - name: Multitenancy en clusterisolatie
+              href: operator-best-practices-cluster-isolation.md
+            - name: Standaard Scheduler-functies
+              href: operator-best-practices-scheduler.md
+            - name: Geavanceerde Scheduler-functies
+              href: operator-best-practices-advanced-scheduler.md
+            - name: Verificatie en autorisatie
+              href: operator-best-practices-identity.md
+            - name: Clusterbeveiliging
+              href: operator-best-practices-cluster-security.md
+            - name: Beheer van containerinstallatiekopieën
+              href: operator-best-practices-container-image-management.md
+            - name: Netwerken
+              href: operator-best-practices-network.md
+            - name: Opslag
+              href: operator-best-practices-storage.md
+            - name: Bedrijfscontinuïteit en herstel na noodgevallen
+              href: operator-best-practices-multi-region.md
+        - name: Voor app-ontwikkelaars
+          items:
+            - name: Resourcebeheer
+              href: developer-best-practices-resource-management.md
+            - name: Pod-beveiliging
+              href: developer-best-practices-pod-security.md
+    - name: Quota en regionale limieten
+      href: container-service-quotas.md
+    - name: Van ACS naar AKS migreren
+      href: acs-aks-migration.md
+    - name: Ondersteunde Kubernetes-versie
+      href: supported-kubernetes-versions.md
 - name: Handleidingen
   items:
-  - name: Clusterbewerkingen
-    items:
-    - name: Een AKS-cluster maken
-      href: /cli/azure/aks#az-aks-create
-      maintainContext: true
-    - name: De schaal van een AKS-cluster aanpassen
-      href: scale-cluster.md
-    - name: Een AKS-cluster upgraden
-      href: upgrade-cluster.md
-    - name: OS-updates van knooppunt verwerken
-      href: node-updates-kured.md
-    - name: Een AKS-cluster verwijderen
-      href: /cli/azure/aks#az-aks-delete
-      maintainContext: true
-    - name: AKS met Azure AD-ondersteuning
-      href: aad-integration.md
-    - name: Virtuele knooppunten maken (preview)
+    - name: Clusterbewerkingen
       items:
-      - name: Azure-CLI
-        href: virtual-nodes-cli.md
-      - name: Azure Portal
-        href: virtual-nodes-portal.md
-    - name: Virtual Kubelet gebruiken
-      href: virtual-kubelet.md
-    - name: Cluster Autoscaler (preview) gebruiken
-      href: cluster-autoscaler.md
-    - name: AKS met Terraform implementeren
-      href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
-      maintainContext: true
-  - name: Gegevensvolumes configureren
-    items:
-    - name: Azure Disk - dynamisch
-      href: azure-disks-dynamic-pv.md
-    - name: Azure Disk - statisch
-      href: azure-disk-volume.md
-    - name: Azure Files - dynamisch
-      href: azure-files-dynamic-pv.md
-    - name: Azure Files - statisch
-      href: azure-files-volume.md
-  - name: Netwerk configureren
-    items:
-    - name: Een bestaand virtueel netwerk maken of gebruiken
+        - name: Een AKS-cluster maken
+          href: '/cli/azure/aks#az-aks-create'
+          maintainContext: true
+        - name: De schaal van een AKS-cluster aanpassen
+          href: scale-cluster.md
+        - name: Een AKS-cluster upgraden
+          href: upgrade-cluster.md
+        - name: OS-updates van knooppunt verwerken
+          href: node-updates-kured.md
+        - name: Een AKS-cluster verwijderen
+          href: '/cli/azure/aks#az-aks-delete'
+          maintainContext: true
+        - name: AKS met Azure AD-ondersteuning
+          href: aad-integration.md
+        - name: Virtuele knooppunten maken (preview)
+          items:
+            - name: Azure-CLI
+              href: virtual-nodes-cli.md
+            - name: Azure Portal
+              href: virtual-nodes-portal.md
+        - name: Virtual Kubelet gebruiken
+          href: virtual-kubelet.md
+        - name: Cluster Autoscaler (preview) gebruiken
+          href: cluster-autoscaler.md
+        - name: AKS met Terraform implementeren
+          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+          maintainContext: true
+    - name: Gegevensvolumes configureren
       items:
-      - name: Kubenet gebruiken
-        href: configure-kubenet.md
-      - name: Azure-CNI gebruiken
-        href: configure-azure-cni.md
-    - name: Een interne load balancer maken
-      href: internal-lb.md
-    - name: Een statisch IP-adres gebruiken
-      href: static-ip.md
-    - name: Inkomend verkeer
+        - name: Azure Disk - dynamisch
+          href: azure-disks-dynamic-pv.md
+        - name: Azure Disk - statisch
+          href: azure-disk-volume.md
+        - name: Azure Files - dynamisch
+          href: azure-files-dynamic-pv.md
+        - name: Azure Files - statisch
+          href: azure-files-volume.md
+    - name: Netwerk configureren
       items:
-      - name: Een eenvoudige controller maken
-        href: ingress-basic.md
-      - name: Routering van HTTP-toepassing gebruiken
-        href: http-application-routing.md
-      - name: Intern netwerk gebruiken
-        href: ingress-internal-ip.md
-      - name: TLS gebruiken met uw eigen certificaten
-        href: ingress-own-tls.md
-      - name: TLS gebruiken met Let's Encrypt
-        href: ingress-tls.md
-        items:
-        - name: Een statisch openbaar IP-adres gebruiken
-          href: ingress-static-ip.md
-    - name: Uitgaand verkeer
-      href: egress.md
-    - name: CoreDNS aanpassen
-      href: coredns-custom.md
-  - name: Verificatie en beveiliging
-    items:
-    - name: Een service-principal maken
-      href: kubernetes-service-principal.md
-    - name: Toegang tot clusterconfiguratiebestand beperken
-      href: control-kubeconfig-access.md
-    - name: Pod-verkeer beveiligen met netwerkbeleid (preview)
-      href: use-network-policies.md
-    - name: Principalreferenties voor clusterservice bijwerken
-      href: update-credentials.md
-    - name: Verifiëren met ACR
-      href: ../container-registry/container-registry-auth-aks.md
-      maintainContext: true
-  - name: Bewaking en registratie
-    items:
-    - name: Azure Monitor voor containers
-      href: ../azure-monitor/insights/container-insights-overview.md
-      maintainContext: true
-    - name: Logboeken van het master-onderdeel weergeven
-      href: view-master-logs.md
-    - name: Kubelet-logboeken weergeven
-      href: kubelet-logs.md
-    - name: Containerlogboeken in realtime weergeven (preview)
-      href: ../azure-monitor/insights/container-insights-live-logs.md
-      maintainContext: true
-  - name: Toepassingen ontwikkelen en uitvoeren
-    items:
-    - name: Ontwikkelen met Dev Spaces
-      href: ../dev-spaces/azure-dev-spaces.md
+        - name: Een bestaand virtueel netwerk maken of gebruiken
+          items:
+            - name: Kubenet gebruiken
+              href: configure-kubenet.md
+            - name: Azure-CNI gebruiken
+              href: configure-azure-cni.md
+        - name: Een interne load balancer maken
+          href: internal-lb.md
+        - name: Een statisch IP-adres gebruiken
+          href: static-ip.md
+        - name: Inkomend verkeer
+          items:
+            - name: Een eenvoudige controller maken
+              href: ingress-basic.md
+            - name: Routering van HTTP-toepassing gebruiken
+              href: http-application-routing.md
+            - name: Intern netwerk gebruiken
+              href: ingress-internal-ip.md
+            - name: TLS gebruiken met uw eigen certificaten
+              href: ingress-own-tls.md
+            - name: TLS gebruiken met Let's Encrypt
+              href: ingress-tls.md
+              items:
+                - name: Een statisch openbaar IP-adres gebruiken
+                  href: ingress-static-ip.md
+        - name: Uitgaand verkeer
+          href: egress.md
+        - name: CoreDNS aanpassen
+          href: coredns-custom.md
+    - name: Verificatie en beveiliging
       items:
-      - name: Java (VS Code en CLI)
-        items:
-        - name: 1 - Aan de slag
-          href: ../dev-spaces/get-started-java.md
+        - name: Een service-principal maken
+          href: kubernetes-service-principal.md
+        - name: Toegang tot clusterconfiguratiebestand beperken
+          href: control-kubeconfig-access.md
+        - name: Pod-verkeer beveiligen met netwerkbeleid (preview)
+          href: use-network-policies.md
+        - name: Principalreferenties voor clusterservice bijwerken
+          href: update-credentials.md
+        - name: Verifiëren met ACR
+          href: ../container-registry/container-registry-auth-aks.md
           maintainContext: true
-        - name: 2 - Ontwikkeling van meerdere services
-          href: ../dev-spaces/multi-service-java.md
-          maintainContext: true
-        - name: 3 - Teamontwikkeling
-          href: ../dev-spaces/team-development-java.md
-          maintainContext: true
-      - name: .NET Core (VS Code en CLI)
-        items:
-        - name: 1 - Aan de slag
-          href: ../dev-spaces/get-started-netcore.md
-          maintainContext: true
-        - name: 2 - Ontwikkeling van meerdere services
-          href: ../dev-spaces/multi-service-netcore.md
-          maintainContext: true
-        - name: 3 - Teamontwikkeling
-          href: ../dev-spaces/team-development-netcore.md
-          maintainContext: true
-      - name: .NET Core (Visual Studio 2017)
-        items:
-        - name: 1 - Aan de slag
-          href: ../dev-spaces/get-started-netcore-visualstudio.md
-          maintainContext: true
-        - name: 2 - Ontwikkeling van meerdere services
-          href: ../dev-spaces/multi-service-netcore-visualstudio.md
-          maintainContext: true
-        - name: 3 - Teamontwikkeling
-          href: ../dev-spaces/team-development-netcore-visualstudio.md
-          maintainContext: true
-      - name: Node.js (VS Code en CLI)
-        items:
-        - name: 1 - Aan de slag
-          href: ../dev-spaces/get-started-nodejs.md
-          maintainContext: true
-        - name: 2 - Ontwikkeling van meerdere services
-          href: ../dev-spaces/multi-service-nodejs.md
-          maintainContext: true
-        - name: 3 - Teamontwikkeling
-          href: ../dev-spaces/team-development-nodejs.md
-          maintainContext: true
-      maintainContext: true
-    - name: Toepassingen uitvoeren met Helm
-      href: kubernetes-helm.md
-    - name: Toepassingen ontwikkelen met Draft
-      href: kubernetes-draft.md
-    - name: Open Service Broker voor Azure gebruiken
-      href: integrate-azure.md
-    - name: Cosmos DB-API voor MongoDB gebruiken met OSBA
-      href: use-cosmosdb-osba-mongo-app.md
-    - name: OpenFaaS gebruiken
-      href: openfaas.md
-    - name: Spark-taken uitvoeren
-      href: spark-job.md
-    - name: GPU's gebruiken
-      href: gpu-cluster.md
-    - name: Istio gebruiken
+    - name: Bewaking en registratie
       items:
-      - name: Installeren en configureren
-        href: istio-install.md
-      - name: Intelligente routering en canary-releases
-        href: istio-scenario-routing.md
-    - name: Azure Database for PostgreSQL gebruiken
-      href: ../postgresql/concepts-aks.md
-      maintainContext: true
-  - name: DevOps
-    items:
-    - name: Ansible gebruiken om AKS-clusters te maken
-      href: /azure/ansible/ansible-create-configure-aks
-      maintainContext: true
-    - name: Doorlopende Jenkins-implementatie
-      href: jenkins-continuous-deployment.md
-    - name: Azure DevOps Project
-      href: ../devops-project/azure-devops-project-aks.md
-      maintainContext: true
-  - name: Basisbeginselen voor Kubernetes
-    items:
-    - name: Kubernetes-dashboard gebruiken
-      href: kubernetes-dashboard.md
-  - name: Problemen oplossen
-    items:
-    - name: Algemene problemen
-      href: troubleshooting.md
-    - name: Controleren op best practices
-      href: kube-advisor-tool.md
-    - name: Toegang van SSH-knooppunt
-      href: ssh.md
+        - name: Azure Monitor voor containers
+          href: ../azure-monitor/insights/container-insights-overview.md
+          maintainContext: true
+        - name: Logboeken van het master-onderdeel weergeven
+          href: view-master-logs.md
+        - name: Kubelet-logboeken weergeven
+          href: kubelet-logs.md
+        - name: Containerlogboeken in realtime weergeven (preview)
+          href: ../azure-monitor/insights/container-insights-live-logs.md
+          maintainContext: true
+    - name: Toepassingen ontwikkelen en uitvoeren
+      items:
+        - name: Ontwikkelen met Dev Spaces
+          href: ../dev-spaces/azure-dev-spaces.md
+          maintainContext: true
+          items:
+            - name: Java (VS Code en CLI)
+              items:
+                - name: 1 - Aan de slag
+                  href: ../dev-spaces/get-started-java.md
+                  maintainContext: true
+                - name: 2 - Ontwikkeling van meerdere services
+                  href: ../dev-spaces/multi-service-java.md
+                  maintainContext: true
+                - name: 3 - Teamontwikkeling
+                  href: ../dev-spaces/team-development-java.md
+                  maintainContext: true
+            - name: .NET Core (VS Code en CLI)
+              items:
+                - name: 1 - Aan de slag
+                  href: ../dev-spaces/get-started-netcore.md
+                  maintainContext: true
+                - name: 2 - Ontwikkeling van meerdere services
+                  href: ../dev-spaces/multi-service-netcore.md
+                  maintainContext: true
+                - name: 3 - Teamontwikkeling
+                  href: ../dev-spaces/team-development-netcore.md
+                  maintainContext: true
+            - name: .NET Core (Visual Studio 2017)
+              items:
+                - name: 1 - Aan de slag
+                  href: ../dev-spaces/get-started-netcore-visualstudio.md
+                  maintainContext: true
+                - name: 2 - Ontwikkeling van meerdere services
+                  href: ../dev-spaces/multi-service-netcore-visualstudio.md
+                  maintainContext: true
+                - name: 3 - Teamontwikkeling
+                  href: ../dev-spaces/team-development-netcore-visualstudio.md
+                  maintainContext: true
+            - name: Node.js (VS Code en CLI)
+              items:
+                - name: 1 - Aan de slag
+                  href: ../dev-spaces/get-started-nodejs.md
+                  maintainContext: true
+                - name: 2 - Ontwikkeling van meerdere services
+                  href: ../dev-spaces/multi-service-nodejs.md
+                  maintainContext: true
+                - name: 3 - Teamontwikkeling
+                  href: ../dev-spaces/team-development-nodejs.md
+                  maintainContext: true
+        - name: Toepassingen uitvoeren met Helm
+          href: kubernetes-helm.md
+        - name: Toepassingen ontwikkelen met Draft
+          href: kubernetes-draft.md
+        - name: Open Service Broker voor Azure gebruiken
+          href: integrate-azure.md
+        - name: Cosmos DB-API voor MongoDB gebruiken met OSBA
+          href: use-cosmosdb-osba-mongo-app.md
+        - name: OpenFaaS gebruiken
+          href: openfaas.md
+        - name: Spark-taken uitvoeren
+          href: spark-job.md
+        - name: GPU's gebruiken
+          href: gpu-cluster.md
+        - name: Istio gebruiken
+          items:
+            - name: Installeren en configureren
+              href: istio-install.md
+            - name: Intelligente routering en canary-releases
+              href: istio-scenario-routing.md
+        - name: Azure Database for PostgreSQL gebruiken
+          href: ../postgresql/concepts-aks.md
+          maintainContext: true
+    - name: DevOps
+      items:
+        - name: Ansible gebruiken om AKS-clusters te maken
+          href: /azure/ansible/ansible-create-configure-aks
+          maintainContext: true
+        - name: Doorlopende Jenkins-implementatie
+          href: jenkins-continuous-deployment.md
+        - name: Azure DevOps Project
+          href: ../devops-project/azure-devops-project-aks.md
+          maintainContext: true
+    - name: Basisbeginselen voor Kubernetes
+      items:
+        - name: Kubernetes-dashboard gebruiken
+          href: kubernetes-dashboard.md
+    - name: Problemen oplossen
+      items:
+        - name: Algemene problemen
+          href: troubleshooting.md
+        - name: Controleren op best practices
+          href: kube-advisor-tool.md
+        - name: Toegang van SSH-knooppunt
+          href: ssh.md
 - name: Naslaginformatie
   items:
-  - name: Azure-CLI
-    href: /cli/azure/aks
-  - name: REST
-    href: /rest/api/aks
-  - name: PowerShell
-    href: /powershell/module/az.aks#aks
-  - name: .NET
-    href: /dotnet/api/overview/azure/containerservice
-  - name: Python
-    href: /python/api/overview/azure/containerservice
-  - name: Java
-    href: /java/api/overview/azure/containerservice
-  - name: Node.js
-    href: /javascript/api/overview/azure/container-service
-  - name: Resource Manager-sjabloon
-    href: /azure/templates/microsoft.containerservice/managedclusters
+    - name: Azure-CLI
+      href: /cli/azure/aks
+    - name: REST
+      href: /rest/api/aks
+    - name: PowerShell
+      href: '/powershell/module/az.aks#aks'
+    - name: .NET
+      href: /dotnet/api/overview/azure/containerservice
+    - name: Python
+      href: /python/api/overview/azure/containerservice
+    - name: Java
+      href: /java/api/overview/azure/containerservice
+    - name: Node.js
+      href: /javascript/api/overview/azure/container-service
+    - name: Resource Manager-sjabloon
+      href: /azure/templates/microsoft.containerservice/managedclusters
 - name: Resources
   items:
-  - name: Uw vaardigheden ontwikkelen met Microsoft Learn
-    href: /learn/browse/?products=azure-container-instances&azure-container-registry
-  - name: Beschikbaarheid in regio’s
-    href: https://azure.microsoft.com/regions/services/
-  - name: Prijzen
-    href: https://azure.microsoft.com/pricing/details/container-service/
-  - name: Ondersteuningsbeleid
-    href: support-policies.md
-  - name: Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Productfeedback geven
-    href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-container-service
-  - name: Video's
-    href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
-  - name: Veelgestelde vragen
-    href: faq.md
-ms.openlocfilehash: 900af8f0b09ee19b6f49cbec39bb535e9ba3b385
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59488999"
+    - name: Uw vaardigheden ontwikkelen met Microsoft Learn
+      href: /learn/browse/?products=azure-container-instances&azure-container-registry
+    - name: Beschikbaarheid in regio’s
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: Ondersteuningsbeleid
+      href: support-policies.md
+    - name: Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Productfeedback geven
+      href: 'https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-container-service'
+    - name: Video's
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'
+    - name: Veelgestelde vragen
+      href: faq.md

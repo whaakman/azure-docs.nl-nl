@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 01/12/2019
 ms.author: juliako
 ms.openlocfilehash: affa6f9a808543401b7d57812c7d2bef4324a83c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894203"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796542"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Maken van een Video Indexer-account dat is verbonden met Azure
 
@@ -136,7 +136,7 @@ In de **Video Indexer verbinding maken met een Azure-abonnement** dialoogvenster
 
 Geef in het dialoogvenster de volgende informatie:
 
-|Instelling|Beschrijving|
+|Instelling|Description|
 |---|---|
 |Video Indexer-accountregio|De naam van de regio van de Video Indexer-account. Voor betere prestaties en lagere kosten, is het raadzaam om op te geven van de naam van de regio waar de resource van Azure Media Services en Azure Storage-account zich bevinden. |
 |Azure Active Directory (AAD)-tenant|De naam van de Azure AD-tenant, bijvoorbeeld 'contoso.onmicrosoft.com'. De tenant-gegevens kan worden opgehaald uit de Azure-portal. Plaats de cursor boven de naam van de aangemelde gebruiker in de rechterbovenhoek. Zoek de naam aan de rechterkant van **domein**.|

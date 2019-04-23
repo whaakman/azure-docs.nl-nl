@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
 ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893564"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59794876"
 ---
 # <a name="get-started-with-the-query-action"></a>Aan de slag met de queryactie
 Met behulp van de queryactie, kunt u werken met batches en matrices om uit te voeren van werkstromen op:
@@ -56,7 +56,7 @@ Hier ziet u hoe u deze in een logische app kunt toevoegen:
 ## <a name="query-action"></a>Queryactie.
 Hier volgen de details voor de actie die ondersteuning biedt voor deze connector. De connector heeft een mogelijke actie.
 
-| Bewerking | Description |
+| Bewerking | Beschrijving |
 | --- | --- |
 | Matrix filteren |Evalueert een voorwaarde voor elk item in een matrix en retourneert de resultaten |
 
@@ -67,7 +67,7 @@ De queryactie wordt geleverd met een mogelijke actie. De volgende tabellen besch
 Hier volgen de invoervelden voor de actie, waardoor een uitgaande HTTP-aanvraag.
 Een * betekent dat het een verplicht veld.
 
-| Weergavenaam | Naam van eigenschap | Description |
+| Weergavenaam | Naam van eigenschap | Beschrijving |
 | --- | --- | --- |
 | Van * |uit |De matrix om te filteren |
 | Voorwaarde * |waarbij |De voorwaarde om te evalueren voor elk item |
@@ -77,7 +77,7 @@ Een * betekent dat het een verplicht veld.
 ### <a name="output-details"></a>Uitvoergegevens
 Hier volgen de uitvoerdetails van het HTTP-antwoord.
 
-| Naam van eigenschap | Gegevenstype | Beschrijving |
+| Naam van eigenschap | Gegevenstype | Description |
 | --- | --- | --- |
 | Gefilterde matrix |array |Een matrix met een object voor elk gefilterde resultaat |
 

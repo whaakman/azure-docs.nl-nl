@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.openlocfilehash: bb8b5f7d6578390fd0f48c3de154cfdb034ac6c1
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851850"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59795525"
 ---
 # <a name="connect-an-environment-to-your-labs-virtual-network-in-azure-devtest-labs"></a>Verbinding maken met een omgeving met virtuele netwerk van uw lab in Azure DevTest Labs
 Azure DevTest Labs kunt u eenvoudig virtuele machines maken in een testomgeving met [ingebouwde netwerken](devtest-lab-configure-vnet.md). Er wordt een grote mate van flexibiliteit met de mogelijkheid om [multi-VM-omgevingen maken](devtest-lab-test-env.md). In dit artikel wordt beschreven hoe u virtuele machines in een omgeving met het virtuele netwerk lab verbinding kunnen maken. Een scenario waarin het gebruik van deze functie wordt ingesteld met een N-tier-app met een SQL Server-gegevenslaagtoepassingen die is verbonden met het VNet toestaan testresultaten VM's in een testomgeving om deze te openen.  

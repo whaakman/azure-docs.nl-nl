@@ -9,11 +9,11 @@ ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: d4f57eca89cbb68d61546c6d5ce5bcd04f9256e7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59286368"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59799504"
 ---
 Azure Storage biedt verschillende typen opslagaccounts. Elk type biedt ondersteuning voor verschillende functies en heeft een eigen prijsmodel. Houd rekening met deze verschillen voordat u een opslagaccount om te bepalen welk type account dat wordt aanbevolen voor uw toepassingen kunt maken. De typen opslagaccounts zijn:
 

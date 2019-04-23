@@ -9,11 +9,11 @@ ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 2307fa985c88608d80400c8951c47b9f20caa1dc
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006628"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59799300"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhookacties voor waarschuwingsregels
 Wanneer een [waarschuwing is gemaakt in Azure](alerts-log.md), hebt u de optie [configureren met behulp van actiegroepen](action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en meer informatie over het configureren van de aangepaste JSON-indeling webhook.

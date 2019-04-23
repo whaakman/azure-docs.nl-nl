@@ -1,81 +1,75 @@
-items:
 - name: Documentatie over Data Science Virtual Machine
   href: index.yml
+  items: null
 - name: Overzicht
   items:
-  - name: Wat is de Data Science VM?
-    href: overview.md
-  - name: Wat is de Deep Learning VM?
-    href: deep-learning-dsvm-overview.md
-  - name: Wat is de Geo AI Data Science VM?
-    href: geo-ai-dsvm-overview.md
+    - name: Wat is de Data Science VM?
+      href: overview.md
+    - name: Wat is de Deep Learning VM?
+      href: deep-learning-dsvm-overview.md
+    - name: Wat is de Geo AI Data Science VM?
+      href: geo-ai-dsvm-overview.md
 - name: Snelstartgidsen
-  items:
-  - name: Een Windows Data Science VM maken
-    href: provision-vm.md
-  - name: Een Ubuntu Data Science VM maken
-    href: dsvm-ubuntu-intro.md
-  - name: Een CentOS Data Science VM maken
-    href: linux-dsvm-intro.md
-  - name: Een Deep Learning VM maken
-    href: provision-deep-learning-dsvm.md
-  - name: Een Geo AI Data Science VM maken
-    href: provision-geo-ai-dsvm.md
   expanded: true
+  items:
+    - name: Een Windows Data Science VM maken
+      href: provision-vm.md
+    - name: Een Ubuntu Data Science VM maken
+      href: dsvm-ubuntu-intro.md
+    - name: Een CentOS Data Science VM maken
+      href: linux-dsvm-intro.md
+    - name: Een Deep Learning VM maken
+      href: provision-deep-learning-dsvm.md
+    - name: Een Geo AI Data Science VM maken
+      href: provision-geo-ai-dsvm.md
 - name: Concepten
   items:
-  - name: DSVM ontdekken
-    href: dsvm-tools-overview.md
-  - name: Deep Learning en AI-frameworks
-    href: dsvm-deep-learning-ai-frameworks.md
-  - name: Hulpprogramma's voor ML en data science
-    href: dsvm-ml-data-science-tools.md
-  - name: Talen
-    href: dsvm-languages.md
-  - name: Ontwikkelhulpprogramma’s
-    href: dsvm-tools-development.md
-  - name: Gegevensopnamehulpprogramma's
-    href: dsvm-tools-ingestion.md
-  - name: Hulpprogramma's voor exploratie en visualisatie van gegevens
-    href: dsvm-tools-explore-and-visualize.md
-  - name: Gegevensplatforms
-    href: dsvm-data-platforms.md
-  - name: Voorbeelden en stapsgewijze handleidingen
-    href: dsvm-samples-and-walkthroughs.md
+    - name: DSVM ontdekken
+      href: dsvm-tools-overview.md
+    - name: Deep Learning en AI-frameworks
+      href: dsvm-deep-learning-ai-frameworks.md
+    - name: Hulpprogramma's voor ML en data science
+      href: dsvm-ml-data-science-tools.md
+    - name: Talen
+      href: dsvm-languages.md
+    - name: Ontwikkelhulpprogramma’s
+      href: dsvm-tools-development.md
+    - name: Gegevensopnamehulpprogramma's
+      href: dsvm-tools-ingestion.md
+    - name: Hulpprogramma's voor exploratie en visualisatie van gegevens
+      href: dsvm-tools-explore-and-visualize.md
+    - name: Gegevensplatforms
+      href: dsvm-data-platforms.md
+    - name: Voorbeelden en stapsgewijze handleidingen
+      href: dsvm-samples-and-walkthroughs.md
 - name: Handleidingen
   items:
-  - name: Een Windows Data Science VM gebruiken
-    href: vm-do-ten-things.md
-  - name: Een Linux Data Science VM gebruiken
-    href: linux-dsvm-walkthrough.md
-  - name: Een Deep Learning VM gebruiken
-    href: use-deep-learning-dsvm.md
-  - name: Een Geo AI Data Science VM gebruiken
-    href: use-geo-ai-dsvm.md
-  - name: Richtlijnen voor bedrijven
-    items:
-    - name: Overzicht
-      href: dsvm-enterprise-overview.md
-    - name: Schalen
-      href: dsvm-pools.md
-    - name: Active Directory-integratie
-      href: dsvm-common-identity.md
-    - name: Referenties voor resourcetoegang beveiligen
-      href: dsvm-secure-access-keys.md
+    - name: Een Windows Data Science VM gebruiken
+      href: vm-do-ten-things.md
+    - name: Een Linux Data Science VM gebruiken
+      href: linux-dsvm-walkthrough.md
+    - name: Een Deep Learning VM gebruiken
+      href: use-deep-learning-dsvm.md
+    - name: Een Geo AI Data Science VM gebruiken
+      href: use-geo-ai-dsvm.md
+    - name: Richtlijnen voor bedrijven
+      items:
+        - name: Overzicht
+          href: dsvm-enterprise-overview.md
+        - name: Schalen
+          href: dsvm-pools.md
+        - name: Active Directory-integratie
+          href: dsvm-common-identity.md
+        - name: Referenties voor resourcetoegang beveiligen
+          href: dsvm-secure-access-keys.md
 - name: Resources
   items:
-  - name: R-ontwikkelaarsgids
-    href: /azure/architecture/data-guide/technology-choices/r-developers-guide
-    maintainContext: true
-  - name: Blog
-    href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
-  - name: MSDN-forum
-    href: https://social.microsoft.com/Forums/en-US/home?forum=dsvm
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=dsvm
-ms.openlocfilehash: edb96d185e829cfe76eda4a42776e3b5cfea0153
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495597"
+    - name: R-ontwikkelaarsgids
+      href: /azure/architecture/data-guide/technology-choices/r-developers-guide
+      maintainContext: true
+    - name: Blog
+      href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
+    - name: MSDN-forum
+      href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=dsvm'

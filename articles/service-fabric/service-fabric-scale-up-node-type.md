@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/13/2019
 ms.author: aljo
 ms.openlocfilehash: e6b429189491af71f6215f1c7660be5965741bf7
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044823"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798210"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Schalen van de primaire knooppunttype van een Service Fabric-cluster
 Dit artikel wordt beschreven hoe u de primaire knooppunttype van een Service Fabric-cluster kan worden uitgebreid door de virtuele machine-resources te verhogen. Een Service Fabric-cluster is een netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Een machine of virtuele machine die deel uitmaakt van een cluster, heet een knooppunt. Virtuele-machineschaalsets vormen een Azure compute-resource die u gebruikt om te implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype die is gedefinieerd in een Azure-cluster is [instellen als een afzonderlijke schaalset](service-fabric-cluster-nodetypes.md). Vervolgens kan elk knooppunttype afzonderlijk worden beheerd. Na het maken van een Service Fabric-cluster, kunt u een cluster-knooppunttype verticaal schalen (de resources van de knooppunten wijzigen) of een upgrade van het besturingssysteem van het knooppunttype VM's.  U kunt het cluster schalen op elk gewenst moment, zelfs wanneer workloads worden uitgevoerd op het cluster.  Als het cluster wordt geschaald, wordt uw toepassingen automatisch ook schalen.
