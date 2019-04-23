@@ -1,109 +1,102 @@
-items:
 - name: Documentatie voor Custom Vision Service
   href: index.yml
 - name: Overzicht
   items:
-  - name: Wat is Custom Vision?
-    href: home.md
+    - name: Wat is Custom Vision?
+      href: home.md
 - name: Snelstartgidsen
   items:
-  - name: De .NET SDK gebruiken
-    items:
-    - name: Classificatie van afbeeldingen
-      href: csharp-tutorial.md
-    - name: Objectdetectie
-      href: csharp-tutorial-od.md
-  - name: De Python-SDK gebruiken
-    items:
-    - name: Classificatie van afbeeldingen
-      href: python-tutorial.md
-    - name: Objectdetectie
-      href: python-tutorial-od.md
-  - name: De Java-SDK gebruiken
-    items:
-    - name: Classificatie van afbeeldingen
-      href: java-tutorial.md
-    - name: Objectdetectie
-      href: java-tutorial-od.md
-  - name: De Node.js-SDK gebruiken
-    items:
-    - name: Classificatie van afbeeldingen
-      href: node-tutorial.md
-    - name: Objectdetectie
-      href: node-tutorial-object-detection.md
-  - name: Go-SDK gebruiken
-    items:
-    - name: Classificatie van afbeeldingen
-      href: go-tutorial.md
-    - name: Objectdetectie
-      href: go-tutorial-object-detection.md
+    - name: De .NET SDK gebruiken
+      items:
+        - name: Classificatie van afbeeldingen
+          href: csharp-tutorial.md
+        - name: Objectdetectie
+          href: csharp-tutorial-od.md
+    - name: De Python-SDK gebruiken
+      items:
+        - name: Classificatie van afbeeldingen
+          href: python-tutorial.md
+        - name: Objectdetectie
+          href: python-tutorial-od.md
+    - name: De Java-SDK gebruiken
+      items:
+        - name: Classificatie van afbeeldingen
+          href: java-tutorial.md
+        - name: Objectdetectie
+          href: java-tutorial-od.md
+    - name: De Node.js-SDK gebruiken
+      items:
+        - name: Classificatie van afbeeldingen
+          href: node-tutorial.md
+        - name: Objectdetectie
+          href: node-tutorial-object-detection.md
+    - name: Go-SDK gebruiken
+      items:
+        - name: Classificatie van afbeeldingen
+          href: go-tutorial.md
+        - name: Objectdetectie
+          href: go-tutorial-object-detection.md
 - name: Zelfstudies
   items:
-  - name: Logodetector voor mobiele toepassingen
-    href: logo-detector-mobile.md
+    - name: Logodetector voor mobiele toepassingen
+      href: logo-detector-mobile.md
 - name: Handleidingen
   items:
-  - name: Een classificatie maken
-    href: getting-started-build-a-classifier.md
-  - name: Uw model testen
-    href: test-your-model.md
-  - name: De classificatie verbeteren
-    href: getting-started-improving-your-classifier.md
-  - name: De voorspellings-API gebruiken
-    href: use-prediction-api.md
-  - name: Exportmodellen
-    items:
-    - name: Uw model exporteren naar mobiele apparaten
-      href: export-your-model.md
-    - name: ONNX-model gebruiken met Windows ML
-      href: custom-vision-onnx-windows-ml.md
-    - name: TensorFlow-model uitvoeren in Python
-      href: export-model-python.md
-  - name: Accountgegevens exporteren of verwijderen
-    href: ./export-delete-data.md
-  - name: Uw project vanuit een beperkte evaluatieversie verplaatsen naar Azure
-    href: ./move-your-project-to-azure.md
-  - name: Uw app bijwerken naar API-versie 3.0
-    href: ./update-application-to-3.0-sdk.md
+    - name: Een classificatie maken
+      href: getting-started-build-a-classifier.md
+    - name: Uw model testen
+      href: test-your-model.md
+    - name: De classificatie verbeteren
+      href: getting-started-improving-your-classifier.md
+    - name: De voorspellings-API gebruiken
+      href: use-prediction-api.md
+    - name: Exportmodellen
+      items:
+        - name: Uw model exporteren naar mobiele apparaten
+          href: export-your-model.md
+        - name: ONNX-model gebruiken met Windows ML
+          href: custom-vision-onnx-windows-ml.md
+        - name: TensorFlow-model uitvoeren in Python
+          href: export-model-python.md
+    - name: Accountgegevens exporteren of verwijderen
+      href: ./export-delete-data.md
+    - name: Uw project vanuit een beperkte evaluatieversie verplaatsen naar Azure
+      href: ./move-your-project-to-azure.md
+    - name: Uw app bijwerken naar API-versie 3.0
+      href: ./update-application-to-3.0-sdk.md
 - name: Naslaginformatie
   items:
-  - name: Custom Vision Training-API
-    href: https://go.microsoft.com/fwlink/?linkid=865446
-  - name: Custom Vision Prediction-API
-    href: https://go.microsoft.com/fwlink/?linkid=865445
-  - name: Woordenlijst
-    href: glossary-of-terms.md
-  - name: SDK's
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python
-    - name: Go - Training
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training
-    - name: Go - Voorspelling
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction
+    - name: Custom Vision Training-API
+      href: 'https://go.microsoft.com/fwlink/?linkid=865446'
+    - name: Custom Vision Prediction-API
+      href: 'https://go.microsoft.com/fwlink/?linkid=865445'
+    - name: Woordenlijst
+      href: glossary-of-terms.md
+    - name: SDK's
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python'
+        - name: Go - Training
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training'
+        - name: Go - Voorspelling
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction'
 - name: Resources
   items:
-  - name: Voorbeelden
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
-  - name: Limieten en quota
-    href: limits-and-quotas.md
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Azure-roadmap
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: Regionale beschikbaarheid
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-  - name: Releaseopmerkingen
-    href: release-notes.md
-ms.openlocfilehash: df39e49ac586fc8e74a0b94074d94e7a6293e4e5
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044756"
+    - name: Voorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+    - name: Limieten en quota
+      href: limits-and-quotas.md
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598141-custom-vision-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Releaseopmerkingen
+      href: release-notes.md

@@ -276,10 +276,10 @@ De volgende tabel bevat voorbeelden om op te geven over de **tableName** eigensc
 
 | DB-Schema | Tabelnaam | tableName JSON-eigenschap |
 | --- | --- | --- |
-| dbo |MyTable |MyTable of dbo.MyTable of [dbo].[MyTable] |
-| dbo1 |MyTable |dbo1.MyTable of [dbo1].[MyTable] |
-| dbo |My.Table |[My.Table] of [dbo].[My.Table] |
-| dbo1 |My.Table |[dbo1].[My.Table] |
+| dbo |MyTable |MyTable of dbo. MyTable of [dbo]. [MyTable] |
+| dbo1 |MyTable |dbo1. MyTable of [dbo1]. [MyTable] |
+| dbo |My.Table |[My.Table] of [dbo]. [My.Table] |
+| dbo1 |My.Table |[dbo1]. [My.Table] |
 
 Als u de volgende fout ziet, is het mogelijk een probleem met de waarde die u hebt opgegeven voor de eigenschap tableName. Zie de tabel voor de juiste manier waarden voor de eigenschap tableName JSON op te geven.
 
@@ -310,10 +310,10 @@ Data Factory maakt de tabel in het doelarchief met de naam van de dezelfde tabel
 | Decimal | Decimal |
 | Numeric | Decimal |
 | Float | Float |
-| Money | Money |
+| geld | geld |
 | Real | Real |
 | SmallMoney | SmallMoney |
-| Binary | Binary |
+| Binair bestand | Binair bestand |
 | Varbinary | Varbinary (maximaal 8000) |
 | Date | Date |
 | DateTime | DateTime |
@@ -325,7 +325,7 @@ Data Factory maakt de tabel in het doelarchief met de naam van de dezelfde tabel
 | NText | NVarChar (maximaal 4000) |
 | Image | VarBinary (maximaal 8000) |
 | UniqueIdentifier | UniqueIdentifier |
-| Char | Char |
+| char | char |
 | NChar | NChar |
 | VarChar | VarChar (maximaal 8000) |
 | NVarChar | NVarChar (maximaal 4000) |
@@ -361,7 +361,7 @@ De toewijzing is hetzelfde als de [SQL Server gegevenstypetoewijzing voor ADO.NE
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numerieke |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
@@ -369,12 +369,12 @@ De toewijzing is hetzelfde als de [SQL Server gegevenstypetoewijzing voor ADO.NE
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object * |
-| text |String, Char[] |
+| tekst |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
-| varbinary |Byte[] |
+| Varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 

@@ -243,7 +243,7 @@ De eigenschappen voor taakschema's worden in de volgende tabel beschreven.
 | Eigenschap | Description |
 |:--- |:--- |
 | schedule name |Één **naam** entiteit met de naam van de planning. |
-| runbook name |Één **naam** entiteit met de naam van het runbook.  |
+| runbook name  |Één **naam** entiteit met de naam van het runbook.  |
 
 
 
