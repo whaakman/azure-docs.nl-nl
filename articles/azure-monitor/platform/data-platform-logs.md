@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
 ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360628"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798943"
 ---
 # <a name="logs-in-azure-monitor"></a>Logboeken in Azure Monitor
 
@@ -124,7 +124,7 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 
 ### <a name="security"></a>Beveiliging
 
-| Gegevens | Description |
+| Gegevens | Beschrijving |
 |:---|:---|
 | Azure Security Center | [Azure Security Center](/azure/security-center/) worden gegevens opgeslagen die worden verzameld in een Log Analytics-werkruimte waar deze kan worden geanalyseerd met andere logboekgegevens. Zie [verzamelen van gegevens in Azure Security Center](../../security-center/security-center-enable-data-collection.md) voor meer informatie over de configuratie van de standaardwerkruimte. |
 | Azure Sentinel | [Azure Sentinel](/azure/sentinel/) gegevens uit gegevensbronnen worden opgeslagen in een Log Analytics-werkruimte. Zie [verbinding maken met gegevensbronnen](/azure/sentinel/connect-data-sources).  |
