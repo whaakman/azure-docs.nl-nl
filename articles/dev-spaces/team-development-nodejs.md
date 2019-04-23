@@ -11,7 +11,7 @@ description: Snelle Kubernetes-ontwikkeling met containers en microservices in A
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
 ms.openlocfilehash: d8c3ae10e770533c910583e6e2bc218d78df4339
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59798909"
