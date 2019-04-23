@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/22/2018
 ms.openlocfilehash: 38cc6cd8f375fe7c60a706541bc74313e8ea2c4f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090250"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60188129"
 ---
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Een virtuele Linux-machine maken in Azure met Ansible
 Ansible maakt gebruikt van een declaratieve taal om het maken, configureren en implementeren van Azure-resources te automatiseren via Ansible-*playbooks*. De verschillende gedeelten van dit artikel komen overeen met de verschillende secties van een Ansible-playbook voor het maken en configureren van verschillende aspecten van een virtuele Linux-machine. Het [volledige Ansible-playbook](#complete-sample-ansible-playbook) vindt u aan het einde van dit artikel.

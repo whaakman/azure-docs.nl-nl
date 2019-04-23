@@ -1,118 +1,111 @@
-items:
 - name: Documentatie voor Bing Nieuws zoeken
   href: index.yml
 - name: Overzicht
-  items:
-  - name: Wat is de Bing Nieuws zoeken-API?
-    href: search-the-web.md
-  - name: De Bing Zoeken-API's vergelijken
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
   expanded: true
+  items:
+    - name: Wat is de Bing Nieuws zoeken-API?
+      href: search-the-web.md
+    - name: De Bing Zoeken-API's vergelijken
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Snelstartgidsen
   items:
-  - name: REST-API
-    items:
-    - name: C# gebruiken
-      href: csharp.md
-    - name: Java gebruiken
-      href: java.md
-    - name: Node.js gebruiken
-      href: nodejs.md
-    - name: PHP gebruiken
-      href: php.md
-    - name: Python gebruiken
-      href: python.md
-    - name: Ruby gebruiken
-      href: ruby.md
-    - name: Go gebruiken
-      href: go.md
-  - name: SDK
-    items:
-    - name: C# gebruiken
-      href: news-search-sdk-quickstart.md
-    - name: Node.js gebruiken
-      href: news-search-sdk-node-quickstart.md
-    - name: Python gebruiken
-      href: news-sdk-python-quickstart.md
-    - name: Java gebruiken
-      href: news-sdk-java-quickstart.md
+    - name: REST-API
+      items:
+        - name: 'C# gebruiken'
+          href: csharp.md
+        - name: Java gebruiken
+          href: java.md
+        - name: Node.js gebruiken
+          href: nodejs.md
+        - name: PHP gebruiken
+          href: php.md
+        - name: Python gebruiken
+          href: python.md
+        - name: Ruby gebruiken
+          href: ruby.md
+        - name: Go gebruiken
+          href: go.md
+    - name: SDK
+      items:
+        - name: 'C# gebruiken'
+          href: news-search-sdk-quickstart.md
+        - name: Node.js gebruiken
+          href: news-search-sdk-node-quickstart.md
+        - name: Python gebruiken
+          href: news-sdk-python-quickstart.md
+        - name: Java gebruiken
+          href: news-sdk-java-quickstart.md
 - name: Zelfstudies
   items:
-  - name: Een web-app met één pagina maken
-    href: tutorial-bing-news-search-single-page-app.md
+    - name: Een web-app met één pagina maken
+      href: tutorial-bing-news-search-single-page-app.md
 - name: Voorbeelden
   items:
-  - name: Codevoorbeelden
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search
+    - name: Codevoorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search'
 - name: Handleidingen
   items:
-  - name: Markering van treffers afhandelen
-    href: hit-highlighting.md
-  - name: Bladeren door nieuws
-    href: paging-news.md
-  - name: Het formaat van miniaturen wijzigen en miniaturen bijsnijden
-    href: resize-and-crop-thumbnails.md
-  - name: Upgrade uitvoeren van v5 van de API naar v7
-    href: bing-news-upgrade-guide-v5-to-v7.md
-  - name: Werken met Visual Studio
-    items:
-    - name: De verbonden service Bing Nieuws zoeken gebruiken
-      href: vs-bing-news-search-connected-service.md
+    - name: Markering van treffers afhandelen
+      href: hit-highlighting.md
+    - name: Bladeren door nieuws
+      href: paging-news.md
+    - name: Het formaat van miniaturen wijzigen en miniaturen bijsnijden
+      href: resize-and-crop-thumbnails.md
+    - name: Upgrade uitvoeren van v5 van de API naar v7
+      href: bing-news-upgrade-guide-v5-to-v7.md
+    - name: Werken met Visual Studio
+      items:
+        - name: De verbonden service Bing Nieuws zoeken gebruiken
+          href: vs-bing-news-search-connected-service.md
 - name: Concepten
   items:
-  - name: Zoekquery's verzenden
-    href: concepts/send-search-queries.md
-  - name: Zoeken naar nieuws
-    href: concepts/search-for-news.md
+    - name: Zoekquery's verzenden
+      href: concepts/send-search-queries.md
+    - name: Zoeken naar nieuws
+      href: concepts/search-for-news.md
 - name: Naslaginformatie
   items:
-  - name: Bing Nieuws zoeken-API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference
-  - name: Bing Nieuws zoeken-API v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference
-  - name: SDK's
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/newssearch?view=azure-node-latest
-    - name: Aan de slag
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch
-  - name: Vereisten voor gebruik en weergave
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
+    - name: Bing Nieuws zoeken-API v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference'
+    - name: Bing Nieuws zoeken-API v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference'
+    - name: SDK's
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/newssearch?view=azure-node-latest'
+        - name: Aan de slag
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch'
+    - name: Vereisten voor gebruik en weergave
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
 - name: Resources
   items:
-  - name: Prijzen
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/news/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/911449-bing-news-search-api
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=bing+news+search
-  - name: Regionale beschikbaarheid
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Azure-roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
-  - name: API-sleutel ophalen
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api
-  - name: Probeer het nu!
-    href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
-  - name: Bing Nieuws zoeken-eindpunten
-    href: endpoint-news.md
-  - name: Ondersteuning voor taal en regio
-    href: language-support.md
-  - name: Analytische gegevens voor Bing Nieuws zoeken-API
-    href: bing-news-stats.md
-ms.openlocfilehash: 2f560504a582de36ccd55c7755d9113e68a8bf4a
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306711"
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/news/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/911449-bing-news-search-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+news+search'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Knowledge Base
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: API-sleutel ophalen
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api'
+    - name: Probeer het nu!
+      href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553'
+    - name: Bing Nieuws zoeken-eindpunten
+      href: endpoint-news.md
+    - name: Ondersteuning voor taal en regio
+      href: language-support.md
+    - name: Analytische gegevens voor Bing Nieuws zoeken-API
+      href: bing-news-stats.md

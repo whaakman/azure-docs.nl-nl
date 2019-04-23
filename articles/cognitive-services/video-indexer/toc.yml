@@ -1,55 +1,48 @@
-items:
 - name: Documentatie voor Video Indexer
 - name: Overzicht
   items:
-  - name: Wat is Video Indexer?
-    href: ../../media-services/video-indexer/video-indexer-overview.md
-  - name: Concepten
-    href: ../../media-services/video-indexer/video-indexer-concepts.md
+    - name: Wat is Video Indexer?
+      href: ../../media-services/video-indexer/video-indexer-overview.md
+    - name: Concepten
+      href: ../../media-services/video-indexer/video-indexer-concepts.md
 - name: Snelstartgidsen
-  items:
-  - name: Aan de slag
-    href: ../../media-services/video-indexer/video-indexer-get-started.md
   expanded: true
+  items:
+    - name: Aan de slag
+      href: ../../media-services/video-indexer/video-indexer-get-started.md
 - name: Handleidingen
   items:
-  - name: Migreren van v1 naar v2
-    href: ../../media-services/video-indexer/migrate-from-v1-to-v2.md
-  - name: Verbinding maken met Azure
-    href: ../../media-services/video-indexer/connect-to-azure.md
-  - name: Een met Azure verbonden account beheren
-    href: ../../media-services/video-indexer/manage-account-connected-to-azure.md
-  - name: Video Indexer-API gebruiken
-    href: ../../media-services/video-indexer/video-indexer-use-apis.md
-  - name: API gebruiken om video's te uploaden en indexeren
-    href: ../../media-services/video-indexer/upload-index-videos.md
-  - name: Video Indexer-uitvoer onderzoeken
-    href: ../../media-services/video-indexer/video-indexer-output-json-v2.md
-  - name: Exacte momenten in video's zoeken
-    href: ../../media-services/video-indexer/video-indexer-search.md
-  - name: Video Indexer-inzichten weergeven en bewerken
-    href: ../../media-services/video-indexer/video-indexer-view-edit.md
-  - name: Video-inzichten maken van bestaande video's
-    href: ../../media-services/video-indexer/video-indexer-create-new.md
-  - name: Widgets insluiten in uw toepassing
-    href: ../../media-services/video-indexer/video-indexer-embed-widgets.md
+    - name: Migreren van v1 naar v2
+      href: ../../media-services/video-indexer/migrate-from-v1-to-v2.md
+    - name: Verbinding maken met Azure
+      href: ../../media-services/video-indexer/connect-to-azure.md
+    - name: Een met Azure verbonden account beheren
+      href: ../../media-services/video-indexer/manage-account-connected-to-azure.md
+    - name: Video Indexer-API gebruiken
+      href: ../../media-services/video-indexer/video-indexer-use-apis.md
+    - name: API gebruiken om video's te uploaden en indexeren
+      href: ../../media-services/video-indexer/upload-index-videos.md
+    - name: Video Indexer-uitvoer onderzoeken
+      href: ../../media-services/video-indexer/video-indexer-output-json-v2.md
+    - name: Exacte momenten in video's zoeken
+      href: ../../media-services/video-indexer/video-indexer-search.md
+    - name: Video Indexer-inzichten weergeven en bewerken
+      href: ../../media-services/video-indexer/video-indexer-view-edit.md
+    - name: Video-inzichten maken van bestaande video's
+      href: ../../media-services/video-indexer/video-indexer-create-new.md
+    - name: Widgets insluiten in uw toepassing
+      href: ../../media-services/video-indexer/video-indexer-embed-widgets.md
 - name: Naslaginformatie
   items:
-  - name: Video Indexer-API
-    href: https://api-portal.videoindexer.ai/
+    - name: Video Indexer-API
+      href: 'https://api-portal.videoindexer.ai/'
 - name: Resources
   items:
-  - name: Prijzen
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598144-video-indexer
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Azure-roadmap
-    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
-ms.openlocfilehash: 5283cc39c64c31d6b9014043bf37e066cef582a7
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290753"
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598144-video-indexer'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'

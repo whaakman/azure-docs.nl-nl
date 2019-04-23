@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 7e67e7836b1d80e623a11e552c81750bc6133205
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 3e6baedc28805117962aa8dda8edc6ff3419280e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60188336"
 ---
 # <a name="preview-create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Preview: Maken en gebruiken van gedeelde-installatiekopieën voor virtuele-machineschaalsets met de Azure PowerShell
 
@@ -42,7 +42,7 @@ De galerie met installatiekopieën van gedeelde functie heeft meerdere resourcet
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -55,7 +55,7 @@ Als u wilt het voorbeeld in dit artikel hebt voltooid, moet u een bestaande behe
 
 ## <a name="create-a-scale-set-from-the-shared-image-version"></a>Een schaalset van versie van de gedeelde installatiekopie maken
 
-Maken van een virtuele-machineschaalset met [New-AzVmss](/powershell/module/az.compute/new-azvmss). Het volgende voorbeeld wordt een schaalset op basis van de versie van de nieuwe installatiekopie in het datacenter VS-West. De Azure-netwerkresources voor het virtuele netwerk, het openbare IP-adres en de load balancer worden automatisch gemaakt. Wanneer u hierom wordt gevraagd, stelt u uw eigen beheerdersreferenties voor de VM-exemplaren in de schaalset:
+Maak een virtuele-machineschaalset met behulp van [New-AzVmss](/powershell/module/az.compute/new-azvmss). Het volgende voorbeeld wordt een schaalset op basis van de versie van de nieuwe installatiekopie in het datacenter VS-West. De Azure-netwerkresources voor het virtuele netwerk, het openbare IP-adres en de load balancer worden automatisch gemaakt. Wanneer u hierom wordt gevraagd, stelt u uw eigen beheerdersreferenties voor de VM-exemplaren in de schaalset:
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -77,7 +77,7 @@ Het duurt enkele minuten om alle schaalsetresources en VM's te maken en te confi
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u niet meer nodig hebt, kunt u de [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet voor het verwijderen van de resourcegroep, VM en alle gerelateerde resources:
+U kunt de cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myGalleryRG

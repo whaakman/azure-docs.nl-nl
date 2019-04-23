@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3d7b9dff034aca6c7602ea72fadfcdc53b11fe15
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335875"
 documentType: LandingData
 title: Documentatie over toepassingsbeheer
 metadata:
@@ -14,44 +8,44 @@ metadata:
   author: barbkess
   manager: daveba
   layout: LandingPage
-  ms.assetid: 
+  ms.assetid: null
   ms.service: active-directory
   ms.topic: landing-page
   ms.date: 09/14/2018
   ms.author: barbkess
 abstract:
-  description: Azure Active Directory biedt veilige en naadloze toegang tot cloud- en on-premises toepassingen. Bovendien is het niet nodig om wachtwoorden te beheren. Uw eindgebruikers hoeven zich maar één keer aan te melden om toegang te krijgen tot Office 365 en duizenden andere toepassingen. Leer aan de hand van onze snelstartgidsen, zelfstudies en richtlijnen hoe u toepassingen beheert en implementeert.
+  description: 'Azure Active Directory biedt veilige en naadloze toegang tot cloud- en on-premises toepassingen. Bovendien is het niet nodig om wachtwoorden te beheren. Uw eindgebruikers hoeven zich maar één keer aan te melden om toegang te krijgen tot Office 365 en duizenden andere toepassingen. Leer aan de hand van onze snelstartgidsen, zelfstudies en richtlijnen hoe u toepassingen beheert en implementeert.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
-    title: Beveiligde toegang tot uw toepassingen met Azure AD (1:47)
-    href: https://youtu.be/BSUuXXcJKCk/
+    title: 'Beveiligde toegang tot uw toepassingen met Azure AD (1:47)'
+    href: 'https://youtu.be/BSUuXXcJKCk/'
     width: 250
 sections:
-- title: QuickStarts van vijf minuten
-  items:
-  - type: paragraph
-    text: Informatie over hoe u een toepassing voor gebruikers toevoegt via Azure Active Directory.
-  - type: list
-    style: icon48
+  - title: QuickStarts van vijf minuten
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: Een toepassing toevoegen
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: Uw toepassingen bekijken
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal
-- title: Zelfstudies met stapsgewijze instructies
-  items:
-  - type: paragraph
-    text: Informatie over hoe u een eenvoudig en veilig aanmeldproces voor uw toepassingen inschakelt.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Informatie over hoe u een toepassing voor gebruikers toevoegt via Azure Active Directory.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: Een toepassing toevoegen
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal'
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: Uw toepassingen bekijken
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal'
+  - title: Zelfstudies met stapsgewijze instructies
     items:
-    - html: <a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Zelfstudies voor SaaS-toepassingen</a>
-    - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Eenmalige aanmelding configureren</a>
+      - type: paragraph
+        text: Informatie over hoe u een eenvoudig en veilig aanmeldproces voor uw toepassingen inschakelt.
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Zelfstudies voor SaaS-toepassingen</a>'
+          - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Eenmalige aanmelding configureren</a>

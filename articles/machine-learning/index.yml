@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2f8e833088ffdf819e387fd28ae88508d5fe6d00
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519919"
 abstract:
-  description: Meer informatie over hoe u intelligente algoritmes in apps en websites bouwt met deze Azure Machine Learning-producten.  Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.
+  description: 'Meer informatie over hoe u intelligente algoritmes in apps en websites bouwt met deze Azure Machine Learning-producten.  Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.'
 documentType: LandingData
 metadata:
   author: j-martens
-  description: Ontdek hoe u intelligente algoritmen kunt compileren voor apps, websites en bots zodat deze kunnen zien, horen en spreken en de behoeften van uw gebruikers kunnen begrijpen via natuurlijke communicatiemethoden. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.
+  description: 'Ontdek hoe u intelligente algoritmen kunt compileren voor apps, websites en bots zodat deze kunnen zien, horen en spreken en de behoeften van uw gebruikers kunnen begrijpen via natuurlijke communicatiemethoden. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.'
   ms.author: jmartens
   ms.subservice: core
   ms.date: 12/04/2018
@@ -19,86 +13,86 @@ metadata:
   ms.tgt_pltfrm: na
   ms.topic: landing-page
   services: machine-learning
-  title: Documentatie voor Azure Machine Learning – zelfstudies, API-verwijzing | Microsoft Docs
+  title: 'Documentatie voor Azure Machine Learning – zelfstudies, API-verwijzing | Microsoft Docs'
 sections:
-- items:
-  - className: cardsM
-    columns: 2
-    items:
-    - href: /azure/machine-learning/service/overview-what-is-azure-ml
-      html: <p>Ontdek hoe gegevenswetenschappers met deze service AI-oplossingen ontwikkelen en beheren<br/> met behulp van de Azure CLI en Python-hulpprogramma's en -bibliotheken met een verscheidenheid aan Azure-gegevens een compute-services. Meer informatie...</p>
-      image:
-        src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Azure Machine Learning-service
-    style: cards
-    type: list
-- items:
-  - text: 'Bereid u voor en ga aan de slag met Azure Machine Learning-service:'
-    type: paragraph
-  - text: <b>Quickstarts:</b>
-    type: paragraph
   - items:
-    - html: <a href="service/quickstart-run-cloud-notebook">Een experiment uitvoeren in de cloud</a> (geen installatie vereist)
-    - html: <a href="service/quickstart-run-local-notebook">Een experiment met behulp van een lokale notebookserver uitvoeren</a> (lokale SDK-installatie)
-    style: unordered
-    type: list
-  - text: <b>Zelfstudie voor afbeeldingsclassificatie met MNIST-gegevens:</b>
-    type: paragraph
+      - className: cardsM
+        columns: 2
+        items:
+          - href: /azure/machine-learning/service/overview-what-is-azure-ml
+            html: <p>Ontdek hoe gegevenswetenschappers met deze service AI-oplossingen ontwikkelen en beheren<br/> met behulp van de Azure CLI en Python-hulpprogramma's en -bibliotheken met een verscheidenheid aan Azure-gegevens een compute-services. Meer informatie...</p>
+            image:
+              src: /azure/machine-learning/media/index/i_machine-learning.svg
+            title: Azure Machine Learning-service
+        style: cards
+        type: list
   - items:
-    - html: 'Deel 1: <a href="service/tutorial-train-models-with-aml">Uw eigen model trainen</a>'
-    - html: 'Deel 2: <a href="service/tutorial-deploy-models-with-aml">Dat model implementeren</a>'
-    style: unordered
-    type: list
-  - text: <b>Zelfstudie over hoe u regressie modelleert met taxigegevens uit NYC:</b>
-    type: paragraph
+      - text: 'Bereid u voor en ga aan de slag met Azure Machine Learning-service:'
+        type: paragraph
+      - text: '<b>Quickstarts:</b>'
+        type: paragraph
+      - items:
+          - html: <a href="service/quickstart-run-cloud-notebook">Een experiment uitvoeren in de cloud</a> (geen installatie vereist)
+          - html: <a href="service/quickstart-run-local-notebook">Een experiment met behulp van een lokale notebookserver uitvoeren</a> (lokale SDK-installatie)
+        style: unordered
+        type: list
+      - text: '<b>Zelfstudie voor afbeeldingsclassificatie met MNIST-gegevens:</b>'
+        type: paragraph
+      - items:
+          - html: 'Deel 1: <a href="service/tutorial-train-models-with-aml">Uw eigen model trainen</a>'
+          - html: 'Deel 2: <a href="service/tutorial-deploy-models-with-aml">Dat model implementeren</a>'
+        style: unordered
+        type: list
+      - text: '<b>Zelfstudie over hoe u regressie modelleert met taxigegevens uit NYC:</b>'
+        type: paragraph
+      - items:
+          - html: 'Deel 1: <a href="service/tutorial-data-prep">Gegevens voorbereiden voor modellering</a>'
+          - html: 'Deel 2: <a href="service/tutorial-auto-train-models">Geautomatiseerde ML-trainingsmodellen voor u laten werken</a>'
+        style: unordered
+        type: list
+      - text: '<b>Uw modellen gebruiken:</b>'
+        type: paragraph
+      - items:
+          - html: <a href="service/how-to-consume-web-service">Gebruik van aanvraag/antwoord-modellen</a>
+          - html: <a href="service/how-to-run-batch-predictions">Voorspellingen batchen met ML-pijplijnen</a>
+        style: unordered
+        type: list
+    title: Snelstarts en zelfstudies
   - items:
-    - html: 'Deel 1: <a href="service/tutorial-data-prep">Gegevens voorbereiden voor modellering</a>'
-    - html: 'Deel 2: <a href="service/tutorial-auto-train-models">Geautomatiseerde ML-trainingsmodellen voor u laten werken</a>'
-    style: unordered
-    type: list
-  - text: <b>Uw modellen gebruiken:</b>
-    type: paragraph
-  - items:
-    - html: <a href="service/how-to-consume-web-service">Gebruik van aanvraag/antwoord-modellen</a>
-    - html: <a href="service/how-to-run-batch-predictions">Voorspellingen batchen met ML-pijplijnen</a>
-    style: unordered
-    type: list
-  title: Snelstarts en zelfstudies
-- items:
-  - className: cardsM
-    columns: 2
-    items:
-    - href: /azure/cognitive-services/
-      html: <p>API's die intelligente algoritmen voor uw apps, websites en bots leveren.</p>
-      image:
-        src: /azure/machine-learning/media/index/cognitive-services.png
-      title: Cognitive Services
-    - href: /azure/machine-learning/studio/
-      html: <p>Een hulpprogramma met functionaliteit op basis van slepen en neerzetten, om in samenwerkingsverband predictive analytics-oplossingen voor uw gegevens te ontwikkelen, testen en implementeren met R of Python. </p>
-      image:
-        src: /azure/machine-learning/media/index/machine-learning-studio.svg
-      title: Azure Machine Learning Studio
-    - href: /sql/advanced-analytics/r/r-services
-      html: <p>Analyses in databases met ondersteuning voor zowel R als Python.</p>
-      image:
-        src: /azure/machine-learning/media/index/logo_sql.png
-      title: SQL Server Machine Learning-services
-    - href: /machine-learning-server/
-      html: <p>Flexibel machine learning-platform voor bedrijven, met ondersteuning voor R- en Python-implementaties in Windows, Linux, en HDInsight Spark en Hadoop-clusters.</p>
-      image:
-        src: /azure/machine-learning/media/index/ml-server.png
-      title: Microsoft Machine Learning Server
-    - href: /azure/machine-learning/team-data-science-process
-      html: <p>Een data science-methodologie waarmee teams in samenwerkingsverband op een efficiënte manier predictive analytics-oplossingen en intelligente toepassingen kunnen leveren.</p>
-      image:
-        src: /azure/machine-learning/media/index/tdsp.png
-      title: Team Data Science Process
-    - href: /azure/machine-learning/data-science-virtual-machine/
-      html: <p>Experimenteer zonder software te installeren of te configureren met de Data Science Virtual Machine (DSVM) en de Deep Learning Virtual Machine (DLVM). Vooraf geïnstalleerde, populaire gegevensanalyses, machine learning en AI-hulpprogramma's.</p>
-      image:
-        src: /azure/machine-learning/media/index/virtualmachine.svg
-      title: Data Science Virtual Machine
-    style: cards
-    type: list
-  title: Andere machine learning-technologieën van Microsoft
+      - className: cardsM
+        columns: 2
+        items:
+          - href: /azure/cognitive-services/
+            html: '<p>API''s die intelligente algoritmen voor uw apps, websites en bots leveren.</p>'
+            image:
+              src: /azure/machine-learning/media/index/cognitive-services.png
+            title: Cognitive Services
+          - href: /azure/machine-learning/studio/
+            html: "<p>Een hulpprogramma met functionaliteit op basis van slepen en neerzetten, om in samenwerkingsverband predictive analytics-oplossingen voor uw gegevens te ontwikkelen, testen en implementeren met R of Python.\_</p>"
+            image:
+              src: /azure/machine-learning/media/index/machine-learning-studio.svg
+            title: Azure Machine Learning Studio
+          - href: /sql/advanced-analytics/r/r-services
+            html: <p>Analyses in databases met ondersteuning voor zowel R als Python.</p>
+            image:
+              src: /azure/machine-learning/media/index/logo_sql.png
+            title: SQL Server Machine Learning-services
+          - href: /machine-learning-server/
+            html: '<p>Flexibel machine learning-platform voor bedrijven, met ondersteuning voor R- en Python-implementaties in Windows, Linux, en HDInsight Spark en Hadoop-clusters.</p>'
+            image:
+              src: /azure/machine-learning/media/index/ml-server.png
+            title: Microsoft Machine Learning Server
+          - href: /azure/machine-learning/team-data-science-process
+            html: <p>Een data science-methodologie waarmee teams in samenwerkingsverband op een efficiënte manier predictive analytics-oplossingen en intelligente toepassingen kunnen leveren.</p>
+            image:
+              src: /azure/machine-learning/media/index/tdsp.png
+            title: Team Data Science Process
+          - href: /azure/machine-learning/data-science-virtual-machine/
+            html: '<p>Experimenteer zonder software te installeren of te configureren met de Data Science Virtual Machine (DSVM) en de Deep Learning Virtual Machine (DLVM). Vooraf geïnstalleerde, populaire gegevensanalyses, machine learning en AI-hulpprogramma''s.</p>'
+            image:
+              src: /azure/machine-learning/media/index/virtualmachine.svg
+            title: Data Science Virtual Machine
+        style: cards
+        type: list
+    title: Andere machine learning-technologieën van Microsoft
 title: Documentatie voor Machine Learning

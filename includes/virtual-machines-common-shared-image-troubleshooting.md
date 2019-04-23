@@ -9,11 +9,11 @@ ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55736245"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60187678"
 ---
 Als u problemen ondervindt tijdens het uitvoeren van bewerkingen op galerieën met gedeelde installatiekopieën, definities van installatiekopieën en versies van installatiekopieën, voert u de mislukte opdracht opnieuw uit in de foutopsporingsmodus. Foutopsporingsmodus is geactiveerd door door te geven de **-debug** overschakelen met CLI en de **-Debug** overschakelen met PowerShell. Nadat u de fout hebt gevonden, gaat u als volgt dit document om op te lossen de fouten.
 
@@ -107,7 +107,7 @@ Het delen van gedeelde afbeeldingengalerie, de definitie van installatiekopie en
 
 Gebruik de **--Vouw ReplicationStatus** vlag om te controleren als de replicatie naar alle regio's van het opgegeven doel is voltooid. Als dat niet het geval is, wacht u maximaal zes uur voor de taak is voltooid. Als dit mislukt, activeert u de opdracht opnieuw op te maken en repliceren van de versie van de installatiekopie. Als er een groot aantal doelregio's die versie van de installatiekopie wordt gerepliceerd naar, kunt u in dat de replicatie in fasen.
 
-## <a name="azure-limits-and-quotas"></a>Azure-limieten en quota 
+## <a name="azure-limits-and-quotas"></a>Limieten en quota in Azure 
 
 [Azure-limieten en quota's](https://docs.microsoft.com/azure/azure-subscription-service-limits) gelden voor alle gedeelde afbeeldingengalerie, de definitie van installatiekopie en afbeeldingsresources versie. Zorg ervoor dat u zich binnen de grenzen van uw abonnementen. 
 

@@ -1,100 +1,93 @@
-items:
 - name: Privileged Identity Management-documentatie
   href: index.yml
 - name: Overzicht
   items:
-  - name: Wat is Azure AD PIM?
-    href: pim-configure.md
+    - name: Wat is Azure AD PIM?
+      href: pim-configure.md
 - name: Concepten
   items:
-  - name: Licentievereisten
-    href: subscription-requirements.md
-  - name: Rollen die u niet kunt beheren
-    href: pim-roles.md
-  - name: Veilige bevoegde toegang
-    href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: MFA en PIM
-    href: pim-how-to-require-mfa.md
-  - name: Overzichtsdashboards
-    href: pim-resource-roles-overview-dashboards.md
-  - name: E-mailmeldingen
-    href: pim-email-notifications.md
-  - name: Microsoft Graph API's
-    href: pim-apis.md
+    - name: Licentievereisten
+      href: subscription-requirements.md
+    - name: Rollen die u niet kunt beheren
+      href: pim-roles.md
+    - name: Veilige bevoegde toegang
+      href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+    - name: MFA en PIM
+      href: pim-how-to-require-mfa.md
+    - name: Overzichtsdashboards
+      href: pim-resource-roles-overview-dashboards.md
+    - name: E-mailmeldingen
+      href: pim-email-notifications.md
+    - name: Microsoft Graph API's
+      href: pim-apis.md
 - name: Handleidingen
-  items:
-  - name: PIM implementeren
-    href: pim-deployment-plan.md
-  - name: Beginnen met PIM
-    href: pim-getting-started.md
-  - name: Mijn rollen activeren
-    items:
-    - name: Mijn Azure AD-rollen activeren
-      href: pim-how-to-activate-role.md
-    - name: Mijn Azure-resourcerollen activeren
-      href: pim-resource-roles-activate-your-roles.md
-  - name: PIM configureren
-    items:
-    - name: Beveiligingswizard
-      href: pim-security-wizard.md
-    - name: Azure-resources detecteren
-      href: pim-resource-roles-discover-resources.md
-    - name: Anderen toegang verlenen om PIM te beheren
-      href: pim-how-to-give-access-to-pim.md
-    - name: Toegangsrechten verhogen om alle abonnementen te beheren
-      href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: Azure AD-rollen beheren
-    items:
-    - name: Rollen toewijzen
-      href: pim-how-to-add-role-to-user.md
-    - name: Aanvragen goedkeuren
-      href: azure-ad-pim-approval-workflow.md
-    - name: Rolinstellingen configureren
-      href: pim-how-to-change-default-settings.md
-    - name: Waarschuwingen configureren
-      href: pim-how-to-configure-security-alerts.md
-    - name: Controlegeschiedenis weergeven
-      href: pim-how-to-use-audit-log.md
-  - name: Azure-resourcerollen beheren
-    items:
-    - name: Rollen toewijzen
-      href: pim-resource-roles-assign-roles.md
-    - name: Externe gebruikers uitnodigen
-      href: pim-resource-roles-external-users.md
-    - name: Aanvragen goedkeuren
-      href: pim-resource-roles-approval-workflow.md
-    - name: Rollen verlengen of vernieuwen
-      href: pim-resource-roles-renew-extend.md
-    - name: Rolinstellingen configureren
-      href: pim-resource-roles-configure-role-settings.md
-    - name: Waarschuwingen configureren
-      href: pim-resource-roles-configure-alerts.md
-    - name: Activiteiten- en controlegeschiedenis weergeven
-      href: azure-pim-resource-rbac.md
-    - name: Aangepaste rollen gebruiken
-      href: pim-resource-roles-custom-role-policy.md
-  - name: Toegang beoordelen
-    items:
-    - name: Azure AD-rollen
-      items:
-      - name: Mijn Azure AD-rollen beoordelen
-        href: pim-how-to-perform-security-review.md
-      - name: Een toegangsbeoordeling starten
-        href: pim-how-to-start-security-review.md
-      - name: Een toegangsbeoordeling voltooien
-        href: pim-how-to-complete-review.md
-    - name: Azure-resourcerollen
-      items:
-      - name: Mijn Azure-resourcerollen controleren
-        href: pim-resource-roles-perform-access-review.md
-      - name: Een toegangsbeoordeling starten
-        href: pim-resource-roles-start-access-review.md
-      - name: Een toegangsbeoordeling voltooien
-        href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: 6ccd7b75b356fef6f7c167873e7b00429c6f28a3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575790"
+  items:
+    - name: PIM implementeren
+      href: pim-deployment-plan.md
+    - name: Beginnen met PIM
+      href: pim-getting-started.md
+    - name: Mijn rollen activeren
+      items:
+        - name: Mijn Azure AD-rollen activeren
+          href: pim-how-to-activate-role.md
+        - name: Mijn Azure-resourcerollen activeren
+          href: pim-resource-roles-activate-your-roles.md
+    - name: PIM configureren
+      items:
+        - name: Beveiligingswizard
+          href: pim-security-wizard.md
+        - name: Azure-resources detecteren
+          href: pim-resource-roles-discover-resources.md
+        - name: Anderen toegang verlenen om PIM te beheren
+          href: pim-how-to-give-access-to-pim.md
+        - name: Toegangsrechten verhogen om alle abonnementen te beheren
+          href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+    - name: Azure AD-rollen beheren
+      items:
+        - name: Rollen toewijzen
+          href: pim-how-to-add-role-to-user.md
+        - name: Aanvragen goedkeuren
+          href: azure-ad-pim-approval-workflow.md
+        - name: Rolinstellingen configureren
+          href: pim-how-to-change-default-settings.md
+        - name: Waarschuwingen configureren
+          href: pim-how-to-configure-security-alerts.md
+        - name: Controlegeschiedenis weergeven
+          href: pim-how-to-use-audit-log.md
+    - name: Azure-resourcerollen beheren
+      items:
+        - name: Rollen toewijzen
+          href: pim-resource-roles-assign-roles.md
+        - name: Externe gebruikers uitnodigen
+          href: pim-resource-roles-external-users.md
+        - name: Aanvragen goedkeuren
+          href: pim-resource-roles-approval-workflow.md
+        - name: Rollen verlengen of vernieuwen
+          href: pim-resource-roles-renew-extend.md
+        - name: Rolinstellingen configureren
+          href: pim-resource-roles-configure-role-settings.md
+        - name: Waarschuwingen configureren
+          href: pim-resource-roles-configure-alerts.md
+        - name: Activiteiten- en controlegeschiedenis weergeven
+          href: azure-pim-resource-rbac.md
+        - name: Aangepaste rollen gebruiken
+          href: pim-resource-roles-custom-role-policy.md
+    - name: Toegang beoordelen
+      items:
+        - name: Azure AD-rollen
+          items:
+            - name: Mijn Azure AD-rollen beoordelen
+              href: pim-how-to-perform-security-review.md
+            - name: Een toegangsbeoordeling starten
+              href: pim-how-to-start-security-review.md
+            - name: Een toegangsbeoordeling voltooien
+              href: pim-how-to-complete-review.md
+        - name: Azure-resourcerollen
+          items:
+            - name: Mijn Azure-resourcerollen controleren
+              href: pim-resource-roles-perform-access-review.md
+            - name: Een toegangsbeoordeling starten
+              href: pim-resource-roles-start-access-review.md
+            - name: Een toegangsbeoordeling voltooien
+              href: pim-resource-roles-complete-access-review.md

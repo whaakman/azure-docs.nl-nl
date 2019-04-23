@@ -1,142 +1,135 @@
-items:
 - name: Container Instances
   href: index.yml
 - name: Overzicht
   items:
-  - name: Over Azure Container Instances
-    href: container-instances-overview.md
+    - name: Over Azure Container Instances
+      href: container-instances-overview.md
 - name: Snelstartgidsen
-  items:
-  - name: Een containerinstantie implementeren - CLI
-    href: container-instances-quickstart.md
-  - name: Een containerinstantie implementeren - Portal
-    href: container-instances-quickstart-portal.md
-  - name: Een containerinstantie implementeren - PowerShell
-    href: container-instances-quickstart-powershell.md
   expanded: true
+  items:
+    - name: Een containerinstantie implementeren - CLI
+      href: container-instances-quickstart.md
+    - name: Een containerinstantie implementeren - Portal
+      href: container-instances-quickstart-portal.md
+    - name: Een containerinstantie implementeren - PowerShell
+      href: container-instances-quickstart-powershell.md
 - name: Zelfstudies
   items:
-  - name: Een containerinstallatiekopie maken en implementeren
-    items:
-    - name: 1 - Een containerinstallatiekopie maken
-      href: container-instances-tutorial-prepare-app.md
-    - name: 2 - Een containerregister maken
-      href: container-instances-tutorial-prepare-acr.md
-    - name: 3 - De toepassing implementeren
-      href: container-instances-tutorial-deploy-app.md
-  - name: Een groep met meerdere containers implementeren
-    items:
-    - name: Een containergroep implementeren - YAML
-      href: container-instances-multi-container-yaml.md
-    - name: Een containergroep implementeren - Resource Manager
-      href: container-instances-multi-container-group.md
+    - name: Een containerinstallatiekopie maken en implementeren
+      items:
+        - name: 1 - Een containerinstallatiekopie maken
+          href: container-instances-tutorial-prepare-app.md
+        - name: 2 - Een containerregister maken
+          href: container-instances-tutorial-prepare-acr.md
+        - name: 3 - De toepassing implementeren
+          href: container-instances-tutorial-deploy-app.md
+    - name: Een groep met meerdere containers implementeren
+      items:
+        - name: Een containergroep implementeren - YAML
+          href: container-instances-multi-container-yaml.md
+        - name: Een containergroep implementeren - Resource Manager
+          href: container-instances-multi-container-group.md
 - name: Voorbeelden
   items:
-  - name: Codevoorbeelden
-    href: https://azure.microsoft.com/resources/samples/?sort=0&term=aci
-  - name: Resource Manager-sjablonen
-    href: container-instances-samples-rm.md
+    - name: Codevoorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&term=aci'
+    - name: Resource Manager-sjablonen
+      href: container-instances-samples-rm.md
 - name: Concepten
   items:
-  - name: Containergroepen
-    href: container-instances-container-groups.md
-  - name: Quota en limieten
-    href: container-instances-quotas.md
-  - name: Beschikbaarheid in regio’s
-    href: container-instances-region-availability.md
-  - name: Relatie met orchestrators
-    href: container-instances-orchestrator-relationship.md
+    - name: Containergroepen
+      href: container-instances-container-groups.md
+    - name: Quota en limieten
+      href: container-instances-quotas.md
+    - name: Beschikbaarheid in regio’s
+      href: container-instances-region-availability.md
+    - name: Relatie met orchestrators
+      href: container-instances-orchestrator-relationship.md
 - name: Handleidingen
   items:
-  - name: Implementeren
-    items:
-    - name: Implementeren in een virtueel netwerk (preview)
-      href: container-instances-vnet.md
-    - name: Implementeren vanuit Azure Container Registry
-      href: container-instances-using-azure-container-registry.md
-  - name: Containerscenario's
-    items:
-    - name: Beleid voor opnieuw opstarten instellen voor taken die eenmalig worden uitgevoerd
-      href: container-instances-restart-policy.md
-    - name: Omgevingsvariabelen instellen (env)
-      href: container-instances-environment-variables.md
-    - name: Container-entrypoint overschrijven
-      href: container-instances-start-command.md
-    - name: Een opdracht uitvoeren (exec)
-      href: container-instances-exec.md
-    - name: Een Jenkins build-taak uitvoeren
-      href: container-instances-jenkins.md
-    - name: Een beheerde identiteit gebruiken (preview)
-      href: container-instances-managed-identity.md
-    - name: GPU-resources gebruiken (preview)
-      href: container-instances-gpu.md
-  - name: Gegevensvolumes koppelen
-    items:
-    - name: Azure-bestandsshare
-      href: container-instances-volume-azure-files.md
-    - name: Geheim
-      href: container-instances-volume-secret.md
-    - name: Lege map
-      href: container-instances-volume-emptydir.md
-    - name: Gekloonde Git-opslagplaats
-      href: container-instances-volume-gitrepo.md
-  - name: Actieve containers beheren
-    items:
-    - name: Activiteitstests configureren
-      href: container-instances-liveness-probe.md
-    - name: Containers starten en stoppen
-      href: container-instances-stop-start.md
-    - name: Actieve containers bijwerken
-      href: container-instances-update.md
-  - name: Bewaken en logboeken bijhouden
-    items:
-    - name: CPU en geheugengebruik bewaken
-      href: container-instances-monitor.md
-    - name: Containerlogboeken en gebeurtenissen ophalen
-      href: container-instances-get-logs.md
-    - name: Logboekregistratie met Azure Log Analytics
-      href: container-instances-log-analytics.md
-  - name: Problemen oplossen
-    items:
-    - name: Algemene problemen
-      href: container-instances-troubleshooting.md
+    - name: Implementeren
+      items:
+        - name: Implementeren in een virtueel netwerk (preview)
+          href: container-instances-vnet.md
+        - name: Implementeren vanuit Azure Container Registry
+          href: container-instances-using-azure-container-registry.md
+    - name: Containerscenario's
+      items:
+        - name: Beleid voor opnieuw opstarten instellen voor taken die eenmalig worden uitgevoerd
+          href: container-instances-restart-policy.md
+        - name: Omgevingsvariabelen instellen (env)
+          href: container-instances-environment-variables.md
+        - name: Container-entrypoint overschrijven
+          href: container-instances-start-command.md
+        - name: Een opdracht uitvoeren (exec)
+          href: container-instances-exec.md
+        - name: Een Jenkins build-taak uitvoeren
+          href: container-instances-jenkins.md
+        - name: Een beheerde identiteit gebruiken (preview)
+          href: container-instances-managed-identity.md
+        - name: GPU-resources gebruiken (preview)
+          href: container-instances-gpu.md
+    - name: Gegevensvolumes koppelen
+      items:
+        - name: Azure-bestandsshare
+          href: container-instances-volume-azure-files.md
+        - name: Geheim
+          href: container-instances-volume-secret.md
+        - name: Lege map
+          href: container-instances-volume-emptydir.md
+        - name: Gekloonde Git-opslagplaats
+          href: container-instances-volume-gitrepo.md
+    - name: Actieve containers beheren
+      items:
+        - name: Activiteitstests configureren
+          href: container-instances-liveness-probe.md
+        - name: Containers starten en stoppen
+          href: container-instances-stop-start.md
+        - name: Actieve containers bijwerken
+          href: container-instances-update.md
+    - name: Bewaken en logboeken bijhouden
+      items:
+        - name: CPU en geheugengebruik bewaken
+          href: container-instances-monitor.md
+        - name: Containerlogboeken en gebeurtenissen ophalen
+          href: container-instances-get-logs.md
+        - name: Logboekregistratie met Azure Log Analytics
+          href: container-instances-log-analytics.md
+    - name: Problemen oplossen
+      items:
+        - name: Algemene problemen
+          href: container-instances-troubleshooting.md
 - name: Naslaginformatie
   items:
-  - name: Azure-CLI
-    href: /cli/azure/container
-  - name: REST
-    href: /rest/api/container-instances
-  - name: PowerShell
-    href: /powershell/module/az.containerinstance
-  - name: .NET
-    href: /dotnet/api/overview/azure/containerinstance
-  - name: Python
-    href: /python/api/overview/azure/containerinstance
-  - name: Java
-    href: /java/api/overview/azure/containerinstance
-  - name: Node.js
-    href: /javascript/api/overview/azure/containerinstances
-  - name: Resource Manager-sjabloon
-    href: /azure/templates/microsoft.containerinstance/containergroups
+    - name: Azure-CLI
+      href: /cli/azure/container
+    - name: REST
+      href: /rest/api/container-instances
+    - name: PowerShell
+      href: /powershell/module/az.containerinstance
+    - name: .NET
+      href: /dotnet/api/overview/azure/containerinstance
+    - name: Python
+      href: /python/api/overview/azure/containerinstance
+    - name: Java
+      href: /java/api/overview/azure/containerinstance
+    - name: Node.js
+      href: /javascript/api/overview/azure/containerinstances
+    - name: Resource Manager-sjabloon
+      href: /azure/templates/microsoft.containerinstance/containergroups
 - name: Resources
   items:
-  - name: Uw vaardigheden ontwikkelen met Microsoft Learn
-    href: /learn/browse/?products=azure-container-instances
-  - name: Beschikbaarheid in regio’s
-    href: https://azure.microsoft.com/regions/services/
-  - name: Prijzen
-    href: https://azure.microsoft.com/pricing/details/container-instances/
-  - name: Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Productfeedback geven
-    href: https://feedback.azure.com/forums/602224-azure-container-instances
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-container-instances
-  - name: Video's
-    href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
-ms.openlocfilehash: 5a95264c8fc909e58a2db0f423ded86225d5a71c
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608415"
+    - name: Uw vaardigheden ontwikkelen met Microsoft Learn
+      href: /learn/browse/?products=azure-container-instances
+    - name: Beschikbaarheid in regio’s
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/container-instances/'
+    - name: Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Productfeedback geven
+      href: 'https://feedback.azure.com/forums/602224-azure-container-instances'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-container-instances'
+    - name: Video's
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'

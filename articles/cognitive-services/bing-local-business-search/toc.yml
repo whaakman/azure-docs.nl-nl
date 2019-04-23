@@ -1,52 +1,46 @@
-items:
 - name: Documentatie voor de Bing-API voor zoeken naar lokale bedrijven
   href: index.yml
   expanded: true
+  items: null
 - name: Overzicht
-  items:
-  - name: Wat is de Bing-API voor zoeken naar lokale bedrijven?
-    href: overview.md
-  - name: De Bing Zoeken-API's vergelijken
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
   expanded: true
+  items:
+    - name: Wat is de Bing-API voor zoeken naar lokale bedrijven?
+      href: overview.md
+    - name: De Bing Zoeken-API's vergelijken
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Snelstartgidsen
   items:
-  - name: REST-API
-    items:
-    - name: C# gebruiken
-      href: quickstarts/local-quickstart.md
-    - name: Java gebruiken
-      href: quickstarts/local-search-java-quickstart.md
-    - name: Node gebruiken
-      href: quickstarts/local-search-node-quickstart.md
-    - name: Python gebruiken
-      href: quickstarts/local-search-python-quickstart.md
-    expanded: true
+    - name: REST-API
+      expanded: true
+      items:
+        - name: 'C# gebruiken'
+          href: quickstarts/local-quickstart.md
+        - name: Java gebruiken
+          href: quickstarts/local-search-java-quickstart.md
+        - name: Node gebruiken
+          href: quickstarts/local-search-node-quickstart.md
+        - name: Python gebruiken
+          href: quickstarts/local-search-python-quickstart.md
 - name: Concepten
   items:
-  - name: Werken met query's en antwoorden
-    href: local-search-query-response.md
-  - name: Resultaten filteren door geografische grenzen in te stellen
-    href: specify-geographic-search.md
-  - name: Categorieën voor zoeken naar lokale bedrijven
-    href: local-categories.md
+    - name: Werken met query's en antwoorden
+      href: local-search-query-response.md
+    - name: Resultaten filteren door geografische grenzen in te stellen
+      href: specify-geographic-search.md
+    - name: Categorieën voor zoeken naar lokale bedrijven
+      href: local-categories.md
 - name: Naslaginformatie
   items:
-  - name: Vereisten voor gebruik en weergave
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
-  - name: Referentie voor de Bing-API voor zoeken naar lokale bedrijven
-    href: local-search-reference.md
+    - name: Vereisten voor gebruik en weergave
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
+    - name: Referentie voor de Bing-API voor zoeken naar lokale bedrijven
+      href: local-search-reference.md
 - name: Resources
   items:
-  - name: Cognitive Services proberen
-    href: https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api
-  - name: Prijsinformatie
-    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/
-ms.openlocfilehash: 14c891c74accb4cca537e24ddbdcb99ae36618c9
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507498"
+    - name: Cognitive Services proberen
+      href: 'https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api'
+    - name: Prijsinformatie
+      href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/'

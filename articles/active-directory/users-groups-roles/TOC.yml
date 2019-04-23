@@ -1,181 +1,174 @@
-items:
 - name: Documentatie over gebruikersbeheer
   href: index.yml
 - name: Overzicht
   items:
-  - name: Gebruikers, groepen, licenties en -rollen
-    href: directory-overview-user-model.md
+    - name: 'Gebruikers, groepen, licenties en -rollen'
+      href: directory-overview-user-model.md
 - name: Snelstartgidsen
   items:
-  - name: Gebruikers toevoegen aan Azure AD
-    href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Licenties toewijzen aan gebruikers
-    href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Verlooptijd van groepen instellen
-    href: groups-quickstart-expiration.md
-  - name: Naamgevingsbeleid voor groepen instellen
-    href: groups-quickstart-naming-policy.md
+    - name: Gebruikers toevoegen aan Azure AD
+      href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Licenties toewijzen aan gebruikers
+      href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Verlooptijd van groepen instellen
+      href: groups-quickstart-expiration.md
+    - name: Naamgevingsbeleid voor groepen instellen
+      href: groups-quickstart-naming-policy.md
 - name: Zelfstudies
   items:
-  - name: Een dynamisch gevulde groep maken
-    href: groups-dynamic-tutorial.md
+    - name: Een dynamisch gevulde groep maken
+      href: groups-dynamic-tutorial.md
 - name: Concepten
-  items:
-  - name: Azure AD-beheerdersrollen delegeren
-    href: roles-concept-delegation.md
-  - name: Standaardgebruikersmachtigingen vergelijken
-    href: /azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Azure- en Azure AD-rollen vergelijken
-    href: /azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Basisprincipes van groepslicenties
-    href: /azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
   expanded: true
+  items:
+    - name: Azure AD-beheerdersrollen delegeren
+      href: roles-concept-delegation.md
+    - name: Standaardgebruikersmachtigingen vergelijken
+      href: /azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Azure- en Azure AD-rollen vergelijken
+      href: /azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Basisprincipes van groepslicenties
+      href: /azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
 - name: Handleidingen
-  items:
-  - name: Gebruikers beheren
-    items:
-    - name: Nieuwe gebruikers toevoegen aan Azure AD
-      href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Gebruikersprofielen beheren
-      href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Gebruikersaccounts delen
-      href: users-sharing-accounts.md
-    - name: Gebruikers aan beheerdersrollen toewijzen
-      href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Een verwijderde gebruiker herstellen
-      href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: B2B-gebruikers toevoegen
-      href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Rol toewijzen aan B2B-gebruiker
-      href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Dynamische groepen en B2B
-      href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Uw directory beheren
-    items:
-    - name: Uw directory beheren
-      href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Domeinnamen beheren
-      href: domains-manage.md
-    - name: Een map verwijderen
-      href: directory-delete-howto.md
-    - name: Meerdere directory’s
-      href: licensing-directory-independence.md
-    - name: Selfservice registreren
-      href: directory-self-service-signup.md
-    - name: Een directory overnemen
-      href: domains-admin-takeover.md
-    - name: Azure AD Connect
-      href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Groepen beheren
-    items:
-    - name: Toegang beheren met groepen
-      href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Groepen beheren in de Azure-portal
-      href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Groepen beheren met PowerShell voor Graph (v2)
-      href: groups-settings-v2-cmdlets.md
-    - name: Groepen beheren met PowerShell MSOnline
-      href: groups-settings-cmdlets.md
-    - name: Groepsleden beheren
-      href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Eigenaren van groepen beheren
-      href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Groepen in groepen beheren
-      href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Groepstoegang tot SaaS-apps toevoegen
-      href: groups-saasapps.md
-    - name: Naamgevingsreferentie voor groepen
-      href: groups-naming-policy.md
-    - name: Verloopreferentie voor groepen
-      href: groups-lifecycle.md
-    - name: Verlopen of verwijderde groepen herstellen
-      href: groups-restore-deleted.md
-    - name: Groepsinstellingen beheren
-      href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Selfservice instellen voor groepen
-      href: groups-self-service-management.md
-    - name: Dynamische groepen
-      items:
-      - name: Een dynamische groep maken
-        href: groups-create-rule.md
-      - name: Regels voor dynamische groepen
-        href: groups-dynamic-membership.md
-      - name: Type groepslidmaatschap wijzigen
-        href: groups-change-type.md
-  - name: Licenties toewijzen
-    items:
-    - name: Licenties toewijzen aan een groep
-      href: licensing-groups-assign.md
-    - name: Problemen met groepslicenties oplossen
-      href: licensing-groups-resolve-problems.md
-    - name: Individuele licentie wijzigen in groepslicentie
-      href: licensing-groups-migrate-users.md
-    - name: Licenties wijzigen voor een gebruiker
-      href: licensing-groups-change-licenses.md
-    - name: Overige scenario's
-      href: licensing-group-advanced.md
-    - name: Groepslicenties met PowerShell
-      href: licensing-ps-examples.md
-    - name: Serviceplan-id's voor licentieverlening
-      href: licensing-service-plan-reference.md
-  - name: Azure AD-beheerdersrollen
-    items:
-    - name: Rollen en machtigingen
-      href: directory-assign-admin-roles.md
-    - name: Rollen weergeven en toewijzen
-      href: directory-manage-roles-portal.md
-    - name: Rollen toewijzen met PowerShell
-      href: roles-assign-powershell.md
-    - name: App-beheerdersrollen delegeren
-      href: roles-delegate-app-roles.md
-    - name: Minst bevoorrechte rollen per taak
-      href: roles-delegate-by-task.md
-    - name: Microsoft 365-rollen
-      href: roles-m365-workload-docs.md
-    - name: Beveiliging van beheerdersrol
-      items:
-      - name: Rolbeveiliging plannen
-        href: directory-admin-roles-secure.md
-      - name: Accounts voor noodgevallen maken
-        href: directory-emergency-access.md
-    - name: Beheereenheden
-      href: directory-administrative-units.md
-  - name: Aanmelding beheren
-    items:
-    - name: Bedrijfshuisstijl aanpassen
-      href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Aanmeldingsopties
-      href: signin-account-support.md
-    - name: Home Realm Discovery
-      href: signin-realm-discovery.md
-  - name: Services integreren met Azure AD
-    items:
-    - name: LinkedIn integreren met Azure AD
-      href: linkedin-integration.md
-    - name: LinkedIn-gegevens delen
-      href: linkedin-user-consent.md
-  - name: Problemen oplossen
-    items:
-    - name: Ondersteuning voor Azure AD vragen
-      href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Problemen met groepen oplossen
-      href: groups-troubleshooting.md
-    - name: Problemen met groepslicenties oplossen
-      href: licensing-groups-resolve-problems.md
   expanded: true
+  items:
+    - name: Gebruikers beheren
+      items:
+        - name: Nieuwe gebruikers toevoegen aan Azure AD
+          href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Gebruikersprofielen beheren
+          href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Gebruikersaccounts delen
+          href: users-sharing-accounts.md
+        - name: Gebruikers aan beheerdersrollen toewijzen
+          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Een verwijderde gebruiker herstellen
+          href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: B2B-gebruikers toevoegen
+          href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Rol toewijzen aan B2B-gebruiker
+          href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Dynamische groepen en B2B
+          href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Uw directory beheren
+      items:
+        - name: Uw directory beheren
+          href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Domeinnamen beheren
+          href: domains-manage.md
+        - name: Een map verwijderen
+          href: directory-delete-howto.md
+        - name: Meerdere directory’s
+          href: licensing-directory-independence.md
+        - name: Selfservice registreren
+          href: directory-self-service-signup.md
+        - name: Een directory overnemen
+          href: domains-admin-takeover.md
+        - name: Azure AD Connect
+          href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Groepen beheren
+      items:
+        - name: Toegang beheren met groepen
+          href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Groepen beheren in de Azure-portal
+          href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Groepen beheren met PowerShell voor Graph (v2)
+          href: groups-settings-v2-cmdlets.md
+        - name: Groepen beheren met PowerShell MSOnline
+          href: groups-settings-cmdlets.md
+        - name: Groepsleden beheren
+          href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Eigenaren van groepen beheren
+          href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Groepen in groepen beheren
+          href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Groepstoegang tot SaaS-apps toevoegen
+          href: groups-saasapps.md
+        - name: Naamgevingsreferentie voor groepen
+          href: groups-naming-policy.md
+        - name: Verloopreferentie voor groepen
+          href: groups-lifecycle.md
+        - name: Verlopen of verwijderde groepen herstellen
+          href: groups-restore-deleted.md
+        - name: Groepsinstellingen beheren
+          href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Selfservice instellen voor groepen
+          href: groups-self-service-management.md
+        - name: Dynamische groepen
+          items:
+            - name: Een dynamische groep maken
+              href: groups-create-rule.md
+            - name: Regels voor dynamische groepen
+              href: groups-dynamic-membership.md
+            - name: Type groepslidmaatschap wijzigen
+              href: groups-change-type.md
+    - name: Licenties toewijzen
+      items:
+        - name: Licenties toewijzen aan een groep
+          href: licensing-groups-assign.md
+        - name: Problemen met groepslicenties oplossen
+          href: licensing-groups-resolve-problems.md
+        - name: Individuele licentie wijzigen in groepslicentie
+          href: licensing-groups-migrate-users.md
+        - name: Licenties wijzigen voor een gebruiker
+          href: licensing-groups-change-licenses.md
+        - name: Overige scenario's
+          href: licensing-group-advanced.md
+        - name: Groepslicenties met PowerShell
+          href: licensing-ps-examples.md
+        - name: Serviceplan-id's voor licentieverlening
+          href: licensing-service-plan-reference.md
+    - name: Azure AD-beheerdersrollen
+      items:
+        - name: Rollen en machtigingen
+          href: directory-assign-admin-roles.md
+        - name: Rollen weergeven en toewijzen
+          href: directory-manage-roles-portal.md
+        - name: Rollen toewijzen met PowerShell
+          href: roles-assign-powershell.md
+        - name: App-beheerdersrollen delegeren
+          href: roles-delegate-app-roles.md
+        - name: Minst bevoorrechte rollen per taak
+          href: roles-delegate-by-task.md
+        - name: Microsoft 365-rollen
+          href: roles-m365-workload-docs.md
+        - name: Beveiliging van beheerdersrol
+          items:
+            - name: Rolbeveiliging plannen
+              href: directory-admin-roles-secure.md
+            - name: Accounts voor noodgevallen maken
+              href: directory-emergency-access.md
+        - name: Beheereenheden
+          href: directory-administrative-units.md
+    - name: Aanmelding beheren
+      items:
+        - name: Bedrijfshuisstijl aanpassen
+          href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Aanmeldingsopties
+          href: signin-account-support.md
+        - name: Home Realm Discovery
+          href: signin-realm-discovery.md
+    - name: Services integreren met Azure AD
+      items:
+        - name: LinkedIn integreren met Azure AD
+          href: linkedin-integration.md
+        - name: LinkedIn-gegevens delen
+          href: linkedin-user-consent.md
+    - name: Problemen oplossen
+      items:
+        - name: Ondersteuning voor Azure AD vragen
+          href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Problemen met groepen oplossen
+          href: groups-troubleshooting.md
+        - name: Problemen met groepslicenties oplossen
+          href: licensing-groups-resolve-problems.md
 - name: Naslaginformatie
   items:
-  - name: Graph API
-    href: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview
-  - name: Azure AD CLI
-    href: https://docs.microsoft.com/cli/azure/ad
-  - name: Azure AD PowerShell voor Graph
-    href: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0
-  - name: Beperkingen van de Azure AD-service
-    href: directory-service-limits-restrictions.md
-ms.openlocfilehash: 97c2ebbe65f3382ee59d8c3bdb9dad9060cf31b6
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577660"
+    - name: Graph API
+      href: 'https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview'
+    - name: Azure AD CLI
+      href: 'https://docs.microsoft.com/cli/azure/ad'
+    - name: Azure AD PowerShell voor Graph
+      href: 'https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0'
+    - name: Beperkingen van de Azure AD-service
+      href: directory-service-limits-restrictions.md
