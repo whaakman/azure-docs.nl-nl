@@ -80,9 +80,9 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|Zoekresultaten oproepen|[Voor het wisselbestand](api-management-template-data-model-reference.md#Paging) entiteit.|De informatie paginering voor de verzameling producten.|  
-|Filteren|[Filteren](api-management-template-data-model-reference.md#Filtering) entiteit.|De filters gebruiken om gegevens voor de pagina van de lijst met producten.|  
-|Producten|Verzameling van [Product](api-management-template-data-model-reference.md#Product) entiteiten.|De producten die zichtbaar is voor de huidige gebruiker.|  
+|Paging|[Voor het wisselbestand](api-management-template-data-model-reference.md#Paging) entiteit.|De informatie paginering voor de verzameling producten.|  
+|Filtering|[Filteren](api-management-template-data-model-reference.md#Filtering) entiteit.|De filters gebruiken om gegevens voor de pagina van de lijst met producten.|  
+|Products|Verzameling van [Product](api-management-template-data-model-reference.md#Product) entiteiten.|De producten die zichtbaar is voor de huidige gebruiker.|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
@@ -208,12 +208,12 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
 |Product|[Product](api-management-template-data-model-reference.md#Product)|Het opgegeven product.|  
 |IsDeveloperSubscribed|booleaans|Of de huidige gebruiker is geabonneerd op dit product.|  
 |SubscriptionState|getal|De status van het abonnement. Mogelijke statussen zijn:<br /><br /> -   `0 - suspended` : het abonnement is geblokkeerd en API's van het product kan niet worden aangeroepen door de abonnee.<br />-   `1 - active` : het abonnement actief is.<br />-   `2 - expired` : het abonnement is bereikt de vervaldatum en is gedeactiveerd.<br />-   `3 - submitted` – de Abonnementaanvraag is gemaakt door de ontwikkelaar, maar is nog niet is goedgekeurd of afgewezen.<br />-   `4 - rejected` – de Abonnementaanvraag is afgewezen door een beheerder.<br />-   `5 - cancelled` : het abonnement is geannuleerd door de ontwikkelaar of beheerder.|  
-|Limieten|matrix|Deze eigenschap is afgeschaft en mag niet worden gebruikt.|  
+|Limits|matrix|Deze eigenschap is afgeschaft en mag niet worden gebruikt.|  
 |DelegatedSubscriptionEnabled|booleaans|Of [delegering](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) is ingeschakeld voor dit abonnement.|  
 |DelegatedSubscriptionUrl|tekenreeks|Als delegering is ingeschakeld, de URL van de gedelegeerde abonnement.|  
 |IsAgreed|booleaans|Als het product termen, zijn ongeacht of de huidige gebruiker heeft ingestemd met de voorwaarden.|  
-|Abonnementen|Verzameling van [samenvatting van abonnement](api-management-template-data-model-reference.md#SubscriptionSummary) entiteiten.|De abonnementen aan het product.|  
-|API 's|Verzameling van [API](api-management-template-data-model-reference.md#API) entiteiten.|De API's in dit product.|  
+|Subscriptions|Verzameling van [samenvatting van abonnement](api-management-template-data-model-reference.md#SubscriptionSummary) entiteiten.|De abonnementen aan het product.|  
+|Apis|Verzameling van [API](api-management-template-data-model-reference.md#API) entiteiten.|De API's in dit product.|  
 |CannotAddBecauseSubscriptionNumberLimitReached|booleaans|Of de huidige gebruiker is die in aanmerking komen om u te abonneren op dit product met betrekking tot de voor uw abonnement.|  
 |CannotAddBecauseMultipleSubscriptionsNotAllowed|booleaans|Of de huidige gebruiker is die in aanmerking komen om u te abonneren op dit product met betrekking tot meerdere abonnementen zijn of niet wordt toegestaan.|  
   
