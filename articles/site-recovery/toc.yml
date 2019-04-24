@@ -29,6 +29,8 @@
           href: azure-to-azure-tutorial-migrate.md
         - name: Virtuele Azure-machines verplaatsen naar beschikbaarheidszones
           href: move-Azure-VMs-AVset-Azone.md
+        - name: Azure-VM's verplaatsen tussen openbare en Government-regio's
+          href: region-move-cross-geos.md
     - name: Herstel na noodgevallen van virtuele VMware-machines naar Azure
       items:
         - name: Azure voorbereiden
@@ -175,6 +177,10 @@
               href: azure-to-azure-autoupdate.md
             - name: Updates in Azure Site Recovery
               href: service-updates-how-to.md
+            - name: Servers verwijderen en beveiliging uitschakelen
+              href: site-recovery-manage-registration-and-protection.md
+            - name: Een kluis verwijderen
+              href: delete-vault.md
     - name: Herstel na noodgevallen van VMware naar Azure
       items:
         - name: Netwerkservice instellen

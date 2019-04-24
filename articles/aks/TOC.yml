@@ -108,8 +108,6 @@
         - name: Een AKS-cluster verwijderen
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: AKS met Azure AD-ondersteuning
-          href: aad-integration.md
         - name: Virtuele knooppunten maken (preview)
           items:
             - name: Azure-CLI
@@ -172,8 +170,18 @@
           href: control-kubeconfig-access.md
         - name: Pod-verkeer beveiligen met netwerkbeleid (preview)
           href: use-network-policies.md
+        - name: Pod-beveiligingsbeleid (preview) gebruiken
+          href: use-pod-security-policies.md
         - name: Principalreferenties voor clusterservice bijwerken
           href: update-credentials.md
+        - name: Integratie van Azure Active Directory inschakelen
+          items:
+            - name: Azure CLI gebruiken
+              href: azure-ad-integration-cli.md
+            - name: Azure Portal gebruiken
+              href: azure-ad-integration.md
+        - name: Gebruik Kubernetes-RBAC met Azure AD-integratie
+          href: azure-ad-rbac.md
         - name: Verifiëren met ACR
           href: ../container-registry/container-registry-auth-aks.md
           maintainContext: true

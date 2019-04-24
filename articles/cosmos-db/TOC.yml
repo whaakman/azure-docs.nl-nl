@@ -138,15 +138,11 @@
         - name: Indexeren
           items:
             - name: Overzicht
+              displayName: 'range, spatial'
               href: index-overview.md
-            - name: Indexbeleid
+            - name: Indexeringsbeleid
               displayName: 'consistent, none'
               href: index-policy.md
-            - name: Indextypen
-              displayName: 'hash, range, spatial'
-              href: index-types.md
-            - name: Indexpaden
-              href: index-paths.md
         - name: Feed wijzigen
           items:
             - name: Overzicht
@@ -165,6 +161,17 @@
           href: unique-keys.md
         - name: Transacties en optimistisch beheer van gelijktijdigheid
           href: database-transactions-optimistic-concurrency.md
+    - name: Feed wijzigen
+      items:
+        - name: Overzicht
+          href: change-feed.md
+        - name: Wijzigingenfeed lezen
+          href: read-change-feed.md
+        - name: Verwerker van wijzigingenfeed
+          href: change-feed-processor.md
+        - name: Azure Functions activeren
+          displayName: change feed
+          href: change-feed-functions.md
     - name: Programmeren op de server
       items:
         - name: 'Opgeslagen procedures, triggers en UDF''s'
@@ -216,7 +223,61 @@
 - name: 'Cassandra, MongoDB en andere API''s'
   expanded: true
   items:
-    - name: Azure Cosmos DB-API voor MongoDB
+    - name: Cassandra-API
+      items:
+        - name: Inleiding
+          href: cassandra-introduction.md
+        - name: Ondersteuning voor wire-protocol
+          href: cassandra-support.md
+        - name: Snelstartgidsen
+          items:
+            - name: .NET
+              href: create-cassandra-dotnet.md
+            - name: Java
+              href: create-cassandra-java.md
+            - name: Node.js
+              href: create-cassandra-nodejs.md
+            - name: Python
+              href: create-cassandra-python.md
+        - name: Zelfstudies
+          items:
+            - name: 1 - Gegevens maken en beheren
+              href: create-cassandra-api-account-java.md
+            - name: 2 - Gegevens laden
+              href: cassandra-api-load-data.md
+            - name: 3 - Query's uitvoeren op gegevens
+              href: cassandra-api-query-data.md
+            - name: 4 - Gegevens migreren
+              displayName: import
+              href: cassandra-import-data.md
+        - name: Handleidingen
+          items:
+            - name: Spring-gegevens opslaan en beheren
+              href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
+              maintainContext: true
+            - name: Cassandra en Spark
+              items:
+                - name: Inleiding
+                  href: cassandra-spark-generic.md
+                - name: Verbinden met Databricks
+                  href: cassandra-spark-databricks.md
+                - name: Verbinden met HDInsight
+                  href: cassandra-spark-hdinsight.md
+                - name: Keyspace en tabel maken
+                  href: cassandra-spark-ddl-ops.md
+                - name: Gegevens invoegen
+                  href: cassandra-spark-create-ops.md
+                - name: Gegevens lezen
+                  href: cassandra-spark-read-ops.md
+                - name: Upsert-gegevens
+                  href: cassandra-spark-upsert-ops.md
+                - name: Gegevens verwijderen
+                  href: cassandra-spark-delete-ops.md
+                - name: Aggregatiebewerkingen
+                  href: cassandra-spark-aggregation-ops.md
+                - name: Tabelgegevens kopiëren
+                  href: cassandra-spark-table-copy-ops.md
+    - name: MongoDB-API
       items:
         - name: Inleiding
           href: mongodb-introduction.md
@@ -260,13 +321,18 @@
                   href: tutorial-develop-mongodb-react.md
             - name: 2 - Gegevens migreren
               displayName: import
-              href: 'https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json'
+              href: /azure/dms/tutorial-mongodb-cosmos-db
+              maintainContext: true
             - name: 3 - Query's uitvoeren op gegevens
               href: tutorial-query-mongodb.md
             - name: 4 - Gegevens wereldwijd distribueren
               href: tutorial-global-distribution-mongodb.md
         - name: Handleidingen
           items:
+            - name: Pre-migratiehandleiding
+              href: mongodb-pre-migration.md
+            - name: Post-migratiehandleiding
+              href: mongodb-post-migration.md
             - name: De verbindingsreeks ophalen
               href: connect-mongodb-account.md
             - name: Verbinding maken via Studio 3T
@@ -324,60 +390,6 @@
             - name: Spring-gegevens opslaan en beheren
               href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
               maintainContext: true
-    - name: Cassandra-API
-      items:
-        - name: Inleiding
-          href: cassandra-introduction.md
-        - name: Ondersteuning voor wire-protocol
-          href: cassandra-support.md
-        - name: Snelstartgidsen
-          items:
-            - name: .NET
-              href: create-cassandra-dotnet.md
-            - name: Java
-              href: create-cassandra-java.md
-            - name: Node.js
-              href: create-cassandra-nodejs.md
-            - name: Python
-              href: create-cassandra-python.md
-        - name: Zelfstudies
-          items:
-            - name: 1 - Gegevens maken en beheren
-              href: create-cassandra-api-account-java.md
-            - name: 2 - Gegevens laden
-              href: cassandra-api-load-data.md
-            - name: 3 - Query's uitvoeren op gegevens
-              href: cassandra-api-query-data.md
-            - name: 4 - Gegevens migreren
-              displayName: import
-              href: cassandra-import-data.md
-        - name: Handleidingen
-          items:
-            - name: Spring-gegevens opslaan en beheren
-              href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
-              maintainContext: true
-            - name: Cassandra en Spark
-              items:
-                - name: Inleiding
-                  href: cassandra-spark-generic.md
-                - name: Verbinden met Databricks
-                  href: cassandra-spark-databricks.md
-                - name: Verbinden met HDInsight
-                  href: cassandra-spark-hdinsight.md
-                - name: Keyspace en tabel maken
-                  href: cassandra-spark-ddl-ops.md
-                - name: Gegevens invoegen
-                  href: cassandra-spark-create-ops.md
-                - name: Gegevens lezen
-                  href: cassandra-spark-read-ops.md
-                - name: Upsert-gegevens
-                  href: cassandra-spark-upsert-ops.md
-                - name: Gegevens verwijderen
-                  href: cassandra-spark-delete-ops.md
-                - name: Aggregatiebewerkingen
-                  href: cassandra-spark-aggregation-ops.md
-                - name: Tabelgegevens kopiëren
-                  href: cassandra-spark-table-copy-ops.md
     - name: Tabel-API
       items:
         - name: Inleiding
@@ -420,7 +432,8 @@
             - name: Ruby
               href: table-storage-how-to-use-ruby.md
             - name: 'F#'
-              href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
+              href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+              maintainContext: true
         - name: Handleidingen
           items:
             - name: Apps bouwen met de Table-API
@@ -483,10 +496,8 @@
           href: storage-explorer.md
         - name: Werken met gegevens in Azure Cosmos Explorer
           href: data-explorer.md
-        - name: Indexeren
-          items:
-            - name: Indexeren beheren
-              href: how-to-manage-indexing-policy.md
+        - name: Indexeringsbeleid beheren
+          href: how-to-manage-indexing-policy.md
     - name: Feed wijzigen
       items:
         - name: Meerdere Azure Cosmos DB-triggers
@@ -526,7 +537,8 @@
         - name: Diagnostische logboeken
           href: logging.md
         - name: Toepassingslogboeken bijhouden met Logische apps
-          href: 'https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json'
+          href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
+          maintainContext: true
     - name: Controleren
       items:
         - name: Bewaken met metrische gegevens
@@ -578,17 +590,21 @@
         - name: Azure App Service
           href: create-website.md
         - name: Indexeerfunctie van Azure Search
-          href: 'https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json'
+          href: /azure/search/search-howto-index-cosmosdb
+          maintainContext: true
         - name: Azure Functions
           items:
             - name: Serverloze computing
               href: serverless-computing-database.md
             - name: Azure Function-bindingen
-              href: 'https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json'
+              href: /azure/azure-functions/functions-bindings-cosmosdb
+              maintainContext: true
         - name: Azure Data Factory
-          href: 'https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json'
+          href: /azure/data-factory/connector-azure-cosmos-db
+          maintainContext: true
         - name: Azure Stream Analytics
-          href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
+          href: '/azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db'
+          maintainContext: true
         - name: Logic Apps en Service Bus
           href: change-feed-hl7-fhir-logic-apps.md
         - name: Azure Event Hubs en Azure Storage
@@ -601,7 +617,8 @@
         - name: Azure Databricks (Spark-connector)
           href: spark-connector.md
         - name: Spark en Kafka
-          href: 'https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json'
+          href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
+          maintainContext: true
         - name: ODBC-stuurprogramma
           href: odbc-driver.md
     - name: Bibliotheek voor bulksgewijs uitvoeren

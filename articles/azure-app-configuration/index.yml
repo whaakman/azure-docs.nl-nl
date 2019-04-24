@@ -15,11 +15,20 @@ metadata:
   ms.author: yegu
 abstract:
   description: Azure App Configuration is een beheerde service waarmee ontwikkelaars hun toepassingsconfiguraties eenvoudig en veilig kunnen centraliseren.
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/videos/getting-started.png
+      width: 250
+    title: 'Aan de slag (14:41)'
+    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+    width: 250
 sections:
   - title: Quickstarts van vijf minuten
     items:
       - type: paragraph
-        text: 'Ontdek hoe u uw eerste webtoepassing kunt ontwikkelen met behulp van Azure App Configuration:'
+        text: 'Meer informatie over het ontwikkelen van uw eerste toepassing met behulp van Azure App Configuration:'
       - type: list
         style: icon48
         items:

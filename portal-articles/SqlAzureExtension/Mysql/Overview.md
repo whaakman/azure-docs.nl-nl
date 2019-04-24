@@ -8,12 +8,12 @@ ms.service: mysql
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
-ms.openlocfilehash: a1d5458a2b815591fc7126d429bd16a718910b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ff389f52da0db4e394e8f6a6c37955a5f0c3861
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23073891"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475749"
 ---
 # <a name="azure-database-for-mysql-documentation"></a>Documentatie voor Azure Database voor MySQL
 
@@ -21,7 +21,7 @@ Azure Database voor MySQL is een relationele databaseservice op basis van de ope
 
 ## <a name="5-minute-quickstarts"></a>QuickStarts van vijf minuten
 
-Lees hoe u een MySQL-database in Azure maakt met behulp van:
+Lees hoe u een MySQL Database on Azure maakt met behulp van:
 
 - [Azure Portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)
 - [Azure-CLI](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
@@ -30,8 +30,8 @@ Lees hoe u een MySQL-database in Azure maakt met behulp van:
 
 Lees hoe u een database ontwerpt en apps ontwikkelt:
 
-- Een database ontwerpen: [Azure Portal](/azure/mysql/tutorial-design-database-using-portal) |  [Azure CLI](/azure/mysql/tutorial-design-database-using-cli)
-- Een web-app maken: [WordPress - portal](https://portal.azure.com/#create/WordPress.WordPress) |  [PHP - Azure CLI](/azure/app-service/app-service-web-tutorial-php-mysql?toc=%2fazure%2fmysql%2ftoc.json)
+- Een database ontwerpen: [Azure-portal](/azure/mysql/tutorial-design-database-using-portal) |  [Azure CLI](/azure/mysql/tutorial-design-database-using-cli)
+- Een webtoepassing maken: [WordPress - portal](https://portal.azure.com/#create/WordPress.WordPress) |  [PHP - Azure CLI](/azure/app-service/app-service-web-tutorial-php-mysql?toc=%2fazure%2fmysql%2ftoc.json)
 
 ## <a name="samples"></a>Voorbeelden 
 
