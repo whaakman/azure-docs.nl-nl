@@ -257,9 +257,9 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type**|| Vereist: moet worden ingesteld op `sendGrid`.|
 |**direction**|| Vereist: moet worden ingesteld op `out`.|
-|**De naam**|| Vereist: de naam van de variabele die wordt gebruikt in de functiecode voor de aanvraag of de hoofdtekst van de aanvraag. Deze waarde is ```$return``` wanneer er slechts één van de geretourneerde waarde. |
+|**name**|| Vereist: de naam van de variabele die wordt gebruikt in de functiecode voor de aanvraag of de hoofdtekst van de aanvraag. Deze waarde is ```$return``` wanneer er slechts één van de geretourneerde waarde. |
 |**apiKey**|**ApiKey**| De naam van een app-instelling met uw API-sleutel. Als niet is ingesteld, de standaardapp-instelling is de naam 'AzureWebJobsSendGridApiKey'.|
-|**Aan**|**Aan**| e-mailadres van de ontvanger. |
+|**to**|**Aan**| e-mailadres van de ontvanger. |
 |**from**|**From**| e-mailadres van de afzender. |
 |**subject**|**Onderwerp**| het onderwerp van het e-mailbericht. |
 |**text**|**Tekst**| de inhoud van de e-mail. |
@@ -288,7 +288,7 @@ In deze sectie beschrijft de globale configuratie-instellingen beschikbaar voor 
 
 |Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
-|uit|N.v.t.|E-mailadres van de afzender voor alle functies.| 
+|from|N.v.t.|E-mailadres van de afzender voor alle functies.| 
 
 
 ## <a name="next-steps"></a>Volgende stappen
