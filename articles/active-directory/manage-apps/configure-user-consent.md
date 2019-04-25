@@ -13,11 +13,11 @@ ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d35f8b440fe748f91c9e01003fe83a3a5343c8df
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203723"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291582"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>De manier waarop eindgebruikers toestemming voor een toepassing in Azure Active Directory geven configureren
 Informatie over het configureren van de manier waarop gebruikers toestemming voor machtigingen van de toepassing geven. Verleent toestemming van een beheerder kunt u de gebruikerservaring vereenvoudigen. Dit artikel bevat de verschillende manieren waarop die u toestemming van de gebruiker kunt configureren. De methoden van toepassing op alle gebruikers in uw tenant Azure Active Directory (Azure AD). 

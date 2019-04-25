@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8ac6c56dca100ea9836158f46881c4eb12213e1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001147"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285202"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Het schema van de logboeken voor aanmelding bij Azure AD in Azure Monitor interpreteren
 

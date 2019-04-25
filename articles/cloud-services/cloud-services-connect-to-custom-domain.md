@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 8bee2e2038ee39c777e1ca09994ad21872d2029a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530055"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337337"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure Cloud Services-rollen verbinding te maken met een aangepaste AD-domeincontroller die wordt gehost in Azure
 Er wordt eerst een Virtueelnetwerk (VNet) instellen in Azure. Er wordt een Active Directory-domeincontroller (die worden gehost op een Azure-Machine) toevoegen aan het VNet. Vervolgens wordt er bestaande cloudservicerollen toevoegen aan de vooraf gemaakte VNet en verbind deze met de domeincontroller.

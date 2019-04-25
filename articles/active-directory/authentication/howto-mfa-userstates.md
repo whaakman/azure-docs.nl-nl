@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2d5a196af8ee6a7d41833185136a76255be4082a
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60358997"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Hoe u verificatie in twee stappen vereist voor een gebruiker
 
@@ -44,7 +44,7 @@ Gebruikersaccounts in Azure multi-factor Authentication hebben de volgende drie 
 | Status | Description | Niet-browsertoepassingen beïnvloed | Browser-apps die worden beïnvloed | Moderne verificatie beïnvloed |
 |:---:|:---:|:---:|:--:|:--:|
 | Uitgeschakeld |De standaardstatus voor een nieuwe gebruiker die niet zijn geregistreerd bij Azure MFA. |Nee |Nee |Nee |
-| Ingeschakeld |De gebruiker is geregistreerd in Azure MFA, maar is niet geregistreerd. Ze ontvangt een prompt voor het registreren van de volgende keer dat ze zich aanmelden. |Nee.  Ze blijven werken totdat het registratieproces is voltooid. | Ja. Nadat de sessie is verlopen, is registratie bij Azure MFA is vereist.| Ja. Nadat het toegangstoken is verlopen, is registratie bij Azure MFA is vereist. |
+| Enabled |De gebruiker is geregistreerd in Azure MFA, maar is niet geregistreerd. Ze ontvangt een prompt voor het registreren van de volgende keer dat ze zich aanmelden. |Nee.  Ze blijven werken totdat het registratieproces is voltooid. | Ja. Nadat de sessie is verlopen, is registratie bij Azure MFA is vereist.| Ja. Nadat het toegangstoken is verlopen, is registratie bij Azure MFA is vereist. |
 | Afgedwongen |De gebruiker is ingeschreven en het registratieproces is voltooid voor Azure MFA. |Ja. Apps in vereist app-wachtwoorden. |Ja. Azure MFA is vereist bij het aanmelden. | Ja. Azure MFA is vereist bij het aanmelden. |
 
 De status van een gebruiker geeft weer of een beheerder hen heeft ingeschreven in Azure MFA en of ze het registratieproces hebben voltooid.
@@ -82,7 +82,7 @@ Nadat u gebruikers hebt ingeschakeld, kunt u gebruikers informeren via e-mail La
 
 Status van de gebruiker te wijzigen met behulp van [Azure AD PowerShell](/powershell/azure/overview), wijzigen `$st.State`. Er zijn drie mogelijke statussen:
 
-* Ingeschakeld
+* Enabled
 * Afgedwongen
 * Uitgeschakeld  
 

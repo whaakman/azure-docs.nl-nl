@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437677"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285493"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referentie voor auditactiviteiten van Azure AD
 
@@ -36,7 +36,7 @@ De rapportstructuur in Azure AD bestaat uit de volgende onderdelen:
     
 - **Beveiligingsrapporten** 
     - [Riskante aanmeldingen](concept-risky-sign-ins.md) - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. 
-    - [Gebruikers voor wie wordt aangegeven dat ze risico lopen](concept-user-at-risk.md) - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. 
+    - [Gebruikers van wie wordt aangegeven dat ze risico lopen](concept-user-at-risk.md) - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. 
 
 In dit artikel worden de auditactiviteiten vermeld die in uw auditlogboeken kunnen worden geregistreerd.
 
@@ -135,11 +135,11 @@ In dit artikel worden de auditactiviteiten vermeld die in uw auditlogboeken kunn
 |Beheer van toepassingen|AdminPolicyDatas-SetResources|
 |Beheer van toepassingen|AdminUserJourneys-GetResources|
 |Beheer van toepassingen|AdminUserJourneys-RemoveResources|
-|Authentication|AdminUserJourneys-SetResources|
-|Authentication|IdentityProvider maken|
-|Authentication|V1-toepassing maken|
-|Authentication|V2-toepassing maken|
-|Authentication|Aangepaste domeinen in de tenant maken|
+|Verificatie|AdminUserJourneys-SetResources|
+|Verificatie|IdentityProvider maken|
+|Verificatie|V1-toepassing maken|
+|Verificatie|V2-toepassing maken|
+|Verificatie|Aangepaste domeinen in de tenant maken|
 |Autorisatie|Een nieuwe AdminUserJourney maken|
 |Autorisatie|Gelokaliseerde resource-json maken|
 |Autorisatie|Nieuwe aangepaste IDP maken|

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447843"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391358"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Een Linux-machine die gebruikmaakt van SSH-verificatie met de REST-API maken
 
@@ -137,7 +137,7 @@ U kunt de client van uw voorkeur voor het verzenden van deze HTTP-aanvraag. U ku
 
 Er zijn twee gelukt-antwoorden voor de bewerking voor het maken of bijwerken van een virtuele machine:
 
-| Name        | Type                                                                              | Description |
+| Name        | Type                                                                              | Beschrijving |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201-gemaakt | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Gemaakt     |

@@ -16,11 +16,11 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abdeb7ce5327db57b8a6ae48fdd8d8c0c81879a7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60290784"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM aan een toegangstoken verkrijgen 
 
@@ -88,7 +88,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Element | Beschrijving |
+| Element | Description |
 | ------- | ----------- |
 | `GET` | De HTTP-term, die aangeeft dat u wilt ophalen van gegevens uit het eindpunt. In dit geval een OAuth-toegangstoken. | 
 | `http://localhost:50342/oauth2/token` | De beheerde identiteiten voor het eindpunt van de Azure-resources, waarbij 50342 is de standaardpoort en kan worden geconfigureerd. |
@@ -113,7 +113,7 @@ Content-Type: application/json
 }
 ```
 
-| Element | Beschrijving |
+| Element | Description |
 | ------- | ----------- |
 | `access_token` | Het aangevraagde toegangstoken. Bij het aanroepen van een beveiligde REST-API, het token is ingesloten in de `Authorization` headerveld aanvraag als een token 'bearer', zodat de API voor verificatie van de oproepende functie. | 
 | `refresh_token` | Niet gebruikt door beheerde identiteiten voor Azure-resources. |
@@ -362,7 +362,7 @@ De beheerde identiteit voor Azure-resources eindpunt signalen fouten via het sta
 
 Als er een fout optreedt, bevat de bijbehorende HTTP-antwoordtekst JSON met details van de fout:
 
-| Element | Beschrijving |
+| Element | Description |
 | ------- | ----------- |
 | error   | Fout-id. |
 | error_description | Uitgebreide beschrijving van de fout. **Beschrijvingen van de fouten kunnen op elk gewenst moment wijzigen. Geen code die vertakkingen op basis van waarden in de beschrijving van de fout schrijven.**|

@@ -13,11 +13,11 @@ ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f003ec847ab3777a2174a1078a2d07eb012bb34
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484092"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291991"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Single sign-on bij niet-galerietoepassingen in Azure Active Directory configureren
 

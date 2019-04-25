@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff0fd4d01eab739b79685c1de67cb8fe28873961
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60347952"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect-synchronisatie: Uitbreidingen van de directory
 Directory-extensies kunt u het schema in Azure Active Directory (Azure AD) uit te breiden met uw eigen kenmerken van on-premises Active Directory. Deze functie kunt u LOB-apps kunt maken met kenmerken die u doorgaan met het on-premises beheren verbruikt. Deze kenmerken kunnen worden gebruikt via [directory-Azure AD Graph API-uitbreidingen](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) of [Microsoft Graph](https://developer.microsoft.com/graph/). U kunt de beschikbare kenmerken zien met behulp van [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) en [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), respectievelijk.

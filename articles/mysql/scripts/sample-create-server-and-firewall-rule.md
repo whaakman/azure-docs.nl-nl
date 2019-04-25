@@ -9,11 +9,11 @@ ms.custom: mvc
 ms.topic: sample
 ms.date: 02/28/2018
 ms.openlocfilehash: 6a73041218ab6182d8aa3df6261697cc8dd4efe7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535486"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343253"
 ---
 # <a name="create-a-mysql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Een MySQL-server maken en een firewallregel configureren met de Azure CLI
 In dit CLI-voorbeeldscript wordt een Azure Database for MySQL-server gemaakt en een firewallregel op serverniveau geconfigureerd. Nadat het script is uitgevoerd, is de MySQL-server toegankelijk voor alle Azure-services en het geconfigureerde IP-adres.

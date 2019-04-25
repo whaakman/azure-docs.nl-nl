@@ -5,18 +5,18 @@ services: billing
 author: dhirajgandhi
 manager: dhgandhi
 ms.author: banders
-ms.date: 03/12/2018
+ms.date: 03/12/2019
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270180"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371264"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Een partner-ID koppelen aan uw Azure-accounts
 
@@ -57,29 +57,29 @@ Als u toegang tot resources van de klant hebt, gebruikt u de Azure-portal, Power
 1. Installeer de [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell-module.
 
 2. Aanmelden bij de klanttenant met het gebruikersaccount of de service-principal. Zie voor meer informatie, [Meld u aan met PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
- 
+
    ```azurepowershell-interactive
-    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
 3. Koppeling naar de nieuwe partner-ID. De partner-ID is de [Microsoft Partner Network](https://partner.microsoft.com/) -ID voor uw organisatie.
 
     ```azurepowershell-interactive
-    C:\> new-AzureRmManagementPartner -PartnerId 12345 
+    C:\> new-AzManagementPartner -PartnerId 12345
     ```
 
 #### <a name="get-the-linked-partner-id"></a>De gekoppelde partner-ID ophalen
 ```azurepowershell-interactive
-C:\> get-AzureRmManagementPartner 
+C:\> get-AzManagementPartner
 ```
 
 #### <a name="update-the-linked-partner-id"></a>Bijwerken van de gekoppelde partner-ID
 ```azurepowershell-interactive
-C:\> Update-AzureRmManagementPartner -PartnerId 12345 
+C:\> Update-AzManagementPartner -PartnerId 12345
 ```
 #### <a name="delete-the-linked-partner-id"></a>Verwijder de gekoppelde partner-ID
 ```azurepowershell-interactive
-C:\> remove-AzureRmManagementPartner -PartnerId 12345 
+C:\> remove-AzManagementPartner -PartnerId 12345
 ```
 
 ### <a name="use-the-azure-cli-to-link-to-a-new-partner-id"></a>De Azure CLI gebruiken om te koppelen aan een nieuwe partner-ID
@@ -87,13 +87,13 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
 
     ```azurecli-interactive
     C:\ az extension add --name managementpartner
-    ``` 
+    ```
 
 2. Aanmelden bij de klanttenant met het gebruikersaccount of de service-principal. Zie voor meer informatie, [Meld u aan met de Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
-    ``` 
+    ```
 
 3. Koppeling naar de nieuwe partner-ID. De partner-ID is de [Microsoft Partner Network](https://partner.microsoft.com/) -ID voor uw organisatie.
 
@@ -104,17 +104,17 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
 #### <a name="get-the-linked-partner-id"></a>De gekoppelde partner-ID ophalen
 ```azurecli-interactive
 C:\ az managementpartner show
-``` 
+```
 
 #### <a name="update-the-linked-partner-id"></a>Bijwerken van de gekoppelde partner-ID
 ```azurecli-interactive
 C:\ az managementpartner update --partner-id 12345
-``` 
+```
 
 #### <a name="delete-the-linked-partner-id"></a>Verwijder de gekoppelde partner-ID
 ```azurecli-interactive
 C:\ az managementpartner delete --partner-id 12345
-``` 
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -136,12 +136,12 @@ De koppeling tussen de partner-ID en het account wordt gedaan voor elke klantten
 
 **Kunnen andere partners en klanten bewerken of verwijderen van de koppeling naar de partner-ID?**
 
-De koppeling is gekoppeld op het niveau van de gebruiker. U kunt alleen bewerken of verwijderen van de koppeling naar de partner-ID. De klant en andere partners kunnen de koppeling wijzigen in de partner-ID. 
+De koppeling is gekoppeld op het niveau van de gebruiker. U kunt alleen bewerken of verwijderen van de koppeling naar de partner-ID. De klant en andere partners kunnen de koppeling wijzigen in de partner-ID.
 
 
 **Welke MPN-ID moet ik gebruiken als mijn bedrijf meerdere heeft?**
 
-U kunt een geldige ID voor de MPN, behalve virtuele orgnization(v-org) MPN-ID. De meeste partners kiezen voor de MPN ID voor de geografische locatie waar de klant is gebaseerd of services worden geleverd.
+U kunt een geldige ID voor de MPN, behalve virtuele organization(v-org) MPN-ID. De meeste partners kiezen voor de MPN ID voor de geografische locatie waar de klant is gebaseerd of services worden geleverd.
 
 **Waar vind ik beïnvloed omzet rapportage voor gekoppelde partner-ID**
 
@@ -158,4 +158,3 @@ U kunt de klant in de rapporten vanwege de volgende redenen niet zien
 **Partner-ID met Azure Stack werkt is een koppeling?**
 
 Ja, koppelt u uw partner-ID voor Azure Stack.
-

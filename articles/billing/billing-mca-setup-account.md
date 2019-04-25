@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894543"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371721"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Instellen van uw factureringsrekening voor een Microsoft-KLANTOVEREENKOMST
 
@@ -205,11 +205,11 @@ U voltooit de installatie, moet u toegang tot zowel de nieuwe factureringsaccoun
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Zoeken op **kosten Management en facturering**.
+2. Zoek naar **kostenbeheer en facturering**.
 
    ![Schermafbeelding van zoeken in Azure portal](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Selecteer het profiel van de facturering. Afhankelijk van uw toegang moet u mogelijk facturering-account selecteren. Selecteer in het factureringsaccount **facturering profielen** en vervolgens het profiel voor facturering.
+3. Selecteer het profiel van de facturering. Afhankelijk van uw toegang moet u mogelijk een factureringsaccount selecteren. Selecteer in het factureringsaccount **facturering profielen** en vervolgens het profiel voor facturering.
 
 4. Selecteer **Azure-abonnementen** aan de linkerkant.
 
@@ -221,11 +221,11 @@ Azure-abonnementen die aan de nieuwe factureringsrekening zijn overgegaan van uw
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Zoeken op **kosten Management en facturering**.
+2. Zoek naar **kostenbeheer en facturering**.
 
    ![Schermafbeelding van zoeken in Azure portal](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Selecteer een gedeelte van de factuur. Afhankelijk van uw toegang moet u mogelijk factureringsaccount of een profiel voor facturering selecteren.  Selecteer uit de factureringsaccount of factureringsprofiel **factuur secties** en vervolgens een gedeelte van de factuur.
+3. Selecteer een gedeelte van de factuur. Afhankelijk van uw toegang moet u mogelijk een factureringsaccount of factureringsprofiel selecteren.  Selecteer uit de factureringsaccount of factureringsprofiel **factuur secties** en vervolgens een gedeelte van de factuur.
 
     ![Schermafbeelding van lijst met factuur sectie post overgang](./media/billing-mca-setup-account/billing-mca-invoice-sections-post-transition.png)
 
@@ -241,11 +241,11 @@ Azure-reserveringen die van uw Enterprise Agreement-inschrijving worden verplaat
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Zoeken op **kosten Management en facturering**.
+2. Zoek naar **kostenbeheer en facturering**.
 
    ![Schermafbeelding van zoeken in Azure portal](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Selecteer het facturering profiel gemaakt voor uw inschrijving. Afhankelijk van uw toegang moet u mogelijk facturering-account selecteren.  Selecteer in het factureringsaccount **facturering profielen** en vervolgens het profiel voor facturering.
+3. Selecteer het facturering profiel gemaakt voor uw inschrijving. Afhankelijk van uw toegang moet u mogelijk een factureringsaccount selecteren.  Selecteer in het factureringsaccount **facturering profielen** en vervolgens het profiel voor facturering.
 
 4. Selecteer **toegangsbeheer (IAM)** aan de linkerkant.
 
@@ -257,7 +257,7 @@ Enterprise-beheerders kunnen worden weergegeven als het profiel eigenaren bij de
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Zoeken op **kosten Management en facturering**.
+2. Zoek naar **kostenbeheer en facturering**.
 
    ![Schermafbeelding van zoeken in Azure portal](./media/billing-mca-setup-account/billing-search-cost-management-billing.png).
 

@@ -16,11 +16,11 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab2fc543d345436e3d0a82fdb97a8c937f6ef256
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60265221"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Zelfstudie: Azure Active Directory-integratie met join.me
 
