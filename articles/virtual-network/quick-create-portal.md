@@ -1,7 +1,7 @@
 ---
 title: 'Een virtueel netwerk maken: quickstart - Azure-portal'
 titlesuffix: Azure Virtual Network
-description: In deze quickstart leert u hoe u een virtueel netwerk maakt met het Azure Portal. Met een virtueel netwerk kunnen Azure-resources, zoals virtuele machines, privé met elkaar en met internet communiceren.
+description: In deze snelstart leert u hoe u een virtueel netwerk maakt met het Azure Portal. Met een virtueel netwerk kunnen Azure-resources, zoals virtuele machines, privé met elkaar en met internet communiceren.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: jdial
 ms.openlocfilehash: 346299dff8354bfca56a1f348c8f66e90da89632
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020826"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391397"
 ---
-# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Quickstart: Een virtueel netwerk maken met Azure Portal
+# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Snelstart: Een virtueel netwerk maken met Azure Portal
 
-Met een virtueel netwerk kunnen Azure-resources, zoals virtuele machines (VM's), privé met elkaar en met internet communiceren. In deze quickstart leert u hoe u een virtueel netwerk maakt. Nadat u een virtueel netwerk hebt gemaakt, implementeert u twee virtuele machines in het virtuele netwerk. Vervolgens maakt u verbinding met de virtuele machines via internet en is er privécommunicatie tussen de twee virtuele machines mogelijk.
+Met een virtueel netwerk kunnen Azure-resources, zoals virtuele machines (VM's), privé met elkaar en met internet communiceren. In deze snelstart leert u hoe u een virtueel netwerk maakt. Nadat u een virtueel netwerk hebt gemaakt, implementeert u twee virtuele machines in het virtuele netwerk. Vervolgens maakt u verbinding met de virtuele machines via internet en is er privécommunicatie tussen de twee virtuele machines mogelijk.
 
 Als u nog geen abonnement op Azure hebt, maak dan nu een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -39,11 +39,11 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 
     | Instelling | Waarde |
     | ------- | ----- |
-    | Naam | Voer *myVirtualNetwork* in. |
+    | Name | Voer *myVirtualNetwork* in. |
     | Adresruimte | Voer *10.1.0.0/16* in. |
     | Abonnement | Selecteer uw abonnement.|
     | Resourcegroep | Selecteer **Nieuwe maken**, voer *myResourceGroup* in en selecteer vervolgens **OK**. |
-    | Locatie | Selecteer **US - oost**.|
+    | Location | Selecteer **US - oost**.|
     | Subnet - naam | Voer *myVirtualSubnet* in. |
     | Subnet - adresbereik | Voer *10.1.0.0/24* in. |
 
@@ -59,7 +59,7 @@ Twee virtuele machines in het virtuele netwerk maken:
 
 1. Typ of selecteer in **Een virtuele machine maken - Basisprincipes** de volgende gegevens:
 
-    | Instelling | Waarde |
+    | Instelling | Value |
     | ------- | ----- |
     | **PROJECTGEGEVENS** | |
     | Abonnement | Selecteer uw abonnement. |
@@ -68,7 +68,7 @@ Twee virtuele machines in het virtuele netwerk maken:
     | Naam van de virtuele machine | Voer *myVm1* in. |
     | Regio | Selecteer **US - oost**. |
     | Beschikbaarheidsopties | Laat de standaardwaarde **Geen infrastructuurredundantie vereist** staan. |
-    | Installatiekopie | Laat de standaardwaarde **Windows Server 2016 Datacenter** staan. |
+    | Image | Laat de standaardwaarde **Windows Server 2016 Datacenter** staan. |
     | Grootte | Laat de standaardwaarde **Standard DS1 v2** staan. |
     | **ADMINISTRATOR-ACCOUNT** |  |
     | Gebruikersnaam | Voer een gebruikersnaam naar keuze in. |
@@ -101,7 +101,7 @@ Twee virtuele machines in het virtuele netwerk maken:
 
     | Instelling | Waarde |
     | ------- | ----- |
-    | Naam | Voer *myvmstorageaccount* in. |
+    | Name | Voer *myvmstorageaccount* in. |
     | Soort account | Laat de standaardwaarde **Storage (algemeen gebruik v1)** staan. |
     | Prestaties | Laat de standaardwaarde **Standard** staan. |
     | Replicatie | Laat de standaardwaarde **Lokaal redundante opslag (LRS)** staan. |
@@ -222,6 +222,6 @@ Wanneer u klaar bent met het virtuele netwerk en de VM's, verwijdert u de resour
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u een standaard virtueel netwerk en twee virtuele machines gemaakt. U hebt met één virtuele machine verbinding gemaakt via internet en er is er privécommunicatie tussen de twee virtuele machines geweest. Zie [Een virtueel netwerk beheren](manage-virtual-network.md) voor meer informatie over instellingen voor virtuele netwerken.
+In deze snelstart hebt u een standaard virtueel netwerk en twee virtuele machines gemaakt. U hebt met één virtuele machine verbinding gemaakt via internet en er is er privécommunicatie tussen de twee virtuele machines geweest. Zie [Een virtueel netwerk beheren](manage-virtual-network.md) voor meer informatie over instellingen voor virtuele netwerken.
 
 Azure staat standaard onbeperkte privécommunicatie tussen virtuele machines toe. Daarentegen zijn alleen inkomende verbindingen met extern bureaublad met Windows-VM's via internet toegestaan. Ga naar de zelfstudie [Netwerkverkeer filteren](tutorial-filter-network-traffic.md) voor meer informatie over het configureren van verschillende typen VM-netwerkcommunicatie.

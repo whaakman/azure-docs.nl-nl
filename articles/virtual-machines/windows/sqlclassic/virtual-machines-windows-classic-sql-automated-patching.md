@@ -17,11 +17,11 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: aa912e3eb76d72e7a79c83d7e51d493310bd36b3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331313"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362132"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Automatische patches voor SQL Server in Azure Virtual Machines (klassiek)
 > [!div class="op_single_selector"]
@@ -30,12 +30,12 @@ ms.locfileid: "54331313"
 > 
 > 
 
-Geautomatiseerde Patching het vastleggen van een onderhoudsvenster voor een virtuele Machine van Azure met SQL Server. Automatische Updates kunnen alleen worden geïnstalleerd tijdens deze periode. Voor SQL Server, dit het zorgt ervoor dat systeemupdates en alle bijbehorende opnieuw opstarten op de best mogelijke tijd voor de database moet worden uitgevoerd. 
+Geautomatiseerde Patching het vastleggen van een onderhoudsvenster voor een virtuele Machine van Azure met SQL Server. Geautomatiseerde updates kunnen alleen worden geïnstalleerd tijdens dit onderhoudsvenster. Voor SQL Server, dit het zorgt ervoor dat systeemupdates en alle bijbehorende opnieuw opstarten op de best mogelijke tijd voor de database moet worden uitgevoerd. 
 
 > [!IMPORTANT]
-> Alleen Windows-updates zijn gemarkeerd **belangrijk** zijn geïnstalleerd. Andere SQL Server-updates, zoals cumulatieve Updates moeten handmatig worden geïnstalleerd. 
+> Er worden alleen Windows-updates geïnstalleerd die zijn gemarkeerd als **Belangrijk**. Andere SQL Server-updates, zoals cumulatieve updates, moeten handmatig worden geïnstalleerd. 
 
-Geautomatiseerde Patching is afhankelijk van de [SQL Server IaaS Agent-extensie](../classic/sql-server-agent-extension.md).
+Geautomatiseerd patchen is afhankelijk van de [extensie voor de SQL Server IaaS-agent](../classic/sql-server-agent-extension.md).
 
 > [!IMPORTANT] 
 > Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en klassieke](../../../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Voor de Resource Manager-versie van dit artikel, raadpleegt u [automatisch patchen voor SQL Server in Azure Resource Manager voor virtuele Machines](../sql/virtual-machines-windows-sql-automated-patching.md).

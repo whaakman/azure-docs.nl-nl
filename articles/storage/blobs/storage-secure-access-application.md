@@ -9,11 +9,11 @@ ms.date: 05/30/2018
 ms.author: tamram
 ms.custom: mvc
 ms.openlocfilehash: ea865fe246bcb414dd1ab3f83b7135989bc0adf3
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391511"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Toegang tot gegevens van een toepassing in de cloud beveiligen
 
@@ -127,7 +127,7 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
 In de vorige taak zijn de volgende klassen, eigenschappen en methoden gebruikt:
 
-|Klasse  |Eigenschappen| Methoden  |
+|Klasse  |Properties| Methoden  |
 |---------|---------|---------|
 |[StorageCredentials](/dotnet/api/microsoft.windowsazure.storage.auth.storagecredentials?view=azure-dotnet)    |         |
 |[CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?view=azure-dotnet)     | |[CreateCloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.createcloudblobclient?view=azure-dotnet#Microsoft_WindowsAzure_Storage_CloudStorageAccount_CreateCloudBlobClient)        |

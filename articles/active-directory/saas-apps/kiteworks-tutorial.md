@@ -16,11 +16,11 @@ ms.date: 06/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 73c352c0d60bc8dca969092210e9cff0a733765a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163529"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60262846"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>Zelfstudie: Azure Active Directory-integratie met kiteworks hebben
 
@@ -134,7 +134,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Meld u aan bij uw bedrijf Kiteworks site als beheerder.
 
-1. Klik in de werkbalk bovenaan op **instellingen**.
+1. Klik in de werkbalk bovenaan op **Settings** (Instellingen).
    
     ![Eenmalige aanmelding configureren](./media/kiteworks-tutorial/tutorial_kiteworks_06.png) 
 
@@ -243,7 +243,7 @@ Wanneer u op de tegel Kiteworks in het toegangsvenster, u moet u automatisch aan
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

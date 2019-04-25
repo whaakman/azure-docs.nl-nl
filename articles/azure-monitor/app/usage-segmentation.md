@@ -14,11 +14,11 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 7d378c2f72035c3584e1f5cd3c1f0fb9a5d5c2ed
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119864"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60372279"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analyse van gebruikers, sessies en gebeurtenissen in Application Insights
 
@@ -46,7 +46,7 @@ Verken de verschillende groepen gebruikers door de opties voor query's aan de bo
 
 * Weergeven: Kies een cohort van gebruikers om te analyseren.
 * Die gebruik hebben gemaakt: Aangepaste gebeurtenissen en paginaweergaven kiezen.
-* Tijdens de: Kies een tijdsbereik.
+* During: Kies een tijdsbereik.
 * Door: Kiezen hoe u aan de bucket van de gegevens door een bepaalde periode of door een ander domein zoals browser of een plaats.
 * Splitsen op basis van: Kies een eigenschap waarmee te splitsen of een segment de gegevens. 
 * Filters toevoegen: De query beperken tot bepaalde gebruikers, sessies of gebeurtenissen op basis van hun eigenschappen, zoals de browser of een plaats. 

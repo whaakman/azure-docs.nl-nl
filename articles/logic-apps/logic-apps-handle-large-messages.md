@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
 ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303768"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Grote berichten afhandelen met logische groepen te verdelen in Azure Logic Apps
 
@@ -117,18 +117,18 @@ Deze stappen beschrijven de gedetailleerde procedure die voor het uploaden van g
 
 1. Uw logische app verzendt een eerste HTTP POST of PUT-aanvraag met een lege berichttekst. De aanvraagheader, bevat deze informatie over de inhoud die uw logische app wil uploaden in segmenten:
 
-   | Logic Apps vragen header-veld | Waarde | Type | Beschrijving |
+   | Logic Apps vragen header-veld | Value | Type | Description |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-overdracht-modus** | gesegmenteerde overdrachtscodering | Reeks | Geeft aan dat de inhoud in segmenten is geüpload |
-   | **x-ms-content-length** | <*lengte van inhoud*> | Geheel getal | De volledige inhoud grootte in bytes vóór logische groepen te verdelen |
+   | **x-ms-transfer-mode** | gesegmenteerde overdrachtscodering | String | Geeft aan dat de inhoud in segmenten is geüpload |
+   | **x-ms-content-length** | <*content-length*> | Geheel getal | De volledige inhoud grootte in bytes vóór logische groepen te verdelen |
    ||||
 
 2. Het eindpunt reageert met de statuscode voor '200' geslaagd en deze optionele informatie:
 
-   | Veld voor eindpunt response-header | Type | Vereist | Beschrijving |
+   | Veld voor eindpunt response-header | Type | Vereist | Description |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-segment-grootte** | Geheel getal | Nee | De voorgestelde chunkgrootte in bytes |
-   | **Locatie** | Reeks | Nee | De URL-locatie waar u het vullen van de HTTP-berichten verzenden |
+   | **x-ms-chunk-size** | Geheel getal | Nee | De voorgestelde chunkgrootte in bytes |
+   | **Locatie** | String | Nee | De URL-locatie waar u het vullen van de HTTP-berichten verzenden |
    ||||
 
 3. Uw logische app maakt en follow-up vullen van de HTTP-berichten - allemaal zijn voorzien van deze gegevens verzendt:
@@ -137,11 +137,11 @@ Deze stappen beschrijven de gedetailleerde procedure die voor het uploaden van g
 
    * Deze header-informatie over de inhoud chunk in elk PATCH-bericht verzonden:
 
-     | Logic Apps vragen header-veld | Waarde | Type | Beschrijving |
+     | Logic Apps vragen header-veld | Value | Type | Description |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*Bereik*> | Reeks | Het bereik in bytes voor de huidige inhoud chunk, met inbegrip van de beginwaarde, de einddatum van de waarde en de totale grootte van inhoud, bijvoorbeeld: ' bytes = 0-1023/10100 " |
-     | **Content-Type** | <*inhoudstype*> | Reeks | Het type gesegmenteerde inhoud |
-     | **Content-Length** | <*lengte van inhoud*> | Reeks | De lengte van de grootte in bytes van het huidige segment |
+     | **Content-Range** | <*range*> | String | Het bereik in bytes voor de huidige inhoud chunk, met inbegrip van de beginwaarde, de einddatum van de waarde en de totale grootte van inhoud, bijvoorbeeld: ' bytes = 0-1023/10100 " |
+     | **Content-Type** | <*content-type*> | String | Het type gesegmenteerde inhoud |
+     | **Content-Length** | <*content-length*> | String | De lengte van de grootte in bytes van het huidige segment |
      |||||
 
 4. Na elke PATCH-aanvraag bevestigt het eindpunt de ontvangst van elk segment door met de statuscode '200' te reageren.

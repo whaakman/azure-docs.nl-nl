@@ -13,23 +13,23 @@ ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
 ms.openlocfilehash: 1f90ce71084ba3acbf5a0aec5c7b8e9683323766
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011619"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362115"
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Aan de slag met Azure Table storage en Visual Studio verbonden services
 
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-In dit artikel wordt beschreven hoe u aan de slag met Azure Table storage in Visual Studio nadat u hebt gemaakt of een Azure storage-account in een ASP.NET Core-project waarnaar wordt verwezen door het gebruik van de Visual Studio **Connected Services** functie. De **Connected Services** bewerking installeert de juiste NuGet-pakketten voor toegang tot Azure storage in uw project en de verbindingsreeks voor het opslagaccount toegevoegd aan uw project-configuratiebestanden. (Zie [documentatie voor Storage](https://azure.microsoft.com/documentation/services/storage/) voor algemene informatie over Azure Storage.)
+In dit artikel wordt beschreven hoe u aan de slag met Azure Table storage in Visual Studio nadat u hebt gemaakt of een Azure storage-account in een ASP.NET Core-project waarnaar wordt verwezen door het gebruik van de Visual Studio **Connected Services** functie. De **Connected Services** bewerking installeert de juiste NuGet-pakketten voor toegang tot Azure storage in uw project en voegt de connectiestring voor het opslagaccount toe aan uw project-configuratiebestanden. (Zie [documentatie voor Storage](https://azure.microsoft.com/documentation/services/storage/) voor algemene informatie over Azure Storage.)
 
 De Azure Table storage-service kunt u voor het opslaan van grote hoeveelheden gestructureerde gegevens. De service is een NoSQL-gegevensarchief die geverifieerde aanroepen uit binnen en buiten de Azure-cloud accepteert. Azure-tabellen zijn ideaal voor het opslaan van gestructureerde, niet-relationele gegevens. Zie voor meer algemene informatie over het gebruik van Azure Table storage [aan de slag met Azure Table storage met .NET](../storage/storage-dotnet-how-to-use-tables.md).
 
 Als u wilt beginnen, moet u eerst een tabel maken in uw storage-account. In dit artikel wordt weergegeven over het maken van een tabel in C# en hoe u eenvoudige tabelbewerkingen zoals het toevoegen, wijzigen, lezen en verwijderen van vermeldingen uit te voeren.  De code gebruikt de Azure Storage-clientbibliotheek voor .NET. Zie voor meer informatie over ASP.NET [ASP.NET](https://www.asp.net).
 
-Enkele van de Azure Storage-API's zijn asynchroon en de code in dit artikel wordt ervan uitgegaan dat async-methoden worden gebruikt. Zie [asynchrone programmering](https://docs.microsoft.com/dotnet/csharp/async) voor meer informatie.
+Enkele van de Azure Storage-API's zijn asynchroon en de code in dit artikel gaat ervan uit dat async-methoden worden gebruikt. Zie [asynchrone programmering](https://docs.microsoft.com/dotnet/csharp/async) voor meer informatie.
 
 ## <a name="access-tables-in-code"></a>Toegang tot tabellen in code
 
@@ -43,7 +43,7 @@ Voor toegang tot tabellen in ASP.NET Core-projecten, moet u de volgende items na
     using System.Threading.Tasks;
     ```
 
-1. Krijgen een `CloudStorageAccount` -object met gegevens van uw opslagaccount. Gebruik de volgende code, met de naam van uw opslagaccount en de accountsleutel, die u in de verbindingsreeks voor opslag in appSettings.json vinden kunt:
+1. Maak een `CloudStorageAccount` -object met gegevens van uw opslagaccount. Gebruik de volgende code, met de naam van uw opslagaccount en de accountsleutel, die u in de verbindingsreeks voor opslag in appSettings.json vinden kunt:
 
     ```csharp
         CloudStorageAccount storageAccount = new CloudStorageAccount(

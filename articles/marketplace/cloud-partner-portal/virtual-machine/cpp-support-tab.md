@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 35ac9d0c4b0188724c91cdcf4f33b645dd92e98a
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639834"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343207"
 ---
 # <a name="virtual-machine-support-tab"></a>Tabblad voor virtuele machine-ondersteuning
 
-De **ondersteunen** tabblad van de **nieuwe aanbieding** pagina kunt u voor de technische en gebruiker bronnen voor ondersteuning van uw aanbieding.  Het is onderverdeeld in drie gebieden: **Engineering**, **Customer Support**, en **ondersteuning voor URL's**.
+De **ondersteunen** tabblad van de **nieuwe aanbieding** pagina kunt u voor de technische en gebruiker bronnen voor ondersteuning van uw aanbieding.  Het is onderverdeeld in drie gebieden: **Technische**, **klantondersteuning**, en **ondersteuning voor URL's**.
 
 ![Tabblad ondersteuning in het formulier nieuwe aanbieding voor virtuele machines](./media/publishvm_012.png)
 
@@ -34,14 +34,14 @@ Waar:
 | *Technische contactpersoon*  |  Fungeert als een technische contactpersoon tussen Microsoft en uw organisatie | 
 | **Naam**                  | Naam van de persoon of groep die als technische/engineering-ondersteuning fungeert     |
 | **E-mail**                 | E-mailadres van deze technische contactpersoon                                      |
-| **telefoon**                 | Telefoonnummer voor technische ondersteuning                                           |
+| **Phone**                 | Telefoonnummer voor technische ondersteuning                                           |
 | *Klantondersteuning*  | Ontvangt ondersteuningstickets geopend door klanten in Azure |
 | **Naam**                  | Naam van de persoon of groep die als klantondersteuning fungeert                  |
 | **E-mail**                 | E-mailadres van de klantenondersteuning                                            |
-| **telefoon**                 | Telefoonnummer voor klantondersteuning                                            |
+| **Phone**                 | Telefoonnummer voor klantondersteuning                                            |
 | *Ondersteuning voor URL 's*  | Ondersteuning voor sites die Microsoft gebruiken wilt als uw klanten ondersteuningstickets openen |
-| **Openbare Azure**          | URL voor het openbare internet ondersteuningssite                                         |
-| **Azure Government-Cloud**| URL voor ondersteuningssite van government-cloud                                        |
+| **Public Azure**          | URL voor het openbare internet ondersteuningssite                                         |
+| **Azure Government Cloud**| URL voor ondersteuningssite van government-cloud                                        |
 |  |  |
 
 

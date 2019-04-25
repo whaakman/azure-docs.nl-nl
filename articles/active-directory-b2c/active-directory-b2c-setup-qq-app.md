@@ -3,7 +3,7 @@ title: Instellen van zich kunnen registreren en aanmelden met een q-account met 
 description: Meld u aan en meld u aan klanten met accounts in uw toepassingen met behulp van Azure Active Directory B2C q bieden.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 09/11/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 38e17308f7aab5b28509d7a3509be0de844ee94f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316116"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een q-account met behulp van Azure Active Directory B2C
 

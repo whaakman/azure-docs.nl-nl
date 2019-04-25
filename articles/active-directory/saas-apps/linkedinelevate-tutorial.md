@@ -16,11 +16,11 @@ ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ca8e537f261b59fb4e069d47d24e21abbdeca46
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60260030"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Zelfstudie: Azure Active Directory-integratie met LinkedIn met verhoogde bevoegdheden uitvoeren
 
@@ -242,7 +242,7 @@ Wanneer u klikt op de tegel LinkedIn met verhoogde bevoegdheden in het toegangsv
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Zelfstudie: LinkedIn met verhoogde bevoegdheden voor het automatisch gebruikers inrichten met Azure Active Directory configureren](linkedinelevate-provisioning-tutorial.md)
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 * [Inrichten van gebruikers configureren](linkedinelevate-provisioning-tutorial.md)
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857552"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345641"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Logboekregistratie inschakelen voor Azure Machine Learning Studio-webservices
 Dit document bevat informatie over de logboekregistratie van webservices voor Machine Learning Studio. Logboekregistratie bevat aanvullende informatie, dan alleen een foutnummer en een bericht, die kan helpen bij het oplossen van de aanroepen van de API's voor Machine Learning Studio.  

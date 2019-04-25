@@ -12,11 +12,11 @@ ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 86c00242d2d7dbb9441b09dc327e4ee8cbbd729b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099964"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322970"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Snelstartgids: Nieuws zoeken met Node.js en de REST API voor Bing News Search
 

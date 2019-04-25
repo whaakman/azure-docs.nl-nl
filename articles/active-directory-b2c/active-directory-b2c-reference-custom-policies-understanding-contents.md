@@ -3,7 +3,7 @@ title: Informatie over aangepaste beleidsregels van het starter pack in Azure Ac
 description: Een onderwerp op Azure Active Directory B2C aangepast beleid.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: dbd57e53fbaec4368e3c8ce9600bce1d37bcab8f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173204"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317323"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Inzicht krijgen in het aangepaste beleid van de Azure AD B2C aangepast beleid beginnerspakket
 
@@ -47,7 +47,7 @@ De beschikbare claimtypen worden hieronder vermeld.
 
 De volgende claims zijn vereist voor de gebruiker reizen goed te laten werken:
 
-| Claims type | Description |
+| Claims type | Beschrijving |
 |-------------|-------------|
 | *UserId* | Gebruikersnaam |
 | *signInName* | Meld u aan de naam |
@@ -78,7 +78,7 @@ De volgende claims zijn vereist voor de gebruiker reizen goed te laten werken:
 
 De volgende claims zijn vereist om door te geven op speciale parameters (met inbegrip van sommige queryreeksparameters) voor andere claims-providers:
 
-| Claims type | Description |
+| Claims type | Beschrijving |
 |-------------|-------------|
 | *nux* | Speciale parameter voor de verificatie van lokale account wordt doorgegeven aan login.microsoftonline.com |
 | *nca* | Speciale parameter voor de verificatie van lokale account wordt doorgegeven aan login.microsoftonline.com |
@@ -95,7 +95,7 @@ De volgende claims zijn vereist om door te geven op speciale parameters (met inb
 
 De volgende claims zijn extra claims die kunnen worden verzameld van de gebruikers, opgeslagen in de map en in het token verzonden. Zoals wordt beschreven voordat, kunnen aanvullende claims worden toegevoegd aan deze lijst.
 
-| Claims type | Description |
+| Claims type | Beschrijving |
 |-------------|-------------|
 | *givenName* | De opgegeven naam van gebruiker (ook wel bekend als voornaam) |
 | *Achternaam* | De achternaam van de gebruiker (ook wel bekend als familienaam of achternaam) |
@@ -137,7 +137,7 @@ In deze sectie ziet u de technische profielen is al gedeclareerd per claimprovid
 
 ### <a name="technical-profiles-for-facebook"></a>Technische profielen voor Facebook
 
-| Technisch profiel | Description |
+| Technisch profiel | Beschrijving |
 |-------------------|-------------|
 | *Facebook-OAUTH* | |
 
@@ -149,7 +149,7 @@ In deze sectie ziet u de technische profielen is al gedeclareerd per claimprovid
 
 ### <a name="technical-profiles-for-phone-factor"></a>Technische profielen voor Phone Factor
 
-| Technisch profiel | Description |
+| Technisch profiel | Beschrijving |
 |-------------------|-------------|
 | *PhoneFactor-Input* | |
 | *PhoneFactor-InputOrVerify* | |
@@ -179,7 +179,7 @@ In deze sectie ziet u de technische profielen is al gedeclareerd per claimprovid
 
 ### <a name="technical-profiles-for-local-account"></a>Technische profielen voor lokaal Account
 
-| Technisch profiel | Description |
+| Technisch profiel | Beschrijving |
 |-------------------|-------------|
 | *LocalAccountSignUpWithLogonEmail* | |
 
@@ -199,11 +199,11 @@ Op dit moment geen technische profielen zijn gedefinieerd voor de **Trustframewo
 
 ### <a name="technical-profiles-for-token-issuer"></a>Technische profielen voor de uitgever van het Token
 
-| Technisch profiel | Description |
+| Technisch profiel | Beschrijving |
 |-------------------|-------------|
 | *JwtIssuer* | |
 
-## <a name="user-journeys"></a>Gebruikers reizen
+## <a name="user-journeys"></a>Gebruikersbelevingen
 
 In deze sectie ziet u de transporten gebruiker is al gedeclareerd in de *B2C_1A_base* beleid. Deze gebruiker reizen zijn vatbaar voor worden verder waarnaar wordt verwezen, worden genegeerd en/of verlengd zo nodig in uw eigen beleid ook als in de *B2C_1A_base_extensions* beleid.
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544593"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60372221"
 ---
 # <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Azure-tegoed voor Microsoft-KLANTOVEREENKOMST bijhouden
 
@@ -33,11 +33,11 @@ In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREEN
 
 1. Meld u aan bij [Azure Portal]( https://portal.azure.com).
 
-2. Zoeken op **kosten Management en facturering**.
+2. Zoek naar **kostenbeheer en facturering**.
 
    ![Schermafbeelding van zoeken in de portal voor kostenbeheer en facturering](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3. Ga naar het profiel voor facturering. Afhankelijk van uw toegang moet u mogelijk facturering-account selecteren. Selecteer in het factureringsaccount **facturering profielen** en vervolgens een profiel voor facturering.
+3. Ga naar het factureringsprofiel. Afhankelijk van uw toegang moet u mogelijk een factureringsaccount selecteren. Selecteer in het factureringsaccount **facturering profielen** en vervolgens een profiel voor facturering.
 
 4. Selecteer **Azure-tegoed**.
 

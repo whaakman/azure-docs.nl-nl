@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/30/2019
 ms.author: juliako
 ms.openlocfilehash: 00dab8381c26a6331dd325eacd4a550892bd3411
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495170"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325830"
 ---
 # <a name="live-events-and-live-outputs"></a>Live gebeurtenissen en live uitvoer
 
@@ -34,7 +34,7 @@ Een [Live gebeurtenis](https://docs.microsoft.com/rest/api/media/liveevents) kan
 
 ### <a name="pass-through"></a>Pass-through
 
-![Pass Through-query](./media/live-streaming/pass-through.svg)
+![passthrough](./media/live-streaming/pass-through.svg)
 
 Bij gebruik van de pass-through **livegebeurtenis** bent u afhankelijk van de on-premises live-encoder voor het genereren van een multiple-bitrate videostream en het verzenden ervan als de bijdragefeed voor de livegebeurtenis (met behulp van RTMP of een gefragmenteerd MP4-protocol). De livegebeurtenis voert de binnenkomende videostream vervolgens zonder verdere verwerking uit. Een dergelijke pass-through livegebeurtenis wordt geoptimaliseerd voor langdurige livegebeurtenissen of 24x365 lineair live streamen. Bij het maken van dit type livegebeurtenis, geeft u None op (LiveEventEncodingType.None).
 
@@ -48,7 +48,7 @@ Zie een .NET-codevoorbeeld in [MediaV3LiveApp](https://github.com/Azure-Samples/
 
 ### <a name="live-encoding"></a>Live Encoding  
 
-![Live encoding](./media/live-streaming/live-encoding.svg)
+![live encoding](./media/live-streaming/live-encoding.svg)
 
 Bij gebruik van live-codering met Media Services zou u uw on-premises live-encoder zodanig configureren dat één bitrate-video als bijdragefeed wordt verzonden naar de livegebeurtenis (met behulp van het protocol RTMP of gefragmenteerde MP4). De livegebeurtenis codeert de binnenkomende enkelvoudige bitrate gegevensstroom in een [videostroom met meerdere bitrates](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) en maakt deze beschikbaar voor afgifte naar afspeelapparaten via protocollen als MPEG-DASH, HLS en Smooth Streaming. Bij het maken van dit type livegebeurtenis, geeft u het coderingstype **Standard** (LiveEventEncodingType.Standard) op.
 

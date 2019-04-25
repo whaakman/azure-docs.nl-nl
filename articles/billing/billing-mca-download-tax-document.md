@@ -16,11 +16,11 @@ ms.date: 02/21/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 82b568d5a6abae1f061166afc1c80ef639df036c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371543"
 ---
 # <a name="view-the-tax-documents-for-your-microsoft-customer-agreement"></a>De btw-documenten voor uw Microsoft-KLANTOVEREENKOMST weergeven
 
@@ -31,9 +31,9 @@ In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREEN
 U moet de eigenaar, bijdrager, lezer of Manager van het profiel voor facturering factuur weergeven en downloaden van de btw-documenten. Zie voor meer informatie over facturering rollen voor Microsoft-klant-overeenkomsten, [facturering profiel rollen en taken](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 <!-- TO DO: add link to manage access doc for MCA -->
 
-1. Zoeken op **kosten Management en facturering**.
+1. Zoek naar **kostenbeheer en facturering**.
 2. Selecteer een profiel voor facturering.
-3. Selecteer **facturen**.
+3. Selecteer **Facturen**.
 4. In het raster factuur vindt u de rij van de factuur overeenkomt met de btw-document dat u wilt downloaden.
 5. Klik op het weglatingsteken (`...`) aan het einde van de rij.
 6. Selecteer **btw-document**. Afhankelijk van het land van uw facturering-profiel ziet u mogelijk meer dan één btw-document per factuur.

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.openlocfilehash: 83834104dd73e4381947903196ad35c3497b64a1
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425673"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337558"
 ---
 # <a name="create-php-web-and-worker-roles"></a>PHP-web- en -werkrollen maken
 
@@ -26,13 +26,13 @@ ms.locfileid: "52425673"
 
 Deze handleiding wordt laten zien hoe u PHP web- of werkrollen maken in een Windows-ontwikkelomgeving, kies een specifieke versie van PHP in de 'ingebouwde' beschikbare versies, de PHP-configuratie wijzigen, uitbreidingen inschakelen en ten slotte implementeren naar Azure. Ook wordt beschreven hoe u een web- of werkrollen rol voor het gebruik van een PHP-runtime (met aangepaste configuratie en -extensies) die u configureert.
 
-Azure biedt drie rekenmodellen voor het uitvoeren van toepassingen: Azure App Service, Azure Virtual Machines en Azure Cloud Services. Alle drie modellen ondersteunen PHP. Cloudservices, waaronder web-en medewerkerrollen, biedt *platform als een service (PaaS)*. Binnen een cloudservice biedt een Webrol een speciale Internet Information Services (IIS)-webserver voor het hosten van front-end webtoepassingen. Een werkrol kan asynchrone langlopende of permanente taken uitvoeren onafhankelijk van de gebruikersinteractie of invoer.
+Azure biedt drie rekenmodellen voor het uitvoeren van toepassingen: Azure App Service, virtuele Machines van Azure en Azure Cloudservices. Alle drie modellen ondersteunen PHP. Cloudservices, waaronder web-en medewerkerrollen, biedt *platform als een service (PaaS)*. Binnen een cloudservice biedt een Webrol een speciale Internet Information Services (IIS)-webserver voor het hosten van front-end webtoepassingen. Een werkrol kan asynchrone langlopende of permanente taken uitvoeren onafhankelijk van de gebruikersinteractie of invoer.
 
 Zie voor meer informatie over deze opties [Computinghostingopties verstrekt door Azure](cloud-services/cloud-services-choose-me.md).
 
 ## <a name="download-the-azure-sdk-for-php"></a>De Azure SDK voor PHP downloaden
 
-De [Azure SDK voor PHP](php-download-sdk.md) bestaat uit verschillende onderdelen. In dit artikel worden twee algoritmen gebruikt: Azure PowerShell en de Azure-emulators. Deze twee onderdelen kunnen worden geïnstalleerd via de Microsoft Web Platform Installer. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie.
+De [Azure SDK voor PHP](php-download-sdk.md) bestaat uit verschillende onderdelen. In dit artikel maakt gebruik van twee algoritmen: Azure PowerShell en de Azure-emulators. Deze twee onderdelen kunnen worden geïnstalleerd via de Microsoft Web Platform Installer. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie.
 
 ## <a name="create-a-cloud-services-project"></a>Een Cloud Services-project maken
 

@@ -9,11 +9,11 @@ ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
 ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681723"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392463"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>De levenscyclus van de Azure Blob-opslag beheren
 
@@ -116,7 +116,7 @@ Elke regel in het beleid heeft verschillende parameters:
 | Parameternaam | Parametertype | Opmerkingen | Vereist |
 |----------------|----------------|-------|----------|
 | naam           | String |Een de regelnaam mag maximaal 256 alfanumerieke tekens bestaan. De naam van regel is hoofdlettergevoelig.  Deze moet uniek zijn binnen een beleid. | True |
-| ingeschakeld | Booleaans | Een optionele Booleaanse waarde waarmee een regel voor het tijdelijk worden uitgeschakeld. Standaardwaarde is ' True ' als deze optie niet is ingesteld. | False | 
+| ingeschakeld | Boolean | Een optionele Booleaanse waarde waarmee een regel voor het tijdelijk worden uitgeschakeld. Standaardwaarde is ' True ' als deze optie niet is ingesteld. | False | 
 | type           | Een enum-waarde | De huidige geldig type is `Lifecycle`. | True |
 | definitie     | Een object dat de levenscyclus van regel definieert | Elke definitie bestaat uit een filter en een actie. | True |
 

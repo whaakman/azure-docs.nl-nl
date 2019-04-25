@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: c6ca7637c8e251fa29781503ffc18227c51bb4da
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002296"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335285"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Clientbibliotheek voor elastic database gebruiken met Dapper
 Dit document is bedoeld voor ontwikkelaars die afhankelijk zijn van Dapper om toepassingen te bouwen, maar ook wilt Profiteer [elastische database tooling](sql-database-elastic-scale-introduction.md) om toepassingen te maken die sharding implementeren om uit de gegevenslaag te schalen.  Dit document ziet u de wijzigingen in Dapper gebaseerde toepassingen die nodig zijn om te integreren met hulpmiddelen voor elastic database. Onze focus ligt op het samenstellen van de elastische database shard management en gegevensafhankelijke routering met Dapper. 

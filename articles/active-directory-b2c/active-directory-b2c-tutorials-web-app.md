@@ -3,7 +3,7 @@ title: Zelfstudie - Verificatie inschakelen in een webtoepassing - Azure Active 
 description: Zelfstudie over het gebruik van Azure Active Directory B2C voor het opgeven van gebruikersaanmelding voor een ASP.NET-webtoepassing.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: ced74cc5af829c3677a12aaf4bffdf9a518f6053
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755625"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384733"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Zelfstudie: Verificatie inschakelen in een webtoepassing met behulp van Azure Active Directory B2C
 
@@ -24,8 +24,8 @@ Deze zelfstudie laat u zien hoe u Azure Active Directory (Azure AD) B2C kunt geb
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Bijwerken van de toepassing in Azure AD B2C
-> * Configureren van het voorbeeld voor het gebruik van de toepassing
+> * De toepassing bijwerken in Azure AD B2C
+> * Het voorbeeld configureren voor gebruik van de toepassing
 > * Aanmelden met behulp van de gebruikersstroom
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -42,7 +42,7 @@ In de zelfstudie die u als onderdeel van de vereisten hebt voltooid, hebt u een 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
-4. Selecteer **Toepassingen**, en selecteer vervolgens de toepassing *webapp1*.
+4. Selecteer **Toepassingen** en selecteer vervolgens de toepassing *webapp1*.
 5. Voeg onder **Antwoord-URL** `https://localhost:44316` toe.
 6. Selecteer **Opslaan**.
 7. Noteer op de eigenschappenpagina de toepassings-ID die u gebruikt wanneer u de webtoepassing configureert.
@@ -90,7 +90,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Bijwerken van de toepassing in Azure AD B2C
-> * Configureren van het voorbeeld voor het gebruik van de toepassing
+> * Het voorbeeld configureren voor gebruik van de toepassing
 > * Aanmelden met behulp van de gebruikersstroom
 
 > [!div class="nextstepaction"]

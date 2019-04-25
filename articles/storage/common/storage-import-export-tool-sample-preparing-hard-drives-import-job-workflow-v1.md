@@ -9,18 +9,18 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: b80ba1cbe168270ec591bdd38859408eae387bbf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311710"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320581"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak
 In dit onderwerp begeleidt u bij het complete proces van schijven voorbereiden voor een importtaak.  
   
 In dit voorbeeld de volgende gegevens worden geïmporteerd in een Windows Azure storage-account met de naam `mystorageaccount`:  
   
-|Locatie|Description|  
+|Location|Description|  
 |--------------|-----------------|  
 |H:\Video|Een verzameling van video's, 5 TB in totaal.|  
 |H:\Photo|Een verzameling van foto's, 30 GB in totaal.|  
@@ -44,7 +44,7 @@ Compute vervolgens om te bepalen hoeveel harde schijven nodig zijn, de grootte v
   
 In dit voorbeeld moet twee 3 TB harde schijven voldoende. Echter, omdat de bronmap `H:\Video` 5 TB aan gegevens heeft en de capaciteit van uw één harde schijf is alleen 3 TB, is het nodig zijn om te doorbreken `H:\Video` in twee kleinere mappen: `H:\Video1` en `H:\Video2`, voordat u de Microsoft Azure Import/Export-hulpprogramma. Deze stap levert de volgende bron-mappen:  
   
-|Locatie|Grootte|De virtuele doelmap of de blob|  
+|Location|Grootte|De virtuele doelmap of de blob|  
 |--------------|----------|-------------------------------------------|  
 |H:\Video1|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  
 |H:\Video2|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  

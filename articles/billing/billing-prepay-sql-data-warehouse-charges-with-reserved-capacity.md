@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 3d56ee99f8056139a234477b6eed93d9fcbe2bbb
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013539"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371186"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Betaal vooruit voor SQL Data Warehouse kosten in rekening gebracht met gereserveerde capaciteit
 
@@ -45,7 +45,7 @@ Stel dat uw totale gebruik van SQL Data Warehouse is DW3000c. U wilt kopen van g
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com/).
 2. Selecteer **alle services** > **reserveringen**.
-3. Selecteer een abonnement. Gebruik de lijst met abonnementen om het abonnement dat wordt gebruikt om te betalen voor de gereserveerde capaciteit. De betalingswijze van het abonnement wordt in rekening gebracht de kosten vooraf voor de gereserveerde capaciteit. Het abonnementstype moet een enterprise agreement (getallen bieden: MS-AZR-0017P of MS-AZR - 0148 P) en betalen per gebruik (getallen bieden: MS-AZR-0003P of MS-AZR - 0023 P).
+3. Selecteer een abonnement. Gebruik de lijst met abonnementen om het abonnement dat wordt gebruikt om te betalen voor de gereserveerde capaciteit. De betalingswijze van het abonnement wordt in rekening gebracht de kosten vooraf voor de gereserveerde capaciteit. Het abonnementstype moet een enterprise agreement (getallen bieden: MS-AZR-0017P of MS-AZR - 0148 P) en betalen per gebruik (getallen bieden: MS-AZR-0003P of MS-AZR-0023P).
   - Voor een Enterprise-abonnement worden de kosten in mindering gebracht op het toezeggingsbedrag of ze worden in rekening gebracht als overschrijding.
   - Voor een Betalen per gebruik-abonnement worden de kosten in rekening gebracht op de creditcard of de factuurbetalingswijze van het abonnement.
 4. Selecteer een bereik. Gebruik de lijst Scope om te kiezen van een bereik van het abonnement.

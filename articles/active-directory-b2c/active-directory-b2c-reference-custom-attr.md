@@ -3,7 +3,7 @@ title: Aangepaste kenmerken definiëren in Azure Active Directory B2C | Microsof
 description: Definieer aangepaste kenmerken voor uw toepassing in Azure Active Directory B2C voor het verzamelen van informatie over uw klanten.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 277a1d5df0e6eb828c4d3c6faed91d55defb4108
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793177"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317388"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Aangepaste kenmerken definiëren in Azure Active Directory B2C
 

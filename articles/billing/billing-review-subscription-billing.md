@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
 ms.openlocfilehash: 15725989ef786f94421eddf647f101e3e73633fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370812"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Abonnement facturering met behulp van REST-API's bekijken
 
@@ -45,7 +45,7 @@ De `${startDate}` en `${endDate}` parameters zijn vereist voor dit voorbeeld, ma
 
 De volgende headers zijn vereist:
 
-|Aanvraagheader|Description|
+|Aanvraagheader|Beschrijving|
 |--------------------|-----------------|
 |*Content-Type:*|Vereist. Ingesteld op `application/json`.|
 |*Autorisatie:*|Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
@@ -81,7 +81,7 @@ Statuscode 200 wordt (OK) geretourneerd voor een geslaagde respons, waarin een l
 
 Elk item in **waarde** vertegenwoordigt een details met betrekking tot het gebruik van een service:
 
-|Antwoord-eigenschap|Description|
+|Antwoord-eigenschap|Beschrijving|
 |----------------|----------|
 |**subscriptionGuid** | Unieke ID voor het abonnement. |
 |**startDate** | De datum van het gebruik aan de slag. |

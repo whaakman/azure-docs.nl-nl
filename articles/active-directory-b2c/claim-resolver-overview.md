@@ -3,7 +3,7 @@ title: Over claim resolvers in aangepaste beleidsregels voor Azure Active Direct
 description: Meer informatie over hoe claims resolvers worden gebruikt in een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 44ac4a5fd14d262fdbd1f6fcd36bb2351d08f754
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692439"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313831"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Over claim resolvers in Azure Active Directory B2C aangepast beleid
 
@@ -54,7 +54,7 @@ De volgende secties worden de beschikbare claim resolvers.
 
 ### <a name="policy"></a>Beleid
 
-| Claim | Description | Voorbeeld |
+| Claim | Beschrijving | Voorbeeld |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | De relying party beleidsnaam. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | De tenant-ID van het beleid voor relying party. | your-tenant.onmicrosoft.com |
@@ -99,7 +99,7 @@ Elke parameternaam opgenomen als onderdeel van een OIDC of OAuth2-aanvraag kan w
 
 ### <a name="oauth2"></a>OAuth2
 
-| Claim | Description | Voorbeeld |
+| Claim | Beschrijving | Voorbeeld |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | Het toegangstoken. | N/A |
 

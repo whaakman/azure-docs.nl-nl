@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e85cfb6d7b44924ce7f17fdedb7f1b52350ab598
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392395"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Eigenschappen en metagegevens instellen en ophalen
 
@@ -27,7 +27,7 @@ Bij het ophalen van waarden van eigenschappen en metagegevens voor een opslagres
 > [!IMPORTANT]
 > Als u merkt dat de eigenschap of metagegevens waarden voor een opslagresource niet zijn ingevuld, controleert u dat uw code roept de **FetchAttributes** of **FetchAttributesAsync** methode.
 >
-> Metagegevens van de naam/waarde-paren zijn geldige HTTP-headers en dus moeten voldoen aan alle beperkingen met betrekking tot HTTP-headers. Namen van metagegevens moeten geldige naam van de HTTP-header, mag alleen ASCII-tekens bevatten en moeten worden behandeld als niet-hoofdlettergevoelig. Waarden voor metagegevens die niet-ASCII-tekens bevat die moeten worden met Base64 gecodeerde of gecodeerde URL.
+> Metagegevens van de naam/waarde-paren zijn geldige HTTP-headers en dus moeten voldoen aan alle beperkingen met betrekking tot HTTP-headers. Namen van metagegevens moet een geldige naam van de HTTP-header en geldige C# -id's, mag alleen ASCII-tekens bevatten en moet worden behandeld als niet-hoofdlettergevoelig. Waarden voor metagegevens die niet-ASCII-tekens bevat die moeten worden met Base64 gecodeerde of gecodeerde URL.
 
 ## <a name="setting-and-retrieving-properties"></a>Instellen en ophalen van eigenschappen
 Aanroepen om op te halen eigenschapswaarden, de **FetchAttributesAsync** methode voor uw blob of container voor het vullen van de eigenschappen, leest u de waarden.

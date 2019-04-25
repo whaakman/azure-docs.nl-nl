@@ -9,11 +9,11 @@ ms.date: 12/13/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.openlocfilehash: acf01788a1ac8ed8ca476941c402801abfbd8adf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011314"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392199"
 ---
 # <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>Zelfstudie: Niet-gestructureerde gegevens in cloudopslag doorzoeken
 

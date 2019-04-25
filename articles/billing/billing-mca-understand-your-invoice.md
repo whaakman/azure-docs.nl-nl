@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371388"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Meer informatie over uw factuur KLANTOVEREENKOMST van Microsoft
 
@@ -41,7 +41,7 @@ De **factuuroverzicht** is boven aan de eerste pagina en bevat informatie over u
 
 ![Samenvatting van de factuur](./media/billing-understand-your-invoice-mca/invoicesummary.png)
 
-| Termijn | Description |
+| Termijn | Beschrijving |
 | --- | --- |
 | Verkocht aan |Adres van uw rechtspersoon, gevonden in de facturering van de eigenschappen van account|
 | Factureren aan |Facturering-adres van de factureringsprofiel ontvangen van de factuur, gevonden in de facturering van profieleigenschappen|
@@ -57,7 +57,7 @@ De **facturering samenvatting** ziet u de kosten in rekening gebracht tegen de f
 
 ![Samenvatting van facturering](./media/billing-understand-your-invoice-mca/billingsummary.png)
 
-| Termijn | Description |
+| Termijn | Beschrijving |
 | --- | --- |
 | Kosten|Totaal aantal kosten van Microsoft voor dit profiel facturering sinds de laatste factureringsperiode |
 | Credits |Tegoeden die u hebt ontvangen van retourneert |
@@ -82,7 +82,7 @@ Het totale verschuldigde bedrag voor elke service-serie wordt berekend door af t
 
 ![Details voor factuur-sectie](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
-| Termijn |Description |
+| Termijn |Beschrijving |
 | --- | --- |
 | Eenheidsprijs | De effectieve prijs per van de service (in voor de valuta) die wordt gebruikt voor het tarief voor het gebruik. Dit is uniek voor een product, service-familie, meter en aanbieding. |
 | Defect | Aantal hebt aangeschaft, of tijdens de factureringsperiode verbruikt |

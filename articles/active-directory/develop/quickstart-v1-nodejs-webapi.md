@@ -17,11 +17,11 @@ ms.author: celested
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f72cbd719cea585144be3757f0791a74bde452ab
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416765"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299189"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Quickstart: Een Web-API beveiligen met Azure Active Directory
 
@@ -82,7 +82,7 @@ De [argumenten](/cli/azure/ad/app?view=azure-cli-latest#az-ad-app-create) voor d
 
 U hebt de volgende informatie nodig voordat u verbinding met Azure Active Directory kunt maken:
 
-| Naam  | Beschrijving | Naam van variabele in configuratiebestand |
+| Name  | Description | Naam van variabele in configuratiebestand |
 | ------------- | ------------- | ------------- |
 | Tenantnaam  | [Tenantnaam](quickstart-create-new-tenant.md) die u wilt gebruiken voor verificatie | `tenantName`  |
 | Client-id  | Client-id is de OAuth-term die wordt gebruikt voor de _toepassing-ID_ in AAD. |  `clientID`  |

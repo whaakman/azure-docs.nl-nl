@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
 ms.openlocfilehash: 0cbb4d2bc6449dc1cf12a374085b429743224995
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391790"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Zelfstudie: Een fout simuleren bij het openen van redundante opslag met leestoegang
 

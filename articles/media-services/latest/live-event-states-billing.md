@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
 ms.openlocfilehash: 17fead25840e45f98478a6eb6c146bcc261dfe75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322315"
 ---
 # <a name="live-event-states-and-billing"></a>Live gebeurtenis Staten en facturering
 
@@ -30,11 +30,11 @@ Wanneer **LiveEventEncodingType** op uw [Live gebeurtenis](https://docs.microsof
 
 De Live-gebeurtenis kan zich in een van de volgende statussen.
 
-|Status|Beschrijving|
+|Status|Description|
 |---|---|
 |**Gestopt**| Dit is de beginstatus van de Live gebeurtenis na het maken van (tenzij autostart is ingesteld op ' True '.) Er is geen facturering vindt plaats in deze status. In deze status kunnen de eigenschappen van Live gebeurtenissen kunnen worden bijgewerkt, maar streaming niet toegestaan.|
 |**Starten**| De Live gebeurtenis wordt gestart en resources worden toegewezen. Er is geen facturering vindt plaats in deze status. Updates of streaming zijn niet toegestaan in deze status. Als een fout optreedt, wordt de Live gebeurtenis teruggezet naar de status gestopt.|
-|**Wordt uitgevoerd**| De Live gebeurtenis resources zijn toegewezen, opnemen en preview-URL's zijn gegenereerd en is geschikt voor ontvangst van live streams. Facturering is op dit moment actief. U moet stoppen expliciet aanroepen op de bron van de Live gebeurtenis verder facturering is gestopt.|
+|**Wordt uitgevoerd**| De Live gebeurtenis resources zijn toegewezen, opnemen en preview-URL's zijn gegenereerd en is geschikt voor ontvangst van live streams. Facturering is op dit moment actief. U moet expliciet Stop aanroepen in de resource van de livegebeurtenis om verdere facturering stop te zetten.|
 |**Stoppen**| De Live gebeurtenis wordt gestopt en de resources zijn verlopen. Geen facturering vindt plaats in deze tijdelijke status. Updates of streaming zijn niet toegestaan in deze status.|
 |**Verwijderen**| De Live gebeurtenis wordt verwijderd. Geen facturering vindt plaats in deze tijdelijke status. Updates of streaming zijn niet toegestaan in deze status.|
 

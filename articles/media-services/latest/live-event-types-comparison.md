@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: juliako
 ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243887"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322281"
 ---
 # <a name="live-event-types-comparison"></a>Vergelijking van de typen Live gebeurtenis
 
@@ -57,7 +57,7 @@ De volgende tabel vergelijkt de functies van de twee typen van de Live gebeurten
 
 ## <a name="system-presets"></a>Systeemwaarden
 
-Bij het gebruik van live codering (Live gebeurtenis wordt ingesteld op **Standard**), de vooraf ingestelde standaardcodering definieert hoe de binnenkomende stream wordt gecodeerd in meerdere bitsnelheden of lagen. Op dit moment de enige toegestane waarde voor de vooraf ingestelde is *Default720p* (standaard).
+Bij gebruik van live codering (livegebeurtenis ingesteld op **Standard**), bepaalt de vooraf ingestelde codering hoe de binnenkomende stream in meerdere bitrates of lagen wordt gecodeerd. Op dit moment de enige toegestane waarde voor de vooraf ingestelde is *Default720p* (standaard).
 
 **Default720p** wordt de video coderen in de volgende 6 lagen.
 
@@ -73,7 +73,7 @@ Bij het gebruik van live codering (Live gebeurtenis wordt ingesteld op **Standar
 | 200 |340 |192 |30 |Hoog |Video_340x192_200kbps |
 
 > [!NOTE]
-> Als u gebruiken een aangepaste voorinstelling voor live codering wilt, contact op met amshelp@microsoft.com. U moet de gewenste tabel van de oplossing en bitrates opgeven. Controleer of er slechts één laag bij 720p en maximaal 6 lagen.
+> Als u een aangepaste vooraf ingestelde waarde voor live codering wilt gebruiken, neemt u contact op met amshelp@microsoft.com. Geef de gewenste tabel met resoluties en bitrates op. Controleer of er slechts één laag is op 720 p, en maximaal zes lagen.
 
 ### <a name="output-audio-stream"></a>Uitvoer Audio Stream
 

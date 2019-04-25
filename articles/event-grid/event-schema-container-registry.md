@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 03/12/2019
 ms.author: spelluru
 ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084324"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345461"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Azure Event Grid-gebeurtenisschema voor Container Registry
 
@@ -168,10 +168,10 @@ Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Description |
+| Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
 | id | string | De gebeurtenis-ID. |
-| tijdstempel | string | De tijd waarop de gebeurtenis heeft plaatsgevonden. |
+| timestamp | string | De tijd waarop de gebeurtenis heeft plaatsgevonden. |
 | action | string | De actie die de opgegeven gebeurtenis omvat. |
 | doel | object | Het doel van de gebeurtenis. |
 | aanvraag | object | De aanvraag die de gebeurtenis is gegenereerd. |
@@ -191,7 +191,7 @@ Het doelobject heeft de volgende eigenschappen:
 
 Het request-object heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Description |
+| Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
 | id | string | De ID van de aanvraag die de gebeurtenis heeft gestart. |
 | adres van doel | string | Het IP of hostnaam en mogelijk poort van de clientverbinding die de gebeurtenis heeft gestart. Deze waarde is de RemoteAddr van de standaard-http-aanvraag. |

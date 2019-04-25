@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
 ms.openlocfilehash: 205a8dae55394a82a60f54ed32bad95324a59517
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324225"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Functies Azure CDN-regelengine
 Dit artikel vindt u gedetailleerde beschrijvingen van de beschikbare functies voor Azure Content Delivery Network (CDN) [regels-Engine](cdn-rules-engine.md).
@@ -185,7 +185,7 @@ Name | Doel
 
 Value|Resultaat
 --|--
-Ingeschakeld | De leeftijd response-header is opgenomen in het antwoord verzonden naar de aanvrager.
+Enabled | De leeftijd response-header is opgenomen in het antwoord verzonden naar de aanvrager.
 Uitgeschakeld | De leeftijd response-header is uitgesloten van het antwoord verzonden naar de aanvrager.
 
 **Standaardgedrag**: Uitgeschakeld.
@@ -202,7 +202,7 @@ Bandbreedtebeperking parameters van bandbreedte te bepalen of de overdrachtssnel
 
 Value|Resultaat
 --|--
-Ingeschakeld|Hiermee kunt u de POP's aanvragen voor bandbreedteregeling in acht neemt.
+Enabled|Hiermee kunt u de POP's aanvragen voor bandbreedteregeling in acht neemt.
 Uitgeschakeld|Zorgt ervoor dat de POP's bandbreedtebeperking parameters negeren. De gevraagde inhoud normaal gesproken wordt geleverd (dat wil zeggen, zonder bandbreedtebeperking).
 
 **Standaardgedrag:** ingeschakeld.
@@ -234,7 +234,7 @@ Prebuf seconden|Deze optie instelt op het aantal seconden voor de POP's moet wor
 
 Value|Resultaat
 --|--
-Ingeschakeld|Zorgt ervoor dat alle aanvragen te vallen door op de oorspronkelijke server, zelfs als de inhoud is eerder in de cache op de POP's.
+Enabled|Zorgt ervoor dat alle aanvragen te vallen door op de oorspronkelijke server, zelfs als de inhoud is eerder in de cache op de POP's.
 Uitgeschakeld|Zorgt ervoor dat pop's aan cache activa op basis van de cache-beleid dat is gedefinieerd in de antwoordheaders.
 
 **Standaardgedrag:**
@@ -433,7 +433,7 @@ Houd de standaardconfiguratie voor de grote HTTP-platform, omdat het vermindert 
 
 Value|Resultaat
 --|--
-Ingeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is om af te dwingen de pop-server om te starten van een op de achtergrond ophalen van de activa van de oorspronkelijke server. Waarna de asset worden weergegeven in de lokale cache van de pop-server.
+Enabled|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is om af te dwingen de pop-server om te starten van een op de achtergrond ophalen van de activa van de oorspronkelijke server. Waarna de asset worden weergegeven in de lokale cache van de pop-server.
 Uitgeschakeld|Hiermee voorkomt dat een pop-server uitvoeren van een op de achtergrond ophalen voor de asset. Het resultaat is een pop-server aan te vragen bij de oorspronkelijke server van de klant zorgt ervoor dat de volgende aanvraag voor de activa van die regio.
 
 **Standaardgedrag:** ingeschakeld.
@@ -536,7 +536,7 @@ X-EG-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 Value|Resultaat
 -|-
-Ingeschakeld|Aanvragen voor foutopsporing cache antwoordheaders wordt een antwoord met de header X-EG-Debug.
+Enabled|Aanvragen voor foutopsporing cache antwoordheaders wordt een antwoord met de header X-EG-Debug.
 Uitgeschakeld|De antwoord-header X-EG-Debug worden, uitgesloten van het antwoord.
 
 **Standaardgedrag:** uitgeschakeld.
@@ -593,7 +593,7 @@ Deze functie kan niet worden gekoppeld aan de volgende criteria voor overeenkoms
 
 Value | Resultaat
 ------|-------
-Ingeschakeld| Zorgt ervoor dat alle aanvragen die voldoen aan de overeenkomende criteria kunnen worden geweigerd met een 403 verboden-antwoord.
+Enabled| Zorgt ervoor dat alle aanvragen die voldoen aan de overeenkomende criteria kunnen worden geweigerd met een 403 verboden-antwoord.
 Uitgeschakeld| Hiermee herstelt u het standaardgedrag. De standaardinstelling is dat de oorspronkelijke server om te bepalen van het type van de reactie die wordt geretourneerd.
 
 **Standaardgedrag**: Uitgeschakeld
@@ -653,7 +653,7 @@ Belangrijke informatie:
 
 Value|Resultaat
 -|-
-Ingeschakeld|Aanvragen kunnen worden omgeleid.
+Enabled|Aanvragen kunnen worden omgeleid.
 Uitgeschakeld|Geen worden aanvragen omgeleid.
 
 **Standaardgedrag:** uitgeschakeld.
@@ -726,7 +726,7 @@ Een niet-cache-aanvraag treedt op wanneer de HTTP-client verzendt een `Cache-Co
 
 Value|Resultaat
 --|--
-Ingeschakeld|Kan geen van de client van een HTTP-cache-aanvragen worden doorgestuurd naar de oorspronkelijke server en de oorspronkelijke server retourneert de antwoordheaders en de hoofdtekst met het pop-server terug naar de HTTP-client.
+Enabled|Kan geen van de client van een HTTP-cache-aanvragen worden doorgestuurd naar de oorspronkelijke server en de oorspronkelijke server retourneert de antwoordheaders en de hoofdtekst met het pop-server terug naar de HTTP-client.
 Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is om te voorkomen dat niet-cache-aanvragen worden doorgestuurd naar de oorspronkelijke server.
 
 Voor alle productieverkeer, is het raadzaam deze functie in de standaardstaat uitgeschakeld laten staan. Bronservers wordt anders niet worden afgeschermd van eindgebruikers die mogelijk veel niet-cache-aanvragen per ongeluk activeren bij het vernieuwen van webpagina's, of van de vele populaire mediaspelers die zijn gecodeerd voor het verzenden van een niet-cache-header met elke video aanvraag. Deze functie kan echter nuttig toe te passen op bepaalde niet-productie voor fasering of het testen van mappen, zodat u nieuwe inhoud op aanvraag worden opgehaald uit de oorspronkelijke server zijn.
@@ -788,7 +788,7 @@ Standaard wordt deze statuscode geretourneerd wanneer de aanvraag opgegeven byte
 
 Value|Resultaat
 -|-
-Ingeschakeld|Hiermee voorkomt dat de POP's reageren op een ongeldige bytebereik-aanvraag met een 416 statuscode gevraagde bereik niet geldig. In plaats daarvan wordt de servers leveren de aangevraagde asset en 200 OK naar de client geretourneerd.
+Enabled|Hiermee voorkomt dat de POP's reageren op een ongeldige bytebereik-aanvraag met een 416 statuscode gevraagde bereik niet geldig. In plaats daarvan wordt de servers leveren de aangevraagde asset en 200 OK naar de client geretourneerd.
 Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is om te voldoen aan de 416 statuscode gevraagde bereik niet geldig.
 
 **Standaardgedrag:** uitgeschakeld.
@@ -849,7 +849,7 @@ Deze functie kan niet worden gekoppeld aan de volgende criteria voor overeenkoms
 
 Value|Resultaat
 -|-
-Ingeschakeld|Kan de opslag van queryreeksen bij het vastleggen van URL's in een toegangslogboek. Als een URL geen een queryreeks bevat, klikt u vervolgens deze optie geen effect.
+Enabled|Kan de opslag van queryreeksen bij het vastleggen van URL's in een toegangslogboek. Als een URL geen een queryreeks bevat, klikt u vervolgens deze optie geen effect.
 Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is queryreeksen negeren wanneer URL's op te nemen in een toegangslogboek.
 
 **Standaardgedrag:** uitgeschakeld.
@@ -967,7 +967,7 @@ Deze gedeeltelijke cache kan vervolgens worden gebruikt om te voldoen aan nieuwe
 
 Value|Resultaat
 -|-
-Ingeschakeld|Gedeeltelijk in de cache inhoud kunnen worden gegenereerd door aanvragen.
+Enabled|Gedeeltelijk in de cache inhoud kunnen worden gegenereerd door aanvragen.
 Uitgeschakeld|Aanvragen kunnen alleen genereren voor een volledig in de cache opgeslagen versie van de aangevraagde inhoud.
 
 **Standaardgedrag:** uitgeschakeld.
@@ -1025,7 +1025,7 @@ Geldige waarden zijn:
 
 Value|Resultaat
 --|--
-Ingeschakeld|Zorgt ervoor dat de POP opnieuw ophalen van de activa van de oorspronkelijke server.
+Enabled|Zorgt ervoor dat de POP opnieuw ophalen van de activa van de oorspronkelijke server.
 Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is om te fungeren voor geldige cache activa op aanvraag.
 
 Deze functie is niet vereist voor de juiste caching en levering van inhoud, maar zijn mogelijk nuttig zijn als tijdelijke oplossing. Dynamische inhoud generatoren van bronservers kunnen bijvoorbeeld per ongeluk resulteren in 0-byte-antwoorden aan de POP's worden verzonden. Deze typen antwoorden zijn meestal in cache opgeslagen door de POP's. Als u weet dat een 0-byte-antwoord nooit een geldige reactie is 
@@ -1088,7 +1088,7 @@ Zorg ervoor dat de naam van de opgegeven header komt niet overeen met een van de
 
 Value|Resultaat
 -|-
-Ingeschakeld|Verouderde content wordt geleverd aan de aanvrager wanneer een fout tijdens een verbinding met een oorspronkelijke server optreedt.
+Enabled|Verouderde content wordt geleverd aan de aanvrager wanneer een fout tijdens een verbinding met een oorspronkelijke server optreedt.
 Uitgeschakeld|Fout bij de oorspronkelijke server wordt doorgestuurd naar de aanvrager.
 
 **Standaardgedrag:** uitgeschakeld
@@ -1128,7 +1128,7 @@ Deze functie heeft voorrang op de meeste functies met uitzondering van de functi
 
 Value | Resultaat
 ------|---------
-Ingeschakeld | Beveiligt de gevraagde inhoud met verificatie op basis van tokens. Alleen aanvragen van clients die Geef een geldig token en voldoen aan de vereisten wordt van kracht. FTP-transacties zijn uitgesloten van verificatie op basis van tokens.
+Enabled | Beveiligt de gevraagde inhoud met verificatie op basis van tokens. Alleen aanvragen van clients die Geef een geldig token en voldoen aan de vereisten wordt van kracht. FTP-transacties zijn uitgesloten van verificatie op basis van tokens.
 Uitgeschakeld| Hiermee herstelt u het standaardgedrag. Het standaardgedrag is om toe te staan van uw tokens gebaseerde authenticatie-configuratie om te bepalen of een aanvraag wordt beveiligd.
 
 #### <a name="compatibility"></a>Compatibiliteit
@@ -1200,7 +1200,7 @@ Geldige waarden zijn:
 
 Value|Resultaat
 ---|----
-Ingeschakeld|Zorgt ervoor dat de POP hoofdlettergevoeligheid niet bij het vergelijken van URL's voor de parameters voor verificatie op basis van tokens.
+Enabled|Zorgt ervoor dat de POP hoofdlettergevoeligheid niet bij het vergelijken van URL's voor de parameters voor verificatie op basis van tokens.
 Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is voor de URL-vergelijkingen voor tokenverificatie zijn hoofdlettergevoelig.
 
 **Standaardgedrag:** uitgeschakeld.
@@ -1221,7 +1221,7 @@ Belangrijke informatie:
 
 Value|Resultaat
 ----|----
-Ingeschakeld|De optie waarde definieert de parameternaam van de query-tekenreeks waarmee de tokens moeten worden gedefinieerd.
+Enabled|De optie waarde definieert de parameternaam van de query-tekenreeks waarmee de tokens moeten worden gedefinieerd.
 Uitgeschakeld|Een token worden opgegeven als een niet-gedefinieerde queryreeks-parameter in de aanvraag-URL.
 
 **Standaardgedrag:** uitgeschakeld. Een token worden opgegeven als een niet-gedefinieerde queryreeks-parameter in de aanvraag-URL.

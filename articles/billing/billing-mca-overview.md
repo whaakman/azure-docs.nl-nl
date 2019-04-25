@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337410"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371446"
 ---
 # <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Aan de slag met uw factureringsrekening voor een Microsoft-KLANTOVEREENKOMST
 
@@ -30,7 +30,7 @@ In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREEN
 
 Uw factureringsrekening voor de klant Microsoft overeenkomst bevat een of meer facturering profielen waarmee u uw facturen en betalingswijzen beheren. Elke factureringsprofiel bevat een of meer factuur secties waarmee u kosten voor de facturering van het profiel factuur kunt indelen.
 
-Het volgende diagram toont de relatie tussen een factureringsaccount, de profielen voor facturering en de factuur secties.
+Het volgende schema toont de relatie tussen een factureringsaccount, de factureringsprofielen en de factuursecties.
 
 ![Diagram met facturering hiërarchie voor KLANTOVEREENKOMST van Microsoft](./media/billing-mca-overview/mca-billing-hierarchy.png)
 
@@ -71,8 +71,8 @@ Azure-abonnementen zijn automatisch ingeschakeld wanneer u een facturering profi
 
 | Plannen             | Definitie  |
 |------------------|-------------|
-|Microsoft Azure Plan   | Gebruikers toestaan te maken van abonnementen die werkbelastingen kunnen worden uitgevoerd. Zie voor meer informatie, [plannen van Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) |
-|Microsoft Azure-abonnement voor ontwikkelen en testen | Visual Studio-abonnees die abonnementen maken die beperkt voor de ontwikkeling van zijn toestaan of testworkloads. Deze abonnementen Profiteer van voordelen zoals lagere tarieven en toegang tot exclusieve virtuele machine-installatiekopieën in Azure portal. Zie voor meer informatie, [voor DevTest plannen Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0148g/)|
+|Microsoft Azure-abonnement   | Gebruikers toestaan te maken van abonnementen die werkbelastingen kunnen worden uitgevoerd. Zie voor meer informatie, [plannen van Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) |
+|Microsoft Azure-abonnement voor Dev/Test | Visual Studio-abonnees die abonnementen maken die beperkt voor de ontwikkeling van zijn toestaan of testworkloads. Deze abonnementen Profiteer van voordelen zoals lagere tarieven en toegang tot exclusieve virtuele machine-installatiekopieën in Azure portal. Zie voor meer informatie, [voor DevTest plannen Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0148g/)|
 
 ## <a name="understand-invoice-sections"></a>Secties factuur begrijpen
 
@@ -85,7 +85,7 @@ Rollen in de sectie factuur beschikken over machtigingen om te bepalen wie Azure
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Toegang tot een Microsoft-KLANTOVEREENKOMST controleren
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 
 Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
 

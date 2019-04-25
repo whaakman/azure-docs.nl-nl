@@ -1,6 +1,6 @@
 ---
 title: Azure TextBlock UI-element | Microsoft Docs
-description: Beschrijft het Microsoft.Common.TextBlock UI-element voor Azure-portal.
+description: Beschrijft de Microsoft.Common.TextBlock UI-element voor Azure-portal.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: cd4d1aed666b2c64ade700a768df0525029b392c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0dcd8ba1b1bacd990c91ce90ef0013caac446cdc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062737"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251574"
 ---
 # <a name="microsoftcommontextblock-ui-element"></a>Microsoft.Common.TextBlock UI-element
 Een besturingselement dat kan worden gebruikt om tekst toevoegen aan de interface van de portal.
@@ -49,5 +49,5 @@ Een besturingselement dat kan worden gebruikt om tekst toevoegen aan de interfac
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een inleiding tot het maken van de definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
+* Zie voor een inleiding tot het maken van definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
 * Zie voor een beschrijving van de algemene eigenschappen in de UI-elementen, [CreateUiDefinition elementen](create-uidefinition-elements.md).

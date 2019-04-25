@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a050a8cfdd67f662786fc0b9b7ed5451c88dccb1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810044"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397818"
 ---
 <a name="how-to-fill-out-the-offer-settings-form"></a>Het invullen van het formulier instellingen bieden
 =======================================
@@ -42,7 +42,7 @@ Als de partner 'Contoso' maakt bijvoorbeeld een aanbiedings-ID met de naam 'voor
 Deze vervolgkeuzelijst kunt u de uitgeverprofiel dat u wilt publiceren, deze aanbieding onder kiezen. Dit veld is vergrendeld zodra een aanbieding live meteen.
 
 
-### <a name="name"></a>Naam
+### <a name="name"></a>Name
 
 Dit is de weergavenaam voor uw app /-aanbod, dit wordt weergegeven in Microsoft [AppSource](https://appsource.microsoft.com/). De naam mag maximaal 50 tekens bevatten.
 

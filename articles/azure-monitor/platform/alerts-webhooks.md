@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
-ms.subservice: alerts
+ms.component: alerts
 ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345772"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Hebt u een klassieke waarschuwing voor metrische gegevens op de hoogte stellen een niet-Azure-systeem met behulp van een webhook
 U kunt webhooks gebruiken voor het routeren van een Azure waarschuwingsmelding met andere systemen voor na verwerking of aangepaste acties. U kunt een webhook gebruiken op een waarschuwing aan het wordt doorgestuurd naar services die de SMS-berichten, om aan te melden bugs, om de hoogte van een team via chatten of berichtenservices, of voor verschillende andere acties te verzenden. 
@@ -73,7 +73,7 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle waa
 |:--- |:--- |:--- |:--- |
 | status |J |Geactiveerd, is opgelost |De status van de waarschuwing op basis van de voorwaarden die u instelt. |
 | context |J | |De context van de waarschuwing. |
-| tijdstempel |J | |De tijd waarop de waarschuwing is geactiveerd. |
+| timestamp |J | |De tijd waarop de waarschuwing is geactiveerd. |
 | id |J | |Elke waarschuwingsregel heeft een unieke ID. |
 | naam |J | |De naam van de waarschuwing. |
 | description |J | |Een beschrijving van de waarschuwing. |
@@ -106,4 +106,3 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle waa
 * Meer informatie over het [een logische app gebruiken voor het verzenden van een SMS-bericht via Twilio vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Meer informatie over het [gebruik van een logische app een Slack-bericht verzenden vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Meer informatie over het [gebruik van een logische app een bericht verzenden naar een Azure-wachtrij vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
-

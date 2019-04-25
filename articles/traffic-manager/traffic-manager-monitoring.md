@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: kumud
 ms.openlocfilehash: 083bdf9c5aec640fbbd7757b307ac47178e0b14b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076136"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329894"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Eindpuntcontrole van Traffic Manager
 
@@ -69,12 +69,12 @@ Status monitor-eindpunt is een Traffic Manager gegenereerde waarde met de status
 
 | Status van het profiel | Eindpuntstatus | Status van eindpunt bewaken | Opmerkingen |
 | --- | --- | --- | --- |
-| Uitgeschakeld |Ingeschakeld |Inactief |Het profiel is uitgeschakeld. Hoewel de Eindpuntstatus is ingeschakeld, wordt de status van het profiel (uitgeschakeld) voorrang. Eindpunten in uitgeschakelde profielen worden niet bewaakt. Een antwoord NXDOMAIN-antwoordcode wordt geretourneerd voor de DNS-query. |
+| Uitgeschakeld |Enabled |Inactief |Het profiel is uitgeschakeld. Hoewel de Eindpuntstatus is ingeschakeld, wordt de status van het profiel (uitgeschakeld) voorrang. Eindpunten in uitgeschakelde profielen worden niet bewaakt. Een antwoord NXDOMAIN-antwoordcode wordt geretourneerd voor de DNS-query. |
 | &lt;Alle&gt; |Uitgeschakeld |Uitgeschakeld |Het eindpunt is uitgeschakeld. Uitgeschakelde eindpunten worden niet bewaakt. Het eindpunt is niet opgenomen in de DNS-antwoorden, daarom is er geen verkeer ontvangen. |
-| Ingeschakeld |Ingeschakeld |Online |Het eindpunt wordt gecontroleerd en in orde is. Het is opgenomen in de DNS-antwoorden en kan verkeer ontvangen. |
-| Ingeschakeld |Ingeschakeld |Verminderd |Statuscontroles voor controle-eindpunt mislukken. Het eindpunt is niet opgenomen in de DNS-antwoorden en geen verkeer ontvangt. <br>Een uitzondering hierop is als alle eindpunten zijn gedegradeerd, in dat geval ze allemaal beschouwd als reactie op de query worden geretourneerd).</br>|
-| Ingeschakeld |Ingeschakeld |CheckingEndpoint |Het eindpunt wordt bewaakt, maar de resultaten van de eerste test zijn nog niet ontvangen. CheckingEndpoint is een tijdelijke situatie die treedt meestal op onmiddellijk na het toevoegen of inschakelen van een eindpunt in het profiel. Een eindpunt in deze status is opgenomen in de DNS-antwoorden en kan verkeer ontvangen. |
-| Ingeschakeld |Ingeschakeld |Gestopt |De cloud of -web-app die het eindpunt naar verwijst wordt niet uitgevoerd. Controleer de instellingen voor cloud-service of web-app. Dit kan ook gebeuren als het eindpunt van het type genest eindpunt en het onderliggende profiel is uitgeschakeld of niet actief is. <br>Een eindpunt met de status gestopt wordt niet gecontroleerd. Het is niet opgenomen in de DNS-antwoorden en geen verkeer ontvangt. Een uitzondering hierop is als alle eindpunten zijn gedegradeerd, in welk geval ze allemaal zal worden beschouwd als reactie op de query worden geretourneerd.</br>|
+| Enabled |Enabled |Online |Het eindpunt wordt gecontroleerd en in orde is. Het is opgenomen in de DNS-antwoorden en kan verkeer ontvangen. |
+| Enabled |Enabled |Verminderd |Statuscontroles voor controle-eindpunt mislukken. Het eindpunt is niet opgenomen in de DNS-antwoorden en geen verkeer ontvangt. <br>Een uitzondering hierop is als alle eindpunten zijn gedegradeerd, in dat geval ze allemaal beschouwd als reactie op de query worden geretourneerd).</br>|
+| Enabled |Enabled |CheckingEndpoint |Het eindpunt wordt bewaakt, maar de resultaten van de eerste test zijn nog niet ontvangen. CheckingEndpoint is een tijdelijke situatie die treedt meestal op onmiddellijk na het toevoegen of inschakelen van een eindpunt in het profiel. Een eindpunt in deze status is opgenomen in de DNS-antwoorden en kan verkeer ontvangen. |
+| Enabled |Enabled |Gestopt |De cloud of -web-app die het eindpunt naar verwijst wordt niet uitgevoerd. Controleer de instellingen voor cloud-service of web-app. Dit kan ook gebeuren als het eindpunt van het type genest eindpunt en het onderliggende profiel is uitgeschakeld of niet actief is. <br>Een eindpunt met de status gestopt wordt niet gecontroleerd. Het is niet opgenomen in de DNS-antwoorden en geen verkeer ontvangt. Een uitzondering hierop is als alle eindpunten zijn gedegradeerd, in welk geval ze allemaal zal worden beschouwd als reactie op de query worden geretourneerd.</br>|
 
 Zie voor meer informatie over hoe status monitor-eindpunt wordt berekend voor geneste eindpunten [geneste Traffic Manager-profielen](traffic-manager-nested-profiles.md).
 
@@ -88,10 +88,10 @@ De monitor status van het profiel is een combinatie van de status van het geconf
 | Status van het profiel (zoals geconfigureerd) | Status van eindpunt bewaken | Status van het profiel | Opmerkingen |
 | --- | --- | --- | --- |
 | Uitgeschakeld |&lt;alle&gt; of een profiel met geen eindpunten zijn gedefinieerd. |Uitgeschakeld |Het profiel is uitgeschakeld. |
-| Ingeschakeld |De status van ten minste één eindpunt is gedegradeerd. |Verminderd |Bekijk de waarden voor de status van afzonderlijke eindpunt om te bepalen welke eindpunten meer aandacht vereisen. |
-| Ingeschakeld |De status van ten minste één eindpunt is Online. Er zijn geen eindpunten hebben een status van gedegradeerd. |Online |De service wordt verkeer accepteert. Er is geen verdere actie vereist. |
-| Ingeschakeld |De status van ten minste één eindpunt is CheckingEndpoint. Er zijn geen eindpunten in de status Online of gedegradeerd. |CheckingEndpoints |De status van deze overgang treedt op wanneer een profiel als gemaakt of ingeschakeld. De status van het eindpunt wordt voor de eerste keer gecontroleerd. |
-| Ingeschakeld |De status van alle eindpunten in het profiel zijn uitgeschakeld of gestopt, of het profiel bevat geen eindpunten zijn gedefinieerd. |Inactief |Er zijn geen eindpunten zijn actief, maar het profiel is nog steeds ingeschakeld. |
+| Enabled |De status van ten minste één eindpunt is gedegradeerd. |Verminderd |Bekijk de waarden voor de status van afzonderlijke eindpunt om te bepalen welke eindpunten meer aandacht vereisen. |
+| Enabled |De status van ten minste één eindpunt is Online. Er zijn geen eindpunten hebben een status van gedegradeerd. |Online |De service wordt verkeer accepteert. Er is geen verdere actie vereist. |
+| Enabled |De status van ten minste één eindpunt is CheckingEndpoint. Er zijn geen eindpunten in de status Online of gedegradeerd. |CheckingEndpoints |De status van deze overgang treedt op wanneer een profiel als gemaakt of ingeschakeld. De status van het eindpunt wordt voor de eerste keer gecontroleerd. |
+| Enabled |De status van alle eindpunten in het profiel zijn uitgeschakeld of gestopt, of het profiel bevat geen eindpunten zijn gedefinieerd. |Inactief |Er zijn geen eindpunten zijn actief, maar het profiel is nog steeds ingeschakeld. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Eindpunt-failover en herstel
 

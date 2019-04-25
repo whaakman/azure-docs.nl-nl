@@ -10,11 +10,11 @@ ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620629"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308725"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>De schaal van partities en replica's voor query's en indexering van workloads in Azure Search
 Nadat u [Kies een prijscategorie](search-sku-tier.md) en [inrichten van een service voor zoeken](search-create-service-portal.md), de volgende stap is het eventueel verhogen van het aantal replica's of partities die worden gebruikt door uw service. Elke laag biedt een vast aantal factureringseenheden. In dit artikel wordt uitgelegd hoe u de eenheden voor het bereiken van een optimale configuratie die een van uw vereisten voor het uitvoeren van query's, indexering en opslag toewijzen.
