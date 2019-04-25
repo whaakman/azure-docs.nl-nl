@@ -1,94 +1,87 @@
-items:
 - name: Documentatie voor Bing Spellingcontrole-API
   href: index.yml
 - name: Overzicht
   items:
-  - name: Wat is de Bing Spellingcontrole-API?
-    href: overview.md
-  - name: De Bing Zoeken-API's vergelijken
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
+    - name: Wat is de Bing Spellingcontrole-API?
+      href: overview.md
+    - name: De Bing Zoeken-API's vergelijken
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Snelstartgidsen
   items:
-  - name: REST-API
-    items:
-    - name: C# gebruiken
-      href: quickstarts/csharp.md
-    - name: Java gebruiken
-      href: quickstarts/java.md
-    - name: Node.js gebruiken
-      href: quickstarts/nodejs.md
-    - name: PHP gebruiken
-      href: quickstarts/php.md
-    - name: Python gebruiken
-      href: quickstarts/python.md
-    - name: Ruby gebruiken
-      href: quickstarts/ruby.md
-    expanded: true
-  - name: SDK
-    items:
-    - name: C# gebruiken
-      href: sdk-quickstart-spell-check.md
+    - name: REST-API
+      expanded: true
+      items:
+        - name: 'C# gebruiken'
+          href: quickstarts/csharp.md
+        - name: Java gebruiken
+          href: quickstarts/java.md
+        - name: Node.js gebruiken
+          href: quickstarts/nodejs.md
+        - name: PHP gebruiken
+          href: quickstarts/php.md
+        - name: Python gebruiken
+          href: quickstarts/python.md
+        - name: Ruby gebruiken
+          href: quickstarts/ruby.md
+    - name: SDK
+      items:
+        - name: 'C# gebruiken'
+          href: sdk-quickstart-spell-check.md
 - name: Zelfstudies
   items:
-  - name: Een spellingcontrole-web-app bouwen
-    href: tutorials/spellcheck.md
+    - name: Een spellingcontrole-web-app bouwen
+      href: tutorials/spellcheck.md
 - name: Handleidingen
   items:
-  - name: Upgrade uitvoeren van v5 naar v7
-    href: bing-spell-check-upgrade-guide-v5-to-v7.md
+    - name: Upgrade uitvoeren van v5 naar v7
+      href: bing-spell-check-upgrade-guide-v5-to-v7.md
 - name: Concepten
   items:
-  - name: Aanvragen verzenden naar de Bing Spellingcontrole-API
-    href: concepts/sending-requests.md
-  - name: De Bing Spellingcontrole-API gebruiken
-    href: concepts/using-spell-check.md
+    - name: Aanvragen verzenden naar de Bing Spellingcontrole-API
+      href: concepts/sending-requests.md
+    - name: De Bing Spellingcontrole-API gebruiken
+      href: concepts/using-spell-check.md
 - name: Voorbeelden
   items:
-  - name: Codevoorbeelden
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Spell+Check
+    - name: Codevoorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Spell+Check'
 - name: Naslaginformatie
   items:
-  - name: Bing Spellingcontrole-API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference
-  - name: Bing Spellingcontrole-API v5 (oude versie)
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference
-  - name: SDK's
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/spellcheck?view=azure-node-latest
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/spellcheck?view=azure-python
-    - name: Aan de slag
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/spellcheck
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/spellcheck?view=azure-java-stable
-  - name: Vereisten voor gebruik en weergave
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
+    - name: Bing Spellingcontrole-API v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference'
+    - name: Bing Spellingcontrole-API v5 (oude versie)
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference'
+    - name: SDK's
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/spellcheck?view=azure-node-latest'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/spellcheck?view=azure-python'
+        - name: Aan de slag
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/spellcheck'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/spellcheck?view=azure-java-stable'
+    - name: Vereisten voor gebruik en weergave
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
 - name: Resources
   items:
-  - name: Analytische gegevens voor Bing Spellingcontrole-API
-    href: bing-spell-check-stats.md
-  - name: Ondersteuning voor taal en regio
-    href: language-support.md
-  - name: Prijzen
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/
-  - name: Regionale beschikbaarheid
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/bing-api
-  - name: Abonnementssleutel
-    href: https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api
-  - name: Probeer het nu!
-    href: https://azure.microsoft.com/services/cognitive-services/spell-check/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598195-bing-spell-check
-ms.openlocfilehash: 132901c3bf159054519658893f1f05438852afcb
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890042"
+    - name: Analytische gegevens voor Bing Spellingcontrole-API
+      href: bing-spell-check-stats.md
+    - name: Ondersteuning voor taal en regio
+      href: language-support.md
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/bing-api'
+    - name: Abonnementssleutel
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api'
+    - name: Probeer het nu!
+      href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'

@@ -541,8 +541,8 @@ De volgende tabel bevat voorbeelden van hoe u de **tableName** eigenschap in de 
 | --- | --- | --- |
 | dbo | MyTable | MyTable of dbo. MyTable of [dbo]. [MyTable] |
 | dbo1 | MyTable | dbo1. MyTable of [dbo1]. [MyTable] |
-| dbo | My.Table | [My.Table] of [dbo]. [My.Table] |
-| dbo1 | My.Table | [dbo1]. [My.Table] |
+| dbo | My.Table | [My.Table] of [dbo].[My.Table] |
+| dbo1 | My.Table | [dbo1].[My.Table] |
 
 Als u de volgende fout ziet, is het probleem mogelijk de waarde die u hebt opgegeven voor de **tableName** eigenschap. Zie de voorgaande tabel voor de juiste manier om op te geven van de waarden voor de **tableName** JSON-eigenschap.
 

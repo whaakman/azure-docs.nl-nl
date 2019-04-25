@@ -1,55 +1,48 @@
-items:
 - name: Mainframe opnieuw hosten
   items:
-  - name: Overzicht
-    items:
-    - name: Aan de slag
-      href: overview.md
-    - name: Workloads
-      href: partner-workloads.md
-  - name: Concepten
-    items:
-    - name: Compute
-      href: concepts/mainframe-compute-azure.md
-    - name: Opslag
-      href: concepts/mainframe-storage-azure.md
-  - name: Micro Focus
-    items:
-    - name: Aan de slag
-      href: microfocus/get-started.md
-    - name: Enterprise-server installeren
-      href: microfocus/set-up-micro-focus-azure.md
-    - name: CICS BankDemo uitvoeren
-      href: microfocus/demo.md
-    - name: Enterprise-server in containers
-      href: microfocus/run-enterprise-server-container.md
-  - name: TmaxSoft OpenFrame
-    items:
-    - name: Aan de slag
-      href: tmaxsoft/get-started.md
-    - name: OpenFrame installeren
-      href: tmaxsoft/install-openframe-azure.md
-  - name: IBM
-    items:
-    - name: Aan de slag
-      href: ibm/get-started.md
-    - name: IBM zD&T installeren
-      href: ibm/install-ibm-z-environment.md
-    - name: ADCD instellen in zD&T
-      href: ibm/demo.md
-    - name: IBM Db2 pureScale
-      href: /azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
-    - name: IBM Db2 pureScale implementeren
-      href: /azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
-  - name: Resources
-    items:
-    - name: Technische documenten
-      href: mainframe-white-papers.md
-    - name: Azure-roadmap
-      href: https://azure.microsoft.com/updates/
-ms.openlocfilehash: c0cec35997d398045f9c34904c8ee07755724572
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788850"
+    - name: Overzicht
+      items:
+        - name: Aan de slag
+          href: overview.md
+        - name: Workloads
+          href: partner-workloads.md
+    - name: Concepten
+      items:
+        - name: Compute
+          href: concepts/mainframe-compute-azure.md
+        - name: Opslag
+          href: concepts/mainframe-storage-azure.md
+    - name: Micro Focus
+      items:
+        - name: Aan de slag
+          href: microfocus/get-started.md
+        - name: Enterprise-server installeren
+          href: microfocus/set-up-micro-focus-azure.md
+        - name: CICS BankDemo uitvoeren
+          href: microfocus/demo.md
+        - name: Enterprise-server in containers
+          href: microfocus/run-enterprise-server-container.md
+    - name: TmaxSoft OpenFrame
+      items:
+        - name: Aan de slag
+          href: tmaxsoft/get-started.md
+        - name: OpenFrame installeren
+          href: tmaxsoft/install-openframe-azure.md
+    - name: IBM
+      items:
+        - name: Aan de slag
+          href: ibm/get-started.md
+        - name: IBM zD&T installeren
+          href: ibm/install-ibm-z-environment.md
+        - name: ADCD instellen in zD&T
+          href: ibm/demo.md
+        - name: IBM Db2 pureScale
+          href: /azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+        - name: IBM Db2 pureScale implementeren
+          href: /azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+    - name: Resources
+      items:
+        - name: Technische documenten
+          href: mainframe-white-papers.md
+        - name: Azure-roadmap
+          href: 'https://azure.microsoft.com/updates/'

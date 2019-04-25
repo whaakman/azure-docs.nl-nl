@@ -1,99 +1,92 @@
-items:
 - name: Documentatie voor Bing Visual Search
   href: index.yml
 - name: Overzicht
   items:
-  - name: Wat is Bing Visual Search-API?
-    href: overview.md
-  - name: De Bing Zoeken-API's vergelijken
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
+    - name: Wat is Bing Visual Search-API?
+      href: overview.md
+    - name: De Bing Zoeken-API's vergelijken
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Snelstartgidsen
   items:
-  - name: REST-API
-    items:
-    - name: C# gebruiken
-      href: quickstarts/csharp.md
-    - name: Java gebruiken
-      href: quickstarts/java.md
-    - name: Node.js gebruiken
-      href: quickstarts/nodejs.md
-    - name: Python gebruiken
-      href: quickstarts/python.md
-    - name: Ruby gebruiken
-      href: quickstarts/ruby.md
-    - name: Go gebruiken
-      href: quickstarts/go.md
-    expanded: true
-  - name: SDK
-    items:
-    - name: C# gebruiken
-      href: visual-search-sdk-c-sharp.md
-    - name: Node.js gebruiken
-      href: visual-search-sdk-node.md
-    - name: Python gebruiken
-      href: visual-search-sdk-python.md
-    expanded: true
+    - name: REST-API
+      expanded: true
+      items:
+        - name: 'C# gebruiken'
+          href: quickstarts/csharp.md
+        - name: Java gebruiken
+          href: quickstarts/java.md
+        - name: Node.js gebruiken
+          href: quickstarts/nodejs.md
+        - name: Python gebruiken
+          href: quickstarts/python.md
+        - name: Ruby gebruiken
+          href: quickstarts/ruby.md
+        - name: Go gebruiken
+          href: quickstarts/go.md
+    - name: SDK
+      expanded: true
+      items:
+        - name: 'C# gebruiken'
+          href: visual-search-sdk-c-sharp.md
+        - name: Node.js gebruiken
+          href: visual-search-sdk-node.md
+        - name: Python gebruiken
+          href: visual-search-sdk-python.md
 - name: Zelfstudies
   items:
-  - name: Een afbeelding uploaden
-    href: tutorial-visual-search-image-upload.md
-  - name: Een deel van een afbeelding bijsnijden en doorzoeken
-    href: tutorial-visual-search-crop-area-results.md
+    - name: Een afbeelding uploaden
+      href: tutorial-visual-search-image-upload.md
+    - name: Een deel van een afbeelding bijsnijden en doorzoeken
+      href: tutorial-visual-search-crop-area-results.md
 - name: Voorbeelden
   items:
-  - name: Codevoorbeelden
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search
+    - name: Codevoorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search'
 - name: Concepten
   items:
-  - name: Query's verzenden
-    href: concepts/sending-queries.md
-  - name: Standaardafbeeldingsinzichten
-    href: default-insights-tag.md
-  - name: Gebruik van Bing-inzichten
-    href: bing-insights-usage.md
-  - name: Analytische gegevens voor Visual zoeken-API
-    href: bing-visual-search-stats.md
+    - name: Query's verzenden
+      href: concepts/sending-queries.md
+    - name: Standaardafbeeldingsinzichten
+      href: default-insights-tag.md
+    - name: Gebruik van Bing-inzichten
+      href: bing-insights-usage.md
+    - name: Analytische gegevens voor Visual zoeken-API
+      href: bing-visual-search-stats.md
 - name: Handleidingen
   items:
-  - name: Inzichten verkrijgen met token
-    href: use-insights-token.md
-  - name: Het formaat van miniaturen wijzigen en miniaturen bijsnijden
-    href: resize-and-crop-thumbnails.md
-  - name: Zoeken naar een afbeelding met afbeeldingsinzichttokens
-    href: tutorial-visual-search-insights-token.md
-  - name: Een web-app met één pagina maken
-    href: tutorial-bing-visual-search-single-page-app.md
+    - name: Inzichten verkrijgen met token
+      href: use-insights-token.md
+    - name: Het formaat van miniaturen wijzigen en miniaturen bijsnijden
+      href: resize-and-crop-thumbnails.md
+    - name: Zoeken naar een afbeelding met afbeeldingsinzichttokens
+      href: tutorial-visual-search-insights-token.md
+    - name: Een web-app met één pagina maken
+      href: tutorial-bing-visual-search-single-page-app.md
 - name: Naslaginformatie
   items:
-  - name: REST v7-API
-    href: https://aka.ms/bingvisualsearchreferencedoc
-  - name: SDK's
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python
-  - name: Vereisten voor gebruik en weergave
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
+    - name: REST v7-API
+      href: 'https://aka.ms/bingvisualsearchreferencedoc'
+    - name: SDK's
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python'
+    - name: Vereisten voor gebruik en weergave
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
 - name: Resources
   items:
-  - name: Ondersteuning voor taal en regio
-    href: language-support.md
-  - name: Vrije toegangssleutel verkrijgen
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api
-  - name: Probeer het nu!
-    href: https://aka.ms/bingvisualsearchtryforfree
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/bing-search
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/555907-bing-search
-ms.openlocfilehash: 13e61130d7cd1225b00251991540a963c61b0b83
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314888"
+    - name: Ondersteuning voor taal en regio
+      href: language-support.md
+    - name: Vrije toegangssleutel verkrijgen
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api'
+    - name: Probeer het nu!
+      href: 'https://aka.ms/bingvisualsearchtryforfree'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/bing-search'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555907-bing-search'

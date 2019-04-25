@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: dcd0461e185fa97853bcd84e53bb43aacc5799c0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517008"
 documentType: LandingData
 title: Documentatie voor Azure Database for MariaDB
 metadata:
-  title: Documentatie voor Azure MariaDB - zelfstudies, API-naslag
+  title: 'Documentatie voor Azure MariaDB - zelfstudies, API-naslag'
   description: Azure Database for MariaDB is een relationele databaseservice in Microsoft Cloud die is gebouwd voor ontwikkelaars op basis van de open-source MariaDB-database-engine.
   author: ajlam
   ms.author: andrela
@@ -16,49 +10,49 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/25/2019
 abstract:
-  description: Azure Database for MariaDB is een relationele databaseservice op basis van de open-source MariaDB-serverengine.  Deze volledig beheerde Database as a Service kan bedrijfskritische workloads verwerken met voorspelbare prestaties en dynamische schaalbaarheid. Ontwikkel toepassingen met Azure Database for MariaDB met behulp van open-source hulpprogramma's en een platform naar keuze. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Database for MariaDB gebruikt.
+  description: 'Azure Database for MariaDB is een relationele databaseservice op basis van de open-source MariaDB-serverengine.  Deze volledig beheerde Database as a Service kan bedrijfskritische workloads verwerken met voorspelbare prestaties en dynamische schaalbaarheid. Ontwikkel toepassingen met Azure Database for MariaDB met behulp van open-source hulpprogramma''s en een platform naar keuze. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Database for MariaDB gebruikt.'
 sections:
-- title: QuickStarts van vijf minuten
-  items:
-  - type: paragraph
-    text: 'Lees meer informatie over hoe u een MariaDB-database in Azure maakt met behulp van:'
-  - type: list
-    style: icon48
+  - title: QuickStarts van vijf minuten
     items:
-    - image:
-        src: /azure/virtual-machines/linux/media/index/portal.svg
-      text: Azure-portal
-      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal
-    - image:
-        src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure-CLI
-      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-cli
-- title: Zelfstudies met stapsgewijze instructies
-  items:
-  - type: paragraph
-    text: 'Lees hoe u een database ontwerpt en apps ontwikkelt:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Lees meer informatie over hoe u een MariaDB-database in Azure maakt met behulp van:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/virtual-machines/linux/media/index/portal.svg
+            text: Azure-portal
+            href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal
+          - image:
+              src: /azure/virtual-machines/linux/media/index/cli.svg
+            text: Azure-CLI
+            href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-cli
+  - title: Zelfstudies met stapsgewijze instructies
     items:
-    - html: 'Een database ontwerpen: <a href="/azure/mariadb/tutorial-design-database-using-portal">Azure Portal</a> | <a href="/azure/mariadb/tutorial-design-database-cli">Azure CLI</a>'
-- title: Voorbeelden
-  items:
-  - type: paragraph
-    text: Zoek scripts om algemene taken te beheren.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Lees hoe u een database ontwerpt en apps ontwikkelt:'
+      - type: list
+        style: unordered
+        items:
+          - html: 'Een database ontwerpen: <a href="/azure/mariadb/tutorial-design-database-using-portal">Azure Portal</a> | <a href="/azure/mariadb/tutorial-design-database-cli">Azure CLI</a>'
+  - title: Voorbeelden
     items:
-    - html: <a href="/azure/mariadb/sample-scripts-azure-cli">Azure-CLI</a>
-- title: Naslaginformatie
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Zoek scripts om algemene taken te beheren.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/mariadb/sample-scripts-azure-cli">Azure-CLI</a>
+  - title: Naslaginformatie
     items:
-    - title: Opdrachtregel
-      html: <p><a href="/cli/azure/mariadb">Azure-CLI</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/mariadb/">REST API</a></p>
-    - title: Azure Resource Manager
-      html: <p><a href="/azure/templates/microsoft.dbformariadb/allversions">Resource Manager-sjablonen</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Opdrachtregel
+            html: <p><a href="/cli/azure/mariadb">Azure-CLI</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/mariadb/">REST API</a></p>
+          - title: Azure Resource Manager
+            html: <p><a href="/azure/templates/microsoft.dbformariadb/allversions">Resource Manager-sjablonen</a></p>

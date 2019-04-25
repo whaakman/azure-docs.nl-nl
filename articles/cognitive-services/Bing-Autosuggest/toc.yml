@@ -1,84 +1,77 @@
-items:
 - name: Documentatie voor Bing Automatische suggesties
   href: index.yml
 - name: Overzicht
   items:
-  - name: Wat is Bing Automatische suggesties?
-    href: get-suggested-search-terms.md
-  - name: De Bing Zoeken-API's vergelijken
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
+    - name: Wat is Bing Automatische suggesties?
+      href: get-suggested-search-terms.md
+    - name: De Bing Zoeken-API's vergelijken
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Snelstarts voor REST API
-  items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
   expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
 - name: Zelfstudies
   items:
-  - name: Web-app van één pagina
-    href: tutorials/autosuggest.md
+    - name: Web-app van één pagina
+      href: tutorials/autosuggest.md
 - name: Handleidingen
   items:
-  - name: Upgrade uitvoeren van v5 naar v7
-    href: bing-autosuggest-upgrade-guide-v5-to-v7.md
+    - name: Upgrade uitvoeren van v5 naar v7
+      href: bing-autosuggest-upgrade-guide-v5-to-v7.md
 - name: Concepten
   items:
-  - name: Querytermen voorstellen
-    href: concepts/get-suggestions.md
-  - name: Aanvragen verzenden
-    href: concepts/sending-requests.md
+    - name: Querytermen voorstellen
+      href: concepts/get-suggestions.md
+    - name: Aanvragen verzenden
+      href: concepts/sending-requests.md
 - name: Naslaginformatie
   items:
-  - name: Bing Automatische suggesties-API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference
-  - name: Bing Automatische suggesties-API v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference
-  - name: SDK's
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/autosuggest?view=azure-java-stable
-    - name: Aan de slag
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
-  - name: Vereisten voor gebruik en weergave
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
+    - name: Bing Automatische suggesties-API v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference'
+    - name: Bing Automatische suggesties-API v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference'
+    - name: SDK's
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/autosuggest?view=azure-java-stable'
+        - name: Aan de slag
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest'
+    - name: Vereisten voor gebruik en weergave
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
 - name: Resources
   items:
-  - name: Prijzen
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598198-bing-autosuggest
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=bing+autosuggest
-  - name: Regionale beschikbaarheid
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Azure-roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
-  - name: API-sleutel ophalen
-    href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
-  - name: Probeer het nu!
-    href: https://azure.microsoft.com/services/cognitive-services/autosuggest/
-  - name: Ondersteuning voor taal en regio
-    href: language-support.md
-  - name: Analytische gegevens voor Automatische suggestie-API voor Bing
-    href: bing-autosuggest-stats.md
-ms.openlocfilehash: 5e0a0f0734b694a098cc6685e337aa24b41962d5
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011531"
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598198-bing-autosuggest'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+autosuggest'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Knowledge Base
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: API-sleutel ophalen
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api'
+    - name: Probeer het nu!
+      href: 'https://azure.microsoft.com/services/cognitive-services/autosuggest/'
+    - name: Ondersteuning voor taal en regio
+      href: language-support.md
+    - name: Analytische gegevens voor Automatische suggestie-API voor Bing
+      href: bing-autosuggest-stats.md

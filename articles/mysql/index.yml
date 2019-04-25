@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4bfb09a9a0d50c3259d942bc60e0c35046a11254
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56989726"
 documentType: LandingData
-title: Documentatie voor Azure Database for MySQL
+title: Documentatie voor Azure Database voor MySQL
 metadata:
   document_id: 8d915ae6-9101-ad37-0736-3eaa59c2dd34
-  title: Documentatie voor Azure MySQL - zelfstudies, API-verwijzing | Microsoft Docs
+  title: 'Documentatie voor Azure MySQL - zelfstudies, API-verwijzing | Microsoft Docs'
   description: Azure Database for MySQL is een relationele databaseservice in de Microsoft-cloud die is gebouwd voor ontwikkelaars op basis van de open-source MySQL-database-engine.
   author: ajlam
   ms.author: andrela
@@ -17,50 +11,50 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/25/2019
 abstract:
-  description: Azure Database for MySQL is een relationele databaseservice op basis van de open-source MySQL-serverengine.  Deze volledig beheerde Database as a Service kan bedrijfskritische workloads verwerken met voorspelbare prestaties en dynamische schaalbaarheid. Ontwikkel toepassingen met Azure Database for MySQL met behulp van open-source hulpprogramma's en een platform naar keuze. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Database for MySQL gebruikt.
+  description: 'Azure Database for MySQL is een relationele databaseservice op basis van de open-source MySQL-serverengine.  Deze volledig beheerde Database as a Service kan bedrijfskritische workloads verwerken met voorspelbare prestaties en dynamische schaalbaarheid. Ontwikkel toepassingen met Azure Database for MySQL met behulp van open-source hulpprogramma''s en een platform naar keuze. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Database voor MySQL gebruikt.'
 sections:
-- title: QuickStarts van vijf minuten
-  items:
-  - type: paragraph
-    text: 'Lees hoe u een MySQL Database on Azure maakt met behulp van:'
-  - type: list
-    style: icon48
+  - title: QuickStarts van vijf minuten
     items:
-    - image:
-        src: /azure/virtual-machines/linux/media/index/portal.svg
-      text: Azure-portal
-      href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-portal
-    - image:
-        src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure-CLI
-      href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-cli
-- title: Zelfstudies met stapsgewijze instructies
-  items:
-  - type: paragraph
-    text: 'Lees hoe u een database ontwerpt en apps ontwikkelt:'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Lees hoe u een MySQL Database on Azure maakt met behulp van:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/virtual-machines/linux/media/index/portal.svg
+            text: Azure-portal
+            href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-portal
+          - image:
+              src: /azure/virtual-machines/linux/media/index/cli.svg
+            text: Azure-CLI
+            href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-cli
+  - title: Zelfstudies met stapsgewijze instructies
     items:
-    - html: 'Een database ontwerpen: <a href="/azure/mysql/tutorial-design-database-using-portal">Azure Portal</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">Azure CLI</a>'
-    - html: 'Een webtoepassing maken: <a href="https://portal.azure.com/#create/hub">WordPress - portal</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP - Azure CLI</a>'
-- title: Voorbeelden
-  items:
-  - type: paragraph
-    text: Zoek scripts om algemene taken te beheren.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Lees hoe u een database ontwerpt en apps ontwikkelt:'
+      - type: list
+        style: ordered
+        items:
+          - html: 'Een database ontwerpen: <a href="/azure/mysql/tutorial-design-database-using-portal">Azure Portal</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">Azure CLI</a>'
+          - html: 'Een webtoepassing maken: <a href="https://portal.azure.com/#create/hub">WordPress - portal</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP - Azure CLI</a>'
+  - title: Voorbeelden
     items:
-    - html: <a href="/azure/mysql/sample-scripts-azure-cli">Azure-CLI</a>
-- title: Naslaginformatie
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Zoek scripts om algemene taken te beheren.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/mysql/sample-scripts-azure-cli">Azure-CLI</a>
+  - title: Naslaginformatie
     items:
-    - title: Opdrachtregel
-      html: <p><a href="/cli/azure/mysql">Azure-CLI</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/mysql">REST API</a></p>
-    - title: Azure Resource Manager
-      html: <p><a href="/azure/templates/microsoft.dbformysql/allversions">Resource Manager-sjablonen</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Opdrachtregel
+            html: <p><a href="/cli/azure/mysql">Azure-CLI</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/mysql">REST API</a></p>
+          - title: Azure Resource Manager
+            html: <p><a href="/azure/templates/microsoft.dbformysql/allversions">Resource Manager-sjablonen</a></p>

@@ -13,11 +13,11 @@ ms.topic: landing-page
 ms.date: 12/17/2018
 ms.author: dobett
 ms.openlocfilehash: 2295ca75b7ca266506dbc45b9017a08001ce6e2a
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559948"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61451157"
 ---
 # <a name="iot-solution-accelerators-documentation"></a>Documentatie voor IoT-oplossingsversnellers
 
@@ -139,7 +139,7 @@ Lees hier hoe u de IoT-oplossingsversnellers gebruikt. In deze artikelen leest u
 
 <h3>Aan de slag met de IoT-oplossingsversnellers:</h3>
 
-* [Een cloudoplossing voor bewaking op afstand uitproberen](quickstart-remote-monitoring-deploy.md)
+* [Een externe bewakingsoplossing in de cloud uitproberen](quickstart-remote-monitoring-deploy.md)
 * [Een cloudoplossing voor een verbonden fabriek uitproberen](quickstart-connected-factory-deploy.md)
 * [Een cloudoplossing voor apparaatsimulatie uitproberen](quickstart-device-simulation-deploy.md)
 * [Een cloudoplossing voor voorspellend onderhoud in de cloud uitproberen](quickstart-predictive-maintenance-deploy.md)

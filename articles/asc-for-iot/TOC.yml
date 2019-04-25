@@ -1,77 +1,70 @@
-items:
 - name: Documentatie voor Azure Security Center (ASC) voor IoT Preview
   href: index.yml
 - name: Overzicht
   href: overview.md
   items:
-  - name: Architectuur voor de oplossing
-    href: architecture.md
-  - name: Beveiligingsagents
-    href: security-agent-architecture.md
-  - name: Edge-beveiligingsmodule
-    href: security-edge-architecture.md
-  - name: Servicevereisten
-    href: service-prerequisites.md
-  - name: Aan de slag met ASC voor IoT
-    href: getting-started.md
+    - name: Architectuur voor de oplossing
+      href: architecture.md
+    - name: Beveiligingsagents
+      href: security-agent-architecture.md
+    - name: Edge-beveiligingsmodule
+      href: security-edge-architecture.md
+    - name: Servicevereisten
+      href: service-prerequisites.md
+    - name: Aan de slag met ASC voor IoT
+      href: getting-started.md
 - name: Snelstartgidsen
-  items:
-  - name: ASC voor IoT inschakelen in IoT Hub
-    href: quickstart-onboard-iot-hub.md
-  - name: De oplossing configureren
-    href: quickstart-configure-your-solution.md
-  - name: Een ASC voor IoT-moduledubbel maken
-    href: quickstart-create-security-twin.md
-  - name: Aangepaste beveiligingswaarschuwingen maken
-    href: quickstart-create-custom-alerts.md
   expanded: true
+  items:
+    - name: ASC voor IoT inschakelen in IoT Hub
+      href: quickstart-onboard-iot-hub.md
+    - name: De oplossing configureren
+      href: quickstart-configure-your-solution.md
+    - name: Een ASC voor IoT-moduledubbel maken
+      href: quickstart-create-security-twin.md
+    - name: Aangepaste beveiligingswaarschuwingen maken
+      href: quickstart-create-custom-alerts.md
 - name: Concepten
   items:
-  - name: Verificatie voor beveiligingsagents
-    href: concept-security-agent-authentication-methods.md
-  - name: Beveiligingsmodule
-    href: concept-security-module.md
-  - name: Beveiligingswaarschuwingen
-    href: concept-security-alerts.md
-  - name: Aanbevelingen voor beveiliging
-    href: concept-recommendations.md
-  - name: Prijs en bijbehorende kosten
-    href: concept-pricing.md
+    - name: Verificatie voor beveiligingsagents
+      href: concept-security-agent-authentication-methods.md
+    - name: Beveiligingsmodule
+      href: concept-security-module.md
+    - name: Beveiligingswaarschuwingen
+      href: concept-security-alerts.md
+    - name: Aanbevelingen voor beveiliging
+      href: concept-recommendations.md
+    - name: Prijs en bijbehorende kosten
+      href: concept-pricing.md
 - name: Handleidingen
   items:
-  - name: Welke agent moet ik implementeren?
-    items:
-    - name: Selecteer een te implementeren agent
-      href: how-to-deploy-agent.md
-    - name: Een beveiligingsagent op basis van C# implementeren op een Windows-apparaat
-      href: how-to-deploy-windows-cs.md
-    - name: Een beveiligingsagent op basis van C# implementeren op een Linux-apparaat
-      href: how-to-deploy-linux-cs.md
-    - name: Een beveiligingsagent op basis van C implementeren op een Linux-apparaat
-      href: how-to-deploy-linux-c.md
-  - name: Edge-beveiligingsmodule implementeren
-    href: how-to-deploy-edge.md
-  - name: Beveiligingsagents configureren
-    href: how-to-agent-configuration.md
-  - name: Uw eigen beveiligingsberichten verzenden
-    href: how-to-send-security-messages.md
-  - name: Toegang tot onbewerkte beveiligingsgegevens
-    href: how-to-security-data-access.md
-  - name: Een apparaat onderzoeken
-    href: how-to-investigate-device.md
+    - name: Welke agent moet ik implementeren?
+      items:
+        - name: Selecteer een te implementeren agent
+          href: how-to-deploy-agent.md
+        - name: 'Een beveiligingsagent op basis van C# implementeren op een Windows-apparaat'
+          href: how-to-deploy-windows-cs.md
+        - name: 'Een beveiligingsagent op basis van C# implementeren op een Linux-apparaat'
+          href: how-to-deploy-linux-cs.md
+        - name: Een beveiligingsagent op basis van C implementeren op een Linux-apparaat
+          href: how-to-deploy-linux-c.md
+    - name: Edge-beveiligingsmodule implementeren
+      href: how-to-deploy-edge.md
+    - name: Beveiligingsagents configureren
+      href: how-to-agent-configuration.md
+    - name: Uw eigen beveiligingsberichten verzenden
+      href: how-to-send-security-messages.md
+    - name: Toegang tot onbewerkte beveiligingsgegevens
+      href: how-to-security-data-access.md
+    - name: Een apparaat onderzoeken
+      href: how-to-investigate-device.md
 - name: Resources
   items:
-  - name: Veelgestelde vragen
-    href: resources-frequently-asked-questions.md
-  - name: Azure-roadmap
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Blog over veiligheid, privacy en naleving met betrekking tot Azure
-    href: http://blogs.msdn.com/b/azuresecurity/
-  - name: Regionale beschikbaarheid
-    href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 1d9d2b51fb1a07081c4ac2f4b115363c74cca6d0
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754585"
+    - name: Veelgestelde vragen
+      href: resources-frequently-asked-questions.md
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: 'Blog over veiligheid, privacy en naleving met betrekking tot Azure'
+      href: 'http://blogs.msdn.com/b/azuresecurity/'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/regions/services/'
