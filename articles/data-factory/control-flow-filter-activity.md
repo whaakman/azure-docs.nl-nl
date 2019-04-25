@@ -39,9 +39,9 @@ U kunt een filteractiviteit in een pijplijn gebruiken een filterexpressie toepas
 
 Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | Naam van de `Filter` activiteit. | Reeks | Ja
+name | Naam van de `Filter` activiteit. | Reeks | Ja
 type | Moet worden ingesteld op **filter**. | Reeks | Ja
-voorwaarde | Voorwaarde moet worden gebruikt voor het filteren van de invoer. | Expressie | Ja
+condition | Voorwaarde moet worden gebruikt voor het filteren van de invoer. | Expressie | Ja
 items | De invoermatrix waarop filter moet worden toegepast. | Expressie | Ja
 
 ## <a name="example"></a>Voorbeeld
