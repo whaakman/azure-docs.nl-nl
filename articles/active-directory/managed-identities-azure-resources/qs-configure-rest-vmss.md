@@ -16,11 +16,11 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cafb3c97befd64cc6413a2eefa5e5baa9e01bf93
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308277"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configureren van beheerde identiteiten voor Azure-resources op een VM-schaalset met behulp van REST-API aanroepen
 
@@ -556,7 +556,7 @@ In deze sectie leert u hoe u toevoegen en verwijderen van beheerde identiteit op
 
    **Aanvraagheaders**
 
-   |Aanvraagheader  |Beschrijving  |
+   |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken. | 
@@ -588,7 +588,7 @@ In deze sectie leert u hoe u toevoegen en verwijderen van beheerde identiteit op
 
    **Aanvraagheaders**
 
-   |Aanvraagheader  |Description  |
+   |Aanvraagheader  |Beschrijving  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken. | 
@@ -624,7 +624,7 @@ In deze sectie leert u hoe u toevoegen en verwijderen van beheerde identiteit op
 
    **Aanvraagheaders**
 
-   |Aanvraagheader  |Description  |
+   |Aanvraagheader  |Beschrijving  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken. | 

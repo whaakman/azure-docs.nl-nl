@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48d2ef0de9ae59e63cd9957200c46c788e2d785f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184076"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387300"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Voor hybride identiteit benodigde poorten en protocollen
 Het volgende document is een technische naslaginformatie over de vereiste poorten en protocollen voor het implementeren van een oplossing voor hybride identiteit. Gebruik de volgende afbeelding en verwijzen naar de bijbehorende tabel.
@@ -63,7 +63,7 @@ Deze tabel worden beschreven de poorten en protocollen die vereist voor communic
 ## <a name="table-4---wap-and-federation-servers"></a>Tabel 4 - WAP en Federation-Servers
 Deze tabel worden de poorten en protocollen die vereist voor communicatie tussen de Federation-servers en WAP-servers zijn beschreven.
 
-| Protocol | Poorten | Description |
+| Protocol | Poorten | Beschrijving |
 | --- | --- | --- |
 | HTTPS |443(TCP/UDP) |Gebruikt voor verificatie. |
 

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389363"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397947"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Het invullen van het formulier Storefront-Details
 ===========================================
@@ -42,7 +42,7 @@ Deze beschrijving wordt weergegeven in AppSource onder uw **overzicht bieden**. 
 
 Selecteer de branche dat uw app is het beste uitgelijnd. Als uw app is gekoppeld aan meerdere branches, kunt u dit leeg laten
 
-### <a name="categories"></a>Categorieën
+### <a name="categories"></a>Categories
 
 Selecteer de categorieën die relevant voor uw app zijn. Selecteer ten minste één categorie en maximaal drie. Kies zorgvuldig omdat klanten op AppSource op basis van de categorieën zoeken kunnen
 

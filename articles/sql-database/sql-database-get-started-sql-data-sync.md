@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: 82b85ffd685df52e702db15e5a5b57a53a3b4f64
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485999"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60342090"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Zelfstudie: SQL Data Sync tussen Azure SQL Database en SQL Server instellen met on-premises
 
@@ -49,7 +49,7 @@ Zie voor voorbeelden van PowerShell voor het configureren van SQL Data Sync [syn
 
    Op de **Gegevenssynchronisatiegroep maken** pagina, wijzigt u de volgende instellingen:
 
-   | Instelling                        | Description |
+   | Instelling                        | Beschrijving |
    | ------------------------------ | ------------------------------------------------- |
    | **Naam van Synchronisatiegroep** | Voer een naam voor de nieuwe groep voor synchronisatie. Deze naam is niet hetzelfde als van de naam van de database zelf. |
    | **Metagegevensdatabase voor synchronisatie** | Kies een database (aanbevolen) te maken of een bestaande database wilt gebruiken.<br/><br/>Als u ervoor kiest **nieuwe database**, selecteer **nieuwe database maken.** Klik op de **SQL-Database** pagina, een naam en het configureren van de nieuwe database en selecteer **OK**.<br/><br/>Als u ervoor kiest **bestaande database gebruiken**, selecteert u de database uit de lijst. |

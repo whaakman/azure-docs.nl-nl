@@ -10,11 +10,11 @@ ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996139"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309658"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(AFGESCHAFT) Met Azure Container Service met behulp van de Kubernetes-Webinterface
 
@@ -109,7 +109,7 @@ Naast het uitvoeren van uw containers, de UI van Kubernetes een externe heeft ge
 
 Klik in het linkernavigatiedeelvenster op **Services** om alle services (er moet slechts één) weer te geven.
 
-![Kubernetes-Services](./media/container-service-kubernetes-ui/service-deployed.png)
+![Kubernetes Services](./media/container-service-kubernetes-ui/service-deployed.png)
 
 In deze weergave ziet u een extern eindpunt (IP-adres) die is toegewezen aan uw service.
 Als u dat IP-adres klikt, ziet u de Nginx-container die achter de load balancer.

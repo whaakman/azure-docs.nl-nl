@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
 ms.openlocfilehash: 3e9e3afd5172783c6b5ed8e6342ce9927353d006
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665114"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386841"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Een zelfstandige cluster uitgevoerd op Windows Server maken
 Azure Service Fabric kunt u Service Fabric-clusters maken op elke virtuele machine of computers met Windows Server. Dit betekent dat u kunt implementeren en Service Fabric-toepassingen uitvoeren in een omgeving die een set met elkaar verbonden computers met Windows Server bevat, worden deze on-premises of met elke andere cloudprovider. Service Fabric biedt een installatiepakket voor het maken van het zelfstandige pakket voor Windows Server met de naam van Service Fabric-clusters.

@@ -1,6 +1,6 @@
 ---
 title: StorSimple Snapshot Manager MMC menu Acties | Microsoft Docs
-description: Beschrijft hoe u Microsoft Management Console (MMC)-menu standaardacties in StorSimple Snapshot Manager.
+description: Beschrijft hoe u de standaard Microsoft Management Console (MMC)-menu Acties in StorSimple Snapshot Manager gebruiken.
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 48f439a566a8067e153aab4fb789937d2f91268d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be761f0a2e59878139ae54dba62634a53b172711
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23875891"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302996"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>De MMC-menu Acties in StorSimple Snapshot Manager gebruiken
 
 ## <a name="overview"></a>Overzicht
-In StorSimple Snapshot Manager ziet u de volgende acties die worden vermeld in alle actie menu's en alle variaties van de **acties** deelvenster.
+StorSimple Snapshot Manager, ziet u de volgende acties die worden vermeld op alle actie-menu's en alle variaties van de **acties** deelvenster.
 
 * Weergave
 * Nieuw venster 
@@ -32,73 +32,73 @@ In StorSimple Snapshot Manager ziet u de volgende acties die worden vermeld in a
 * Lijst exporteren 
 * Help 
 
-Deze acties zijn onderdeel van de Microsoft Management Console (MMC) en zijn niet specifiek voor StorSimple Snapshot Manager. Deze zelfstudie worden deze acties beschreven en wordt uitgelegd hoe u ze allemaal in StorSimple Snapshot Manager.
+Deze acties zijn onderdeel van de Microsoft Management Console (MMC) en zijn niet specifiek voor StorSimple Snapshot Manager. In deze zelfstudie worden deze acties beschreven en wordt uitgelegd hoe u het gebruik van elk van deze StorSimple Snapshot Manager.
 
 ## <a name="view"></a>Weergave
-U kunt de **weergave** optie om te wijzigen de **resultaten** deelvenster en voor het wijzigen van de weergave van de console-venster. 
+Kunt u de **weergave** optie voor het wijzigen de **resultaten** deelvenster weergeven en wijzigen van de weergave van de console-venster. 
 
 #### <a name="to-change-the-results-pane-view"></a>Wijzigen van het deelvenster Resultaten weergeven
-1. Klik op het bureaubladpictogram voor het starten van StorSimple Snapshot Manager.
-2. In de **bereik** deelvenster met de rechtermuisknop op een willekeurig knooppunt of het knooppunt uitvouwen en met de rechtermuisknop op een item in de **resultaten** deelvenster en klik vervolgens op de **weergave** optie. 
-3. Toevoegen of verwijderen van de kolommen die worden weergegeven in de **resultaten** deelvenster, klikt u op **kolommen toevoegen/verwijderen**. De **kolommen toevoegen/verwijderen** dialoogvenster wordt weergegeven.
+1. Klik op het pictogram voor het starten van StorSimple Snapshot Manager op het bureaublad.
+2. In de **bereik** in het deelvenster met de rechtermuisknop op een willekeurig knooppunt of vouwt u het knooppunt en met de rechtermuisknop op een item in de **resultaten** deelvenster en klik vervolgens op de **weergave** optie. 
+3. Toevoegen of verwijderen van de kolommen die worden weergegeven in de **resultaten** deelvenster, klikt u op **kolommen toevoegen/verwijderen**. De **kolommen toevoegen/verwijderen** in het dialoogvenster wordt weergegeven.
    
     ![Kolommen toevoegen of verwijderen uit het deelvenster met resultaten](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Add_remove_columns.png) 
 4. Vul het formulier als volgt:
    
-   * Selecteer de items uit de **beschikbaar** kolommen lijst en klikt u op **toevoegen** om toe te voegen aan de **weergegeven kolommen** lijst. 
+   * Selecteer items uit de **beschikbaar** kolommen lijst en klikt u op **toevoegen** naar deze toevoegen aan de **weergegeven kolommen** lijst. 
    * Klik op items in de **weergegeven kolommen** lijst en klikt u op **verwijderen** om ze te verwijderen uit de lijst. 
-   * Selecteer een item in de **weergegeven** kolommen lijst en klikt u op **omhoog** of **omlaag** het item omhoog of omlaag verplaatsen in de lijst. 
-   * Klik op **standaardwaarden herstellen** om terug te keren naar het standaardpictogram **resultaten** deelvenster configuratie. 
-5. Wanneer u klaar met de gewenste opties bent, klikt u op **OK**. 
+   * Selecteer een item in de **weergegeven** kolommen lijst en klikt u op **omhoog** of **omlaag** naar het item omhoog of omlaag verplaatsen in de lijst. 
+   * Klik op **standaardwaarden herstellen** om terug te keren naar de standaard **resultaten** deelvenster configuratie. 
+5. Wanneer u klaar met uw selecties bent, klikt u op **OK**. 
 
 #### <a name="to-change-the-console-window-view"></a>De weergave van de console-venster wijzigen
-1. Klik op het bureaubladpictogram voor het starten van StorSimple Snapshot Manager.
-2. In de **bereik** deelvenster met de rechtermuisknop op een willekeurig knooppunt, klikt u op **weergave**, en klik vervolgens op **aanpassen**. De **aanpassen** dialoogvenster wordt weergegeven.
+1. Klik op het pictogram voor het starten van StorSimple Snapshot Manager op het bureaublad.
+2. In de **bereik** in het deelvenster met de rechtermuisknop op een willekeurig knooppunt, klikt u op **weergave**, en klik vervolgens op **aanpassen**. De **aanpassen** in het dialoogvenster wordt weergegeven.
    
     ![Het consolevenster aanpassen](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Customize.png) 
-3. Selecteer of schakel de selectievakjes om items in het consolevenster weergeven of verbergen. Wanneer u klaar met de gewenste opties bent, klikt u op **OK**.
+3. Selecteer of schakel de selectievakjes om items in het consolevenster weergeven of verbergen. Wanneer u klaar met uw selecties bent, klikt u op **OK**.
 
 ## <a name="new-window-from-here"></a>Nieuw venster
-U kunt de **nieuw venster vanaf hier** optie voor het openen van een nieuw consolevenster.
+U kunt de **nieuw venster hier** optie om een nieuwe consolevenster te openen.
 
-#### <a name="to-open-a-new-console-window"></a>Een nieuw consolevenster openen
-1. Klik op het bureaubladpictogram voor het starten van StorSimple Snapshot Manager.
-2. In de **bereik** deelvenster met de rechtermuisknop op een willekeurig knooppunt en klik vervolgens op **nieuw venster vanaf hier**. 
+#### <a name="to-open-a-new-console-window"></a>Om een nieuwe consolevenster te openen
+1. Klik op het pictogram voor het starten van StorSimple Snapshot Manager op het bureaublad.
+2. In de **bereik** in het deelvenster met de rechtermuisknop op een willekeurig knooppunt en klik vervolgens op **nieuw venster hier**. 
    
-    Een nieuw venster wordt weergegeven, waarin alleen het bereik dat u hebt geselecteerd. Bijvoorbeeld, als u met de rechtermuisknop op de **back-upbeleid** knooppunt het nieuwe venster ziet alleen de **back-upbeleid** knooppunt in de **bereik** deelvenster en een lijst met gedefinieerde back-up beleid voor in de **resultaten** deelvenster. Zie het volgende voorbeeld
+    Een nieuw venster wordt weergegeven, met alleen het bereik dat u hebt geselecteerd. Bijvoorbeeld, als u met de rechtermuisknop op de **back-upbeleid** knooppunt, het nieuwe venster ziet u alleen de **back-upbeleid** knooppunt in de **bereik** deelvenster en een lijst met gedefinieerde back-up beleid in de **resultaten** deelvenster. Zie het volgende voorbeeld
    
     ![Nieuw venster](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_NewWindow.png) 
 
 ## <a name="refresh"></a>Vernieuwen
-U kunt de **vernieuwen** actie bijwerken van het consolevenster.
+U kunt de **vernieuwen** actie om bij te werken in het consolevenster.
 
-#### <a name="to-update-the-console-window"></a>Bijwerken van het consolevenster
-1. Klik op het bureaubladpictogram voor het starten van StorSimple Snapshot Manager.
-2. In de **bereik** deelvenster met de rechtermuisknop op een willekeurig knooppunt of het knooppunt uitvouwen en met de rechtermuisknop op een item in de **resultaten** deelvenster en klik vervolgens op **vernieuwen**. 
+#### <a name="to-update-the-console-window"></a>Het consolevenster bijwerken
+1. Klik op het pictogram voor het starten van StorSimple Snapshot Manager op het bureaublad.
+2. In de **bereik** in het deelvenster met de rechtermuisknop op een willekeurig knooppunt of vouwt u het knooppunt en met de rechtermuisknop op een item in de **resultaten** deelvenster en klik vervolgens op **vernieuwen**. 
 
 ## <a name="export-list"></a>Lijst exporteren
-U kunt de **lijst exporteren** actie voor het opslaan van een lijst in een bestand met door komma's gescheiden waarden (CSV). U kunt bijvoorbeeld de lijst met back-upbeleid of de back-upcatalogus exporteren. U kunt het CSV-bestand vervolgens importeren in een werkbladtoepassing voor analyse.
+U kunt de **lijst exporteren** actie voor het opslaan van een lijst in een bestand met door komma's gescheiden waarden (CSV). U kunt bijvoorbeeld de lijst met back-upbeleid of de back-catalogus exporteren. U kunt vervolgens het CSV-bestand importeren in een werkbladtoepassing voor analyse.
 
-#### <a name="to-save-a-list-in-a-comma-separated-value-csv-file"></a>Een lijst opslaan in een bestand met door komma's gescheiden waarden (CSV)
-1. Klik op het bureaubladpictogram voor het starten van StorSimple Snapshot Manager. 
-2. In de **bereik** deelvenster met de rechtermuisknop op een willekeurig knooppunt of het knooppunt uitvouwen en met de rechtermuisknop op een item in de **resultaten** deelvenster en klik vervolgens op **lijst exporteren**. 
-3. De **lijst exporteren** dialoogvenster wordt weergegeven. Vul het formulier als volgt: 
+#### <a name="to-save-a-list-in-a-comma-separated-value-csv-file"></a>Voor het opslaan van een lijst in een bestand met door komma's gescheiden waarden (CSV)
+1. Klik op het pictogram voor het starten van StorSimple Snapshot Manager op het bureaublad. 
+2. In de **bereik** in het deelvenster met de rechtermuisknop op een willekeurig knooppunt of vouwt u het knooppunt en met de rechtermuisknop op een item in de **resultaten** deelvenster en klik vervolgens op **lijst exporteren**. 
+3. De **lijst exporteren** in het dialoogvenster wordt weergegeven. Vul het formulier als volgt: 
    
-   1. In de **bestandsnaam** , typ een naam voor het CSV-bestand of klik op de pijl om te selecteren in de vervolgkeuzelijst.
-   2. In de **opslaan als type** op de pijl en selecteer een bestand in de vervolgkeuzelijst.
-   3. Selecteer de rijen om op te slaan alleen bepaalde items, en klik vervolgens op de **alleen geselecteerde rijen opslaan** selectievakje. Voor het opslaan van alle geëxporteerde lijsten, schakelt u de **alleen geselecteerde rijen opslaan** selectievakje.
+   1. In de **bestandsnaam** vak, typ een naam voor het CSV-bestand of klik op de pijl in de vervolgkeuzelijst te selecteren.
+   2. In de **opslaan als** vak, klikt u op de pijl en selecteer een bestand in de vervolgkeuzelijst.
+   3. Als u wilt alleen geselecteerde items opslaan, selecteert u de rijen en klik vervolgens op de **alleen geselecteerde rijen opslaan** selectievakje. Als u wilt alle geëxporteerde lijsten opslaan, schakelt u de **alleen geselecteerde rijen opslaan** selectievakje.
    4. Klik op **Opslaan**.
       
       ![Lijst exporteren als een bestand met door komma's gescheiden waarden](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 
 ## <a name="help"></a>Help
-U kunt de **Help** menu beschikbaar online-help voor StorSimple Snapshot Manager en MMC weergeven.
+U kunt de **Help** menu om beschikbare online-help voor StorSimple Snapshot Manager en de MMC-module weer te geven.
 
-#### <a name="to-view-available-online-help"></a>Beschikbare online help weergeven
-1. Klik op het bureaubladpictogram voor het starten van StorSimple Snapshot Manager.
-2. In de **bereik** deelvenster met de rechtermuisknop op een willekeurig knooppunt of het knooppunt uitvouwen en met de rechtermuisknop op een item in de **resultaten** deelvenster en klik vervolgens op **Help**. 
+#### <a name="to-view-available-online-help"></a>Beschikbare online-help weergeven
+1. Klik op het pictogram voor het starten van StorSimple Snapshot Manager op het bureaublad.
+2. In de **bereik** in het deelvenster met de rechtermuisknop op een willekeurig knooppunt of vouwt u het knooppunt en met de rechtermuisknop op een item in de **resultaten** deelvenster en klik vervolgens op **Help**. 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over de [StorSimple Snapshot Manager-gebruikersinterface](storsimple-use-snapshot-manager.md).
-* Meer informatie over [StorSimple Snapshot Manager gebruiken voor het beheer van uw StorSimple-oplossing](storsimple-snapshot-manager-admin.md).
+* Meer informatie over [StorSimple Snapshot Manager gebruiken voor het beheren van uw StorSimple-oplossing](storsimple-snapshot-manager-admin.md).
 

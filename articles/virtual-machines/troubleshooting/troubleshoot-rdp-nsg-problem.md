@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
 ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52954609"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318932"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Kan niet extern verbinding maken met een virtuele machine omdat RDP-poort niet is ingeschakeld in NSG
 
@@ -26,7 +26,7 @@ In dit artikel wordt uitgelegd hoe u een probleem waarbij u geen verbinding met 
 
 
 > [!NOTE] 
-> Azure heeft twee implementatiemodellen voor het maken van en werken met resources: [Resource Manager en klassieke](../../azure-resource-manager/resource-manager-deployment-model.md). U wordt aangeraden dat u in plaats van het klassieke implementatiemodel voor nieuwe implementaties het Resource Manager-implementatiemodel gebruiken. 
+> Azure heeft twee implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../../azure-resource-manager/resource-manager-deployment-model.md). U wordt aangeraden dat u in plaats van het klassieke implementatiemodel voor nieuwe implementaties het Resource Manager-implementatiemodel gebruiken. 
 
 ## <a name="symptom"></a>Symptoom
 
@@ -47,9 +47,9 @@ Volg deze stappen zodat de RDP-poort in een NSG:
     **Naam**: Port_3389 </br>
     **Poort**: 3389 </br>
     **Protocol**: TCP </br>
-    **Bron**: </br>
-    **Bestemmingen**: </br>
-    **Actie**: toestaan </br>
+    **Bron**: Alle </br>
+    **Bestemmingen**: Alle </br>
+    **Actie**: Toestaan </br>
 
 Als u het bron-IP-adres opgeeft, kunt deze instelling alleen verkeer vanaf een specifiek IP-adres of een bereik van IP-adressen verbinding maken met de virtuele machine. Zorg ervoor dat de computer die u gebruikt voor de RDP-sessie te starten binnen het bereik is.
 

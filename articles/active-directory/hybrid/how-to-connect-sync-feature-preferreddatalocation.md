@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118439"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60348180"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synchronisatie: Gewenste gegevenslocatie voor Office 365-resources configureren
 Het doel van dit onderwerp wordt u stapsgewijs door het kenmerk voor de gewenste gegevenslocatie configureren in Azure Active Directory (Azure AD) Connect-synchronisatie. Wanneer iemand maakt gebruik van meerdere geografische gebieden mogelijkheden in Office 365, gebruikt u dit kenmerk om de geo-locatie van Office 365-gegevens van de gebruiker toe te wijzen. (De voorwaarden *regio* en *geo* door elkaar worden gebruikt.)
@@ -139,7 +139,7 @@ De synchronisatieregel voor binnenkomende gegevens kan de waarde van het kenmerk
 
     | Type gebruikersstroom | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    |Rechtstreeks | preferredDataLocation | Kies het bronkenmerk | Dit selectievakje is uitgeschakeld | Update |
+    |Direct | preferredDataLocation | Kies het bronkenmerk | Dit selectievakje is uitgeschakeld | Update |
 
 7. Voor het maken van de binnenkomende regel, selecteer **toevoegen**.
 
@@ -176,7 +176,7 @@ De regel voor uitgaande synchronisatie kan de waarde van het kenmerk op die moet
 
     | Type gebruikersstroom | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    | Rechtstreeks | preferredDataLocation | preferredDataLocation | Dit selectievakje is uitgeschakeld | Update |
+    | Direct | preferredDataLocation | preferredDataLocation | Dit selectievakje is uitgeschakeld | Update |
 
 7. Sluiten **toevoegen** om de uitgaande regel te maken.
 

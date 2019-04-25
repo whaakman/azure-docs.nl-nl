@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
 ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60333866"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Een CI/CD-pijplijn instellen voor Azure Data Lake Analytics  
 
@@ -454,7 +454,7 @@ De volgende stappen voor het instellen van een taak database implementatie in Az
 
 #### <a name="common-parameters"></a>Algemene parameters
 
-| Parameter | Description | Standaardwaarde | Vereist |
+| Parameter | Beschrijving | Standaardwaarde | Vereist |
 |---------|-----------|-------------|--------|
 |Pakket|Het pad van het implementatiepakket voor U-SQL-database om te worden geïmplementeerd.|null|true|
 |Database|De naam van de database moet worden geïmplementeerd naar of gemaakt.|model|false|
@@ -463,13 +463,13 @@ De volgende stappen voor het instellen van een taak database implementatie in Az
 
 #### <a name="parameter-for-local-deployment"></a>{De parameter voor lokale implementatie
 
-|Parameter|Description|Standaardwaarde|Vereist|
+|Parameter|Beschrijving|Standaardwaarde|Vereist|
 |---------|-----------|-------------|--------|
 |DataRoot|Het pad van de hoofdmap van de lokale gegevens.|null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parameters voor de implementatie van Azure Data Lake Analytics
 
-|Parameter|Beschrijving|Standaardwaarde|Vereist|
+|Parameter|Description|Standaardwaarde|Vereist|
 |---------|-----------|-------------|--------|
 |Account|Geeft aan welk Azure Data Lake Analytics-account om te implementeren op met de accountnaam.|null|true|
 |ResourceGroup|De groepsnaam van de Azure-resource voor de Azure Data Lake Analytics-account.|null|true|

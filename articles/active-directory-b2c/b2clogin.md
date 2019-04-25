@@ -3,7 +3,7 @@ title: Set Omleidings-URL's op b2clogin.com - Azure Active Directory B2C | Micro
 description: Meer informatie over het gebruik van b2clogin.com in uw Omleidings-URL's voor Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 01/28/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 8188e36278bad9c93f709a5d7d9f831d1c19e6b4
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486844"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60314579"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Set Omleidings-URL's op b2clogin.com voor Azure Active Directory B2C
 

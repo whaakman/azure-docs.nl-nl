@@ -3,7 +3,7 @@ title: Instellen van aanmelden voor een multitenant Azure AD-id-provider met beh
 description: Toevoegen van een multitenant Azure AD-id-provider met behulp van aangepaste beleidsregels - Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 09/20/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 41b170ea66b1cb4c830ad0327ac2e1e3d2922b04
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160723"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316813"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Instellen van de aanmelding voor meerdere tenants Azure Active Directory met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -55,8 +55,8 @@ Om in te schakelen aanmelding voor gebruikers van een specifieke Azure AD-organi
 
 U moet voor het opslaan van de sleutel van de toepassing die u hebt gemaakt in uw Azure AD B2C-tenant.
 
-1. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
-2. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
+1. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
+2. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 3. Selecteer op de pagina overzicht **Identiteitsfunctie: PREVIEW**.
 4. Selecteer **Beleidssleutels** en selecteer vervolgens **toevoegen**.
 5. Voor **opties**, kiest u `Manual`.
@@ -188,9 +188,9 @@ Nu dat u een knop op locatie hebt, die u wilt koppelen aan een actie. De actie, 
 Communicatie met Azure AD B2C vindt plaats via een toepassing die u in uw tenant maakt. Deze sectie vindt u optionele stappen die u uitvoeren kunt voor het maken van een testtoepassing als u dat nog niet hebt gedaan.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
-3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
-4. Selecteer **toepassingen**, en selecteer vervolgens **toevoegen**.
+2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
+3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
+4. Selecteer **Toepassingen** en vervolgens **Toevoegen**.
 5. Voer een naam voor de toepassing, bijvoorbeeld *testapp1*.
 6. Voor **Web-App / Web-API**, selecteer `Yes`, en voer vervolgens `https://jwt.ms` voor de **antwoord-URL**.
 7. Klik op **Create**.

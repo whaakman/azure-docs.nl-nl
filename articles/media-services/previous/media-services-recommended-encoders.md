@@ -10,20 +10,20 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332649"
 ---
-# <a name="recommended-on-premises-encoders"></a>Aanbevolen on-premises coderingsprogramma 's
+# <a name="recommended-on-premises-encoders"></a>Aanbevolen on-premises coderingsprogramma's
 Wanneer een live streamen met Azure Media Services, kunt u opgeven hoe u wilt dat het kanaal voor het ontvangen van de invoerstroom. Als u gebruiken van een on-premises-codering met een live codering wilt, moet uw encoder een hoge kwaliteit single-bitrate stream pushen als uitvoer. Als u kiest voor het gebruik van een on-premises-codering met een pass through-kanaal, moet uw encoder een multi-bitrate stream pushen als uitvoer met alle kenmerken van de gewenste uitvoer. Zie voor meer informatie, [Live streamen met-premises coderingsprogramma's](media-services-live-streaming-with-onprem-encoders.md).
 
 Azure Media Services raadt u aan met behulp van een van de volgende live coderingsprogramma's die RTMP als uitvoer zijn:
 - Adobe Flash Media Live Encoder 3.2
 - Haivision Makito X HEVC
 - Haivision KB
-- Telestream Wirecast 8.1 +
+- Telestream Wirecast 8.1+
 - Telestream Wirecast S
 - Teradek Slice 756
 - TriCaster 8000
@@ -31,14 +31,14 @@ Azure Media Services raadt u aan met behulp van een van de volgende live coderin
 - OBS Studio
 - VMIX
 - xStream
-- Overschakelen naar Studio (iOS)
+- Switcher Studio (iOS)
 
 Azure Media Services raadt u aan met een van de volgende live coderingsprogramma's die multi-bitrate fragmented-MP4 (Smooth Streaming) als uitvoer:
 - Media Excel Hero Live en Hero 4K (UHD/HEVC)
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
 - Elemental Live
-- Envivio 4Caster C4 ALG III
+- Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 
 > [!NOTE]
