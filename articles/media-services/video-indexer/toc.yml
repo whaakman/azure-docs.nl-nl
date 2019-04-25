@@ -1,97 +1,90 @@
-items:
 - name: Documentatie voor Video Indexer
   href: ./index.yml
 - name: Overzicht
   items:
-  - name: Wat is Video Indexer?
-    href: video-indexer-overview.md
+    - name: Wat is Video Indexer?
+      href: video-indexer-overview.md
 - name: Snelstartgidsen
-  items:
-  - name: Aan de slag
-    href: video-indexer-get-started.md
   expanded: true
+  items:
+    - name: Aan de slag
+      href: video-indexer-get-started.md
 - name: Zelfstudies
   items:
-  - name: Video Indexer-API gebruiken
-    href: video-indexer-use-apis.md
+    - name: Video Indexer-API gebruiken
+      href: video-indexer-use-apis.md
 - name: Concepten
   href: video-indexer-concepts.md
   items:
-  - name: Instellingen van Video Indexer en Media Services met elkaar vergelijken
-    href: compare-video-indexer-with-media-services-presets.md
-  - name: Meerdere tenants beheren
-    href: manage-multiple-tenants.md
-  - name: Inhoudsmodellen aanpassen
-    items:
-    - name: Merken
-      href: customize-brands-model-overview.md
-    - name: Taal
-      href: customize-language-model-overview.md
-    - name: Person
-      href: customize-person-model-overview.md
+    - name: Instellingen van Video Indexer en Media Services met elkaar vergelijken
+      href: compare-video-indexer-with-media-services-presets.md
+    - name: Meerdere tenants beheren
+      href: manage-multiple-tenants.md
+    - name: Inhoudsmodellen aanpassen
+      items:
+        - name: Merken
+          href: customize-brands-model-overview.md
+        - name: Taal
+          href: customize-language-model-overview.md
+        - name: Person
+          href: customize-person-model-overview.md
 - name: Handleidingen
   items:
-  - name: Verbinding maken met Azure
-    href: connect-to-azure.md
-  - name: Een met Azure verbonden account beheren
-    href: manage-account-connected-to-azure.md
-  - name: API gebruiken om video's te uploaden en indexeren
-    href: upload-index-videos.md
-  - name: Video Indexer-uitvoer onderzoeken
-    href: video-indexer-output-json-v2.md
-  - name: Exacte momenten in video's zoeken
-    href: video-indexer-search.md
-  - name: Scènes, opnamen en sleutelframes
-    href: scenes-shots-keyframes.md
-  - name: Video Indexer-inzichten weergeven en bewerken
-    href: video-indexer-view-edit.md
-  - name: Editor gebruiken om projecten te maken
-    href: use-editor-create-project.md
-  - name: Video-inzichten maken van bestaande video's
-    href: video-indexer-create-new.md
-  - name: Widgets insluiten in uw toepassing
-    href: video-indexer-embed-widgets.md
-  - name: Inhoudsmodellen aanpassen
-    items:
-    - name: Person
+    - name: Verbinding maken met Azure
+      href: connect-to-azure.md
+    - name: Een met Azure verbonden account beheren
+      href: manage-account-connected-to-azure.md
+    - name: API gebruiken om video's te uploaden en indexeren
+      href: upload-index-videos.md
+    - name: Video Indexer-uitvoer onderzoeken
+      href: video-indexer-output-json-v2.md
+    - name: Exacte momenten in video's zoeken
+      href: video-indexer-search.md
+    - name: 'Scènes, opnamen en sleutelframes'
+      href: scenes-shots-keyframes.md
+    - name: Video Indexer-inzichten weergeven en bewerken
+      href: video-indexer-view-edit.md
+    - name: Editor gebruiken om projecten te maken
+      href: use-editor-create-project.md
+    - name: Video-inzichten maken van bestaande video's
+      href: video-indexer-create-new.md
+    - name: Widgets insluiten in uw toepassing
+      href: video-indexer-embed-widgets.md
+    - name: Inhoudsmodellen aanpassen
       items:
-      - name: met de Video Indexer-website
-        href: customize-person-model-with-website.md
-      - name: met de Video Indexer-API
-        href: customize-person-model-with-api.md
-    - name: Merken
-      items:
-      - name: met de Video Indexer-website
-        href: customize-brands-model-with-website.md
-      - name: met de Video Indexer-API
-        href: customize-brands-model-with-api.md
-    - name: Taal
-      items:
-      - name: met de Video Indexer-website
-        href: customize-language-model-with-website.md
-      - name: met de Video Indexer-API
-        href: customize-language-model-with-api.md
+        - name: Person
+          items:
+            - name: met de Video Indexer-website
+              href: customize-person-model-with-website.md
+            - name: met de Video Indexer-API
+              href: customize-person-model-with-api.md
+        - name: Merken
+          items:
+            - name: met de Video Indexer-website
+              href: customize-brands-model-with-website.md
+            - name: met de Video Indexer-API
+              href: customize-brands-model-with-api.md
+        - name: Taal
+          items:
+            - name: met de Video Indexer-website
+              href: customize-language-model-with-website.md
+            - name: met de Video Indexer-API
+              href: customize-language-model-with-api.md
 - name: Naslaginformatie
   items:
-  - name: Video Indexer-API
-    href: https://api-portal.videoindexer.ai/
+    - name: Video Indexer-API
+      href: 'https://api-portal.videoindexer.ai/'
 - name: Resources
   items:
-  - name: Azure-roadmap
-    href: https://azure.microsoft.com/roadmap/?category=web-mobile
-  - name: Prijzen
-    href: https://azure.microsoft.com/pricing/details/media-services/
-  - name: Regionale beschikbaarheid
-    href: https://azure.microsoft.com/regions/services/
-  - name: Regio's
-    href: regions.md
-  - name: Veelgestelde vragen
-    href: faq.md
-  - name: Naleving
-    href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942
-ms.openlocfilehash: f6caade807d37dfbf38e3f0dd47ab7f801c36a9a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793333"
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Regio's
+      href: regions.md
+    - name: Veelgestelde vragen
+      href: faq.md
+    - name: Naleving
+      href: 'https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942'

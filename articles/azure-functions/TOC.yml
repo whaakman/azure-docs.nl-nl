@@ -1,309 +1,302 @@
-items:
 - name: Documentatie voor Functions
   href: index.yml
 - name: Overzicht
   items:
-  - name: Over Azure Functions
-    href: functions-overview.md
-  - name: Durable Functions
-    href: durable/durable-functions-overview.md
-  - name: Serverloze vergelijking
-    href: functions-compare-logic-apps-ms-flow-webjobs.md
+    - name: Over Azure Functions
+      href: functions-overview.md
+    - name: Durable Functions
+      href: durable/durable-functions-overview.md
+    - name: Serverloze vergelijking
+      href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Snelstartgidsen
-  items:
-  - name: Functie maken - Visual Studio
-    href: functions-create-your-first-function-visual-studio.md
-  - name: Functie maken - Visual Studio Code
-    href: functions-create-first-function-vs-code.md
-  - name: Functie maken - Java/Maven
-    href: functions-create-first-java-maven.md
-  - name: Functie maken - Python
-    href: functions-create-first-function-python.md
-  - name: Functie maken - Azure CLI
-    href: functions-create-first-azure-function-azure-cli.md
-  - name: Functie maken - portal
-    href: functions-create-first-azure-function.md
-  - name: Functie maken - Linux
-    href: functions-create-first-azure-function-azure-cli-linux.md
-  - name: Triggers
-    items:
-    - name: Azure Cosmos DB
-      href: functions-create-cosmos-db-triggered-function.md
-    - name: Blob Storage
-      href: functions-create-storage-blob-triggered-function.md
-    - name: Queue Storage
-      href: functions-create-storage-queue-triggered-function.md
-    - name: Timer
-      href: functions-create-scheduled-function.md
-  - name: Integreren
-    items:
-    - name: Azure Cosmos DB
-      href: functions-integrate-store-unstructured-data-cosmosdb.md
-    - name: Opslag
-      href: functions-integrate-storage-queue-output-binding.md
   expanded: true
+  items:
+    - name: Functie maken - Visual Studio
+      href: functions-create-your-first-function-visual-studio.md
+    - name: Functie maken - Visual Studio Code
+      href: functions-create-first-function-vs-code.md
+    - name: Functie maken - Java/Maven
+      href: functions-create-first-java-maven.md
+    - name: Functie maken - Python
+      href: functions-create-first-function-python.md
+    - name: Functie maken - Azure CLI
+      href: functions-create-first-azure-function-azure-cli.md
+    - name: Functie maken - portal
+      href: functions-create-first-azure-function.md
+    - name: Functie maken - Linux
+      href: functions-create-first-azure-function-azure-cli-linux.md
+    - name: Triggers
+      items:
+        - name: Azure Cosmos DB
+          href: functions-create-cosmos-db-triggered-function.md
+        - name: Blob Storage
+          href: functions-create-storage-blob-triggered-function.md
+        - name: Queue Storage
+          href: functions-create-storage-queue-triggered-function.md
+        - name: Timer
+          href: functions-create-scheduled-function.md
+    - name: Integreren
+      items:
+        - name: Azure Cosmos DB
+          href: functions-integrate-store-unstructured-data-cosmosdb.md
+        - name: Opslag
+          href: functions-integrate-storage-queue-output-binding.md
 - name: Zelfstudies
   items:
-  - name: Functions met Logic Apps
-    href: functions-twitter-email.md
-  - name: Een serverloze API maken
-    href: functions-create-serverless-api.md
-  - name: Een OpenAPI-definitie maken
-    href: functions-openapi-definition.md
-  - name: Het formaat van afbeeldingen wijzigen met Event Grid
-    href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: Een serverloze web-app maken
-    href: https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database
-  - name: Een aangepaste Linux-installatiekopie maken
-    href: functions-create-function-linux-custom-image.md
-  - name: Functions op IoT Edge-apparaat
-    href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Functions met Logic Apps
+      href: functions-twitter-email.md
+    - name: Een serverloze API maken
+      href: functions-create-serverless-api.md
+    - name: Een OpenAPI-definitie maken
+      href: functions-openapi-definition.md
+    - name: Het formaat van afbeeldingen wijzigen met Event Grid
+      href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Een serverloze web-app maken
+      href: 'https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database'
+    - name: Een aangepaste Linux-installatiekopie maken
+      href: functions-create-function-linux-custom-image.md
+    - name: Functions op IoT Edge-apparaat
+      href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Voorbeelden
   items:
-  - name: Codevoorbeelden
-    href: https://azure.microsoft.com/resources/samples/?service=functions
-  - name: Azure-CLI
-    href: functions-cli-samples.md
+    - name: Codevoorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?service=functions'
+    - name: Azure-CLI
+      href: functions-cli-samples.md
 - name: Concepten
   items:
-  - name: Versies 1.x en 2.x vergelijken
-    displayName: migrate, migration
-    href: functions-versions.md
-  - name: Premium-abonnement
-    href: functions-premium-plan.md
-  - name: Schaal en hosting
-    href: functions-scale.md
-  - name: Triggers en bindingen
-    items:
-    - name: Over triggers en bindings
-      href: functions-triggers-bindings.md
-    - name: Voorbeeld van een binding
-      href: functions-bindings-example.md
-    - name: Binding-extensies registreren
-      href: functions-bindings-register.md
-    - name: Patronen van Binding-expressies
-      href: functions-bindings-expressions-patterns.md
-    - name: Binding-retourwaarden gebruiken
-      href: functions-bindings-return-value.md
-    - name: Binding-fouten afhandelen
-      href: functions-bindings-errors.md
-  - name: Talen
-    items:
-    - name: Ondersteunde talen
-      href: supported-languages.md
-    - name: C# (klassebibliotheek)
-      href: functions-dotnet-class-library.md
-    - name: C#-script (.csx)
-      href: functions-reference-csharp.md
-    - name: F#
-      href: functions-reference-fsharp.md
-    - name: Javascript
-      href: functions-reference-node.md
-    - name: Java
-      href: functions-reference-java.md
-    - name: Python
-      href: functions-reference-python.md
-  - name: Diagnostiek
-    href: ../app-service/overview-diagnostics.md
-  - name: Prestatieoverwegingen
-    href: functions-best-practices.md
-  - name: Functions-proxy's
-    href: functions-proxies.md
-  - name: Netwerkopties
-    href: functions-networking-options.md
-  - name: IP-adressen
-    href: ip-addresses.md
-  - name: On-premises functies
-    href: functions-runtime-overview.md
+    - name: Versies 1.x en 2.x vergelijken
+      href: functions-versions.md
+      displayName: 'migrate, migration'
+    - name: Premium-abonnement
+      href: functions-premium-plan.md
+    - name: Schaal en hosting
+      href: functions-scale.md
+    - name: Triggers en bindingen
+      items:
+        - name: Over triggers en bindings
+          href: functions-triggers-bindings.md
+        - name: Voorbeeld van een binding
+          href: functions-bindings-example.md
+        - name: Binding-extensies registreren
+          href: functions-bindings-register.md
+        - name: Patronen van Binding-expressies
+          href: functions-bindings-expressions-patterns.md
+        - name: Binding-retourwaarden gebruiken
+          href: functions-bindings-return-value.md
+        - name: Binding-fouten afhandelen
+          href: functions-bindings-errors.md
+    - name: Talen
+      items:
+        - name: Ondersteunde talen
+          href: supported-languages.md
+        - name: 'C# (klassebibliotheek)'
+          href: functions-dotnet-class-library.md
+        - name: 'C#-script (.csx)'
+          href: functions-reference-csharp.md
+        - name: 'F#'
+          href: functions-reference-fsharp.md
+        - name: Javascript
+          href: functions-reference-node.md
+        - name: Java
+          href: functions-reference-java.md
+        - name: Python
+          href: functions-reference-python.md
+    - name: Diagnostiek
+      href: ../app-service/overview-diagnostics.md
+    - name: Prestatieoverwegingen
+      href: functions-best-practices.md
+    - name: Functions-proxy's
+      href: functions-proxies.md
+    - name: Netwerkopties
+      href: functions-networking-options.md
+    - name: IP-adressen
+      href: ip-addresses.md
+    - name: On-premises functies
+      href: functions-runtime-overview.md
 - name: Handleidingen
   items:
-  - name: Ontwikkelen
-    items:
-    - name: Ontwikkelaarsgids
-      href: functions-reference.md
-    - name: Functies testen
-      href: functions-test-a-function.md
-    - name: Lokaal ontwikkelen en fouten opsporen
-      href: functions-develop-local.md
-    - name: Ontwikkelen in Visual Studio
-      href: functions-develop-vs.md
-    - name: Ontwikkeling in Core Tools
-      href: functions-run-local.md
-    - name: IntelliJ IDEA-ontwikkeling
-      href: functions-create-maven-intellij.md
-    - name: Ontwikkelen in Eclipse
-      href: functions-create-maven-eclipse.md
-    - name: Een Linux-functie-app maken
-      href: create-function-app-linux-app-service-plan.md
-    - name: Verbindingen beheren
-      href: manage-connections.md
-    - name: Foutafhandeling
-      href: functions-bindings-error-pages.md
-    - name: Handmatig een niet door HTTP geactiveerde functie uitvoeren
-      href: functions-manually-run-non-http.md
-    - name: Lokaal fouten opsporen in de Event Grid-trigger
-      href: functions-debug-event-grid-trigger-local.md
-    - name: Azure for Students Starter
-      href: functions-create-student-starter.md
-  - name: Implementeren
-    items:
-    - name: Doorlopende implementatie
-      href: functions-continuous-deployment.md
-    - name: Zip-implementatie
-      href: deployment-zip-push.md
-    - name: Uitvoeren uit pakket
-      href: run-functions-from-deployment-package.md
-    - name: Resource-implementatie automatiseren
-      href: functions-infrastructure-as-code.md
-    - name: On-premises functies
-      href: functions-runtime-install.md
-    - name: De Jenkins-invoegtoepassing implementeren
-      href: /azure/jenkins/jenkins-azure-functions-deploy
-      maintainContext: true
-  - name: Configureren
-    items:
-    - name: Een functie-app beheren
-      href: functions-how-to-use-azure-function-app-settings.md
-    - name: De runtimeversie instellen
-      href: set-runtime-version.md
-    - name: Handmatig een uitbreiding registreren
-      href: install-update-binding-extensions-manual.md
-    - name: Een functie uitschakelen
-      href: disable-function.md
-  - name: Controleren
-    href: functions-monitoring.md
-  - name: Beveiligen
-    items:
-    - name: Een SSL-certificaat kopen
-      href: ../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Gebruikers verifiëren
+    - name: Ontwikkelen
       items:
-      - name: Verifiëren met Azure AD
-        href: ../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fazure-functions%2ftoc.json
-      - name: Verifiëren met Facebook
-        href: ../app-service/configure-authentication-provider-facebook.md?toc=%2fazure%2fazure-functions%2ftoc.json
-      - name: Verifiëren met Google
-        href: ../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fazure-functions%2ftoc.json
-      - name: Verifiëren met een Microsoft-account
-        href: ../app-service/configure-authentication-provider-microsoft.md?toc=%2fazure%2fazure-functions%2ftoc.json
-      - name: Verifiëren met Twitter
-        href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Geavanceerde verificatie
-      href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: IP-adressen beperken
-      href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Een beheerde identiteit gebruiken
-      href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Naar geheimen uit Key Vault verwijzen
-      href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: Integreren
-    items:
-    - name: Verbinding maken met SQL Database
-      href: functions-scenario-database-table-cleanup.md
-    - name: Verbinding maken met een virtueel netwerk
-      href: functions-create-vnet.md
-    - name: Een Open API 2.0-definitie maken
-      href: functions-api-definition-getting-started.md
-    - name: Exporteren naar PowerApps en Microsoft Flow
-      href: app-service-export-api-to-powerapps-and-flow.md
-    - name: Een functie van PowerApps aanroepen
-      href: functions-powerapps-scenario.md
-    - name: Een functie van Microsoft Flow aanroepen
-      href: functions-flow-scenario.md
-    - name: Een beheerde identiteit gebruiken
-      href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: Problemen oplossen
-    items:
-    - name: Problemen met opslag oplossen
-      href: functions-recover-storage-account.md
+        - name: Ontwikkelaarsgids
+          href: functions-reference.md
+        - name: Functies testen
+          href: functions-test-a-function.md
+        - name: Lokaal ontwikkelen en fouten opsporen
+          href: functions-develop-local.md
+        - name: Ontwikkelen in Visual Studio
+          href: functions-develop-vs.md
+        - name: Ontwikkeling in Core Tools
+          href: functions-run-local.md
+        - name: IntelliJ IDEA-ontwikkeling
+          href: functions-create-maven-intellij.md
+        - name: Ontwikkelen in Eclipse
+          href: functions-create-maven-eclipse.md
+        - name: Een Linux-functie-app maken
+          href: create-function-app-linux-app-service-plan.md
+        - name: Verbindingen beheren
+          href: manage-connections.md
+        - name: Foutafhandeling
+          href: functions-bindings-error-pages.md
+        - name: Handmatig een niet door HTTP geactiveerde functie uitvoeren
+          href: functions-manually-run-non-http.md
+        - name: Lokaal fouten opsporen in de Event Grid-trigger
+          href: functions-debug-event-grid-trigger-local.md
+        - name: Azure for Students Starter
+          href: functions-create-student-starter.md
+    - name: Implementeren
+      items:
+        - name: Doorlopende implementatie
+          href: functions-continuous-deployment.md
+        - name: Zip-implementatie
+          href: deployment-zip-push.md
+        - name: Uitvoeren uit pakket
+          href: run-functions-from-deployment-package.md
+        - name: Resource-implementatie automatiseren
+          href: functions-infrastructure-as-code.md
+        - name: On-premises functies
+          href: functions-runtime-install.md
+        - name: De Jenkins-invoegtoepassing implementeren
+          href: /azure/jenkins/jenkins-azure-functions-deploy
+          maintainContext: true
+    - name: Configureren
+      items:
+        - name: Een functie-app beheren
+          href: functions-how-to-use-azure-function-app-settings.md
+        - name: De runtimeversie instellen
+          href: set-runtime-version.md
+        - name: Handmatig een uitbreiding registreren
+          href: install-update-binding-extensions-manual.md
+        - name: Een functie uitschakelen
+          href: disable-function.md
+    - name: Controleren
+      href: functions-monitoring.md
+    - name: Beveiligen
+      items:
+        - name: Een SSL-certificaat kopen
+          href: ../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Gebruikers verifiëren
+          items:
+            - name: Verifiëren met Azure AD
+              href: ../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Verifiëren met Facebook
+              href: ../app-service/configure-authentication-provider-facebook.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Verifiëren met Google
+              href: ../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Verifiëren met een Microsoft-account
+              href: ../app-service/configure-authentication-provider-microsoft.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Verifiëren met Twitter
+              href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Geavanceerde verificatie
+          href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: IP-adressen beperken
+          href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Een beheerde identiteit gebruiken
+          href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Naar geheimen uit Key Vault verwijzen
+          href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Integreren
+      items:
+        - name: Verbinding maken met SQL Database
+          href: functions-scenario-database-table-cleanup.md
+        - name: Verbinding maken met een virtueel netwerk
+          href: functions-create-vnet.md
+        - name: Een Open API 2.0-definitie maken
+          href: functions-api-definition-getting-started.md
+        - name: Exporteren naar PowerApps en Microsoft Flow
+          href: app-service-export-api-to-powerapps-and-flow.md
+        - name: Een functie van PowerApps aanroepen
+          href: functions-powerapps-scenario.md
+        - name: Een functie van Microsoft Flow aanroepen
+          href: functions-flow-scenario.md
+        - name: Een beheerde identiteit gebruiken
+          href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Problemen oplossen
+      items:
+        - name: Problemen met opslag oplossen
+          href: functions-recover-storage-account.md
 - name: Naslaginformatie
   items:
-  - name: API-referenties
-    items:
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python
-  - name: Naslaginformatie voor app-instellingen
-    href: functions-app-settings.md
-  - name: Bindingen
-    items:
-    - name: Blob Storage
-      href: functions-bindings-storage-blob.md
-    - name: Azure Cosmos DB
+    - name: API-referenties
       items:
-      - name: Functions 1.x
-        href: functions-bindings-cosmosdb.md
-      - name: Functions 2.x
-        href: functions-bindings-cosmosdb-v2.md
-    - name: Event Grid
-      href: functions-bindings-event-grid.md
-    - name: Event Hubs
-      href: functions-bindings-event-hubs.md
-    - name: IoT Hub
-      href: functions-bindings-event-iot.md
-    - name: HTTP en webhooks
-      href: functions-bindings-http-webhook.md
-    - name: Microsoft Graph
-      href: functions-bindings-microsoft-graph.md
-    - name: Mobile Apps
-      href: functions-bindings-mobile-apps.md
-    - name: Notification Hubs
-      href: functions-bindings-notification-hubs.md
-    - name: Queue Storage
-      href: functions-bindings-storage-queue.md
-    - name: SendGrid
-      href: functions-bindings-sendgrid.md
-    - name: Service Bus
-      href: functions-bindings-service-bus.md
-    - name: SignalR Service
-      href: functions-bindings-signalr-service.md
-    - name: Table Storage
-      href: functions-bindings-storage-table.md
-    - name: Timer
-      href: functions-bindings-timer.md
-    - name: Twilio
-      href: functions-bindings-twilio.md
-  - name: Naslaginformatie voor host.json
-    href: functions-host-json.md
-    items:
-    - name: Functions 2.x
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python'
+    - name: Naslaginformatie voor app-instellingen
+      href: functions-app-settings.md
+    - name: Bindingen
+      items:
+        - name: Blob Storage
+          href: functions-bindings-storage-blob.md
+        - name: Azure Cosmos DB
+          items:
+            - name: Functions 1.x
+              href: functions-bindings-cosmosdb.md
+            - name: Functions 2.x
+              href: functions-bindings-cosmosdb-v2.md
+        - name: Event Grid
+          href: functions-bindings-event-grid.md
+        - name: Event Hubs
+          href: functions-bindings-event-hubs.md
+        - name: IoT Hub
+          href: functions-bindings-event-iot.md
+        - name: HTTP en webhooks
+          href: functions-bindings-http-webhook.md
+        - name: Microsoft Graph
+          href: functions-bindings-microsoft-graph.md
+        - name: Mobile Apps
+          href: functions-bindings-mobile-apps.md
+        - name: Notification Hubs
+          href: functions-bindings-notification-hubs.md
+        - name: Queue Storage
+          href: functions-bindings-storage-queue.md
+        - name: SendGrid
+          href: functions-bindings-sendgrid.md
+        - name: Service Bus
+          href: functions-bindings-service-bus.md
+        - name: SignalR Service
+          href: functions-bindings-signalr-service.md
+        - name: Table Storage
+          href: functions-bindings-storage-table.md
+        - name: Timer
+          href: functions-bindings-timer.md
+        - name: Twilio
+          href: functions-bindings-twilio.md
+    - name: Naslaginformatie voor host.json
       href: functions-host-json.md
-    - name: Functions 1.x
-      href: functions-host-json-v1.md
-  - name: Veelgestelde vragen over netwerken
-    href: functions-networking-faq.md
-  - name: Naslaginformatie voor OpenAPI
-    href: functions-api-definition.md
+      items:
+        - name: Functions 2.x
+          href: functions-host-json.md
+        - name: Functions 1.x
+          href: functions-host-json-v1.md
+    - name: Veelgestelde vragen over netwerken
+      href: functions-networking-faq.md
+    - name: Naslaginformatie voor OpenAPI
+      href: functions-api-definition.md
 - name: Resources
   items:
-  - name: Uw vaardigheden ontwikkelen met Microsoft Learn
-    href: /learn/browse/?products=azure-functions
-  - name: Azure-roadmap
-    href: https://azure.microsoft.com/roadmap/?category=compute
-  - name: Prijzen
-    href: https://azure.microsoft.com/pricing/details/functions/
-  - name: Prijscalculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Regionale beschikbaarheid
-    href: https://azure.microsoft.com/regions/services/
-  - name: Video's
-    href: https://www.youtube.com/c/AzureFunctions
-  - name: MSDN-forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-functions
-  - name: Twitter
-    href: https://twitter.com/azurefunctions
-  - name: Productfeedback geven
-    href: https://feedback.azure.com/forums/355860-azure-functions
-  - name: GitHub-opslagplaats voor Azure Functions
-    href: https://github.com/Azure/Azure-Functions/
-  - name: Service-updates
-    href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: b8f86a7da1e083e222c20c49af4f66add8790cda
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564938"
+    - name: Uw vaardigheden ontwikkelen met Microsoft Learn
+      href: /learn/browse/?products=azure-functions
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/functions/'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Video's
+      href: 'https://www.youtube.com/c/AzureFunctions'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-functions'
+    - name: Twitter
+      href: 'https://twitter.com/azurefunctions'
+    - name: Productfeedback geven
+      href: 'https://feedback.azure.com/forums/355860-azure-functions'
+    - name: GitHub-opslagplaats voor Azure Functions
+      href: 'https://github.com/Azure/Azure-Functions/'
+    - name: Service-updates
+      href: 'https://azure.microsoft.com/updates/?product=functions&updatetype=&platform='

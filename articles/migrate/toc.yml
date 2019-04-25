@@ -1,103 +1,96 @@
-items:
 - name: Documentatie voor Azure Migrate
   href: index.yml
 - name: Overzicht
   items:
-  - name: Over Azure Migrate
-    href: migrate-overview.md
+    - name: Over Azure Migrate
+      href: migrate-overview.md
 - name: Zelfstudies
   items:
-  - name: Virtuele VMware-machines verkennen en beoordelen
-    href: tutorial-assessment-vmware.md
+    - name: Virtuele VMware-machines verkennen en beoordelen
+      href: tutorial-assessment-vmware.md
 - name: Concepten
   items:
-  - name: Over de collector
-    href: concepts-collector.md
-  - name: Upgrades van collector-versie
-    href: concepts-collector-upgrade.md
-  - name: Beoordelingsberekeningen
-    href: concepts-assessment-calculation.md
-  - name: Over visualisatie van afhankelijkheden
-    href: concepts-dependency-visualization.md
+    - name: Over de collector
+      href: concepts-collector.md
+    - name: Upgrades van collector-versie
+      href: concepts-collector-upgrade.md
+    - name: Beoordelingsberekeningen
+      href: concepts-assessment-calculation.md
+    - name: Over visualisatie van afhankelijkheden
+      href: concepts-dependency-visualization.md
 - name: Handleidingen
   items:
-  - name: Best practices voor migratie
-    items:
-    - name: Best practices voor beveiliging en beheer na migratie
-      href: migrate-best-practices-security-management.md
-    - name: Best practices voor netwerkconfiguratie na migratie
-      href: migrate-best-practices-networking.md
-    - name: Best practices voor kostenanalyse en bepalen van grootte na migratie
-      href: migrate-best-practices-costs.md
-  - name: Migratieserie Contoso
-    items:
-    - name: 1. Contoso - Migratieoverzicht
-      href: contoso-migration-overview.md
-    - name: 2. Contoso - Een Azure-infrastructuur implementeren
-      href: contoso-migration-infrastructure.md
-    - name: 3. Contoso - On-premises resources beoordelen voor een migratie naar Azure
-      href: contoso-migration-assessment.md
-    - name: 4. Contoso - Een app opnieuw hosten op virtuele Azure-machines en een met Azure SQL Database beheerd exemplaar
-      href: contoso-migration-rehost-vm-sql-managed-instance.md
-    - name: 5. Contoso - Een app opnieuw hosten in virtuele Azure-machines
-      href: contoso-migration-rehost-vm.md
-    - name: 6. Contoso - Een app opnieuw hosten in virtuele Azure-machines en Azure SQL Server AlwaysOn-beschikbaarheidsgroepen
-      href: contoso-migration-rehost-vm-sql-ag.md
-    - name: 7. Contoso - Een Linux-app opnieuw hosten in virtuele Azure-machines
-      href: contoso-migration-rehost-linux-vm.md
-    - name: 8. Contoso - Een Linux-app opnieuw hosten in virtuele Azure-machines en Azure MySQL
-      href: contoso-migration-rehost-linux-vm-mysql.md
-    - name: 9. Contoso - Een app herstructureren in Azure Web Apps en Azure SQL Database
-      href: contoso-migration-refactor-web-app-sql.md
-    - name: 10. Contoso - Een Linux-app herstructureren in Azure Web Apps en Azure MySQL
-      href: contoso-migration-refactor-linux-app-service-mysql.md
-    - name: 11. Contoso - TFS migreren naar Azure DevOps Services
-      href: contoso-migration-tfs-vsts.md
-    - name: 12. Contoso - Een app opnieuw modelleren in Azure Containers en Azure SQL Database
-      href: contoso-migration-rearchitect-container-sql.md
-    - name: 13. Contoso - Een app opnieuw bouwen in Azure
-      href: contoso-migration-rebuild.md
-    - name: 14. Contoso - De schaal van een migratie aanpassen
-      href: contoso-migration-scale.md
-  - name: Een grote omgeving verkennen en beoordelen
-    href: how-to-scale-assessment.md
-  - name: Machines groeperen
-    href: how-to-create-a-group.md
-  - name: Machines groeperen met behulp van machineafhankelijkheden
-    href: how-to-create-group-machine-dependencies.md
-  - name: Een groep verfijnen met behulp van groepsafhankelijkheden
-    href: how-to-create-group-dependencies.md
-  - name: Een beoordeling aanpassen
-    href: how-to-modify-assessment.md
-  - name: Machines na beoordeling migreren
-    href: how-to-get-migration-tool.md
-  - name: Migratie van een groot aantal VM's automatiseren
-    href: how-to-migrate-at-scale.md
-  - name: Problemen met Azure Migrate oplossen
-    href: troubleshooting-general.md
+    - name: Best practices voor migratie
+      items:
+        - name: Best practices voor beveiliging en beheer na migratie
+          href: migrate-best-practices-security-management.md
+        - name: Best practices voor netwerkconfiguratie na migratie
+          href: migrate-best-practices-networking.md
+        - name: Best practices voor kostenanalyse en bepalen van grootte na migratie
+          href: migrate-best-practices-costs.md
+    - name: Migratieserie Contoso
+      items:
+        - name: 1. Contoso - Migratieoverzicht
+          href: contoso-migration-overview.md
+        - name: 2. Contoso - Een Azure-infrastructuur implementeren
+          href: contoso-migration-infrastructure.md
+        - name: 3. Contoso - On-premises resources beoordelen voor een migratie naar Azure
+          href: contoso-migration-assessment.md
+        - name: 4. Contoso - Een app opnieuw hosten op virtuele Azure-machines en een met Azure SQL Database beheerd exemplaar
+          href: contoso-migration-rehost-vm-sql-managed-instance.md
+        - name: 5. Contoso - Een app opnieuw hosten in virtuele Azure-machines
+          href: contoso-migration-rehost-vm.md
+        - name: 6. Contoso - Een app opnieuw hosten in virtuele Azure-machines en Azure SQL Server AlwaysOn-beschikbaarheidsgroepen
+          href: contoso-migration-rehost-vm-sql-ag.md
+        - name: 7. Contoso - Een Linux-app opnieuw hosten in virtuele Azure-machines
+          href: contoso-migration-rehost-linux-vm.md
+        - name: 8. Contoso - Een Linux-app opnieuw hosten in virtuele Azure-machines en Azure MySQL
+          href: contoso-migration-rehost-linux-vm-mysql.md
+        - name: 9. Contoso - Een app herstructureren in Azure Web Apps en Azure SQL Database
+          href: contoso-migration-refactor-web-app-sql.md
+        - name: 10. Contoso - Een Linux-app herstructureren in Azure Web Apps en Azure MySQL
+          href: contoso-migration-refactor-linux-app-service-mysql.md
+        - name: 11. Contoso - TFS migreren naar Azure DevOps Services
+          href: contoso-migration-tfs-vsts.md
+        - name: 12. Contoso - Een app opnieuw modelleren in Azure Containers en Azure SQL Database
+          href: contoso-migration-rearchitect-container-sql.md
+        - name: 13. Contoso - Een app opnieuw bouwen in Azure
+          href: contoso-migration-rebuild.md
+        - name: 14. Contoso - De schaal van een migratie aanpassen
+          href: contoso-migration-scale.md
+    - name: Een grote omgeving verkennen en beoordelen
+      href: how-to-scale-assessment.md
+    - name: Machines groeperen
+      href: how-to-create-a-group.md
+    - name: Machines groeperen met behulp van machineafhankelijkheden
+      href: how-to-create-group-machine-dependencies.md
+    - name: Een groep verfijnen met behulp van groepsafhankelijkheden
+      href: how-to-create-group-dependencies.md
+    - name: Een beoordeling aanpassen
+      href: how-to-modify-assessment.md
+    - name: Machines na beoordeling migreren
+      href: how-to-get-migration-tool.md
+    - name: Migratie van een groot aantal VM's automatiseren
+      href: how-to-migrate-at-scale.md
+    - name: Problemen met Azure Migrate oplossen
+      href: troubleshooting-general.md
 - name: Resources
   items:
-  - name: Veelgestelde vragen
-    href: resources-faq.md
-  - name: REST-API
-    href: https://docs.microsoft.com/rest/api/migrate/
-  - name: Resource Manager-sjabloon
-    href: /azure/templates/microsoft.migrate/allversions
-  - name: Prijzen
-    href: https://azure.microsoft.com/pricing/details/azure-migrate/
-  - name: UserVoice
-    href: https://aka.ms/AzureMigrateUservoice
-  - name: Forum
-    href: https://aka.ms/AzureMigrateForum
-  - name: Blog
-    href: https://azure.microsoft.com/blog/tag/azure-migrate/
-  - name: Azure Migrate
-    href: https://azure.microsoft.com/migrate
-  - name: Azure-roadmap
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: d07d8e94f15dc6ba549d96c5950931963e5bbfc9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837651"
+    - name: Veelgestelde vragen
+      href: resources-faq.md
+    - name: REST-API
+      href: 'https://docs.microsoft.com/rest/api/migrate/'
+    - name: Resource Manager-sjabloon
+      href: /azure/templates/microsoft.migrate/allversions
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/azure-migrate/'
+    - name: UserVoice
+      href: 'https://aka.ms/AzureMigrateUservoice'
+    - name: Forum
+      href: 'https://aka.ms/AzureMigrateForum'
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/tag/azure-migrate/'
+    - name: Azure Migrate
+      href: 'https://azure.microsoft.com/migrate'
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'

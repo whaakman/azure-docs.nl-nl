@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8385fe5ecb9a6e17d872795ba4eff5c038e4df47
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199866"
 documentType: LandingData
 title: Documentatie voor Azure Search
 metadata:
-  document_id: 
-  title: Documentatie voor Azure Search - zelfstudies, snelstartgidsen, API-referentiemateriaal
-  description: Leer hoe u een bedrijfsoplossing voor zoekopdrachten in persoonlijke, heterogene inhoud maakt met behulp van Azure Search. In zelfstudies, API-referentiemateriaal en andere documenten kunt u zien hoe u doorzoekbare inhoud samenvoegt in één snelle index, waarin u kunt zoeken met behulp van eenvoudige-tot-geavanceerde syntaxis voor een grote verscheidenheid aan scenario’s.
+  document_id: null
+  title: 'Documentatie voor Azure Search - zelfstudies, snelstartgidsen, API-referentiemateriaal'
+  description: 'Leer hoe u een bedrijfsoplossing voor zoekopdrachten in persoonlijke, heterogene inhoud maakt met behulp van Azure Search. In zelfstudies, API-referentiemateriaal en andere documenten kunt u zien hoe u doorzoekbare inhoud samenvoegt in één snelle index, waarin u kunt zoeken met behulp van eenvoudige-tot-geavanceerde syntaxis voor een grote verscheidenheid aan scenario’s.'
   services: search
   author: HeidiSteen
   manager: cgronlun
@@ -20,55 +14,55 @@ metadata:
   ms.date: 01/18/2019
   ms.author: heidist
 abstract:
-  description: Leer hoe u een bedrijfsoplossing voor zoekopdrachten in persoonlijke, heterogene inhoud maakt met behulp van Azure Search. In zelfstudies, API-referentiemateriaal en andere documenten kunt u zien hoe u doorzoekbare inhoud samenvoegt in één snelle index, waarin u kunt zoeken met behulp van eenvoudige-tot-geavanceerde syntaxis voor een grote verscheidenheid aan scenario’s. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Nieuwe Cognitief zoeken-preview.</b></a> Een voorlopige versie van een REST-API gebruiken om AI-algoritmen aan de pijplijn voor indexering te binden. Gegevens ophalen en natuurlijke taal en afbeeldingsverwerking activeren voor het transformeren van onbewerkte ongestructureerde inhoud naar doorzoekbare inhoud in een Index van Azure Search. <p/>Verken Cognitief zoeken met behulp van <a href="/azure/search/cognitive-search-quickstart-blob">resources en voorbeeldgegevens</a> of kijk voor meer informatie in <a href="/azure/search/cognitive-search-concept-intro">Concepten</a>.
+  description: 'Leer hoe u een bedrijfsoplossing voor zoekopdrachten in persoonlijke, heterogene inhoud maakt met behulp van Azure Search. In zelfstudies, API-referentiemateriaal en andere documenten kunt u zien hoe u doorzoekbare inhoud samenvoegt in één snelle index, waarin u kunt zoeken met behulp van eenvoudige-tot-geavanceerde syntaxis voor een grote verscheidenheid aan scenario’s. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Nieuwe Cognitief zoeken-preview.</b></a> Een voorlopige versie van een REST-API gebruiken om AI-algoritmen aan de pijplijn voor indexering te binden. Gegevens ophalen en natuurlijke taal en afbeeldingsverwerking activeren voor het transformeren van onbewerkte ongestructureerde inhoud naar doorzoekbare inhoud in een Index van Azure Search. <p/>Verken Cognitief zoeken met behulp van <a href="/azure/search/cognitive-search-quickstart-blob">resources en voorbeeldgegevens</a> of kijk voor meer informatie in <a href="/azure/search/cognitive-search-concept-intro">Concepten</a>.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
-      src: https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png
+      src: 'https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png'
       width: 250
-    title: Wat is Azure Search (1:27)
-    href: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
+    title: 'Wat is Azure Search (1:27)'
+    href: 'https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player'
     width: 250
 sections:
-- title: QuickStarts van vijf minuten
-  items:
-  - type: paragraph
-    text: Start een zoekservice in de portal, definieer en laad vervolgens indexen in C# of REST en voer hier query's op uit.
-  - type: list
-    style: icon48
+  - title: QuickStarts van vijf minuten
     items:
-    - image:
-        src: /azure/search/media/index/portal.svg
-      text: Azure Portal
-      href: https://docs.microsoft.com/azure/search/search-create-service-portal
-    - image:
-        src: /azure/search/media/index/logo_Csharp.svg
-      text: .NET
-      href: https://docs.microsoft.com/azure/search/search-create-index-dotnet
-    - image:
-        src: /azure/search/media/index/rest.svg
-      text: REST
-      href: https://docs.microsoft.com/azure/search/search-fiddler
-- title: Zelfstudies met stapsgewijze instructies
-  items:
-  - type: paragraph
-    text: Programmeer in .NET of REST of gebruik de portal om snel concepten te testen.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Start een zoekservice in de portal, definieer en laad vervolgens indexen in C# of REST en voer hier query''s op uit.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/search/media/index/portal.svg
+            text: Azure Portal
+            href: 'https://docs.microsoft.com/azure/search/search-create-service-portal'
+          - image:
+              src: /azure/search/media/index/logo_Csharp.svg
+            text: .NET
+            href: 'https://docs.microsoft.com/azure/search/search-create-index-dotnet'
+          - image:
+              src: /azure/search/media/index/rest.svg
+            text: REST
+            href: 'https://docs.microsoft.com/azure/search/search-fiddler'
+  - title: Zelfstudies met stapsgewijze instructies
     items:
-    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Indexeren met AI (Cognitive Services)</a>
-    - html: <a href="/azure/search/search-howto-dotnet-sdk">Azure Search gebruiken met .NET</a>
-    - html: <a href="/azure/search/search-indexer-tutorial">Azure SQL Database-inhoud indexeren met .NET</a>
-    - html: <a href="/azure/search/search-semi-structured-data">Semi-gestructureerde gegevens in Azure Blob Storage indexeren met REST</a>
-    - html: <a href="/azure/search/search-get-started-portal">De portal gebruiken om te indexeren en query's te testen</a>
-- title: Naslaginformatie
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Programmeer in .NET of REST of gebruik de portal om snel concepten te testen.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/search/cognitive-search-tutorial-blob">Indexeren met AI (Cognitive Services)</a>
+          - html: <a href="/azure/search/search-howto-dotnet-sdk">Azure Search gebruiken met .NET</a>
+          - html: <a href="/azure/search/search-indexer-tutorial">Azure SQL Database-inhoud indexeren met .NET</a>
+          - html: <a href="/azure/search/search-semi-structured-data">Semi-gestructureerde gegevens in Azure Blob Storage indexeren met REST</a>
+          - html: <a href="/azure/search/search-get-started-portal">De portal gebruiken om te indexeren en query's te testen</a>
+  - title: Naslaginformatie
     items:
-    - title: Talen
-      html: <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (beheer)</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python (beheer)</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/searchservice">Service API-referentiemateriaal</a></p><p><a href="/rest/api/searchmanagement">Beheer API-referentiemateriaal</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Talen
+            html: '<p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (beheer)</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python (beheer)</a></p>'
+          - title: REST
+            html: <p><a href="/rest/api/searchservice">Service API-referentiemateriaal</a></p><p><a href="/rest/api/searchmanagement">Beheer API-referentiemateriaal</a></p>

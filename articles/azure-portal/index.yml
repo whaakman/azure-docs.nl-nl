@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1ed169d248fce28a668c1c93fe2d9796b59547bd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619217"
 documentType: LandingData
 title: Documentatie voor Azure Portal
 metadata:
@@ -25,27 +19,27 @@ metadata:
 abstract:
   description: 'De Azure-portal is een webgebaseerde, geïntegreerde console waarmee u alles kunt bouwen, beheren en bewaken: van eenvoudige web-apps tot complexe cloudtoepassingen. De portal bevat aanpasbare dashboards en toegankelijkheidsopties.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-    - href: /azure/azure-preview-portal-supported-browsers-devices
-      html: <p>U kunt de Azure-portal uitvoeren op alle moderne desktop- en tablet-apparaten en browsers.</p>
-      title: Ondersteunde browsers en apparaten
-    - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
-      html: <p>Wijzig het contrast of kleurenschema in de Azure-portal.</p>
-      title: Hoog contrast inschakelen
-    - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
-      html: <p>Meer informatie over de sneltoetsen die u overal in de Azure-portal kunt gebruiken.</p>
-      title: Sneltoetsen
-    - href: /azure/azure-portal/azure-portal-dashboards
-      html: <p>Maak meerdere dashboards en deel deze met anderen die toegang hebben tot uw Azure-abonnementen.</p>
-      title: Azure-dashboards maken en delen
-    - href: /azure/azure-portal/azure-portal-dashboard-share-access
-      html: <p>Publiceer een dashboard en deel dit met andere gebruikers binnen uw organisatie.</p>
-      title: Dashboards delen met behulp van RBAC
-    - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
-      html: <p>Maak dashboards op programmatische wijze en publiceer deze voor uw organisatie</p>
-      title: Op programmatische wijze Azure-dashboards maken
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/azure-preview-portal-supported-browsers-devices
+            html: <p>U kunt de Azure-portal uitvoeren op alle moderne desktop- en tablet-apparaten en browsers.</p>
+            title: Ondersteunde browsers en apparaten
+          - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
+            html: <p>Wijzig het contrast of kleurenschema in de Azure-portal.</p>
+            title: Hoog contrast inschakelen
+          - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
+            html: <p>Meer informatie over de sneltoetsen die u overal in de Azure-portal kunt gebruiken.</p>
+            title: Sneltoetsen
+          - href: /azure/azure-portal/azure-portal-dashboards
+            html: <p>Maak meerdere dashboards en deel deze met anderen die toegang hebben tot uw Azure-abonnementen.</p>
+            title: Azure-dashboards maken en delen
+          - href: /azure/azure-portal/azure-portal-dashboard-share-access
+            html: <p>Publiceer een dashboard en deel dit met andere gebruikers binnen uw organisatie.</p>
+            title: Dashboards delen met behulp van RBAC
+          - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
+            html: <p>Maak dashboards op programmatische wijze en publiceer deze voor uw organisatie</p>
+            title: Op programmatische wijze Azure-dashboards maken

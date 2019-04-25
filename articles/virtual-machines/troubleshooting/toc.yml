@@ -1,110 +1,109 @@
-items:
 - name: Probleemoplossing voor Azure-VM's
   href: index.md
 - name: Toewijzingsfouten
   items:
-  - name: Toewijzingsfouten
-    href: allocation-failure.md
-  - name: Toewijzingsfouten voor klassieke implementaties
-    href: allocation-failure-classic.md
+    - name: Toewijzingsfouten
+      href: allocation-failure.md
+    - name: Toewijzingsfouten voor klassieke implementaties
+      href: allocation-failure-classic.md
 - name: RDP
   href: rdp.md
   items:
-  - name: RDP opnieuw instellen
-    href: reset-rdp.md
-  - name: Problemen met RDP oplossen
-    href: troubleshoot-rdp-connection.md
-  - name: Gedetailleerde RDP-probleemoplossing
-    href: detailed-troubleshoot-rdp.md
-  - name: Een RDP-fout oplossen die wordt veroorzaakt doordat DHCP is uitgeschakeld
-    href: troubleshoot-rdp-dhcp-disabled.md
-  - name: Een RDP-fout door de NSG-instelling oplossen
-    href: troubleshoot-rdp-nsg-problem.md
-  - name: Specifieke fouten oplossen
-    href: troubleshoot-specific-rdp-errors.md
-  - name: Fouten in verband met een ontbrekende licentieserver oplossen
-    href: troubleshoot-rdp-no-license-server.md
-  - name: Problemen met Extern bureaublad-services oplossen
-    href: troubleshoot-remote-desktop-services-issues.md
-  - name: Een interne fout oplossen
-    href: Troubleshoot-rdp-internal-error.md
-  - name: Problemen in verband met een vaak verbroken verbinding oplossen
-    href: troubleshoot-rdp-intermittent-connectivity.md
-  - name: Een algemene fout oplossen
-    href: troubleshoot-rdp-general-error.md
-  - name: Verificatiefouten oplossen
-    href: troubleshoot-authentication-error-rdp-vm.md
-  - name: Problemen met Azure VM RDP-verbinding oplossen op basis van gebeurtenis-id
-    href: event-id-troubleshoot-vm-rdp-connecton.md
-  - name: Een RDP-fout in de VM oplossen die verband houdt met het statische IP-adres
-    href: troubleshoot-rdp-static-ip.md
-  - name: Een RDP-fout in de VM oplossen die verband houdt met een uitgeschakelde NIC
-    href: troubleshoot-rdp-nic-disabled.md
-  - name: Een RDP-fout oplossen die verband houdt met de veilige modus
-    href: troubleshoot-rdp-safe-mode.md
-  - name: De firewall van het gastbesturingssysteem uitschakelen in Azure VM
-    href: disable-guest-os-firewall-windows.md
-  - name: Een firewallregel in een gastbesturingssysteem in- of uitschakelen
-    href: enable-disable-firewall-rule-guest-os.md
-  - name: Firewall van gastbesturingssysteem blokkeert inkomend verkeer
-    href: guest-os-firewall-blocking-inbound-traffic.md
-  - name: Firewall van gastbesturingssysteem is onjuist geconfigureerd
-    href: guest-os-firewall-misconfigured.md
-  - name: Een RDP-fout oplossen die verband houdt met netvsc.sys
-    href: troubleshoot-rdp-driver-netvsc.md
+    - name: RDP opnieuw instellen
+      href: reset-rdp.md
+    - name: Problemen met RDP oplossen
+      href: troubleshoot-rdp-connection.md
+    - name: Gedetailleerde RDP-probleemoplossing
+      href: detailed-troubleshoot-rdp.md
+    - name: Een RDP-fout oplossen die wordt veroorzaakt doordat DHCP is uitgeschakeld
+      href: troubleshoot-rdp-dhcp-disabled.md
+    - name: Een RDP-fout door de NSG-instelling oplossen
+      href: troubleshoot-rdp-nsg-problem.md
+    - name: Specifieke fouten oplossen
+      href: troubleshoot-specific-rdp-errors.md
+    - name: Fouten in verband met een ontbrekende licentieserver oplossen
+      href: troubleshoot-rdp-no-license-server.md
+    - name: Problemen met Extern bureaublad-services oplossen
+      href: troubleshoot-remote-desktop-services-issues.md
+    - name: Een interne fout oplossen
+      href: Troubleshoot-rdp-internal-error.md
+    - name: Problemen in verband met een vaak verbroken verbinding oplossen
+      href: troubleshoot-rdp-intermittent-connectivity.md
+    - name: Een algemene fout oplossen
+      href: troubleshoot-rdp-general-error.md
+    - name: Verificatiefouten oplossen
+      href: troubleshoot-authentication-error-rdp-vm.md
+    - name: Problemen met Azure VM RDP-verbinding oplossen op basis van gebeurtenis-id
+      href: event-id-troubleshoot-vm-rdp-connecton.md
+    - name: Een RDP-fout in de VM oplossen die verband houdt met het statische IP-adres
+      href: troubleshoot-rdp-static-ip.md
+    - name: Een RDP-fout in de VM oplossen die verband houdt met een uitgeschakelde NIC
+      href: troubleshoot-rdp-nic-disabled.md
+    - name: Een RDP-fout oplossen die verband houdt met de veilige modus
+      href: troubleshoot-rdp-safe-mode.md
+    - name: De firewall van het gastbesturingssysteem uitschakelen in Azure VM
+      href: disable-guest-os-firewall-windows.md
+    - name: Een firewallregel in een gastbesturingssysteem in- of uitschakelen
+      href: enable-disable-firewall-rule-guest-os.md
+    - name: Firewall van gastbesturingssysteem blokkeert inkomend verkeer
+      href: guest-os-firewall-blocking-inbound-traffic.md
+    - name: Firewall van gastbesturingssysteem is onjuist geconfigureerd
+      href: guest-os-firewall-misconfigured.md
+    - name: Een RDP-fout oplossen die verband houdt met netvsc.sys
+      href: troubleshoot-rdp-driver-netvsc.md
 - name: SSH
   items:
-  - name: Problemen met SSH oplossen
-    href: troubleshoot-ssh-connection.md
-  - name: Fouten in het bestandssysteem oplossen
-    href: https://support.microsoft.com/help/3213321
-  - name: Kernel-problemen oplossen met betrekking opstarten
-    href: https://support.microsoft.com/help/4091524
-  - name: Fstab-fouten oplossen
-    href: https://support.microsoft.com/help/3206699
-  - name: Gedetailleerde SSH-probleemoplossing
-    href: detailed-troubleshoot-ssh-connection.md
+    - name: Problemen met SSH oplossen
+      href: troubleshoot-ssh-connection.md
+    - name: Fouten in het bestandssysteem oplossen
+      href: 'https://support.microsoft.com/help/3213321'
+    - name: Kernel-problemen oplossen met betrekking opstarten
+      href: 'https://support.microsoft.com/help/4091524'
+    - name: Fstab-fouten oplossen
+      href: 'https://support.microsoft.com/help/3206699'
+    - name: Gedetailleerde SSH-probleemoplossing
+      href: detailed-troubleshoot-ssh-connection.md
 - name: Veelvoorkomende foutberichten
   href: error-messages.md
 - name: Prestatieproblemen met Windows-VM's
   href: performance-diagnostics.md
   items:
-  - name: PerfInsights gebruiken
-    href: how-to-use-perfInsights.md
-  - name: Extensie voor diagnostische gegevens over prestaties
-    href: performance-diagnostics-vm-extension.md
+    - name: PerfInsights gebruiken
+      href: how-to-use-perfInsights.md
+    - name: Extensie voor diagnostische gegevens over prestaties
+      href: performance-diagnostics-vm-extension.md
 - name: VM-agent voor Windows offline installeren
   href: install-vm-agent-offline.md
 - name: Een virtuele machine opnieuw implementeren
   items:
-  - name: Linux
-    href: redeploy-to-new-node-linux.md
-  - name: Windows
-    href: redeploy-to-new-node-windows.md
+    - name: Linux
+      href: redeploy-to-new-node-linux.md
+    - name: Windows
+      href: redeploy-to-new-node-windows.md
 - name: VM-wachtwoord opnieuw instellen
   items:
-  - name: Windows
-    href: reset-local-password-without-agent.md
-  - name: Linux
-    href: reset-password.md
+    - name: Windows
+      href: reset-local-password-without-agent.md
+    - name: Linux
+      href: reset-password.md
 - name: NIC opnieuw instellen
   href: reset-network-interface.md
 - name: Een virtuele machine opnieuw starten of het formaat van een virtuele machine wijzigen
   href: restart-resize-error-troubleshooting.md
 - name: Via de seriële console
   items:
-  - name: Linux-VM
-    href: serial-console-linux.md
-    items:
-    - name: Seriële console GRUB/modus voor één gebruiker
-      href: serial-console-grub-single-user-mode.md
-    - name: Seriële console NMI/SysRq
-      href: serial-console-nmi-sysrq.md
-  - name: Windows-VM
-    href: serial-console-windows.md
-    items:
-    - name: CMD- en PowerShell-opdrachten
-      href: serial-console-cmd-ps-commands.md
+    - name: Linux-VM
+      href: serial-console-linux.md
+      items:
+        - name: Seriële console GRUB/modus voor één gebruiker
+          href: serial-console-grub-single-user-mode.md
+        - name: Seriële console NMI/SysRq
+          href: serial-console-nmi-sysrq.md
+    - name: Windows-VM
+      href: serial-console-windows.md
+      items:
+        - name: CMD- en PowerShell-opdrachten
+          href: serial-console-cmd-ps-commands.md
 - name: Fouten bij het verwijderen van opslagresources
   href: storage-resource-deletion-errors.md
 - name: Fouten bij het verwijderen van klassieke opslagresources
@@ -119,51 +118,51 @@ items:
   href: troubleshoot-app-connection.md
 - name: Nieuwe VM-implementaties
   items:
-  - name: Linux
-    href: troubleshoot-deployment-new-vm-linux.md
-  - name: Windows
-    href: troubleshoot-deployment-new-vm-windows.md
+    - name: Linux
+      href: troubleshoot-deployment-new-vm-linux.md
+    - name: Windows
+      href: troubleshoot-deployment-new-vm-windows.md
 - name: Problemen met implementaties oplossen
   items:
-  - name: Linux
-    href: troubleshoot-deploy-vm-linux.md
-  - name: Windows
-    href: troubleshoot-deploy-vm-windows.md
+    - name: Linux
+      href: troubleshoot-deploy-vm-linux.md
+    - name: Windows
+      href: troubleshoot-deploy-vm-windows.md
 - name: Apparaatnamen zijn gewijzigd
   href: troubleshoot-device-names-problems.md
 - name: Toegang tot VM voor herstel
   items:
-  - name: Windows
-    items:
-    - name: PowerShell
-      href: troubleshoot-recovery-disks-windows.md
-    - name: Azure Portal
-      href: troubleshoot-recovery-disks-portal-windows.md
-  - name: Linux
-    items:
-    - name: CLI
-      href: troubleshoot-recovery-disks-linux.md
-    - name: Azure Portal
-      href: troubleshoot-recovery-disks-portal-linux.md
+    - name: Windows
+      items:
+        - name: PowerShell
+          href: troubleshoot-recovery-disks-windows.md
+        - name: Azure Portal
+          href: troubleshoot-recovery-disks-portal-windows.md
+    - name: Linux
+      items:
+        - name: CLI
+          href: troubleshoot-recovery-disks-linux.md
+        - name: Azure Portal
+          href: troubleshoot-recovery-disks-portal-linux.md
 - name: Opstartfouten
   href: boot-error-troubleshoot.md
   items:
-  - name: Diagnostische gegevens over opstarten
-    href: boot-diagnostics.md
-  - name: BitLocker-fouten
-    href: troubleshoot-bitlocker-boot-error.md
-  - name: Fouten in het bestandssysteem controleren
-    href: troubleshoot-check-disk-boot-error.md
-  - name: Blue screen-fouten
-    href: troubleshoot-common-blue-screen-error.md
-  - name: Virtuele machine loopt vast bij opstarten
-    href: troubleshoot-vm-boot-configure-update.md
-  - name: Kritieke service is mislukt
-    href: troubleshoot-critical-service-failed-boot-error.md
-  - name: Lus opnieuw starten
-    href: troubleshoot-reboot-loop.md
-  - name: Vastgelopen bij Windows-update
-    href: troubleshoot-stuck-updating-boot-error.md
+    - name: Diagnostische gegevens over opstarten
+      href: boot-diagnostics.md
+    - name: BitLocker-fouten
+      href: troubleshoot-bitlocker-boot-error.md
+    - name: Fouten in het bestandssysteem controleren
+      href: troubleshoot-check-disk-boot-error.md
+    - name: Blue screen-fouten
+      href: troubleshoot-common-blue-screen-error.md
+    - name: Virtuele machine loopt vast bij opstarten
+      href: troubleshoot-vm-boot-configure-update.md
+    - name: Kritieke service is mislukt
+      href: troubleshoot-critical-service-failed-boot-error.md
+    - name: Lus opnieuw starten
+      href: troubleshoot-reboot-loop.md
+    - name: Vastgelopen bij Windows-update
+      href: troubleshoot-stuck-updating-boot-error.md
 - name: Netwerkbeperkingsfouten
   href: troubleshooting-throttling-errors.md
 - name: Geneste virtualisatie gebruiken
@@ -172,9 +171,3 @@ items:
   href: understand-vm-reboot.md
 - name: Hulpprogramma's voor probleemoplossing op afstand
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: 7ba013c372eefcbf83bb141ba44fcea9b68064de
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382974"

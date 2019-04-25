@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 353616141e37e8024695fad81a16c9c2f3b82625
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107341"
 documentType: LandingData
 title: Documentatie voor door Azure beheerde toepassingen
 metadata:
-  title: Documentatie voor door Azure beheerde toepassingen - zelfstudies, API-verwijzing
+  title: 'Documentatie voor door Azure beheerde toepassingen - zelfstudies, API-verwijzing'
   description: U kunt door Azure beheerde toepassingen gebruiken voor het publiceren van cloudoplossingen die eenvoudiger door consumenten zijn te onderhouden.
   services: managed-applications
   author: tfitzmac
@@ -22,35 +16,35 @@ metadata:
 abstract:
   description: Met door Azure beheerde toepassingen kunt u uw cloudoplossingen aan interne en externe klanten aanbieden. U definieert de infrastructuur voor de oplossing en de voorwaarden voor het doorlopende beheer van de oplossing. De facturering voor uw oplossing wordt verwerkt door middel van Azure-facturering.
 sections:
-- title: QuickStarts van vijf minuten
-  items:
-  - type: paragraph
-    text: Informatie over het publiceren en implementeren van een beheerde toepassing.
-  - type: list
-    style: icon48
+  - title: QuickStarts van vijf minuten
     items:
-    - image:
-        src: /azure/managed-applications/media/index/cli.svg
-      text: Azure-CLI
-      href: /azure/managed-applications/managed-apps-quickstart-cli
-- title: Zelfstudies met stapsgewijze instructies
-  items:
-  - type: paragraph
-    text: Informatie over het ontwikkelen van beheerde toepassingen en het aanbieden van deze toepassingen via de Azure Marketplace.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Informatie over het publiceren en implementeren van een beheerde toepassing.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/managed-applications/media/index/cli.svg
+            text: Azure-CLI
+            href: /azure/managed-applications/managed-apps-quickstart-cli
+  - title: Zelfstudies met stapsgewijze instructies
     items:
-    - html: <a href="/azure/managed-applications/publish-service-catalog-app">Een beheerde toepassing publiceren voor interne gebruikers</a>
-    - html: <a href="/azure/managed-applications/publish-marketplace-app">Een beheerde toepassing publiceren voor externe gebruikers</a>
-- title: Naslaginformatie
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Informatie over het ontwikkelen van beheerde toepassingen en het aanbieden van deze toepassingen via de Azure Marketplace.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/managed-applications/publish-service-catalog-app">Een beheerde toepassing publiceren voor interne gebruikers</a>
+          - html: <a href="/azure/managed-applications/publish-marketplace-app">Een beheerde toepassing publiceren voor externe gebruikers</a>
+  - title: Naslaginformatie
     items:
-    - title: Opdrachtregel
-      html: <p><a href="/cli/azure/managedapp">Azure-CLI</a></p><p><a href="/powershell/module/az.resources">PowerShell</a></p>
-    - title: REST-API’s
-      html: <p><a href="/rest/api/resources/">REST</a></p>
-    - title: Gebruikersinterface
-      html: <p><a href="/azure/managed-applications/create-uidefinition-elements">UI-elementen</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">UI-functies</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Opdrachtregel
+            html: <p><a href="/cli/azure/managedapp">Azure-CLI</a></p><p><a href="/powershell/module/az.resources">PowerShell</a></p>
+          - title: REST-API’s
+            html: <p><a href="/rest/api/resources/">REST</a></p>
+          - title: Gebruikersinterface
+            html: <p><a href="/azure/managed-applications/create-uidefinition-elements">UI-elementen</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">UI-functies</a></p>

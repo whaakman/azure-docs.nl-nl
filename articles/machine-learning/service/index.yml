@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a97c11b49574d0014ea7fa97f42420b22f9568d7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371153"
 documentType: LandingData
 title: Documentatie over Azure Machine Learning-service
 metadata:
-  title: Documentatie voor de Azure Machine Learning-service - zelfstudies, API-verwijzing | Microsoft Docs
-  description: De Azure Machine Learning-service biedt SDK's en services waarmee u snel gegevens voorbereidt, en Machine Learning-modellen traint en implementeert. Verhoog de productiviteit en verlaag de kosten met automatische aanpassing van de rekenbehoefte en de pijplijnen. Gebruik deze mogelijkheden via open-source Python-frameworks, zoals PyTorch, TensorFlow en scikit-learn. Ga aan de slag met onze quickstarts en zelfstudies.
+  title: 'Documentatie voor de Azure Machine Learning-service - zelfstudies, API-verwijzing | Microsoft Docs'
+  description: 'De Azure Machine Learning-service biedt SDK''s en services waarmee u snel gegevens voorbereidt, en Machine Learning-modellen traint en implementeert. Verhoog de productiviteit en verlaag de kosten met automatische aanpassing van de rekenbehoefte en de pijplijnen. Gebruik deze mogelijkheden via open-source Python-frameworks, zoals PyTorch, TensorFlow en scikit-learn. Ga aan de slag met onze quickstarts en zelfstudies.'
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -22,60 +16,60 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: De Azure Machine Learning-service biedt SDK's en services waarmee u snel gegevens voorbereidt, en Machine Learning-modellen traint en implementeert. Verhoog de productiviteit en verlaag de kosten met automatische aanpassing van de rekenbehoefte en de pijplijnen. Gebruik deze mogelijkheden via open-source Python-frameworks, zoals PyTorch, TensorFlow en scikit-learn. Ga aan de slag met onze quickstarts en zelfstudies.
+  description: 'De Azure Machine Learning-service biedt SDK''s en services waarmee u snel gegevens voorbereidt, en Machine Learning-modellen traint en implementeert. Verhoog de productiviteit en verlaag de kosten met automatische aanpassing van de rekenbehoefte en de pijplijnen. Gebruik deze mogelijkheden via open-source Python-frameworks, zoals PyTorch, TensorFlow en scikit-learn. Ga aan de slag met onze quickstarts en zelfstudies.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 130
       src: media/index/video.png
       width: 250
-    title: Bekijk de video (9:58)
-    href: https://www.youtube.com/watch?v=GBDSBInvz08
+    title: 'Bekijk de video (9:58)'
+    href: 'https://www.youtube.com/watch?v=GBDSBInvz08'
     width: 250
 sections:
-- title: QuickStarts van vijf minuten
-  items:
-  - type: paragraph
-    text: 'Na het   <a href="setup-create-workspace">maken van een werkruimte</a> voor Azure Machine Learning Service kunt u aan de slag met deze quickstarts:'
-  - type: list
-    style: unordered
+  - title: QuickStarts van vijf minuten
     items:
-    - html: <a href="quickstart-run-cloud-notebook">Een experiment uitvoeren in de cloud</a> (geen installatie vereist).
-    - html: <a href="quickstart-run-local-notebook">Een experiment met behulp van een lokale notebookserver uitvoeren</a> (lokale SDK installeren).
-- title: Zelfstudies met stapsgewijze instructies
-  items:
-  - type: paragraph
-    text: 'Ontdek hoe u gegevens voorbereidt, experimenten opzet, en Machine Learning-modellen traint en operationeel maakt:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: "Na het \_ <a href=\"setup-create-workspace\">maken van een werkruimte</a> voor Azure Machine Learning Service kunt u aan de slag met deze quickstarts:"
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="quickstart-run-cloud-notebook">Een experiment uitvoeren in de cloud</a> (geen installatie vereist).
+          - html: <a href="quickstart-run-local-notebook">Een experiment met behulp van een lokale notebookserver uitvoeren</a> (lokale SDK installeren).
+  - title: Zelfstudies met stapsgewijze instructies
     items:
-    - html: Modellen voor de classificatie van afbeeldingen <a href="tutorial-train-models-with-aml">trainen</a> en <a href="tutorial-deploy-models-with-aml">implementeren</a> (<b>tweedelige reeks</b>).
-    - html: <a href="tutorial-data-prep">Gegevens voorbereiden</a> en <a href="tutorial-auto-train-models">automatische leerprocessen gebruiken</a> om regressiemodellen te trainen en af te stemmen (<b>tweedelige reeks</b>).
-- title: Voorbeelden
-  items:
-  - type: paragraph
-    text: Zoek <a href="samples-notebooks">Jupyter-notebooks</a> om de service op GitHub te ontdekken.
-- title: Naslaginformatie
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Ontdek hoe u gegevens voorbereidt, experimenten opzet, en Machine Learning-modellen traint en operationeel maakt:'
+      - type: list
+        style: unordered
+        items:
+          - html: Modellen voor de classificatie van afbeeldingen <a href="tutorial-train-models-with-aml">trainen</a> en <a href="tutorial-deploy-models-with-aml">implementeren</a> (<b>tweedelige reeks</b>).
+          - html: <a href="tutorial-data-prep">Gegevens voorbereiden</a> en <a href="tutorial-auto-train-models">automatische leerprocessen gebruiken</a> om regressiemodellen te trainen en af te stemmen (<b>tweedelige reeks</b>).
+  - title: Voorbeelden
     items:
-    - html: '<a href="https://aka.ms/aml-sdk">Centrale Python-SDK</a>: de belangrijkste functionaliteit, geautomatiseerde machine learning, pijplijnen en meer'
-    - html: '<a href="https://aka.ms/data-prep-sdk">Python SDK voor gegevensvoorbereiding</a>: uw gegevens voorbereiden en transformeren'
-    - html: '<a href="https://aka.ms/aml-monitoring-sdk">Python SDK voor bewaking</a>: gegevens verzamelen over geïmplementeerde webservices'
-- title: Andere Azure Machine Learning-technologieën
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: Zoek <a href="samples-notebooks">Jupyter-notebooks</a> om de service op GitHub te ontdekken.
+  - title: Naslaginformatie
     items:
-    - title: Azure Machine Learning Studio
-      href: /azure/machine-learning/studio/
-      image:
-        src: media/index/machine-learning-studio.svg
-        href: /azure/machine-learning/studio/
-    - title: Data Science Virtual Machine
-      href: /azure/machine-learning/data-science-virtual-machine/
-      image:
-        src: media/index/virtual-machines.svg
-        href: /azure/machine-learning/data-science-virtual-machine/
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://aka.ms/aml-sdk">Centrale Python-SDK</a>: de belangrijkste functionaliteit, geautomatiseerde machine learning, pijplijnen en meer'
+          - html: '<a href="https://aka.ms/data-prep-sdk">Python SDK voor gegevensvoorbereiding</a>: uw gegevens voorbereiden en transformeren'
+          - html: '<a href="https://aka.ms/aml-monitoring-sdk">Python SDK voor bewaking</a>: gegevens verzamelen over geïmplementeerde webservices'
+  - title: Andere Azure Machine Learning-technologieën
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure Machine Learning Studio
+            href: /azure/machine-learning/studio/
+            image:
+              src: media/index/machine-learning-studio.svg
+              href: /azure/machine-learning/studio/
+          - title: Data Science Virtual Machine
+            href: /azure/machine-learning/data-science-virtual-machine/
+            image:
+              src: media/index/virtual-machines.svg
+              href: /azure/machine-learning/data-science-virtual-machine/

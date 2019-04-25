@@ -1,96 +1,89 @@
-items:
 - name: Documentatie over Terraform op Azure
   href: index.yml
 - name: Overzicht
   items:
-  - name: Meer informatie over Terraform op Azure
-    href: terraform-overview.md
+    - name: Meer informatie over Terraform op Azure
+      href: terraform-overview.md
 - name: Snelstartgidsen
-  items:
-  - name: Een toepassing met meerdere services maken
-    href: terrafom-quickstart.md
-  - name: Terraform installeren en configureren
-    href: /azure/virtual-machines/linux/terraform-install-configure
-    maintainContext: true
-  - name: Een Linux-VM maken
-    href: /azure/virtual-machines/linux/terraform-create-complete-vm
-    maintainContext: true
   expanded: true
+  items:
+    - name: Een toepassing met meerdere services maken
+      href: terrafom-quickstart.md
+    - name: Terraform installeren en configureren
+      href: /azure/virtual-machines/linux/terraform-install-configure
+      maintainContext: true
+    - name: Een Linux-VM maken
+      href: /azure/virtual-machines/linux/terraform-create-complete-vm
+      maintainContext: true
 - name: Zelfstudies
   items:
-  - name: App Service
-    items:
-    - name: Terraform- en Azure-implementatiesites voor providers
-      href: terraform-slot-walkthru.md
-  - name: Containers
-    items:
-    - name: Een Kubernetes-cluster maken met AKS
-      href: terraform-create-k8s-cluster-with-tf-and-aks.md
-    - name: Een Kubernetes-cluster met AKS maken met Application Gateway als inkomende controller
-      href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
-  - name: Infrastructuur
-    items:
-    - name: Een virtuele Terraform-machine met ingeschakelde MSI maken
-      href: terraform-vm-msi.md
-    - name: Een VM-cluster maken met Terraform-modules
-      href: terraform-create-vm-cluster-module.md
-    - name: Een VM-cluster maken met Terraform en HCL
-      href: terraform-create-vm-cluster-with-infrastructure.md
-    - name: Een VM-schaalset inrichten met infrastructuur
-      href: terraform-create-vm-scaleset-network-disks-hcl.md
-    - name: Een VM-schaalset inrichten op basis van een aangepaste Packer-installatiekopie
-      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
-  - name: Netwerken
-    items:
-    - name: Hub and spoke-topologie
+    - name: App Service
       items:
-      - name: 1. Een hub and spoke-topologie maken
-        href: terraform-hub-spoke-introduction.md
-      - name: 2. On-premises virtueel netwerk maken
-        href: terraform-hub-spoke-on-prem.md
-      - name: 3. Virtueel hub-netwerk maken
-        href: terraform-hub-spoke-hub-network.md
-      - name: 4. Virtueel hub-netwerkapparaat maken
-        href: terraform-hub-spoke-hub-nva.md
-      - name: 5. Spoke-netwerk maken
-        href: terraform-hub-spoke-spoke-network.md
-      - name: 6. Netwerkconnectiviteit van topologie controleren
-        href: terraform-hub-spoke-validation.md
-  - name: Hulpprogramma's
-    items:
-    - name: De Terraform Visual Studio Code-extensie installeren
-      href: terraform-vscode-extension.md
-    - name: Een Terraform-basissjabloon maken met behulp van Yeoman
-      href: terraform-vscode-module-generator.md
-    - name: Terraform-modules testen met Terratest
-      href: terratest-in-terraform-modules.md
+        - name: Terraform- en Azure-implementatiesites voor providers
+          href: terraform-slot-walkthru.md
+    - name: Containers
+      items:
+        - name: Een Kubernetes-cluster maken met AKS
+          href: terraform-create-k8s-cluster-with-tf-and-aks.md
+        - name: Een Kubernetes-cluster met AKS maken met Application Gateway als inkomende controller
+          href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
+    - name: Infrastructuur
+      items:
+        - name: Een virtuele Terraform-machine met ingeschakelde MSI maken
+          href: terraform-vm-msi.md
+        - name: Een VM-cluster maken met Terraform-modules
+          href: terraform-create-vm-cluster-module.md
+        - name: Een VM-cluster maken met Terraform en HCL
+          href: terraform-create-vm-cluster-with-infrastructure.md
+        - name: Een VM-schaalset inrichten met infrastructuur
+          href: terraform-create-vm-scaleset-network-disks-hcl.md
+        - name: Een VM-schaalset inrichten op basis van een aangepaste Packer-installatiekopie
+          href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+    - name: Netwerken
+      items:
+        - name: Hub and spoke-topologie
+          items:
+            - name: 1. Een hub and spoke-topologie maken
+              href: terraform-hub-spoke-introduction.md
+            - name: 2. On-premises virtueel netwerk maken
+              href: terraform-hub-spoke-on-prem.md
+            - name: 3. Virtueel hub-netwerk maken
+              href: terraform-hub-spoke-hub-network.md
+            - name: 4. Virtueel hub-netwerkapparaat maken
+              href: terraform-hub-spoke-hub-nva.md
+            - name: 5. Spoke-netwerk maken
+              href: terraform-hub-spoke-spoke-network.md
+            - name: 6. Netwerkconnectiviteit van topologie controleren
+              href: terraform-hub-spoke-validation.md
+    - name: Hulpprogramma's
+      items:
+        - name: De Terraform Visual Studio Code-extensie installeren
+          href: terraform-vscode-extension.md
+        - name: Een Terraform-basissjabloon maken met behulp van Yeoman
+          href: terraform-vscode-module-generator.md
+        - name: Terraform-modules testen met Terratest
+          href: terratest-in-terraform-modules.md
 - name: Voorbeelden
   items:
-  - name: Configuratiesjablonen
-    href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
+    - name: Configuratiesjablonen
+      href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
 - name: Concepten
   items:
-  - name: Azure Cloud Shell-integratie
-    href: terraform-cloud-shell.md
+    - name: Azure Cloud Shell-integratie
+      href: terraform-cloud-shell.md
 - name: Handleidingen
   items:
-  - name: Status opslaan in Azure Storage
-    href: terraform-backend.md
+    - name: Status opslaan in Azure Storage
+      href: terraform-backend.md
 - name: Naslaginformatie
   items:
-  - name: Azure-moduleregister
-    href: https://registry.terraform.io/modules/Azure
-  - name: Naslaginformatie voor Terraform
-    href: https://aka.ms/terraform
+    - name: Azure-moduleregister
+      href: 'https://registry.terraform.io/modules/Azure'
+    - name: Naslaginformatie voor Terraform
+      href: 'https://aka.ms/terraform'
 - name: Resources
   items:
-  - name: Azure en Terraform
-    href: https://azure.microsoft.com/solutions/devops/terraform/
-  - name: Azure-roadmap
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: d83e1cbd4f3cd5d8a0a9ec167e197b53f20e0630
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999438"
+    - name: Azure en Terraform
+      href: 'https://azure.microsoft.com/solutions/devops/terraform/'
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'

@@ -1,197 +1,190 @@
-items:
 - name: Documentatie voor Machine Learning Studio
   href: index.yml
 - name: Overzicht
-  items:
-  - name: Machine Learning Studio
-    displayName: overview
-    href: what-is-ml-studio.md
-  - name: Onze ML-producten vergelijken
-    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
-    maintainContext: true
   expanded: true
+  items:
+    - name: Machine Learning Studio
+      displayName: overview
+      href: what-is-ml-studio.md
+    - name: Onze ML-producten vergelijken
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
+      maintainContext: true
 - name: Zelfstudies
   items:
-  - name: Uw eerste experiment opzetten
-    displayName: quickstart
-    href: create-experiment.md
-  - name: Een voorspellende oplossing maken
-    items:
-    - name: 1 - Experiment maken
-      href: tutorial-part1-credit-risk.md
-    - name: 2 - Trainen en evalueren
-      href: tutorial-part2-credit-risk-train.md
-    - name: 3 - Webservice implementeren
-      href: tutorial-part3-credit-risk-deploy.md
+    - name: Uw eerste experiment opzetten
+      displayName: quickstart
+      href: create-experiment.md
+    - name: Een voorspellende oplossing maken
+      items:
+        - name: 1 - Experiment maken
+          href: tutorial-part1-credit-risk.md
+        - name: 2 - Trainen en evalueren
+          href: tutorial-part2-credit-risk-train.md
+        - name: 3 - Webservice implementeren
+          href: tutorial-part3-credit-risk-deploy.md
 - name: Voorbeelden
   items:
-  - name: Beschikbare gegevenssets
-    href: use-sample-datasets.md
-  - name: Azure AI-galerie
-    href: gallery-how-to-use-contribute-publish.md
+    - name: Beschikbare gegevenssets
+      href: use-sample-datasets.md
+    - name: Azure AI-galerie
+      href: gallery-how-to-use-contribute-publish.md
 - name: Concepten
   items:
-  - name: Wetenschappelijke gegevens voor beginners
-    items:
-    - name: 1 - Vijf vragen
-      href: data-science-for-beginners-the-5-questions-data-science-answers.md
-    - name: 2 - Zijn de gegevens klaar?
-      href: data-science-for-beginners-is-your-data-ready-for-data-science.md
-    - name: 3 - De juiste vraag stellen
-      href: data-science-for-beginners-ask-a-question-you-can-answer-with-data.md
-    - name: 4 - Een antwoord voorspellen
-      href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
-    - name: 5 - Werk van anderen kopiëren
-      href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
-  - name: Modelbeheer
-    displayName: deploy, consume, web service
-    href: deploy-consume-web-service-guide.md
+    - name: Wetenschappelijke gegevens voor beginners
+      items:
+        - name: 1 - Vijf vragen
+          href: data-science-for-beginners-the-5-questions-data-science-answers.md
+        - name: 2 - Zijn de gegevens klaar?
+          href: data-science-for-beginners-is-your-data-ready-for-data-science.md
+        - name: 3 - De juiste vraag stellen
+          href: data-science-for-beginners-ask-a-question-you-can-answer-with-data.md
+        - name: 4 - Een antwoord voorspellen
+          href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
+        - name: 5 - Werk van anderen kopiëren
+          href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
+    - name: Modelbeheer
+      displayName: 'deploy, consume, web service'
+      href: deploy-consume-web-service-guide.md
 - name: Handleidingen
   items:
-  - name: Een werkruimte beheren
-    items:
-    - name: Maken
-      href: create-workspace.md
-    - name: Beheren
-      href: manage-workspace.md
-    - name: Problemen oplossen
-      href: troubleshooting-creating-ml-workspace.md
-    - name: Implementeren met ARM
-      href: deploy-with-resource-manager-template.md
-  - name: Trainingsgegevens importeren
-    items:
-    - name: Gegevens importeren
-      href: import-data.md
-    - name: Gegevens van on-premises SQL gebruiken
-      displayName: on-premises
-      href: use-data-from-an-on-premises-sql-server.md
-  - name: Modellen trainen
-    items:
-    - name: Beheer van de levenscyclus van experimenten
-      href: version-control.md
-    - name: Experimentherhalingen beheren
-      href: manage-experiment-iterations.md
-    - name: PowerShell gebruiken om modellen te maken
-      displayName: endpoint, endpoints
-      href: create-models-and-endpoints-with-powershell.md
-    - name: Experimenten uitproberen in AI Gallery
-      displayName: gallery
-      href: sample-experiments.md
-    - name: Resultaten evalueren en interpreteren
+    - name: Een werkruimte beheren
       items:
-      - name: Prestaties evalueren
-        href: evaluate-model-performance.md
-      - name: Parameters optimaliseren
-        displayName: optimization
-        href: algorithm-parameters-optimize.md
-      - name: Resultaten interpreteren
-        href: interpret-model-results.md
-      - name: Fouten opsporen
-        href: debug-models.md
-    - name: Modellen opnieuw trainen
+        - name: Maken
+          href: create-workspace.md
+        - name: Beheren
+          href: manage-workspace.md
+        - name: Problemen oplossen
+          href: troubleshooting-creating-ml-workspace.md
+        - name: Implementeren met ARM
+          href: deploy-with-resource-manager-template.md
+    - name: Trainingsgegevens importeren
       items:
-      - name: "'Nieuwe' webservices"
-        href: retrain-machine-learning-model.md
-      - name: Klassieke webservices
-        href: retrain-classic-web-service.md
-    - name: R en Python gebruiken
+        - name: Gegevens importeren
+          href: import-data.md
+        - name: Gegevens van on-premises SQL gebruiken
+          displayName: on-premises
+          href: use-data-from-an-on-premises-sql-server.md
+    - name: Modellen trainen
       items:
-      - name: Aan de slag met R
-        href: r-get-started.md
-      - name: R-scripts uitvoeren
-        href: extend-your-experiment-with-r.md
-      - name: Aangepaste R-modules schrijven
-        href: custom-r-modules.md
-      - name: Python-scripts uitvoeren
-        href: execute-python-scripts.md
-  - name: Een algoritme selecteren
-    items:
-    - name: Algoritmen kiezen
-      href: algorithm-choice.md
-    - name: Overzichtskaart algoritmen
-      href: algorithm-cheat-sheet.md
-    - name: Algoritmevoorbeelden
-      displayName: infographic, studio basics
-      href: basics-infographic-with-algorithm-examples.md
-  - name: Modellen implementeren
-    items:
-    - name: Een webservice implementeren
-      displayName: publish, multiple regions
-      href: publish-a-machine-learning-web-service.md
-    - name: Hoe werkt het?
-      href: model-progression-experiment-to-web-service.md
-    - name: Implementatie voorbereiden
-      href: convert-training-experiment-to-scoring-experiment.md
-    - name: Externe gegevens gebruiken
-      displayName: import, export
-      href: web-services-that-use-import-export-modules.md
-    - name: Webserviceparameters gebruiken
-      href: web-service-parameters.md
-    - name: Logboekregistratie inschakelen
-      href: web-services-logging.md
-  - name: Webservices beheren
-    items:
-    - name: Web Services-portal gebruiken
-      href: manage-new-webservice.md
-    - name: Beheren met API's
-      displayName: endpoint, endpoints
-      href: manage-web-service-endpoints-using-api-management.md
-    - name: Eindpunten maken
-      displayName: scale, scaling
-      href: create-endpoint.md
-  - name: Modellen gebruiken
-    items:
-    - name: Overzicht
-      href: consume-web-services.md
-    - name: Excel gebruiken
-      href: consuming-from-excel.md
-    - name: Excel-invoegtoepassing gebruiken
-      href: excel-add-in-for-web-services.md
-    - name: Een Batch-pool gebruiken
-      href: dedicated-capacity-for-bes-jobs.md
-  - name: Gebruiksvoorbeelden
-    items:
-    - name: Klantverloop
-      href: azure-ml-customer-churn-scenario.md
-    - name: Sentimentanalyse
-      href: text-analytics-module-tutorial.md
-    - name: Analytics vanuit Excel naar Studio migreren
-      href: linear-regression-in-azure.md
-  - name: Klantgegevens verwijderen en exporteren
-    items:
-    - name: Studio-gegevens
-      displayName: export
-      href: export-delete-personal-data-dsr.md
-    - name: Galeriegegevens
-      displayName: export
-      href: ai-gallery-control-personal-data-dsr.md
+        - name: Beheer van de levenscyclus van experimenten
+          href: version-control.md
+        - name: Experimentherhalingen beheren
+          href: manage-experiment-iterations.md
+        - name: PowerShell gebruiken om modellen te maken
+          displayName: 'endpoint, endpoints'
+          href: create-models-and-endpoints-with-powershell.md
+        - name: Experimenten uitproberen in AI Gallery
+          displayName: gallery
+          href: sample-experiments.md
+        - name: Resultaten evalueren en interpreteren
+          items:
+            - name: Prestaties evalueren
+              href: evaluate-model-performance.md
+            - name: Parameters optimaliseren
+              displayName: optimization
+              href: algorithm-parameters-optimize.md
+            - name: Resultaten interpreteren
+              href: interpret-model-results.md
+            - name: Fouten opsporen
+              href: debug-models.md
+        - name: Modellen opnieuw trainen
+          items:
+            - name: '''Nieuwe'' webservices'
+              href: retrain-machine-learning-model.md
+            - name: Klassieke webservices
+              href: retrain-classic-web-service.md
+        - name: R en Python gebruiken
+          items:
+            - name: Aan de slag met R
+              href: r-get-started.md
+            - name: R-scripts uitvoeren
+              href: extend-your-experiment-with-r.md
+            - name: Aangepaste R-modules schrijven
+              href: custom-r-modules.md
+            - name: Python-scripts uitvoeren
+              href: execute-python-scripts.md
+    - name: Een algoritme selecteren
+      items:
+        - name: Algoritmen kiezen
+          href: algorithm-choice.md
+        - name: Overzichtskaart algoritmen
+          href: algorithm-cheat-sheet.md
+        - name: Algoritmevoorbeelden
+          displayName: 'infographic, studio basics'
+          href: basics-infographic-with-algorithm-examples.md
+    - name: Modellen implementeren
+      items:
+        - name: Een webservice implementeren
+          displayName: 'publish, multiple regions'
+          href: publish-a-machine-learning-web-service.md
+        - name: Hoe werkt het?
+          href: model-progression-experiment-to-web-service.md
+        - name: Implementatie voorbereiden
+          href: convert-training-experiment-to-scoring-experiment.md
+        - name: Externe gegevens gebruiken
+          displayName: 'import, export'
+          href: web-services-that-use-import-export-modules.md
+        - name: Webserviceparameters gebruiken
+          href: web-service-parameters.md
+        - name: Logboekregistratie inschakelen
+          href: web-services-logging.md
+    - name: Webservices beheren
+      items:
+        - name: Web Services-portal gebruiken
+          href: manage-new-webservice.md
+        - name: Beheren met API's
+          displayName: 'endpoint, endpoints'
+          href: manage-web-service-endpoints-using-api-management.md
+        - name: Eindpunten maken
+          displayName: 'scale, scaling'
+          href: create-endpoint.md
+    - name: Modellen gebruiken
+      items:
+        - name: Overzicht
+          href: consume-web-services.md
+        - name: Excel gebruiken
+          href: consuming-from-excel.md
+        - name: Excel-invoegtoepassing gebruiken
+          href: excel-add-in-for-web-services.md
+        - name: Een Batch-pool gebruiken
+          href: dedicated-capacity-for-bes-jobs.md
+    - name: Gebruiksvoorbeelden
+      items:
+        - name: Klantverloop
+          href: azure-ml-customer-churn-scenario.md
+        - name: Sentimentanalyse
+          href: text-analytics-module-tutorial.md
+        - name: Analytics vanuit Excel naar Studio migreren
+          href: linear-regression-in-azure.md
+    - name: Klantgegevens verwijderen en exporteren
+      items:
+        - name: Studio-gegevens
+          displayName: export
+          href: export-delete-personal-data-dsr.md
+        - name: Galeriegegevens
+          displayName: export
+          href: ai-gallery-control-personal-data-dsr.md
 - name: Naslaginformatie
   items:
-  - name: Naslaginformatie over algoritmen en modules
-    href: /azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help
-  - name: Azure PowerShell-modules
-    href: powershell-module.md
-  - name: Foutcodes voor webservices
-    href: web-service-error-codes.md
-  - name: API's voor REST-beheer
-    href: /rest/api/machinelearning
+    - name: Naslaginformatie over algoritmen en modules
+      href: /azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help
+    - name: Azure PowerShell-modules
+      href: powershell-module.md
+    - name: Foutcodes voor webservices
+      href: web-service-error-codes.md
+    - name: API's voor REST-beheer
+      href: /rest/api/machinelearning
 - name: Resources
   items:
-  - name: Service-updates
-    href: https://azure.microsoft.com/updates/?product=machine-learning-studio
-  - name: Ondersteuning krijgen
-    href: support-aml-studio.md
-  - name: Azure-roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Regionale beschikbaarheid
-    href: https://azure.microsoft.com/regions/services/
-  - name: Prijzen
-    href: https://azure.microsoft.com/pricing/details/machine-learning/
-  - name: Aangepaste neurale netwerken (Net#)
-    href: azure-ml-netsharp-reference-guide.md
-ms.openlocfilehash: 4dacfd217bf089dac87128107901a17805117b4e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183778"
+    - name: Service-updates
+      href: 'https://azure.microsoft.com/updates/?product=machine-learning-studio'
+    - name: Ondersteuning krijgen
+      href: support-aml-studio.md
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+    - name: 'Aangepaste neurale netwerken (Net#)'
+      href: azure-ml-netsharp-reference-guide.md
