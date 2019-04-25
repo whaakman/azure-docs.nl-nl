@@ -135,8 +135,8 @@ Diagnostische gegevens van Azure Automation maakt twee categorieën van de recor
 | DscReportStatus |Of de controle op naleving is uitgevoerd. |
 | ConfigurationMode | Hoe de configuratie wordt toegepast op het knooppunt. Mogelijke waarden zijn __"ApplyOnly"__,__"ApplyandMonitior"__, en __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC geldt de configuratie en doet niets meer, tenzij er een nieuwe configuratie wordt doorgestuurd naar het doelknooppunt of wanneer een nieuwe configuratie wordt opgehaald uit een server. Na de eerste toepassing van een nieuwe configuratie DSC controleert niet op afwijking van een eerder geconfigureerde status. DSC wordt geprobeerd om toe te passen van de configuratie totdat hij erin slaagt voordat __ApplyOnly__ wordt van kracht. </li><li> __ApplyAndMonitor__: Dit is de standaardwaarde. De LCM geldt voor alle nieuwe configuraties. Als het doelknooppunt drifts van de gewenste status, rapporteert DSC na de eerste toepassing van een nieuwe configuratie, het verschil in Logboeken. DSC wordt geprobeerd om toe te passen van de configuratie totdat hij erin slaagt voordat __ApplyAndMonitor__ wordt van kracht.</li><li>__ApplyAndAutoCorrect__: DSC geldt voor alle nieuwe configuraties. Na de eerste toepassing van een nieuwe configuratie als het doelknooppunt drifts van de gewenste status, DSC rapporteert het verschil in Logboeken en vervolgens opnieuw de huidige configuratie.</li></ul> |
 | HostName_s | De naam van het beheerd knooppunt. |
-| IP-adres | Het IPv4-adres van de beheerde knooppunten. |
-| Categorie | DscNodeStatus |
+| IPAddress | Het IPv4-adres van de beheerde knooppunten. |
+| Category | DscNodeStatus |
 | Resource | De naam van de Azure Automation-account. |
 | Tenant_g | De GUID die de tenant voor de oproepende functie identificeert. |
 | NodeId_g |GUID waarmee de beheerd knooppunt. |
@@ -162,7 +162,7 @@ Diagnostische gegevens van Azure Automation maakt twee categorieën van de recor
 | OperationName |DscResourceStatusData|
 | ResultType |Of de resource is compatibel. |
 | NodeName_s |De naam van het beheerd knooppunt. |
-| Categorie | DscNodeStatus |
+| Category | DscNodeStatus |
 | Resource | De naam van de Azure Automation-account. |
 | Tenant_g | De GUID die de tenant voor de oproepende functie identificeert. |
 | NodeId_g |GUID waarmee de beheerd knooppunt. |
