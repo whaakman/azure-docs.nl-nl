@@ -229,7 +229,7 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
 |referenceCode|tekenreeks|Code gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
-|Foutcode|tekenreeks|Code gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
+|errorCode|tekenreeks|Code gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
 |emailBody|tekenreeks|E-instantie die worden gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
 |requestedUrl|tekenreeks|De URL die wordt gevraagd wanneer de pagina is niet gevonden.|  
 |referrerUrl|tekenreeks|De verwijzende site-URL voor de aangevraagde URL.|  
