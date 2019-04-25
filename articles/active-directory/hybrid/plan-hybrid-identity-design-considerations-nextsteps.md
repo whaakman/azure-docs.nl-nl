@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 41741249e9b1a142d75392025236a4d333b67666
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201479"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60295123"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory hybride identiteit ontwerp overwegingen voor volgende stappen
 Nu dat u uw vereisten definiëren en controleren van de opties voor uw beheeroplossing voor mobiele apparaten hebt voltooid, u kunt de volgende stappen voor het implementeren van de infrastructuur met ondersteuning voor die voor u en uw organisatie.

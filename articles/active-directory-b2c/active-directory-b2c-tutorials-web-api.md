@@ -3,7 +3,7 @@ title: 'Zelfstudie: toegang verlenen aan een web-API van ASP.NET - Azure Active 
 description: Zelfstudie over het gebruik van Active Directory B2C om een ASP.NET web-API te beveiligen en aan te roepen vanuit een ASP.NET-webtoepassing.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: cc4db0f2fe8f5db41f6e8332a398029bd105f3af
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756339"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60315588"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Zelfstudie: Toegang verlenen aan een web-API van ASP.NET met behulp van Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ In deze zelfstudie leert u het volgende:
 > * Een web-API-toepassing toevoegen
 > * Bereiken voor een web-API configureren
 > * Machtigingen verlenen aan de web-API
-> * Configureren van het voorbeeld voor het gebruik van de toepassing
+> * Het voorbeeld configureren voor gebruik van de toepassing
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -68,7 +68,7 @@ Als u een beveiligde web-API wilt aanroepen vanuit een app, moet u uw toepassing
 
 1. Selecteer **Toepassingen** en vervolgens *webapp1*.
 2. Selecteer **API-toegang**, en selecteer vervolgens **Toevoegen**.
-3. Selecteer in de vervolgkeuzelijst **API selecteren** de optie *webapi1*.
+3. Selecteer *webapi1* in de vervolgkeuzelijst **API selecteren**.
 4. Selecteer in de vervolgkeuzelijst **Bereiken selecteren** de bereiken **Hello.Read** en **Hello.Write** die u eerder hebt gedefinieerd.
 5. Klik op **OK**.
 
@@ -155,7 +155,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Een web-API-toepassing toevoegen
 > * Bereiken voor een web-API configureren
 > * Machtigingen verlenen aan de web-API
-> * Configureren van het voorbeeld voor het gebruik van de toepassing
+> * Het voorbeeld configureren voor gebruik van de toepassing
 
 > [!div class="nextstepaction"]
 > [Zelfstudie: Id-providers toevoegen aan uw toepassingen in Azure Active Directory B2C](tutorial-add-identity-providers.md)

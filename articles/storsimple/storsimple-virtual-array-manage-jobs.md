@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333561"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302477"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Gebruik van de service StorSimple Device Manager-taken weergeven voor de StorSimple Virtual Array
 ## <a name="overview"></a>Overzicht
@@ -54,12 +54,12 @@ Voer de volgende stappen uit om de details van elke taak weer te geven.
 3. Aan de onderkant van de pagina, klikt u op **Details**.
 4. In de **Details** in het dialoogvenster kunt u de status, details en statistieken bekijken. De volgende afbeelding toont een voorbeeld van de **back-up taakdetails** in het dialoogvenster.
    
-    ![Taakgegevens](./media/storsimple-virtual-array-manage-jobs/ova-jobs-details.png)
+    ![Taakdetails](./media/storsimple-virtual-array-manage-jobs/ova-jobs-details.png)
 
 #### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Mislukte wanneer de virtuele machine in de hypervisor wordt onderbroken
 Wanneer een taak wordt uitgevoerd op uw StorSimple Virtual Array en het apparaat (virtuele machine is ingericht in een hypervisor) voor meer dan 15 minuten wordt onderbroken, wordt de taak is mislukt. Dit is vanwege de tijd van de StorSimple Virtual Array wordt niet gesynchroniseerd met de Microsoft Azure-tijd. 
 
-Ziet u de volgende fout: "de tijd op het apparaat is gesynchroniseerd met de Microsoft Azure-tijd door meer dan 15 minuten. Zorg ervoor dat de hypervisor en het apparaat servertijden zijn gesynchroniseerd met een NTP-server. Controleer of er zijn geen problemen met de netwerkverbinding. Voor het oplossen van problemen met de netwerkverbinding, Voer diagnostische tests uit via de lokale webgebruikersinterface van uw virtueel apparaat."
+Hier ziet u de volgende fout: "De tijd op het apparaat is gesynchroniseerd met de Microsoft Azure-tijd door meer dan 15 minuten. Zorg ervoor dat de hypervisor en het apparaat servertijden zijn gesynchroniseerd met een NTP-server. Controleer of er zijn geen problemen met de netwerkverbinding. Voor het oplossen van problemen met de netwerkverbinding, Voer diagnostische tests uit via de lokale webgebruikersinterface van uw virtueel apparaat."
 
 Deze fouten van toepassing op back-up, herstel, bijwerken en failover-taken. Als uw virtuele machine in Hyper-V is ingericht, wordt de machine uiteindelijk tijd synchroniseert met de hypervisor. Wanneer dit gebeurt, kunt u de taak opnieuw starten.
 

@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
 ms.openlocfilehash: c1c20e225e15769a8cb09f60dfc371f4ec4d81f6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895846"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306863"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
@@ -391,7 +391,7 @@ Als de naam van de blob  *{20140101}-soundfile.mp3*, wordt de `name` variabele w
 
 De blobtrigger biedt verschillende eigenschappen van metagegevens. Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies in andere bindingen voor gegevensbinding of als parameters in uw code. Deze waarden hebben dezelfde semantiek als de [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) type.
 
-|Eigenschap  |Type  |Beschrijving  |
+|Eigenschap  |Type  |Description  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Het pad naar de activerende blob.|
 |`Uri`|`System.Uri`|Van de blob-URI voor de primaire locatie.|

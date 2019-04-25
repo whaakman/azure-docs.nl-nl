@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 854d0e8f6927c9ce4855435a02b4819055111ceb
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407898"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306016"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Het maken van certificaten controleren en beheren
 Van toepassing op: Azure
@@ -417,9 +417,9 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|De naam van element|Vereist|Type|Versie|Description|
+|De naam van element|Vereist|Type|Version|Description|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|Ja|array|\<Inleiding tot versie >|X509 certificaatketen als base 64 tekenreeksmatrix.|
+|x5c|Ja|matrix|\<Inleiding tot versie >|X509 certificaatketen als base 64 tekenreeksmatrix.|
 
 ### <a name="response"></a>Antwoord
 

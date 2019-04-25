@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d6ff44a8d760150df491b67ee56d62c4daff31
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 52c49bdd51bda7876d19a681bde79c9dbeeb4ea7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60284638"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Zelfstudie: Azure Active Directory-integratie met AnswerHub
 
@@ -80,7 +80,7 @@ Als u eenmalige aanmelding van Azure AD met AnswerHub wilt configureren en teste
 2. [Eenmalige aanmelding van AnswerHub configureren](#configure-answerhub-single-sign-on) om de instellingen voor eenmalige aanmelding aan de toepassingszijde in te stellen.
 3. [Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user) met de naam Britta Simon.
 4. [De Azure AD-testgebruiker toewijzen](#assign-the-azure-ad-test-user) zodat Britta Simon gebruik kan maken van eenmalige aanmelding van Azure AD.
-5. [Een AnswerHub-testgebruiker maken](#create-answerhub-test-user) die overeenkomt met en is gekoppeld aan de Azure AD-testgebruiker.
+5. Maak een testgebruiker op AnswerHub die overeenkomt met en is gekoppeld aan de gebruiker van de test Azure AD.
 6. [Eenmalige aanmelding testen](#test-single-sign-on) om te controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
@@ -184,7 +184,7 @@ In deze sectie gaat u een testgebruiker met de naam Britta Simon maken in de Azu
 
     a. Voer in het vak **Naam** **Britta Simon**in.
   
-    b. Voer in het vak **Gebruikersnaam** **brittasimon@<uwbedrijfsdomein.extensie>** in.  
+    b. In de **gebruikersnaam** Voer **brittasimon\@< yourcompanydomain.extension >**.  
     Bijvoorbeeld BrittaSimon@contoso.com.
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.

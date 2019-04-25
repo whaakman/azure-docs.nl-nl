@@ -18,11 +18,11 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7b0242a8e3745a0014e5c2a1289ca2bc8c85c75
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484540"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411365"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Configureerbare levensduur van tokens in Azure Active Directory (Preview)
 
@@ -370,7 +370,7 @@ Hiermee maakt u een nieuw beleid.
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
-| Parameters | Description | Voorbeeld |
+| Parameters | Beschrijving | Voorbeeld |
 | --- | --- | --- |
 | <code>&#8209;Definition</code> |Matrix van stringified JSON die de regels van het beleid bevat. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;DisplayName</code> |De tekenreeks van de naam van het beleid. |`-DisplayName "MyTokenPolicy"` |
@@ -400,7 +400,7 @@ Hiermee haalt u alle apps en service-principals die zijn gekoppeld aan een belei
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| Parameters | Description | Voorbeeld |
+| Parameters | Beschrijving | Voorbeeld |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Object-id (Id)** van het gewenste beleid. |`-Id <ObjectId of Policy>` |
 
@@ -447,7 +447,7 @@ Het opgegeven beleid is gekoppeld aan een toepassing.
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
-| Parameters | Description | Voorbeeld |
+| Parameters | Beschrijving | Voorbeeld |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Object-id (Id)** van de toepassing. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**Object-id** van het beleid. | `-RefObjectId <ObjectId of Policy>` |
@@ -505,7 +505,7 @@ Hiermee haalt u een beleid dat is gekoppeld aan de opgegeven service-principal.
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
-| Parameters | Description | Voorbeeld |
+| Parameters | Beschrijving | Voorbeeld |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Object-id (Id)** van de toepassing. | `-Id <ObjectId of Application>` |
 
@@ -518,7 +518,7 @@ Hiermee verwijdert u het beleid uit de opgegeven service-principal.
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
-| Parameters | Description | Voorbeeld |
+| Parameters | Beschrijving | Voorbeeld |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Object-id (Id)** van de toepassing. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**Object-id** van het beleid. | `-PolicyId <ObjectId of Policy>` |

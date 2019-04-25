@@ -18,11 +18,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2598bb4deef0c7dae9f5df558ec1054ad02fb2f7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531110"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60297039"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Toegang verlenen aan webtoepassingen voor Azure Active Directory met behulp van de OAuth 2.0-stroom voor het verlenen van code
 
@@ -204,12 +204,12 @@ Een voorbeeld-foutbericht kan er als volgt:
   "correlation_id": "a8125194-2dc8-4078-90ba-7b6592a7f231"
 }
 ```
-| Parameter | Description |
+| Parameter | Beschrijving |
 | --- | --- |
 | error |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
 | error_codes |Een lijst van de STS-specifieke foutcodes die bij het diagnostische gegevens helpen. |
-| tijdstempel |De tijd waarop de fout is opgetreden. |
+| timestamp |De tijd waarop de fout is opgetreden. |
 | trace_id |Een unieke id voor de aanvraag die bij het diagnostische gegevens helpen. |
 | correlation_id |Een unieke id voor de aanvraag die bij het diagnostische gegevens voor onderdelen helpen. |
 
@@ -266,7 +266,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="bearer-scheme-error-codes"></a>Foutcodes voor Bearer-schema
 De specificatie RFC 6750 definieert de volgende fouten voor resources die gebruikmaken van de WWW-Authenticate-header en Bearer-schema in het antwoord.
 
-| HTTP-statuscode | Foutcode | Description | Clientactie |
+| HTTP-statuscode | Foutcode | Beschrijving | Clientactie |
 | --- | --- | --- | --- |
 | 400 |invalid_request |De aanvraag is niet grammaticaal correct. Het kan bijvoorbeeld worden een parameter ontbreekt of met behulp van dezelfde parameter twee keer. |Los de fout en probeer de aanvraag. Dit type fout moet worden uitgevoerd tijdens de ontwikkeling en bij de eerste test worden gedetecteerd. |
 | 401 |invalid_token |Het toegangstoken ontbreekt, is ongeldig of is ingetrokken. De waarde van de parameter error_description biedt aanvullende informatie. |Een nieuw token aanvragen bij de autorisatieserver. Als het nieuwe token is mislukt, heeft een onverwachte fout opgetreden. Een foutbericht weergegeven voor de gebruiker en probeer het opnieuw na de willekeurige vertraging verzenden |
@@ -341,7 +341,7 @@ Een voorbeeld-foutbericht kan er als volgt:
 | error |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
 | error_codes |Een lijst van de STS-specifieke foutcodes die bij het diagnostische gegevens helpen. |
-| tijdstempel |De tijd waarop de fout is opgetreden. |
+| timestamp |De tijd waarop de fout is opgetreden. |
 | trace_id |Een unieke id voor de aanvraag die bij het diagnostische gegevens helpen. |
 | correlation_id |Een unieke id voor de aanvraag die bij het diagnostische gegevens voor onderdelen helpen. |
 

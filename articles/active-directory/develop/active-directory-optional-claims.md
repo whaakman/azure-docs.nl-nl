@@ -18,11 +18,11 @@ ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501056"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60300141"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedure: Geef optioneel claims voor uw Azure AD-app
 
@@ -52,7 +52,7 @@ De set optioneel claims die standaard beschikbaar is voor toepassingen om te geb
 
 **Tabel 2: V1.0 en optionele V2.0 claim instellen**
 
-| Name                       |  Beschrijving   | Tokentype | Gebruikerstype | Opmerkingen  |
+| Name                       |  Description   | Tokentype | Gebruikerstype | Opmerkingen  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Tijd wanneer de gebruiker laatste geverifieerd. Zie de OpenID Connect-specificatie.| JWT        |           |  |
 | `tenant_region_scope`      | De regio van de resource-tenant | JWT        |           | |
@@ -100,7 +100,7 @@ Sommige optionele claims kunnen worden geconfigureerd voor het wijzigen van de m
 
 **Tabel 4: Waarden voor het configureren van optionele claims**
 
-| Naam van eigenschap  | Aanvullende eigenschapsnaam | Description |
+| Naam van eigenschap  | Aanvullende eigenschapsnaam | Beschrijving |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Kan worden gebruikt voor SAML- en JWT antwoorden en v1.0 en v2.0-tokens. |
 |                | `include_externally_authenticated_upn`  | Bevat de UPN die is opgeslagen in de resource-tenant van de Gast. Bijvoorbeeld: `foo_hometenant.com#EXT#@resourcetenant.com` |             
@@ -164,7 +164,7 @@ Verklaart de optionele claims aangevraagd door een toepassing. Een toepassing ku
 
 **Tabel 5: OptionalClaims Type-eigenschappen**
 
-| Name        | Type                       | Beschrijving                                           |
+| Name        | Type                       | Description                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Verzameling (OptionalClaim) | De optionele claims geretourneerd in de ID van de JWT-token. |
 | `accessToken` | Verzameling (OptionalClaim) | De optionele claims geretourneerd in de JWT-toegangstoken. |
@@ -177,7 +177,7 @@ Als dit wordt ondersteund door een specifieke claim, kunt u ook het gedrag van h
 
 **Tabel 6: OptionalClaim Type-eigenschappen**
 
-| Name                 | Type                    | Description                                                                                                                                                                                                                                                                                                   |
+| Name                 | Type                    | Beschrijving                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | De naam van de optionele claim.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | De bron (directory-object) van de claim. Er zijn vooraf gedefinieerde claims en de gebruiker gedefinieerde claims van extensie-eigenschappen. Als de waarde null is, is de claim een vooraf gedefinieerde optioneel claim. Als waarde voor de gebruiker is, is de waarde in de naameigenschap van de extensie-eigenschap van het gebruikersobject. |

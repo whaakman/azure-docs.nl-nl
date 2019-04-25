@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0522311c12da8416504a6d502e1e2247ff8ce15b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 256ca5c2f26a6bac6bdfd09e4dd6294ec5a569ca
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104145"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292194"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemen met aanmelden bij een Microsoft-toepassing
 
@@ -31,7 +31,7 @@ Er zijn drie manieren dat een gebruiker toegang tot een Microsoft gepubliceerde 
 
 -   Voor toepassingen in de Office 365 of andere betaalde suites kunnen gebruikers krijgen toegang tot en met **toewijzing van gebruiksrecht** rechtstreeks aan hun gebruikersaccount of via een groep met behulp van onze mogelijkheid voor het toewijzen van licentie op basis van een groep.
 
--   Voor toepassingen die Microsoft of van een derde partij publiceert naar eigen inzicht voor iedereen, gebruikers kunnen toegang worden verleend via **toestemming van de gebruiker**. This0 betekent dat ze zich aanmelden bij de toepassing met hun Azure AD werk of School-account en toe te staan om toegang hebben tot een beperkt aantal gegevens op hun account.
+-   Voor toepassingen die Microsoft of van een derde partij publiceert naar eigen inzicht voor iedereen, gebruikers kunnen toegang worden verleend via **toestemming van de gebruiker**. Dit betekent dat ze zich aanmelden bij de toepassing met hun Azure AD werk of School-account en toe te staan om toegang hebben tot een beperkt aantal gegevens op hun account.
 
 -   Voor toepassingen die Microsoft of een 3e partij publiceert naar eigen inzicht voor iedereen, gebruikers kunnen ook toegang worden verleend via **administrator toestemming**. Dit betekent dat een beheerder de toepassing kan worden gebruikt door iedereen in de organisatie, zodat ze zich aanmelden bij de toepassing met een account voor globale beheerders en toegang aan iedereen in de organisatie verlenen heeft bepaald.
 

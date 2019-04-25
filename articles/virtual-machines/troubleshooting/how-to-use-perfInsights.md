@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275732"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318350"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights gebruiken
 
@@ -83,12 +83,12 @@ In dit scenario wordt een speciale prestaties teller vastleggen, samen met een n
 | I/o-grootte      | Gem. Aanvraag voor bytes/gegevens       |
 |              | Gem. Bytes/Read               |
 |              | Gem. Bytes/schrijven              |
-| Doorvoer   | Gegevens Bytes per seconde                |
+| Doorvoer   | Data Bytes/sec                |
 |              | Gelezen Bytes per seconde                |
 |              | Geschreven Bytes per seconde               |
 | Lengte van wachtrij | Gem. Wachtrijlengte voor lezen        |
 |              | Gem. Lengte van wachtrij schrijven       |
-|              | Gem. Wachtrijlengte van gegevens        |
+|              | Gem. Data Queue Length        |
 
 ### <a name="advanced-performance-analysis"></a>Geavanceerde analyse
 
@@ -132,15 +132,15 @@ Informatie over Windows-VM, schijven of pools opslagconfiguratie, prestatiemeter
 
 Een op regels gebaseerde engine op de achtergrond voor het verzamelen van gegevens en doorlopende prestatieproblemen uitgevoerd. De volgende regels worden momenteel ondersteund:
 
-- HighCpuUsage regel: detecteert perioden van hoge CPU-gebruik en de bovenste verbruikers van de CPU-gebruik tijdens deze perioden wordt weergegeven.
-- HighDiskUsage regel: perioden van intensief gebruik van fysieke schijven worden gedetecteerd en ziet u de eerste schijf gebruik consumenten tijdens deze perioden.
-- HighResolutionDiskMetric regel: toont IOPS, doorvoer en i/o latentie metrische gegevens per 50 milliseconden voor elke fysieke schijf. Zo kunt u snel identificeren schijf beperking perioden.
-- HighMemoryUsage regel: hoge geheugen-gebruik perioden detecteert en ziet u de bovenste geheugen gebruik consumenten tijdens deze perioden.
+- HighCpuUsage regel: Detecteert perioden van hoge CPU-gebruik en de bovenste verbruikers van de CPU-gebruik tijdens deze perioden wordt weergegeven.
+- HighDiskUsage regel: Detecteert perioden van intensief gebruik van fysieke schijven en ziet u de eerste schijf gebruik consumenten tijdens deze perioden.
+- HighResolutionDiskMetric regel: IOPS, doorvoer en i/o latentie metrische gegevens per 50 milliseconden voor elke fysieke schijf bevat. Zo kunt u snel identificeren schijf beperking perioden.
+- HighMemoryUsage regel: Hoge geheugen-gebruik perioden detecteert en ziet u de bovenste geheugen gebruik consumenten tijdens deze perioden.
 
 > [!NOTE] 
 > Windows-versies met de .NET Framework 4.5 of hoger worden momenteel ondersteund.
 
-### <a name="performance-counter-trace-"></a>Prestaties teller tracering (\*\*)
+### <a name="performance-counter-trace-"></a>Prestaties teller tracering (*)
 
 Verzamelt de volgende prestatiemeteritems:
 
@@ -156,7 +156,7 @@ Verzamelt de volgende prestatiemeteritems:
 #### <a name="for-azure-files"></a>Voor Azure Files
 \SMB Clientshares
 
-### <a name="diskspd-benchmark-trace-"></a>Diskspd benchmark tracering (\*\*\*)
+### <a name="diskspd-benchmark-trace-"></a>Diskspd benchmark tracering (*)
 Diskspd i/o-werkbelasting tests uit (Besturingssysteemschijf [schrijven] en groep-stations [lezen/schrijven])
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>Het hulpprogramma PerfInsights uitvoeren op uw virtuele machine
@@ -167,7 +167,7 @@ Diskspd i/o-werkbelasting tests uit (Besturingssysteemschijf [schrijven] en groe
 
 -  Dit hulpprogramma moet worden uitgevoerd op de virtuele machine waarop het prestatieprobleem. 
 
--  De volgende besturingssystemen worden ondersteund: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016; Windows 8.1 en Windows 10.
+-  De volgende besturingssystemen worden ondersteund: Windows Server 2008 R2, WindowsServer 2012, Windows Server 2012 R2 en WindowsServer 2016; Windows 8.1 en Windows 10.
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Mogelijke problemen wanneer u het hulpprogramma op de productie-VM's uitvoeren
 
@@ -300,7 +300,7 @@ De **diagnostische** tabblad bevat informatie over bovenste verbruikers van CPU,
 
 Diskspd is een opslag load-generator en prestaties testen hulpprogramma van Microsoft. Zie voor meer informatie, [Diskspd](https://github.com/Microsoft/diskspd).
 
-### <a name="xperf"></a>XPerf
+### <a name="xperf"></a>Xperf
 
 XPerf is een opdrachtregelprogramma voor het vastleggen van traces uit de werkset van de prestaties van Windows. Zie voor meer informatie, [Windows prestaties Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 

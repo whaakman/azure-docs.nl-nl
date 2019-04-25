@@ -1,6 +1,6 @@
 ---
 title: Aangepaste Verizon-rapporten | Microsoft Docs
-description: 'U kunt gebruikspatronen voor uw CDN weergeven met behulp van de volgende rapporten: bandbreedte, gegevensoverdracht, treffers, Cachestatussen, Cache Hit Ratio, IPV4/IPV6-gegevens overgebracht.'
+description: 'U kunt gebruikspatronen voor uw CDN bekijken met behulp van de volgende rapporten: Bandbreedte, gegevens overgebracht, treffers, Cachestatussen, het aantal cachetreffers, IPV4/IPV6-gegevens die worden overgebracht.'
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323572"
 ---
 # <a name="custom-reports-from-verizon"></a>Aangepaste Verizon-rapporten
 
@@ -49,13 +49,13 @@ Een aangepast rapport genereren met het definiëren van de volgende opties:
 
    - Treffers: Geeft het totale aantal aanvragen die worden doorgestuurd naar een edge-CNAME waarop de aangepaste rapportagefunctionaliteit is ingeschakeld. Met deze metriek omvat niet de statuscode geretourneerd naar de client.
 
-   - De overgedragen gegevens: Geeft de totale hoeveelheid gegevens die van de edge-servers worden overgedragen naar de HTTP-clients (bijvoorbeeld webbrowsers) voor aanvragen die worden doorgestuurd naar een edge-CNAME waarop de aangepaste rapportagefunctionaliteit is ingeschakeld. De hoeveelheid overgedragen gegevens wordt berekend door het HTTP-antwoordheaders toe te voegen aan de antwoordtekst. Als gevolg hiervan is de hoeveelheid gegevens die worden overgedragen voor elke asset groter is dan de werkelijke bestandsgrootte.
+   - Overgedragen gegevens: Geeft de totale hoeveelheid gegevens die van de edge-servers worden overgedragen naar de HTTP-clients (bijvoorbeeld webbrowsers) voor aanvragen die worden doorgestuurd naar een edge-CNAME waarop de aangepaste rapportagefunctionaliteit is ingeschakeld. De hoeveelheid overgedragen gegevens wordt berekend door het HTTP-antwoordheaders toe te voegen aan de antwoordtekst. Als gevolg hiervan is de hoeveelheid gegevens die worden overgedragen voor elke asset groter is dan de werkelijke bestandsgrootte.
 
-- Groeperingen: Bepaalt het type van de statistieken die worden weergegeven onder het staafdiagram. De volgende opties worden ondersteund:
+- Groepen: Bepaalt het type van de statistieken die worden weergegeven onder het staafdiagram. De volgende opties worden ondersteund:
 
-   - HTTP-responscodes: Organiseert statistieken op HTTP-responscode (bijvoorbeeld 200, 403, etc.) geretourneerd naar de client. 
+   - HTTP-responscodes: Statistieken op HTTP-responscode organiseert (bijvoorbeeld 200, 403, etc.) geretourneerd naar de client. 
 
-   - Status van de cache: Organiseert statistieken met de status van de cache.
+   - Cache Status: Organiseert statistieken met de status van de cache.
 
 
 Om in te stellen het datumbereik voor het rapport, u kunt selecteren een vooraf gedefinieerde datumbereik, zoals **vandaag** of **deze Week**, uit de vervolgkeuzelijst of u kunt selecteren **aangepaste** en Voer handmatig een datumbereik door te klikken op de pictogrammen van de agenda. 
@@ -73,10 +73,10 @@ U kunt de gegevens in Excel-indeling exporteren door te klikken op het Excel-sym
 | 2xx                       | Geeft het totale aantal aanvragen of overgedragen gegevens (MB) voor de rand CNAME die in een 2xx HTTP-statuscode resulteert (bijvoorbeeld 200 OK). |
 | 3xx                       | Geeft het totale aantal aanvragen of overgedragen gegevens (MB) voor de rand CNAME die in een 3xx HTTP-statuscode resulteert (bijvoorbeeld 302 gevonden of 304 niet gewijzigd. |
 | 4XX                       | Geeft het totale aantal aanvragen of overgedragen gegevens (MB) voor de rand CNAME die in een HTTP-statuscode 4xx resulteert (bijvoorbeeld 400 Ongeldige aanvraag, 403 verboden of 404 niet gevonden). |
-| 5XX                       | Geeft het totale aantal aanvragen of overgedragen gegevens (MB) voor de rand CNAME die in een 5xx HTTP-statuscode (bijvoorbeeld 500 Interne serverfout of 502 Ongeldige Gateway resulteert). |
+| 5xx                       | Geeft het totale aantal aanvragen of overgedragen gegevens (MB) voor de rand CNAME die in een 5xx HTTP-statuscode (bijvoorbeeld 500 Interne serverfout of 502 Ongeldige Gateway resulteert). |
 | Percentage treffers in cache               | Geeft het percentage van gecachet kan worden aanvragen die zijn behandeld rechtstreeks uit de cache aan de aanvrager. |
 | Cachetreffers                | Geeft het totale aantal aanvragen of overgedragen gegevens (MB) voor de rand CNAME die in een cache-hits (bijvoorbeeld TCP_EXPIRED_HIT, TCP_HIT of TCP_PARTIAL_HIT resulteert). Een cache-hits treedt op wanneer de versie van een cache van de aangevraagde inhoud is gevonden. |
-| Overgedragen gegevens (MB)     | Geeft de totale hoeveelheid gegevens overgedragen (MB) van het edge-servers naar HTTP-clients (webbrowsers) voor de CNAME van de rand aan. De hoeveelheid overgedragen gegevens wordt berekend door de HTTP-antwoordheaders toe te voegen aan de antwoordtekst. Als gevolg hiervan is de hoeveelheid gegevens die worden overgedragen voor elke asset groter is dan de werkelijke bestandsgrootte. |
+| Data Transferred (MB)     | Geeft de totale hoeveelheid gegevens overgedragen (MB) van het edge-servers naar HTTP-clients (webbrowsers) voor de CNAME van de rand aan. De hoeveelheid overgedragen gegevens wordt berekend door de HTTP-antwoordheaders toe te voegen aan de antwoordtekst. Als gevolg hiervan is de hoeveelheid gegevens die worden overgedragen voor elke asset groter is dan de werkelijke bestandsgrootte. |
 | Beschrijving               | Identificeert een rand CNAME door de hostnaam |
 | Treffers                      | Geeft het totale aantal aanvragen naar de rand CNAME |
 | Missers                    | Geeft het totale aantal aanvragen of overgedragen gegevens (MB) voor de rand CNAME die in een cache ontbreekt (bijvoorbeeld TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS of TCP_MISS resulteert). Een cache ontbreekt treedt op wanneer de aangevraagde inhoud is niet in de cache opgeslagen op het edge-server die de aanvraag gehonoreerd. | 

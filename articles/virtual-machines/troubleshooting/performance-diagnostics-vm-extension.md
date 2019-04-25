@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002733"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60307851"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Prestaties van Azure Diagnostics VM-extensie voor Windows
 
@@ -109,7 +109,7 @@ Volg deze instructies voor de extensie installeren op Windows-machines:
     > [!NOTE]
     > De extensie wordt uitgevoerd wanneer het inrichten is voltooid. Het duurt twee minuten of minder om voor het eenvoudige scenario te voltooien. Voor andere scenario's, wordt deze uitgevoerd via de duur van de opgegeven tijdens de installatie.
 
-## <a name="remove-the-extension"></a>Verwijder de extensie
+## <a name="remove-the-extension"></a>De extensie verwijderen
 Als u wilt verwijderen van de extensie van een virtuele machine, de volgende stappen uit:
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com), selecteer de virtuele machine van waaruit u wilt deze extensie te verwijderen en selecteer vervolgens de **extensies** blade. 

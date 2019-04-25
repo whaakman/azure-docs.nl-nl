@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 2cd3fdc9387952277c25fa07c62a0faae2993089
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 16822a4928f0a68146bdb55f5bab4dd99df6236b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478243"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329537"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Verkeer naar specifieke eindpunten routeren met Traffic Manager op basis van subnets van gebruiker
 
@@ -63,12 +63,13 @@ In dit gedeelte maakt u twee virtuele machines *InternalWebsite* en *ProdWebsite
 
     |Instelling|Waarde|
     |---|---|
-    |Naam|InternalWebsite|
+    |Name|InternalWebsite|
     |Gebruikersnaam| Voer een gebruikersnaam naar keuze in.|
     |Wachtwoord| Voer een wachtwoord naar keuze in. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Resourcegroep| Selecteer **Nieuw** en typ *myResourceGroupTM1*.|
-    |Locatie| Selecteer **US - oost**.|
+    |Location| Selecteer **US - oost**.|
     |||
+
 4. Selecteer een VM-grootte onder **Kies een grootte**.
 5. Selecteer de volgende waarden voor **Instellingen** en selecteer **OK**:
     
@@ -78,6 +79,7 @@ In dit gedeelte maakt u twee virtuele machines *InternalWebsite* en *ProdWebsite
     |Netwerkbeveiligingsgroep|Selecteer **Basic** en selecteer in de vervolgkeuzelijst **Openbare binnenkomende poorten selecteren** de opties **HTTP** en **RDP** |
     |Diagnostische gegevens over opstarten|Selecteer **Uitgeschakeld**.|
     |||
+
 6. Selecteer onder **Maken** in het **Overzicht** **Maken** om de implementatie van de VM te starten.
 
 7. Volg de stappen 1-6 nogmaals, met de volgende wijzigingen:
@@ -85,10 +87,11 @@ In dit gedeelte maakt u twee virtuele machines *InternalWebsite* en *ProdWebsite
     |Instelling|Waarde|
     |---|---|
     |Resourcegroep | Selecteer **Nieuw** en typ *myResourceGroupTM2*|
-    |Locatie|Europa -west|
+    |Location|Europa -west|
     |VM-naam | ProdWebsite|
     |Virtueel netwerk | Selecteer **Virtueel netwerk** in **Virtueel netwerk maken** en voer voor **Naam** *myVNet2* en voor het subnet  *mySubnet* in.|
     |||
+
 8. Het maken van de VM's duurt enkele minuten. Ga niet verder met de overige stappen voordat beide VM's zijn gemaakt.
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>IIS installeren en de standaardwebpagina aanpassen
@@ -144,7 +147,7 @@ In dit gedeelte maakt u een virtuele machine (*UserVMUS* en *UserVMEurope*) in e
 
     |Instelling|Waarde|
     |---|---|
-    |Naam|*UserVMUS*|
+    |Name|*UserVMUS*|
     |Gebruikersnaam| Voer een gebruikersnaam naar keuze in.|
     |Wachtwoord| Voer een wachtwoord naar keuze in. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Resourcegroep| Selecteer **Bestaande** en selecteer vervolgens *myResourceGroupTM1*.|
@@ -152,6 +155,7 @@ In dit gedeelte maakt u een virtuele machine (*UserVMUS* en *UserVMEurope*) in e
 
 4. Selecteer een VM-grootte onder **Kies een grootte**.
 5. Selecteer de volgende waarden voor **Instellingen** en selecteer **OK**:
+
     |Instelling|Waarde|
     |---|---|
     |Virtueel netwerk| Selecteer **Virtueel netwerk** in **Virtueel netwerk maken** en voer voor **Naam** *myVNet3* en voor het subnet *mySubnet3* in.|
@@ -163,7 +167,7 @@ In dit gedeelte maakt u een virtuele machine (*UserVMUS* en *UserVMEurope*) in e
 
 7. Volg de stappen 1-5 nogmaals, maar dan met de volgende wijzigingen:
 
-    |Instelling|Waarde|
+    |Instelling|Value|
     |---|---|
     |VM-naam | *UserVMEurope*|
     |Resourcegroep | Selecteer **Bestaande** en typ vervolgens *myResourceGroupTM2*|
@@ -177,9 +181,10 @@ Maak een Traffic Manager-profiel waarmee u specifieke eindpunten kunt retournere
 
 1. Selecteer linksboven in het scherm de optie **Een resource maken** > **Netwerken** > **Traffic Manager-profiel** > **Maken**.
 2. Voer in  **Traffic Manager-profiel maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **Maken**:
+
     | Instelling                 | Waarde                                              |
     | ---                     | ---                                                |
-    | Naam                   | Deze naam moet uniek zijn binnen de zone trafficmanager.net en resulteert in de DNS-naam, trafficmanager.net, die wordt gebruikt voor het openen van uw Traffic Manager-profiel.                                   |
+    | Name                   | Deze naam moet uniek zijn binnen de zone trafficmanager.net en resulteert in de DNS-naam, trafficmanager.net, die wordt gebruikt voor het openen van uw Traffic Manager-profiel.                                   |
     | Routeringsmethode          | Selecteer de routeringsmethode **Subnet**.                                       |
     | Abonnement            | Selecteer uw abonnement.                          |
     | Resourcegroep          | Selecteer **Bestaande** en voer *myResourceGroupTM1* in. |
@@ -199,7 +204,7 @@ Voeg de twee virtuele machines toe waarop de IIS-servers worden uitgevoerd - *In
     | Instelling                 | Waarde                                              |
     | ---                     | ---                                                |
     | Type                    | Azure-eindpunt                                   |
-    | Naam           | myInternalWebSiteEndpoint                                        |
+    | Name           | myInternalWebSiteEndpoint                                        |
     | Doelbrontype           | Openbaar IP-adres                          |
     | Doelbron          | **Kies een openbaar IP-adres** om het overzicht van resources met openbare IP-adressen onder hetzelfde abonnement weer te geven. Selecteer in **Resource** het openbare IP-adres met de naam *InternalWebsite-ip*. Dit is het openbare IP-adres van de IIS-server VM in VS-Oost.|
     |  Instellingen voor subnetroutering    |   Voeg het IP-adres van de test-VM *UserVMUS* toe. Elke gebruikersquery die van deze virtuele machine afkomstig is, zal naar de *InternalWebSiteEndpoint* worden omgeleid.    |

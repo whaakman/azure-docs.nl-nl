@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02fc505c8f14f4cc0e486502060a16af47c68bbc
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 4afcbffa778c902c1b32979c69ca91ab0955f739
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439019"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286833"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-risicogebeurtenissen
 
@@ -52,7 +52,7 @@ Azure Active Directory detecteert momenteel zes typen risicogebeurtenissen:
 Het inzicht u voor een gedetecteerde risicogebeurtenis krijgt is gekoppeld aan uw Azure AD-abonnement. 
 
 * Met de **Azure AD Premium P2-editie**, krijgt u de meest gedetailleerde informatie over alle onderliggende detecties. 
-* Met de **editie van Azure AD Premium P1**, detecties die niet bij uw licentie inbegrepen zijn worden weergegeven als de risicogebeurtenis **aanmelden met extra risico gedetecteerd**.
+* Met de **editie van Azure AD Premium P1**, geavanceerde detectie (zoals onbekende aanmelden eigenschappen) zijn niet inbegrepen bij uw licentie en wordt weergegeven onder de naam **aanmelden met extra risico gedetecteerd** . Bovendien worden de risico's detailvelden en risiconiveau verborgen.
 
 Tijdens de detectie van risicogebeurtenissen al een belangrijk aspect vertegenwoordigt van de beveiliging van uw identiteiten, hebt u ook de optie voor het handmatig ermee of automatische antwoorden implementeren door het beleid voor voorwaardelijke toegang configureren. Zie voor meer informatie, [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

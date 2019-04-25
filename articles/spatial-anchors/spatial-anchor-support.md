@@ -9,11 +9,11 @@ ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: c372b86861452c48b2114073419d4ed709ff115c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109879"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303326"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>De ondersteuningsopties voor Azure ruimtelijke ankers
 
@@ -32,7 +32,7 @@ Een ticket technische ondersteuning binnen het Azure-Portal voor Azure ruimtelij
 1. Bij het voltooien van de velden ticket: 
 
 - Type probleem: Technisch
-- Service: Ruimtelijke ankers
+- Service: Spatial Anchors
 
 ![Ondersteuning in Azure portal ticket velden](./media/spatial-anchor-support3.png)
 

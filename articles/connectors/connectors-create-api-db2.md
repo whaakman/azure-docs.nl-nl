@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60314073"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>IBM DB2-resources beheren met Azure Logic Apps
 
@@ -29,7 +29,7 @@ De DB2-connector bevat een Microsoft-client die met externe servers voor DB2 via
 
 De IBM DB2-connector ondersteunt deze IBM DB2-platforms en versies samen met IBM DB2 compatibele producten, zoals IBM Bluemix dashDB, die ondersteuning bieden voor gedistribueerde relationele Database architectuur (DRDA) SQL Access Manager (SQLAM) versie 10 en 11:
 
-| Platform | Versie | 
+| Platform | Version | 
 |----------|---------|
 | IBM DB2 voor z/OS | 11.1, 10.1 |
 | IBM DB2 voor ik | 7.3, 7.2, 7.1 |
@@ -103,7 +103,7 @@ Bijvoorbeeld:
 
 Voordat u de verbinding maakt, hebt u al uw on-premises gegevensgateway is geïnstalleerd. Anders wordt u niet voltooien om uw verbinding. Als u de gatewayinstallatie hebt, gaat u verder met het leveren van details voor deze verbinding en kies vervolgens **maken**.
 
-| Eigenschap | Vereist | Beschrijving |
+| Eigenschap | Vereist | Description |
 |----------|----------|-------------|
 | **Verbinding maken via on-premises gateway** | Ja | Is van toepassing wanneer u wilt dat een on-premises-verbinding en ziet u de on-premises verbindingseigenschappen. |
 | **Verbindingsnaam** | Ja | De naam voor de verbinding, bijvoorbeeld 'MyLogicApp-DB2-verbinding' | 
@@ -234,7 +234,7 @@ Als u wilt één record toevoegen aan een DB2-database-tabel, gebruikt u de **ri
 
    Dit zijn de eigenschappen voor dit voorbeeld:
 
-   | Eigenschap | Vereist | Description |
+   | Eigenschap | Vereist | Beschrijving |
    |----------|----------|-------------|
    | **Tabelnaam** | Ja | De tabel waar de record, zoals 'Gebied' toe te voegen |
    | **Gebied-ID** | Ja | De ID voor het gebied toe te voegen, zoals "99999" |
@@ -281,7 +281,7 @@ Als u wilt één record in een DB2-database-tabel bijwerken, gebruikt u de **rij
 
    Dit zijn de eigenschappen voor dit voorbeeld:
 
-   | Eigenschap | Vereist | Beschrijving |
+   | Eigenschap | Vereist | Description |
    |----------|----------|-------------|
    | **Tabelnaam** | Ja | De tabel waar de record, zoals "Gebied" bij te werken |
    | **Rij-ID** | Ja | De ID voor de record bij te werken, zoals "99999" |

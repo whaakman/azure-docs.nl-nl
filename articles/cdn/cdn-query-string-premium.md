@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: 2f0a361d53489e22ccc8e41406e5b86b423ea2f6
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091399"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324804"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Besturingselement voor Azure CDN caching-gedrag met queryreeksen - premium-laag
 > [!div class="op_single_selector"]
@@ -37,14 +37,14 @@ Met Azure Content Delivery Network (CDN), kunt u bepalen hoe bestanden in cache 
 
 Drie modi voor query-tekenreeks zijn beschikbaar:
 
-- **Standard-cache**: standaardmodus. In deze modus wordt het CDN point of presence (POP)-knooppunt geeft de queryreeksen van de aanvrager aan de oorspronkelijke server op de eerste aanvraag en de activa in de cache opslaat. Alle volgende aanvragen voor de activa die worden aangeleverd vanuit de POP-server worden de queryreeksen negeren totdat de activa in de cache verloopt.
+- **standard-cache**: Standaardmodus. In deze modus wordt het CDN point of presence (POP)-knooppunt geeft de queryreeksen van de aanvrager aan de oorspronkelijke server op de eerste aanvraag en de activa in de cache opslaat. Alle volgende aanvragen voor de activa die worden aangeleverd vanuit de POP-server worden de queryreeksen negeren totdat de activa in de cache verloopt.
 
     >[!IMPORTANT] 
     > Als het token autorisatie voor elk pad voor dit account is ingeschakeld, is standard-cachemodus de enige modus die kan worden gebruikt. 
 
-- **geen cache**: In deze modus kan aanvragen met queryreeksen zijn niet in cache opgeslagen op het CDN POP-knooppunt. Het POP-knooppunt de asset rechtstreeks vanuit de oorspronkelijke server opgehaald en doorgegeven aan de aanvrager met elke aanvraag.
+- **no-cache**: In deze modus kan aanvragen met queryreeksen zijn niet in cache opgeslagen op het CDN POP-knooppunt. Het POP-knooppunt de asset rechtstreeks vanuit de oorspronkelijke server opgehaald en doorgegeven aan de aanvrager met elke aanvraag.
 
-- **de unieke cache**: In deze modus kan elke aanvraag met een unieke URL, met inbegrip van de query-tekenreeks wordt beschouwd als een unieke asset met de eigen cache. Het antwoord van de oorspronkelijke server voor een aanvraag voor example.ashx?q=test1 is bijvoorbeeld in de cache opgeslagen met het POP-knooppunt en voor daaropvolgende caches met dezelfde querytekenreeks geretourneerd. Een aanvraag voor example.ashx?q=test2 is in de cache opgeslagen als een afzonderlijk actief met een eigen time-to-live-instelling.
+- **unique-cache**: Elke aanvraag met een unieke URL, met inbegrip van de query-tekenreeks wordt in deze modus wordt behandeld als een unieke asset met de eigen cache. Het antwoord van de oorspronkelijke server voor een aanvraag voor example.ashx?q=test1 is bijvoorbeeld in de cache opgeslagen met het POP-knooppunt en voor daaropvolgende caches met dezelfde querytekenreeks geretourneerd. Een aanvraag voor example.ashx?q=test2 is in de cache opgeslagen als een afzonderlijk actief met een eigen time-to-live-instelling.
    
     >[!IMPORTANT] 
     > Gebruik deze modus niet wanneer de query-tekenreeks parameters waarmee bij elke aanvraag, zoals een sessie-ID of een gebruikersnaam, bevat omdat het leidt tot een lage Cachetreffer verhouding.

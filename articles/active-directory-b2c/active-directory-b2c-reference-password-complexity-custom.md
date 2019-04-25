@@ -3,7 +3,7 @@ title: Configureren van de complexiteit van wachtwoorden met behulp van aangepas
 description: Klik hier voor meer informatie over het configureren van de vereisten voor wachtwoordcomplexiteit met behulp van een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 12/13/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: e8e3157bc9dfc97d364effee2ea90cfad85d18ff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317136"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configureren van de complexiteit van wachtwoorden met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -112,8 +112,8 @@ Bij het testen van uw toepassingen in Azure AD B2C, kan het nuttig zijn om de Az
 ### <a name="upload-the-files"></a>De bestanden uploaden
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
-3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
+2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
+3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **Identity-Ervaringsframework**.
 5. Klik op de pagina aangepast beleid **uploaden beleid**.
 6. Selecteer **het beleid overschrijven als deze bestaat**, en zoek en selecteer de *SingUpOrSignInPasswordComplexity.xml* bestand.

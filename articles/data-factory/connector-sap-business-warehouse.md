@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 9a0abcd70b4aeb2369604bafa924136122206e0a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022278"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309110"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Gegevens kopiëren van SAP Business Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -171,7 +171,7 @@ Het kopiëren van gegevens van SAP BW, worden de volgende toewijzingen van SAP B
 | CLNT | String |
 | CURR | Decimal |
 | CUKY | String |
-| DECEMBER | Decimal |
+| DEC | Decimal |
 | FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
@@ -187,7 +187,7 @@ Het kopiëren van gegevens van SAP BW, worden de volgende toewijzingen van SAP B
 | EENHEID | String |
 | DATS | String |
 | NUMC | String |
-| TIM | String |
+| TIMS | String |
 
 
 ## <a name="next-steps"></a>Volgende stappen

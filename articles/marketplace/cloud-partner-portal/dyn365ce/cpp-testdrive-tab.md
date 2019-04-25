@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/25/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 373312b4c7f05fe41c9ca8165b8ff6f1b0e56f1b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322832"
 ---
 # <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Dynamics 365 voor Customer Engagement toepassing Test Drive-tabblad
 
@@ -45,7 +45,7 @@ De volgende tabel beschrijft de velden die vereist zijn voor het instellen van t
 
 |      Veld                    |    Description                  |
 |    ---------                  |  ---------------                |
-|      Description              |   Wat kan worden uitgevoerd op uw Test Drive wordt beschreven. U kunt eenvoudige HTML-codes gebruiken om deze beschrijving. Bijvoorbeeld, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt;, en koppen.  |
+|      Beschrijving              |   Wat kan worden uitgevoerd op uw Test Drive wordt beschreven. U kunt eenvoudige HTML-codes gebruiken om deze beschrijving. Bijvoorbeeld, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt;, en koppen.  |
 |  Gebruikershandleiding                  |   Een gebruiker handmatig die uw klanten gebruiken kunnen om te zien hoe Test Drive uploaden. Dit document moet een PDF-bestand.              |
 |  Test Drive demovideo (optioneel) |  U kunt een video-overzicht van uw Test Drive opgeven. Een klant kan deze video kunt bekijken voordat ze een test uitvoeren. Geef een URL naar de video op YouTube of Vimeo. Als u selecteert **+ Video toevoegen**, wordt u gevraagd om de volgende informatie te geven:<ul><li>Name</li><li>URL</li><li>Miniatuur (in PNG-indeling hebben, 533 x 324 pixels)</li></ul>  |
 |   |   |
@@ -59,7 +59,7 @@ in deze sectie wordt u vindt u technische gegevens over uw test drive.
 
 Waarin de velden hebben de volgende doeleinden:
 
-|      Veld                    |    Description                  |
+|      Veld                    |    Beschrijving                  |
 |    ---------                  |  ---------------                |
 | Type Test Drive            | Kies **Microsoft die worden gehost (Dynamics 365 voor Customer Engagement)**.  |
 | Maximale aantal gelijktijdige Test Drives    | Het aantal gelijktijdige exemplaren van een actieve Test Drive op een willekeurig moment tijd wordt opgelost. Elke gebruiker wordt een Dynamics-licentie gebruiken tijdens de Test Drive actief, is daarom u moet om ervoor te zorgen dat u ten minste dit aantal Dynamics licenties beschikbaar voor gebruikers van Test Drive. Aanbevolen waarde van 3 tot 5.  |

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283474"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323821"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Voldoen aan de Azure CDN-regelengine 
 Dit artikel vindt u gedetailleerde beschrijvingen van de criteria voor het Azure Content Delivery Network (CDN) voor de beschikbare overeenkomst [regels-engine](cdn-rules-engine.md).
@@ -306,7 +306,7 @@ Belangrijke informatie:
 #### <a name="string-type"></a>Tekenreekstype
 Een functie WURFL accepteert meestal een combinatie van cijfers, letters en symbolen. Door de flexibele aard van deze mogelijkheid, moet u kiezen hoe de waarde die is gekoppeld aan deze voorwaarde wordt geïnterpreteerd. De volgende tabel beschrijft de set beschikbare opties:
 
-Type     | Beschrijving
+Type     | Description
 ---------|------------
 Letterlijke  | Selecteer deze optie om te voorkomen dat de meeste tekens op speciale betekenis met behulp van hun [letterlijke waarde](cdn-rules-engine-reference.md#literal-values).
 Jokertekens | Selecteer deze optie om te profiteren van alle [jokertekens] ([jokertekens waarden](cdn-rules-engine-reference.md#wildcard-values).
@@ -320,7 +320,7 @@ De volgende tabel bevat WURFL mogelijkheden en hun variabelen voor de regelengin
 > [!NOTE] 
 > De volgende variabelen worden ondersteund in de **wijzigen Client Header van** en **Client Reactieheader wijzigen** functies.
 
-Mogelijkheid | Variabele | Beschrijving | Voorbeeldwaarden
+Mogelijkheid | Variabele | Description | Voorbeeldwaarden
 -----------|----------|-------------|----------------
 De naam van het merk | %{wurfl_cap_brand_name} | Een tekenreeks die de merknaam van het apparaat aangeeft. | Samsung
 Besturingssysteem van het apparaat | %{wurfl_cap_device_os} | Een tekenreeks die aangeeft van het besturingssysteem op het apparaat geïnstalleerd. | IOS

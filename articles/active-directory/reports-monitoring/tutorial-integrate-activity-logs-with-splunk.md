@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70befad3208f34fe62fbb0a59cea4bf6ea01ce16
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999515"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60284812"
 ---
 # <a name="integrate-azure-ad-logs-with-splunk-using-azure-monitor"></a>Azure AD-logboeken integreren met Splunk met behulp van Azure Monitor
 

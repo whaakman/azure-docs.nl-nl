@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
 ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013310"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60319117"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Waarschuwen en bewaken van data factory's met behulp van Azure Monitor
 Cloud-Apps zijn complexe met veel bewegende onderdelen bevatten. Monitoring biedt gegevens om ervoor te zorgen dat uw toepassing actief en wordt uitgevoerd in een foutloze toestand bevindt. Ook kunt u potentiële problemen voorkomen of oplossen van het verleden zijn. Bovendien kunt u bewakingsgegevens diep om inzicht te krijgen over uw toepassing. Deze kennis kan u helpen te verbeteren van de prestaties van de toepassing of onderhoud, of Automatiseer acties die anders handmatig worden opgelost moeten zouden.
@@ -112,7 +112,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | logboeken| Complex Type| De naam van een categorie diagnostische logboeken voor een resourcetype. Als u de lijst met categorieën van diagnostische logboeken voor een resource, moet u eerst een GET-bewerking voor diagnostische instellingen uitvoeren. |
 | category| String| Matrix van logboekcategorieën en hun bewaarbeleid |
 | timeGrain | String | De granulatie van metrische gegevens die zijn vastgelegd in ISO 8601-notatie voor de duur. Moet PT1M (één minuut)|
-| ingeschakeld| Booleaans | Hiermee geeft u op of de verzameling van deze categorie metrische gegevens of logboekbestanden is ingeschakeld voor deze resource|
+| ingeschakeld| Boolean | Hiermee geeft u op of de verzameling van deze categorie metrische gegevens of logboekbestanden is ingeschakeld voor deze resource|
 | retentionPolicy| Complex Type| Beschrijft het bewaarbeleid voor categorie metrische gegevens of logboek. Voor de optie voor het opslagaccount alleen wordt gebruikt.|
 | dagen| Int| Het aantal dagen te bewaren van de metrische gegevens en Logboeken. Een waarde van 0 worden de logboeken voor onbepaalde tijd bewaard. Voor de optie voor het opslagaccount alleen wordt gebruikt. |
 
@@ -363,7 +363,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```
 
-| Eigenschap | Type | Description | Voorbeeld |
+| Eigenschap | Type | Beschrijving | Voorbeeld |
 | --- | --- | --- | --- |
 | Niveau |String | Niveau van de diagnostische logboeken. Ingesteld op niveau 4 voor logboeken voor de uitvoering van activiteiten. | `4`  |
 | correlationId |String | Unieke ID voor het bijhouden van een bepaalde aanvraag end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |

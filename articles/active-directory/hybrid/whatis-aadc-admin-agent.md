@@ -12,11 +12,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e33143626e136523b4af086e841b92e9ad30fa86
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60294997"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>Wat is de Azure AD Connect-beheerderagent? 
 De Azure AD Connect beheer-Agent is een nieuw onderdeel van Azure Active Directory Connect die is geïnstalleerd op een Azure Active Directory Connect-server. Deze wordt gebruikt om specifieke gegevens verzamelen over uw Active Directory-omgeving waarmee u een Microsoft ondersteuningstechnicus kunt oplossen van problemen wanneer u een ondersteuningsaanvraag openen.

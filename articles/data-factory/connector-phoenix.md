@@ -3,21 +3,22 @@ title: Gegevens kopiëren van Phoenix met Azure Data Factory | Microsoft Docs
 description: Leer hoe u gegevens kopiëren van Phoenix naar ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: jingwang
+origin.date: 12/07/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: 012057c7d01924ab1998a010b6ea0c7d83651a4d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405917"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Gegevens kopiëren van Phoenix met Azure Data Factory 
 
@@ -45,7 +46,7 @@ De volgende eigenschappen worden ondersteund voor Phoenix gekoppelde service:
 | host | Het IP-adres of de hostnaam naam van de Phoenix-server. (dat wil zeggen, 192.168.222.160)  | Ja |
 | poort | De TCP-poort die de Phoenix-server wordt gebruikt om te luisteren naar clientverbindingen. De standaardwaarde is 8765. Als u verbinding met Azure HDInsights maken, geeft u poort 443. | Nee |
 | httpPath | De gedeeltelijke URL overeenkomt met de Phoenix-server. (dat wil zeggen, /gateway/sandbox/phoenix/version). Geef `/hbasephoenix0` als HDInsights cluster.  | Nee |
-| authenticationType | Het verificatiemechanisme waarmee verbinding wordt gemaakt met de Phoenix-server. <br/>Toegestane waarden zijn: **Anonieme**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
+| authenticationType | Het verificatiemechanisme waarmee verbinding wordt gemaakt met de Phoenix-server. <br/>Toegestane waarden zijn: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
 | gebruikersnaam | De gebruikersnaam die wordt gebruikt voor verbinding met de Phoenix-server.  | Nee |
 | wachtwoord | Het wachtwoord dat overeenkomt met de naam van de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | enableSsl | Hiermee geeft u op of de verbindingen met de server zijn versleuteld met behulp van SSL. De standaardwaarde is false.  | Nee |
@@ -66,7 +67,7 @@ De volgende eigenschappen worden ondersteund voor Phoenix gekoppelde service:
     "properties": {
         "type": "Phoenix",
         "typeProperties": {
-            "host" : "<cluster>.azurehdinsight.net",
+            "host" : "<cluster>.azurehdinsight.cn",
             "port" : "443",
             "httpPath" : "/hbasephoenix0",
             "authenticationType" : "WindowsAzureHDInsightService",

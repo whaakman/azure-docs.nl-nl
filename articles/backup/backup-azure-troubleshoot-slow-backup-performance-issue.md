@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f24a60ab9bdcf1231085de4edeeb89ce1edf4e80
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248466"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337626"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Problemen met langzame back-ups van bestanden en mappen in Azure Backup
 In dit artikel bevat richtlijnen voor probleemoplossing zodat u de oorzaak van trage back-upprestaties voor bestanden en mappen wanneer u Azure Backup. Wanneer u back-up van bestanden met de Azure backup-agent, kan het back-upproces duurt langer dan verwacht. Deze vertraging kan worden veroorzaakt door een of meer van de volgende opties:
@@ -31,7 +31,7 @@ Ook wordt aangeraden dat u bekijkt de [Veelgestelde vragen over Azure Backup-ser
 
 <a id="cause1"></a>
 
-## <a name="cause-performance-bottlenecks-on-the-computer"></a>Oorzaak: De knelpunten op de computer
+## <a name="cause-performance-bottlenecks-on-the-computer"></a>Oorzaak: Knelpunten op de computer
 Knelpunten op de computer waarop de back-up kunnen dit vertraging veroorzaken. Bijvoorbeeld, de mogelijkheid van de computer te lezen of schrijven naar schijf of de beschikbare bandbreedte voor het verzenden van gegevens via het netwerk, kan leiden tot knelpunten.
 
 Windows biedt een ingebouwde functie die wordt aangeroepen [Prestatiemeter](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) voor het detecteren van deze knelpunten.
@@ -68,7 +68,7 @@ Antivirusprogramma's, wordt u aangeraden dat u de volgende bestanden en locaties
 
 <a id="cause3"></a>
 
-## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>Oorzaak: Back-up-agent die wordt uitgevoerd op een Azure-machine
+## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>Oorzaak: Back-agent die wordt uitgevoerd op een Azure-machine
 Als u de backup-agent op een virtuele machine uitvoert, worden prestaties langzamer dan wanneer u deze op een fysieke computer uitvoert. Dit is normaal vanwege beperkingen van IOPS.  U kunt echter de prestaties optimaliseren door over te schakelen van de schijven die zijn back-up naar Azure Premium Storage. Er wordt gewerkt aan het oplossen van dit probleem en de oplossing is beschikbaar in een toekomstige release.
 
 <a id="cause4"></a>

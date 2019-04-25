@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
 ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997945"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311270"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 voor Customer Engagement Storefront Details tabblad
 
@@ -52,7 +52,7 @@ De volgende tabel beschrijft waar de velden op dit tabblad:
 |    **Veld**          |  **Beschrijving**               |
 |  ---------------      |  ---------------               |
 |  Bedrijfstakken           | Selecteer de branches (maximaal twee) die de beste app wordt uitgelijnd. Als geen van toepassing is, kunt u geen opties selecteren.  |
-|  Categorieën           | Selecteer de categorieën die relevant voor de app zijn. Kiezen tussen één en drie opties.  |
+|  Categories           | Selecteer de categorieën die relevant voor de app zijn. Kiezen tussen één en drie opties.  |
 |  App-type             | Selecteer het type van de proefversie die is ingeschakeld voor de app op AppSource. **Gratis** geeft aan dat uw app kan worden gebruikt zonder kosten; **Proefversie** geeft aan dat klanten uw app gedurende een korte periode zonder kosten uitproberen kunnen, en **Contact me** geeft aan dat klanten om een evaluatieversie van de app op AppSource vragen kunnen.  |
 | Help-koppeling voor uw app | De URL voor online-documentatie of andere hulpmiddel voor de app.  |
 | Ondersteunde landen/regio 's | Een pop-dialoogvenster kunt de selectie van de geografische regio's waar de app wordt aangeboden.  Wereldwijde distributie is de standaardinstelling. |
@@ -73,7 +73,7 @@ In deze sectie biedt u marketingmateriaal: logo's, speciale of instructies video
 
 De volgende tabel beschrijft waar de velden op dit tabblad: 
 
-|      Veld            |    Description                 |
+|      Veld            |    Beschrijving                 |
 |  ---------------      |  ---------------               |
 | Logo van de aanbieding (png-indeling, 48 x 48) | Upload een afbeelding die wordt weergegeven op de pagina voor zoeken van uw app. Indeling PNG is en de grootte moet 48 x 48 pixel. |
 | Logo van de aanbieding (png-indeling, 216 x 216) | Upload een afbeelding die wordt weergegeven op de detailpagina van uw app. Indeling PNG is en de grootte moet 216 x 216 pixel. |

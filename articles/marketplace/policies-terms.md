@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: v-qiwe
 ms.openlocfilehash: 9dc4bfa1f2435488f7d6513f9c14e82da33a4d64
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890431"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322750"
 ---
-# <a name="azure-marketplace-policies-and-terms"></a>Beleidsregels voor Azure Marketplace en de voorwaarden
+# <a name="azure-marketplace-policies-and-terms"></a>Beleidsregels en voorwaarden voor Azure Marketplace
 
 >[!Note]
 >"Marketplace" of 'Azure Marketplace' betekent een eigendom zijn van Microsoft of beheerde-platform, maar met de naam, via welke aanbiedingen worden gepresenteerd aan of overgenomen door klanten. Tenzij anders vermeld, wordt Marketplace bevat de Azure Marketplace en AppSource de Marketplace van Azure Portal.

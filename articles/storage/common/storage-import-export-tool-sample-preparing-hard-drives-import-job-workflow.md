@@ -9,11 +9,11 @@ ms.date: 04/07/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 42da285fbb55df43959506996bcde9cf547c2a22
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439255"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320564"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak
 
@@ -23,7 +23,7 @@ In dit artikel begeleidt u bij het complete proces van schijven voorbereiden voo
 
 In dit voorbeeld de volgende gegevens worden geïmporteerd in Azure storage-account met de naam `mystorageaccount`:
 
-|Locatie|Description|Gegevensgrootte|
+|Location|Description|Gegevensgrootte|
 |--------------|-----------------|-----|
 |H:\Video\ |Een verzameling van video 's|12 TB|
 |H:\Photo\ |Een verzameling van foto 's|30 GB|

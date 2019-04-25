@@ -13,11 +13,11 @@ ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc6ca29af1866c5d26d3b73b26121451440c4dac
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993051"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306656"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio-binding voor Azure Functions
 
@@ -208,7 +208,7 @@ module.exports = function (context, myQueueItem) {
 Zie het voorbeeld taalspecifieke:
 
 * [2.x C#](#2x-c-example)
-* [2.x C#-script (.csx)](#2x-c-script-example)
+* [2.x C# script (.csx)](#2x-c-script-example)
 * [2.x JavaScript](#2x-javascript-example)
 
 ### <a name="2x-c-example"></a>2.x C#-voorbeeld
@@ -404,11 +404,11 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**type**|**type**| Moet worden ingesteld op `twilioSms`.|
 |**direction**|**direction**| Moet worden ingesteld op `out`.|
 |**De naam**|**De naam**| Naam van de variabele die wordt gebruikt in de functiecode aan te geven voor de Twilio-SMS-bericht. |
-|**accountSid**|**accountSidSetting**| **accountSidSetting**| Deze waarde moet worden ingesteld op de naam van een app-instelling met uw Twilio-Account-Sid bijvoorbeeld TwilioAccountSid. Als niet is ingesteld, de standaardapp-instelling is de naam 'AzureWebJobsTwilioAccountSid'. |
+|**accountSid**|**accountSidSetting**| **AccountSidSetting**| Deze waarde moet worden ingesteld op de naam van een app-instelling met uw Twilio-Account-Sid bijvoorbeeld TwilioAccountSid. Als niet is ingesteld, de standaardapp-instelling is de naam 'AzureWebJobsTwilioAccountSid'. |
 |**authToken**|**authTokenSetting**|**authTokenSetting**| Deze waarde moet worden ingesteld op de naam van een app-instelling met uw Twilio-verificatietoken bijvoorbeeld TwilioAccountAuthToken. Als niet is ingesteld, de standaardapp-instelling is de naam 'AzureWebJobsTwilioAuthToken'. |
 |**Aan**| N.V.T. - opgeven in code | **Aan**| Deze waarde is ingesteld voor het telefoonnummer dat naar de SMS-tekst wordt verzonden.|
-|**Van**|**Van** | **Van**| Deze waarde is ingesteld voor het telefoonnummer dat door de SMS-tekst wordt verzonden.|
-|**De hoofdtekst**|**De hoofdtekst** | **Hoofdtekst**| Deze waarde kan harde code voor de SMS-bericht als u niet wilt dynamisch instellen in de code voor uw functie worden gebruikt. |  
+|**from**|**from** | **From**| Deze waarde is ingesteld voor het telefoonnummer dat door de SMS-tekst wordt verzonden.|
+|**body**|**body** | **Hoofdtekst**| Deze waarde kan harde code voor de SMS-bericht als u niet wilt dynamisch instellen in de code voor uw functie worden gebruikt. |  
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

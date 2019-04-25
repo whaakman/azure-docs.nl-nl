@@ -3,7 +3,7 @@ title: ContentDefinitions - Azure Active Directory B2C | Microsoft Docs
 description: Geef het ContentDefinitions-element van een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: e36eb3816d6f465552c4db740508d5e7f5fa1331
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161661"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313320"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -23,7 +23,7 @@ ms.locfileid: "55161661"
 
 U kunt het uiterlijk van een [door technisch profiel zelf de bevestigde](self-asserted-technical-profile.md). Azure Active Directory (Azure AD) B2C wordt code wordt uitgevoerd in de browser van uw klant en maakt gebruik van een moderne manier Cross-Origin Resource Sharing (CORS) genoemd. 
 
-Voor het aanpassen van de gebruikersinterface, u een URL opgeven in de **ContentDefinition** element met aangepaste HTML-inhoud. In het profiel van de zelf-gecontroleerde technische of **OrchestrationStep**, u verwijzen naar die inhoud definitie-id. De definitie van de inhoud kan bevatten een **LocalizedResourcesReferences** element dat hiermee een lijst wordt gelokaliseerde resources om te laden. Azure AD B2C worden samengevoegd gebruikersinterface-elementen met de HTML-inhoud die wordt geladen vanaf uw URL en vervolgens wordt de pagina voor de gebruiker.
+Voor het aanpassen van de gebruikersinterface, u een URL opgeven in de **ContentDefinition** element met aangepaste HTML-inhoud. In het profiel van de zelf-gecontroleerde technische of **OrchestrationStep**, u verwijzen naar die inhoud definitie-id. De definitie van de inhoud kan bevatten een **LocalizedResourcesReferences** element dat hiermee een lijst wordt gelokaliseerde resources om te laden. Azure AD B2C combineert elementen van de gebruikersinterface met de HTML-inhoud die vanaf de URL wordt geladen en presenteert vervolgens de pagina aan de gebruiker.
 
 De **ContentDefinitions** element met URL's in HTML5-sjablonen die kunnen worden gebruikt in een gebruikersbeleving. De pagina HTML5 URI wordt gebruikt voor een opgegeven gebruikersinterface stap. Bijvoorbeeld: het aanmelden of registreren voor wachtwoord opnieuw instellen of foutpagina's. U kunt het uiterlijk wijzigen door de LoadUri voor het HTML5-bestand te overschrijven. U kunt nieuwe inhoudsdefinities maken op basis van uw behoeften. Dit element mag een verwijzing gelokaliseerde resources aan de lokalisatie-id opgegeven in de [lokalisatie](localization.md) element.
 
@@ -79,7 +79,7 @@ De **ContentDefinition** element bevat de volgende elementen:
 
 De **gegevens-URI die** element wordt gebruikt om op te geven van de pagina-id. Azure AD B2C maakt gebruik van de id van de pagina te laden en UI-elementen en clientzijde JavaScript initiëren. De indeling van de waarde is `urn:com:microsoft:aad:b2c:elements:page-name:version`.  De volgende tabel bevat van de pagina-id die u kunt gebruiken.
 
-| Waarde |   Description |
+| Value |   Beschrijving |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Een foutpagina weergegeven als er een uitzondering of een fout wordt aangetroffen. |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Een lijst met de id-providers die gebruikers uit tijdens het aanmelden kiezen kunnen. | 

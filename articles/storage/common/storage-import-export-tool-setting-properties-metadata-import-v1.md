@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 66ae7045cfb94ec70f3b14046af736f784b88ea6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320547"
 ---
 # <a name="setting-properties-and-metadata-during-the-import-process"></a>Eigenschappen en metagegevens instellen tijdens het importproces
 Wanneer u de Microsoft Azure Import/Export-hulpprogramma voor het voorbereiden van uw schijven uitvoert, kunt u eigenschappen en metagegevens zijn ingesteld voor de doel-blobs. Volg deze stappen:  

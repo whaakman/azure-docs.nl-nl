@@ -18,11 +18,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 703416788d123798774802613d71b30e8fbdaa9b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999804"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299409"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft identity-platform en de stroom voor OAuth 2.0-apparaat code
 
@@ -73,7 +73,7 @@ scope=user.read%20openid%20profile
 
 Een geslaagde reactie is een JSON-object met de vereiste gegevens zodat de gebruiker zich aanmeldt.  
 
-| Parameter | Indeling | Beschrijving |
+| Parameter | Indeling | Description |
 | ---              | --- | --- |
 |`device_code`     | String | Een lange tekenreeks die wordt gebruikt om te controleren of de sessie tussen de client en de autorisatie-server. Deze parameter wordt gebruikt om aan te vragen van het toegangstoken van de autorisatieserver de client. |
 |`user_code`       | String | Een korte tekenreeks aan de gebruiker die wordt gebruikt voor het identificeren van de sessie op een tweede apparaat weergegeven.|

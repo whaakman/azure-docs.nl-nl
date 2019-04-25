@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d2bb3b7385467d2606a2a4fa0afb43b9440ab79
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163101"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293695"
 ---
 # <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Ontdek wanneer een specifieke gebruiker toegang heeft tot een toepassing
 Wanneer u automatisch inrichten van gebruikers met een toepassing, Azure AD automatisch inrichten en bijwerken van gebruikersaccounts in een app op basis van items zoals [gebruikers- en groepstoewijzing](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) op een regelmatig geplande tijdstip interval, doorgaans elke tien minuten.

@@ -17,11 +17,11 @@ ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: klam; LADocs
 ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904368"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60304163"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Aanroepen, trigger of nesten van werkstromen met HTTP-eindpunten in logische apps
 
@@ -245,7 +245,7 @@ U kunt meer dan één kop- en elk type inhoud opnemen in de hoofdtekst van de re
 
 Antwoorden op hebben deze eigenschappen:
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 | --- | --- |
 | statusCode |Hiermee geeft u de HTTP-statuscode voor het reageren op de inkomende aanvraag. Deze code kan geen geldige statuscode die met 2xx, 4xx of 5xx begint zijn. 3xx statuscodes zijn echter niet toegestaan. |
 | Headers |Hiermee definieert u een willekeurig aantal headers om op te nemen in het antwoord. |

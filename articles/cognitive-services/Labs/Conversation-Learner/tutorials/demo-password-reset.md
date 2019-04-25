@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 6436193dadb5933074fdce861a31672a0f4849de
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227332"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313131"
 ---
 # <a name="demo-password-reset"></a>Demo: Wachtwoord opnieuw instellen
 In deze zelfstudie worden een bot eenvoudig technische ondersteuning die u bij het opnieuw instellen van wachtwoorden mogelijk gemaakt door Conversatiecursist helpen kan gepresenteerd. Model van de bot kunt leren essentieel dialoogvenster stromen en schakelt u meerdere reeksen met inbegrip van de klassen van een out-van-domein. De taak kan worden bereikt zonder code of entiteiten.

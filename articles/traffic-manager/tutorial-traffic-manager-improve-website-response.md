@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
 ms.openlocfilehash: 6dea36afd3a426bbbd0c28a96f21ccad1a82ea88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997995"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329814"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Zelfstudie: Website-antwoord met Traffic Manager te verbeteren
 
@@ -61,7 +61,7 @@ In deze sectie maakt u twee VM’s *myIISVMEastUS* en *myIISVMWEurope* in de Azu
     |Gebruikersnaam| Voer een gebruikersnaam naar keuze in.|
     |Wachtwoord| Voer een wachtwoord naar keuze in. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Resourcegroep| Selecteer **Nieuw** en typ *myResourceGroupTM1*.|
-    |Locatie| Selecteer **US - oost**.|
+    |Location| Selecteer **US - oost**.|
     |||
 
 4. Selecteer een VM-grootte onder **Kies een grootte**.
@@ -81,7 +81,7 @@ In deze sectie maakt u twee VM’s *myIISVMEastUS* en *myIISVMWEurope* in de Azu
     |Instelling|Waarde|
     |---|---|
     |Resourcegroep | Selecteer **Nieuw** en typ *myResourceGroupTM2*|
-    |Locatie|Europa -west|
+    |Location|Europa -west|
     |VM-naam | myIISVMWEurope|
     |Virtueel netwerk | Selecteer **Virtueel netwerk** in **Virtueel netwerk maken** en voer voor **Naam** *myVNet2* en voor het subnet  *mySubnet* in.|
     |||
@@ -175,7 +175,7 @@ Maak een Traffic Manager-profiel met gebruikersverkeer verwezen door deze te ver
     | Routeringsmethode          | Selecteer de **prestaties** routeringsmethode.                                       |
     | Abonnement            | Selecteer uw abonnement.                          |
     | Resourcegroep          | Selecteer **nieuw** en voer *myResourceGroupTM1*. |
-    | Locatie                | Selecteer **US - oost**. Deze instelling verwijst naar de locatie van de resourcegroep en heeft geen invloed op het Traffic Manager-profiel dat wereldwijd wordt geïmplementeerd.                              |
+    | Location                | Selecteer **US - oost**. Deze instelling verwijst naar de locatie van de resourcegroep en heeft geen invloed op het Traffic Manager-profiel dat wereldwijd wordt geïmplementeerd.                              |
     |
 
     ![Een Traffic Manager-profiel maken](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-profile.png)

@@ -17,11 +17,11 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a168c3415996ff97137c4e312348f74a48e9531b
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564989"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291446"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Gebruikersaanmeldingen voor een enterprise-app in Azure Active Directory uitschakelen
 Het is eenvoudig om uit te schakelen van een bedrijfstoepassing, zodat er geen gebruikers bij het in Azure Active Directory (Azure AD aanmelden zich). U moet de juiste machtigingen voor het beheren van de enterprise-app. En u moet globale beheerder voor de map.

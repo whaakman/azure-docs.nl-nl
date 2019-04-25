@@ -1,6 +1,6 @@
 ---
-title: Meld u ondersteuningsticket via StorSimple Apparaatbeheer | Microsoft Docs
-description: Beschrijft de StorSimple-Apparaatbeheer mogelijkheid diagnosticeren en wordt uitgelegd hoe u het oplossen van problemen met uw virtuele StorSimple-matrix.
+title: Een ondersteuningsticket via StorSimple Device Manager | Microsoft Docs
+description: Beschrijving van de StorSimple Device Manager mogelijkheid vaststellen en wordt uitgelegd hoe u het oplossen van uw StorSimple Virtual Array.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: 658afbc178814389fefd7941e2ca030741bd08e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ac87bbf5089dd20b8c6eeec0b970a7767b3dcda
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23875912"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302588"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>De service Apparaatbeheer StorSimple gebruiken voor het melden van een verzoek om ondersteuning voor het virtuele StorSimple-matrix
+# <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>De StorSimple Device Manager-service gebruiken om een ondersteuningsaanvraag registreren voor de StorSimple Virtual Array
 
 ## <a name="overview"></a>Overzicht
 
-Apparaatbeheer StorSimple biedt de mogelijkheid om te **Meld u een nieuw ondersteuningsverzoek** binnen de samenvatting blade van de service. Dit artikel wordt uitgelegd hoe u een nieuw ondersteuningsverzoek melden en beheren van de levenscyclus van binnen de portal.
+StorSimple Device Manager biedt de mogelijkheid voor **melden van een nieuwe ondersteuningsaanvraag** binnen de overzichtsblade van de service. In dit artikel wordt uitgelegd hoe u een nieuwe ondersteuningsaanvraag registreren en beheren van de levenscyclus van in de portal.
 
 ## <a name="new-support-request"></a>Nieuw ondersteuningsverzoek
 
-Afhankelijk van uw [ondersteuningsplan](https://azure.microsoft.com/support/plans/), kunt u ondersteuningstickets voor een probleem voor uw virtuele StorSimple matrix rechtstreeks vanuit de samenvatting blade voor Apparaatbeheer van StorSimple-service maken.
+Afhankelijk van uw [ondersteuningsplan](https://azure.microsoft.com/support/plans/), u kunt ondersteuningstickets voor een probleem maken op uw StorSimple Virtual array rechtstreeks vanuit de overzichtsblade van de StorSimple Device Manager-service.
 
-#### <a name="to-log-a-new-request"></a>Een nieuwe aanvraag voor aanmelden
+#### <a name="to-log-a-new-request"></a>Om aan te melden van een nieuwe aanvraag
 
-1. Ga naar uw StorSimple-apparaatbeheerservice. Ga in de instellingen van de service-samenvatting blade naar **ondersteuning + probleemoplossing** sectie en klik vervolgens op **nieuw ondersteuningsverzoek**.
+1. Ga naar uw StorSimple-apparaatbeheerservice. In de overzichtsblade van service-instellingen, gaat u naar **ondersteuning + probleemoplossing** sectie en klik vervolgens op **nieuwe ondersteuningsaanvraag**.
    
     ![Nieuw ondersteuningsverzoek](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
 
-2. In de **basisbeginselen** blade het volgende doen:
+2. In de **basisbeginselen** blade, doet u het volgende:
 
-    1. Van de **probleemtype** vervolgkeuzelijst, selecteer **technische**. 
+    1. Uit de **type probleem** vervolgkeuzelijst **technische**. 
     
-    2. De huidige **abonnement**, **Service** type, en de **Resource** (Apparaatbeheer StorSimple-service) worden automatisch gekozen. 
+    2. De huidige **abonnement**, **Service** type en de **Resource** (StorSimple Device Manager-service) worden automatisch gekozen. 
 
-    3. Geef een of meer apparaten geregistreerd met uw service dat problemen ondervindt.
+    3. Geef een of meer apparaten die zijn geregistreerd bij uw service waarmee u problemen ondervindt.
 
-    4. Kies een passende **ondersteuningsplan** als u meerdere abonnementen die zijn gekoppeld aan uw abonnement hebt. U moet een betaald ondersteuningsplan om in te schakelen met technische ondersteuning.
+    4. Kies een geschikte **ondersteuningsplan** als u meerdere abonnementen die zijn gekoppeld aan uw abonnement hebt. U moet een betaald abonnement om in te schakelen technische ondersteuning.
 
-3. In **stap 2**, kies de **ernst** en opgeven als het probleem is gerelateerd aan de matrix of de service Manager voor StorSimple-apparaat. Ook kiezen een **categorie** voor dit probleem en bieden meer **Details** over het probleem.
+3. In **stap 2**, kiest u de **ernst** en geef als het probleem is gerelateerd aan de matrix of de service StorSimple Device Manager. Kies ook een **categorie** voor dit probleem en bieden meer **Details** over het probleem.
    
     ![Nieuw ondersteuningsverzoek](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
 
-4. In **stap 3**, bevat uw contactgegevens. Microsoft Support gebruikt deze informatie om te bereiken u voor meer informatie, diagnose en resolutie.
+4. In **stap 3**, Geef uw contactgegevens. Deze informatie wordt door Microsoft Support contact op met u voor meer informatie, diagnose en het probleem zou moeten worden gebruikt.
    
     ![Nieuw ondersteuningsverzoek](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
 
-## <a name="manage-a-support-request"></a>Een verzoek om ondersteuning te beheren
+## <a name="manage-a-support-request"></a>Een ondersteuningsaanvraag beheren
 
 Nadat u een ondersteuningsticket hebt gemaakt, kunt u de voortgang van het ticket vanuit de portal beheren.
 
@@ -67,5 +67,5 @@ Als u naar de pagina help en ondersteuning, gaat u naar **Bladeren > Help + onde
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over hoe [opsporen en oplossen van problemen met betrekking tot uw virtuele StorSimple-matrix](storsimple-virtual-array-diagnose-problems.md)
+Meer informatie over het [vaststellen en oplossen van problemen met betrekking tot uw StorSimple Virtual array](storsimple-virtual-array-diagnose-problems.md)
 
