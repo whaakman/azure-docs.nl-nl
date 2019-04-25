@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: c7b99548e2fe1ad0c1cab39953e28a97e7ebff4b
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984382"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193914"
 ---
 # <a name="application-layer-security-with-front-door"></a>Toepassingsbeveiliging van laag met de voordeur
 Azure voordeur Service biedt web application protection mogelijkheid voor het beveiligen van uw webtoepassingen tegen netwerkaanvallen veelvoorkomende web beveiligingslekken zoals SQL-injectie of Cross-Site Scripting (XSS). Ingeschakeld voor HTTP (s) van front-ends, van de voordeur laag Toepassingsbeveiliging is wereldwijd worden gedistribueerd en altijd op aanvallen op de Azure-netwerk moet worden gestopt edge, ver van uw back-ends. Met extra beveiliging en optimalisatie van prestaties, voordeur biedt een snelle en veilige web ervaringen aan uw eindgebruikers.

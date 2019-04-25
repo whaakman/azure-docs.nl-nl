@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 370da046e5a964d91b668ea80730b8d331065d29
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019959"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322869"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Gegevens kopiëren van Spark met behulp van Azure Data Factory 
 
@@ -45,8 +45,8 @@ De volgende eigenschappen worden ondersteund voor Spark gekoppelde service:
 | host | IP-adres of de hostnaam naam van de Spark-server  | Ja |
 | poort | De TCP-poort die de Spark-server wordt gebruikt om te luisteren naar clientverbindingen. Als u verbinding met Azure HDInsights maken, geeft u poort 443. | Ja |
 | serverType | Het type van de Spark-server. <br/>Toegestane waarden zijn: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Nee |
-| thriftTransportProtocol | Het te gebruiken in de laag Thrift-transportprotocol. <br/>Toegestane waarden zijn: **Binaire**, **SASL**, **HTTP** | Nee |
-| authenticationType | De verificatiemethode die wordt gebruikt voor toegang tot de Spark-server. <br/>Toegestane waarden zijn: **Anonieme**, **gebruikersnaam**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
+| thriftTransportProtocol | Het te gebruiken in de laag Thrift-transportprotocol. <br/>Toegestane waarden zijn: **Binary**, **SASL**, **HTTP** | Nee |
+| authenticationType | De verificatiemethode die wordt gebruikt voor toegang tot de Spark-server. <br/>Toegestane waarden zijn: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
 | gebruikersnaam | De gebruikersnaam die u gebruiken voor toegang tot Spark-Server.  | Nee |
 | wachtwoord | Het wachtwoord dat overeenkomt met de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | httpPath | De gedeeltelijke URL overeenkomt met de Spark-server.  | Nee |

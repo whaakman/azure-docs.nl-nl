@@ -10,11 +10,11 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237837"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure Diagnostics 1.2 configuratieschema
 > [!NOTE]
@@ -152,7 +152,7 @@ Definieert de configuratie-instellingen voor de telemetriegegevens te verzamelen
 ## <a name="etwproviders-element"></a>EtwProviders Element  
  Hiermee configureert u verzamelen van ETW-gebeurtenissen uit de gebeurtenisbron en/of ETW Manifest op basis van de providers. De volgende tabel beschrijft de onderliggende elementen:  
 
-|De naam van element|Beschrijving|  
+|De naam van element|Description|  
 |------------------|-----------------|  
 |**EtwEventSourceProviderConfiguration**|Hiermee configureert u verzamelen van gebeurtenissen die zijn gegenereerd op basis van [EventSource klasse](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Vereist kenmerk:<br /><br /> **provider** -de naam van de klasse van de gebeurtenis gebeurtenisbron.<br /><br /> Optionele kenmerken zijn:<br /><br /> -                     **scheduledTransferLogLevelFilter** -het minimale ernstniveau om over te dragen naar uw opslagaccount.<br /><br /> -                     **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar de opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [duur van het gegevenstype XML](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 |**EtwManifestProviderConfiguration**|Vereist kenmerk:<br /><br /> **provider** -de GUID van de gebeurtenisprovider<br /><br /> Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -het minimale ernstniveau om over te dragen naar uw opslagaccount.<br /><br /> -                     **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar de opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [duur van het gegevenstype XML](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
@@ -176,7 +176,7 @@ Definieert de configuratie-instellingen voor de telemetriegegevens te verzamelen
 ## <a name="metrics-element"></a>Element van de metrische gegevens  
  Hiermee kunt u voor het genereren van een tabel met prestaties teller die is geoptimaliseerd voor snelle query's. De volgende tabel beschrijft de onderliggende elementen:  
 
-|De naam van element|Beschrijving|  
+|De naam van element|Description|  
 |------------------|-----------------|  
 |**MetricAggregation**|Vereist kenmerk:<br /><br /> **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar de opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [duur van het gegevenstype XML](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
@@ -190,14 +190,14 @@ Definieert de configuratie-instellingen voor de telemetriegegevens te verzamelen
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration-Element  
  De volgende tabel beschrijft de onderliggende elementen:  
 
-|De naam van element|Beschrijving|  
+|De naam van element|Description|  
 |------------------|-----------------|  
 |**Aantekening**|Vereist kenmerk:<br /><br /> **displayName** -de weergavenaam voor de teller<br /><br /> Optionele kenmerk:<br /><br /> **landinstelling** -de landinstelling die moet worden gebruikt bij het weergeven van de naam van het prestatiemeteritem|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog Element  
  De volgende tabel beschrijft de onderliggende elementen:  
 
-|De naam van element|Description|  
+|De naam van element|Beschrijving|  
 |------------------|-----------------|  
 |**DataSource**|De Windows-gebeurtenislogboeken te verzamelen. Vereist kenmerk:<br /><br /> **naam** : de XPath-query met een beschrijving van de windows-gebeurtenissen te verzamelen. Bijvoorbeeld:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Geef voor het verzamelen van alle gebeurtenissen, ' * '.|
 

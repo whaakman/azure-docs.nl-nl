@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: b1602af59cd46b4bbcefa6f1df3cd84c0d342b71
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236496"
 ---
 # <a name="import-an-openapi-specification"></a>Een OpenAPI-specificatie importeren
 
@@ -49,7 +49,7 @@ Voltooi de volgende quickstart: [Een Azure API Management-exemplaar maken](get-s
 
     ![Een API maken](./media/api-management-get-started/create-api.png)
 
-    |Instelling|Waarde|Beschrijving|
+    |Instelling|Waarde|Description|
     |---|---|---|
     |**OpenAPI-specificatie**|https://conferenceapi.azurewebsites.net?format=json|Verwijst naar de service waarmee de API wordt geïmplementeerd. API Management stuurt aanvragen door naar dit adres.|
     |**Weergavenaam**|*Demo Conference API*|Als u op Tab drukt nadat u de service-URL hebt ingevoerd, wordt dit veld ingevuld met APIM op basis van de inhoud van het JSON-bestand. <br/>Deze naam wordt weergegeven in de ontwikkelaarsportal.|

@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107879"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326057"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Een load balancer voor een AlwaysOn-beschikbaarheidsgroep configureren in Azure
 In dit artikel wordt uitgelegd hoe u een load balancer voor een SQL Server Always On-beschikbaarheidsgroep maken in Azure virtuele machines die worden uitgevoerd met Azure Resource Manager. Een beschikbaarheidsgroep is een load balancer vereist bij de SQL Server-exemplaren op Azure virtual machines zijn. De load balancer slaat het IP-adres voor de beschikbaarheidsgroep-listener. Als een beschikbaarheidsgroep meerdere regio's omvat, moet elke regio een load balancer.
@@ -246,7 +246,7 @@ Een IP-adres toevoegen aan een load balancer met de Azure-portal, het volgende d
     |**Statustest** |Kies de test die u hebt gemaakt.
     |**Sessiepersistentie** |Geen
     |**Time-out voor inactiviteit (minuten)** |Standaard (4)
-    |**Zwevend IP (direct server return)** | Ingeschakeld
+    |**Zwevend IP (direct server return)** | Enabled
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>De beschikbaarheidsgroep voor het gebruik van het nieuwe IP-adres configureren
 
@@ -295,7 +295,7 @@ Als een beschikbaarheidsgroep maakt deel uit van een gedistribueerde beschikbaar
    |**Statustest** |Kies de test die u hebt gemaakt.
    |**Sessiepersistentie** |Geen
    |**Time-out voor inactiviteit (minuten)** |Standaard (4)
-   |**Zwevend IP (direct server return)** | Ingeschakeld
+   |**Zwevend IP (direct server return)** | Enabled
 
 Herhaal deze stappen voor de load balancer op de andere beschikbaarheidsgroepen die deel uitmaken van de gedistribueerde beschikbaarheidsgroepen.
 

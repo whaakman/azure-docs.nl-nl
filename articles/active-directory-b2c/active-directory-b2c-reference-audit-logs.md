@@ -3,7 +3,7 @@ title: Auditlogboeken beschikbaar zijn voorbeelden en definities in Azure Active
 description: Handleiding en voorbeelden over de toegang tot de auditlogboeken van Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
@@ -11,11 +11,11 @@ ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 117d58f6f56fe1b24539c7bfe950f1a23d6de51a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003596"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317669"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Toegang tot Azure AD B2C-auditlogboeken
 
@@ -27,7 +27,7 @@ Azure Active Directory B2C (Azure AD B2C) verzendt auditlogboeken dat activiteit
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Overzicht van activiteiten in de B2C-categorie van de auditlogboeken beschikbaar
 De **B2C** categorie in auditlogboeken bevat de volgende soorten activiteiten:
 
-|Type activiteit |Description  |
+|Type activiteit |Beschrijving  |
 |---------|---------|
 |Autorisatie |Activiteiten met betrekking tot de autorisatie van een gebruiker voor toegang tot B2C resources (bijvoorbeeld een beheerder toegang tot een lijst met B2C-beleid)         |
 |Directory |Activiteiten met betrekking tot directory-attributen opgehaald wanneer een beheerder zich aanmeldt met behulp van de Azure-Portal |

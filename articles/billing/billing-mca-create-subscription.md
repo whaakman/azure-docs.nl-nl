@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 105b8481486c088a05e3acb95081d3ee55b55f52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897097"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371983"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Een extra Azure-abonnement voor Microsoft-KLANTOVEREENKOMST maken
 
@@ -59,15 +59,15 @@ Gebruikers toevoegen als ontwikkelaars van Azure-abonnement op een gedeelte van 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Zoeken op **kosten Management en facturering**.
+2. Zoek naar **kostenbeheer en facturering**.
 
    ![Schermafbeelding van zoeken in de portal voor abonnementen](./media/billing-mca-create-subscription/billing-search-cost-management-billing.png)
 
-3. Ga naar het gedeelte factuur. Afhankelijk van uw toegang moet u mogelijk een factureringsaccount of factureringsprofiel selecteren. Selecteer in de facturering-account of profiel **factuur secties** en vervolgens een gedeelte van de factuur.
+3. Ga naar de factureringssectie. Afhankelijk van uw toegang moet u mogelijk een factureringsaccount of factureringsprofiel selecteren. Selecteer in de facturering-account of profiel **factuur secties** en vervolgens een gedeelte van de factuur.
 
 4. Selecteer **Access Management (IAM)** vanaf de linksboven.
 
-5. Vanaf de bovenkant van de pagina, selecteer **toevoegen**.
+5. Selecteer **Toevoegen** bovenaan de pagina.
 
 6. Selecteer **de maker van de Azure-abonnement** voor de rol.
 

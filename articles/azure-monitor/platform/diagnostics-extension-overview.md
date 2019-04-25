@@ -8,11 +8,11 @@ ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078536"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236234"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Wat is Azure Diagnostics-extensie
 De Azure Diagnostics-extensie is een agent in Azure waarmee u het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens gebruiken uit een aantal verschillende bronnen. Op dit moment ondersteund zijn Azure-Cloudservice (klassiek) Web- en werkrollen, virtuele Machines, virtuele Machine de schaal van sets en Service Fabric. Andere Azure-services hebben diagnostische gegevens van andere methoden. Zie [overzicht van de bewaking in Azure](../../azure-monitor/overview.md).
@@ -23,7 +23,7 @@ Een [Linux-versie van de extensie](../../virtual-machines/extensions/diagnostics
 ## <a name="data-you-can-collect"></a>Gegevens die u kunt verzamelen
 De Azure Diagnostics-extensie kan de volgende typen gegevens verzamelen:
 
-| Gegevensbron | Description |
+| Gegevensbron | Beschrijving |
 | --- | --- |
 | Metrische gegevens voor prestaties teller |Besturingssysteem- en aangepaste prestatiemeteritems |
 | Toepassingslogboeken |Traceringsberichten die is geschreven door uw toepassing |

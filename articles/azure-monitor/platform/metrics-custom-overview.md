@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287261"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254068"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Aangepaste metrische gegevens in Azure Monitor
 
@@ -38,7 +38,7 @@ Azure Monitor wordt het toepassingstoken voor de verificatie van de aanvraag hee
 > [!NOTE]  
 > Wanneer u een Azure AD-token voor het verzenden van aangepaste metrische gegevens aanvraagt, zorg ervoor dat de doelgroep of resource voor het token is aangevraagd https://monitoring.azure.com/. Zorg ervoor dat u de afsluitende slash (/).
 
-### <a name="subject"></a>Onderwerp
+### <a name="subject"></a>Subject
 Deze eigenschap wordt vastgelegd welke Azure-resource-ID voor de aangepaste metrische gegevens wordt gerapporteerd. Deze gegevens worden gecodeerd in de URL van de API-aanroep wordt gemaakt. Elke API kan alleen indienen voor metrische waarden voor een enkel Azure-resource.
 
 > [!NOTE]  
@@ -181,7 +181,7 @@ Tijdens de preview-versie is de mogelijkheid voor het publiceren van aangepaste 
 ## <a name="quotas-and-limits"></a>Quota en limieten
 Azure Monitor legt de volgende limieten op aangepaste metrische gegevens:
 
-|Categorie|Limiet|
+|Category|Limiet|
 |---|---|
 |Actieve tijd reeks/abonnementen/regio|50,000|
 |Dimensiesleutels per metrisch gegeven|10|

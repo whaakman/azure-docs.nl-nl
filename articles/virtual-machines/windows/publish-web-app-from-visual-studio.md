@@ -13,18 +13,18 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: d5fd6041f21700ffddd3b2c4755b7ce01691681e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304080"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204329"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Een ASP.NET-Web-App publiceren naar een Azure-VM vanuit Visual Studio
 
 Dit document wordt beschreven hoe u voor het publiceren van een ASP.NET-webtoepassing op een virtuele Azure-machine (VM) met behulp van de **Microsoft Azure Virtual Machines** publiceerfunctie in Visual Studio 2017.  
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 Gebruik Visual Studio voor het publiceren van een ASP.NET-project met een Azure VM is de virtuele machine moet correct zijn ingesteld.
 
 - Machine moet worden geconfigureerd voor het uitvoeren van een ASP.NET-webtoepassing en Web Deploy geïnstalleerd hebben.
@@ -106,7 +106,7 @@ Uw instellingen moeten er ongeveer als volgt uit:
 
 - Als u ervoor zorgen wilt dat de webserver een nieuwe kopie van de web-App na elke uploaden heeft (en dat er geen andere bestanden worden gehandhaafd blijft hangen rond vanuit een eerdere implementatie), kunt u controleren de **aanvullende bestanden op de bestemming verwijderen** selectievakje in de **instellingen** tabblad.
 
-- Waarschuwing: Publiceren met deze instelling verwijdert alle bestanden die aanwezig zijn op de webserver (map wwwroot). Zorg ervoor dat u weten wat de toestand van de machine voordat u publiceert met deze optie is ingeschakeld. 
+- Waarschuwing: Publiceren met deze instelling worden alle bestanden die aanwezig zijn op de webserver (map wwwroot) verwijderd. Zorg ervoor dat u weten wat de toestand van de machine voordat u publiceert met deze optie is ingeschakeld. 
 
 ![Publicatie-instellingen - pagina instellingen]
 
@@ -122,7 +122,7 @@ Als u een pipeline voor continue levering met Azure-pijplijnen instelt, Zie [imp
 [Pagina - pijl-rechts publiceren]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageRightArrow.png
 [Pagina - Microsoft Azure Virtual Machine-pictogram publiceren]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageMicrosoftAzureVirtualMachineIcon.png
 [Azure-Account selecteren]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectAccount.png
-[Azure VM-Selector]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
+[Azure VM Selector]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
 [Web Deploy-aanmelding]: ../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png
 [Certificaatfout]: ../../../includes/media/publish-web-app-from-visual-studio/CertificateError.png
 [Uitvoervenster]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png

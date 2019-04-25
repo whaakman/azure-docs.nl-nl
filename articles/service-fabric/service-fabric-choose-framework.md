@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: d764cbe2df78cb9029a4109caa2998ddded5d6ff
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665709"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60341961"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Overzicht van service Fabric programming model
 Service Fabric biedt verschillende manieren om te schrijven en beheren van uw services. Services kunnen kiezen voor de Service Fabric-API's te kunnen profiteren van de functies van het platform en de App-frameworks. Services kunnen ook worden alle gecompileerde uitvoerbaar programma geschreven in elke taal of de code die wordt uitgevoerd in een container die wordt gehost op een Service Fabric-cluster.

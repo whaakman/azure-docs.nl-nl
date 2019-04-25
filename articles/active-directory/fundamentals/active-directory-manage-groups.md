@@ -14,11 +14,11 @@ ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c2bffad4254815d2ed51d9bbc14b32a521b5537
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193863"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60248446"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>App- en resource-toegang met behulp van Azure Active Directory-groepen beheren
 Azure Active Directory (Azure AD) helpt u bij het beheren van uw cloud-gebaseerde apps, on-premises toepassingen en uw resources met behulp van groepen van uw organisatie. Uw resources kunnen deel uitmaken van de map, zoals machtigingen voor het beheren van objecten door middel van rollen in de directory, of extern naar de map, zoals software as a Service (SaaS)-apps, Azure-services, SharePoint-sites, en on-premises resources.

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: fd887560c0011fb1ec2141e33f02f7e3d8a39c81
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877881"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196537"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Gegevens uit Azure Data Lake Storage Gen1 registreren in Azure Data Catalog
 In dit artikel leert u hoe u Azure Data Lake Storage Gen1 integreert met Azure Data Catalog uw gegevens kunnen worden gedetecteerd binnen een organisatie maken door deze te integreren met Data Catalog. Zie voor meer informatie over gegevens catalogiseren, [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Zie voor meer informatie over scenario's waarin u Data Catalog kunt gebruiken, [algemene scenario's voor Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).

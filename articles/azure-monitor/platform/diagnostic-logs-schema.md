@@ -9,11 +9,11 @@ ms.date: 10/11/2018
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: 6e67b049ca179b1e93bcf645afd89b4a2eb0048d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436474"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236167"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Ondersteunde services, schema's en categorieën voor diagnostische logboeken van Azure
 
@@ -23,9 +23,9 @@ Een combinatie van het resourcetype (beschikbaar in de `resourceId` eigenschap) 
 
 ## <a name="top-level-diagnostic-logs-schema"></a>Op het hoogste niveau diagnostische logboeken schema
 
-| Name | Vereist/optioneel | Description |
+| Naam | Vereist/optioneel | Beschrijving |
 |---|---|---|
-| time | Vereist | De tijdstempel (UTC) van de gebeurtenis. |
+| tijd | Vereist | De tijdstempel (UTC) van de gebeurtenis. |
 | resourceId | Vereist | De resource-ID van de resource die de gebeurtenis verzonden. Dit is van het formulier /tenants/tenant-id/providers/provider-name voor tenantservices. |
 | tenantId | Vereist voor de tenant-Logboeken | De tenant-ID van de Active Directory-tenant die deze gebeurtenis is gekoppeld aan. Deze eigenschap wordt alleen gebruikt voor op tenantniveau-Logboeken is het niet wordt weergegeven in Logboeken op het niveau van resources. |
 | operationName | Vereist | De naam van de bewerking die wordt vertegenwoordigd door deze gebeurtenis. Als de gebeurtenis een RBAC-bewerking stelt, is dit de naam van de RBAC-bewerking (bv. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Doorgaans zijn gemodelleerd in de vorm van een Resource Manager-bewerking, zelfs als ze niet werkelijke gedocumenteerde Resource Manager-bewerkingen zijn (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |

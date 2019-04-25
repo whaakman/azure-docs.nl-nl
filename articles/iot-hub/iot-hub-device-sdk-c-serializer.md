@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
 ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024855"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60399239"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT device-SDK voor C: meer informatie over serialisatiefunctie
 
@@ -64,7 +64,7 @@ Wat wordt niet gedemonstreerd in dit voorbeeld zijn extra gegevenstypen die word
 
 De volgende gegevenstypen worden ondersteund in modellen die zijn gemaakt met de **serializer** bibliotheek:
 
-| Type | Beschrijving |
+| Type | Description |
 | --- | --- |
 | double |dubbele precisiegetal met drijvende komma |
 | int |32-bits geheel getal zijn |
@@ -74,12 +74,12 @@ De volgende gegevenstypen worden ondersteund in modellen die zijn gemaakt met de
 | int16\_t |16-bits geheel getal zijn |
 | Int32\_t |32-bits geheel getal zijn |
 | int64\_t |64-bits geheel getal zijn |
-| BOOL |booleaans |
+| bool |booleaans |
 | ASCII\_char\_ptr |ASCII-tekenreeks |
 | EDM\_DATUM\_TIJD\_OFFSET |datum time-offset |
 | EDM\_GUID |GUID |
-| EDM\_BINAIRE |binaire bestanden |
-| DECLAREER\_STRUCT |Complex gegevenstype |
+| EDM\_BINAIRE |binary |
+| DECLARE\_STRUCT |Complex gegevenstype |
 
 Laten we beginnen met het laatste gegevenstype. De **DECLARE\_STRUCT** kunt u complexe gegevenstypen, groeperingen van de andere primitieve typen definiëren. Deze groeperingen kunnen we voor het definiëren van een model dat er als uitzien volgt:
 
@@ -194,7 +194,7 @@ Als u deze code uitvoert, wordt het volgende bericht verzonden naar IoT Hub:
 {"aDouble":1.100000000000000, "aInt":2, "aFloat":3.000000, "aLong":4, "aInt8":5, "auInt8":6, "aInt16":7, "aInt32":8, "aInt64":9, "aBool":true, "aAsciiCharPtr":"ascii string 1", "aDateTimeOffset":"2015-09-14T21:18:21Z", "aGuid":"00010203-0405-0607-0809-0A0B0C0D0E0F", "aBinary":"AQID"}
 ```
 
-Houd er rekening mee dat de serialisatie in JSON, dit de indeling is die zijn gegenereerd door de **serializer** bibliotheek. Let ook op dat elk lid van het geserialiseerde JSON-object komt overeen met de leden van de **TestType** die we hebben gedefinieerd in het model. De waarden ook exact overeenkomen met die in de code worden gebruikt. Echter, houd er rekening mee dat de binaire gegevens base64-gecodeerd is: "AQID" is de met base64-codering van {0x01, 0x02, 0x03}.
+Houd er rekening mee dat de serialisatie in JSON, dit de indeling is die zijn gegenereerd door de **serializer** bibliotheek. Let ook op dat elk lid van het geserialiseerde JSON-object komt overeen met de leden van de **TestType** die we hebben gedefinieerd in het model. De waarden ook exact overeenkomen met die in de code worden gebruikt. Houd er echter rekening mee dat de binaire gegevens base64-gecodeerd worden: "AQID" is de met base64-codering van {0x01, 0x02, 0x03}.
 
 In dit voorbeeld ziet u het voordeel van het gebruik van de **serializer** bibliotheek--Hierdoor kunnen we voor het verzenden van JSON naar de cloud, zonder dat u hoeft te bekommeren expliciet serialisatie in onze toepassing. Alles wat we hoeft te bekommeren om is instellen van de waarden van de Gegevensgebeurtenissen in het model en eenvoudige API's voor het verzenden van gebeurtenissen naar de cloud vervolgens aan te roepen.
 
@@ -233,7 +233,7 @@ WITH_DATA(HumidityEvent, Humidity)
 END_NAMESPACE(Contoso);
 ```
 
-Houd er rekening mee dat het model twee Gegevensgebeurtenissen bevat: **temperatuur** en **vochtigheid**. In tegenstelling tot eerdere voorbeelden, het type van elke gebeurtenis is een structuur die is gedefinieerd met behulp van **DECLARE\_STRUCT**. **TemperatureEvent** bevat een temperatuurmeting en een tijdstempel; **HumidityEvent** bevat een meting vochtigheid en een tijdstempel. Dit model biedt ons een natuurlijke manier om de gegevens voor de hierboven beschreven scenario te modelleren. Wanneer er een gebeurtenis naar de cloud verzonden, sturen ofwel we een temperatuur/tijdstempel of een paar vochtigheid/tijdstempel.
+Houd er rekening mee dat het model twee Gegevensgebeurtenissen bevat: **Temperatuur** en **vochtigheid**. In tegenstelling tot eerdere voorbeelden, het type van elke gebeurtenis is een structuur die is gedefinieerd met behulp van **DECLARE\_STRUCT**. **TemperatureEvent** bevat een temperatuurmeting en een tijdstempel; **HumidityEvent** bevat een meting vochtigheid en een tijdstempel. Dit model biedt ons een natuurlijke manier om de gegevens voor de hierboven beschreven scenario te modelleren. Wanneer er een gebeurtenis naar de cloud verzonden, sturen ofwel we een temperatuur/tijdstempel of een paar vochtigheid/tijdstempel.
 
 We kunnen een gebeurtenis temperatuur sturen naar de cloud met behulp van code, zoals het volgende:
 
@@ -514,7 +514,7 @@ Als u een bericht naar een apparaat verzendt, zou u dit doen via de Azure IoT se
 {"Name" : "", "Parameters" : "" }
 ```
 
-U verzendt een geserialiseerde JSON-object met twee eigenschappen: **naam** is de naam van de actie (bericht) en **Parameters** bevat de parameters van de actie.
+U verzendt een geserialiseerde JSON-object met twee eigenschappen: **Naam** is de naam van de actie (bericht) en **Parameters** bevat de parameters van de actie.
 
 Bijvoorbeeld, om aan te roepen **SetAirResistance** kunt u dit bericht verzenden naar een apparaat:
 
@@ -593,7 +593,7 @@ Als u wilt gebruiken van de nieuwe versie van de macro\_utils.h, verwijdert de *
 
 Voeg vervolgens dit project toe aan uw Visual Studio-oplossing:
 
-> . \\c\\serializer\\bouwen\\windows\\serializer.vcxproj
+> .\\c\\serializer\\build\\windows\\serializer.vcxproj
 > 
 > 
 
@@ -615,16 +615,16 @@ Zoals beschreven in een [vorige artikel](iot-hub-device-sdk-c-iothubclient.md), 
 * IoTHubClient\_CreateFromConnectionString
 * IoTHubClient\_SendEventAsync
 * IoTHubClient\_SetMessageCallback
-* IoTHubClient\_vernietigen
+* IoTHubClient\_Destroy
 
 Deze API's worden geïllustreerd in **simplesample\_amqp**.
 
 Er is ook een vergelijkbare set API's op lagere niveaus.
 
-* IoTHubClient\_LLE\_CreateFromConnectionString
-* IoTHubClient\_LLE\_SendEventAsync
+* IoTHubClient\_LL\_CreateFromConnectionString
+* IoTHubClient\_LL\_SendEventAsync
 * IoTHubClient\_LL\_SetMessageCallback
-* IoTHubClient\_LLE\_vernietigen
+* IoTHubClient\_LL\_Destroy
 
 Houd er rekening mee dat de API's van lager niveau exact dezelfde manier werken zoals beschreven in de vorige artikelen. U kunt de eerste set met API's gebruiken als u wilt dat een achtergrond-thread voor het afhandelen van gebeurtenissen verzenden en ontvangen berichten. U kunt de tweede set API's gebruiken als u wilt dat expliciete controle over wanneer u gegevens verzenden en ontvangen van IoT Hub. Een set API's werken net zo goed met de **serializer** bibliotheek.
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
 ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526534"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386819"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Instellingen voor Service Fabric-cluster aanpassen
 In dit artikel beschrijft de verschillende fabric-instellingen voor uw Service Fabric-cluster die u kunt aanpassen. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon. Zie voor meer informatie, [Upgrade van de configuratie van een Azure-cluster](service-fabric-cluster-config-upgrade-azure.md). Voor zelfstandige clusters kunt u instellingen aanpassen door het bijwerken van de *ClusterConfig.json* bestands- en een configuratie uit te voeren een upgrade uitvoeren op uw cluster. Zie voor meer informatie, [Upgrade van de configuratie van een zelfstandige cluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -378,7 +378,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|Ingeschakeld |BOOL, de standaardinstelling is false |Statisch|De vlag ingeschakeld voor ImageStoreService. Standaard: false |
+|Enabled |BOOL, de standaardinstelling is false |Statisch|De vlag ingeschakeld voor ImageStoreService. Standaard: false |
 |MinReplicaSetSize | Int, de standaardwaarde is 3 |Statisch|De MinReplicaSetSize voor ImageStoreService. |
 |PlacementConstraints | tekenreeks, standaardwaarde is "" |Statisch| De PlacementConstraints voor ImageStoreService. |
 |QuorumLossWaitDuration | Tijd in seconden, de standaardwaarde is MaxValue |Statisch| Interval in seconden opgeven. De QuorumLossWaitDuration voor ImageStoreService. |

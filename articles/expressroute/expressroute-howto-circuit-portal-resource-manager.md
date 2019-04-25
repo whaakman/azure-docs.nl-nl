@@ -9,11 +9,11 @@ ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60366483"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Een ExpressRoute-circuit maken en wijzigen
 
@@ -84,19 +84,19 @@ Op deze pagina **providerstatus** bevat informatie over de huidige status van in
 Wanneer u een nieuwe ExpressRoute-circuit maakt, wordt het circuit is in de volgende status:
 
 De status van de provider: Niet ingericht<BR>
-Circuitstatus van het: Ingeschakeld
+Circuitstatus van het: Enabled
 
 ![Inrichtingsproces initiëren](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 Het circuit gewijzigd in de volgende status hebben de connectiviteitsprovider Bezig inschakelen voor u is:
 
 De status van de provider: Inrichten<BR>
-Circuitstatus van het: Ingeschakeld
+Circuitstatus van het: Enabled
 
 Voordat u kunt een ExpressRoute-circuit gebruiken, moet deze de status van de volgende zijn:
 
 De status van de provider: Ingericht<BR>
-Circuitstatus van het: Ingeschakeld
+Circuitstatus van het: Enabled
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Controleer regelmatig de status en de status van de sleutel van het circuit
 

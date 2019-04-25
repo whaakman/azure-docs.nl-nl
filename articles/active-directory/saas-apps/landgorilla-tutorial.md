@@ -16,11 +16,11 @@ ms.date: 03/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b2e1288885476aeeba01f966b615c23c5fe51081
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199507"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60261002"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Zelfstudie: Azure Active Directory-integratie met Land echte reus-Client
 
@@ -225,7 +225,7 @@ Wanneer u op de tegel Land echte reus Client in het toegangsvenster, u moet u au
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

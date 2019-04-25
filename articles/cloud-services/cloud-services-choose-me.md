@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: ce88dcaedf32f293fc121cda2a088388c99badee
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603824"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337512"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Overzicht van Azure Cloudservices
 Azure Cloud Services is een voorbeeld van een [platform als een service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Zoals [Azure App Service](../app-service/overview.md), deze technologie is ontworpen ter ondersteuning van toepassingen die schaalbare, betrouwbare en voordelig uit te voeren. Op dezelfde manier dat App Service wordt gehost op virtuele machines (VM's), dus is Azure Cloud Services. U hebt echter meer controle over de virtuele machines. U kunt uw eigen software installeren op virtuele machines die gebruikmaken van Azure Cloud Services, en kunt u ze op afstand openen.

@@ -19,11 +19,11 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1d54347b9a3ccc72cfd5b88400d699d93132fbf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785564"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299866"
 ---
 # <a name="what-is-authentication"></a>Wat is verificatie?
 
@@ -130,7 +130,7 @@ Een korte beschrijving van elk type claim verzonden door Microsoft identity-plat
 | Tenant-id | Bevat een onveranderbare, unieke id voor de directorytenant die het token heeft uitgegeven. |
 | Levensduur van token | Definieert gedurende welke periode een token geldig is. |
 | User principal name | Bevat de user principal name van het onderwerp. |
-| Versie | Bevat het versienummer van het token. |
+| Version | Bevat het versienummer van het token. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

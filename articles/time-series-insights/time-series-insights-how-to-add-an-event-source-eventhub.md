@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: d4a80358535429f53b582abe8560757028159070
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557781"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197798"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Een event hub-gebeurtenisbron toevoegen aan uw Time Series Insights-omgeving
 
@@ -108,5 +108,7 @@ Om toe te voegen een nieuwe consumentengroep in uw event hub:
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Gegevenstoegangsbeleid definiëren](time-series-insights-data-access.md) om de gegevens te beveiligen.
+
 * [Gebeurtenissen verzenden](time-series-insights-send-events.md) naar de gebeurtenisbron.
+
 * Toegang tot uw omgeving in de [Verkenner van Time Series Insights](https://insights.timeseries.azure.com).

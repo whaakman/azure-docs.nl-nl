@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 306e3ccf19ba8db2de01e4b20a52707215a4a040
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470362"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320703"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>De status van de Azure Import/Export-taak controleren met logboekbestanden kopiëren
 Wanneer de Microsoft Azure Import/Export-service stations die zijn gekoppeld aan een taak importeren of exporteren verwerkt, schrijft deze kopie logboekbestanden naar het storage-account of waaruit u importeren of exporteren blobs. Het logboekbestand bevat gedetailleerde status van elk bestand dat is geïmporteerd of geëxporteerd. De URL naar het logboekbestand van elk exemplaar wordt geretourneerd wanneer u de status van een voltooide taak; opvragen Zie [Get Job](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get) voor meer informatie.  

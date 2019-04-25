@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
 ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757660"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196215"
 ---
 # <a name="language-and-region-support-for-luis"></a>Ondersteuning voor LUIS taal en regio
 
@@ -99,7 +99,7 @@ Als u machine learning, LUIS een utterance opgesplitst in [tokens](luis-glossary
 
 De volgende culturen zijn aangepaste tokenizer-versies:
 
-|Culture|Versie|Doel|
+|Culture|Version|Doel|
 |--|--|--|
 |Duits<br>`de-de`|1.0.0|Basis van woorden woordgrenzen door op te splitsen met behulp van een machine learning gebaseerde tokenizer waarmee wordt geprobeerd om op te splitsen samengestelde woorden in hun afzonderlijke onderdelen.<br>Als een gebruiker invoert `Ich fahre einen krankenwagen` als een utterance is ingeschakeld op `Ich fahre einen kranken wagen`. De markering van zodat `kranken` en `wagen` onafhankelijk als andere entiteiten.|
 |Duits<br>`de-de`|1.0.1|Basis van woorden woordgrenzen door ze op opslagruimten worden gesplitst.<br> Als een gebruiker invoert `Ich fahre einen krankenwagen` als een utterance blijft een specifiek token. Dus `krankenwagen` is gemarkeerd als één entiteit. |

@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279870"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311943"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migreren van Enterprise Agreement naar de klant van Microsoft-overeenkomst API 's
 
@@ -187,7 +187,7 @@ De naam van de eigenschap die de matrix van gebruiksrecords gewijzigd van gegeve
 | ExtendedCost en kosten | costInBillingCurrency | &nbsp;  |
 | Instantie-id | resourceId | &nbsp;  |
 | Terugkerende kosten | Geen | &nbsp;  |
-| Locatie | location | &nbsp;  |
+| Location | location | &nbsp;  |
 | Metercategorie | meterCategory | Exacte tekenreekswaarden verschillen. |
 | Meter-id | meterId | Exacte tekenreekswaarden verschillen. |
 | Meternaam | meterName | Exacte tekenreekswaarden verschillen. |
@@ -428,7 +428,7 @@ In het bereik van de EA-inschrijving zijn de API-reactie en eigenschappen identi
 
 De oudere eigenschappen voor [API's van Azure Resource Manager prijs blad](/rest/api/consumption/pricesheet) en dezelfde nieuwe eigenschappen zijn in de volgende tabel.
 
-| Oude Azure Resource Manager-prijs blad API-eigenschap  | Nieuwe Microsoft Customer overeenkomst prijs blad API-eigenschap   | Description |
+| Oude Azure Resource Manager-prijs blad API-eigenschap  | Nieuwe Microsoft Customer overeenkomst prijs blad API-eigenschap   | Beschrijving |
 | --- | --- | --- |
 | Id van de meter | _meterId_ | De unieke id voor de meter. Hetzelfde als meterId. |
 | Meternaam | meterName | De naam van de meter. Meter vertegenwoordigt het implementeerbare resource zorgen Azure-service. |

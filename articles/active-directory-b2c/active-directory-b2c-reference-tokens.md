@@ -3,7 +3,7 @@ title: Overzicht van tokens - Azure Active Directory B2C | Microsoft Docs
 description: Meer informatie over de tokens die worden gebruikt in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 11361bc6ab75e873e1b4081dcfc6492abc093b54
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680261"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316932"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Overzicht van de tokens in Azure Active Directory B2C
 
@@ -50,18 +50,18 @@ De claims in het ID-tokens worden niet geretourneerd in een bepaalde volgorde. N
 
 De volgende tabel bevat de claims die u kunt verwachten in de ID-tokens en tokens die zijn uitgegeven door Azure AD B2C toegang.
 
-| Name | Claim | Voorbeeldwaarde | Description |
+| Name | Claim | Voorbeeldwaarde | Beschrijving |
 | ---- | ----- | ------------- | ----------- |
 | Doelgroep | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Hiermee geeft u de beoogde ontvanger van het token. Voor Azure AD B2C is de doelgroep de toepassings-ID. Uw toepassing moet deze waarde te valideren en het token te negeren als deze niet overeenkomt met. Doelgroep is gelijk aan de resource. |
 | Verlener | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en het token retourneert. Het identificeert ook de map waarin de gebruiker is geverifieerd. Uw toepassing moet de claim van verlener om ervoor te zorgen dat het token afkomstig van het juiste eindpunt is valideren. |
 | Uitgegeven op | `iat` | `1438535543` | De tijd waarop het token is uitgegeven, weergegeven in epoche-tijd. |
 | Vervaltijd | `exp` | `1438539443` | De tijd waarop het token ongeldig is, wordt weergegeven in epoche-tijd. Deze claim moet in uw toepassing gebruiken om te controleren of de geldigheid van de levensduur van tokens. |
 | Niet voor | `nbf` | `1438535543` | De tijd waarop het token geldig is, wordt weergegeven in epoche-tijd. Deze tijd is meestal hetzelfde als de tijd die het token is uitgegeven. Deze claim moet in uw toepassing gebruiken om te controleren of de geldigheid van de levensduur van tokens. |
-| Versie | `ver` | `1.0` | De versie van de ID-token, zoals gedefinieerd door Azure AD B2C. |
+| Version | `ver` | `1.0` | De versie van de ID-token, zoals gedefinieerd door Azure AD B2C. |
 | Code-hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Een code-hash is opgenomen in een ID-token dat alleen wanneer het token is uitgegeven, samen met een OAuth 2.0-autorisatiecode. Een code-hash kan worden gebruikt om te valideren de echtheid van een autorisatiecode. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Access token-hash | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Een access token-hash opgenomen in een ID-token dat alleen wanneer het token is uitgegeven, samen met een OAuth 2.0-toegangstoken. Een access token-hash kan worden gebruikt om te valideren de echtheid van een toegangstoken. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | nonce | `nonce` | `12345` | Een nonce is een strategie gebruikt voor het beperken van token opnieuw afspelen aanvallen. Uw toepassing een nonce kunt opgeven in een autorisatieaanvraag met behulp van de `nonce` queryparameter. De waarde die u in de aanvraag opgeeft is verzonden niet gewijzigd de `nonce` claimen van een ID-token dat alleen. Deze claim kan uw toepassing om te controleren of de waarde op basis van de waarde die is opgegeven in de aanvraag. Uw toepassing moeten deze validatie tijdens de validatie van tokens proces-ID worden uitgevoerd. |
-| Onderwerp | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | De principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een toepassing. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. Het kan worden gebruikt voor autorisatie controles veilig uitvoeren, zoals wanneer het token wordt gebruikt voor toegang tot een resource. Standaard wordt de claim onderwerp gevuld met de object-ID van de gebruiker in de map. |
+| Subject | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | De principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een toepassing. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. Het kan worden gebruikt voor autorisatie controles veilig uitvoeren, zoals wanneer het token wordt gebruikt voor toegang tot een resource. Standaard wordt de claim onderwerp gevuld met de object-ID van de gebruiker in de map. |
 | Authentication context class reference | `acr` | Niet van toepassing | Alleen gebruikt met oudere beleid. |
 | Framework vertrouwensbeleid | `tfp` | `b2c_1_signupsignin1` | De naam van het beleid dat is gebruikt om de ID-token te verkrijgen. |
 | Verificatie-tijd | `auth_time` | `1438535543` | De tijd die een gebruiker laatste referenties ingevoerd weergegeven in epoche-tijd. |

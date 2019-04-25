@@ -1,6 +1,6 @@
 ---
-title: Voorbeelden van Azure PowerShell - beheerde Azure-toepassingen | Microsoft Docs
-description: Voorbeelden van Azure PowerShell - beheerde Azure-toepassingen
+title: Azure PowerShell-voorbeelden - Azure Managed Applications | Microsoft Docs
+description: Azure PowerShell-voorbeelden - Azure beheerde toepassingen
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 54663282f0a7c9491c0f6501af74eca1a907c44a
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: HT
+ms.openlocfilehash: c1a960077ed96bb395ade9a09f47b035e6ff4318
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
-ms.locfileid: "23940947"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252122"
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell-voorbeelden
 
-De volgende tabel bevat koppelingen naar scripts voor Azure Managed toepassingen die gebruikmaken van Azure PowerShell.
+De volgende tabel bevat koppelingen naar scripts voor Azure beheerde toepassingen die gebruikmaken van Azure PowerShell.
 
 | | |
 |-|-|
-|**Beheerde toepassing maken**||
-| [Definitie van de beheerde toepassing maken](scripts/managed-application-powershell-sample-create-definition.md) | Maakt de definitie van een beheerde toepassing in de Servicecatalogus.  |
-| [Beheerde toepassing implementeren](scripts/managed-application-poweshell-sample-create-application.md) | Implementeert een beheerde toepassing van de Servicecatalogus.  |
+|**Een beheerde toepassing maken**||
+| [Definitie van beheerde toepassing maken](scripts/managed-application-powershell-sample-create-definition.md) | Hiermee maakt u een definitie van beheerde toepassing in de Servicecatalogus.  |
+| [Beheerde toepassing implementeren](scripts/managed-application-poweshell-sample-create-application.md) | Implementeert een beheerde toepassing uit de Servicecatalogus.  |
 | | |
-|**Update beheerde resourcegroep**||
-| [Resources in beheerde resourcegroep ophalen en het formaat van virtuele machines](scripts/managed-application-powershell-sample-get-managed-group-resize-vm.md) | Bronnen uit de groep beheerde bron opgehaald en Hiermee wordt ingesteld voor de virtuele machines. |
+|**Beheerde resourcegroep bijwerken**||
+| [Profiteer van bronnen in de beheerde resourcegroep en het formaat van virtuele machines](scripts/managed-application-powershell-sample-get-managed-group-resize-vm.md) | -Resources ophaalt uit de beheerde resourcegroep en vergroot/verkleint de virtuele machines. |

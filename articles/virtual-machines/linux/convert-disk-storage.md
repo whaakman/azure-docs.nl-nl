@@ -3,8 +3,8 @@ title: Converteren van Azure managed disks-opslag van Standard naar Premium- of 
 description: Het converteren van Azure managed disks-opslag van Standard naar Premium- of Premium naar standaard met behulp van de Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: cynthn
+ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 18730f662f36000e1efc826c35bebde79dbf0e79
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013611"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60328779"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Converteren van Azure managed disks-opslag van Standard naar Premium- of Premium naar standaard
 

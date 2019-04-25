@@ -9,11 +9,11 @@ ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121125"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60235135"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Hoe kunt u complexe acties met Azure Monitor-waarschuwingen activeren
 
@@ -281,11 +281,11 @@ Het proces voor het maken van een waarschuwing voor metrische gegevens is vergel
        
        !['Metrische alert payload voorwaarde'](media/action-groups-logic-app/metric-alert-payload-condition.png "metrische alert payload voorwaarde")
 
-  1. In de **als de waarde true** voorwaarde, voegt u een **voor elk** lus en de Microsoft Teams-actie. Het bericht definiëren met behulp van een combinatie van HTML- en dynamische inhoud.
+  2. In de **als de waarde true** voorwaarde, voegt u een **voor elk** lus en de Microsoft Teams-actie. Het bericht definiëren met behulp van een combinatie van HTML- en dynamische inhoud.
 
       !['Actie metrische waarschuwing voorwaarde na'](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "actie na de metrische waarschuwing voorwaarde is voldaan")
 
-  1. In de **indien onwaar** voorwaarde, het definiëren van een Microsoft Teams-actie om te communiceren dat de waarschuwing voor metrische gegevens, komt niet overeen met de verwachtingen van de logische app. De JSON-nettolading opnemen. U ziet hoe om te verwijzen naar de `triggerBody` dynamische inhoud in de `json()` expressie.
+  3. In de **indien onwaar** voorwaarde, het definiëren van een Microsoft Teams-actie om te communiceren dat de waarschuwing voor metrische gegevens, komt niet overeen met de verwachtingen van de logische app. De JSON-nettolading opnemen. U ziet hoe om te verwijzen naar de `triggerBody` dynamische inhoud in de `json()` expressie.
 
       !['Actie metrische waarschuwing false na'](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "actie na de waarschuwing false metrische gegevens")
 
@@ -298,4 +298,3 @@ Logic Apps heeft een aantal andere connectors waarmee u kunt acties van de trigg
 * Krijgen een [overzicht van waarschuwingen voor activiteitenlogboeken van Azure](../../azure-monitor/platform/alerts-overview.md) en leer hoe u waarschuwingen ontvangt.  
 * Meer informatie over het [waarschuwingen configureren wanneer er een melding van Azure Service Health is geplaatst](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Meer informatie over [actiegroepen](../../azure-monitor/platform/action-groups.md).
-

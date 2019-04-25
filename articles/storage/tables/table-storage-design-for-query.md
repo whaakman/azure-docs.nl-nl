@@ -9,11 +9,11 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470736"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325864"
 ---
 # <a name="design-for-querying"></a>Ontwerp voor query's
 Oplossingen voor tabel-service kunnen worden gelezen intensieve, intensieve schrijven of een combinatie van de twee. In dit artikel richt zich op de belangrijke zaken op moet letten wanneer u de Table-service voor de ondersteuning van leesbewerkingen efficiënt ontwerpt. Een ontwerp dat ondersteunt bewerkingen efficiënt lezen is meestal ook efficiënt voor schrijfbewerkingen. Er zijn echter aanvullende overwegingen op moet letten bij het ontwerpen van voor de ondersteuning van schrijfbewerkingen, in het artikel is besproken [ontwerp voor een gegevenswijziging](table-storage-design-for-modification.md).

@@ -19,11 +19,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f4a7f2a4fe0e1ca455b1140e83f31f6b30a7511
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250049"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft identity-platform en OpenID Connect-protocol
 
@@ -140,7 +140,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | `id_token` | De ID-token dat de app worden aangevraagd. U kunt de `id_token` parameter om te controleren of de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. Zie voor meer informatie over ID-tokens en de inhoud ervan, de [ `id_tokens` verwijzing](id-tokens.md). |
 | `state` | Als een `state` parameter is opgenomen in de aanvraag, dezelfde waarde moet worden weergegeven in het antwoord. De app moet controleren of dat de provincie-waarden in de aanvraag en respons identiek zijn. |
@@ -166,7 +166,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 De volgende tabel worden foutcodes beschreven die kunnen worden geretourneerd in de `error` parameter van het foutbericht:
 
-| Foutcode | Description | Clientactie |
+| Foutcode | Beschrijving | Clientactie |
 | --- | --- | --- |
 | `invalid_request` | Protocolfout, zoals een ontbrekende vereiste parameter. |Los en verzend de aanvraag opnieuw. Dit is een ontwikkeling-fout die meestal is aangetroffen tijdens de eerste test. |
 | `unauthorized_client` | De clienttoepassing kan geen een autorisatiecode vragen. |Dit gebeurt meestal wanneer de clienttoepassing niet is geregistreerd bij Azure AD of is niet toegevoegd aan Azure AD-tenant van de gebruiker. De toepassing kan de gebruiker met instructies voor het installeren van de toepassing en deze toevoegen aan Azure AD vragen. |
@@ -253,7 +253,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| Parameter | Description |
+| Parameter | Beschrijving |
 | --- | --- |
 | `id_token` | De ID-token dat de app worden aangevraagd. U kunt de ID-token gebruiken om te controleren of de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. U vindt meer informatie over ID-tokens en hun inhoud in de [ `id_tokens` verwijzing](id-tokens.md). |
 | `code` | De autorisatiecode die de app heeft aangevraagd. De app kan de autorisatiecode gebruiken om aan te vragen van een toegangstoken voor de doelresource. Er is een autorisatiecode tijdelijke. Normaal gesproken verloopt een autorisatiecode over ongeveer tien minuten. |

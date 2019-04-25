@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: diberry
 ms.openlocfilehash: 54bae5548764ed1f89a2ffb7992eb222a058c706
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403648"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194103"
 ---
 # <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Zelfstudie: LUIS-bot in Node.js met Bot Framework 4.x en de Azure-web-app-bot
 Met Node.js kunt u een chatbot bouwen met ingebouwd taalbegrip (LUIS). Deze bot maakt gebruik van de app HomeAutomation om een botoplossing te implementeren. De bot is gebouwd aan de hand van de Azure-[web-app-bot](https://docs.microsoft.com/azure/bot-service/) en [Bot Framework versie](https://github.com/Microsoft/botbuilder-js) 4.
@@ -50,7 +50,7 @@ Met Node.js kunt u een chatbot bouwen met ingebouwd taalbegrip (LUIS). Deze bot 
     |Botnaam|Resourcenaam|`luis-nodejs-bot-` + `<your-name>`, bijvoorbeeld, `luis-nodejs-bot-johnsmith`|
     |Abonnement|Het abonnement waarvoor de bot moet worden gemaakt.|Uw primaire abonnement.
     |Resourcegroep|Logische groep van Azure-resources|Maak een nieuwe groep voor het opslaan van alle resources die worden gebruikt met deze bot. Geef de groep de naam `luis-nodejs-bot-resource-group`.|
-    |Locatie|Azure-regio: deze hoeft niet dezelfde te zijn als de LUIS-regio voor maken en publiceren.|`westus`|
+    |Location|Azure-regio: deze hoeft niet dezelfde te zijn als de LUIS-regio voor maken en publiceren.|`westus`|
     |Prijscategorie|Wordt gebruikt voor serviceaanvraaglimieten en facturatie.|`F0` is de gratis laag.
     |Naam van app|Deze naam wordt gebruikt als subdomein wanneer uw bot wordt geïmplementeerd in de cloud (bijvoorbeeld humanresourcesbot.azurewebsites.net).|`luis-nodejs-bot-` + `<your-name>`, bijvoorbeeld, `luis-nodejs-bot-johnsmith`|
     |Botsjabloon|Instellingen voor het botframework - zie de volgende tabel|

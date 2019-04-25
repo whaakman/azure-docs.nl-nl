@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000586"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193708"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-ends en back-end-pools in Azure voordeur Service
 Dit artikel beschrijft de concepten over het toewijzen van de implementatie van uw app met Azure voordeur Service. Hierin wordt ook uitgelegd de verschillende termen in de configuratie van de voordeur over app-back-ends.

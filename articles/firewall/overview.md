@@ -10,11 +10,11 @@ ms.date: 3/29/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ms.openlocfilehash: 7f313af75e78db8a60fe6864c41cd8e6c5a3ad9b
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629957"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193025"
 ---
 # <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
@@ -54,7 +54,7 @@ Een servicetag vertegenwoordigt een groep IP-adresvoorvoegsels die het maken van
 
 ### <a name="threat-intelligence"></a>Informatie over bedreigingen
 
-Threat intelligence filteren kan worden ingeschakeld voor de firewall op de hoogte en verkeer van/naar bekende schadelijke IP-adressen en domeinen weigeren. Het IP-adressen en domeinen zijn afkomstig van de Microsoft-Bedreigingsinformatie-feed.
+Filteren op basis van bedreigingsinformatie kan voor uw firewall worden ingeschakeld voor waarschuwingen over of het weigeren van verkeer van en naar bekende kwaadaardige IP-adressen en domeinen. De IP-adressen en domeinen zijn afkomstig uit de feed Bedreigingsinformatie van Microsoft.
 
 ### <a name="outbound-snat-support"></a>Ondersteuning voor uitgaande SNAT
 

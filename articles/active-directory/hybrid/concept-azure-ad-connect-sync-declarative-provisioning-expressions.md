@@ -4,24 +4,24 @@ description: De declaratieve inrichtingsexpressies uitgelegd.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/18/2017
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+ms.topic: article
+origin.date: 07/18/2017
+ms.date: 11/08/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181980"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245508"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect-synchronisatie: Inzicht in verklarende inrichtingsexpressies
 Azure AD Connect-synchronisatie is gebaseerd op het declaratieve inrichting is geïntroduceerd in Forefront Identity Manager 2010. Hiermee kunt u voor het implementeren van uw volledige identity integration bedrijfslogica zonder de noodzaak gecompileerde code te schrijven.
@@ -33,13 +33,13 @@ Zie voor meer informatie, [Welkom bij de Visual Basic for Applications taalverwi
 De kenmerken zijn sterk getypeerd. Een functie accepteert alleen de kenmerken van het juiste type. Het is ook hoofdlettergevoelig. Zowel de functienamen van de en kenmerk moet juiste hoofdlettergebruik of een fout gegenereerd.
 
 ## <a name="language-definitions-and-identifiers"></a>Definities van de taal en id 's
-* Functies hebben een naam, gevolgd door argumenten tussen vierkante haken: Functienaam (1 argument, argument N).
-* Kenmerken worden geïdentificeerd door de vierkante haken: [attributeName]
-* Parameters worden aangeduid met procenttekens: % ParameterName %
-* Tekenreeksconstanten worden omringd door aanhalingstekens: Bijvoorbeeld 'Contoso' (Opmerking: rechte aanhalingstekens "' en niet slimme aanhalingstekens" ")
-* Numerieke waarden worden uitgedrukt zonder aanhalingstekens en verwacht decimaal. Hexadecimale waarden worden voorafgegaan door & h Bijvoorbeeld, 98052 & HFF
-* Booleaanse waarden worden uitgedrukt met constanten: Waar, ONWAAR.
-* Ingebouwde constanten en letterlijke waarden worden uitgedrukt met alleen de naam: NULL, CRLF, IgnoreThisFlow
+- Functies hebben een naam, gevolgd door argumenten tussen vierkante haken: Functienaam (1 argument, argument N).
+- Kenmerken worden geïdentificeerd door de vierkante haken: [attributeName]
+- Parameters worden aangeduid met procenttekens: % ParameterName %
+- Tekenreeksconstanten worden omringd door aanhalingstekens: Bijvoorbeeld 'Contoso' (Opmerking: rechte aanhalingstekens "' en niet slimme aanhalingstekens" ")
+- Numerieke waarden worden uitgedrukt zonder aanhalingstekens en verwacht decimaal. Hexadecimale waarden worden voorafgegaan door & h Bijvoorbeeld, 98052 & HFF
+- Booleaanse waarden worden uitgedrukt met constanten: Waar, ONWAAR.
+- Ingebouwde constanten en letterlijke waarden worden uitgedrukt met alleen de naam: NULL, CRLF, IgnoreThisFlow
 
 ### <a name="functions"></a>Functions
 Declaratieve inrichting maakt gebruik van veel functies waarmee de mogelijkheid om te zetten van kenmerkwaarden. Deze functies kunnen worden genest, zodat het resultaat van een functie aan een andere functie doorgegeven.
@@ -71,11 +71,11 @@ Hier volgt een voorbeeld waarin vult het domein van de metaverse-kenmerk met de 
 ### <a name="operators"></a>Operators
 De volgende operators kunnen worden gebruikt:
 
-* **Comparison**: <, <=, <>, =, >, >=
-* **Wiskunde**: +, -, \*, -
-* **Tekenreeks**: & (samenvoegen)
-* **Logische**: & & (en) || (of)
-* **Evaluatievolgorde**:)
+- **Comparison**: <, <=, <>, =, >, >=
+- **Wiskunde**: +, -, \*, -
+- **Tekenreeks**: & (samenvoegen)
+- **Logische**: & & (en) || (of)
+- **Evaluatievolgorde**:)
 
 Operators links naar rechts worden geëvalueerd en dezelfde evaluatie prioriteit hebben. Dat wil zeggen, de \* (vermenigvuldiger) wordt niet geëvalueerd vóór - (aftrekken). 2\*(5 + 3) is niet gelijk zijn aan 2\*5 + 3. De vierkante haken () worden gebruikt om de evaluatievolgorde wijzigen wanneer links naar rechts evaluatieorder niet juist.
 
@@ -88,16 +88,17 @@ Bijvoorbeeld:
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Het SIP-adres zoekt en verwijdert u het uit de waarden.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over de configuratiemodel in [Understanding declaratieve inrichting](concept-azure-ad-connect-sync-declarative-provisioning.md).
-* Zie hoe declaratieve inrichting is gebruikte out-of-box in [inzicht in de standaardconfiguratie](concept-azure-ad-connect-sync-default-configuration.md).
-* Zien hoe u een praktische wijzigen met behulp van declaratieve inrichting [hoe u een wijziging in de standaardconfiguratie](how-to-connect-sync-change-the-configuration.md).
+- Meer informatie over de configuratiemodel in [Understanding declaratieve inrichting](concept-azure-ad-connect-sync-declarative-provisioning.md).
+- Zie hoe declaratieve inrichting is gebruikte out-of-box in [inzicht in de standaardconfiguratie](concept-azure-ad-connect-sync-default-configuration.md).
+- Zien hoe u een praktische wijzigen met behulp van declaratieve inrichting [hoe u een wijziging in de standaardconfiguratie](how-to-connect-sync-change-the-configuration.md).
 
 **Overzichtsonderwerpen**
 
-* [Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie](how-to-connect-sync-whatis.md)
-* [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
+- [Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie](how-to-connect-sync-whatis.md)
+- [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
 
 **Onderwerpen met naslaginformatie**
 
-* [Azure AD Connect-synchronisatie: Functieverwijzing](reference-connect-sync-functions-reference.md)
+- [Azure AD Connect-synchronisatie: Functieverwijzing](reference-connect-sync-functions-reference.md)
+
 

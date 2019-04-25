@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 34eafe8a13d126ebdbb08084d8820646ca43534a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: b8937b22054e55c8bfe7bc4c7726dc5bae5de6d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998087"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203753"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Quickstart: Maken van een .NET Core-app met App-configuratie
 
@@ -67,7 +67,7 @@ U gebruikt de [.NET Core-opdrachtregelinterface (CLI)](https://docs.microsoft.co
 
         dotnet restore
 
-3. Open *Program.cs*, en voeg een verwijzing naar een provider van de configuratie van App-configuratie .NET Core.
+3. Open *Program.cs*, en voeg een verwijzing naar de configuratie van .NET Core-App-provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration;

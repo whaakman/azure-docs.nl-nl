@@ -17,11 +17,11 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7bd57b3d41ad7c670b5423f10a9c93b55e87d757
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252217"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph API aanroepen vanuit een Universal Windows Platform-toepassing (XAML)
 
@@ -45,7 +45,7 @@ In deze handleiding wordt gemaakt voor een UWP-voorbeeldtoepassing die query's v
 
 Deze handleiding maakt gebruik van de volgende NuGet-pakketten:
 
-|Bibliotheek|Description|
+|Bibliotheek|Beschrijving|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library|
 
@@ -381,7 +381,7 @@ U ziet informatie uit gebruikersprofielen door de Microsoft Graph API-aanroep is
 
 U ziet ook basisinformatie over het token dat is verkregen `AcquireTokenInteractive` of `AcquireTokenSilent` in de **Token Info** vak:
 
-|Eigenschap  |Indeling  |Beschrijving |
+|Eigenschap  |Indeling  |Description |
 |---------|---------|---------|
 |**Gebruikersnaam** |<span>user@domain.com</span> |De gebruikersnaam waarmee de gebruiker.|
 |**Token is verlopen** |DateTime |De tijd wanneer het token is verlopen. MSAL vervolg op de vervaldatum vernieuwen van het token indien nodig.|

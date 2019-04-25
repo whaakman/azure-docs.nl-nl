@@ -10,11 +10,11 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237845"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Het Schema van Azure Diagnostics 1.0
 > [!NOTE]
@@ -164,7 +164,7 @@ Kenmerken:
 
 Kenmerken:  
 
-|Kenmerk|Type|Beschrijving|  
+|Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
 |**container**|string|De naam van de container waar de inhoud van de map is om te worden overgedragen.|  
 |**directoryQuotaInMB**|unsignedInt|Optioneel. Hiermee geeft u de maximale grootte van de map in megabytes.<br /><br /> De standaardwaarde is 0.|  
@@ -176,7 +176,7 @@ Kenmerken:
 
 Kenmerken:  
 
-|Kenmerk|Type|Description|  
+|Kenmerk|Type|Beschrijving|  
 |---------------|----------|-----------------|  
 |**container**|string|De naam van de container waar de inhoud van de map is om te worden overgedragen.|  
 |**directoryQuotaInMB**|unsignedInt|Optioneel. Hiermee geeft u de maximale grootte van de map in megabytes.<br /><br /> De standaardwaarde is 0.|  
@@ -205,7 +205,7 @@ Kenmerken:
 
 Kenmerken:  
 
-|Kenmerk|Type|Beschrijving|  
+|Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
 |**path**|string|Vereist. Het absolute pad naar de map om te controleren.|  
 |**expandEnvironment**|booleaans|Vereist. Indien ingesteld op **waar**, omgevingsvariabelen in het pad worden uitgevouwen.|  

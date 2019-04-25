@@ -14,11 +14,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
 ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202127"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Werken met SQL Database-verbindingsproblemen en tijdelijke fouten
 
@@ -275,7 +275,7 @@ Enterprise-bibliotheek 6 (EntLib60) biedt beheerde .NET-klassen om u te helpen b
 
 Hier volgen enkele Transact-SQL SELECT-instructies die foutenlogboeken en andere informatie opvragen.
 
-| Query van logboek | Description |
+| Query van logboek | Beschrijving |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |De [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) weergave biedt informatie over afzonderlijke gebeurtenissen, waaronder enkele die leiden tijdelijke fouten of fouten in de netwerkconnectiviteit tot kunnen.<br/><br/>U kunt in het ideale geval correleren de **start_time** of **end_time** waarden met informatie over wanneer uw clientprogramma problemen ondervonden.<br/><br/>U moet verbinding maken met de *master* database deze query uit te voeren. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |De [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) weergave biedt samengevoegde tellingen van gebeurtenistypen voor aanvullende diagnostische gegevens.<br/><br/>U moet verbinding maken met de *master* database deze query uit te voeren. |

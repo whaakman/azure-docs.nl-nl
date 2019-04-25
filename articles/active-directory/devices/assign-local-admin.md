@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da55370df55bcd9122bf87c561b00f3106cc6c58
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521887"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60296760"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Over het beheren van de lokale groep administrators op de Azure AD gekoppelde apparaten
 

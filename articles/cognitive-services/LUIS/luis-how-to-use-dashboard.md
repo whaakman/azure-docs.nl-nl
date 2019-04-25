@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
 ms.openlocfilehash: c173152d0a59e391fe77ee855311a867a1b2b6c0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338430"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198425"
 ---
 # <a name="model-and-usage-statistics-in-the-dashboard"></a>Model en het gebruik van statistieken in het dashboard
 Het app-dashboard kunt u uw app in één oogopslag controleren. De **Dashboard** wordt weergegeven wanneer u een app openen door te klikken op de naam van de toepassing op **mijn Apps** pagina selecteert **Dashboard** uit boven in het venster. 

@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/26/2018
+origin.date: 02/26/2018
+ms.date: 04/09/2019
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6269d00c9a6a8f827a4e31044d9d20efb0f8471b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60243521"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installeer Azure AD Connect met behulp van SQL delegated administrator-machtigingen
 Voordat u de nieuwste build van Azure AD Connect, met beheerdersrechten de delegatie, bij het implementeren van configuraties die SQL vereist, niet wordt ondersteund.  Gebruikers die wil Azure AD Connect installeert die nodig zijn om machtigingen voor serverbeheerders (SA) op de SQL server.
@@ -31,7 +32,7 @@ Met de meest recente versie van Azure AD Connect, worden inrichten van de databa
 ## <a name="before-you-begin"></a>Voordat u begint
 U moet deze functie wilt gebruiken, houd er rekening mee dat er meerdere bewegende onderdelen en elk ervan kan betrekking hebben op een andere beheerder in uw organisatie.  De volgende tabel geeft een overzicht van de afzonderlijke functies en hun respectieve taken bij het implementeren van Azure AD Connect met deze functie.
 
-|Rol|Description|
+|Rol|Beschrijving|
 |-----|-----|
 |Domein of Forest AD-beheerder|Hiermee maakt u het serviceaccount dat wordt gebruikt door Azure AD Connect om uit te voeren van de synchronisatieservice niveau van domein.  Zie voor meer informatie over service-accounts, [Accounts en machtigingen](reference-connect-accounts-permissions.md).
 |SQL-beheerder|De ADSync-database wordt gemaakt en aanmelding + dbo verleent toegang tot de Azure AD Connect-beheerder en het serviceaccount dat is gemaakt door de beheerder domein/forest.|
@@ -67,3 +68,5 @@ Als de SQL-beheerder ADSync-database vanuit een eerdere back-up van Azure AD Con
 - [Aan de slag met Azure AD Connect met Express-instellingen](how-to-connect-install-express.md)
 - [Aangepaste installatie van Azure AD Connect](how-to-connect-install-custom.md)
 - [Azure AD Connect installeren met behulp van een bestaande ADSync-database](how-to-connect-install-existing-database.md)  
+
+<!-- Update_Description: wording update -->

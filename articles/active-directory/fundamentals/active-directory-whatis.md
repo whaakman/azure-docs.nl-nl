@@ -11,11 +11,11 @@ ms.author: lizross
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d3b3cd7e759892c2215f190a682f5f69818958d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442357"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60247899"
 ---
 # <a name="what-is-azure-active-directory"></a>What is Azure Active Directory? (Engelstalig) 
 Azure Active Directory (Azure AD) is de identiteits- en toegangsbeheerservice van Microsoft op basis van de cloud. Met Azure AD kunnen uw medewerkers zich aanmelden en toegang krijgen tot resources:
@@ -76,7 +76,7 @@ Lees de volgende terminologie voor een beter begrip van Azure AD en de bijbehore
 ## <a name="which-features-work-in-azure-ad"></a>Welke functies werken in Azure AD?
 Nadat u uw Azure AD-licentie hebt gekozen, krijgt u toegang tot (een deel van) de volgende functies voor uw organisatie.
 
-|Categorie|Description|
+|Category|Description|
 |-------|-----------|
 |Toepassingsbeheer|Beheer uw apps in de cloud of on-premises met de toepassingsproxy, eenmalige aanmelding, de portal My Apps (ook wel Toegangsvenster genoemd) en SaaS-apps (Software als een dienst). Zie [Beveiligde externe toegang bieden voor on-premises toepassingen](../manage-apps/application-proxy.md) en [Documentatie over toepassingsbeheer](../manage-apps/index.yml) voor meer informatie.|
 |Authentication|In Azure Active Directory kunt u selfservice voor wachtwoordherstel, Multi-Factor Authentication, een aangepaste lijst met verboden wachtwoorden en slimme vergrendeling beheren. Zie [Documentatie voor Azure AD-verificatie](../authentication/index.yml) voor meer informatie.|

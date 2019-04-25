@@ -10,11 +10,11 @@ ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: 1f80d7e63d994f0e3eb3733b99afaa1b056f4686
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804905"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252401"
 ---
 # <a name="publish-an-azure-managed-application-definition"></a>De definitie van een door Azure beheerde toepassing publiceren
 
@@ -68,14 +68,14 @@ Wanneer de opdracht is voltooid, hebt u de definitie van een beheerde toepassing
 
 Enkele parameters die in het voorgaande voorbeeld worden gebruikt, zijn:
 
-* **resource-group**: de naam van de resourcegroep waarin de definitie van de beheerde toepassing wordt gemaakt.
-* **lock-level**: het type vergrendeling dat is toegepast op de beheerde resourcegroep. Hiermee voorkomt u dat de klant ongewenste bewerkingen uitvoert op deze resourcegroep. ReadOnly is momenteel het enige ondersteunde vergrendelingsniveau. Als ReadOnly is opgegeven, kan de klant alleen de resources die aanwezig zijn in de beheerde resourcegroep lezen. De uitgeversidentiteiten die toegang tot de beheerde resourcegroep krijgen, zijn uitgesloten van de vergrendeling.
-* **authorizations**: beschrijft de principal-id en de roldefinitie-id die worden gebruikt om machtiging te verlenen aan de beheerde resourcegroep. Wordt opgegeven in de `<principalId>:<roleDefinitionId>`-indeling. Als meer dan één waarde is vereist, geeft u deze op in de vorm `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. De waarden worden gescheiden door een spatie.
-* **package-file-uri**: de locatie van een .zip-pakket dat de vereiste bestanden bevat. Het pakket moet de bestanden **mainTemplate.json** en **createUiDefinition.json** bevatten. **mainTemplate.json** definieert de Azure-resources die zijn gemaakt als onderdeel van de beheerde toepassing. De sjabloon is niet anders dan een reguliere Resource Manager-sjabloon. **createUiDefinition.json** genereert de gebruikersinterface voor gebruikers die de beheerde toepassing via de portal maken.
+* **resource-group**: De naam van de resourcegroep waar de definitie van beheerde toepassing wordt gemaakt.
+* **vergrendelingsniveau**: Het type vergrendeling op de beheerde resourcegroep geplaatst. Hiermee voorkomt u dat de klant ongewenste bewerkingen uitvoert op deze resourcegroep. ReadOnly is momenteel het enige ondersteunde vergrendelingsniveau. Als ReadOnly is opgegeven, kan de klant alleen de resources die aanwezig zijn in de beheerde resourcegroep lezen. De uitgeversidentiteiten die toegang tot de beheerde resourcegroep krijgen, zijn uitgesloten van de vergrendeling.
+* **autorisaties**: Beschrijving van de principal-ID en de roldefinitie-ID die worden gebruikt voor het verlenen van machtigingen aan de beheerde resourcegroep. Wordt opgegeven in de `<principalId>:<roleDefinitionId>`-indeling. Als meer dan één waarde is vereist, geeft u deze op in de vorm `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. De waarden worden gescheiden door een spatie.
+* **package-file-uri**: De locatie van een ZIP-pakket dat de vereiste bestanden bevat. Het pakket moet de bestanden **mainTemplate.json** en **createUiDefinition.json** bevatten. **mainTemplate.json** definieert de Azure-resources die zijn gemaakt als onderdeel van de beheerde toepassing. De sjabloon is niet anders dan een reguliere Resource Manager-sjabloon. **createUiDefinition.json** genereert de gebruikersinterface voor gebruikers die de beheerde toepassing via de portal maken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 U hebt de definitie van de beheerde toepassing gepubliceerd. Nu krijgt u informatie over het implementeren van een exemplaar van deze definitie.
 
 > [!div class="nextstepaction"]
-> [Snelstart: Servicecatalogus-app implementeren](deploy-service-catalog-quickstart.md)
+> [Snelstart: Catalogus-app service implementeren](deploy-service-catalog-quickstart.md)

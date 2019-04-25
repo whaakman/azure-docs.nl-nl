@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: ced83b83c2d64ba5c4816f378c66dae9f4210391
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874478"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193625"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Language understanding verklarende woordenlijst van algemene vocabulaire en concepten
 De Language Understanding (LUIS) verklarende woordenlijst wordt uitgelegd dat de voorwaarden die u kunt tegenkomen wanneer u met de LUIS-API-Service werkt.

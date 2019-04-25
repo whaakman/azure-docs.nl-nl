@@ -7,22 +7,22 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.subservice: develop
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: celested
+origin.date: 09/24/2018
+ms.date: 11/07/2018
+ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0ced89ce97d5f22270d9968fdeb0ddb3fad1e4e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194985"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252034"
 ---
 # <a name="service-to-service-apps"></a>Service-naar-service-apps
 
@@ -63,8 +63,8 @@ Zie de codevoorbeelden voor Daemon of servertoepassing naar Web-API-scenario's. 
 
 ## <a name="app-registration"></a>App-registratie
 
-* Één tenant - voor de toepassings-id en de gemachtigde gebruiker identiteit gevallen de daemon of server-toepassing moet zijn geregistreerd in dezelfde map in Azure AD. De web-API kan worden geconfigureerd als een reeks machtigingen die worden gebruikt voor het beperken van de daemon of van de server toegang tot de resources beschikbaar wilt maken. Als een gemachtigde gebruiker-ID-type wordt gebruikt, moet de servertoepassing Selecteer de gewenste machtigingen in de vervolgkeuzelijst 'Machtigingen voor andere toepassingen' in de Azure-portal. Deze stap is niet vereist als het toepassingstype identiteit wordt gebruikt.
-* Multitenant- en de toepassing daemon of de server is geconfigureerd om aan te geven van de machtigingen die nodig is voor functioneel. Deze lijst met vereiste machtigingen in een dialoogvenster weergegeven wanneer een gebruiker of beheerder in de doelmap toestemming geeft voor de toepassing, waardoor het beschikbaar is voor hun organisatie. Sommige toepassingen vereisen alleen machtigingen op gebruikersniveau, waar een gebruiker in de organisatie toestemming kunt geven. Andere toepassingen vereist beheerdersrechten, die een gebruiker in de organisatie kan niet met instemmen zijn. Alleen een directory-beheerder kan toestemming geven voor toepassingen waarvoor dit niveau van machtigingen. Wanneer de gebruiker of beheerder hiermee akkoord gaat, worden beide van de web-API's in de directory geregistreerd.
+- Één tenant - voor de toepassings-id en de gemachtigde gebruiker identiteit gevallen de daemon of server-toepassing moet zijn geregistreerd in dezelfde map in Azure AD. De web-API kan worden geconfigureerd als een reeks machtigingen die worden gebruikt voor het beperken van de daemon of van de server toegang tot de resources beschikbaar wilt maken. Als een gemachtigde gebruiker-ID-type wordt gebruikt, moet de servertoepassing Selecteer de gewenste machtigingen in de vervolgkeuzelijst 'Machtigingen voor andere toepassingen' in de Azure-portal. Deze stap is niet vereist als het toepassingstype identiteit wordt gebruikt.
+- Multitenant- en de toepassing daemon of de server is geconfigureerd om aan te geven van de machtigingen die nodig is voor functioneel. Deze lijst met vereiste machtigingen in een dialoogvenster weergegeven wanneer een gebruiker of beheerder in de doelmap toestemming geeft voor de toepassing, waardoor het beschikbaar is voor hun organisatie. Sommige toepassingen vereisen alleen machtigingen op gebruikersniveau, waar een gebruiker in de organisatie toestemming kunt geven. Andere toepassingen vereist beheerdersrechten, die een gebruiker in de organisatie kan niet met instemmen zijn. Alleen een directory-beheerder kan toestemming geven voor toepassingen waarvoor dit niveau van machtigingen. Wanneer de gebruiker of beheerder hiermee akkoord gaat, worden beide van de web-API's in de directory geregistreerd.
 
 ## <a name="token-expiration"></a>Geldigheidsduur van het token
 
@@ -74,3 +74,4 @@ Wanneer de eerste toepassing gebruikmaakt van de autorisatiecode ophalen een toe
 
 - Meer informatie over andere [toepassingstypen en scenario's](app-types.md)
 - Meer informatie over de Azure AD [de basisbeginselen van verificatie](authentication-scenarios.md)
+

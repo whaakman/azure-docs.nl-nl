@@ -16,11 +16,11 @@ ms.date: 06/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5b1fa6284979a8c0bd0698f85b119117dd27a05
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60261834"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Zelfstudie: Azure Active Directory-integratie met kudo
 
@@ -213,7 +213,7 @@ In het geval van kudo is inrichten een handmatige taak.
    
     a. Type de **voornaam**, **achternaam**, **e** en andere gegevens van een geldige Azure Active Directory-account dat u inrichten in de bijbehorende tekstvakken wilt.
    
-    b. Klik op **gebruiker maken**.
+    b. Klik op **Gebruiker maken**.
 
 >[!NOTE]
 >U kunt alle andere kudo gebruiker-account maken van hulpprogramma's of API's geleverd door kudo aan inrichten AAD-gebruikersaccounts.
@@ -256,7 +256,7 @@ Wanneer u op de tegel kudo in het toegangsvenster, u moet u automatisch aangemel
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

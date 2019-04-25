@@ -7,11 +7,11 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 28fb3295ef02d508ef04299398a61ea59828df35
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254036"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Zelfstudie: Verificatie van Azure SignalR Service met Azure Functions
 
@@ -57,7 +57,7 @@ U gaat de Azure Functions-app lokaal bouwen en testen. De app heeft toegang tot 
     |---|---|
     | Resourcenaam | Een unieke naam voor het SignalR Service-exemplaar |
     | Resourcegroep | Een nieuwe resourcegroep maken met een unieke naam |
-    | Locatie | Selecteer een locatie dicht bij u in de buurt |
+    | Location | Selecteer een locatie dicht bij u in de buurt |
     | Prijscategorie | Gratis |
 
 1. Klik op **Create**.
@@ -320,7 +320,7 @@ Een Azure Storage-account is vereist voor een functie-app in Azure. U wordt ook 
     | Abonnement | Selecteer het abonnement met het SignalR-Service-exemplaar |
     | Resourcegroep | Selecteer dezelfde resourcegroep bevinden |
     | Resourcenaam | Een unieke naam voor de Storage-account |
-    | Locatie | Selecteer dezelfde locatie als de andere bronnen |
+    | Location | Selecteer dezelfde locatie als de andere bronnen |
     | Prestaties | Standard |
     | Soort account | StorageV2 (general purpose v2) |
     | Replicatie | Lokaal redundante opslag (LRS) |

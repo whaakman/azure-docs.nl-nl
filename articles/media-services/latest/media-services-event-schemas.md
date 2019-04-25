@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
 ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630601"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322230"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure Event Grid-schema's voor Media Services-gebeurtenissen
 
@@ -198,7 +198,7 @@ Voor elke laatste taak statuswijziging (zoals JobFinished, JobCanceled, JobError
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Description |
+| Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
 | Uitvoer | Matrix | Hiermee haalt u de taak uitvoer.|
 
@@ -395,7 +395,7 @@ Het volgende voorbeeld ziet u het schema van de **LiveEventEncoderDisconnected**
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Description |
+| Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
 | streamId | string | Id van de stroom of de verbinding. Coderingsprogramma of de klant is verantwoordelijk voor het toevoegen van deze ID in de URL voor opnemen. |  
 | ingestUrl | string | Opname-URL opgegeven door de live-gebeurtenis. |  
@@ -414,7 +414,7 @@ Het resultaat foutcodes zijn:
 
 De correcte verbinding verbreken resultaatcodes zijn:
 
-| Resultaatcode | Description |
+| Resultaatcode | Beschrijving |
 | ----------- | ----------- |
 | S_OK | Het coderingsprogramma is verbroken. |
 | MPE_CLIENT_TERMINATED_SESSION | Coderingsprogramma verbroken (RTMP). |
@@ -457,7 +457,7 @@ Het gegevensobject heeft de volgende eigenschappen:
 | trackType | string | Type van het spoor (Audio / Video). |
 | trackName | string | De naam van het spoor. |
 | Bitrate | geheel getal | Bitrate van het spoor. |
-| tijdstempel | string | Timestamp van het gegevenssegment is verwijderd. |
+| timestamp | string | Timestamp van het gegevenssegment is verwijderd. |
 | tijdschaal | string | Tijdschaal van de tijdstempel. |
 | resultCode | string | De reden van de gegevens chunk vervolgkeuzelijst. **FragmentDrop_OverlapTimestamp** or **FragmentDrop_NonIncreasingTimestamp**. |
 
@@ -500,7 +500,7 @@ Het gegevensobject heeft de volgende eigenschappen:
 | ingestUrl | string | Opname-URL opgegeven door de live-gebeurtenis. |
 | encoderIp | string  | IP-adres van het coderingsprogramma. |
 | encoderPort | string | Poort van het coderingsprogramma van waar deze stroom afkomstig is. |
-| tijdstempel | string | Eerste timestamp van het gegevenssegment dat is ontvangen. |
+| timestamp | string | Eerste timestamp van het gegevenssegment dat is ontvangen. |
 | tijdschaal | string | Tijdschaal waarin tijdstempel wordt weergegeven. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
@@ -609,7 +609,7 @@ Het volgende voorbeeld ziet u het schema van de **LiveEventIngestHeartbeat** geb
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Description |
+| Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
 | trackType | string | Type van het spoor (Audio / Video). |
 | trackName | string | Naam van het nummer (beide opgegeven door het coderingsprogramma of, in het geval van RTMP, genereert *TrackType_Bitrate* indeling). |

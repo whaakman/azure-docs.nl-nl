@@ -9,11 +9,11 @@ ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492308"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194215"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Zelfstudie: Azure Firewall implementeren en configureren met de Azure-portal
 
@@ -143,7 +143,7 @@ Implementeer de firewall in het VNet.
    |Abonnement     |\<uw abonnement\>|
    |Resourcegroep     |**Test-FW-RG** |
    |Name     |**Test-FW01**|
-   |Locatie     |Selecteer dezelfde locatie die u eerder hebt gebruikt|
+   |Location     |Selecteer dezelfde locatie die u eerder hebt gebruikt|
    |Een virtueel netwerk kiezen     |**Gebruik bestaande**: **Test-FW-VN**|
    |Openbaar IP-adres     |**Nieuwe maken**. Het openbare IP-adres moet van het type Standaard-SKU zijn.|
 

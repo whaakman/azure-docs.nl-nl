@@ -15,11 +15,11 @@ ms.date: 03/15/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c64f9f835393c5ad2bf6022e4a274e8e2eeb1830
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60349858"
 ---
 # <a name="azure-active-directory-connect-health-alert-catalog"></a>Azure Active Directory Connect Health-Waarschuwingscatalogus 
 
@@ -29,7 +29,7 @@ Waarschuwingen van Azure AD Connect Health worden opgelost op een voorwaarde ges
 
 ## <a name="general-alerts"></a>Algemene waarschuwingen
 
-| Naam van de waarschuwing | Description | Herstel |
+| Naam van de waarschuwing | Beschrijving | Herstel |
 | --- | --- | ----- |
 | Health service-gegevens is niet up-to-date | De Health-agents die worden uitgevoerd op een of meer servers is niet verbonden met de Health-Service en de Health-Service is niet ontvangen van de meest recente gegevens van deze server. De meest recente gegevens verwerkt door de Health-Service is ouder dan 2 uur. | Zorg ervoor dat de health-agents uitgaande verbinding met de vereiste service-eindpunten hebben. [Meer informatie](how-to-connect-health-data-freshness.md) |
 

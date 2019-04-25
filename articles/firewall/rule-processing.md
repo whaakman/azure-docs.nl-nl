@@ -7,22 +7,22 @@ ms.service: firewall
 ms.topic: article
 ms.date: 9/27/2018
 ms.author: victorh
-ms.openlocfilehash: 542682037a932a2e3b08c71b38b64b2694ad40f3
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 12d86793c0d75413559aad77c558c4adb7ac91af
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47228330"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193642"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Azure Firewall-regel verwerkingslogica
 Firewall van Azure heeft NAT-regels, netwerkregels en regels voor toepassingen. De regels worden verwerkt op basis van het regeltype.
 
 
 ## <a name="network-rules-and-applications-rules"></a>Netwerkregels voor en toepassingen 
-Netwerkregels zijn toegepaste regels voor eerste en vervolgens de toepassing. De regels worden beëindigd. Dus als een overeenkomst wordt gevonden in netwerkregels, zijn klikt u vervolgens regels van toepassing niet verwerkt.  Als er geen overeenkomst van de regel netwerk, en als het protocol pakketten HTTP/HTTPS is, wordt het pakket wordt vervolgens geëvalueerd door de regels van toepassing. Als u nog steeds geen overeenkomst wordt gevonden, en vervolgens het pakket is geëvalueerd op basis van de infrastructuur-regelverzameling. Als er nog steeds geen overeenkomst, klikt u vervolgens het pakket is standaard niet toegestaan.
+Netwerkregels zijn toegepaste regels voor eerste en vervolgens de toepassing. De regels worden beëindigd. Dus als een overeenkomst wordt gevonden in netwerkregels, zijn klikt u vervolgens regels van toepassing niet verwerkt.  Als er geen overeenkomst van de regel netwerk, en als het protocol pakketten HTTP/HTTPS is, wordt het pakket wordt vervolgens geëvalueerd door de regels van toepassing. Als u nog steeds geen overeenkomst wordt gevonden, en vervolgens het pakket is geëvalueerd op basis van de infrastructuur-regelverzameling. Als er dan nog steeds geen overeenkomende regel is, wordt het pakket standaard afgewezen.
 
 ## <a name="nat-rules"></a>NAT-regels
-Binnenkomende verbindingen kan worden ingeschakeld door het configureren van bestemming Network Address Translation (DNAT), zoals beschreven in [zelfstudie: binnenkomend verkeer filteren met de Azure-portal met behulp van Azure Firewall DNAT](tutorial-firewall-dnat.md). DNAT regels worden eerst toegepast. Als een overeenkomst wordt gevonden, wordt een impliciete bijbehorende netwerk-regel waarmee de vertaalde verkeer toegevoegd. U kunt dit gedrag negeren door expliciet toe te voegen een regelverzameling netwerk met regels voor weigeren die overeenkomen met de vertaalde verkeer. Er is geen toepassing regels worden toegepast voor deze verbindingen.
+Binnenkomende verbindingen kan worden ingeschakeld door het configureren van bestemming Network Address Translation (DNAT), zoals beschreven in [zelfstudie: Binnenkomend verkeer filteren met de Azure-portal met behulp van Azure Firewall DNAT](tutorial-firewall-dnat.md). DNAT regels worden eerst toegepast. Als een overeenkomst wordt gevonden, wordt een impliciete bijbehorende netwerk-regel waarmee de vertaalde verkeer toegevoegd. U kunt dit gedrag overschrijven door expliciet een verzameling netwerkregels toe te voegen met regels voor weigeren die overeenkomen met het omgezette verkeer. Er is geen toepassing regels worden toegepast voor deze verbindingen.
 
 
 ## <a name="next-steps"></a>Volgende stappen

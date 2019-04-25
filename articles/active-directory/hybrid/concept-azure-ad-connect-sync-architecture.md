@@ -4,24 +4,24 @@ description: Dit onderwerp beschrijft de architectuur van Azure AD Connect-synch
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/13/2017
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+ms.topic: article
+origin.date: 07/13/2017
+ms.date: 11/08/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: 60a648b24ad16c1b5ea404b5ad9f1f18fd5041da
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193846"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245973"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect-synchronisatie: Inzicht in de architectuur
 Dit onderwerp worden de basisarchitectuur voor Azure AD Connect-synchronisatie. In vele opzichten is het vergelijkbaar met de voorafgaande MIIS 2003, ILM 2007 en FIM 2010. Azure AD Connect-synchronisatie is de ontwikkeling van deze technologieën. Als u bekend met een van deze eerdere technologieën bent, worden de inhoud van dit onderwerp ook vertrouwd mee bent. Als u niet bekend bent met synchronisatie, is de in dit onderwerp voor u. Het is echter niet te weten de details van dit onderwerp om te worden voltooid bij het maken van aanpassingen van Azure AD Connect-synchronisatie (synchronisatie-engine in dit onderwerp genoemd).
@@ -49,8 +49,8 @@ Als de verbonden gegevensbron structurele onderdelen, zoals partities en contain
 ### <a name="internal-structure-of-the-sync-engine-namespace"></a>Interne structuur van de synchronisatie-engine van de naamruimte
 De volledige synchronisatie-engine van de naamruimte bestaat uit twee naamruimten waarin de gegevens van identiteit. De twee naamruimten zijn:
 
-* Het connectorgebied (CS)
-* De metaverse (MV)
+- Het connectorgebied (CS)
+- De metaverse (MV)
 
 De **connectorgebied** is een faseringsgebied met weergaven van de aangewezen objecten van een verbonden gegevensbron en de kenmerken die zijn opgegeven in de lijst met opgenomen. De synchronisatie-engine maakt gebruik van het connectorgebied overgebracht om te bepalen wat er in de verbonden gegevensbron is gewijzigd en om te zetten van binnenkomende wijzigingen. De synchronisatie-engine gebruikt ook het connectorgebied overgebracht om te zetten uitgaande wijzigingen voor het exporteren naar de verbonden gegevensbron. De synchronisatie-engine heeft een afzonderlijke connectorgebied als een werkgebied voor elke Connector.
 
@@ -72,8 +72,8 @@ Wanneer synchronisatie-engine met een verbonden gegevensbron communiceert, leest
 
 Alle objecten in het connectorgebied hebben twee kenmerken:
 
-* Een globally unique identifier (GUID)
-* Een DN-naam (Distinguished Name)
+- Een globally unique identifier (GUID)
+- Een DN-naam (Distinguished Name)
 
 Als de gekoppelde gegevensbron wijst een uniek kenmerk toe aan het object, kunnen klikt u vervolgens objecten in het connectorgebied hebben ook een kenmerk van bronanker. Het kenmerk van bronanker identificatie unieke van een object in de verbonden gegevensbron. De synchronisatie-engine maakt gebruik van het anker naar de bijbehorende weergave van dit object niet vinden in de verbonden gegevensbron. Synchronisatie-engine wordt ervan uitgegaan dat het anker van een object wordt nooit gewijzigd gedurende de levensduur van het object.
 
@@ -83,8 +83,8 @@ In dat geval het anker wordt samengesteld uit een of meer unieke kenmerken van e
 
 Een connector space-object kan een van de volgende zijn:
 
-* Een staging-object
-* Een tijdelijke aanduiding
+- Een staging-object
+- Een tijdelijke aanduiding
 
 ### <a name="staging-objects"></a>Staging-objecten
 Een staging-object vertegenwoordigt een instantie van de aangewezen objecttypen die uit de verbonden gegevensbron. Naast de GUID en de DN-naam heeft een staging-object altijd een waarde die aangeeft van het objecttype.
@@ -145,9 +145,9 @@ Een object importeren wordt als een object niet langer lid gemaakt. Een export-o
 ## <a name="sync-engine-identity-management-process"></a>Synchronisatieproces engine identity management
 Het proces identiteit bepaalt hoe de gegevens van identiteit tussen verschillende verbonden gegevensbronnen wordt bijgewerkt. Identiteitsbeheer vindt plaats in drie processen:
 
-* Importeren
-* Synchronisatie
-* Exporteren
+- Importeren
+- Synchronisatie
+- Exporteren
 
 Synchronisatie-engine tijdens het importproces wordt geëvalueerd als de inkomende gegevens van de identiteit van een verbonden gegevensbron. Wanneer er wijzigingen worden gedetecteerd, deze nieuwe tijdelijke objecten maakt of bestaande tijdelijke objecten in het connectorgebied voor synchronisatie bijgewerkt.
 
@@ -164,34 +164,34 @@ Synchronisatie-engine geëvalueerd tijdens het importproces, updates van gegeven
 
 Door de faserings-objecten in het connectorgebied vóór de synchronisatie, kan synchronisatie-engine verwerken van alleen de gegevens van identiteit die is gewijzigd. Deze procedure biedt de volgende voordelen:
 
-* **Efficiënte synchronisatie**. De hoeveelheid gegevens die worden verwerkt tijdens de synchronisatie wordt geminimaliseerd.
-* **Efficiënte hersynchronisatie**. U kunt wijzigen hoe synchronisatie-engine gegevens van identiteit zonder opnieuw verbinding maken met de gegevensbron de synchronisatie-engine verwerkt.
-* **Mogelijkheid om een voorbeeld van synchronisatie**. U kunt een voorbeeld van synchronisatie om te controleren of uw veronderstellingen over het proces identiteit juist zijn.
+- **Efficiënte synchronisatie**. De hoeveelheid gegevens die worden verwerkt tijdens de synchronisatie wordt geminimaliseerd.
+- **Efficiënte hersynchronisatie**. U kunt wijzigen hoe synchronisatie-engine gegevens van identiteit zonder opnieuw verbinding maken met de gegevensbron de synchronisatie-engine verwerkt.
+- **Mogelijkheid om een voorbeeld van synchronisatie**. U kunt een voorbeeld van synchronisatie om te controleren of uw veronderstellingen over het proces identiteit juist zijn.
 
 Voor elk object dat is opgegeven in de Connector, is de synchronisatie-engine eerst wordt gezocht naar een weergave van het object in het connectorgebied van de Connector. Synchronisatie-engine onderzoekt alle tijdelijke objecten in het connectorgebied en probeert om een bijbehorende staging-object met een overeenkomende ankerkenmerk te vinden. Als er geen bestaande staging-object een overeenkomende ankerkenmerk heeft, wordt synchronisatie-engine probeert om een bijbehorende staging object met de dezelfde DN-naam te vinden.
 
 Wanneer synchronisatie-engine een staging-object dat overeenkomt met de door de DN-naam, maar niet door de anker vindt, gebeurt het volgende speciale:
 
-* Als het object zich bevindt in het connectorgebied geen anker heeft, wordt synchronisatie-engine wordt dit object verwijderd uit het connectorgebied en markeert het metaverse-object is gekoppeld aan een als **opnieuw inrichten op de volgende synchronisatie uitvoeren**. Het maakt vervolgens het nieuwe object importeren.
-* Als het object zich bevindt in het connectorgebied een anker heeft, klikt u vervolgens synchronisatie-engine wordt ervan uitgegaan dat dit object is gewijzigd of verwijderd uit de verbonden adreslijst. Een tijdelijke, nieuwe DN-naam voor de connector space-object wilt toewijzen zodat deze het binnenkomende object kunt voorbereiden. Er wordt vervolgens het bestaande object **tijdelijke**, in afwachting van de Connector voor het importeren van de hernoemen of verwijderen om op te lossen de situatie.
+- Als het object zich bevindt in het connectorgebied geen anker heeft, wordt synchronisatie-engine wordt dit object verwijderd uit het connectorgebied en markeert het metaverse-object is gekoppeld aan een als **opnieuw inrichten op de volgende synchronisatie uitvoeren**. Het maakt vervolgens het nieuwe object importeren.
+- Als het object zich bevindt in het connectorgebied een anker heeft, klikt u vervolgens synchronisatie-engine wordt ervan uitgegaan dat dit object is gewijzigd of verwijderd uit de verbonden adreslijst. Een tijdelijke, nieuwe DN-naam voor de connector space-object wilt toewijzen zodat deze het binnenkomende object kunt voorbereiden. Er wordt vervolgens het bestaande object **tijdelijke**, in afwachting van de Connector voor het importeren van de hernoemen of verwijderen om op te lossen de situatie.
 
 Als de synchronisatie-engine zoekt een staging-object dat overeenkomt met het opgegeven object in de Connector, bepaalt wat voor soort wijzigingen om toe te passen. Bijvoorbeeld: synchronisatie-engine kan hernoemen of verwijderen van het object in de gekoppelde gegevensbron of er mogelijk alleen bijgewerkt met kenmerkwaarden van het object.
 
 Staging-objecten met bijgewerkte gegevens zijn gemarkeerd als in behandeling zijnde importeren. Er zijn verschillende typen in afwachting van invoer beschikbaar. Afhankelijk van het resultaat van het importproces heeft een staging-object in het connectorgebied een van de volgende in behandeling zijnde importeren typen:
 
-* **Geen**. Er zijn geen wijzigingen aangebracht in een van de kenmerken van de staging-object beschikbaar. Synchronisatie-engine heeft dit type niet markeren als in behandeling zijnde importeren.
-* **Voeg**. De staging-object is een nieuw object importeren in het connectorgebied. Synchronisatie-engine wordt dit type gemarkeerd als in behandeling zijnde importeren voor verdere verwerking in de metaverse.
-* **Update**. Synchronisatie-engine zoekt naar een bijbehorende staging-object in het connectorgebied en dit type als in behandeling zijnde importeren worden gemarkeerd zodat updates voor de kenmerken kunnen worden verwerkt in de metaverse. Updates bevatten de naam van object wijzigen.
-* **Verwijder**. Synchronisatie-engine zoekt naar een bijbehorende staging-object in het connectorgebied en markeren van dit type als in behandeling zijnde importeren, zodat het gekoppelde object kan worden verwijderd.
-* **Verwijderen/toevoegen**. Synchronisatie-engine wordt een bijbehorende staging-object gevonden in het connectorgebied, maar de objecttypen die komen niet overeen. In dit geval een verwijderen toevoegen wijziging tijdelijk worden opgeslagen. Een delete-toevoegen wijziging geeft aan dat de synchronisatie-engine dat er een volledige hersynchronisatie van dit object moet plaatsvinden omdat verschillende sets van regels voor dit object gelden wanneer het objecttype wijzigingen.
+- **Geen**. Er zijn geen wijzigingen aangebracht in een van de kenmerken van de staging-object beschikbaar. Synchronisatie-engine heeft dit type niet markeren als in behandeling zijnde importeren.
+- **Voeg**. De staging-object is een nieuw object importeren in het connectorgebied. Synchronisatie-engine wordt dit type gemarkeerd als in behandeling zijnde importeren voor verdere verwerking in de metaverse.
+- **Update**. Synchronisatie-engine zoekt naar een bijbehorende staging-object in het connectorgebied en dit type als in behandeling zijnde importeren worden gemarkeerd zodat updates voor de kenmerken kunnen worden verwerkt in de metaverse. Updates bevatten de naam van object wijzigen.
+- **Verwijder**. Synchronisatie-engine zoekt naar een bijbehorende staging-object in het connectorgebied en markeren van dit type als in behandeling zijnde importeren, zodat het gekoppelde object kan worden verwijderd.
+- **Verwijderen/toevoegen**. Synchronisatie-engine wordt een bijbehorende staging-object gevonden in het connectorgebied, maar de objecttypen die komen niet overeen. In dit geval een verwijderen toevoegen wijziging tijdelijk worden opgeslagen. Een delete-toevoegen wijziging geeft aan dat de synchronisatie-engine dat er een volledige hersynchronisatie van dit object moet plaatsvinden omdat verschillende sets van regels voor dit object gelden wanneer het objecttype wijzigingen.
 
 Door de status in behandeling zijnde importeren van een staging-object is ingesteld, is de hoeveelheid gegevens die tijdens de synchronisatie is verwerkt, omdat dit dus kan het systeem voor het verwerken van alleen de objecten die u gegevens bijgewerkte hebt worden aanzienlijk beperkt.
 
 ### <a name="synchronization-process"></a>Synchronisatieproces
 Synchronisatie bestaat uit twee verwante processen:
 
-* Inkomende synchronisatie, wanneer de inhoud van de metaverse wordt bijgewerkt met behulp van de gegevens in het connectorgebied.
-* Uitgaande synchronisatie, wanneer de inhoud van het connectorgebied wordt bijgewerkt met behulp van gegevens in de metaverse.
+- Inkomende synchronisatie, wanneer de inhoud van de metaverse wordt bijgewerkt met behulp van de gegevens in het connectorgebied.
+- Uitgaande synchronisatie, wanneer de inhoud van het connectorgebied wordt bijgewerkt met behulp van gegevens in de metaverse.
 
 Met behulp van de gegevens klaargezet in het connectorgebied, het proces van inkomende synchronisatie wordt gemaakt in de metaverse de geïntegreerde weergave van de gegevens die zijn opgeslagen in de verbonden gegevensbronnen. Alle tijdelijke objecten zijn of alleen gebruikers met een in behandeling zijnde importeren gegevens worden samengevoegd, afhankelijk van hoe de regels zijn geconfigureerd.
 
@@ -203,9 +203,9 @@ Inkomende synchronisatie maakt de geïntegreerde weergave in de metaverse van de
 
 Inkomende synchronisatie bevat de volgende processen:
 
-* **Inrichten** (ook wel genoemd **projectie** als is het belangrijk om te onderscheiden van dit proces van inrichting van uitgaande synchronisatie). De synchronisatie-engine een nieuw metaverse-object op basis van een staging-object gemaakt en ze worden gekoppeld. Inrichten is een bewerking op objectniveau.
-* **Deelnemen aan**. De synchronisatie-engine koppelt een staging-object aan een bestaand metaverse-object. Een join is een bewerking op objectniveau.
-* **Importeren van de kenmerkstroom**. Synchronisatie-engine-updates de waarden van het kenmerk met de naam kenmerkstroom, van het object in de metaverse. Kenmerkstroom importeren is een kenmerk op serverniveau bewerking waarvoor een koppeling tussen een staging-object en een metaverse-object.
+- **Inrichten** (ook wel genoemd **projectie** als is het belangrijk om te onderscheiden van dit proces van inrichting van uitgaande synchronisatie). De synchronisatie-engine een nieuw metaverse-object op basis van een staging-object gemaakt en ze worden gekoppeld. Inrichten is een bewerking op objectniveau.
+- **Deelnemen aan**. De synchronisatie-engine koppelt een staging-object aan een bestaand metaverse-object. Een join is een bewerking op objectniveau.
+- **Importeren van de kenmerkstroom**. Synchronisatie-engine-updates de waarden van het kenmerk met de naam kenmerkstroom, van het object in de metaverse. Kenmerkstroom importeren is een kenmerk op serverniveau bewerking waarvoor een koppeling tussen een staging-object en een metaverse-object.
 
 Inrichten is de enige proces dat wordt gemaakt van objecten in de metaverse. Inrichten is van invloed op alleen importeren van objecten die niet langer lid objecten zijn. Synchronisatie-engine maakt tijdens het inrichten, een metaverse-object dat overeenkomt met het objecttype van het object importeren en maakt een koppeling tussen beide objecten, waardoor het maken van een gekoppelde object.
 
@@ -223,17 +223,17 @@ Updates voor uitgaande synchronisatie exporteren objecten als een metaverse-obje
 
 Uitgaande synchronisatie heeft drie processen:
 
-* **Inrichten**
-* **Opheffen van inrichting**
-* **Kenmerkstroom exporteren**
+- **Inrichten**
+- **Opheffen van inrichting**
+- **Kenmerkstroom exporteren**
 
 Inrichting en ongedaan maken van inrichting zijn beide bewerkingen op objectniveau. Opheffen van inrichting, is afhankelijk van de inrichting omdat alleen inrichting kunt starten. Opheffen van inrichting wordt geactiveerd wanneer inrichting wordt de koppeling tussen een metaverse-object en een export-object verwijderd.
 
 Inrichting wordt altijd geactiveerd wanneer wijzigingen worden toegepast op objecten in de metaverse. Wanneer wijzigingen worden aangebracht in de metaverse-objecten, kan synchronisatie-engine uitvoeren op elk van de volgende taken uitvoeren als onderdeel van het inrichtingsproces:
 
-* Gekoppelde objecten, waarbij een metaverse-object is gekoppeld aan een nieuwe export-object maken.
-* Wijzig de naam van een gekoppelde object.
-* Meld de koppelingen tussen een metaverse-object en de staging-objecten, het maken van een object niet langer lid.
+- Gekoppelde objecten, waarbij een metaverse-object is gekoppeld aan een nieuwe export-object maken.
+- Wijzig de naam van een gekoppelde object.
+- Meld de koppelingen tussen een metaverse-object en de staging-objecten, het maken van een object niet langer lid.
 
 Als inrichting, moet synchronisatie-engine een nieuw connectorobject te maken, is de staging-object waaraan de metaverse-object is gekoppeld altijd een object exporteren, omdat het object nog niet in de verbonden gegevensbron bestaat.
 
@@ -260,4 +260,5 @@ Bijvoorbeeld, als synchronisatie-engine kenmerk C, dat een waarde van 5, met een
 Meer informatie over de [Azure AD Connect-synchronisatie](how-to-connect-sync-whatis.md) configuratie.
 
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](whatis-hybrid-identity.md).
+
 

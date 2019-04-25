@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
 ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916022"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322465"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Live streamen met Azure Media Services v3
 
@@ -53,13 +53,13 @@ Een Live-gebeurtenis kan een van twee typen zijn: Pass Through- en live codering
 
 ### <a name="pass-through"></a>Pass-through
 
-![Pass Through-query](./media/live-streaming/pass-through.svg)
+![passthrough](./media/live-streaming/pass-through.svg)
 
 Bij gebruik van de pass-through **livegebeurtenis** bent u afhankelijk van de on-premises live-encoder voor het genereren van een multiple-bitrate videostream en het verzenden ervan als de bijdragefeed voor de livegebeurtenis (met behulp van RTMP of een gefragmenteerd MP4-protocol). De livegebeurtenis voert de binnenkomende videostream vervolgens zonder verdere verwerking uit. Dergelijke een Pass Through-Live-gebeurtenis is geoptimaliseerd voor langlopende live gebeurtenissen of 24 x lineair 365 live streamen. 
 
 ### <a name="live-encoding"></a>Live Encoding  
 
-![Live encoding](./media/live-streaming/live-encoding.svg)
+![live encoding](./media/live-streaming/live-encoding.svg)
 
 Bij gebruik van live-codering met Media Services zou u uw on-premises live-encoder zodanig configureren dat één bitrate-video als bijdragefeed wordt verzonden naar de livegebeurtenis (met behulp van het protocol RTMP of gefragmenteerde MP4). De livegebeurtenis codeert de binnenkomende enkelvoudige bitrate gegevensstroom in een [videostroom met meerdere bitrates](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) en maakt deze beschikbaar voor afgifte naar afspeelapparaten via protocollen als MPEG-DASH, HLS en Smooth Streaming. 
 

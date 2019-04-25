@@ -13,11 +13,11 @@ ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2541a1d76b56f92b250fb422951769db7877213e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60249822"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Toevoegen of verwijderen van eigenaren van groepen in Azure Active Directory
 Azure Active Directory (Azure AD)-beveiligingsgroepen zijn eigendom van en beheerd door eigenaren van groepen. Eigenaren van groepen worden toegewezen voor het beheren van een groep en de bijbehorende leden van een resource-eigenaar (beheerder). Groepseigenaren hoeven te worden leden van de groep. Nadat de Groepseigenaar van een is toegewezen, kunt alleen de eigenaar van een resource toevoegen of eigenaren verwijderen.

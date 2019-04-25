@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60246361"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect-synchronisatie: Inzicht in declaratieve inrichting
 In dit onderwerp wordt uitgelegd dat het configuratiemodel in Azure AD Connect. Het model wordt genoemd declaratieve inrichting en deze kunt u een configuratiewijziging met gemak. Groot aantal dingen die worden beschreven in dit onderwerp zijn geavanceerde en niet vereist voor de meeste klantscenario's.

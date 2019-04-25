@@ -10,11 +10,11 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59497080"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60238056"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 en hoger configuratieschema
 > [!NOTE]
@@ -429,7 +429,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Beschrijving van de configuratie van de openbare diagnostische gegevens.  
 
-|Onderliggende elementen|Beschrijving|  
+|Onderliggende elementen|Description|  
 |--------------------|-----------------|  
 |**WadCfg**|Vereist. Zie de beschrijving elders op deze pagina.|  
 |**StorageAccount**|De naam van de Azure Storage-account voor het opslaan van de gegevens in. Kan ook worden opgegeven als parameter bij het uitvoeren van de cmdlet Set-AzureServiceDiagnosticsExtension.|  
@@ -447,7 +447,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Vereist
 
-|Kenmerken|Description|  
+|Kenmerken|Beschrijving|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | De maximale hoeveelheid lokale schijfruimte die kan worden gebruikt door de verschillende typen diagnostische gegevens die zijn verzameld door Azure Diagnostics. De standaardinstelling is 4096 MB.<br />
 |**useProxyServer** | Azure Diagnostics voor het gebruik van de proxy-instellingen zoals in de instellingen van Internet Explorer configureren.|
@@ -596,7 +596,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Optionele **scheduledTransferPeriod** kenmerk. Zie de uitleg eerder.  
 
-|Onderliggend Element|Description|  
+|Onderliggend Element|Beschrijving|  
 |-------------------|-----------------|  
 |**DataSource**|De Windows-gebeurtenislogboeken te verzamelen. Vereist kenmerk:<br /><br /> **naam** : de XPath-query met een beschrijving van de windows-gebeurtenissen te verzamelen. Bijvoorbeeld:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Geef voor het verzamelen van alle gebeurtenissen, ' * '|  
 
@@ -610,7 +610,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Definieert de configuratie van de buffer voor basic Logboeken in Azure.  
 
-|Kenmerk|Type|Description|  
+|Kenmerk|Type|Beschrijving|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Optioneel. Hiermee geeft u de maximale hoeveelheid opslag bestandssysteem dat beschikbaar is voor de opgegeven gegevens.<br /><br /> De standaardwaarde is 0.|  
 |**scheduledTransferLogLevelFilter**|**Tekenreeks**|Optioneel. Hiermee geeft u het minimale ernstniveau voor logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, waarop alle logboeken gegevensoverdrachten. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritieke**.|  
@@ -631,7 +631,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Een lijst met locaties voor het verzenden van diagnostische gegevens en de configuratie die is gekoppeld aan deze locaties.  
 
-|De naam van element|Beschrijving|  
+|De naam van element|Description|  
 |------------------|-----------------|  
 |**Sink**|Zie de beschrijving elders op deze pagina.|  
 
@@ -646,7 +646,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |---------------|----------|-----------------|  
 |**De naam**|string|Een tekenreeks die de sinkname identificeren.|  
 
-|Element|Type|Beschrijving|  
+|Element|Type|Description|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|Alleen gebruikt wanneer gegevens worden verzonden naar Application Insights. De Instrumentatiesleutel voor een actieve Application Insights-account dat u toegang tot hebt bevatten.|  
 |**kanalen**|string|Één voor elke aanvullende filters die u streamen|  
@@ -658,7 +658,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Filters voor gegevensstromen van logboekgegevens die zijn doorgegeven via een sink definieert.  
 
-|Element|Type|Description|  
+|Element|Type|Beschrijving|  
 |-------------|----------|-----------------|  
 |**Kanaal**|string|Zie de beschrijving elders op deze pagina.|  
 
@@ -669,7 +669,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Locaties voor het verzenden van diagnostische gegevens naar definieert. De Application Insights-service.  
 
-|Kenmerken|Type|Description|  
+|Kenmerken|Type|Beschrijving|  
 |----------------|----------|-----------------|  
 |**logLevel**|**Tekenreeks**|Hiermee geeft u het minimale ernstniveau voor logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, waarop alle logboeken gegevensoverdrachten. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritieke**.|  
 |**De naam**|**Tekenreeks**|Een unieke naam van het kanaal om te verwijzen naar|  
@@ -684,7 +684,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Slaat de persoonlijke gegevens van het opslagaccount (naam, sleutel en -eindpunt). Deze informatie wordt verzonden naar de virtuele machine, maar kan niet worden opgehaald uit.  
 
-|Onderliggende elementen|Description|  
+|Onderliggende elementen|Beschrijving|  
 |--------------------|-----------------|  
 |**StorageAccount**|De storage-account te gebruiken. De volgende kenmerken zijn vereist<br /><br /> - **naam** -de naam van het storage-account.<br /><br /> - **sleutel** -de sleutel tot het opslagaccount.<br /><br /> - **eindpunt** -het eindpunt voor toegang tot het opslagaccount. <br /><br /> -**sasToken** (toegevoegd 1.8.1)-kunt u een SAS-token in plaats van een opslagaccountsleutel in de persoonlijke configuratie. Indien opgegeven, wordt de opslagaccountsleutel genegeerd. <br />Vereisten voor het SAS-Token: <br />-Ondersteunt alleen SAS-token van account <br />- *b*, *t* servicetypen zijn vereist. <br /> - *een*, *c*, *u*, *w* machtigingen zijn vereist. <br /> - *c*, *o* resourcetypen zijn vereist. <br /> -Ondersteunt alleen het HTTPS-protocol <br /> -De starten en verlooptijd moet geldig zijn.|  
 

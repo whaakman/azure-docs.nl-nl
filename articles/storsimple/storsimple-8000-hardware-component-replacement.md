@@ -16,11 +16,11 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433651"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60321735"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Vervangen door een hardware-onderdeel op de StorSimple 8000-apparaat
 
@@ -34,7 +34,7 @@ De hardware-onderdeel vervanging zelfstudies beschrijven de hardware-onderdelen 
 ### <a name="safety-icon-conventions"></a>Veiligheid pictogram conventies
 De volgende tabel beschrijft de veiligheid pictogrammen die worden gebruikt in deze zelfstudies. Let vooral op deze pictogrammen veiligheid terwijl u de stappen voor het Apparaatonderdelen verwijderen en vervangen.
 
-| Pictogram | Tekst | Aanvullende informatie |
+| Pictogram | Text | Aanvullende informatie |
 |:--- |:--- |:--- |
 | ![Waarschuwingspictogram](./media/storsimple-hardware-component-replacement/Warning.png) |**GEVAAR!** |Geeft aan dat een gevaarlijke situaties die, als er geen vermeden, in overlijden of ernstige schade resulteert. Dit woord signaal is beperkt tot de meest uitzonderlijke situaties. |
 | ![Waarschuwingspictogram](./media/storsimple-hardware-component-replacement/Warning.png) |**WAARSCHUWING!** |Geeft aan dat een gevaarlijke situaties die als niet voorkomen, tot overlijden of ernstige schade leiden kan. |

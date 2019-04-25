@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122974"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60244334"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synchronisatie: Breng een wijziging aan in de standaardconfiguratie
 Het doel van dit artikel is waarmee u stapsgewijs hoe u wijzigingen aanbrengen in de standaardconfiguratie in Azure Active Directory (Azure AD) Connect-synchronisatie. Het biedt stappen voor enkele algemene scenario's. Met deze kennis moet u het volgende kunnen eenvoudige wijzigingen aanbrengen in uw eigen configuratie op basis van uw eigen bedrijfsregels.
@@ -288,7 +288,7 @@ De synchronisatieregel voor binnenkomende gegevens kan de waarde van het kenmerk
 
     | Type gebruikersstroom | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    | Rechtstreeks | UserType | extensionAttribute1 | Dit selectievakje is uitgeschakeld | Update |
+    | Direct | UserType | extensionAttribute1 | Dit selectievakje is uitgeschakeld | Update |
 
     In een ander voorbeeld wilt u de waarde voor het UserType-kenmerk zijn afgeleid van andere eigenschappen. Bijvoorbeeld, u wilt synchroniseren van alle gebruikers als Gast als hun on-premises AD userPrincipalName-kenmerk eindigt met domeingedeelte <em>@partners.fabrikam123.org</em>. U kunt een expressie als volgt implementeren:
 
@@ -311,7 +311,7 @@ De regel voor uitgaande synchronisatie kan de waarde van het kenmerk op die moet
     | Kenmerk | Value | Details |
     | ----- | ------ | --- |
     | Name | *Geef een naam* | Bijvoorbeeld, *Out voor AAD-gebruiker UserType* |
-    | Description | *Geef een beschrijving* ||
+    | Beschrijving | *Geef een beschrijving* ||
     | Verbonden systeem | *Selecteer de AAD-connector* ||
     | Verbonden systeem objecttype | **User** ||
     | Metaverse-objecttype | **Person** ||
@@ -331,7 +331,7 @@ De regel voor uitgaande synchronisatie kan de waarde van het kenmerk op die moet
 
     | Type gebruikersstroom | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    | Rechtstreeks | UserType | UserType | Dit selectievakje is uitgeschakeld | Update |
+    | Direct | UserType | UserType | Dit selectievakje is uitgeschakeld | Update |
 
 7. Klik op **toevoegen** om de uitgaande regel te maken.
 

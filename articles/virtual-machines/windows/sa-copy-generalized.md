@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: a7181c91424e1d905329eefd13f926d0b2700081
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e1ed419892412c1fb9334fed74b82c53154723ed
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864971"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252422"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Een niet-beheerde VM-installatiekopie maken van een Azure-VM
 
@@ -29,7 +29,7 @@ In dit artikel bevat informatie over opslagaccounts. U wordt aangeraden dat u be
 
 In dit artikel ziet u hoe u Azure PowerShell gebruiken om een installatiekopie van een gegeneraliseerde Azure-VM te maken met behulp van een storage-account. U kunt vervolgens de installatiekopie van het maken van een andere virtuele machine. De afbeelding bevat een schijf met het besturingssysteem en de gegevensschijven die zijn gekoppeld aan de virtuele machine. De installatiekopie bevat geen de virtuele-netwerkbronnen, dus u deze resources instellen moet wanneer u de nieuwe virtuele machine maakt. 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="generalize-the-vm"></a>De virtuele machine generaliseren 
 Deze sectie leest u hoe u uw Windows virtuele machine voor gebruik als een installatiekopie te generaliseren. Een virtuele machine generaliseren, verwijdert u alle persoonlijke gegevens over uw account, onder andere en bereidt de computer moet worden gebruikt als een afbeelding. Zie voor meer informatie over [Sysprep gebruiken: een inleiding](https://technet.microsoft.com/library/bb457073.aspx).
@@ -116,7 +116,7 @@ U kunt de URL van uw installatiekopie ophalen uit de JSON-bestand-sjabloon. Ga n
    
 U kunt ook de URI in de portal controleren. De afbeelding wordt gekopieerd naar een container met de naam **system** in uw opslagaccount. 
 
-## <a name="create-a-vm-from-the-image"></a>Een virtuele machine maken van de installatiekopie
+## <a name="create-a-vm-from-the-image"></a>Maak een VM op basis van de installatiekopie
 
 U kunt nu een of meer virtuele machines van de niet-beheerde installatiekopie maken.
 

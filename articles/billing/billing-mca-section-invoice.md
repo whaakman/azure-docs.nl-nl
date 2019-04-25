@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551616"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371575"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Secties maken op uw factuur voor het ordenen van uw kosten
 
@@ -30,7 +30,7 @@ Voor het maken van een gedeelte van de factuur, moet u een **facturering profiel
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Zoeken op **kosten Management en facturering**.
+2. Zoek naar **kostenbeheer en facturering**.
 
    ![Schermafbeelding van zoeken in Azure portal](./media/billing-mca-section-invoice/billing-search-cost-management-billing.png)
 
@@ -38,7 +38,7 @@ Voor het maken van een gedeelte van de factuur, moet u een **facturering profiel
 
    ![Schermafbeelding van zoeken in Azure portal](./media/billing-mca-section-invoice/billing-mca-list-invoice-sections.png)
 
-4. Vanaf de bovenkant van de pagina, selecteer **toevoegen**.
+4. Selecteer **Toevoegen** bovenaan de pagina.
 
 5. Voer de naam van de factuur-sectie.
 

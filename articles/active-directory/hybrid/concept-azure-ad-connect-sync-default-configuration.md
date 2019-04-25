@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891134"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60246199"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synchronisatie: Inzicht in de standaardconfiguratie
 Dit artikel wordt uitgelegd dat de van de out-of-box-configuratieregels. Deze documenten in de regels en hoe deze regels invloed hebben op de configuratie. Ook helpt u bij de standaardconfiguratie van Azure AD Connect-synchronisatie. Het doel is dat de lezer hoe de configuratiemodel begrijpt, met de naam declaratieve inrichting werkt in een voorbeeld van een echte. In dit artikel wordt ervan uitgegaan dat u al hebt geïnstalleerd en Azure AD Connect-synchronisatie met de installatiewizard configureren.
@@ -148,7 +148,7 @@ Omdat met deze regel een regel voor out-of-box wordt, ontvangt u een waarschuwin
 
 Een regel voor synchronisatie heeft vier configuratiesecties: Beschrijving, Scoping-filter, lid worden van regels en transformaties.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Beschrijving
 De eerste sectie bevat algemene informatie, zoals een naam en beschrijving.
 
 ![Beschrijving van tabblad synchroon regeleditor](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)

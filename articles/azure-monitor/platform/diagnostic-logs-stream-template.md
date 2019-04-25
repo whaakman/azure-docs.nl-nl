@@ -9,11 +9,11 @@ ms.date: 3/26/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: 7edce5175a1dda66abf3316cb8f0eb33e9f64ef7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236040"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Automatisch diagnostische instellingen inschakelen bij het maken van resources met behulp van Resource Manager-sjabloon
 In dit artikel laten we zien hoe u kunt een [Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-group-authoring-templates.md) diagnostische instellingen configureren op een resource als deze wordt gemaakt. Hiermee kunt u uw logboeken met diagnostische gegevens en metrische gegevens naar Event Hubs streamen, archiveren in een Opslagaccount of deze te verzenden naar Log Analytics-werkruimte als u een resource maakt automatisch wordt gestart.

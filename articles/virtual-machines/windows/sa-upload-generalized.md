@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cd81eb3d62332bba67f0056a6f7b49279bc50c4f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5b38d022d372e7d35ba2dbeaef90660ce95f73fa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250736"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Een gegeneraliseerde VHD uploaden naar Azure te maken van een nieuwe virtuele machine
 
@@ -31,7 +31,7 @@ Als u een virtuele machine maken vanaf een gespecialiseerde VHD in een storage-a
 
 In dit onderwerp bevat informatie over storage-accounts, maar we raden klanten verplaatsen naar Managed Disks te gebruiken. Zie voor een volledige beschrijving van de procedure voorbereiden, uploaden en een nieuwe virtuele machine maken met beheerde schijven, [maken een nieuwe virtuele machine vanaf een gegeneraliseerde VHD uploaden naar Azure met behulp van Managed Disks](upload-generalized-managed.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-vm"></a>De virtuele machine voorbereiden
 

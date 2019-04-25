@@ -17,11 +17,11 @@ ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c7dfdd46714d367b61248d9376ce3e8888bb1ef7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176965"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292389"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Over het implementeren van het Configuratiescherm-extensie voor toegang voor Internet Explorer met behulp van Groepsbeleid
 Deze zelfstudie laat zien hoe u kunt Groepsbeleid gebruiken om de extensie van het toegangsvenster voor Internet Explorer op afstand installeren op uw gebruikers virtuele machines. Deze uitbreiding is vereist voor Internet Explorer-gebruikers die u moeten zich aanmelden bij apps die zijn geconfigureerd met behulp van [wachtwoord gebaseerde eenmalige aanmelding](what-is-single-sign-on.md#password-based-sso).

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487312"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60243508"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synchronisatie: Filtering configureren
 Met behulp van filteren, kunt u bepalen welke objecten worden weergegeven in Azure Active Directory (Azure AD) vanuit uw on-premises directory. De standaardconfiguratie wordt van alle objecten in alle domeinen in de geconfigureerde forests. Dit is in het algemeen is de aanbevolen configuratie. Gebruikers met behulp van Office 365-werkbelastingen, zoals Exchange Online en Skype voor bedrijven, profiteren van een volledige lijst met algemene adres zodat ze kunnen e-mailbericht verzenden en iedereen. Met de standaardconfiguratie, zouden ze hebben dezelfde ervaring die ze met een on-premises implementatie van Exchange- of Lync hebben zouden.

@@ -15,11 +15,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e7a3f80067adb3093bd27e34a45b3afd72b4993
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286853"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60247694"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Wijs toe of verwijder licenties met behulp van de Azure Active Directory-portal
 Veel services van Azure Active Directory (Azure AD) moeten u een Azure AD-product te activeren en licenties voor elk van uw gebruikers of groepen (en bijbehorende leden) voor dat product. Alleen gebruikers met actieve licenties kunnen openen en gebruiken de gelicentieerde Azure AD-services.

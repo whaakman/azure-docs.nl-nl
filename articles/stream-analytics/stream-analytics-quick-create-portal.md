@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 ms.openlocfilehash: 7762a48fd34973872fe4d0b00906a03a18d52867
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311922"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60398216"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Snelstart: Een Stream Analytics-taak maken via Azure Portal
+# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Quickstart: Een Stream Analytics-taak maken met behulp van Azure portal
 
 In deze snelstart wordt getoond hoe u aan de slag kunt door een Stream Analytics-taak te maken. In deze quickstart definieert u een Stream Analytics-taak waarmee streaminggegevens in realtime worden gelezen, en berichten worden gefilterd over een temperatuur die hoger is dan 27. Met de Stream Analytics-taak worden gegevens van een IoT Hub-apparaat gelezen, en worden de gegevens getransformeerd en teruggeschreven naar een container in een blob-opslag. De invoergegevens in deze quickstart worden gegenereerd via een Raspberry Pi Online Simulator. 
 
@@ -44,7 +44,7 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
 
    ![Een IoT Hub maken](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
 
-4. Selecteer **Volgende: grootte instellen en schaal aanpassen**.
+4. Selecteer **Volgende: Grootte instellen en schaal aanpassen**.
 
 5. Kies uw **prijs- en schaalcategorie**. Selecteer voor deze quickstart de categorie **F1 - Gratis** als deze nog beschikbaar is voor uw abonnement. Zie [Prijsinformatie IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/) voor meer informatie.
 
@@ -91,7 +91,7 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
    |Taaknaam   |  MyASAJob   |   Voer een unieke naam in voor uw Stream Analytics-taak. De naam van een Stream Analytics-taak mag alleen alfanumerieke tekens, afbreekstreepjes en onderstrepingstekens bevatten en moet tussen de 3 en 63 tekens lang zijn. |
    |Abonnement  | \<Uw abonnement\> |  Selecteer het Azure-abonnement dat u wilt gebruiken voor deze taak. |
    |Resourcegroep   |   asaquickstart-resourcegroup  |   Selecteer dezelfde resourcegroep als de IoT-hub. |
-   |Locatie  |  \<Selecteer de regio die het dichtst bij uw gebruikers is gelegen\> | Selecteer de geografische locatie waar u de Stream Analytics-taak kunt hosten. Gebruik de locatie die het dichtst bij uw gebruikers is gelegen voor betere prestaties en om de kosten van gegevensoverdracht te verminderen. |
+   |Location  |  \<Selecteer de regio die het dichtst bij uw gebruikers is gelegen\> | Selecteer de geografische locatie waar u de Stream Analytics-taak kunt hosten. Gebruik de locatie die het dichtst bij uw gebruikers is gelegen voor betere prestaties en om de kosten van gegevensoverdracht te verminderen. |
    |Streaming-eenheden  | 1  |   Streaming-eenheden vertegenwoordigen de computerresources die nodig zijn om een taak uit te voeren. Deze waarde is standaard ingesteld op 1. Zie het artikel [Streaming-eenheden begrijpen en aanpassen](stream-analytics-streaming-unit-consumption.md) voor meer informatie over het schalen van streaming-eenheden.   |
    |Hostingomgeving  |  Cloud  |   Stream Analytics-taken kunnen worden geïmplementeerd in Cloud of in Edge. Met Cloud kunt u taken implementeren naar Azure Cloud en met Edge kunt u taken implementeren naar een IoT-randapparaat. |
 

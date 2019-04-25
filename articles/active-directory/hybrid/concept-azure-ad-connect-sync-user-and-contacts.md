@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993375"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245483"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect-synchronisatie: Inzicht krijgen in gebruikers, groepen en contactpersonen
 Er zijn verschillende redenen waarom zijn er meerdere Active Directory-forests en er zijn diverse verschillende implementatietopologieën. Algemene modellen omvatten de implementatie van een account-resource en GAL sync'ed forests na een fusie & overname. Maar zelfs als er pure modellen, hybride modellen ook algemene zijn. De standaardconfiguratie in Azure AD Connect-synchronisatie niet wordt ervan uitgegaan een bepaald model, maar afhankelijk van hoe overeenkomende gebruiker is geselecteerd in de installatiehandleiding, verschillend gedrag kunnen worden waargenomen.

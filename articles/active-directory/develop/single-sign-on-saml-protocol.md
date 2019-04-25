@@ -19,11 +19,11 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437880"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250510"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocol voor eenmalige SAML-aanmelding
 
@@ -50,7 +50,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | Parameter |  | Description |
 | --- | --- | --- |
 | Id | Vereist | Azure AD maakt gebruik van dit kenmerk voor het vullen van de `InResponseTo` kenmerk van het geretourneerde antwoord. ID moet niet beginnen met een getal, zodat een algemene strategie bestaat uit een tekenreeks, zoals "id" aan de tekenreeksweergave van een GUID toevoegen aan het begin. Bijvoorbeeld, `id6c1c178c166d486687be4aaf5e482730` is een geldige ID. |
-| Versie | Vereist | Deze parameter moet worden ingesteld op **2.0**. |
+| Version | Vereist | Deze parameter moet worden ingesteld op **2.0**. |
 | IssueInstant | Vereist | Dit is een datum/tijd-tekenreeks met een UTC-waarde en [traject indeling ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD wordt verwacht dat een datum / tijdwaarde van dit type is, maar niet evalueren of gebruik de waarde. |
 | AssertionConsumerServiceUrl | Optioneel | Indien opgegeven, deze parameter moet overeenkomen met de `RedirectUri` van de cloudservice in Azure AD. |
 | ForceAuthn | Optioneel | Dit is een Booleaanse waarde. Indien waar, betekent dit dat de gebruiker wordt geforceerd opnieuw worden geverifieerd, zelfs als er een geldige sessie met Azure AD. |
@@ -100,7 +100,7 @@ Indien opgegeven, zijn niet opgenomen de `ProxyCount` kenmerk `IDPListOption` of
 ### <a name="signature"></a>Handtekening
 Neem geen een `Signature` -element in `AuthnRequest` elementen, zoals Azure AD biedt geen ondersteuning voor ondertekende aanvragen voor authenticatie.
 
-### <a name="subject"></a>Onderwerp
+### <a name="subject"></a>Subject
 Azure AD negeert de `Subject` element van `AuthnRequest` elementen.
 
 ## <a name="response"></a>Antwoord
@@ -211,7 +211,7 @@ Voor het genereren van de digitale handtekening, Azure AD maakt gebruik van de o
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Onderwerp
+#### <a name="subject"></a>Subject
 
 Hiermee geeft u de principal die het onderwerp van de instructies in de verklaring. Deze bevat een `NameID` element, dat staat voor de geverifieerde gebruiker. De `NameID` waarde is een gerichte-id die alleen met de serviceprovider is de doelgroep voor het token wordt omgeleid. Het is permanent - deze kan worden ingetrokken, maar nooit opnieuw wordt toegewezen. Het is ook ondoorzichtig, omdat het niet. over de gebruiker vrijgegeven en kan niet worden gebruikt als een id voor kenmerk query's.
 

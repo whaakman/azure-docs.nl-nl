@@ -1,19 +1,19 @@
 ---
 title: Geavanceerde functies van Azure Metrics Explorer
 description: Meer informatie over geavanceerde functies van Azure Monitor Metrics Explorer
-author: vgorbenko
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/22/2019
-ms.author: vitalyg
+ms.date: 04/12/19
+ms.author: v-lingwu
 ms.subservice: metrics
 ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271676"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60256806"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Geavanceerde functies van Azure Metrics Explorer
 
@@ -149,4 +149,3 @@ Bekijk deze [artikel](alerts-metric.md) voor meer informatie over het instellen 
 ## <a name="next-steps"></a>Volgende stappen
 
   Lezen [het maken van aangepaste KPI-dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) voor meer informatie over de aanbevolen procedures voor het maken van bruikbare dashboards met metrische gegevens.
-

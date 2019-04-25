@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
 ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259534"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60240086"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Bestanden herstellen vanuit back-up van virtuele Azure-machine
 
@@ -213,7 +213,7 @@ In Linux, moet het besturingssysteem van de computer die wordt gebruikt om besta
 
 Het script Python en bash-onderdelen uit te voeren en veilig verbinding maken met het herstelpunt dat is ook vereist.
 
-|Onderdeel | Versie  |
+|Onderdeel | Version  |
 | --------------- | ---- |
 | Bash | 4 en hoger |
 | python | 2.6.6 en hoger  |

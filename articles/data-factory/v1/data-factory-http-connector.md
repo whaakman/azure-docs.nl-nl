@@ -13,11 +13,11 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017256"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318475"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Gegevens verplaatsen van een HTTP-bron met behulp van Azure Data Factory
 
@@ -69,7 +69,7 @@ Stel **authenticationType** naar **Basic**, **Digest**, of **Windows**. Naast de
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | gebruikersnaam | De gebruikersnaam gebruiken voor toegang tot het HTTP-eindpunt. | Ja |
-| wachtwoord | Het wachtwoord voor de gebruiker (**gebruikersnaam**). | Ja |
+| password | Het wachtwoord voor de gebruiker (**gebruikersnaam**). | Ja |
 
 **Voorbeeld: Met behulp van basisverificatie, verificatiesamenvatting of Windows-verificatie**
 
@@ -98,7 +98,7 @@ Als u wilt gebruikmaken van basisverificatie instellen **authenticationType** na
 | --- | --- | --- |
 | embeddedCertData | De met Base64 gecodeerde inhoud van de binaire gegevens van het PFX-bestand. | Geef óf een **embeddedCertData** of **certThumbprint** |
 | certThumbprint | De vingerafdruk van het certificaat dat is geïnstalleerd op de gatewaycomputer certificatenstore. Gelden alleen wanneer u gegevens van een on-premises HTTP-bron kopiëren. | Geef óf een **embeddedCertData** of **certThumbprint** |
-| wachtwoord | Het wachtwoord dat is gekoppeld aan het certificaat. | Nee |
+| password | Het wachtwoord dat is gekoppeld aan het certificaat. | Nee |
 
 Als u **certThumbprint** voor verificatie en het certificaat is geïnstalleerd in het persoonlijke archief van de lokale computer, verleen leesmachtigingen voor de gateway-service:
 
@@ -161,10 +161,10 @@ De **typeProperties** sectie verschilt voor elk type gegevensset. De **typePrope
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** van de gegevensset moet worden ingesteld op **Http**. | Ja |
-| relativeurl bevatten | Een relatieve URL naar de resource die de gegevens bevat. Als het pad is niet opgegeven, wordt alleen de URL die opgegeven in de definitie van de gekoppelde service gebruikt. <br><br> Kan de URL van een dynamische, kunt u [Data Factory-functies en systeemvariabelen](data-factory-functions-variables.md). Voorbeeld: **relativeUrl**: **$$Text.Format ('/ Mijn/rapport? maand = {0: yyyy}-{0:MM} & fmt csv =', slicestart-waarde)**. | Nee |
+| relativeUrl | Een relatieve URL naar de resource die de gegevens bevat. Als het pad is niet opgegeven, wordt alleen de URL die opgegeven in de definitie van de gekoppelde service gebruikt. <br><br> Kan de URL van een dynamische, kunt u [Data Factory-functies en systeemvariabelen](data-factory-functions-variables.md). Voorbeeld: **relativeUrl**: **$$Text.Format ('/ Mijn/rapport? maand = {0: yyyy}-{0:MM} & fmt csv =', slicestart-waarde)**. | Nee |
 | requestMethod | De HTTP-methode. Toegestane waarden zijn **ophalen** en **POST**. | Nee <br />(de standaardwaarde is **ophalen**) |
 | additionalHeaders | Extra kopteksten die HTTP-aanvraag. | Nee |
-| RequestBody | De hoofdtekst van de HTTP-aanvraag. | Nee |
+| requestBody | De hoofdtekst van de HTTP-aanvraag. | Nee |
 | Indeling | Als u wilt *de gegevens opgehaald uit een HTTP-eindpunt als-is* zonder deze parseren, gaat de **indeling** instelling. <br><br> Als u de inhoud van de HTTP-reactie parseren tijdens het kopiëren wilt, worden de volgende bestandsindelingen ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, en **ParquetFormat**. Zie voor meer informatie, [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [Parquet-indeling](data-factory-supported-file-and-compression-formats.md#parquet-format). |Nee |
 | Compressie | Geef het type en het niveau van compressie voor de gegevens. Ondersteunde typen: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**. Ondersteunde niveaus: **Optimale** en **snelste**. Zie voor meer informatie, [bestands- en compressie indelingen in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee |
 
@@ -223,7 +223,7 @@ Op dit moment, wanneer de bron in de Kopieeractiviteit is van de **HttpSource** 
 
 | Eigenschap | Description | Vereist |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | De time-out (de **TimeSpan** waarde) voor de HTTP-aanvraag reageert. De time-out is een antwoord, niet de time-out voor lezen van gegevens van de reactie. | Nee<br />(standaardwaarde: **00: 01:40**) |
+| httpRequestTimeout | De time-out (de **TimeSpan** waarde) voor de HTTP-aanvraag reageert. De time-out is een antwoord, niet de time-out voor lezen van gegevens van de reactie. | Nee<br />(standaardwaarde: **00:01:40**) |
 
 ## <a name="supported-file-and-compression-formats"></a>Ondersteunde indelingen voor bestanden en compressie
 

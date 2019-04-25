@@ -16,11 +16,11 @@ ms.date: 07/10/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 377da86003543fb53240de4d5fc672f71e1ed5f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60273794"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Zelfstudie: Azure Active Directory-integratie met Imagineer WebVision
 
@@ -159,7 +159,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="create-an-imagineer-webvision-test-user"></a>Maak een testgebruiker Imagineer WebVision
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Imagineer WebVision. Werken met [Imagineer WebVision ondersteuningsteam](mailto:support@itgny.com) om toe te voegen de gebruikers in het Imagineer WebVision-platform. Gebruikers moeten worden gemaakt en geactiveerd voordat u eenmalige aanmelding gebruiken
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in Imagineer WebVision. Werken met [Imagineer WebVision ondersteuningsteam](mailto:support@itgny.com) om toe te voegen de gebruikers in het Imagineer WebVision-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
@@ -200,7 +200,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

@@ -9,11 +9,11 @@ ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237729"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stream Azure diagnostische logboeken naar een event hub
 **[Diagnostische logboeken in Azure](diagnostic-logs-overview.md)**  kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde 'Exporteren naar Event Hubs'-optie in de Portal of door in te schakelen van de Event Hub autorisatie regel-ID in een diagnostische instelling via de Azure PowerShell-Cmdlets of Azure CLI.

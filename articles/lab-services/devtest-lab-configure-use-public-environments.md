@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: spelluru
-ms.openlocfilehash: d93818cd875c4050b1b35f21ce580933776c5bc5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2cd6998c7ac11638ead67fde384bdf4599692781
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234911"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60201766"
 ---
 # <a name="configure-and-use-public-environments-in-azure-devtest-labs"></a>Configuratie en het gebruik van openbare omgevingen in Azure DevTest Labs
 Azure DevTest Labs is een [openbare opslagplaats van Azure Resource Manager-sjablonen](https://github.com/Azure/azure-devtestlab/tree/master/Environments) die u kunt gebruiken om omgevingen te maken zonder verbinding maken met een externe bron van GitHub zelf. Deze opslagplaats bevat veelgebruikte sjablonen, zoals Azure Web Apps, Service Fabric-Cluster en development environment van de SharePoint-Farm. Deze functie is vergelijkbaar met de openbare opslagplaats voor artefacten die is opgenomen voor elke lab die u maakt. De opslagplaats van de omgeving kunt u snel aan de slag met vooraf opgestelde omgevingssjablonen met minimale invoer parameters, zodat u met een goede aan de slag te gaan ervaring te bieden voor PaaS-resources binnen labs. 

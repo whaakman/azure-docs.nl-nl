@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: fe8b6113646589e30ff839c8bd47968138d98b03
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a121ec3c0e769df35ca7ca20eb9cf85210d857da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521424"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193352"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Zelfstudie: Een web-app van Azure Time Series Insights met één pagina maken
 
@@ -50,7 +50,7 @@ Voordat u de toepassing maakt, moet u deze registreren bij Azure AD. Het registr
 
 1. Vul op de pagina **Maken** de vereiste parameters in:
    
-   Parameter|Description
+   Parameter|Beschrijving
    ---|---
    **Naam** | Geef een zinvolle naam op voor de registratie.  
    **Toepassingstype** | Omdat u een SPA-webtoepassing maakt, kunt u Web-app/-API laten staan.

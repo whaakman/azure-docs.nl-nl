@@ -3,7 +3,7 @@ title: Web-aanmelding met OpenID Connect - Azure Active Directory B2C | Microsof
 description: Bouw webtoepassingen met behulp van de OpenID Connect-verificatieprotocol in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 6285a90a9dca305f3a9cd909af6c084c747daf99
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679054"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317119"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Web-aanmelding met OpenID verbinding maken in Azure Active Directory B2C
 
@@ -72,7 +72,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parameter | Vereist | Beschrijving |
+| Parameter | Vereist | Description |
 | --------- | -------- | ----------- |
 | client_id | Ja | De aanvraag-ID die de [Azure-portal](https://portal.azure.com/) toegewezen aan uw toepassing. |
 | response_type | Ja | Moet een ID-token bevatten voor de OpenID Connect. Als uw webtoepassing ook tokens moet voor het aanroepen van een web-API, kunt u `code+id_token`. |
@@ -184,7 +184,7 @@ Een geslaagde respons token ziet eruit zoals:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parameter | Description |
+| Parameter | Beschrijving |
 | --------- | ----------- |
 | not_before | De tijd waarop het token wordt beschouwd als geldig is, in epoche-tijd. |
 | token_type | De waarde van het type token. `Bearer` is het enige type dat wordt ondersteund. |
@@ -251,7 +251,7 @@ Een geslaagde respons token ziet eruit zoals:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --------- | ----------- |
 | not_before | De tijd waarop het token wordt beschouwd als geldig is, in epoche-tijd. |
 | token_type | De waarde van het type token. `Bearer` is het enige type dat wordt ondersteund. |

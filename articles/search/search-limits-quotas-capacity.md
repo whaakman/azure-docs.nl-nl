@@ -11,11 +11,11 @@ ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: ff2b843e00ffdf005d952cf62eab6b93c9434913
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699163"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193114"
 ---
 # <a name="service-limits-in-azure-search"></a>Servicelimieten in Azure Search
 Maximale limieten voor opslag, workloads en aantallen indexen, documenten, en andere objecten afhankelijk zijn van of u [inrichten van Azure Search](search-create-service-portal.md) op **gratis**, **Basic**,  **Standard**, of **met geoptimaliseerde opslag** Prijscategorieën.

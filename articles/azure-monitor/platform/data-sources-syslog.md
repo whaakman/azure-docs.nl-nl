@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372298"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60240860"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Syslog-gegevensbronnen in Azure Monitor
 Syslog is een protocol voor het vastleggen van gebeurtenis die geldt voor Linux. Toepassingen wordt berichten die kunnen worden opgeslagen op de lokale computer of worden geleverd met een Syslog-collector verzonden. Wanneer de Log Analytics-agent voor Linux is geïnstalleerd, configureert het de lokale Syslog-daemon voor het doorsturen van berichten naar de agent. De agent verzendt het bericht vervolgens naar Azure Monitor waarin een record wordt gemaakt.  
@@ -201,7 +201,7 @@ Na het voltooien van de wijzigingen de Syslog- en de Log Analytics-agent-service
 ## <a name="syslog-record-properties"></a>Eigenschappen van de Syslog-record
 Syslog-records zijn een type **Syslog** en hebben de eigenschappen in de volgende tabel.
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--- |:--- |
 | Computer |De computer waarop de gebeurtenis is verzameld. |
 | Opslagruimte |Hiermee definieert u het gedeelte van het systeem dat het bericht wordt gegenereerd. |

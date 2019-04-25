@@ -13,11 +13,11 @@ ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a3a57fbe5df690e4dbdba8cbab85e62648bb298
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192571"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60295366"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Factoren die invloed hebben op de prestaties van Azure AD Connect
 
@@ -104,7 +104,7 @@ Het proces synchroniseren runtime heeft de volgende prestatiekenmerken:
 * Exporteren is ook lineaire.
 * De synchronisatie, zullen groeien exponentieel op basis van het aantal objecten met verwijzingen naar andere objecten. Lidmaatschappen van groepen en geneste groepen hebt de belangrijkste prestatie-impact omdat hun leden naar objecten of andere groepen verwijzen. Deze verwijzingen moeten worden gevonden en waarnaar wordt verwezen naar werkelijke objecten in de MV om uit te voeren van de synchronisatiecyclus.
 
-### <a name="filtering"></a>Filteren
+### <a name="filtering"></a>Filtering
 
 De grootte van de Active Directory-topologie die u wilt importeren, is de nummer één factor invloed op de prestaties en de totale tijd die de interne onderdelen van de engine voor het inrichten duurt.
 

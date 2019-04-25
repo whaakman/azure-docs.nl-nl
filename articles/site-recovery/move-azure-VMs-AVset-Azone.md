@@ -9,11 +9,11 @@ ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: b6107211f49978bbacd1a827a9adc37ccef60a5b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855405"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196179"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Virtuele Azure-machines verplaatsen naar beschikbaarheidszones
 Beschikbaarheidszones in Azure kunt uw toepassingen en gegevens beschermen tegen storingen in datacenters. Elke beschikbaarheidszone bestaat uit een of meer datacenters die zijn voorzien van een onafhankelijke stroomvoorziening, koeling en netwerk. Om voor tolerantie te zorgen, is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. De fysieke scheiding tussen Beschikbaarheidszones binnen een regio beschermt toepassingen en gegevens tegen storingen in datacenters. Met Beschikbaarheidszones biedt Azure een service level agreement (SLA) van 99,99% voor actieve tijdsduur van virtuele machines (VM's). Beschikbaarheidszones worden ondersteund in bepaalde regio's, zoals vermeld in [wat zijn Beschikbaarheidszones in Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones).

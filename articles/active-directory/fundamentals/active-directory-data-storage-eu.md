@@ -13,11 +13,11 @@ ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b21f82dc0a1eb8edf571da13e0d34fecae5f401b
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337682"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60249717"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identiteit gegevensopslag voor Europese klanten in Azure Active Directory
 Azure Active Directory (Azure AD) helpt u bij het beheren van gebruikers-id's en informatie gebaseerd toegangsbeleid die helpen bij het beveiligen van resources van uw organisatie maken. Identiteitsgegevens worden opgeslagen op een locatie die uw bedrijf heeft opgegeven toen u zich hebt aangemeld bij de service. Bijvoorbeeld bij het abonneren op Office 365 of Azure. Voor specifieke informatie over waar uw identiteitsgegevens worden opgeslagen, kunt u het gedeelte [Waar bevinden uw gegevens zich?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) van het Microsoft Trust Center gebruiken.

@@ -9,11 +9,11 @@ ms.date: 11/28/2018
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531161"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60192932"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Zelfstudie: Binnenkomend verkeer filteren met Azure Firewall DNAT via de Azure-portal
 
@@ -153,7 +153,7 @@ Als de implementatie is voltooid, ziet u het privé IP-adres voor de virtuele ma
    |Name     |FW-DNAT-test|
    |Abonnement     |\<uw abonnement\>|
    |Resourcegroep     |**Gebruik bestaande**: RG-DNAT-Test |
-   |Locatie     |Selecteer dezelfde locatie die u eerder hebt gebruikt|
+   |Location     |Selecteer dezelfde locatie die u eerder hebt gebruikt|
    |Een virtueel netwerk kiezen     |**Gebruik bestaande**: VN-Hub|
    |Openbaar IP-adres     |**Nieuwe maken**. Het openbare IP-adres moet van het type Standaard-SKU zijn.|
 

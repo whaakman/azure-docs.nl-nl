@@ -19,11 +19,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a77118edd08faf6d40897a916ee85e2b6e20d3bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103448"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298254"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Azure AD-SAML-token naslaginformatie
 
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) verzendt verschillende typen beveiligingstoken
 ## <a name="claims-in-saml-tokens"></a>Claims in het SAML-tokens
 
 > [!div class="mx-codeBreakAll"]
-> | Name | Equivalent JWT Claim | Description | Voorbeeld |
+> | Name | Equivalent JWT Claim | Beschrijving | Voorbeeld |
 > | --- | --- | --- | ------------|
 > |Doelgroep | `aud` |De beoogde ontvanger van het token. De toepassing die de token ontvangt moet controleren of de waarde van de doelgroep juist is en geen tokens die bestemd zijn voor een andere doelgroep afwijzen. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
 > | Verificatiemoment | |Registreert de datum en tijd waarop de verificatie heeft plaatsgevonden. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) verzendt verschillende typen beveiligingstoken
 > |Name | `unique_name` |Biedt een voor mensen leesbare waarde waarmee het onderwerp van het token wordt geïdentificeerd. Deze waarde is niet noodzakelijkerwijs uniek zijn binnen een tenant en is ontworpen om te worden gebruikt alleen ter informatie weergegeven. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
 > |Object-id | `oid` |Bevat een unieke id van een object in de Azure AD. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. De object-ID gebruiken om een object in query's naar Azure AD te identificeren. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
 > |Rollen | `roles` |Hiermee geeft u alle toepassingsrollen die het onderwerp heeft gekregen zowel direct als indirect via een groepslidmaatschap en kan worden gebruikt om af te dwingen op rollen gebaseerd toegangsbeheer. Toepassingsrollen zijn gedefinieerd op basis van per toepassing via de `appRoles` eigenschap van het toepassingsmanifest. De `value` eigenschap van de toepassingsrol van elke is de waarde die wordt weergegeven in de rollenclaim. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
-> |Onderwerp | `sub` |Hiermee geeft u de principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een toepassing. Deze waarde is onveranderbaar en kan niet opnieuw worden toegewezen of opnieuw worden gebruikt, zodat deze kan worden gebruikt om autorisatie controles veilig uitvoeren. Omdat het onderwerp altijd in de tokens die de problemen met Azure AD aanwezig is, wordt u aangeraden deze waarde in een systeem van de autorisatie voor algemene doeleinden te gebruiken. <br> `SubjectConfirmation` is niet een claim. Hierin wordt beschreven hoe het onderwerp van het token is geverifieerd. `Bearer` Geeft aan dat het onderwerp wordt bevestigd door iemand met kennis van het token. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
+> |Subject | `sub` |Hiermee geeft u de principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een toepassing. Deze waarde is onveranderbaar en kan niet opnieuw worden toegewezen of opnieuw worden gebruikt, zodat deze kan worden gebruikt om autorisatie controles veilig uitvoeren. Omdat het onderwerp altijd in de tokens die de problemen met Azure AD aanwezig is, wordt u aangeraden deze waarde in een systeem van de autorisatie voor algemene doeleinden te gebruiken. <br> `SubjectConfirmation` is niet een claim. Hierin wordt beschreven hoe het onderwerp van het token is geverifieerd. `Bearer` Geeft aan dat het onderwerp wordt bevestigd door iemand met kennis van het token. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
 > |Tenant-id | `tid` |Een onveranderbare, herbruikbare-id waarmee de directory-tenant die het token is uitgegeven. U kunt deze waarde gebruiken voor toegang tot mapresources van de tenant-specifieke in een toepassing met meerdere tenants. Bijvoorbeeld, kunt u deze waarde om de tenant in een aanroep van de Graph API te identificeren. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>`|
 > |Levensduur van token | `nbf`, `exp` |Definieert gedurende welke periode een token geldig is. De service die het token valideert moet controleren of dat de huidige datum valt binnen de levensduur van tokens, anders die wordt het token moet afwijzen. De service mogelijk voor maximaal vijf minuten buiten het bereik van de levensduur van vernieuwingstoken ter compensatie van eventuele verschillen in clock-tijd ("tijd scheeftrekken') tussen Azure AD en de service. | `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br>|
 

@@ -16,11 +16,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abed56ee64cbca8646c1aa1d24fea292aa4d8de3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201819"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245476"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>De Azure AD Connect synchronisatie met Azure AD Connect Health bewaken
 De volgende documentatie is specifiek voor het bewaken van Azure AD Connect-synchronisatie met Azure AD Connect Health.  Zie [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md) (Engelstalig) voor informatie over het controleren van AD FS met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](how-to-connect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
@@ -80,7 +80,7 @@ Deze functie genereert een rapport over synchronisatiefouten die zich voordoen w
 ### <a name="categorization-of-errors"></a>Classificatie van fouten
 In het rapport worden de bestaande synchronisatiefouten in de volgende categorieën onderverdeeld:
 
-| Categorie | Description |
+| Category | Description |
 | --- | --- |
 | Dubbel-kenmerk |Fouten wanneer Azure AD Connect objecten probeert te maken of bij te werken met dubbele waarden in een of meer kenmerken in Azure AD die uniek moeten zijn in een tenant, zoals proxyAddresses, UserPrincipalName. |
 | Gegevens komen niet overeen |Fouten wanneer de zachte match er niet in slaagt om objecten te koppelen die synchronisatiefouten opleveren. |

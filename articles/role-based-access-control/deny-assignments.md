@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006722"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197133"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Informatie over toewijzingen voor Azure-resources te weigeren
 
@@ -47,12 +47,12 @@ Dit artikel wordt beschreven hoe weigeren toewijzingen zijn gedefinieerd.
 > | `Permissions.DataActions` | Ten minste één acties of één DataActions | String[] | Een matrix met tekenreeksen die de gegevensbewerkingen waarop de toewijzing weigeren blokkeert de toegang te geven. |
 > | `Permissions.NotDataActions` | Nee | String[] | Een matrix met tekenreeksen die de gegevensbewerkingen moeten worden uitgesloten van de toewijzing weigeren opgeeft. |
 > | `Scope` | Nee | String | Een tekenreeks waarmee het bereik dat de weigeren-toewijzing is van toepassing op. |
-> | `DoNotApplyToChildScopes` | Nee | Booleaans | Hiermee geeft u op of de toewijzing weigeren van toepassing op het onderliggende bereik is. Standaardwaarde is false. |
+> | `DoNotApplyToChildScopes` | Nee | Boolean | Hiermee geeft u op of de toewijzing weigeren van toepassing op het onderliggende bereik is. Standaardwaarde is false. |
 > | `Principals[i].Id` | Ja | String[] | Een matrix met Azure AD principal object-id's (gebruiker, groep, service-principal of beheerde identiteit) waarop de toewijzing weigeren van toepassing is. Ingesteld op een lege GUID `00000000-0000-0000-0000-000000000000` om weer te geven van alle beveiligings-principals. |
 > | `Principals[i].Type` | Nee | String[] | Een matrix met de objecttypen die wordt vertegenwoordigd door Principals [i] .id. Ingesteld op `SystemDefined` om weer te geven van alle beveiligings-principals. |
 > | `ExcludePrincipals[i].Id` | Nee | String[] | Een matrix met Azure AD principal object-id's (gebruiker, groep, service-principal of beheerde identiteit) waarop de toewijzing weigeren is niet van toepassing. |
 > | `ExcludePrincipals[i].Type` | Nee | String[] | Een matrix met de objecttypen die wordt vertegenwoordigd door .id ExcludePrincipals [i]. |
-> | `IsSystemProtected` | Nee | Booleaans | Hiermee geeft u op of dit weigeren toewijzing is gemaakt door Azure en kan niet worden bewerkt of verwijderd. Op dit moment weigeren alle toewijzingen worden door het systeem beveiligd. |
+> | `IsSystemProtected` | Nee | Boolean | Hiermee geeft u op of dit weigeren toewijzing is gemaakt door Azure en kan niet worden bewerkt of verwijderd. Op dit moment weigeren alle toewijzingen worden door het systeem beveiligd. |
 
 ## <a name="system-defined-principal"></a>Het systeem gedefinieerde Principal
 

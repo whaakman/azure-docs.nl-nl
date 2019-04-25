@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522707"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236929"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Windows-gebeurtenislogboek gegevensbronnen in Azure Monitor
 Windows-gebeurtenislogboeken zijn een van de meest voorkomende [gegevensbronnen](agent-data-sources.md) voor het verzamelen van gegevens met behulp van Windows-agents, omdat veel toepassingen naar het Windows-gebeurtenislogboek schrijven.  U kunt gebeurtenissen verzamelen van standard logboeken zoals systeem- en naast het opgeven van een aangepaste logboeken die zijn gemaakt door toepassingen die u nodig hebt om te controleren.

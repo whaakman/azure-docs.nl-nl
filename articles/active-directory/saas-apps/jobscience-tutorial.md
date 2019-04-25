@@ -16,11 +16,11 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8199f106c234e216a0982dc9e51413ccf30ae93a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199524"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60268830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Zelfstudie: Azure Active Directory-integratie met Jobscience
 
@@ -146,13 +146,13 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Klik op de site van het bedrijf Jobscience **beveiligingsmechanismen**, en klik vervolgens op **instellingen voor eenmalige aanmelding**.
     
-    ![Beveiligingscontroles](./media/jobscience-tutorial/ic784364.png "beveiligingscontroles")
+    ![Security controls](./media/jobscience-tutorial/ic784364.png "Security controls")
 
 1. In de **instellingen voor eenmalige aanmelding** sectie, voert u de volgende stappen uit:
     
-    ![Single Sign-On instellingen](./media/jobscience-tutorial/ic781026.png "Single Sign-On-instellingen")
+    ![Instellingen voor eenmalige aanmelding](./media/jobscience-tutorial/ic781026.png "Instellingen voor eenmalige aanmelding")
     
-    a. Selecteer **SAML ingeschakeld**.
+    a. Selecteer **SAML Enabled**.
 
     b. Klik op **Nieuw**.
 
@@ -192,7 +192,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Gestart om op te halen van de Serviceprovider eenmalige aanmelding bij klikken op de aanmeldings-URL op de **instellingen voor eenmalige aanmelding** in de **beveiligingsmechanismen** sectie menu.
 
-    ![Beveiligingscontroles](./media/jobscience-tutorial/ic784368.png "beveiligingscontroles")
+    ![Security controls](./media/jobscience-tutorial/ic784368.png "Security controls")
     
     Klik op de SSO-profiel dat u hebt gemaakt in de bovenstaande stap. Deze pagina bevat de eenmalige aanmelding op URL voor uw bedrijf (bijvoorbeeld [ https://companyname.my.salesforce.com?so=companyid ](https://companyname.my.salesforce.com?so=companyid).    
 
@@ -272,7 +272,7 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij Jobscience, moeten ze word
 
     
 > [!NOTE]
-> De houder van Azure Active Directory-account ontvangt een e-mailbericht en volgt een koppeling om te bevestigen van hun account voordat deze geactiveerd wordt.
+> De houder van het Azure Active Directory-account ontvangt een e-mail en volgt een koppeling om het account te bevestigen voordat het actief wordt.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
@@ -313,7 +313,7 @@ Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->

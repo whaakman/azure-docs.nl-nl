@@ -19,11 +19,11 @@ ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74c79dbfb397a8e6d87de75b5468414f2b7adf2b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191585"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251722"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Service-serviceaanroepen met behulp van clientreferenties (gedeeld geheim of certificaat)
 
@@ -78,7 +78,7 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: Aanvraag voor een toegangstoken met een certificaat
 Een service-naar-service toegangstokenaanvraag met een certificaat bevat de volgende parameters:
 
-| Parameter |  | Description |
+| Parameter |  | Beschrijving |
 | --- | --- | --- |
 | grant_type |vereist |Hiermee geeft u het aangevraagde Responstype. In een stroom-clientreferenties de waarde moet **client_credentials**. |
 | client_id |vereist |Hiermee geeft u de Azure AD-client-id van de aanroepende webservice. In client-ID van de aanroepende toepassing, vinden de [Azure-portal](https://portal.azure.com), klikt u op **Azure Active Directory**, klikt u op **App-registraties**, klikt u op de toepassing. De client_id is de *toepassings-ID* |
@@ -103,7 +103,7 @@ resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b
 
 Een geslaagde reactie bevat een JSON OAuth 2.0-antwoord met de volgende parameters:
 
-| Parameter | Description |
+| Parameter | Beschrijving |
 | --- | --- |
 | access_token |Het aangevraagde toegangstoken. De aanroepende webservice kan dit token gebruiken om te verifiëren bij de ontvangende webservice. |
 | token_type |Geeft aan dat de waarde van het token. Het enige type dat Azure AD ondersteunt **Bearer**. Zie voor meer informatie over bearer-tokens, de [OAuth 2.0 machtiging Framework: Bearer Token gebruik (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |

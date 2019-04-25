@@ -16,11 +16,11 @@ ms.date: 03/11/2019
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 77e322e32d19433d9ce4629c2e04c8bbd7e17f3f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858232"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405501"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Een Standard load balancer maken om taken van VM's te verdelen via Azure Portal
 
@@ -80,7 +80,7 @@ Als u wilt toestaan dat de Load Balancer voor het bewaken van de status van uw a
     | Poort | Voer *80*.|
     | Interval | Voer *15* voor aantal **Interval** in seconden tussen tests. |
     | Drempelwaarde voor onjuiste status | Selecteer *2* voor aantal **drempelwaarde voor onjuiste status** of opeenvolgende testfouten dat optreden moeten voordat een virtuele machine als slecht beschouwd.|
-    | Test | Select *myHealthProbe*. |
+    | Statustest | Select *myHealthProbe*. |
 4. Selecteer **OK**.
 
 ### <a name="create-a-load-balancer-rule"></a>Een load balancer-regel maken
@@ -97,7 +97,7 @@ Een load balancer-regel wordt gebruikt om de verdeling van het verkeer over de V
     | Poort | Voer *80*.|
     | Back-endpoort | Voer *80*. |
     | Back-endpool | Select *myBackendPool*.|
-    | Test | Select *myHealthProbe*. |
+    | Statustest | Select *myHealthProbe*. |
 4. Laat de overige standaardwaarden staan en selecteer **OK**.
 4. Selecteer **OK**.
 
@@ -116,7 +116,7 @@ In deze sectie maakt u een virtueel netwerk maken, twee virtuele machines voor d
     | Adresruimte | Voer *10.1.0.0/16* in. |
     | Abonnement | Selecteer uw abonnement.|
     | Resourcegroep | Select existing resource - *myResourceGroupSLB*. |
-    | Locatie | Selecteer **Europa - west**.|
+    | Location | Selecteer **Europa - west**.|
     | Subnet - Naam | Voer *myBackendSubnet* in. |
     | Subnet - adresbereik | Voer *10.1.0.0/24* in. |
 1. Laat de overige standaardwaarden staan en selecteer **Maken**.

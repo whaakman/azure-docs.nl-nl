@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a0911588141552e616e8555380b14c910225840
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5dd8af0ed016dca5ab9c14b117a2673ca214e08c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501359"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60268946"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Zelfstudie: Azure Active Directory-integratie met JIRA SAML SSO
 
@@ -35,9 +35,9 @@ De integratie van JIRA SAML SSO by Microsoft met Azure AD heeft de volgende voor
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-## <a name="description"></a>Beschrijving
+## <a name="description"></a>Description
 
-Gebruik uw Microsoft Azure Active Directory-account met JIRA Server van Atlassian om eenmalige aanmelding mogelijk te maken. Op deze manier alle gebruikers in uw organisatie kunnen de Azure AD-referenties voor aanmelding bij de JIRA-toepassing gebruiken. Deze invoegtoepassing gebruikt SAML 2.0 voor federatie.
+Gebruik uw Microsoft Azure Active Directory-account met JIRA Server van Atlassian om eenmalige aanmelding mogelijk te maken. Op deze manier alle gebruikers in uw organisatie kunnen de Azure AD-referenties aan te melden bij de JIRA-toepassing gebruiken. Deze invoegtoepassing gebruikt SAML 2.0 voor federatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -67,7 +67,7 @@ Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 * JIRA ondersteunt ook 5.2. Klik voor meer informatie op [Microsoft Azure Active Directory-eenmalige aanmelding voor JIRA 5.2](jira52microsoft-tutorial.md)
 
 > [!NOTE]
-> Houd er rekening mee dat JIRA biedt ook ondersteuning voor Linux Ubuntu 16.04 versie
+> Houd er rekening mee dat onze JIRA-invoegtoepassing ook kan worden gebruikt op Ubuntu-16.04-versie
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 

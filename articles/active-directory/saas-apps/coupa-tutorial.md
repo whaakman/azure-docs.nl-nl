@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4156ef264069b5f926f28f766a201dceb29a512b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 29ca16e149852d044fdd6f6ea0baf0b11ccb75cf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60280885"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Zelfstudie: Azure Active Directory-integratie met Coupa
 
@@ -114,16 +114,16 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     | Omgeving  | URL |
     |:-------------|----|
-    | Sandbox | `devsso35.coupahost.com`|
-    | Productie | `prdsso40.coupahost.com`|
+    | Sandbox | `sso-stg1.coupahost.com`|
+    | Productie | `sso-prd1.coupahost.com`|
     | | |
 
     c. Typ een URL in het tekstvak **Antwoord-URL**:
 
     | Omgeving | URL |
     |------------- |----|
-    | Sandbox | `https://devsso35.coupahost.com/sp/ACS.saml2`|
-    | Productie | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
+    | Sandbox | `https://sso-stg1.coupahost.com/sp/ACS.saml2`|
+    | Productie | `https://sso-prd1.coupahost.com/sp/ACS.saml2`|
     | | |
 
 4. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.

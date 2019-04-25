@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
 ms.openlocfilehash: 40ff2339ad34a72079109317bf0a89dfbc6458e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232765"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Krachtige Premium Storage en beheerde schijven voor virtuele machines
 
@@ -259,7 +259,7 @@ Om te realiseren schaalbaarheidsdoelen in Premium-opslag, voor alle premium-opsl
 
 De volgende Linux-distributies zijn gevalideerd voor Azure Premium Storage. Voor betere prestaties en stabiliteit met Premium Storage, is het raadzaam dat u uw VM's upgraden naar een van deze versies, ten minste (of naar een nieuwere versie). Voor sommige van de versies van moet de meest recente Linux Integration Services (LIS), v4.0, voor Azure. Als u wilt downloaden en installeren van een distributiepunt, volgt u de koppeling in de volgende tabel weergegeven. We toevoegen afbeeldingen aan de lijst als we klaar zijn met validatie. Houd er rekening mee dat onze validaties weergegeven dat de prestaties wisselend voor elke afbeelding. Prestaties zijn afhankelijk van uw installatiekopie-instellingen en kenmerken van de werkbelasting. Verschillende afbeeldingen zijn afgesteld voor verschillende soorten workloads.
 
-| Distributie | Versie | Ondersteunde kernel | Details |
+| Distributie | Version | Ondersteunde kernel | Details |
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 29cea7e72d6bd7f64f6cf2a68b7620090ea4eef3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b527199fd7b61609f292b13c73bfc1d6e0a6b896
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203764"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Een ASP.NET Core-app maken met Azure-app-configuratie
 
@@ -104,7 +104,7 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
 
     Dit geheim wordt geopend met de configuratie-API. Een dubbele punt (:) werkt in de configuratienaam van de met de configuratie-API op alle ondersteunde platforms. Zie [configuratie omgeving](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Open *Program.cs*, en voeg een verwijzing naar een provider van de configuratie van App-configuratie .NET Core.
+4. Open *Program.cs*, en voeg een verwijzing naar de configuratie van .NET Core-App-provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
