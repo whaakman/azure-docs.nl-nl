@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: ed0d65a0f00bd5ebc3227a249beec6bafd791347
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335926"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532549"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>On-premises SQL Server migreren naar Azure SQL Database Managed Instance met Azure PowerShell
 In dit artikel, migreert u de **Adventureworks2012** database hersteld naar een on-premises exemplaar van SQL Server 2005 of hoger naar een Azure SQL Database Managed Instance met behulp van Microsoft Azure PowerShell. U kunt databases uit een on-premises SQL Server-exemplaar naar Azure SQL Database Managed Instance migreren met behulp van de `Az.DataMigration` module in Microsoft Azure PowerShell.

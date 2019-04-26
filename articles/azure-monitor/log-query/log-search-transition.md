@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: bwren
 ms.openlocfilehash: dc3a754bd1a9f689f4b24b9ee2c1e4cbc0611684
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751358"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60519894"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Verandert van Log Analytics zoeken in Logboeken in Logboeken van Azure Monitor
 Zoeken in Logboeken in Log Analytics is onlangs vervangen door een nieuwe ervaring voor het analyseren van Azure Monitor-Logboeken. De zoekpagina Log is momenteel nog steeds toegankelijk via de **Logboeken (klassiek)** menu-item in de **Log Analytics-werkruimten** pagina in de Azure portal, maar wordt op 15 februari 2019 worden verwijderd. Dit artikel wordt beschreven verschillen tussen de twee ervaringen kunt u overstappen van zoeken in Logboeken. 

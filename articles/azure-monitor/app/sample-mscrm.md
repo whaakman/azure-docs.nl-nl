@@ -14,13 +14,13 @@ ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
 ms.openlocfilehash: 6119f1116d255f7cd2a2bfc20e86eeca9e5dfe82
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60523283"
 ---
-# <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Overzicht: Telemetrie inschakelen voor Microsoft Dynamics CRM Online met behulp van Application Insights
+# <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Walkthrough: Telemetrie inschakelen voor Microsoft Dynamics CRM Online met behulp van Application Insights
 Dit artikel leest u hoe u aan de telemetriegegevens van [Microsoft Dynamics CRM Online](https://www.dynamics.com/) met behulp van [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Behandelen we het complete proces van het Application Insights-script toevoegen aan uw toepassing, het vastleggen van gegevens en gegevensvisualisatie.
 
 > [!NOTE]
@@ -73,7 +73,7 @@ Voor het bewaken van uw toepassing, kunt u een Application Insights-SDK toevoege
     ![Eigenschappen van formulier](./media/sample-mscrm/00008.png)
 3. Toevoegen van de JavaScript-webresource die u hebt gemaakt
 
-    ![Menu toevoegen](./media/sample-mscrm/13.png)
+    ![Menu Toevoegen](./media/sample-mscrm/13.png)
 
 4. Opslaan en publiceren van uw aanpassingen van formulieren.
 

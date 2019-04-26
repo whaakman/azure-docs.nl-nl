@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
 ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652634"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533183"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -21,7 +21,7 @@ ms.locfileid: "58652634"
 
 ### <a name="i-am-using-the-ova-that-continuously-discovers-my-on-premises-environment-but-the-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Ik gebruik het ova-bestand die continu detecteert mijn on-premises-omgeving, maar de virtuele machines die zijn verwijderd in mijn on-premises-omgeving worden nog steeds wordt weergegeven in de portal.
 
-Alleen verzamelt prestatiegegevens continu het toestel continue detectie, detecteert niet elke configuratiewijziging in de on-premises-omgeving (dat wil zeggen VM toevoegen, verwijderen en schijf toevoegen, enz.). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
+Het apparaat voor continue detectie verzamelt alleen continu prestatiegegevens, het detecteert niet elke configuratiewijziging in de on-premises omgeving (dat wil zeggen het toevoegen/verwijderen van VM’s, toevoegen van schijven, enz.). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
 
 - Toevoegen van items (virtuele machines, schijven, kernen enz.): om deze wijzigingen in de Azure-portal door te voeren, kunt u de detectie vanaf het apparaat stoppen en opnieuw starten. Dit zorgt ervoor dat de wijzigingen worden bijgewerkt in het Azure Migrate-project.
 
@@ -82,7 +82,7 @@ Als u zich niet aan het evaluatierapport exporteren vanuit de portal, kunt u met
 
 ### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>Prestatiegegevens voor CPU, geheugen en schijven wordt weergegeven als nullen
 
-Azure Migrate profielen continu de on-premises omgeving voor het verzamelen van prestatiegegevens van de on-premises VM's. Als u alleen de detectie van uw omgeving hebt gestart, moet u wachten tot ten minste een dag voor de verzameling van prestatiegegevens moet worden uitgevoerd. Als een evaluatie wordt gemaakt zonder te wachten op één dag, wordt de maatstaven voor prestaties weergegeven als nullen. Na een wachttijd van een dag, kunt u een nieuwe evaluatie maken of bijwerken van de evaluatie van de bestaande met behulp van de optie 'Opnieuw berekenen' in het evaluatierapport.
+Azure Migrate profileert continu de on-premises omgeving voor het verzamelen van prestatiegegevens van de on-premises VM's. Als u detectie van uw omgeving zojuist hebt gestart, moet u ten minste een dag wachten voordat het verzamelen van de prestatiegegevens is uitgevoerd. Als er een evaluatie wordt gemaakt zonder dat u een dag hebt gewacht, worden de prestatiemetrieken als nullen weergegeven. Als u een dag wacht, kunt u een nieuwe evaluatie maken of de bestaande evaluatie bijwerken met de optie Opnieuw berekenen in het evaluatierapport.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Ik heb een Azure-Geografie hebt opgegeven tijdens het maken van een migratieproject hoe vind ik uit de exacte Azure-regio waar de metagegevens van de gedetecteerde zou worden opgeslagen?
 

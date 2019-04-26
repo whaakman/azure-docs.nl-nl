@@ -3,8 +3,8 @@ title: Bewaakt de VPN-gateways bij het oplossen van Azure Network Watcher | Micr
 description: Dit artikel wordt beschreven hoe problemen met On-premises-connectiviteit met Azure Automation en Network Watcher vaststellen
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 4995d7ae846652c374a289603f29f88f6f56dfef
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 476fc9aa98eef300b981d2009fcee9244db25e8a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532946"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Bewaakt de VPN-gateways bij het oplossen van Network Watcher
 

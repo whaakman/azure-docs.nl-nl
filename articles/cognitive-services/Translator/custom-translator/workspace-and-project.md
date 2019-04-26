@@ -11,11 +11,11 @@ ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
 ms.openlocfilehash: dc45847f3dc2e11af9b7cf566fdd6780ec2b9dac
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762157"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60509576"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Wat is een aangepaste Translator-werkruimte?
 

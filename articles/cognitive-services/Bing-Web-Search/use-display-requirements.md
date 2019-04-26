@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738722"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60499882"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Vereisten voor gebruik en weergave van Bing Zoeken-API's
 
@@ -165,7 +165,7 @@ Gebruikt u de voorgaande secties in zoeken-API's en vereisten van de weergave ni
 - Zorg ervoor dat uw gebruik van gegevens (inclusief de URL's) van de Search-API's ontvangen geen inbreuk maken op alle van toepassing zijnde wetten of rechten van derden.
 - Gebruik niet de gegevens (inclusief de URL's) die worden ontvangen van de Search-API's als onderdeel van een search-index of machine learning of vergelijkbare algoritmische activiteit. Gebruik deze gegevens niet te maken van de trein, evalueren of services die worden geboden door u of van derden mogelijk te verbeteren.
 
-## <a name="gdpr-compliance"></a>GDPR-naleving  
+## <a name="gdpr-compliance"></a>AVG-naleving  
 
 Met betrekking tot persoonlijke gegevens afhankelijk van de Europese Unie General Data Protection Regulation (GDPR) en die wordt verwerkt in verband met aanroepen naar de zoeken-API's, de Bing Spell Check-API of de Automatische suggestie-API, weten u dat u en Microsoft zijn domeincontrollers onafhankelijke gegevens onder de AVG. U bent onafhankelijk die verantwoordelijk is voor uw naleving van de AVG.  
 

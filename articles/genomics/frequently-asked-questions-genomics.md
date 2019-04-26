@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: df329d42022f4e56b3d6d4d26519acd42caa1ae4
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7198e64a11a3aa23643cc2bfb5ecff884c6a1b48
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881818"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445546"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Veelgestelde vragen
 
@@ -73,6 +73,7 @@ Sleutel van uw opslagaccount wordt gebruikt om te maken op korte termijn toegang
 ## <a name="what-genome-references-can-i-use"></a>Welke genoom verwijst naar kan ik gebruiken?
 
 Deze verwijzingen worden ondersteund:
+
  |Referentie              | Waarde van `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
@@ -84,15 +85,15 @@ Deze verwijzingen worden ondersteund:
 
 msgen begrijpt configuratiebestanden in de volgende indeling:
 * Alle opties worden gegeven als sleutel-waardeparen met waarden van sleutels gescheiden door een dubbele punt.
-Witruimte wordt genegeerd.
+  Witruimte wordt genegeerd.
 * Regels die beginnen met `#` worden genegeerd.
 * Een opdrachtregelargument in de notatie voor lange kan worden geconverteerd naar een sleutel door de verwijdering van de toonaangevende streepjes en streepjes tussen woorden met onderstrepingstekens vervangen. Hier volgen enkele voorbeelden van de conversie:
 
- |Opdrachtregelargument            | Regel voor configuratie-bestand |
- |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
- |`-k/--access-key KEY`            | *access_key:KEY*              |      
- |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
+  |Opdrachtregelargument            | Regel voor configuratie-bestand |
+  |:-------------                   |:-------------                 |
+  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
+  |`-k/--access-key KEY`            | *access_key:KEY*              |      
+  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>Volgende stappen
 

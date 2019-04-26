@@ -2,18 +2,19 @@
 title: Modellering van relaties in Azure storage-tabelontwerp | Microsoft Docs
 description: Inzicht in het modelleringsproces bij het ontwerpen van uw oplossing voor tabel.
 services: storage
-author: MarkMcGeeAtAquent
+author: WenJason
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2018
-ms.author: sngun
+origin.date: 04/23/2018
+ms.date: 02/25/2019
+ms.author: v-jay
 ms.subservice: tables
 ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813004"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502500"
 ---
 # <a name="modeling-relationships"></a>Relaties modelleren
 Dit artikel wordt het modelleringsproces om te helpen bij het ontwerpen van uw Azure Table storage-oplossingen.

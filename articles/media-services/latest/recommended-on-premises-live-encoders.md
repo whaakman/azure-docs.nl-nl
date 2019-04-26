@@ -10,11 +10,11 @@ ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: c7d895cd87122374a79a520643580a179961fba3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317320"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405355"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Aanbevolen live streaming-coderingsprogramma 's
 
@@ -31,17 +31,17 @@ Zie voor gedetailleerde informatie over live coderen met Media Services, [Live s
 
 ## <a name="live-encoders-that-output-rtmp"></a>Live coderingsprogramma's die voeren RTMP uit
 
-Media Services raadt het gebruik van een van de volgende live coderingsprogramma's waarvoor RTMP als uitvoer. De ondersteunde URL-schema's zijn `rtmp://` of `rtmps://`.
+Media Services raadt het gebruik aan van een van de volgende live-encoders met RTMP als uitvoer. De ondersteunde URL-schema's zijn `rtmp://` of `rtmps://`.
 
 > [!NOTE]
-> Bij het streamen via RTMP, Controleer de firewall en/of proxy-instellingen om te bevestigen dat uitgaande TCP-poorten 1935 en 1936 geopend zijn.
+> Bij het streamen via RTMP controleert u de instellingen voor de firewall en/of proxy om te zien of de uitgaande TCP-poorten 1935 en 1936 open zijn.
 
 - Adobe Flash Media Live Encoder 3.2
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
-- Overschakelen naar Studio (iOS)
-- Telestream Wirecast 8.1 +
+- Switcher Studio (iOS)
+- Telestream Wirecast 8.1+
 - Telestream Wirecast S
 - Teradek Slice 756
 - TriCaster 8000
@@ -56,7 +56,7 @@ Media Services raadt het gebruik van een van de volgende live coderingsprogramma
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
 - Elemental Live
-- Envivio 4Caster C4 ALG III
+- Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live en Hero 4K (UHD/HEVC)
 

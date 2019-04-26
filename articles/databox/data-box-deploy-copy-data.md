@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
 ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466178"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Zelfstudie: Gegevens naar Azure Data Box Disk kopiëren via SMB
 
@@ -117,7 +117,7 @@ Begin met het kopiëren van gegevens nadat u verbinding met de SMB-share hebt ge
   
  De kenmerken worden in de volgende tabel beschreven.
     
-|Kenmerk  |Description  |
+|Kenmerk  |Beschrijving  |
 |---------|---------|
 |/e     |Hiermee kopieert u submappen, met inbegrip van lege mappen.         |
 |/r:     |Hiermee geeft u het aantal nieuwe pogingen bij mislukte kopieerbewerkingen op.         |

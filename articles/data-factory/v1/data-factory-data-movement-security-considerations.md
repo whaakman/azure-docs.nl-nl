@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487033"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - beveiligingsoverwegingen voor het verplaatsen van gegevens
 
@@ -150,7 +150,7 @@ In een onderneming, een **bedrijfsfirewall** wordt uitgevoerd op de centrale-rou
 
 De volgende tabel bevat **uitgaande poort** en vereisten voor het domein voor de **bedrijfsfirewall**.
 
-| Domeinnamen | Uitgaande poorten | Description |
+| Domeinnamen | Uitgaande poorten | Beschrijving |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Vereist door de gateway verbinding maken met services voor gegevensverplaatsing in Data Factory |
 | `*.core.windows.net` | 443 | Gebruikt door de gateway verbinding maken met Azure Storage-Account wanneer u de [gefaseerd kopiëren](data-factory-copy-activity-performance.md#staged-copy) functie. | 
@@ -163,7 +163,7 @@ De volgende tabel bevat **uitgaande poort** en vereisten voor het domein voor de
 
 De volgende tabel bevat **binnenkomende poort** vereisten voor de **windows firewall**.
 
-| Poorten voor inkomend verkeer | Description | 
+| Poorten voor inkomend verkeer | Beschrijving | 
 | ------------- | ----------- | 
 | 8050 (TCP) | Vereist door de toepassing Referentiebeheer veilig referenties instellen voor on-premises gegevensopslagexemplaren op de gateway. | 
 

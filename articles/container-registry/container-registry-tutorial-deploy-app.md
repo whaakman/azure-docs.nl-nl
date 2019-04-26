@@ -9,11 +9,11 @@ ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: e5a38e2b6550d763f30c2462944b154f76bbe92c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60508166"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Zelfstudie: Een web-app implementeren vanuit een Azure-containerregister met geo-replicatie
 
@@ -49,7 +49,7 @@ Als Deploy to web app is uitgeschakeld, is de gebruiker met beheerdersrechten vo
 
 Onder **Web App for Containers**, dat wordt weergegeven na selectie van Deploy to web app, geeft u de volgende waarden voor elke instelling op:
 
-| Instelling | Waarde |
+| Instelling | Value |
 |---|---|
 | **Sitenaam** | Een globaal unieke naam voor de web-app. In dit voorbeeld gebruiken we de indeling `<acrName>-westus` om eenvoudig het register en de regio te identificeren van waaruit de web-app wordt geïmplementeerd. |
 | **Resourcegroep** | **Bestaande gebruiken** > `myResourceGroup` |
@@ -78,7 +78,7 @@ Zodra de Docker-installatiekopie vanuit het geo-gerepliceerde containerregister 
 
 Gebruik de procedure die in het vorige gedeelte is beschreven om een tweede web-app naar de regio *US - oost* te implementeren. Geef onder **Web App for Containers** de volgende waarden op:
 
-| Instelling | Waarde |
+| Instelling | Value |
 |---|---|
 | **Sitenaam** | Een globaal unieke naam voor de web-app. In dit voorbeeld gebruiken we de indeling `<acrName>-eastus` om eenvoudig het register en de regio te identificeren van waaruit de web-app wordt geïmplementeerd. |
 | **Resourcegroep** | **Bestaande gebruiken** > `myResourceGroup` |

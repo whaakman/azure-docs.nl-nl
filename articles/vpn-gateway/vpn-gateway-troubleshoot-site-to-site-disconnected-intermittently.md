@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 2fdd82c2f0c96b3bd20231911bb88cf54c172931
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958011"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457755"
 ---
-# <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Problemen oplossen: Azure Site-naar-Site-VPN wordt herhaaldelijk verbroken
+# <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Probleemoplossing: Azure Site-naar-Site-VPN wordt herhaaldelijk verbroken
 
 U kunt het probleem dat in een nieuwe of bestaande Microsoft Azure Site-naar-Site VPN-verbinding niet stabiel is of de verbinding regelmatig verbreekt ondervinden. Dit artikel bevat stappen om u te identificeren en oplossen van de oorzaak van het probleem oplossen. 
 

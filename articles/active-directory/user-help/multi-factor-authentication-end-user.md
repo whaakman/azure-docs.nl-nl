@@ -14,11 +14,11 @@ ms.author: lizross
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77e3e07be7abaa6e91d8f3909f5271dfc263be17
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475368"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Wat betekent Azure Multi-Factor Authentication voor mij?
 U hebt dus een e-mail ontvangen van iemand in IT of van uw baas met de mededeling dat ze extra beveiligingsverificatie hebben toegevoegd aan uw account.  Wat betekent dat?
@@ -39,7 +39,7 @@ Nu u hebt besloten welke verificatiemethode u wilt gebruiken, is het tijd om u t
 ## <a name="how-to-get-going-with-two-step-verification"></a>Aan de slag gaan met verificatie in twee stappen
 Selecteer een van de volgende onderwerpen om aan de slag te gaan.
 
-| Onderwerp | Beschrijving |
+| Onderwerp | Description |
 |:--- |:--- |
 | [Instellen](multi-factor-authentication-end-user-first-time.md) |Beschrijft het proces van het voor de eerste keer instellen van meervoudige verificatie. |
 | [Aanmeldingservaring](multi-factor-authentication-end-user-signin.md) |Toont wat u kunt verwachten van aanmelden met de verschillende methoden, zoals telefoon of app. |
