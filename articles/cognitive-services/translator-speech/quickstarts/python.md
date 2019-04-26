@@ -12,11 +12,11 @@ ms.date: 07/17/2018
 ms.author: v-jaswel
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 9a6afc4dfb25a2a5f6e778fbda877a93269a96eb
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60535501"
 ---
 # <a name="quickstart-translator-speech-api-with-python"></a>Quickstart: Translator Speech-API met Python
 <a name="HOLTop"></a>

@@ -16,7 +16,7 @@ ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d83b659cc04218fad66ea95216e69682b265dc83
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58077799"
@@ -405,7 +405,7 @@ In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory. In deze 
     ```
 
 ### <a name="create-azure-sql-linked-service"></a>Gekoppelde Azure SQL-service maken
-In deze stap koppelt u uw Azure SQL Database aan uw gegevensfactory. U geeft in deze sectie de Azure SQL-servernaam, -databasenaam, -gebruikersnaam en -wachtwoord op. Zie [Een gekoppelde Azure SQL-service](data-factory-azure-sql-connector.md#linked-service-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde Azure SQL-service.
+In deze stap koppelt u uw Azure SQL-database aan uw data factory. U geeft in deze sectie de Azure SQL-servernaam, -databasenaam, -gebruikersnaam en -wachtwoord op. Zie [Een gekoppelde Azure SQL-service](data-factory-azure-sql-connector.md#linked-service-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde Azure SQL-service.
 
 1. Wijs de opdracht toe aan de variabele met de naam **cmd**. 
    
@@ -489,7 +489,7 @@ Momenteel is de uitvoergegevensset dat wat de planning aanstuurt. In deze zelfst
     Write-Host $results
     ```
 
-**Gefeliciteerd!** U hebt een Azure-gegevensfactory gemaakt met een pijplijn die gegevens van Azure-blobopslag kopieert naar de Azure SQL Database.
+**Gefeliciteerd!** U hebt een Azure-gegevensfactory gemaakt met een pijplijn die gegevens van Azure-blobopslag kopieert naar de Azure SQL-database.
 
 ## <a name="monitor-pipeline"></a>De pijplijn bewaken
 In deze stap gebruikt u Data Factory-REST API voor het bewaken van segmenten die worden geproduceerd door de pijplijn.
@@ -517,17 +517,17 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 }
 ```
 
-Voer de Invoke-Command en de volgende uit totdat u het segment in de status **Gereed** of **Mislukt** ziet. Als het segment de status Gereed heeft, controleert u de uitvoergegevens in de **emp**-tabel in uw Azure SQL Database. 
+Voer de Invoke-Command en de volgende uit totdat u het segment in de status **Gereed** of **Mislukt** ziet. Als het segment de status Gereed heeft, controleert u de uitvoergegevens in de **emp**-tabel in uw Azure SQL-database. 
 
-Voor elk segment worden twee rijen gegevens uit het bronbestand gekopieerd naar de emp-tabel in de Azure SQL Database. U ziet daarom 24 nieuwe records in de emp-tabel wanneer alle segmenten zijn verwerkt (in de status Gereed). 
+Voor elk segment worden twee rijen gegevens uit het bronbestand gekopieerd naar de emp-tabel in de Azure SQL-database. U ziet daarom 24 nieuwe records in de emp-tabel wanneer alle segmenten zijn verwerkt (in de status Gereed). 
 
 ## <a name="summary"></a>Samenvatting
-In deze zelfstudie hebt u REST API gebruikt om een Azure-gegevensfactory te maken voor het kopiëren van gegevens van een Azure-blob naar een Azure SQL Database. In deze zelfstudie hebt u de volgende hoofdstappen uitgevoerd:  
+In deze zelfstudie hebt u REST API gebruikt om een Azure-gegevensfactory te maken voor het kopiëren van gegevens van een Azure-blob naar een Azure SQL-database. In deze zelfstudie hebt u de volgende hoofdstappen uitgevoerd:  
 
 1. U hebt een Azure-**gegevensfactory** gemaakt.
 2. U hebt **gekoppelde services** gemaakt:
    1. Een gekoppelde Azure Storage-service om uw Azure Storage-account te koppelen dat invoergegevens bevat.     
-   2. Een gekoppelde Azure SQL-service om uw Azure SQL Database te koppelen die uitvoergegevens bevat. 
+   2. Een gekoppelde Azure SQL-service om uw Azure SQL-database te koppelen die uitvoergegevens bevat. 
 3. U hebt **gegevenssets** gemaakt waarin de invoer- en uitvoergegevens van pijplijnen worden beschreven.
 4. U hebt een **pijplijn** gemaakt met een kopieeractiviteit met BlobSource als bron en SqlSink als sink. 
 

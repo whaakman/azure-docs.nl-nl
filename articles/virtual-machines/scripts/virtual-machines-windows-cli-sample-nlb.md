@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.openlocfilehash: 5f7f07fb51c39062466675d56f65c6bf2504c3e9
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672046"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60505594"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Zorgen voor verkeer met gelijke taakverdeling tussen maximaal beschikbare virtuele machines
 
@@ -48,7 +48,7 @@ Dit script gebruikt de volgende opdrachten voor het maken van een resourcegroep,
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Hiermee maakt u een virtueel Azure-netwerk en -subnet. |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) | Hiermee maakt u een openbaar IP-adres met een statisch IP-adres en een bijbehorende DNS-naam. |
 | [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) | Hiermee maakt u een Azure Network Load Balancer (NLB). |

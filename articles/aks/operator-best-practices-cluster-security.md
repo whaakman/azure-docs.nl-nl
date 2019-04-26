@@ -2,17 +2,18 @@
 title: Operator aanbevolen procedures - beveiliging-clusters in Azure Kubernetes Services (AKS)
 description: Meer over de best practices uit de cluster-operator voor informatie over het beheren van beveiliging van clusters en -upgrades in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: iainfou
+origin.date: 12/06/2018
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: bf794c6c4f73c4dd25849148aa2ea68b538372c4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001963"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465106"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor beveiliging van clusters en upgrades in Azure Kubernetes Service (AKS)
 
@@ -67,7 +68,7 @@ Als u wilt zien AppArmor in actie, wordt het volgende voorbeeld een profiel waar
 #include <tunables/global>
 profile k8s-apparmor-example-deny-write flags=(attach_disconnected) {
   #include <abstractions/base>
-  
+
   file,
   # Deny all file writes.
   deny /** w,
@@ -181,13 +182,13 @@ AKS ondersteunt vier secundaire versies van Kubernetes. Dit betekent dat wanneer
 
 Om te controleren of de versies die beschikbaar voor uw cluster zijn, gebruikt u de [az aks get-upgrades] [ az-aks-get-upgrades] opdracht zoals wordt weergegeven in het volgende voorbeeld:
 
-```azurecli-interactive
+```azurecli
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
 U kunt vervolgens een upgrade uw AKS-cluster met de [az aks upgrade] [ az-aks-upgrade] opdracht. Het upgradeproces veilig cordons en verkeer naar één knooppunt tegelijk, schillen in de resterende knooppunten plant en implementeert vervolgens een nieuw knooppunt met de meest recente OS en Kubernetes-versies.
 
-```azurecli-interactive
+```azurecli
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.8
 ```
 
@@ -224,13 +225,13 @@ In dit artikel is gericht op over het beveiligen van uw AKS-cluster. Voor het im
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
-[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
-[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
+[az-aks-get-upgrades]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades
+[az-aks-upgrade]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-upgrade
 [aks-supported-versions]: supported-kubernetes-versions.md
 [aks-upgrade]: upgrade-cluster.md
 [aks-best-practices-identity]: concepts-identity.md
 [aks-kured]: node-updates-kured.md
-[aks-aad]: azure-ad-integration.md
+[aks-aad]: aad-integration.md
 [best-practices-container-image-management]: operator-best-practices-container-image-management.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources

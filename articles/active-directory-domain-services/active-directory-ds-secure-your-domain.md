@@ -1,6 +1,6 @@
 ---
 title: Uw Azure Active Directory Domain Services beheerde domein beveiligen | Microsoft Docs
-description: Beveiligen van uw beheerde domein
+description: Uw beheerde domein beveiligen
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
 ms.openlocfilehash: 3797c76f1537f86357f7ca68ffed4758eb1bdc9a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173759"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416497"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Beveiligen van uw Azure AD Domain Services beheerde domein
 Dit artikel helpt u uw beheerde domein beveiligen. U kunt het gebruik van zwakke coderingssuites en hash-synchronisatie van NTLM-referenties uitschakelen.

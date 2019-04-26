@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 1d1c9ef5ba355f1944a362bf0e6f5d7ba91a700a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523933"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486512"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - functies en systeemvariabelen
 > [!NOTE]
@@ -82,7 +82,7 @@ De volgende tabellen worden de functies in Azure Data Factory:
 | --- | --- | --- | --- |
 | Time |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Y-uren toevoegt aan de opgegeven tijd X. <br/><br/>Voorbeeld: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Time |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |X van Y minuten toevoegen<br/><br/>Voorbeeld: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Time |StartOfHour(X) |X: Datum en tijd |Hiermee haalt u de begintijd voor het uur wordt vertegenwoordigd door het uurgedeelte van X. <br/><br/>Voorbeeld: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Time |StartOfHour(X) |X: DateTime |Hiermee haalt u de begintijd voor het uur wordt vertegenwoordigd door het uurgedeelte van X. <br/><br/>Voorbeeld: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
 | Date |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |Y dagen toevoegt aan X. <br/><br/>Voorbeeld: 9/15/2013 12:00:00 uur + 2 dagen = 9/17 //build/ 2013 12:00:00 PM.<br/><br/>U kunt ook dagen aftrekken door Y op te geven als een negatief getal.<br/><br/>Voorbeeld: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
 | Date |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |X van Y maanden toevoegen<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>U kunt maanden te aftrekken door Y op te geven als een negatief getal.<br/><br/>Voorbeeld: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
 | Date |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Voegt Y * 3 maanden op X.<br/><br/>Voorbeeld: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
@@ -97,7 +97,7 @@ De volgende tabellen worden de functies in Azure Data Factory:
 | Date |StartOfDay(X) |X: DateTime |Hiermee haalt u het begin van de dag wordt vertegenwoordigd door het dagonderdeel van de parameter X.<br/><br/>Voorbeeld: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
 | DateTime |FROM(X) |X: String |Parseren van tekenreeks X naar een datum-tijd. |
 | DateTime |Ticks(X) |X: DateTime |Hiermee haalt u de ticks eigenschap van de X-parameter. Een tick is gelijk aan 100 nanoseconden. De waarde van deze eigenschap geeft het aantal maatstreepjes dat is verstreken sinds 12:00:00 middernacht, 1 januari 0001. |
-| Tekst |Format(X) |X: String-variabele |Hiermee wordt de tekst (Gebruik `\\'` combinatie als escape voor `'` tekens).|
+| Text |Format(X) |X: String-variabele |Hiermee wordt de tekst (Gebruik `\\'` combinatie als escape voor `'` tekens).|
 
 > [!IMPORTANT]
 > Wanneer u een functie binnen een andere functie gebruikt, u niet wilt gebruiken **$$** voorvoegsel voor de binnenste functie. Bijvoorbeeld: $$Text.Format ('PartitionKey eq \\' my_pkey_filter_value\\' en RowKey ge \\' {0: DD-MM-jjjj uu: mm:}\\'', Time.AddHours (slicestart-waarde -6)). In dit voorbeeld ziet u dat **$$** voorvoegsel wordt niet gebruikt voor de **Time.AddHours** functie. 

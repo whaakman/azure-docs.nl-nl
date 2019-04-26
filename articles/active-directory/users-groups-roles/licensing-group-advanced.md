@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d2faefd8443383e7afff8e3729bf6f1cf25c3a7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 24bf8e7cf103d583cf6604e0c529ad4ea267ce84
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60471767"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenario's, beperkingen en bekende problemen met behulp van groepen beheren in Azure Active Directory-licentieverlening
 
@@ -216,7 +216,7 @@ Als u licentieverlening op basis van een groep, is het een goed idee om vertrouw
 
 - De functie kan alleen worden gebruikt met beveiligingsgroepen en Office 365-groepen waarvoor securityenabled moet = TRUE.
 
-- De [Office 365-beheerportal](https://portal.office.com ) ondersteunt momenteel geen Groepslicenties. Als een gebruiker een licentie worden overgenomen uit een groep, wordt deze licentie in de Office-beheerportal weergegeven als een gewone gebruiker-licentie. Als u probeert te wijzigen die licentie of probeer te verwijderen van de licentie, retourneert de portal een foutbericht weergegeven. Overgenomen Groepslicenties worden niet rechtstreeks op een gebruiker gewijzigd.
+- De [Microsoft 365-beheercentrum](https://admin.microsoft.com) ondersteunt momenteel geen Groepslicenties. Als een gebruiker een licentie worden overgenomen uit een groep, wordt deze licentie in de Office-beheerportal weergegeven als een gewone gebruiker-licentie. Als u probeert te wijzigen die licentie of probeer te verwijderen van de licentie, retourneert de portal een foutbericht weergegeven. Overgenomen Groepslicenties worden niet rechtstreeks op een gebruiker gewijzigd.
 
 - Wanneer de licenties worden toegewezen of worden gewijzigd voor een grote groep (bijvoorbeeld 100.000 gebruikers), kan dit de prestaties beïnvloeden. Het volume van de wijzigingen die worden gegenereerd door Azure AD-automatisering mogelijk specifiek, negatieve invloed hebben op de prestaties van uw directory-synchronisatie tussen Azure AD en on-premises systemen.
 
