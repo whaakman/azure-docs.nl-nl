@@ -1,6 +1,6 @@
 ---
 title: Indexeerfuncties voor verkennen gegevensbronnen tijdens het indexeren - Azure zoeken
-description: Azure SQL database, Azure Cosmos DB of Azure Storage verkennen om doorzoekbare gegevens op te halen en een Azure Search-index te vullen.
+description: Azure SQL-database, Azure Cosmos DB of Azure Storage verkennen om doorzoekbare gegevens op te halen en een Azure Search-index te vullen.
 author: HeidiSteen
 manager: cgronlun
 services: search

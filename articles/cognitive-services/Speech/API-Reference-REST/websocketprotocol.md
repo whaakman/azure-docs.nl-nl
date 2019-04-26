@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076187"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515325"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing Speech WebSocket-protocol
 
@@ -78,7 +78,7 @@ Content-Length: 0
 
 De volgende headerinformatie is vereist voor token-toegang.
 
-| Name | Indeling | Description |
+| Name | Indeling | Beschrijving |
 |----|----|----|
 | OCP-Apim-Subscription-Key | ASCII | Uw abonnementssleutel |
 
@@ -172,9 +172,9 @@ Spraakservice moet de kenmerken van uw toepassing voor de best mogelijke spraakh
 
 Clients *moet* verzendt een `speech.config` bericht zodra ze maken van de verbinding met Spraakservice en voordat ze een verzenden `audio` berichten. U moet voor het verzenden van een `speech.config` bericht slechts één keer per verbinding.
 
-| Veld | Description |
+| Veld | Beschrijving |
 |----|----|
-| WebSocket-bericht coderen | Tekst |
+| WebSocket-bericht coderen | Text |
 | Hoofdtekst | De nettolading als een JSON-structuur |
 
 #### <a name="required-message-headers"></a>Vereiste berichtkoppen
@@ -241,7 +241,7 @@ Clients worden verzonden (optioneel) een `audio` bericht met een lengte van nul-
 
 Speech Service maakt gebruik van de eerste `audio` -mailbericht met een unieke aanvraag-id op om door te geven het begin van een nieuwe aanvraag/antwoord-cyclus of *inschakelen*. Nadat de service ontvangt een `audio` bericht met een nieuwe aanvraag-id, het in de wachtrij of niet-verzonden berichten die gekoppeld aan alle vorige inschakelen zijn wordt verwijderd.
 
-| Veld | Description |
+| Veld | Beschrijving |
 |-------------|----------------|
 | WebSocket-bericht coderen | Binair bestand |
 | Hoofdtekst | De binaire gegevens voor de audio chunk. Maximale grootte is 8192 bytes. |
@@ -305,9 +305,9 @@ Clienttoepassingen *moet* bevestigen van het einde van elke inschakelen door te 
 
 Clients het einde van een inschakelen door te sturen moeten bevestigen een `telemetry` bericht snel na ontvangst een `turn.end` bericht. Clients om te bevestigen moeten proberen de `turn.end` zo snel mogelijk. Als een clienttoepassing mislukt voor het bevestigen van het einde inschakelen, mogelijk Speech Service de verbinding met een fout te beëindigen. Clients kunnen slechts één moeten verzenden `telemetry` bericht voor elke aanvraag en reactie geïdentificeerd door de *X-RequestId* waarde.
 
-| Veld | Description |
+| Veld | Beschrijving |
 | ------------- | ---------------- |
-| WebSocket-bericht coderen | Tekst |
+| WebSocket-bericht coderen | Text |
 | Pad | `telemetry` |
 | X-Timestamp | Client UTC klok tijdstempel in ISO 8601-notatie |
 | Content-Type | `application/json` |
@@ -329,7 +329,7 @@ De `speech.startDetected` bericht geeft aan dat Spraakservice spraak gedetecteer
 
 | Veld | Description |
 | ------------- | ---------------- |
-| WebSocket-bericht coderen | Tekst |
+| WebSocket-bericht coderen | Text |
 | Pad | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
 | Hoofdtekst | De JSON-structuur die informatie over de voorwaarden bevat wanneer het begin van spraak is gedetecteerd. De *Offset* veld in deze structuur geeft de verschuiving (in eenheden van 100 nanoseconden) wanneer spraak in de audiostream, ten opzichte van het begin van de stroom is gedetecteerd. |
@@ -354,7 +354,7 @@ Tijdens de spraakherkenning genereert Speech Service regelmatig hypothesen over 
 
 | Veld | Description |
 | ------------- | ---------------- |
-| WebSocket-bericht coderen | Tekst |
+| WebSocket-bericht coderen | Text |
 | Pad | `speech.hypothesis` |
 | X-RequestId | UUID in 'niet-dash'-indeling |
 | Content-Type | application/json |
@@ -384,9 +384,9 @@ Clients moeten niet veronderstellingen over de frequentie, timing of tekst in ee
 
 Wanneer Spraakservice bepaalt dat er voldoende informatie voor het produceren van een herkenningsresultaat dat niet verandert, de service-produceert een `speech.phrase` bericht. Speech Service levert deze resultaten nadat gedetecteerd dat de gebruiker een zin of woordgroep is voltooid.
 
-| Veld | Description |
+| Veld | Beschrijving |
 | ------------- | ---------------- |
-| WebSocket-bericht coderen | Tekst |
+| WebSocket-bericht coderen | Text |
 | Pad | `speech.phrase` |
 | Content-Type | application/json |
 | Hoofdtekst | De spraak-woordgroep JSON-structuur |
@@ -414,7 +414,7 @@ De `speech.endDetected` bericht geeft aan dat de clienttoepassing moet worden st
 
 | Veld | Description |
 | ------------- | ---------------- |
-| WebSocket-bericht coderen | Tekst |
+| WebSocket-bericht coderen | Text |
 | Pad | `speech.endDetected` |
 | Hoofdtekst | De JSON-structuur met de verschuiving van het einde van spraak is gedetecteerd. De offset wordt weergegeven in eenheden van 100 nanoseconden verschuiving vanaf het begin van de audio die wordt gebruikt voor opname. |
 | Content-Type | application/json; charset=utf-8 |
@@ -437,9 +437,9 @@ De *Offset* element geeft de verschuiving (in eenheden van 100 nanoseconden) wan
 
 De `turn.start` geeft aan het begin van een inschakelen vanuit het perspectief van de service. De `turn.start` bericht is altijd het eerste antwoordbericht u voor elke aanvraag ontvangt. Als u niet hebt ontvangen een `turn.start` ontvangt, wordt ervan uitgegaan dat de status van de serviceverbinding is ongeldig.
 
-| Veld | Description |
+| Veld | Beschrijving |
 | ------------- | ---------------- |
-| WebSocket-bericht coderen | Tekst |
+| WebSocket-bericht coderen | Text |
 | Pad | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
 | Hoofdtekst | JSON-structuur |
@@ -466,7 +466,7 @@ De `turn.end` geeft aan het einde van een inschakelen vanuit het perspectief van
 
 | Veld | Description |
 | ------------- | ---------------- |
-| WebSocket-bericht coderen | Tekst |
+| WebSocket-bericht coderen | Text |
 | Pad | `turn.end` |
 | Hoofdtekst | Geen |
 
@@ -566,7 +566,7 @@ Gebruik de volgende voorbeelden als richtlijnen voor de opname *Start* en *End* 
 
 * Een clienttoepassing wordt verwerkt door de tweede inschakelen van een aanvraag meerdere inschakelen en op de hoogte gesteld door een antwoordbericht service om in te schakelen op de microfoon voor het verzamelen van invoer voor de tweede inschakelen. De clienttoepassing moet *niet* bevatten een `ListeningTrigger` metrische gegevens voor deze inschakelen.
 
-| Veld | Description | Gebruik |
+| Veld | Beschrijving | Gebruik |
 | ----- | ----------- | ----- |
 | Name | ListeningTrigger | Optioneel |
 | Starten | Het tijdstip waarop de luisterende client-trigger is gestart | Vereist |
@@ -687,7 +687,7 @@ Als een ander voorbeeld: Stel dat een gebruiker spreekt het sleutelwoord-trigger
 
 ### <a name="http-status-codes"></a>HTTP-statuscodes
 
-| HTTP-statuscode | Description | Problemen oplossen |
+| HTTP-statuscode | Beschrijving | Problemen oplossen |
 | - | - | - |
 | 400-Ongeldige aanvraag | De client verzonden een WebSocket-verbindingsaanvraag onjuist is. | Controleer dat u alle vereiste parameters en HTTP-headers opgegeven en of de waarden correct zijn. |
 | 401-niet toegestaan | De client bevat niet de vereiste autorisatie-informatie. | Controleer of u het bericht verzendt de *autorisatie* -header in de WebSocket-verbinding. |

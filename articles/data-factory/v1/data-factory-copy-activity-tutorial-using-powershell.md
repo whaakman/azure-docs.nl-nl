@@ -16,7 +16,7 @@ ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 13f67bfe0902a528d16b6a967f9d4ac189100406
 ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58482400"
@@ -186,7 +186,7 @@ In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory.
     ```
 
 ### <a name="create-a-linked-service-for-an-azure-sql-database"></a>Een gekoppelde service maken voor een Azure SQL-database
-In deze stap koppelt u uw Azure SQL Database aan uw gegevensfactory.
+In deze stap koppelt u uw Azure SQL-database aan uw data factory.
 
 1. Maak een JSON-bestand met de naam AzureSqlLinkedService.json in de map C:\ADFGetStartedPSH. Geef dit bestand de volgende inhoud:
 

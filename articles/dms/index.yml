@@ -29,7 +29,7 @@ sections:
   - title: QuickStarts van vijf minuten
     items:
       - type: paragraph
-        text: 'Leer hoe u een on-premises SQL-server naar Azure SQL Database migreert met behulp van de Database Migration Service:'
+        text: 'Leer hoe u een on-premises SQL Server naar Azure SQL Database migreert met behulp van de Database Migration Service:'
       - type: list
         style: icon48
         items:

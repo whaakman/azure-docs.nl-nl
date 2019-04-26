@@ -3,7 +3,7 @@ title: Sociaal account van de claims transformatievoorbeelden voor de identiteit
 description: Sociaal account claims transformatievoorbeelden voor de identiteit ervaring Framework-Schema van de Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 53608654392d7efb73b6dadac14f01a94bb035a7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893517"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360364"
 ---
 # <a name="social-accounts-claims-transformations"></a>Sociale accounts claimtransformaties
 
@@ -42,7 +42,7 @@ Hiermee maakt u een JSON-weergave van de gebruiker alternativeSecurityId eigensc
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | sleutel | string | Het ClaimType die Hiermee geeft u de unieke gebruikers-id die wordt gebruikt door de sociale id-provider. |
+| InputClaim | key | string | Het ClaimType die Hiermee geeft u de unieke gebruikers-id die wordt gebruikt door de sociale id-provider. |
 | InputClaim | identityProvider | string | Het ClaimType die Hiermee geeft u de naam sociaal account-id-provider, bijvoorbeeld facebook.com. |
 | OutputClaim | alternativeSecurityId | string | Het ClaimType dat wordt gegenereerd nadat de ClaimsTransformation is aangeroepen. Bevat informatie over de identiteit van een gebruiker sociaal account. De **verlener** is de waarde van de `identityProvider` claim. De **issuerUserId** is de waarde van de `key` claim in Base 64-indeling. |
 

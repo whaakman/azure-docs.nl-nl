@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60488630"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - hoge beschikbaarheid en schaalbaarheid (Preview)
 > [!NOTE]
@@ -170,7 +170,7 @@ Hier volgen de vereisten voor het TLS/SSL-certificaat dat wordt gebruikt voor he
 - Ondersteunt sleutelgrootte ondersteund door Windows Server 2012 R2 voor SSL-certificaten.
 - Het certificaat met CNG sleutels worden niet ondersteund.
 
-#### <a name="faq-when-would-i-not-enable-this-encryption"></a>FAQ: Wanneer kan ik deze versleuteling niet inschakelen?
+#### <a name="faq-when-would-i-not-enable-this-encryption"></a>Veelgestelde vragen: Wanneer kan ik deze versleuteling niet inschakelen?
 Versleuteling is ingeschakeld kunt toevoegen bepaalde daarom kosten verbonden aan de infrastructuur (die eigenaar is openbaar certificaat) kunt u overslaan inschakelen van versleuteling in de volgende gevallen:
 - Als de integratieruntime wordt uitgevoerd in een vertrouwd netwerk of een netwerk met transparante versleuteling, zoals IP per seconde Omdat deze communicatie kanaal alleen is beperkt in uw vertrouwde netwerk, moet u mogelijk aanvullende versleuteling.
 - Wanneer de integratieruntime wordt niet uitgevoerd in een productieomgeving. Zo kunt u TLS/SSL-certificaat kosten verminderen.
@@ -184,7 +184,7 @@ U kunt de near-real-time-momentopname van Resourcegebruik (CPU, geheugen, networ
 
 U kunt inschakelen **geavanceerde instellingen** in de **Gateway** pagina voor geavanceerde metrische gegevens, zoals **netwerk**(in/uit), **rollen en referentiestatus**, dit is handig bij het opsporen van gatewayproblemen, en **gelijktijdige taken** (actief / beperken) die kan worden gewijzigd / gewijzigde dienovereenkomstig tijdens het afstemmen van prestaties. De volgende tabel bevat beschrijvingen van de kolommen in de **Gatewayknooppunten** lijst:  
 
-Bewaking van eigenschap | Description
+Bewaking van eigenschap | Beschrijving
 :------------------ | :---------- 
 Name | De naam van de logische-gateway en de knooppunten die zijn gekoppeld aan de gateway.  
 Status | De status van de logische-gateway en de gateway-knooppunten. Voorbeeld: Online/Offline/Limited/etc. Zie voor meer informatie over deze statussen [gatewaystatus](#gateway-status) sectie. 

@@ -12,11 +12,11 @@ ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: bfb8f5ca9b4d204b7a5efdc1b54a0fdd150e5ed6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749610"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344203"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Hoe om te verwijzen naar aantekeningen in een vaardigheden cognitief zoeken
 
@@ -28,7 +28,7 @@ Voorbeelden in dit artikel zijn gebaseerd op de *inhoud* veld automatisch gegene
 
 Voordat u de syntaxis van de bekeken, gaan we terug naar een paar belangrijke concepten voor meer informatie over de voorbeelden verderop in dit artikel.
 
-| Termijn | Description |
+| Termijn | Beschrijving |
 |------|-------------|
 | Verrijkt Document | Een geavanceerde document is een interne structuur gemaakt en gebruikt door de pijplijn voor het opslaan van alle aantekeningen met betrekking tot een document. Een document verrijkt beschouwen als een boomstructuur van aantekeningen. Een aantekening gemaakt op basis van een vorige aantekening wordt over het algemeen het onderliggende.<p/>Verrijkt documenten bestaan alleen voor de duur van de uitvoering van vaardigheden. Wanneer inhoud wordt toegewezen aan de search-index, wordt het verrijkt document niet meer nodig hebt. Hoewel u niet rechtstreeks met verrijkt documenten communiceren, is het handig om een mentale model van de documenten hebt bij het maken van een set vaardigheden. |
 | Verrijking Context | De context waarin de verrijking plaatsvindt, in termen van welke element is uitgebreid. De context verrijking is standaard op de `"/document"` niveau binnen het bereik van afzonderlijke documenten. Wanneer een kwalificatie wordt uitgevoerd, wordt de uitvoer van deze kwalificatie worden [eigenschappen van de gedefinieerde context](#example-2).|

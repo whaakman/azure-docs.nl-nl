@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
 ms.openlocfilehash: fbd876ad46342dec7e2e73b92d3aafbd37cc205b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892293"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417279"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>U moet kiezen als Azure AD Domain Services is geschikt voor uw use-casescenario
 U kunt uw workloads in Azure Infrastructure Services, zonder te hoeven maken over het beheren van infrastructuur voor identiteiten in Azure implementeren met Azure AD Domain Services. Deze beheerde service wijkt af van een typische implementatie van Windows Server Active Directory die u implementeren en beheren op uw eigen. De service is eenvoudig te implementeren en biedt een geautomatiseerde statuscontrole en herstel. We zijn voortdurend de service voor het toevoegen van ondersteuning voor algemene scenario's voor implementatie in ontwikkeling.

@@ -81,7 +81,7 @@ sections:
   - title: QuickStarts van vijf minuten
     items:
       - type: paragraph
-        text: 'Met Azure SQL Database kunt u eenvoudig basisbeheertaken uitvoeren met behulp van Azure Portal, Azure CLI en Azure PowerShell. Leer aan de hand van de volgende beknopte voorbeelden hoe u algemene beheertaken uitvoert:'
+        text: 'Met Azure SQL Database kunt u eenvoudig basisbeheertaken uitvoeren met de Azure-portal, Azure CLI en Azure PowerShell. Leer aan de hand van de volgende beknopte voorbeelden hoe u algemene beheertaken uitvoert:'
       - type: table
         style: dataMatrix
         columns:

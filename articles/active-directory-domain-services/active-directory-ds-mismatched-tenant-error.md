@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: ergreenl
 ms.openlocfilehash: d3586293574cc71011ad96fece5e5a4fdfa0b70f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191989"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417192"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Los de fouten niet-overeenkomende map voor bestaande Azure AD Domain Services beheerde domeinen
 Hebt u een bestaande Azure AD Domain Services beheerde domein. Wanneer u gaat u naar de Azure-portal en het beheerde domein, ziet u de volgende strekking weergegeven:

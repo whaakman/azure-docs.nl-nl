@@ -11,7 +11,7 @@ ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
 ms.openlocfilehash: b8a45f3014b3fd5d0f5592b3f9bd408fc37b387b
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57999953"
@@ -272,7 +272,7 @@ Als u al een SQL-database hebt, moet u de naam van de server opvragen. Ga hiervo
 
 ## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Gegevens met Apache Sqoop exporteren naar een SQL-database
 
-In de vorige gedeelten hebt u de getransformeerde gegevens op `/tutorials/flightdelays/output` gekopieerd. In dit gedeelte gebruikt u Sqoop om de gegevens in '/tutorials/flightdelays/output' te exporteren naar de tabel die u hebt gemaakt in Azure SQL Database. 
+In de vorige gedeelten hebt u de getransformeerde gegevens op `/tutorials/flightdelays/output` gekopieerd. In dit gedeelte gebruikt u Sqoop om de gegevens in '/tutorials/flightdelays/output' te exporteren naar de tabel die u hebt gemaakt in Azure SQL-database. 
 
 1. Gebruik de volgende opdracht om te controleren of Sqoop de SQL-database kan zien:
 

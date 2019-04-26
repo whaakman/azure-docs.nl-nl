@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
 ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545430"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60535317"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Dynamics 365 (Common Data Service) of Dynamics CRM met behulp van Azure Data Factory
 
@@ -66,7 +66,7 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde service van Dyna
 | serviceUri | De service-URL van uw Dynamics-exemplaar, bijvoorbeeld `https://adfdynamics.crm.dynamics.com`. | Ja |
 | authenticationType | Het verificatietype voor verbinding met een Dynamics-server. Geef **'Office 365'** voor Dynamics online. | Ja |
 | gebruikersnaam | Geef de naam van de gebruiker verbinding maken met Dynamics. | Ja |
-| wachtwoord | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| password | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Als niet is opgegeven, wordt de standaard Azure Integration Runtime. | Niet voor bron, Ja voor sink als de bron gekoppelde service beschikt niet over een integratieruntime |
 
 >[!IMPORTANT]
@@ -114,7 +114,7 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde service van Dyna
 | Organisatienaam | De naam van de organisatie van de Dynamics-instantie. | Ja |
 | authenticationType | Het verificatietype voor verbinding met de Dynamics-server. Geef **"Ifd"** voor Dynamics on-premises met IFD. | Ja |
 | gebruikersnaam | Geef de naam van de gebruiker verbinding maken met Dynamics. | Ja |
-| wachtwoord | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord opslaan in Azure Key Vault en laat de copy-activiteit ophalen van daaruit bij het uitvoeren van het kopiëren van gegevens: meer informatie [referenties Store in Key Vault](store-credentials-in-key-vault.md). | Ja |
+| password | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord opslaan in Azure Key Vault en laat de copy-activiteit ophalen van daaruit bij het uitvoeren van het kopiëren van gegevens: meer informatie [referenties Store in Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Als niet is opgegeven, wordt de standaard Azure Integration Runtime. | Nee voor bron, Ja voor sink |
 
 >[!IMPORTANT]
@@ -275,8 +275,8 @@ Om gegevens te kopiëren naar Dynamics, stelt u het sink-type in de kopieeractiv
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op **DynamicsSink**. | Ja |
-| WriteBehavior | Het gedrag van het schrijven van de bewerking.<br/>Toegestane waarde is **"Upsert"**. | Ja |
-| WriteBatchSize | Het aantal rijen van de gegevens die naar Dynamics zijn geschreven in elke batch. | Nee (de standaardwaarde is 10) |
+| writeBehavior | Het gedrag van het schrijven van de bewerking.<br/>Toegestane waarde is **"Upsert"**. | Ja |
+| writeBatchSize | Het aantal rijen van de gegevens die naar Dynamics zijn geschreven in elke batch. | Nee (de standaardwaarde is 10) |
 | ignoreNullValues | Hiermee wordt aangegeven of null-waarden van invoergegevens (met uitzondering van velden voor sleutels) tijdens een schrijfactie negeren.<br/>Toegestane waarden zijn **waar** en **false**.<br>- **True**: Laat de gegevens in het doelobject ongewijzigd wanneer u een bewerking upsert/bijwerken. Voeg een gedefinieerde standaardwaarde wanneer u een insert-bewerking.<br/>- **False**: Als u een upsert-/ Bijwerkbewerking doet, moet u de gegevens in het doelobject bijwerken op NULL. Voeg een NULL-waarde als u een insert-bewerking. | Nee (de standaardinstelling is false) |
 
 >[!NOTE]
@@ -329,15 +329,15 @@ Configureer het bijbehorende gegevenstype voor de Data Factory in de gegevensset
 | Dynamics-gegevenstype | Data Factory tussentijdse gegevenstype | Ondersteund als bron | Ondersteund als sink |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Lang | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Booleaans | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ | | 
-| AttributeType.DateTime | Datum en tijd | ✓ | ✓ |
+| AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ | ✓ (met één doel die is gekoppeld) |
-| AttributeType.ManagedProperty | Booleaans | ✓ | |
+| AttributeType.ManagedProperty | Boolean | ✓ | |
 | AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |

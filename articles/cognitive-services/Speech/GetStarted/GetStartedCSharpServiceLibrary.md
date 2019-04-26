@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 0f445d1fff48ee7a04c0b1c1d64c808f87d824b7
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673161"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515237"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Quickstart: Gebruik de Bing Speech-service-bibliotheek voor opname in C&#35; voor .NET Windows
 
@@ -131,7 +131,7 @@ Deze gebeurtenis wordt aangeroepen wanneer Spraakservice wat u mogelijk worden z
 #### <a name="result-event"></a>Resultaat van gebeurtenis
 Als u klaar bent met het spreken (in `ShortPhrase` modus), deze gebeurtenis wordt genoemd. U krijgt met n-beste keuzen voor het resultaat. In `LongDictation` modus wordt de gebeurtenis kan worden aangeroepen meerdere keren op basis van waar de server pauzes in zinnen aangeeft. U kunt zich abonneren op de gebeurtenis met behulp van `SpeechClient.SubscribeToRecognitionResult()`. Of u kunt de algemene gebeurtenissen abonnementsmethode `SpeechClient.SubscribeTo<RecognitionResult>()`.
 
-**Resultaat opmaken** | Description |
+**Resultaat opmaken** | Beschrijving |
 ------|------|
 **RecognitionStatus** | De status op hoe de opname is gemaakt. Bijvoorbeeld, is deze gemaakt als gevolg van geslaagde opname of als gevolg van het annuleren van de verbinding, enzovoort.
 **Phrases** | De set met n-beste herkende zinnen met de opname-vertrouwen.

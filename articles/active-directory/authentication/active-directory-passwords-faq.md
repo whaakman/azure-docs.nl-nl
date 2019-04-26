@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878190"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359055"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Veelgestelde vragen over wachtwoordbeheer
 
@@ -46,7 +46,7 @@ Deze Veelgestelde vragen is opgesplitst in de volgende secties:
   >
 * **V:  Kan ik wachtwoord opnieuw instellen van gegevens definiëren namens mijn gebruikers?**
 
-  > **A:** Ja, u kunt dit doen met Azure AD Connect, PowerShell, de [Azure-portal](https://portal.azure.com), of het Office 365-beheercentrum. Zie voor meer informatie, [gegevens die worden gebruikt door Azure AD Self-service voor wachtwoord opnieuw instellen](howto-sspr-authenticationdata.md).
+  > **A:** Ja, u kunt dit doen met Azure AD Connect, PowerShell, de [Azure-portal](https://portal.azure.com), of de [Microsoft 365-beheercentrum](https://admin.microsoft.com). Zie voor meer informatie, [gegevens die worden gebruikt door Azure AD Self-service voor wachtwoord opnieuw instellen](howto-sspr-authenticationdata.md).
   >
   >
 * **V:  Kan ik gegevens voor vragen over de beveiliging van on-premises synchroniseren?**

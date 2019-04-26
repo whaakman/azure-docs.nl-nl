@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 53a262af421dd986e6b70af173a6e8b3f7c06f64
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798756"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60527299"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Configuratie-rolinstellingen beschikbaar als een omgevingsvariabele met XPath
 U kunt in de cloud service werknemer of web rol servicedefinitiebestand runtime-configuratiewaarden weergeven als omgevingsvariabelen. De volgende waarden voor XPath worden ondersteund (die overeenkomen met de API-waarden).

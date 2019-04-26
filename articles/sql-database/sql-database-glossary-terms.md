@@ -29,7 +29,7 @@ ms.locfileid: "60341639"
 ||Beheerd exemplaar|[Beheerd exemplaar](sql-database-managed-instance.md)|
 |Serverobjecten|SQL Database-server of database-server|[Database-server](sql-database-servers.md)|
 ||Beheerd exemplaar van SQL-databaseserver, beheerd exemplaar server of instance-server|[Beheerd exemplaar](sql-database-managed-instance.md)|
-Databaseobjecten|Azure SQL Database|Elke database in Azure SQL Database|
+Databaseobjecten|Azure SQL-database|Elke database in Azure SQL Database|
 ||Individuele database|Een database gemaakt met behulp van de Implementatieoptie individuele database|
 ||Gegroepeerde-database|Een database gemaakt binnen of verplaatst naar een elastische pool|
 ||Exemplaar in de database|Een database die is gemaakt in een beheerd exemplaar|

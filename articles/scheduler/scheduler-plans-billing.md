@@ -9,23 +9,23 @@ ms.reviewer: klam
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 74f13628b62d53a84b4d19255a30a6bc4a7367ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3a8664497d3d082ec1c7f584188854991e872d50
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974286"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344305"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Abonnementen en facturering voor Azure Scheduler
 
 > [!IMPORTANT]
-> [Met Azure Logic Apps](../logic-apps/logic-apps-overview.md) vervangt Azure Scheduler, is buiten gebruik gesteld. Voor het plannen van taken, [Azure Logic Apps in plaats daarvan probeert](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) vervangt Azure Scheduler, dat buiten gebruik wordt gesteld. [Probeer in plaats daarvan Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) als u taken wilt plannen. 
 
 ## <a name="job-collection-plans"></a>Taak verzamelingsplannen
 
 Een jobverzameling bevat in Azure Scheduler, een bepaald aantal taken. De taakverzameling is de factureerbare entiteit en is beschikbaar in standaard, P10 Premium of P20 Premium-abonnementen, die hier worden beschreven: 
 
-| Plan voor het verzamelen van taak | Max. aantal taken per verzameling | Max. terugkeerpatroon | Maximum aantal taakcollecties per abonnement | Limieten | 
+| Plan voor het verzamelen van taak | Max. aantal taken per verzameling | Max. terugkeerpatroon | Maximum aantal taakcollecties per abonnement | Limits | 
 |:--- |:--- |:--- |:--- |:--- |
 | **Standard** | 50 taken per verzameling | Een per minuut. Taken kan niet vaker dan één per minuut worden uitgevoerd. | Elk Azure-abonnement kan maximaal 100 Standard taakverzamelingen hebben. | Toegang tot de volledige functieset Scheduler | 
 | **P10 Premium** | 50 taken per verzameling | Een per minuut. Taken kan niet vaker dan één per minuut worden uitgevoerd. | Elk Azure-abonnement kan maximaal 10.000 P10 Premium-taakverzamelingen hebben. Voor meer verzamelingen <a href="mailto:wapteams@microsoft.com">contact met ons opnemen</a>. | Toegang tot de volledige functieset Scheduler |

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: 2f500ea127d3f2042e7c97eeace592b4da8d8d0e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494832"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Het bijwerken van Azure Monitor voor containers om in te schakelen van metrische gegevens
 Azure Monitor voor containers introduceert ondersteuning voor het verzamelen van metrische gegevens van Azure Kubernetes-Services (AKS) clusters knooppunten en schillen en aan het archief van de metrische gegevens over Azure Monitor worden geschreven. Deze wijziging is bedoeld om verbeterde tijdigheid te leveren bij het weergeven van statistische berekeningen (Avg, Count, Max, Min, Sum) in de prestatiegrafieken vastmaken prestatiegrafieken weergegeven in Azure portal-dashboards, ondersteuning en ondersteuning voor metrische waarschuwingen.

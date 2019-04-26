@@ -13,11 +13,11 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 115354985284b090fef890068ade6ddaf5867f04
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457801"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60474107"
 ---
 # <a name="overview-about-changing-your-security-info-preview-methods-and-information"></a>Overzicht over het wijzigen van methoden en informatie voor uw beveiligingsgegevens (preview)
 U kunt uw standaardmethode voor beveiligingsgegevens toevoegen, bewerken, verwijderen en wijzigen via de pagina's van **Beveiligingsgegevens**. Zie het gekoppelde, op methode gebaseerde artikel voor meer informatie over elke methode en het wijzigen van uw gegevens.
@@ -36,7 +36,7 @@ Methoden voor beveiligingsgegevens worden zowel gebruikt voor tweeledige verific
 ## <a name="method-based-how-to-articles"></a>Op methode gebaseerde artikelen met procedures
 Deze lijst bevat de op methode gebaseerde artikelen. Elk artikel bevat gedetailleerde informatie over het toevoegen, bewerken, verwijderen of wijzigen van uw beveiligingsgegevens op basis van de opgegeven methode.
 
-|Artikel |Beschrijving |
+|Artikel |Description |
 |------|------------|
 |[Beveiligingsgegevens instellen voor een Authenticator-app](security-info-setup-auth-app.md)|Beschrijft hoe u de methode voor uw beveiligingsgegevens voor de Microsoft Authenticator-app kunt wijzigen.|
 |[Beveiligingsgegevens instellen voor sms-berichten](security-info-setup-text-msg.md)|Beschrijft hoe u de methode voor uw beveiligingsgegevens voor sms-berichten kunt wijzigen.|

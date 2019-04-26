@@ -3,7 +3,6 @@ title: Informatie over met behulp van een Apache Hadoop-sandbox - emulator - Azu
 description: 'Als u wilt gaan met het leren over het gebruik van het Apache Hadoop-ecosysteem, kunt u instellen een Hadoop-sandbox van Hortonworks op een Azure-machine. '
 keywords: hadoop-emulator, hadoop-sandbox
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -11,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
 ms.openlocfilehash: 1da676787eeee1eb75095a5e3a6b3f40056567ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005767"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60536307"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Aan de slag met een Apache Hadoop-sandbox, een emulator op een virtuele machine
 
