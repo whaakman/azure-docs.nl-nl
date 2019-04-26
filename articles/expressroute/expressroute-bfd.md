@@ -9,11 +9,11 @@ ms.date: 8/17/2018
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 14f65851e50ed25024524f6d988ba2b2f2b3aeba
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083781"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60367661"
 ---
 # <a name="configure-bfd-over-expressroute"></a>BFD via ExpressRoute configureren
 
@@ -21,7 +21,7 @@ ExpressRoute ondersteunt in twee richtingen doorsturen van detectie (BFD) via pe
 
 ## <a name="need-for-bfd"></a>Noodzaak van BFD
 
-Het volgende diagram toont het voordeel van het inschakelen van BFD via ExpressRoute-circuit: [ ![1]][1]
+Het volgende diagram toont het voordeel van het inschakelen van BFD via ExpressRoute-circuit: [![1]][1]
 
 U kunt ExpressRoute-circuit door een Layer 2-verbindingen of beheerde laag-3-verbindingen. In beide gevallen als er een of meer Layer-2-apparaten in het pad van ExpressRoute-verbinding, ligt de verantwoordelijkheid van de koppeling fouten opsporen in het pad met de bovenliggende BGP.
 

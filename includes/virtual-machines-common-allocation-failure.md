@@ -9,11 +9,11 @@ ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 8afaeaea3c8ceb0de33147e70e00f3f57c857ca7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344154"
 ---
 Wanneer u een virtuele machine (VM) maken, gestopt (toewijzing opgeheven) virtuele machines opnieuw opstarten of een virtuele machine vergroten of verkleinen, wijst Microsoft Azure compute-resources aan uw abonnement. We zijn voortdurend investeren in extra infrastructuur en onderdelen om ervoor te zorgen dat we alle VM-typen beschikbaar voor ondersteuning van de vraag van klanten altijd beschikken over. Echter kan van tijd tot tijd toewijzingsfouten resource optreden vanwege een ongekende groei in de vraag naar Azure-services in specifieke regio's. Dit probleem kan optreden wanneer u probeert te maken of virtuele machines in een regio te starten terwijl de virtuele machines de volgende foutcode en het bericht weergegeven:
 

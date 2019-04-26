@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000722"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60404191"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Met behulp van de oplossing Serviceoverzicht in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met Servicetoewijzing kun u uw servers weergeven op de manier waarop ze hun waarde voor u hebben: als onderling verbonden systemen die essentiële services leveren. Servicetoewijzing toont verbindingen tussen servers, processen, latentie van binnenkomende en uitgaande verbindingen en poorten voor elke via TCP verbonden architectuur. Na installatie van een agent is er geen verdere configuratie vereist.
@@ -142,7 +142,7 @@ Klik op het menu van de drie puntjes naast de groepnaam van de in de lijst met g
 ## <a name="role-icons"></a>Rolpictogrammen
 Bepaalde processen bepaalde functies op machines bedienen: web-servers, toepassingsservers en -database. Serviceoverzicht annotates proces- en machinegrenzen vakken met Rolpictogrammen voor het identificeren van in een oogopslag de rol van een proces of de server wordt afgespeeld.
 
-| Functiepictogram | Beschrijving |
+| Functiepictogram | Description |
 |:--|:--|
 | ![Webserver](media/service-map/role-web-server.png) | Webserver |
 | ![App-server](media/service-map/role-application-server.png) | Toepassingsserver |
@@ -355,7 +355,7 @@ Het IP-adres van het externe uiteinde van een verbinding is voor het gemak opgen
 #### <a name="malicious-ip"></a>Schadelijk IP
 Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is ingeschakeld met bekende schadelijke activiteiten. Als de RemoteIp wordt geïdentificeerd als schadelijk de volgende eigenschappen worden ingevuld (ze zijn leeg is, wanneer het IP-adres wordt niet als schadelijk beschouwd) in de volgende eigenschappen van de record:
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--|:--|
 | `MaliciousIp` |Het adres RemoteIp |
 | `IndicatorThreadType` |Threat indicator gedetecteerd is een van de volgende waarden *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *pua's*, *Watchlist*.   |
@@ -397,7 +397,7 @@ Records met een type *ServiceMapComputer_CL* inventarisgegevens voor servers met
 ### <a name="servicemapprocesscl-type-records"></a>Type ServiceMapProcess_CL records
 Records met een type *ServiceMapProcess_CL* beschikken over inventarisgegevens voor TCP verbonden processen op servers met Service Map-agents. Deze records hebben de eigenschappen in de volgende tabel:
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--|:--|
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |

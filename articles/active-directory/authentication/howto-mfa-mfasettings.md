@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885992"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359119"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 
@@ -30,7 +30,7 @@ U hebt toegang tot de instellingen in verband met multi-factor Authentication va
 
 Sommige van deze instellingen gelden voor MFA-Server en/of de Azure MFA.
 
-| Functie | Description |
+| Functie | Beschrijving |
 | ------- | ----------- |
 | Accountvergrendeling | Tijdelijk Vergrendel accounts in de multi-factor authentication-service als er te veel verificatiepogingen in een rij geweigerd. Deze functie is alleen van toepassing op gebruikers die een pincode om te verifiëren. (MFA-Server) |
 | [Gebruikers blokkeren/deblokkeren](#block-and-unblock-users) | Gebruikt voor het blokkeren van bepaalde gebruikers op de MFA-Server (on-premises) geen multi-factor Authentication-aanvragen worden ontvangen. Alle verificatiepogingen voor geblokkeerde gebruikers worden automatisch geweigerd. Gebruikers blijven geblokkeerd gedurende 90 dagen vanaf het moment dat ze worden geblokkeerd. |
@@ -333,7 +333,7 @@ U kunt de verificatiemethoden die beschikbaar voor uw gebruikers zijn. De volgen
 
 Wanneer uw gebruikers hun account voor Azure multi-factor Authentication registreren, kiezen ze hun gewenste verificatiemethode uit de opties die u hebt ingeschakeld. Richtlijnen voor het registratieproces voor de gebruiker is opgegeven in [instellen van mijn account voor verificatie in twee stappen](../user-help/multi-factor-authentication-end-user-first-time.md).
 
-| Methode | Beschrijving |
+| Methode | Description |
 |:--- |:--- |
 | Bellen naar telefoon |Plaatst een geautomatiseerd telefoongesprek. De gebruiker beantwoordt het gesprek en drukt # in het toetsenblok van de telefoon om te verifiëren. Het telefoonnummer is niet gesynchroniseerd met on-premises Active Directory. |
 | Sms-bericht naar telefoon |Verzendt een SMS-bericht met een verificatiecode. De gebruiker wordt gevraagd de verificatiecode invoeren in de interface van aanmelding. Dit proces heet SMS in één richting. SMS in twee richtingen betekent dat de gebruiker tekst weer een bepaalde code moet. SMS in twee richtingen is afgeschaft en wordt niet ondersteund na 14 November 2018. Gebruikers die zijn geconfigureerd voor SMS in twee richtingen worden automatisch overgeschakeld naar de _oproep naar telefoon_ verificatie op dat moment.|

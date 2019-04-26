@@ -5,24 +5,24 @@ services: active-directory
 keywords: AADSTS70002, AADSTS50054, het opnieuw instellen van het wachtwoord voor de Connector-serviceaccount van de Azure AD Connect-synchronisatie
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/12/2017
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+ms.topic: article
+origin.date: 07/12/2017
+ms.date: 11/08/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: f88318c87e29567b40b5eacf10f3b6f259adee8b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196347"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60351002"
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect-synchronisatie: Over het beheren van de Azure AD-serviceaccount
 Het serviceaccount dat wordt gebruikt door de Azure AD-Connector is mag service gratis. Als u de referenties opnieuw instellen wilt, klikt u vervolgens is in dit onderwerp voor u. Bijvoorbeeld, als een globale beheerder per ongeluk het wachtwoord opnieuw instellen op de serviceaccount met behulp van PowerShell.
@@ -53,6 +53,7 @@ AADSTS70002: Fout bij het valideren van referenties. AADSTS50054: Er is een oud 
 ## <a name="next-steps"></a>Volgende stappen
 **Overzichtsonderwerpen**
 
-* [Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie](how-to-connect-sync-whatis.md)
-* [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
+- [Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie](how-to-connect-sync-whatis.md)
+- [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
+
 

@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
 ms.openlocfilehash: d9c607114d6c6c56c25303a88dcc11f4ab804eb4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60367943"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Virtuele netwerkgateways voor ExpressRoute
 Een virtuele netwerkgateway wordt gebruikt voor het verzenden van netwerkverkeer tussen virtuele netwerken van Azure en on-premises locaties. U kunt een virtuele netwerkgateway voor verkeer van ExpressRoute of VPN-verkeer. In dit artikel is gericht op de virtuele netwerkgateways voor ExpressRoute en bevat informatie over SKU's en de geschatte prestaties per SKU en gatewaytypen.

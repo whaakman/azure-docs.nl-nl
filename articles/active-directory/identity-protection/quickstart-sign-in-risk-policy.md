@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f5127342f97a90103ef56efbd7465832440ec0f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381785"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Quickstart: Toegang blokkeren als er een sessie risico's met Azure Active Directory Identity Protection wordt gedetecteerd  
 
@@ -67,7 +67,7 @@ Het scenario in deze snelstartgids wordt een aanmelding vanuit een Tor-Browser g
 
 Deze sectie wordt beschreven hoe u de vereiste aanmeldingsrisico-beleid voor voorwaardelijke toegang maken. Stel in het beleid:
 
-|Instelling |Value|
+|Instelling |Waarde|
 |---     | --- |
 | Gebruikers  | Alain Charon  |
 | Voorwaarden | Aanmeldingsrisico, gemiddeld en hoger |

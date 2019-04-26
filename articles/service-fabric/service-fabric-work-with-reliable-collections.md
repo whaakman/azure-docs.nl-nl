@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/22/2019
 ms.author: aljo
 ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872684"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506736"
 ---
 # <a name="working-with-reliable-collections"></a>Werken met betrouwbare verzamelingen
 Service Fabric biedt een stateful programmeermodel beschikbaar voor .NET-ontwikkelaars via betrouwbare verzamelingen. Specifiek, biedt Service Fabric betrouwbare dictionary en betrouwbare wachtrij klassen. Wanneer u deze klassen, uw status is gepartitioneerd (voor schaalbaarheid), gerepliceerd (voor beschikbaarheid) en transactionele binnen een partitie (voor ACID-semantiek). Laten we kijken naar een typische gebruik van een betrouwbare dictionary-object en zien wat er daadwerkelijk doet.

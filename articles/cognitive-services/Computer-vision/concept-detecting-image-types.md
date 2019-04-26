@@ -12,11 +12,11 @@ ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 37cdac16a51a30bdaf1ba0266bab7fdd1f2990f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895444"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60368329"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Detecteren van afbeeldingstypen met Computer Vision
 
@@ -26,7 +26,7 @@ Met de [analyseren installatiekopie](https://westus.dev.cognitive.microsoft.com/
 
 Computer Vision analyseert een installatiekopie en classificeert de kans van de installatiekopie wordt illustraties op een schaal van 0 tot en met 3, zoals beschreven in de volgende tabel.
 
-| Value | Betekenis |
+| Waarde | Betekenis |
 |-------|---------|
 | 0 | Non-clip-art (geen illustratie) |
 | 1 | niet-eenduidige |

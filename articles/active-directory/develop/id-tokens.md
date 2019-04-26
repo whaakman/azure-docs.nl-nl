@@ -19,11 +19,11 @@ ms.custom: aaddev
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b5c296f14fd9fdc3a7555412555ea1a851f9a7b8
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563826"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410039"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft identity-platform-ID-tokens
 
@@ -66,7 +66,7 @@ Dit token v2.0 voorbeeld in weergeven [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAi
 
 Deze lijst bevat de claims die zich in de meeste id_tokens standaard (tenzij anders wordt vermeld).  Uw app kunt echter gebruiken [optionele claims](active-directory-optional-claims.md) om aan te vragen van aanvullende claims in de id_token.  Dit kunnen variëren van het `groups` claim naar informatie over de naam van de gebruiker.
 
-|Claim | Indeling | Beschrijving |
+|Claim | Indeling | Description |
 |-----|--------|-------------|
 |`aud` |  Tekenreeks, een URI van de App-ID | Hiermee geeft u de beoogde ontvanger van het token. In `id_tokens`, de doelgroep is van uw app toepassings-ID, toegewezen aan uw app in Azure portal. Uw app moet deze waarde te valideren en het token te negeren als de waarde komt niet overeen met. |
 |`iss` |  Tekenreeks, een STS-URI | Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token en de Azure AD-tenant waarin de gebruiker is geverifieerd. Als het token is uitgegeven door het v2.0-eindpunt, de URI wordt beëindigd `/v2.0`.  De GUID die wordt aangegeven dat de gebruiker een consument gebruiker vanuit een Microsoft-account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Uw app moet de GUID-gedeelte van de claim gebruiken om het beperken van de set van tenants die kunnen zich aanmelden bij de app, indien van toepassing. |

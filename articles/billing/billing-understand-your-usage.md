@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: a143fc6d9dbd78ae365f943a00ac9f8492d5e51c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369621"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Meer informatie over de Microsoft Azure gedetailleerde gebruikskosten 
 
@@ -57,7 +57,7 @@ Het bovenste gedeelte van het gedetailleerde gebruik CSV-bestand ziet u de servi
 |Overschrijding |De kosten voor meter die groter zijn dan de toezeggingshoeveelheid die is gekoppeld aan uw aanbieding 6 of 12 maanden |
 |Toezeggingstarief |Geeft het toezeggingstarief op basis van de totale toezeggingshoeveelheid die is gekoppeld aan uw aanbieding 6 of 12 maanden |
 |Tarief |Het tarief dat u kosten in per factureerbare eenheid gebracht rekening |
-|Value |Toont het resultaat van het vermenigvuldigen van de hoeveelheid overschrijding kolom met de kolom tarief. Als de verbruikte hoeveelheid niet hoger is dan het aantal opgenomen, zijn er geen kosten in deze kolom. |
+|Waarde |Toont het resultaat van het vermenigvuldigen van de hoeveelheid overschrijding kolom met de kolom tarief. Als de verbruikte hoeveelheid niet hoger is dan het aantal opgenomen, zijn er geen kosten in deze kolom. |
 
 ### <a name="daily-usage"></a>Dagelijks gebruik
 

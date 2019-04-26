@@ -3,7 +3,7 @@ title: Een profiel van de technische definiëren in een aangepast beleid in Azur
 description: Definieer het technische profiel van een Azure Active Directory in een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 466ed4c2bd353e4a5ec3bec5535b70a90446ee0b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483893"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418271"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een profiel van de technische definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -70,9 +70,9 @@ De **voorwaarde** element bevat het volgende kenmerk:
 
 De **voorwaarde** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
-| Value | 1: n | De gegevens die wordt gebruikt door de controle. Als het type van deze controle is `ClaimsExist`, dit veld geeft aan dat een ClaimTypeReferenceId om op te vragen. Als het type van controle is `ClaimEquals`, dit veld geeft aan dat een ClaimTypeReferenceId om op te vragen. Terwijl een andere waarde-element de waarde bevat moet worden gecontroleerd.|
+| Waarde | 1: n | De gegevens die wordt gebruikt door de controle. Als het type van deze controle is `ClaimsExist`, dit veld geeft aan dat een ClaimTypeReferenceId om op te vragen. Als het type van controle is `ClaimEquals`, dit veld geeft aan dat een ClaimTypeReferenceId om op te vragen. Terwijl een andere waarde-element de waarde bevat moet worden gecontroleerd.|
 | Bewerking | 1:1 | De actie die moet worden uitgevoerd als de controle van de voorwaarde in een orchestration-stap ingesteld op true is. De waarde van de **actie** is ingesteld op `SkipThisValidationTechnicalProfile`. Hiermee geeft u de gekoppelde validatieregels technisch profiel moet niet worden uitgevoerd. |
 
 ### <a name="example"></a>Voorbeeld

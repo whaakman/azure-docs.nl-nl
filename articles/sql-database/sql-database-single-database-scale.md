@@ -114,7 +114,7 @@ U worden in rekening gebracht voor elk uur bestaat in een database met behulp va
 
 ## <a name="change-storage-size"></a>Opslaggrootte wijzigen
 
-### <a name="vcore-based-purchasing-model"></a>Op vCore gebaseerd aanschafmodel
+### <a name="vcore-based-purchasing-model"></a>Aankoopmodel op basis van vCore
 
 - Opslag kan worden ingericht tot de maximale grootte is bereikt met behulp van de stappen van 1 GB. De minimale configureerbare gegevensopslag is 5 GB
 - Opslag voor een individuele database kan worden bevoorraad door vergroten of verkleinen van de maximale grootte met behulp van de [Azure-portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).

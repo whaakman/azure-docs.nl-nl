@@ -14,11 +14,11 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eaed7357221f5b766bfb8b9e1a9031c08854ac9a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340122"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60477237"
 ---
 # <a name="access-and-use-apps-on-the-my-apps-portal"></a>Toegang tot en gebruik apps op de portal mijn Apps
 U kunt uw werk of school-account gebruiken met de webconsole **mijn Apps** portal weergeven en starten van veel van uw organisatie cloud-gebaseerde apps, om bij te werken sommige van uw profiel en account-informatie om te zien uw **groepen** informatie en om uit te voeren **toegangsbeoordelingen** voor uw apps en -groepen. Als u geen toegang tot de **mijn Apps** portal, u moet contact opnemen met uw Helpdesk om toestemming.

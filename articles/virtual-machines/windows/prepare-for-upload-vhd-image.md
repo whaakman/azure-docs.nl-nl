@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
 ms.openlocfilehash: 0988902e0a2154f2935a01ddcfb6a460be693df3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60460048"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Een Windows VHD of VHDX te uploaden naar Azure voorbereiden
 Voordat u een Windows virtuele machines (VM van on-premises met Microsoft Azure) uploadt, moet u de virtuele harde schijf (VHD of VHDX) voorbereiden. Azure ondersteunt **alleen virtuele machines van generatie 1** die in de VHD-indeling en hebben een schijf met vaste grootte. De maximale grootte van de VHD is 1023 GB. U kunt een generatie 1 VM op basis van de VHDX-bestandssysteem en naar een dynamisch uitbreidbare schijf naar vaste VHD converteren. Maar u kunt een virtuele machine generatie niet wijzigen. Zie voor meer informatie, [maak ik een generatie 1 of 2 virtuele machine in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -198,7 +198,7 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
 
 9. Als de virtuele machine onderdeel van een domein is, controleert u de volgende instellingen om ervoor te zorgen dat de voormalige instellingen worden niet hersteld. Het beleid dat moeten worden gecontroleerd op zijn de volgende:
     
-    | Doel                                     | Beleid                                                                                                                                                       | Value                                                                                    |
+    | Doel                                     | Beleid                                                                                                                                                       | Waarde                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP is ingeschakeld                           | Computer Computerconfiguratie\Beleid\Windows Settings\Administrative Templates\Components\Remote bureaublad bureaublad-sessiehost\Verbindingen         | Toestaan dat gebruikers op afstand verbinding maken met behulp van extern bureaublad                                  |
     | NLA-Groepsbeleid                         | Settings\Administrative Templates\Components\Remote Desktop-pc-sessie\Beveiliging                                                    | Gebruiker-verificatie voor externe verbindingen met behulp van verificatie op netwerkniveau vereisen |
@@ -232,7 +232,7 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
    ``` 
 5. Als de virtuele machine onderdeel van een domein is, controleert u de volgende instellingen om ervoor te zorgen dat de voormalige instellingen worden niet hersteld. De AD-beleidsregels die moeten worden gecontroleerd op zijn de volgende:
 
-    | Doel                                 | Beleid                                                                                                                                                  | Value                                   |
+    | Doel                                 | Beleid                                                                                                                                                  | Waarde                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | De Windows Firewall-profielen inschakelen | Computer Computerconfiguratie\Beleid\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | Beveiligen van alle netwerkverbindingen         |
     | RDP inschakelen                           | Computer Computerconfiguratie\Beleid\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | Inkomende extern bureaublad-uitzonderingen toestaan |
@@ -340,7 +340,7 @@ De ideale configuratie is het **hebben van de patch-niveau van de machine op de 
 
 | Onderdeel               | Binair bestand         | Windows 7 SP1,Windows Server 2008 R2  SP1 | Windows 8,Windows Server 2012               | Windows 8.1,Windows Server 2012 R2 | Windows 10 versie 1607 Windows Server 2016, versie 1607 | Windows 10 versie 1703    | Windows 10 1709 Windows Server 2016-versie 1709 | Windows 10-1803 Windows Server 2016, versie 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
-| Opslag                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
+| Storage                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
 |                         | ntfs.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
 |                         | Iologmsg.dll   | 6.1.7601.23403 - KB3125574                | 6.2.9200.16384 - KB2995387                  | -                                  | -                                                       | -                          | -                                               | -                                               |
@@ -425,5 +425,5 @@ De volgende instellingen hebben geen invloed op de VHD uploaden. Echter, wordt a
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Een Windows VM-installatiekopie uploaden naar Azure voor Resource Manager-implementaties](upload-generalized-managed.md)
-* [Problemen met Windows Azure virtuele machine-activering](troubleshoot-activation-problems.md)
+* [Problemen met de activering van virtuele Microsoft Azure-machines oplossen](troubleshoot-activation-problems.md)
 

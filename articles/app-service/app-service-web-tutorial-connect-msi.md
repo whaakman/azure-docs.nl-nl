@@ -16,7 +16,7 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: dd84f9b3b68d7a34903241caed7f1f93e685fb57
 ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58482519"
@@ -172,7 +172,7 @@ Als u de volledige JSON-uitvoer voor elke opdracht wilt zien, haal dan de `--que
 
 ### <a name="reconfigure-azure-ad-administrator"></a>Azure AD-beheerder opnieuw configureren
 
-Voorheen wees u de beheerde identiteit toe als de Azure AD-beheerder voor uw SQL Database. U kunt deze identiteit niet gebruiken voor interactief aanmelden (om databasegebruikers toe te voegen), dus moet u gebruikmaken van uw werkelijke Azure AD-gebruiker. Volg de stappen in [Een Azure Active Directory-beheerder voor uw Azure SQL Database Server inrichten](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) om uw Azure AD-gebruiker toe te voegen. 
+Voorheen wees u de beheerde identiteit toe als de Azure AD-beheerder voor uw SQL Database. U kunt deze identiteit niet gebruiken voor interactief aanmelden (om databasegebruikers toe te voegen), dus moet u gebruikmaken van uw werkelijke Azure AD-gebruiker. Volg de stappen in [Een Azure Active Directory-beheerder voor uw Azure SQL Database-server inrichten](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) om uw Azure AD-gebruiker toe te voegen. 
 
 > [!IMPORTANT]
 > Zodra deze Azure AD-beheerder voor uw SQL Database is toegevoegd, mag u deze niet verwijderen, tenzij u Azure AD-toegang tot de SQL Database volledig wilt uitschakelen (vanuit alle Azure AD-accounts).

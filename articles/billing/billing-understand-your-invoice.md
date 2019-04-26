@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897449"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369925"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Meer informatie over uw factuur voor Microsoft Azure
 
@@ -31,7 +31,7 @@ Een paar dingen om te weten:
 
 -   Maximaal 24 uur van het gebruik van aan het einde van de vorige factureringsperiode mogelijk weergegeven in uw huidige factuur.
 
--   Kosten op afschriften voor internationale klanten zijn een schatting Banken mogelijk verschillende kosten voor de conversie-tarieven.
+-   Kosten op afschriften voor internationale klanten zijn een schatting omdat banken verschillende tarieven hanteren voor het omrekenen van valuta.
 
 >[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
@@ -65,7 +65,7 @@ De naam van het abonnement ('productie-opslag') is de naam van het abonnement vo
 #### <a name="understand-the-previous-charges"></a>Meer informatie over de vorige kosten
 Het vorig saldo, betalingen en openstaande saldo sectie van de factuur geeft een overzicht van transacties sinds uw laatste factureringsperiode.
 
-| Termijn | Description |
+| Termijn | Beschrijving |
 | --- | --- |
 | Vorig saldo |Het totale verschuldigde bedrag van uw laatste factureringsperiode |
 | Betalingen |Totale betalingen en tegoeden die worden toegepast op de laatste factureringsperiode |
@@ -74,7 +74,7 @@ Het vorig saldo, betalingen en openstaande saldo sectie van de factuur geeft een
 #### <a name="understand-the-current-charges"></a>Meer informatie over de huidige kosten
 De sectie huidige kosten van de factuur bevat details over uw maandelijkse kosten voor de huidige factureringsperiode.
 
-| Termijn | Description |
+| Termijn | Beschrijving |
 | --- | --- |
 | Gebruikskosten |Gebruikskosten zijn de totale maandelijkse kosten op een abonnement voor de huidige factureringsperiode|
 | Kortingen |Servicekortingen die zijn toegepast op uw huidige factureringsperiode.|
@@ -97,7 +97,7 @@ Het gedeelte van de kosten voor gebruik van de factuur geeft meter niveau inform
 
 De volgende tabel beschrijft de kolomkoppen van de gebruik kosten in rekening gebracht op uw factuur weergegeven.
 
-| Termijn |Description |
+| Termijn |Beschrijving |
 | --- | --- |
 | Name |Identificeert de service op het hoogste niveau voor het gebruik |
 | Type |Definieert het type Azure-service die invloed kan zijn op de snelheid |
@@ -107,7 +107,7 @@ De volgende tabel beschrijft de kolomkoppen van de gebruik kosten in rekening ge
 | Inbegrepen |Het bedrag van de meter die is opgenomen gratis inbegrepen in uw huidige factureringsperiode. |
 | Factureerbaar |Bevat het verschil tussen de verbruikte hoeveelheid en het aantal opgenomen. U wordt gefactureerd voor dit bedrag. Bij betalen per gebruik-aanbiedingen waarbij er geen hoeveelheid in de aanbieding is opgenomen, is dit totaal hetzelfde als de verbruikte hoeveelheid |
 | Tarief |Het tarief dat u kosten in per factureerbare eenheid gebracht rekening |
-| Value |Toont het resultaat van het vermenigvuldigen van de hoeveelheid overschrijding kolom met de kolom tarief. Als de verbruikte hoeveelheid niet hoger is dan het aantal opgenomen, zijn er geen kosten in deze kolom. |
+| Waarde |Toont het resultaat van het vermenigvuldigen van de hoeveelheid overschrijding kolom met de kolom tarief. Als de verbruikte hoeveelheid niet hoger is dan het aantal opgenomen, zijn er geen kosten in deze kolom. |
 | Subtotaal |De som van alle uw kosten vóór belastingen voor deze factureringsperiode |
 | Eindtotaal |De som van alle kosten na belasting voor deze factureringsperiode |
 

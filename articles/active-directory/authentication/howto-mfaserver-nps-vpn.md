@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: acbf27ca6f5b58d5c3cebb28698304c130381a7a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314396"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60414916"
 ---
 # <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Geavanceerde scenario's met Azure multi-factor Authentication en VPN-oplossingen van derden
 
@@ -25,7 +25,7 @@ Azure multi-factor Authentication kan worden gebruikt om het naadloos verbinding
 ## <a name="cisco-asa-vpn-appliance-and-azure-multi-factor-authentication"></a>Cisco ASA-VPN-apparaat en Azure multi-factor Authentication
 Azure multi-factor Authentication kan worden geïntegreerd met uw Cisco® ASA VPN-apparaat voor extra beveiliging voor Cisco AnyConnect® VPN aanmeldingen als portaltoegang.  U kunt de LDAP- of RADIUS-protocol gebruiken.  Selecteer een van de volgende voor het downloaden van de gedetailleerde stapsgewijze configuratiehandleidingen.
 
-| Configuratiehandleiding | Description |
+| Configuratiehandleiding | Beschrijving |
 | --- | --- |
 | [Cisco ASA met Anyconnect VPN- en Azure MFA-configuratie voor LDAP](https://download.microsoft.com/download/A/2/0/A201567C-C3DE-4227-AF89-4567A470899E/Cisco_ASA_Azure_MFA_LDAP.docx) | Integreer uw Cisco ASA-VPN-apparaat met Azure MFA met behulp van LDAP |
 | [Cisco ASA met Anyconnect VPN- en Azure MFA-configuratie voor RADIUS](https://download.microsoft.com/download/4/5/7/4579C1CF-35B0-4FBE-8A1A-B49CB2CC0382/Cisco_ASA_Azure_MFA_RADIUS.docx) | Integreer uw Cisco ASA-VPN-apparaat met Azure MFA met behulp van RADIUS |

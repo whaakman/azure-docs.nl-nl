@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e74ad04f10865a830d27c1814be10eeff3ad59
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443212"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Er zijn geen gebruikers worden ingericht tot een toepassing met Azure AD-galerie
 Nadat de automatische inrichting is geconfigureerd voor een toepassing (met inbegrip van verifiëren dat de opgegeven naar Azure AD om verbinding maken met de app app-referenties geldig zijn), zijn vervolgens gebruikers en/of groepen ingericht met de app. Inrichting wordt bepaald door de volgende zaken:

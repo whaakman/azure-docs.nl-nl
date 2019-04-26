@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
 ms.openlocfilehash: dd3b693271326c85688a275a65b67ad6257220e3
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024755"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400691"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure IoT device-SDK voor C: meer informatie over IoTHubClient
 
@@ -59,10 +59,10 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 Er zijn aanvullende functies voor elk van deze API's:
 
-* IoTHubClient\_LLE\_CreateFromConnectionString
-* IoTHubClient\_LLE\_SendEventAsync
+* IoTHubClient\_LL\_CreateFromConnectionString
+* IoTHubClient\_LL\_SendEventAsync
 * IoTHubClient\_LL\_SetMessageCallback
-* IoTHubClient\_LLE\_vernietigen
+* IoTHubClient\_LL\_Destroy
 
 Deze zijn allen inclusief functies **LLE** in naam van de API. Andere de **LLE** deel van de naam, de parameters van elk van deze functies zijn identiek aan hun tegenhangers niet alles. Echter, verschilt het gedrag van deze functies op één belangrijk.
 
@@ -126,10 +126,10 @@ In feite is er slechts één set API's voor het verzenden en ontvangen van gegev
 
 Het model dat u kiest, moet u consistent in welke API's die u gebruikt. Als u door het aanroepen van begint **IoTHubClient\_LLE\_CreateFromConnectionString**, zorg ervoor dat u alleen de bijbehorende op lagere niveaus-API's gebruiken voor follow-up werk:
 
-* IoTHubClient\_LLE\_SendEventAsync
+* IoTHubClient\_LL\_SendEventAsync
 * IoTHubClient\_LL\_SetMessageCallback
-* IoTHubClient\_LLE\_vernietigen
-* IoTHubClient\_LLE\_DoWork
+* IoTHubClient\_LL\_Destroy
+* IoTHubClient\_LL\_DoWork
 
 Het omgekeerde geldt ook. Als u met begint **IoTHubClient\_CreateFromConnectionString**, klikt u vervolgens de niet - LLE API's gebruiken voor alle verdere verwerking.
 
@@ -235,7 +235,7 @@ De argumenten voor **IoTHubClient\_CreateFromConnectionString** zijn de apparaat
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 ```
 
-Er zijn vier soorten informatie in deze tekenreeks: de naam van IoT Hub, IoT Hub-achtervoegsel, apparaat-ID en gedeelde toegangssleutel. Ophalen van de volledig gekwalificeerde domeinnaam (FQDN) van een IoT-hub wanneer u uw IoT hub-exemplaar in Azure portal maakt: dit geeft u de naam van de IoT hub (het eerste deel van de FQDN-naam) en het achtervoegsel in IoT hub (de rest van de FQDN-naam). U profiteert de apparaat-ID en de gedeelde toegangssleutel wanneer u uw apparaat bij IoT Hub registreren (zoals beschreven in de [vorige artikel](iot-hub-device-sdk-c-intro.md)).
+Er zijn vier soorten informatie in deze tekenreeks: De naam van IoT Hub, IoT Hub-achtervoegsel, apparaat-ID en gedeelde toegangssleutel. Ophalen van de volledig gekwalificeerde domeinnaam (FQDN) van een IoT-hub wanneer u uw IoT hub-exemplaar in Azure portal maakt: dit geeft u de naam van de IoT hub (het eerste deel van de FQDN-naam) en het achtervoegsel in IoT hub (de rest van de FQDN-naam). U profiteert de apparaat-ID en de gedeelde toegangssleutel wanneer u uw apparaat bij IoT Hub registreren (zoals beschreven in de [vorige artikel](iot-hub-device-sdk-c-intro.md)).
 
 **IoTHubClient\_CreateFromConnectionString** beschikt u over een manier om de bibliotheek te initialiseren. Als u liever, kunt u een nieuwe **IOTHUB\_CLIENT\_verwerken** met behulp van deze afzonderlijke parameters in plaats van de verbindingsreeks van het apparaat. Dit wordt bereikt door de volgende code:
 
