@@ -79,13 +79,13 @@ De `on-error` beleidssectie kan worden gebruikt op een bereik. API-publishers ku
   
 | Naam     | Type   | Beschrijving                                                                                               | Vereist |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Bron   | tekenreeks | De naam van het element waar de fout is opgetreden. Kan worden beleid of de naam van een ingebouwde pijplijn stap.     | Ja      |
-| Reden   | tekenreeks | Machine-vriendelijk foutcode die kan worden gebruikt in de foutafhandeling.                                       | Nee       |
-| Bericht  | tekenreeks | Er zijn foutomschrijving leesbare.                                                                         | Ja      |
-| Bereik    | tekenreeks | Naam van het bereik waarin de fout is opgetreden en mogelijk een van de 'global', 'product', 'api' of 'bewerking' | Nee       |
-| Sectie  | tekenreeks | Naam van de sectie waarin fout is opgetreden. Mogelijke waarden: 'inkomende', 'back-end', 'uitgaande' of 'on error'.       | Nee       |
-| Pad     | tekenreeks | Hiermee geeft u geneste beleid, bijvoorbeeld ' kiezen [3] / wanneer [2] '.                                                        | Nee       |
-| PolicyId | tekenreeks | Waarde van de `id` kenmerk toe, indien opgegeven door de klant op het beleid waar de fout is opgetreden             | Nee       |
+| `Source`   | tekenreeks | De naam van het element waar de fout is opgetreden. Kan worden beleid of de naam van een ingebouwde pijplijn stap.     | Ja      |
+| `Reason`   | tekenreeks | Machine-vriendelijk foutcode die kan worden gebruikt in de foutafhandeling.                                       | Nee       |
+| `Message`  | tekenreeks | Er zijn foutomschrijving leesbare.                                                                         | Ja      |
+| `Scope`    | tekenreeks | Naam van het bereik waarin de fout is opgetreden en mogelijk een van de 'global', 'product', 'api' of 'bewerking' | Nee       |
+| `Section`  | tekenreeks | Naam van de sectie waarin fout is opgetreden. Mogelijke waarden: 'inkomende', 'back-end', 'uitgaande' of 'on error'.       | Nee       |
+| `Path`     | tekenreeks | Hiermee geeft u geneste beleid, bijvoorbeeld ' kiezen [3] / wanneer [2] '.                                                        | Nee       |
+| `PolicyId` | tekenreeks | Waarde van de `id` kenmerk toe, indien opgegeven door de klant op het beleid waar de fout is opgetreden             | Nee       |
 
 > [!TIP]
 > U kunt de statuscode openen via context. Response.StatusCode.  
