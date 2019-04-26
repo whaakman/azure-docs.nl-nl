@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
 ms.openlocfilehash: c8a5c839d6d662f9d330099f89c97eb83c4fe516
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494691"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Over het beheren van de Azure-Monitor voor containers-agent
 Azure Monitor voor containers maakt gebruik van een beperkte versie van de Log Analytics-agent voor Linux. Na de eerste implementatie zijn routine of optionele taken die u wilt uitvoeren tijdens de levenscyclus. In dit artikel meer informatie over het handmatig bijwerken van de agent en verzameling van omgevingsvariabelen van een bepaalde container uitschakelen. 

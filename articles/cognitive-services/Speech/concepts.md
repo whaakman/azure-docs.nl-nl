@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670415"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60514987"
 ---
 # <a name="basic-concepts"></a>Basisbegrippen
 
@@ -190,7 +190,7 @@ Microsoft Speech Service kunt tal van nettolading-indelingen in transcriptie ant
 
 U kunt de woordgroep resultaatindeling beheren door op te geven de `format` URL-queryparameter. Standaard stuurt de service `simple` resultaten.
 
-| Indeling | Description |
+| Indeling | Beschrijving |
 |-----|-----|
 | `simple` | Een vereenvoudigde woordgroep resultaat met de status van de spraakherkenning en de herkende tekst in formulier weergeven. |
 | `detailed` | Een opname-status en een lijst van de N-beste woordgroep resultaten waarbij elk resultaat woordgroep alle vier herkenning van formulieren en een betrouwbaarheidsscore bevat. |
@@ -307,7 +307,7 @@ De indeling van de nettolading van de `detailed` meer woorden resultaat:
 
 De Service Microsoft Speech herkent alle vormen van menselijke spraak, met inbegrip van woorden en zinnen die veel mensen zouden classificeren als "grof taalgebruik." U kunt bepalen hoe grof taalgebruik in de service worden verwerkt met behulp van de *grof taalgebruik* queryparameter. Standaard maskeert de service grof taalgebruik in *speech.phrase* resulteert en retourneert geen *speech.hypothesis* berichten met grof taalgebruik.
 
-| *Grof taalgebruik* waarde | Description |
+| *Grof taalgebruik* waarde | Beschrijving |
 | - | - |
 | `masked` | Maskeert grof taalgebruik met een sterretje. Dit gedrag is de standaardinstelling. |
 | `removed` | Hiermee verwijdert u grof taalgebruik uit alle resultaten. |

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c22ba0b57ed1161e1f7e2082d2ba21f27b656da1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121567"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402680"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 in Microsoft Azure Service Bus: aanvraag-reactie-bewerkingen
 
@@ -315,7 +315,7 @@ De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|verlooptijd|tijdstempel|Ja|Nieuwe vervaldatum.|  
+|verlooptijd|timestamp|Ja|Nieuwe vervaldatum.|  
   
 ### <a name="peek-session-message"></a>Sessie bericht bekijken  
 
@@ -439,7 +439,7 @@ De berichttekst van de aanvraag moet bestaan uit een **amqp-waarde** een sectie 
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|Laatst bijgewerkt: tijd|tijdstempel|Ja|Gefilterd op alleen de sessies bijgewerkt na een bepaald moment.|  
+|Laatst bijgewerkt: tijd|timestamp|Ja|Gefilterd op alleen de sessies bijgewerkt na een bepaald moment.|  
 |overslaan|int|Ja|Een aantal sessies overslaan.|  
 |top|int|Ja|Maximum aantal sessies.|  
   
@@ -591,7 +591,7 @@ Elke kaart vermelding in de matrix bevat de volgende eigenschappen:
 
 `filter` kan zijn van een van de volgende typen:
 
-| De naam van de descriptor | Descriptor code | Value |
+| De naam van de descriptor | Descriptor code | Waarde |
 | --- | --- | ---|
 | `com.microsoft:sql-filter:list` | 0x000001370000006 | SQL-filter |
 | `com.microsoft:correlation-filter:list` | 0x000001370000009 | Correlatiefilter |
@@ -620,7 +620,7 @@ Elke kaart vermelding in de matrix bevat de volgende eigenschappen:
 
 `ruleAction` kan bestaan uit een van de volgende typen:
 
-| De naam van de descriptor | Descriptor code | Value |
+| De naam van de descriptor | Descriptor code | Waarde |
 | --- | --- | ---|
 | `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Lege regelactie - er is geen regelactie aanwezig |
 | `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | SQL-regelactie |

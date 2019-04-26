@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 7b47d4fc3aa4a1a50e441e668a856703c67045ae
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 3ceaed2b1e27a1f5b910865f6e9d0e70ef347b71
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59581007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515397"
 ---
 # <a name="webhooks-for-speech-services"></a>Webhooks voor spraakservices
 
@@ -38,6 +38,8 @@ Vervolgens maken we een webhook.
 ## <a name="create-a-webhook"></a>Een webhook maken
 
 Laten we een webhook voor een offline transcriptie maken. Het scenario: een gebruiker heeft een lange actief audiobestand die ze graag asynchroon met de Batch-API voor transcriptie transcriberen. 
+
+Het maken van een web-hook POST https://<region>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
 
 Parameters voor de configuratie voor de aanvraag worden gegeven als JSON:
 
@@ -133,6 +135,50 @@ Een POST-aanvraag verzendt naar de geregistreerde URL als een entiteit voor het 
 ### <a name="run-a-test"></a>Een test uitvoeren
 
 Een snelle test kan worden gedaan met behulp van de website https://bin.webhookrelay.com. Van daaruit kunt u aanroep back-URL's worden doorgegeven als parameter aan de HTTP-POST voor het maken van een webhook die eerder in het document wordt beschreven.
+
+Klik op 'Bucket maken' en volg de aanwijzingen op het scherm instructies voor het verkrijgen van een hook. Gebruik vervolgens de informatie in deze pagina de hook registreren met de Speech-service. De nettolading van een relay berichten - reactie op de voltooiing van een transcriptie-ziet er als volgt:
+
+```json
+{
+    "results": [],
+    "recordingsUrls": [
+        "my recording URL"
+    ],
+    "models": [
+        {
+            "modelKind": "AcousticAndLanguage",
+            "datasets": [],
+            "id": "a09c8c8b-1090-443c-895c-3b1cf442dec4",
+            "createdDateTime": "2019-03-26T12:48:46Z",
+            "lastActionDateTime": "2019-03-26T14:04:47Z",
+            "status": "Succeeded",
+            "locale": "en-US",
+            "name": "v4.13 Unified",
+            "description": "Unified",
+            "properties": {
+                "Purpose": "OnlineTranscription,BatchTranscription,LanguageAdaptation",
+                "ModelClass": "unified-v4"
+            }
+        }
+    ],
+    "statusMessage": "None.",
+    "id": "d41615e1-a60e-444b-b063-129649810b3a",
+    "createdDateTime": "2019-04-16T09:35:51Z",
+    "lastActionDateTime": "2019-04-16T09:38:09Z",
+    "status": "Succeeded",
+    "locale": "en-US",
+    "name": "Simple transcription",
+    "description": "Simple transcription description",
+    "properties": {
+        "PunctuationMode": "DictatedAndAutomatic",
+        "ProfanityFilterMode": "Masked",
+        "AddWordLevelTimestamps": "True",
+        "AddSentiment": "True",
+        "Duration": "00:00:02"
+    }
+}
+```
+Het bericht bevat de opname-URL en de modellen die worden gebruikt dat de opname te transcriberen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

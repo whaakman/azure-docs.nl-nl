@@ -14,7 +14,7 @@ ms.date: 01/22/2018
 ms.author: jingwang
 ms.openlocfilehash: 718e34cdba31b3b747ebb5c10f5c5708c0572448
 ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57436592"
@@ -115,7 +115,7 @@ Geef Azure-services toegang tot SQL-server voor zowel SQL Database als SQL Data 
 
 In deze zelfstudie maakt u drie gekoppelde services maken voor respectievelijk de bron-, sink- en faseringsblob, met verbindingen met uw gegevensopslag:
 
-### <a name="create-the-source-azure-sql-database-linked-service"></a>Maak de gekoppelde Azure SQL Database-bronservice.
+### <a name="create-the-source-azure-sql-database-linked-service"></a>Maak de gekoppelde Azure SQL Database-bronservice
 
 1. Maak een JSON-bestand met de naam **AzureSqlDWLinkedService.json** in de map **C:\ADFv2TutorialBulkCopy** en de volgende inhoud: (Maak de map ADFv2TutorialBulkCopy als deze nog niet bestaat.)
 

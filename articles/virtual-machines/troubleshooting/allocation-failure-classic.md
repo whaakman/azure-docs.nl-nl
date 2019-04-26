@@ -13,19 +13,19 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 7cd7897e3a0b940bbc636b2fbc3dbbc13b7cf540
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748422"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60505544"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Stappen voor probleemoplossing specifieke toewijzing foutscenario's in het klassieke implementatiemodel
 
 Hieronder vindt u algemene scenario's toewijzing die ertoe leiden dat een aanvraag voor geheugentoewijzing om te worden vastgemaakt. We u Duik in elk scenario verderop in dit artikel.
 
 - Grootte van een virtuele machine of virtuele machines of rolinstanties toevoegen aan een bestaande cloudservice
-- Gedeeltelijk gestopt (toewijzing opgeheven) virtuele machines opnieuw opstarten
-- Volledig gestopt (toewijzing opgeheven) virtuele machines opnieuw opstarten
+- Gedeeltelijk gestopte (toewijzing opgeheven) virtuele machines opnieuw opstarten
+- Volledig gestopte (toewijzing opgeheven) virtuele machines opnieuw opstarten
 - Fasering en productie-implementaties (platform als een service alleen)
 - Affiniteitsgroep (VM of service nabijheid)
 - Affiniteit-groep op basis van het virtuele netwerk
@@ -54,10 +54,10 @@ Als de fout is Upgrade_VMSizeNotSupported *, probeert u een andere VM-grootte. A
 
 Als de fout is GeneralError *, is het waarschijnlijk dat het type resource (zoals een bepaalde VM-grootte) wordt ondersteund door het cluster, maar het cluster heeft geen gratis resources op dit moment. Net als bij het bovenstaande scenario, de gewenste compute-resource bij het maken van een nieuwe cloudservice (Houd er rekening mee dat de nieuwe service in de cloud heeft tot het gebruik van een andere VIP) toevoegen en verbinding maken met uw cloudservices met een regionaal virtueel netwerk.
 
-## <a name="restart-partially-stopped-deallocated-vms"></a>Gedeeltelijk gestopt (toewijzing opgeheven) virtuele machines opnieuw opstarten
+## <a name="restart-partially-stopped-deallocated-vms"></a>Gedeeltelijk gestopte (toewijzing opgeheven) virtuele machines opnieuw opstarten
 **Fout**
 
-GeneralError *
+GeneralError*
 
 **Oorzaak van het cluster vast te maken**
 
@@ -70,10 +70,10 @@ Als het is aanvaardbaar is voor gebruik van een andere VIP-adres, de gestopt (to
 * Als uw bestaande cloudservice maakt gebruik van een regionaal virtueel netwerk, moet u gewoon de nieuwe service in de cloud toevoegen aan hetzelfde virtuele netwerk.
 * Als uw bestaande cloudservice niet voor een regionaal virtueel netwerk gebruikt wordt, een nieuw virtueel netwerk voor de nieuwe cloudservice maken en vervolgens [verbinding maken met uw bestaande virtuele netwerk naar de nieuw virtueel netwerk](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Zie meer informatie over [regionale virtuele netwerken](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-## <a name="restart-fully-stopped-deallocated-vms"></a>Volledig gestopt (toewijzing opgeheven) virtuele machines opnieuw opstarten
+## <a name="restart-fully-stopped-deallocated-vms"></a>Volledig gestopte (toewijzing opgeheven) virtuele machines opnieuw opstarten
 **Fout**
 
-GeneralError *
+GeneralError*
 
 **Oorzaak van het cluster vast te maken**
 
@@ -116,7 +116,7 @@ New_General * of New_VMSizeNotSupported *
 
 **Oorzaak van het cluster vast te maken**
 
-Voordat u regionale virtuele netwerken zijn geïntroduceerd, moest u een virtueel netwerk koppelen aan een affiniteitsgroep. Als gevolg hiervan, compute-resources in een affiniteitsgroep geplaatst zijn gebonden aan de dezelfde beperkingen, zoals beschreven in de ' toewijzing scenario: affiniteitsgroep (nabijheid VM/service) ' hierboven. De compute-resources zijn gekoppeld aan een cluster.
+Voordat u regionale virtuele netwerken zijn geïntroduceerd, moest u een virtueel netwerk koppelen aan een affiniteitsgroep. Als gevolg hiervan, compute-resources in een affiniteitsgroep geplaatst zijn gebonden aan de dezelfde beperkingen, zoals beschreven in de ' toewijzing scenario: Affiniteitsgroep (nabijheid VM/service) ' hierboven. De compute-resources zijn gekoppeld aan een cluster.
 
 **Tijdelijke oplossing**
 

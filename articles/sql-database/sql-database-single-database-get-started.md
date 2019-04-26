@@ -69,7 +69,7 @@ U maakt als volgt een individuele database met de voorbeeldgegevens van Adventur
 
 
       > [!NOTE]
-      > In deze snelstartgids wordt gebruik gemaakt van het [op DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md). Het [model op basis van vCore](sql-database-service-tiers-vcore.md) is echter ook beschikbaar.
+      > In deze quickstart wordt gebruik gemaakt van het [aankoopmodel op basis van DTU](sql-database-service-tiers-dtu.md). Het [aankoopmodel op basis van vCore](sql-database-service-tiers-vcore.md) is echter ook beschikbaar.
       > [!IMPORTANT]
       > Voor de Premium-laag is er meer dan 1 TB aan opslagruimte beschikbaar in alle regio's, met uitzondering van: China - oost, China - noord, Duitsland - centraal, Duitsland - noordoost, US - west-centraal, US - DoD-regio's en US Government - centraal. In deze regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB.  Raadpleeg [P11-P15 huidige beperkingen](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb) voor meer informatie.  
 

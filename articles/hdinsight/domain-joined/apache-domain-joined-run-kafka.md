@@ -1,7 +1,6 @@
 ---
 title: Apache Kafka-beleidsregels configureren in HDInsight met Enterprise Security Package - Azure
 description: Leer hoe u Apache Ranger-beleidsregels voor Kafka configureert in Azure HDInsight met Enterprise Security Package.
-services: hdinsight
 ms.service: hdinsight
 author: mamccrea
 ms.author: mamccrea
@@ -9,11 +8,11 @@ ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 01/14/2019
 ms.openlocfilehash: 381958b462b668447a6548029a1be616df7a3a4b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750219"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60536392"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Zelfstudie: Apache Kafka-beleidsregels configureren in HDInsight met Enterprise Security Package (preview)
 

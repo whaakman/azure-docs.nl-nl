@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: aedf06c5a5e225f0cafb81b17923d6c742da69eb
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418259"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506151"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Gedetailleerde SSH probleemoplossing voor problemen die verbinding maken met een Linux-VM in Azure
 Er zijn veel mogelijke oorzaken waardoor de SSH-client mogelijk niet de SSH-service op de virtuele machine bereiken. Als u hebt gevolgd door de andere meer [algemene SSH stappen voor probleemoplossing](troubleshoot-ssh-connection.md), moet u het probleem verder worden opgelost. In dit artikel begeleidt u bij gedetailleerde stappen voor probleemoplossing om te bepalen waar de SSH-verbinding is mislukt en hoe u deze kunt oplossen.
@@ -55,7 +55,7 @@ De SSH-client op uw computer kan geen verbinding maken met de SSH-service op de 
 * [Netwerkbeveiligingsgroepen](#source-4-network-security-groups)
 * [Azure-VM op basis van Linux](#source-5-linux-based-azure-virtual-machine)
 
-## <a name="source-1-ssh-client-computer"></a>1 bron: SSH client-computer
+## <a name="source-1-ssh-client-computer"></a>1 bron: SSH-clientcomputer
 Om te voorkomen de computer als de bron van de fout, Controleer of dat het SSH-verbindingen naar een andere on-premises, op basis van Linux-computer kunt maken.
 
 ![Diagram waarin computeronderdelen van SSH-client](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot2.png)
@@ -76,7 +76,7 @@ Als u verificatie via certificaat gebruikt, controleert u of deze machtigingen t
 * Chmod 600 ~/.ssh/id_rsa (of andere bestanden met persoonlijke sleutels die zijn opgeslagen in deze)
 * Chmod 644 ~/.ssh/known_hosts (bevat hosts die u via SSH verbinding hebt gemaakt)
 
-## <a name="source-2-organization-edge-device"></a>Bron 2: Organisatie edge-apparaat
+## <a name="source-2-organization-edge-device"></a>2 bron: Organisatie-edge-apparaat
 Om te voorkomen dat uw edge-apparaat organisatie als de bron van de fout, Controleer of dat een computer die rechtstreeks zijn verbonden met Internet SSH-verbindingen met uw Azure-VM maken kunt. Als u de virtuele machine via een site-naar-site-VPN of een Azure ExpressRoute-verbinding opent, gaat u naar [bron 4: Netwerkbeveiligingsgroepen](#nsg).
 
 ![Diagram waarin organisatie edge-apparaat](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
@@ -91,7 +91,7 @@ Als u een SSH-verbinding met een computer die rechtstreeks verbonden met Interne
 
 Werken met uw netwerkbeheerder om op te lossen van de instellingen van uw organisatie edge-apparaten zodat SSH-verkeer met het Internet.
 
-## <a name="source-3-cloud-service-endpoint-and-acl"></a>Bron 3: De Cloud service-eindpunt en de ACL
+## <a name="source-3-cloud-service-endpoint-and-acl"></a>Bron 3: Cloud service-eindpunt en -ACL
 > [!NOTE]
 > Deze bron geldt alleen voor virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel. Voor virtuele machines die zijn gemaakt met behulp van Resource Manager, gaat u naar [4 van bron: Netwerkbeveiligingsgroepen](#nsg).
 
@@ -116,7 +116,7 @@ Zie voor meer informatie, [over netwerkbeveiligingsgroepen](../../virtual-networ
 
 U kunt ook een IP-controleren gebruiken om de NSG-configuratie te valideren. Zie voor meer informatie, [Azure-netwerk bewakingsoverzicht](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
-## <a name="source-5-linux-based-azure-virtual-machine"></a>: 5 op basis van Linux Azure virtuele bronmachine
+## <a name="source-5-linux-based-azure-virtual-machine"></a>Bron 5: Op basis van Linux virtuele machine van Azure
 De laatste bron van mogelijke problemen is de Azure virtuele machine zelf.
 
 ![Diagram waarin wordt uitgelegd op basis van Linux virtuele machine van Azure](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)

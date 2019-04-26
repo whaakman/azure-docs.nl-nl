@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: d647de379972bac317a213e2f8925c0ff8c3372c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 50ab6cfefe4a7df9d671e7fd1287aa16b803f260
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947921"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533357"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Hoge beschikbaarheid en betrouwbaarheid voor Azure Scheduler
 
 > [!IMPORTANT]
-> [Met Azure Logic Apps](../logic-apps/logic-apps-overview.md) vervangt Azure Scheduler, is buiten gebruik gesteld. Voor het plannen van taken, [Azure Logic Apps in plaats daarvan probeert](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) vervangt Azure Scheduler, dat buiten gebruik wordt gesteld. [Probeer in plaats daarvan Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) als u taken wilt plannen. 
 
 Azure Scheduler biedt [hoge beschikbaarheid](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) en betrouwbaarheid voor uw taken. Zie voor meer informatie, [SLA voor Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
 
@@ -50,7 +50,7 @@ Azure Scheduler garandeert een eigen hoge beschikbaarheid maar een andere benade
 
 <a name="retry-policies"></a>
 
-### <a name="retry-policies"></a>Beleid voor opnieuw proberen
+### <a name="retry-policies"></a>Beleid opnieuw proberen
 
 Azure Scheduler kunt u beleid voor opnieuw proberen instellen. Als een taak, klikt u vervolgens standaard mislukt pogingen Scheduler de taak vier keer intervallen van 30 seconden. Kunt u dit beleid voor opnieuw proberen uitgebreider toe, zoals 10 keer intervallen van 30 seconden of minder agressief, zoals twee keer op dagelijks interval.
 
@@ -73,6 +73,6 @@ Zie voor meer informatie over het instellen van een eindpunt alternate, [errorAc
 ## <a name="see-also"></a>Zie ook
 
 * [Wat is Azure Scheduler?](scheduler-intro.md)
-* [Concepten en terminologie entiteitenhiërarchie](scheduler-concepts-terms.md)
+* [Concepten, terminologie en entiteitenhiërarchie](scheduler-concepts-terms.md)
 * [Complexe schema's en geavanceerde terugkeerpatronen bouwen](scheduler-advanced-complexity.md)
 * [Limieten, quota, standaardwaarden en foutcodes](scheduler-limits-defaults-errors.md)
