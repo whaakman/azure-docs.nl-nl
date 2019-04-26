@@ -3,7 +3,7 @@ title: Overzicht van de gebruiker-accounts in Azure Active Directory B2C | Micro
 description: Meer informatie over gebruikersaccounts in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 9d4bcc66cfd82fee13ce57d096e061ddd8706720
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100122"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419081"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Overzicht van gebruikersaccounts in Azure Active Directory B2C
 
@@ -46,21 +46,21 @@ Wanneer u een nieuwe werkaccount toevoegt, moet u rekening houden met de volgend
 
 Gebruik de volgende informatie kunt u een nieuw werkaccount maken:
 
-- [Azure Portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
+- [Azure-portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>Een gebruikersprofiel bijwerken
 
 Gebruik de volgende informatie kunt u het profiel van een gebruiker bijwerken:
 
-- [Azure Portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+- [Azure-portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>Een wachtwoord voor een gebruiker opnieuw instellen
 
 Gebruik de volgende informatie kunt u het wachtwoord van een gebruiker opnieuw instellen: 
 
-- [Azure Portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
+- [Azure-portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>Gastgebruiker

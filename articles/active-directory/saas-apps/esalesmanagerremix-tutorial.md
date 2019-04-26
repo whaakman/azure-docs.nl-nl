@@ -17,11 +17,11 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60429010"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Azure Active Directory integreren met E Verkoopmanager Remix
 
@@ -31,7 +31,7 @@ Door te integreren in Azure AD E Sales Manager Remix, krijgt u de volgende voord
 
 - U kunt beheren in Azure AD die toegang tot E Sales Manager Remix heeft.
 - U kunt uw gebruikers krijgen aangemeld automatisch bij E Sales Manager Remix (eenmalige aanmelding of SSO) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie, de Azure-portal beheren.
+- U kunt uw accounts vanaf één locatie beheren, de Azure-portal.
 
 Zie voor meer informatie over de integratie van de SaaS-app met Azure AD, [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
@@ -264,7 +264,7 @@ In deze sectie maakt inschakelen u gebruiker Britta Simon gebruiken Azure eenmal
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw configuratie Azure AD eenmalige aanmelding testen met behulp van het toegangsvenster.
+In dit gedeelte test u de configuratie voor eenmalige aanmelding van Azure AD met behulp van het toegangsvenster.
 
 Wanneer u de tegel E Sales Manager Remix in het toegangsvenster selecteert, moet u zijn aangemeld automatisch aan uw toepassing E Sales Manager Remix.
 

@@ -16,11 +16,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436826"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437670"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Het gebruik van de Azure Active Directory Power BI-inhoudspakket
 
@@ -59,7 +59,7 @@ U kunt ook resultaten filteren door een specifieke datum of locatie te selectere
 
 - Gebruikersnaam
 - IP-adres
-- Locatie 
+- Location 
 - Aanmeldingsstatus 
 
 **SSPR-trechter**: Dit rapport kunt u begrijpen hoe de SSPR-hulpprogramma wordt gebruikt binnen uw organisatie. U kunt bekijken hoeveel wachtwoord opnieuw instellen van wachtwoorden zijn verzonden via het hulpprogramma SSPR en hoe vaak is gelukt. U kunt ook verdiepen in de problemen met wachtwoorden opnieuw instellen van wachtwoorden en te begrijpen waarom bepaalde fouten is opgetreden. 

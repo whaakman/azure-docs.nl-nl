@@ -1,5 +1,5 @@
 ---
-title: Azure resource naam fouten gereserveerd | Microsoft Docs
+title: Voor Azure gereserveerde resource naam fouten | Microsoft Docs
 description: Beschrijft hoe u fouten oplossen bij het opgeven van de naam van een resource met een gereserveerd woord.
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: b91a53d17d64afb0a56f745505f10e8cabbc22cc
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 922389b7c6c1bb7ad1d9b8f6ec35ccc1c5656723
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357058"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390848"
 ---
 # <a name="resolve-reserved-resource-name-errors"></a>Gereserveerde bron naam fouten oplossen
 
-In dit artikel beschrijft de fout die u tegenkomt bij het implementeren van een resource met een gereserveerd woord in de naam ervan.
+Dit artikel beschrijft de fout die u ondervindt bij het implementeren van een resource met een gereserveerd woord in de naam ervan.
 
 ## <a name="symptom"></a>Symptoom
 
-Bij het implementeren van een resource die beschikbaar is via een openbaar eindpunt, verschijnt de volgende fout:
+Bij het implementeren van een resource die is beschikbaar via een openbaar eindpunt, wordt de volgende fout:
 
 ```
 Code=ReservedResourceName;
@@ -35,7 +35,7 @@ Message=The resource name <resource-name> or a part of the name is a trademarked
 
 ## <a name="cause"></a>Oorzaak
 
-Resources met een openbaar eindpunt een gereserveerde woorden of merken in de naam niet gebruiken.
+Resources met een openbaar eindpunt gereserveerde woorden of handelsmerken in de naam niet gebruiken.
 
 De volgende woorden zijn gereserveerd:
 
@@ -45,7 +45,7 @@ De volgende woorden zijn gereserveerd:
 * BIZSPARK
 * BIZTALK
 * CORTANA
-* DOOR DIRECTX
+* DIRECTX
 * DOTNET
 * DYNAMICS
 * EXCEL
@@ -53,13 +53,13 @@ De volgende woorden zijn gereserveerd:
 * FOREFRONT
 * GROOVE
 * HOLOLENS
-* HYPER-V
+* HYPERV
 * KINECT
 * LYNC
 * MSDN
 * O365
 * OFFICE
-* OFFICE365
+* OFFICE 365
 * ONEDRIVE
 * ONENOTE
 * OUTLOOK

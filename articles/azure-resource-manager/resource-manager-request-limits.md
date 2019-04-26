@@ -3,22 +3,23 @@ title: Aanvraaglimieten en beperkingen - Azure Resource Manager
 description: Beschrijft hoe u gebruik van beperking met Azure Resource Manager-aanvragen wanneer de limieten voor een abonnement is bereikt.
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
-ms.author: tomfitz
+origin.date: 03/05/2019
+ms.date: 03/18/2019
+ms.author: v-yeche
 ms.custom: seodec18
 ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550619"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389726"
 ---
 # <a name="throttling-resource-manager-requests"></a>Beperking van Resource Manager-aanvragen
 
@@ -60,7 +61,7 @@ response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetVal
 In **PowerShell**, haalt u de headerwaarde uit een Invoke-WebRequest-bewerking.
 
 ```powershell
-$r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
+$r = Invoke-WebRequest -Uri https://management.chinacloudapi.cn/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
 $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 ```
 
@@ -88,7 +89,7 @@ x-ms-ratelimit-remaining-subscription-reads: 11999
 Als u limieten voor schrijven, gebruikt u een schrijfbewerking: 
 
 ```powershell
-New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
+New-AzResourceGroup -Name myresourcegroup -Location chinanorth -Debug
 ```
 
 Die veel waarden, met inbegrip van de volgende waarden geretourneerd:
@@ -127,7 +128,7 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
 Als u limieten voor schrijven, gebruikt u een schrijfbewerking: 
 
 ```azurecli
-az group create -n myresourcegroup --location westus --verbose --debug
+az group create -n myresourcegroup --location chinanorth --verbose --debug
 ```
 
 Die veel waarden, met inbegrip van de volgende waarden geretourneerd:
@@ -151,3 +152,5 @@ De aanvraaglimiet is bereikt, Resource Manager is, retourneert de **429** HTTP-s
 * Zie voor een compleet voorbeeld van PowerShell, [Resource Manager-limieten voor een abonnement controleren](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
 * Zie voor meer informatie over limieten en quota [Azure-abonnement en Servicelimieten, quotums en beperkingen](../azure-subscription-service-limits.md).
 * Zie voor meer informatie over het verwerken van asynchrone REST-aanvragen, [asynchrone bewerkingen van Azure bijhouden](resource-manager-async-operations.md).
+
+<!--Update_Description: update meta properties, update cmdlet -->

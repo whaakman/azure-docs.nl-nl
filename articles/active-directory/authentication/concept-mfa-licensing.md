@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 765b9aff898cbea763d66a20db91b3390cc48bb4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309997"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60415678"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Over het verkrijgen van Azure multi-factor Authentication
 
@@ -30,7 +30,7 @@ Als het gaat om het beveiligen van uw accounts, moet verificatie in twee stappen
 
 De volgende tabel beschrijft de verschillen tussen de drie versies van multi-factor authentication:
 
-| Versie | Description |
+| Version | Beschrijving |
 | --- | --- |
 | Multi-factor Authentication voor Office 365 <br> Microsoft 365 Business |Deze versie werkt met Office 365-toepassingen en wordt beheerd via de Office 365 of Microsoft 365-portal. Beheerders kunnen [beveiligen van Office 365-resources met verificatie in twee stappen](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Deze versie is onderdeel van een abonnement op Office 365 of Microsoft 365 Business. |
 | Multi-factor Authentication voor Azure AD-beheerders | Gebruikers die zijn toegewezen de rol globale beheerder van Azure AD in Azure AD-tenants kunt verificatie in twee stappen zonder extra kosten.|

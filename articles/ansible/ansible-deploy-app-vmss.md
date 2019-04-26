@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.openlocfilehash: 2214dd9505dff86ac26f01967a360140dee0069f
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791729"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396871"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Toepassingen implementeren in schaalsets voor virtuele machines in Azure met Ansible
 U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. U kunt Ansible gebruiken om uw toepassingen te implementeren in Azure. In dit artikel leest u hoe u een Java-toepassing implementeert in een schaalset voor virtuele Azure-machines (VMSS).

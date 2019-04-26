@@ -1,17 +1,19 @@
 ---
 title: Querytijd op een Azure Database for PostgreSQL-server met behulp van de strategie TOAST tabel opslag optimaliseren
 description: Dit artikel wordt beschreven hoe u op het moment dat de query met het pop tabel opslagstrategie op een Azure Database for PostgreSQL-server te optimaliseren.
-author: dianaputnam
-ms.author: dianas
+author: WenJason
+ms.author: v-jay
+editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/22/2018
+origin.date: 10/22/2018
+ms.date: 02/18/2019
 ms.openlocfilehash: 96793cb1785a7ffa86331285f401453641b50dac
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820864"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421053"
 ---
 # <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>Querytijd met het pop tabel-opslagstrategie optimaliseren 
 In dit artikel wordt beschreven hoe u uitvoertijden van query met de opslag van grote kenmerk techniek (pop-up) tabel-opslagstrategie optimaliseren.

@@ -4,24 +4,24 @@ description: Dit onderwerp beschrijft de functie te voorkomen dat onopzettelijke
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+origin.date: 07/12/2017
+ms.date: 11/09/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: b1244dd460196e5882caab0d4b526850da48d084
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60383395"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect-synchronisatie: Onopzettelijke verwijderingen voorkomen
 Dit onderwerp beschrijft de functie te voorkomen dat onopzettelijke verwijderingen (onopzettelijke verwijderingen voorkomen) in Azure AD Connect.
@@ -31,9 +31,9 @@ Bij het installeren van Azure AD Connect, te voorkomen dat per ongeluk is verwij
 ## <a name="what-is-prevent-accidental-deletes"></a>Wat is onopzettelijke verwijderingen voorkomen
 Algemene scenario's, wanneer er veel verwijderingen opnemen:
 
-* Wijzigingen in [filteren](how-to-connect-sync-configure-filtering.md) waar een volledige [organisatie-eenheid](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) of [domein](how-to-connect-sync-configure-filtering.md#domain-based-filtering) niet is geselecteerd.
-* alle objecten in een organisatie-eenheid worden verwijderd;
-* de naam van een organisatie-eenheid is gewijzigd, zodat alle objecten in die eenheid als buiten het synchronisatiebereik worden beschouwd.
+- Wijzigingen in [filteren](how-to-connect-sync-configure-filtering.md) waar een volledige [organisatie-eenheid](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) of [domein](how-to-connect-sync-configure-filtering.md#domain-based-filtering) niet is geselecteerd.
+- alle objecten in een organisatie-eenheid worden verwijderd;
+- de naam van een organisatie-eenheid is gewijzigd, zodat alle objecten in die eenheid als buiten het synchronisatiebereik worden beschouwd.
 
 De standaardwaarde van 500 objecten kan worden gewijzigd met PowerShell met behulp van `Enable-ADSyncExportDeletionThreshold`, deze maakt deel uit van de synchronisatie van de AD-module geïnstalleerd met Azure Active Directory Connect. U moet deze waarde aan de grootte van uw organisatie configureren. Omdat de synchronisatieplanning wordt elke 30 minuten uitgevoerd, is de waarde het aantal verwijderingen gezien binnen 30 minuten.
 
@@ -69,5 +69,6 @@ Als alle verwijderingen worden gewenst is, klikt u vervolgens het volgende doen:
 ## <a name="next-steps"></a>Volgende stappen
 **Overzichtsonderwerpen**
 
-* [Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie](how-to-connect-sync-whatis.md)
-* [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
+- [Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie](how-to-connect-sync-whatis.md)
+- [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
+

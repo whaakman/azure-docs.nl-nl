@@ -8,11 +8,11 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: c88518749129abed1cf43a70b9165035626a780f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731560"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421200"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Met behulp van Azure CLI parameters voor serverconfiguratie aanpassen
 U kunt weergeven, weergeven en bijwerken van parameters voor de configuratie voor een Azure PostgreSQL-server met behulp van de opdrachtregelinterface (Azure CLI). Een subset van de engine configuraties op niveau van de server wordt weergegeven en kan worden gewijzigd. 

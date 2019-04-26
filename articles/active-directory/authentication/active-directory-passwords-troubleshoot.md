@@ -13,11 +13,11 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5adb857e6032e46c31a86685913277ec3eb571be
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416120"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Oplossen van self-service voor wachtwoord opnieuw instellen
 
@@ -105,7 +105,7 @@ Er is een best practice bij het oplossen van problemen met wachtwoord terugschri
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Als de bron van de gebeurtenis PasswordResetService is
 
-| Code | Naam of het bericht | Description |
+| Code | Naam of het bericht | Beschrijving |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | Deze gebeurtenis geeft aan dat de on-premises service een aanvraag voor een federatieve, Pass through-verificatie, of de wachtwoord-hash gesynchroniseerde gebruiker dat afkomstig is van de cloud voor wachtwoordherstel gedetecteerd. Deze gebeurtenis is de eerste gebeurtenis in elke bewerking Write-back van wachtwoord opnieuw instellen. |
 | 31002 | PasswordResetSuccess | Deze gebeurtenis geeft aan dat een gebruiker een nieuw wachtwoord geselecteerd tijdens het opnieuw instellen van wachtwoorden. Hebben we vastgesteld dat dit wachtwoord voldoet aan de vereisten voor zakelijke wachtwoord. Het wachtwoord is geschreven terug naar de lokale Active Directory-omgeving. |

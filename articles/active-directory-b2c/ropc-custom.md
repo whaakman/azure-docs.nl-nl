@@ -3,7 +3,7 @@ title: De resource-eigenaar wachtwoord referentiestroom configureren in Azure Ac
 description: Informatie over het configureren van de resource-eigenaar wachtwoord referentiestroom in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 265f1405a8779cdca101f18cf37b64f1933c2ff3
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419179"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>De resource-eigenaar wachtwoord referentiestroom in Azure Active Directory B2C met een aangepast beleid configureren
 
@@ -267,11 +267,11 @@ Gebruik uw favoriete API-ontwikkeling-toepassing voor het genereren van een API-
 - Vervang `your-tenant-name` met de naam van uw Azure AD B2C-tenant.
 - Vervang `B2C_1A_ROPC_Auth` met de volledige naam van uw resource-eigenaar wachtwoordbeleid referenties.
 
-| Sleutel | Value |
+| Sleutel | Waarde |
 | --- | ----- |
 | gebruikersnaam | `user-account` |
-| wachtwoord | `password1` |
-| grant_type | wachtwoord |
+| password | `password1` |
+| grant_type | password |
 | scope | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | token id_token |
@@ -312,7 +312,7 @@ Maken van een POST-aanroep zoals hier weergegeven. Gebruik de informatie in de v
 - Vervang `your-tenant-name` met de naam van uw Azure AD B2C-tenant.
 - Vervang `B2C_1A_ROPC_Auth` met de volledige naam van uw resource-eigenaar wachtwoordbeleid referenties.
 
-| Sleutel | Value |
+| Sleutel | Waarde |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |

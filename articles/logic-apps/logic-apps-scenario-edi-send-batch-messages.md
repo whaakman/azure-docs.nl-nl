@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: 7e058b7cebb9c2cdc3fb8b97bf99554b2f26dd8c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427879"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>EDI-berichten in batches verzenden naar het zakelijke partners met Azure Logic Apps
 
@@ -59,7 +59,7 @@ Voor dit batch-ontvanger, geeft u de batchmodus, de naam, de releasecriteria, X1
 
 2. [Uw logische app koppelen aan uw integratieaccount](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-3. In Logic Apps Designer voegen de **Batch** trigger, die de werkstroom van uw logische app wordt gestart. Typ 'batch' als filter in het zoekvak. Selecteer deze trigger: **Batch-berichten**
+3. In Logic Apps Designer voegen de **Batch** trigger, die de werkstroom van uw logische app wordt gestart. Typ 'batch' als filter in het zoekvak. Selecteer deze trigger: **Berichten batchgewijs**
 
    ![Batch-trigger toevoegen](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
@@ -94,12 +94,12 @@ Voor dit batch-ontvanger, geeft u de batchmodus, de naam, de releasecriteria, X1
 
    4. Stel deze eigenschappen voor uw batch-encoder-actie:
 
-      | Eigenschap | Beschrijving |
+      | Eigenschap | Description |
       |----------|-------------|
       | **Naam van X12 overeenkomst** | Open de lijst en selecteer uw bestaande overeenkomst. <p>Als de lijst leeg is, zorg ervoor dat u [uw logische app koppelen aan het integratieaccount](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) waarvoor de overeenkomst die u wilt. | 
       | **BatchName** | In dit vak klikt, en nadat de lijst met dynamische inhoud wordt weergegeven, selecteert u de **batchnaam** token. | 
-      | **%{PartitionName/** | In dit vak klikt, en nadat de lijst met dynamische inhoud wordt weergegeven, selecteert u de **partitienaam** token. | 
-      | **items** | Sluit het vak van de details van item en vervolgens klikt u in dit vak. Nadat de lijst met dynamische inhoud wordt weergegeven, selecteert u de **batchgewijs Items** token. | 
+      | **PartitionName** | In dit vak klikt, en nadat de lijst met dynamische inhoud wordt weergegeven, selecteert u de **partitienaam** token. | 
+      | **Items** | Sluit het vak van de details van item en vervolgens klikt u in dit vak. Nadat de lijst met dynamische inhoud wordt weergegeven, selecteert u de **batchgewijs Items** token. | 
       ||| 
 
       ![Batch-actiegegevens coderen](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-details.png)
@@ -124,10 +124,10 @@ Als u wilt controleren of uw batch-ontvanger werkt zoals verwacht, kunt u een HT
 
 3. Stel de eigenschappen voor de HTTP-actie:
 
-   | Eigenschap | Beschrijving | 
+   | Eigenschap | Description | 
    |----------|-------------|
    | **Methode** | Selecteer in deze lijst **POST**. | 
-   | **URI** | Een URI voor de opslaglocatie van uw aanvraag genereren, en voer vervolgens deze URI in dit vak. | 
+   | **Uri** | Een URI voor de opslaglocatie van uw aanvraag genereren, en voer vervolgens deze URI in dit vak. | 
    | **Hoofdtekst** | In dit vak klikt, en nadat de lijst met dynamische inhoud wordt geopend, selecteert u de **hoofdtekst** token, dat wordt weergegeven in de sectie, **als Batch versleutelen op Overeenkomstnaam**. <p>Als er geen de **hoofdtekst** token, naast **als Batch versleutelen op Overeenkomstnaam**, selecteer **meer**. | 
    ||| 
 
@@ -149,9 +149,9 @@ Maak nu een of meer logische apps die berichten naar de batch-ontvanger logische
 
 * Zorg ervoor dat uw batch-ontvanger en de batch-afzender delen dezelfde Azure-regio *en* Azure-abonnement. Als ze dit niet doet, kunt u de batch-ontvanger niet selecteren bij het maken van de afzender batch omdat ze niet zichtbaar zijn voor elkaar.
 
-1. Een andere logische app maken met deze naam: "SendX12MessagesToBatch" 
+1. Een andere logische app maken met deze naam. "SendX12MessagesToBatch" 
 
-2. Typ 'wanneer een http-aanvraag' als filter in het zoekvak. Selecteer deze trigger: **wanneer een HTTP-aanvraag wordt ontvangen** 
+2. Typ 'wanneer een http-aanvraag' als filter in het zoekvak. Selecteer deze trigger: **Wanneer een HTTP-aanvraag wordt ontvangen** 
    
    ![De aanvraag-trigger toevoegen](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
@@ -160,7 +160,7 @@ Maak nu een of meer logische apps die berichten naar de batch-ontvanger logische
    1. Kies onder de HTTP-aanvraagbewerking **nieuwe stap**.
 
    2. Typ 'batch' als filter in het zoekvak. 
-   Selecteer de **acties** lijst en selecteer vervolgens deze actie: **kiest u een werkstroom voor Logic Apps met batchtrigger - berichten verzenden naar batches**
+   Selecteer de **acties** lijst en selecteer vervolgens deze actie: **Een werkstroom voor logische Apps met batchtrigger - berichten verzenden naar de batch kiezen**
 
       ![Selecteer 'Kies een Logic Apps-werkstroom met batchtrigger'](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
 
@@ -174,9 +174,9 @@ Maak nu een of meer logische apps die berichten naar de batch-ontvanger logische
 
 4. De batch van de afzender eigenschappen instellen.
 
-   | Eigenschap | Beschrijving | 
+   | Eigenschap | Description | 
    |----------|-------------| 
-   | **Batchnaam** | De batchnaam die door de ontvanger logische app, die 'TestBatch' in dit voorbeeld is gedefinieerd <p>**Belangrijke**: de batchnaam van de wordt gevalideerd tijdens runtime en moet overeenkomen met de naam die is opgegeven door de ontvanger logische app. Wijzigen van de batchnaam zorgt ervoor dat de afzender batch mislukken. | 
+   | **Batchnaam** | De batchnaam die door de ontvanger logische app, die 'TestBatch' in dit voorbeeld is gedefinieerd <p>**Belangrijke**: De batchnaam van de wordt gevalideerd tijdens runtime en moet overeenkomen met de naam die is opgegeven door de ontvanger logische app. Wijzigen van de batchnaam zorgt ervoor dat de afzender batch mislukken. | 
    | **Inhoud van het bericht** | De inhoud van het bericht dat u verzenden wilt, dit is de **hoofdtekst** token in dit voorbeeld | 
    ||| 
    

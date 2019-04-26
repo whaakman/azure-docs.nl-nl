@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
 ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565959"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406637"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions controleren
 
@@ -97,7 +97,7 @@ Zie voor meer informatie over het gebruik van Application Insights de [documenta
 
 De volgende gebieden van Application Insights kunnen nuttig zijn bij het evalueren van het gedrag, prestaties en fouten in uw functies:
 
-| Tab | Beschrijving |
+| Tab | Description |
 | ---- | ----------- |
 | **[fouten](../azure-monitor/app/asp-net-exceptions.md)** |  Maak grafieken en waarschuwingen op basis van functie fouten en uitzonderingen voor servers. De **bewerkingsnaam** is de naam van de functie. Fouten in de afhankelijkheden worden niet weergegeven, tenzij u aangepaste telemetrie voor afhankelijkheden implementeren. |
 | **[Performance](../azure-monitor/app/performance-counters.md)** | Prestatieproblemen analyseren. |
@@ -148,7 +148,7 @@ De runtime biedt de `customDimensions.LogLevel` en `customDimensions.Category` v
 
 U kunt Application Insights gebruiken zonder aangepaste configuratie. De standaardconfiguratie kan resulteren in grote hoeveelheden gegevens. Als u een Azure van Visual Studio-abonnement, kunt u mogelijk uw datalimiet bereikt voor Application Insights. Verderop in dit artikel leert u hoe u voor het configureren en aanpassen van de gegevens die uw functies naar Application Insights verzenden. Voor een functie-app logboekregistratie is geconfigureerd in de [host.json] bestand.
 
-### <a name="categories"></a>Categorieën
+### <a name="categories"></a>Categories
 
 De logger Azure Functions bevat een *categorie* voor elk logboek. De categorie geeft aan welk deel van de runtimecode of uw functiecode aan te geven het logboek geschreven. 
 

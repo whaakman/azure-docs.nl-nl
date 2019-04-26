@@ -16,11 +16,11 @@ ms.date: 05/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec0cfaaf0d4ae692581d63c7745660ffeacfb11f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60439568"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-23-video"></a>Zelfstudie: Azure Active Directory-integratie met 23 Video
 
@@ -177,7 +177,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
 
 1. Meld u aan bij uw 23 Video bedrijf site als administrator.
 
-2. Ga naar **instellingen**.
+2. Ga naar **Settings**.
  
 3. In **gebruikers** sectie, klikt u op **configureren**.
    
@@ -233,7 +233,7 @@ Wanneer u op de 23 Video-tegel in het toegangsvenster, u moet u automatisch aang
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->

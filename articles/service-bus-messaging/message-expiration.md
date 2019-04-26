@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 1ea645ee53f91a62bd49fb1da0d44e2962708b88
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856958"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402765"
 ---
 # <a name="message-expiration-time-to-live"></a>Verlopen van berichten (Time to Live)
 
@@ -69,7 +69,7 @@ Hier volgt wat beschouwd als inactiviteit van entiteiten (wachtrijen, onderwerpe
     - Er is geen verzendt  
     - Er zijn geen updates naar het onderwerp  
     - Er is geen geplande berichten 
-- Abonnementen
+- Subscriptions
     - Niet ontvangen  
     - Er zijn geen updates voor het abonnement  
     - Er zijn geen nieuwe regels toegevoegd aan het abonnement  

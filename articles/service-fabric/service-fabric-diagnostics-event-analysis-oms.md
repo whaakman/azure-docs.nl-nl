@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
 ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662156"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393405"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Gebeurtenis analyses en visualisatie met Azure Monitor-Logboeken
  Azure Monitor-logboeken verzamelt en analyseert telemetrie van toepassingen en services die worden gehost in de cloud biedt analyse hulpprogramma's waarmee u hun beschikbaarheid en prestaties te maximaliseren. In dit artikel bevat een overzicht van hoe u query's uitvoeren in Azure Monitor-logboeken inzicht en problemen met wat er gebeurt in uw cluster. De volgende veelgestelde vragen worden behandeld:

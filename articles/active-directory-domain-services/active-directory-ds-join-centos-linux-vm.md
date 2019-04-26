@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: 6d78e310ffd5b473c3d7e44b4edbf9caaff7655f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417364"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Een virtuele CentOS Linux-machine toevoegen aan een beheerd domein
 In dit artikel wordt beschreven hoe u een virtuele CentOS Linux-machine in Azure toevoegen aan een beheerd domein van Azure AD Domain Services.

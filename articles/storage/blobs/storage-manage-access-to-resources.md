@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: e27be86a7a14a38c5083949a1a7255574d2d0dc6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3996f22db2f5dc597939995a2699c4fe228821e3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956078"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392553"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Anonieme leestoegang tot containers en blobs beheren
 U kunt anoniem, openbare leestoegang tot een container en de blobs in Azure Blob-opslag inschakelen. Op deze manier kunt u alleen-lezen toegang tot deze resources verlenen zonder het delen van uw accountsleutel en zonder een shared access signature (SAS).
@@ -24,13 +24,13 @@ Standaard kunnen een container en alle bestaande blobs erin alleen worden geopen
 
 U kunt een container configureren met de volgende machtigingen:
 
-* **Er zijn geen openbare leestoegang:** de container en de blobs kunnen alleen worden geopend door de eigenaar van het storage-account. Dit is de standaardinstelling voor alle nieuwe containers.
-* **Openbare leestoegang alleen voor blobs:** Blobs in de container kunnen worden gelezen door anonieme aanvraag, maar de containergegevens is niet beschikbaar. Anonieme clients kunnen de blobs in de container niet inventariseren.
-* **Openbare leestoegang volledige:** alle container en blob-gegevens kunnen worden gelezen door anonieme aanvraag. Clients kunnen opsommen en blobs in de container door anonieme aanvraag, maar kunnen de containers in het opslagaccount niet opsommen.
+* **Er zijn geen openbare leestoegang:** De container en de blobs kunnen alleen worden geopend door de eigenaar van het storage-account. Dit is de standaardinstelling voor alle nieuwe containers.
+* **Openbare leestoegang alleen voor blobs:** BLOBs in de container kunnen worden gelezen door anonieme aanvraag, maar de containergegevens is niet beschikbaar. Anonieme clients kunnen de blobs in de container niet inventariseren.
+* **Volledige openbare leestoegang:** Container- en blob-gegevens kunnen worden gelezen door anonieme aanvraag. Clients kunnen opsommen en blobs in de container door anonieme aanvraag, maar kunnen de containers in het opslagaccount niet opsommen.
 
 U kunt de volgende containermachtigingen in te stellen:
 
-* [Azure Portal](https://portal.azure.com)
+* [Azure-portal](https://portal.azure.com)
 * [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Azure-CLI](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * Via een programma, met behulp van een van de storage-clientbibliotheken of de REST-API
@@ -140,7 +140,7 @@ De volgende tabel ziet u welke bewerkingen door anonieme gebruikers kunnen worde
 | Lease-Blob |Alleen de eigenaar |Alleen de eigenaar |
 | Pagina plaatsen |Alleen de eigenaar |Alleen de eigenaar |
 | Get Page-bereiken |Alle |Alle |
-| Toevoeg-Blob |Alleen de eigenaar |Alleen de eigenaar |
+| Blob toevoegen |Alleen de eigenaar |Alleen de eigenaar |
 
 ## <a name="next-steps"></a>Volgende stappen
 
