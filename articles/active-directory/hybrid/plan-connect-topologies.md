@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b1c0d33a7d920f76bcbea6d8d6babc7390003bc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196583"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60383584"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologieën voor Azure AD Connect
 Dit artikel beschrijft de verschillende on-premises en Azure Active Directory (Azure AD)-topologieën die gebruikmaken van Azure AD Connect-synchronisatie als de integratieoplossing key. Dit artikel bevat de ondersteunde en niet-ondersteunde configuraties.
@@ -29,7 +29,7 @@ Dit artikel beschrijft de verschillende on-premises en Azure Active Directory (A
 
 Hier volgt de legenda voor afbeeldingen in het artikel:
 
-| Description | Symbool |
+| Beschrijving | Symbool |
 | --- | --- |
 | On-premises Active Directory-forest |![On-premises Active Directory-forest](./media/plan-connect-topologies/LegendAD1.png) |
 | On-premises Active Directory met gefilterde importeren |![Active Directory met gefilterde importeren](./media/plan-connect-topologies/LegendAD2.png) |

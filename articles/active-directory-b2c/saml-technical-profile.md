@@ -3,7 +3,7 @@ title: Een technische SAML-profiel te definiëren in een aangepast beleid in Azu
 description: Definieer een technische SAML-profiel in een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 12/21/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b0d1722df2bfe5116de2676dfc930d6050731bbd
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418219"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technische SAML-profiel te definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -140,7 +140,7 @@ Het technische profiel retourneert ook claims die niet zijn geretourneerd door d
 
 De **CryptographicKeys** element bevat de volgende kenmerken:
 
-| Kenmerk |Vereist | Beschrijving |
+| Kenmerk |Vereist | Description |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Ja | De X509 certificaat (RSA-sleutelpaar) moet worden gebruikt voor het ondertekenen van SAML-berichten. Azure AD B2C gebruikt deze sleutel om te ondertekenen van de aanvragen en verzend dit naar de id-provider. |
 | SamlAssertionDecryption |Ja | De X509 certificaat (RSA-sleutelpaar) moet worden gebruikt voor het ontsleutelen van SAML-berichten. Dit certificaat moet worden opgegeven door de id-provider. Azure AD B2C gebruikt dit certificaat om de gegevens die is verzonden door de id-provider te ontsleutelen. |

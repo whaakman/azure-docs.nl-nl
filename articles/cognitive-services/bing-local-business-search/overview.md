@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: fb3b375a66ac9b05ad26287b7c39ce8e748ad699
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780317"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60336708"
 ---
 # <a name="what-is-bing-local-business-search"></a>Wat is er lokale bedrijven zoeken in Bing?
 De Bing lokale bedrijven zoeken-API is een RESTful-service waarmee u uw toepassingen om informatie over lokale bedrijven op basis van zoekquery's te vinden. Bijvoorbeeld, `q=<business-name> in Redmond, Washington`, of `q=Italian restaurants near me`. 

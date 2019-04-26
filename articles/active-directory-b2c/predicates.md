@@ -3,7 +3,7 @@ title: Predikaten en PredicateValidations - Azure Active Directory B2C | Microso
 description: Sociaal account claims transformatievoorbeelden voor de identiteit ervaring Framework-Schema van de Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 0dfe6553778092c33f9e1bd55ac7a7ae65137a6e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419108"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikaten en PredicateValidations
 
@@ -138,19 +138,19 @@ De **PredicateValidations** element bevat het volgende element:
 
 De **PredicateValidation** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id die wordt gebruikt voor de validatie van het predicaat. De **ClaimType** element gebruikt deze id in het beleid. |
 
 De **PredicateValidation** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | PredicateGroups | 1: n | Een lijst van predikaat groepen. | 
 
 De **PredicateGroups** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | PredicateGroup | 1: n | Een lijst met predicaten. | 
 
@@ -162,26 +162,26 @@ De **PredicateGroup** element bevat het volgende kenmerk:
 
 De **PredicateGroup** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 |  Een beschrijving van het predikaat die kan nuttig zijn voor gebruikers om te weten welke waarde ze moeten typen. | 
 | PredicateReferences | 1: n | Een lijst met predicaatverwijzingen. | 
 
 De **PredicateReferences** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | MatchAtLeast | Nee | Hiermee geeft u op dat de waarde moet overeenkomen met ten minste dat veel definities voor de invoer predikaat moet zijn geaccepteerd. |
 
 De **PredicateReferences** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | PredicateReference | 1: n | Een verwijzing naar een predicaat. | 
 
 De **PredicateReference** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id die wordt gebruikt voor de validatie van het predicaat.  |
 

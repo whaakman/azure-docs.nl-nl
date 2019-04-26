@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 12/14/2018
 ms.author: jgao
 ms.openlocfilehash: eb46966c3a28b3fa4c2b23668109b7c5d23a609b
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390865"
 ---
 # <a name="provide-post-deployment-configurations-by-using-extensions"></a>Configuraties na de implementatie opgeven met behulp van extensies
 
@@ -28,7 +28,7 @@ Sjabloon-uitbreidingen zijn kleine toepassingen die post-implementatieconfigurat
 De bestaande uitbreidingen zijn:
 
 - [Microsoft.Compute/virtualMachines/extensions](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachines/extensions)
-- [Microsoft.Compute virtualMachineScaleSets/extensies](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)
+- [Microsoft.Compute virtualMachineScaleSets/extensions](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)
 - [Een Microsoft.HDInsight-clusters/extensies](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/2018-06-01-preview/clusters/extensions)
 - [Microsoft.Sql-servers/databases/extensies](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions) 
 - [Microsoft.Web/sites/siteextensions](https://docs.microsoft.com/azure/templates/microsoft.web/2016-08-01/sites/siteextensions)
@@ -37,7 +37,7 @@ Als u wilt weten de beschikbare uitbreidingen, blader naar de [sjabloonverwijzin
 
 Voor informatie over het gebruik van deze extensies, Zie:
 
-- [Zelfstudie: Extensies voor virtuele machines met Azure Resource Manager-sjablonen implementeren](./resource-manager-tutorial-deploy-vm-extensions.md).
+- [Zelfstudie: Extensies voor virtuele machines implementeren met Azure Resource Manager-sjablonen](./resource-manager-tutorial-deploy-vm-extensions.md).
 - [Zelfstudie: SQL BACPAC-bestanden met Azure Resource Manager-sjablonen importeren](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)
 
 ## <a name="next-steps"></a>Volgende stappen

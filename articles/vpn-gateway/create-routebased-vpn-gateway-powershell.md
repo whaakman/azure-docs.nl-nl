@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8622de88b1edc7b0f5eb2571a55415837ad28dc7
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 4775a3eb12f48026cca78856a6197e89ddd2c75d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390117"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Een op route gebaseerde VPN-gateway maken met behulp van PowerShell
 
@@ -101,7 +101,7 @@ $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $s
 ```
 ## <a name="CreateGateway"></a>De VPN-gateway maken
 
-Het maken van een VPN-gateway kan tot 45 minuten of langer duren. Als de gateway is voltooid, kunt u een verbinding maken tussen uw virtuele netwerk en een ander VNet. Of maak een verbinding tussen uw virtuele netwerk en een on-premises locatie. Maak een VPN-gateway met de [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway) cmdlet.
+Het maken van een VPN-gateway kan tot 45 minuten of langer duren. Als de gateway is voltooid, kunt u een verbinding maken tussen uw virtuele netwerk en een ander VNet. Of maak een verbinding tussen uw virtuele netwerk en een on-premises locatie. Maak een VPN-gateway met de cmdlet [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway).
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
@@ -201,7 +201,7 @@ IpTags                   : {}
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u de resources die u hebt gemaakt niet meer nodig hebt, gebruikt u de [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) opdracht om de resourcegroep te verwijderen. Hiermee verwijdert u de resourcegroep en alle resources die deze bevat.
+Wanneer u de gemaakte resources niet meer nodig hebt, gebruikt u de opdracht [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) om de resourcegroep te verwijderen. Hiermee verwijdert u de resourcegroep en alle resources die deze bevat.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name TestRG1

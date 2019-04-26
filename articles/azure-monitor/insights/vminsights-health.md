@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2019
 ms.author: magoedte
 ms.openlocfilehash: f2a0d64da5a88e82c0ae1fd893af52f2070268f8
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549862"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402145"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>De status van uw virtuele Azure-machines begrijpen
 
@@ -249,7 +249,7 @@ Waarschuwingen van andere resourcetypen of services zijn niet bedoeld om te word
 
 U kunt deze weergave filteren op waarden selecteren in het vervolgkeuzemenu's aan de bovenkant van de pagina.
 
-|Kolom |Description | 
+|Kolom |Beschrijving | 
 |-------|------------| 
 |Abonnement |Selecteer een Azure-abonnement. Alleen waarschuwingen in het geselecteerde abonnement zijn opgenomen in de weergave. | 
 |Resourcegroep |Selecteer één resourcegroep bestaan. Alleen waarschuwingen met doelen in de geselecteerde resourcegroep zijn opgenomen in de weergave. | 

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395720"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure verbinden met ITSM-hulpprogramma's met behulp van IT Service Management-Connector
 
@@ -192,9 +192,9 @@ ServiceDeskWorkItemType_s="Incident"
 - Gesloten door
 - Bron
 - Toegewezen aan
-- Categorie
+- Category
 - Titel
-- Description
+- Beschrijving
 - Gemaakt op
 - Datum gesloten
 - Datum opgelost
@@ -215,7 +215,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Toegewezen aan
 - Titel
 - Type
-- Categorie
+- Category
 - Status
 - Escalatie
 - Status conflict
@@ -249,7 +249,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s  | Gesloten door |
 | Source_s| Neem contact op met het type |
 | AssignedTo_s | Toegewezen aan  |
-| Category_s | Categorie |
+| Category_s | Category |
 | Title_s|  Korte beschrijving |
 | Description_s|  Opmerkingen |
 | CreatedDate_t|  Geopend |
@@ -267,7 +267,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | Toegewezen aan  |
 | Title_s|  Korte beschrijving |
 | Type_s|  Type |
-| Category_s|  Categorie |
+| Category_s|  Category |
 | CRState_s|  Status|
 | Urgency_s|  Urgentie |
 | Priority_s| Prioriteit|

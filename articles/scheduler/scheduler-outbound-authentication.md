@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 88f2fe0781bad4b652826b6a8d1961dd39b063e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 42d6ec93a3382f494b49fb574c4aee5e8eec142a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993326"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344344"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Uitgaande verificatie voor Azure Scheduler
 
 > [!IMPORTANT]
-> [Met Azure Logic Apps](../logic-apps/logic-apps-overview.md) vervangt Azure Scheduler, is buiten gebruik gesteld. Voor het plannen van taken, [Azure Logic Apps in plaats daarvan probeert](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) vervangt Azure Scheduler, dat buiten gebruik wordt gesteld. [Probeer in plaats daarvan Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) als u taken wilt plannen. 
 
 Azure Scheduler-taken mogelijk services waarvoor verificatie, zoals andere Azure-services, Salesforce.com, Facebook en beveiligde aangepaste websites worden aangeroepen. De naam service kan bepalen of de aangevraagde resources toegang heeft tot de Scheduler-taak. 
 
@@ -44,7 +44,7 @@ Scheduler biedt ondersteuning voor deze verificatiemodellen:
 
 Bij het toevoegen van verificatie met behulp van de `ClientCertificate` model, geeft u deze aanvullende elementen in de aanvraagtekst.  
 
-| Element | Vereist | Beschrijving |
+| Element | Vereist | Description |
 |---------|----------|-------------|
 | **verificatie** (bovenliggend element) | De verificatieobject voor het gebruik van een SSL-clientcertificaat |
 | **type** | Ja | Het verificatietype. De waarde voor SSL-clientcertificaten heeft `ClientCertificate`. |
@@ -164,7 +164,7 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 Bij het toevoegen van verificatie met behulp van de `Basic` model, geeft u deze aanvullende elementen in de aanvraagtekst.
 
-| Element | Vereist | Beschrijving |
+| Element | Vereist | Description |
 |---------|----------|-------------|
 | **verificatie** (bovenliggend element) | De verificatieobject voor het gebruik van basisverificatie | 
 | **type** | Ja | Het verificatietype. De waarde voor basisverificatie wordt gebruikt, heeft `Basic`. | 
@@ -176,7 +176,7 @@ Bij het toevoegen van verificatie met behulp van de `Basic` model, geeft u deze 
 
 Wanneer een aanvraag wordt verzonden met de verificatie-informatie, bevat het antwoord deze verificatie-elementen.
 
-| Element | Beschrijving | 
+| Element | Description | 
 |---------|-------------|
 | **verificatie** (bovenliggend element) | De verificatieobject voor het gebruik van basisverificatie |
 | **type** | Het verificatietype. De waarde voor basisverificatie wordt gebruikt, heeft `Basic`. |
@@ -288,7 +288,7 @@ Bij het toevoegen van verificatie met behulp van de `ActiveDirectoryOAuth` model
 | **type** | Ja | Het verificatietype. De waarde voor ActiveDirectoryOAuth verificatie, heeft `ActiveDirectoryOAuth`. |
 | **tenant** | Ja | De tenant-id voor de Azure AD-tenant. Uitvoeren als u zoekt de tenant-id voor de Azure AD-tenant, `Get-AzureAccount` in Azure PowerShell. |
 | **Doelgroep** | Ja | Deze waarde is ingesteld op `https://management.core.windows.net/`. | 
-| **ClientId** | Ja | De client-id voor de Azure AD-toepassing | 
+| **clientId** | Ja | De client-id voor de Azure AD-toepassing | 
 | **secret** | Ja | Het geheim voor de client die het token is aangevraagd | 
 |||| 
 
@@ -302,7 +302,7 @@ Wanneer een aanvraag wordt verzonden met de verificatie-informatie, bevat het an
 | **type** | Het verificatietype. De waarde voor ActiveDirectoryOAuth verificatie, heeft `ActiveDirectoryOAuth`. | 
 | **tenant** | De tenant-id voor de Azure AD-tenant |
 | **Doelgroep** | Deze waarde is ingesteld op `https://management.core.windows.net/`. |
-| **ClientId** | De client-id voor de Azure AD-toepassing |
+| **clientId** | De client-id voor de Azure AD-toepassing |
 ||| 
 
 ### <a name="sample-rest-request---active-directory-oauth"></a>Voorbeeld van REST-aanvraag - Active Directory-OAuth

@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47273bf687d88e82afba5de878f08bd53422479c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204765"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381311"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Bepaal de identiteitsvereisten voor voor uw oplossing voor hybride identiteit
 De eerste stap bij het ontwerpen van een oplossing voor hybride identiteit is om te bepalen van de vereisten voor de organisatie van de bedrijven die zal worden gebruik te maken van deze oplossing.  Hybride identiteit wordt gestart als een ondersteunende rol uitvoeren (deze ondersteunt alle cloudoplossingen door verificatie te bieden) en gaat op nieuwe en interessante mogelijkheden die voor gebruikers van nieuwe werkbelasting ontgrendelen.  Deze werkbelastingen of services die u wilt vaststellen voor uw gebruikers worden bepaald door de vereisten voor het ontwerp van de hybride identiteit.  Deze werkbelastingen en services moeten gebruikmaken van hybride identiteit zowel on-premises en in de cloud.  

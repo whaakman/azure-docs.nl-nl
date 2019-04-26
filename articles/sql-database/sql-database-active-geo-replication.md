@@ -13,11 +13,11 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/26/2019
 ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387424"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Het maken en gebruiken van actieve geo-replicatie
 
@@ -182,7 +182,7 @@ Zoals eerder besproken, kan actieve geo-replicatie ook worden beheerd via een pr
 
 ### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST-API: Failover van één en gepoolde databases beheren
 
-| API | Description |
+| API | Beschrijving |
 | --- | --- |
 | [Maken of bijwerken-Database (createMode = herstellen)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Gemaakt, bijgewerkt of hersteld van een primaire of secundaire database. |
 | [Get maken of bijwerken van de Status van Database](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Retourneert de status tijdens een bewerking voor maken. |
@@ -197,7 +197,7 @@ Zoals eerder besproken, kan actieve geo-replicatie ook worden beheerd via een pr
 
 - Zie voor voorbeelden van scripts:
   - [PowerShell gebruiken voor het configureren van actieve geo-replicatie voor één Azure SQL-database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [PowerShell gebruiken voor het configureren van actieve geo-replicatie voor een gepoolde Azure SQL-database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [PowerShell gebruiken voor het configureren van actieve geo-replicatie voor een Azure SQL-pooldatabase](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
 - SQL Database biedt ook ondersteuning voor automatische failover-groepen. Zie voor meer informatie, met behulp van [automatische failovergroepen](sql-database-auto-failover-group.md).
 - Zie voor een overzicht voor zakelijke continuïteit en scenario's, [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md)
 - Voor meer informatie over Azure SQL Database geautomatiseerde back-ups, Zie [geautomatiseerde back-ups van SQL-Database](sql-database-automated-backups.md).

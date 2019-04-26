@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.openlocfilehash: 64769ebb1bd9a5fb0f051cc6eca4e59cd41fccc9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785224"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395013"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Service Manager-Web-app met behulp van de geautomatiseerde scripts maken
 
@@ -28,7 +28,7 @@ Voer het script door te geven van de volgende vereiste gegevens:
 
 - Details van de Azure-abonnement
 - Naam van de resourcegroep
-- Locatie
+- Location
 - Service Manager-server-gegevens (naam, domein, gebruikersnaam en wachtwoord)
 - Voorvoegsel van de site de naam voor uw Web-app
 - Service Bus-Namespace.

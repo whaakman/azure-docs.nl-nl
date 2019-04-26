@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
 ms.openlocfilehash: 442551424fea353aa7eddef6e7eba6e934f95691
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905848"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389201"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Azure-resourcegroepen maken en implementeren met Visual Studio
 
@@ -53,7 +53,7 @@ In dit gedeelte maakt u een Azure Resource Group-project met de sjabloon **Web a
    
     Omdat er voor dit voorbeeld is gekozen voor de sjabloon Web-app + SQL, krijgt u de volgende bestanden te zien: 
    
-   | Bestandsnaam | Description |
+   | Bestandsnaam | Beschrijving |
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Een PowerShell-script waarmee PowerShell-opdrachten worden uitgevoerd om te worden geïmplementeerd in Azure Resource Manager.<br />**Opmerking** Visual Studio gebruikt dit PowerShell-script voor het implementeren van uw sjabloon. Eventuele wijzigingen die u aanbrengt in dit script beïnvloeden de implementatie in Visual Studio, dus wees voorzichtig. |
    | WebSiteSQLDatabase.json |Het Resource Manager-sjabloon dat de infrastructuur definieert die u in Azure wilt implementeren en de parameters die u kunt opgeven tijdens de implementatie. Hiermee worden ook de afhankelijkheden tussen resources gedefinieerd zodat deze in de juiste volgorde worden geïmplementeerd. |

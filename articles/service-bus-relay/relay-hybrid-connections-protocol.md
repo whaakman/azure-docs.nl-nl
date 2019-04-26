@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
-ms.openlocfilehash: 913e702cc72472e81937bfe3b0939695daadc011
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: e96d0103a03e841f39e8adb88215f6d6e24a305a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543508"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420039"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure Relay Hybrid Connections-protocol
 
@@ -153,7 +153,7 @@ De opties voor queryreeksen parameter zijn als volgt.
 
 Als de WebSocket-verbinding is mislukt vanwege de hybride verbinding pad niet wordt geregistreerd, of een ongeldige of ontbrekende token of een andere fout, wordt de fout feedback volgen met behulp van de reguliere gesegmenteerde HTTP 1.1-status feedback model. De statusbeschrijving van de bevat een fout tracerings-id die kan worden doorgegeven aan Azure-ondersteuningspersoneel:
 
-| Code | Fout          | Beschrijving
+| Code | Fout          | Description
 | ---- | -------------- | -------------------------------------------------------------------
 | 404  | Niet gevonden      | Het pad van de hybride verbinding is ongeldig of de basis-URL heeft onjuiste indeling.
 | 401  | Niet geautoriseerd   | Het beveiligingstoken is een ontbrekend of onjuist gevormd of ongeldig.
@@ -162,7 +162,7 @@ Als de WebSocket-verbinding is mislukt vanwege de hybride verbinding pad niet wo
 
 Als de WebSocket-verbinding opzettelijk door de service afgesloten wordt nadat deze is in eerste instantie hebt ingesteld, de reden voor doet, wordt doorgegeven met behulp van een juiste WebSocket-protocol foutcode samen met een beschrijvend foutbericht dat ook een tracerings-ID bevat. De service wordt niet afgesloten het besturingskanaal zonder dat er een fout optreedt. Een schone afsluiten is beheerd-client.
 
-| WS-Status | Beschrijving
+| WS-Status | Description
 | --------- | -------------------------------------------------------------------------------
 | 1001      | Het pad van de hybride verbinding is verwijderd of uitgeschakeld.
 | 1008      | Het beveiligingstoken is verlopen, dus het autorisatiebeleid wordt geschonden.
@@ -204,7 +204,7 @@ Dit geldt ook voor de `Sec-WebSocket-Extensions` header. Als het framework een e
 
 De URL moet worden gebruikt als-is voor het tot stand brengen van de socket accepteren, maar bevat de volgende parameters:
 
-| Parameter      | Vereist | Beschrijving
+| Parameter      | Vereist | Description
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Ja      | Voor het accepteren van een socket, moet de parameter worden `sb-hc-action=accept`
 | `{path}`       | Ja      | (Zie het volgende lid)
@@ -219,14 +219,14 @@ Zie de volgende sectie van de 'Afzender Protocol' voor meer informatie.
 
 Als er een fout is, kunt de service als volgt beantwoorden:
 
-| Code | Fout          | Beschrijving
+| Code | Fout          | Description
 | ---- | -------------- | -----------------------------------
 | 403  | Verboden      | De URL is ongeldig.
 | 500  | Interne fout | Er is iets misgegaan in de service
 
  Nadat de verbinding is tot stand is gebracht, de server wordt afgesloten WebSocket wanneer de afzender WebSocket wordt afgesloten omlaag of met de volgende status:
 
-| WS-Status | Beschrijving                                                                     |
+| WS-Status | Description                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
 | 1001      | De afzender-client de verbinding wordt afgesloten.                                    |
 | 1001      | Het pad van de hybride verbinding is verwijderd of uitgeschakeld.                        |
@@ -250,7 +250,7 @@ De resulterende URI wordt vervolgens gebruikt om een WebSocket-verbinding te mak
 
 Als het goed is voltooid, wordt deze handshake opzettelijk mislukt met een HTTP-foutcode 410, omdat er geen WebSocket tot stand is gebracht. Als er iets misgaat, wordt de fout in de volgende codes beschreven:
 
-| Code | Fout          | Beschrijving                          |
+| Code | Fout          | Description                          |
 | ---- | -------------- | ------------------------------------ |
 | 403  | Verboden      | De URL is ongeldig.                |
 | 500  | Interne fout | Er is iets misgegaan in de service. |
@@ -345,9 +345,9 @@ Als de aanvraag wordt ontvangen via het besturingskanaal, het antwoord ofwel in 
 
 Het antwoord is een JSON-object met de naam 'response'. De regels voor het verwerken van de inhoud van de hoofdtekst zijn precies hetzelfde als met de `request` bericht- en op basis van de `body` eigenschap.
 
-* **requestId** -tekenreeks. VEREIST. De `id` eigenschapswaarde van de `request` bericht wordt beantwoord.
+* **requestId** – string. VEREIST. De `id` eigenschapswaarde van de `request` bericht wordt beantwoord.
 * **statusCode** : nummer. VEREIST. een numerieke HTTP-statuscode die het resultaat van het bericht aangeeft. Alle statuscodes van [RFC7231, sectie 6](https://tools.ietf.org/html/rfc7231#section-6) zijn toegestaan, met uitzondering van [502 'Ongeldige Gateway'](https://tools.ietf.org/html/rfc7231#section-6.6.3) en [504 "time-out van Gateway'](https://tools.ietf.org/html/rfc7231#section-6.6.5).
-* **Statusbeschrijving** -tekenreeks. OPTIONEEL. HTTP-statuscode reden per [RFC7230, sectie 3.1.2](https://tools.ietf.org/html/rfc7230#section-3.1.2)
+* **Statusbeschrijving** -tekenreeks. OPTIONAL. HTTP-statuscode reden per [RFC7230, sectie 3.1.2](https://tools.ietf.org/html/rfc7230#section-3.1.2)
 * **responseHeaders** – HTTP-headers zijn ingesteld in een externe HTTP-antwoord.
   Net als bij de `request`, RFC7230 gedefinieerde headers mogen niet worden gebruikt.
 * **hoofdtekst** – Boolean-waarde. Geeft aan of de hoofdtekst van de binaire frames follow(s).
@@ -376,7 +376,7 @@ Voor antwoorden die groter zijn dan 64 kB, moet het antwoord via een socket rend
 
 De `address` in de URL van de `request` moeten worden gebruikt als-is voor het tot stand brengen van de rendezvous-socket, maar bevat de volgende parameters:
 
-| Parameter      | Vereist | Beschrijving
+| Parameter      | Vereist | Description
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Ja      | Voor het accepteren van een socket, moet de parameter worden `sb-hc-action=request`
 
@@ -390,7 +390,7 @@ Als er een fout is, kunt de service als volgt beantwoorden:
 
  Nadat de verbinding is tot stand is gebracht, de server wordt afgesloten WebSocket wanneer HTTP-socket van de client wordt afgesloten, of met de volgende status:
 
-| WS-Status | Beschrijving                                                                     |
+| WS-Status | Description                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
 | 1001      | De afzender-client de verbinding wordt afgesloten.                                    |
 | 1001      | Het pad van de hybride verbinding is verwijderd of uitgeschakeld.                        |
@@ -434,7 +434,7 @@ De aanvraag kan willekeurige extra HTTP-headers, met inbegrip van de toepassing 
 
 De opties voor queryreeksen parameter zijn als volgt:
 
-| Param          | Vereist? | Beschrijving
+| Param          | Vereist? | Description
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | Ja       | Voor de rol van de afzender, de parameter moet `sb-hc-action=connect`.
 | `{path}`       | Ja       | (Zie het volgende lid)
@@ -451,7 +451,7 @@ De `path` expressie wordt doorgegeven aan de listener in de adres-URI die is opg
 
 Als de WebSocket-verbinding is mislukt vanwege de hybride verbinding pad niet wordt geregistreerd, een ongeldige of ontbrekende token of een andere fout, wordt de fout feedback volgen met behulp van de reguliere gesegmenteerde HTTP 1.1-status feedback model. De statusbeschrijving van de bevat een fout tracerings-ID die kan worden doorgegeven aan Azure-ondersteuningspersoneel:
 
-| Code | Fout          | Beschrijving
+| Code | Fout          | Description
 | ---- | -------------- | -------------------------------------------------------------------
 | 404  | Niet gevonden      | Het pad van de hybride verbinding is ongeldig of de basis-URL heeft onjuiste indeling.
 | 401  | Niet geautoriseerd   | Het beveiligingstoken is een ontbrekend of onjuist gevormd of ongeldig.
@@ -460,7 +460,7 @@ Als de WebSocket-verbinding is mislukt vanwege de hybride verbinding pad niet wo
 
 Als de WebSocket-verbinding opzettelijk door de service afgesloten wordt nadat deze is in eerste instantie ingesteld, de reden voor doet, wordt doorgegeven met behulp van een juiste WebSocket-protocol foutcode samen met een beschrijvend foutbericht dat ook een tracerings-ID bevat .
 
-| WS-Status | Beschrijving
+| WS-Status | Description
 | --------- | ------------------------------------------------------------------------------- 
 | 1000      | De listener is afgesloten van de socket.
 | 1001      | Het pad van de hybride verbinding is verwijderd of uitgeschakeld.
@@ -491,14 +491,14 @@ Het token kan ook worden uitgevoerd in ofwel de `ServiceBusAuthorization` of `Au
 Omdat de service daadwerkelijk als een proxy, fungeert zelfs als niet als een ' True ' HTTP-proxy, ofwel wordt toegevoegd een `Via` header of de bestaande annotates `Via` header die compatibel zijn met [RFC7230, sectie 5.7.1](https://tools.ietf.org/html/rfc7230#section-5.7.1).
 De service wordt de hostnaam van de Relay-naamruimte aan `Via`.
 
-| Code | Bericht  | Beschrijving                    |
+| Code | Bericht  | Description                    |
 | ---- | -------- | ------------------------------ |
 | 200  | OK       | De aanvraag is verwerkt door ten minste één listener.  |
 | 202  | Geaccepteerd | De aanvraag is goedgekeurd door ten minste één listener. |
 
 Als er een fout is, kunt de service als volgt beantwoorden. Of het antwoord afkomstig is van de service of van de listener kan worden geïdentificeerd door de aanwezigheid van de `Via` header. Als de header aanwezig is, is het antwoord van de listener.
 
-| Code | Fout           | Beschrijving
+| Code | Fout           | Description
 | ---- | --------------- |--------- |
 | 404  | Niet gevonden       | Het pad van de hybride verbinding is ongeldig of de basis-URL heeft onjuiste indeling.
 | 401  | Niet geautoriseerd    | Het beveiligingstoken is een ontbrekend of onjuist gevormd of ongeldig.

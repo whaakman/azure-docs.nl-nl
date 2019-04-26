@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f4d733e29d2ba8213e1832f2c604b726283ab3e1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417392"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318694"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Specifieke RDP-foutberichten aan een Windows-VM in Azure oplossen
 U ontvangt mogelijk een bericht specifieke fout bij het gebruik van extern bureaublad-verbinding met een Windows virtuele machine (VM) in Azure. Dit artikel worden enkele van de meestvoorkomende foutberichten die is aangetroffen, samen met stappen om op te lossen ze voor probleemoplossing. Als u problemen ondervindt bij het verbinding maken met uw virtuele machine met behulp van RDP echter niet een specifieke foutbericht worden weergegeven, raadpleegt u de [probleemoplossingsgids voor extern bureaublad](troubleshoot-rdp-connection.md).
@@ -31,7 +31,7 @@ Voor informatie over de specifieke foutberichten, Zie de volgende:
 * [De externe sessie is beëindigd omdat er geen extern bureaublad-licentieservers beschikbaar, voor een licentie](#rdplicense).
 * [Extern bureaublad kan de computer 'name' niet vinden](#rdpname).
 * [Er is een verificatiefout opgetreden. Geen verbinding kan niet worden gemaakt met de lokale certificeringsinstantie](#rdpauth).
-* [Fout in Windows-beveiliging: uw referenties niet werkte](#wincred).
+* [Fout bij het Windows-beveiliging: Uw referenties niet werkte](#wincred).
 * [Deze computer kan geen verbinding maken met de externe computer](#rdpconnect).
 
 <a id="rdplicense"></a>
@@ -50,7 +50,7 @@ Zie voor meer informatie het blogbericht [virtuele Azure-machine is mislukt met 
 <a id="rdpname"></a>
 
 ## <a name="remote-desktop-cant-find-the-computer-name"></a>Extern bureaublad kan de computer 'name' niet vinden.
-Oorzaak: De extern bureaublad-client op uw computer kan niet de naam van de computer in de instellingen van het RDP-bestand worden omgezet.
+Oorzaak: De naam van de computer in de instellingen van het RDP-bestand kan niet worden omgezet door de extern bureaublad-client op uw computer.
 
 Mogelijke oplossingen:
 
@@ -68,9 +68,9 @@ Het gedeelte van deze RDP-bestand is:
 <a id="rdpauth"></a>
 
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Er is een verificatiefout opgetreden. Kan geen verbinding worden gemaakt met de lokale certificeringsinstantie.
-Oorzaak: De doel-VM kan de certificeringsinstantie vinden in het gedeelte van de gebruiker de naam van uw referenties.
+Oorzaak: De doel-VM kan de certificeringsinstantie niet vinden in het gedeelte van de gebruiker de naam van uw referenties.
 
-Wanneer uw gebruikersnaam in het formulier is *SecurityAuthority*\\*gebruikersnaam* (voorbeeld: corp\gebruiker1), wordt de *SecurityAuthority* deel is van de VM computernaam (voor de lokale beveiligingsautoriteit) of de naam van een Active Directory-domein.
+Wanneer uw gebruikersnaam in het formulier is *SecurityAuthority*\\*gebruikersnaam* (voorbeeld: Corp\gebruiker1), de *SecurityAuthority* gedeelte is de computernaam van de virtuele machine (voor de lokale beveiligingsautoriteit) of de naam van een Active Directory-domein.
 
 Mogelijke oplossingen:
 
@@ -80,7 +80,7 @@ Mogelijke oplossingen:
 
 <a id="wincred"></a>
 
-## <a name="windows-security-error-your-credentials-did-not-work"></a>Fout in Windows-beveiliging: uw referenties niet werkt.
+## <a name="windows-security-error-your-credentials-did-not-work"></a>Fout bij het Windows-beveiliging: Uw referenties werkt niet.
 Oorzaak: De doel-VM kan niet worden gevalideerd uw accountnaam en wachtwoord.
 
 Een Windows-computer kunt valideren van de referenties van een lokaal account of een domeinaccount.
@@ -99,7 +99,7 @@ Als u wijzigen van het wachtwoord van het lokale administrator-account wilt, Zie
 <a id="rdpconnect"></a>
 
 ## <a name="this-computer-cant-connect-to-the-remote-computer"></a>Deze computer kan geen verbinding maken met de externe computer.
-Oorzaak: Het account dat wordt gebruikt om verbinding te maken heeft geen extern bureaublad-aanmelden-rechten.
+Oorzaak: Heeft geen extern bureaublad-aanmelden-rechten voor het account dat wordt gebruikt om verbinding te maken.
 
 Elke Windows-computer is een lokale gebruikersgroep van de extern bureaublad, waarin de accounts en groepen die zich bij het op afstand aanmelden kunnen. Leden van de lokale groep administrators hebben ook toegang, zelfs als deze accounts niet in de lokale groep voor extern bureaublad-gebruikers weergegeven worden. De lokale groep administrators bevat ook de Domeinadministrators voor het domein voor domein machines.
 

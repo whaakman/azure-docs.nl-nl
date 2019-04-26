@@ -3,7 +3,7 @@ title: 'Zelfstudie: Maak gebruikersstromen - Azure Active Directory B2C | Micros
 description: Informatie over het maken van de gebruikersstromen voor uw toepassingen in Azure Active Directory B2C met behulp van de Azure portal.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
@@ -11,11 +11,11 @@ ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b76d56b17973c04992a8855917c814ced649bd0f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338255"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418771"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Zelfstudie: Gebruikersstromen maken in Azure Active Directory B2C
 

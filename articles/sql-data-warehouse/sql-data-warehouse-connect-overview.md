@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: 85bce59563cf0424816661c97406060bcbb423ec
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460444"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402804"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Verbinding maken met Azure SQL Data Warehouse
 Verbinding maken met Azure SQL Data Warehouse.
@@ -61,7 +61,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 ## <a name="connection-settings"></a>Verbindingsinstellingen
 SQL Data Warehouse standaardiseert enkele instellingen tijdens het maken van de verbinding en het maken van objecten. Deze instellingen kunnen niet worden overschreven, en omvatten:
 
-| Database-instelling | Value |
+| Database-instelling | Waarde |
 |:--- |:--- |
 | [ANSI_NULLS][ANSI_NULLS] |AAN |
 | [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |AAN |

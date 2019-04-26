@@ -1,6 +1,6 @@
 ---
 title: PowerShell-voorbeeld van actieve geo-replicatie voor een gegroepeerde Azure SQL-database | Microsoft Docs
-description: Azure PowerShell-voorbeeldscript voor het instellen van actieve geo-replicatie voor een gegroepeerde database in Azure SQL Database en het uitvoeren van een failover.
+description: Azure PowerShell-voorbeeldscript voor het instellen van actieve geo-replicatie voor een pooldatabase in Azure SQL Database en het uitvoeren van een failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,16 +12,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 62c736e79b1a3c2b68eaddd5beab7085cd78b3f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: acf7d15f0c96ec07b4ba1200827b61adaebc3167
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360382"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390083"
 ---
-# <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>PowerShell gebruiken voor het configureren van actieve geo-replicatie voor een gegroepeerde database in Azure SQL Database
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>PowerShell gebruiken voor het configureren van actieve geo-replicatie voor een pooldatabase in Azure SQL Database
 
-In dit voorbeeld van een PowerShell-script configureert u actieve geo-replicatie voor een gegroepeerde Azure SQL-database en voert u een failover uit naar een secundaire replica van de database.
+In dit voorbeeld van een PowerShell-script configureert u actieve geo-replicatie voor een pooldatabase in Azure SQL Database en voert u een failover uit naar een secundaire replica van de database.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -51,7 +51,7 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Hiermee maakt u een SQL Database-server die individuele databases en elastische pools host. |
 | [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Hiermee maakt u een elastische pool. |
-| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Hiermee wordt een enkele database of een gegroepeerde database gemaakt. |
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Hiermee wordt een enkele of pooldatabase gemaakt. |
 | [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Hiermee worden database-eigenschappen bijgewerkt of worden databasegegevens verplaatst naar, uit of tussen elastische pools. |
 | [New-AzSqlDatabaseSecondary](/powershell/module/az.sql/new-azsqldatabasesecondary)| Hiermee maakt u een secundaire database voor een bestaande database en wordt gegevensreplicatie gestart. |
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)| Hiermee haalt u een of meer databases op. |

@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60412751"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>De elementen van de B2B-samenwerking uitnodigingse-mail - Azure Active Directory
 
@@ -28,7 +28,7 @@ Uitnodigingen per e-mail zijn een essentieel onderdeel om partners aan boord als
 ## <a name="explaining-the-email"></a>Het e-mailbericht waarin wordt uitgelegd
 We kijken naar enkele elementen van het e-mailbericht, zodat u hoe het beste weet om hun mogelijkheden te gebruiken.
 
-### <a name="subject"></a>Onderwerp
+### <a name="subject"></a>Subject
 Het onderwerp van het e-mailbericht heeft het volgende patroon: U bent uitgenodigd voor de &lt;tenantname&gt; organisatie
 
 ### <a name="from-address"></a>Van adres
