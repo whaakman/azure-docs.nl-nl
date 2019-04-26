@@ -16,7 +16,7 @@ ms.date: 05/18/2018
 ms.author: aljo
 ms.openlocfilehash: 33f742c7de340df41f5d946c891e9896d7d2a012
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048466"
@@ -183,7 +183,7 @@ Als u het cluster maakt, gaat u als volgt te werk:
     
 
 ## <a name="allow-your-application-running-in-azure-to-access-the-sql-db"></a>Toestaan dat uw toepassing die in Azure wordt uitgevoerd toegang heeft tot de SQL-database
-Eerder hebt u een SQL-firewallregel gemaakt om toegang te verlenen aan uw toepassing die lokaal wordt uitgevoerd.  Nu moet u voor de toepassing die in Azure wordt uitgevoerd toegang inschakelen voor de SQL-database.  Maak een [virtueel netwerkservice-eindpunt](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) voor het Service Fabric-cluster en maak vervolgens een regel om dat eindpunt toegang tot de SQL-database toe te staan. Geef de variabele van de clusterbrongroep op die u hebt genoteerd toen u het cluster maakte. 
+Eerder hebt u een SQL-firewallregel gemaakt om toegang te verlenen aan uw toepassing die lokaal wordt uitgevoerd.  Nu moet u voor de toepassing die in Azure wordt uitgevoerd toegang inschakelen voor de SQL-database.  Maak een [service-eindpunt voor virtueel netwerk](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) voor het Service Fabric-cluster en maak vervolgens een regel om dat eindpunt toegang tot de SQL-database toe te staan. Geef de variabele van de clusterbrongroep op die u hebt genoteerd toen u het cluster maakte. 
 
 ```powershell
 # Create a virtual network service endpoint

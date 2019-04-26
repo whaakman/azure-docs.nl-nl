@@ -5,17 +5,14 @@ services: key-vault
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 34af20ee-3fa7-4f28-9d98-6168b1759764
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
 ms.openlocfilehash: 06f1a2b33b177cf667fc2d3c5932f7ff117d2bdc
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60201276"
@@ -75,7 +72,7 @@ Bovendien kunt u met sleutelkluizen van Azure toepassingsgeheimen van elkaar sch
 
 Key Vault wordt in Azure gebruikt als beveiligd archief om scenario's te vereenvoudigen, zoals:
 -  [Azure Disk Encryption](../security/azure-security-disk-encryption.md)
--  De functionaliteit [altijd versleuteld]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) in SQL server en Azure SQL Database
+-  De functionaliteit [altijd versleuteld]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) in SQL-server en Azure SQL Database
 - [Azure App Service]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). 
 
 Key Vault zelf kan worden geïntegreerd met opslagaccounts, Event Hubs en logboekanalyses.

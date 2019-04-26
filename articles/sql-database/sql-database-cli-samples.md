@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/03/2019
 ms.openlocfilehash: 7a1132b5857cf6c54d0566ca29bb76ce1ef88513
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359444"
@@ -37,10 +37,10 @@ De volgende tabel bevat koppelingen naar Azure CLI-scriptvoorbeelden voor Azure 
 |---|---|
 |**Een individuele database en een elastische pool maken**||
 | [Een individuele database maken en een firewallregel configureren](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Met dit voorbeeld van een CLI-script wordt één Azure SQL-database gemaakt en een regel voor een firewall op serverniveau geconfigureerd. |
-| [Elastische pools maken en gepoolde databases verplaatsen](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | In dit voorbeeld van een CLI-script worden elastische SQL-pools gemaakt, gegroepeerde Azure SQL-databases verplaatst en worden rekengroottes gewijzigd.|
+| [Elastische pools maken en gepoolde databases verplaatsen](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | In dit voorbeeld van een CLI-script worden elastische SQL-pools gemaakt, Azure SQL-pooldatabases verplaatst en rekenkrachten gewijzigd.|
 |**Een individuele database en een elastische pool schalen**||
-| [Een individuele database schalen](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | In dit voorbeeld van een CLI-script wordt één Azure SQL-database naar een andere rekengrootte geschaald nadat de grootte van de database is opgevraagd. |
-| [Een elastische pool schalen](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | In dit voorbeeld van een CLI-script wordt een elastische SQL-pool naar een andere rekengrootte geschaald.  |
+| [Een individuele database schalen](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | In dit voorbeeld van een CLI-script wordt één Azure SQL-database naar een andere rekenkracht geschaald nadat de grootte van de database is opgevraagd. |
+| [Een elastische pool schalen](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | In dit voorbeeld van een CLI-script wordt een elastische SQL-pool naar een andere rekenkracht geschaald.  |
 |||
 
 Meer informatie over de [Single Database Azure CLI API](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases).

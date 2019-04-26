@@ -10,11 +10,11 @@ ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
 ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010546"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60428076"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Verifiëren en toegang krijgen tot bronnen met beheerde identiteiten in Azure Logic Apps
 
@@ -59,7 +59,7 @@ Inschakelen om in te schakelen op een systeem toegewezen beheerde identiteit voo
 
    ![GUID's voor object-ID](./media/create-managed-service-identity/object-id.png)
 
-   | Eigenschap | Waarde | Description | 
+   | Eigenschap | Waarde | Beschrijving | 
    |----------|-------|-------------| 
    | **Object-ID** | <*identity-resource-ID*> | De beheerde een Globally Unique Identifier (GUID) die door het systeem toegewezen aangeeft identiteit voor uw logische app in een Azure AD-tenant | 
    ||| 
@@ -111,7 +111,7 @@ Als Azure uw logische app maakt, bevat de werkstroomdefinitie die logica-app de 
 }
 ```
 
-| Eigenschap | Waarde | Description | 
+| Eigenschap | Waarde | Beschrijving | 
 |----------|-------|-------------|
 | **principalId** | <*principal-ID*> | Een Globally Unique Identifier (GUID) die aangeeft van de logische app in de Azure AD-tenant en soms wordt weergegeven als 'Object-ID' of `objectID` | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | Een Globally Unique Identifier (GUID) die aangeeft van de Azure AD-tenant waar de logische app nu lid is. In de Azure AD-tenant is de service-principal dezelfde naam als het logische app-exemplaar. | 

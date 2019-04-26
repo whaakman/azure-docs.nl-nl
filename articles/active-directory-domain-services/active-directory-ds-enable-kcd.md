@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: 5569344a2df560036b99dea40c466302f5e6fe4c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359366"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Kerberos-beperkte delegatie (KCD) configureren op een beheerd domein
 Veel toepassingen nodig voor toegang tot resources in de context van de gebruiker. Active Directory ondersteunt een mechanisme voor Kerberos-overdracht, waardoor deze use-case genoemd. U kunt bovendien delegering beperken zodat alleen bepaalde resources kunnen worden geopend in de context van de gebruiker. Azure AD Domain Services beheerde domeinen zijn anders dan traditionele Active Directory-domeinen, omdat ze veiliger zijn vergrendeld.

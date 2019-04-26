@@ -4,18 +4,18 @@ description: EDI valideren en het genereren van bevestigingen met X12 bericht de
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
 ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
-ms.openlocfilehash: e3d2a458c2cece5e3f01fdb9e3d403b3fb78dd2b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: a952685353214e116219fc63c4acbeac188765ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121642"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427376"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>X12 decoderen berichten in Azure Logic Apps met Enterprise Integration Pack
 
@@ -89,13 +89,13 @@ De X12 decoderen connector voert deze taken uit:
   * Controleert of het groepscontrolenummer op basis van andere groep controlenummers in de uitwisseling.
   * Controleert of dat de transactie controlenummer ingesteld op basis van andere transactie set controlenummers in die groep.
 * Hiermee wordt de uitwisseling in transactiesets of behoudt de gehele uitwisseling:
-  * Uitwisseling splitsen in transactiereeksen - transactiereeksen onderbreken bij fout: uitwisseling splitsen in transactie wordt ingesteld en wordt elke transactieset geparseerd. 
+  * Uitwisseling splitsen in transactiereeksen - onderbreken transactiereeksen bij fout: Uitwisseling splitsen in transactie wordt ingesteld en wordt elke transactieset geparseerd. 
   De X12 decoderen actie voert alleen deze transactie wordt ingesteld die niet voldoen aan de validatie `badMessages`, en de resterende transacties wordt ingesteld op uitvoer `goodMessages`.
-  * Uitwisseling splitsen in transactiereeksen - uitwisseling onderbreken bij fout: uitwisseling splitsen in transactie wordt ingesteld en wordt elke transactieset geparseerd. 
+  * Uitwisseling splitsen in transactiereeksen - onderbreken uitwisseling bij fout: Uitwisseling splitsen in transactie wordt ingesteld en wordt elke transactieset geparseerd. 
   Als een of meer transactie wordt ingesteld in de uitwisseling mislukt de validatie van de X12 decoderen actie voert alle de transactie wordt ingesteld in dat knooppunt aan `badMessages`.
-  * Uitwisseling bewaren-transactiereeksen onderbreken bij fout: de uitwisseling behouden en verwerken van de gehele uitwisseling van de batch. 
+  * Uitwisseling bewaren-transactiereeksen onderbreken bij fout: De uitwisseling behouden en verwerken van de gehele uitwisseling van de batch. 
   De X12 decoderen actie voert alleen deze transactie wordt ingesteld die niet voldoen aan de validatie `badMessages`, en de resterende transacties wordt ingesteld op uitvoer `goodMessages`.
-  * Uitwisseling bewaren-uitwisseling onderbreken bij fout: de uitwisseling behouden en verwerken van de gehele uitwisseling van de batch. 
+  * Uitwisseling bewaren-uitwisseling onderbreken bij fout: De uitwisseling behouden en verwerken van de gehele uitwisseling van de batch. 
   Als een of meer transactie wordt ingesteld in de uitwisseling mislukt de validatie van de X12 decoderen actie voert alle de transactie wordt ingesteld in dat knooppunt aan `badMessages`. 
 * Genereert een bevestiging technische en/of functionele (indien geconfigureerd).
   * Een technische bevestiging genereert als gevolg van validatie van de header. De technische bevestiging meldt de status van de verwerking van een uitwisseling-header en aanhangwagen door de ontvanger van het adres.

@@ -14,7 +14,7 @@ ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361483"
@@ -25,7 +25,7 @@ Dit artikel bevat stappen voor inrichting Azure-SSIS Integration Runtime (IR) in
 
 De [zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md) ziet u hoe u Azure-SSIS IR maken met behulp van Azure SQL Database-server host SSIS-catalogusdatabase (SSISDB). In dit artikel gaat verder in op de zelfstudie en ziet u hoe u het volgende doen:
 
-- (Optioneel) gebruik van Azure SQL Database-server met virtual network service-eindpunten/beheerde exemplaar naar host SSISDB. Raadpleeg [Enkele databases/elastische pools van Azure SQL Database vergelijken met Beheerd exemplaar](create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance) voor hulp bij het kiezen van een type databaseserver waarin u SSISDB host. Als een vereiste moet u uw Azure-SSIS IR toevoegen aan een virtueel netwerk en virtueel netwerk-machtigingen /-instellingen configureren indien nodig. Zie [deelnemen aan Azure-SSIS IR aan een virtueel netwerk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+- (Optioneel) gebruik van Azure SQL Database-server met virtual network service-eindpunten/beheerde exemplaar naar host SSISDB. Voor hulp bij de keuze voor het type databaseserver waarin u SSISDB host, raadpleegt u [Individuele database/elastische pools van Azure SQL Database vergelijken met Beheerd exemplaar](create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). Als een vereiste moet u uw Azure-SSIS IR toevoegen aan een virtueel netwerk en virtueel netwerk-machtigingen /-instellingen configureren indien nodig. Zie [deelnemen aan Azure-SSIS IR aan een virtueel netwerk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
 - Azure Active Directory (AAD) verificatie met de beheerde identiteit voor uw ADF (optioneel) gebruiken om te verbinden met de database-server. Als een vereiste, moet u de beheerde identiteit voor uw ADF toevoegen als een ingesloten databasegebruiker die geschikt zijn voor het maken van SSISDB in uw Azure SQL Database-server/beheerd exemplaar, raadpleeg dan [inschakelen AAD-verificatie voor Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir).
 
@@ -628,7 +628,7 @@ Gebruik nu SQL Server Data Tools (SSDT) of SQL Server Management Studio (SSMS) o
 Zie de andere Azure-SSIS IR-onderwerpen in deze documentatie:
 
 - [Azure-SSIS Integratieruntime](concepts-integration-runtime.md#azure-ssis-integration-runtime). In dit artikel bevat algemene informatie over integratieruntimes in het algemeen met inbegrip van de Azure-SSIS-IR.
-- [Zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md). Dit artikel biedt stapsgewijze instructies voor het maken van een Azure-SSIS IR en maakt gebruik van een Azure SQL database voor het hosten van de SSIS-catalogus.
+- [Zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md). Dit artikel biedt stapsgewijze instructies voor het maken van een Azure-SSIS IR en maakt gebruik van een Azure SQL-database voor het hosten van de SSIS-catalogus.
 - [Een Azure-SSIS IR controleren](monitor-integration-runtime.md#azure-ssis-integration-runtime). In dit artikel leest u hoe u informatie over een Azure-SSIS IR ophaalt. Daarnaast bevat het artikel beschrijvingen van statuswaarden die worden gebruikt in de geretourneerde informatie.
 - [Een Azure-SSIS IR beheren](manage-azure-ssis-integration-runtime.md). In dit artikel leest u hoe u een Azure-SSIS IR stopt, start of verwijdert. Er wordt ook uitgelegd hoe u een Azure-SSIS IR kunt uitschalen door meer knooppunten toe te voegen aan de IR.
 - [Een Azure-SSIS-integratieruntime toevoegen aan een virtueel netwerk](join-azure-ssis-integration-runtime-virtual-network.md). In dit artikel bevat algemene informatie over uw Azure-SSIS IR toevoegen aan een Azure-netwerk. Er wordt ook beschreven hoe u Azure Portal gebruikt om een virtueel netwerk te configureren voor het deelnemen van Azure-SSIS IR aan het virtueel netwerk.

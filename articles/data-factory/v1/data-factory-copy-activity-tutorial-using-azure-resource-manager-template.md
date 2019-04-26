@@ -16,7 +16,7 @@ ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 95a29a458fc9333515ef29aaaed9a47e93cf3a8d
 ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58483757"
@@ -58,7 +58,7 @@ In deze zelfstudie maakt u een gegevensfactory met de volgende Data Factory-enti
 
 | Entiteit | Description |
 | --- | --- |
-| Een gekoppelde Azure Storage-service |Koppelt uw Azure Storage-account aan de gegevensfactory. Azure Storage is de brongegevensopslag en Azure SQL Database de opvanggegevensopslag voor de kopieerbewerking in de handleiding. Het geeft de opslagaccount aan die de invoergegevens voor de kopieerbewerking bevat. |
+| Een gekoppelde Azure Storage-service |Koppelt uw Azure Storage-account aan de gegevensfactory. Azure Storage is de brongegevensopslag en Azure SQL-database de opvanggegevensopslag voor de kopieerbewerking in de handleiding. Het geeft de opslagaccount aan die de invoergegevens voor de kopieerbewerking bevat. |
 | Een gekoppelde Azure SQL Database-service |Koppelt uw Azure SQL-database aan de gegevensfactory. Het geeft de Azure SQL-database aan die de uitvoergegevens voor de kopieerbewerking bevat. |
 | Azure Blob-invoergegevensset |Verwijst naar de gekoppelde Azure Storage-service. De gekoppelde service verwijst naar een Azure Storage-account en in de Azure Blob-gegevensset vindt u de container, map en bestandsnaam in de opslag die de invoergegevens bevat. |
 | Azure SQL-uitvoergegevensset |Verwijst naar de gekoppelde Azure SQL-service. De gekoppelde Azure SQL-service verwijst naar een Azure SQL-server en de Azure SQL-gegevensset bevat de naam van de tabel met de uitvoergegevens. |

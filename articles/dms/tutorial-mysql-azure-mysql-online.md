@@ -13,7 +13,7 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.openlocfilehash: b39ce138677fc8933b62bd999f20abc21c0ae690
 ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2019
 ms.locfileid: "59617951"
@@ -239,7 +239,7 @@ Nadat de eerste volledige lading is voltooid, worden de databases gemarkeerd als
  
 2.  Zorg dat u alle transacties stopt die bij de brondatabase binnenkomen; wacht totdat de teller van **Wijzigingen in behandeling** op **0** staat.
 3.  Selecteer **Bevestigen** en selecteer vervolgens **Toepassen**.
-4. Wanneer de databasemigratie de status **Voltooid** heeft, verbindt u uw toepassingen met de nieuwe Azure SQL-doeldatabase.
+4. Wanneer de databasemigratiestatus **Voltooid** toont, verbindt u uw toepassingen met de nieuwe doel-Azure SQL Database.
  
 ## <a name="next-steps"></a>Volgende stappen
 - Raadpleeg het artikel [Bekende problemen/beperkingen met online migraties naar Azure Database for MySQL](known-issues-azure-mysql-online.md) voor informatie over bekende problemen en beperkingen bij het uitvoeren van online migraties naar Azure Database for MySQL.

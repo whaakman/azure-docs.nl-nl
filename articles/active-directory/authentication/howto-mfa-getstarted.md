@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358106"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359308"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planning van een cloud-gebaseerde Azure multi-factor Authentication
 
@@ -237,7 +237,7 @@ Als u een NPS-exemplaar geïmplementeerd en wordt gebruikt, verwijzen naar [uw b
 
 Kies wat er gebeurt als gebruikers die niet zijn geregistreerd met MFA probeert te verifiëren. Gebruik de registerinstelling `REQUIRE_USER_MATCH` in het registerpad `HKLM\Software\Microsoft\AzureMFA` om te bepalen het gedrag van de functie. Deze instelling heeft een configuratie voor één optie.
 
-| Sleutel | Value | Standaard |
+| Sleutel | Waarde | Standaard |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | DE WAARDE TRUE / FALSE | Niet ingesteld (gelijk aan TRUE) |
 
@@ -304,7 +304,7 @@ Rapporten voor Azure MFA
 
 Azure multi-factor Authentication biedt rapporten via de Azure-portal:
 
-| Rapport | Locatie | Beschrijving |
+| Rapport | Location | Description |
 | --- | --- | --- |
 | Gebruik en fraude waarschuwingen | Azure AD > Sign-ins | Bevat informatie over algemene gebruik, overzicht van gebruikers en de details van de gebruiker; Als een geschiedenis van Fraudewaarschuwingen die zijn ingediend in het opgegeven datumbereik. |
 

@@ -1,6 +1,6 @@
 ---
 title: Stapsgewijs een tabel kopiëren met behulp van Azure Data Factory | Microsoft Docs
-description: In deze zelfstudie maakt u een Azure Data Factory-pijplijn waarmee gegevens uit een Azure SQL- database stapsgewijs worden gekopieerd naar Azure Blob Storage.
+description: In deze zelfstudie maakt u een Azure Data Factory-pijplijn waarmee gegevens uit een Azure SQL-database stapsgewijs worden gekopieerd naar Azure Blob Storage.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -14,7 +14,7 @@ ms.date: 01/22/2018
 ms.author: yexu
 ms.openlocfilehash: 568b00007f2c95a5a63c236863f0c599c6b6f86f
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57992297"

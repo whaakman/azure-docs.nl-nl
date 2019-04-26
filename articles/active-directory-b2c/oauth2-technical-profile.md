@@ -3,7 +3,7 @@ title: Een technisch profiel OAuth2 definiëren in een aangepast beleid in Azure
 description: Een technisch profiel OAuth2 definiëren in een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: e92378cca445191f42708bd6348b1c75b29da1a1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009834"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60361061"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technisch profiel OAuth2 definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -76,7 +76,7 @@ Het technische profiel retourneert ook claims die niet zijn geretourneerd door d
 
 ## <a name="metadata"></a>Metagegevens
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | client_id | Ja | De toepassings-id van de id-provider. |
 | IdTokenAudience | Nee | De doelgroep van het id_token. Als u opgeeft, wordt Azure AD B2C controleert of het token in een claim die wordt geretourneerd door de id-provider is en gelijk aan de versie die is opgegeven is. |

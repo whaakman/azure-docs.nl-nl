@@ -276,9 +276,9 @@ De volgende tabel bevat voorbeelden om op te geven over de **tableName** eigensc
 
 | DB-Schema | Tabelnaam | tableName JSON-eigenschap |
 | --- | --- | --- |
-| dbo |MyTable |MyTable of dbo. MyTable of [dbo]. [MyTable] |
-| dbo1 |MyTable |dbo1. MyTable of [dbo1]. [MyTable] |
-| dbo |My.Table |[My.Table] of [dbo]. [My.Table] |
+| dbo |MyTable |MyTable of dbo.MyTable of [dbo].[MyTable] |
+| dbo1 |MyTable |dbo1.MyTable of [dbo1].[MyTable] |
+| dbo |My.Table |[My.Table] of [dbo].[My.Table]  |
 | dbo1 |My.Table |[dbo1]. [My.Table] |
 
 Als u de volgende fout ziet, is het mogelijk een probleem met de waarde die u hebt opgegeven voor de eigenschap tableName. Zie de tabel voor de juiste manier waarden voor de eigenschap tableName JSON op te geven.

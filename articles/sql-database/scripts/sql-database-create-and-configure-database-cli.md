@@ -14,14 +14,14 @@ ms.reviewer: ''
 ms.date: 02/08/2019
 ms.openlocfilehash: 9ed1512053c06108178275b0523beede470325a5
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361432"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>CLI gebruiken om één Azure SQL-database te maken en een firewallregel te configureren
 
-Met dit Azure CLI-voorbeeldscript wordt een Azure SQL database gemaakt en wordt een firewall-regel op serverniveau geconfigureerd. Nadat het script is uitgevoerd, is de SQL Database toegankelijk via alle Azure-services en het geconfigureerde IP-adres.
+Met dit Azure CLI-voorbeeldscript wordt een Azure SQL database gemaakt en wordt een firewallregel op serverniveau geconfigureerd. Nadat het script is uitgevoerd, is de SQL Database toegankelijk via alle Azure-services en het geconfigureerde IP-adres.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -3,7 +3,7 @@ title: 'Zelfstudie: een Azure Active Directory B2C-tenant maken | Microsoft Docs
 description: Informatie over het voorbereiden voor het registreren van uw toepassingen door het maken van een Azure Active Directory B2C-tenant met behulp van de Azure portal.
 services: B2C
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b8878eccb079bf78c45ff9c1e4040659d109b1ab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152923"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360158"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Zelfstudie: Een Azure Active Directory B2C-tenant maken
 
@@ -54,7 +54,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe u:
+In dit artikel hebt u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Een Azure AD B2C-tenant maken

@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/15/2019
 ms.openlocfilehash: c11f52d2bbc55187a16227cf9553cc7ba6013e1e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853123"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331091"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Resourcelimieten voor elastische pools met behulp van de limieten aankopen model op basis van vCore
 
@@ -268,7 +268,7 @@ Als alle vCores van een elastische pool bezet zijn, ontvangt elke database in de
 
 De volgende tabel beschrijft de eigenschappen voor databases in pools.
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--- |:--- |
 | Maximum aantal vCores per database |Het maximale aantal vCores op dat elke database in de groep gebruiken mag, beschikbaar op basis van gebruik door andere databases in de groep. Maximum aantal vCores per database is geen resourcegarantie voor een database. Het is een algemene instelling voor alle databases in de groep. Maximale vCores per database hoog genoeg is voor het afhandelen van pieken in Databasegebruik instellen. Enige mate van het doorvoeren van te veel wordt verwacht, omdat de groep in het algemeen uitgaat hot en cold gebruikspatronen voor databases waarin alle databases niet tegelijkertijd pieken.|
 | Min vCores per database |Het minimum aantal vCores op dat elke database in de groep kan worden gegarandeerd. Het is een algemene instelling voor alle databases in de groep. De min-vCores per database kan worden ingesteld op 0, en is ook de standaardwaarde. Deze eigenschap is ingesteld op een willekeurige plaats tussen 0 en het gebruik van de gemiddelde vCores per database. Het product van het aantal databases in de groep en de min-vCores per database kan niet groter zijn dan de vCores per groep.|

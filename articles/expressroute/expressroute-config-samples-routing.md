@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 2d7fb060896de8df266489451a11ba343760c747
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60367469"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Voorbeelden van routerconfiguratie instellen en beheren van Routering
 Deze pagina bevat interface en routering voorbeelden van configuraties voor IOS-XE van Cisco en Juniper MX reeks routers bij het werken met ExpressRoute. Deze zijn bedoeld om te worden voorbeelden voor alleen richtlijnen en mogen niet worden gebruikt als is. U kunt werken met de leverancier van uw zijn beschikbaar met de juiste configuraties voor uw netwerk. 

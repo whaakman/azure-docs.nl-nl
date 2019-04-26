@@ -18,11 +18,11 @@ ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5f1b23862edeabbf8e03d4589fa3f22a3fab9f72
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520986"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353156"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Instellingen voor Groepsbeleid en MDM
 Gebruik deze instellingen voor Groepsbeleid en het management (MDM)-instellingen voor mobiele apparaten alleen op apparaten in Bedrijfseigendom omdat deze beleidsregels worden toegepast op het hele apparaat van de gebruiker. Toepassen van een MDM-beleid om uit te schakelen van synchronisatie van instellingen voor een persoonlijk apparaat eigendom van gebruikers wordt negatieve invloed hebben op het gebruik van het apparaat. De accounts van andere gebruikers op het apparaat wordt bovendien ook worden beïnvloed door het beleid.
@@ -33,7 +33,7 @@ De volgende tabellen beschrijven de beschikbare instellingen.
 ## <a name="mdm-settings"></a>MDM-instellingen
 De MDM-beleidsinstellingen van toepassing op zowel Windows 10 en Windows 10 Mobile.  Ondersteuning voor Windows 10 Mobile bestaat alleen voor Microsoft-account op basis van roaming via OneDrive-account van gebruiker.  Raadpleeg [apparaten en eindpunten](enterprise-state-roaming-windows-settings-reference.md) voor meer informatie over welke apparaten worden ondersteund voor het synchroniseren van Azure AD op basis van.
 
-| Name | Description |
+| Name | Beschrijving |
 | --- | --- |
 | Microsoft-Account verbinding toestaan |Gebruikers kunnen worden geverifieerd met behulp van een Microsoft-account op het apparaat |
 | Synchronisatie van instellingen toestaan |Hiermee kunnen gebruikers Windows-instellingen en app-gegevens; roamen Als u dit beleid uitschakelt, wordt uitgeschakeld sync, evenals een back-ups op mobiele apparaten |
@@ -43,7 +43,7 @@ De instellingen voor Groepsbeleid van toepassing op Windows 10-apparaten die zij
 
 Deze instellingen bevinden zich op: `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
-| Name | Description |
+| Name | Beschrijving |
 | --- | --- |
 | Accounts: Microsoft-Accounts blokkeren |Met deze beleidsinstelling wordt voorkomen dat gebruikers nieuwe Microsoft-accounts op deze computer toevoegen |
 | Worden niet gesynchroniseerd |Hiermee voorkomt u dat gebruikers Windows-instellingen en app-gegevens kunnen worden gebruikt |

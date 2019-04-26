@@ -27,7 +27,7 @@ In deze zelfstudie gebruikt u de [Azure Search .NET-clientbibliotheken](https://
 
 > [!div class="checklist"]
 > * Informatie over de zoekservice toevoegen aan toepassingsinstellingen
-> * Een externe gegevensset voorbereiden in Azure SQL Database 
+> * Een externe gegevensset voorbereiden in Azure SQL-database 
 > * De definities van de index en indexeerfunctie in de voorbeeldcode controleren
 > * De code van de indexeerfunctie uitvoeren om gegevens te importeren
 > * Zoeken in de index
@@ -83,7 +83,7 @@ Het laatste item is vereist voor een bestaande database. In de volgende stap maa
 
 ## <a name="prepare-sample-data"></a>Voorbeeldgegevens voorbereiden
 
-In deze stap maakt u een externe gegevensbron die een indexeerfunctie kan verkennen. U kunt de Azure Portal en het bestand *hotels.sql* uit het voorbeeld gebruiken om de gegevensset in Azure SQL Database te maken. Azure Search gebruikt platte rijensets, zoals de sets die worden gegenereerd op basis van een weergave of query. Het SQL-bestand in de voorbeeldoplossing maakt en vult één tabel.
+In deze stap maakt u een externe gegevensbron die een indexeerfunctie kan verkennen. U kunt de Azure-portal en het bestand *hotels.sql* uit het voorbeeld gebruiken om de gegevensset in Azure SQL Database te maken. Azure Search gebruikt platte rijensets, zoals de sets die worden gegenereerd op basis van een weergave of query. Het SQL-bestand in de voorbeeldoplossing maakt en vult één tabel.
 
 In de volgende oefening wordt ervan uitgegaan dat er geen bestaande server of database is en u maakt beide in stap 2. Als u een bestaande resource hebt, kunt u de tabel hotels er desgewenst aan toevoegen vanaf stap 4.
 

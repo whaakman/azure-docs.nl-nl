@@ -3,7 +3,7 @@ title: JavaScript en pagina ondersteuningscontract versies voor gebruikersstrome
 description: Informatie over het inschakelen van JavaScript en pagina contract versies gebruiken om aan te passen van de gebruikersstroom van een in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 5102755c9e830f43fa92e8546e5125960e0a2f9a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401560"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360221"
 ---
 # <a name="about-using-javascript-and-page-contract-versions-in-a-user-flow"></a>Over het gebruik van JavaScript en pagina contract versies in een gebruikersstroom
 

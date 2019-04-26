@@ -222,7 +222,7 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
    ![Brondetails](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-source-details3.png)
 
 ## <a name="specify-target-details"></a>Doeldetails opgeven
-1. Selecteer **Opslaan** en geef vervolgens in het scherm **Details migratiedoel** de details van de verbinding op voor de Azure SQL Database-doelserver. Dit is de vooraf ingerichte Azure SQL Database waarnaar het  **AdventureWorks2012**-schema is geïmplementeerd met behulp van de DMA.
+1. Selecteer **Opslaan** en geef vervolgens in het scherm **Details migratiedoel** de details van de verbinding op voor de Azure SQL Database-doelserver. Dit is de vooraf ingerichte Azure SQL Database waarnaar het **AdventureWorks2012**-schema is geïmplementeerd met behulp van de DMA.
 
     ![Doel selecteren](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-select-target3.png)
 
@@ -275,7 +275,7 @@ Nadat de eerste volledige lading is voltooid, worden de databases gemarkeerd als
  
 2.  Zorg dat u alle transacties stopt die bij de brondatabase binnenkomen; wacht totdat de teller van **Wijzigingen in behandeling** op **0** staat.
 3.  Selecteer **Bevestigen** en selecteer vervolgens **Toepassen**.
-4. Wanneer de databasemigratie de status **Voltooid** heeft, verbindt u uw toepassingen met de nieuwe Azure SQL-doeldatabase.
+4. Wanneer de databasemigratiestatus **Voltooid** toont, verbindt u uw toepassingen met de nieuwe doel-Azure SQL Database.
  
     ![Activiteitsstatus - voltooid](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-activity-completed.png)
 

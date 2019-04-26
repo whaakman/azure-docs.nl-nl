@@ -59,7 +59,7 @@ Hieronder leest u enkele aanbevelingen voor het behalen van optimale prestaties 
 - Schakel automatische statistieken tijdens de migratie uit.
 - Partitioneer tabellen en indexen.
 - Verwijder geïndexeerde weergaven en maak ze opnieuw nadat de migratie is voltooid.
-- Verplaats zelden opgevraagde historische gegevens naar een andere database en migreer ze vervolgens naar een afzonderlijke Azure SQL Database. U kunt dan [elastische query's](sql-database-elastic-query-overview.md) uitvoeren om eventueel benodigde historische gegevens op te vragen.
+- Verplaats zelden opgevraagde historische gegevens naar een andere database en migreer ze vervolgens naar een afzonderlijke Azure SQL-database. U kunt dan [elastische query's](sql-database-elastic-query-overview.md) uitvoeren om eventueel benodigde historische gegevens op te vragen.
 
 ### <a name="optimize-performance-after-the-migration-completes"></a>Prestaties optimaliseren nadat de migratie is voltooid
 
@@ -69,7 +69,7 @@ Hieronder leest u enkele aanbevelingen voor het behalen van optimale prestaties 
 
 Als u het zich niet kunt permitteren om tijdens de migratie uw SQL Server-database uit de productieomgeving te verwijderen, kunt u als migratieoplossing transactionele replicatie voor SQL Server gebruiken. Voor het gebruik van deze methode moet de brondatabase voldoen aan de [vereisten voor transactionele replicatie](https://msdn.microsoft.com/library/mt589530.aspx) en compatibel zijn met Azure SQL Database. Zie voor meer informatie over SQL-replicatie met Always On [replicatie configureren voor Always On Availability Groups (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
-Als u deze oplossing wilt gebruiken, configureert u uw Azure SQL Database als abonnee voor de SQL Server-instantie die u wilt migreren. De distributeur voor transactionele replicatie synchroniseert dan de gegevens uit de database die moeten worden gesynchroniseerd (de uitgever) terwijl er nieuwe transacties blijven binnenkomen.
+Als u deze oplossing wilt gebruiken, configureert u uw Azure SQL Database als abonnee voor het SQL Server-exemplaar dat u wilt migreren. De distributeur voor transactionele replicatie synchroniseert dan de gegevens uit de database die moeten worden gesynchroniseerd (de uitgever) terwijl er nieuwe transacties blijven binnenkomen.
 
 Met transactionele replicatie komen alle wijzigingen aan uw gegevens of schema in uw Azure SQL Database terecht. Nadat de synchronisatie is voltooid en u klaar bent om te migreren, wijzigt u de verbindingstekenreeks in uw toepassingen zodanig dat deze naar uw Azure SQL Database verwijst. Wanneer door toepassing van transactionele replicatie alle wijzigingen die nog in uw brondatabase aanwezig zijn, zijn overgenomen en al uw toepassingen naar Azure DB verwijzen, kunt u de functie voor transactionele replicatie verwijderen. Uw Azure SQL Database is nu uw productiesysteem.
 
