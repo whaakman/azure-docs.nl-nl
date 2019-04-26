@@ -10,11 +10,11 @@ ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
 ms.openlocfilehash: 5e3005eb8f548e562e037431ae5fd89f82ec2100
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150078"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60330726"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Zelfstudie: De JavaScript-clientbibliotheek van Azure Time Series Insights ontdekken
 
@@ -104,7 +104,7 @@ Hoewel we de TSI-clientbibliotheek **tsclient.js** niet in detail gaan bekijken,
 
 De volgende concepten zijn universeel en van toepassing op de API's van de TSI-clientbibliotheek in het algemeen.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Verificatie
 
 Zoals eerder gezegd, is dit voorbeeld een SPA (single-page application) die voor de verificatie van gebruikers gebruik maakt van de OAuth 2.0-ondersteuning in ADAL. Hier volgen enkele aandachtspunten voor deze sectie van het script:
 
@@ -160,7 +160,7 @@ Voor het vullen en weergeven van grafiekbesturingselementen wordt een algemeen p
 
    **getAggregates parameters**
 
-   | Parameter | Description | Voorbeeld |
+   | Parameter | Beschrijving | Voorbeeld |
    | --------- | ----------- | ------- |
    | `token`     | Het toegangstoken voor de TSI-API. |  `authContext.getTsiToken()` Zie de sectie [Verificatie](#authentication) voor meer informatie. |
    | `envFQDN`   | De FQDN (Fully Qualified Domain Name) voor de TSI-omgeving. | Vanuit Azure Portal is dat bijvoorbeeld: `10000000-0000-0000-0000-100000000108.env.timeseries.azure.com`. |

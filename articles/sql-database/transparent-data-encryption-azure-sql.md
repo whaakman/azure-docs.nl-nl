@@ -13,11 +13,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
 ms.openlocfilehash: 8ed7d144b886cc29592418007b9103b4aa94e8ab
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002609"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331050"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparante gegevensversleuteling voor SQL-Database en Data Warehouse
 
@@ -126,7 +126,7 @@ U kunt niet de transparent data encryption protector overstappen op een sleutel 
 Voor het configureren van transparante gegevensversleuteling via de REST-API moet verbonden zijn als de Azure-eigenaar, bijdrager of SQL Security Manager.
 Gebruik de volgende reeks opdrachten voor Azure SQL Database en Data Warehouse:
 
-| Opdracht | Beschrijving |
+| Opdracht | Description |
 | --- | --- |
 |[Maken of bijwerken van de Server](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Voegt een Azure Active Directory-identiteit toe aan een SQL Server-exemplaar (die wordt gebruikt om toegang te verlenen tot Key Vault)|
 |[Maken of bijwerken van de serversleutel](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Voegt een Key Vault-sleutel toe aan een SQL Server-exemplaar|

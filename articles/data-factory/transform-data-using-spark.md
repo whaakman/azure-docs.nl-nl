@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387822"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van Spark-activiteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -80,7 +80,7 @@ Spark-taken zijn beter worden uitgebreid dan Pig of Hive-taken. Voor Spark-taken
 
 De volgende mapstructuur maken in de Azure Blob-opslag waarnaar wordt verwezen door de gekoppelde HDInsight-service. Vervolgens kunt u afhankelijke bestanden uploaden naar de juiste submappen in de hoofdmap wordt vertegenwoordigd door **entryFilePath**. Bijvoorbeeld, python-bestanden naar de submap pyFiles en jar-bestanden uploaden naar de submap JAR-bestanden van de hoofdmap. Tijdens runtime verwacht Data Factory-service de volgende mapstructuur in de Azure Blob-opslag:     
 
-| Pad                  | Description                              | Vereist | Type   |
+| Pad                  | Beschrijving                              | Vereist | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` (root)            | Het pad naar de hoofdmap van de Spark-taak in de gekoppelde storage-service | Ja      | Map |
 | &lt;door de gebruiker gedefinieerde &gt; | Het pad dat verwijst naar het bestand vermelding van de Spark-taak | Ja      | File   |

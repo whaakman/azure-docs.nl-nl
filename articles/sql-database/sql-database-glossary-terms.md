@@ -40,7 +40,7 @@ Databaseobjecten|Azure SQL Database|Elke database in Azure SQL Database|
 ||Zeer grootschalige database|Een database gemaakt binnen of verplaatst naar de grootschalige servicelaag van de vCore-aanschafmodel|
 ||Essentiële Business-database|Een database gemaakt binnen of verplaatst naar de kritieke zakelijke-servicelaag van de vCore-aanschafmodel|
 |[Aanschafmodellen en resources](sql-database-purchase-models.md)|DTU gebaseerde aankoopmodel|[DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md)|
-||Op vCore gebaseerd aanschafmodel|[op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md)|
+||Aankoopmodel op basis van vCore|[op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md)|
 ||vCore|Een kern die het gastbesturingssysteem van de hypervisor.|
 ||Servicelaag|Een niveau van de service binnen een aankoopmodel|
 ||COMPUTE-grootte|De hoeveelheid rekenresources voor een individuele database, elastische pool of beheerd exemplaar binnen een servicelaag|

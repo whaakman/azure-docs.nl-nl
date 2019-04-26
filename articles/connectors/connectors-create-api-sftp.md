@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
 ms.openlocfilehash: 42e1ef3e311633f9631163bc9d3df212b608ef3a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578370"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60450757"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Controleren, maken en beheren van de SFTP-bestanden met behulp van Azure Logic Apps
 
@@ -30,7 +30,7 @@ Voor het automatiseren van taken die bewaken, maken, verzenden en ontvangen van 
 U kunt triggers die gebeurtenissen op uw SFTP-server bewaken en uitvoer beschikbaar voor andere acties. U kunt acties waarmee verschillende taken worden uitgevoerd op uw SFTP-server gebruiken. U kunt ook andere acties in uw logische app de uitvoer van de SFTP-acties hebben. Bijvoorbeeld, als u regelmatig bestanden uit uw SFTP-server ophalen, kunt u e-mailmeldingen over deze bestanden en hun inhoud verzenden met behulp van de connector voor Office 365 Outlook of Outlook.com-connector.
 Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="limits"></a>Limieten
+## <a name="limits"></a>Limits
 
 * SFTP-acties kunnen lezen of schrijven van bestanden die zijn *50 MB of kleiner* , tenzij u [bericht opdelen in acties](../logic-apps/logic-apps-handle-large-messages.md), die kunt u deze limiet overschrijdt. Op dit moment ondersteunen SFTP triggers geen logische groepen te verdelen.
 

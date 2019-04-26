@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+origin.date: 07/13/2017
+ms.date: 04/09/2019
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839165"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384699"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect sync-service de kenmerken van
 De meeste kenmerken worden dezelfde manier weergegeven in Azure AD zoals in uw on-premises Active Directory. Maar bepaalde kenmerken enkele speciale verwerking hebben en de waarde van het kenmerk in Azure AD is mogelijk anders dan wat Azure AD Connect synchroniseert.
@@ -38,11 +39,11 @@ Ze hebben meerdere UPN-achtervoegsels in hun on-premises Active Directory, maar 
 ### <a name="userprincipalname"></a>userPrincipalName
 Een gebruiker heeft de volgende kenmerkwaarden in een niet-gecontroleerd domein:
 
-| Kenmerk | Value |
+| Kenmerk | Waarde |
 | --- | --- |
 | on-premises userPrincipalName | lee.sperry@fabrikam.com |
 | Azure AD shadowUserPrincipalName | lee.sperry@fabrikam.com |
-| Azure AD userPrincipalName | lee.sperry@fabrikam.onmicrosoft.com |
+| Azure AD userPrincipalName | lee.sperry@fabrikam.partner.onmschina.cn |
 
 Het kenmerk userPrincipalName is de waarde die u ziet wanneer u met behulp van PowerShell.
 
@@ -53,7 +54,7 @@ Hetzelfde proces voor het opnemen van alleen geverifieerde domeinen vindt ook pl
 
 Voor de postvakgebruiker van een, on-premises of in Exchange Online, worden er alleen waarden voor geverifieerde domeinen weergegeven. Het kan er als volgt:
 
-| Kenmerk | Value |
+| Kenmerk | Waarde |
 | --- | --- |
 | on-premises proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
@@ -77,3 +78,5 @@ De kenmerken worden ook gebruikt als er dubbele kenmerkwaarden. Zie voor meer in
 ## <a name="see-also"></a>Zie ook
 * [Azure AD Connect-synchronisatie](how-to-connect-sync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md).
+
+<!-- Update_Description: wording update -->

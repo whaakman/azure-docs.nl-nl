@@ -13,11 +13,11 @@ ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
 ms.openlocfilehash: 622a3ce0f80bd09bd09fa7ff097f68155318142d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080353"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60351241"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configureren van groepclaims voor toepassingen met Azure Active Directory (openbare Preview)
 
@@ -77,7 +77,7 @@ Gebruik de keuzerondjes te selecteren welke groepen moeten worden opgenomen in h
 
 ![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
-| Selectie | Description |
+| Selectie | Beschrijving |
 |----------|-------------|
 | **Alle groepen** | Beveiligingsgroepen en distributie verzendt bevat.   Het wordt ook Directory-rollen die de gebruiker is toegewezen aan het in een claim 'wids' worden verzonden en worden eventuele toepassingsrollen die de gebruiker is toegewezen aan in de rollenclaim worden verzonden. |
 | **Beveiligingsgroepen** | Verzendt de beveiligingsgroepen waarvan die de gebruiker lid van de in de claim van groepen is |
@@ -152,7 +152,7 @@ Groepclaims kunnen ook worden geconfigureerd de [optionele Claims](../../active-
    }
    ```
 
-   | Optionele Claims Schema | Value |
+   | Optionele Claims Schema | Waarde |
    |----------|-------------|
    | **Naam:** | Moet 'groepen' |
    | **Bron:** | Niet gebruikt. Weglaat of geef null-waarde |

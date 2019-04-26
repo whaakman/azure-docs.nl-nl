@@ -18,11 +18,11 @@ ms.date: 01/30/2019
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521071"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353222"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Naslaginformatie over roaminginstellingen voor Windows 10
 Hier volgt een volledige lijst van alle instellingen die worden verplaatste of een back-up in Windows 10. 
@@ -76,7 +76,7 @@ Instellingen die niet kunnen worden gebruikt of sync behoren niet tot een groep.
 | **Lijst met Apps**: lijst met geïnstalleerde apps |X |Back-up |Overige |
 | **Bluetooth**: alle Bluetooth-instellingen |X |X | |
 | **Opdrachtprompt**: Command prompt 'Standaard'-instellingen |Synchronisatie |X |Interne |
-| **referenties**: Referentiekluis |Synchronisatie |Synchronisatie |wachtwoord |
+| **referenties**: Referentiekluis |Synchronisatie |Synchronisatie |password |
 | **Datum, tijd en de regio**: automatische tijd (tijdsynchronisatie Internet) |Synchronisatie |Synchronisatie |language |
 | **Datum, tijd en de regio**: 24-uurs notatie |Synchronisatie |X |language |
 | **Datum, tijd en de regio**: datum en tijd |Synchronisatie |X |language |

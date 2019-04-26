@@ -85,13 +85,13 @@
           href: sql-database-design-first-database-csharp.md
     - name: Migreren naar SQL Database
       items:
-        - name: Migreren naar een individuele/gepoolde database met DMS
+        - name: Migreren naar een individuele of pooldatabase met DMS
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
         - name: Migreren naar een beheerd exemplaar met DMS
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
     - name: Beveiliging in SQL Database
       items:
-        - name: Beveiliging van individuele en gepoolde databases
+        - name: Beveiliging van individuele en pooldatabases
           href: sql-database-security-tutorial.md
         - name: Beveiliging van een beheerd exemplaar
           href: sql-database-managed-instance-aad-security-tutorial.md
@@ -112,7 +112,7 @@
       href: sql-database-resource-manager-samples.md
 - name: Concepten
   items:
-    - name: Modellen kopen
+    - name: Aankoopmodellen
       items:
         - name: Overzicht
           href: sql-database-purchase-models.md
@@ -128,11 +128,12 @@
       items:
         - name: Overzicht
           href: sql-database-service-tiers-general-purpose-business-critical.md
-        - name: Algemeen gebruik / Standard-servicelagen
+          displayName: provisioned compute tier
+        - name: Algemeen gebruik/Standard-servicelagen
           href: sql-database-service-tier-general-purpose.md
-        - name: Bedrijfskritiek / Premium servicelagen
+        - name: Bedrijfskritiek/Premium-servicelagen
           href: sql-database-service-tier-business-critical.md
-        - name: Hyperscale serviceniveau
+        - name: Hyperscale-servicelaag
           href: sql-database-service-tier-hyperscale.md
         - name: Veelgestelde vragen over Hyperscale
           href: sql-database-service-tier-hyperscale-faq.md
@@ -369,7 +370,7 @@
       items:
         - name: Overzicht
           href: sql-database-howto-single-database.md
-        - name: Migreren naar een individuele/gepoolde database
+        - name: Migreren naar een individuele of pooldatabase
           href: sql-database-single-database-migrate.md
         - name: SQL database na migratie beheren
           href: sql-database-manage-after-migration.md

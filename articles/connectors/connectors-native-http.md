@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442202"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447553"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Aanroepen van HTTP of HTTPS-eindpunten met Azure Logic Apps
 
@@ -77,7 +77,7 @@ Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](.
 
 1. Wanneer u klaar bent, zorg ervoor dat u uw logische app opslaat. Kies **Opslaan** op de werkbalk van de ontwerper. 
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 
 Om verificatie, kies **geavanceerde opties weergeven** in de actie of trigger. Zie voor meer informatie over beschikbare verificatietypen voor HTTP-triggers en acties [Trigger en actie typen verwijzing](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 

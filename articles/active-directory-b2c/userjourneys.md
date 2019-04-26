@@ -3,7 +3,7 @@ title: UserJourneys | Microsoft Docs
 description: Geef het UserJourneys-element van een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: ccc1f94b9411a158b5c60509e09bd3edc0a61640
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795150"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359871"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -29,7 +29,7 @@ Voor het definiëren van de gebruiker reizen ondersteund door het beleid, een **
 
 De **UserJourneys** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | UserJourney | 1: n | Een gebruikersbeleving waarmee alle van de concepten die nodig zijn voor een volledige gebruikersstroom wordt gedefinieerd. | 
 
@@ -55,13 +55,13 @@ Om op te geven van de geordende lijst indelingsstappen, een **OrchestrationSteps
 
 De **OrchestrationSteps** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | OrchestrationStep | 1: n | Een geordende indelingsstap. | 
 
 De **OrchestrationStep** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | `Order` | Ja | De volgorde van de orchestration-stappen. | 
 | `Type` | Ja | Het type van de orchestration-stap. Mogelijke waarden: <ul><li>**ClaimsProviderSelection** -geeft aan dat de indelingsstap verschillende claimproviders vormt voor de gebruiker er een selecteren.</li><li>**CombinedSignInAndSignUp** -geeft aan dat de indelingsstap een gecombineerde sociale provider pagina voor het registreren van aanmelding en lokale account biedt.</li><li>**ClaimsExchange** -geeft aan dat de indelingsstap claims met een claimprovider uitwisselt.</li><li>**SendClaims** -geeft aan dat de indelingsstap de claims voor de relying party met een token dat is uitgegeven door een verlener van claims verzendt.</li></ul> | 
@@ -71,7 +71,7 @@ De **OrchestrationStep** element bevat de volgende kenmerken:
 
 De **OrchestrationStep** element mag de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- | 
 | Voorwaarden | 0: n | Een lijst met voorwaarden waaraan moet worden voldaan voor de orchestration-stap om uit te voeren. | 
 | ClaimsProviderSelections | 0: n | Een lijst van de claims provider selecties voor de orchestration-stap. | 
@@ -90,16 +90,16 @@ De **voorwaarden** element bevat het volgende element:
 
 De **voorwaarde** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | `Type` | Ja | Het type selectievakje of de query uit te voeren voor deze voorwaarde. De waarde kan zijn **ClaimsExist**, dat aangeeft dat de acties die moeten worden uitgevoerd als de opgegeven claims aanwezig is in de huidige claimset van de gebruiker, of **ClaimEquals**, dat aangeeft dat de acties moet worden uitgevoerd als de opgegeven claim bestaat en de waarde gelijk aan de opgegeven waarde is. |
 | `ExecuteActionsIf` | Ja | Gebruik een test waar of ONWAAR om te bepalen als de acties in de eerste voorwaarde moeten worden uitgevoerd. | 
 
 De **voorwaarde** elementen bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
-| Value | 1: n | Een ClaimTypeReferenceId moet worden gezocht voor. Een andere waarde-element bevat de waarde moet worden gecontroleerd.</li></ul>|
+| Waarde | 1: n | Een ClaimTypeReferenceId moet worden gezocht voor. Een andere waarde-element bevat de waarde moet worden gecontroleerd.</li></ul>|
 | Bewerking | 1:1 | De actie die moet worden uitgevoerd als de controle van de voorwaarde in een orchestration-stap ingesteld op true is. Als de waarde van de `Action` is ingesteld op `SkipThisOrchestrationStep`, de bijbehorende `OrchestrationStep` moet niet worden uitgevoerd. | 
 
 #### <a name="preconditions-examples"></a>Voorbeelden van voorwaarden

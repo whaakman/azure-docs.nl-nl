@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381559"
 ---
-# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Faseringsserver en herstel na noodgevallen
+# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Serverherstel en herstel na noodgevallen faseren
 Met een server in de faseringsmodus bevindt, kunt u wijzigingen aanbrengt aan de configuratie en de wijzigingen bekijken voordat u de server actief maken. U kunt er ook volledige import en een volledige synchronisatie om te verifiëren dat alle wijzigingen worden verwacht, voordat u deze wijzigingen in uw productieomgeving aanbrengt uit te voeren.
 
 ## <a name="staging-mode"></a>Faseringsmodus

@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+origin.date: 10/09/2018
+ms.date: 03/15/2019
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 67ae5d2661371c256f753d05eb496d2cd53a0017
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60350487"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect en federatie
 Met Azure Active Directory (Azure AD) Connect kunt u bij het configureren van Federatie met on-premises Active Directory Federation Services (AD FS) en Azure AD. Met de aanmelding federation kunt u gebruikers zich aanmelden voor Azure op basis van een AD-services met hun on-premises wachtwoorden-- en, terwijl op het bedrijfsnetwerk bevinden, zonder te hoeven hun wachtwoord opnieuw invoeren. U kunt een nieuwe installatie van AD FS implementeren met de optie Federatie met AD FS, of kunt u een bestaande installatie in een farm met Windows Server 2012 R2.
@@ -55,3 +56,5 @@ In dit onderwerp is de thuisbasis voor informatie over de federation-gerelateerd
 * [Federeren twee Azure AD met één AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md)
 * [AD FS-implementatie in Azure](how-to-connect-fed-azure-adfs.md)
 * [Hoge beschikbaarheid meerdere regio's AD FS-implementatie in Azure met Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
+
+<!-- Update_Description: update metedata properties -->

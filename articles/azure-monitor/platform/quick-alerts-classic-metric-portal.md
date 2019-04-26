@@ -10,11 +10,11 @@ ms.author: ancav
 ms.custom: mvc
 ms.subservice: alerts
 ms.openlocfilehash: f8b9db47684a6dd78302f094d8e670da4a61ab2c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849808"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60453338"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Een melding ontvangen wanneer een metrische waarde voldoet aan een voorwaarde
 

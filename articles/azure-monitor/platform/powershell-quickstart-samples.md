@@ -9,11 +9,11 @@ ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: 59cb14c86963d956b0bd63f65b10776dff4aa97f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698073"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452718"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Voorbeelden om snel aan de slag met Azure Monitor PowerShell
 In dit artikel ziet u PowerShell-opdrachten kunt u toegang tot de functies van Azure Monitor een steekproef.
@@ -140,7 +140,7 @@ U kunt maken e-mail en webhook-eigenschappen met behulp van `New-AzAlertRuleEmai
 
 De volgende tabel beschrijft de parameters en waarden die worden gebruikt voor het maken van een waarschuwing met behulp van een metrische waarde.
 
-| Parameter | waarde |
+| Parameter | value |
 | --- | --- |
 | Name |simpletestdiskwrite |
 | Locatie van deze waarschuwingsregel |US - oost |

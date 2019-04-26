@@ -18,11 +18,11 @@ ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 82e9941a6c468a3b0ed9d1f22a2970cfa6584617
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439342"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411229"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Rollover van ondertekeningssleutel gebruiken in Azure Active Directory
 In dit artikel wordt beschreven wat u moet weten over de openbare sleutels die worden gebruikt in Azure Active Directory (Azure AD) om beveiligingstokens te ondertekenen. Het is belangrijk te weten dat de rollover van deze sleutels op periodieke basis en, in geval van nood, direct kan worden meegenomen. Alle toepassingen die gebruikmaken van Azure AD moet kunnen via de programmacode verwerken van het proces sleutelrollover of tot stand brengen van een periodieke handmatige rollover-proces. Lees verder voor u te begrijpen hoe de sleutels werken, het beoordelen wat de impact van de overschakeling van uw toepassing en het bijwerken van uw toepassing of een rollover van periodieke handmatige proces voor het afhandelen van sleutelrollover indien nodig tot stand brengen.

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
 ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629275"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498345"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Key Vault-analyse-oplossing in Azure Monitor
 
@@ -108,7 +108,7 @@ De oplossing Azure Key Vault analyseert records met het type van **KeyVaults** d
 | Type |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
 | CallerIpAddress |IP-adres van de client die de aanvraag heeft ingediend |
-| Categorie | *AuditEvent* |
+| Category | *AuditEvent* |
 | CorrelationId |Een optionele GUID die de client kan doorgeven om de logboeken aan de clientzijde te relateren aan (Sleutelkluis-)logboeken aan de servicezijde. |
 | DurationMs |De tijd die nodig was om de REST-API-aanvraag af te handelen in milliseconden. Deze tijd omvat niet de netwerklatentie, zodat de tijd die u aan de clientzijde meet mogelijk niet overeenkomt met de tijd. |
 | httpStatusCode_d |HTTP-statuscode is geretourneerd door de aanvraag (bijvoorbeeld *200*) |

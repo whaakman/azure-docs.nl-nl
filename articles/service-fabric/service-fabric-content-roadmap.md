@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
 ms.openlocfilehash: dfe08152f986ccac3dabe7b3bb21e7653ee812a4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011177"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394377"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Zo wilt u meer informatie over Service Fabric?
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices.  Service Fabric is een grote-gebied, en er is veel te leren.  In dit artikel biedt een overzicht van Service Fabric en beschrijft de belangrijkste concepten, programmeermodellen, levensduur van toepassingen, testen, clusters en statuscontrole. Lees de [overzicht](service-fabric-overview.md) en [wat zijn microservices?](service-fabric-overview-microservices.md) voor een inleiding en hoe Service Fabric kan worden gebruikt om te maken van microservices. In dit artikel bevat een uitgebreide lijst met inhoud, maar koppelen aan het overzicht en artikelen aan de slag voor elk gebied van Service Fabric. 

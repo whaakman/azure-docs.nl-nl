@@ -52,7 +52,7 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Hiermee maakt u een App Service-plan. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Hiermee maakt u een App Service-app. |
-| [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | Hiermee maakt u een SQL-databaseserver. |
+| [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | Hiermee maakt u een SQL Database-server. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Hiermee maakt u een firewallregel voor een SQL Database-server. |
 | [New-AzSQLDatabase](/powershell/module/az.sql/new-azsqldatabase) | Hiermee maakt u een database of een elastische database. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Hiermee wijzigt u de configuratie van een App Service-app. |

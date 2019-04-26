@@ -2,18 +2,18 @@
 title: 'Zelfstudie: Windows-bestandsservers uitbreiden met Azure File Sync | Microsoft Docs'
 description: Informatie over hoe u Windows-bestandsservers kunt uitbreiden met Azure File Sync, van begin tot eind.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/23/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 9d7162eca3c2979b1dd333bdaf95c7c43e875b9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049135"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60461914"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Zelfstudie: Windows-bestandsservers uitbreiden met Azure File Sync
 
@@ -218,7 +218,7 @@ Om Azure File Sync te implementeren, plaatst u eerst een resource van een **opsl
 
    Voer de volgende gegevens in in het deelvenster dat verschijnt:
 
-   | Value | Beschrijving |
+   | Waarde | Beschrijving |
    | ----- | ----- |
    | **Naam** | Een unieke naam (per abonnement) voor opslagsynchronisatieservice.<br><br>Gebruik voor deze zelfstudie _afssyncservice02_. |
    | **Abonnement** | Het Azure-abonnement dat u gebruikt voor deze zelfstudie. |
@@ -264,7 +264,7 @@ De gebruikersinterface van de serverregistratie moet automatisch worden geopend 
 
    | | |
    | ----- | ----- |
-   | Value | Description |
+   | Waarde | Description |
    | **Azure-abonnement** | Het abonnement dat de opslagsynchronisatieservice voor deze zelfstudie bevat. |
    | **Resourcegroep** | De resourcegroep die de opslagsynchronisatieservice bevat. Gebruik voor deze zelfstudie _afsresgroup101918_. |
    | **Opslagsynchronisatieservice** | De naam van de opslagsynchronisatieservice. Gebruik voor deze zelfstudie _afssyncservice02_. |
@@ -283,7 +283,7 @@ Een synchronisatiegroep definieert de synchronisatietopologie voor een verzameli
 
 1. Voer de volgende gegevens in om een synchronisatiegroep met een cloudeindpunt te maken:
 
-   | Value | Beschrijving |
+   | Waarde | Beschrijving |
    | ----- | ----- |
    | **Naam synchronisatiegroep** | Deze naam moet uniek zijn binnen de opslagsynchronisatieservice, maar het mag een willekeurige naam zijn die u makkelijk kunt onthouden. Gebruik voor deze zelfstudie *afssyncgroup*.|
    | **Abonnement** | Het abonnement waar u de opslagsynchronisatieservice voor deze zelfstudie hebt geïmplementeerd. |
@@ -306,7 +306,7 @@ Een servereindpunt vertegenwoordigt een specifieke locatie op een geregistreerde
 
    | | |
    | ----- | ----- |
-   | Value | Description |
+   | Waarde | Description |
    | **Geregistreerde server** | De naam van de server die u hebt gemaakt. Gebruik voor deze zelfstudie *afsvm101918*. |
    | **Pad** | Het Windows Server-pad naar het station dat u hebt gemaakt. Gebruik in deze zelfstudie *f:\filestosync*. |
    | **Cloudopslaglagen** | Voor deze zelfstudie uitgeschakeld laten. |

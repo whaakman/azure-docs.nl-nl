@@ -13,11 +13,11 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 2dd3b9f0d1d8d61b2311977774c8b0f7267caa9e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090607"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60330994"
 ---
 # <a name="extended-events-in-sql-database"></a>Uitgebreide gebeurtenissen in SQL-Database
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -82,7 +82,7 @@ Verwante onderwerpen bieden twee voorbeelden van code:
 
 De uitgebreide gebeurtenissen-functie wordt ondersteund door verschillende [weergaven van catalogus](https://msdn.microsoft.com/library/ms174365.aspx). Catalogusweergaven vertellen u *metagegevens of definities* van de gebruiker gemaakte event-sessies in de huidige database. De weergaven retourneren geen informatie over exemplaren van actieve gebeurtenissessies.
 
-| Naam van<br/>Catalogusweergave | Description |
+| Naam van<br/>Catalogusweergave | Beschrijving |
 |:--- |:--- |
 | **sys.database_event_session_actions** |Retourneert een rij voor elke actie die bij elke gebeurtenis van een event-sessie. |
 | **sys.database_event_session_events** |Retourneert een rij voor elke gebeurtenis in een event-sessie. |

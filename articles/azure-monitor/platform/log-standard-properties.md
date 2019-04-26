@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: bwren
 ms.openlocfilehash: c01cdb967fd7f9516b4403aa4f0c76f2577d5050
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294719"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394520"
 ---
 # <a name="standard-properties-in-azure-monitor-log-records"></a>Standaard-eigenschappen in Azure Monitor records in logboek registreren
 Logboekgegevens in Azure Monitor is [opgeslagen als een set records](../log-query/log-query-overview.md), elk met een bepaald type met een unieke set eigenschappen. Veel gegevenstypen heeft standaard-eigenschappen die betrekking hebben op meerdere typen. Dit artikel worden deze eigenschappen en voorbeelden van hoe u ze in query's gebruiken kunt.

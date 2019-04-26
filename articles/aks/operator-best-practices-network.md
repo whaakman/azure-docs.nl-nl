@@ -2,17 +2,18 @@
 title: Operator aanbevolen procedures - verbinding met het netwerk in Azure Kubernetes Services (AKS)
 description: Meer over de best practices uit de cluster-operator voor virtuele-netwerkbronnen en connectiviteit in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 12/10/2018
-ms.author: iainfou
+origin.date: 12/10/2018
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: aaa16245fada7fbccdd0865d973de2fa19970989
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60464002"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor verbinding met het netwerk en beveiliging in Azure Kubernetes Service (AKS)
 

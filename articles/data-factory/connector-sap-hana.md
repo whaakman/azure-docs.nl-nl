@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022968"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343763"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Gegevens kopiëren van SAP HANA met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-sap-hana-connector.md)
 > * [Huidige versie](connector-sap-hana.md)
 
@@ -162,23 +162,23 @@ Het kopiëren van gegevens van SAP HANA, worden de volgende toewijzingen van SAP
 
 | SAP HANA-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
-| ALPHANUM | Reeks |
+| ALPHANUM | String |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
 | BOOLEAANSE WAARDE | Byte |
 | CLOB | Byte[] |
 | DATE | DateTime |
-| DECIMAAL | Decimaal |
-| DOUBLE-WAARDE | Enkelvoudig |
+| DECIMAL | Decimal |
+| DOUBLE | Single |
 | INT | Int32 |
-| NVARCHAR | Reeks |
-| ECHTE | Enkelvoudig |
+| NVARCHAR | String |
+| ECHTE | Single |
 | SECONDDATE | DateTime |
 | SMALLINT | Int16 |
 | TIME | TimeSpan |
 | TIJDSTEMPEL | DateTime |
 | TINYINT | Byte |
-| VARCHAR | Reeks |
+| VARCHAR | String |
 
 ## <a name="known-limitations"></a>Bekende beperkingen
 

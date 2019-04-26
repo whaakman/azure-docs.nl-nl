@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
 ms.openlocfilehash: 2bdcd4c504822a2e60156b0ac565465e0cf23a85
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358521"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388808"
 ---
 # <a name="use-habitat-to-deploy-your-application-to-azure"></a>Habitat gebruiken voor het implementeren van uw toepassing in Azure
 [Habitat](https://www.habitat.sh/) is een toepassing verpakking en runtime systeem dat de toepassing en de automatisering samen als de implementatie-eenheid worden. Hiermee maakt u ultimate draagbaarheid van de toepassing, zodat het kan worden geïmplementeerd op containers, virtuele machines, bare-metalcomputers of PaaS, zonder een herschrijven of opnieuw verpakken.

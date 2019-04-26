@@ -14,14 +14,14 @@ manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: eeb932123e57dcb10fce3baf9670d8c1ae961fb8
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361604"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>CLI gebruiken voor het controleren en schalen van één Azure SQL-database
 
-In dit Azure CLI-voorbeeldscript wordt één Azure SQL-database naar een andere rekengrootte geschaald nadat er een query is gestuurd over de grootte van de database.
+In dit Azure CLI-voorbeeldscript wordt één Azure SQL-database naar een andere rekenkracht geschaald nadat er een query is gestuurd over de grootte van de database.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -52,8 +52,8 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Hiermee maakt u een SQL Database-server die individuele databases en elastische pools host. |
-| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql#az-sql-show-usage) | Toont de gebruikte grootte voor een individuele of gepoolde database. |
-| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | Hiermee worden database-eigenschappen (zoals de servicelaag of de rekengrootte) bijgewerkt of wordt een database verplaatst naar, uit of tussen elastische pools. |
+| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql#az-sql-show-usage) | Toont de gebruikte grootte voor een individuele of pooldatabase. |
+| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | Hiermee worden database-eigenschappen (zoals de servicelaag of de rekenkracht) bijgewerkt of wordt een database verplaatst naar, uit of tussen elastische pools. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 |||
 

@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 21558c4eccf0cd1f4e9e1d630f0e89dbb6f01c51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201700"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381158"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Bepaal de vereisten voor directory-synchronisatie
 Synchronisatie is alles over biedt gebruikers een identiteit in de cloud op basis van hun on-premises-identiteit. Ongeacht of ze gesynchroniseerde account wordt gebruikt voor verificatie of federatieve verificatie, of niet wordt nog steeds de gebruikers moeten beschikken over een identiteit in de cloud.  Deze identiteit moet worden onderhouden en regelmatig bijgewerkt.  De updates kunnen vele vormen aannemen, van wijzigingen voor de titel te wijzigen van wachtwoorden.  

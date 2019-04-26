@@ -3,18 +3,18 @@ title: Azure-services en toepassingen met behulp van Grafana bewaken
 description: Route Azure Monitor en Application Insights gegevens, zodat u ze in Grafana bekijken kunt.
 services: azure-monitor
 keywords: ''
-author: rboucher
-ms.author: robb
-ms.date: 11/06/2017
+author: lingliw
+ms.author: v-lingwu
+ms.date: 04/12/19
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
 ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395941"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Bewaken van uw Azure-services in Grafana
 U kunt nu Azure-services en toepassingen van bewaken [Grafana](https://grafana.com/) met behulp van de [Azure Monitor-gegevensbron invoegtoepassing](https://grafana.com/plugins/grafana-azure-monitor-datasource). De invoegtoepassing verzamelt prestatiegegevens van toepassingen die door Azure Monitor, met inbegrip van verschillende logboeken en metrische gegevens worden verzameld. U kunt deze gegevens vervolgens weergeven in het Grafana-dashboard.
@@ -168,4 +168,3 @@ Als u een omgeving met Grafana setup op Azure hebt, worden er kosten berekend wa
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Overzicht van Azure Monitor Metrics](data-platform.md)
-

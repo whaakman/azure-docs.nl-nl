@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.openlocfilehash: ef24e356c9ac8424fc519a3b16af5d37a20e706f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444151"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>De ondergeschikte Azure-Plugin gebruiken met Hudson CI
 Invoegtoepassing voor Hudson slave Azure kunt u de ondergeschikte knooppunten op Azure in te richten bij het uitvoeren van gedistribueerde bouwt.

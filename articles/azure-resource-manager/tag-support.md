@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 02/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270382"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388060"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tag-ondersteuning voor Azure-resources
 Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-group-using-tags.md).
@@ -301,7 +301,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
 | Mogelijkheden | Nee | 
-| Schijven | Nee | 
+| schijven | Nee | 
 | images | Nee | 
 | osImages | Nee | 
 | osPlatformImages | Nee | 
@@ -328,7 +328,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
 | availabilitySets | Ja | 
-| Schijven | Ja | 
+| schijven | Ja | 
 | images | Ja | 
 | restorePointCollections | Ja | 
 | restorePointCollections/restorePoints | Nee | 
@@ -864,7 +864,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | dnszones/TXT | Nee | 
 | expressRouteCircuits | Ja | 
 | expressRouteServiceProviders | Nee | 
-| frontdoors | Ja | 
+| ingangen | Ja | 
 | frontdoorWebApplicationFirewallPolicies | Ja | 
 | getDnsResourceReference | Nee | 
 | interfaceEndpoints | Ja | 
@@ -1037,7 +1037,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | externalSecuritySolutions | Nee | 
 | InformationProtectionPolicies | Nee | 
 | jitNetworkAccessPolicies | Nee | 
-| controle | Nee | 
+| bewaking | Nee | 
 | monitoring/antimalware | Nee | 
 | bewaking/basislijn | Nee | 
 | bewaking/patch | Nee | 

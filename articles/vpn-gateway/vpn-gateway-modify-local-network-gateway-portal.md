@@ -3,8 +3,8 @@ title: Het lokale netwerk gateway IP-adresvoorvoegsels en het VPN-Gateway-IP-adr
 description: Dit artikel begeleidt u bij het wijzigen van IP-adresvoorvoegsels voor uw lokale netwerkgateway met behulp van de Azure portal.
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
+author: WenJason
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2017
-ms.author: cherylmc
+origin.date: 06/19/2017
+ms.date: 12/10/2018
+ms.author: v-jay
 ms.openlocfilehash: 12f1f8bbcb103d0882059cadc12bc1a8b9d40bdb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419583"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Lokale instellingen netwerkgateway wijzigen met behulp van de Azure portal
 
@@ -29,7 +30,7 @@ Soms worden de instellingen voor uw lokale netwerkgateway AddressPrefix of Gatew
 Voordat u de verbinding verwijdert, kunt u de configuratie voor uw verbindende apparaten om op te halen van de gedefinieerde PSK downloaden. Op die manier hoeft u te definiëren het aan de andere kant.
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [Azure-portal](vpn-gateway-modify-local-network-gateway-portal.md)
 > * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 > * [Azure-CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 >

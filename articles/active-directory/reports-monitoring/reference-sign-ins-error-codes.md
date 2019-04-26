@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8fefc2eb2e642b5c7ac93b8a1cfc25a54c3b646
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996166"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437136"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Foutcodes voor aanmeldingsactiviteiten rapport 
 
@@ -53,7 +53,7 @@ U kunt ook programmatisch toegang verkrijgen tot de aanmelding via de [rapportag
 ## <a name="error-codes"></a>Foutcodes
 
 
-|Fout|Description|
+|Fout|Beschrijving|
 |---|---|
 |16000|Dit is een interne implementatiedetail en niet een fout optreedt. U kunt deze referentie negeren.|
 |20001|Er is een probleem met uw federatieve id-provider. Neem contact op met uw IDP om dit probleem op te lossen.|

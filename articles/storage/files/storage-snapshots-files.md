@@ -2,18 +2,18 @@
 title: Overzicht van share-momentopnamen voor Azure Files | Microsoft Docs
 description: Momentopname van een share is een alleen-lezen versie van een Azure-bestandsshare die moet worden uitgevoerd op een punt in tijd, als een manier om back-up van de share.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 01/17/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 8d6bca12ae1df0cab7be3e1c54467d32063bacaf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444092"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Overzicht van share-momentopnamen voor Azure Files 
 Azure Files biedt de mogelijkheid voor share-momentopnamen van bestandsshares. Momentopnamen vastleggen van de status van de share op dat punt in tijd delen. In dit artikel wordt beschreven welke mogelijkheden bieden voor momentopnamen van shares en hoe u kunt profiteren van deze in uw aangepaste situatie.
@@ -58,7 +58,7 @@ Hoewel momentopnamen van shares incrementeel zijn opgeslagen, moet u ook alleen 
 
 Momentopnamen tellen niet mee voor uw limiet van 5 TB delen. Er is geen limiet voor hoeveel ruimte momentopnamen in totaal in beslag nemen. Opslagaccountlimieten nog steeds van toepassing.
 
-## <a name="limits"></a>Limieten
+## <a name="limits"></a>Limits
 Het maximum aantal momentopnamen van shares die Azure Files vandaag kunnen is 200. Nadat 200 momentopnamen hebt u oudere momentopnamen van shares verwijderen om het nieuwe te maken. 
 
 Er is geen limiet voor de gelijktijdige aanroepen voor het maken van momentopnamen van shares. Er is geen limiet voor de hoeveelheid ruimte die share momentopnamen van een bepaalde bestandsshare kunnen gebruiken. 

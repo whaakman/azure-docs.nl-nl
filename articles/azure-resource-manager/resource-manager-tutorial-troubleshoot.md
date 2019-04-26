@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1a7a0604117dde55300a779bb1b7167c8da4e056
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: c889c3123160680d96889227d6964ff197dc41cc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388648"
 ---
 # <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Zelfstudie: Problemen met implementaties van Resource Manager-sjablonen oplossen
 

@@ -14,14 +14,14 @@ manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6fa21c0fea2eeacd17cfe9f0d7ba58d55ed60af1
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357584"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Een Azure SQL-database verplaatsen naar een elastische SQL-groep met de CLI
 
-In dit voorbeeld van een Azure CLI-script worden twee elastische groepen of pools gemaakt, waarna een Azure SQL-database van de ene elastische SQL-groep naar een andere elastische SQL-groep wordt verplaatst. Vervolgens wordt de database vanuit de elastische groep verplaatst naar een bepaalde categorie rekenuren voor individuele databases.
+In dit voorbeeld van een Azure CLI-script worden twee elastische groepen of pools gemaakt, waarna een Azure SQL-database van de ene elastische SQL-groep naar een andere elastische SQL-groep wordt verplaatst. Vervolgens wordt de database vanuit de elastische groep verplaatst naar een bepaalde categorie rekenkracht voor individuele databases.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

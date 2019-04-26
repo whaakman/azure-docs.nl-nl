@@ -13,11 +13,11 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: abb4a43176026fca5a80409ade13af1f8f96d9f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481651"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390483"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configureren en beheren van Azure Active Directory-verificatie met behulp van SQL
 
@@ -195,7 +195,7 @@ PowerShell-cmdlets, hebt u nodig hebt van Azure PowerShell installeren en uitvoe
 
 Cmdlets gebruikt voor het inrichten en beheren van Azure AD-beheerder:
 
-| Naam van cmdlet | Description |
+| Naam van cmdlet | Beschrijving |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Richt een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. (Moet zich in het huidige abonnement.) |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Hiermee verwijdert u een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. |

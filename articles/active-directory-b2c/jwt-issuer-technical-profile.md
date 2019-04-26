@@ -3,7 +3,7 @@ title: Een technisch profiel definiëren voor een JWT-token certificaatverlener 
 description: Definieer een technisch profiel voor een JWT-token certificaatverlener in een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 10/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 247ebdc8156453062eefe6738c5c281d393a9923
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436051"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396764"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Een technisch profiel voor een JWT-token certificaatverlener in een aangepast Azure Active Directory B2C-beleid definiëren
 
@@ -60,7 +60,7 @@ De **InputClaims**, **OutputClaims**, en **PersistClaims** elementen zijn leeg o
 
 Het element CryptographicKeys bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | issuer_secret | Ja | De X509 certificaat (RSA-sleutelpaar) moet worden gebruikt om te ondertekenen van de JWT-token. Dit is de `B2C_1A_TokenSigningKeyContainer` sleutel u geconfigureerd kan [aan de slag met aangepaste beleidsregels](active-directory-b2c-get-started-custom.md). | 
 | issuer_refresh_token_key | Ja | De X509 (RSA-sleutelpaar) te gebruiken voor het versleutelen van het vernieuwingstoken dat certificaat. U hebt geconfigureerd de `B2C_1A_TokenEncryptionKeyContainer` sleutel in [aan de slag met aangepaste beleidsregels](active-directory-b2c-get-started-custom.md) |

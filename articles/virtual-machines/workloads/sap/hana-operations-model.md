@@ -15,13 +15,13 @@ ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 36a648e2d46cce96a8ff663f45ccf45326898a84
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417003"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60477870"
 ---
-# <a name="operations-model-and-responsibilities"></a>Operationeel model en -verantwoordelijkheden
+# <a name="operations-model-and-responsibilities"></a>Bewerkingsmodel en verantwoordelijkheden
 
 De service die wordt geleverd met SAP HANA op Azure (grote instanties) is afgestemd op Azure IaaS-services. U krijgt een exemplaar van een HANA grote instantie met een geïnstalleerd besturingssysteem dat is geoptimaliseerd voor SAP HANA. Met Azure IaaS VM's, de meeste van de taken van de beperking van het besturingssysteem, extra software te installeren, HANA installeren, die het besturingssysteem en HANA en bijwerken van het besturingssysteem en HANA is uw verantwoordelijkheid. Microsoft biedt geen verplichten om updates van het besturingssysteem of updates voor HANA op u.
 

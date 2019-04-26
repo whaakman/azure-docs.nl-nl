@@ -4,25 +4,27 @@ description: Uw Azure-cloud service-toepassing om toe te staan van verbindingen 
 services: cloud-services
 author: ghogen
 manager: douge
+editor: ''
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
-ms.custom: vs-azure
-ms.topic: conceptual
-ms.workload: azure-vs
-ms.date: 03/06/2018
-ms.author: ghogen
-ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.service: multiple
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+origin.date: 03/06/2018
+ms.date: 10/22/2018
+ms.author: v-yiso
+ms.openlocfilehash: 924719a8371f4d41cb9ead09252d8f3d3424326a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406443"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Verbinding met extern bureaublad inschakelen voor een rol in Azure Cloud Services met behulp van Visual Studio
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Azure-portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
@@ -46,6 +48,8 @@ Wanneer u Visual Studio 2017 versie 15.4 of eerder gebruikt, kunt u de **extern 
 
    > [!Note]
    > De certificaten die u nodig hebt voor een verbinding met extern bureaublad verschillen van de certificaten die u voor andere Azure-bewerkingen gebruikt. De RAS-certificaat moet een persoonlijke sleutel hebben.
+   >
+   >
 
 5. Selecteer een certificaat in de lijst of kies  **&lt;maken... &gt;**. Als u een nieuw certificaat maakt, Geef een beschrijvende naam voor het nieuwe certificaat wanneer u hierom wordt gevraagd en selecteert u **OK**. Het nieuwe certificaat wordt weergegeven in de vervolgkeuzelijst lijst.
 
@@ -95,7 +99,7 @@ Voor het gebruik van de RDP-extensie van Azure DevOps-Services, zijn onder ander
 
 1. Nadat uw build-stappen toevoegen de **Azure Cloud Service-implementatie** stap en de eigenschappen instellen.
 
-1. Na de implementatiestap van de toevoegen een **Azure Powershell** stap, stelt u de **weergavenaam** eigenschap in op "Azure-implementatie: inschakelen RDP-extensie" (of een andere geschikte naam), en selecteer de juiste Azure het abonnement.
+1. Na de implementatiestap van de toevoegen een **Azure Powershell** stap, stelt u de **weergavenaam** eigenschap in op ' Azure-implementatie: RDP-extensie inschakelen' (of een andere geschikte naam) en selecteer de juiste Azure-abonnement.
 
 1. Stel **scripttype** aan als zijnde "Inline" en plak de onderstaande code in de **Inline Script** veld. (U kunt ook maken een `.ps1` -bestand in uw project met dit script, stelt u de **scripttype** naar "Pad naar scriptbestand" en stel **scriptpad** om te verwijzen naar het bestand.)
 
@@ -146,6 +150,6 @@ Nadat u uw cloudservice op Azure publiceren en extern bureaublad hebt ingeschake
 
 3. Voer de gebruikersnaam en wachtwoord die u eerder hebt gemaakt. U bent nu aangemeld bij de externe sessie.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 [Cloud Services configureren](cloud-services-how-to-configure-portal.md)
