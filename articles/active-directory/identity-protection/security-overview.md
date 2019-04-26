@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 610668768c7baca13cb60caf1d810cced31ebec3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516430"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452932"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection - beveiligingsoverzicht
 
@@ -69,7 +69,7 @@ De tegel 'Niet-beveiligde riskante aanmeldingen' zien van de afgelopen week aant
 De tegel 'Legacy authentication' ziet u de afgelopen week telling van verouderde verificaties in uw organisatie. Verouderde verificatieprotocollen bieden geen ondersteuning voor moderne beveiligingsmethoden, zoals een MFA. Om te voorkomen dat een legacy-verificatie, kunt u een beleid voor voorwaardelijke toegang toepassen. Klik op de tegel 'Legacy verificatie' wordt u doorgestuurd naar de 'identiteit Secure Score'.
 
 
-### <a name="identity-secure-score"></a>Identiteit beveiligde Score
+### <a name="identity-secure-score"></a>Identity Secure Score
 
 De identiteit Secure Score meet en vergelijking van uw beveiligingspostuur branche patronen. Als u klikt op de tegel 'Identiteit Secure Score (Preview)', wordt deze omgeleid naar de blade 'Identiteit Secure Score (Preview)' is waar u kunt meer informatie over uw beveiligingspostuur verbeteren.
 

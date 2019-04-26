@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
 ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104706"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60462585"
 ---
 # <a name="project-url-preview-v7-reference"></a>Naslaggids voor project URL-voorbeeld voor Bing versie 7
 
@@ -73,7 +73,7 @@ Hier volgen de headers die bijvoorbeeld een aanvraag en antwoord bevatten.
 ## <a name="query-parameters"></a>Queryparameters
 De aanvraag kan de volgende queryparameters bevatten. Zie de vereiste kolom voor vereiste parameters. Moet u de URL de queryparameters coderen. De query moet een absolute URL met een schema http of https; We bieden geen ondersteuning voor relatieve URL's of andere schema's, zoals ftp: / /
 
-|Name|Value|Type|Vereist|
+|Name|Waarde|Type|Vereist|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|De markt waaruit de resultaten afkomstig zijn. <br /><br />Zie voor een lijst van mogelijke waarden van de markt, markt-Codes.<br /><br /> **OPMERKING:** De URL van Preview-API ondersteunt momenteel alleen Amerikaanse Geografie en Engelse taal.<br /><br />|String|Ja|
 |<a name="query" />q|De URL om een voorbeeld van|String|Ja|
@@ -102,7 +102,7 @@ Hiermee definieert u de fout is opgetreden.
 ### <a name="errorresponse"></a>ErrorResponse
 Het object van het type op het hoogste niveau dat het antwoord bevat als de aanvraag is mislukt.
 
-|Name|Value|Type|
+|Name|Waarde|Type|
 |----------|-----------|----------|
 |_type|Type hint.|String|
 |<a name="errors" />Fouten|Een lijst van fouten die worden beschreven van de redenen waarom de aanvraag is mislukt.|[Fout](#error)]|
@@ -110,7 +110,7 @@ Het object van het type op het hoogste niveau dat het antwoord bevat als de aanv
 ### <a name="webpage"></a>WebPage
 Informatie over definieert een de webpagina wordt weergegeven in de Preview-versie.
 
-|Name|Value|Type|
+|Name|Waarde|Type|
 |----------|-----------|----------|
 |naam|De titel van de pagina, niet per se de HTML-titel|String|
 |url|De URL die daadwerkelijk is verkend (aanvraag kan hebt gevolgd omleidingen)|String|
@@ -119,7 +119,7 @@ Informatie over definieert een de webpagina wordt weergegeven in de Preview-vers
 |primaryImageOfPage/contentUrl|De URL naar een representatieve afbeelding wilt opnemen in de Preview-versie|String|
 
 ### <a name="identifiable"></a>Identificeerbare
-|Name|Value|Type|
+|Name|Waarde|Type|
 |-------------|-----------------|----------|
 |id|Een resource-id|String|
 
@@ -127,7 +127,7 @@ Informatie over definieert een de webpagina wordt weergegeven in de Preview-vers
 
 Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
 
-|Statuscode|Description|
+|Statuscode|Beschrijving|
 |-----------------|-----------------|
 |200|Geslaagd.|
 |400|Een van de queryparameters is ontbreekt of is ongeldig.|

@@ -16,11 +16,11 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60468314"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Beheerdersrollen door admin-taak in Azure Active Directory
 
@@ -45,7 +45,7 @@ Taak | Minste bevoorrechte rol | Aanvullende functies
 ---- | --------------------- | ----------------
 Azure AD B2C-directory's maken | Alle niet-gastgebruikers ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 B2C-toepassingen maken | Globale beheerder | 
-Zakelijke toepassingen maken | Beheerder van de cloudtoepassing | Toepassingsbeheerder
+Zakelijke toepassingen maken | Cloudtoepassingsbeheerder | Toepassingsbeheerder
 Maken, lezen, bijwerken en verwijderen van de B2C-beleid | Globale beheerder | 
 Maken, lezen, bijwerken en verwijderen van de id-providers | Globale beheerder | 
 Maken, lezen, bijwerken en verwijderen van de gebruikersstromen voor wachtwoord opnieuw instellen | Globale beheerder | 
@@ -62,7 +62,7 @@ Lezen B2C-auditlogboeken | Globale beheerder ([Raadpleeg de documentatie bij](ht
 Taak | Minste bevoorrechte rol | Aanvullende functies
 ---- | --------------------- | ----------------
 Bedrijfshuisstijl configureren | Globale beheerder | 
-Alle configuratie lezen | Lezers van mappen | Standaard-gebruikersrol ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Alle configuratie lezen | Adreslijstlezers | Standaard-gebruikersrol ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
 ## <a name="company-properties"></a>Eigenschappen van het bedrijf
 
@@ -101,7 +101,7 @@ Metrische gegevens weergeven sync-service en waarschuwingen | Lezer ([Raadpleeg 
 Taak | Minste bevoorrechte rol | Aanvullende functies
 ---- | --------------------- | ----------------
 Domeinen beheren | Globale beheerder | 
-Alle configuratie lezen | Lezers van mappen | Standaard-gebruikersrol ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Alle configuratie lezen | Adreslijstlezers | Standaard-gebruikersrol ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
 ## <a name="domain-services"></a>Domain Services
 
@@ -124,11 +124,11 @@ Lezen BitLocker-sleutels | Beveiligingslezer | Wachtwoordbeheerder, beveiligings
 
 Taak | Minste bevoorrechte rol | Aanvullende functies
 ---- | --------------------- | ----------------
-Toestemming geven voor gedelegeerde machtigingen | Beheerder van de cloudtoepassing | Toepassingsbeheerder
-Instemming met de machtigingen van de toepassing niet met inbegrip van Microsoft Graph of Azure AD Graph | Beheerder van de cloudtoepassing | Toepassingsbeheerder
+Toestemming geven voor gedelegeerde machtigingen | Cloudtoepassingsbeheerder | Toepassingsbeheerder
+Instemming met de machtigingen van de toepassing niet met inbegrip van Microsoft Graph of Azure AD Graph | Cloudtoepassingsbeheerder | Toepassingsbeheerder
 Instemming met de machtigingen van de toepassing Microsoft Graph of Azure AD Graph | Globale beheerder | 
 Instemmen met toepassingen die toegang tot de eigen gegevens | Standaard-gebruikersrol ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Enterprise-toepassing maken | Beheerder van de cloudtoepassing | Toepassingsbeheerder
+Enterprise-toepassing maken | Cloudtoepassingsbeheerder | Toepassingsbeheerder
 Application Proxy beheren | Toepassingsbeheerder | 
 Gebruikersinstellingen beheren | Globale beheerder | 
 Leestoegang revisie van een groep of van een app | Beveiligingslezer | Beveiligingsbeheerder, Gebruikerbeheerder
@@ -149,7 +149,7 @@ Groep maken | Gebruikersbeheerder |
 Maken, bijwerken of verwijderen van de toegangsbeoordeling van een groep of van een app | Gebruikersbeheerder | 
 Vervaldatum van de groep beheren | Gebruikersbeheerder | 
 Groepsinstellingen beheren | Globale beheerder | 
-Lezen van alle configuratie (met uitzondering van verborgen lidmaatschap) | Lezers van mappen | Standaard-gebruikersrol ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Lezen van alle configuratie (met uitzondering van verborgen lidmaatschap) | Adreslijstlezers | Standaard-gebruikersrol ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Lezen, verborgen lidmaatschap | Een lid van | Eigenaar van de groep, wachtwoordbeheerder, Exchange-beheerder, SharePoint-beheerder, beheerder van Teams, Gebruikerbeheerder
 Lidmaatschap van groepen met verborgen lidmaatschap lezen | Helpdeskbeheerder | Gebruikerbeheerder, beheerder van de Teams
 Licentie intrekken | Licentiebeheerder | Gebruikersbeheerder
@@ -177,7 +177,7 @@ Beveiligingsproblemen lezen | Beveiligingslezer |
 Taak | Minste bevoorrechte rol | Aanvullende functies
 ---- | --------------------- | ----------------
 Licentie toewijzen | Licentiebeheerder | Gebruikersbeheerder
-Alle configuratie lezen | Lezers van mappen | Standaard-gebruikersrol ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Alle configuratie lezen | Adreslijstlezers | Standaard-gebruikersrol ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Licentie intrekken | Licentiebeheerder | Gebruikersbeheerder
 Proberen of kopen van abonnement | Factureringsbeheerder | 
 
@@ -186,13 +186,13 @@ Proberen of kopen van abonnement | Factureringsbeheerder |
 
 Taak | Minste bevoorrechte rol | Aanvullende functies
 ---- | --------------------- | ----------------
-Auditlogboeken lezen | Rapportenreader | Beveiligingslezer, beveiligingsbeheerder
+Auditlogboeken lezen | Rapportenlezer | Beveiligingslezer, beveiligingsbeheerder
 
 ## <a name="monitoring---sign-ins"></a>Controle - aanmeldingen
 
 Taak | Minste bevoorrechte rol | Aanvullende functies
 ---- | --------------------- | ----------------
-Meld u in Logboeken te lezen | Rapportenreader | Beveiligingslezer, beveiligingsbeheerder
+Meld u in Logboeken te lezen | Rapportenlezer | Beveiligingslezer, beveiligingsbeheerder
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
@@ -247,8 +247,8 @@ Alle configuratie lezen | Beveiligingsbeheerder | Gebruikerbeheerder |
 
 Taak | Minste bevoorrechte rol | Aanvullende functies
 ---- | --------------------- | ----------------
-Gebruikers aan rollen toewijzen | Beheerder met bevoorrechte rol | 
-Rolinstellingen configureren | Beheerder met bevoorrechte rol | 
+Gebruikers aan rollen toewijzen | Beheerder voor bevoorrechte rollen | 
+Rolinstellingen configureren | Beheerder voor bevoorrechte rollen | 
 Controle-activiteiten weergeven | Beveiligingslezer | 
 Rollidmaatschappen weergeven | Beveiligingslezer | 
 
@@ -256,7 +256,7 @@ Rollidmaatschappen weergeven | Beveiligingslezer |
 
 Taak | Minste bevoorrechte rol | Aanvullende functies
 ---- | --------------------- | ----------------
-Roltoewijzingen beheren | Beheerder met bevoorrechte rol | 
+Roltoewijzingen beheren | Beheerder voor bevoorrechte rollen | 
 Leestoegang revisie van een Azure AD-rol  | Beveiligingslezer | Beveiligingsbeheerder, beheerder met bevoorrechte rol
 Alle configuratie lezen | Standaard-gebruikersrol ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 
@@ -314,10 +314,10 @@ Gebruikers die zijn gemarkeerd voor risico's lezen | Beveiligingslezer |
 
 Taak | Minste bevoorrechte rol | Aanvullende functies
 ---- | --------------------- | ----------------
-Gebruiker toevoegen aan directory-rol | Beheerder met bevoorrechte rol | 
+Gebruiker toevoegen aan directory-rol | Beheerder voor bevoorrechte rollen | 
 Gebruiker toevoegen aan groep | Gebruikersbeheerder | 
 Licentie toewijzen | Licentiebeheerder | Gebruikersbeheerder
-Gastgebruiker maken | Gastuitnodiging | Gebruikersbeheerder
+Gastgebruiker maken | Afzender van gastuitnodigingen | Gebruikersbeheerder
 Gebruiker maken | Gebruikersbeheerder | 
 Gebruikers verwijderen | Gebruikersbeheerder | 
 Ongeldig vernieuwingstokens van bepaalde beheerders (Zie de documentatie) | Gebruikersbeheerder | 

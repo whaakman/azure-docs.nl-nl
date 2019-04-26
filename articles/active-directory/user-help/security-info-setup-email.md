@@ -13,11 +13,11 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 720aafac79a67f64b0974dba0dd60c6aa24a8c54
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60480590"
 ---
 # <a name="set-up-security-info-preview-to-use-your-email-address"></a>Beveiligingsgegevens (preview) ingesteld voor het gebruik van uw e-mailadres
 U kunt deze stappen om toe te voegen dat uw wachtwoord opnieuw instellen van methode. Nadat u hebt dit tijdens de eerste keer hebt ingesteld, kunt u terugkeren naar de **beveiligingsgegevens** pagina toevoegen, bijwerken of verwijderen van uw beveiligingsgegevens.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 84025953e74cb2ace358aa041f55dc1498d22f2f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4fe859b1343e2aea71bd41a3b7742a29bbff389f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079057"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60464160"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Quickstart: Azure Resource Manager-sjablonen maken en implementeren via Azure Portal
 
@@ -42,7 +42,7 @@ Deze methode veel sjabloon voor ervaren ontwikkelaars gebruiken voor het generer
     ![Een Azure Storage-account in Azure Portal maken](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. Voer de volgende informatie in:
 
-    |Name|Value|
+    |Name|Waarde|
     |----|----|
     |**Resourcegroep**|Selecteer **Nieuwe maken** en geef een resourcegroepnaam naar keuze op. In de schermafbeelding is de naam van de resourcegroep *mystorage1016rg*. Een resourcegroep is een container voor Azure-resources. Een resourcegroep maakt het gemakkelijker Azure-resources te beheren. |
     |**Naam**|geef uw opslagaccount een unieke naam. Naam van het opslagaccount moet uniek zijn in alle Azure en deze alleen kleine letters en cijfers bevatten. Naam moet tussen 3 en 24 tekens lang zijn. Als er een foutmelding dat 'naam 'mystorage1016' van het opslagaccount is al in gebruik', proberen met behulp van  **&lt;uw naam > opslag&lt;datum van vandaag in MMDD >**, bijvoorbeeld  **johndolestorage1016**. Zie voor meer informatie, [Naming Conventions](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).|
@@ -153,7 +153,7 @@ Azure vereist dat elke Azure-service een unieke naam heeft. De implementatie mis
 8. Selecteer **Opslaan**.
 9. Voer de volgende waarden in:
 
-    |Name|Value|
+    |Name|Waarde|
     |----|----|
     |**Resourcegroep**|Selecteer de Resourcegroepnaam die u in de laatste sectie hebt gemaakt. |
     |**Locatie**|Selecteer een locatie voor het opslagaccount. Bijvoorbeeld **US - centraal**. |

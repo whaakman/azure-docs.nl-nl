@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7328fb958774b5e17511d046e914cc5612e8a96d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60415822"
 ---
-# <a name="how-it-works-azure-multi-factor-authentication"></a>Het werkt als volgt: Azure Multi-Factor Authentication
+# <a name="how-it-works-azure-multi-factor-authentication"></a>Hoe werkt het? Azure Multi-Factor Authentication
 
 De beveiliging van verificatie in twee stappen ligt in de gelaagde benadering. Verlies van meerdere verificatiefactoren, geeft een aanzienlijke uitdaging om voor aanvallers. Zelfs als een aanvaller erin slaagt voor meer informatie over het wachtwoord van gebruikers, is deze niet kan worden gebruikt zonder dat ook bezit is van de aanvullende authenticatiemethode. Dit gebeurt door het vereisen van twee of meer van de volgende verificatiemethoden:
 

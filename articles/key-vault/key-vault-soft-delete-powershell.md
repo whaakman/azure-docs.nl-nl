@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: mbaldwin
 ms.openlocfilehash: ecc87e03a80ce10bedbe26b3ebb452ec704eefcb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368677"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60461362"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Key Vault-functie voor voorlopig verwijderen gebruiken met PowerShell
 
@@ -38,7 +38,7 @@ Zie voor Key Vault specifieke naslaginformatie voor PowerShell, [Azure Key Vault
 
 Key Vault-bewerkingen worden afzonderlijk beheerd via machtigingen voor op rollen gebaseerd toegangsbeheer (RBAC) als volgt:
 
-| Bewerking | Description | Machtigingen van gebruiker |
+| Bewerking | Beschrijving | Machtigingen van gebruiker |
 |:--|:--|:--|
 |Lijst|Een lijst met verwijderde sleutelkluizen.|Microsoft.KeyVault/deletedVaults/read|
 |Herstellen|Hiermee herstelt u een verwijderde key vault.|Microsoft.KeyVault/vaults/write|

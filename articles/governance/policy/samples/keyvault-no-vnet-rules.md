@@ -8,15 +8,15 @@ ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
 ms.openlocfilehash: bc5ce4a6a2e52ed8d21de8db8da1f815293b61f7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276368"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506991"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Voorbeeld: Key Vault-kluizen zonder eindpunten voor een virtueel netwerk
 
-Met dit beleid wordt een controle uitgevoerd voor Key Vault-kluizen die geen eindpunten voor een virtueel netwerk hebben. Gebruik het om uw beveiligingsvereisten af te dwingen. Zie [eindpunten voor een virtueel netwerk in Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md) voor meer informatie.
+Met dit beleid wordt een controle uitgevoerd voor Key Vault-kluizen die geen eindpunten voor een virtueel netwerk hebben. Gebruik het om uw beveiligingsvereisten af te dwingen. Zie [service-eindpunten voor een virtueel netwerk in Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md) voor meer informatie
 
 U kunt dit voorbeeldbeleid implementeren met behulp van:
 

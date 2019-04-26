@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: b-juche
 ms.openlocfilehash: 86c016a5dbcc0d78378e59bc6b3606ddf2c54f64
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122332"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452762"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registreren voor Azure NetApp Files
 Voordat u Azure NetApp Files kunt gebruiken, moet u een registratieaanvraag voor de service Azure NetApp Files indienen.  Nadat uw aanvraag is goedgekeurd, kunt u zich registreren om de service te gebruiken.

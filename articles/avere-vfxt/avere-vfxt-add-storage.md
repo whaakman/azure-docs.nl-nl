@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
 ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078806"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516027"
 ---
 # <a name="configure-storage"></a>Opslag configureren
 
@@ -118,7 +118,7 @@ Blob-opslag toevoegen nadat het cluster is gemaakt, volg deze stappen.
 
 1. Vul in de volgende informatie om te maken van een referentie voor de cloud core filer: 
 
-   | Veld | Value |
+   | Veld | Waarde |
    | --- | --- |
    | Referentienaam | een beschrijvende naam |
    | Servicetype | (Selecteer Azure-toegangssleutel voor opslag) |

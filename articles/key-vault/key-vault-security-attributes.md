@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: fa36a3c1eb6bda109c7985fa7cade496d2ccf9f4
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 3ccfc38136ba3e8ec7c6130658032b7565988e5c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677796"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60461401"
 ---
 # <a name="common-security-attributes-for-azure-key-vault"></a>Algemene beveiligingskenmerken voor Azure Key Vault
 
@@ -28,8 +28,8 @@ Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel
 |---|---|--|
 | Versleuteling-at-rest:<ul><li>Versleuteling aan de serverzijde</li><li>Versleuteling op de server met de klant beheerde sleutels</li><li>Andere versleutelingsfuncties (zoals client-side altijd versleuteld, enz.)</ul>| Ja | Alle objecten zijn versleuteld. |
 | Versleuteling tijdens overdracht:<ul><li>Express route-versleuteling</li><li>Vnet-versleuteling</li><li>VNet-VNet-versleuteling</ul>| Ja | Alle communicatie gaat via versleutelde API-aanroepen |
-| Versleuteling sleutel verwerken (CMK, BYOK, enz.)| Ja | Alle sleutels in hun Key Vault wordt bepaald door de klant. Wanneer een hardware security module (HSM) back-sleutels zijn opgegeven, wordt een FIPS Level 2 HSM beveiligt de sleutel, het certificaat of het geheim. |
-| Versleuteling op kolom (Azure-gegevensservices)| N/A |  |
+| Versleuteling verwerking (CMK, BYOK, enz.)| Ja | Alle sleutels in hun Key Vault wordt bepaald door de klant. Wanneer een hardware security module (HSM) back-sleutels zijn opgegeven, wordt een FIPS Level 2 HSM beveiligt de sleutel, het certificaat of het geheim. |
+| Versleuteling op kolom (Azure Data Services)| N/A |  |
 | API-aanroepen die zijn versleuteld| Ja | Met behulp van HTTPS. |
 
 ## <a name="network-segmentation"></a>Segmentatie
@@ -38,8 +38,8 @@ Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel
 |---|---|--|
 | Ondersteuning voor service-eindpunt| Ja | Met behulp van service-eindpunten voor Virtueelnetwerk (Vnet). |
 | ondersteuning voor vNET-injectie| Nee |  |
-| Netwerkisolatie / netwerkfunctie ondersteuning| Ja | Met behulp van Vnet-firewallregels. |
-| Ondersteuning voor geforceerde tunneling | Nee |  |
+| Netwerkisolatie en ondersteuning netwerkfunctie| Ja | Met behulp van Vnet-firewallregels. |
+| Geforceerde tunneling ondersteuning| Nee |  |
 
 ## <a name="detection"></a>Detectie
 
@@ -47,12 +47,12 @@ Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel
 |---|---|--|
 | Azure monitoring ondersteuning (Log analytics, Application insights, enz.)| Ja | Met behulp van Log Analytics. |
 
-## <a name="iam-support"></a>IAM-ondersteuning
+## <a name="identity-and-access-management"></a>Identiteits- en toegangsbeheer
 
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Toegangsbeheer - verificatie| Ja | Verificatie is via Azure Active Directory. |
-| Toegangsbeheer - autorisatie| Ja | Met behulp van toegangsbeleid voor Key Vault. |
+| Verificatie| Ja | Verificatie is via Azure Active Directory. |
+| Autorisatie| Ja | Met behulp van toegangsbeleid voor Key Vault. |
 
 
 ## <a name="audit-trail"></a>Audittrail

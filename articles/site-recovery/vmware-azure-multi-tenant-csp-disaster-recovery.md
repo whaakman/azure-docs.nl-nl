@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842353"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60460982"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Herstel van VMware na noodgevallen in een omgeving met meerdere tenants met het programma Cloud Solution Provider (CSP) instellen
 
@@ -39,7 +39,7 @@ Als u VMware-replicatie instelt, moet u het volgende doen:
 
     ![De pagina accountgegevens](./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png)
 
-5. Klik vervolgens op **volgende: abonnementen**.
+5. Klik vervolgens op **volgende: Abonnementen**.
 6. Selecteer op de pagina Abonnementen selecteren **Microsoft Azure** selectievakje. U kunt andere abonnementen nu of op enig ander moment toevoegen.
 7. Op de **revisie** pagina, bevestig de tenantdetails van de en klik vervolgens op **indienen**.
 8. Nadat u de tenantaccount hebt gemaakt, verschijnt een bevestigingspagina weergeven van de details van de standaard-account en het wachtwoord voor dat abonnement. Sla de gegevens en het wachtwoord later zo nodig, via de Azure portal-aanmeldingspagina te wijzigen.
@@ -89,11 +89,11 @@ U kunt nu uitvoeren en beheren van alle Site Recovery-bewerkingen voor de tenant
 
 Er zijn drie belangrijke modellen voor meerdere tenants:
 
-* **Gedeeld die als host fungeert Services serviceprovider (HSP)**: de partner is eigenaar van de fysieke infrastructuur, en maakt gebruik van gedeelde resources (vCenter, datacenters, fysieke opslag, enzovoort) voor het hosten van meerdere tenant-VM's op dezelfde infrastructuur. De partner herstel na noodgevallen management als een beheerde service kunt opgeven of de tenant eigenaar kan herstel na noodgevallen als een oplossing voor de selfservice.
+* **Gedeelde Services-hostingprovider (HSP)**: De partner is eigenaar van de fysieke infrastructuur, en maakt gebruik van gedeelde resources (vCenter, datacenters, fysieke opslag, enzovoort) voor het hosten van meerdere tenant-VM's op dezelfde infrastructuur. De partner herstel na noodgevallen management als een beheerde service kunt opgeven of de tenant eigenaar kan herstel na noodgevallen als een oplossing voor de selfservice.
 
-* **Services-Provider die als host fungeert toegewezen**: de partner is eigenaar van de fysieke infrastructuur, maar worden toegewezen resources (meerdere vCenters, fysieke gegevensopslag, enzovoort) gebruikt voor het hosten van elke tenant-VM's op een aparte infrastructuur. De partner herstel na noodgevallen management als een beheerde service kunt opgeven of de tenant eigenaar kan het als een oplossing voor de selfservice.
+* **Toegewezen Hosting serviceprovider**: De partner is eigenaar van de fysieke infrastructuur, maar toegewezen resources (meerdere vCenters, fysieke gegevensopslag, enzovoort) gebruikt voor het hosten van elke tenant-VM's op een aparte infrastructuur. De partner herstel na noodgevallen management als een beheerde service kunt opgeven of de tenant eigenaar kan het als een oplossing voor de selfservice.
 
-* **Beheerde Services Provider (MSP)**: de klant is eigenaar van de fysieke infrastructuur die als host fungeert voor de virtuele machines en de partner biedt inschakelen voor herstel na noodgevallen en beheer.
+* **Managed serviceprovider (MSP)**: De klant is eigenaar van de fysieke infrastructuur die als host fungeert voor de virtuele machines en de partner biedt inschakelen voor herstel na noodgevallen en beheer.
 
 Door het instellen van tenant abonnementen zoals beschreven in dit artikel, kunt u snel starten zodat klanten in een van de relevante multitenant-modellen. U kunt meer informatie over de verschillende modellen voor meerdere tenants en inschakelen van on-premises toegangsbeheer [hier](vmware-azure-multi-tenant-overview.md).
 

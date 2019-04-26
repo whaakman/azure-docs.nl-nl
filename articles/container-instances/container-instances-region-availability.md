@@ -8,11 +8,11 @@ ms.topic: overview
 ms.date: 03/01/2019
 ms.author: danlep
 ms.openlocfilehash: 1ca23a95c746139963aa70ed20bb888152fd5cd8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554848"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537753"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>De beschikbaarheid van Azure Container Instances in Azure-regio 's
 
@@ -27,7 +27,7 @@ Zie voor meer informatie over quota's en andere limieten in uw implementaties [q
 
 ## <a name="availability---general"></a>Beschikbaarheid - algemeen
 
-| Locatie | OS | CPU | Geheugen (GB) |
+| Location | OS | CPU | Geheugen (GB) |
 | -------- | -- | :---: | :-----------: |
 | Canada - centraal, US - centraal, US - oost 2, US - zuid-centraal | Linux | 4 | 16 |
 | US - oost, Europa - noord, Europa - west, US - west, US - west 2 | Linux | 4 | 14 |

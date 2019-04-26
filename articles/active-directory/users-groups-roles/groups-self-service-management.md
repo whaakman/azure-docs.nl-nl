@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5122c9142eccf12193e7e429a3af5ac44fbb8fd6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b860257fd1b3f0897152dc3d48bff0c7e1d3d994
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111324"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469858"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Self-service groepsbeheer in Azure Active Directory instellen 
 
-U kunt gebruikers maken en beheren hun eigen beveiligingsgroepen of Office 365-groepen in Azure Active Directory (Azure AD) inschakelen. De eigenaar van de groep kunt goedkeuren of weigeren van aanvragen voor groepslidmaatschap en kunnen delegeren van beheer van groepslidmaatschap. Groepsbeheer met Self-service-beheerfuncties zijn niet beschikbaar voor beveiligingsgroepen die e-mail of voor distributielijsten. 
+U kunt gebruikers maken en beheren hun eigen beveiligingsgroepen of Office 365-groepen in Azure Active Directory (Azure AD) inschakelen. De eigenaar van de groep kunt goedkeuren of weigeren van aanvragen voor groepslidmaatschap en kunnen delegeren van beheer van groepslidmaatschap. Groepsbeheer met Self-service-beheerfuncties zijn niet beschikbaar voor beveiligingsgroepen die e-mail of voor distributielijsten.
 
 ## <a name="self-service-group-membership-defaults"></a>Standaardinstellingen voor groepsbeheer met Self-service lidmaatschap
 
@@ -42,6 +42,7 @@ Groepen die zijn gemaakt in | Standaardgedrag voor beveiliging groep | Standaard
 * **Self-service voor groepsbeheer** Een voorbeeld van dit scenario zijn twee gebruikers die allebei SharePoint Online-sites hebben die ze onafhankelijk hebben ingesteld. Ze willen elkaars teams toegang geven tot hun sites. Hiervoor kunnen ze in Azure AD een groep maken en in SharePoint selecteert elk van hen de groep waartoe ze op hun sites toegang willen verlenen. Wanneer iemand toegang wil, kan dit worden aangevraagd bij het toegangspaneel en na goedkeuring wordt automatisch toegang verleend tot beide SharePoint Online-sites. Later beslist één van hen dat alle personen die de site openen ook toegang moeten krijgen tot een specifieke SaaS-toepassing. De beheerder van de SaaS-toepassing kan toegangsrechten toevoegen voor de toepassing aan de SharePoint Online-site. Vanaf dan verlenen alle goedgekeurde verzoeken toegang tot de twee SharePoint Online-sites en ook tot deze SaaS-toepassing.
 
 ## <a name="make-a-group-available-for-user-self-service"></a>Een groep beschikbaar maken voor self-service door gebruikers
+
 1. Meld u aan bij het [beheercentrum van Azure AD](https://aad.portal.azure.com) met een account met globale beheerdersrechten voor de directory.
 2. Selecteer **Gebruikers en groepen** en selecteer vervolgens **Groepsinstellingen**.
 3. Stel **Self-service voor groepsbeheer is ingeschakeld** in op **Ja**.
@@ -49,11 +50,14 @@ Groepen die zijn gemaakt in | Standaardgedrag voor beveiliging groep | Standaard
    * Als deze instellingen zijn ingeschakeld, kunnen alle gebruikers in uw directory nieuwe beveiligingsgroepen maken en leden toevoegen aan deze groepen. Deze nieuwe groepen zullen ook verschijnen in het Toegangsvenster voor alle andere gebruikers. Als de beleidsinstelling van de groep dit toestaat, kunnen andere gebruikers verzoeken maken om lid te worden van deze groepen. 
    * Als deze instellingen zijn uitgeschakeld, kunnen gebruikers geen groepen maken en kunnen ze bestaande groepen waarvan ze een eigenaar zijn niet wijzigen. Ze kunnen echter nog steeds de lidmaatschappen van die groepen beheren en aanvragen van andere gebruikers om lid te worden van hun groep goedkeuren.
 
-U kunt ook **Gebruikers die beveiligingsgroepen kunnen beheren** en **Gebruikers die Office 365-groepen kunnen beheren** gebruiken voor een meer fijnmazig toegangsbeheer over het self-servicegroepsbeheer voor uw gebruikers. Als **Gebruikers kunnen groepen maken** is ingeschakeld, kunnen alle gebruikers in uw tenant nieuwe groepen maken en leden toevoegen aan deze groepen. Door deze optie in te stellen op **Enkele**, beperkt u het groepsbeheer tot slechts een beperkte groep gebruikers. Als deze optie is ingesteld op **Enkele** moet u gebruikers toevoegen aan de groep SSGMSecurityGroupsUsers alvorens ze nieuwe groepen en leden hieraan kunnen toevoegen. Door **Gebruikers die self-service kunnen gebruiken voor beveiligingsgroepen** en **Gebruikers die Office 365-groepen kunnen beheren** in te stellen op **Alle**, kunt u alle gebruikers in uw tenant de mogelijkheid geven om nieuwe groepen te maken.
+U kunt ook **Gebruikers die beveiligingsgroepen kunnen beheren** en **Gebruikers die Office 365-groepen kunnen beheren** gebruiken voor een meer fijnmazig toegangsbeheer over het self-servicegroepsbeheer voor uw gebruikers. Als **Gebruikers kunnen groepen maken** is ingeschakeld, kunnen alle gebruikers in uw tenant nieuwe groepen maken en leden toevoegen aan deze groepen. Personen die hun eigen groepen kunnen maken kunt u niet opgeven. Alleen voor het maken van een ander groepslid van een eigenaar van de groep, kunt u personen opgeven.
+
+Door in te stellen **gebruikers die self-service voor beveiligingsgroepen gebruiken kunnen** en **gebruikers die Office 365-groepen kunnen beheren** naar **Ja**, kunt u alle gebruikers in uw tenant maken van nieuwe mogelijkheid groepen.
 
 U kunt ook **Groep die beveiligingsgroepen kan beheren** of **Groep die Office 365-groepen kan beheren** gebruiken om een enkele groep op te geven waarvan de leden self-service kunnen gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 
 * [Toegang tot resources beheren met Azure Active Directory-groepen](../fundamentals/active-directory-manage-groups.md)

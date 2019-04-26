@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: yushwang
 ms.openlocfilehash: f0367a360de97d3935c7fa8de9f3dafa6555811e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471353"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390654"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>BGP op een Azure VPN-gateway configureren met behulp van CLI
 
@@ -66,28 +66,28 @@ az group create --name TestBGPRG1 --location eastus
 
 #### <a name="3-create-testvnet1"></a>3. TestVNet1 maken
 
-Het volgende voorbeeld wordt een virtueel netwerk met de naam TestVNet1 en drie subnetten: GatewaySubnet, FrontEnd en BackEnd. Wanneer u bent vervangen door waarden, is het belangrijk dat u altijd het gatewaysubnet de naam bijzonder GatewaySubnet. Als u een andere naam kiest, mislukt het maken van de gateway.
+Het volgende voorbeeld wordt een virtueel netwerk met de naam TestVNet1 en drie subnetten gemaakt: GatewaySubnet, FrontEnd en BackEnd. Wanneer u bent vervangen door waarden, is het belangrijk dat u altijd het gatewaysubnet de naam bijzonder GatewaySubnet. Als u een andere naam kiest, mislukt het maken van de gateway.
 
 De eerste opdracht maakt u de front-end-adresruimte en het subnet FrontEnd. De tweede opdracht maakt u een extra adresruimte voor het back-end-subnet. De derde en vierde opdrachten maakt de back-end-subnet en het GatewaySubnet.
 
 ```azurecli
-az network vnet create -n TestVNet1 -g TestBGPRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24 
- 
-az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestBGPRG1 
- 
-az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestBGPRG1 --address-prefix 10.12.0.0/24 
- 
-az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestBGPRG1 --address-prefix 10.12.255.0/27 
+az network vnet create -n TestVNet1 -g TestBGPRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24 
+ 
+az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestBGPRG1 
+ 
+az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestBGPRG1 --address-prefix 10.12.0.0/24 
+ 
+az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestBGPRG1 --address-prefix 10.12.255.0/27 
 ```
 
-### <a name="step-2-create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>Stap 2: De VPN-gateway voor TestVNet1 maken en de BGP-parameters
+### <a name="step-2-create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>Stap 2: De VPN-gateway voor TestVNet1 te maken met de BGP-parameters
 
 #### <a name="1-create-the-public-ip-address"></a>1. Het openbare IP-adres maken
 
 Vraag een openbaar IP-adres aan. Het openbare IP-adres wordt toegewezen aan de VPN-gateway die u voor het virtuele netwerk maakt.
 
 ```azurecli
-az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic 
+az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic 
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. De VPN-gateway maken met het AS-nummer
@@ -107,14 +107,14 @@ Nadat de gateway is gemaakt, moet u de BGP-peer-IP-adres op de Azure VPN-gateway
 Voer de volgende opdracht uit en controleer de `bgpSettings` sectie aan de bovenkant van de uitvoer:
 
 ```azurecli
-az network vnet-gateway list -g TestBGPRG1 
- 
-  
-"bgpSettings": { 
-      "asn": 65010, 
-      "bgpPeeringAddress": "10.12.255.30", 
-      "peerWeight": 0 
-    }
+az network vnet-gateway list -g TestBGPRG1 
+ 
+  
+"bgpSettings": { 
+      "asn": 65010, 
+      "bgpPeeringAddress": "10.12.255.30", 
+      "peerWeight": 0 
+    }
 ```
 
 Nadat de gateway is gemaakt, kunt u deze gateway tot stand brengen van een cross-premises-verbinding of een VNet-naar-VNet-verbinding waarvoor BGP is.
@@ -137,8 +137,8 @@ In deze oefening blijft het bouwen van de configuratie weergegeven in het diagra
 Voordat u doorgaat, zorgt u ervoor dat u hebt voltooid de [BGP inschakelen voor uw VPN-gateway](#enablebgp) sectie van deze oefening en dat u nog met abonnement 1 verbonden bent. U ziet dat in dit voorbeeld, maakt u een nieuwe resourcegroep. U ziet ook de twee extra parameters voor de lokale netwerkgateway: `Asn` en `BgpPeerAddress`.
 
 ```azurecli
-az group create -n TestBGPRG5 -l eastus2 
- 
+az group create -n TestBGPRG5 -l eastus2 
+ 
 az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site5 -g TestBGPRG5 --local-address-prefixes 10.51.255.254/32 --asn 65050 --bgp-peering-address 10.51.255.254
 ```
 
@@ -161,18 +161,18 @@ Zoek in de uitvoer de `"id":` regel. U moet de waarden binnen de aanhalingsteken
 Voorbeelduitvoer:
 
 ```
-{ 
-  "activeActive": false, 
-  "bgpSettings": { 
-    "asn": 65010, 
-    "bgpPeeringAddress": "10.12.255.30", 
-    "peerWeight": 0 
-  }, 
-  "enableBgp": true, 
-  "etag": "W/\"<your etag number>\"", 
-  "gatewayDefaultSite": null, 
-  "gatewayType": "Vpn", 
-  "id": "/subscriptions/<subscription ID>/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
+{ 
+  "activeActive": false, 
+  "bgpSettings": { 
+    "asn": 65010, 
+    "bgpPeeringAddress": "10.12.255.30", 
+    "peerWeight": 0 
+  }, 
+  "enableBgp": true, 
+  "etag": "W/\"<your etag number>\"", 
+  "gatewayDefaultSite": null, 
+  "gatewayType": "Vpn", 
+  "id": "/subscriptions/<subscription ID>/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
 ```
 
 Kopieer de waarden na `"id":` naar een teksteditor zoals Kladblok, zodat u ze gemakkelijk plakken kunt wanneer u uw verbinding. 
@@ -236,12 +236,12 @@ az group create -n TestBGPRG2 -l westus
 De eerste opdracht maakt u de front-end-adresruimte en het subnet FrontEnd. De tweede opdracht maakt u een extra adresruimte voor het back-end-subnet. De derde en vierde opdrachten maakt de back-end-subnet en het GatewaySubnet.
 
 ```azurecli
-az network vnet create -n TestVNet2 -g TestBGPRG2 --address-prefix 10.21.0.0/16 -l westus --subnet-name FrontEnd --subnet-prefix 10.21.0.0/24 
- 
-az network vnet update -n TestVNet2 --address-prefixes 10.21.0.0/16 10.22.0.0/16 -g TestBGPRG2 
- 
-az network vnet subnet create --vnet-name TestVNet2 -n BackEnd -g TestBGPRG2 --address-prefix 10.22.0.0/24 
- 
+az network vnet create -n TestVNet2 -g TestBGPRG2 --address-prefix 10.21.0.0/16 -l westus --subnet-name FrontEnd --subnet-prefix 10.21.0.0/24 
+ 
+az network vnet update -n TestVNet2 --address-prefixes 10.21.0.0/16 10.22.0.0/16 -g TestBGPRG2 
+ 
+az network vnet subnet create --vnet-name TestVNet2 -n BackEnd -g TestBGPRG2 --address-prefix 10.22.0.0/24 
+ 
 az network vnet subnet create --vnet-name TestVNet2 -n GatewaySubnet -g TestBGPRG2 --address-prefix 10.22.255.0/27
 ```
 
@@ -256,16 +256,16 @@ az network public-ip create -n GWPubIP2 -g TestBGPRG2 --allocation-method Dynami
 #### <a name="4-create-the-vpn-gateway-with-the-as-number"></a>4. De VPN-gateway maken met het AS-nummer
 
 Maak de virtuele netwerkgateway voor TestVNet2. U moet de standaard een ASN overschrijven op uw Azure VPN-gateways. De ASN's voor de verbonden virtuele netwerken moeten een uniek BGP en transitroutering inschakelen.
- 
+ 
 ```azurecli
 az network vnet-gateway create -n VNet2GW -l westus --public-ip-address GWPubIP2 -g TestBGPRG2 --vnet TestVNet2 --gateway-type Vpn --sku Standard --vpn-type RouteBased --asn 65020 --no-wait
 ```
 
-### <a name="step-2-connect-the-testvnet1-and-testvnet2-gateways"></a>Stap 2: TestVNet1 en TestVNet2 gateways verbinding maken
+### <a name="step-2-connect-the-testvnet1-and-testvnet2-gateways"></a>Stap 2: Verbinding van TestVNet1 en TestVNet2 gateways
 
 In deze stap maakt u de verbinding van TestVNet1 naar Site5. BGP wilt inschakelen voor deze verbinding, moet u de `--enable-bgp` parameter.
 
-In het volgende voorbeeld wordt zijn de virtuele netwerkgateway en de lokale netwerkgateway in verschillende resourcegroepen bevinden. Wanneer de gateways zich in verschillende resourcegroepen bevinden, moet u de volledige resource-ID van de twee gateways voor het instellen van een verbinding tussen de virtuele netwerken. 
+In het volgende voorbeeld wordt zijn de virtuele netwerkgateway en de lokale netwerkgateway in verschillende resourcegroepen bevinden. Wanneer de gateways zich in verschillende resourcegroepen bevinden, moet u de volledige resource-ID van de twee gateways voor het instellen van een verbinding tussen de virtuele netwerken. 
 
 #### <a name="1-get-the-resource-id-of-vnet1gw"></a>1. De resource-ID van VNet1GW 
 

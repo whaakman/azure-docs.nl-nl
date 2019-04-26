@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 58ca814551d8c7d309328f236052e1d07ac6f035
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119725"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469125"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>App-beheerdersrollen in Azure Active Directory delegeren
 
@@ -58,7 +58,7 @@ Wanneer een gebruiker een toepassing registreert, worden ze automatisch toegevoe
 
 ## <a name="delegate-app-ownership"></a>App-eigenaar delegeren
 
-Eigenaren en eigenaren van de app-registratie kunnen elk beheren alleen de toepassingen van de app of de app-registraties waarvan ze eigenaar. Bijvoorbeeld, wanneer u een eigenaar voor de Salesforce-toepassing toevoegen, kunt die eigenaar beheren de toegang tot en configuratie voor Salesforce, maar niet alle andere toepassingen. Een app kan veel eigenaars hebben en een gebruiker kan de eigenaar van veel apps zijn.
+Eigenaren en eigenaren van de app-registratie kunnen elk beheren alleen de toepassingen of de app-registraties waarvan ze eigenaar. Bijvoorbeeld, wanneer u een eigenaar voor de Salesforce-toepassing toevoegen, kunt die eigenaar beheren de toegang tot en configuratie voor Salesforce, maar niet alle andere toepassingen. Een app kan veel eigenaars hebben en een gebruiker kan de eigenaar van veel apps zijn.
 
 De eigenaar van een toepassing kunt doen:
 

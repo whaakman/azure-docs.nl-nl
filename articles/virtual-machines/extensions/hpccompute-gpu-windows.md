@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
 ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619922"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388672"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-stuurprogramma-extensie voor Windows
 
@@ -35,7 +35,7 @@ Een uitbreiding is ook beschikbaar voor installatie van NVIDIA GPU-stuurprogramm
 
 Deze uitbreiding ondersteunt de volgende OSs:
 
-| Distributie | Versie |
+| Distributie | Version |
 |---|---|
 | Windows 10 (maximaal versie 1803)| Kern |
 | Windows Server 2016 | Kern |

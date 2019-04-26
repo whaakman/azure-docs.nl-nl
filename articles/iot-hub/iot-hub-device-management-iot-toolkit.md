@@ -5,14 +5,16 @@ author: formulahendry
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/04/2019
-ms.author: junhan
+ms.tgt_pltfrm: arduino
+origin.date: 01/04/2019
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.openlocfilehash: 03df2ceb2df4d857e48f1790703a1d87647e43d0
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445281"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401167"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Azure IoT-hulpprogramma's voor Visual Studio Code gebruiken voor het beheer van Azure IoT Hub-apparaten
 
@@ -22,8 +24,8 @@ ms.locfileid: "58445281"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Management-optie          | Taak                    |
-|----------------------------|--------------------------------|
+| Management-optie          | Taak                                                                                                                            |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | Directe methoden             | Een apparaat fungeren, zoals starten of stoppen van berichten verzenden of opnieuw opstarten van het apparaat maken.                                        |
 | Apparaatdubbel lezen           | Ophalen van de gerapporteerde status van een apparaat. Bijvoorbeeld, meldt het apparaat dat de LED nu knippert.                                    |
 | Dubbele apparaat bijwerken         | Een apparaat in een bepaalde status, zoals een LED groen instellen of het instellen van het interval voor het verzenden van telemetrie tot 30 minuten plaatsen.         |
@@ -53,14 +55,10 @@ Azure IoT-hulpprogramma's voor Visual Studio Code uitvoeren met verschillende op
 ## <a name="sign-in-to-access-your-iot-hub"></a>Meld u aan voor toegang tot uw IoT-hub
 
 1. In **Explorer** weergave van VS Code uit, vouw **Azure IoT Hub-apparaten** sectie in de linkerbenedenhoek.
-
-2. Klik op **IoT-Hub selecteren** in het contextmenu.
-
-3. Een pop-upvenster wordt weergegeven in de rechterbenedenhoek zodat u voor de eerste keer aanmelden bij Azure.
-
-4. Nadat u zich hebt aangemeld, wordt de lijst met uw Azure-abonnement worden weergegeven en selecteer Azure-abonnement en IoT-Hub.
-
-5. De lijst met apparaten wordt weergegeven in **Azure IoT Hub-apparaten** tabblad in een paar seconden.
+1. Klik op **IoT-Hub selecteren** in het contextmenu.
+1. Een pop-upvenster wordt weergegeven in de rechterbenedenhoek zodat u voor de eerste keer aanmelden bij Azure.
+1. Nadat u zich hebt aangemeld, wordt de lijst met uw Azure-abonnement worden weergegeven en selecteer Azure-abonnement en IoT-Hub.
+1. De lijst met apparaten wordt weergegeven in **Azure IoT Hub-apparaten** tabblad in een paar seconden.
 
    > [!Note]
    > U kunt de installatie ook voltooien door **IoT Hub-verbindingsreeks instellen** te kiezen. Geef de verbindingsreeks voor de IoT-hub die uw IoT-apparaat in verbinding met het pop-upvenster maakt.
@@ -68,33 +66,26 @@ Azure IoT-hulpprogramma's voor Visual Studio Code uitvoeren met verschillende op
 ## <a name="direct-methods"></a>Directe methoden
 
 1. Met de rechtermuisknop op uw apparaat en selecteer **rechtstreekse aanroepmethode**. 
-
-2. Voer de methodenaam en -nettolading in het invoervak.
-
+1. Voer de methodenaam en -nettolading in het invoervak.
 3. Resultaten worden weergegeven **uitvoer** > **Azure IoT Hub Toolkit** weergeven.
 
 ## <a name="read-device-twin"></a>Apparaatdubbel lezen
 
 1. Met de rechtermuisknop op uw apparaat en selecteer **Apparaatdubbel bewerken**. 
-
-2. Een **azure-iot-device-twin.json** bestand wordt geopend met de inhoud van het dubbele apparaat.
+1. Een **azure-iot-device-twin.json** bestand wordt geopend met de inhoud van het dubbele apparaat.
 
 ## <a name="update-device-twin"></a>Dubbele apparaat bijwerken
 
 1. Sommige wijzigingen van **tags** of **properties.desired** veld.
-
-2. Met de rechtermuisknop op de **azure-iot-device-twin.json** bestand.
-
-3. Selecteer **Apparaatdubbel bijwerken** om bij te werken het dubbele apparaat.
+1. Met de rechtermuisknop op de **azure-iot-device-twin.json** bestand.
+1. Selecteer **Apparaatdubbel bijwerken** om bij te werken het dubbele apparaat.
 
 ## <a name="send-cloud-to-device-messages"></a>Cloud-naar-apparaat-berichten verzenden
 
 Berichten van uw IoT-hub worden verzonden naar uw apparaat, de volgende stappen uit:
  
 1. Met de rechtermuisknop op uw apparaat en selecteer **C2D-bericht verzenden naar apparaat**. 
-
-2. Geef het bericht in het invoervak.
-
+1. Geef het bericht in het invoervak.
 3. Resultaten worden weergegeven **uitvoer** > **Azure IoT Hub Toolkit** weergeven.
 
 ## <a name="next-steps"></a>Volgende stappen

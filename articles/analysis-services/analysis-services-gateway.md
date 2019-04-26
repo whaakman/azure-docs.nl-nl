@@ -9,11 +9,11 @@ ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60497388"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Verbinding maken met on-premises gegevensbronnen met On-premises gegevensgateway
 De on-premises gegevensgateway biedt veilige gegevensoverdracht tussen uw Azure Analysis Services-servers in de cloud en on-premises gegevensbronnen. Naast het werken met meerdere Azure Analysis Services-servers in dezelfde regio bevinden, worden de meest recente versie van de gateway ook werkt met Azure Logic Apps, Power BI, Powerapps en Microsoft Flow. U kunt meerdere services in hetzelfde abonnement en dezelfde regio koppelen met een enkele gateway. 

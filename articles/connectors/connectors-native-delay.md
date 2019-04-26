@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 ms.openlocfilehash: 15e581454b60319ab734f2fa5faf0d90e0a7c8bf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893721"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448002"
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Aan de slag met de vertraging en de vertraging-tot acties
 Met behulp van de vertraging en "vertraging-totdat" acties, werkstroom voor scenario's.
@@ -68,9 +68,9 @@ Een * betekent dat het een verplicht veld.
 
 | Weergavenaam | Naam van eigenschap | Description |
 | --- | --- | --- |
-| Jaar * |tijdstempel |Het jaar te vertragen tot (GMT) |
-| Maand * |tijdstempel |De maand te vertragen tot (GMT) |
-| Dag * |tijdstempel |Voor het uitstellen tot (GMT) |
+| Jaar * |timestamp |Het jaar te vertragen tot (GMT) |
+| Maand * |timestamp |De maand te vertragen tot (GMT) |
+| Dag * |timestamp |Voor het uitstellen tot (GMT) |
 
 <br>
 

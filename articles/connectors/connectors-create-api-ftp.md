@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
 ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576323"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60408497"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Maken, bewaken en beheren van FTP-bestanden met behulp van Azure Logic Apps
 
@@ -28,7 +28,7 @@ Met Azure Logic Apps en de FTP-connector, kunt u geautomatiseerde taken en werks
 
 U kunt triggers die te antwoorden krijgen van uw FTP-server en de uitvoer beschikbaar voor andere acties. U kunt acties uitvoeren in uw logische apps gebruiken voor het beheren van bestanden op uw FTP-server. U kunt ook andere acties waarmee de uitvoer van de FTP-acties hebben. Als u regelmatig bestanden van uw FTP-server, kunt u e-mailberichten over deze bestanden en hun inhoud verzenden met behulp van de connector voor Office 365 Outlook of Outlook.com-connector. Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="limits"></a>Limieten
+## <a name="limits"></a>Limits
 
 * FTP-acties ondersteunen alleen de bestanden die zijn *50 MB of kleiner* , tenzij u [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md), die kunt u deze limiet overschrijdt. FTP-triggers ondersteund niet op dit moment logische groepen te verdelen.
 

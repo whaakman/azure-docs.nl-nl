@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
 ms.openlocfilehash: c8baa4d2355adf99ce188d632ac50901db29a758
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60497660"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Om weer te geven van de container realtime met Azure Monitor-logboeken voor containers (preview)
 Deze functie momenteel in preview is, biedt realtime inzicht in uw logboeken voor containers in de Azure Kubernetes Service (AKS) (stdout/stderr) zonder de kubectl-opdrachten uit te voeren. Wanneer u deze optie selecteert, nieuwe deelvenster wordt weergegeven onder de tabel containers prestaties gegevens op de **Containers** weergeven.  Hier ziet u live logboekregistratie die zijn gegenereerd door de engine container om verder te helpen bij het oplossen van problemen in realtime. **Inzender** toegang tot de cluster-bron is vereist voor deze functie te gebruiken.

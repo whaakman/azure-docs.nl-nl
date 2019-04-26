@@ -11,11 +11,11 @@ ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
 ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575093"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537697"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Controleren, maken en beheren van de SFTP-bestanden met behulp van SSH en Azure Logic Apps
 
@@ -30,7 +30,7 @@ Voor het automatiseren van taken die bewaken, maken, verzenden en ontvangen van 
 U kunt triggers die gebeurtenissen op uw SFTP-server bewaken en uitvoer beschikbaar voor andere acties. U kunt acties waarmee verschillende taken worden uitgevoerd op uw SFTP-server gebruiken. U kunt ook andere acties in uw logische app de uitvoer van de SFTP-acties hebben. Bijvoorbeeld, als u regelmatig bestanden uit uw SFTP-server ophalen, kunt u e-mailmeldingen over deze bestanden en hun inhoud verzenden met behulp van de connector voor Office 365 Outlook of Outlook.com-connector.
 Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="limits"></a>Limieten
+## <a name="limits"></a>Limits
 
 * SFTP-SSH-acties kunnen lezen of schrijven van bestanden die zijn *1 GB of kleiner* door het beheer van gegevens als *50 MB stuks*, niet 1 GB-onderdelen.
 

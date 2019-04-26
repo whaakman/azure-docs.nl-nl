@@ -12,11 +12,11 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893387"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448621"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Aanroepen van REST-eindpunten met HTTP + Swagger-connector in Azure Logic Apps
 
@@ -74,14 +74,14 @@ Hieronder vindt u de details voor de triggers en acties die deze HTTP + Swagger 
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger-triggers
 Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die gedefinieerd in een logische app te starten. HTTP + Swagger-connector heeft een trigger. [Meer informatie over triggers](../connectors/apis-list.md).
 
-| Trigger | Description |
+| Trigger | Beschrijving |
 | --- | --- |
 | HTTP + Swagger |Voert u een HTTP-aanroep en keert de inhoud van de reactie |
 
 ## <a name="http--swagger-actions"></a>HTTP + Swagger-acties
 Een actie is een bewerking die wordt uitgevoerd door de werkstroom die gedefinieerd in een logische app. HTTP + Swagger-connector heeft een mogelijke actie. [Meer informatie over acties](../connectors/apis-list.md).
 
-| Bewerking | Beschrijving |
+| Bewerking | Description |
 | --- | --- |
 | HTTP + Swagger |Voert u een HTTP-aanroep en keert de inhoud van de reactie |
 
@@ -98,7 +98,7 @@ Een sterretje (*) betekent dat een vereist veld.
 | URI * |uri |URI voor de HTTP-aanvraag. |
 | Headers |Headers |Een JSON-object van HTTP-headers om op te nemen. |
 | Hoofdtekst |hoofdtekst |De hoofdtekst van de HTTP-aanvraag. |
-| Authentication |verificatie |Verificatietype moet worden gebruikt voor de aanvraag. Zie voor meer informatie de [HTTP-connector](connectors-native-http.md#authentication). |
+| Verificatie |verificatie |Verificatietype moet worden gebruikt voor de aanvraag. Zie voor meer informatie de [HTTP-connector](connectors-native-http.md#authentication). |
 
 **Uitvoergegevens**
 

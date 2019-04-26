@@ -9,11 +9,11 @@ ms.date: 10/04/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
 ms.openlocfilehash: a4664e628af5824b7b197cbdb5c5af602a3a4476
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958683"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60459934"
 ---
 # <a name="virtual-wan-partners"></a>Virtuele WAN-partners
 
@@ -28,7 +28,7 @@ Een dashboard controller/apparaat een vertakking-apparaat (een klant on-premises
 * Testen van de ervaring van de portal van Azure virtuele WAN.
 * Vervolgens kunt u beslissen welk gedeelte van de stappen verbinding u wilt automatiseren. Ten minste, wordt u aangeraden automatiseren:
 
-  * Access Control
+  * Toegangsbeheer
   * Het uploaden van gegevens van een apparaat in Azure virtuele WAN vertakking
   * Downloaden van Azure-configuratie en het instellen van de connectiviteit van het apparaat van de vertakking in Azure virtuele WAN
 

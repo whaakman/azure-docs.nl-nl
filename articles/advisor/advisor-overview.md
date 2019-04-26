@@ -11,11 +11,11 @@ ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
 ms.openlocfilehash: 1a72225ce29b7a94f2fc402488f6b998cde0a0fb
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467960"
 ---
 # <a name="introduction-to-azure-advisor"></a>Inleiding tot Azure Advisor
 
@@ -34,9 +34,9 @@ U kunt toegang tot Advisor via de [Azure-portal](https://aka.ms/azureadvisordash
 De Advisor-dashboard toont de persoonlijke aanbevelingen voor al uw abonnementen.  U kunt toepassen van filters om aanbevelingen voor specifieke abonnementen en -resourcetypen weer te geven.  De aanbevelingen zijn onderverdeeld in vier categorieën: 
 
 * **Hoge beschikbaarheid**: Om te controleren en de continuïteit van uw essentiële toepassingen verbeteren. Zie voor meer informatie, [aanbevelingen voor hoge beschikbaarheid van Advisor](advisor-high-availability-recommendations.md).
-* **Beveiliging**: Voor het detecteren van bedreigingen en zwakke plekken die tot schendingen van de beveiliging leiden mogelijk. Zie voor meer informatie, [Advisor beveiligingsaanbevelingen](advisor-security-recommendations.md).
+* **Beveiliging**: Voor het detecteren van bedreigingen en zwakke plekken die tot beveiligingsschendingen kunnen leiden. Zie voor meer informatie, [Advisor beveiligingsaanbevelingen](advisor-security-recommendations.md).
 * **Prestaties**: Voor het verbeteren van de snelheid van uw toepassingen. Zie voor meer informatie, [Advisor prestatieaanbevelingen](advisor-performance-recommendations.md).
-* **Kosten**: Om te optimaliseren en reduceren uw algemene Azure-uitgaven. Zie voor meer informatie, [kosten van de Advisor-aanbevelingen](advisor-cost-recommendations.md).
+* **Kosten**: Om uw algehele Azure-uitgaven te optimaliseren en te verminderen. Zie voor meer informatie, [kosten van de Advisor-aanbevelingen](advisor-cost-recommendations.md).
 
   ![Typen van Advisor-aanbevelingen](./media/advisor-overview/advisor-dashboard.png)
 
