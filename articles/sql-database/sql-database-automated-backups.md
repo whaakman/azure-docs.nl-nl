@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 04/12/2019
 ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
 ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59678595"
@@ -61,7 +61,7 @@ De bewaartermijn voor een database gemaakt met behulp van het op DTU gebaseerde 
 - Standaardservicelaag is vijf weken.
 - Premium-servicelaag is vijf weken.
 
-#### <a name="vcore-based-purchasing-model"></a>Op vCore gebaseerd aanschafmodel
+#### <a name="vcore-based-purchasing-model"></a>Aankoopmodel op basis van vCore
 
 Als u de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md), de bewaartermijn voor back-up is 7 dagen (voor één, gegroepeerd en databases-instantie). Voor alle Azure SQL-databases (één, gegroepeerd, en het exemplaar van databases, kunt u [wijzigen bewaarperiode voor back-tot 35 dagen](#how-to-change-the-pitr-backup-retention-period).
 

@@ -10,11 +10,11 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.openlocfilehash: 3269d38b691ec4dd9573a241c89dadc285787143
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60408111"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Data Lake Tools voor Visual Studio installeren
 
@@ -22,7 +22,7 @@ Informatie over het gebruik van de Visual Studio voor het maken van Azure Data L
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Visual Studio**: alle versies behalve Express worden ondersteund.
+* **Visual Studio**: Alle versies behalve Express worden ondersteund.
     * Visual Studio 2017
     * Visual Studio 2015
     * Visual Studio 2013
@@ -33,9 +33,9 @@ Informatie over het gebruik van de Visual Studio voor het maken van Azure Data L
 
 Azure Data Lake Tools voor Visual Studio wordt ondersteund in Visual Studio 2017 15.3 en hoger. Het hulpprogramma maakt deel uit van de workloads **Gegevensopslag en -verwerking** en **Azure Development** in het installatieprogramma van Visual Studio. Schakel een van deze twee workloads in als onderdeel van uw installatie van Visual Studio.  
 
-Schakel de workload **Gegevensopslag en -verwerking** in zoals weergegeven: ![Workload Gegevensopslag en -verwerking inschakelen](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-01.png)
+Schakel de **gegevensopslag en verwerking** workload zoals wordt weergegeven: ![Gegevensopslag en verwerking van workload inschakelen](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-01.png)
 
-Schakel de workload **Azure Development** in zoals weergegeven: ![Workload Azure Development inschakelen](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-02.png)
+Schakel de **Azure-ontwikkeling** workload zoals wordt weergegeven: ![Azure-ontwikkelworkload inschakelen](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-02.png)
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio-2013-and-2015"></a>Azure Data Lake Tools voor Visual Studio 2013 en 2015 installeren
 

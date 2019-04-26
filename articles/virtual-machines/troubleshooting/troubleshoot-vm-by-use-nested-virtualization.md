@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005595"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444304"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Een probleem virtuele Azure-machine op te lossen met behulp van geneste virtualisatie in Azure
 
@@ -41,7 +41,7 @@ Voor het koppelen van de probleem-VM, moet de VM redden voldoen aan de volgende 
 
     -  Besturingssysteem: Windows Server 2016 Datacenter
 
-    -  Grootte: Elke V3-serie met ten minste twee cores die ondersteuning voor geneste virtualisatie. Zie voor meer informatie, [Maak kennis met de nieuwe Dv3- en Ev3 VM-grootten](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
+    -  Grootte: Elke V3-serie met ten minste twee cores die ondersteuning bieden voor geneste virtualisatie. Zie voor meer informatie, [Maak kennis met de nieuwe Dv3- en Ev3 VM-grootten](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
 
     -  Dezelfde locatie, Storage-Account en resourcegroep als de probleem-VM.
 
@@ -85,7 +85,7 @@ Voor het koppelen van de probleem-VM, moet de VM redden voldoen aan de volgende 
 
 3.  Nadat de schijf is gekoppeld, extern bureaublad met de VM redden.
 
-4.  Hiermee opent u Schijfbeheer (diskmgmt.msc). Zorg ervoor dat de schijf van het probleem VM is ingesteld op **Offline**.
+4.  Open Disk Management (diskmgmt.msc). Zorg ervoor dat de schijf van het probleem VM is ingesteld op **Offline**.
 
 5.  Open Hyper-V-beheer: In **Serverbeheer**, selecteer de **Hyper-V-functie**. Met de rechtermuisknop op de server en selecteer vervolgens de **Hyper-V-beheer**.
 
@@ -122,7 +122,7 @@ Voor het koppelen van de probleem-VM, moet de VM redden voldoen aan de volgende 
 
 19. U kunt nu op de virtuele machine werken als de on-premises VM. U kunt een oplossen van problemen met stappen die u moet volgen.
 
-## <a name="step-3-re-create-your-azure-vm-in-azure"></a>Stap 3: Uw Azure-VM in Azure voor het opnieuw maken
+## <a name="step-3-re-create-your-azure-vm-in-azure"></a>Stap 3: Maak uw Azure-VM in Azure
 
 1.  Nadat u de virtuele machine weer online is, sluit u de virtuele machine in Hyper-V-beheer.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Uw on-premises netwerk verbinden met een Azure-netwerk: Site-naar-Site-VPN: Portal | Microsoft Docs'
+title: 'Verbind uw on-premises netwerk met een virtueel Azure-netwerk: Site-naar-Site-VPN: Portal | Microsoft Docs'
 description: Stappen voor het maken van een IPSec-verbinding van uw on-premises netwerk met een virtueel Azure-netwerk via het openbare internet. Deze stappen helpen u een cross-premises site-naar-site-VPN-gatewayverbinding te maken met de portal.
 services: vpn-gateway
 author: cherylmc
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: cherylmc
 ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407542"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Een site-naar-site-verbinding maken in Azure Portal
 
 In dit artikel leest u hoe u Azure Portal gebruikt om een site-naar-site-VPN-gatewayverbinding te maken vanaf uw on-premises netwerk naar het VNet. De stappen in dit artikel zijn van toepassing op het Resource Manager-implementatiemodel. U kunt deze configuratie ook maken met een ander implementatiehulpprogramma of een ander implementatiemodel door in de volgende lijst een andere optie te selecteren:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure-portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure Portal (klassiek)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -50,7 +50,7 @@ In de voorbeelden in dit artikel worden de volgende waarden gebruikt. U kunt dez
 * **Subnet:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (optioneel voor deze oefening)
 * **Naam Gatewaysubnet:** GatewaySubnet (dit wordt automatisch ingevuld in de portal)
 * **Adresbereik Gatewaysubnet:** 10.1.255.0/27
-* **DNS-Server:** 8.8.8.8 - optioneel. Het IP-adres van de DNS-server.
+* **DNS-server:** 8.8.8.8 - optioneel. Het IP-adres van de DNS-server.
 * **Gatewaynaam van het virtuele netwerk:** VNet1GW
 * **Openbaar IP-adres:** VNet1GWIP
 * **VPN-Type:** Op route gebaseerd

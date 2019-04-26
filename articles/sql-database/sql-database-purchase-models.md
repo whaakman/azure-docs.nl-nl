@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360185"
@@ -56,7 +56,7 @@ Zeven dagen aan geautomatiseerde back-ups van uw databases worden standaard naar
 
 Zie voor meer informatie over prijzen voor gegevensopslag, de [prijzen](https://azure.microsoft.com/pricing/details/sql-database/single/) pagina.
 
-## <a name="vcore-based-purchasing-model"></a>Op vCore gebaseerd aanschafmodel
+## <a name="vcore-based-purchasing-model"></a>Aankoopmodel op basis van vCore
 
 Een virtuele kern staat voor de logische CPU met een optie te kiezen tussen verschillende hardwaregeneraties en fysieke kenmerken van hardware (bijvoorbeeld aantal kernen, geheugen, opslagruimte). Het vCore-aanschafmodel biedt u flexibiliteit, controle, transparantie van afzonderlijke resources en een eenvoudige manier te vertalen van de vereisten van de on-premises workloads naar de cloud. Dit model kunt u rekenkracht, geheugen en opslag op basis van hun behoeften workload kiezen. In het op vCore gebaseerde aankoopmodel, kunt u kiezen tussen [algemeen](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) en [bedrijfskritiek](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) Servicelagen voor [enkelvoudige databases](sql-database-single-database-scale.md), [ elastische pools](sql-database-elastic-pool.md), en [instanties die worden beheerd](sql-database-managed-instance.md). Voor individuele databases, u kunt ook de [grootschalige servicelaag (preview)](sql-database-service-tier-hyperscale.md).
 

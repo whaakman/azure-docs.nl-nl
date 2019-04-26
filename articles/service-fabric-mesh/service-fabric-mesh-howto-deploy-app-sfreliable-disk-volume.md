@@ -16,11 +16,11 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
 ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850850"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419217"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Maximaal beschikbare Service Fabric betrouwbare schijf op basis van volume in een Service Fabric-NET-toepassing koppelen 
 De algemene methode voor permanente status met container-apps is het gebruik van externe opslag, zoals Azure File Storage- of -database, zoals Azure Cosmos DB. Dit leidt tot aanzienlijke lezen en schrijven netwerklatentie naar de externe opslag.

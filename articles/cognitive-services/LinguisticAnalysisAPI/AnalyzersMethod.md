@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/30/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9338e87644554ac8b3121c5341cea6f2bc512a97
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1b33b60f674eebb15fdc6112e1d630b93b98494b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878184"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60404710"
 ---
 # <a name="analyzers-method"></a>Methode voor analyse
 
@@ -32,7 +32,8 @@ Geen
 <br>
 
 ## <a name="response-parameters"></a>Antwoord-parameters
-Name | Type | Description
+
+Name | Type | Beschrijving
 -----|------|--------------
 Talen | lijst met tekenreeksen | lijst met twee letter ISO taalcodes waarvoor deze analyzer kan worden gebruikt.
 id   | string | unieke ID voor deze analyzer
@@ -41,6 +42,7 @@ Specificatie | string | de naam van de specificatie die wordt gebruikt voor deze
 Implementatie | string | Beschrijving van het model en/of het algoritme achter deze analyzer
 
 <br>
+
 ## <a name="example"></a>Voorbeeld
 GET /analyzers
 

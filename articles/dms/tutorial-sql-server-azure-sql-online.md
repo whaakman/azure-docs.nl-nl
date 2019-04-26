@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Online migreren van SQL Server naar een individuele of gepoolde database in Azure SQL Database met behulp van Azure Database Migration Service | Microsoft Docs'
-description: Lees hoe u een onlinemigratie uitvoert van SQL Server on-premises naar een individuele of gepoolde database in Azure SQL Database met behulp van de Azure Database Migration Service.
+title: 'Zelfstudie: Online migreren van SQL Server naar een individuele of pooldatabase in Azure SQL Database met behulp van Azure Database Migration Service | Microsoft Docs'
+description: Lees hoe u een onlinemigratie uitvoert van SQL Server on-premises naar een individuele of pooldatabase in Azure SQL Database met behulp van de Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -18,9 +18,9 @@ ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59799032"
 ---
-# <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Zelfstudie: SQL Server online migreren naar een individuele of gepoolde database in Azure SQL Database met behulp van DMS
+# <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Zelfstudie: SQL Server online migreren naar een individuele of pooldatabase in Azure SQL Database met behulp van DMS
 
-U kunt de Azure Database Migration Service gebruiken voor het migreren van de databases van een on-premises SQL Server-exemplaar naar [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) met minimale downtime. In deze zelfstudie migreert u de database **Adventureworks2012**, hersteld van een on-premises exemplaar van SQL Server 2016 (of hoger), naar een individuele of gepoolde database in Azure SQL Database met behulp van de Azure Database Migration Service.
+U kunt de Azure Database Migration Service gebruiken voor het migreren van de databases van een on-premises SQL Server-exemplaar naar [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) met minimale downtime. In deze zelfstudie migreert u de database **Adventureworks2012**, hersteld van een on-premises exemplaar van SQL Server 2016 (of hoger), naar een individuele of pooldatabase in Azure SQL Database met behulp van de Azure Database Migration Service.
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
@@ -40,7 +40,7 @@ In deze zelfstudie leert u het volgende:
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-In dit artikel wordt een onlinemigratie beschreven vanuit SQL Server naar een individuele of gepoolde database in Azure SQL Database. Zie [SQL Server offline migreren naar Azure SQL Database met behulp van DMS](tutorial-sql-server-to-azure-sql.md) voor een offlinemigratie.
+In dit artikel wordt een onlinemigratie beschreven vanuit SQL Server naar een individuele of pooldatabase in Azure SQL Database. Zie [SQL Server offline migreren naar Azure SQL Database met behulp van DMS](tutorial-sql-server-to-azure-sql.md) voor een offlinemigratie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -122,14 +122,14 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="assess-your-on-premises-database"></a>Uw on-premises resources evalueren
 
-Voordat u gegevens uit een on-premises SQL Server-exemplaar naar een individuele of gepoolde database in Azure SQL Database kunt migreren, moet u controleren of de SQL Server-database blokkerende problemen bevat die mogelijk de migratie verhinderen. Volg met behulp van de Data Migration Assistant v3.3 of hoger de stappen in het artikel [Uitvoeren van een SQL Server-migratie-evaluatie](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) uit om de on-premises database-evaluatie uit te voeren.
+Voordat u gegevens uit een on-premises SQL Server-exemplaar naar een individuele of pooldatabase in Azure SQL Database kunt migreren, moet u controleren of de SQL Server-database blokkerende problemen bevat die mogelijk de migratie verhinderen. Volg met behulp van de Data Migration Assistant v3.3 of hoger de stappen in het artikel [Uitvoeren van een SQL Server-migratie-evaluatie](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) uit om de on-premises database-evaluatie uit te voeren.
 
 Voer de volgende stappen uit om een on-premises database te evalueren:
 
 1. Selecteer in DMA het pictogram Nieuw (+) en selecteer vervolgens het projecttype **Evaluatie**.
 2. Geef een projectnaam op, selecteer in het tekstvak **Bronservertype** **SQL Server**, in het tekstvak **Doelservertype** **Azure SQL Database**, en selecteer vervolgens **Maken** om het project te maken.
 
-    Wanneer u de SQL Server-brondatabase controleert die u naar een individuele of gepoolde database in Azure SQL Database wilt migreren, kunt u kiezen voor een of beide van de volgende typen evaluatierapport:
+    Wanneer u de SQL Server-brondatabase controleert die u naar een individuele of pooldatabase in Azure SQL Database wilt migreren, kunt u kiezen voor een of beide van de volgende typen evaluatierapport:
 
    - Databasecompatibiliteit controleren
    - Functiepariteit controleren
@@ -147,7 +147,7 @@ Voer de volgende stappen uit om een on-premises database te evalueren:
 
     ![Gegevensmigratie beoordelen](media/tutorial-sql-server-to-azure-sql-online/dma-assessments.png)
 
-    Voor individuele databases of gepoolde databases in Azure SQL Database identificeren de beoordelingen problemen met betrekking tot functiepariteit en problemen die de migratie blokkeren bij een implementatie naar een individuele of gepoolde database.
+    Voor individuele databases of pooldatabases in Azure SQL Database identificeren de beoordelingen problemen met betrekking tot functiepariteit en problemen die de migratie blokkeren bij een implementatie naar een individuele of pooldatabase.
 
     - De categorie **SQL Server-functiepariteit** biedt een uitgebreide set met aanbevelingen, alternatieve methoden die beschikbaar zijn in Azure, en beperkende stappen voor het plannen van de inzet in uw migratieprojecten.
     - De categorie **compatibiliteitsproblemen** identificeert gedeeltelijk ondersteunde of niet-ondersteunde functies die compatibiliteitsproblemen laten zien die mogelijk de migratie van on-premises SQL Server-databases naar Azure SQL Database blokkeren. Aanbevelingen om deze problemen op te lossen worden ook gegeven.
@@ -156,7 +156,7 @@ Voer de volgende stappen uit om een on-premises database te evalueren:
 
 ## <a name="migrate-the-sample-schema"></a>Het voorbeeldschema migreren
 
-Wanneer u tevreden bent over de evaluatie en overtuigd bent dat de geselecteerde database een goede kandidaat is voor migratie naar een individuele of gepoolde database in Azure SQL Database, kunt u de DMA gebruiken om het schema naar Azure SQL Database te migreren.
+Wanneer u tevreden bent over de evaluatie en overtuigd bent dat de geselecteerde database een goede kandidaat is voor migratie naar een individuele of pooldatabase in Azure SQL Database, kunt u de DMA gebruiken om het schema naar Azure SQL Database te migreren.
 
 > [!NOTE]
 > Voordat u een migratieproject in DMA maakt, moet u ervoor zorgen dat u al een Azure SQL-database hebt ingericht zoals is vermeld in de vereisten. Voor deze zelfstudie wordt ervan uitgegaan dat de naam van de Azure SQL Database **AdventureWorksAzure** is, maar u kunt elke naam die u wenst opgeven.
@@ -287,7 +287,7 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
 
 ## <a name="specify-target-details"></a>Doeldetails opgeven
 
-1. Selecteer **Opslaan** en geef vervolgens in het scherm **Details migratiedoel** de details van de verbinding op voor de Azure SQL Database-doelserver. Dit is de vooraf ingerichte Azure SQL Database waarnaar het  **AdventureWorks2012**-schema is geïmplementeerd met behulp van de DMA.
+1. Selecteer **Opslaan** en geef vervolgens in het scherm **Details migratiedoel** de details van de verbinding op voor de Azure SQL Database-doelserver. Dit is de vooraf ingerichte Azure SQL Database waarnaar het **AdventureWorks2012**-schema is geïmplementeerd met behulp van de DMA.
 
     ![Doel selecteren](media/tutorial-sql-server-to-azure-sql-online/dms-select-target3.png)
 
