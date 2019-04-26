@@ -52,9 +52,9 @@ Voor het beheren van kosten en complexiteit, vertegenwoordigen verbinding record
 
 | Eigenschap | Beschrijving |
 |:--|:--|
-|Richting |Richting van de verbinding met de waarde is *inkomende* of *uitgaande* |
+|Direction |Richting van de verbinding met de waarde is *inkomende* of *uitgaande* |
 |Machine |De FQDN-naam van de computer |
-|Verwerken |Identiteit van het proces of groepen van processen, de verbinding initiëren/accepteren |
+|Process |Identiteit van het proces of groepen van processen, de verbinding initiëren/accepteren |
 |SourceIp |IP-adres van de bron |
 |DestinationIp |IP-adres van de bestemming |
 |DestinationPort |Poortnummer van de bestemming |
@@ -77,7 +77,7 @@ Naast de verbinding aantal metrische gegevens, informatie over de hoeveelheid ge
 |:--|:--|
 |BytesSent |Totaal aantal bytes dat is verzonden tijdens het rapportage venster |
 |BytesReceived |Totaal aantal bytes dat is ontvangen tijdens het rapportage venster |
-|Antwoorden |Het aantal antwoorden is waargenomen tijdens het rapportage venster. 
+|Responses |Het aantal antwoorden is waargenomen tijdens het rapportage venster. 
 |ResponseTimeMax |De grootste reactietijd (milliseconden) waargenomen tijdens het rapportage venster. Als er geen waarde is de eigenschap leeg.|
 |ResponseTimeMin |De kleinste reactietijd (milliseconden) waargenomen tijdens het rapportage venster. Als er geen waarde is de eigenschap leeg.|
 |ResponseTimeSum |De som van alle reactietijden (milliseconden) die is waargenomen tijdens het rapportage venster. Als er geen waarde is de eigenschap leeg.|
@@ -114,7 +114,7 @@ Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is 
 |IndicatorThreadType |Threat indicator gedetecteerd is een van de volgende waarden *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *pua's*, *Watchlist*.   |
 |Description |Beschrijving van de waargenomen bedreiging. |
 |TLPLevel |Niveau van stoplicht Protocol (TLP) is een van de gedefinieerde waarden, *wit*, *groen*, *oranje*, *Red*. |
-|Betrouwbaarheid |Waarden zijn *0-100*. |
+|Confidence |Waarden zijn *0-100*. |
 |Severity |Waarden zijn *0 – 5*, waarbij *5* is het meest ernstige en *0* is helemaal niet ernstig. Standaardwaarde is *3*.  |
 |FirstReportedDateTime |De eerste keer dat de provider meldt de indicator. |
 |LastReportedDateTime |De laatste keer dat de indicator is gezien door Interflow. |
@@ -136,9 +136,9 @@ Elke record in VMBoundPort wordt geïdentificeerd door de volgende velden:
 
 | Eigenschap | Beschrijving |
 |:--|:--|
-|Verwerken | De identiteit van proces (of groepen van processen) waarmee de poort gekoppeld is.|
-|IP | IP-adres-poort (mag jokertekens IP-adres, *0.0.0.0*) |
-|Poort |Het poortnummer |
+|Process | De identiteit van proces (of groepen van processen) waarmee de poort gekoppeld is.|
+|Ip | IP-adres-poort (mag jokertekens IP-adres, *0.0.0.0*) |
+|Port |Het poortnummer |
 |Protocol | Het protocol.  Bijvoorbeeld *tcp* of *udp* (alleen *tcp* wordt momenteel ondersteund).|
  
 De identiteit een poort is afgeleid van de bovenstaande vijf velden en wordt opgeslagen in de eigenschap PortId. Deze eigenschap kan worden gebruikt om snel te vinden records voor een specifieke poort in de tijd. 
@@ -204,7 +204,7 @@ Records met een type *ServiceMapProcess_CL* beschikken over inventarisgegevens v
 | CommandLine_s | Vanaf de opdrachtregel |
 | ExecutablePath _s | Het pad naar het uitvoerbare bestand |
 | WorkingDirectory_s | De werkmap |
-| Gebruikersnaam | Het account waaronder het proces wordt uitgevoerd |
+| UserName | Het account waaronder het proces wordt uitgevoerd |
 | UserDomain | Het domein waarin het proces wordt uitgevoerd |
 
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
