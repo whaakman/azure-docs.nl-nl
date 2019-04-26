@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: a228c5b90e47c9c24c5da70484a1a28f9a3054b1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100476"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498827"
 ---
 # <a name="calchistogram-method"></a>Methode CalcHistogram
 
@@ -41,7 +41,7 @@ Name  |Value | Vereist?  |Description
 
 ## <a name="response-json"></a>Antwoord (JSON)
 
-Name | Description
+Name | Beschrijving
 --------|---------
 **expr**  |De markering-parameter van de aanvraag.
 **num_entities** | Totaal aantal overeenkomende entiteiten.

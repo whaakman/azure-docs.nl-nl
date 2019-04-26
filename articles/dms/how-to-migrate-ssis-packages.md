@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 884af4624c1e92ee765353c90fd189220664381d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183421"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532457"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-azure"></a>SQL Server Integration Services-pakketten migreren naar Azure
 Als u SQL Server Integration Services (SSIS) te gebruiken en wilt migreren van uw SSIS-projecten /-pakketten van de bron SSISDB wordt gehost door de SQL Server naar de bestemming SSISDB wordt gehost door Azure SQL Database-server of Azure SQL Database Managed Instance, kunt u ze kunt implementeren met behulp van de Wizard Integration Services-implementatie. U kunt de wizard in in SQL Server Management Studio (SSMS) op te starten.

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.openlocfilehash: de1805d91f48b5718ecf293c2b8672ba40fb81a9
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588157"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531809"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Zelfstudie: een aangepaste rol maken voor Azure-resources met Azure CLI
 
@@ -51,7 +51,7 @@ De eenvoudigste manier om een aangepaste rol te maken, is door een JSON-sjabloon
 
 1. Bekijk de lijst met bewerkingen voor de [resourceprovider Microsoft.Support](resource-provider-operations.md#microsoftsupport). Het is handig om te weten welke bewerkingen er beschikbaar zijn voor het maken van machtigingen.
 
-    | Bewerking | Beschrijving |
+    | Bewerking | Description |
     | --- | --- |
     | Microsoft.Support/register/action | Hiermee wordt het item geregistreerd bij de resourceprovider voor ondersteuning |
     | Microsoft.Support/supportTickets/read | Hiermee worden gegevens over het ondersteuningsticket opgehaald (inclusief status, ernst, contactgegevens en communicatie) of wordt de lijst met ondersteuningstickets voor de verschillende abonnementen opgehaald. |

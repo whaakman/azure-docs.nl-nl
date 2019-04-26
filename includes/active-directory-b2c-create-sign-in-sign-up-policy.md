@@ -2,24 +2,25 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/30/2018
-ms.author: patricka
+origin.date: 11/30/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: f23d2b02bc2a23c5333a48a50532c03f3aa6a031
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355533"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455653"
 ---
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
 Onder **beheren**, selecteer **gebruikersstromen** en klik op +**nieuwe gebruikersstroom**.
 
-![Nieuwe gebruikersstroom selecteren](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow.png)
+![Nieuwe gebruikersstroom selecteren](./media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow.png)
 
 Op de **aanbevolen** tabblad **aanmelden en aanmelden**.
 
-![Selecteer aanmelden en meld u aan de gebruikersstroom](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow-type.png)
+![Selecteer aanmelden en meld u aan de gebruikersstroom](./media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow-type.png)
 
 Voer een gebruikersstroom **naam** voor uw toepassing om te verwijzen. Geef bijvoorbeeld `SiUpIn` op.
 
@@ -27,7 +28,7 @@ Onder **id-providers** en Controleer **e-mailregistratie**. U kunt er ook voor k
 
 Onder **Multifactor-verificatie**, kiest u **ingeschakeld** of **uitgeschakelde**.
 
-![Voer een naam en e-mailregistratie selecteert als een id-provider](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-name-identity-providers.png)
+![Voer een naam en e-mailregistratie selecteert als een id-provider](./media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-name-identity-providers.png)
 
 Onder **gebruikerskenmerken en claims**, selecteer **meer weergeven** om te zien van de volledige lijst met kenmerken en claims die u kunt kiezen uit.
 
@@ -37,15 +38,15 @@ In de **geretourneerde claim** kolom, kies de claims die u laten retourneren in 
 
 Klik op **OK**.
 
-![Selecteer enkele gebruikerskenmerken en claims en klikt u op de knop OK](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-all-attributes.png)
+![Selecteer enkele gebruikerskenmerken en claims en klikt u op de knop OK](./media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-all-attributes.png)
 
 Klik op **maken** om toe te voegen van de gebruikersstroom. De gebruikersstroom wordt vermeld als **B2C_1_SiUpIn**. Het voorvoegsel **B2C_1_** wordt toegevoegd aan de naam.
 
 Selecteer **gebruikersstroom uitvoeren**. Controleer of de instellingen die zijn opgegeven in de tabel en klik vervolgens op **gebruikersstroom uitvoeren**.
 
-![Selecteer de gebruikersstroom uitvoeren](media/active-directory-b2c-create-sign-in-sign-up-policy/run-user-flow-b2c-signup-signin.png)
+![Selecteer de gebruikersstroom uitvoeren](./media/active-directory-b2c-create-sign-in-sign-up-policy/run-user-flow-b2c-signup-signin.png)
 
-| Instelling      | Waarde  |
+| Instelling      | Value  |
 | ------------ | ------ |
 | **Toepassing** | Contoso B2C-app |
 | **Antwoord-URL** | `https://localhost:44316/` |
@@ -55,3 +56,4 @@ Er wordt een nieuw browsertabblad geopend. Hier kunt u controleren of het regist
 > [!NOTE]
 > Het duurt maximaal één minuut gebruiker stromen maken en updates van kracht.
 >
+

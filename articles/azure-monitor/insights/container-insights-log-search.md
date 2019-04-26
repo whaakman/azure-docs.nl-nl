@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: 66fc55d8c3dbb8487d1e796d5f30b08a94f717f6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013574"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494764"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Hoe u Logboeken voor query's van Azure Monitor voor containers
 Azure Monitor voor containers verzamelt metrische gegevens voor prestaties, inventarisgegevens en informatie over de status van containerhosts en containers, en deze doorstuurt naar de Log Analytics-werkruimte in Azure Monitor. Gegevens worden verzameld om de drie minuten. Deze gegevens zijn beschikbaar voor [query](../../azure-monitor/log-query/log-query-overview.md) in Azure Monitor. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.

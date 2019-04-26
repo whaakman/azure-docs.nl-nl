@@ -13,11 +13,11 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48a38b91cd17e2107fe85bfc77da8ead86196173
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472761"
 ---
 # <a name="two-step-verification-overview"></a>Overzicht van verificatie in twee stappen
 
@@ -28,7 +28,7 @@ Verificatie in twee stappen is veiliger dat alleen een wachtwoord omdat het is g
 >[!Important]
 >Deze inhoud is bedoeld voor gebruikers. Als u een beheerder bent, kunt u meer informatie vinden over hoe u uw Azure Active Directory-omgeving (Azure AD) instelt en beheert in de [documentatie voor Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
-|Artikel |Beschrijving |
+|Artikel |Description |
 |------|------------|
 |[Instellen](multi-factor-authentication-end-user-first-time.md) |Beschrijft hoe u verificatie in twee stappen de eerste keer instelt.|
 |[Aan de slag met verificatie in twee stappen](multi-factor-authentication-end-user.md)|Beschrijft wat verificatie in twee stappen voor u betekent.| 

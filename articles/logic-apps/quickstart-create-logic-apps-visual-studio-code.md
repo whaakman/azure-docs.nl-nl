@@ -11,13 +11,13 @@ ms.reviewer: klam, deli, LADocs
 ms.suite: integration
 ms.date: 10/05/2018
 ms.openlocfilehash: 0fec590523fa130af2e5670a92914c056df289d1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60512249"
 ---
-# <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>QuickStart: Maken en beheren van geautomatiseerde logic app workflows - Visual Studio Code
+# <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Quickstart: Maken en beheren van geautomatiseerde logic app workflows - Visual Studio Code
 
 Met [Azure Logic Apps](../logic-apps/logic-apps-overview.md) en Visual Studio Code, die u kunt maken en beheren van logische apps die u helpen bij automatiseren van taken, werkstromen en processen voor het integreren van apps, gegevens, systemen en services voor organisaties en ondernemingen. Deze quickstart laat zien hoe u kunt maken en definities voor logische Apps-werkstroom bewerken door te werken met de werkstroom-definitieschema in JavaScript Object Notation (JSON) via een ervaring op basis van code. U kunt ook werken op bestaande logische apps die al zijn geïmplementeerd op <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> in de cloud. 
 

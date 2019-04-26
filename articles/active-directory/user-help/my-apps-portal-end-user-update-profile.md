@@ -14,11 +14,11 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa6de024758d16b99569261e10d46f9328241427
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340534"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482986"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Uw profiel en account-info van de portal mijn Apps bijwerken
 U kunt uw werk of school-account gebruiken met de webconsole **mijn Apps** portal weergeven en starten van veel van uw organisatie cloud-gebaseerde apps, om bij te werken sommige van uw profiel en account-informatie om te zien uw **groepen** informatie en om uit te voeren **toegangsbeoordelingen** voor uw apps en -groepen. Als u geen toegang tot de **mijn Apps** portal, u moet contact opnemen met uw Helpdesk om toestemming.

@@ -2,14 +2,15 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/30/2018
-ms.author: patricka
+origin.date: 11/30/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 0d9f0a24d84bd18bdf1fac84c744cc34a7d89ab3
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355526"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456032"
 ---
 Als u inschakelen met het bewerken van profielen van uw toepassing wilt, gebruikt u een **profielbewerking** gebruikersstroom. Deze gebruikersstroom beschrijft de ervaring van klanten doorlopen tijdens het bewerken van profielen en de inhoud van tokens die de toepassing bewerking is voltooid ontvangt.
 
@@ -17,7 +18,7 @@ Als u inschakelen met het bewerken van profielen van uw toepassing wilt, gebruik
 
 Onder **beheren**, selecteer **gebruikersstromen** en klik op +**nieuwe gebruikersstroom**.
 
-![Nieuwe gebruikersstroom selecteren](media/active-directory-b2c-create-profile-editing-policy/add-b2c-new-user-flow.png)
+![Nieuwe gebruikersstroom selecteren](./media/active-directory-b2c-create-profile-editing-policy/add-b2c-new-user-flow.png)
 
 Op de **aanbevolen** tabblad **profielbewerking**.
 
@@ -25,7 +26,7 @@ Voer een gebruikersstroom **naam** voor uw toepassing om te verwijzen. Geef bijv
 
 Onder **id-providers**, Controleer **aanmelden met lokaal Account**. U kunt er ook voor kiezen om sociale id-providers te selecteren als dit al is geconfigureerd.
 
-![Selecteer Aanmelden met lokaal account als id-provider en klik op de knop OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-identity-providers.png)
+![Selecteer Aanmelden met lokaal account als id-provider en klik op de knop OK](./media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-identity-providers.png)
 
 Onder **gebruikerskenmerken**, klikt u op **meer weergeven**. In de **verzamelen kenmerk** kolom, kies kenmerken de consument kan bekijken en bewerken in het bijbehorende profiel. Schakel bijvoorbeeld **Land/regio**, **Weergavenaam** en **Postcode** in.
 
@@ -33,15 +34,15 @@ In de **geretourneerde claim** kolom, kies de claims die u wilt laten retournere
 
 Klik op **OK**.
 
-![Selecteer enkele toepassingsclaims en klik op de knop OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-user-attributes.png)
+![Selecteer enkele toepassingsclaims en klik op de knop OK](./media/active-directory-b2c-create-profile-editing-policy/add-b2c-user-attributes.png)
 
 Klik op **maken** om toe te voegen van de gebruikersstroom. De gebruikersstroom wordt vermeld als **B2C_1_SiPe**. Het voorvoegsel **B2C_1_** wordt toegevoegd aan de naam.
 
 Selecteer **gebruikersstroom uitvoeren**. Controleer of de instellingen die zijn opgegeven in de tabel en klik vervolgens op **gebruikersstroom uitvoeren**.
 
-![Gebruikersstroom selecteren en de App uitvoeren](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-run-user-flow.png)
+![Gebruikersstroom selecteren en de App uitvoeren](./media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-run-user-flow.png)
 
-| Instelling      | Waarde  |
+| Instelling      | Value  |
 | ------------ | ------ |
 | **Toepassing** | Contoso B2C-app |
 | **Antwoord-URL** | `https://localhost:44316/` |
@@ -51,3 +52,4 @@ Er wordt een nieuw browsertabblad geopend. Hier kunt u controleren of het bewerk
 > [!NOTE]
 > Het duurt maximaal één minuut gebruiker stromen maken en updates van kracht.
 >
+

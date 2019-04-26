@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 5/21/2017
 ms.author: raiye
 ms.openlocfilehash: d6429766b6aac547fd99279659acb1067298e77c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244675"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60518956"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Kennisgeving van buitengebruikstelling van serie 1 van gastbesturingssysteem
 De buitengebruikstelling van serie 1 werd eerst aangekondigd op 1 juni 2013.
@@ -37,7 +37,7 @@ Uw Cloud-Services worden beïnvloed als een van de volgende van toepassing is:
 2. U beschikt niet over een waarde voor osFamily expliciet worden opgegeven in het bestand ServiceConfiguration.cscfg voor je Cloud Service. Op dit moment het systeem maakt gebruik van de standaardwaarde van '1' in dit geval.
 3. De Azure-portal geeft een lijst van de waarde van de Gast-besturingssysteem familie als 'WindowsServer 2008'.
 
-Als u wilt zoeken die van uw cloud-services welke type besturingssysteem worden uitgevoerd, kunt u het volgende script in Azure PowerShell uitvoeren als u moet [instellen van Azure PowerShell](/powershell/azureps-cmdlets-docs) eerste. Zie voor meer informatie over het script [Azure Gast OS Family 1 einde van de levenscyclus: juni 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
+Als u wilt zoeken die van uw cloud-services welke type besturingssysteem worden uitgevoerd, kunt u het volgende script in Azure PowerShell uitvoeren als u moet [instellen van Azure PowerShell](/powershell/azureps-cmdlets-docs) eerste. Zie voor meer informatie over het script [Azure Gast OS Family 1 einde van de levenscyclus: Juni 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {

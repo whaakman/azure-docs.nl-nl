@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ace2ffdacf775a3c0c5a579e9a4208641c20f661
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025756"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60488554"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Zelfstudie: een pijplijn maken met de kopieeractiviteit middels de Data Factory-wizard Kopiëren
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.locfileid: "54025756"
 > Dit artikel is van toepassing op versie 1 van Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u de [zelfstudie over kopieeractiviteiten](../quickstart-create-data-factory-dot-net.md). 
 
 
-Deze zelfstudie laat zien hoe u de **Wizard Kopiëren** kunt gebruiken om gegevens uit een Azure Blob-opslag te kopiëren naar een Azure SQL database. 
+Deze zelfstudie laat zien hoe u de **Wizard Kopiëren** kunt gebruiken om gegevens uit een Azure Blob-opslag te kopiëren naar een Azure SQL-database. 
 
 Met de **Wizard Kopiëren** van Azure Data Factory maakt u snel een gegevenspijplijn waarmee u gegevens uit een ondersteund brongegevensarchief kunt kopiëren naar een doelgegevensarchief. Daarom wordt u aangeraden de wizard te gebruiken als eerste stap bij het maken van een voorbeeldpijplijn voor uw gegevensverplaatsingsscenario. Zie [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) voor een lijst met gegevensarchieven die worden ondersteund als bron en als doel.  
 
@@ -83,7 +83,7 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
    1. Voer **CopyFromBlobToAzureSql** in als **taaknaam**
    2. Voer de **beschrijving** in (optioneel).
    3. Wijzig de **Startdatum en -tijd** en de **Einddatum en -tijd** zodat de einddatum is ingesteld op vandaag en de startdatum op vijf dagen eerder.  
-   4. Klik op **Volgende**.  
+   4. Klik op **volgende**.  
       
       ![Hulpprogramma voor kopiëren - pagina Eigenschappen](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
 3. Op de pagina **Brongegevensarchief** klikt u op de tegel **Azure Blob Storage**. U gebruikt deze pagina om het brongegevensarchief op te geven voor de kopieertaak. 
@@ -112,14 +112,14 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
 8. Op de pagina Doelgegevensarchief selecteert u **Azure SQL Database** en klikt u op **Volgende**.
    
     ![Hulpprogramma voor kopiëren - Doelarchief kiezen](./media/data-factory-copy-data-wizard-tutorial/choose-destination-store.png)
-9. Op de pagina **De Azure SQL Database opgeven**:
+9. Op de pagina **De Azure SQL-database opgeven**:
    
    1. Typ **AzureSqlLinkedService** in het veld **Verbindingsnaam**.
    2. Controleer of de optie **Van Azure-abonnementen** is geselecteerd als **Server-/databaseselectiemethode**.
    3. Selecteer uw Azure-**abonnement**.  
    4. Selecteer de **servernaam** en **database**.
    5. Voer de **gebruikersnaam** en het **wachtwoord** in.
-   6. Klik op **Volgende**.  
+   6. Klik op **volgende**.  
       
       ![Hulpprogramma voor kopiëren - Azure SQL-database opgeven](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
 10. Op de pagina **Tabeltoewijzing** selecteert u uit de vervolgkeuzelijst **emp** in het veld **Bestemming** en klikt u op de **pijl naar beneden** (optioneel) om het schema en een voorbeeld van de gegevens te bekijken.

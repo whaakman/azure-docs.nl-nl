@@ -13,11 +13,11 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6f94ba30c06fc6975ab212c895cecefe5d383fa
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453644"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473903"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Uw niet-Microsoft-accounts toevoegen
 Uw niet-Microsoft-accounts, zoals voor Google, Facebook of GitHub toevoegen aan de Microsoft Authenticator-app voor tweeledige verificatie. De app Microsoft Authenticator werkt met elke app die verificatie in twee stappen gebruikt en met elk account dat de TOTP-normen (Time-Based One-Time Passwords) ondersteunt.

@@ -15,11 +15,11 @@ ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 041c8bb6b4de2bbe2cbeb4c1a89e452239ae57bd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439737"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473674"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registreren van uw persoonlijke apparaat op het netwerk van uw organisatie
 Registreer uw persoonlijke apparaat (meestal een telefoon of tablet) op het netwerk van uw organisatie. Nadat het apparaat is geregistreerd, is het mogelijk zijn voor toegang tot beperkte resources van uw organisatie.

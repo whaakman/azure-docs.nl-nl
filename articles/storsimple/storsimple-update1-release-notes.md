@@ -16,11 +16,11 @@ ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 11138857e33eec0f854ddb61956ea24c858c49a5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258983"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60530994"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>1.2 opmerkingen bij de release voor uw StorSimple 8000-apparaat bijwerken
 
@@ -34,7 +34,7 @@ De volgende tabel bevat de versies van het apparaat software overeenkomt met upd
 | Als de update wordt uitgevoerd... | Dit is de versie van de apparaatsoftware. |
 | --- | --- |
 | Update 1.2 |6.3.9600.17584 |
-| 1.1 bijwerken |6.3.9600.17521 |
+| Update 1.1 |6.3.9600.17521 |
 | Update 1.0 |6.3.9600.17491 |
 
 Lees de informatie in de opmerkingen bij de release voordat u de update in uw StorSimple-oplossing implementeert. Zie voor meer informatie over het [Update 1.2 installeren op uw StorSimple-apparaat](storsimple-install-update-1.md). 
@@ -67,7 +67,7 @@ De volgende tabel bevat een samenvatting van problemen die zijn verholpen in Upd
 | Nee. | Functie | Probleem | Opgelost in Update | Is van toepassing op het fysieke apparaat | Is van toepassing op het virtuele apparaat |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Windows PowerShell voor StorSimple |Wanneer een gebruiker het StorSimple-apparaat op afstand toegang te krijgen met behulp van Windows PowerShell voor StorSimple en vervolgens de wizard setup worden gestart, wordt een crash zo snel Data 0 IP is ingevoerd is opgetreden. Deze fout is nu opgelost in Update 1. |Update 1 |Ja |Ja |
-| 2 |Fabrieksinstellingen terugzetten |In sommige gevallen, tijdens de fabrieksinstellingen terug te zetten, het StorSimple-apparaat is geworden vastgelopen en dit bericht weergegeven: **terugzetten op fabrieksinstellingen wordt uitgevoerd (fase 8)**. Dit is gebeurd als u op CTRL + C drukt, terwijl de cmdlet werd uitgevoerd. Deze fout is nu hersteld. |Update 1 |Ja |Nee |
+| 2 |Fabrieksinstellingen terugzetten |In sommige gevallen tijdens de fabrieksinstellingen terug te zetten, het StorSimple-apparaat is geworden vastgelopen en dit bericht weergegeven: **Terugzetten op fabrieksinstellingen wordt uitgevoerd (fase 8)**. Dit is gebeurd als u op CTRL + C drukt, terwijl de cmdlet werd uitgevoerd. Deze fout is nu hersteld. |Update 1 |Ja |Nee |
 | 3 |Fabrieksinstellingen terugzetten |Nadat een factory dual controller defect is opnieuw ingesteld, is het zijn toegestaan om door te gaan met device Registration service. Dit heeft geresulteerd in een niet-ondersteunde configuratie. In de Update 1, een foutbericht wordt weergegeven en registratie is geblokkeerd op een apparaat dat is een mislukte Fabrieksinstellingen terugzetten. |Update 1 |Ja |Nee |
 | 4 |Fabrieksinstellingen terugzetten |In sommige gevallen, zijn ONWAAR positief incompatibel waarschuwingen gegenereerd. Op apparaten met Update 1 worden niet langer onjuiste incompatibel waarschuwingen gegenereerd. |Update 1 |Ja |Nee |
 | 5 |Fabrieksinstellingen terugzetten |Als de fabrieksinstellingen terug te zetten werd onderbroken voordat is voltooid, wordt het apparaat de herstelmodus en staat niet toe dat u toegang krijgen tot Windows PowerShell voor StorSimple. Deze fout is nu hersteld. |Update 1 |Ja |Nee |
@@ -75,7 +75,7 @@ De volgende tabel bevat een samenvatting van problemen die zijn verholpen in Upd
 | 7 |Controle-LED 's |In bepaalde gevallen, controle-LED's aan het einde van apparaat heeft geen status aan te geven juist. De blauwe LED is uitgeschakeld. DATA 0 en 1-LED's van gegevens zijn knipperen, zelfs wanneer deze interfaces zijn niet geconfigureerd. Het probleem is opgelost en controle-LED's geven nu de juiste status. |Update 1 |Ja |Nee |
 | 8 |Controle-LED 's |In bepaalde gevallen, na het toepassen van Update 1, de blauwe licht op de actieve controller uitgeschakeld waardoor het moeilijk te bepalen van de actieve controller. Dit probleem is opgelost in deze release van de patch. |Update 1.2 |Ja |Nee |
 | 9 |Netwerkinterfaces |In eerdere versies van kan een StorSimple-apparaat dat is geconfigureerd met een niet-routeerbare gateway offline gaan. In deze release de routering metrische gegevens voor de Data 0 is de laagste; wordt gemaakt zelfs als andere netwerkinterfaces ingeschakeld voor de cloud zijn, wordt er daarom alle cloudverkeer van het apparaat worden gerouteerd via Data 0. |Update 1 |Ja |Ja |
-| 10 |Back-ups |Een bug in Update 1, waardoor de back-ups mislukken na 24 dagen is, opgelost in de patch-versie 1.1 Update. |1.1 bijwerken |Ja |Ja |
+| 10 |Back-ups |Een bug in Update 1, waardoor de back-ups mislukken na 24 dagen is, opgelost in de patch-versie 1.1 Update. |Update 1.1 |Ja |Ja |
 | 11 |Back-ups |Een bug in eerdere versies leidde tot slechte prestaties voor cloudmomentopnamen met weinig wijzigingen tarieven. Deze fout is opgelost in deze release van de patch. |Update 1.2 |Ja |Ja |
 | 12 |Updates |Een bug in Update 1 die een mislukte upgrade gemeld en de domeincontrollers om te gaan in de herstelmodus, veroorzaakt is, opgelost in deze release van de patch. |Update 1.2 |Ja |Ja |
 
@@ -92,7 +92,7 @@ De volgende tabel bevat een overzicht van de bekende problemen in deze release.
 | 6 |Webproxy |Als uw webproxyconfiguratie HTTPS als het opgegeven protocol heeft, de apparaat-naar-servicecommunicatie worden beïnvloed en het apparaat gaat offline. Voor ondersteuningspakketten wordt ook gegenereerd in het proces, verbruikt behoorlijk aanspraak op uw apparaat. |Zorg ervoor dat de URL van proxy HTTP als het opgegeven protocol heeft. Zie [Configure web proxy for your device](storsimple-configure-web-proxy.md) (Webproxy voor uw apparaat configureren) voor meer informatie. |Ja |Nee |
 | 7 |Webproxy |Als u configureren en webproxy op een geregistreerd apparaat inschakelt, moet u de actieve controller op uw apparaat opnieuw opstarten. | |Ja |Nee |
 | 8 |Cloud hoge latentie en hoge i/o-werkbelasting |Wanneer uw StorSimple-apparaat een combinatie van zeer hoge cloud latenties (volgorde van seconden) en hoge i/o-werkbelasting tegenkomt, de apparaatvolumes gaat u in een gedegradeerde status en de i/o's mislukken mogelijk vanwege een fout 'het apparaat is niet gereed'. |U moet handmatig opnieuw opstarten Apparaatcontrollers of uitvoeren van een failover van het apparaat deze situatie te herstellen. |Ja |Nee |
-| 9 |Azure PowerShell |Bij het gebruik van de StorSimple-cmdlet **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - eerst 1 - Wait** het eerste object selecteren, zodat u kunt een nieuwe maken **Upopslagaccount** object, de cmdlet retourneert alle objecten. |De cmdlet als volgt tussen haakjes verpakken: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - eerst 1 - Wait** |Ja |Ja |
+| 9 |Azure PowerShell |Bij het gebruik van de StorSimple-cmdlet **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - eerst 1 - Wait** het eerste object selecteren, zodat u kunt een nieuwe maken **Upopslagaccount** object, de cmdlet retourneert alle objecten. |De cmdlet als volgt tussen haakjes verpakken: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Ja |Ja |
 | 10 |Migratie |Wanneer meerdere volumecontainers voor migratie worden doorgegeven, is de verwachte Aankomsttijd voor de meest recente back-up nauwkeurige alleen voor de eerste volumecontainer. Bovendien begint parallelle migratie nadat de eerste 4 back-ups in de eerste volumecontainer worden gemigreerd. |Het is raadzaam dat u een volumecontainer tegelijk migreren. |Ja |Nee |
 | 11 |Migratie |Na het herstel, zijn de volumes niet toegevoegd aan het back-upbeleid of de groep van de virtuele schijf. |U moet deze volumes toevoegen aan een back-upbeleid om te kunnen maken van back-ups. |Ja |Ja |
 | 12 |Migratie |Nadat de migratie voltooid is, moet de 5000/7000-serie-apparaat geen toegang tot de gemigreerde gegevenscontainers. |Het is raadzaam dat u de gemigreerde gegevenscontainers verwijderen nadat de migratie voltooid en wordt doorgevoerd is. |Ja |Nee |

@@ -2,18 +2,18 @@
 title: Informatie over Azure File Sync Cloud-Opslaglagen | Microsoft Docs
 description: Meer informatie over Azure File Sync-functie Cloud Tiering
 services: storage
-author: sikoo
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 09/21/2018
-ms.author: sikoo
+ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 871eb1663d6cba550f1403215b1d3ce5fe8278d3
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486101"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444926"
 ---
 # <a name="cloud-tiering-overview"></a>Warmtemeting overzicht van cloud
 Cloud tiering is een optionele functie van Azure File Sync waarin vaak gebruikte bestanden in de cache lokaal op de server opgeslagen terwijl alle andere bestanden naar Azure Files op basis van beleidsinstellingen worden geschakeld. Wanneer een bestand is gelaagd, vervangen het bestandssysteemfilter van Azure File Sync (StorageSync.sys) het bestand lokaal door een wijzer, of een reparsepunt. Het reparsepunt vertegenwoordigt een URL naar het bestand in Azure Files. Een gelaagd bestand is zowel het kenmerk 'offline' als het FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS-kenmerk in NTFS zo instellen dat toepassingen van derden kunnen gelaagde bestanden veilig kan identificeren.

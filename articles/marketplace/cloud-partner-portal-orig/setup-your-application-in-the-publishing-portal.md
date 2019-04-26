@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483190"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Instellen van uw toepassing in de Portal voor publiceren
 
@@ -106,7 +106,7 @@ Dit is de beschrijving die wordt weergegeven op de pagina met details van uw app
 
 Selecteer de branche dat uw app is het beste uitgelijnd. Als uw app is gekoppeld aan meerdere branches, kunt u dit leeg laten.
 
-### <a name="categories"></a>Categorieën
+### <a name="categories"></a>Categories
 
 Selecteer de categorieën die relevant voor uw app zijn. Selecteer maximaal 3.
 

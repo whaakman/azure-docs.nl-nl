@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
 ms.openlocfilehash: 1caa8e7554024c3b2e3d86436d3d494d7995169a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516673"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Een openbare load balancer maken met IPv6 met Azure CLI
 
@@ -46,11 +46,11 @@ De volgende stappen laten zien hoe u een openbare load balancer maakt met behulp
 
 Voor het implementeren van een load balancer maken en configureren van de volgende objecten:
 
-* **Front-end-IP-configuratie**: bevat openbare IP-adressen voor inkomend netwerkverkeer.
-* **Back-end-adresgroep**: bevat netwerkinterfaces (NIC's) voor de virtuele machines netwerkverkeer kunnen ontvangen van de load balancer.
-* **Regels voor taakverdeling**: bevat regels die een openbare poort op de load balancer aan een poort in de back-end-adresgroep toewijst.
-* **Inkomende NAT-regels**: bevat regels network address translation (NAT) die een openbare poort op de load balancer aan een poort voor een specifieke virtuele machine in de back-end-adresgroep toewijst.
-* **Tests**: bevat statustests die worden gebruikt voor het controleren van de beschikbaarheid van VM-exemplaren in de back-end-adresgroep.
+* **Front-end-IP-configuratie**: Bevat openbare IP-adressen voor inkomend netwerkverkeer.
+* **Back-end-adresgroep**: Bevat netwerkinterfaces (NIC's) voor de virtuele machines netwerkverkeer kunnen ontvangen van de load balancer.
+* **Regels voor taakverdeling**: Bevat regels die een openbare poort op de load balancer aan een poort in de back-end-adresgroep toewijst.
+* **Inkomende NAT-regels**: Bevat regels network address translation (NAT) die een openbare poort op de load balancer aan een poort voor een specifieke virtuele machine in de back-end-adresgroep toewijst.
+* **Tests**: Bevat statustests die worden gebruikt voor het controleren van de beschikbaarheid van VM-exemplaren in de back-end-adresgroep.
 
 ## <a name="set-up-azure-cli"></a>Azure CLI instellen
 

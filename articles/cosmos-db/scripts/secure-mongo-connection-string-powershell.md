@@ -2,19 +2,20 @@
 title: 'Azure PowerShell-script: Azure Cosmos DB-verbindingsreeks ophalen voor MongoDB-apps'
 description: 'Azure PowerShell-voorbeeldscript: Azure Cosmos DB-verbindingsreeks ophalen voor MongoDB-apps'
 ms.service: cosmos-db
-author: SnehaGunda
-ms.author: sngun
+author: rockboyfor
+ms.author: v-yeche
 ms.subservice: cosmosdb-sql
 ms.devlang: PowerShell
 ms.topic: sample
-ms.date: 05/10/2017
+origin.date: 05/10/2017
+ms.date: 04/15/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 70b48b16a0fcc54025101e61aec3715fb91fea86
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60446122"
 ---
 # <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-powershell"></a>Een Azure Cosmos DB-verbindingsreeks ophalen voor MongoDB-apps met behulp van PowerShell
 
@@ -26,7 +27,49 @@ Met dit voorbeeldscript haalt u een Azure Cosmos DB-verbindingsreeks op voor Mon
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/get-mongodb-connection-string/get-mongodb-connection-string.ps1?highlight=37-41 "Get the MongoDB connection string from an Azure Cosmos DB account")]
+```powershell
+# Set the Azure resource group name and location
+$resourceGroupName = "myResourceGroup"
+$resourceGroupLocation = "chinanorth"
+
+# Create the resource group
+New-AzResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
+
+# Database name
+$DBName = "testdb"
+
+# Write and read locations and priorities for the database
+$locations = @(@{"locationName"="chinanorth"; 
+                 "failoverPriority"=0}, 
+               @{"locationName"="chinaeast"; 
+                  "failoverPriority"=1})
+
+# Consistency policy
+$consistencyPolicy = @{"defaultConsistencyLevel"="BoundedStaleness"; 
+                       "maxIntervalInSeconds"="10"; 
+                       "maxStalenessPrefix"="200"}
+
+# DB properties
+$DBProperties = @{"databaseAccountOfferType"="Standard";
+                  "locations"=$locations; 
+                  "consistencyPolicy"=$consistencyPolicy}
+
+# Create the database
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+                    -ApiVersion "2015-04-08" `
+                    -ResourceGroupName $resourceGroupName `
+                    -Location $resourceGroupLocation `
+                    -Name $DBName `
+                    -Kind "MongoDB" `
+                    -PropertyObject $DBProperties
+
+# Retrieve a connection string that can be used by a MongoDB client
+Invoke-AzResourceAction -Action listConnectionStrings `
+    -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" `
+    -ResourceGroupName $resourceGroupName `
+    -Name $DBName
+```
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
@@ -42,7 +85,7 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Hiermee wordt een logische server gemaakt die als host fungeert voor een database of elastische pool. |
 | [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | Hiermee wordt een actie op het Azure Cosmos DB-account aangeroepen. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
@@ -53,3 +96,5 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 Zie [Documentatie over Azure PowerShell](https://docs.microsoft.com/powershell/) voor meer informatie over Azure PowerShell.
 
 Meer Azure Cosmos DB PowerShell-voorbeeldscripts vindt u in [Azure Cosmos DB PowerShell-scripts](../powershell-samples.md).
+
+<!-- Update_Description: update meta properties, update link -->

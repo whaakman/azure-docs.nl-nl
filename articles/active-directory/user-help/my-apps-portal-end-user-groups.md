@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5af86ad12eed4901e577149b9f20216d5004663b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 578ca5fa1de338a92280e2dc7cc252fb616e2111
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483348"
 ---
 # <a name="update-your-groups-info-from-the-my-apps-portal"></a>Bijwerken van je info groepen vanuit de portal mijn Apps
 U kunt uw werk of school-account gebruiken met de webconsole **mijn Apps** portal weergeven en starten van veel van uw organisatie cloud-gebaseerde apps, om bij te werken sommige van uw profiel en account-informatie om te zien uw **groepen** informatie en om uit te voeren **toegangsbeoordelingen** voor uw apps en -groepen. Als u geen toegang tot de **mijn Apps** portal, u moet contact opnemen met uw Helpdesk om toestemming.
@@ -53,17 +53,19 @@ Als uw beheerder u heeft gemachtigd om weer te geven de **groepen** tegel, kunt 
 
     - **Bekijk de groepen die u eigenaar bent.** Weergave-informatie over de groepen die u bezit binnen uw organisatie van de **mijn groepen** gebied. Als u de naam van een specifieke groep selecteert biedt u meer informatie over de groep, met inbegrip van het groepstype, het aantal leden het join-beleid en de lijst met actieve leden.
 
-    - **Maak een nieuwe groep.** Maak een nieuwe groep met u als de eigenaar van de **mijn groepen** gebied. Zie voor specifieke stappen [Maak een nieuwe groep](#create-a-new-group) sectie van dit artikel.
+    - **Maak een nieuwe groep.** Maak een nieuwe groep met u als de eigenaar van de **mijn groepen** gebied. Zie voor specifieke stappen de [Maak een nieuwe groep](#create-a-new-group) sectie van dit artikel.
 
-    - **Bewerk een bestaande groep.** Bewerk de details voor het gebruik van uw eigen groepen. Zie voor specifieke stappen [bewerken van een bestaande groep](#edit-an-existing-group) sectie van dit artikel.
+    - **Bewerk een bestaande groep.** Bewerk de details voor het gebruik van uw eigen groepen. Zie voor specifieke stappen de [bewerken van een bestaande groep](#edit-an-existing-group) sectie van dit artikel.
 
-    - **Leden toevoegen of verwijderen.** Leden toevoegen of verwijderen voor groepen waarvan u eigenaar bent. Zie voor specifieke stappen [toevoegen of verwijderen lid](#add-or-remove-a-member) sectie van dit artikel.
+    - **Leden toevoegen of verwijderen.** Leden toevoegen of verwijderen voor groepen waarvan u eigenaar bent. Zie voor specifieke stappen de [toevoegen of verwijderen lid](#add-or-remove-a-member) sectie van dit artikel.
 
-    - **Een groep verwijderen.** Verwijder de groepen waarvan u eigenaar bent. Zie voor specifieke stappen [verwijderen van een groep](#delete-a-group) sectie van dit artikel.
+    - **Vernieuwen van een Office 365-groep.** Als uw organisatie is toegestaan, kunt u uw Office 365-groepen te vernieuwen. Zie voor specifieke stappen de [vernieuwen van een Office 365-groep](#renew-an-office-365-group) sectie van dit artikel. 
+
+    - **Een groep verwijderen.** Verwijder de groepen waarvan u eigenaar bent. Zie voor specifieke stappen de [verwijderen van een groep](#delete-a-group) sectie van dit artikel.
 
     - **Bekijk de-u een deel van bent groepen.** Bekijk de namen van alle groepen waarop u een lid van de **groepen waarin ik zit** gebied. Als u de naam van een specifieke groep selecteert biedt u meer informatie over de groep, met inbegrip van het groepstype, het aantal leden het join-beleid en de lijst met actieve leden.
 
-    - **Deelname aan een groep.** Lid worden van een bestaande groep, waarvan u niet al een lid van bent de **groepen waarin ik zit** gebied. Zie voor specifieke stappen [lid worden van een bestaande groep](#join-an-existing-group).
+    - **Deelname aan een groep.** Lid worden van een bestaande groep, waarvan u niet al een lid van bent de **groepen waarin ik zit** gebied. Zie voor specifieke stappen de [lid worden van een bestaande groep](#join-an-existing-group).
 
 ## <a name="create-a-new-group"></a>Een nieuwe groep maken
 1. Op de **groepen** weergeeft, schakelt **maken van een groep** uit de **mijn groepen** gebied.
@@ -117,6 +119,18 @@ U kunt leden toevoegen of verwijderen voor het gebruik van uw eigen groepen.
 3. Als u een lid per ongeluk hebt toegevoegd, of als een lid van uw organisatie heeft verlaten, u het lid verwijderen door het selecteren van kunt **lid verwijderen** naast de naam van het lid van de *&lt;naam_groep&gt;* pagina.
 
     ![Verwijderen van een lid met de koppeling van de verwijdering gemarkeerd](media/my-apps-portal/my-apps-portal-remove-member-link.png)
+
+## <a name="renew-an-office-365-group"></a>Vernieuwen van een Office 365-groep
+Als uw organisatie is toegestaan, kunt u een Office 365-groep, uitbreiding van de vervaldatum vernieuwen.
+
+### <a name="to-renew-a-group"></a>Vernieuwen van een groep
+1. Selecteer de Office 365-groep die u wilt vernieuwen, en selecteer vervolgens **vernieuwen groep**.
+
+    ![Een Office 365-groep, uitbreiding van de vervaldatum vernieuwen](media/my-apps-portal/my-apps-portal-renew-group-link.png)
+
+2. Klik op **OK** te sluiten van het bevestigingsbericht.
+
+    Nadat u de pagina vernieuwt, ziet u uw bijgewerkte **laatste vernieuwd** en **groep verlopen** datums.
 
 ## <a name="delete-a-group"></a>Een groep verwijderen
 U kunt een van uw eigen groepen op elk gewenst moment verwijderen. Echter, als u een groep per ongeluk verwijdert hebt u deze maken en leden opnieuw toevoegen.

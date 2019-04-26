@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: lyrana
 ms.openlocfilehash: 4ea4479d77e06940bed50859341952ffbcbbda46
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711052"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533823"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Verbinding maken en te verifiëren voor API 's
 
@@ -25,11 +25,11 @@ Om een toepassing of service met Azure Active Directory te integreren, moet een 
 
 [Toepassingsscenario's vijf primaire](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) worden ondersteund door Azure AD:
 
-* Toepassing met één pagina (SPA): een gebruiker moet zich aanmelden bij een toepassing met één pagina die wordt beveiligd door Azure AD.
-* Webbrowser voor web-App: een gebruiker moet zich aanmelden bij een webtoepassing die wordt beveiligd door Azure AD.
-* Systeemeigen toepassing voor de web-API: een systeemeigen toepassing die wordt uitgevoerd op een telefoon, tablet of PC moet een gebruiker voor resources van een web-API die wordt beveiligd door Azure AD verifiëren.
-* Webtoepassing aan web-API: een web-App nodig heeft om op te halen van resources van een web-API is beveiligd door Azure AD.
-* Daemon of servertoepassing naar web-API: een daemon-toepassing of een servertoepassing met niet-Webinterface moet de resources ophalen uit een web-API is beveiligd door Azure AD.
+* Toepassing met één pagina (SPA): Er moet een gebruiker zich aanmeldt bij een toepassing met één pagina die wordt beveiligd door Azure AD.
+* De webbrowser voor web-App: Er moet een gebruiker zich aanmeldt bij een webtoepassing die wordt beveiligd door Azure AD.
+* Systeemeigen toepassing voor de web-API: Een systeemeigen toepassing die wordt uitgevoerd op een telefoon, tablet of PC moet een gebruiker voor resources van een web-API die wordt beveiligd door Azure AD verifiëren.
+* Web-App aan web-API: Een web-App nodig heeft om op te halen van resources van een web-API is beveiligd door Azure AD.
+* Daemon of servertoepassing naar web-API: Een daemontoepassing of een servertoepassing met geen web-UI moet resources ophalen uit een web-API die is beveiligd door Azure AD.
 
 De Windows Azure-Verificatiebibliotheek biedt verschillende manieren voor het verkrijgen van Active Directory-tokens. Zie voor meer informatie over de bibliotheek en codevoorbeelden, [in dit artikel](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
 
