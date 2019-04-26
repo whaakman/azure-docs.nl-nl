@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
 ms.openlocfilehash: eae36aa6e60e3da03c59952a1d9e035e6a773d2d
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156694"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531080"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Vergelijking van de Azure API Management-lagen op basis van functie
 
 Elke API Management [prijscategorie](https://aka.ms/apimpricing) vindt u een afzonderlijke set met functies en per eenheid [capaciteit](api-management-capacity.md). De volgende tabel geeft een overzicht van de belangrijkste functies die beschikbaar zijn in elk van de lagen. Sommige functies mogelijk werken anders of hebt verschillende mogelijkheden, afhankelijk van de laag. In dergelijke gevallen zijn de verschillen genoemd in de documentatieartikelen met een beschrijving van deze afzonderlijke functies.
 
-| Functie                                                                                      | Verbruik<sup>Preview-versie</sup> | Ontwikkelaar      | Basis          | Standard       | Premium        |
+| Functie                                                                                      | Verbruik<sup>Preview-versie</sup> | Developer      | Basic          | Standard       | Premium        |
 | -------------------------------------------------------------------------------------------- | ----------------------------- | -------------- | -------------- | -------------- | -------------- |
 | Azure AD-integratie<sup>1</sup>                                                             | Nee                            | Ja            | Nee             | Ja            | Ja            |
 | Ondersteuning voor Virtual Network (VNet)                                                               | Nee                            | Ja            | Nee             | Nee             | Ja            |

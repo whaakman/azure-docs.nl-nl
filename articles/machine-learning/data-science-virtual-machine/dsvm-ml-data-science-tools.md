@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57847362"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502084"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Machine learning en data science-hulpprogramma 's
 Azure Data Science Virtual Machines is een uitgebreide set hulpprogramma's en bibliotheken voor machine learning (ML) beschikbaar in populaire talen, zoals Python, R en Julia. 

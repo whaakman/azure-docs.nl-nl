@@ -13,11 +13,11 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 696b6b14b2a369e8b80ac615fc77fa7f48f51c57
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60474282"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Handmatig een account toevoegen aan de app.
 Als uw camera niet kan om vast te leggen van de QR-code, kunt u gegevens over uw account handmatig toevoegen aan de Microsoft Authenticator-app voor tweeledige verificatie. Dit werkt voor werk of schoolaccounts en niet-Microsoft-accounts.

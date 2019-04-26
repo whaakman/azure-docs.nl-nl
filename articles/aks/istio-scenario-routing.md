@@ -2,17 +2,18 @@
 title: Intelligente routering en canary releases met Istio in Azure Kubernetes Service (AKS)
 description: Informatie over het gebruik van Istio bieden een intelligente Routering en canary releases in een Azure Kubernetes Service (AKS)-cluster implementeren
 services: container-service
-author: paulbouwer
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 12/3/2018
-ms.author: pabouwer
+origin.date: 12/03/2018
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.openlocfilehash: 0a4e5e7e310a9949ee59291c2032eafda46955a9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892223"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465824"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Gebruik intelligente Routering en canary releases met Istio in Azure Kubernetes Service (AKS)
 
@@ -128,7 +129,7 @@ Containers:
     Image:         mcr.microsoft.com/aks/samples/voting/app:1.0
     ...
   istio-proxy:
-    Image:         docker.io/istio/proxyv2:1.0.4
+    Image:         dockerhub.azk8s.cn/istio/proxyv2:1.0.4
 [...]
 ```
 
@@ -254,7 +255,7 @@ Eenvoudiger kunt u visualiseren dat we, nu alleen worden gerouteerd naar versie 
 
 U kunt visualiseren dat u nu alleen doorgestuurd naar versie *1.1* van uw *stem-analytics* onderdeel als volgt te werk. Moet u het IP-adres van de Gateway van uw eigen Istio inkomend gebruiken:
 
-```azurecli-interactive
+```azurecli
 INGRESS_IP=52.187.250.239
 for i in {1..5}; do curl -si $INGRESS_IP | grep results; done
 ```
@@ -340,7 +341,7 @@ deployment.apps/voting-app-2-0 created
 
 Wachten totdat alle versie *2.0* schillen uitgevoerd. Gebruik de [kubectl ophalen schillen] [ kubectl-get] opdracht voor het weergeven van alle schillen in de *stemmende* naamruimte:
 
-```azurecli-interactive
+```azurecli
 kubectl get pods --namespace voting
 ```
 

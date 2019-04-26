@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: 21ddeb9cb0621f0f11ca23a7b12a82df0b7aa8ca
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546668"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60528299"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database voor MySQL Prijscategorieën
 
@@ -87,7 +87,7 @@ COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU va
 | VS (overheid) - Texas |  | X |
 | VS (overheid) - Virginia |  | X |
 
-## <a name="storage"></a>Opslag
+## <a name="storage"></a>Storage
 
 De opslag die u inricht is de hoeveelheid opslagcapaciteit beschikbaar zijn voor uw Azure Database voor MySQL-server. De opslag wordt gebruikt voor de databasebestanden, tijdelijke bestanden transactielogboeken en de MySQL-server zich aanmeldt. De totale hoeveelheid opslag die u inricht definieert ook de i/o-capaciteit beschikbaar voor uw server.
 

@@ -16,17 +16,17 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ee322dd3ff6ccd68b09645fb46b1488b17819bb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871686"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440412"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemen met aanmelden bij een on-premises toepassing met behulp van de Azure AD-toepassingsproxy
 
 Als u problemen bij het aanmelden een on-premises toepassing ondervindt, kunt u proberen na de onderstaande stappen voor het oplossen van uw probleem.
 
-## <a name="i-can-load-my-application-but-something-on-the-page-looks-broken"></a>Ik kan mijn toepassing laden, maar iets op de pagina ziet er verbroken
+## <a name="i-can-load-my-application-but-something-on-the-page-looks-broken"></a>Ik kan mijn toepassing laden, maar de pagina wordt niet correct weergegeven
 
 De volgende documenten kunnen u helpen een aantal van de meest voorkomende problemen in deze categorie op te lossen.
 
@@ -34,27 +34,27 @@ De volgende documenten kunnen u helpen een aantal van de meest voorkomende probl
   * [Ik kan mijn toepassing openen, maar het duurt te lang voor de toepassing is geladen](application-proxy-page-load-speed-problem.md)
   * [Ik kan mijn toepassing openen, maar de koppelingen op de toepassingspagina werken niet](application-proxy-page-links-broken-problem.md)
 
-## <a name="im-having-a-connectivity-problem-my-application"></a>Ik ondervind een verbindingsprobleem mijn toepassing
+## <a name="im-having-a-connectivity-problem-my-application"></a>Ik heb een verbindingsprobleem in mijn toepassing
   De volgende documenten kunnen u helpen een aantal van de meest voorkomende problemen in deze categorie op te lossen.
   * [Ik weet niet welke poorten ik voor de toepassing moet openen](application-proxy-connectivity-ports-how-to.md)
   * [Er treedt een probleem op omdat er geen werkende connector is in een connectorgroep voor de toepassing](application-proxy-connectivity-no-working-connector.md)
 
-## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Ik ondervind een probleem opgetreden bij het configureren van de Azure AD-toepassingsproxy in de beheerportal
+## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Ik heb een probleem bij het configureren van de Azure AD-toepassingsproxy in de beheerportal
   De volgende documenten kunnen u helpen een aantal van de meest voorkomende problemen in deze categorie op te lossen.
   * [Ik ondervind problemen bij het configureren van een toepassing voor een toepassingsproxy](application-proxy-config-how-to.md)
   * [Ik weet niet hoe ik eenmalige aanmelding moet configureren bij mijn toepassing voor een toepassingsproxy](application-proxy-config-sso-how-to.md)
   * [Er treedt een probleem op bij het maken van mijn toepassing in de beheerportal](application-proxy-config-problem.md)
 
-## <a name="im-having-a-problem-setting-up-back-end-authentication-to-my-application"></a>Ik ondervind een probleem opgetreden bij het instellen van back-endverificatie naar mijn toepassing
+## <a name="im-having-a-problem-setting-up-back-end-authentication-to-my-application"></a>Ik heb een probleem met het instellen van back-endverificatie naar mijn toepassing
   De volgende documenten kunnen u helpen een aantal van de meest voorkomende problemen in deze categorie op te lossen.
   * [Ik weet niet hoe ik Kerberos-beperkte overdracht moet configureren](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
   * [Ik weet niet hoe ik mijn toepassing met PingAccess moet configureren](application-proxy-back-end-ping-access-how-to.md)
 
-## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>Ik ondervind een probleem opgetreden bij het aanmelden bij mijn toepassing
+## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>Ik heb een probleem met het aanmelden bij mijn toepassing
   De volgende documenten kunnen u helpen een aantal van de meest voorkomende problemen in deze categorie op te lossen.
   * [Ik krijg een fout "Can't Access this Corporate Application" (Kan deze zakelijke toepassing niet openen)](application-proxy-sign-in-bad-gateway-timeout-error.md)
 
-## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Ik ondervind een probleem met de Toepassingsproxyagent
+## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Ik heb een probleem met de connector voor de toepassingsproxyagent
   De volgende documenten kunnen u helpen een aantal van de meest voorkomende problemen in deze categorie op te lossen.
   * [Ik ondervind problemen bij het installeren van de Toepassingsproxyagent](application-proxy-connector-installation-problem.md)
 

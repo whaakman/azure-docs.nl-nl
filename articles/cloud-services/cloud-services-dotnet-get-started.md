@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917473"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60521106"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Aan de slag met Azure Cloud Services en ASP.NET
 
@@ -155,7 +155,7 @@ Wanneer de app wordt uitgevoerd in de cloud, gebruikt deze een cloudgebaseerde d
 8. Schakel **Toegang van Azure-services tot server toestaan** in.
 9. Klik op **Selecteren** voor de nieuwe server.
 
-    ![Nieuwe SQL-databaseserver](./media/cloud-services-dotnet-get-started/newdbserver.png)
+    ![Nieuwe SQL Database-server](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. Klik op **Create**.
 
 ### <a name="create-an-azure-storage-account"></a>Een Azure-opslagaccount maken

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: a51cd589702320ecb55e6a2e3c5f0a6139e281fe
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158071"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422352"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Over het gebruik van Twilio voor spraak en SMS-mogelijkheden in PHP
 Deze handleiding laat zien hoe u algemene programming taken met de Twilio API-service op Azure uitvoeren. De behandelde scenario's omvatten een telefonische oproep maken en verzenden van een bericht Short Message Service (SMS). Zie voor meer informatie over Twilio en het gebruik van spraak en SMS-berichten in uw toepassingen, de [Vervolgstappen](#NextSteps) sectie.
@@ -44,8 +44,8 @@ De API maakt gebruik van Twilio termen; bijvoorbeeld, de **&lt;zeg&gt;** term ge
 
 Hier volgt een lijst met Twilio-bewerkingen. Meer informatie over de andere bewerkingen en mogelijkheden via [Twilio Markup Language documentatie](https://www.twilio.com/docs/api/twiml).
 
-* **&lt;Externe&gt;**: De oproepende functie verbindt met een ander telefoonnummer.
-* **&lt;Verzamel&gt;**: Verzamelt cijfers ingevoerd op het telefoonnummer.
+* **&lt;Dial&gt;**: De oproepende functie verbindt met een ander telefoonnummer.
+* **&lt;Gather&gt;**: Verzamelt cijfers ingevoerd op het telefoonnummer.
 * **&lt;Ophangen&gt;**: Een gesprek is beëindigd.
 * **&lt;Afspelen&gt;**: Hiermee wordt een geluidsbestand afgespeeld.
 * **&lt;Onderbreken&gt;**: Wacht op de achtergrond gedurende een opgegeven aantal seconden.
@@ -53,7 +53,7 @@ Hier volgt een lijst met Twilio-bewerkingen. Meer informatie over de andere bewe
 * **&lt;Omleiden&gt;**: Het besturingselement van de overdracht van een telefoongesprek of SMS aan de TwiML op een andere URL.
 * **&lt;Afwijzen&gt;**: Een binnenkomende oproep naar uw Twilio-getal afwijzen zonder dat u facturering
 * **&lt;Stel dat&gt;**: Converteert tekst naar spraak die wordt gemaakt op een aanroep.
-* **&lt;SMS&gt;**: Verzendt een SMS-bericht.
+* **&lt;Sms&gt;**: Verzendt een SMS-bericht.
 
 ### <a id="TwiML"></a>TwiML
 TwiML is een set op basis van de Twilio-termen die Twilio van het verwerken van een oproep of SMS op de hoogte op basis van een XML-instructies.
@@ -237,7 +237,7 @@ Nu dat u de basisprincipes van de Twilio-service hebt geleerd, volgt u deze kopp
 * [Twilio-beveiligingsrichtlijnen][twilio_security_guidelines]
 * [Van Twilio HowTo en voorbeeldcode][twilio_howtos]
 * [Twilio zelfstudies][twilio_quickstarts] 
-* [Twilio op GitHub][twilio_on_github]
+* [Twilio on GitHub][twilio_on_github]
 * [Neem contact op met ondersteuning voor Twilio][twilio_support]
 
 [twilio_php]: https://github.com/twilio/twilio-php

@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3dabb381c16aa107e41c1d556e61e020b8c6a6c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170219"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455734"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Bepaal de vereisten voor meervoudige verificatie voor uw oplossing voor hybride identiteit
 In deze wereld van mobiliteit met gebruikers die toegang tot gegevens en toepassingen in de cloud en vanaf elk apparaat is voor het beveiligen van deze informatie geworden cruciaal.  Elke dag is er een nieuwe kop over een schending van de beveiliging.  Hoewel er is geen garantie tegen dergelijke schendingen, biedt meervoudige verificatie, om te voorkomen dat deze inbreuk op een extra beveiligingslaag.

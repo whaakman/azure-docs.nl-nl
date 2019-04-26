@@ -13,11 +13,11 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34455cac61dd3b1f1251d4bc2003bd8b029de031
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014969"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60474039"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Overzicht over accounts toevoegen aan de Microsoft Authenticator-app
 
@@ -44,7 +44,7 @@ U kunt verificatie in twee stappen inschakelen voor veel accounts die u dagelijk
 
 ## <a name="in-this-section"></a>In deze sectie doet u het volgende
 
-|Artikel |Description |
+|Artikel |Beschrijving |
 |------|------------|
 |[Uw werk- of schoolaccount toevoegen](user-help-auth-app-add-work-school-account.md)|Beschrijft hoe u uw werk- of schoolaccount toevoegt aan de Microsoft Authenticator-app voor verificatie in twee stappen.|
 |[Uw persoonlijke Microsoft-account toevoegen](user-help-auth-app-add-personal-ms-account.md)|Beschrijft hoe u uw persoonlijke Microsoft-accounts toevoegt voor verificatie in twee stappen en aanmelding via telefoon (ook bekend als aanmelding zonder wachtwoord).|

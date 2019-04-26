@@ -12,11 +12,11 @@ ms.date: 01/10/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: a28445199c47c666fb2323a70317f81f3302c765
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539159"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Wat is de Bing Nieuws zoeken-API?
 
@@ -28,7 +28,7 @@ Let erop dat met de Bing Nieuws zoeken-API de resultaten alleen zoekresultaten o
 
 Terwijl de Bing Nieuws zoeken-API hoofdzakelijk relevante nieuwsartikelen zoekt en retourneert, biedt het een aantal functies voor het intelligent en gericht ophalen van nieuws op internet.
 
-|Functie  |Beschrijving  |
+|Functie  |Description  |
 |---------|---------|
 |[Zoektermen voorstellen en gebruiken](concepts/search-for-news.md#suggest-and-use-search-terms)     | Verbeter uw zoekervaring met de [Automatische suggestie-API voor Bing](../bing-autosuggest/get-suggested-search-terms.md) om voorgestelde zoektermen weer te geven wanneer deze worden getypt.         |
 |[Algemeen nieuws ophalen](concepts/search-for-news.md#get-general-news)     | Zoek nieuws door een zoekopdracht te versturen naar de Bing Nieuws zoeken-API, waarna u een lijst met relevante nieuwsartikelen retour krijgt.           |

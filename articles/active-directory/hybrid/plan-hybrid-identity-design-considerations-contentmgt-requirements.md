@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 81a1ab0ee411f05b353317b0d781e0cb292c7d6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455841"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Bepaal de vereisten voor inhoudsbeheer voor uw oplossing voor hybride identiteit
 Informatie over de vereisten voor inhoud voor uw bedrijf kan direct van invloed op uw beslissing over welke oplossing voor hybride identiteiten te gebruiken. Met de komst van meerdere apparaten en de mogelijkheid van gebruikers op hun eigen apparaten meebrengen ([BYOD](https://aka.ms/byodcg)), het bedrijf een eigen gegevens moet beveiligen, maar deze ook bewaart de privacy van de gebruiker intact. Wat meestal gebeurt wanneer een gebruiker een eigen apparaat heeft, kunnen ze ook meerdere referenties die op basis van de toepassing die ze gebruiken zal worden afwisselende hebben. Het is belangrijk om te onderscheiden welke inhoud is gemaakt met behulp van persoonlijke referenties ten opzichte van die zijn gemaakt met behulp van zakelijke referenties. Uw oplossing voor identiteit moet kunnen communiceren met cloud services voor een naadloze ervaring voor de eindgebruiker tijdens hun privacy te waarborgen en verhoogt de beveiliging tegen gegevenslekken. 

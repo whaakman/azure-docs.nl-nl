@@ -9,11 +9,11 @@ ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 2307fa985c88608d80400c8951c47b9f20caa1dc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799300"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515530"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhookacties voor waarschuwingsregels
 Wanneer een [waarschuwing is gemaakt in Azure](alerts-log.md), hebt u de optie [configureren met behulp van actiegroepen](action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en meer informatie over het configureren van de aangepaste JSON-indeling webhook.
@@ -36,7 +36,7 @@ Webhookacties vereisen de eigenschappen in de volgende tabel:
 Webhooks omvatten een URL en een nettolading opgemaakt in JSON die de gegevens zijn verzonden naar de externe service.  Standaard bevat de nettolading van de waarden in de volgende tabel:  U kunt deze nettolading vervangen door een aangepaste classificatie van uw eigen.  In dat geval kunt u de variabelen in de tabel voor elk van de parameters om op te nemen van de waarde in de aangepaste nettolading.
 
 
-| Parameter | Variabele | Description |
+| Parameter | Variabele | Beschrijving |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |De naam van de waarschuwingsregel. |
 | Severity |#severity |Ernst instellen voor de geactiveerde waarschuwing. |

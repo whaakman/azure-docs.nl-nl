@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: bb7d6531da330bcfbf6de786ffb19984cfd1964e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487151"
 ---
 # <a name="use-case---customer-profiling"></a>Use case: klantprofilering
 Azure Data Factory is een van vele services die worden gebruikt voor het implementeren van de Cortana Intelligence Suite van Oplossingsverbeteringen.  Bezoek voor meer informatie over Cortana Intelligence [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). In dit document wordt beschreven een eenvoudige use-case zodat u kunt aan de slag met informatie over hoe Azure Data Factory analytics van veelvoorkomende problemen kunt oplossen.
