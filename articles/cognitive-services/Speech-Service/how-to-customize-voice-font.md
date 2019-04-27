@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: panosper
 ms.openlocfilehash: 24b98ce8cd2c587f0d39390954eb8a64747ca2ab
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868324"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60654006"
 ---
 # <a name="creating-custom-voice-fonts"></a>Het maken van aangepaste spraakstijlen
 
@@ -33,7 +33,7 @@ U moet een Azure-account en een abonnement met de spraak-service. [Maak een](htt
 
 2. Onder de naam van uw account in de rechterbovenhoek, gaat u naar **abonnementen**.
 
-    ![Abonnementen](media/custom-voice/subscriptions.png)
+    ![Subscriptions](media/custom-voice/subscriptions.png)
 
 3. Kies op de pagina abonnementen **verbinding maken met bestaande abonnement**. Houd er rekening mee dat Speech Services biedt ondersteuning voor verschillende regio's. De regio waar de abonnementssleutel van uw is gemaakt en zorg ervoor dat u uw sleutel verbinding met de juiste onderliggende portal maken controleren.  
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: 93803a7d885bb68c1d5d6637eaf90fb090dabeb2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000263"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60598740"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -273,9 +273,9 @@ De queryparameters configureren hoe en wat wordt geretourneerd in antwoord op de
 |--|--|--|
 |`q`|string|Utterance van de gebruiker.|
 |`timezoneOffset`|getal|U kunt de timezoneOffset [wijzigt de tijdzone](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) die worden gebruikt door de vooraf gedefinieerde entiteit datetimeV2.|
-|`verbose`|boolean|Retourneert alle intents en hun scores wanneer ingesteld op true. Standaard is ingesteld op false, die alleen het belangrijkste doel retourneert.|
-|`staging`|boolean|Query retourneert uit de resultaten van de omgeving voor fasering als is ingesteld op true. |
-|`log`|boolean|Logboekregistratie van query's, die later kunnen worden gebruikt voor [actief leren](luis-how-to-review-endpoint-utterances.md). De standaardinstelling is true.|
+|`verbose`|booleaans|Retourneert alle intents en hun scores wanneer ingesteld op true. Standaard is ingesteld op false, die alleen het belangrijkste doel retourneert.|
+|`staging`|booleaans|Query retourneert uit de resultaten van de omgeving voor fasering als is ingesteld op true. |
+|`log`|booleaans|Logboekregistratie van query's, die later kunnen worden gebruikt voor [actief leren](luis-how-to-review-endpoint-utterances.md). De standaardinstelling is true.|
 
 ### <a name="query-published-app"></a>Gepubliceerde app query
 

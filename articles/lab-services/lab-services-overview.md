@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 07/13/2018
 ms.author: spelluru
 ms.openlocfilehash: a4ca5cba924a3269f279469f26e68acdb0ad0659
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257617"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711053"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Een inleiding tot Azure Lab Services
 Met Azure Lab Services kunt u snel in de cloud een omgeving inrichten voor uw team (zoals een ontwikkelomgeving, testomgeving of labomgeving voor het leslokaal). De eigenaar van een lab maakt een lab, richt virtuele machines met Windows of Linux in, installeert de benodigde software en hulpprogramma's en maakt deze beschikbaar voor gebruikers van het lab. Labgebruikers maken verbinding met virtuele machines (VM's) in het lab en gebruiken deze voor hun dagelijkse werk, kortlopende projecten of voor het uitvoeren van oefeningen in het leslokaal. Zodra gebruikers aan de slag gaan met resources in het lab, kan een beheerder van het lab kosten en gebruik voor meerdere labs analyseren en overkoepelend beleid instellen om de kosten van uw organisatie of het team te optimaliseren.

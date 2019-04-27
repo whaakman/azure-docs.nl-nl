@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605121"
 ---
 # <a name="translator-text-api-30-languages"></a>Translator Text-API 3.0: Languages
 
@@ -49,7 +49,7 @@ Aanvraagheaders zijn:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>Accept-Language</td>
     <td>*Optionele aanvraagheader*.<br/>De taal die moet worden gebruikt voor gebruikersinterfacetekenreeksen. Sommige van de velden in het antwoord zijn namen van talen of namen van de regio's. Gebruik deze parameter voor het definiëren van de taal waarin deze namen worden geretourneerd. De taal die is opgegeven door op te geven van een opgemaakte BCP-47-taalcode. Gebruik bijvoorbeeld de waarde `fr` aan te vragen van namen in het Frans of gebruikt u de waarde `zh-Hant` naar namen van de aanvraag in een traditioneel Chinees.<br/>Namen zijn opgegeven in de Engelse taal als een doeltaal is niet opgegeven of als de lokalisatie is niet beschikbaar.
@@ -230,7 +230,7 @@ De lijst van ondersteunde talen verandert niet vaak. Sla de netwerkbandbreedte e
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Description</th>
+  <th>Beschrijving</th>
   <tr>
     <td>ETag</td>
     <td>Huidige waarde van de entity-tag voor de aangevraagde groepen van ondersteunde talen. Als u de volgende aanvragen efficiënter, verzendt de client kan de `ETag` waarde in een `If-None-Match` header-veld.

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 1e6dea521207ec00efe948a879c705bd28a75d57
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60707628"
 ---
 # <a name="introduction-to-training"></a>Inleiding tot Training
 
@@ -33,7 +33,7 @@ In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd
 ## <a name="details"></a>Details
 
 - Acties: Een Bot-reactie op gebruikersinvoer.
-- Train: De manier waarop we leren een Bot om te reageren op invoer van de gebruiker.
+- Trainen: De manier waarop we leren een Bot om te reageren op invoer van de gebruiker.
 - Vertakking: De wijziging van de invoer van een gebruiker binnen een opgeslagen dialoogvenster van de trein ten behoeve van het maken van een nieuw dialoogvenster van de trein die gelijk zijn aan de oorspronkelijke instantie, maar duurt het gesprek in een andere richting.
 
 ## <a name="steps"></a>Stappen

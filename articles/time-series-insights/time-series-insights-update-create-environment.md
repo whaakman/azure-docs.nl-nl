@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1b09c0e31b217d7d67f936aefe9045d190241389
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 75ab3baf8638a387defd0e367b4a61c3746794f3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633110"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60544202"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Zelfstudie: Een Time Series Insights Preview-omgeving instellen
 
@@ -39,7 +39,7 @@ In dit deel maakt u drie gesimuleerde apparaten die gegevens verzenden naar een 
 
 1. Voer de vereiste parameters in op de pagina **Apparaatsimulatieoplossing maken**:
 
-   | Parameter | Beschrijving |
+   | Parameter | Description |
    | --- | --- |
    | **Naam van de oplossing** |    Voer een unieke waarde in om een nieuwe resourcegroep te maken. De vermelde Azure-resources worden gemaakt en toegewezen aan de resourcegroep. |
    | **Abonnement** | Geef hetzelfde abonnement op dat is gebruikt voor het maken van uw Time Series Insights-omgeving. |

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
 ms.openlocfilehash: 7a630acee079301b95e7e05f5c5333dd116abb68
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563791"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60706411"
 ---
 # <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Quickstart:  Onboarding uw virtuele machines van Azure Stack met Security Center
 Nadat u onboarding uw Azure-abonnement, u kunt Security Center inschakelen voor het beveiligen van uw virtuele machines die worden uitgevoerd op Azure Stack door toe te voegen de **Azure Monitor-, Update- en Configuratiebeheer** -extensie voor virtuele machine van de Azure Stack marketplace.

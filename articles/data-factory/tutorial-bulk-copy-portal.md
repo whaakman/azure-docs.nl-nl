@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
 ms.openlocfilehash: 444269aa7ca2b0a82b78e8437b7884ef8833c665
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279785"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60592551"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Meerdere tabellen bulksgewijs kopiëren met behulp van Azure Data Factory
 Deze zelfstudie demonstreert het **kopiëren van een aantal tabellen uit Azure SQL Database naar Azure SQL Data Warehouse**. U kunt hetzelfde patroon toepassen in andere kopieerscenario's. Bijvoorbeeld het kopiëren van tabellen van SQL Server/Oracle naar Azure SQL Database/Data Warehouse/Azure Blob, verschillende paden kopiëren van Blob naar Azure SQL Database-tabellen.
@@ -110,15 +110,15 @@ Geef Azure-services toegang tot SQL-server voor zowel SQL Database als SQL Data 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
 U maakt gekoppelde services om uw gegevensarchieven en compute-services aan een gegevensfactory te koppelen. Een gekoppelde service beschikt over de verbindingsgegevens die de Data Factory-service tijdens runtime gebruikt om een verbinding met het gegevensarchief tot stand te brengen. 
 
-In deze zelfstudie koppelt u uw Azure SQL Database-, Azure SQL Data Warehouse- en Azure Blob Storage-gegevensarchieven aan uw gegevensfactory. De Azure SQL-database fungeert als brongegevensarchief. Azure SQL Data Warehouse fungeert als het sink/doelgegevensarchief. Azure Blob Storage is bedoeld voor het vasthouden van de gegevens voordat deze worden geladen in SQL Data Warehouse met behulp van PolyBase. 
+In deze zelfstudie koppelt u uw Azure SQL Database-, Azure SQL Data Warehouse- en Azure Blob Storage-gegevensarchieven aan uw data factory. De Azure SQL-database fungeert als brongegevensarchief. Azure SQL Data Warehouse fungeert als het sink/doelgegevensarchief. Azure Blob Storage is bedoeld voor het vasthouden van de gegevens voordat deze worden geladen in SQL Data Warehouse met behulp van PolyBase. 
 
-### <a name="create-the-source-azure-sql-database-linked-service"></a>Maak de gekoppelde Azure SQL Database-bronservice.
+### <a name="create-the-source-azure-sql-database-linked-service"></a>Maak de gekoppelde Azure SQL Database-bronservice
 In deze stap maakt u een gekoppelde service om uw Azure SQL-database aan de gegevensfactory te koppelen. 
 
 1. Klik op **Connections** onderaan het venster en klik op **+ New** op de werkbalk. 
 
     ![Knop Nieuwe gekoppelde service](./media/tutorial-bulk-copy-portal/new-linked-service-button.png)
-1. In het venster **New Linked Service** selecteert u **Azure SQL Database** en klikt u op **Continue**. 
+1. In het venster **New Linked Service** selecteert u **Azure SQL Database** en klikt u op **Doorgaan**. 
 
     ![Azure SQL-database selecteren](./media/tutorial-bulk-copy-portal/select-azure-sql-database.png)
 1. Voer in het venster **New Linked Service** de volgende stappen uit: 
@@ -178,7 +178,7 @@ In deze zelfstudie zijn de bron- en doel-SQL-tabellen niet vastgelegd in de defi
     ![Azure SQL-database selecteren](./media/tutorial-bulk-copy-portal/select-azure-sql-database-dataset.png)
 1. Voer in het eigenschappenvenster onderaan **AzureSqlDatabaseDataset** in als **Name**.
 
-1. Ga naar het tabblad **Verbinding** en voer de volgende stappen uit: 
+1. Open het tabblad **Connection** en voer de volgende stappen uit: 
 
    1. Selecteer **AzureSqlDatabaseLinkedService** bij **Linked service**.
    1. Selecteer een tabel bij **Table**. Dit is een tijdelijke tabel. U geeft een query voor de brongegevensset op tijdens het maken van een pijplijn. De query wordt gebruikt om gegevens te extraheren uit de Azure SQL-database. U kunt ook het selectievakje **Edit** inschakelen en **dummyName** invoeren als tabelnaam. 
@@ -197,7 +197,7 @@ In deze zelfstudie zijn de bron- en doel-SQL-tabellen niet vastgelegd in de defi
 
 1. Ga naar het tabblad **Verbinding**, 
 
-    a. Selecteer **AzureSqlDatabaseLinkedService** als **Gekoppelde service**.
+    a. Selecteer **AzureSqlDatabaseLinkedService** bij **Linked service**.
 
     b. Schakel voor **Tabel** de optie **Bewerken**in, klik op het invoervak van de tabelnaam en klik op de onderstaande koppeling **Dynamische inhoud toevoegen**. 
     

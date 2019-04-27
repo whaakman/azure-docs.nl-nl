@@ -12,11 +12,11 @@ description: Snelle Kubernetes-ontwikkeling met containers en microservices in A
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
 manager: jeconnoc
 ms.openlocfilehash: 1c07ebae02232e8c86a58c11b23f6e1fbdb3a4bd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60706697"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Quickstart: Ontwikkelen met .NET Core in Kubernetes met Azure Dev spaties (Visual Studio Code)
 

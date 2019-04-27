@@ -10,11 +10,11 @@ ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
 ms.openlocfilehash: e00ac57cc36b3331cfb847ecedc6c75132cdeb6b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999182"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712533"
 ---
 # <a name="deprecated-introduction-to-azure-container-service-for-kubernetes"></a>(AFGESCHAFT) Inleiding tot Azure Container Service voor Kubernetes
 

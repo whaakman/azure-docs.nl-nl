@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: De ASP.NET-app implementeren op virtuele Azure-machines met behulp van Azure DevOps Projects'
+title: 'Zelfstudie: Uw ASP.NET-app implementeren op virtuele machines van Azure met behulp van Azure DevOps Projects'
 description: Met DevOps Projects kunt u eenvoudig aan de slag gaan in Azure en in slechts enkele stappen een ASP.NET-app implementeren op virtuele Azure-machines.
 ms.author: mlearned
 ms.manager: douge
@@ -10,21 +10,21 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 05643f342d51d99645d3c9204d6e63adcf2a0a73
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546475"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>Zelfstudie: De ASP.NET-app implementeren op virtuele Azure-machines met behulp van Azure DevOps Projects
+# <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>Zelfstudie: Uw ASP.NET-app implementeren op virtuele machines van Azure met behulp van Azure DevOps Projects
 
-Azure DevOps Projects biedt een vereenvoudigde ervaring waar u uw bestaande code en Git-opslagplaats gebruikt of een voorbeeldtoepassing kiest voor het maken van een pijplijn voor CI (Continue integratie) en CD (Continue levering) naar Azure. 
+Azure DevOps Projects biedt een vereenvoudigde ervaring waar u uw bestaande code en Git-opslagplaats gebruikt of een voorbeeldtoepassing kiest voor het maken van een CI- (Continue integratie) en CD-pijplijn (Continue levering) naar Azure. 
 
 In DevOps Projects gebeurt ook het volgende:
 * Er worden automatisch Azure-resources gemaakt, zoals een nieuwe Azure-VM (virtuele machine).
 * Er wordt een release-pijplijn gemaakt en geconfigureerd in Azure DevOps die een build-pijplijn voor CI bevat.
 * Er wordt een release-pijplijn ingesteld voor CD. 
-* Er wordt een Azure Application Insights-resource gemaakt voor bewaking.
+* Er wordt een Azure Application Insights-resource gemaakt voor de bewaking.
 
 In deze zelfstudie leert u het volgende:
 
@@ -33,7 +33,7 @@ In deze zelfstudie leert u het volgende:
 > * Azure DevOps en een Azure-abonnement configureren 
 > * De CI-pijplijn onderzoeken
 > * De CD-pijplijn onderzoeken
-> * Wijzigingen doorvoeren in Azure Repos en deze automatisch implementeren in Azure
+> * Wijzigingen doorvoeren in Azure Repos en automatisch implementeren naar Azure
 > * Azure Application Insights-bewaking configureren
 > * Resources opschonen
 
@@ -49,7 +49,7 @@ In DevOps Projects wordt een CI/CD-pijplijn gemaakt in Azure Pipelines. U kunt e
 
 1. Selecteer in het linkerdeelvenster de optie **Nieuw**.
 
-1. Typ **DevOps Projects** in het zoekvak en selecteer vervolgens **Maken**.
+1. Typ in het zoekvak **DevOps Projects** en selecteer **Maken**.
 
     ![Het DevOps Projects-dashboard](_img/azure-devops-project-github/fullbrowser.png)
 
@@ -85,19 +85,19 @@ In DevOps Projects worden automatisch een CI-build en een releasetrigger geconfi
 In DevOps Projects is automatisch een CI/CD-pijplijn geconfigureerd in Azure Pipelines. U kunt de pijplijn verkennen en aanpassen. Ga als volgt te werk om vertrouwd te raken met de build-pijplijn:
 
 1. Selecteer boven in het DevOps Projects-dashboard de optie **Build-pijplijnen**.  
-    Op een browsertabblad wordt de build-pijplijn voor het nieuwe project weergegeven.
+    Op een tabblad in de browser wordt de build-pijplijn voor het nieuwe project weergegeven.
 
 1. Wijs het veld **Status** aan en selecteer het beletselteken (...).  
     Er wordt een menu met verschillende opties weergegeven, bijvoorbeeld om een nieuwe build in de wachtrij te plaatsen, een build te onderbreken of de build-pijplijn te bewerken.
 
 1. Selecteer **Bewerken**.
 
-1. In dit deelvenster kunt u de verschillende taken voor de build-pijplijn onderzoeken.  
+1. In dit deelvenster kunt u de verschillende taken voor uw build-pijplijn onderzoeken.  
     In de build worden verschillende taken uitgevoerd, zoals het ophalen van bronnen uit de Git-opslagplaats, het herstellen van afhankelijkheden, en het publiceren van uitvoergegevens die worden gebruikt voor implementaties.
 
 1. Selecteer boven aan de build-pijplijn de naam van de build-pijplijn.
 
-1. Wijzig de naam van de build-pijplijn in een meer beschrijvende naam. Selecteer **Opslaan en wachtrij** en selecteer vervolgens **Opslaan**.
+1. Wijzig de naam van de build-pijplijn in een gebruiksvriendelijkere naam. Selecteer **Opslaan en wachtrij** en selecteer **Opslaan**.
 
 1. Selecteer onder de naam van de build-pijplijn de optie **Geschiedenis**.  
     In dit deelvenster ziet u een audittrail van recente wijzigingen voor de build. In Azure DevOps worden alle wijzigingen in de build-pijplijn bijgehouden en krijgt u de mogelijkheid om versies te vergelijken.
@@ -110,12 +110,12 @@ In DevOps Projects is automatisch een CI/CD-pijplijn geconfigureerd in Azure Pip
 
 ## <a name="examine-the-cd-pipeline"></a>De CD-pijplijn onderzoeken
 
-In DevOps Projects worden automatisch de benodigde stappen gemaakt en geconfigureerd om vanuit uw Azure DevOps-organisatie te implementeren naar uw Azure-abonnement. Deze stappen omvatten het configureren van een Azure-serviceverbinding om Azure DevOps te verifiëren bij uw Azure-abonnement. Er wordt ook automatisch een CD-pijplijn gemaakt die de CD aan de virtuele Azure-machine verstrekt. Voor meer informatie over de CD-pijplijn van Azure DevOps doet u het volgende:
+In DevOps Projects worden automatisch de benodigde stappen gemaakt en geconfigureerd om vanuit uw Azure DevOps-organisatie te implementeren naar uw Azure-abonnement. Deze stappen omvatten het configureren van een Azure-serviceverbinding om Azure DevOps te verifiëren bij uw Azure-abonnement. Er wordt ook automatisch een CD-pijplijn gemaakt die de CD aan de virtuele machine van Azure verstrekt. Voor meer informatie over de CD-pijplijn van Azure DevOps doet u het volgende:
 
 1. Selecteer **Build en release** en selecteer vervolgens **Releases**.  
     In DevOps Projects wordt een release-pijplijn gemaakt om implementaties in Azure te beheren.
 
-1. Selecteer het beletselteken (...) naast de release-pijplijn en selecteer **Bewerken**.  
+1. Selecteer het beletselteken (...) naast uw release-pijplijn en selecteer **Bewerken**.  
     De release-pijplijn bevat een *pijplijn* die het releaseproces definieert.
 
 1. Onder **Artefacten** selecteert u **Neerzetten**.  
@@ -134,17 +134,17 @@ In DevOps Projects worden automatisch de benodigde stappen gemaakt en geconfigur
 1. Selecteer aan de rechterkant **Releases weergeven** om een releasegeschiedenis weer te geven.
 
 1. Selecteer het beletselteken (...) naast een versie en selecteer **Openen**.  
-    U kunt verschillende menu's verkennen, zoals een releaseoverzicht, gekoppelde werkitems en tests.
+    U kunt verschillende menu's verkennen, zoals een versieoverzicht, gekoppelde werkitems en tests.
 
 1. Selecteer **Doorvoeringen**.  
     In deze weergave worden de codedoorvoeringen weergegeven die zijn gekoppeld aan deze implementatie. Vergelijk versies om de doorvoerverschillen tussen implementaties weer te geven.
 
 1. Selecteer **Logboeken**.  
-    De logboeken bevatten nuttige informatie over het implementatieproces. U kunt ze zowel tijdens als na de implementaties weergeven.
+    De logboeken bevatten nuttige informatie over het implementatieproces. U kunt beide weergeven tijdens en na de implementaties.
 
 ## <a name="commit-changes-to-azure-repos-and-automatically-deploy-them-to-azure"></a>Wijzigingen doorvoeren in Azure Repos en deze automatisch implementeren in Azure 
 
-U bent nu klaar om met een team samen te werken aan de app met behulp van een CI/CD-proces waarmee automatisch uw meest recente werk op uw website wordt geïmplementeerd. Bij elke wijziging in de Git-opslagplaats wordt een build gestart in Azure DevOps, en met een CD-pipeline wordt een implementatie uitgevoerd in Azure. Volg de procedure in deze sectie of gebruik een andere methode om wijzigingen in de opslagplaats door te voeren. Met de codewijzigingen wordt het CI/CD-proces gestart en worden de nieuwe wijzigingen automatisch geïmplementeerd op de IIS-website op de Azure-VM.
+U bent nu klaar om met een team samen te werken aan de app met behulp van een CI/CD-proces waarmee automatisch uw meest recente werk op uw website wordt geïmplementeerd. Bij elke wijziging in de Git-opslagplaats wordt een build gestart in Azure DevOps, en met een CD-pijplijn wordt een implementatie uitgevoerd in Azure. Volg de procedure in deze sectie of gebruik een andere methode om wijzigingen in de opslagplaats door te voeren. Met de codewijzigingen wordt het CI/CD-proces gestart en worden de nieuwe wijzigingen automatisch geïmplementeerd op de IIS-website op de Azure-VM.
 
 1. Selecteer in het linkerdeelvenster **Code** en ga naar uw opslagplaats.
 
@@ -152,7 +152,7 @@ U bent nu klaar om met een team samen te werken aan de app met behulp van een CI
 
 1. Breng een wijziging aan in het bestand, bijvoorbeeld door wat tekst toe te voegen in een van de div-tags. 
 
-1. Selecteer in de rechterbovenhoek **Doorvoeren** en selecteer vervolgens **Doorvoeren** opnieuw om de wijziging te pushen.  
+1. Selecteer in de rechterbovenhoek **Doorvoeren** en selecteer vervolgens nogmaals **Doorvoeren** om de wijziging te pushen.  
     Na een paar seconden wordt in Azure DevOps een build gestart en wordt er een release uitgevoerd om de wijzigingen te implementeren. Bewaak de buildstatus op het DevOps Projects-dashboard of in de browser met uw Azure DevOps-organisatie.
 
 1. Wanneer de release is voltooid, vernieuwt u de toepassing om de wijzigingen te controleren.
@@ -161,7 +161,7 @@ U bent nu klaar om met een team samen te werken aan de app met behulp van een CI
 
 Met Azure Application Insights kunt u eenvoudig de prestaties en het gebruik van een webtoepassing controleren. Met DevOps Projects is automatisch een Application Insights-resource voor de toepassing geconfigureerd. U kunt verder diverse waarschuwingen en bewakingsopties configureren, indien nodig.
 
-1. Ga in de Azure-portal naar het DevOps Projects-dashboard. 
+1. Ga in de Azure-portal naar het dashboard van DevOps Projects. 
 
 1. Selecteer rechtsonder de koppeling **Application Insights** voor de app.  
     Het deelvenster **Application Insights** wordt geopend. Deze weergave bevat controlegegevens over gebruik, prestaties en beschikbaarheid voor uw app.
@@ -198,9 +198,9 @@ Met Azure Application Insights kunt u eenvoudig de prestaties en het gebruik van
 Tijdens het testen kunt u voorkomen dat de kosten oplopen door resources op te schonen. U kunt de virtuele Azure-machine en de gerelateerde resources die u in deze zelfstudie hebt gemaakt, verwijderen wanneer u ze niet meer nodig hebt. Gebruik hiervoor de functionaliteit **Verwijderen** op het DevOps Projects-dashboard. 
 
 > [!IMPORTANT]
-> Met de volgende procedure worden resources definitief verwijderd. Met de functionaliteit *Verwijderen* verwijdert u de gegevens die met het project in DevOps Projects zijn gemaakt, in zowel Azure als Azure DevOps. Als deze zijn verwijderd, kunt u dit niet meer ongedaan maken. Gebruik deze procedure pas nadat u de prompts zorgvuldig hebt gelezen.
+> Met de volgende procedure worden resources definitief verwijderd. Met de functionaliteit *Verwijderen* verwijdert u de gegevens die door het project in DevOps Projects zijn gemaakt in zowel Azure als Azure DevOps. Als ze zijn verwijderd, kunt u ze niet meer terughalen. Gebruik deze procedure pas nadat u de prompts zorgvuldig hebt gelezen.
 
-1. Ga in de Azure-portal naar het DevOps Projects-dashboard.
+1. Ga in de Azure-portal naar het dashboard van DevOps Projects.
 1. Selecteer in de rechterbovenhoek **Verwijderen**. 
 1. Selecteer **Ja** bij de prompt om de resources *definitief te verwijderen*.
 
@@ -215,7 +215,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Azure DevOps en een Azure-abonnement configureren 
 > * De CI-pijplijn onderzoeken
 > * De CD-pijplijn onderzoeken
-> * Wijzigingen doorvoeren in Azure Repos en deze automatisch implementeren in Azure
+> * Wijzigingen doorvoeren in Azure Repos en automatisch implementeren naar Azure
 > * Azure Application Insights-bewaking configureren
 > * Resources opschonen
 

@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.openlocfilehash: 57d7fecfa9bf2b27a54387072b080ed95f4e87e5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881208"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60514671"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Zelfstudie: Afhandelen van e-mails en bijlagen automatiseren met Azure Logic Apps
 
@@ -269,7 +269,7 @@ Voeg vervolgens een [trigger](../logic-apps/logic-apps-overview.md#logic-app-con
 
       ![Geef map, interval en frequentie voor het controleren van e-mails op](./media/tutorial-process-email-attachments-workflow/set-up-email-trigger.png)
 
-      | Instelling | Waarde | Beschrijving | 
+      | Instelling | Waarde | Description | 
       | ------- | ----- | ----------- | 
       | **Map** | Postvak IN | De te controleren e-mailmap | 
       | **Interval** | 1 | Het aantal intervallen dat tussen controles moet worden gewacht | 
@@ -278,7 +278,7 @@ Voeg vervolgens een [trigger](../logic-apps/logic-apps-overview.md#logic-app-con
   
    2. Kies **Geavanceerde opties weergeven** en specificeer deze instellingen:
 
-      | Instelling | Waarde | Description | 
+      | Instelling | Waarde | Beschrijving | 
       | ------- | ----- | ----------- | 
       | **Heeft bijlage** | Ja | Ontvang alleen e-mails met bijlagen. <p>**Opmerking:** de trigger verwijdert geen e-mails van uw account, maar controleert alleen op nieuwe berichten en verwerkt alleen e-mails die overeenkomen met het onderwerpfilter. | 
       | **Bijlagen opnemen** | Ja | Haalt de bijlagen op als invoer voor uw werkstroom, in plaats van dat er alleen wordt gecontroleerd op bijlagen. | 
@@ -534,7 +534,7 @@ Vervolgens voegt u de actie toe waarmee elke bijlage als blob in uw opslagcontai
 
    ![Blobinformatie opgeven](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png)
 
-   | Instelling | Waarde | Beschrijving | 
+   | Instelling | Waarde | Description | 
    | ------- | ----- | ----------- | 
    | **Mappad** | /attachments | Het pad en de naam van de container die u eerder hebt gemaakt. Voor dit voorbeeld klikt u op het mappictogram en selecteert u de container '/bijlagen'. | 
    | **Blobnaam** | Veld **Naam** | Voor dit voorbeeld gebruikt u de naam van de bijlage als de naam van de blob. Klik binnen dit venster, zodat de lijst met dynamische inhoud verschijnt, en selecteer vervolgens het veld **Naam** onder de actie **Wanneer er een nieuwe e-mail binnenkomt**. | 

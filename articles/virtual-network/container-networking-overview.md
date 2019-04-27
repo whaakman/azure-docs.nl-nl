@@ -17,11 +17,11 @@ ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 2ebc678bffbbbe5d512d620b8f77ac0a245c0aff
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579118"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713832"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>Containers inschakelen voor gebruik van mogelijkheden van Azure Virtual Network
 
@@ -29,7 +29,7 @@ U kunt de grote verscheidenheid aan functies van een Azure-netwerk beschikbaar s
 
 - Er wordt een IP-adres van een virtueel netwerk toegewezen aan elke Pod, die kan bestaan uit een of meer containers.
 - Pods kunnen verbinding maken met virtuele netwerken met peering en met on-premises netwerken via ExpressRoute of een site-naar-site-VPN. Pods zijn ook bereikbaar vanuit netwerken met peering en on-premises netwerken.
-- Pods hebben toegang tot services zoals Azure Storage en Azure SQL Database, die worden beveiligd door service-eindpunten van het virtuele netwerk.
+- Pods hebben toegang tot services zoals Azure Storage en Azure SQL Database, die worden beveiligd door service-eindpunten voor het virtuele netwerk.
 - Het is mogelijk om netwerkbeveiligingsgroepen en routes rechtstreeks toe te passen op Pods.
 - Pods kunnen direct achter een interne of openbaar load balancer van Azure worden geplaatst, net als virtuele machines
 - Pods kunnen een openbaar IP-adres krijgen toegewezen, waardoor ze rechtstreeks toegankelijk zijn vanaf het internet. Pods hebben ook zelf toegang tot het internet.
@@ -51,7 +51,7 @@ Pods worden gegenereerd op een virtuele machine die deel uitmaakt van een virtue
 
 Om Pods toegang te geven tot het internet, configureert de invoegtoepassing *iptables*-regels om NAT (omzetting van netwerkadressen) toe te passen op het voor het internet bedoelde verkeer vanaf Pods. Het bron-IP-adres van het pakket wordt omgezet in het primaire IP-adres op de netwerkinterface van de virtuele machine. Virtuele Windows-machines passen automatisch 'source NAT' (SNAT) toe op verkeer dat is bestemd voor een IP-adres buiten het subnet van de virtuele machine. Normaal gesproken wordt al het verkeer dat is bestemd voor een IP-adres buiten het IP-adresbereik van het virtuele netwerk omgezet.
 
-## <a name="limits"></a>Limieten
+## <a name="limits"></a>Limits
 
 De invoegtoepassing ondersteunt maximaal 250 Pods per virtuele machine en maximaal 16.000 Pods in een virtueel netwerk. Voor de [Azure Kubernetes Service](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-kubernetes-service-limits) gelden andere limieten.
 

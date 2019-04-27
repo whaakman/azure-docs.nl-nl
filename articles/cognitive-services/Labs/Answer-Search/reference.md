@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60721008"
 ---
 # <a name="project-answer-search-v7-reference"></a>Antwoord zoeken v7 verwijzing project
 
@@ -143,7 +143,7 @@ Definieert een contractuele regel voor attribution license.
 |_type|Een hint type is ingesteld op LicenseAttribution.|String|  
 |licentie|De licentie waaronder de inhoud kan worden gebruikt.|[Licentie](#license)|  
 |licenseNotice|De licentie om naast het betreffende veld weer te geven. Bijvoorbeeld: 'Tekst onder licentie CC door SA'.<br /><br /> Gebruik de naam van de licentie en de URL in de `license` veld om te maken van een hyperlink naar de website waaronder de details van de licentie worden beschreven. Vervang vervolgens de licentienaam van de in de `licenseNotice` tekenreeks (bijvoorbeeld, CC-van-SA) met de hyperlink die u zojuist hebt gemaakt.|String|  
-|mustBeCloseToContent|Een Booleaanse waarde waarmee wordt bepaald of de inhoud van de regel moeten worden geplaatst in de nabijheid van het veld dat de regel van toepassing op. Als **waar**, de inhoud moeten worden geplaatst in de nabijheid. Als **false**, of dit veld niet bestaat, wordt de inhoud van de oproepende functie goeddunken mag worden geplaatst.|Booleaans|  
+|mustBeCloseToContent|Een Booleaanse waarde waarmee wordt bepaald of de inhoud van de regel moeten worden geplaatst in de nabijheid van het veld dat de regel van toepassing op. Als **waar**, de inhoud moeten worden geplaatst in de nabijheid. Als **false**, of dit veld niet bestaat, wordt de inhoud van de oproepende functie goeddunken mag worden geplaatst.|Boolean|  
 |targetPropertyName|De naam van het veld dat de regel van toepassing op.|String|  
   
 
@@ -163,7 +163,7 @@ Definieert een contractuele regel voor koppeling attribution.
 |Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Een hint type is ingesteld op LinkAttribution.|String|  
-|mustBeCloseToContent|Een Booleaanse waarde waarmee wordt bepaald of de inhoud van de regel moeten worden geplaatst in de nabijheid van het veld dat de regel van toepassing op. Als **waar**, de inhoud moeten worden geplaatst in de nabijheid. Als **false**, of dit veld niet bestaat, wordt de inhoud van de oproepende functie goeddunken mag worden geplaatst.|Booleaans|  
+|mustBeCloseToContent|Een Booleaanse waarde waarmee wordt bepaald of de inhoud van de regel moeten worden geplaatst in de nabijheid van het veld dat de regel van toepassing op. Als **waar**, de inhoud moeten worden geplaatst in de nabijheid. Als **false**, of dit veld niet bestaat, wordt de inhoud van de oproepende functie goeddunken mag worden geplaatst.|Boolean|  
 |targetPropertyName|De naam van het veld dat de regel van toepassing op.<br /><br /> Als een doel niet opgegeven is, wordt de toekenning is van toepassing op de entiteit als geheel en direct na de presentatie van de entiteit moet worden weergegeven. Als er meerdere tekst en koppeling attribution-regels met een doel niet opgeeft, moet u ze samenvoegen en deze weer te geven met behulp van een ' gegevens in: "label. Bijvoorbeeld, "gegevens uit < provider name1\> &#124; < provider name2\>'.|String|  
 |tekst|De tekst attribution.|String|  
 |url|De URL naar de website van de provider. Gebruik `text` en de URL voor het maken van een hyperlink.|String|  
@@ -175,7 +175,7 @@ Definieert een contractuele regel voor media attribution.
 |Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Een hint type is ingesteld op MediaAttribution.|String|  
-|mustBeCloseToContent|Een Booleaanse waarde waarmee wordt bepaald of de inhoud van de regel moeten worden geplaatst in de nabijheid van het veld dat de regel van toepassing op. Als **waar**, de inhoud moeten worden geplaatst in de nabijheid. Als **false**, of dit veld niet bestaat, wordt de inhoud van de oproepende functie goeddunken mag worden geplaatst.|Booleaans|  
+|mustBeCloseToContent|Een Booleaanse waarde waarmee wordt bepaald of de inhoud van de regel moeten worden geplaatst in de nabijheid van het veld dat de regel van toepassing op. Als **waar**, de inhoud moeten worden geplaatst in de nabijheid. Als **false**, of dit veld niet bestaat, wordt de inhoud van de oproepende functie goeddunken mag worden geplaatst.|Boolean|  
 |targetPropertyName|De naam van het veld dat de regel van toepassing op.|String|  
 |url|De URL die u gebruiken voor het maken van een hyperlink van de media-inhoud. Als het doel een afbeelding is, zou u de URL gebruiken om de installatiekopie van het geklikt.|String|  
   
@@ -208,12 +208,12 @@ Informatie over definieert een de webpagina wordt weergegeven in de Preview-vers
 ### <a name="querycontext"></a>QueryContext  
 Hiermee definieert u de querycontext die Bing voor de aanvraag gebruikt.  
   
-|Element|Beschrijving|Type|  
+|Element|Description|Type|  
 |-------------|-----------------|----------|  
-|adultIntent|Een Booleaanse waarde die aangeeft of de opgegeven query volwassenen heeft. De waarde is **waar** als de query volwassenen heeft; anders **false**.|Booleaans|  
+|adultIntent|Een Booleaanse waarde die aangeeft of de opgegeven query volwassenen heeft. De waarde is **waar** als de query volwassenen heeft; anders **false**.|Boolean|  
 |alterationOverrideQuery|De queryreeks gebruiken om af te dwingen van Bing voor het gebruik van de oorspronkelijke reeks. Bijvoorbeeld, als de query-tekenreeks is *saling downwind*, de query-tekenreeks voor het overschrijven is *+ saling downwind*. Vergeet niet om te coderen van de querytekenreeks die resulteert in *% 2Bsaling + downwind*.<br /><br /> Dit veld wordt alleen opgenomen als de oorspronkelijke querytekenreeks een fout spelling bevat.|String|  
 |alteredQuery|De query-tekenreeks die wordt gebruikt door Bing voor het uitvoeren van de query. Bing maakt gebruik van de gewijzigde query-tekenreeks als de oorspronkelijke query-tekenreeks spelfouten opgenomen. Bijvoorbeeld, als de query-tekenreeks is `saling downwind`, worden de gewijzigde query-tekenreeks `sailing downwind`.<br /><br /> Dit veld wordt alleen opgenomen als de oorspronkelijke querytekenreeks een fout spelling bevat.|String|  
-|askUserForLocation|Een Booleaanse waarde die aangeeft of de locatie van de gebruiker om nauwkeurig resultaten te bieden voor Bing is vereist. Als u de locatie van de gebruiker met behulp van opgegeven de [X-MSEdge-client-IP](#clientip) en [X zoeklocatie](#location) headers, kunt u dit veld negeren.<br /><br /> Voor de locatie op de hoogte-query's, zoals "weerbericht van vandaag" of "restaurants in de buurt" die de locatie van de gebruiker voor nauwkeurige resultaten, moeten dit veld is ingesteld op **waar**.<br /><br /> Voor de locatie op de hoogte lidmaatschapregelquery's op met de locatie (bijvoorbeeld: "Seattle weer'), in dit veld is ingesteld op **false**. Dit veld ook is ingesteld op **false** voor query's die geen locatie op de hoogte, zoals 'beste verkopers'.|Booleaans|  
+|askUserForLocation|Een Booleaanse waarde die aangeeft of de locatie van de gebruiker om nauwkeurig resultaten te bieden voor Bing is vereist. Als u de locatie van de gebruiker met behulp van opgegeven de [X-MSEdge-client-IP](#clientip) en [X zoeklocatie](#location) headers, kunt u dit veld negeren.<br /><br /> Voor de locatie op de hoogte-query's, zoals "weerbericht van vandaag" of "restaurants in de buurt" die de locatie van de gebruiker voor nauwkeurige resultaten, moeten dit veld is ingesteld op **waar**.<br /><br /> Voor de locatie op de hoogte lidmaatschapregelquery's op met de locatie (bijvoorbeeld: "Seattle weer'), in dit veld is ingesteld op **false**. Dit veld ook is ingesteld op **false** voor query's die geen locatie op de hoogte, zoals 'beste verkopers'.|Boolean|  
 |originalQuery|De query-tekenreeks die zijn opgegeven in de aanvraag.|String|  
 
 ### <a name="identifiable"></a>Identificeerbare
@@ -237,7 +237,7 @@ Hiermee definieert u een item voor het resultaat van zoeken om weer te geven.
 |resultIndex|Een op nul gebaseerde index van het item in het antwoord om weer te geven. Als het item bevat geen dit veld, moet u alle items weergeven in het antwoord. Bijvoorbeeld, alle nieuwsartikelen weergegeven in het antwoord nieuws.|Geheel getal|
 |answerType|Het antwoord waarin het item om weer te geven. Bijvoorbeeld, nieuws.<br /><br />Gebruik het type in het antwoord vinden in het object SearchResponse. Het type is de naam van een veld SearchResponse.<br /><br /> Echter, het antwoordtype alleen gebruiken als dit object het waardeveld bevat. anders wordt deze negeren.|String|
 |textualIndex|De index van het antwoord in textualAnswers om weer te geven.| Geheel getal zonder teken|
-|waarde|De ID die u identificeert een antwoord om weer te geven of een item van het antwoord om weer te geven. Als de ID verwijst naar een antwoord, moet u alle items van het antwoord weergegeven.|Identificeerbare|
+|value|De ID die u identificeert een antwoord om weer te geven of een item van het antwoord om weer te geven. Als de ID verwijst naar een antwoord, moet u alle items van het antwoord weergegeven.|Identificeerbare|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Definieert wanneer de zoekopdracht in de resultaten pagina-inhoud moet worden geplaatst en in welke volgorde.  
@@ -273,7 +273,7 @@ Definieert een contractuele regel voor attribution tekst zonder opmaak.
 
 Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.  
   
-|Statuscode|Description|  
+|Statuscode|Beschrijving|  
 |-----------------|-----------------|  
 |200|Geslaagd.|  
 |400|Een van de queryparameters is ontbreekt of is ongeldig.|  

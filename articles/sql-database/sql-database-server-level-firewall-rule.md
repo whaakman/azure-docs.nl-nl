@@ -1,6 +1,6 @@
 ---
 title: Een firewallregel op serverniveau maken - Azure SQL Database| Microsoft Docs
-description: Een firewallregel maken op SQL Database-serverniveau voor individuele en gepoolde databases
+description: Een firewallregel maken op SQL Database-serverniveau voor enkele en pooldatabases
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,15 +13,15 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 02/11/2019
 ms.openlocfilehash: f708e5a3cd5bc0f11f8b0cfe79a791347c7a7a2b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709244"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Quickstart: Een firewallregel op serverniveau maken voor uw individuele en gepoolde databases met behulp van de Azure-portal
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Quickstart: Een firewallregel op serverniveau maken voor uw individuele en pooldatabases met behulp van de Azure-portal
 
-Deze quickstart beschrijft hoe u een [firewallregel op serverniveau](sql-database-firewall-configure.md) maakt voor individuele en gepoolde databases in Azure SQL Database met behulp van de Azure-portal, zodat u verbinding kunt maken met databaseservers, individuele databases en elastische pools en de bijbehorende databases. Een firewallregel is vereist om verbinding te maken vanaf andere Azure-resources en vanaf on-premises bronnen.
+Deze quickstart beschrijft hoe u een [firewallregel op serverniveau](sql-database-firewall-configure.md) maakt voor individuele en pooldatabases in Azure SQL Database met behulp van de Azure-portal, zodat u verbinding kunt maken met databaseservers, individuele databases en elastische pools en de bijbehorende databases. Een firewallregel is vereist om verbinding te maken vanaf andere Azure-resources en vanaf on-premises bronnen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,12 +33,12 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Een IP-firewallregel op serverniveau maken
 
-De service SQL Database maakt een firewall op het niveau van de databaseserver voor individuele databases en databases in een pool. De firewall voorkomt dat clienttoepassingen verbinding maken met de server of met een individuele database of database in een pool, tenzij u een IP-firewallregel maakt om de firewall te openen. Voor een verbinding vanaf een IP-adres buiten Azure maakt u een firewallregel voor een specifiek IP-adres of bereik van adressen dat toegang mag hebben. Meer informatie over IP-firewallregels op serverniveau en databaseniveau vindt u in [IP-firewallregels voor Azure SQL Database en SQL Data Warehouse](sql-database-firewall-configure.md).
+De service SQL Database maakt een firewall op het niveau van de databaseserver voor individuele databases en pooldatabases. De firewall voorkomt dat clienttoepassingen verbinding maken met de server of met een individuele database of database in een pool, tenzij u een IP-firewallregel maakt om de firewall te openen. Voor een verbinding vanaf een IP-adres buiten Azure maakt u een firewallregel voor een specifiek IP-adres of bereik van adressen dat toegang mag hebben. Meer informatie over IP-firewallregels op serverniveau en databaseniveau vindt u in [IP-firewallregels voor Azure SQL Database op server- en databaseniveau](sql-database-firewall-configure.md).
 
 > [!NOTE]
 > SQL Database communiceert via poort 1433. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, is uitgaand verkeer via poort 1433 mogelijk niet toegestaan vanwege de firewall van het netwerk. In dat geval kunt u geen verbinding maken met uw Azure SQL Database-server, tenzij de IT-afdeling poort 1433 openstelt.
 > [!IMPORTANT]
-> De firewallregel 0.0.0.0 zorgt ervoor dat alle Azure-services voldoen worden aan de firewallregel op serverniveau en proberen om via de server verbinding te maken met een individuele database of database in een pool. Zie [Regels voor virtueel netwerk als alternatief voor IP-regels](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules) voor meer informatie over het gebruik van regels voor een virtueel netwerk.
+> De firewallregel 0.0.0.0 zorgt ervoor dat alle Azure-services voldoen worden aan de firewallregel op serverniveau en proberen om via de server verbinding te maken met een individuele database of pooldatabase. Zie [Regels voor virtueel netwerk als alternatief voor IP-regels](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules) voor meer informatie over het gebruik van regels voor een virtueel netwerk.
 
 Volg deze stappen om een IP-firewallregel op serverniveau te maken voor het IP-adres van de client en om connectiviteit via de SQL Database-firewall alleen voor uw IP-adres toe te staan.
 

@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
 ms.openlocfilehash: ac1717a8e8a08fcfedc3bc21bb0f03b3e3ca2511
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548078"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60721851"
 ---
 # <a name="what-is-project-answer-search"></a>Wat is Project Answer Search?
 De Project Answer Search-API maakt gebruik van het eindpunt van Bing versie 7 om antwoorden te zoeken voor query's in de vorm van vragen. Een vraag zoals 'What is the circumference of the earth?' (Wat is de omtrek van de aarde?) levert een antwoord op met feitelijke gegevens.  Een query naar een persoon, plaats of ding retourneert informatie over de entiteit die is geïdentificeerd door de query. Deze scenario's kunnen handig zijn in toepassingen zoals gespreks-bots, berichten-apps, schermlezers, enzovoort.  

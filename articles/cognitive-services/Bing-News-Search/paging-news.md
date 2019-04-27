@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
 ms.openlocfilehash: 1d344f388b03acb3a81fcfde0e214eb7d82dc9b9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885069"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578722"
 ---
 # <a name="how-to-page-through-news-search-results"></a>Pagina met zoekresultaten voor nieuws
 
@@ -35,7 +35,7 @@ Het volgende voorbeeld wordt de `totalEstimatedMatches` veld dat een nieuwsantwo
 Als u wilt de beschikbare artikelen doorlopen, gebruikt u de [aantal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#count) en [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#offset) queryparameters.  
  
 
-|Parameter  |Description  |
+|Parameter  |Beschrijving  |
 |---------|---------|
 |`count`     | Hiermee geeft u het aantal resultaten dat moet worden geretourneerd in het antwoord. Het maximum aantal resultaten die u in het antwoord aanvragen kunt is 100. De standaardwaarde is 10. Het werkelijke getal geleverd mogelijk lager dan aangevraagd.        |
 |`offset`     | Hiermee geeft u het aantal resultaten dat moet worden overgeslagen. De `offset` is gebaseerd op nul en moet kleiner dan (`totalEstimatedMatches` - `count`).          |

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 985f1f73fbfc8c75df8393615fca32f5d1c08b9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8b1036128755a5218afc35648dfd16f09f559908
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611729"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Zelfstudie: Azure Machine Learning als een IoT Edge-module implementeren (preview)
 
@@ -102,7 +102,7 @@ sudo systemctl restart iotedge
 In deze sectie maakt u getrainde machine learning modelbestanden converteren en container in een Azure Machine Learning-service. Alle onderdelen die vereist zijn voor de Docker-installatiekopie bevinden zich in de [AI-werkset voor Azure IoT Edge Git-repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial). Volg deze stappen voor het uploaden van die opslagplaats naar Microsoft Azure-notitieblokken voor het maken van de container en pusht u deze naar Azure Container Registry.
 
 
-1. Navigeer naar uw Azure-notitieblokken-projecten. Krijgt u hun vanuit uw werkruimte van de service Azure Machine Learning in de [Azure-portal](https://portal.azure.com) of door aan te melden bij [Microsoft Azure-notitieblokken](https://notebooks.azure.com/home/projects) met uw Azure-account.
+1. Navigeer naar uw Azure-notitieblokken-projecten. U kunt er ophalen uit de werkruimte voor uw Azure Machine Learning-service in de [Azure-portal](https://portal.azure.com) of door aan te melden bij [Microsoft Azure-notitieblokken](https://notebooks.azure.com/home/projects) met uw Azure-account.
 
 2. Selecteer **GitHub-opslagplaats uploaden**.
 

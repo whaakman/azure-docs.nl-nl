@@ -15,11 +15,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 168e5eea2004a31b108a8a00d883298f8e2198ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090267"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60566369"
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Zelfstudie: Azure Portal gebruiken voor het maken van een Data Factory-pijplijn om gegevens te kopi√´ren 
 > [!div class="op_single_selector"]
@@ -142,7 +142,7 @@ In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory. In deze 
     Zie het artikel [Azure Blob Storage-connector](data-factory-azure-blob-connector.md#linked-service-properties) voor meer informatie over de JSON-eigenschappen in de definitie van de gekoppelde service.
 
 ### <a name="create-a-linked-service-for-the-azure-sql-database"></a>Een gekoppelde service maken voor de Azure SQL Database
-In deze stap koppelt u uw Azure SQL Database aan uw gegevensfactory. U geeft in deze sectie de Azure SQL-servernaam, -databasenaam, -gebruikersnaam en -wachtwoord op. 
+In deze stap koppelt u uw Azure SQL-database aan uw data factory. U geeft in deze sectie de Azure SQL-servernaam, -databasenaam, -gebruikersnaam en -wachtwoord op. 
 
 1. In de **Data Factory-editor** klikt u op **Nieuw gegevensarchief** op de werkbalk en selecteert u **Azure SQL Database** uit de vervolgkeuzelijst. U ziet het JSON-sjabloon voor het maken van een gekoppelde Azure SQL-service in het rechterdeelvenster.
 2. Vervang `<servername>`, `<databasename>`, `<username>@<servername>` en `<password>` door de namen van uw Azure SQL-server, -database en -gebruikersaccount en voer uw wachtwoord in. 
@@ -405,7 +405,7 @@ In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt om gegevens te kopi√
 1. U hebt een Azure-**gegevensfactory** gemaakt.
 2. U hebt **gekoppelde services** gemaakt:
    1. Een gekoppelde **Azure Storage**-service om uw Azure-opslagaccount te koppelen dat invoergegevens bevat.     
-   2. Een gekoppelde **Azure SQL**-service om uw Azure SQL Database te koppelen die uitvoergegevens bevat. 
+   2. Een gekoppelde **Azure SQL**-service om uw Azure SQL-database te koppelen die uitvoergegevens bevat. 
 3. U hebt **gegevenssets** gemaakt waarin de invoer- en uitvoergegevens van pijplijnen worden beschreven.
 4. U hebt een **pijplijn** gemaakt met een **kopieeractiviteit** met **BlobSource** als bron en **SqlSink** als sink.  
 

@@ -15,22 +15,22 @@ ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 10d06d2e792b476a4c973029241d6cb98c0dd444
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684298"
 ---
-# <a name="tutorial-set-azure-cdn-caching-rules"></a>Zelfstudie: regels voor Azure CDN-caching instellen
+# <a name="tutorial-set-azure-cdn-caching-rules"></a>Zelfstudie: Azure CDN regels voor caching instellen
 
 > [!NOTE] 
 > Regels voor Azure CDN-caching zijn alleen beschikbaar voor **Azure CDN Standard van Verizon** en **Azure CDN Standard van Akamai**. Gebruik voor **Azure CDN Premium van Verizon** de [Azure CDN-regelengine](cdn-rules-engine.md) in de **beheerportal** voor vergelijkbare functionaliteit.
  
 
 In deze zelfstudie wordt beschreven hoe u regels voor Azure CDN-caching (Content Delivery Network) kunt gebruiken om het standaardgedrag van de cacheverlooptijd in te stellen of te wijzigen, zowel globaal als aangepast, zoals een URL-pad en bestandsextensie. Azure CDN biedt twee typen regels voor opslaan in cache:
-- Globale regels voor opslaan in cache: u kunt voor elk eindpunt in uw profiel één globale regel voor opslaan in cache instellen, die geldt voor alle aanvragen op het eindpunt. De globale regel voor opslaan in cache overschrijft alle HTTP-headers met cache-instructies, indien aanwezig.
+- Algemene regels voor opslaan in cache: U kunt één globale cacheregel voor elk eindpunt instellen in uw profiel, die invloed hebben op alle aanvragen naar het eindpunt. De globale regel voor opslaan in cache overschrijft alle HTTP-headers met cache-instructies, indien aanwezig.
 
-- Aangepaste regels voor opslaan in cache: u kunt een of meer aangepaste regels voor opslaan in cache instellen voor elk eindpunt in uw profiel. Aangepaste regels voor opslaan in cache komen overeen met specifieke paden en bestandsextensies, worden in volgorde verwerkt en overschrijven de globale regel voor opslaan in cache, indien ingesteld. 
+- Aangepaste cacheregels: U kunt een of meer aangepaste cacheregels voor elk eindpunt instellen in uw profiel. Aangepaste regels voor opslaan in cache komen overeen met specifieke paden en bestandsextensies, worden in volgorde verwerkt en overschrijven de globale regel voor opslaan in cache, indien ingesteld. 
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
@@ -42,7 +42,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u de stappen in deze zelfstudie kunt voltooien, moet u eerst een CDN-profiel en ten minste één CDN-eindpunt maken. Zie voor meer informatie [Snelstartgids: Een Azure CDN-profiel en een eindpunt maken](cdn-create-new-endpoint.md).
+Voordat u de stappen in deze zelfstudie kunt voltooien, moet u eerst een CDN-profiel en ten minste één CDN-eindpunt maken. Zie voor meer informatie [Snelstart: Een Azure CDN-profiel en een eindpunt maken](cdn-create-new-endpoint.md).
 
 ## <a name="open-the-azure-cdn-caching-rules-page"></a>Open de pagina Regels voor Azure CDN-caching
 

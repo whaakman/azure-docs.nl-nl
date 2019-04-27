@@ -1,6 +1,6 @@
 ---
-title: Voorbeelden van Azure CLI - beheerde Azure-toepassingen | Microsoft Docs
-description: Voorbeelden van Azure CLI - beheerde Azure-toepassingen
+title: Azure CLI-voorbeelden - Azure beheerde toepassingen | Microsoft Docs
+description: Azure CLI-voorbeelden - Azure beheerde toepassingen
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 38ebea86783970e0b045dcf5a8a91f54ae6c6d6a
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
-ms.translationtype: HT
+ms.openlocfilehash: d8b7c645bd9ee87faf51eab58651ddc5c7cde46a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
-ms.locfileid: "23939932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60588881"
 ---
-# <a name="azure-cli-samples"></a>Voorbeelden van Azure CLI
+# <a name="azure-cli-samples"></a>Azure CLI-voorbeelden
 
-De volgende tabel bevat koppelingen naar bash scripts voor Azure Managed toepassingen die gebruikmaken van de Azure CLI.
+De volgende tabel bevat koppelingen naar bash-scripts voor Azure beheerde toepassingen die gebruikmaken van de Azure CLI.
 
 | | |
 |-|-|
-|**Beheerde toepassing maken**||
-| [Definitie van de beheerde toepassing maken](scripts/managed-application-cli-sample-create-definition.md) | Maakt de definitie van een beheerde toepassing in de Servicecatalogus.  |
-| [Beheerde toepassing implementeren](scripts/managed-application-cli-sample-create-application.md) | Implementeert een beheerde toepassing van de Servicecatalogus.  |
+|**Een beheerde toepassing maken**||
+| [Definitie van beheerde toepassing maken](scripts/managed-application-cli-sample-create-definition.md) | Hiermee maakt u een definitie van beheerde toepassing in de Servicecatalogus.  |
+| [Beheerde toepassing implementeren](scripts/managed-application-cli-sample-create-application.md) | Implementeert een beheerde toepassing uit de Servicecatalogus.  |
 | | |
-|**Update beheerde resourcegroep**||
-| [Resources in beheerde resourcegroep ophalen en het formaat van virtuele machines](scripts/managed-application-cli-sample-get-managed-group-resize-vm.md) | Bronnen uit de groep beheerde bron opgehaald en Hiermee wordt ingesteld voor de virtuele machines. |
+|**Beheerde resourcegroep bijwerken**||
+| [Profiteer van bronnen in de beheerde resourcegroep en het formaat van virtuele machines](scripts/managed-application-cli-sample-get-managed-group-resize-vm.md) | -Resources ophaalt uit de beheerde resourcegroep en vergroot/verkleint de virtuele machines. |

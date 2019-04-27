@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 04/10/2019
 ms.openlocfilehash: d94e00c8a475e29ddd671004b8137ba4e6efd107
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495034"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60701086"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Quickstart: Een beheerd exemplaar van Azure SQL Database maken
 
@@ -112,4 +112,4 @@ Als de implementatie is voltooid, controleert u de resources die zijn gemaakt en
   - Zie [Een verbinding vanaf een virtuele Azure-machine configureren](sql-database-managed-instance-configure-vm.md) voor een quickstart over het verbinding maken met een beheerd exemplaar vanaf een virtuele Azure-machine.
   - Zie [Een punt-naar-site-verbinding configureren](sql-database-managed-instance-configure-p2s.md) voor een quickstart over verbinding maken met een beheerd exemplaar vanaf een on-premises clientcomputer met behulp van een punt-naar-site-verbinding.
 - Als u een bestaande SQL Server-database van on-premises wilt herstellen naar een beheerd exemplaar, kunt u de [Azure Database Migration Service (DMS) voor migratie](../dms/tutorial-sql-server-to-managed-instance.md) gebruiken om de database terug te zetten vanuit een back-upbestand van de database. U gebruikt de opdracht [T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) als u de database wilt terugzetten vanuit een back-upbestand van de database.
-- Zie [Azure SQL Database bewaken met Azure SQL-analyse](../azure-monitor/insights/azure-sql.md) voor geavanceerde bewaking van de databaseprestaties van het beheerde exemplaar met ingebouwde intelligentie voor het oplossen van problemen
+- Zie [Azure SQL Database bewaken met Azure SQL-analyse](../azure-monitor/insights/azure-sql.md) voor geavanceerde bewaking van de prestaties van de beheerde exemplaardatabase met ingebouwde intelligentie voor het oplossen van problemen

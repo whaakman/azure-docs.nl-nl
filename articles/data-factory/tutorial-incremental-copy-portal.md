@@ -1,6 +1,6 @@
 ---
 title: Stapsgewijs een tabel kopiëren met behulp van Azure Data Factory | Microsoft Docs
-description: In deze zelfstudie maakt u een Azure Data Factory-pijplijn waarmee gegevens uit een Azure SQL- database stapsgewijs worden gekopieerd naar Azure Blob Storage.
+description: In deze zelfstudie maakt u een Azure Data Factory-pijplijn waarmee gegevens uit een Azure SQL-database stapsgewijs worden gekopieerd naar Azure Blob Storage.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
 ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447239"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60571030"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Stapsgewijs gegevens uit een Azure SQL-database laden in Azure Blob Storage
 In deze zelfstudie maakt u een Azure-gegevensfactory met een pijplijn waarmee deltagegevens uit een tabel in een Azure SQL-database worden geladen naar Azure Blob Storage. 
@@ -210,7 +210,7 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
     2. Selecteer uw Azure SQL-server als **Servernaam**
     3. Voer de **naam van de gebruiker** in voor toegang tot de Azure SQL-server. 
     4. Voer het **wachtwoord** voor de gebruiker in. 
-    5. Als u de verbinding met de Azure SQL database wilt testen, klikt u op **Verbinding testen**.
+    5. Als u de verbinding met de Azure SQL-database wilt testen, klikt u op **Verbinding testen**.
     6. Klik op **Opslaan**.
     7. Open het tabblad **Verbinding** en controleer of **AzureSqlDatabaseLinkedService** is geselecteerd als **Gekoppelde service**.
        
@@ -294,7 +294,7 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
 28. Ga naar de **pijplijneditor** door op het pijplijntabblad bovenaan te klikken of door in de structuurweergave aan de linkerkant op de naam van de pijplijn te klikken. 
 29. Vouw in de **Activiteiten**-werkset de optie **Algemeen** uit. Gebruik vervolgens slepen-en-neerzetten om de **opgeslagen-procedureactiviteit** uit de **Activiteiten**-werkset te verplaatsen naar het ontwerpoppervlak voor pijplijnen. **Verbind** de groene uitvoer (geslaagd) van de **kopieeractiviteit** met de **opgeslagen-procedureactiviteit**. 
     
-    ![Kopieeractiviteit - bron](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
+    ![Copy-activiteit - bron](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
 24. Selecteer **Opgeslagen procedureactiviteit** in de pijplijnontwerper en verander de naam ervan in **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Opgeslagen-procedureactiviteit - naam](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)

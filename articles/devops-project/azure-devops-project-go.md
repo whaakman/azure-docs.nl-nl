@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Een CI/CD-pijplijn maken voor de programmeertaal Go met behulp van Azure DevOps Projects'
+title: 'Quickstart: Maken van een CI/CD-pijplijn voor de programmeertaal Go met behulp van Azure DevOps Projects'
 description: Met DevOps Projects kunt u eenvoudig aan de slag met Azure. Hiermee kunt u in slechts enkele stappen een web-app in de programmeertaal Go starten voor een Azure-service.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -18,11 +18,11 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: ca068b39c222a210e261234a132a0506f6b023bb
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263748"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60554968"
 ---
 # <a name="create-a-cicd-pipeline-for-go-by-using-azure-devops-projects"></a>Een CI/CD-pijplijn voor Go maken met Azure DevOps Projects
 
@@ -55,7 +55,7 @@ In DevOps Projects wordt een CI/CD-pijplijn gemaakt in Azure Pipelines. U kunt e
 
 1. Maak gratis een nieuwe Azure DevOps-organisatie of kies een bestaande organisatie. 
 
-1. Voer een naam in voor het Azure DevOps-project. 
+1. Voer een naam in voor uw Azure DevOps-project. 
 
 1. Selecteer uw Azure-abonnement en locatie, voer een naam in voor de app en selecteer **Gereed**.  
     Na enkele minuten wordt het DevOps Projects-dashboard weergegeven in de Azure-portal. Er wordt een voorbeeld-app ingesteld in een opslagplaats in uw Azure DevOps-organisatie, er wordt een build uitgevoerd en de app wordt geïmplementeerd in Azure. 
@@ -78,31 +78,31 @@ Met DevOps Projects wordt een Git-opslagplaats gemaakt in Azure Repos of in GitH
 
 1. Breng een wijziging aan in het bestand. Wijzig bijvoorbeeld wat tekst binnen een van de div-tags.
 
-1. Selecteer **Doorvoeren** en sla vervolgens de wijzigingen op.
+1. Selecteer **Doorvoeren** en sla de wijzigingen op.
 
 1. Ga in de browser naar het DevOps Projects-dashboard.  
     Er wordt nu een build uitgevoerd. De aangebrachte wijzigingen worden automatisch gebouwd en geïmplementeerd via een CI/CD-pijplijn.
 
 ## <a name="examine-the-cicd-pipeline"></a>De CI/CD-pijplijn onderzoeken
 
-In DevOps Projects wordt automatisch een volledige CI/CD-pipeline geconfigureerd in Azure Repos. U kunt de pijplijn verkennen en zo nodig aanpassen. Ga als volgt te werk om vertrouwd te raken met de build- en release-pijplijnen van Azure DevOps:
+In DevOps Projects wordt automatisch een volledige CI/CD-pijplijn geconfigureerd in Azure Repos. U kunt de pijplijn verkennen en zo nodig aanpassen. Ga als volgt te werk om vertrouwd te raken met de build- en release-pijplijnen van Azure DevOps:
 
 1. Ga naar het DevOps Projects-dashboard.
 
-1. Selecteer **Build-pijplijnen** bovenaan.  
-    Op een browsertabblad wordt de build-pijplijn voor het nieuwe project weergegeven.
+1. Selecteer **Pijplijnen bouwen** bovenaan.  
+    Op een tabblad in de browser wordt de build-pijplijn voor het nieuwe project weergegeven.
 
 1. Wijs het veld **Status** aan en selecteer het beletselteken (...).  
     Er wordt een menu met verschillende opties weergegeven, bijvoorbeeld om een nieuwe build in de wachtrij te plaatsen, een build te onderbreken of de build-pijplijn te bewerken.
 
 1. Selecteer **Bewerken**.
 
-1. In dit deelvenster kunt u de verschillende taken voor de build-pijplijn onderzoeken.  
+1. In dit deelvenster kunt u de verschillende taken voor uw build-pijplijn onderzoeken.  
     In de build worden verschillende taken uitgevoerd, zoals het ophalen van bronnen uit de Git-opslagplaats, het herstellen van afhankelijkheden, en het publiceren van uitvoergegevens die worden gebruikt voor implementaties.
 
 1. Selecteer boven aan de build-pijplijn de naam van de build-pijplijn.
 
-1. Wijzig de naam van de build-pijplijn in een meer beschrijvende naam. Selecteer **Opslaan en wachtrij** en selecteer vervolgens **Opslaan**.
+1. Wijzig de naam van de build-pijplijn in een gebruiksvriendelijkere naam. Selecteer **Opslaan en wachtrij** en selecteer **Opslaan**.
 
 1. Selecteer onder de naam van de build-pijplijn de optie **Geschiedenis**.  
     In dit deelvenster ziet u een audittrail van recente wijzigingen voor de build. In Azure DevOps worden alle wijzigingen in de build-pijplijn bijgehouden en krijgt u de mogelijkheid om versies te vergelijken.
@@ -116,28 +116,28 @@ In DevOps Projects wordt automatisch een volledige CI/CD-pipeline geconfigureerd
 1. Selecteer **Build en release** en selecteer vervolgens **Releases**.  
     In DevOps Projects wordt een release-pijplijn gemaakt om implementaties in Azure te beheren.
 
-1. Selecteer het beletselteken (...) naast de release-pijplijn en selecteer **Bewerken**.  
+1. Selecteer het beletselteken (...) naast uw release-pijplijn en selecteer **Bewerken**.  
     De release-pijplijn bevat een *pijplijn* die het releaseproces definieert.
 
 1. Onder **Artefacten** selecteert u **Neerzetten**.  
-    Met de build-pijplijn die u in de vorige stappen hebt onderzocht, wordt de uitvoer geproduceerd die wordt gebruikt voor het artefact. 
+    De build-pijplijn die u eerder hebt onderzocht, produceert de uitvoer die wordt gebruikt voor het artefact. 
 
 1. Selecteer **Continue implementatietrigger** rechts van het pictogram **Neerzetten**.  
-    Deze release-pijplijn heeft een ingeschakelde CD-trigger op basis waarvan een implementatie wordt uitgevoerd telkens wanneer een nieuw build-artefact beschikbaar is. U kunt de trigger eventueel uitschakelen zodat de implementaties handmatig moeten worden uitgevoerd. 
+    Deze release-pijplijn heeft een ingeschakelde CD-trigger die een implementatie uitvoert telkens wanneer een nieuw build-artefact beschikbaar is. U kunt de trigger eventueel uitschakelen zodat de implementaties handmatig moeten worden uitgevoerd. 
 
 1. Selecteer aan de linkerkant **Taken**.  
     Taken zijn de acties die tijdens het implementatieproces worden uitgevoerd. In dit voorbeeld is een taak gemaakt om te implementeren in Azure App Service.
 
-1. Selecteer aan de rechterkant **Releases weergeven** om een releasegeschiedenis weer te geven.
+1. Selecteer aan de rechterkant **Versies weergeven** om een versiegeschiedenis weer te geven.
 
 1. Selecteer het beletselteken (...) naast een versie en selecteer **Openen**.  
-    U kunt verschillende menu's verkennen, zoals een releaseoverzicht, gekoppelde werkitems en tests.
+    U kunt verschillende menu's verkennen, zoals een versieoverzicht, gekoppelde werkitems en tests.
 
 1. Selecteer **Doorvoeringen**.  
     In deze weergave worden de codedoorvoeringen weergegeven die zijn gekoppeld aan deze implementatie. 
 
 1. Selecteer **Logboeken**.  
-    De logboeken bevatten nuttige informatie over het implementatieproces. U kunt ze zowel tijdens als na de implementaties weergeven.
+    De logboeken bevatten nuttige informatie over het implementatieproces. U kunt beide weergeven tijdens en na de implementaties.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -145,7 +145,7 @@ U kunt het Azure App Service-exemplaar en de gerelateerde resources die u in dez
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over het wijzigen van de build- en release-pipelines in overeenstemming met de behoeften van uw team, raadpleegt u:
+Voor meer informatie over het wijzigen van de build- en release-pijplijnen in overeenstemming met de behoeften van uw team, raadpleegt u:
 
 > [!div class="nextstepaction"]
 > [Een CD-pijplijn (continue implementatie) met meerdere fasen definiëren](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

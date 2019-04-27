@@ -11,15 +11,15 @@ ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 3ca17ae905fff0911b58a0d336e0899ff385085c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990476"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60556682"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Zelfstudie: Een relationele database in een individuele database in Azure SQL Database ontwerpen met behulp van SQL Server Management Studio
 
-Azure SQL Database is een relationele DBaaS (database-as-a-service) in Microsoft Cloud (Azure). In deze zelfstudie leert u hoe u met Azure Portal en [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) de volgende taken uitvoert:
+Azure SQL-database is een relationele DBaaS (database-as-a-service) in Microsoft Cloud (Azure). In deze zelfstudie leert u hoe u met Azure Portal en [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) de volgende taken uitvoert:
 
 > [!div class="checklist"]
 > - Een individuele database maken met Azure Portal*
@@ -112,7 +112,7 @@ De service SQL Database maakt een IP-firewall op serverniveau. De firewall voork
 
 6. Klik op **OK** en sluit de pagina **Firewallinstellingen**.
 
-Uw IP-adres wordt niet meer door de IP-firewall geblokkeerd. U kunt nu verbinding maken met uw individuele database met SQL Server Management Studio of een ander hulpprogramma naar keuze. Gebruik het beheerdersaccount voor de server dat u eerder hebt gemaakt.
+Uw IP-adres wordt niet meer geblokkeerd via de IP-firewall. U kunt nu verbinding maken met uw individuele database met SQL Server Management Studio of een ander hulpprogramma naar keuze. Gebruik het beheerdersaccount voor de server dat u eerder hebt gemaakt.
 
 > [!IMPORTANT]
 > Voor alle Azure-services is toegang via de IP-firewall van SQL Database standaard ingeschakeld. Klik op **UIT** op deze pagina om dit voor alle Azure-services uit te schakelen.
@@ -124,7 +124,7 @@ Gebruik [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ss
 1. Open SQL Server Management Studio.
 2. Voer in het dialoogvenster **Verbinding maken met server** de volgende informatie in:
 
-   | Instelling       | Voorgestelde waarde | Beschrijving |
+   | Instelling       | Voorgestelde waarde | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Servertype** | Database-engine | Deze waarde is verplicht. |
    | **Servernaam** | De volledig gekwalificeerde servernaam | Bijvoorbeeld *yourserver.database.windows.net*. |
@@ -227,10 +227,10 @@ Het volgende diagram laat zien hoe deze tabellen aan elkaar zijn gerelateerd. So
 4. Voer de volgende opdrachten uit om voorbeeldgegevens toe te voegen aan de tabellen. Vervang hierbij de waarden voor *server*, *database*, *user* en *password* door de waarden voor uw omgeving.
 
    ```cmd
-   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Course in SampleCourseData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 U hebt nu voorbeeldgegevens geladen in de tabellen die u eerder hebt gemaakt.

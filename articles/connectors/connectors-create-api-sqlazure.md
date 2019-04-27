@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: dccb91c782408a5fed5c3ef1b68f9918823ce402
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: MT
+ms.openlocfilehash: 29d53c7fbd26d3c8e2356ce82ff25c7e1b165728
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38544020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540986"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Verbinding maken met SQL Server of Azure SQL Database van Azure Logic Apps
 
@@ -24,7 +24,7 @@ Dit artikel wordt beschreven hoe u toegang tot gegevens in uw SQL-database in ee
 
 Logische apps die worden uitgevoerd wanneer geactiveerd door gebeurtenissen in uw SQL-database of in andere systemen, zoals Dynamics CRM Online, kunt u maken. Uw logische apps kunnen ook ophalen, invoegen en verwijderen van gegevens, samen met de SQL-query's en opgeslagen procedures uitvoeren. U kunt bijvoorbeeld een logische app die automatisch wordt gecontroleerd op nieuwe records in Dynamics CRM Online, voegt items toe aan uw SQL-database voor alle nieuwe records en verzendt vervolgens e-mailwaarschuwingen bouwen.
 
-Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>. Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Snelstartgids: uw eerste logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md). Connector-specifieke technische informatie, Zie de <a href="https://docs.microsoft.com/connectors/sql/" target="blank">documentatie voor SQL Server-connector</a>.
+Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>. Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Quick Start: Maak uw eerste logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Connector-specifieke technische informatie, Zie de <a href="https://docs.microsoft.com/connectors/sql/" target="blank">documentatie voor SQL Server-connector</a>.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -42,7 +42,7 @@ Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/fr
 
   * Voor SQL Server, kunt u deze informatie vinden in de verbindingsreeks: 
 
-    "Server = <*yourServerAddress*>; Database = <*yourDatabaseName*>; Gebruikers-Id = <*uwgebruikersnaam*>; Wachtwoord = <*yourPassword*>; "
+    "Server=<*yourServerAddress*>;Database=<*yourDatabaseName*>;User Id=<*yourUserName*>;Password=<*yourPassword*>;"
 
 * Voordat u logische apps met on-premises systemen, zoals SQL Server verbinden kunt, moet u [instellen van een on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md). Op die manier kunt u de gateway wanneer u de SQL-verbinding voor uw logische app maakt.
 

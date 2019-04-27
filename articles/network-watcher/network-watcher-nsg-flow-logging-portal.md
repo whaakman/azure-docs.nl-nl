@@ -3,8 +3,8 @@ title: 'Zelfstudie: Logboekregistratie van netwerkstroom naar en van een VM - Az
 description: Informatie over de logboekregistratie van netwerkstromen naar en van een VM met behulp van de NSG-stroomlogboeken van Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: bfe4abe4a83a6b22d05942f91f4152d5c0e62be9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124077"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726760"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Zelfstudie: Logboekregistratie van netwerkverkeer naar en van een virtuele machine met behulp van de Microsoft Azure-portal
 
@@ -205,7 +205,7 @@ De waarde voor **mac** in de vorige uitvoer is het MAC-adres van de netwerkinter
 | 44931        | Bronpoort            | De bronpoort waaruit de stroom afkomstig is.                                           |
 | 443         | Doelpoort       | De doelpoort waarvoor de stroom is bestemd. Aangezien het verkeer was bestemd voor poort 443, is de stroom verwerkt op basis van de regel met de naam **UserRule_default-allow-rdp** in het logboekbestand.                                                |
 | T            | Protocol               | Hiermee wordt aangegeven of het protocol van de stroom TCP (T) of UDP (U).                                  |
-| O            | Richting              | Hiermee wordt aangegeven of het verkeer inkomend (I) of uitgaand (O) was.                                     |
+| O            | Direction              | Hiermee wordt aangegeven of het verkeer inkomend (I) of uitgaand (O) was.                                     |
 | A            | Bewerking                 | Hiermee wordt aangegeven of het verkeer was toegelaten (A) of geweigerd (D).  
 | C            | Stroomstatus **Alleen Versie 2** | Legt de status van de stroom vast. Mogelijke statussen zijn **B**: Begin, wanneer een stroom wordt gemaakt. Er worden geen statistische gegevens geleverd. **C**: Continu, voor een actieve stroom. Statistische gegevens worden geleverd met intervallen van 5 minuten. **E**: Eind, wanneer een stroom is beëindigd. Er worden statistische gegevens geleverd. |
 | 30 | Verzonden pakketten: bron naar doel, **alleen voor Versie 2** | Het totale aantal TCP- of UDP- pakketten dat sinds de laatste update is verzonden van de bron naar het doel. |

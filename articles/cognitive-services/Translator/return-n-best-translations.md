@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ms.openlocfilehash: 62992122dc16003078bb80ecd87c2bd3692586dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918311"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610594"
 ---
 # <a name="how-to-return-n-best-translations"></a>Hoe N-beste vertalingen worden geretourneerd
 
@@ -35,7 +35,7 @@ De handtekening is:
 
 **Parameters**
 
-| Parameter | Description |
+| Parameter | Beschrijving |
 |:---|:---|
 | appId | **Vereiste** als de autorisatie-header wordt gebruikt, laat het veld appid leeg anders geeft u een tekenreeks met "Bearer" + "" + toegangstoken.|
 | tekst | **Vereiste** een tekenreeks voor de tekst te vertalen. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|

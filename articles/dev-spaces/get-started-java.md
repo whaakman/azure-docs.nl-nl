@@ -11,11 +11,11 @@ description: Snelle Kubernetes-ontwikkeling met containers en microservices in A
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
 manager: mmontwil
 ms.openlocfilehash: b69a793d1d860bf2f2a4d52a92d4bea5cf903c0c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60694377"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Aan de slag in Azure Dev Spaces met behulp van Java
 

@@ -16,13 +16,13 @@ ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: b1e287ee949aedf084d4390fe672f0fe41899c34
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091759"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684623"
 ---
-# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Snelstart: Een Azure CDN-profiel en een eindpunt maken
+# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Quickstart: Een Azure CDN-profiel en een eindpunt maken
 In deze snelstart wordt beschreven hoe u Azure Content Delivery Network (CDN) inschakelt door een nieuw CDN-profiel en -eindpunt te maken. Nadat u een profiel en een eindpunt hebt gemaakt, kunt u beginnen met het leveren van inhoud aan uw klanten.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -51,7 +51,7 @@ Nadat u een CDN-profiel hebt gemaakt, kunt u het gebruiken om een eindpunt te ma
 
 3. Gebruik voor de eindpuntinstellingen de waarden die zijn opgegeven in de volgende tabel:
 
-    | Instelling | Waarde |
+    | Instelling | Value |
     | ------- | ----- |
     | **Naam** | Voer *my-endpoint-123* in als hostnaam van uw eindpunt. Deze naam moet wereldwijd uniek zijn. Als deze al in gebruik is, kunt u een andere naam invoeren. Deze naam wordt gebruikt voor toegang tot uw resources in de cache van de domein- _&lt;eindpuntnaam&gt;_.azureedge.net.|
     | **Oorsprongtype** | Selecteer **Opslag**. | 
