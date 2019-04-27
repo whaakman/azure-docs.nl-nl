@@ -1,10 +1,10 @@
 ---
 title: Netwerktoegang tot PaaS-resources beperken - zelfstudie - Azure Portal | Microsoft Docs
-description: In deze zelfstudie leert u hoe u de toegang tot Azure resources, zoals Azure Storage en Azure SQL Database, met virtuele netwerkservice-eindpunten kunt begrenzen en beperken met behulp van Azure Portal.
+description: In deze zelfstudie leert u hoe u de toegang tot Azure resources, zoals Azure Storage en Azure SQL Database, met service-eindpunten voor een virtueel netwerk kunt begrenzen en beperken met behulp van de Azure-portal.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/23/2018
-ms.author: jdial
-ms.openlocfilehash: b951386fbeca883ae61a7f8040893e55467c8e5d
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.author: kumud
+ms.openlocfilehash: 31fe4c5cd2e61c3312532f05d310d652ecde7e95
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42810081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743805"
 ---
-# <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Zelfstudie: Netwerktoegang tot PaaS-resources beperken met service-eindpunten van een virtueel netwerk met behulp van Azure Portal
+# <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Zelfstudie: Netwerktoegang tot PaaS-resources beperken met virtual network-service-eindpunten met Azure portal
 
 Met service-eindpunten voor virtuele netwerken kunt u de netwerktoegang tot sommige Azure-servicebronnen beperken tot een subnet van een virtueel netwerk. U kunt ook internettoegang tot de resources verwijderen. Service-eindpunten zorgen voor een rechtstreekse verbinding van uw virtuele netwerk met ondersteunde Azure-services, zodat u de privéadresruimte van uw virtuele netwerk kunt gebruiken voor toegang tot de Azure-services. Verkeer dat bestemd is voor Azure-resources via de service-eindpunten blijft altijd op het Microsoft Azure-backbone-netwerk. In deze zelfstudie leert u het volgende:
 
@@ -92,7 +92,7 @@ Standaard kunnen alle VM's in een subnet met alle resources communiceren. U kunt
 
     |Instelling|Waarde|
     |----|----|
-    |Naam| myNsgPrivate |
+    |Name| myNsgPrivate |
     |Abonnement| Selecteer uw abonnement|
     |Resourcegroep | Selecteer **Bestaande gebruiken** en selecteer *myResourceGroup*.|
     |Locatie| Selecteer **US - oost** |
@@ -102,7 +102,7 @@ Standaard kunnen alle VM's in een subnet met alle resources communiceren. U kunt
 6. Selecteer **+ Toevoegen**.
 7. Maak een regel die uitgaande communicatie naar de Azure Storage-service toestaat. Voer de volgende gegevens in of selecteer deze, en selecteer **Toevoegen**:
 
-    |Instelling|Waarde|
+    |Instelling|Value|
     |----|----|
     |Bron| Selecteer **VirtualNetwork** |
     |Poortbereiken van bron| * |
@@ -112,11 +112,11 @@ Standaard kunnen alle VM's in een subnet met alle resources communiceren. U kunt
     |Protocol|Alle|
     |Bewerking|Toestaan|
     |Prioriteit|100|
-    |Naam|Allow-Storage-All|
+    |Name|Allow-Storage-All|
 
 8. Maak een uitgaande beveiligingsregel die communicatie naar internet weigert. Deze regel overschrijft een standaardregel in alle netwerkbeveiligingsgroepen waarmee uitgaande internetcommunicatie mogelijk is. Voer stap 5-7 opnieuw uit, met behulp van de volgend waarden:
 
-    |Instelling|Waarde|
+    |Instelling|Value|
     |----|----|
     |Bron| Selecteer **VirtualNetwork** |
     |Poortbereiken van bron| * |
@@ -126,13 +126,13 @@ Standaard kunnen alle VM's in een subnet met alle resources communiceren. U kunt
     |Protocol|Alle|
     |Bewerking|Weigeren|
     |Prioriteit|110|
-    |Naam|Deny-Internet-All|
+    |Name|Deny-Internet-All|
 
 9. Selecteer onder **INSTELLINGEN** **Inkomende beveiligingsregels**.
 10. Selecteer **+ Toevoegen**.
 11. Maak een inkomende beveiligingsregel waarmee RDP-verkeer (Remote Desktop Protocol) naar het subnet vanaf elke locatie wordt toegestaan. De regel overschrijft een standaardbeveiligingsregel waardoor al het inkomende verkeer van internet wordt geweigerd. Externe bureaublad-verbindingen worden toegestaan voor het subnet zodat de verbinding in een later stadium kan worden getest. Selecteer onder **INSTELLINGEN** de optie **Inkomende beveiligingsregels**, selecteer **+ Toevoegen**, voer de volgende waarden in en selecteer vervolgens **Toevoegen**:
 
-    |Instelling|Waarde|
+    |Instelling|Value|
     |----|----|
     |Bron| Alle |
     |Poortbereiken van bron| * |
@@ -141,7 +141,7 @@ Standaard kunnen alle VM's in een subnet met alle resources communiceren. U kunt
     |Protocol|Alle|
     |Bewerking|Toestaan|
     |Prioriteit|120|
-    |Naam|Allow-RDP-All|
+    |Name|Allow-RDP-All|
 
 12. Selecteer onder **INSTELLINGEN** **Subnetten**.
 13. Selecteer **+ Koppelen**
@@ -160,7 +160,7 @@ De stappen die nodig zijn om netwerktoegang te beperken tot resources die zijn g
 
     |Instelling|Waarde|
     |----|----|
-    |Naam| Voer een naam die uniek is voor alle Azure locaties, 3 tot 24 tekens lang is en alleen cijfers en kleine letters bevat.|
+    |Name| Voer een naam die uniek is voor alle Azure locaties, 3 tot 24 tekens lang is en alleen cijfers en kleine letters bevat.|
     |Soort account|StorageV2 (general purpose v2)|
     |Locatie| Selecteer **US - oost** |
     |Replicatie| Lokaal redundante opslag (LRS)|
@@ -187,7 +187,7 @@ Standaard accepteren opslagaccounts netwerkverbindingen van clients in ieder net
 3. Selecteer **+Bestaand virtueel netwerk toevoegen**.
 4. Selecteer onder **Netwerken toevoegen** de volgende waarden en selecteer **Toevoegen**:
 
-    |Instelling|Waarde|
+    |Instelling|Value|
     |----|----|
     |Abonnement| Selecteer uw abonnement.|
     |Virtuele netwerken|Selecteer **myVirtualNetwork** onder **Virtuele netwerken**|
@@ -215,7 +215,7 @@ Implementeer een VM in elk subnet om de netwerktoegang tot een opslagaccount te 
 
    |Instelling|Waarde|
    |----|----|
-   |Naam| myVmPublic|
+   |Name| myVmPublic|
    |Gebruikersnaam|Voer een gebruikersnaam naar keuze in.|
    |Wachtwoord| Voer een wachtwoord naar keuze in. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    |Abonnement| Selecteer uw abonnement.|
