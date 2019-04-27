@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 22f75efb3cb4baa645030e7ad64072674de662ed
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890777"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60593214"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>Wat is de Bing Spellingcontrole-API?
 

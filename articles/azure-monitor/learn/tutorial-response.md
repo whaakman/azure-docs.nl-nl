@@ -15,11 +15,11 @@ ms.date: 10/05/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 6521688e595230951e0753fd67c2bf9b02e0a6ec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589900"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Reageren op gebeurtenissen met Azure Monitor-waarschuwingen
 Waarschuwingen in Azure Monitor kunnen belangrijke informatie in uw Log Analytics-opslagplaats aangeven. Ze worden gemaakt door waarschuwingsregels die automatisch met regelmatige tussenpozen zoekopdrachten in logboeken uitvoeren. Als de resultaten van de logboekzoekactie aan bepaalde criteria voldoen, wordt een waarschuwingsrecord gemaakt en kan deze worden geconfigureerd voor het uitvoeren van een automatische reactie.  Deze zelfstudie is een vervolg van de zelfstudie [Dashboards van Log Analytics-gegevens maken en delen](tutorial-logs-dashboards.md).   

@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 669eaaf0eaf28c696a7ca368c02f5816054e5d10
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010103"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546674"
 ---
 # <a name="what-is-bing-autosuggest"></a>Wat is Bing Automatische suggesties?
 
@@ -23,7 +23,7 @@ Als uw toepassing query's verstuurt naar een van de API's van Bing Search, kunt 
 
 ## <a name="bing-autosuggest-api-features"></a>Functies van de Bing Automatische suggesties-API
 
-| Functie                                                                                                                                                                                 | Description                                                                                                                                                            |
+| Functie                                                                                                                                                                                 | Beschrijving                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Zoektermen in realtime voorstellen](concepts/get-suggestions.md) | Verbeter uw app-ervaring met de Automatische suggesties-API om voorgestelde zoektermen weer te geven wanneer deze worden getypt. |
 

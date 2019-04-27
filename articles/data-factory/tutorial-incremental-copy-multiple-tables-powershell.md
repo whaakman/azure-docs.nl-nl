@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
 ms.openlocfilehash: 244779e647c4b184b036b1a5ea77aac199be5994
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60570555"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
-In deze zelfstudie maakt u een Azure data factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
+In deze zelfstudie maakt u een Azure Data Factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
 
 In deze zelfstudie voert u de volgende stappen uit:
 
@@ -130,7 +130,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Nog een tabel in Azure SQL Database maken om de bovengrenswaarde op te slaan
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Nog een tabel in de Azure SQL-database maken om de bovengrenswaarde op te slaan
 1. Voer de volgende SQL-opdracht uit op de SQL-database om een tabel met de naam `watermarktable` te maken om de grenswaarde op te slaan: 
     
     ```sql
@@ -170,7 +170,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Gegevenstypen en aanvullende opgeslagen procedures maken in Azure SQL Database
+### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Gegevenstypen en aanvullende opgeslagen procedures maken in de Azure SQL-database
 Voer de volgende query uit om twee opgeslagen procedures en twee gegevenstypen te maken in de SQL-database. Deze worden gebruikt voor het samenvoegen van de gegevens uit de brontabellen in doeltabellen. 
 
 Als u wilt de weg te beginnen met eenvoudig te maken, we deze opgeslagen Procedures te geven van de deltagegevens in via een tabelvariabele rechtstreeks te gebruiken en deze vervolgens samenvoegen in doelarchief. Wees voorzichtig met dat niet een 'groot' aantal delta rijen (meer dan 100 verwacht wordt) worden opgeslagen in de tabelvariabele.  

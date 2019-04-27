@@ -15,11 +15,11 @@ ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 68c0b1c01d79f591b5023d2e048d1788a3eaffd4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117371"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60715976"
 ---
 # <a name="restrict-web-traffic-using-the-azure-cli"></a>Webverkeer beperken met de Azure CLI
 
@@ -47,7 +47,7 @@ In dit script worden de volgende opdrachten gebruikt om de implementatie te make
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
 | [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Hiermee maakt u een virtueel netwerk. |
 | [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Hiermee maakt u een subnet in een virtueel netwerk. |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest) | Hiermee maakt u het openbare IP-adres voor de toepassingsgateway. |

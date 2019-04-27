@@ -15,11 +15,11 @@ ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: b80cb0d68e6875881f2a9fc97fa52531525c1cdc
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579186"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636840"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Zelfstudie: Een aangepast domein toevoegen aan uw Azure CDN-eindpunt
 Deze zelfstudie laat zien hoe u een aangepast domein toevoegt aan een Azure CDN-eindpunt (Content Delivery Network). Wanneer u een CDN-eindpunt gebruikt voor het leveren van inhoud, is een aangepast domein nodig als u wilt dat uw eigen domeinnaam zichtbaar is in de URL van uw CDN. Een zichtbare domeinnaam kan handig zijn voor uw klanten en nuttig zijn voor branding-doelen. 

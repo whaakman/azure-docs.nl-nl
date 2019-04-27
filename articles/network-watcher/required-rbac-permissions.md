@@ -3,8 +3,8 @@ title: Vereiste machtigingen voor het gebruik van de mogelijkheden van Azure Net
 description: Meer informatie over welke machtigingen voor het beheer van toegang van Azure op basis van rollen zijn vereist om te werken met Network Watcher-mogelijkheden.
 services: network-watcher
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: ''
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 429f7862901814fbd2017c395706fbfa2c345f72
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434576"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60652891"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Machtigingen voor beheer op basis van de rol vereist voor het gebruik van Network Watcher-mogelijkheden
 
@@ -40,7 +40,7 @@ Op rollen gebaseerd toegangsbeheer in Azure (RBAC) kunt u alleen de specifieke a
 | Microsoft.Network/networkWatchers/configureFlowLog/action           | Een stroom logboek configureren                                           |
 | Microsoft.Network/networkWatchers/queryFlowLogStatus/action         | Querystatus van de voor een stroomlogboek                                    |
 
-## <a name="connection-troubleshoot"></a>Probleemoplossing voor verbindingen
+## <a name="connection-troubleshoot"></a>Problemen met de verbinding oplossen
 
 | Bewerking                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
@@ -103,7 +103,7 @@ Op rollen gebaseerd toegangsbeheer in Azure (RBAC) kunt u alleen de specifieke a
 
 Functionaliteit van Network Watcher is ook vereist voor de volgende acties:
 
-- Microsoft.Authorization/ \* /lezen
+- Microsoft.Authorization/\*/Read
 - Microsoft.Resources/subscriptions/resourceGroups/Read
 - Microsoft.Storage/storageAccounts/Read
 - Microsoft.Storage/storageAccounts/listServiceSas/Action

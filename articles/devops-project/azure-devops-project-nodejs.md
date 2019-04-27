@@ -18,11 +18,11 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: dadc394e9c9ddb152923095de10b8f727310d3f7
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164520"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60554803"
 ---
 #  <a name="create-a-cicd-pipeline-for--nodejs-with-azure-devops-projects"></a>Een CI/CD-pijplijn voor Node.js maken met Azure DevOps Projects 
 
@@ -36,7 +36,7 @@ In DevOps Projects wordt een CI/CD-pijplijn gemaakt in Azure Pipelines. U kunt e
 
 1. Meld u aan bij de [Microsoft Azure Portal](https://portal.azure.com).
 
-1. Selecteer in het linkerdeelvenster de optie **Een resource selecteren**, en zoek vervolgens naar **DevOps Projects**. 
+1. Selecteer in het linkerdeelvenster de optie **Een resource maken**, en zoek vervolgens naar **DevOps Projects**. 
 
     ![Configuratie voor continue levering starten](_img/azure-devops-project-nodejs/fullbrowser.png)
 
@@ -45,10 +45,10 @@ In DevOps Projects wordt een CI/CD-pijplijn gemaakt in Azure Pipelines. U kunt e
 1. Selecteer de Node.js-voorbeeldtoepassing.  
     De Node.js-voorbeelden omvatten een keuze uit verschillende toepassingsframeworks.
 
-1. Het standaardvoorbeeldframework is Express.js. Laat de standaardinstelling ongewijzigd en selecteer vervolgens **Volgende**.  
-    **Web App on Windows** is het standaardimplementatiedoel.  Het toepassingsframework dat u eerder hebt gekozen, bepaalt welk type implementatiedoel hier beschikbaar is voor de Azure-service.  
+1. Het standaardvoorbeeldframework is Express.js. Laat de standaardinstelling ongewijzigd en selecteer **Volgende**.  
+    **Web App on Windows** is het standaardimplementatiedoel.  Het toepassingsframework, dat u eerder hebt gekozen, bepaalt welk type implementatiedoel hier beschikbaar is voor de Azure-service.  
 
-2. Laat de standaardservice ongewijzigd en selecteer vervolgens **Volgende**.
+2. Laat de standaardservice ongewijzigd en selecteer **Volgende**.
  
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Azure DevOps en een Azure-abonnement configureren 
 
@@ -80,7 +80,7 @@ Met deze koppeling opent u een weergave in de zojuist gemaakte Git-opslagplaats.
 1. Selecteer **Bewerken** en breng vervolgens een wijziging aan in de h2-kop.  
     Typ bijvoorbeeld **Meteen aan de slag met het Azure DevOps-project** of maak een andere wijziging.
 
-1. Selecteer **Doorvoeren** en sla vervolgens de wijzigingen op.
+1. Selecteer **Doorvoeren** en sla de wijzigingen op.
 
 1. Ga in de browser naar het DevOps Projects-dashboard.   
 Als het goed is, ziet u nu dat er een build wordt gemaakt. De zojuist aangebrachte wijzigingen worden automatisch gebouwd en geïmplementeerd via een CI/CD-pijplijn.
@@ -90,22 +90,22 @@ Als het goed is, ziet u nu dat er een build wordt gemaakt. De zojuist aangebrach
 In de vorige stap werd in DevOps Projects automatisch een volledige CI/CD-pijplijn geconfigureerd. U kunt de pijplijn verkennen en zo nodig aanpassen. Voer de volgende stappen uit om vertrouwd te raken met de build- en release-pijplijnen.
 
 1. Selecteer boven in het DevOps Projects-dashboard de optie **Build-pijplijnen**.  
-Met deze koppeling worden een browsertabblad en de build-pipeline voor het nieuwe project geopend.
+Met deze koppeling worden een browsertabblad en de build-pijplijn voor het nieuwe project geopend.
 
 1. Wijs het veld **Status** aan en selecteer het beletselteken (...).  
-    Met deze actie wordt een menu geopend waarin u diverse acties kunt starten, zoals een nieuwe build in de wachtrij plaatsen, een build onderbreken en de build-pipeline bewerken.
+    Met deze actie wordt een menu geopend waarin u diverse acties kunt starten, zoals een nieuwe build in de wachtrij plaatsen, een build onderbreken en de build-pijplijn bewerken.
 
 1. Selecteer **Bewerken**.
 
-1. In dit deelvenster kunt u de verschillende taken voor de build-pijplijn onderzoeken.  
+1. In dit deelvenster kunt u de verschillende taken voor uw build-pijplijn onderzoeken.  
 In de build worden verschillende taken uitgevoerd, zoals het ophalen van bronnen uit de Git-opslagplaats, het herstellen van afhankelijkheden, en het publiceren van uitvoergegevens die worden gebruikt voor implementaties.
 
-1. Selecteer boven aan de build-pijplijn de naam van de build-pijplijn.
+1. Selecteer bovenaan de build-pijplijn de naam van de build-pijplijn.
 
-1. Wijzig de naam van de build-pijplijn in een meer beschrijvende naam. Selecteer **Opslaan en wachtrij** en selecteer vervolgens **Opslaan**.
+1. Wijzig de naam van de build-pijplijn in een gebruiksvriendelijkere naam. Selecteer **Opslaan en wachtrij** en selecteer **Opslaan**.
 
 1. Selecteer onder de naam van de build-pijplijn de optie **Geschiedenis**.   
-In het deelvenster **Geschiedenis** ziet u een audittrail van recente wijzigingen voor de build.  Azure Pipelines houdt alle wijzigingen in de build-pipeline bij en biedt de mogelijkheid om versies te vergelijken.
+In het deelvenster **Geschiedenis** ziet u een audittrail van recente wijzigingen voor de build.  Azure Pipelines houdt alle wijzigingen in de build-pijplijn bij en biedt de mogelijkheid om versies te vergelijken.
 
 1. Selecteer **Triggers**.   
  In DevOps Projects is automatisch een CI-trigger gemaakt en met elke doorvoering naar de opslagplaats wordt een nieuwe build gestart.  U kunt desgewenst kiezen of u vertakkingen van het CI-proces wilt opnemen of uitsluiten.
@@ -133,11 +133,11 @@ De taken zijn de acties die tijdens het implementatieproces worden uitgevoerd. I
 1. Selecteer aan de rechterkant **Releases weergeven**.  
 In deze weergave wordt een versiesgeschiedenis weergegeven.
 
-1. Selecteer het beletselteken naast een van de releases en selecteer vervolgens **Openen**.  
+1. Selecteer het beletselteken (...) naast een van de releases en selecteer vervolgens **Openen**.  
 U kunt verschillende menu's verkennen, zoals een releaseoverzicht, gekoppelde werkitems en tests.
 
 1. Selecteer **Doorvoeringen**.   
-In deze weergave worden codedoorvoeringen getoond die zijn gekoppeld aan de specifieke implementatie.
+In deze weergave worden de codedoorvoeringen weergegeven die zijn gekoppeld aan deze implementatie.
 
 1. Selecteer **Logboeken**.  
 De logboeken bevatten nuttige informatie over het implementatieproces. Ze kunnen worden weergegeven tijdens en na de implementaties.

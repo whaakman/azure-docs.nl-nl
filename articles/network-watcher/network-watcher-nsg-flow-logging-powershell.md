@@ -3,8 +3,8 @@ title: Logboeken met Azure Network Watcher - PowerShell Network Security Group s
 description: Deze pagina wordt uitgelegd hoe u voor het beheren van Network Security Group Flow Logboeken in Azure Network Watcher met PowerShell
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: ebeebfa4490797493a781bf462d363d1cbcf2d55
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857977"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60680366"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Network Security Group Flow logboeken configureren met PowerShell
 
 > [!div class="op_single_selector"]
-> - [Azure-portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure-CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)

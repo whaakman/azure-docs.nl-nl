@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: een CI/CD-pijplijn voor .NET maken met Azure DevOps Projects'
+title: 'Quickstart: Een CI/CD-pijplijn voor .NET maken met Azure DevOps Projects'
 description: Azure DevOps Projects zorgt ervoor dat u eenvoudig aan de slag kunt met Azure. Hiermee kunt u een .NET-app voor een Azure-service van uw keuze starten in slechts enkele stappen.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -18,11 +18,11 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: 5fabe9ba03c9516f5df41645fc6ab1b7a0cb2050
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262173"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60555941"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Een CI/CD-pijplijn voor .NET maken met Azure DevOps Projects
 
@@ -136,7 +136,7 @@ De taken zijn de acties die tijdens het implementatieproces worden uitgevoerd. I
 1. Selecteer aan de rechterkant **Releases weergeven**. In deze weergave wordt een versiesgeschiedenis weergegeven.
 
 1. Selecteer het beletselteken (...) naast een van de releases en selecteer vervolgens **Openen**.  
-Er zijn verschillende menu's die u kunt verkennen, zoals een versieoverzicht, gekoppelde werkitems en tests.
+U kunt verschillende menu's verkennen, zoals een releaseoverzicht, gekoppelde werkitems en tests.
 
 
 1. Selecteer **Doorvoeringen**.   

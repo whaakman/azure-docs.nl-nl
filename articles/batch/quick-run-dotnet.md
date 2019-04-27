@@ -11,13 +11,13 @@ ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
 ms.openlocfilehash: c13a01b392b9bbc93fff2e997cb6d168a441ad07
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679916"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60616881"
 ---
-# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Snelstartgids: Uw eerste Azure Batch-taak uitvoeren met .NET API
+# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Quickstart: Uw eerste Azure Batch-taak uitvoeren met de .NET API
 
 In deze snelstartgids wordt een Azure Batch-taak uitgevoerd vanuit een C#-toepassing die is gebouwd op de Azure Batch .NET API. Met de app worden verschillende invoerbestanden geüpload naar Azure-opslag en wordt vervolgens een *pool* met Batch-rekenknooppunten (virtuele machines) gemaakt. Vervolgens wordt een *Batch-voorbeeldtaak* gemaakt waarmee *taken* worden uitgevoerd om elk invoerbestand in de pool te verwerken met behulp van een basisopdracht. Nadat u deze snelstartgids hebt voltooid, begrijpt u de belangrijkste principes van de Batch-service en bent u er klaar voor om Batch op grotere schaal te gebruiken voor meer realistische workloads.
 

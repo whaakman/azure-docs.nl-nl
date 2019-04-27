@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.custom: mvc
 ms.openlocfilehash: 1eb24d90c3aefa81f53a3e31c0bd460f45e5a250
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626297"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Zelfstudie: Een Azure Database for MariaDB-database ontwerpen met de Azure-portal
 

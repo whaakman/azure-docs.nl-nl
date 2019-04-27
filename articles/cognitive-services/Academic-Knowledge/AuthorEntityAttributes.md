@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: d4b33c06ab023023aadf403cf0ef0b08c2bafc5f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609749"
 ---
 # <a name="author-entity"></a>De auteur van entiteit
 <sub> * De volgende kenmerken zijn specifiek voor de auteur van entiteit. (Ty = '1') </sub>

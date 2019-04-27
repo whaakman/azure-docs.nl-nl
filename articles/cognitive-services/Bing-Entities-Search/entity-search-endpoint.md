@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-gedod
 ms.openlocfilehash: 3c2aa4b22c8e679f73692978d9e1f8009f11a46b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875226"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60598522"
 ---
 # <a name="bing-entity-search-api-endpoint"></a>Bing Entity Search API-eindpunt
 
@@ -33,7 +33,7 @@ Resultaten te verkrijgen van de entiteit met behulp van de **-API voor Bing**, v
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Wat is de Bing Entity Search API?](overview.md)
+> [Wat is de Bing Entiteiten zoeken-API?](overview.md)
 
 ## <a name="see-also"></a>Zie ook 
 

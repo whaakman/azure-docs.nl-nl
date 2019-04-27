@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
 ms.openlocfilehash: b9dafd31ed84298c97932b1cdb5593eb17769ef9
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566002"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60581943"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
-In deze zelfstudie maakt u een Azure data factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
+In deze zelfstudie maakt u een Azure Data Factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
 
 In deze zelfstudie voert u de volgende stappen uit:
 
@@ -132,7 +132,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Nog een tabel in Azure SQL Database maken om de bovengrenswaarde op te slaan
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Nog een tabel in de Azure SQL-database maken om de bovengrenswaarde op te slaan
 1. Voer de volgende SQL-opdracht uit op de SQL-database om een tabel met de naam `watermarktable` te maken om de grenswaarde op te slaan: 
     
     ```sql
@@ -306,7 +306,7 @@ In deze stap gaat u uw on-premises SQL Server-database aan de data factory koppe
 1. In het venster **Nieuwe gekoppelde service** selecteert u **Microsoft SQL Server** en klikt u op **Doorgaan**. 
 
     ![SQL-server selecteren](./media/tutorial-incremental-copy-multiple-tables-portal/select-sql-server.png)
-1. Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit:
+1. Voer in het venster **New Linked Service** de volgende stappen uit:
 
     1. Voer **SqlServerLinkedService** in als **Naam**. 
     1. Selecteer **MySelfHostedIR** bij **Connect via integration runtime**. Dit is een **belangrijke** stap. De standaard integratieruntime kan geen verbinding maken met een on-premises-gegevensarchief. Gebruik de zelf-hostende integratieruntime die u eerder hebt gemaakt. 
@@ -321,13 +321,13 @@ In deze stap gaat u uw on-premises SQL Server-database aan de data factory koppe
         ![Gekoppelde SQL Server-service - instellingen](./media/tutorial-incremental-copy-multiple-tables-portal/sql-server-linked-service-settings.png)
 
 ### <a name="create-the-azure-sql-database-linked-service"></a>De gekoppelde Azure SQL Database-service maken
-In de laatste stap maakt u een gekoppelde service om uw Microsoft SQL Server-brondatabase aan de gegevensfactory te koppelen. In deze stap koppelt u uw doel/sink-Azure SQL database aan uw gegevensfactory. 
+In de laatste stap maakt u een gekoppelde service om uw Microsoft SQL Server-brondatabase aan de gegevensfactory te koppelen. In deze stap koppelt u uw doel/sink-Azure SQL-database aan uw data factory. 
 
 1. Schakel in het venster **Verbindingen** over van het tabblad **Integratieruntimes** tab naar het tabblad **Gekoppelde Services** en klik op **+ Nieuw**.
 
     ![Knop Nieuwe gekoppelde service](./media/tutorial-incremental-copy-multiple-tables-portal/new-sql-server-linked-service-button.png)
-1. In het venster **New Linked Service** selecteert u **Azure SQL Database** en klikt u op **Continue**. 
-1. Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit:
+1. In het venster **New Linked Service** selecteert u **Azure SQL Database** en klikt u op **Doorgaan**. 
+1. Voer in het venster **New Linked Service** de volgende stappen uit:
 
     1. Voer **AzureSqlDatabaseLinkedService** in als **Naam**. 
     1. Bij de **Servernaam** selecteert u de naam van uw Azure SQL-server in de vervolgkeuzelijst. 
@@ -401,9 +401,9 @@ In deze stap maakt u een gegevensset voor het opslaan van een bovengrenswaarde.
 
    ![Azure SQL-database selecteren](./media/tutorial-incremental-copy-multiple-tables-portal/select-azure-sql-database.png)
 1. Voer in het tabblad **Algemeen** in het venster Eigenschappen onderaan **WatermarkDataset** in als **Naam**.
-1. Ga naar het tabblad **Verbinding** en voer de volgende stappen uit: 
+1. Open het tabblad **Connection** en voer de volgende stappen uit: 
 
-    1. Selecteer **AzureSqlDatabaseLinkedService** als **Gekoppelde service**.
+    1. Selecteer **AzureSqlDatabaseLinkedService** bij **Linked service**.
     1. Selecteer **[dbo].[watermarktable]** als **Tabel**.
 
        ![WatermarkDataset - verbinding](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)

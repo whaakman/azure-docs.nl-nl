@@ -12,11 +12,11 @@ ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232889"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60642801"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing webzoekopdrachten-API-reactie structuur en -antwoordsessie-typen  
 
@@ -302,7 +302,7 @@ Een wiskundige expressie kan de volgende symbolen bevatten:
 
 Een rekenkundige expressie mag de volgende constanten toe:
 
-|Symbool|Description|
+|Symbool|Beschrijving|
 |------------|-----------------|
 |PI|3.14159...|
 |Mate|Mate|
@@ -449,7 +449,7 @@ Echter, wanneer u de Bing webzoekopdrachten-API vanuit JavaScript aanroepen, van
 
 Om toegang te krijgen tot de headers, kunt u de Bing webzoekopdrachten-API-aanvraag via een proxy CORS. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers`-header waardoor antwoordheaders worden opgenomen in de whitelist en beschikbaar gemaakt voor JavaScript.
 
-Het is eenvoudig te installeren van een CORS-proxy om toe te staan onze [zelfstudie app](tutorial-bing-web-search-single-page-app.md) voor toegang tot de optionele client-headers. Als u [Node.js](https://nodejs.org/en/download/) nog niet hebt, moet u dit eerst installeren. Voer de volgende opdracht achter de opdrachtprompt.
+Het is eenvoudig te installeren van een CORS-proxy om toe te staan onze [zelfstudie app](tutorial-bing-web-search-single-page-app.md) voor toegang tot de optionele client-headers. Als u [Node.js](https://nodejs.org/en/download/) nog niet hebt, moet u dit eerst installeren. Voer vervolgens de volgende opdracht in een opdrachtprompt in.
 
     npm install -g cors-proxy-server
 

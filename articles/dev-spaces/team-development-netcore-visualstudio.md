@@ -12,11 +12,11 @@ ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
 ms.openlocfilehash: 58807aa5a540de6eaa9a337caa0c34fee9408296
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361445"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60706848"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Teamontwikkeling met Azure Dev Spaces
 

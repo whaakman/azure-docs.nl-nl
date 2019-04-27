@@ -12,11 +12,11 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
 ms.openlocfilehash: 976724a40b604bcdc3c83ef1b3d2e95268f75304
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432699"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613843"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Azure Data Factory vergelijken met Data Factory-versie 1
 In dit artikel wordt Data Factory vergeleken met Data Factory-versie 1. Zie [Inleiding tot Data Factory](introduction.md) voor een inleiding tot Data Factory. Zie [Inleiding tot Azure Data Factory](v1/data-factory-introduction.md) voor een inleiding tot Data Factory-versie 1. 

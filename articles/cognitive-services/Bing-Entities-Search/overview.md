@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 02/01/2019
 ms.author: scottwhi
 ms.openlocfilehash: 96bb11dad34d6ebcfebe0956d2a08b954a37e843
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60576119"
 ---
 # <a name="what-is-bing-entity-search-api"></a>Wat is de Bing Entiteiten zoeken-API?
 

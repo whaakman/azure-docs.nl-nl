@@ -16,11 +16,11 @@ ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
 ms.openlocfilehash: e3fcc8be68282f6ce491ff49f0dc5059d79fa98f
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730943"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550109"
 ---
 # <a name="what-is-azure-batch"></a>Wat is Azure Batch?
 
@@ -72,7 +72,7 @@ Het volgende diagram toont een algemene Batch-werkstroom, met een clienttoepassi
 ![Overzicht van Batch-oplossing](./media/batch-technical-overview/tech_overview_03.png)
 
 
-|Stap  |Description  |
+|Stap  |Beschrijving  |
 |---------|---------|
 |1.  Upload de **invoerbestanden** en de **toepassingen** die deze bestanden zullen verwerken naar uw Azure Storage-account.     |De invoerbestanden kunnen alle gegevens zijn die uw toepassing zal verwerken, zoals de modellering van financiële gegevens of te transcoderen videobestanden. De toepassingsbestanden kunnen scripts of toepassingen bevatten die de gegevens verwerken, zoals een mediatranscoder.|
 |2.  Maak een Batch-**pool** van rekenknooppunten in uw Batch-account, een **taak** voor het uitvoeren van de workload op de groep, en **opdrachten** binnen de taak.     | Pool-knooppunten zijn de virtuele machines die uw taken uitvoeren. Geef eigenschappen op, zoals het aantal en de grootte van de knooppunten, een Windows- of Linux-VM-installatiekopie, en een toepassing wordt geïnstalleerd wanneer de knooppunten aan de pool worden toegevoegd. Beheer de kosten en de grootte van de pool met behulp van [Lage-prioriteit VM’s](batch-low-pri-vms.md) of [automatisch schalen](batch-automatic-scaling.md) van het aantal knooppunten als de workload wordt gewijzigd. <br/><br/>Wanneer u taken aan een taak toevoegt, plant de Batch-service automatisch de taken voor uitvoering op de rekenknooppunten in de pool. Elke taak maakt gebruik van de toepassing die u hebt geüpload om de invoerbestanden te verwerken. |

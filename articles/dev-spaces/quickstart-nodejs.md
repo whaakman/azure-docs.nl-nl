@@ -12,11 +12,11 @@ description: Snelle ontwikkeling van Kubernetes met containers, microservices en
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
 manager: jeconnoc
 ms.openlocfilehash: bc18a06405c0fe620136642a409df576c8e8d8b3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361712"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60706743"
 ---
 # <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Quickstart: Ontwikkelen met Node.js op Kubernetes met Azure Dev spaties
 

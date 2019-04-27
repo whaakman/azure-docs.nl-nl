@@ -17,11 +17,11 @@ ms.date: 12/04/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 568631705b590bb2ee312b9519164be17c8443ab
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984236"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711178"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Zelfstudie: Virtuele Azure-netwerken voor virtuele Windows-machines maken en beheren met Azure PowerShell
 
@@ -37,7 +37,7 @@ Virtuele Azure-machines maken gebruik van Azure-netwerken voor interne en extern
 
 ## <a name="vm-networking-overview"></a>Overzicht van VM-netwerken
 
-Virtuele Azure-netwerken maken beveiligde netwerkverbindingen mogelijk tussen virtuele machines, internet en andere Azure-services zoals Azure SQL database. Virtuele netwerken zijn onderverdeeld in logische segmenten die subnetten worden genoemd. Subnetten worden gebruikt om de netwerkstroom te beheersen, en als een beveiligingsgrens. Wanneer een virtuele machine wordt geïmplementeerd, omvat deze doorgaans een virtuele netwerkinterface, die is gekoppeld aan een subnet.
+Virtuele Azure-netwerken maken beveiligde netwerkverbindingen mogelijk tussen virtuele machines, internet en andere Azure-services zoals Azure SQL-database. Virtuele netwerken zijn onderverdeeld in logische segmenten die subnetten worden genoemd. Subnetten worden gebruikt om de netwerkstroom te beheersen, en als een beveiligingsgrens. Wanneer een virtuele machine wordt geïmplementeerd, omvat deze doorgaans een virtuele netwerkinterface, die is gekoppeld aan een subnet.
 
 Tijdens het volgen van deze zelfstudie worden de volgende resources gemaakt:
 

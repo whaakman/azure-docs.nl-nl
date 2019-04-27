@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: 4811e40f87962ecde75c7b2bb14e1d033e82ad44
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577832"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605082"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator Text-API 3.0: Transliterate
 
@@ -35,7 +35,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
 
 <table width="100%">
   <th width="20%">Queryparameter</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>API-versie</td>
     <td>*Vereiste parameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
@@ -115,7 +115,7 @@ Een voorbeeld-JSON-antwoord is:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>X-RequestId</td>
     <td>De waarde die wordt gegenereerd door de service voor het identificeren van de aanvraag. Het wordt gebruikt voor het oplossen van problemen.</td>
@@ -128,7 +128,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
 
 <table width="100%">
   <th width="20%">Statuscode</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>Geslaagd.</td>

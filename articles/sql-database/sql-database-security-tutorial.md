@@ -1,5 +1,5 @@
 ---
-title: Een enkelvoudige of gepoolde database beveiligen in Azure SQL Database | Microsoft Docs
+title: Een enkelvoudige of pooldatabase beveiligen in Azure SQL Database | Microsoft Docs
 description: Een zelfstudie waarin u leert u hoe de informatie over technieken en functies voor het beveiligen van een enkele of gegroepeerde database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -12,13 +12,13 @@ manager: craigg
 ms.date: 02/08/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60582573"
 ---
-# <a name="tutorial-secure-a-single-or-pooled-database"></a>Zelfstudie: Een enkelvoudige of gepoolde database beveiligen
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>Zelfstudie: Een enkelvoudige of pooldatabase beveiligen
 
 In deze zelfstudie leert u het volgende:
 
@@ -28,7 +28,7 @@ In deze zelfstudie leert u het volgende:
 > - Gebruikerstoegang beheren met SQL-verificatie, Azure AD-verificatie en beveiligde verbindingsreeksen
 > - Beveiligingsfuncties inschakelen, zoals Advanced Data Security, controle, gegevensmaskering en versleuteling
 
-Azure SQL Database beveiligt gegevens in een enkelvoudige of gepoolde database door:
+Azure SQL Database beveiligt gegevens in een enkelvoudige of pooldatabase door:
 
 - Toegang te beperken met behulp van firewallregels
 - Verificatiemechanismen die identiteit vereisen
@@ -56,14 +56,14 @@ Voor alle stappen in deze zelfstudie moet u zich aanmelden bij de [Azure-portal]
 
 ## <a name="create-firewall-rules"></a>Firewall-regels maken
 
-SQL-databases worden in Azure beveiligd door een firewall. Standaard worden alle verbindingen met de server en de databases geweigerd, behalve verbindingen van andere Azure-services. Zie [Overzicht van de firewallregels voor Azure SQL Database](sql-database-firewall-configure.md) voor meer informatie.
+SQL-databases worden in Azure beveiligd door een firewall. Standaard worden alle verbindingen met de server en de databases geweigerd, behalve verbindingen van andere Azure-services. Raadpleeg [firewallregels op Azure SQL Database-serverniveau en -databaseniveau](sql-database-firewall-configure.md) voor meer informatie.
 
 Stel **Toegang tot Azure services toestaan** in op **UIT** voor de veiligste configuratie. Vervolgens maakt u een [gereserveerd IP-adres (klassieke implementatie)](../virtual-network/virtual-networks-reserved-public-ip.md) voor de resource die verbinding moet maken, zoals een Azure-VM of cloudservice, en laat u alleen dat IP-adres toe door de firewall. Als u het [resourcebeheer](/azure/virtual-network/virtual-network-ip-addresses-overview-arm)-implementatiemodel gebruikt, is er voor elke resource een toegewezen openbaar IP-adres nodig.
 
 > [!NOTE]
 > SQL Database communiceert via poort 1433. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 1433 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u geen verbinding maken met de Azure SQL Database-server, tenzij de beheerder poort 1433 openstelt.
 
-### <a name="set-up-sql-database-server-firewall-rules"></a>SQL Database-firewallregels instellen
+### <a name="set-up-sql-database-server-firewall-rules"></a>Firewallregels voor SQL Database-server instellen
 
 IP-firewallregels op serverniveau zijn van toepassing op alle databases binnen dezelfde SQL Database-server.
 

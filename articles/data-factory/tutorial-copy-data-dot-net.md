@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
 ms.openlocfilehash: 7aadac72aa1c8c7e7085cccba1d8c83ffb3ebc7b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58792424"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628435"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Gegevens met Azure Data Factory kopiëren van Azure Blob Storage naar SQL Database
 
@@ -27,8 +27,8 @@ In deze zelfstudie voert u de volgende stappen uit:
 
 > [!div class="checklist"]
 > * Een data factory maken
-> * Gekoppelde Azure Storage- en Azure SQL Database-services maken
-> * Gegevenssets voor Azure Blob Storage en Azure SQL Database maken
+> * Gekoppelde Azure Storage- en Azure SQL Database-services maken.
+> * Gegevenssets voor Azure Blob Storage en Azure SQL Database maken.
 > * Een pijplijn met een kopieeractiviteit maken
 > * Een pijplijnuitvoering starten
 > * De uitvoering van de pijplijn en van de activiteit controleren
@@ -40,7 +40,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 ## <a name="prerequisites"></a>Vereisten
 
 * **Een Azure Storage-account**. U gebruikt de blob-opslag als **bron**-gegevensopslag. Als u geen Azure-opslagaccount hebt, raadpleegt u het artikel [Een opslagaccount maken](../storage/common/storage-quickstart-create-account.md) om een account te maken.
-* **Azure SQL-database**. U gebruikt de database als **sink**-gegevensopslag. Als u geen Azure SQL-database hebt, raadpleegt u het artikel [Een Azure SQL-database maken](../sql-database/sql-database-get-started-portal.md) om een database te maken.
+* **Azure SQL-database**. U gebruikt de database als **sink**-gegevensopslag. Als u geen Azure SQL-database hebt, raadpleegt u het artikel [Een Azure SQL-database maken](../sql-database/sql-database-get-started-portal.md) voor de stappen voor het maken van een account.
 * **Visual Studio** 2015, of 2017. De procedures in dit artikel zijn gebaseerd op Visual Studio 2017.
 * **Download en installeer [Azure .NET SDK](https://azure.microsoft.com/downloads/)**.
 * **Maak een toepassing in Azure Active Directory** aan de hand van [deze instructie](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Noteer de volgende waarden voor gebruik in latere stappen: **toepassings-id**, **verificatiesleutel** en **tenant-id**. Wijs de toepassing toe aan de rol **Inzender** door de instructies in het eerder genoemde artikel te volgen.
@@ -520,8 +520,8 @@ Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie n
 
 > [!div class="checklist"]
 > * Een data factory maken
-> * Gekoppelde Azure Storage- en Azure SQL Database-services maken
-> * Gegevenssets voor Azure Blob Storage en Azure SQL Database maken
+> * Gekoppelde Azure Storage- en Azure SQL Database-services maken.
+> * Gegevenssets voor Azure Blob Storage en Azure SQL Database maken.
 > * Een pijplijn met een kopieeractiviteit maken
 > * Een pijplijnuitvoering starten
 > * De uitvoering van de pijplijn en van de activiteit controleren.

@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/11/2018
 ms.openlocfilehash: 93f2ac284931ba664e0965e537e515c824e6f7a6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092290"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60642057"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Implementeren naar Azure Kubernetes Service (AKS) met behulp van Jenkins en het blauw/groen-implementatiepatroon
 

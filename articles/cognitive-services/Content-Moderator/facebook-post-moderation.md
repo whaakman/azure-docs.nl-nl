@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: pafarley
 ms.openlocfilehash: 662eca2a727f3112f169ab8d669bf18c81700275
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871025"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60699527"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Zelfstudie: Gemiddeld Facebook-berichten en opdrachten met Azure Content Moderator
 
@@ -65,7 +65,7 @@ Aanmelden bij de [Azure Portal](https://portal.azure.com/) en volg deze stappen:
 2. Ga naar de zojuist gemaakte functie-App.
 3. In de App, gaat u naar de **platformfuncties** tabblad en selecteer **toepassingsinstellingen**. In de **toepassingsinstellingen** sectie van de volgende pagina, Ga naar de onderkant van de lijst en klikt u op **nieuwe instelling toevoegen**. De volgende sleutel/waarde-paren toevoegen
     
-    | Naam van de App-instelling | waarde   | 
+    | Naam van de App-instelling | value   | 
     | -------------------- |-------------|
     | cm:TeamId   | De id van het Content Moderator-team  | 
     | cm:SubscriptionKey | Uw abonnementssleutel voor Content Moderator: zie [Referenties](review-tool-user-guide/credentials.md) | 
