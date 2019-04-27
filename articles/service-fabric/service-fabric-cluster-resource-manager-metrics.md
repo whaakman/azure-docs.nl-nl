@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1a61de6b0b6f73e112dd69108272ded3a67497e8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661697"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516697"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Beheren van resourceverbruik en laden in Service Fabric met metrische gegevens
 *Metrische gegevens* zijn de resources die uw care services over en die worden geleverd door de knooppunten in het cluster. Een metrische waarde is alles wat u wilt beheren om te verbeteren of de prestaties van uw services controleren. U kunt bijvoorbeeld geheugenverbruik als u wilt weten als uw service is overbelast bekijken. Een andere toepassing is om te achterhalen of de service elders waar geheugen dat minder beperkt is om betere prestaties kan verplaatsen.

@@ -16,18 +16,18 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
 ms.openlocfilehash: 122282d168246e34aaa4a6369f7433b167355887
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152991"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416735"
 ---
 # <a name="configure-dns-to-access-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Configureren van DNS voor toegang tot een Azure AD Domain Services beheerde domein met behulp van veilige LDAP (LDAPS)
 
 ## <a name="before-you-begin"></a>Voordat u begint
 Volledige [taak 3: secure LDAP inschakelen voor het beheerde domein met de Azure-portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
-## <a name="task-4-configure-dns-to-access-the-managed-domain-from-the-internet"></a>Taak 4: Configureren van DNS voor toegang tot het beheerde domein via internet
+## <a name="task-4-configure-dns-to-access-the-managed-domain-from-the-internet"></a>Taak 4: DNS configureren voor toegang tot het beheerde domein vanaf het internet
 > [!TIP]
 > **Optionele taak** : als u niet van plan bent voor toegang tot het beheerde domein met behulp van LDAPS via internet, overslaan van deze taak voor de configuratie.
 >

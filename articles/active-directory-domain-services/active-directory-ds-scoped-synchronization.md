@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
 ms.openlocfilehash: ac11244b87c87285722b4922da69530fab98c299
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117605"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416480"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Scoped synchronisatie van Azure AD met uw beheerde domein configureren
 In dit artikel leest u hoe het configureren van alleen specifieke gebruikersaccounts uit uw Azure AD-directory worden gesynchroniseerd met uw Azure AD Domain Services beheerde domein.

@@ -10,11 +10,11 @@ ms.date: 04/12/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 6465fd069e73a571e0671d528f5d0b4da4602dc7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60499395"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Referentieassets in Azure Automation
 
@@ -40,7 +40,7 @@ De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van au
 
 De cmdlets in de volgende tabel worden gebruikt voor AzureRM, maken en beheren van automation-referentie-assets met Windows PowerShell.  Ze geleverd als onderdeel van de [AzureRM.Automation module](/powershell/azure/overview), die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuraties.
 
-| Cmdlets | Beschrijving |
+| Cmdlets | Description |
 |:--- |:--- |
 | [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential) |Haalt informatie op over een referentie-element. Dit resulteert niet in een PSCredential-object.  |
 | [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential) |Hiermee maakt u een nieuw Automation-referentie. |

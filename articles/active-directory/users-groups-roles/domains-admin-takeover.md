@@ -16,11 +16,11 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202483"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472450"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Een niet-beheerde directory overnemen als in Azure Active Directory-beheerder
 
@@ -82,7 +82,7 @@ Als u al een tenant met de Azure-services of Office 365 beheren, kunt u een aang
 Wanneer u eigendom van de domeinnaam te verifiëren, wordt Azure AD Hiermee verwijdert u de domeinnaam van de niet-beheerde tenant en verplaatst die naar uw bestaande tenant. Externe beheerdersrechten overneemt van een niet-beheerde adreslijst vereist het validatieproces van dezelfde DNS TXT als interne beheerdersrechten overneemt. Het verschil is dat het volgende ook met de naam van het domein verplaatst worden:
 
 - Gebruikers
-- Abonnementen
+- Subscriptions
 - Toewijzing van licenties
 
 ### <a name="support-for-external-admin-takeover"></a>Ondersteuning voor externe beheerdersovername

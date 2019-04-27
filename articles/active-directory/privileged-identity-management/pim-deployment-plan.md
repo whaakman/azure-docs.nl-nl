@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578190"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440604"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD Privileged Identity Management (PIM) implementeren
 
@@ -256,7 +256,7 @@ Voordat u de PIM-oplossing implementeert, is het raadzaam om de PIM-instellingen
 
 De volgende tabel beschrijft elke van de instellingen.
 
-| Instelling | Description |
+| Instelling | Beschrijving |
 | --- | --- |
 | Rol | Naam van de rol die u definieert de instellingen voor. |
 | MFA vereisen | De in aanmerking komende gebruiker moet of MFA uitvoeren voordat u de rol activeert.<br/><br/> :heavy_check_mark: **Microsoft raadt aan** u MFA afdwingen voor alle beheerdersrollen, met name als de rollen gastgebruikers ook kunnen hebben. |

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
 ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498329"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440817"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Stoppen met het gebruik van de virtuele machine beheerde identiteiten-extensie en start met behulp van Azure Instance Metadata Service
 
@@ -95,7 +95,7 @@ Voor het inrichten van de virtuele-machineschaalset extensie met de sjabloon van
 
 Inrichting van de extensie van de virtuele machine kan mislukken vanwege DNS-lookup-fouten. Als dit het geval is, start de virtuele machine en probeer het opnieuw. 
 
-### <a name="remove-the-extension"></a>Verwijder de extensie 
+### <a name="remove-the-extension"></a>De extensie verwijderen 
 U kunt de extensie verwijderen `-n ManagedIdentityExtensionForWindows` of `-n ManagedIdentityExtensionForLinux` overschakelen (afhankelijk van het type virtuele machine) met [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/), of [az vmss extension delete](https://docs.microsoft.com/cli/azure/vmss) voor virtuele-machineschaalsets Hiermee stelt u met behulp van Azure CLI, of `Remove-AzVMExtension` voor Powershell:
 
 ```azurecli-interactive
