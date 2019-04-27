@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
 ms.openlocfilehash: 91d28802b4af23da5b8060fa7c8f9a7e843a7dab
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840262"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444736"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Over het verzenden van E-mail via SendGrid met Azure
 ## <a name="overview"></a>Overzicht
@@ -71,7 +71,7 @@ De volgende code naamruimtedeclaraties toevoegen aan het begin van een C#-bestan
     using SendGrid;
     using SendGrid.Helpers.Mail;
 
-## <a name="how-to-create-an-email"></a>Hoe: een e-mailbericht maken
+## <a name="how-to-create-an-email"></a>Procedure: Maken van een e-mailbericht
 Gebruik de **SendGridMessage** object dat wordt gemaakt van een e-mailbericht. Zodra de berichtobject is gemaakt, kunt u de eigenschappen en methoden, met inbegrip van de afzender voor e-mailadres, het e-mailontvanger en het onderwerp en hoofdtekst van het e-mailadres kunt instellen.
 
 Het volgende voorbeeld ziet u hoe u een volledig ingevuld e-object te maken:
@@ -95,7 +95,7 @@ Het volgende voorbeeld ziet u hoe u een volledig ingevuld e-object te maken:
 
 Voor meer informatie over alle eigenschappen en methoden die worden ondersteund door de **SendGrid** typt, Zie [sendgrid-csharp] [ sendgrid-csharp] op GitHub.
 
-## <a name="how-to-send-an-email"></a>Hoe: een e-mailbericht verzenden
+## <a name="how-to-send-an-email"></a>Procedure: Een E-mail verzenden
 Na het maken van een e-mailbericht, kunt u met behulp van de API van SendGrid verzenden. U kunt ook [. NET van ingebouwde bibliotheek][NET-library].
 
 Het verzenden van e-mail is vereist dat u uw SendGrid-API-sleutel opgeven. Als u meer informatie over het configureren van de API-sleutels, Ga naar de API-sleutels van SendGrid [documentatie][documentation].
@@ -142,7 +142,7 @@ De volgende voorbeelden ziet hoe u een e-mailbericht met de SendGrid Web-API met
         }
     }
     
-## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>Hoe: e-mail verzenden vanuit ASP .NET Core API met behulp van de klasse MailHelper
+## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>Procedure: E-mail verzenden vanuit ASP .NET Core API met behulp van de klasse MailHelper
 
 Het onderstaande voorbeeld kan worden gebruikt om een één e-mailbericht verzenden naar meerdere personen van de ASP .NET Core-API met behulp van de `MailHelper` klasse van `SendGrid.Helpers.Mail` naamruimte. In dit voorbeeld gebruiken we ASP .NET Core 1.0. 
 
@@ -218,7 +218,7 @@ Op de domeincontroller, na het injecteren van de `IConfiguration` -interface, ku
        }
     }
     
-## <a name="how-to-add-an-attachment"></a>Hoe: een bijlage toevoegen
+## <a name="how-to-add-an-attachment"></a>Procedure: Voeg een bijlage toe
 Bijlagen kunnen worden toegevoegd aan een bericht door het aanroepen van de **AddAttachment** methode en minimaal op te geven de bestandsnaam en de met Base64 gecodeerde inhoud wilt koppelen. U kunt meerdere bijlagen opnemen door het aanroepen van deze methode als voor elk bestand dat u wilt toevoegen of met behulp van de **AddAttachments** methode. Het volgende voorbeeld ziet u een bijlage aan een bericht toe te voegen:
 
     var banner2 = new Attachment()
@@ -231,7 +231,7 @@ Bijlagen kunnen worden toegevoegd aan een bericht door het aanroepen van de **Ad
     };
     msg.AddAttachment(banner2);
 
-## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>Hoe: e-mailinstellingen gebruiken om in te schakelen voetteksten, tracering en analytics
+## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>Procedure: E-mailinstellingen gebruiken om in te schakelen voetteksten, tracering en analytics
 SendGrid zorgt voor extra e-mailfunctionaliteit door het gebruik van e-mailinstellingen en instellingen voor bijhouden. Deze instellingen kunnen worden toegevoegd aan een e-mailbericht om in te schakelen specifieke functionaliteit, zoals klikken traceren in, Google analytics en abonnement bijhouden. Zie voor een volledige lijst met apps, de [instellingen documentatie][settings-documentation].
 
 Apps kunnen worden toegepast op **SendGrid** e-mailberichten met behulp van methoden die worden geïmplementeerd als onderdeel van de **SendGridMessage** klasse. De volgende voorbeelden laten zien hoe de voettekst en klikt u op filters bijhouden:
@@ -247,7 +247,7 @@ De volgende voorbeelden laten zien hoe de voettekst en klikt u op filters bijhou
 ### <a name="click-tracking"></a>Bijhouden van kliks
     msg.SetClickTracking(true);
 
-## <a name="how-to-use-additional-sendgrid-services"></a>Hoe: extra SendGrid Services gebruiken
+## <a name="how-to-use-additional-sendgrid-services"></a>Procedure: Aanvullende SendGrid Services gebruiken
 SendGrid biedt verschillende API's en webhooks waarmee u kunt gebruikmaken van aanvullende functionaliteit binnen uw Azure-toepassing. Zie voor meer informatie de [SendGrid API-verwijzing][SendGrid API documentation].
 
 ## <a name="next-steps"></a>Volgende stappen
