@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/08/2018
 ms.author: diberry
 ms.openlocfilehash: 9d6173ee25f28aa884513d126c06a8a7c722098d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273835"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60597960"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>De Speech-service integreren in uw Language Understanding-app
 Met de [Speech-service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u één aanvraag gebruiken om audio te ontvangen en JSON-objecten met LUIS-voorspelling te retourneren. In dit artikel downloadt en gebruikt u een C#-project in Visual Studio om een utterance in te spreken in een microfoon en LUIS-voorspellingsinformatie te ontvangen. Het project maakt gebruik van het Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)-pakket, dat al als referentie is opgenomen. 

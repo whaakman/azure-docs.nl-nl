@@ -2,19 +2,20 @@
 title: Een herstelanalyse uitvoeren van Azure-VM's naar een secundaire Azure-regio met de Azure Site Recovery-service
 description: Leer hoe u een herstelanalyse kunt uitvoeren van Azure-VM's naar een secundaire Azure-regio voor Azure IaaS VM's met behulp van de Azure Site Recovery-service.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
-ms.author: raynew
+origin.date: 04/08/2019
+ms.date: 04/22/2019
+ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 16c791287cc50b5ac8992a86f6de1e3eeb5e329e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59260269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60552940"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Een DR-herstelanalyse uitvoeren van Azure-VM’s naar een secundaire Azure-regio
 
@@ -33,7 +34,6 @@ Deze tutorial laat zien hoe u een DR-herstelanalyse kunt uitvoeren voor een Azur
 
 - Voordat u een failovertest uitvoert, wordt u aangeraden de VM-eigenschappen te controleren of alles is zoals verwacht.  Ga naar de VM-eigenschappen in **Gerepliceerde items**. In de **Essentials**-blade ziet u informatie over de instellingen en status van machines.
 - **Wij raden u aan om een apart VM-netwerk te gebruiken voor de failover** en niet het standaardnetwerk dat is ingesteld toen u replicatie inschakelde.
-
 
 ## <a name="run-a-test-failover"></a>Een testfailover uitvoeren
 
@@ -55,3 +55,6 @@ Deze tutorial laat zien hoe u een DR-herstelanalyse kunt uitvoeren voor een Azur
 
 > [!div class="nextstepaction"]
 > [Een productie-failover uitvoeren](azure-to-azure-tutorial-failover-failback.md)
+
+<!-- Update_Description: update meta properties -->
+

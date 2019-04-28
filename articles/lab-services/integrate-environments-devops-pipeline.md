@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
 ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357406"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61318382"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Omgevingen integreren in uw Azure DevOps-CI/CD-pijplijnen
 U kunt de extensie Azure DevTest Labs-taken die is geïnstalleerd in Azure DevOps-Services (voorheen bekend als Visual Studio Team Services) om eenvoudig te integreren uw continue integratie (CI) / continue levering (CD) build-en-release-pijplijn met Azure DevTest Labs. Deze extensies maken het gemakkelijker om snel te implementeren een [omgeving](devtest-lab-test-env.md) voor een specifieke taak testen en vervolgens te verwijderen wanneer de test is voltooid. 

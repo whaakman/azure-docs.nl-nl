@@ -1,6 +1,6 @@
 ---
 title: '(AFGESCHAFT) Zelfstudie voor de Azure Container Service: toepassing schalen'
-description: 'Zelfstudie voor de Azure Container Service: toepassing schalen'
+description: 'Zelfstudie Azure Container Service: Toepassing schalen'
 services: container-service
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61230382"
 ---
 # <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(AFGESCHAFT) Kubernetes-schillen en Kubernetes-infrastructuur schalen
 
