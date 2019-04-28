@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 8f110a88558b4479d8fdadb2967c7dedeca60ce9
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 42e58125fcbc3ab411c0d7503c42c14c28178428
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43043554"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62113932"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>U-SQL-scripts uitvoeren op uw lokale computer
 
@@ -92,7 +92,7 @@ Een **Local machine** account simuleert een Azure Data Lake Analytics-account op
 
 Meer verschillen tussen **Local machine** en **lokale-project** -accounts worden weergegeven in de volgende tabel:
 
-|Verschil hoek|Lokale machine|Lokale-project|
+|Verschil hoek|Lokale machine|Local-project|
 |----------------|---------------|---------------|
 |Lokale toegang|Kunnen worden geopend door alle projecten.|Alleen het bijbehorende project hebben toegang tot dit account.|
 |Hoofdmap van de lokale gegevens|Een permanente lokale map. Geconfigureerde via **extra** > **Data Lake** > **opties en instellingen**.|Een tijdelijke map gemaakt voor elke lokale uitvoering onder de U-SQL project werkmap. De map wordt verwijderd bij het opnieuw opbouwen of voer er gebeurt.|

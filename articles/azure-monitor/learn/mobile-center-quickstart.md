@@ -1,22 +1,22 @@
 ---
 title: Quickstart met Azure Application Insights | Microsoft Docs
-description: In dit artikel vindt u instructies om een mobiele app snel in te stellen voor controle door Application Insights en App Center
+description: Vindt u instructies voor het snel instellen van een mobiele app voor bewaking met Application Insights en App Center
 services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 04/22/2019
 ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 6f0a59d2b0954c9847219ad1ac8b2fa805767084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 67ddedbaca88d46e706c9a143100b215a0d16a90
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54080493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126818"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Mobiele app analyseren met App Center en Application Insights
 
@@ -87,7 +87,9 @@ Als uw app meerdere platforms ondersteunt (iOS, Android, enz.), is het raadzaam 
 
 ## <a name="export-to-application-insights"></a>Exporteren naar Application Insights
 
-Ga in de nieuwe Application Insights-resource op de pagina **Overzicht** naar de sectie **Essentials** boven aan de pagina en kopieer de instrumentatiesleutel voor deze resource.
+In de nieuwe Application Insights-resource op de **overzicht** pagina. Kopieer de instrumentatiesleutel van uw resource.
+
+   ![Knop Analyse in Application Insights](./media/mobile-center-quickstart/overview-01.png)
 
 Ga als volgt te werk in het App Center-exemplaar voor uw app:
 
@@ -108,7 +110,7 @@ Met Application Insights kunt u de telemetriegegevens voor aangepaste gebeurteni
 
 1. **Vraag de telemetriegegevens van aangepaste gebeurtenissen op.** Kies op de pagina **Overzicht** van Application Insights de optie **Analyse**. 
 
-   ![Knop Analyse in Application Insights](./media/mobile-center-quickstart/analytics.png)
+   ![Knop Analyse in Application Insights](./media/mobile-center-quickstart/analytics-001.png)
 
    De analyseportal van Application Insights die is gekoppeld aan uw Application Insights-resource, wordt geopend. In de portal kunt u rechtstreeks query's uitvoeren op uw gegevens via de querytaal Log Analytics. Dit betekent dat u willekeurig complexe vragen over uw app en de gebruikers kunt stellen.
    
@@ -121,7 +123,7 @@ Met Application Insights kunt u de telemetriegegevens voor aangepaste gebeurteni
    | order by dcount_user_Id desc 
    ```
 
-   ![Analyseportal](./media/mobile-center-quickstart/analytics-portal.png)
+   ![Analyseportal](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. Selecteer de query door ergens in de teksteditor op de query te klikken.
    2. Klik vervolgens op **Go** om de query uit te voeren. 
@@ -131,17 +133,17 @@ Met Application Insights kunt u de telemetriegegevens voor aangepaste gebeurteni
 
 2. **Segmenteer en filter de telemetrie van uw aangepaste gebeurtenissen.** Kies op de pagina **Overzicht** van Application Insights de optie **Gebruikers** in de inhoudsopgave.
 
-   ![Pictogram voor hulpprogramma Gebruikers](./media/mobile-center-quickstart/users-icon.png)
+   ![Pictogram voor hulpprogramma Gebruikers](./media/mobile-center-quickstart/users-icon-001.png)
 
    In het hulpprogramma Gebruikers ziet u hoeveel gebruikers van uw app op bepaalde knoppen hebben geklikt, bepaalde schermen hebben weergegeven of een andere actie hebben uitgevoerd die u als een gebeurtenis bijhoudt met de SDK van App Center. Als u op zoekt bent naar een manier om gebeurtenissen van App Center te segmenteren en te filteren, is het hulpprogramma Gebruikers een uitstekende keuze.
 
-   ![Hulpprogramma Gebruikers](./media/mobile-center-quickstart/users.png) 
+   ![Hulpprogramma Gebruikers](./media/mobile-center-quickstart/users-001.png) 
 
    Zo kunt u het gebruik bijvoorbeeld geografisch segmenteren door **Land of regio** te kiezen in de vervolgkeuzelijst **Splitsen op**.
 
 3. **Analyseer conversie, retentie en navigatiepatronen in uw app.** Kies op de pagina **Overzicht** van Application Insights de optie **Gebruikersstromen** in de inhoudsopgave.
 
-   ![Hulpprogramma Gebruikersstromen](./media/mobile-center-quickstart/user-flows.png)
+   ![Hulpprogramma Gebruikersstromen](./media/mobile-center-quickstart/user-flows-001.png)
 
    Het hulpprogramma Gebruikersstromen laat zien welke gebeurtenissen gebruikers versturen na een bepaalde begingebeurtenis. Dit is handig om een algemeen beeld te krijgen van de manier waarop gebruikers door de app navigeren. U kunt zo ook de plekken zien waar het verloop van gebruikers groot is of waar steeds dezelfde acties worden herhaald.
 

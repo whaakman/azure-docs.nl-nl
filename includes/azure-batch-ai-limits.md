@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 09/11/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 85d83a251c7b6abbf8a4a685a83f603b1750bada
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 4603dd88d1212d06f4aeb1763a48f3015e20e8a8
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44392215"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128497"
 ---
 | **Resource** | **Standaardlimiet** | **Maximumlimiet** |
 | --- | --- | --- |
-| Toegewezen kerngeheugens per regio | 10 - 24 uur per dag | N.v.t.<sup>1</sup> |
-| Kernen per regio met lage prioriteit | 10 - 24 uur per dag | N.V.T.<sup>2</sup> |
+| Toegewezen kerngeheugens per regio | 10 - 24 | N.v.t.<sup>1</sup> |
+| Kernen per regio met lage prioriteit | 10 - 24 | N.V.T.<sup>2</sup> |
 | Clusters per regio | 20 | 200<sup>3</sup> |
 
 > [!NOTE]

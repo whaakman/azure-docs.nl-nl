@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Meer informatie over openbare en privé-IP-adressen in Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: jdial
-ms.openlocfilehash: 929c8808721140d5275cba4bcf3fbaa567f961e0
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 69fd70fc45f734f8267db6d770d09b14f3a071f5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652022"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108141"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adrestypen en toewijzingsmethoden in Azure
 
@@ -78,6 +79,9 @@ Openbare IP-adressen van de standaard-SKU:
  
 > [!NOTE]
 > Inkomende communicatie met een resource uit de Standard-SKU mislukt totdat u een [netwerkbeveiligingsgroep](security-overview.md#network-security-groups) maakt en koppelt en het gewenste binnenkomende verkeer expliciet toestaat.
+
+> [!NOTE]
+> Alleen openbare IP-adressen met basis-SKU beschikbaar zijn als u [exemplaar metadata-service IMDS](../virtual-machines/windows/instance-metadata-service.md). Standaard-SKU wordt niet ondersteund.
 
 ### <a name="allocation-method"></a>Toewijzingsmethode
 
@@ -180,7 +184,7 @@ De volgende tabel toont de specifieke eigenschap waarmee een privé-IP-adres kan
 | Load balancer |Front-end-configuratie |Ja |Ja |
 | Toepassingsgateway |Front-end-configuratie |Ja |Ja |
 
-## <a name="limits"></a>Limieten
+## <a name="limits"></a>Limits
 De limieten die zijn opgelegd voor IP-adressen, vindt u in de volledige set [limieten voor netwerken](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. De limieten gelden per regio en per abonnement. U kunt [contact opnemen met ondersteuning](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) als u op basis van uw bedrijfsbehoeften de standaardlimieten wilt verhogen tot de maximumlimieten.
 
 ## <a name="pricing"></a>Prijzen

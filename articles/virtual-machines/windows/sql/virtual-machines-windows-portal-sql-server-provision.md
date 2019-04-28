@@ -16,11 +16,11 @@ ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: bb051d37f3a1dd82d7d46bfe8b22c2ba1251be85
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129880"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hoe u een Windows SQL Server-machine inrichten in Azure portal
 
@@ -186,7 +186,7 @@ In het algemeen kunt u de beveiliging verbeteren door te kiezen voor de meest be
 
 
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Verificatie
 
 Als u SQL Server-verificatie vereist, klikt u onder **SQL-verificatie** op **Inschakelen**.
 

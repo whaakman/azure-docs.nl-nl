@@ -1,19 +1,18 @@
 ---
 title: Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters
 description: Informatie over het gebruik van Azure Data Lake Storage Gen2 met Azure HDInsight-clusters.
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 43f335bdd8b918fa717d9084d3c9c30d97920c10
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 6452e73b2429ab89a466b1c3b59cc892eca31205
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004955"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766922"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters
 
@@ -69,7 +68,7 @@ Toewijzen van de beheerde identiteit op de **Gegevenseigenaar voor Blob Storage*
         ![Instellingen van de identiteit voor het gebruik van Data Lake Storage Gen2 met Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
         
 > [!Note]
-> U kunt een of meer Gen2 van Data Lake Storage-accounts toevoegen als secundaire opslag in hetzelfde cluster. Alleen Herhaal de bovenstaande stappen op elke Data Lake Storage Gen2-account dat u wilt toevoegen met behulp van de dezelfde beheerde identiteit.
+> Als u wilt toevoegen een secundaire Gen2 van Data Lake Storage-account, op het niveau van de storage-account, moet u gewoon de beheerde identiteit eerder hebt gemaakt met de nieuwe Data Lake Storage Gen2 storage-account, die u wilt toevoegen toewijzen. Houd er rekening mee dat een secundaire Gen2 van Data Lake Storage-account via de blade 'extra opslagaccounts' toe te voegen op HDInsight wordt niet ondersteund. 
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Een cluster maken met Data Lake Storage Gen2 via de Azure CLI
 

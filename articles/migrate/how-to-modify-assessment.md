@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: raynew
 ms.openlocfilehash: 8419d7e7a91e4cbfd0eebfe00d35bf498cf5998c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129820"
 ---
 # <a name="customize-an-assessment"></a>Een beoordeling aanpassen
 
@@ -45,19 +45,19 @@ ms.locfileid: "54200306"
 
 ### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>Wat is het verschil tussen de grootte van de as-on-premises en de prestaties gebaseerde groottebepaling?
 
-Wanneer u het criterium voor het instellen als-on-premises formaat, Azure Migrate houdt geen rekening met de prestatiegegevens van de virtuele machines en het formaat van de virtuele machines op basis van de on-premises configuratie. Als het criterium voor het instellen op basis van prestaties is, wordt de grootte gedaan op basis van gegevens over het gebruik. Bijvoorbeeld als er een on-premises VM met 4 kernen en geheugen van 8 GB met 50% CPU-gebruik en geheugengebruik van 50%. Als het criterium voor het instellen is als on-premises formaat wijzigen van een Azure VM-SKU met 4 kernen en 8 GB geheugen wordt aanbevolen, maar als het criterium voor het instellen prestaties gebaseerd als VM-SKU van 2 kernen is en 4 GB zou worden aanbevolen, omdat het gebruikspercentage wordt beschouwd als terwijl de grootte van de aanbevelen.
+Wanneer u het criterium voor het instellen als-on-premises formaat, Azure Migrate houdt geen rekening met de prestatiegegevens van de virtuele machines en het formaat van de virtuele machines op basis van de on-premises configuratie. Als het criterium voor het instellen op basis van prestaties is, wordt de grootte gedaan op basis van gegevens over het gebruik. Neem bijvoorbeeld een on-premises VM met 4 kernen en 8 GB geheugen, met 50% CPU-gebruik en 50% geheugengebruik. Als het groottecriterium is ingesteld om de grootte van de on-premises VM te emuleren, wordt een Azure VM-SKU met 4 kernen en 8 GB geheugen aanbevolen. Als het criterium echter op basis van prestaties wordt ingesteld, wordt een VM-SKU met 2 kernen en 4 GB geheugen aanbevolen, omdat bij het aanbevelen van de grootte gekeken wordt naar het gebruikspercentage.
 
-Op dezelfde manier voor schijven, de grootte van de schijf is afhankelijk van twee evaluatie-eigenschappen - formaat type criterium en opslag. Als het criterium voor het instellen op basis van prestaties en opslagtype automatisch is, kunnen de waarden voor IOPS en doorvoer van de schijf worden beschouwd als voor het identificeren van de doel-schijftype (Standard of Premium). Als het criterium voor het instellen is op basis van prestaties en opslagtype premium is, een premium-schijf wordt aanbevolen, de premium-schijf die SKU in Azure is geselecteerd op basis van de grootte van de on-premises schijf. Dezelfde logica wordt gebruikt om u te sizing schijf wanneer het criterium voor het instellen is als on-premises formaat en opslagtype standard of premium is.
+Op dezelfde manier voor schijven, de grootte van de schijf is afhankelijk van twee evaluatie-eigenschappen - formaat type criterium en opslag. Als het groottecriterium op basis van prestaties is en het opslagtype automatisch is, wordt gekeken naar de doorvoerwaarden van de schijf om het type doelschijf te bepalen (Standard of Premium). Als groottecriterium op basis van prestaties is en het opslagtype premium is, wordt een premiumschijf aanbevolen en wordt de SKU voor premiumschijven geselecteerd in Azure, op basis van de grootte van de on-premises schijf. Dezelfde logica wordt gebruikt wanneer het groottecriterium is ingesteld op basis van de on-premises grootte en het opslagtype standard of premium is.
 
 ### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Wat zijn de gevolgen heeft de gebruik van de geschiedenis en percentiel van de prestaties van de aanbevelingen voor de grootte?
 
-Deze eigenschappen zijn alleen van toepassing op prestatie gebaseerde schaling. Azure Migrate de prestatiegeschiedenis van on-premises machines verzameld en gebruikt deze om aan te bevelen de VM-grootte en de schijf type in Azure.
+Deze eigenschappen zijn alleen van toepassing wanneer de grootte wordt bepaald op basis van prestaties. Azure Migrate verzamelt de prestatiegeschiedenis van on-premises machines en gebruikt deze om de grootte en het schijftype van virtuele Azure-machines aan te bevelen.
 
-- Het collector-apparaat profielen continu de on-premises omgeving voor het verzamelen van gegevens over het gebruik van realtime elke 20 seconden.
-- Het toestel totaliseert de voorbeelden 20 seconden en maakt één gegevenspunt voor elke 15 minuten. Voor het maken van het één gegevenspunt, het apparaat selecteert de piekwaarde uit alle voorbeelden van 20 seconden en verzendt ze naar Azure.
-- Wanneer u een evaluatie in Azure maken, op basis van de duur van de prestaties en de percentielwaarde van de prestaties van geschiedenis, Azure Migrate berekent de waarde van het daadwerkelijke gebruik en gebruikt u de grootte instelt.
+- De collector profileert continu de on-premises omgeving door iedere 20 seconden realtime gebruiksgegevens voor elke virtuele machine te verzamelen.
+- De collector verzamelt de gegevens die iedere 20 seconden worden opgehaald en maakt een enkel gegevenspunt voor elke 15 minuten. Om dat gegevenspunt te bepalen, selecteert de collector de hoogste waarde uit alle opgehaalde waarden voor die 15 minuten en verzendt de collector deze naar Azure.
+- Wanneer u een evaluatie in Azure maakt, op basis van de prestatieduur en de percentielwaarde van de prestatiegeschiedenis, berekent Azure Migrate een waarde voor het daadwerkelijke gebruik. Deze waarde wordt vervolgens gebruikt om de grootte te bepalen.
 
-Bijvoorbeeld, als u de duur van de prestaties 1 dag en de percentielwaarde op 95 percentiel hebt ingesteld, Azure Migrate maakt gebruik van de 15 minuten voorbeeldpunten die door de collector wordt verzonden voor de afgelopen dag, in oplopende volgorde gesorteerd en de 95e-percentielwaarde als de effectieve kiest gebruik. De 95e-percentielwaarde zorgt ervoor dat u uitbijters, die afkomstig zijn kunnen als u het 99e percentiel kiest wordt genegeerd. Als u wilt ophalen van het piekgebruik voor de periode en niet wilt missen uitbijters, selecteert u het 99e percentiel.
+Als u de prestatieduur bijvoorbeeld instelt op 1 dag en de percentielwaarde op 95e percentiel, gebruikt Azure Migrate de meetwaarden voor de blokken van 15 minuten van de afgelopen dag. Deze worden vervolgens in oplopende volgorde gesorteerd en de 95e-percentielwaarde wordt dan gekozen als het effectieve gebruik. De 95e-percentielwaarde zorgt ervoor dat uitbijters worden genegeerd, die mogelijk wel zouden worden meegenomen als u het 99e percentiel kiest. Als u het piekgebruik voor de periode wilt ophalen en uitbijters niet wilt uitsluiten, selecteert u het 99e percentiel.
 
 ## <a name="next-steps"></a>Volgende stappen
 

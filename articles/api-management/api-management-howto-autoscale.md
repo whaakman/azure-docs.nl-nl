@@ -9,14 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/20/2018
-ms.author: apimpm
+origin.date: 06/20/2018
+ms.date: 12/31/2018
+ms.author: v-yiso
 ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444799"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123464"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Automatisch schalen van een Azure API Management-exemplaar  
 
@@ -71,7 +72,7 @@ Volg de stappen hieronder om automatisch schalen configureren voor een Azure API
 
    Een regel voor uitschalen kan bijvoorbeeld een toevoeging van een Azure API Management-eenheid, geactiveerd wanneer de gemiddelde capaciteit metrische gegevens in de afgelopen 30 minuten hoger is dan 80%. De onderstaande tabel bevat de configuratie voor een dergelijke regel.
 
-    | Parameter             | Waarde             | Opmerkingen                                                                                                                                                                                                                                                                           |
+    | Parameter             | Value             | Opmerkingen                                                                                                                                                                                                                                                                           |
     |-----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Bron van metrische gegevens         | Huidige resource  | Definieer de regel op basis van de huidige metrische gegevens voor Azure API Management-resources.                                                                                                                                                                                                     |
     | *Criteria*            |                   |                                                                                                                                                                                                                                                                                 |
@@ -98,7 +99,7 @@ Volg de stappen hieronder om automatisch schalen configureren voor een Azure API
 
     Een schaalset in regel kan bijvoorbeeld een verwijdering van een Azure API Management-eenheid, geactiveerd wanneer de gemiddelde capaciteit metrische gegevens in de afgelopen 30 minuten minder dan 35 is %. De onderstaande tabel bevat de configuratie voor een dergelijke regel.
 
-    | Parameter             | Waarde             | Opmerkingen                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+    | Parameter             | Value             | Opmerkingen                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
     |-----------------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Bron van metrische gegevens         | Huidige resource  | Definieer de regel op basis van de huidige metrische gegevens voor Azure API Management-resources.                                                                                                                                                                                                                                                                                                                                                                                                                         |
     | *Criteria*            |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -128,4 +129,4 @@ Volg de stappen hieronder om automatisch schalen configureren voor een Azure API
 
 ## <a name="next-steps"></a>Volgende stappen
 
-+ [Over het implementeren van een Azure API Management service-exemplaar naar meerdere Azure-regio 's](api-management-howto-deploy-multi-region.md)
++ [Exemplaar van Azure API Management-service implementeren in meerdere Azure-regio's](api-management-howto-deploy-multi-region.md)

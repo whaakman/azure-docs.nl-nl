@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
 ms.openlocfilehash: 2e0a4b51e9140b9b3c0032980b7c6cd5a4d55638
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761384"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128919"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Een Xamarin.Forms-app maken met Azure
 
@@ -58,7 +58,7 @@ De Visual Studio-hulpprogramma's voor Xamarin zijn vereist voor het openen van d
 
 ### <a name="visual-studio"></a>Visual Studio
 
-1. Ga naar de [Azure-portal].
+1. Ga naar de [Azure Portal].
 
 2. In de blade Instellingen voor uw mobiele app klikt u op **Quickstart** (onder Implementatie) > **Xamarin.Forms**. Klik in stap 3 op  **Een nieuwe app maken** als deze optie nog niet is geselecteerd.  Klik vervolgens op de knop **Downloaden**.
 
@@ -72,7 +72,7 @@ De Visual Studio-hulpprogramma's voor Xamarin zijn vereist voor het openen van d
 
 ### <a name="visual-studio-for-mac"></a>Visual Studio voor Mac
 
-1. Ga naar de [Azure-portal].
+1. Ga naar de [Azure Portal].
 
 2. In de blade Instellingen voor uw mobiele app klikt u op **Quickstart** (onder Implementatie) > **Xamarin.Forms**. Klik in stap 3 op  **Een nieuwe app maken** als deze optie nog niet is geselecteerd.  Klik vervolgens op de knop **Downloaden**.
 
@@ -213,4 +213,4 @@ Alle ondersteuningspakketten waarnaar wordt verwezen in uw Android-project, moet
 <!-- URLs. -->
 [Install Xamarin]: https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/
 [Mobile app SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
-[Azure-portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

@@ -2,18 +2,18 @@
 title: Een Azure-bestandsshare gebruiken met Windows | Microsoft Docs
 description: Informatie over hoe u een Azure-bestandsshare gebruikt met Windows en Windows Server.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/07/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ae097cb1c778c0ad60512753ae6ef28da04e8004
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048840"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764370"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Een Azure-bestandsshare gebruiken met Windows
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen probleemloos worden gebruikt in Windows en Windows Server. In dit artikel worden de overwegingen besproken voor het gebruik van een Azure-bestandsshare met Windows en Windows Server.
@@ -237,13 +237,13 @@ In de volgende tabel staat gedetailleerde informatie over de status van SMB 1 in
 | Windows Server 2019 (preview)             | Uitgeschakeld             | Verwijderen met Windows-functie |
 | Windows Server-versie 1709 en hoger            | Uitgeschakeld             | Verwijderen met Windows-functie |
 | Windows 10-versie 1709 en hoger                | Uitgeschakeld             | Verwijderen met Windows-functie |
-| Windows Server 2016                       | Ingeschakeld              | Verwijderen met Windows-functie |
-| Windows 10-versies 1507, 1607 en 1703 | Ingeschakeld              | Verwijderen met Windows-functie |
-| Windows Server 2012 R2                    | Ingeschakeld              | Verwijderen met Windows-functie | 
-| Windows 8.1                               | Ingeschakeld              | Verwijderen met Windows-functie | 
-| Windows Server 2012                       | Ingeschakeld              | Uitschakelen met Register       | 
-| Windows Server 2008 R2                    | Ingeschakeld              | Uitschakelen met Register       |
-| Windows 7                                 | Ingeschakeld              | Uitschakelen met Register       | 
+| Windows Server 2016                       | Enabled              | Verwijderen met Windows-functie |
+| Windows 10-versies 1507, 1607 en 1703 | Enabled              | Verwijderen met Windows-functie |
+| Windows Server 2012 R2                    | Enabled              | Verwijderen met Windows-functie | 
+| Windows 8.1                               | Enabled              | Verwijderen met Windows-functie | 
+| Windows Server 2012                       | Enabled              | Uitschakelen met Register       | 
+| Windows Server 2008 R2                    | Enabled              | Uitschakelen met Register       |
+| Windows 7                                 | Enabled              | Uitschakelen met Register       | 
 
 ### <a name="auditing-smb-1-usage"></a>SMB 1-gebruik controleren
 > Van toepassing op Windows Server 2019 (preview), Windows Server Semi-Annual-kanaal (versies 1709 en 1803), Windows Server 2016, Windows 10 (versies 1507, 1607, 1703, 1709 en 1803) Windows Server 2012 R2 en Windows 8.1

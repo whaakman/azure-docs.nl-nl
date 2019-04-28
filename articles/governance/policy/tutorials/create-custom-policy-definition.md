@@ -3,16 +3,16 @@ title: Een aangepaste beleidsdefinitie maken
 description: Maak een aangepast beleid voor Azure Policy om aangepaste bedrijfsregels af te dwingen.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/12/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bf3582036a28603c3b6ef33a2af28cb61926d91f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e808bd18e2b23c211f1c5257881fc8a8b72271fc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267749"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760883"
 ---
 # <a name="create-a-custom-policy-definition"></a>Een aangepaste beleidsdefinitie maken
 
@@ -69,9 +69,9 @@ Er zijn verschillende manieren om te kijken naar een [Resource Manager-sjabloon]
 #### <a name="existing-resource-in-the-portal"></a>Bestaande resource in de portal
 
 De eenvoudigste manier om eigenschappen te vinden is een bestaande resource van hetzelfde type te bekijken. Resources die al zijn geconfigureerd met de instelling die u wilt afdwingen, bevatten ook de waarde waarmee moet worden vergeleken.
-Bekijk de pagina **Automation-script** (onder **Instellingen**) in de Azure-portal voor die specifieke resource.
+Bekijk de **sjabloon exporteren** pagina (onder **instellingen**) in de Azure-portal voor die specifieke resource.
 
-![Sjabloonpagina op bestaande resources exporteren](../media/create-custom-policy-definition/automation-script.png)
+![Sjabloonpagina op bestaande resources exporteren](../media/create-custom-policy-definition/export-template.png)
 
 Wanneer u dit doet voor een opslagaccount, ziet u een sjabloon die lijkt op het volgende voorbeeld:
 
@@ -197,8 +197,9 @@ Net als in Azure CLI zien we in de resultaten een door de opslagaccounts onderst
 
 [Azure Resource Graph](../../resource-graph/overview.md) is een nieuwe service in de Preview-versie. Hiermee kunt u op nog een andere manier eigenschappen van Azure-resources vinden. Hier volgt een voorbeeldquery voor het bekijken van één opslagaccount met Resource Graph:
 
-```Query
-where type=~'microsoft.storage/storageaccounts' | limit 1
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
 ```
 
 ```azurecli-interactive
@@ -209,7 +210,23 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-De resultaten lijken op wat we zien in de Resource Manager-sjablonen en via de Azure Resource Explorer. De resultaten van Azure Resource Graph bevatten echter ook [alias](../concepts/definition-structure.md#aliases)gegevens. Hier volgt een voorbeeld van uitvoer van een opslagaccount voor aliassen:
+De resultaten lijken op wat we zien in de Resource Manager-sjablonen en via de Azure Resource Explorer. Resultaten van de grafiek van de Azure-resources kunnen echter ook opnemen [alias](../concepts/definition-structure.md#aliases) details door _projecteren_ de _aliassen_ matrix:
+
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
+| project aliases
+```
+
+```azurecli-interactive
+az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+Hier volgt een voorbeeld van uitvoer van een opslagaccount voor aliassen:
 
 ```json
 "aliases": {

@@ -3,17 +3,17 @@ title: Voorbeelden van starter query's
 description: Gebruik Azure Resource Graph om een aantal starterquery's uit te voeren, waaronder het tellen van resources, het ordenen van resources, of het opvragen op een specifieke tag.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/04/2019
+ms.date: 04/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2ba48e2a21bdee0c5698bdfa314dd3bf462c1c7e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 98b05f74f0d6f7d20b5aa7ed77047818f217f147
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267766"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62732379"
 ---
 # <a name="starter-resource-graph-queries"></a>Starter query's van Resource Graph
 
@@ -32,6 +32,8 @@ We nemen de volgende starter query's door:
 > - [Resources tellen met IP-adressen die zijn geconfigureerd op abonnement](#count-resources-by-ip)
 > - [Een lijst weergeven van resources met een specifieke tagwaarde](#list-tag)
 > - [Een lijst weergeven van alle opslagaccounts met een specifieke tagwaarde](#list-specific-tag)
+> - [Aliassen voor de resource van een virtuele machine weergeven](#show-aliases)
+> - [Afzonderlijke waarden voor een specifieke alias weergeven](#distinct-alias-values)
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free) aan voordat u begint.
 
@@ -41,11 +43,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 Azure CLI (met een extensie) en Azure PowerShell (met een module) ondersteunen Azure Resource Graph. Controleer voordat u een van de volgende query's uitvoert, of uw omgeving gereed is. Zie [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) en [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) voor stappen voor het installeren en valideren van uw gewenste shellomgeving.
 
-## <a name="count-resources"></a>Azure-resources tellen
+## <a name="a-namecount-resourcescount-azure-resources"></a><a name="count-resources"/>Aantal Azure-resources
 
 Deze query retourneert het aantal Azure-resources in de abonnementen waartoe u toegang hebt. Het is ook een goede query om te valideren of in uw gekozen shell de juiste Azure Resource Graph-onderdelen correct zijn geïnstalleerd.
 
-```Query
+```kusto
 summarize count()
 ```
 
@@ -57,11 +59,11 @@ az graph query -q "summarize count()"
 Search-AzGraph -Query "summarize count()"
 ```
 
-## <a name="list-resources"></a>Een lijst van resources weergeven, gesorteerd op naam
+## <a name="a-namelist-resourceslist-resources-sorted-by-name"></a><a name="list-resources"/>Lijst met resources die zijn gesorteerd op naam
 
 Deze query retourneert een willekeurig resourcetype, maar alleen de eigenschappen **naam**, **type** en **locatie**. De query maakt gebruik van `order by` om de eigenschappen in oplopende volgorde (`asc`) op de eigenschap **naam** te sorteren.
 
-```Query
+```kusto
 project name, type, location
 | order by name asc
 ```
@@ -74,11 +76,11 @@ az graph query -q "project name, type, location | order by name asc"
 Search-AzGraph -Query "project name, type, location | order by name asc"
 ```
 
-## <a name="show-vms"></a>Alle virtuele machines weergeven, aflopend geordend op naam
+## <a name="a-nameshow-vmsshow-all-virtual-machines-ordered-by-name-in-descending-order"></a><a name="show-vms"/>Alle virtuele machines die zijn geordend op de naam in aflopende volgorde weergeven
 
 Als u alleen virtuele machines wilt vermelden (die van het type `Microsoft.Compute/virtualMachines` zijn), kan een overeenkomst worden gezocht met de eigenschap **type** in de resultaten. Net als in de vorige query verandert u met `desc` de `order by` in aflopend. De `=~` in de type-overeenkomst betekent in Resource Graph dat de sortering hoofdlettergevoelig is.
 
-```Query
+```kusto
 project name, location, type
 | where type =~ 'Microsoft.Compute/virtualMachines'
 | order by name desc
@@ -92,11 +94,11 @@ az graph query -q "project name, location, type| where type =~ 'Microsoft.Comput
 Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
-## <a name="show-sorted"></a>De eerste vijf virtuele machines weergeven op naam en met hun type besturingssysteem
+## <a name="a-nameshow-sortedshow-first-five-virtual-machines-by-name-and-their-os-type"></a><a name="show-sorted"/>Eerste vijf virtuele machines op naam en hun type besturingssysteem weergeven
 
 Deze query gebruikt `limit` om slechts vijf overeenkomende records op te halen, gesorteerd op naam. Het type van de Azure-resource is `Microsoft.Compute/virtualMachines`. `project` geeft in Azure Resource Graph aan welke eigenschappen u wilt opnemen.
 
-```Query
+```kusto
 where type =~ 'Microsoft.Compute/virtualMachines'
 | project name, properties.storageProfile.osDisk.osType
 | top 5 by name desc
@@ -110,12 +112,12 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project n
 Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
-## <a name="count-os"></a>Virtuele machines tellen op type besturingssysteem
+## <a name="a-namecount-oscount-virtual-machines-by-os-type"></a><a name="count-os"/>Aantal virtuele machines door het type besturingssysteem
 
 Voortbouwend op de vorige query zijn we nog steeds een grens aan het stellen aan het aantal Azure-resources van het type `Microsoft.Compute/virtualMachines`, maar beperken we niet langer het aantal geretourneerde records.
 In plaats daarvan hebben we `summarize` en `count()` gebruikt om te definiëren hoe we de waarden willen groeperen en aggregeren op basis van de eigenschap. In dit voorbeeld is dat `properties.storageProfile.osDisk.osType`. Voor een voorbeeld van hoe deze tekenreeks er uitziet in het volledige object, raadpleegt u [Resources verkennen - detectie van virtuele machines](../concepts/explore-resources.md#virtual-machine-discovery).
 
-```Query
+```kusto
 where type =~ 'Microsoft.Compute/virtualMachines'
 | summarize count() by tostring(properties.storageProfile.osDisk.osType)
 ```
@@ -130,7 +132,7 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summa
 
 Een andere manier om dezelfde query te schrijven, is door het `extend` van een eigenschap en deze een tijdelijke naam te geven voor gebruik in de query, in dit geval **os**. **os** wordt vervolgens door `summarize` en `count()` gebruikt, zoals in het vorige voorbeeld.
 
-```Query
+```kusto
 where type =~ 'Microsoft.Compute/virtualMachines'
 | extend os = properties.storageProfile.osDisk.osType
 | summarize count() by tostring(os)
@@ -147,11 +149,11 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | exten
 > [!NOTE]
 > Hoewel u met `=~` naar overeenkomsten kunt zoeken zonder onderscheid te maken tussen hoofd- en kleine letters, moet het hoofdlettergebruik in de query correct zijn als u eigenschappen gebruikt (zoals **properties.storageProfile.osDisk.osType**). Als de hoofd-/kleine letters in de eigenschap niet overeenkomen, kan het zijn dat er alsnog een waarde wordt geretourneerd, maar de groepering of samenvatting zou dan onjuist juist.
 
-## <a name="show-storage"></a>Resources weergeven die opslag bevatten
+## <a name="a-nameshow-storageshow-resources-that-contain-storage"></a><a name="show-storage"/>Resources met opslag weergeven
 
 In plaats van expliciet het type te definiëren dat u zoekt, zoekt deze voorbeeldquery elke Azure-resource die het woord **opslag** `contains`.
 
-```Query
+```kusto
 where type contains 'storage' | distinct type
 ```
 
@@ -163,14 +165,14 @@ az graph query -q "where type contains 'storage' | distinct type"
 Search-AzGraph -Query "where type contains 'storage' | distinct type"
 ```
 
-## <a name="list-publicip"></a>Een lijst van alle openbare IP-adressen weergeven
+## <a name="a-namelist-publiciplist-all-public-ip-addresses"></a><a name="list-publicip"/>Lijst van alle openbare IP-adressen
 
 Net als bij de vorige query vindt deze query alles dat een type is met het woord **publicIPAddresses**.
 Deze query borduurt voort op dit patroon om op te nemen alleen resultaten waar **properties.ipAddress**
 `isnotempty`, om terug te keren alleen de **properties.ipAddress**, en zo de `limit` de resultaten op basis van de bovenkant
 100. Afhankelijk van uw gekozen shell, kan het zijn dat u de aanhalingstekens tussen escape-tekens moet plaatsen.
 
-```Query
+```kusto
 where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | project properties.ipAddress
 | limit 100
@@ -184,11 +186,11 @@ az graph query -q "where type contains 'publicIPAddresses' and isnotempty(proper
 Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
-## <a name="count-resources-by-ip"></a>Resources tellen met IP-adressen die zijn geconfigureerd op abonnement
+## <a name="a-namecount-resources-by-ipcount-resources-that-have-ip-addresses-configured-by-subscription"></a><a name="count-resources-by-ip"/>Aantal resources met een IP-adressen die zijn geconfigureerd op abonnement
 
 Door aan de vorige voorbeeldquery `summarize` en `count()` toe te voegen, krijgen we een lijst per abonnement van resources met geconfigureerde IP-adressen.
 
-```Query
+```kusto
 where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | summarize count () by subscriptionId
 ```
@@ -201,11 +203,11 @@ az graph query -q "where type contains 'publicIPAddresses' and isnotempty(proper
 Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
-## <a name="list-tag"></a>Een lijst weergeven van resources met een specifieke tagwaarde
+## <a name="a-namelist-taglist-resources-with-a-specific-tag-value"></a><a name="list-tag"/>Lijst met resources met een specifieke tagwaarde
 
 We kunnen de resultaten beperken op basis van andere eigenschappen dan het type Azure-resource, bijvoorbeeld op basis van een tag. In dit voorbeeld filteren we op Azure-resources met de tagnaam **omgeving** en de waarde **Intern**.
 
-```Query
+```kusto
 where tags.environment=~'internal'
 | project name
 ```
@@ -220,7 +222,7 @@ Search-AzGraph -Query "where tags.environment=~'internal' | project name"
 
 Als u ook wilt opgeven welke tags plus de bijbehorende waarden een resource heeft, voegt u de eigenschap **tags** aan het trefwoord `project` toe.
 
-```Query
+```kusto
 where tags.environment=~'internal'
 | project name, tags
 ```
@@ -233,11 +235,11 @@ az graph query -q "where tags.environment=~'internal' | project name, tags"
 Search-AzGraph -Query "where tags.environment=~'internal' | project name, tags"
 ```
 
-## <a name="list-specific-tag"></a>Een lijst weergeven van alle opslagaccounts met een specifieke tagwaarde
+## <a name="a-namelist-specific-taglist-all-storage-accounts-with-specific-tag-value"></a><a name="list-specific-tag"/>Lijst van alle opslagaccounts met specifieke tagwaarde
 
 Combineer de filterfunctie uit het vorige voorbeeld en filter het Azure-resourcetype op de eigenschap **type**. Deze query beperkt ook het zoeken naar specifieke typen Azure-resources met een specifieke tagnaam- en waarde.
 
-```Query
+```kusto
 where type =~ 'Microsoft.Storage/storageAccounts'
 | where tags['tag with a space']=='Custom value'
 ```
@@ -252,6 +254,42 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where
 
 > [!NOTE]
 > In dit voorbeeld wordt `==` in plaats van het voorwaardelijke `=~` gebruikt om naar overeenkomsten te zoeken. `==` is een hoofdlettergevoelige overeenkomst.
+
+## <a name="a-nameshow-aliasesshow-aliases-for-a-virtual-machine-resource"></a><a name="show-aliases"/>Aliassen voor de resource van een virtuele machine weergeven
+
+[Azure Policy-aliassen](../../policy/concepts/definition-structure.md#aliases) worden gebruikt door Azure Policy voor het beheren van resourcenaleving. Azure Resource-grafiek kan retourneren de _aliassen_ van een resourcetype. Deze waarden zijn handig voor het vergelijken van de huidige waarde van aliassen bij het maken van een aangepaste beleidsdefinitie. De _aliassen_ matrix standaard in de resultaten van een query is niet beschikbaar. Gebruik `project aliases` expliciet toevoegen aan de resultaten.
+
+```kusto
+where type =~ 'Microsoft.Compute/virtualMachines'
+| limit 1
+| project aliases
+```
+
+```azurecli-interactive
+az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases"
+```
+
+## <a name="a-namedistinct-alias-valuesshow-distinct-values-for-a-specific-alias"></a><a name="distinct-alias-values"/>Afzonderlijke waarden voor een specifieke alias weergeven
+
+Zien de waarde van aliassen voor één resource is nuttig, maar deze de werkelijke waarde van het gebruik van Azure Resource Graph query tussen abonnementen wordt niet weergegeven. In dit voorbeeld wordt gekeken naar alle waarden van een specifieke alias en retourneert de afzonderlijke waarden.
+
+```kusto
+where type=~'Microsoft.Compute/virtualMachines'
+| extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType']
+| distinct tostring(alias)"
+```
+
+```azurecli-interactive
+az graph query -q "where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

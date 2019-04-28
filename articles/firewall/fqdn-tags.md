@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/22/2019
+ms.date: 4/23/2019
 ms.author: victorh
-ms.openlocfilehash: 740b0ac505edfff1f703c2831ec5608e72851610
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 7a412589f4e86f2a49d07f2d01ca34bf30fd528b
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62738778"
 ---
 # <a name="fqdn-tags-overview"></a>Overzicht van de FQDN-naam-tags
 
@@ -35,7 +35,7 @@ De volgende tabel ziet u de huidige FQDN-tags die u kunt gebruiken. Microsoft ho
 |MAPS (Microsoft Active Protection Service)|Uitgaande toegang toestaat aan [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
 |App Service-omgeving (ASE)|Biedt uitgaande toegang tot verkeer met ASE-platform. Deze tag dekt niet klantspecifieke Storage en SQL eindpunten die zijn gemaakt door as-omgeving. Deze moeten worden ingeschakeld [Service-eindpunten](../virtual-network/tutorial-restrict-network-access-to-resources.md) of handmatig worden toegevoegd.<br><br>Zie voor meer informatie over de integratie van Azure-Firewall met ASE [vergrendelen van een App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Azure Backup|Biedt uitgaande toegang tot de back-up van Azure-services.|
-|Azure HDInsight<br>(Preview)|Uitgaande toegang voor HDInsight-platform verkeer toestaat. Deze tag dekt niet klantspecifieke Storage of SQL-verkeer van HDInsight. Deze worden ingeschakeld [Service-eindpunten](../virtual-network/tutorial-restrict-network-access-to-resources.md) of handmatig worden toegevoegd.|
+|Azure HDInsight<br>(Preview)|Uitgaande toegang voor HDInsight-platform verkeer toestaat. Deze tag dekt niet klantspecifieke Storage of SQL-verkeer van HDInsight. Schakel deze met [Service-eindpunten](../virtual-network/tutorial-restrict-network-access-to-resources.md) of deze handmatig toevoegen.|
 
 > [!NOTE]
 > Bij het selecteren van FQDN code in een toepassing-regel, het veld protocol: poort moet worden ingesteld op **https**.

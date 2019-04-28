@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: e2c780992143ab753dad1ca89b22593d20fdedc4
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128682"
 ---
-# <a name="all-publishers-page"></a>Pagina met alle uitgevers
+# <a name="all-publishers-page"></a>Pagina voor Alle uitgevers
 
 De [ **alle uitgevers** ](https://cloudpartner.azure.com/#publishers) pagina geeft een lijst van alle geregistreerde Microsoft cloud uitgevers, met inbegrip van hun unieke naam van de uitgever en de weergavenaam. U kunt de resultaten te sorteren op kolom of geef een tekenreeks om de resultaten te filteren.  Deze pagina bevat ook een **toevoegen-uitgever** knop, maar deze knop is alleen beschikbaar voor beheerders van gebruikersportal.  Selecteren van een uitgever in deze lijst, wordt het profiel voor deze uitgever weergegeven.  Zie voor meer informatie, [Uitgeverprofiel beheren](./../../cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md).
 
@@ -30,7 +30,7 @@ De [ **alle uitgevers** ](https://cloudpartner.azure.com/#publishers) pagina gee
 
 De volgende afbeelding ziet u de uitgever van de lijst gefilterd op de tekenreeks van contoso'.  
 
-![Pagina met alle uitgevers](./media/all-publishers-page1.png)
+![Pagina voor Alle uitgevers](./media/all-publishers-page1.png)
 
 Te klikken op de eerste vermelding, wordt de profielpagina voor Contoso weergegeven.  U kunt alleen uw eigen uitgeverprofiel bewerken.
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4798f8c3e262129135a6677ccf90dc0fb3be7f2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 097b5e8ee69d945e0a9e24ba1c62b0ae82dd896b
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999532"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62732414"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie van SAP NetWeaver
 
@@ -451,7 +451,11 @@ Lezen [in dit artikel] [ vpn-gateway-create-site-to-site-rm-powershell] voor mee
 >
 > De reden voor deze beperkingen is de vereiste voor een netwerk van de hoge prestaties met lage latentie binnen één SAP-systeem, met name tussen de exemplaren van de toepassing en de DBMS-laag van een SAP-systeem.
 >
->
+> Speciale planning van de regio's en systemen moet optreden bij het gebruik van meerdere SAP-systemen die maximaal worden geïntegreerd. Zorg ervoor dat u het implementeren van deze systemen zo dicht mogelijk bij elkaar voor minimale netwerklatentie. Voorbeelden van maximaal geïntegreerde SAP-systemen zijn:
+> * SAP BW lezen van gegevens uit SAP OLTP-systemen als ERP of CRM of SRM; of
+> * SAP-SLT wordt gebruikt voor het repliceren van gegevens tussen meerdere systemen met beveiligd-WACHTWOORDVERIFICATIE of zelfs tussen SAP en niet-SAP-systemen; of
+> * SAP s/4 is verbonden met een SAP ERP-systeem. enzovoort.
+
 
 ### <a name="supported-os-and-database-releases"></a>Ondersteund besturingssysteem en versies van de Database
 * Microsoft-serversoftware ondersteund voor Azure-Services voor virtuele Machine wordt vermeld in dit artikel: <https://support.microsoft.com/kb/2721672>.

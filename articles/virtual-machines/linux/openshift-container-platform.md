@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 39eea84cc9301263381533e03e8f783e0a73ea19
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999957"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127001"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>OpenShift Containerplatform in Azure implementeren
 
@@ -251,7 +251,7 @@ Andere versies mogelijk verschillende parameters, dus controleer of de vereiste 
 
 | Eigenschap | Description | Geldige opties | Standaardwaarde |
 |----------|-------------|---------------|---------------|
-| `_artifactsLocation`  | URL voor artefacten (json, scripts, enz.) |  |  https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
+| `_artifactsLocation`  | URL voor artefacten (json, scripts, enz.) |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | Azure-regio resources wilt implementeren |  |  |
 | `masterVmSize` | Grootte van de hoofd-VM. Selecteer een van de toegestane VM-grootten die worden vermeld in het bestand azuredeploy.json |  | Standard_E2s_v3 |
 | `infraVmSize` | Grootte van de Infra VM. Selecteer een van de toegestane VM-grootten die worden vermeld in het bestand azuredeploy.json |  | Standard_D4s_v3 |

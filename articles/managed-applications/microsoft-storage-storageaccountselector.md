@@ -1,6 +1,6 @@
 ---
 title: Azure StorageAccountSelector UI-element | Microsoft Docs
-description: Beschrijft het Microsoft.Storage.StorageAccountSelector UI-element voor Azure-portal.
+description: Beschrijft de Microsoft.Storage.StorageAccountSelector UI-element voor Azure-portal.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5de536a562d234a4c463c862aedffc7c7ca5228d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: c6d4ef50645902aecd57ceb9fc48b7d99bf22d53
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112283"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104853"
 ---
-# <a name="microsoftstoragestorageaccountselector-ui-element"></a>Microsoft.Storage.StorageAccountSelector UI-element
-Een besturingselement voor het selecteren van een nieuwe of bestaande opslagaccount.
+# <a name="microsoftstoragestorageaccountselector-ui-element"></a>Microsoft.Storage.StorageAccountSelector UI element
+Een besturingselement voor het selecteren van een nieuwe of bestaande storage-account.
 
 ## <a name="ui-sample"></a>Voorbeeld van de gebruikersinterface
 
-Het besturingselement bevat de standaardwaarde.
+Het besturingselement toont de standaardwaarde.
 
 ![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector.png)
 
-Het besturingselement kan de gebruiker een nieuw opslagaccount maken of selecteren van een bestaand opslagaccount.
+Het besturingselement kan de gebruiker een nieuw opslagaccount maken of een bestaand opslagaccount selecteren.
 
 ![Nieuwe Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector-new.png)
 
@@ -57,10 +57,10 @@ Het besturingselement kan de gebruiker een nieuw opslagaccount maken of selecter
 ```
 
 ## <a name="remarks"></a>Opmerkingen
-- Indien opgegeven, `defaultValue.name` automatisch wordt gevalideerd voor uniekheid. Als de naam van het opslagaccount niet uniek is, moet de gebruiker Geef een andere naam of kies een bestaand opslagaccount.
+- Als u opgeeft, `defaultValue.name` wordt automatisch gevalideerd voor uniekheid. Als naam van het opslagaccount niet uniek is, moet de gebruiker een andere naam geven of een bestaand opslagaccount kiezen.
 - De standaardwaarde voor `defaultValue.type` is **Premium_LRS**.
-- Een type dat niet is opgegeven in `constraints.allowedTypes` is verborgen, en een type dat niet is opgegeven in `constraints.excludedTypes` wordt weergegeven. `constraints.allowedTypes` en `constraints.excludedTypes` zijn beide optioneel, maar niet gelijktijdig worden gebruikt.
-- Als `options.hideExisting` is **true**, de gebruiker een bestaand opslagaccount niet kiezen. De standaardwaarde is **false**.
+- Elk type niet opgegeven in `constraints.allowedTypes` verborgen is, en elk type niet opgegeven in `constraints.excludedTypes` wordt weergegeven. `constraints.allowedTypes` en `constraints.excludedTypes` zijn beide optioneel, maar kunnen niet gelijktijdig worden gebruikt.
+- Als `options.hideExisting` is **waar**, de gebruiker een bestaand opslagaccount niet kiezen. De standaardwaarde is **false**.
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
 
@@ -74,5 +74,5 @@ Het besturingselement kan de gebruiker een nieuw opslagaccount maken of selecter
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een inleiding tot het maken van de definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
+* Zie voor een inleiding tot het maken van definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
 * Zie voor een beschrijving van de algemene eigenschappen in de UI-elementen, [CreateUiDefinition elementen](create-uidefinition-elements.md).

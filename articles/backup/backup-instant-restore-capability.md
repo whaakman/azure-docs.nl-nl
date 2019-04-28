@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/23/2019
 ms.author: sogup
-ms.openlocfilehash: 3aceffa719ef8938aa049f126231f8628822566b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c375eac0de3dd89986421f8c6628d0a13784a60d
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794774"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733870"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ophalen van verbeterde back-up en herstellen van de prestaties met mogelijkheid Azure back-up direct herstellen
 
@@ -24,7 +24,7 @@ Het nieuwe model voor direct terugzetten biedt de volgende verbeteringen:
 
 * De mogelijkheid om te gebruiken van momentopnamen die zijn gemaakt als onderdeel van een back-uptaak die is beschikbaar voor herstel zonder te wachten op voor de overdracht van gegevens naar de kluis om te voltooien. Beperkt het de wachttijd voor momentopnamen te kopiëren naar de kluis voordat het activeren van de herstelbewerking.
 * Vermindert back-up en herstel met behoud van momentopnamen lokaal voor standaard twee dagen. Deze standaardwaarde voor het bewaren van momentopname kan worden geconfigureerd op een waarde tussen 1 tot 5 dagen.
-* Ondersteunt schijf de grootte van maximaal 4 TB. Azure Backup biedt geen ondersteuning voor striped schijven. Grootte van de schijf wordt niet aanbevolen door Azure Backup.
+* Ondersteunt schijf de grootte van maximaal 4 TB. Grootte van de schijf wordt niet aanbevolen door Azure Backup.
 * Standard-SSD-schijven, samen met de standaard harde schijven en Premium-SSD-schijven ondersteunt.
 *   Mogelijkheid om te gebruiken van een niet-beheerde virtuele machine oorspronkelijk opslagaccounts (per schijf), bij het herstellen. Deze mogelijkheid bestaat, zelfs wanneer de virtuele machine heeft schijven die zijn verdeeld over de storage-accounts. Het downloadproces versneld herstelbewerkingen voor een groot aantal VM-configuraties.
 
@@ -47,15 +47,15 @@ Momentopnamen worden standaard gedurende twee dagen bewaard. Deze functie kunt h
 * Momentopnamen worden opgeslagen samen met de schijven om herstelpunten te verbeteren en om herstelbewerkingen te versnellen. Als gevolg hiervan, ziet u kosten voor opslag die overeenkomen met de momentopnamen die zijn gemaakt tijdens deze periode.
 * Incrementele momentopnamen worden opgeslagen als pagina-blobs. Alle gebruikers met behulp van niet-beheerde schijven worden in rekening gebracht voor de momentopnamen die zijn opgeslagen in hun lokale storage-account. Omdat de restore-punt verzamelingen die worden gebruikt door beheerde VM-back-ups blob-momentopnamen op het opslagniveau van de onderliggende, voor beheerde schijven ziet u kosten die overeenkomt met blob-momentopname prijzen en ze zijn.
 * Voor premium storage-accounts de momentopnamen die voor instant recovery points aantal voor de limiet van 10 TB van toegewezen ruimte.
-* U krijgt een mogelijkheid voor het configureren van de momentopname bewaarperiode op basis van de behoeften van de herstelbewerking. Afhankelijk van het vereiste, kunt u de bewaarperiode momentopname instellen op minimaal één dag in de blade back-upbeleid zoals hieronder wordt uitgelegd. Hiermee kunt u kosten voor het bewaren van momentopname opslaan als u niet vaak herstelbewerkingen uitvoert.
-* Dit is een één-directional upgrade, na de upgrade naar Instant restore, u niet meer terugkeren.
+* U krijgt een mogelijkheid voor het configureren van de momentopname bewaarperiode op basis van de behoeften van de herstelbewerking. Afhankelijk van het vereiste, kunt u de bewaarperiode momentopname instellen op minimaal één dag in de blade back-upbeleid zoals hieronder wordt uitgelegd. Hierdoor krijgt u kosten voor het bewaren van momentopname opslaan als u niet vaak herstelbewerkingen uitvoert.
+* Het is een één-directional upgrade, na de upgrade naar Instant restore, u niet meer terugkeren.
 
 >[!NOTE]
 >Met deze direct een upgrade kan de bewaartermijn van de momentopname van alle klanten te herstellen (**nieuwe en bestaande beide worden opgenomen**) wordt ingesteld op een standaardwaarde van twee dagen. U kunt echter de duur instellen aan de hand van uw behoefte aan een waarde tussen 1 tot 5 dagen.
 
 ## <a name="cost-impact"></a>Kosten impact
 
-De incrementele momentopnamen worden opgeslagen in de storage-account van de virtuele machine, die worden gebruikt voor direct herstellen. Incrementele momentopnamen betekent dat de ruimte die wordt ingenomen door een momentopname is gelijk aan de ruimte die wordt ingenomen door pagina's die zijn geschreven nadat de momentopname is gemaakt. De kosten zijn nog steeds voor de per GB gebruikte ruimte die wordt ingenomen door de momentopname en de prijs per GB is dezelfde zoals vermeld in de [pagina met prijzen](https://azure.microsoft.com/pricing/details/managed-disks/).
+De incrementele momentopnamen worden opgeslagen in de storage-account VM's, die wordt gebruikt voor direct herstellen. Incrementele momentopnamen betekent dat de ruimte die wordt ingenomen door een momentopname is gelijk aan de ruimte die wordt ingenomen door pagina's die zijn geschreven nadat de momentopname is gemaakt. De kosten zijn nog steeds voor de per GB gebruikte ruimte die wordt ingenomen door de momentopname en de prijs per GB is dezelfde zoals vermeld in de [pagina met prijzen](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 >[!NOTE]
 > Bewaarperiode van de momentopname is vast ingesteld op 5 dagen per week beleid.

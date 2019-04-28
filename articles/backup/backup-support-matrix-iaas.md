@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/24/2019
+ms.date: 04/23/2019
 ms.author: raynew
-ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: eaad582dc6484cb62d0bebf1af447ff61301a3bb
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496092"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733964"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Ondersteuningsmatrix voor Azure VM backup
 U kunt de [Azure Backup-service](backup-overview.md) back-up on-premises computers en werkbelastingen en virtuele Azure-machines (VM's). In dit artikel bevat een overzicht van instellingen voor de ondersteuning en beperkingen wanneer u back-up van virtuele Azure-machines met Azure Backup.
@@ -168,7 +168,7 @@ Grootte van de schijf op beveiligde virtuele machine wijzigen | Ondersteund.
 Gedeelde opslag| Back-ups van virtuele machines met Cluster Shared Volume (CSV) of Scale-Out bestandsserver wordt niet aanbevolen. CSV-schrijvers zijn waarschijnlijk zal mislukken tijdens back-up. Bij het terugzetten, schijven met CSV-volumes mogelijk niet afkomstig is van.
 
 > [!NOTE]
-> Azure Backup biedt geen ondersteuning voor striped schijven. Grootte van de schijf wordt niet aanbevolen door Azure Backup.
+> Grootte van de schijf wordt niet aanbevolen door Azure Backup.
 
 
 ## <a name="vm-network-support"></a>Ondersteuning voor VM-netwerken

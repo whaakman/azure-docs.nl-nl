@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: d3dfe51ce65aa24cf3d0a4d1fa4b6a9cd203b7e4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57248903"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370867"
 ---
 Controleer het overeenkomsttype selecteren om te bepalen of u toegang tot een rekening voor een Microsoft-KLANTOVEREENKOMST hebt.
 
 1. Meld u aan bij [Azure Portal]( http://portal.azure.com).
 
-2. Zoeken op **kosten Management en facturering**.
+2. Zoek naar **kostenbeheer en facturering**.
 
    ![Schermafbeelding van zoeken in Azure portal](./media/billing-check-mca/billing-search-cost-management-billing.png)
 

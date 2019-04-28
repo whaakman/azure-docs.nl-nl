@@ -6,18 +6,22 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 649e50634d901ab48f1cb36c39d7331401c0cc51
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791890"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733545"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Veelgestelde vragen over SQL Server-databases die worden uitgevoerd op een Azure-VM back-up
 
 In dit artikel vindt u antwoorden op veelgestelde vragen over back-ups van SQL Server-databases die uitvoeren op Azure virtual machines (VM's) en die gebruikmaken van de [Azure Backup](backup-overview.md) service.
+
+## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>Kan ik Azure back-up voor IaaS-VM, evenals SQL Server op dezelfde computer gebruiken?
+Ja, u kunt zowel VM back-up en SQL-back-up hebben op dezelfde VM. In dit geval, activeren we intern kopie-alleen volledige back-up op de virtuele machine de logboeken worden niet afgekapt.
+
 
 ## <a name="does-the-solution-retry-or-auto-heal-the-backups"></a>De oplossing opnieuw proberen of de back-ups automatisch-genezen?
 
@@ -45,7 +49,8 @@ Ja. De snelheid waarmee het back-upbeleid voor het minimaliseren van de impact o
   `{"DefaultBackupTasksThreshold": 5}`
 
 3. Sla uw wijzigingen op en sluit het bestand.
-4. Open **Taakbeheer** op het SQL Server-exemplaar. Start de service **AzureWLBackupCoordinatorSvc** opnieuw.
+4. Open **Taakbeheer** op het SQL Server-exemplaar. Start de service **AzureWLBackupCoordinatorSvc** opnieuw.<br/> <br/>
+ Hoewel deze methode als de back-uptoepassing van een groot aantal bronnen, SQL Server gebruikmaakt al helpt [Resourceregeling](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) is een meer algemene manier om op te geven van limieten voor de hoeveelheid CPU, fysieke i/o- en geheugen die kan worden binnenkomende aanvragen voor toepassingen gebruik.
 
 > [!NOTE]
 > In de UX kunt u nog eens en zo veel back-ups plannen op een bepaald moment, maar ze worden verwerkt in een sliding window van bijvoorbeeld 5, aan de hand van het bovenstaande voorbeeld.

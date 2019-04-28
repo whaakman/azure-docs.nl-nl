@@ -17,11 +17,11 @@ ms.custom: mvc
 ms.date: 02/05/2019
 ms.author: jowargo
 ms.openlocfilehash: 2fe448f3ed91f2c6dd242c24aa378c3541eceecc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857943"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60876690"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Zelfstudie: Pushmeldingen naar Android-apparaten met behulp van Azure Notification Hubs en Google Firebase Cloud Messaging
 
@@ -174,8 +174,8 @@ De Notification Hub is nu geconfigureerd voor Firebase Cloud Messaging en u hebt
 
     Zorg ervoor dat u de volgende drie tijdelijke aanduidingen in de volgende code bijwerkt voor de klasse `NotificationSettings`:
 
-   * **HubListenConnectionString**: De verbindingsreeks **DefaultListenAccessSignature** voor de hub. Kopieer deze verbindingsreeks door te klikken op **Toegangsbeleid** in uw hub in [Azure-portal].
-   * **HubName**: Gebruik de naam van uw Notification Hub die wordt weergegeven op de hubpagina in de [Azure-portal].
+   * **HubListenConnectionString**: De verbindingsreeks **DefaultListenAccessSignature** voor de hub. Kopieer deze verbindingsreeks door te klikken op **Toegangsbeleid** in uw hub in [Azure Portal].
+   * **HubName**: Gebruik de naam van uw Notification Hub die wordt weergegeven op de hubpagina in de [Azure Portal].
 
      `NotificationSettings`-code:
 
@@ -523,7 +523,7 @@ De Notification Hub is nu geconfigureerd voor Firebase Cloud Messaging en u hebt
 
 ## <a name="test-send-notification-from-the-notification-hub"></a>Testen van melding verzenden vanuit de Notification Hub
 
-U kunt pushmeldingen verzenden vanuit de [Azure-portal] door de volgende acties uit te voeren:
+U kunt pushmeldingen verzenden vanuit de [Azure Portal] door de volgende acties uit te voeren:
 
 1. Ga in de Azure-portal naar de pagina **Notification Hub** voor uw notification hub en selecteer **Verzenden testen** in het gedeelte **Probleemoplossing**.
 3. Selecteer voor **Platforms** de optie **Android**.
@@ -558,4 +558,4 @@ In deze zelfstudie hebt u Firebase Cloud Messaging gebruikt om meldingen te push
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

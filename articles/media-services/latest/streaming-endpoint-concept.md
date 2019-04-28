@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 4a29da2b070133f87ca5fdab0be607368c83790f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 8b6deadca610916a10f719d715fe6a17e29148bb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999447"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125420"
 ---
 # <a name="streaming-endpoints"></a>Streaming-eindpunten
 
@@ -39,7 +39,7 @@ Er zijn twee typen **streaming-eindpunten**: **Standard** en **Premium**. Het ty
 
 In de tabel worden de typen beschreven:  
 
-|Type|Schaaleenheden|Beschrijving|
+|Type|Schaaleenheden|Description|
 |--------|--------|--------|  
 |**Standaard streaming-eindpunt** (aanbevolen)|0|De Streaming-eindpunt wordt standaard een **Standard** typt, maar kan worden gewijzigd in het type Premium.<br/> Het type Standard is de aanbevolen optie voor vrijwel alle streaming scenario's en doelgroepen van elke grootte. Bij het **Standard**-type wordt uitgaande bandbreedte automatisch geschaald. De doorvoer van dit type Streaming-eindpunt is maximaal 600 Mbps. Video-fragmenten in de cache opgeslagen in het CDN, moet u de bandbreedte van het Streaming-eindpunt niet gebruiken.<br/>Voor klanten met extreem hoge eisen biedt Media Services **Premium** streaming-eindpunten, die kunnen worden gebruikt om de capaciteit uit te schalen voor de grootste doelgroepen op internet. Als u verwacht grote doelgroepen en gelijktijdige viewers dat, contact met ons op amsstreaming\@microsoft.com voor informatie over de noodzaak om te verplaatsen naar de **Premium** type. |
 |**Premium-streaming-eindpunt**|>0|**Premium**-streaming-eindpunten zijn geschikt voor geavanceerde workloads omdat er gebruik wordt gemaakt van toegewezen, schaalbare bandbreedtecapaciteit. U verplaatst naar een **Premium** type door aan te passen `scaleUnits`. `scaleUnits` bieden u speciale uitgangscapaciteit die kan worden aangeschaft per 200 Mbps. Bij gebruik van het **Premium**-type biedt elke ingeschakelde eenheid extra bandbreedte voor de toepassing. |
@@ -149,6 +149,10 @@ CDN-integratie is ingeschakeld in de Azure-datacenters met uitzondering van Chin
 ### <a name="determine-if-dns-change-has-been-made"></a>Te bepalen of de DNS-wijziging is aangebracht
 
 U kunt bepalen of DNS-wijziging is aangebracht op een Streaming-eindpunt (het verkeer wordt omgeleid naar het Azure CDN) met behulp van https://www.digwebinterface.com. Als de resultaten heeft azureedge.net domeinnamen in de resultaten, is het verkeer nu naar het CDN wordt verwezen.
+
+## <a name="provide-feedback"></a>Feedback geven
+
+Bekijk de [Azure Media Services-community](media-services-community.md) artikel om te zien van verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -16,13 +16,13 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: bddc83d55c8909412f7f935a4324a6f316a82cd7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129550"
 ---
-# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>AlwaysOn-beschikbaarheidsgroepen automatisch in Azure Virtual Machines configureren: Resource Manager
+# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>AlwaysOn-beschikbaarheidsgroepen configureren in Azure Virtual Machines automatisch: Resource Manager
 
 Deze zelfstudie leert u over het maken van een beschikbaarheidsgroep van SQL Server die gebruikmaakt van virtuele machines van Azure Resource Manager. De zelfstudie maakt gebruik van Azure-blades sjabloon wilt configureren. U kunt de volgende instellingen, typt u vereiste instellingen en bijwerken van de blades in de portal als u deze zelfstudie hebt doorlopen.
 
@@ -71,7 +71,7 @@ Azure biedt een afbeelding voor de gehele oplossing. Op zoek naar de sjabloon:
    ![AlwaysOn-sjabloon](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 5. Op **een implementatiemodel selecteren**, kiest u **Resource Manager**.
 
-### <a name="basics"></a>Basisbeginselen
+### <a name="basics"></a>Basics
 Klik op **basisbeginselen** en configureer de volgende instellingen:
 
 * **Gebruikersnaam van beheerder** is een gebruikersaccount met beheerdersmachtigingen voor domein en is lid van de SQL Server vaste serverrol sysadmin op beide exemplaren van SQL Server. Voor deze zelfstudie gebruiken we **DomainAdmin**.
@@ -82,7 +82,7 @@ Klik op **basisbeginselen** en configureer de volgende instellingen:
 
 De volgende schermafbeelding is een voltooide **basisbeginselen** blade:
 
-![Basisbeginselen](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
+![Basics](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
 Klik op **OK**.
 
@@ -115,7 +115,7 @@ Op **beschikbaarheid groepsinstellingen**, controleert u de vooraf ingestelde wa
 
 Indien nodig, kunt u deze waarden wijzigen. Voor deze zelfstudie gebruikt u de vooraf gedefinieerde waarden.  
 
-![instellingen voor de groep beschikbaarheid](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
+![Instellingen voor de groep beschikbaarheid](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
 
 Klik op **OK**.
 

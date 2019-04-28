@@ -11,11 +11,11 @@ ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
 ms.openlocfilehash: 5ad589c4adb60369f81979e214935f73d9eb0755
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228897"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309505"
 ---
 <a name="definitions"></a>
 ## <a name="definitions"></a>Definities
@@ -32,7 +32,7 @@ ms.locfileid: "55228897"
 <a name="request"></a>
 ### <a name="request"></a>Aanvraag
 
-|Name|Beschrijving|Schema|
+|Name|Description|Schema|
 |---|---|---|
 |**Period**  <br>*Optioneel*|De periode van de gegevenspunten. Als de waarde null is of is niet aanwezig, wordt de API de periode automatisch bepaald.|getal (double)|
 |**Points**  <br>*Optioneel*|De time series-gegevens verwijst. De gegevens moeten worden gesorteerd op oplopende zodat deze overeenkomt met het resultaat van afwijkingen timestamp. Als de gegevens worden niet correct worden gesorteerd of als er dubbele timestamp, de API de anomaliedetectie-punten correct wordt gedetecteerd, maar u de punten die is geretourneerd met de invoer kan niet goed overeen. In dit geval is, wordt een waarschuwingsbericht wordt weergegeven in het antwoord worden toegevoegd.|< [Wijs](#point) > matrix|

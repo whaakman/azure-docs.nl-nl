@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: victorh
 ms.openlocfilehash: 89a88d79b6b93a233dbd4f335d0eb449e49d5289
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001782"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122197"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Een toepassingsgateway voor SSL-offload configureren met behulp van het klassieke implementatiemodel
 
@@ -99,11 +99,11 @@ Configuratie van een toepassingsgateway bestaat uit meerdere waarden. De waarden
 
 De waarden zijn:
 
-* **Back-endserverpool**: de lijst met IP-adressen van de back-endservers. De IP-adressen die worden vermeld, moeten deel uitmaken van een subnet van het virtuele netwerk of moeten een openbaar IP-adres of VIP-adres.
-* **Back-endserverpoolinstellingen**: elke pool heeft instellingen, zoals poort, het protocol en cookies gebaseerde affiniteit. Deze instellingen zijn gekoppeld aan een pool en worden toegepast op alle servers in de pool.
-* **Front-endpoort**: dit is de openbare poort die in de toepassingsgateway wordt geopend. Het verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-endservers.
-* **Listener**: de listener beschikt over een front-endpoort, een protocol (Http of Https; deze waarden zijn hoofdlettergevoelig), en de SSL-certificaatnaam (als een SSL-offload configureren).
-* **Regel**: de regel verbindt de listener en de back-endserverpool en definieert naar welke back-endserverpool om het verkeer naar wanneer dit bij een bepaalde listener aankomt. Momenteel wordt alleen de regel *basic* ondersteund. De regel *basic* is een vorm van round-robinbelastingverdeling.
+* **Back-endserverpool**: De lijst met IP-adressen van de back-endservers. De IP-adressen die worden vermeld, moeten deel uitmaken van een subnet van het virtuele netwerk of moeten een openbaar IP-adres of VIP-adres.
+* **Back-endserverpoolinstellingen**: Elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen zijn gekoppeld aan een pool en worden toegepast op alle servers in de pool.
+* **Front-endpoort**: Dit is de openbare poort die in de toepassingsgateway wordt geopend. Het verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-endservers.
+* **Listener**: De listener beschikt over een front-endpoort, een protocol (Http of Https; deze waarden zijn hoofdlettergevoelig), en de SSL-certificaatnaam (als een SSL-offload configureren).
+* **Regel**: De regel verbindt de listener en de back-endserverpool en definieert naar welke back-endserverpool om het verkeer naar wanneer dit bij een bepaalde listener aankomt. Momenteel wordt alleen de regel *basic* ondersteund. De regel *basic* is een vorm van round-robinbelastingverdeling.
 
 **Aanvullende configuratieopmerkingen**
 

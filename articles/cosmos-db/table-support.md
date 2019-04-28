@@ -4,17 +4,19 @@ description: Meer informatie over hoe de tabel-API van Azure Cosmos DB en Azure-
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 11/15/2017
-author: wmengmsft
-ms.author: wmeng
+origin.date: 11/15/2017
+ms.date: 04/15/2019
+author: rockboyfor
+ms.author: v-yeche
 ms.reviewer: sngun
 ms.openlocfilehash: 1570417cb1c3aa9ec32d12d9209d4c712b50511d
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522295"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130327"
 ---
+<!--Verify sucessfully-->
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Ontwikkelen met de tabel-API van Azure Cosmos DB en Azure-tabelopslag
 
 De tabel-API van Azure Cosmos DB en Azure-tabelopslag hebben hetzelfde gegevensmodel voor tabellen en bieden via de bijbehorende SDK’s dezelfde bewerkingen voor maken, verwijderen, bijwerken en uitvoeren van query’s. 
@@ -33,7 +35,6 @@ Op dit moment beschikt de [tabel-API van Azure Cosmos DB](table-introduction.md)
 
 * [Node.js SDK](table-sdk-nodejs.md): Met deze Azure Storage-SDK kan verbinding worden gemaakt met Azure Cosmos DB-accounts met behulp van de tabel-API.
 
-
 Aanvullende informatie over het werken met de tabel-API is beschikbaar in het artikel [Veelgestelde vragen: Ontwikkelen met de tabel-API](faq.md#table).
 
 ## <a name="developing-with-azure-table-storage"></a>Ontwikkelen met Azure-tabelopslag
@@ -49,10 +50,5 @@ Azure-tabelopslag beschikt over deze SDK’s voor ontwikkelen:
 - [Clientbibliotheek voor Azure-opslagtabellen voor Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). Dit project biedt een Ruby-pakket waarmee u eenvoudig toegang kunt krijgen tot Azure-opslagtabelservices.
 - [PHP-clientbibliotheek voor Azure-opslagtabellen](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table). Dit project biedt een PHP-clientbibliotheek waarmee u eenvoudig toegang kunt krijgen tot Azure-opslagtabelservices.
 
-
-   
-
-
-
-
-
+<!--Update_Description: new articles on table support -->
+<!--ms.date: 03/18/2019-->

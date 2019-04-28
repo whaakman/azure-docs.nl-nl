@@ -9,11 +9,11 @@ ms.date: 09/18/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 3b770c3e51b17fa5d70abb03360e17e1073974d8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51222149"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392198"
 ---
 Als u een v2-opslagaccount voor algemeen gebruik wilt maken in de Azure Portal, volgt u deze stappen:
 
@@ -28,7 +28,7 @@ Als u een v2-opslagaccount voor algemeen gebruik wilt maken in de Azure Portal, 
 1. Selecteer een locatie voor uw opslagaccount of gebruik de standaardlocatie.
 1. Laat deze velden ingesteld staan op de standaardwaarden:
 
-   |Veld  |Waarde  |
+   |Veld  |Value  |
    |---------|---------|
    |Implementatiemodel     |Resource Manager         |
    |Prestaties     |Standard         |

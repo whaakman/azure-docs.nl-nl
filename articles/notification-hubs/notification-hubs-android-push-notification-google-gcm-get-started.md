@@ -17,11 +17,11 @@ ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 6e82ec9563832c7569fa1cff735a46dad50a8b3b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887575"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462158"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Zelfstudie: Pushmeldingen naar Android-apparaten met Azure Notification Hubs en Google Cloud Messaging
 
@@ -162,8 +162,8 @@ De Notification Hub is nu geconfigureerd voor GCM en u hebt de verbindingsreekse
     Werk de drie tijdelijke aanduidingen in de volgende code bij voor de klasse `NotificationSettings`:
 
    * `SenderId`: Het projectnummer dat u eerder in de [Google Cloud Console](https://cloud.google.com/console) hebt verkregen.
-   * `HubListenConnectionString`: De verbindingsreeks `DefaultListenAccessSignature` voor de hub. Kopieer deze verbindingsreeks door te klikken op **Toegangsbeleid** op de hubpagina **Instellingen** in [Azure-portal].
-   * `HubName`: Gebruik de naam van uw Notification Hub die wordt weergegeven op de hubpagina in de [Azure-portal].
+   * `HubListenConnectionString`: De verbindingsreeks `DefaultListenAccessSignature` voor de hub. Kopieer deze verbindingsreeks door te klikken op **Toegangsbeleid** op de hubpagina **Instellingen** in [Azure Portal].
+   * `HubName`: Gebruik de naam van uw Notification Hub die wordt weergegeven op de hubpagina in de [Azure Portal].
 
      `NotificationSettings`-code:
 
@@ -463,7 +463,7 @@ De Notification Hub is nu geconfigureerd voor GCM en u hebt de verbindingsreekse
 
 ### <a name="test-send-push-notifications-from-the-azure-portal"></a>Het verzenden van pushmeldingen vanuit Azure Portal testen
 
-U kunt het ontvangen van meldingen in de app testen door deze te verzenden via [Azure-portal].
+U kunt het ontvangen van meldingen in de app testen door deze te verzenden via [Azure Portal].
 
 1. In de sectie **Probleemoplossing** selecteert u **Test verzenden**.
 2. Selecteer voor **Platforms** de optie **Android**.
@@ -513,7 +513,7 @@ Normaal gesproken verzendt u meldingen via een back-endserver. Mogelijk wilt u p
     ```
 3. Voeg in het bestand `NotificationSetting.java` de volgende instelling toe voor de klasse `NotificationSettings`.
 
-    Werk `HubFullAccess` bij met de verbindingsreeks **DefaultFullSharedAccessSignature** voor uw hub. U kunt deze verbindingsreeks kopiëren vanuit [Azure-portal] door te klikken op **Toegangsbeleid** op de pagina **Instellingen** voor uw Notification Hub.
+    Werk `HubFullAccess` bij met de verbindingsreeks **DefaultFullSharedAccessSignature** voor uw hub. U kunt deze verbindingsreeks kopiëren vanuit [Azure Portal] door te klikken op **Toegangsbeleid** op de pagina **Instellingen** voor uw Notification Hub.
 
     ```java
     public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
@@ -741,4 +741,4 @@ In deze zelfstudie hebt u meldingen uitgezonden naar al uw Android-apparaten die
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

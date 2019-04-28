@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: 9f1ef06e0275954343c548d0f6937b9c6fbcfd18
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012115"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122937"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Aan de slag met Azure Blob Storage en Visual Studio verbonden services (cloudserviceprojecten)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -25,9 +25,9 @@ ms.locfileid: "58012115"
 ## <a name="overview"></a>Overzicht
 In dit artikel wordt beschreven hoe u aan de slag met Azure Blob Storage, nadat u hebt gemaakt of een Azure Storage-account waarnaar wordt verwezen door het gebruik van de Visual Studio **Connected Services toevoegen** dialoogvenster in een Visual Studio-cloud services-project. We laten u hoe u toegang tot en blob-containers maken en hoe u veelvoorkomende taken uitvoeren zoals uploaden, weergeven en downloaden van blobs. De voorbeelden zijn geschreven in C\# en gebruik de [Microsoft Azure Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-Azure Blob-opslag is een service voor het opslaan van grote hoeveelheden ongestructureerde gegevens die kunnen worden benaderd vanaf elke locatie ter wereld via HTTP of HTTPS. Één blob kan elke grootte zijn. BLOBs kunnen zijn items zoals afbeeldingen, audio en video-bestanden, onbewerkte gegevens en bestanden.
+Azure Blob-opslag is een service voor het opslaan van grote hoeveelheden ongestructureerde gegevens die kunnen worden benaderd vanaf elke locatie ter wereld via HTTP of HTTPS. Een enkele blob kan elke grootte zijn. Blobs kunnen items zijn zoals afbeeldingen, audio en video-bestanden, onbewerkte gegevens en bestanden.
 
-Net zoals u bestanden in mappen woont, live storage-blobs in containers. Nadat u een opslagaccount hebt gemaakt, maakt u een of meer containers in de opslag. Bijvoorbeeld in een opslag met de naam 'Plakboek', kunt u containers maken in de opslag met de naam 'installatiekopieën' voor het opslaan van afbeeldingen en andere genaamd "audio" audio-bestanden wilt opslaan. Nadat u de containers hebt gemaakt, kunt u afzonderlijke blob-bestanden uploaden naar deze.
+Net zoals bestanden in mappen staan, staan opslag-blobs in containers. Nadat u een opslagaccount hebt gemaakt, maakt u een of meer containers in de opslag. Bijvoorbeeld in een opslag met de naam 'Plakboek', kunt u containers maken in de opslag met de naam 'installatiekopieën' voor het opslaan van afbeeldingen en andere genaamd "audio" audio-bestanden wilt opslaan. Nadat u de containers hebt gemaakt, kunt u afzonderlijke blob-bestanden uploaden naar deze.
 
 * Zie voor meer informatie over het bewerken van programmatisch blobs [aan de slag met Azure Blob storage met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 * Raadpleeg voor algemene informatie over Azure Storage [documentatie voor Storage](https://azure.microsoft.com/documentation/services/storage/).

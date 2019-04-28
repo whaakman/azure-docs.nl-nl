@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c0b4117f6e7b48dce1746ad6eb3dbe29c0d16af
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130616"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configureren van een App Service Environment v1
 
@@ -69,7 +69,7 @@ Als uw apps een groter formaat van de compute-resource is vereist, kan niet u pr
 * Uw App Service-plannen die als host van de apps die een groter formaat naar de meest recent geconfigureerde worker-groep moeten toewijzen. Dit is een snelle bewerking moet minder dan een minuut in beslag nemen.  
 * De eerste groep met werkrollen verkleinen als u niet meer nodig hebt die niet-gebruikte instanties. Met deze bewerking duurt een paar minuten om te voltooien.
 
-**Automatisch schalen**: Een van de hulpprogramma's die u helpen kunnen bij het beheren van het gebruik van de compute-resources is automatisch schalen. U kunt automatisch schalen voor front-end- of worker-groepen. U kunt dingen doen zoals toename van de exemplaren van elk type groep in de ochtend en deze in de avonduren is gepland te verminderen. Of misschien kunt u exemplaren toevoegen wanneer het aantal werknemers die beschikbaar in een groep met werkrollen zijn onder een bepaalde drempelwaarde komt.
+**Automatische schaling**: Een van de hulpprogramma's die u helpen kunnen bij het beheren van het gebruik van de compute-resources is automatisch schalen. U kunt automatisch schalen voor front-end- of worker-groepen. U kunt dingen doen zoals toename van de exemplaren van elk type groep in de ochtend en deze in de avonduren is gepland te verminderen. Of misschien kunt u exemplaren toevoegen wanneer het aantal werknemers die beschikbaar in een groep met werkrollen zijn onder een bepaalde drempelwaarde komt.
 
 Als u wilt instellen van de regels voor automatisch schalen om compute resource pool metrische gegevens, en houd rekening met de tijd die de inrichting is vereist. Zie voor meer informatie over automatisch schalen App Service-omgevingen, [configureren voor automatisch schalen in een App Service Environment][ASEAutoscale].
 
