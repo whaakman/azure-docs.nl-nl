@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899560"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465674"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Azure Media Content Moderator gebruiken voor het detecteren van mogelijk erotische en ongepaste inhoud 
 
 ## <a name="overview"></a>Overzicht
-De **Azure Media Content Moderator** Mediaprocessor (MP) kunt u geautomatiseerd beheer gebruiken voor uw video's. U wilt bijvoorbeeld detecteren van mogelijk erotische en ongepaste inhoud in video's en bekijk de gemarkeerde inhoud door uw teams menselijk toezicht.
+De **Azure Media Content Moderator** Mediaprocessor (MP) kunt u geautomatiseerd beheer gebruiken voor uw video's. Stel, u wilt mogelijk erotische en racistische inhoud detecteren in video's en de gemarkeerde inhoud laten controleren door uw team.
 
 De **Azure Media Content Moderator** MP is momenteel in Preview.
 
@@ -44,7 +44,7 @@ De JSON-uitvoer bevat de volgende elementen:
 
 ### <a name="root-json-elements"></a>Hoofdmap JSON-elementen
 
-| Element | Description |
+| Element | Beschrijving |
 | --- | --- |
 | versie |De versie van de Content Moderator. |
 | tijdschaal |'Tikken"per seconde van de video. |
@@ -72,7 +72,7 @@ De JSON-uitvoer bevat de volgende elementen:
 | adultScore | De betrouwbaarheidsscore van mogelijk pornografisch materiaal op een schaal van 0,00 en 0,99. |
 | racyScore | Betrouwbaarheidsscore voor mogelijke ongepaste inhoud, klikt u op een schaal van 0,00 en 0,99. |
 | index | index van het kader op een schaal van de eerste frame index met de laatste frame-index. |
-| tijdstempel | De locatie van het kader in "tikken." |
+| timestamp | De locatie van het kader in "tikken." |
 | shotIndex | De index van het bovenliggende object opgenomen. |
 
 

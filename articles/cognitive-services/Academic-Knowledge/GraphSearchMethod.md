@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 5d47b938560fb1bd15adfe1a1c2d35b7359d47a3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57977408"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61339126"
 ---
 # <a name="graph-search-method"></a>Zoekmethode Graph
 
@@ -49,7 +49,7 @@ Voor de *lambda* zoeken, in de hoofdtekst van bericht is een tekenreeks met teks
 
 ## <a name="response-json"></a>Antwoord (JSON)
 
-Name | Description
+Name | Beschrijving
 -------|-----   
 **Resultaten** | Een matrix met 0 of meer entiteiten die overeenkomen met de query-expressie. Elke entiteit bevat de waarden van de aangevraagde kenmerken. Dit veld is aanwezig als de aanvraag is verwerkt.
 **error** | HTTP-statuscodes. Dit veld is aanwezig als de aanvraag is mislukt.

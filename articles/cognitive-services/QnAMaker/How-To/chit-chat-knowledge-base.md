@@ -12,11 +12,11 @@ ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: d40330f257694e81704bf6fffa1fd2df8ed86c06
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61376079"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Chit chat toevoegen aan een kennisdatabase
 
@@ -24,7 +24,8 @@ Chit chat toe te voegen aan uw bot kunt u meer beschrijvende en aantrekkelijke. 
 
 Deze gegevensset heeft ongeveer 100 scenario's van chit chat in de stem van drie personen - de Professional, de vriend de Comic. Kies de persona die van uw bot stem het beste past. De aanvraag voor een gebruiker worden gegeven, probeert QnA Maker moet deze overeenkomen met de meest bekende chit-chat QnA. 
 
-Enkele voorbeelden van de verschillende wensen: <!-- added quotes so acrolinx doesn't score these sentences -->
+Enkele voorbeelden van de verschillende wensen:
+<!-- added quotes so acrolinx doesn't score these sentences -->
 |Gebruikersquery|De medewerker|De vriend|De Comic|
 |--|--|--|--|
 |`You are awesome`|`I aim to serve.`|`That's so nice of you!`|`Flattery. I like it.`|

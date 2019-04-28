@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
 ms.openlocfilehash: 7022c3b2d2f3618d55b0a70d2690abf1497ec6a6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865332"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473164"
 ---
 # <a name="what-is-project-url-preview"></a>Wat is Project URL Preview?
 Het eindpunt van URL Preview gebruikt een URL-queryparameter en retourneert een JSON-antwoord met de naam van de doelresource, een korte beschrijving en een koppeling naar een afbeelding die moet worden weergegeven in een voorbeeldvenster. Het antwoord bevat ook de [isFamilyFriendly](url-preview-reference.md#query-parameters)-vlag, die aangeeft of de URL erotische inhoud, geplagieerde inhoud of andere illegale inhoud bevat. 

@@ -12,11 +12,11 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
 ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279768"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474943"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Tabelstatistieken voor de in Azure SQL Data Warehouse
 
@@ -406,7 +406,7 @@ Er zijn verschillende systeemweergaven en functies die u gebruiken kunt om infor
 
 Deze systeemweergaven bevatten informatie over statistieken:
 
-| Catalogusweergave | Beschrijving |
+| Catalogusweergave | Description |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Een rij voor elke kolom. |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Een rij voor elk object in de database. |
@@ -420,7 +420,7 @@ Deze systeemweergaven bevatten informatie over statistieken:
 
 Deze systeemfuncties zijn nuttig voor het werken met statistieken:
 
-| Systeemfunctie | Description |
+| Systeemfunctie | Beschrijving |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |De datum is die het object statistieken voor het laatst is bijgewerkt. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Samenvatting niveau en gedetailleerde informatie over de distributie van waarden zoals begrepen door het object statistieken. |

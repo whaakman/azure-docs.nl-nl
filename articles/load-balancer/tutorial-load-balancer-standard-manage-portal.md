@@ -16,11 +16,11 @@ ms.date: 03/11/2019
 ms.author: kumud
 ms.custom: seodec18
 ms.openlocfilehash: 78266e447d1ddf6daf5a9b0ad9172ab6470bf0c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845202"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61320637"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Zelfstudie: Taakverdeling voor internetverkeer naar virtuele machines instellen met behulp van Azure Portal
 
@@ -90,7 +90,7 @@ Als u wilt toestaan dat de Load Balancer voor het bewaken van de status van uw a
     | Poort | Voer *80*.|
     | Interval | Voer *15* voor aantal **Interval** in seconden tussen tests. |
     | Drempelwaarde voor onjuiste status | Selecteer *2* voor aantal **drempelwaarde voor onjuiste status** of opeenvolgende testfouten dat optreden moeten voordat een virtuele machine als slecht beschouwd.|
-    | Test | Select *myHealthProbe*. |
+    | Statustest | Select *myHealthProbe*. |
     
 4. Selecteer **OK**.
 
@@ -109,7 +109,7 @@ Een load balancer-regel wordt gebruikt om de verdeling van het verkeer over de V
     | Poort | Voer *80*.|
     | Back-endpoort | Voer *80*. |
     | Back-endpool | Select *myBackendPool*.|
-    | Test | Select *myHealthProbe*. |
+    | Statustest | Select *myHealthProbe*. |
     
 4. Laat de overige standaardwaarden staan en selecteer **OK**.
 

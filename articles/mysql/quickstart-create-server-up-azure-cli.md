@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 3/18/2019
 ms.custom: mvc
 ms.openlocfilehash: aa0d2a9e990faa8d99355744824f34e26aeb519e
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61231077"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Quickstart: Maak een Azure Database voor MySQL met behulp van een eenvoudige Azure CLI-opdracht - az mysql van (preview)
 

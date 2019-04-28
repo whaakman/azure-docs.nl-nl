@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: c8424743f30ec1bbf8d8096f6630c7451bc910c8
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010239"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363525"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Cloud-naar-apparaat-berichten verzenden vanuit IoT Hub
 
@@ -83,7 +83,7 @@ Als **Ack** is **volledige**, en u niet een feedbackbericht ontvangt, betekent d
 
 Zoals uitgelegd in [eindpunten](iot-hub-devguide-endpoints.md), IoT-Hub biedt feedback via een gerichte service-eindpunt (**/messages/servicebound/feedback**) als berichten. De semantiek voor het ontvangen van feedback zijn dezelfde als die voor cloud-naar-apparaat-berichten. Indien mogelijk, batch bericht feedback wordt verwerkt in een enkel bericht met de volgende indeling:
 
-| Eigenschap     | Description |
+| Eigenschap     | Beschrijving |
 | ------------ | ----------- |
 | EnqueuedTime | De tijdstempel die aangeeft wanneer de Feedbackbericht is ontvangen door de hub. |
 | UserId       | `{iot hub name}` |
@@ -125,7 +125,7 @@ Het volgende voorbeeld ziet de hoofdtekst van een feedbackbericht.
 
 Elke IoT hub bevat de volgende configuratieopties voor cloud-naar-apparaat-berichten:
 
-| Eigenschap                  | Description | Bereik en de standaard |
+| Eigenschap                  | Beschrijving | Bereik en de standaard |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | Standaard-TTL voor cloud-naar-apparaat-berichten. | Interval voor ISO_8601 maximaal 2D (minimaal 1 minuut). Standaard: 1 uur. |
 | maxDeliveryCount          | Maximumaantal leveringen voor cloud-naar-apparaat per apparaat wachtrijen. | 1 tot en met 100. Standaard: 10. |

@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
 ms.openlocfilehash: aace9b61ae7625f1d3bbed5181fd88e367ea8f12
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082752"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60892871"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Quickstart: een grafiekdatabase maken in Azure Cosmos DB met behulp van PHP en de Azure-portal
 
@@ -208,7 +208,7 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 
 5. Klik op **Eigenschap toevoegen** om elk van de volgende eigenschappen toe te voegen. U kunt unieke eigenschappen maken voor elke persoon in de grafiek. Alleen de id-sleutel is vereist.
 
-    sleutel|waarde|Opmerkingen
+    key|waarde|Opmerkingen
     ----|----|----
     id|ashley|De unieke id voor het hoekpunt. Als u geen id opgeeft, wordt er een id voor u gegenereerd.
     geslacht|vrouwelijk| 
@@ -225,7 +225,7 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 
 9. Klik op **Eigenschap toevoegen** om elk van de volgende eigenschappen toe te voegen:
 
-    sleutel|waarde|Opmerkingen
+    key|waarde|Opmerkingen
     ----|----|----
     id|rakesh|De unieke id voor het hoekpunt. Als u geen id opgeeft, wordt er een id voor u gegenereerd.
     geslacht|man| 

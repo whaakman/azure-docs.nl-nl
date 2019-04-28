@@ -16,11 +16,11 @@ ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 99c4f0f99af61196cf1a12f2f68a7d10d8b2e6c7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481277"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477158"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Wat is SQL Server op Azure Virtual Machines? (Windows)
 
@@ -108,7 +108,7 @@ Het programma voor kwaliteitsverbetering (CEIP) is standaard ingeschakeld. Met d
 ### <a name="windows-virtual-machines"></a>Windows Virtual Machines
 * [Overzicht van Virtual Machines](../overview.md)
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 * [Inleiding tot Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Netwerken

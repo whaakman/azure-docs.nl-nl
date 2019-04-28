@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 14090e21fb7c6ca07fe63220ffd1d44d483ac869
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443624"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61088176"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Productsjablonen in Azure API Management
 
@@ -72,9 +72,9 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
 ### <a name="controls"></a>Besturingselementen  
  De `Product list` sjabloon mogelijk gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
   
--   [besturingselement voor paginering](api-management-page-controls.md#paging-control)  
+-   [paging-control](api-management-page-controls.md#paging-control)  
   
--   [besturingselement voor zoeken](api-management-page-controls.md#search-control)  
+-   [search-control](api-management-page-controls.md#search-control)  
   
 ### <a name="data-model"></a>Gegevensmodel  
   

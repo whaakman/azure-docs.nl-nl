@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 1/27/2019
 ms.author: monhaber
 ms.openlocfilehash: ea738535ae9326109a7c3fdd0b5d0c4f4691fdf0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878627"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095265"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Beveiligen van App Service met Azure Security Center
 Dit artikel helpt u Azure Security Center gebruiken om te controleren en beveiligen van uw toepassingen toevoegen aan App Service.

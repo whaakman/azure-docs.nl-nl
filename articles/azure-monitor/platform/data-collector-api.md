@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
 ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264083"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60931754"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Logboekgegevens verzenden naar Azure Monitor met de HTTP Data Collector-API (preview-versie)
 Dit artikel leest u hoe de API HTTP Data Collector gebruikt om te verzenden van logboekgegevens naar Azure Monitor van een REST-API-client.  Dit wordt beschreven hoe u gegevens die zijn verzameld door het script of een toepassing opmaken, opnemen in een aanvraag en die aanvraag heeft geautoriseerd door Azure Monitor.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
@@ -142,7 +142,7 @@ Voor het identificeren van het gegevenstype van een eigenschap, voegt Azure Moni
 | Eigenschap gegevenstype | Achtervoegsel |
 |:--- |:--- |
 | String |_s |
-| Booleaans |_b |
+| Boolean |_b |
 | Double |_d |
 | Datum/tijd |_t |
 | GUID |_g |
@@ -187,7 +187,7 @@ De HTTP-statuscode 200 betekent dat de aanvraag is ontvangen voor verwerking. Hi
 
 Deze tabel bevat de volledige reeks statuscodes die de service kan worden geretourneerd:
 
-| Code | Status | Foutcode | Description |
+| Code | Status | Foutcode | Beschrijving |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |De aanvraag is geaccepteerd. |
 | 400 |Ongeldig verzoek |InactiveCustomer |De werkruimte is gesloten. |

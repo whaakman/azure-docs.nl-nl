@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081828"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462000"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Gegevens verplaatsen van PostgreSQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -80,7 +80,7 @@ De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zi
 | schema |De naam van het schema in de database. Naam van het schema is hoofdlettergevoelig. |Nee |
 | authenticationType |Het type verificatie gebruikt voor verbinding met de PostgreSQL-database. Mogelijke waarden zijn: Anoniem, basis en Windows. |Ja |
 | gebruikersnaam |Geef de gebruikersnaam op als u basisverificatie of Windows-verificatie. |Nee |
-| wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Nee |
+| password |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Nee |
 | gatewayName |De naam van de gateway die de Data Factory-service gebruiken moet voor verbinding met de on-premises PostgreSQL-database. |Ja |
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
@@ -306,12 +306,12 @@ Bij het verplaatsen van gegevens met PostgreSQL, worden de volgende toewijzingen
 
 | Type van de PostgreSQL-Database | PostgresSQL aliassen | .NET framework-type |
 | --- | --- | --- |
-| abstime | |Datum en tijd |
+| abstime | |DateTime |
 | bigint |Int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bits [(n)] | |Byte[], String |
 | bit verschillende [(n)] |varbit |Byte[], String |
-| booleaans |bool |Booleaans |
+| booleaans |bool |Boolean |
 | Vak | |Byte[], String |
 | bytea | |Byte[], String |
 | teken [(n)] |char [(n)] |String |
@@ -319,7 +319,7 @@ Bij het verplaatsen van gegevens met PostgreSQL, worden de volgende toewijzingen
 | CID | |String |
 | cidr | |String |
 | Cirkel | |Byte[], String |
-| date | |Datum en tijd |
+| date | |DateTime |
 | DateRange | |String |
 | dubbele precisie |FLOAT8 |Double |
 | inet | |Byte[], String |
@@ -341,7 +341,7 @@ Bij het verplaatsen van gegevens met PostgreSQL, worden de volgende toewijzingen
 | pg_lsn | |Int64 |
 | punt | |Byte[], String |
 | polygon | |Byte[], String |
-| echte |float4 |Single |
+| real |float4 |Single |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serieel |serial4 |Int32 |

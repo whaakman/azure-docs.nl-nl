@@ -1,5 +1,5 @@
 ---
-title: Verbinding maken met de GitHub - Azure Logic Apps | Microsoft Docs
+title: Verbinding maken met GitHub - Azure Logic Apps | Microsoft Docs
 description: GitHub-gebeurtenissen met GitHub REST-API's en Azure Logic Apps bewaken
 author: ecfan
 manager: jeconnoc
@@ -11,36 +11,36 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: ce567dc631c3a147b795eb2355a4961faa8881d6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0d2ff9368bc244a5afd6fafc40cf476b90a80a52
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462566"
 ---
 # <a name="connect-to-github"></a>Verbinding maken met GitHub
 
-GitHub is een webgebaseerde Git-opslagplaats hostingservice waarin het besturingselement gedistribueerde revisie en source code (SCM) beheerfunctionaliteit in Git plus andere functies.
+GitHub is een webgebaseerde Git-opslagplaats hostingservice die alle van de gedistribueerde-versiebeheer en source code management (SCM)-functionaliteit in Git plus andere functies biedt.
 
-Aan de slag met de GitHub-connector [eerst een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Aan de slag met de GitHub-connector, [maakt u eerst een logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-github"></a>Maak een verbinding met GitHub
 
-Als u de GitHub-connector in een logische app, moet u eerst maken een *verbinding* en Geef details voor deze eigenschappen: 
+Voor het gebruik van de GitHub-connector in een logische app, moet u eerst maken een *verbinding* en geeft u de details voor deze eigenschappen: 
 
-| Eigenschap | Vereist | Beschrijving | 
+| Eigenschap | Vereist | Description | 
 | -------- | -------- | ----------- | 
-| Token | Ja | Geef uw referenties op GitHub. |
+| Token | Ja | Geef uw GitHub-referenties. |
 
-Nadat u de verbinding hebt gemaakt, kunt u de acties uitvoeren en luisteren naar de triggers die in dit artikel wordt beschreven.
+Nadat u de verbinding hebt gemaakt, kunt u de acties worden uitgevoerd en luisteren naar de triggers die in dit artikel wordt beschreven.
 
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 
 ## <a name="connector-specific-details"></a>Connector-specifieke details
 
-Bekijk voor triggers en acties die zijn gedefinieerd in Swagger en beperkingen, de [connector details](/connectors/github/).
+Raadpleeg voor triggers en acties die zijn gedefinieerd in Swagger en beperkingen met betrekking de [connectorgegevens](/connectors/github/).
 
 ## <a name="find-more-connectors"></a>Meer connectors zoeken
 
-* Controleer de [lijst met Connectors](apis-list.md).
+* Controleer de [lijst van Connectors](apis-list.md).

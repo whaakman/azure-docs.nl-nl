@@ -13,11 +13,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 0fefe01e413e30e4aa3c1fa90de77cbdece39c38
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001683"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61417385"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database-Audit-logboekindeling
 
@@ -60,9 +60,9 @@ Auditgebeurtenissen worden geschreven naar Log Analytics-werkruimte gedefinieerd
 | database_principal_id | database_principal_id_d | ID van de context van de database-gebruiker die de actie wordt uitgevoerd in | int | int |
 | database_principal_name | database_principal_name_s | Naam van de database-gebruikerscontext waarin de actie wordt uitgevoerd | Sysname | string |
 | duration_milliseconds | duration_milliseconds_d | Duur voor het uitvoeren van query's in milliseconden | bigint | int |
-| event_time | event_time_t | Datum en tijd wanneer de controleerbare actie wordt geactiveerd | datetime2 | datum/tijd |
+| event_time | event_time_t | Datum en tijd wanneer de controleerbare actie wordt geactiveerd | datetime2 | datetime |
 | host_name | N/A | Client-hostnaam | string | N/A |
-| is_column_permission | is_column_permission_s | Vlag die aangeeft of dit de machtiging voor een kolom is. 1 = true, 0 = false | bits | string |
+| is_column_permission | is_column_permission_s | Vlag die aangeeft of dit de machtiging voor een kolom is. 1 = true, 0 = false | bit | string |
 | N/A | is_server_level_audit_s | Vlag die aangeeft of deze controle op serverniveau is | N/A | string |
 | object_-id | object_id_d | De ID van de entiteit op waarmee de controle is opgetreden. Dit omvat de: server-objecten, databases, database-objecten en schema-objecten. 0 als de entiteit de server zelf is of als de controle niet is uitgevoerd op het objectniveau van een | int | int |
 | object_name | object_name_s | De naam van de entiteit op waarmee de controle is opgetreden. Dit omvat de: server-objecten, databases, database-objecten en schema-objecten. 0 als de entiteit de server zelf is of als de controle niet is uitgevoerd op het objectniveau van een | Sysname | string |
@@ -70,21 +70,21 @@ Auditgebeurtenissen worden geschreven naar Log Analytics-werkruimte gedefinieerd
 | response_rows | response_rows_d | Aantal rijen in de resultatenset geretourneerd | bigint | int |
 | schema_name | schema_name_s | De schemacontext waarin de actie is opgetreden. Null zijn voor controles plaatsvinden buiten een schema | Sysname | string |
 | N/A | securable_class_type_s | Beveiligbaar object dat is toegewezen aan de class_type wordt gecontroleerd | N/A | string |
-| sequence_group_id | sequence_group_id_g | Unieke id | varbinary | GUID |
+| sequence_group_id | sequence_group_id_g | Unieke id | Varbinary | GUID |
 | sequence_number | sequence_number_d | De volgorde van de records in een enkele audit-record die te groot is voor in de schrijfbuffer voor controles passen wordt bijgehouden | int | int |
 | server_instance_name | server_instance_name_s | Naam van het serverexemplaar waarop de controle is opgetreden | Sysname | string |
 | server_principal_id | server_principal_id_d | ID van de aanmeldingscontext waarin de actie wordt uitgevoerd | int | int |
 | server_principal_name | server_principal_name_s | Huidige aanmelding | Sysname | string |
-| server_principal_sid | server_principal_sid_s | Huidige aanmeldings-SID | varbinary | string |
+| server_principal_sid | server_principal_sid_s | Huidige aanmeldings-SID | Varbinary | string |
 | session_id | session_id_d | ID van de sessie waarop de gebeurtenis heeft plaatsgevonden | smallint | int |
 | session_server_principal_name | session_server_principal_name_s | Server-principal voor sessie | Sysname | string |
 | Instructie | statement_s | T-SQL-instructie die is uitgevoerd (indien aanwezig) | nvarchar(4000) | string |
-| Is voltooid | succeeded_s | Geeft aan of de actie die de gebeurtenis is geslaagd. Voor gebeurtenissen dan aanmelding en batch rapport dit alleen of de machtigingscontrole is geslaagd of mislukt, niet de bewerking. 1 = voltooid, 0 = mislukt | bits | string |
+| Is voltooid | succeeded_s | Geeft aan of de actie die de gebeurtenis is geslaagd. Voor gebeurtenissen dan aanmelding en batch rapport dit alleen of de machtigingscontrole is geslaagd of mislukt, niet de bewerking. 1 = voltooid, 0 = mislukt | bit | string |
 | target_database_principal_id | target_database_principal_id_d | De databaseprincipal de weigeren-GRANT/REVOKE-bewerking wordt uitgevoerd op. 0 indien niet van toepassing | int | int |
 | target_database_principal_name | target_database_principal_name_s | Doelgebruiker van de actie. NULL als niet van toepassing | string | string |
 | target_server_principal_id | target_server_principal_id_d | Server-principal die de bewerking weigeren-GRANT/REVOKE is uitgevoerd op. Retourneert 0 als niet van toepassing | int | int |
 | target_server_principal_name | target_server_principal_name_s | Doel-aanmelding van de actie. NULL als niet van toepassing | Sysname | string |
-| target_server_principal_sid | target_server_principal_sid_s | De SID van de doel-aanmelding. NULL als niet van toepassing | varbinary | string |
+| target_server_principal_sid | target_server_principal_sid_s | De SID van de doel-aanmelding. NULL als niet van toepassing | Varbinary | string |
 | transaction_id | transaction_id_d | Alleen SQL Server (vanaf 2016) - 0 voor Azure SQL DB | bigint | int |
 | user_defined_event_id | user_defined_event_id_d | Door gebruiker gedefinieerde gebeurtenis-id als een argument doorgegeven aan sp_audit_write. NULL voor systeemgebeurtenissen (standaard) en niet-nul voor de gebruiker gedefinieerde gebeurtenis. Zie voor meer informatie, [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
 | user_defined_information | user_defined_information_s | Door gebruiker gedefinieerde gegevens als een argument doorgegeven aan sp_audit_write. NULL voor systeemgebeurtenissen (standaard) en niet-nul voor de gebruiker gedefinieerde gebeurtenis. Zie voor meer informatie, [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |

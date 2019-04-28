@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: ad789a597da759b9a2d58138c7ed441389a12adb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103123"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61479980"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Inleiding tot Stream Analytics georuimtelijke functies
 
@@ -27,7 +27,7 @@ Voorbeelden van scenario's die van georuimtelijke functies profiteren kunnen zij
 * Geofencing
 * Telefoon bijhouden op cel sites
 
-Querytaal voor Stream Analytics beschikt over zeven ingebouwde georuimtelijke functies: **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE** , **ST_OVERLAPS**, **ST_INTERSECTS**, en **ST_WITHIN**.
+Stream Analytics Query Language heeft zeven ingebouwde georuimtelijke functies: **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_ SNIJDT**, en **ST_WITHIN**.
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -50,7 +50,7 @@ FROM input
   
 ### <a name="output-example"></a>Voorbeeld van uitvoer  
 
- {"type": "LineString", "coördinaten": [[-10.2, 3.0], [10.0, 10.0], [10,5, 10,5]]}
+ {"type": "LineString", "coordinates" : [ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5] ]}
 
  {"type": "LineString", "coördinaten": [[20.2321,-87.33], [10.0, 10.0], [10,5, 10,5]]}
 
@@ -77,9 +77,9 @@ FROM input
   
 ### <a name="output-example"></a>Voorbeeld van uitvoer
   
- {"type": "Punt", "coördinaten": [-10.2, 3.0]}  
+ {"type": 'Point', "coördinaten": [-10.2, 3.0]}  
   
- {"type": "Punt", "coördinaten": [20.2321,-87.33]}  
+ {"type": 'Point', "coördinaten": [20.2321,-87.33]}  
 
 Voor meer informatie gaat u naar de [CreatePoint](https://msdn.microsoft.com/azure/stream-analytics/reference/createpoint) verwijzing.
 

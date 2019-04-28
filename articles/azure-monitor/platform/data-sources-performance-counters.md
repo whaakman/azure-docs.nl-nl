@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 93f47529e3be44ff1db4e089bdcdca3eb1b4dea3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728341"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363293"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Windows en Linux-gegevensbronnen van de prestaties die u in Azure Monitor
 In Windows en Linux-prestatiemeteritems geven inzicht in de prestaties van de hardware-onderdelen, besturingssystemen en toepassingen.  Azure Monitor kunt verzamelen van prestatiemeteritems op regelmatige intervallen voor analyse in de buurt van real-time (NRT) naast het verzamelen van prestatiegegevens voor langere termijn analyse en rapportage.
@@ -187,7 +187,7 @@ Azure Monitor verzamelt alle opgegeven prestatiemeteritems op de opgegeven contr
 ## <a name="performance-record-properties"></a>Eigenschappen van de record Performance
 Prestatierecords zijn een type **Perf** en hebben de eigenschappen in de volgende tabel.
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--- |:--- |
 | Computer |De computer waarop de gebeurtenis is verzameld. |
 | CounterName |Naam van het prestatiemeteritem |

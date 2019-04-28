@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485367"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Problemen met Azure VM RDP-verbinding oplossen op basis van gebeurtenis-id 
 
@@ -54,38 +54,38 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-TerminalServices-RemoteConnectionManager'] and EventID=1057 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Logboeknaam:** System <br />
-**Bron:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:** *tijd* <br />
-**Gebeurtenis-ID:** 1058 <br />
-**Taakcategorie:** None <br />
-**Niveau:** fout <br />
-**Trefwoorden:** klassieke <br />
-**Gebruiker:** N.V.T. <br />
-**Computer:** *computer* <br />
-**Beschrijving:** de RD Session Host-Server om te verlopen zelfondertekend certificaat gebruikt voor verificatie van de RD Session Host-Server op SSL-verbindingen vervangen is mislukt. De relevante statuscode is dat de toegang is geweigerd.
+**Logboeknaam:**      Systeem <br />
+**Bron:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Datum:***tijd* <br />
+**Gebeurtenis-ID:**      1058 <br />
+**Taakcategorie:** Geen <br />
+**Niveau:**         Fout <br />
+**Trefwoorden:**      Klassiek <br />
+**Gebruiker:**          N/A <br />
+**Computer:**      *computer* <br />
+**Beschrijving:** De RD Session Host-Server heeft niet de verlopen zelfondertekend certificaat gebruikt voor verificatie van de RD Session Host-Server op SSL-verbindingen vervangen. De relevante statuscode is dat de toegang is geweigerd.
 
-**Logboeknaam:** System <br />
-**Bron:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:** *tijd* <br />
-**Gebeurtenis-ID:** 1058 <br />
-**Taakcategorie:** None <br />
-**Niveau:** fout <br />
-**Trefwoorden:** klassieke <br />
-**Gebruiker:** N.V.T. <br />
-**Computer:** *computer* <br />
+**Logboeknaam:**      Systeem <br />
+**Bron:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Datum:***tijd* <br />
+**Gebeurtenis-ID:**      1058 <br />
+**Taakcategorie:** Geen <br />
+**Niveau:**         Fout <br />
+**Trefwoorden:**      Klassiek <br />
+**Gebruiker:**          N/A <br />
+**Computer:**      *computer* <br />
 **Beschrijving:** RD Session host-server te maken van een nieuw zelfondertekend certificaat moet worden gebruikt voor RD Session host-serververificatie op SSL-verbindingen is mislukt, de relevante statuscode is het object bestaat al.
 
-**Logboeknaam:** System <br />
-**Bron:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:** *tijd* <br />
-**Gebeurtenis-ID:** 1057 <br />
-**Taakcategorie:** None <br />
-**Niveau:** fout <br />
-**Trefwoorden:** klassieke <br />
-**Gebruiker:** N.V.T. <br />
-**Computer:** *computer* <br />
-**Beschrijving:** de RD Session Host-Server is mislukt voor het maken een nieuw zelfondertekend certificaat moet worden gebruikt voor verificatie van de RD Session Host-Server op SSL-verbindingen. De relevante statuscode is dat sleutelpaar bestaat niet
+**Logboeknaam:**      Systeem <br />
+**Bron:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Datum:***tijd* <br />
+**Gebeurtenis-ID:**      1057 <br />
+**Taakcategorie:** Geen <br />
+**Niveau:**         Fout <br />
+**Trefwoorden:**      Klassiek <br />
+**Gebruiker:**          N/A <br />
+**Computer:**      *computer* <br />
+**Beschrijving:** De RD Session Host-Server is mislukt voor het maken een nieuw zelfondertekend certificaat moet worden gebruikt voor verificatie van de RD Session Host-Server op SSL-verbindingen. De relevante statuscode is dat sleutelpaar bestaat niet
 
 U kunt ook controleren voor SCHANNEL foutgebeurtenissen 36872 en 36870 door het uitvoeren van de volgende opdrachten:
 
@@ -94,16 +94,16 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36872 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Logboeknaam:** System <br />
-**Bron:** Schannel <br />
+**Logboeknaam:**      Systeem <br />
+**Bron:**        Schannel <br />
 **Datum:** : <br />
-**Gebeurtenis-ID:** 36870 <br />
-**Taakcategorie:** None <br />
-**Niveau:** fout <br />
+**Gebeurtenis-ID:**      36870 <br />
+**Taakcategorie:** Geen <br />
+**Niveau:**         Fout <br />
 **Trefwoorden:**       <br />
-**Gebruiker:** SYSTEM <br />
-**Computer:** *computer* <br />
-**Beschrijving:** er is een onherstelbare fout opgetreden bij het toegang tot de persoonlijke sleutel voor SSL server referentie. De cryptografische module geretourneerde foutcode is 0x8009030D.  <br />
+**Gebruiker:**          SYSTEEM <br />
+**Computer:**      *computer* <br />
+**Beschrijving:** Er is een onherstelbare fout opgetreden bij het toegang tot de persoonlijke sleutel voor SSL server referentie. De cryptografische module geretourneerde foutcode is 0x8009030D.  <br />
 De status van de interne fout is 10001.
 
 ### <a name="cause"></a>Oorzaak
@@ -216,16 +216,16 @@ Voer de volgende opdrachten om te controleren of SCHANNEL is een foutgebeurtenis
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36871 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Logboeknaam:** System <br />
-**Bron:** Schannel <br />
+**Logboeknaam:**      Systeem <br />
+**Bron:**        Schannel <br />
 **Datum:** : <br />
-**Gebeurtenis-ID:** 36871 <br />
-**Taakcategorie:** None <br />
-**Niveau:** fout <br />
+**Gebeurtenis-ID:**      36871 <br />
+**Taakcategorie:** Geen <br />
+**Niveau:**         Fout <br />
 **Trefwoorden:**       <br />
-**Gebruiker:** SYSTEM <br />
-**Computer:** *computer* <br />
-**Beschrijving:** er is een onherstelbare fout opgetreden tijdens het maken van een referentie TLS-server. De status van de interne fout is 10013.
+**Gebruiker:**          SYSTEEM <br />
+**Computer:**      *computer* <br />
+**Beschrijving:** Er is een onherstelbare fout opgetreden tijdens het maken van een referentie TLS-server. De status van de interne fout is 10013.
  
 ### <a name="cause"></a>Oorzaak
 
@@ -246,36 +246,36 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Windows-TerminalServices-SessionBroker-Client '] and EventID=1296 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Logboeknaam:** Microsoft-Windows-TerminalServices-SessionBroker/operationeel <br />
-**Bron:** Microsoft-Windows-TerminalServices-SessionBroker <br />
-**Datum:** *tijd* <br />
-**Gebeurtenis-ID:** 2056 <br />
+**Logboeknaam:**      Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
+**Bron:**        Microsoft-Windows-TerminalServices-SessionBroker <br />
+**Datum:***tijd* <br />
+**Gebeurtenis-ID:**      2056 <br />
 **Taakcategorie:** (109) <br />
-**Niveau:** fout <br />
+**Niveau:**         Fout <br />
 **Trefwoorden:**       <br />
-**Gebruiker:** netwerkservice <br />
-**Computer:** *computer FQDN-naam* <br />
-**Beschrijving:** de beschrijving van gebeurtenis-ID 2056 van Microsoft-Windows-TerminalServices-SessionBroker bron kan niet worden gevonden. Het onderdeel dat deze gebeurtenis is niet geïnstalleerd op uw lokale computer of de installatie is beschadigd. U kunt installeren of herstellen van het onderdeel op de lokale computer. <br />
+**Gebruiker:**          NETWERKSERVICE <br />
+**Computer:***computer FQDN-naam* <br />
+**Beschrijving:** De beschrijving van gebeurtenis-ID 2056 van bron Microsoft-Windows-TerminalServices-SessionBroker kan niet worden gevonden. Het onderdeel dat deze gebeurtenis is niet geïnstalleerd op uw lokale computer of de installatie is beschadigd. U kunt installeren of herstellen van het onderdeel op de lokale computer. <br />
 Als de gebeurtenis is opgetreden op een andere computer, wordt de weergave-informatie moest worden opgeslagen met de gebeurtenis. <br />
 De volgende informatie is opgenomen in de gebeurtenis: <br />
 NULL <br />
 NULL <br />
 Meld u aan de database is mislukt.
 
-**Logboeknaam:** Microsoft-Windows-TerminalServices-SessionBroker-Client/operationeel <br />
-**Bron:** Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
-**Datum:** *tijd* <br />
-**Gebeurtenis-ID:** 1296 <br />
+**Logboeknaam:**      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
+**Bron:**        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
+**Datum:***tijd* <br />
+**Gebeurtenis-ID:**      1296 <br />
 **Taakcategorie:** (104) <br />
-**Niveau:** fout <br />
+**Niveau:**         Fout <br />
 **Trefwoorden:**       <br />
-**Gebruiker:** netwerkservice <br />
-**Computer:** *computer FQDN-naam* <br />
-**Beschrijving:** de beschrijving van gebeurtenis-ID 1296 van bron Microsoft-Windows-TerminalServices-SessionBroker-Client kan niet worden gevonden. Het onderdeel dat deze gebeurtenis is niet geïnstalleerd op uw lokale computer of de installatie is beschadigd. U kunt installeren of herstellen van het onderdeel op de lokale computer.
+**Gebruiker:**          NETWERKSERVICE <br />
+**Computer:***computer FQDN-naam* <br />
+**Beschrijving:** De beschrijving van gebeurtenis-ID 1296 van bron Microsoft-Windows-TerminalServices-SessionBroker-Client kan niet worden gevonden. Het onderdeel dat deze gebeurtenis is niet geïnstalleerd op uw lokale computer of de installatie is beschadigd. U kunt installeren of herstellen van het onderdeel op de lokale computer.
 Als de gebeurtenis is opgetreden op een andere computer, wordt de weergave-informatie moest worden opgeslagen met de gebeurtenis.
 De volgende informatie is opgenomen in de gebeurtenis:  <br />
-*Tekst* <br />
-*Tekst* <br />
+*text* <br />
+*text* <br />
 Extern bureaublad Connection Broker is niet gereed voor RPC-communicatie.
 
 ### <a name="cause"></a>Oorzaak

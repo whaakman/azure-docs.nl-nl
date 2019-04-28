@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d14cfb82ae74f85425dbd3e8a365e8b99969641d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735905"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485173"
 ---
 ## <a name="using-vm-extensions"></a>Met behulp van VM-extensies
 Azure VM-extensies gedrag of functies die een andere programma's werken op Azure Virtual machines te implementeren (bijvoorbeeld de **WebDeployForVSDevTest** extensie kunt Visual Studio Web Deploy-oplossingen op uw virtuele Azure-machine) of geef de mogelijkheid om te communiceren met de virtuele machine voor de ondersteuning van sommige andere gedrag (bijvoorbeeld, kunt u de extensies van de VM-toegang vanuit PowerShell, de Azure CLI en REST-clients opnieuw instellen of wijzigen van externe toegang-waarden op uw Azure-VM).

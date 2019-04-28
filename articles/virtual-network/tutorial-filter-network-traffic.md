@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: In deze zelfstudie leert u hoe u netwerkverkeer filtert naar een subnet, met een netwerkbeveiligingsgroep, met behulp van Azure Portal.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: caf9b91d5b98d028d7c9e971df30ad1f6ec448ad
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456737"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Zelfstudie: Netwerkverkeer filteren met een netwerkbeveiligingsgroep met behulp van Azure Portal
 
@@ -65,7 +65,7 @@ Met een toepassingsbeveiligingsgroep kunt u servers met vergelijkbare functies g
 
     | Instelling        | Waarde                                                         |
     | ---            | ---                                                           |
-    | Naam           | myAsgWebServers                                               |
+    | Name           | myAsgWebServers                                               |
     | Abonnement   | Selecteer uw abonnement.                                     |
     | Resourcegroep | Selecteer **Bestaande gebruiken** en selecteer vervolgens **myResourceGroup**. |
     | Locatie       | US - oost                                                       |
@@ -74,7 +74,7 @@ Met een toepassingsbeveiligingsgroep kunt u servers met vergelijkbare functies g
 
     | Instelling        | Waarde                                                         |
     | ---            | ---                                                           |
-    | Naam           | myAsgMgmtServers                                              |
+    | Name           | myAsgMgmtServers                                              |
     | Abonnement   | Selecteer uw abonnement.                                     |
     | Resourcegroep | Selecteer **Bestaande gebruiken** en selecteer vervolgens **myResourceGroup**. |
     | Locatie       | US - oost                                                       |
@@ -87,7 +87,7 @@ Met een toepassingsbeveiligingsgroep kunt u servers met vergelijkbare functies g
 
     |Instelling|Waarde|
     |---|---|
-    |Naam|myNsg|
+    |Name|myNsg|
     |Abonnement| Selecteer uw abonnement.|
     |Resourcegroep | Selecteer **Bestaande gebruiken** en selecteer *myResourceGroup*.|
     |Locatie|US - oost|
@@ -109,22 +109,22 @@ Met een toepassingsbeveiligingsgroep kunt u servers met vergelijkbare functies g
 
 2. Maak een beveiligingsregel op basis waarvan poorten 80 en 443 worden gekoppeld aan de beveiligingsgroep **myAsgWebServers**. Typ of selecteer onder **Inkomende beveiligingsregel toevoegen** de volgende waarden, accepteer de resterende standaardwaarden en selecteer vervolgens **Toevoegen**:
 
-    | Instelling                 | Waarde                                                                                                           |
+    | Instelling                 | Value                                                                                                           |
     | ---------               | ---------                                                                                                       |
     | Doel             | Selecteer **Toepassingsbeveiligingsgroep** en selecteer vervolgens **myAsgWebServers** als **Toepassingsbeveiligingsgroep**.  |
     | Poortbereiken van doel | Voer 80,443 in                                                                                                    |
     | Protocol                | Selecteer TCP                                                                                                      |
-    | Naam                    | Allow-Web-All                                                                                                   |
+    | Name                    | Allow-Web-All                                                                                                   |
 
 3. Voer stap 2 opnieuw uit, met behulp van de volgend waarden:
 
-    | Instelling                 | Waarde                                                                                                           |
+    | Instelling                 | Value                                                                                                           |
     | ---------               | ---------                                                                                                       |
     | Doel             | Selecteer **Toepassingsbeveiligingsgroep** en selecteer vervolgens **myAsgMgmtServers** als **Toepassingsbeveiligingsgroep**. |
     | Poortbereiken van doel | Voer 3389 in                                                                                                      |
     | Protocol                | Selecteer TCP                                                                                                      |
     | Prioriteit                | Voer 110 in                                                                                                       |
-    | Naam                    | Allow-RDP-All                                                                                                   |
+    | Name                    | Allow-RDP-All                                                                                                   |
 
     In deze zelfstudie wordt RDP (poort 3389) voor internet beschikbaar gemaakt voor de VM die is toegewezen aan de toepassingsbeveiligingsgroep *myAsgMgmtServers*. Voor productieomgevingen wordt u aanbevolen in plaats van poort 3389 voor internet te gebruiken, via een VPN of persoonlijke netwerkverbinding verbinding te maken met Azure-resources die u wilt beheren.
 
@@ -144,7 +144,7 @@ Maak twee VM’s in het virtuele netwerk.
 
     |Instelling|Waarde|
     |---|---|
-    |Naam|myVmWeb|
+    |Name|myVmWeb|
     |Gebruikersnaam| Voer een gebruikersnaam naar keuze in.|
     |Wachtwoord| Voer een wachtwoord naar keuze in. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Abonnement| Selecteer uw abonnement.|

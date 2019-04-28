@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 44930ad0f941ea174d95658f220db7aa95012133
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7f692c08f8af322bf7e6ab576e2e6f516594a6c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61336514"
 ---
 # <a name="similarity-method"></a>Methode gelijkenis
 
@@ -28,26 +28,34 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ```
 
 ## <a name="request-parameters"></a>Aanvraagparameters
-Parameter        |Gegevenstype      |Vereist | Description
+
+Parameter        |Gegevenstype      |Vereist | Beschrijving
 ----------|----------|----------|------------
 **s1**        |String   |Ja  |Tekenreeks * moet worden vergeleken
 **s2**        |String   |Ja  |Tekenreeks * moet worden vergeleken
+
 <sub> * Tekenreeksen vergelijken, hebben een maximale lengte van 1MB. </sub>
 <br>
+
 ## <a name="response"></a>Antwoord
+
 Name | Description
 --------|---------
 **SimilarityScore**        |Een drijvende-kommawaarde vertegenwoordigt de gelijkenis cosinus van s1 en s2 met dichter bij 1.0 betekenis meer vergelijkbaar en waarden dichter naar-1.0 wat betekent dat kleiner
+
 <br>
 
 ## <a name="successerror-conditions"></a>Geslaagde of mislukte voorwaarden
+
 HTTP-Status | Reden | Antwoord
 -----------|----------|--------
 **200**         |Geslaagd | Drijvendekommagetal
 **400**         | Ongeldige aanvraag of aanvraag ongeldig | Foutbericht      
 **500**         |Interne serverfout | Foutbericht
 **Is een time-out**     | Er is een time-out opgetreden voor de aanvraag.  | Foutbericht
+
 <br>
+
 ## <a name="example-calculate-similarity-of-two-partial-abstracts"></a>Voorbeeld: Gelijkenis van twee gedeeltelijke samenvattingen berekenen
 #### <a name="request"></a>Aanvraag:
 ```

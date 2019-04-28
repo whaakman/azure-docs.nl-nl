@@ -1,7 +1,6 @@
 ---
 title: Apache Hadoop-clusters in HDInsight met behulp van Azure portal beheren
 description: Leer hoe u HDInsight-clusters met behulp van de Azure portal maken en beheren.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 80c27d588bb8b4c60ae8432fbd3a2ac3d2db1394
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 003aeadba1f4683af40f390d40dd3bbe32e02a83
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802657"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096352"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Apache Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -41,7 +40,7 @@ Selecteer de clusternaam van uw vanaf het [ **HDInsight-clusters** ](#showCluste
 
 **Menu bovenaan:**  
 
-| Item| Beschrijving |
+| Item| Description |
 |---|---|
 |Verplaatsen|Hiermee wordt het cluster verplaatst naar een andere resourcegroep of een ander abonnement.|
 |Verwijderen|Hiermee verwijdert u het cluster. |
@@ -50,7 +49,7 @@ Selecteer de clusternaam van uw vanaf het [ **HDInsight-clusters** ](#showCluste
 **Linkermenu:**  
   - **Menu linksboven**
 
-    | Item| Beschrijving |
+    | Item| Description |
     |---|---|
     |Overzicht|Bevat algemene informatie voor uw cluster.|
     |Activiteitenlogboek|Weergeven en activiteitenlogboeken op te vragen.|
@@ -88,7 +87,7 @@ Selecteer de clusternaam van uw vanaf het [ **HDInsight-clusters** ](#showCluste
 
   - **Ondersteuning en probleemoplossing van menu**
 
-    | Item| Beschrijving |
+    | Item| Description |
     |---|---|
     |Status van resources|Zie [overzicht van Azure resource health](../service-health/resource-health-overview.md).|
     |Nieuw ondersteuningsverzoek|Hiermee kunt u een ondersteuningsticket maken met Microsoft ondersteuning.|

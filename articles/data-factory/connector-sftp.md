@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: jingwang
 ms.openlocfilehash: 9540a82933337dab112119cc791fa12d98b30aff
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61042931"
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Gegevens kopiëren van de SFTP-server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -61,8 +61,8 @@ Als u wilt gebruikmaken van basisverificatie, kunt u 'authenticationType'-eigens
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| Gebruikersnaam | De gebruiker die toegang tot de SFTP-server heeft. |Ja |
-| wachtwoord | Wachtwoord voor de gebruiker (gebruikersnaam). Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| userName | De gebruiker die toegang tot de SFTP-server heeft. |Ja |
+| password | Wachtwoord voor de gebruiker (gebruikersnaam). Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Voorbeeld:**
 
@@ -98,7 +98,7 @@ Voor het gebruik van SSH-verificatie voor openbare sleutel, stelt u de eigenscha
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| Gebruikersnaam | Gebruikers die toegang tot de SFTP-server heeft |Ja |
+| userName | Gebruikers die toegang tot de SFTP-server heeft |Ja |
 | privateKeyPath | Geef het absolute pad naar het persoonlijke sleutelbestand dat toegang heeft tot Integration Runtime. Geldt alleen wanneer de zelf-hostende Integration Runtime-type is opgegeven in 'connectVia'. | Opgeven of de `privateKeyPath` of `privateKeyContent`.  |
 | privateKeyContent | Met base64 gecodeerd SSH-inhoud met persoonlijke sleutel. Persoonlijke SSH-sleutel moet OpenSSH-indeling. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Opgeven of de `privateKeyPath` of `privateKeyContent`. |
 | passPhrase | Geef de pass-woordgroep en wachtwoord in voor het ontsleutelen van de persoonlijke sleutel als bestand met de sleutel is beveiligd met een wachtwoordzin. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja als het bestand met persoonlijke sleutel wordt beveiligd door een wachtwoordzin. |

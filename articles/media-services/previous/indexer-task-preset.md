@@ -3,22 +3,23 @@ title: Taak vooraf voor Azure Media Indexer
 description: In dit onderwerp biedt een overzicht van taak vooraf voor Azure Media Indexer.
 services: media-services
 documentationcenter: ''
-author: Asolanki
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: adsolank;juliako;
+origin.date: 02/08/2019
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.openlocfilehash: 8ce3ea3847e4c8c022f17375676d8415372dec85
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57991643"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466303"
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Taak vooraf voor Azure Media Indexer 
 
@@ -30,7 +31,7 @@ De taak wordt beschreven in dit onderwerp vooraf ingesteld dat u wilt doorgeven 
 
 De volgende tabel beschrijft de elementen en kenmerken van de configuratie-XML.
 
-|Name|Require|Description|
+|Name|Require|Beschrijving|
 |---|---|---|
 |Invoer|true|Asset-bestanden die u wilt indexeren.<br/>Azure Media Indexer biedt ondersteuning voor de volgende indelingen voor media: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>U kunt de naam van het bestand (s) opgeven de **naam** of **lijst** kenmerk van de **invoer** element (zoals hieronder wordt weergegeven). Als u niet welke assetbestand index opgeeft, wordt het primaire bestand opgehaald. Als er geen primaire assetbestand is ingesteld, wordt het eerste bestand in het invoeractivum geïndexeerd.<br/><br/>Als u wilt de naam van het asset expliciet opgeven, doet u het:<br/>```<input name="TestFile.wmv" />```<br/><br/>U kunt ook meerdere assetbestanden in één keer (maximaal 10) index. Om dit te doen:<br/>-Maak een tekstbestand (manifest-bestand) en wijs hieraan de extensie .lst.<br/>-Een lijst met alle namen van de asset-bestand in uw invoeractivum toevoegen aan deze manifestbestand.<br/>-(Uploaden) het manifest-bestand toevoegen aan de asset.<br/>-Geef de naam van het manifestbestand in kenmerk van de invoer.<br/>```<input list="input.lst">```<br/><br/>**Opmerking:** Als u meer dan 10 bestanden aan het manifestbestand toevoegt, mislukt de indexeringstaak met foutcode 2006.|
 |metagegevens|false|Metagegevens voor de opgegeven asset-bestanden.<br/>```<metadata key="..." value="..." />```<br/><br/>U kunt waarden voor vooraf gedefinieerde sleutels opgeven. <br/><br/>De volgende sleutels worden momenteel ondersteund:<br/><br/>**titel** en **beschrijving** : wordt gebruikt voor het bijwerken van het taalmodel ter verbetering van spraakherkenning.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**gebruikersnaam** en **wachtwoord** : wordt gebruikt voor verificatie bij het downloaden van internet-bestanden via http of https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>De gebruikersnaam en wachtwoord voor waarden van toepassing op alle media-URL's in het manifest van de invoer.|

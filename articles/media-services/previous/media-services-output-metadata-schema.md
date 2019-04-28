@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 42227095c69924cd2922673d020b349aa29f2daa
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61129743"
 ---
 # <a name="output-metadata"></a>Uitvoermetagegevens
 ## <a name="overview"></a>Overzicht
@@ -64,7 +64,7 @@ Verzameling van invoer/transcoderen, die is verwerkt om te kunnen deze AssetFile
 U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="child-elements"></a>Onderliggende elementen
-| Name | Description |
+| Name | Beschrijving |
 | --- | --- |
 | **Bron**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Een invoer/bronbestand dat wordt gebruikt bij het genereren van deze asset. Zie voor meer informatie, bron-element. |
 
@@ -116,7 +116,7 @@ Elke fysieke AssetFile kan nul of meer audionummers interleaved in een indeling 
 U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="child-elements"></a>Onderliggende elementen
-| Name | Description |
+| Name | Beschrijving |
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Een specifieke audiotrack in de bovenliggende AssetFile. Zie voor meer informatie, AudioTrack element. |
 
@@ -126,7 +126,7 @@ Een specifieke audiotrack in de bovenliggende AssetFile.
 U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="attributes"></a>Kenmerken
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Vereist |**xs:int** |Op nul gebaseerde index van deze audiotrack. **Opmerking:**  Dit is niet noodzakelijkerwijs de TrackID zoals gebruikt in een MP4-bestand. |
 | **Codec** |**xs:String** |Audiotrack codec tekenreeks. |
@@ -137,7 +137,7 @@ U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).
 | **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> Vereist |**xs:int** |Bits per voorbeeld voor de indeling wFormatTag typt. |
 
 ### <a name="child-elements"></a>Onderliggende elementen
-| Name | Description |
+| Name | Beschrijving |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Volume softwarelicentiecontrole resultaat parameters. Zie voor meer informatie, LoudnessMeteringResultParameters-element. |
 
@@ -147,7 +147,7 @@ Volume softwarelicentiecontrole resultaat parameters.
 U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="attributes"></a>Kenmerken
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:String** |**Dolby** professionele volume softwarelicentiecontrole development kitversie. |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Vereist |**xs:int** |DialogNormalization die worden gegenereerd via DPLM, vereist wanneer LoudnessMetering is ingesteld |

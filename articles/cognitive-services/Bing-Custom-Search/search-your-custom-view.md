@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
 ms.openlocfilehash: f00a8a02ac7f9468516506b6e6a376209d24c270
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448880"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60946778"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Uw Bing Custom Search-instantie aanroepen vanuit de Portal
 
@@ -42,7 +42,7 @@ Te klikken op **extra Parameters** blijkt dat de volgende parameters:
 
 |Parameter  |Description  |
 |---------|---------|
-|Veilig zoeken     | Een filter dat wordt gebruikt voor het filteren van webpagina's voor de inhoud voor volwassenen. Alleen beschikbaar voor de eindpunten Web, installatiekopie, Video en gebruikersinterface die wordt gehost.        |
+|Safe Search     | Een filter dat wordt gebruikt voor het filteren van webpagina's voor de inhoud voor volwassenen. Alleen beschikbaar voor de eindpunten Web, installatiekopie, Video en gebruikersinterface die wordt gehost.        |
 |Taal van de gebruikersinterface    | De taal die wordt gebruikt voor tekenreeksen voor interface. Bijvoorbeeld, als u inschakelt, afbeeldingen en video's in de gebruikersinterface die wordt gehost, de **installatiekopie** en **Video** tabbladen de opgegeven taal gebruikt.        |
 |Count     | Het aantal zoekresultaten te retourneren in de reactie. Alleen beschikbaar voor Web, afbeeldingen en Video-eindpunten.         |
 |Offset    | Het aantal zoekresultaten om over te slaan voordat het retourneren van resultaten. Alleen beschikbaar voor Web, afbeeldingen en Video-eindpunten.        |

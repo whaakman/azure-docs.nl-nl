@@ -10,11 +10,11 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996597"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457334"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(AFGESCHAFT) Openbare toegang tot een Azure Container Service-toepassing inschakelen
 
@@ -54,7 +54,7 @@ Eerst moet de gewenste poort te openen.
    | Back-endpoort |De interne-openbare poort van de container voor het routeren van verkeer. |
    | Back-endpool |De containers in deze groep zijn het doel voor deze load balancer. |
    | Test |De test gebruikt om te bepalen of een doel in de **back-endpool** in orde is. |
-   | Sessiepersistentie |Bepaalt hoe verkeer vanaf een client moet worden verwerkt voor de duur van de sessie.<br><br>**Geen**: opeenvolgende aanvragen van dezelfde client kunnen worden verwerkt door elke container.<br>**Client IP**: opeenvolgende aanvragen van hetzelfde client-IP worden verwerkt door dezelfde container.<br>**Client IP en protocol**: opeenvolgende aanvragen van de dezelfde client-IP-adres en protocol combinatie worden verwerkt door dezelfde container. |
+   | Sessiepersistentie |Bepaalt hoe verkeer vanaf een client moet worden verwerkt voor de duur van de sessie.<br><br>**Geen**: Opeenvolgende aanvragen van dezelfde client kunnen worden verwerkt door elke container.<br>**Client IP**: Opeenvolgende aanvragen van hetzelfde client-IP worden afgehandeld door dezelfde container.<br>**Client IP en protocol**: Opeenvolgende aanvragen van de dezelfde client-IP-adres en protocol combinatie worden afgehandeld door dezelfde container. |
    | Time-out voor inactiviteit |(Alleen TCP) Binnen enkele minuten de tijd voor bewaren van een TCP/HTTP-client openen zonder afhankelijk te *keepalive* berichten. |
 
 ## <a name="add-a-security-rule-portal"></a>Toevoegen van een beveiligingsregel (portal)

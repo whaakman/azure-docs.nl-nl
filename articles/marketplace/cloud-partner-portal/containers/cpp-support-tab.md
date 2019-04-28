@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 90a103bcdfdcd5d61433c05d4cadfa746c67e192
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979726"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472733"
 ---
 # <a name="container-support-tab"></a>Tabblad voor ondersteuning van container
 
-Gebruik de **ondersteunen** tabblad van de **nieuwe aanbieding** pagina voor technische en gebruiker bronnen voor ondersteuning van uw aanbieding.  De volgende invoer gebieden vindt u in het formulier voor ondersteuning: **Engineering contact op met**, **Customer Support**, en **ondersteuning voor URL's**. Een sterretje (*) toegevoegd aan de naam van het veld geeft aan dat dit is verplicht.
+Gebruik de **ondersteunen** tabblad van de **nieuwe aanbieding** pagina voor technische en gebruiker bronnen voor ondersteuning van uw aanbieding.  De volgende invoer gebieden vindt u in het formulier voor ondersteuning: **Neem contact op met technische**, **klantondersteuning**, en **ondersteuning voor URL's**. Een sterretje (*) toegevoegd aan de naam van het veld geeft aan dat dit is verplicht.
 
 ## <a name="support-form-fields"></a>Ondersteuning voor formuliervelden
 

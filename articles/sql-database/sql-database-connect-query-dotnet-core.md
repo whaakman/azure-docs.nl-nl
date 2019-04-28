@@ -13,15 +13,15 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 460f79eb0679dc7d71bc929e4e790b68bd0f6774
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447389"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61410139"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Snelstartgids: .NET Core (C#) gebruiken om een query uit te voeren voor een Azure SQL-database
 
-In deze snelstart gebruikt u [.NET Core](https://www.microsoft.com/net/) en C# code om verbinding te maken met een Azure SQL database. Vervolgens moet u een Transact-SQL-instructie uitvoeren om een query op gegevens uit te voeren.
+In deze quickstart gebruikt u [.NET Core](https://www.microsoft.com/net/) en C# code om verbinding te maken met een Azure SQL-database. Vervolgens moet u een Transact-SQL-instructie uitvoeren om een query op gegevens uit te voeren.
 
 ## <a name="prerequisites"></a>Vereisten
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: juliako
 ms.openlocfilehash: 1c2ec576211741390ef91233101261a7881e4180
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466745"
 ---
 # <a name="transforms-and-jobs"></a>Transformaties en taken
 
@@ -63,11 +63,11 @@ Stel dat u wilt extraheren van het eerste beeld van al uw video's als een miniat
 
 Een **transformeren** helpt u bij het maken van één keer het recept (stap 1) en het verzenden van taken met behulp van deze recept (stap 2).
 
-## <a name="job-error-codes"></a>Foutcodes voor taak
+## <a name="job-error-codes"></a>Foutcodes in taak
 
-Zie [foutcodes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Zie [Foutcodes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="paging"></a>Zoekresultaten oproepen
+## <a name="paging"></a>Paging
 
 Zie [filteren, bestellen, voor het wisselbestand van Media Services-entiteiten](entities-overview.md).
 
@@ -79,5 +79,5 @@ Zie voor meer informatie, [met CLI mediaverwerking schalen](media-reserved-units
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zelfstudie: Uploaden, coderen en streamen van video's met behulp van .NET](stream-files-tutorial-with-api.md)
+- [Zelfstudie: Video’s uploaden, coderen en streamen met behulp van .NET](stream-files-tutorial-with-api.md)
 - [Zelfstudie: Analyseren van video's met Media Services v3 met behulp van .NET](analyze-videos-tutorial-with-api.md)

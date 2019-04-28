@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.openlocfilehash: 536d06948510dd5df05bfc2d46cc79b9cf1559ae
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618019"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61467056"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Een Azure Database for MariaDB-server maken met behulp van Azure Portal
 
@@ -123,7 +123,7 @@ We gebruiken eerst het opdrachtregelprogramma [mysql](https://dev.mysql.com/doc/
     mysql --host mydemoserver.mariadb.database.azure.com --user myadmin@mydemoserver -p
     ```
 
-    mysql-parameter |Voorgestelde waarde|Beschrijving
+    mysql-parameter |Voorgestelde waarde|Description
     ---|---|---
     --host | *servernaam* | De servernaamwaarde die u hebt gebruikt bij het maken van de Azure Database for MariaDB-server. De server in ons voorbeeld is **mydemoserver.mariadb.database.azure.com**. Gebruik de FQDN (Fully Qualified Domain Name) (**\*.mariadb.database.azure.com**) zoals weergegeven in het voorbeeld. Als u de servernaam niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen.
     --user | *aanmeldnaam van serverbeheerder* |De gebruikersnaam van de serverbeheerder die u hebt gebruikt bij het maken van de Azure Database for MariaDB-server. Als u de gebruikersnaam niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen. De indeling is *gebruikersnaam\@servername*.

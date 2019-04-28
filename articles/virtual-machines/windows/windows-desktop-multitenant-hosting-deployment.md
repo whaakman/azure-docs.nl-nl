@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
 ms.openlocfilehash: 7f43528c55cd22c2649ca0f1208da6f41695b98e
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569974"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485452"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Over het implementeren van Windows 10 op Azure met Multitenant Hosting-rechten 
 Voor klanten met Windows 10 Enterprise E3/E5 per gebruiker of Windows virtuele bureaublad toegang per gebruiker (abonnement gebruikerslicenties of Invoegtoepassingslicenties gebruiker abonnement) kunt u uw Windows 10-licenties naar de cloud brengen met Multitenant Hosting rechten voor Windows 10 en Windows 10 Virtual Machines uitvoeren in Azure zonder te hoeven betalen voor een andere licentie. Zie voor meer informatie, [Multitenant die als host fungeert voor Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).

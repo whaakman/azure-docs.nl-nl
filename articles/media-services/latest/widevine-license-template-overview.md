@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: c6fc363a7ab9de215647e371a9d3c846f8688bd5
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548698"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466320"
 ---
 # <a name="widevine-license-template-overview"></a>Overzicht van Widevine-licentiesjablonen 
 
@@ -83,11 +83,11 @@ Elke waarde content_key_specs moet worden opgegeven voor alle sporen te wissen, 
 | content_key_specs. track_type |string |Een typenaam bijhouden. Als content_key_specs is opgegeven in de licentieaanvraag, zorg ervoor dat alle typen expliciet bijhouden opgeven. Dit niet doet, resulteert in de afgelopen 10 seconden worden afgespeeld is mislukt. |
 | content_key_specs  <br/> security_level |uint32 |Hiermee definieert u robuustheid clientvereisten om te worden afgespeeld. <br/> -Software-wit-box cryptografie is vereist. <br/> -Cryptografie software en een verborgen decoder zijn vereist. <br/> -De belangrijkste materiaal en cryptografie-bewerkingen moeten worden uitgevoerd binnen een van vertrouwde hardware ondersteunde uitvoeringsomgeving. <br/> -De codering en decodering van inhoud moet worden uitgevoerd binnen een van vertrouwde hardware ondersteunde uitvoeringsomgeving.  <br/> -De cryptografie, decoderen en alle verwerking van de media (gecomprimeerde en ongecomprimeerde) moeten worden afgehandeld in een vertrouwde hardware ondersteunde uitvoeringsomgeving. |
 | content_key_specs <br/> required_output_protection.hdc |tekenreeks, een van de HDCP_NONE, HDCP_V1, HDCP_V2 |Geeft aan of HDCP vereist is. |
-| content_key_specs <br/>sleutel |Base64-<br/>gecodeerde tekenreeks |De inhoudssleutel moet worden gebruikt voor dit nummer. Als u opgeeft, is de track_type of key_id vereist. Provider van de inhoud kunt u deze optie gebruiken om te injecteren de inhoudssleutel voor dit nummer in plaats van dat de Widevine-licentie-server of opzoeken van een sleutel genereren. |
+| content_key_specs <br/>key |Base64-<br/>gecodeerde tekenreeks |De inhoudssleutel moet worden gebruikt voor dit nummer. Als u opgeeft, is de track_type of key_id vereist. Provider van de inhoud kunt u deze optie gebruiken om te injecteren de inhoudssleutel voor dit nummer in plaats van dat de Widevine-licentie-server of opzoeken van een sleutel genereren. |
 | content_key_specs.key_id |Binary base64-gecodeerde tekenreeks, 16 bytes |De unieke id voor de sleutel. |
 
 ## <a name="policy-overrides"></a>Beleid negeren
-| Name | Value | Description |
+| Name | Value | Beschrijving |
 | --- | --- | --- |
 | policy_overrides&#46;can_play |Booleaanse waarde, true of false |Geeft aan dat het afspelen van de inhoud is toegestaan. De standaardinstelling is onwaar. |
 | policy_overrides&#46;can_persist |Booleaanse waarde, true of false |Geeft aan dat de licentie kan worden vastgehouden naar permanente opslag voor offlinegebruik. De standaardinstelling is onwaar. |

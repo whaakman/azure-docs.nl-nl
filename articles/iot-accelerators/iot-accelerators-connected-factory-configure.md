@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602270"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450020"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>De oplossingsversneller voor verbonden Factory configureren
 
@@ -266,7 +266,7 @@ De eigenschappen in deze categorie definiëren het uiterlijk van de verbonden Fa
 
 * Name
 * Description
-* Installatiekopie
+* Image
 * Locatie
 * Eenheden
 * Zichtbaar

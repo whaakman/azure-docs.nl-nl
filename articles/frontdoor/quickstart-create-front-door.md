@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 39e7626e6b4c545649e39ff2120d1f1fd105d764
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 6bcd5bcc2463ec1ab9dcc97644d5046c31bfc78b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461983"
 ---
-# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Snelstart: een Front Door maken voor een webtoepassing met hoge beschikbaarheid
+# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Quickstart: Een voordeur voor een maximaal beschikbare globale webtoepassing maken
 
 In deze snelstart wordt beschreven hoe u een Front Door-profiel maakt dat hoge beschikbaarheid en uitstekende prestaties biedt voor uw webtoepassing. 
 
@@ -39,7 +39,7 @@ Voor deze snelstart moeten twee exemplaren van een webtoepassing worden geïmple
 
      | Instelling         | Waarde     |
      | ---              | ---  |
-     | Naam           | Voer een unieke naam voor de web-app in  |
+     | Name           | Voer een unieke naam voor de web-app in  |
      | Resourcegroep          | Selecteer **Nieuw** en typ *myResourceGroupFD1* |
      | App Service-plan/-locatie         | Selecteer **Nieuw**.  Voer in het App Service-plan *myAppServicePlanEastUS* in en selecteer **OK**. 
      |      Locatie  |   US - oost        |
@@ -51,7 +51,7 @@ Voor deze snelstart moeten twee exemplaren van een webtoepassing worden geïmple
 
      | Instelling         | Waarde     |
      | ---              | ---  |
-     | Naam           | Voer een unieke naam voor de web-app in  |
+     | Name           | Voer een unieke naam voor de web-app in  |
      | Resourcegroep          | Selecteer **Nieuw** en typ *myResourceGroupFD2* |
      | App Service-plan/-locatie         | Selecteer **Nieuw**.  Voer in het App Service-plan *myAppServicePlanWestEurope* in en selecteer **OK**. 
      |      Locatie  |   Europa -west      |

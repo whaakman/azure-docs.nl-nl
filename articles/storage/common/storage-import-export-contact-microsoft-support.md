@@ -9,11 +9,11 @@ ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
 ms.openlocfilehash: b01c8a3fe9b0c0856dceb5c05f449504ce8c75d6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120360"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483215"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Open een ondersteuningsticket voor een taak voor importeren/exporteren
 
@@ -22,13 +22,13 @@ Als u problemen ondervindt met uw Import/Export-service, kunt u een serviceaanvr
 * Het maken van een ondersteuningsaanvraag.
 * Over het beheren van een aanvraag ondersteuningslevenscyclus uit in de portal.
 
-## <a name="create-a-support-request"></a>Maak een ondersteuningsaanvraag
+## <a name="create-a-support-request"></a>Een ondersteuningsaanvraag maken
 
 De volgende stappen uitvoeren om een ondersteuningsaanvraag maken:
 
 1. Ga naar uw taak import/export. Navigeer naar **ondersteuning + probleemoplossing** sectie en klik vervolgens op **nieuwe ondersteuningsaanvraag**.
      
-    ![Basisbeginselen](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
+    ![Basics](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
 2. In **nieuwe ondersteuningsaanvraag**, selecteer **basisbeginselen**. In **basisbeginselen**, de volgende stappen uit:
     

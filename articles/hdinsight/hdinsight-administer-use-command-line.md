@@ -1,7 +1,6 @@
 ---
 title: Met behulp van Azure Classic CLI - Azure HDInsight Apache Hadoop-clusters beheren
 description: Informatie over het gebruik van de klassieke Azure CLI voor het beheren van Apache Hadoop-clusters in Azure HDInsight.
-services: hdinsight
 ms.reviewer: jasonh
 author: tylerfox
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tyfox
-ms.openlocfilehash: 61be4088034d8cc557c67c5b6de4972766654a39
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 94ef5a60ecc5d943d78b16a386660049cc52d82e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202381"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096004"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Apache Hadoop-clusters in HDInsight met behulp van de klassieke Azure-CLI beheren
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]

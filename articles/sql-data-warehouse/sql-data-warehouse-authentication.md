@@ -11,11 +11,11 @@ ms.date: 04/02/2019
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: a3bed9df5b62ce7f2f3df7046357dc4f2458575c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797030"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475028"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>Verifiëren bij Azure SQL datawarehouse
 Ontdek hoe u verifieert met Azure SQL Data Warehouse met behulp van Azure Active Directory (AAD) of SQL Server-verificatie.

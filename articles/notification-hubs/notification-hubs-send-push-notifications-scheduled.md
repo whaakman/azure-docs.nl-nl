@@ -13,16 +13,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2019
-ms.author: jowargo
+origin.date: 04/14/2018
+ms.date: 02/25/2019
+ms.author: v-biyu
 ms.openlocfilehash: af0de9e8c18644f4ae200f6546c0dd0a41320f9f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471834"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457682"
 ---
-# <a name="how-to-send-scheduled-notifications"></a>Procedures: Geplande meldingen verzenden
+# <a name="how-to-send-scheduled-notifications"></a>Procedure: Geplande meldingen verzenden
 
 Als u een scenario waarin u wilt een melding wordt verzonden op een bepaald moment in de toekomst hebt, maar nog geen een eenvoudige manier om te activeren om uw back-end-code om de melding te verzenden. Standard-laag notification hubs ondersteuning voor een functie waarmee u meldingen plannen van zeven dagen in de toekomst.
 

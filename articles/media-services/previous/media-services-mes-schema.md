@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 837235e04ce190a4481e1f19789d8e9ff9cb7578
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259239"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61131556"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard-schema
 In dit artikel worden enkele van de elementen en typen van het XML-schema beschreven waarop [voorinstellingen van Media Encoder Standard](media-services-mes-presets-overview.md) zijn gebaseerd. Het artikel bevat uitleg over elementen en hun geldige waarden.  
@@ -28,15 +28,15 @@ Hiermee definieert u een vooraf ingestelde standaardcodering.
 
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
-| **Codering** |[Codering](media-services-mes-schema.md#Encoding) |Root-element geeft aan dat de invoerbronnen moeten worden gecodeerd. |
+| **Encoding** |[Encoding](media-services-mes-schema.md#Encoding) |Root-element geeft aan dat de invoerbronnen moeten worden gecodeerd. |
 | **Uitvoer** |[Uitvoer](media-services-mes-schema.md#Output) |Verzameling van gewenste uitvoerbestanden. |
 | **StretchMode**<br/>minOccurs="0"<br/>default="AutoSize|xs:String|Bepalen van het formaat van de video frame uitvoer, opvulling, pixel of hoogte-breedteverhouding weergegeven. **StretchMode** mogelijk een van de volgende waarden: **Geen**, **AutoSize** (standaard), of **AutoAanpassen**.<br/><br/>**Geen**: Strikt gaat u als volgt de uitvoer-oplossing (bijvoorbeeld de **breedte** en **hoogte** in de voorinstelling) zonder rekening te houden de pixel hoogte-breedteverhouding of hoogte-breedteverhouding weergegeven van de invoervideo. Aanbevolen in scenario's zoals [bijsnijden](media-services-crop-video.md), waar de uitvoervideo heeft een andere hoogte-breedteverhouding ten opzichte van de invoer. <br/><br/>**AutoSize**: De uitvoerresolutie van de wordt in het venster past (breedte * hoogte) opgegeven door de voorinstelling. Het coderingsprogramma levert echter een uitvoervideo met vierkante (1:1) pixels hoogte-breedteverhouding. Daarom op uitvoer van de breedte of hoogte uitvoer kan worden overschreven als u wilt overeenkomen met de hoogte-breedteverhouding van de weergave van de invoer, zonder opvulling. Als de invoer 1920 x 1080 is en de vooraf ingestelde standaardcodering 1280 x 1280 gevraagd, klikt u vervolgens de Height-waarde in de voorinstelling is genegeerd en de uitvoer worden op 1280 x 720, waarmee de invoer hoogte-breedteverhouding van 16:9 worden bewaard. <br/><br/>**AutoAanpassen**: Indien nodig, opvullen met het teken van de uitvoervideo (met letterbox of pillarbox) om te voldoen aan de gewenste uitvoerresolutie, terwijl u ervoor te zorgen dat de actieve video regio in de uitvoer de dezelfde hoogte-breedteverhouding als invoer heeft. Stel bijvoorbeeld dat de invoer is 1920 x 1080 en de vooraf ingestelde standaardcodering 1280 x 1280 gevraagd. Vervolgens worden de video-uitvoer op 1280 x 1280, maar deze bevat een binnenste rechthoek 1280 x 720 van 'active video' met hoogte-breedteverhouding van 16:9 en letterbox regio's 280 pixels hoog boven of onder. Voor een ander voorbeeld: als de invoer 1440 x 1080 is en de vooraf ingestelde standaardcodering om 1280 x 720 vraagt, klikt u vervolgens de uitvoer worden weergegeven op 1280 x 720, waarin een binnenste rechthoek van 960 x 720 op de hoogte-breedteverhouding 4:3 en pijler vak regio's 160 pixels breed bij de links en rechts. 
 
 ### <a name="attributes"></a>Kenmerken
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **Versie**<br/><br/> Vereist |**xs: decimaal** |De vooraf ingestelde versie. De volgende beperkingen zijn van toepassing: xs:fractionDigits waarde = "1" en xs:minInclusive value = "1" bijvoorbeeld **versie = "1.0"**. |
 
@@ -45,7 +45,7 @@ Bevat een reeks van de volgende elementen:
 
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **H264Video** |[H264Video](media-services-mes-schema.md#H264Video) |Instellingen voor H.264-codering van video. |
 | **AACAudio** |[AACAudio](media-services-mes-schema.md#AACAudio) |Instellingen voor de AAC-codering van audio. |
@@ -56,7 +56,7 @@ Bevat een reeks van de volgende elementen:
 ## <a name="H264Video"></a> H264Video
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Op dit moment wordt slechts één keer codering ondersteund. |
 | **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Bepaalt de vaste afstand tussen de IDR frames in eenheden van seconden. Als de duur van de GOP ook genoemd. Zie **SceneChangeDetection** voor het beheren van of het coderingsprogramma van deze waarde afwijken kan. |
@@ -67,7 +67,7 @@ Bevat een reeks van de volgende elementen:
 
 ### <a name="attributes"></a>Kenmerken
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **voorwaarde** |**xs:String** | Wanneer de invoer geen video heeft, kunt u om af te dwingen van het coderingsprogramma om in te voegen een zwart-wit video bijhouden. Om dit te doen, gebruikt u de voorwaarde = "InsertBlackIfNoVideoBottomLayerOnly" (aan een video op alleen de laagste bitrate invoegen) of een voorwaarde = "InsertBlackIfNoVideo" (uitvoer bitsnelheden helemaal invoegen van een video). Raadpleeg [dit artikel](media-services-advanced-encoding-with-mes.md#no_video) voor meer informatie.|
 
@@ -77,7 +77,7 @@ Als u een invoer voor de codering met alleen audio en geen video, verzendt bevat
               
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **H264Layer**<br/><br/> minOccurs = "0" maxOccurs = "niet-gebonden" |[H264Layer](media-services-mes-schema.md#H264Layer) |Een verzameling van H264 lagen. |
 
@@ -89,7 +89,7 @@ Als u een invoer voor de codering met alleen audio en geen video, verzendt bevat
 
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **Profiel**<br/><br/> minOccurs="0"<br/><br/> standaardwaarde = 'Auto' |**xs: tekenreeks** |Kan worden van een van de volgende **xs: tekenreeks** waarden: **Auto**, **Baseline**, **Main**, **High**. |
 | **Niveau**<br/><br/> minOccurs="0"<br/><br/> standaardwaarde = 'Auto' |**xs: tekenreeks** | |
@@ -124,7 +124,7 @@ Als u een invoer voor de codering met alleen audio en geen video, verzendt bevat
 
 ### <a name="groups"></a>Groepen
 
-| Referentie | Description |
+| Referentie | Beschrijving |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Beschrijving van [AudioGroup](media-services-mes-schema.md#AudioGroup) weten van het juiste aantal kanalen, samplefrequentie en bitsnelheid die kan worden ingesteld voor elk profiel. |
 
@@ -133,7 +133,7 @@ Zie de volgende tabel 'details Audio codec' voor meer informatie over welke waar
 
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **kanalen**<br/><br/> minOccurs="0" |**xs: int** |Het aantal audio kanalen gecodeerd. Hier volgen de geldige opties: 1, 2, 5, 6, 8.<br/><br/> Standaard: 2. |
 | **SamplingRate**<br/><br/> minOccurs="0" |**xs: int** |De samplefrequentie van audio, opgegeven in Hz. |
@@ -150,7 +150,7 @@ Audio Codec|Details
 ## <a name="Clip"></a> Clip
 ### <a name="attributes"></a>Kenmerken
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **startTime** |**xs:duration** |Hiermee geeft u de begintijd van de presentatie. De waarde van de starttijd moet overeenkomen met de absolute tijdstempel van de invoervideo. Bijvoorbeeld, als het eerste frame van de invoervideo een tijdstempel van 12:00:10.000 heeft, klikt u vervolgens StartTime moet ten minste 12:00:10.000 of hoger. |
 | **Duur** |**xs:duration** |Hiermee geeft u de duur van een presentatie (bijvoorbeeld de weergave van een overlay in de video). |
@@ -158,7 +158,7 @@ Audio Codec|Details
 ## <a name="Output"></a> Uitvoer
 ### <a name="attributes"></a>Kenmerken
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **FileName** |**xs:String** |De naam van het uitvoerbestand.<br/><br/> Macro's die worden beschreven in de volgende tabel kunt u de namen van de uitvoer te bouwen. Bijvoorbeeld:<br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"}}]** |
 
@@ -203,7 +203,7 @@ U kunt ook kunt u het gebruik van de **PreserveResolutionAfterRotation** markere
 ## <a name="FormatGroup"></a> FormatGroup (groep)
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **BmpFormat** |**BmpFormat** | |
 | **PngFormat** |**PngFormat** | |
@@ -233,14 +233,14 @@ U kunt ook kunt u het gebruik van de **PreserveResolutionAfterRotation** markere
 
 ### <a name="attributes"></a>Kenmerken
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **voorwaarde** |**xs:String** | |
 
 ## <a name="JpgLayer"></a> JpgLayer
 ### <a name="element"></a>Element
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **Breedte**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Hoogte**<br/><br/> minOccurs="0" |**xs:int** | |
@@ -276,21 +276,21 @@ U kunt ook kunt u het gebruik van de **PreserveResolutionAfterRotation** markere
 ## <a name="BmpImage"></a> BmpImage (complex type overneemt van de Video)
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |PNG-lagen |
 
 ## <a name="JpgImage"></a> JpgImage (complex type overneemt van de Video)
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |PNG-lagen |
 
 ## <a name="PngImage"></a> PngImage (complex type overneemt van de Video)
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |PNG-lagen |
 

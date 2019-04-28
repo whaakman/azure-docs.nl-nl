@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
 ms.openlocfilehash: da850b8ff9174fa310c5247cd7e99af69db28a8b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328432"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477420"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>De opslagconfiguratie voor SQL Server-VM 's
 
@@ -129,8 +129,8 @@ Azure maakt gebruik van de volgende instellingen om te maken van de opslaggroep 
 | Schijfformaten |1 TB |
 | Cache |Lezen |
 | Grootte van bestandssysteemtoewijzing |De clustergrootte van 64 KB NTFS |
-| Initialisatie van de directe bestanden |Ingeschakeld |
-| Pagina's in het geheugen vergrendelen |Ingeschakeld |
+| Initialisatie van de directe bestanden |Enabled |
+| Pagina's in het geheugen vergrendelen |Enabled |
 | Herstel |Eenvoudig herstel (geen tolerantie) |
 | Aantal kolommen |Aantal gegevensschijven<sup>1</sup> |
 | TempDB-locatie |Opgeslagen op gegevensschijven<sup>2</sup> |
@@ -143,7 +143,7 @@ Azure maakt gebruik van de volgende instellingen om te maken van de opslaggroep 
 
 De volgende tabel beschrijft de drie werkbelasting opties beschikbaar en hun bijbehorende optimalisatie:
 
-| Type werkbelasting | Description | Optimalisaties |
+| Type werkbelasting | Beschrijving | Optimalisaties |
 | --- | --- | --- |
 | **Algemeen** |Standaardinstelling die ondersteuning biedt voor de meeste workloads |Geen |
 | **Transactieverwerking** |Wordt de opslag voor OLTP-workloads van traditionele databases geoptimaliseerd |Traceringsvlag 1117<br/>Traceringsvlag 1118 |

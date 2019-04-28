@@ -12,11 +12,11 @@ ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 5e0ef8287b7ce257cd551a1ace043ccbed72b50b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087088"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61036840"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Een functie maken die kan worden geïntegreerd met Azure Logic Apps
 
@@ -236,7 +236,7 @@ Het laatste deel van de werkstroom bestaat uit het activeren van een e-mail wann
 
     ![De e-mail configureren voor de actie Een e-mail verzenden.](media/functions-twitter-email/21-configure-email.png)
     
-| Instelling      |  Voorgestelde waarde   | Description  |
+| Instelling      |  Voorgestelde waarde   | Beschrijving  |
 | ----------------- | ------------ | ------------- |
 | **Aan** | Voer uw e-mailadres in | Het e-mailadres dat de melding ontvangt. |
 | **Onderwerp** | Negatief gevoel in tweet gedetecteerd  | De onderwerpregel van de e-mailmelding.  |

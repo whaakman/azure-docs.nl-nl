@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: 1c16ea44418d99ee1f80a7d0ef7a3e5b3f118f46
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485190"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Inleiding tot een multitenant SaaS-app die gebruikmaakt van het patroon van de database-per-tenant met SQL Database
 
@@ -40,7 +40,7 @@ Als u de zelfstudies doorlopen en met de app werken, zich richten op de SaaS-pat
 Nadat u de app hebt geïmplementeerd, bekijk de volgende zelfstudies die op de eerste implementatie voortbouwen. Deze zelfstudies verkennen veelvoorkomende SaaS-patronen die van ingebouwde functies van SQL Database, Azure SQL Data Warehouse en andere Azure-services gebruikmaken. Zelfstudies zijn PowerShell-scripts met gedetailleerde uitleg. De uitleg vereenvoudigen begrijpen en de implementatie van de dezelfde SaaS-beheerpatronen in uw toepassingen.
 
 
-| Zelfstudie | Description |
+| Zelfstudie | Beschrijving |
 |:--|:--|
 | [Richtlijnen en tips voor het SQL-Database multitenant SaaS-app-voorbeeld](saas-tenancy-wingtip-app-guidance-tips.md) | Downloaden en uitvoeren van PowerShell-scripts om voor te bereiden van onderdelen van de toepassing. |
 |[De Wingtip SaaS-toepassing implementeren en verkennen](saas-dbpertenant-get-started-deploy.md)|  Implementeren en verkennen van de Wingtip SaaS-toepassing met uw Azure-abonnement. |

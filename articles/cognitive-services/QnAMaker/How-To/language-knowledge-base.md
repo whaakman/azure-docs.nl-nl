@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.openlocfilehash: f6c317cc1281a5a9bc18a2057fa12b7b61bb7689
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875260"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61371851"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Taalondersteuning van knowledge base-inhoud voor QnA Maker
 QnA Maker biedt ondersteuning voor knowledge base-inhoud in vele talen. Elke QnA Maker-service moet echter worden gereserveerd voor één taal. De eerste knowledge base gemaakt die gericht is op een bepaalde QnA Maker-service Hiermee stelt u de taal van de betreffende service. Zie [hier](../Overview/languages-supported.md) voor een lijst van ondersteunde talen.
@@ -34,7 +34,7 @@ De taal wordt automatisch herkend van de inhoud van de gegevensbronnen die worde
 
 4. Selecteer **velden** sectie worden de details testkb.
 
-    ![Velden selecteren](../media/qnamaker-how-to-language-kb/selectfields.png)
+    ![Selecteer velden](../media/qnamaker-how-to-language-kb/selectfields.png)
 
 5. Schakel het selectievakje voor **Analyzer** om taaldetails te bekijken.
 

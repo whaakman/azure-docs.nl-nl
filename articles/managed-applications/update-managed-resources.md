@@ -1,6 +1,6 @@
 ---
 title: Bijwerken van resources in Azure beheerde toepassingen | Microsoft Docs
-description: Hierin wordt beschreven hoe werken voor bronnen in de beheerde resourcegroep voor een Azure-beheerde toepassing.
+description: Hierin wordt beschreven hoe werken aan resources in de beheerde resourcegroep voor een door Azure beheerde toepassing.
 services: managed-applications
 author: tfitzmac
 manager: timlt
@@ -10,47 +10,48 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7c2b38055771dae458e4a3a56c2c98231335ae03
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 21f4e0aa339eb0c746f9b9b06f8aaada6c4d4b71
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61043409"
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Werken met resources in de beheerde resourcegroep voor Azure beheerde toepassing
 
-Dit artikel wordt beschreven hoe u resources die zijn geïmplementeerd als onderdeel van een beheerde toepassing bijwerkt. Als de uitgever van een beheerde toepassing hebt u toegang tot de resources in de groep beheerde resource. Voor het bijwerken van deze bronnen, moet u de beheerde resourcegroep die zijn gekoppeld aan een beheerde toepassing vinden en openen van de resource in die resourcegroep.
+In dit artikel wordt beschreven hoe u resources die zijn geïmplementeerd als onderdeel van een beheerde toepassing bijwerken. Als de uitgever van een beheerde toepassing hebt u toegang tot de resources in de beheerde resourcegroep. Voor het bijwerken van deze resources, moet u de beheerde resourcegroep die is gekoppeld aan een beheerde toepassing vinden en toegang tot de resource in die resourcegroep.
 
-In dit artikel wordt ervan uitgegaan dat u hebt geïmplementeerd de beheerde toepassing in de [beheerde webtoepassing (IaaS) met Azure beheerservices](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app) voorbeeldproject. Dat beheerde toepassing bevat een **Standard_D1_v2** virtuele machine. Als u geen beheerde toepassing hebt geïmplementeerd, kunt u dit artikel om vertrouwd te raken met de stappen voor het bijwerken van een groep beheerde bron.
+In dit artikel wordt ervan uitgegaan dat u hebt geïmplementeerd de beheerde toepassing in de [beheerde webtoepassing (IaaS) met Azure-beheerservices](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app) voorbeeldproject. Dat beheerde toepassing bevat een **Standard_D1_v2** virtuele machine. Als u geen beheerde toepassing hebt geïmplementeerd, kunt u in dit artikel nog steeds gebruiken om vertrouwd te raken met de stappen voor het bijwerken van een beheerde resourcegroep.
 
-De volgende afbeelding toont de geïmplementeerde beheerde toepassing.
+De volgende afbeelding ziet u de geïmplementeerde beheerde toepassing.
 
-![Beheerde toepassing is geïmplementeerd](./media/update-managed-resources/deployed.png)
+![Geïmplementeerde beheerde toepassing](./media/update-managed-resources/deployed.png)
 
-In dit artikel leert u Azure CLI om te gebruiken:
+In dit artikel hebt u Azure CLI te gebruiken:
 
 * Identificeren van de beheerde toepassing
-* De groep beheerde bron identificeren
-* De resources van de virtuele machine in de groep beheerde bron identificeren
-* Verander de VM-grootte (op een kleinere als niet gebruikt of een grotere ter ondersteuning van meer load)
+* Identificeren van de beheerde resourcegroep
+* Identificeren van de virtuele machine resource (s) in de beheerde resourcegroep
+* Wijzigen van de VM-grootte (toekennen aan een kleiner formaat als niet gebruikt, of een grotere ter ondersteuning van meer laden)
 * Een beleid toewijzen aan de beheerde resourcegroep waarmee de toegestane locaties
 
-## <a name="get-managed-application-and-managed-resource-group"></a>Ophalen van beheerde toepassingen en beheerde resourcegroep
+## <a name="get-managed-application-and-managed-resource-group"></a>Beheerde toepassing en de beheerde resourcegroep opvragen
 
-Als u de beheerde toepassingen in een resourcegroep, gebruikt u:
+Voor de beheerde toepassingen in een resourcegroep, gebruikt u:
 
 ```azurecli-interactive
 az managedapp list --query "[?contains(resourceGroup,'DemoApp')]"
 ```
 
-Als u de ID van de beheerde resourcegroep, gebruikt u:
+Voor de ID van de beheerde resourcegroep, gebruikt u:
 
 ```azurecli-interactive
 az managedapp list --query "[?contains(resourceGroup,'DemoApp')].{ managedResourceGroup:managedResourceGroupId }"
 ```
 
-## <a name="resize-vms-in-managed-resource-group"></a>Grootte van virtuele machines in beheerde resourcegroep
+## <a name="resize-vms-in-managed-resource-group"></a>Grootte van virtuele machines in de beheerde resourcegroep
 
-Geef de naam van de beheerde resourcegroep overzicht van de virtuele machines in de groep van beheerde bronnen.
+Als u wilt zien van de virtuele machines in de beheerde resourcegroep, geef de naam van de beheerde resourcegroep.
 
 ```azurecli-interactive
 az vm list -g DemoApp6zkevchqk7sfq --query "[].{VMName:name,OSType:storageProfile.osDisk.osType,VMSize:hardwareProfile.vmSize}"
@@ -62,13 +63,13 @@ Voor het bijwerken van de grootte van de virtuele machines gebruiken:
 az vm resize --size Standard_D2_v2 --ids $(az vm list -g DemoApp6zkevchqk7sfq --query "[].id" -o tsv)
 ```
 
-Nadat de bewerking is voltooid, controleert u of dat de toepassing op standaard D2 v2 wordt uitgevoerd.
+Nadat de bewerking is voltooid, controleert u of dat de toepassing wordt uitgevoerd op Standard D2 v2.
 
 ![Beheerde toepassing met behulp van standaard D2 v2](./media/update-managed-resources/upgraded.png)
 
-## <a name="apply-policy-to-managed-resource-group"></a>Beleid toepassen op beheerde resourcegroep
+## <a name="apply-policy-to-managed-resource-group"></a>Beleid toepassen op de beheerde resourcegroep
 
-Lees het beheerde resourcegroep en toewijzing van een beleid op dat bereik. Het beleid **e56962a6-4747-49cd-b67b-bf8b01975c4c** is een ingebouwde beleid voor het opgeven van toegestane locaties.
+De beheerde resourcegroep en de toewijzing van een beleid krijgen op dat bereik. Het beleid **e56962a6-4747-49cd-b67b-bf8b01975c4c** is een ingebouwde beleid voor toegestane locaties op te geven.
 
 ```azurecli-interactive
 managedGroup=$(az managedapp show --name <app-name> --resource-group DemoApp --query managedResourceGroupId --output tsv)
@@ -83,15 +84,15 @@ az policy assignment create --name locationAssignment --policy e56962a6-4747-49c
                         }'
 ```
 
-Als de toegestane locaties wilt weergeven, gebruikt u het:
+Als u wilt zien van de toegestane locaties, gebruikt u:
 
 ```azurecli-interactive
 az policy assignment show --name locationAssignment --scope $managedGroup --query parameters.listofallowedLocations.value
 ```
 
-De toewijzing van beleid wordt weergegeven in de portal.
+De beleidstoewijzing wordt weergegeven in de portal.
 
-![De toewijzing van beleid weergeven](./media/update-managed-resources/assignment.png)
+![Beleidstoewijzing weergeven](./media/update-managed-resources/assignment.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

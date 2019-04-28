@@ -1,5 +1,5 @@
 ---
-title: "SSMS: Verbinding maken en query's uitvoeren op gegevens in Azure SQL Database | Microsoft Docs"
+title: "SSMS: Verbinding maken en query's uitvoeren op gegevens in Azure SQL-database | Microsoft Docs"
 description: Ontdek hoe u verbinding maakt met SQL Database in Azure met behulp van SQL Server Management Studio (SSMS). Voer vervolgens T-SQL-instructies (Transact-SQL) uit om query's uit te voeren voor gegevens en om gegevens te bewerken.
 keywords: verbinding maken met SQL-database,Sql Server Management Studio
 services: sql-database
@@ -14,15 +14,15 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359983"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61409697"
 ---
-# <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snelstartgids: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren op een Azure SQL database
+# <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snelstartgids: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren op een Azure SQL-database
 
-In deze snelstart gaat u [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) gebruiken om een verbinding tot stand te brengen met een SQL-database in Azure. Vervolgens gaat u Transact-SQL-instructies uitvoeren om gegevens op te vragen, in te voegen, bij te werken en te verwijderen. U kunt SSMS gebruiken voor het beheren van een SQL-infrastructuur, van SQL Server tot SQL Database voor Microsoft Windows.  
+In deze quickstart gaat u [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) gebruiken om een verbinding tot stand te brengen met een SQL-database in Azure. Vervolgens gaat u Transact-SQL-instructies uitvoeren om gegevens op te vragen, in te voegen, bij te werken en te verwijderen. U kunt SSMS gebruiken voor het beheren van een SQL-infrastructuur, van SQL Server tot SQL Database voor Microsoft Windows.  
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -68,7 +68,7 @@ In SMSS maakt u verbinding met uw Azure SQL Database-server.
 
 2. Voer de volgende informatie in:
 
-   | Instelling      | Voorgestelde waarde    | Description |
+   | Instelling      | Voorgestelde waarde    | Beschrijving |
    | ------------ | ------------------ | ----------- |
    | **Servertype** | Database-engine | Vereiste waarde. |
    | **Servernaam** | De volledig gekwalificeerde servernaam | Dit moet er ongeveer als volgt uitzien: **mijnnieuweserver20170313.database.windows.net**. |

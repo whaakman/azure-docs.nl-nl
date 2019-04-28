@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523763"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475810"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Transact-SQL (T-SQL) gebruiken om te maken en beheren van taken voor Elastic Database
 
@@ -406,7 +406,7 @@ De volgende opgeslagen procedures worden de [taken database](sql-database-job-au
 
 
 
-|Opgeslagen procedure  |Description  |
+|Opgeslagen procedure  |Beschrijving  |
 |---------|---------|
 |[sp_add_job](#sp_add_job)     |     Hiermee wordt een nieuwe taak toegevoegd.    |
 |[sp_update_job](#sp_update_job)    |      Een bestaande taak voor het bijwerken.   |
@@ -1218,7 +1218,7 @@ Geeft de taakgeschiedenis worden uitgevoerd.
 |**job_id** |uniqueidentifier|  De unieke ID van de taak.
 |**job_version**    |int    |De versie van de taak (automatisch bijgewerkt telkens wanneer die de taak is gewijzigd).
 |**step_id**    |int|   (Voor deze taak) de unieke id voor de stap. NULL geeft aan dat dit is het uitvoeren van de bovenliggende taak.
-|**is_active**| bits |Geeft aan of informatie actief of inactief is. 1 geeft aan dat actieve taken en 0 geeft aan dat niet-actief.
+|**is_active**| bit |Geeft aan of informatie actief of inactief is. 1 geeft aan dat actieve taken en 0 geeft aan dat niet-actief.
 |**lifecycle**| nvarchar(50)|Waarde die de status van de taak aangeeft: 'Gemaakt', 'Wordt uitgevoerd', 'Is mislukt', 'Geslaagd', 'Overgeslagen', 'SucceededWithSkipped'|
 |**create_time**|   datetime2(7)|   De datum en tijd waarop die de taak is gemaakt.
 |**start_time** |datetime2(7)|  Datum en tijd de uitvoering van de taak. NULL als de taak is nog niet uitgevoerd.
@@ -1257,7 +1257,7 @@ Geeft alle taken.
 
 Bevat alle versies van de taak.
 
-|Kolomnaam|   Gegevenstype|  Beschrijving|
+|Kolomnaam|   Gegevenstype|  Description|
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |Naam van de taak.|
 |**job_id**|    uniqueidentifier    |De unieke ID van de taak.|
@@ -1270,7 +1270,7 @@ Bevat alle versies van de taak.
 
 Ziet u alle stappen in de huidige versie van elke taak.
 
-|Kolomnaam    |Gegevenstype| Beschrijving|
+|Kolomnaam    |Gegevenstype| Description|
 |------|------|-------|
 |**job_name**   |nvarchar(128)| Naam van de taak.|
 |**job_id** |uniqueidentifier   |De unieke ID van de taak.|
@@ -1285,7 +1285,7 @@ Ziet u alle stappen in de huidige versie van elke taak.
 |**target_group_id**|   uniqueidentifier|   De unieke ID van de doelgroep.|
 |**initial_retry_interval_seconds**|    int |De vertraging voor de eerste nieuwe poging. Standaardwaarde is 1.|
 |**maximum_retry_interval_seconds** |int|   De maximale wachttijd tussen nieuwe pogingen. Als de vertraging tussen nieuwe pogingen kan groter zijn dan deze waarde, wordt deze het beste in plaats daarvan beperkt tot op deze waarde. Standaardwaarde is 120.|
-|**retry_interval_backoff_multiplier**  |echte|  De vermenigvuldiger om toe te passen aan de elke poging als meerdere taak uitvoering van stap aanmeldingspogingen mislukt. Standaardwaarde is 2.0.|
+|**retry_interval_backoff_multiplier**  |real|  De vermenigvuldiger om toe te passen aan de elke poging als meerdere taak uitvoering van stap aanmeldingspogingen mislukt. Standaardwaarde is 2.0.|
 |**retry_attempts** |int|   Het aantal nieuwe pogingen te gebruiken als deze stap mislukt. De standaardwaarde van 10, waarmee wordt aangegeven geen nieuwe pogingen.|
 |**step_timeout_seconds**   |int|   De hoeveelheid tijd in minuten tussen nieuwe pogingen. De standaardwaarde is 0 geeft aan een interval van 0 minuten dat.|
 |**output_type**    |nvarchar(11)|  Locatie van de opdracht. In de huidige Preview-versie, 'Inline' is de standaardinstelling en alleen geaccepteerd waarde.|
@@ -1311,7 +1311,7 @@ Ziet u alle stappen in alle versies van elke taak. Het schema is vrijwel identie
 
 Geeft een lijst van alle doelgroepen.
 
-|Kolomnaam|Gegevenstype| Beschrijving|
+|Kolomnaam|Gegevenstype| Description|
 |-----|-----|-----|
 |**target_group_name**| nvarchar(128)   |De naam van de doelgroep, een verzameling van databases. 
 |**target_group_id**    |uniqueidentifier   |De unieke ID van de doelgroep.

@@ -9,11 +9,11 @@ ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 03b504524b2f489f1ee042c6e825ccffe0a60bb3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315059"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478467"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Harde schijven voorbereiden voor een importtaak
 Als u wilt een of meer harde schijven voorbereiden voor een importtaak, de volgende stappen uit:
@@ -102,7 +102,7 @@ Als u wilt een of meer harde schijven voorbereiden voor een importtaak, de volge
 
  De opdracht die wordt gebruikt voor de eerste kopieersessie voor elk station vereist verschillende parameters dan de opdrachten voor latere kopie-sessies. De volgende tabel bevat de extra parameters die beschikbaar voor de eerste kopieersessie zijn:
 
-|Opdrachtregelparameter|Description|
+|Opdrachtregelparameter|Beschrijving|
 |-----------------------------|-----------------|
 |**/sk:**<StorageAccountKey\>|`Optional.` De opslagaccountsleutel voor het opslagaccount waarnaar de gegevens worden geïmporteerd. U moet een bevatten **/sk:**< StorageAccountKey\> of **/csas:**< ContainerSas\> in de opdracht.|
 |**/csas:**<ContainerSas\>|`Optional`. De container SAS gebruiken om gegevens te importeren naar het opslagaccount. U moet een bevatten **/sk:**< StorageAccountKey\> of **/csas:**< ContainerSas\> in de opdracht.<br /><br /> De waarde voor deze parameter moet beginnen met de containernaam van de, gevolgd door een vraagteken (?) en de SAS-token. Bijvoorbeeld:<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> De machtigingen of opgegeven op de URL of in een opgeslagen toegangsbeleid, lezen, moet bevatten schrijven en verwijderen voor de taken van gegevensimport, en lezen, schrijven en lijst voor export-taken.<br /><br /> Als deze parameter is opgegeven, worden alle blobs moeten worden geïmporteerd of geëxporteerd moeten zich binnen de container die in de shared access signature is opgegeven.|
@@ -118,7 +118,7 @@ Als u wilt een of meer harde schijven voorbereiden voor een importtaak, de volge
 
 |||
 |-|-|
-|Opdrachtregelparameter|Description|
+|Opdrachtregelparameter|Beschrijving|
 |**/j:**< JournalFile\>|`Required.` Het pad naar het logboekbestand. Elk station moet exact één logboekbestand hebben. Houd er rekening mee dat het logboekbestand niet op de doel-schijf moet zich bevinden. De bestandsextensie van het logboek is `.jrn`.|
 |**/id:**<SessionId\>|`Required.` De sessie-ID identificeert een kopieersessie. Het wordt gebruikt om ervoor te zorgen nauwkeurige herstel van een sessie onderbroken kopiëren. Bestanden die zijn gekopieerd in een sessie kopiëren worden opgeslagen in een map met de naam van de sessie-ID op de doel-station.|
 

@@ -13,11 +13,11 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/19/2019
 ms.openlocfilehash: f382cc547640969f934b94405b635c9e84f10791
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009065"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61417331"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Automatische failover-groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases
 
@@ -306,7 +306,7 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: Failover van de SQL-database met individuele databases en elastische pools beheren
 
-| Cmdlet | Beschrijving |
+| Cmdlet | Description |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Met deze opdracht wordt een failovergroep gemaakt en geregistreerd op de primaire en secundaire servers|
 | [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Hiermee verwijdert u de failovergroep van de server en verwijdert alle secundaire databases opgenomen in de groep |
@@ -341,7 +341,7 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 
 #### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>PowerShell-commandlets te maken van een failover-instantiegroep
 
-| API | Beschrijving |
+| API | Description |
 | --- | --- |
 | New-AzureRmSqlDatabaseInstanceFailoverGroup |Met deze opdracht wordt een failovergroep gemaakt en geregistreerd op de primaire en secundaire servers|
 | Set-AzureRmSqlDatabaseInstanceFailoverGroup |Hiermee wijzigt u de configuratie van de failovergroep|
@@ -364,7 +364,7 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 
 ### <a name="rest-api-manage-failover-groups-with-managed-instances-preview"></a>REST-API: Failover-groepen beheren met beheerde instanties (preview)
 
-| API | Beschrijving |
+| API | Description |
 | --- | --- |
 | [Maken of bijwerken van de Failovergroep](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Hiermee maken of bijwerken van een failovergroep |
 | [Failover-groep verwijderen](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Hiermee verwijdert u de failovergroep van de server |
@@ -377,7 +377,7 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 
 - Zie voor voorbeelden van scripts:
   - [PowerShell gebruiken voor het configureren van actieve geo-replicatie voor één Azure SQL-database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [PowerShell gebruiken voor het configureren van actieve geo-replicatie voor een gepoolde Azure SQL-database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [PowerShell gebruiken voor het configureren van actieve geo-replicatie voor een Azure SQL-pooldatabase](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
   - [Een failovergroep configureren en een failover uitvoeren voor een individuele database](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 - Zie voor een overzicht voor zakelijke continuïteit en scenario's, [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md)
 - Voor meer informatie over Azure SQL Database geautomatiseerde back-ups, Zie [geautomatiseerde back-ups van SQL-Database](sql-database-automated-backups.md).
