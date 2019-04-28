@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7684ae6b4ddb6320efc62ef6f9963bef1b9a66fa
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256818"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62732363"
 ---
 # <a name="advanced-resource-graph-queries"></a>Geavanceerde query's van Resource Graph
 
@@ -22,7 +22,7 @@ Om inzicht te krijgen in query's met Azure Resource Graph moet u eerst enige bas
 We nemen de volgende geavanceerde query's door:
 
 > [!div class="checklist"]
-> - [VMSS-capaciteit en -grootte opvragen](#vmss-capacity)
+> - [Schaal de capaciteit van virtuele machine en grootte](#vmss-capacity)
 > - [Een lijst weergeven van alle tagnamen](#list-all-tags)
 > - [Virtuele machines zoeken met reguliere expressies](#vm-regex)
 
@@ -38,7 +38,7 @@ Azure CLI (met een extensie) en Azure PowerShell (met een module) ondersteunen A
 
 Met deze query zoekt u virtuele-machineschaalsetresources en verkrijgt u diverse informatie, waaronder de grootte van de virtuele machines en de capaciteit van de schaalset. Deze query maakt gebruik van de functie `toint()` om de capaciteit te converteren naar een waarde die kan worden gesorteerd. Ten slotte worden de namen van de kolommen gewijzigd in eigenschappen met aangepaste namen.
 
-```Query
+```kusto
 where type=~ 'microsoft.compute/virtualmachinescalesets'
 | where name contains 'contoso'
 | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name
@@ -57,7 +57,7 @@ Search-AzGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' 
 
 Deze query start met de tag en bouwt een JSON-object dat alle unieke tagnamen en hun overeenkomende typen vermeldt.
 
-```Query
+```kusto
 project tags
 | summarize buildschema(tags)
 ```
@@ -86,7 +86,7 @@ De **komt overeen met reguliere expressie \@**  kunnen we voor het definiëren v
 
 Na de vergelijking op naam worden de namen in oplopende volgorde weergegeven.
 
-```Query
+```kusto
 where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$'
 | project name
 | order by name asc

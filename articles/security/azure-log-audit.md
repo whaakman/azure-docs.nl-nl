@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: eb2f42b690099002f2f14aa4e782906a76c01d4c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6ab6ec6a88dbba066be9ecf9919be876090cfdff
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241507"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121498"
 ---
 # <a name="azure-logging-and-auditing"></a>Logboekregistratie en bewaking in Azure
 
@@ -101,7 +101,7 @@ Diagnostische logboeken van Azure bieden meerdere configuratieopties, zoals de A
 **Ondersteunde services, schema voor diagnostische logboeken en ondersteunde logboekcategorieën per resourcetype**
 
 
-| Service | Schema's en documentatie | Resourcetype | Categorie |
+| Service | Schema's en documentatie | Resourcetype | Category |
 | ------- | ------------- | ------------- | -------- |
 |Azure Load Balancer| [Azure Monitor-logboeken voor Load Balancer (Preview)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers<br>Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent<br>LoadBalancerProbeHealthStatus|
 |Netwerkbeveiligingsgroepen|[Logboeken voor Netwerkbeveiligingsgroepen in Azure Monitor](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups<br>Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent<br>NetworkSecurityGroupRuleCounter|
@@ -135,7 +135,7 @@ De opgenomen rapporten worden vermeld in de volgende tabel:
 |Aanmeldingen vanaf mogelijk geïnfecteerde apparaten|   Afzonderlijke gebruikersactiviteiten||
 |Gebruikers met afwijkende aanmeldingsactiviteiten| Rapport met groepsactiviteiten||
 ||Activiteitenrapport voor registratie voor wachtwoord opnieuw instellen||
-||Activiteit voor wachtwoord opnieuw instellen|||
+||Activiteit voor wachtwoord opnieuw instellen||
 
 De gegevens in deze rapporten kunnen nuttig zijn voor uw toepassingen, zoals Security Information and Event Management (SIEM)-systemen, audit en hulpprogramma's voor business intelligence. De API's van Azure AD Reporting bieden toegang tot de gegevens op programmeerniveau via een set op REST-gebaseerde API's. U kunt deze aanroepen [API's](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started) uit verschillende programmeertalen en hulpprogramma's.
 
@@ -230,15 +230,15 @@ Naast de logboekregistratiemogelijkheden van het eerder genoemde heeft Network W
 
 - [Variabele pakketopname](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): Pakketgegevens in en uit een virtuele machine bevat. Geavanceerde opties voor het filteren en verder aanpassen besturingselementen, zoals instellingen voor tijd en formaat beperking veelzijdigheid bieden. De pakketgegevens kunnen worden opgeslagen in een blob-opslag of op de lokale schijf in *.cap* bestandsindeling.
 
-* [IP-stroom verificatie](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Controleert of een pakket wordt toegestaan of geweigerd op basis van flow informatie 5-tuple pakket parameters (dat wil zeggen, doel-IP, bron-IP, doelpoort, bronpoort en protocol). Als het pakket is geweigerd door een beveiligingsgroep, wordt de regel en de groep die het pakket geweigerd geretourneerd.
+- [IP-stroom verificatie](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Controleert of een pakket wordt toegestaan of geweigerd op basis van flow informatie 5-tuple pakket parameters (dat wil zeggen, doel-IP, bron-IP, doelpoort, bronpoort en protocol). Als het pakket is geweigerd door een beveiligingsgroep, wordt de regel en de groep die het pakket geweigerd geretourneerd.
 
-* [Volgende hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Hiermee bepaalt u de volgende hop voor pakketten worden gerouteerd in de infrastructuur van Azure-netwerk, zodat u het probleem een onjuist geconfigureerde door de gebruiker gedefinieerde routes onderzoeken kunt.
+- [Volgende hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Hiermee bepaalt u de volgende hop voor pakketten worden gerouteerd in de infrastructuur van Azure-netwerk, zodat u het probleem een onjuist geconfigureerde door de gebruiker gedefinieerde routes onderzoeken kunt.
 
-* [Weergave van de beveiligingsgroep](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Hiermee haalt u de effectieve en toegepaste beveiligingsregels die worden toegepast op een virtuele machine.
+- [Weergave van de beveiligingsgroep](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Hiermee haalt u de effectieve en toegepaste beveiligingsregels die worden toegepast op een virtuele machine.
 
-* [Virtuele netwerkgateway en verbinding probleemoplossing](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Helpt u problemen oplossen met virtuele netwerkgateways en verbindingen.
+- [Virtuele netwerkgateway en verbinding probleemoplossing](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Helpt u problemen oplossen met virtuele netwerkgateways en verbindingen.
 
-* [De abonnementslimieten netwerk](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Hiermee kunt u weergeven van Resourcegebruik netwerk op basis van limieten.
+- [De abonnementslimieten netwerk](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Hiermee kunt u weergeven van Resourcegebruik netwerk op basis van limieten.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -276,17 +276,17 @@ De volgende tabel geeft een lijst van en beschrijft integratiescenario's:
 
 | Integratiescenario | Description |
 | --------------------- | :---------- |
-|[Overzicht van de toepassing](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Bekijk de onderdelen van uw app met belangrijke metrische gegevens en waarschuwingen.||
-|[Diagnostische gegevens over zoeken bijvoorbeeld gegevens](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| U kunt zoeken naar gebeurtenissen, zoals aanvragen, uitzonderingen, afhankelijkheidsaanroepen, logboektraceringen en paginaweergaven en deze gegevens ook filteren.||
-|[Metrics Explorer voor cumulatieve gegevens](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Verken, filter en segmenteer cumulatieve gegevens, zoals aantallen aanvragen, fouten en uitzonderingen, reactietijden en paginalaadtijden.||
-|[Dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Combineer gegevens van meerdere resources tot een mash-up en deel deze met anderen. Ideaal voor toepassingen met meerdere onderdelen en om continu weer te geven in de teamkamer.||
-|[Live Metrics Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|Wanneer u een nieuwe build implementeert, kunt u kijken naar deze 'near-realtime' prestatie-indicatoren om te controleren of dat alles naar verwachting werkt.||
-|[Analytische gegevens](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Beantwoord moeilijke vragen over de prestaties en het gebruik van uw app met behulp van deze krachtige querytaal.||
-|[Automatische en handmatige waarschuwingen](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Automatische waarschuwingen Anticipeer op de normale patronen van telemetrie van uw app en worden geactiveerd wanneer er iets buiten het normale patroon. U kunt ook waarschuwingen instellen voor bepaalde niveaus van aangepaste functies of standaardfuncties voor het verzamelen van metrische gegevens.||
-|[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Prestatiegegevens bekijken in de code. Ga naar de code vanuit stack-traces.||
-|[Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)|Integreer metrische gegevens over het gebruik van de toepassing met andere business intelligence.||
-|[REST API](https://dev.applicationinsights.io/)|Schrijf code voor het uitvoeren van query's op uw functies voor het verzamelen van metrische gegevens en op onbewerkte gegevens.||
-|[Continue export](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Bulksgewijs exporteren van onbewerkte gegevens naar de opslag wanneer ze worden ontvangen.||
+|[Overzicht van de toepassing](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Bekijk de onderdelen van uw app met belangrijke metrische gegevens en waarschuwingen.|
+|[Diagnostische gegevens over zoeken bijvoorbeeld gegevens](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| U kunt zoeken naar gebeurtenissen, zoals aanvragen, uitzonderingen, afhankelijkheidsaanroepen, logboektraceringen en paginaweergaven en deze gegevens ook filteren.|
+|[Metrics Explorer voor cumulatieve gegevens](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Verken, filter en segmenteer cumulatieve gegevens, zoals aantallen aanvragen, fouten en uitzonderingen, reactietijden en paginalaadtijden.|
+|[Dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Combineer gegevens van meerdere resources tot een mash-up en deel deze met anderen. Ideaal voor toepassingen met meerdere onderdelen en om continu weer te geven in de teamkamer.|
+|[Live Metrics Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|Wanneer u een nieuwe build implementeert, kunt u kijken naar deze 'near-realtime' prestatie-indicatoren om te controleren of dat alles naar verwachting werkt.|
+|[Analytische gegevens](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Beantwoord moeilijke vragen over de prestaties en het gebruik van uw app met behulp van deze krachtige querytaal.|
+|[Automatische en handmatige waarschuwingen](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Automatische waarschuwingen Anticipeer op de normale patronen van telemetrie van uw app en worden geactiveerd wanneer er iets buiten het normale patroon. U kunt ook waarschuwingen instellen voor bepaalde niveaus van aangepaste functies of standaardfuncties voor het verzamelen van metrische gegevens.|
+|[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Prestatiegegevens bekijken in de code. Ga naar de code vanuit stack-traces.|
+|[Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)|Integreer metrische gegevens over het gebruik van de toepassing met andere business intelligence.|
+|[REST API](https://dev.applicationinsights.io/)|Schrijf code voor het uitvoeren van query's op uw functies voor het verzamelen van metrische gegevens en op onbewerkte gegevens.|
+|[Continue export](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Bulksgewijs exporteren van onbewerkte gegevens naar de opslag wanneer ze worden ontvangen.|
 
 ### <a name="azure-security-center-alerts"></a>Azure Security Center-waarschuwingen
 
@@ -304,7 +304,7 @@ Security Center maakt gebruik van geavanceerde beveiligingsanalyses die veel ver
 
 Veel beveiligingsbewerkingen en incident response teams vertrouwen op een SIEM-oplossing als startpunt voor het sorteren en onderzoeken van beveiligingswaarschuwingen. Met Azure-Logboekintegratie, kunt u waarschuwingen van Beveiligingscentrum en VM-beveiligingsgebeurtenissen, die worden verzameld door de diagnose en controle in Logboeken in Azure, met de logboeken van Azure Monitor of de SIEM-oplossing in bijna realtime synchroniseren.
 
-## <a name="azure-monitor-logs"></a>Logboeken in Azure Monitor
+## <a name="azure-monitor-logs"></a>Azure Monitor-logboeken
 
 Logboeken in Azure Monitor is een service in Azure waarmee u verzamelen en analyseren van gegevens die wordt gegenereerd door resources in uw cloud en kunt on-premises omgevingen. Dit biedt u realtime inzichten met behulp van geïntegreerde Zoek- en aangepaste dashboards voor het analyseren van miljoenen records gemakkelijk in uw werkbelastingen en servers, ongeacht hun fysieke locatie.
 
@@ -351,14 +351,14 @@ Er zijn vier manieren om [verzamelen van Logboeken en metrische gegevens voor Az
 |Service Fabric||       Storage||    [Service Fabric-analyse (Preview)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>servers /<br>databases||       Diagnostiek||
 ||Microsoft.Sql/<br>servers /<br>elasticPools||||
-|Opslag|||         Script| [Azure Storage Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
+|Storage|||         Script| [Azure Storage Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
 |Azure Virtual Machines|    Microsoft.Compute/<br>virtualMachines|  Toestelnummer|  Toestelnummer||
 ||||Diagnostiek||
 |Virtuele-machineschaalsets|    Microsoft.Compute/<br>virtualMachines    ||Diagnostiek||
 ||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
 |Web server-farms|Microsoft.Web/<br>serverfarms||   Diagnostiek
 |Websites|  Microsoft.Web/<br>sites ||      Diagnostiek|    [Meer informatie](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
-||Microsoft.Web/<br>sites/<br>sleuven|||||
+||Microsoft.Web/<br>sites/<br>sleuven||||
 
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Integratie met on-premises SIEM-systemen

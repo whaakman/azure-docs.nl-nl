@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: aschhab
 ms.openlocfilehash: 7cacabf4f171189810e943043b5513e20113d962
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847028"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125811"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus-wachtrijen, -onderwerpen en -abonnementen
 
@@ -55,7 +55,7 @@ In tegenstelling tot wachtrijen, waarin elk bericht wordt verwerkt door een enke
 
 Ter vergelijking, de functionaliteit bericht verzenden van een wachtrij wordt toegewezen rechtstreeks naar een onderwerp en de functionaliteit van het bericht ontvangen die zijn toegewezen aan een abonnement. Deze functie betekent onder andere abonnementen ondersteuning van de dezelfde patronen die eerder zijn beschreven in deze sectie met betrekking tot wachtrijen: concurrerende consumenten, tijdelijke ontkoppeling, load leveling en taakverdeling.
 
-### <a name="create-topics-and-subscriptions"></a>Maken van onderwerpen en abonnementen
+### <a name="create-topics-and-subscriptions"></a>Onderwerpen en abonnementen maken
 
 Het maken van een onderwerp is vergelijkbaar met het maken van een wachtrij, zoals beschreven in de vorige sectie. Vervolgens verzenden van berichten met de [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) klasse. Om berichten te ontvangen, maakt u een of meer abonnementen naar het onderwerp. Net als bij wachtrijen, berichten worden ontvangen van een abonnement met een [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) object in plaats van een [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) object. Maak de abonnementsclient, waarbij de naam van het onderwerp, de naam van het abonnement en (optioneel) de modus ontvangen als parameters doorgegeven.
 

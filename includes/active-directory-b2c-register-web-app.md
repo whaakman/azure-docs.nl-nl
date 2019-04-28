@@ -2,14 +2,15 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
-ms.author: patricka
+origin.date: 11/03/2016
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 4d5c8373f2a8f02ccfbe51cb970ab08744950e7e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128212"
 ---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
@@ -17,7 +18,7 @@ Gebruik de instellingen die zijn opgegeven in de tabel om de webtoepassing te re
 
 ![Voorbeeld van registratie-instellingen voor een nieuwe web-app](./media/active-directory-b2c-register-web-app/b2c-new-app-settings.png)
 
-| Instelling      | Voorbeeldwaarde  | Beschrijving                                        |
+| Instelling      | Voorbeeldwaarde  | Description                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Naam** | Contoso B2C-app | Geef een **naam** op voor de toepassing waarmee deze wordt beschreven voor uw consumenten. | 
 | **Web-app / web-API opnemen** | Ja | Selecteer **Ja** voor een webtoepassing. |
@@ -31,3 +32,4 @@ De zojuist geregistreerde toepassing wordt weergegeven in de lijst met toepassin
 ![Eigenschappen van webtoepassing](./media/active-directory-b2c-register-web-app/b2c-web-app-properties.png)
 
 Noteer de globaal **unieke client-id** voor de toepassing. U gebruikt de id in de code van uw toepassing.
+

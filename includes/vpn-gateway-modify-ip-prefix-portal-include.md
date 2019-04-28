@@ -2,32 +2,33 @@
 title: bestand opnemen
 description: bestand opnemen
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
-ms.author: cherylmc
+origin.date: 03/21/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 3b8049515f753cbcf8ca068c1790f716f02d30b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1199819d274590cc81d0234680f8765f9cc36c0a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419584"
 ---
 ### <a name="noconnection"></a>IP-adresvoorvoegsels wijzigen voor de gateway van een lokaal netwerk - geen gatewayverbinding
 
 #### <a name="to-add-additional-address-prefixes"></a>Ga als volgt te werk om aanvullende voorvoegsels toe te voegen:
 
-1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
+1. Op de lokale netwerkgatewayresource in de **instellingen** sectie, klikt u op **configuratie**.
 2. Voeg de IP-adresruimte in de *aanvullend adresbereik toevoegen* vak.
 3. Klik op **opslaan** uw instellingen op te slaan.
 
 #### <a name="to-remove-address-prefixes"></a>Ga als volgt te werk om adresvoorvoegsels te verwijderen:
 
-1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
-2. Klik op de **'...'** op de regel met het voorvoegsel op dat u wilt verwijderen.
-3. Klik op **verwijderen**.
+1. Op de lokale netwerkgatewayresource in de **instellingen** sectie, klikt u op **configuratie**.
+2. Klik op de **'...'** op de regel met het voorvoegsel dat u wilt verwijderen.
+3. Klik op **Verwijderen**.
 4. Klik op **opslaan** uw instellingen op te slaan.
 
 ### <a name="withconnection"></a>IP-adresvoorvoegsels wijzigen voor de gateway van een lokaal netwerk - bestaande gatewayverbinding
@@ -36,7 +37,7 @@ Als u een gatewayverbinding hebt en u IP-adresvoorvoegsels wilt toevoegen aan of
 
 #### <a name="1-remove-the-connection"></a>1. Verwijder de verbinding.
 
-1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **verbindingen**.
+1. Op de lokale netwerkgatewayresource in de **instellingen** sectie, klikt u op **verbindingen**.
 2. Klik op de **...**  op de regel voor elke verbinding en klik vervolgens op **verwijderen**.
 3. Klik op **opslaan** uw instellingen op te slaan.
 
@@ -44,21 +45,21 @@ Als u een gatewayverbinding hebt en u IP-adresvoorvoegsels wilt toevoegen aan of
 
 Ga als volgt te werk om aanvullende voorvoegsels toe te voegen:
 
-1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
+1. Op de lokale netwerkgatewayresource in de **instellingen** sectie, klikt u op **configuratie**.
 2. De IP-adresruimte toevoegen.
 3. Klik op **opslaan** uw instellingen op te slaan.
 
 Ga als volgt te werk om adresvoorvoegsels te verwijderen:
 
-1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
-2. Klik op de **...**  op de regel met het voorvoegsel op dat u wilt verwijderen.
-3. Klik op **verwijderen**.
+1. Op de lokale netwerkgatewayresource in de **instellingen** sectie, klikt u op **configuratie**.
+2. Klik op de **...**  op de regel met het voorvoegsel dat u wilt verwijderen.
+3. Klik op **Verwijderen**.
 4. Klik op **opslaan** uw instellingen op te slaan.
 
-#### <a name="3-recreate-the-connection"></a>3. Maak de verbinding opnieuw.
+#### <a name="3-recreate-the-connection"></a>3. Maak opnieuw verbinding.
 
 1. Navigeer naar de virtuele netwerkgateway voor uw VNet. (Niet de lokale netwerkgateway.)
-2. Op de virtuele netwerkgateway in de **instellingen** sectie, klikt u op **verbindingen**.
+2. Op de Gateway van het virtuele netwerk, in de **instellingen** sectie, klikt u op **verbindingen**.
 3. Klik op de **+ toevoegen** openen de **verbinding toevoegen** blade.
-4. Maak opnieuw een verbinding.
+4. Uw verbinding opnieuw maakt.
 5. Klik op **OK** om de verbinding te maken.

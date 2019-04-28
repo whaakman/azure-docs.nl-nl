@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: ramamill
-ms.openlocfilehash: ba80c8ce57495eaa46e915cb0c472eb4aabcee57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a0b6c83f800c0a479ba7a16c91b497d1a11da9e
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318529"
+ms.locfileid: "62732482"
 ---
 # <a name="manage-process-servers"></a>Processervers beheren
 
@@ -68,6 +68,19 @@ Hele werkbelasting die wordt beschermd onder een processerver wordt tot en met d
 2. De voortgang van de taak onder **Recovery Services-kluis** > **bewaking** > **Site Recovery-taken**.
 3. Het duurt 15 minuten om de wijzigingen in overeenstemming met na voltooiing van deze bewerking of [vernieuwen van de configuratieserver](vmware-azure-manage-configuration-server.md#refresh-configuration-server) voor onmiddellijk van kracht wordt.
 
+## <a name="process-server-selection-guidance"></a>Richtlijnen voor Server-selectie verwerken
+
+Azure Site Recovery wordt automatisch geïdentificeerd als processerver de gebruikslimieten nadert. Wanneer u voor het instellen van een uitbreidbare processerver worden richtlijnen gegeven.
+
+|Status  |Uitleg  | Beschikbaarheid van resources  | Aanbeveling|
+|---------|---------|---------|---------|
+| In orde (groen)    |   Processerver is verbonden en in orde is      |Gebruik van de CPU en geheugen lager is dan 80%; Beschikbaarheid van de vrije ruimte is meer dan 30%| Deze processerver kan worden gebruikt om extra servers beveiligen. Zorg ervoor dat de nieuwe werkbelasting binnen de [gedefinieerd proces Serverlimieten](vmware-azure-set-up-process-server-scale.md#sizing-requirements).
+|Waarschuwing (oranje):    |   Processerver is verbonden, maar bepaalde resources gaat maximale limieten bereiken  |   CPU-en geheugengebruik is tussen 80% - 95%; De beschikbaarheid van de vrije ruimte is tussen 25% tot 30%       | Het gebruik van de processerver is bijna drempelwaarden. Nieuwe servers toevoegen aan dezelfde processerver zal leiden tot een overschrijding van de drempelwaarden en kunnen invloed hebben op bestaande beveiligde items. Het wordt aanbevolen [instellen van een uitbreidbare processerver](vmware-azure-set-up-process-server-scale.md#before-you-start) voor nieuwe replicaties.
+|Waarschuwing (oranje):   |   Processerver is verbonden, maar gegevens in de afgelopen 30 minuten niet is geüpload naar Azure  |   Resourcegebruik is binnen de grenzen van de drempelwaarde       | Problemen oplossen [fouten bij het uploaden van gegevens](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) vóór het toevoegen van nieuwe werkbelastingen **of** [instellen van een uitbreidbare processerver](vmware-azure-set-up-process-server-scale.md#before-you-start) voor nieuwe replicaties.
+|Kritiek (rood)    |     Processerver zou kunnen ontkoppeld  |  Resourcegebruik is binnen de grenzen van de drempelwaarde      | Problemen oplossen [verwerking van problemen met de verbinding](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) of [instellen van een uitbreidbare processerver](vmware-azure-set-up-process-server-scale.md#before-you-start) voor nieuwe replicaties.
+|Kritiek (rood)    |     Gebruik van resources is gepasseerd grenswaarden |  Gebruik van de CPU en geheugen hoger is dan 95%. Beschikbaarheid van de vrije ruimte is minder dan 25%.   | Toevoegen van nieuwe werkbelastingen aan dezelfde processerver is uitgeschakeld als resource drempelwaarde limieten zijn al bereikt. Dus [instellen van een uitbreidbare processerver](vmware-azure-set-up-process-server-scale.md#before-you-start) voor nieuwe replicaties.
+Kritiek (rood)    |     Gegevens is niet van Azure naar Azure worden geüpload in de afgelopen 45 minuten. |  Resourcegebruik is binnen de grenzen van de drempelwaarde      | Problemen oplossen [fouten bij het uploaden van gegevens](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) voordat u nieuwe werkbelastingen toevoegt aan dezelfde processerver of [instellen van een uitbreidbare processerver](vmware-azure-set-up-process-server-scale.md#before-you-start)
+
 ## <a name="reregister-a-process-server"></a>Een processerver registreren
 
 Als u wilt registreren van een processerver on-premises uitgevoerd of in Azure, met de configuratieserver, doet het volgende:
@@ -109,7 +122,6 @@ Als de processerver een proxy verbinding maken met Site Recovery in Azure, gebru
    exit
    ```
 
-
 ## <a name="remove-a-process-server"></a>Een processerver verwijderen
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
@@ -126,4 +138,3 @@ Als de antivirussoftware op een zelfstandige processerver of de hoofddoelserver 
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
 - Proces installatiemap server, voorbeeld: C:\Program Files (x86) \Microsoft Azure Site Recovery
-

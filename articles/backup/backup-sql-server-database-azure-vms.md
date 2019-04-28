@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 5e4bd3647b557b260e65e3fb1ce297892f5d7d78
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 08eff24dc42f594424d109b82933b01b5c1be454
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733897"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Back-ups maken van SQL Server-databases in virtuele Azure-machines
 
@@ -40,7 +40,7 @@ Voordat u een back-up van uw SQL Server-database maakt, controleert u de volgend
 
 ### <a name="establish-network-connectivity"></a>Netwerkverbinding tot stand brengen
 
-Voor alle bewerkingen is voor de SQL Server-VM een verbinding met openbare IP-adressen van Azure nodig. VM-bewerkingen (database-detectie, back-ups configureren, back-ups, herstelpunten herstellen enzovoort) uitvallen zonder dat de verbinding met het openbare IP-adressen. Maak verbinding met een van deze opties:
+Voor alle bewerkingen is voor de SQL Server-VM een verbinding met openbare IP-adressen van Azure nodig. VM-bewerkingen (databasedetectie configureren van back-ups, back-ups plannen, herstelpunten herstellen, enzovoort) mislukken zonder verbinding met het openbare IP-adressen. Maak verbinding met een van deze opties:
 
 - **Sta de IP-bereiken voor Azure Datacenter toe**: Sta de [IP-bereiken](https://www.microsoft.com/download/details.aspx?id=41653) in de download toe. Voor toegang tot de netwerkbeveiligingsgroep (NSG), gebruikt de **Set AzureNetworkSecurityRule** cmdlet.
 - **Implementeer een HTTP-proxyserver om verkeer te routeren**: Wanneer u een back-up van een SQL Server-database op een Azure-VM maakt, gebruikt de back-upextensie op de virtuele machine de HTTPS-API's voor het verzenden van beheeropdrachten naar Azure Backup en gegevens naar Azure Storage. De back-upextensie maakt ook gebruik van Azure Active Directory (Azure AD) voor verificatie. Leid het verkeer van de back-upextensie voor deze drie services via de HTTP-proxy. Van de extensie zijn het enige onderdeel dat geconfigureerd voor toegang tot het openbare internet.
@@ -60,11 +60,11 @@ Azure Backup doet een aantal dingen wanneer u een back-up voor een SQL Server-da
 - Om databases op de virtuele machine te detecteren, wordt door Azure Backup het account **NT SERVICE\AzureWLBackupPluginSvc** gemaakt. Dit account wordt gebruikt voor back-up en herstel en vereist systeembeheerdersrechten voor SQL.
 - Het account **NT AUTHORITY\SYSTEM** wordt door Azure Backup gebruikt voor databasedetectie/-aanvragen, dus dit account moet een openbare aanmelding via SQL zijn.
 
-Als u de SQL Server-VM niet hebt gemaakt vanuit de Azure Marketplace, ontvangt u mogelijk het foutbericht **UserErrorSQLNoSysadminMembership**. Volg in dit geval [deze instructies](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+Als u de SQL Server-VM niet hebt gemaakt vanuit de Azure Marketplace, ontvangt u mogelijk het foutbericht **UserErrorSQLNoSysadminMembership**. Als dit het geval [Volg deze instructies](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Controleer de naamgevingsrichtlijnen voor databases van Azure Backup
 
-Vermijd bij databasenamen het volgende:
+Voorkomen dat de hieronder voor de databasenamen van de:
 
   * Voorloop- en volgspaties
   * Volguitroepteken '!'
@@ -106,7 +106,7 @@ Detecteer databases die op de virtuele machine worden uitgevoerd.
 
     ![Bericht dat de implementatie is geslaagd](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-8. Azure Backup detecteert alle SQL Server-databases op de virtuele machine. Tijdens de detectie gebeurt het volgende op de achtergrond:
+8. Azure Backup detecteert alle SQL Server-databases op de virtuele machine. Tijdens de detectie van de hieronder vindt plaats op de achtergrond:
 
     - Azure Backup registreert de virtuele machine met de kluis voor een back-up van de werkbelasting. Van alle databases op de geregistreerde virtuele machine kan alleen op deze kluis een back-up worden gemaakt.
     - Azure Backup installeert de extensie **AzureBackupWindowsWorkload** op de virtuele machine. Er is geen agent geïnstalleerd op de SQL-database.
@@ -171,7 +171,7 @@ Een back-upbeleid bepaalt wanneer back-ups worden gemaakt en hoe lang ze worden 
 Ga als volgt te werk om een back-upbeleid te maken:
 
 1. Klik in de kluis op **Back-upbeleid** > **Toevoegen**.
-2. Klik in het menu **Toevoegen** op **SQL Server in Azure-VM**. Hiermee definieert u het beleidstype.
+2. Klik in het menu **Toevoegen** op **SQL Server in Azure-VM**. Definieert het beleidstype op.
 
    ![Een beleidstype voor het nieuwe back-upbeleid kiezen](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -179,7 +179,7 @@ Ga als volgt te werk om een back-upbeleid te maken:
 4. In **Beleid voor een volledige back-up** selecteert u een **back-upfrequentie** en kiest u **Dagelijks** of **Wekelijks**.
 
    - Als u **Dagelijks** kiest, selecteert u het tijdstip en de tijdzone waarop de back-uptaak moet worden gestart.
-   - U moet een volledige back-up maken. U kunt de optie **Volledige back-up** niet uitschakelen.
+   - U moet een volledige back-up uitvoeren als u niet uitschakelen de **volledige back-up** optie.
    - Klik op **Volledige back-up** om het beleid te bekijken.
    - U kunt geen differentiële back-ups maken voor dagelijkse volledige back-ups.
    - Als u **Wekelijks** kiest, selecteert u de dag van de week, het tijdstip en de tijdzone waarop de back-uptaak moet worden gestart.

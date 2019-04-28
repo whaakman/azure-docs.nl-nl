@@ -10,13 +10,13 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193208"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120123"
 ---
-# <a name="track-b2b-messages-with-azure-monitor-logs"></a>B2B-berichten met Azure Monitor-logboeken bijhouden
+# <a name="track-b2b-messages-with-azure-monitor-logs"></a>B2B-berichten bijhouden met Azure Monitor-logboeken
 
 Na het instellen van B2B-communicatie tussen handelspartners in uw integratie-account, kunnen deze partners berichten met protocollen zoals AS2, X 12 en EDIFACT uitwisselen. Om te zien dat deze berichten correct worden verwerkt, kunt u deze berichten met bijhouden [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md). Bijvoorbeeld, kunt u deze bijhouden op basis van een web-mogelijkheden voor het bijhouden van berichten:
 
@@ -146,14 +146,14 @@ Voor elk berichttype hier worden de eigenschapbeschrijvingen en typen Naamindeli
 
 Hier volgen eigenschapbeschrijvingen voor elk AS2-bericht.
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 | --- | --- |
 | Afzender | De gastpartner die is opgegeven in **instellingen ontvangen**, of de hostpartner die is opgegeven in **instellingen voor verzenden** voor een AS2-overeenkomst |
 | Ontvanger | De hostpartner die is opgegeven in **instellingen ontvangen**, of de gastpartner is opgegeven **instellingen voor verzenden** voor een AS2-overeenkomst |
 | Logische apps | De logische app waar de AS2-acties zijn ingesteld |
 | Status | De status van de AS2-bericht <br>Geslaagd = ontvangen of een geldige AS2-bericht verzonden. Er is geen MDN is ingesteld. <br>Geslaagd = ontvangen of een geldige AS2-bericht verzonden. MDN is ingesteld en ontvangen, of MDN wordt verzonden. <br>Kan geen = een ongeldige AS2-bericht ontvangen. Er is geen MDN is ingesteld. <br>In behandeling = ontvangen of een geldige AS2-bericht verzonden. MDN is ingesteld en MDN wordt verwacht. |
 | Ack | De status van het MDN-bericht <br>Geaccepteerd = ontvangen of een positief MDN verzonden. <br>In afwachting van = wachten ontvangen of een MDN te verzenden. <br>Afgewezen = ontvangen of een negatieve MDN verzonden. <br>Niet vereist = MDN is niet ingesteld in de overeenkomst. |
-| Richting | De richting van de AS2-bericht |
+| Direction | De richting van de AS2-bericht |
 | Correlatie-id | De ID die overeenkomt met alle triggers en acties in een logische app |
 | Bericht-id | De AS2-bericht-ID van de AS2-bericht-headers |
 | Tijdstempel | De tijd wanneer het bericht worden verwerkt door de AS2-actie |
@@ -177,14 +177,14 @@ Hier volgen de typen Naamindelingen voor elke map voor gedownloade AS2-bericht e
 
 Hier vindt u de eigenschapbeschrijvingen voor elke X12 bericht.
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 | --- | --- |
 | Afzender | De gastpartner die is opgegeven in **instellingen ontvangen**, of de hostpartner die is opgegeven in **instellingen voor verzenden** voor een X12 overeenkomst |
 | Ontvanger | De hostpartner die is opgegeven in **instellingen ontvangen**, of de gastpartner is opgegeven **instellingen voor verzenden** voor een X12 overeenkomst |
 | Logische apps | De logische app waar de X12 acties zijn ingesteld |
 | Status | De X12 status message <br>Geslaagd = ontvangen of een geldige X12 verzonden bericht. Er zijn geen functionele ack is ingesteld. <br>Geslaagd = ontvangen of een geldige X12 verzonden bericht. Functionele ack is ingesteld en ontvangen, of een functionele ack wordt verzonden. <br>Kan geen = ontvangen of een ongeldige X12 verzonden bericht. <br>In behandeling = ontvangen of een geldige X12 verzonden bericht. Functionele ack is ingesteld en een functionele ack wordt verwacht. |
 | Ack | Status van functionele Ack (een 997-bevestiging) <br>Geaccepteerd = ontvangen of een positief functionele ack. verzonden <br>Afgewezen = ontvangen of een negatieve functionele ack. verzonden <br>In afwachting van = een functionele ack verwacht maar niet ontvangen. <br>In behandeling zijnde = gegenereerd een functionele ack maar niet verzenden naar partner. <br>Niet vereist = functionele ack is niet ingesteld. |
-| Richting | De X12 bericht richting |
+| Direction | De X12 bericht richting |
 | Correlatie-id | De ID die overeenkomt met alle triggers en acties in een logische app |
 | Berichttype | Het berichttype voor EDI, X 12 |
 | ICN | De Uitwisselingscontrolenummer voor de X12 bericht |
@@ -217,7 +217,7 @@ Hier volgen eigenschapbeschrijvingen voor elk EDIFACT-bericht.
 | Logische apps | De logische app waar de EDIFACT-acties zijn ingesteld |
 | Status | De status van de EDIFACT-bericht <br>Geslaagd = ontvangen of een geldige EDIFACT-bericht verzonden. Er zijn geen functionele ack is ingesteld. <br>Geslaagd = ontvangen of een geldige EDIFACT-bericht verzonden. Functionele ack is ingesteld en ontvangen, of een functionele ack wordt verzonden. <br>Kan geen = ontvangen of heeft een ongeldige EDIFACT-bericht verzonden <br>In behandeling = ontvangen of een geldige EDIFACT-bericht verzonden. Functionele ack is ingesteld en een functionele ack wordt verwacht. |
 | Ack | Status van functionele Ack (een 997-bevestiging) <br>Geaccepteerd = ontvangen of een positief functionele ack. verzonden <br>Afgewezen = ontvangen of een negatieve functionele ack. verzonden <br>In afwachting van = een functionele ack verwacht maar niet ontvangen. <br>In behandeling zijnde = gegenereerd een functionele ack maar niet verzenden naar partner. <br>Niet vereist = functionele Ack is niet ingesteld. |
-| Richting | De richting van de EDIFACT-bericht |
+| Direction | De richting van de EDIFACT-bericht |
 | Correlatie-id | De ID die overeenkomt met alle triggers en acties in een logische app |
 | Berichttype | Het type EDIFACT-bericht |
 | ICN | De Uitwisselingscontrolenummer voor de EDIFACT-bericht |
