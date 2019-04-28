@@ -16,11 +16,11 @@ ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118108"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Een formule voor automatisch vergroten/verkleinen voor het schalen van rekenknooppunten in een Batch-pool maken
 
@@ -93,7 +93,7 @@ U kunt ophalen en instellen van de waarden van deze variabelen gedefinieerd met 
 
 U kunt de waarde van deze service gedefinieerde variabelen aan te passen op basis van metrische gegevens van de Batch-service krijgen:
 
-| Alleen-lezen service gedefinieerde variabelen | Description |
+| Alleen-lezen service gedefinieerde variabelen | Beschrijving |
 | --- | --- |
 | $CPUPercent |Het gemiddelde percentage van CPU-gebruik. |
 | $WallClockSeconds |Het aantal seconden verbruikt. |
@@ -160,8 +160,8 @@ Deze bewerkingen zijn toegestaan voor de typen die worden vermeld in de vorige s
 | doubleVec *operator* doubleVec |+, -, *, / |doubleVec |
 | TimeInterval *operator* dubbele |*, / |timeinterval |
 | TimeInterval *operator* timeinterval |+, - |timeinterval |
-| TimeInterval *operator* timestamp |+ |tijdstempel |
-| tijdstempel *operator* timeinterval |+ |tijdstempel |
+| TimeInterval *operator* timestamp |+ |timestamp |
+| tijdstempel *operator* timeinterval |+ |timestamp |
 | tijdstempel *operator* timestamp |- |timeinterval |
 | *operator*double |-, ! |double |
 | *operator*timeinterval |- |timeinterval |
@@ -195,7 +195,7 @@ Deze vooraf gedefinieerde **functies** zijn beschikbaar voor gebruik bij het def
 | std(doubleVecList) |double |Retourneert de standaardafwijking van voorbeeld van de waarden in de doubleVecList. |
 | stop() | |Stopt de evaluatie van de expressie voor automatisch schalen. |
 | SUM(doubleVecList) |double |Retourneert de som van alle onderdelen van de doubleVecList. |
-| time(string dateTime="") |tijdstempel |De tijdstempel van de huidige tijd als er geen parameters worden doorgegeven of het tijdstempel van de datum/tijd-tekenreeks geretourneerd als deze wordt doorgegeven. Ondersteunde datum-/ tijdindelingen zijn W3C-DTF- en RFC 1123. |
+| time(string dateTime="") |timestamp |De tijdstempel van de huidige tijd als er geen parameters worden doorgegeven of het tijdstempel van de datum/tijd-tekenreeks geretourneerd als deze wordt doorgegeven. Ondersteunde datum-/ tijdindelingen zijn W3C-DTF- en RFC 1123. |
 | Val (v doubleVec, dubbele i) |double |Retourneert de waarde van het element dat op locatie i in vector v, met een startIndex gelijk is aan nul. |
 
 Enkele van de functies die worden beschreven in de vorige tabel kunt een lijst accepteren als argument. De lijst met door komma's gescheiden is een combinatie van *dubbele* en *doubleVec*. Bijvoorbeeld:
@@ -211,7 +211,7 @@ Automatisch schalen formules reageren op metrische gegevens (voorbeelden) die wo
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
 ```
 
-| Methode | Description |
+| Methode | Beschrijving |
 | --- | --- |
 | GetSample() |De `GetSample()` methode retourneert een vector van voorbeelden van gegevens.<br/><br/>Een voorbeeld is 30 seconden metrische gegevens. Voorbeelden zijn met andere woorden, elke 30 seconden verkregen. Maar, zoals hieronder vermeld, is er een vertraging tussen wanneer een voorbeeld dat wordt verzameld en wanneer deze is beschikbaar op een formule. Daarom mogelijk niet alle voorbeelden voor een bepaalde periode zijn beschikbaar voor de evaluatie van een formule.<ul><li>`doubleVec GetSample(double count)`<br/>Hiermee geeft u het aantal voorbeelden voor het verkrijgen van de meest recente voorbeelden die zijn verzameld.<br/><br/>`GetSample(1)` retourneert de laatste steekproef beschikbaar. Metrische gegevens zoals `$CPUPercent`, maar deze moet niet worden gebruikt omdat het is niet mogelijk om te weten *wanneer* het voorbeeld is verzameld. Kan het zijn recente of, vanwege problemen met het systeem, is het mogelijk veel ouder. Is het beter in dergelijke gevallen voor het gebruik van een bepaalde periode, zoals hieronder weergegeven.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Hiermee geeft u een tijdsbestek voor het verzamelen van voorbeeldgegevens. (Optioneel) geeft het ook het percentage van de voorbeelden die beschikbaar in het aangevraagde tijdsbestek zijn moeten.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` Voorbeelden van 20 zou worden geretourneerd als alle voorbeelden voor de afgelopen 10 minuten aanwezig zijn in de geschiedenis CPUPercent. Als de laatste minuut van de geschiedenis niet beschikbaar is, echter zou alleen 18 voorbeelden worden geretourneerd. In dit geval:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` mislukken omdat alleen 90 procent van de voorbeelden beschikbaar zijn.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` zou slagen.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Hiermee geeft u een tijdsbestek voor het verzamelen van gegevens, met zowel een begintijd en eindtijd.<br/><br/>Zoals eerder vermeld, is er een vertraging tussen wanneer een voorbeeld dat wordt verzameld en wanneer deze is beschikbaar op een formule. Houd rekening met deze vertraging op wanneer u de `GetSample` methode. Zie `GetSamplePercent` hieronder. |
 | GetSamplePeriod() |Retourneert de periode van voorbeelden die zijn uitgevoerd in een verzameling historische voorbeeldgegevens. |

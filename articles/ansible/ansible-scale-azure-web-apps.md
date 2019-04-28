@@ -1,34 +1,52 @@
 ---
-title: Web-apps van Azure App Service schalen met Ansible
-description: Leer hoe u Ansible gebruikt om een web-app te maken met een runtime voor Java 8- en Tomcat-containers in App Service in Linux
-ms.service: azure
+title: Zelfstudie - apps in Azure App Service met behulp van Ansible schaal | Microsoft Docs
+description: Meer informatie over het schalen van een app in Azure App Service
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, web-app, schalen, Java
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/08/2018
-ms.openlocfilehash: 2bafb73afa35c7670ac45f7027545277c70075ef
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: 213c4e086db8b40fdec26ce9fb3e0be5ad055cbc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792273"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764304"
 ---
-# <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>Web-apps van Azure App Service schalen met Ansible
-Met [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (of kortweg Web Apps) worden webtoepassingen, REST API's en mobiele back-ends gehost. U kunt programmeren in uw favoriete taal&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP of Python.
+# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Zelfstudie: Apps schalen in Azure App Service met Ansible
 
-U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. Dit artikel laat zien hoe u Ansible gebruikt voor het schalen van uw app in Azure App Service.
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-app-service.md](../../includes/open-source-devops-intro-app-service.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Gegevens van een bestaand App Service-plan ophalen
+> * De App Service-plan naar S2 met drie workers opschalen
 
 ## <a name="prerequisites"></a>Vereisten
-- **Azure-abonnement**: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- **Azure App Service Web Apps**: als u nog geen Azure App Service web-app hebt, kunt u [Azure web-apps maken met behulp van Ansible](ansible-create-configure-azure-web-apps.md).
 
-## <a name="scale-up-an-app-in-app-service"></a>Een app omhoog schalen in App Service
-U kunt omhoog schalen door de prijscategorie te wijzigen van het App Service-plan waartoe uw app behoort. Deze sectie bevat een voorbeeld-Ansible-playbook waarmee de volgende bewerking wordt gedefinieerd:
-- Gegevens van een bestaand App Service-plan ophalen
-- Het App service-plan bijwerken naar S2 met drie workers
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+- **Azure App Service-app** : als u een Azure App Service-app niet hebt [configureren van een app in Azure App Service met behulp van Ansible](ansible-create-configure-azure-web-apps.md).
+
+## <a name="scale-up-an-app"></a>Een app omhoog schalen
+
+Er zijn twee werkstromen voor het schalen van: *omhoog schalen* en *uitschalen*.
+
+**Omhoog schalen:** Betekent om omhoog te schalen om te verkrijgen van andere bronnen. Deze bronnen omvatten CPU, geheugen, schijfruimte, VM's en meer. U Schalen een app omhoog door de prijscategorie van de App Service-plan waartoe de app behoort te wijzigen. 
+**Uitschalen:** Als u wilt schalen betekent dat het aantal VM-exemplaren waarop uw app wordt uitgevoerd te verhogen. Afhankelijk van uw App Service-plan prijscategorie, kunt u uitschalen naar maximaal 20 exemplaren. [Automatisch schalen](/azure/azure-monitor/platform/autoscale-get-started) kunt u schalen exemplaren automatisch op basis van vooraf gedefinieerde regels en schema's.
+
+De playbook-code in deze sectie definieert de volgende bewerking:
+
+* Gegevens van een bestaand App Service-plan ophalen
+* Het App service-plan bijwerken naar S2 met drie workers
+
+Sla het volgende playbook op als `webapp_scaleup.yml`:
 
 ```yml
 - hosts: localhost
@@ -66,26 +84,26 @@ U kunt omhoog schalen door de prijscategorie te wijzigen van het App Service-pla
       var: facts.appserviceplans[0].sku
 ```
 
-Sla dit playbook op als *webapp_scaleup.yml*.
+Voer de playbook met behulp de `ansible-playbook` opdracht:
 
-Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
 ```bash
 ansible-playbook webapp_scaleup.yml
 ```
 
-Wanneer u het playbook hebt uitgevoerd, wordt in uitvoer die vergelijkbaar is met het volgende voorbeeld, aangegeven dat het App Service-plan is bijgewerkt naar S2 met drie workers:
-```Output
-PLAY [localhost] **************************************************************
+Nadat de playbook is uitgevoerd, ziet u uitvoer die vergelijkbaar is met de volgende resultaten:
 
-TASK [Gathering Facts] ********************************************************
+```Output
+PLAY [localhost] 
+
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Get facts of existing App service plan] **********************************************************
+TASK [Get facts of existing App service plan] 
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 ok: [localhost]
 
-TASK [debug] ******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 1,
@@ -96,13 +114,13 @@ ok: [localhost] => {
     }
 }
 
-TASK [Scale up the App service plan] *******************************************
+TASK [Scale up the App service plan] 
 changed: [localhost]
 
-TASK [Get facts] ***************************************************************
+TASK [Get facts] 
 ok: [localhost]
 
-TASK [debug] *******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 3,
@@ -113,10 +131,11 @@ ok: [localhost] => {
     }
 }
 
-PLAY RECAP **********************************************************************
+PLAY RECAP 
 localhost                  : ok=6    changed=1    unreachable=0    failed=0 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
 > [!div class="nextstepaction"] 
-> [Ansible in Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible in Azure](/azure/ansible/)

@@ -1,7 +1,6 @@
 ---
 title: Data Lake tools voor Visual Studio met Hortonworks Sandbox - Azure HDInsight
 description: Informatie over het gebruik van de Azure Data Lake-tools voor Visual Studio met de Hortonworks sandbox die worden uitgevoerd in een lokale virtuele machine. Met deze hulpprogramma's, kunt u maken en uitvoeren van Hive en Pig-taken op de sandbox, en de taakuitvoer weergeven en de geschiedenis.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7c2a1c586b4d6f5f9f6e34a091702a35f994544f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: MT
+ms.openlocfilehash: 8172da3f573f78365cbe76f435a4817e64bc136c
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726626"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762742"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Gebruik de Azure Data Lake-tools voor Visual Studio met de Hortonworks Sandbox
 
@@ -24,7 +23,7 @@ Met behulp van de Hortonworks Sandbox, kunt u werken met Hadoop lokaal op uw ont
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De Hortonworks Sandbox uitgevoerd in een virtuele machine op uw ontwikkelomgeving. Dit document is geschreven en getest met de sandbox die worden uitgevoerd in Oracle VirtualBox. Zie voor meer informatie over het instellen van de sandbox de [aan de slag met de Hortonworks sandbox.](hadoop/apache-hadoop-emulator-get-started.md) het document.
+* De Hortonworks Sandbox uitgevoerd in een virtuele machine op uw ontwikkelomgeving. Dit document is geschreven en getest met de sandbox die worden uitgevoerd in Oracle VirtualBox. Zie voor meer informatie over het instellen van de sandbox de [aan de slag met de Hortonworks sandbox.](hadoop/apache-hadoop-emulator-get-started.md) document.
 
 * Visual Studio 2013, Visual Studio 2015 of Visual Studio 2017 (alle edities).
 

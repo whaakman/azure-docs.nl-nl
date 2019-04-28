@@ -12,19 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 04/23/2019
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: 3af585ede27536dfb644dd374e54183c3539d585
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f1411ee28ca4e371f68c375242a2445c8b48f8d7
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007352"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760028"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Uw eerste Java-web-app in Azure maken
 
-[Azure App Service](overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. In deze Quickstart leert u hoe u een Java-web-app implementeert in App Service met behulp van de [Eclipse IDE voor Java EE-ontwikkelaars](https://www.eclipse.org/).
+Azure App Service biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze quickstart laat zien hoe u een Java-web-app implementeren in App Service met behulp van de Eclipse IDE voor Java EE-ontwikkelaars.
 
 > [!IMPORTANT]
 > Azure App Service onder Linux is ook een optie voor het hosten van Java WebApps zelf op Linux met behulp van beheerde Tomcat, Java SE en WildFly aanbiedingen. Als u geïnteresseerd bent in aan de slag met App Service onder Linux, raadpleegt u [Quick Start: Een Java-app maken in App Service on Linux](containers/quickstart-java.md).

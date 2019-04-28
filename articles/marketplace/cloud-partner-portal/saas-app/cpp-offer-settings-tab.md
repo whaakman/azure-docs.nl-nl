@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 8b8810d3dc899a87b99422c093b6901ed9683325
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196791"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101129"
 ---
 # <a name="saas-application-offer-settings-tab"></a>Tabblad voor SaaS-toepassing-instellingen bieden
 
@@ -29,7 +29,7 @@ De **SaaS-App > nieuwe aanbieding** pagina wordt geopend met de focus op de **in
 
 Gebruik het tabblad instellingen bieden om te configureren de **identiteit bieden**, zoals weergegeven in de volgende schermopname. Een sterretje (*) toegevoegd aan de naam van het veld geeft aan dat dit is verplicht.
 
-![Tabblad instellingen bieden](./media/saas-new-offer.png)
+![Tabblad voor aanbiedingsinstellingen](./media/saas-new-offer.png)
 
 ## <a name="offer-identity-settings"></a>Instellingen voor de identiteiten bieden
 
@@ -46,4 +46,4 @@ Selecteer **opslaan** uw voortgang opslaan.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Tabblad technische gegevens](./cpp-technical-info-tab.md)
+[Tabblad Technische gegevens](./cpp-technical-info-tab.md)

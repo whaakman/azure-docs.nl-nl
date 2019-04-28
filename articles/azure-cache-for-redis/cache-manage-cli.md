@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: 1d7a18f3f46cec73d70389b82eed5a85e440d340
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418598"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119075"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Over het maken en beheren van Azure Cache voor Redis met de klassieke Azure-CLI
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Als u wilt maken en beheren van Azure Cache voor instanties van Redis met behulp
 ## <a name="azure-cache-for-redis-properties"></a>Eigenschappen van Azure Cache voor Redis
 De volgende eigenschappen worden gebruikt bij het maken en bijwerken van Azure Cache voor instanties van Redis.
 
-| Eigenschap | Switch | Description |
+| Eigenschap | Switch | Beschrijving |
 | --- | --- | --- |
 | naam |-n-,--naam |Naam van de Azure Cache voor Redis. |
 | resourcegroep |-g, --resource-group |De naam van de resourcegroep. |

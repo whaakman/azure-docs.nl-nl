@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Hoeksteen OnDemand configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
-description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en inrichting van gebruikersaccounts naar hoeksteen OnDemand ongedaan maken.
+description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en gebruikersaccounts met hoeksteen OnDemand inrichting ongedaan maken.
 services: active-directory
 documentationcenter: ''
 author: zhchia
@@ -16,142 +16,146 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d17a3c81784d56c6fcad7c7608559abf732882a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 85ddcf3aff7d15c946230cedb0da190bca6aeab7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274090"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127494"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Zelfstudie: Hoeksteen OnDemand configureren voor het automatisch inrichten van gebruikers
 
-Het doel van deze zelfstudie is ter illustratie van de stappen om te worden uitgevoerd in de hoeksteen OnDemand en Azure Active Directory (Azure AD) naar Azure AD configureren voor automatisch inrichten en verwijdering van gebruikers en/of groepen aan hoeksteen OnDemand.
+In deze zelfstudie ziet u de stappen om uit te voeren in de hoeksteen OnDemand en Azure Active Directory (Azure AD) naar Azure AD configureren voor automatisch inrichten en de inrichting van gebruikers of groepen hoeksteen OnDemand ongedaan maken.
 
 > [!NOTE]
-> Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md).
+> Deze zelfstudie beschrijft een connector die gebaseerd op de Azure AD-gebruiker-service inricht. Zie voor informatie over de werking van deze service, hoe het werkt en veelgestelde vragen, [automatiseren van gebruikersinrichting en -opheffing in software-as-a-service (SaaS)-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende vereisten hebt:
+Het scenario in deze zelfstudie wordt ervan uitgegaan dat u hebt:
 
-* Een Azure AD-tenant
-* Een OnDemand-hoeksteen-tenant
-* Een gebruikersaccount in hoeksteen OnDemand met beheerdersmachtigingen
+* Een Azure AD-tenant.
+* Een OnDemand-hoeksteen-tenant.
+* Een gebruikersaccount in hoeksteen OnDemand met beheerdersmachtigingen.
 
 > [!NOTE]
-> De integratie wordt ingericht op Azure AD is afhankelijk van de [hoeksteen OnDemand Webservice](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_-_Summary_of_Web_Services_v20151106.pdf), die voor hoeksteen OnDemand teams beschikbaar is.
+> De integratie wordt ingericht op Azure AD is afhankelijk van de [hoeksteen OnDemand-webservice](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_-_Summary_of_Web_Services_v20151106.pdf). Deze service is beschikbaar voor hoeksteen OnDemand teams.
 
-## <a name="adding-cornerstone-ondemand-from-the-gallery"></a>Cornerstone OnDemand toevoegen vanuit de galerie
+## <a name="add-cornerstone-ondemand-from-the-azure-marketplace"></a>Hoeksteen OnDemand toevoegen in Azure Marketplace
 
-Voordat u hoeksteen OnDemand configureert voor het automatisch gebruikers inrichten met Azure AD, moet u hoeksteen OnDemand uit de galerie met Azure AD toevoegen aan uw lijst met beheerde SaaS-toepassingen.
+Voordat u hoeksteen OnDemand voor automatisch gebruikers inrichten met Azure AD configureren, toevoegen aan uw lijst met beheerde SaaS-toepassingen hoeksteen OnDemand vanuit de Marketplace.
 
-**Als u wilt toevoegen hoeksteen OnDemand uit de galerie met Azure AD, moet u de volgende stappen uitvoeren:**
+Volg deze stappen om toe te voegen hoeksteen OnDemand vanuit de Marketplace.
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de [Azure-portal](https://portal.azure.com), selecteert u in het navigatiedeelvenster aan de linkerkant, **Azure Active Directory**.
 
-    ![De knop Azure Active Directory](common/select-azuread.png)
+    ![De Azure Active Directory-pictogram](common/select-azuread.png)
 
-2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+2. Ga naar **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+3. Als u een nieuwe toepassing wilt toevoegen, selecteert u **Nieuwe toepassing** bovenaan het dialoogvenster.
 
     ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Cornerstone OnDemand**, selecteer in het resultatenvenster **Cornerstone OnDemand** en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
+4. Voer in het zoekvak **hoeksteen OnDemand** en selecteer **hoeksteen OnDemand** vanuit het deelvenster resultaten. Als u wilt de toepassing hebt toegevoegd, selecteert u **toevoegen**.
 
     ![Cornerstone OnDemand in de resultatenlijst](common/search-new-app.png)
 
-## <a name="assigning-users-to-cornerstone-ondemand"></a>Gebruikers toewijzen aan hoeksteen OnDemand
+## <a name="assign-users-to-cornerstone-ondemand"></a>Gebruikers toewijzen aan hoeksteen OnDemand
 
-Azure Active Directory maakt gebruik van een concept genaamd "toewijzingen" om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van het automatisch inrichten van gebruikers, worden alleen de gebruikers en/of groepen die '' aan een toepassing in Azure AD toegewezen zijn gesynchroniseerd.
+Azure Active Directory maakt gebruik van een concept genaamd *toewijzingen* om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van het automatisch inrichten van gebruikers, worden alleen de gebruikers of groepen die zijn toegewezen aan een toepassing in Azure AD gesynchroniseerd.
 
-Voordat u configureren en inschakelen van automatische inrichten van gebruikers, moet u bepalen welke gebruikers en/of groepen in Azure AD toegang hebben tot hoeksteen OnDemand moeten. Wanneer u beslist, kunt u deze gebruikers en/of groepen toewijzen aan hoeksteen OnDemand door de instructies hier:
-
-* [Een gebruiker of groep toewijzen aan een enterprise-app](../manage-apps/assign-user-or-group-access-portal.md)
+Voordat u configureren en automatische inrichting inschakelen, moet u bepalen welke gebruikers of groepen in Azure AD toegang hebben tot hoeksteen OnDemand moeten. Volg de instructies in deze gebruikers of groepen om aan te wijzen hoeksteen OnDemand, [een gebruiker of groep toewijzen aan een enterprise-app](../manage-apps/assign-user-or-group-access-portal.md).
 
 ### <a name="important-tips-for-assigning-users-to-cornerstone-ondemand"></a>Belangrijke tips voor het toewijzen van gebruikers aan hoeksteen OnDemand
 
-* Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan hoeksteen OnDemand voor het testen van de configuratie van de automatische gebruikersinrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+* Het is raadzaam dat u één Azure AD-gebruiker te hoeksteen OnDemand voor het testen van de configuratie van de automatische gebruikersinrichting. U kunt extra gebruikers of groepen later toewijzen.
 
-* Wanneer een gebruiker aan hoeksteen OnDemand toewijzen, moet u alle geldige toepassingsspecifieke rollen (indien beschikbaar) selecteren in het dialoogvenster toewijzing. Gebruikers met de **standaardtoegang** rol worden uitgesloten van het inrichten.
+* Wanneer u een gebruiker aan hoeksteen OnDemand toewijzen, selecteer een geldige toepassingsspecifieke rol, indien beschikbaar, in het dialoogvenster toewijzing. Gebruikers met de **standaardtoegang** rol worden uitgesloten van het inrichten.
 
-## <a name="configuring-automatic-user-provisioning-to-cornerstone-ondemand"></a>Automatisch gebruikers inrichten voor hoeksteen OnDemand configureren
+## <a name="configure-automatic-user-provisioning-to-cornerstone-ondemand"></a>Automatisch gebruikers inrichten voor hoeksteen OnDemand configureren
 
-Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inrichtingsservice als u wilt maken, bijwerken en uitschakelen van gebruikers en/of groepen in hoeksteen OnDemand op basis van gebruiker en/of toewijzingen van groepen in Azure AD.
+Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inrichtingsservice. Gebruik te maken, bijwerken en gebruikers of groepen in hoeksteen OnDemand uitschakelen op basis van de gebruiker of groep toewijzingen in Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-cornerstone-ondemand-in-azure-ad"></a>Het configureren van automatisch gebruikers inrichten voor hoeksteen OnDemand in Azure AD:
+Volg deze stappen voor het configureren van automatisch gebruikers inrichten voor hoeksteen OnDemand in Azure AD.
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en selecteer **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **hoeksteen OnDemand**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer **bedrijfstoepassingen** > **alle toepassingen** > **hoeksteen OnDemand**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
 2. Selecteer in de lijst met toepassingen, **hoeksteen OnDemand**.
 
-    ![De Cornerstone OnDemand-koppeling in de lijst met toepassingen](common/all-applications.png)
+    ![De hoeksteen OnDemand-koppeling in de lijst met toepassingen](common/all-applications.png)
 
 3. Selecteer de **Provisioning** tabblad.
 
     ![Cornerstone OnDemand Provisioning](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningTab.png)
 
-4. Stel de **Inrichtingsmodus** naar **automatische**.
+4. Stel **Inrichtingsmodus** naar **automatische**.
 
-    ![Cornerstone OnDemand Provisioning](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningCredentials.png)
+    ![Hoeksteen OnDemand inrichting modus](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningCredentials.png)
 
-5. Onder de **beheerdersreferenties** sectie, voer de **Admin Username**, **beheerderswachtwoord**, en **domein** van uw hoeksteen-OnDemand -account.
+5. Onder de **beheerdersreferenties** sectie, voert u de gebruikersnaam van beheerder, admin-wachtwoord en domein van uw hoeksteen-OnDemand-account:
 
-    * In de **Admin Username** veld, de domein\gebruikersnaam van het beheerdersaccount dat op uw tenant hoeksteen OnDemand vullen. Voorbeeld: contoso\admin.
+    * In de **Admin Username** vak, vult u in het domein of de gebruikersnaam van het beheerdersaccount dat op uw hoeksteen OnDemand-tenant. Een voorbeeld is contoso\admin.
 
-    * In de **beheerderswachtwoord** veld, het wachtwoord dat overeenkomt met de gebruikersnaam van beheerder vullen.
+    * In de **beheerderswachtwoord** vak, vult u het wachtwoord dat overeenkomt met de gebruikersnaam van de beheerder.
 
-    * In de **domein** veld, de URL van de webservice van de tenant hoeksteen OnDemand vullen. Voorbeeld: De service bevindt zich in `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`voor het domein Contoso is `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Zie voor meer informatie over het ophalen van de webservice-URL [hier](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
+    * In de **domein** vak, vult u in de URL van de webservice van de hoeksteen OnDemand-tenant. Bijvoorbeeld, de service bevindt zich in `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, en het domein is voor Contoso `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Zie voor meer informatie over het ophalen van de URL van de webservice [deze pdf](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
 
-6. Bij het invullen van de velden die in stap 5 wordt weergegeven, klikt u op **testverbinding** om te controleren of Azure AD kunt verbinden met hoeksteen OnDemand. Als de verbinding is mislukt, zorg ervoor dat uw account hoeksteen OnDemand beheerdersmachtigingen heeft en probeer het opnieuw.
+6. Nadat u in de vakken weergegeven in stap 5 hebt ingevuld, selecteert u **testverbinding** om ervoor te zorgen dat Azure AD kunt verbinden met hoeksteen OnDemand. Als de verbinding is mislukt, zorg ervoor dat uw account hoeksteen OnDemand beheerdersmachtigingen heeft en probeer het opnieuw.
 
-    ![Cornerstone OnDemand Provisioning](./media/cornerstone-ondemand-provisioning-tutorial/TestConnection.png)
+    ![OnDemand-testverbinding hoeksteen](./media/cornerstone-ondemand-provisioning-tutorial/TestConnection.png)
 
-7. In de **e-mailmelding** en voer het e-mailadres van een persoon of groep die u moet de inrichting fout ontvangen en schakel het selectievakje in - **een e-mailmelding verzenden wanneer een foutoptreedt**.
+7. In de **e-mailmelding** vak, voer het e-mailadres van de persoon of groep voor het ontvangen van de inrichting fout-meldingen. Selecteer de **e-mailmelding verzenden wanneer er een fout optreedt** selectievakje.
 
-    ![Cornerstone OnDemand Provisioning](./media/cornerstone-ondemand-provisioning-tutorial/EmailNotification.png)
+    ![Hoeksteen OnDemand meldingse-mail](./media/cornerstone-ondemand-provisioning-tutorial/EmailNotification.png)
 
-8. Klik op **Opslaan**.
+8. Selecteer **Opslaan**.
 
 9. Onder de **toewijzingen** sectie, selecteer **synchroniseren Azure Active Directory: gebruikers aan hoeksteen OnDemand**.
 
-    ![Cornerstone OnDemand Provisioning](./media/cornerstone-ondemand-provisioning-tutorial/UserMapping.png)
+    ![Hoeksteen OnDemand synchronisatie](./media/cornerstone-ondemand-provisioning-tutorial/UserMapping.png)
 
-10. Controleer de kenmerken van de gebruiker die van Azure AD worden gesynchroniseerd naar hoeksteen OnDemand in de **kenmerk toewijzing** sectie. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts in hoeksteen OnDemand voor update-bewerkingen. Selecteer de **opslaan** knop wijzigingen doorvoeren.
+10. Controleer de kenmerken van de gebruiker die van Azure AD worden gesynchroniseerd naar hoeksteen OnDemand in de **kenmerktoewijzingen** sectie. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts in hoeksteen OnDemand voor update-bewerkingen. Als u wilt alle wijzigingen hebt opgeslagen, selecteert u **opslaan**.
 
-    ![Cornerstone OnDemand Provisioning](./media/cornerstone-ondemand-provisioning-tutorial/UserMappingAttributes.png)
+    ![Hoeksteen OnDemand kenmerktoewijzingen](./media/cornerstone-ondemand-provisioning-tutorial/UserMappingAttributes.png)
 
-11. Als u wilt configureren bereikfilters, raadpleegt u de volgende instructies in de [Scoping filter zelfstudie](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Als u wilt configureren bereikfilters, volg de instructies in de [scoping filter zelfstudie](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Om in te schakelen in de Azure AD-inrichtingsservice voor hoeksteen OnDemand, wijzigen de **Inrichtingsstatus** naar **op** in de **instellingen** sectie.
+12. Om in te schakelen van de Azure AD-inrichtingsservice voor hoeksteen OnDemand, in de **instellingen** sectie, wijzigt u **Inrichtingsstatus** naar **op**.
 
-    ![Cornerstone OnDemand Provisioning](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningStatus.png)
+    ![Hoeksteen OnDemand-Inrichtingsstatus](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningStatus.png)
 
-13. De gebruikers en/of groepen die u wilt definiëren voor het inrichten van hoeksteen OnDemand door het kiezen van de gewenste waarden in **bereik** in de **instellingen** sectie.
+13. De gebruikers of groepen die u wilt definiëren voor het inrichten van hoeksteen OnDemand. In de **instellingen** sectie, selecteert u de waarden in de gewenste **bereik**.
 
-    ![Cornerstone OnDemand Provisioning](./media/cornerstone-ondemand-provisioning-tutorial/SyncScope.png)
+    ![Hoeksteen OnDemand bereik](./media/cornerstone-ondemand-provisioning-tutorial/SyncScope.png)
 
-14. Wanneer u klaar om in te richten bent, klikt u op **opslaan**.
+14. Wanneer u klaar om in te richten bent, selecteert u **opslaan**.
 
-    ![Cornerstone OnDemand Provisioning](./media/cornerstone-ondemand-provisioning-tutorial/Save.png)
+    ![Hoeksteen OnDemand opslaan](./media/cornerstone-ondemand-provisioning-tutorial/Save.png)
 
-Met deze bewerking wordt gestart voor de initiële synchronisatie van alle gebruikers en/of groepen die zijn gedefinieerd **bereik** in de **instellingen** sectie. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de Azure AD-inrichtingsservice wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en koppelingen volgen voor het inrichten van rapport van de activiteit, die alle acties die worden uitgevoerd door de Azure AD-inrichtingsservice op hoeksteen OnDemand beschrijft.
+Met deze bewerking wordt gestart voor de initiële synchronisatie van alle gebruikers of groepen die zijn gedefinieerd **bereik** in de **instellingen** sectie. De eerste synchronisatie langer duren om uit te voeren dan later wordt gesynchroniseerd. Ze plaatsvindt ongeveer elke 40 minuten, zolang het Azure AD-inrichtingsservice wordt uitgevoerd. 
+
+U kunt de **synchronisatiedetails** sectie aan de vooruitgang en koppelingen naar het rapport over de inrichtingsactiviteit volgen. Het rapport worden alle acties die zijn uitgevoerd door de Azure AD-inrichtingsservice op hoeksteen OnDemand beschreven.
 
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Connector-beperkingen
 
-* De hoeksteen OnDemand **positie** kenmerk wordt verwacht dat een waarde die overeenkomt met de rollen op de hoeksteen OnDemand-portal. De lijst met geldige **positie** waarden kunnen worden opgehaald door te navigeren naar **gebruikersrecord bewerken > structuur van organisatie > positie** in de hoeksteen OnDemand-portal.
+De hoeksteen OnDemand **positie** kenmerk wordt verwacht dat een waarde die overeenkomt met de rollen op de hoeksteen OnDemand-portal. Voor een lijst van geldige **positie** waarden, Ga naar **gebruikersrecord bewerken > structuur van organisatie > positie** in de hoeksteen OnDemand-portal.
 
-    ![Gebruiker hoeksteen OnDemand inrichting bewerken](./media/cornerstone-ondemand-provisioning-tutorial/UserEdit.png) ![hoeksteen OnDemand inrichting positie](./media/cornerstone-ondemand-provisioning-tutorial/UserPosition.png) ![hoeksteen OnDemand lijst posities inrichten](./media/cornerstone-ondemand-provisioning-tutorial/PostionId.png)
+![Hoeksteen OnDemand inrichting gebruikersrecord bewerken](./media/cornerstone-ondemand-provisioning-tutorial/UserEdit.png)
+
+![Cornerstone OnDemand Provisioning Position](./media/cornerstone-ondemand-provisioning-tutorial/UserPosition.png)
+
+![Lijst van hoeksteen positie OnDemand inrichten](./media/cornerstone-ondemand-provisioning-tutorial/PostionId.png)
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Het inrichten van gebruikersaccounts voor bedrijfs-apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 ## <a name="next-steps"></a>Volgende stappen

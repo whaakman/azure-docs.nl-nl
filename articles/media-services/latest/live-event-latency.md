@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 30cd77799837f9b1ef08a9c609e518fd679b9b15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 393b87aeed759950b946ccb45a008da9af4b7ebe
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322298"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766838"
 ---
 # <a name="live-event-latency-in-media-services"></a>Live gebeurtenis latentie in Media Services
 
@@ -27,7 +27,7 @@ Dit artikel wordt beschreven hoe u om in te stellen met lage latentie op een [Li
 Gebruik van de nieuwe **LowLatency** functie, stelt u de **StreamOptionsFlag** naar **LowLatency** op de **LiveEvent**. Bij het maken van [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) voor HLS afspelen, stelt u [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) op 1. Zodra de stroom actief en werkend is, kunt u de [Azure Media Player](https://ampdemo.azureedge.net/) (AMP demo pagina), en stel de opties afspelen 'Met lage latentie methodiek profiel' te gebruiken.
 
 > [!NOTE]
-> Op dit moment is de LowLatency HeuristicProfile in Azure Media Player ontworpen voor het afspelen van stromen in protocol DASH of HLS met CMAF. Als u voor Mac OS- of iOS-apparaten via HLS met TS ontwikkelt (bijvoorbeeld `format=m3u8-aapl` of `format=m3u8-aapl-v3`), u moet niet gebruiken voor deze instelling omdat AMP direct maakt gebruik van de systeemeigen speler geleverd door het besturingssysteem in dit geval.
+> Op dit moment de LowLatency HeuristicProfile in Azure Media Player is ontworpen voor het afspelen van stromen in MPEG-DASH-protocol, CSF of CMAF-indeling (bijvoorbeeld `format=mdp-time-csf` of `format=mdp-time-cmaf`). 
 
 De volgende .NET-voorbeeld laat zien hoe om in te stellen **LowLatency** op de **LiveEvent**:
 

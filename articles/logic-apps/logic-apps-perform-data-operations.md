@@ -11,11 +11,11 @@ ms.date: 07/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 93c24f88fcd6a002493933ef71c5c80bd2ff8c10
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231641"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120176"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Gegevensbewerkingen uitvoeren in Azure Logic Apps
 
@@ -33,12 +33,12 @@ Deze tabel bevat een overzicht van de gegevens die bewerkingen u kunt gebruiken 
 
 Deze acties kunnen u werken met gegevens in matrices.
 
-| Bewerking | Beschrijving | 
+| Bewerking | Description | 
 |--------|-------------| 
 | [**CSV-tabel maken**](#create-csv-table-action) | Een door komma's gescheiden waarden (CSV)-tabel maken van een matrix. | 
 | [**HTML-tabel maken**](#create-html-table-action) | Een HTML-tabel maken van een matrix. | 
 | [**Matrix filteren**](#filter-array-action) | Maak een subset van de matrix van een matrix op basis van het opgegeven filter of een voorwaarde. | 
-| [**join**](#join-action) | Maken van een tekenreeks van de items in een matrix en scheiden van elk item met het opgegeven teken. | 
+| [**Join**](#join-action) | Maken van een tekenreeks van de items in een matrix en scheiden van elk item met het opgegeven teken. | 
 | [**Selecteer**](#select-action) | Een matrix van de opgegeven eigenschappen voor alle items in een andere matrix maken. | 
 ||| 
 
@@ -46,7 +46,7 @@ Deze acties kunnen u werken met gegevens in matrices.
 
 Deze acties kunnen u werken met gegevens in JavaScript Object Notation (JSON)-indeling.
 
-| Bewerking | Beschrijving | 
+| Bewerking | Description | 
 |--------|-------------| 
 | [**Opstellen**](#compose-action) | Een bericht of een tekenreeks, maken van meerdere invoergegevens die verschillende soorten gegevens kunnen hebben. U kunt vervolgens deze tekenreeks als een enkel invoer, in plaats van herhaaldelijk de dezelfde invoer gebruiken. U kunt bijvoorbeeld een enkel JSON-bericht maken van verschillende invoer. | 
 | [**JSON parseren**](#parse-json-action) | Gebruiksvriendelijke gegevenstokens aanmaken voor eigenschappen in JSON-inhoud zodat u de eigenschappen eenvoudiger in uw logische apps gebruiken kunt. | 
@@ -62,7 +62,7 @@ Als u wilt de voorbeelden in dit artikel volgen, moet u deze items:
 
 * De logische app waar u de bewerking voor het werken met gegevens nodig hebt 
 
-  Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Snelstartgids: uw eerste logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Quick Start: Maak uw eerste logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Een [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) als de eerste stap in uw logische app 
 
@@ -82,7 +82,7 @@ en maakt deze uitvoer:
 
 `{"age":35,"fullName":"Owens,Sophie"}`
 
-Als u een voorbeeld, volg deze stappen met behulp van de ontwerper van logische App. Of, als u liever in het code-editor weergave werkt, kunt u het voorbeeld **opstellen** en **variabele initialiseren** definities van de actie van dit artikel in uw eigen logica-app in de onderliggende werkstroom definitie: [gegevens bewerking-codevoorbeelden - opstellen](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
+Als u een voorbeeld, volg deze stappen met behulp van de ontwerper van logische App. Of, als u liever in het code-editor weergave werkt, kunt u het voorbeeld **opstellen** en **variabele initialiseren** definities van de actie van dit artikel in uw eigen logica-app in de onderliggende werkstroom definitie van: [Voorbeelden van gegevens-bewerking code - opstellen](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
 
 1. In de <a href="https://portal.azure.com" target="_blank">Azure-portal</a> of Visual Studio, open uw logische app in Logic App Designer. 
 
@@ -100,7 +100,7 @@ Als u een voorbeeld, volg deze stappen met behulp van de ontwerper van logische 
    * Als u wilt toevoegen een actie tussen fasen, u de muisaanwijzer over het maken van verbinding pijl, zodat het plusteken (+) wordt weergegeven. 
    Kies het plusteken en selecteer vervolgens **een actie toevoegen**.
 
-3. Typ 'opstellen' als filter in het zoekvak. Selecteer in de lijst met acties met deze actie: **opstellen**
+3. Typ 'opstellen' als filter in het zoekvak. Selecteer deze actie uit de lijst met acties: **Opstellen**
 
    ![Selecteer de actie 'Opstellen'](./media/logic-apps-perform-data-operations/select-compose-action.png)
 
@@ -142,7 +142,7 @@ Om te bevestigen of de **opstellen** actie wordt gemaakt van de verwachte result
 
 Gebruik voor het maken van een tabel met door komma's gescheiden waarden (CSV) met de eigenschappen en waarden van JavaScript Object Notation (JSON)-objecten in een matrix de **gegevensbewerkingen - CSV-tabel maken** actie. U kunt vervolgens de resulterende tabel in de acties die volgen op de **CSV-tabel maken** actie. 
 
-Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **CSV-tabel maken** en **variabele initialiseren** definities van de actie van dit artikel in uw eigen logica-app in de onderliggende werkstroom definitie: [gegevens bewerking codevoorbeelden - CSV-tabel maken](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
+Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **CSV-tabel maken** en **variabele initialiseren** definities van de actie van dit artikel in uw eigen logica-app in de onderliggende werkstroom definitie van: [Voorbeelden van gegevens-bewerking code - CSV-tabel maken](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
 
 1. In de <a href="https://portal.azure.com" target="_blank">Azure-portal</a> of Visual Studio, open uw logische app in Logic App Designer. 
 
@@ -161,7 +161,7 @@ Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **CSV-tabel
    * Als u wilt toevoegen een actie tussen fasen, u de muisaanwijzer over het maken van verbinding pijl, zodat het plusteken (+) wordt weergegeven. 
    Kies het plusteken en selecteer vervolgens **een actie toevoegen**.
 
-3. Voer 'csv-tabel maken' als filter in het zoekvak in. Selecteer in de lijst met acties met deze actie: **CSV-tabel maken**
+3. Voer 'csv-tabel maken' als filter in het zoekvak in. Selecteer deze actie uit de lijst met acties: **CSV-tabel maken**
 
    ![Selecteer ' maken CSV tabel "actie](./media/logic-apps-perform-data-operations/select-create-csv-table-action.png)
 
@@ -211,7 +211,7 @@ Om te bevestigen of de **CSV-tabel maken** actie wordt gemaakt van de verwachte 
 
 Gebruik voor het maken van een HTML-tabel die de eigenschappen en waarden van JavaScript Object Notation (JSON)-objecten in een matrix heeft de **gegevensbewerkingen - HTML-tabel maken** actie. U kunt vervolgens de resulterende tabel in de acties die volgen op de **HTML-tabel maken** actie.
 
-Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **HTML-tabel maken** en **variabele initialiseren** definities van de actie van dit artikel in uw eigen logica-app in de onderliggende werkstroom definitie: [gegevens bewerking codevoorbeelden - HTML-tabel maken](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
+Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **HTML-tabel maken** en **variabele initialiseren** definities van de actie van dit artikel in uw eigen logica-app in de onderliggende werkstroom definitie van: [Voorbeelden van gegevens-bewerking code - HTML-tabel maken](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
 
 1. In de <a href="https://portal.azure.com" target="_blank">Azure-portal</a> of Visual Studio, open uw logische app in Logic App Designer. 
 
@@ -230,7 +230,7 @@ Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **HTML-tabe
    * Als u wilt toevoegen een actie tussen fasen, u de muisaanwijzer over het maken van verbinding pijl, zodat het plusteken (+) wordt weergegeven. 
    Kies het plusteken en selecteer vervolgens **een actie toevoegen**.
 
-3. Voer 'html-tabel maken' als filter in het zoekvak in. Selecteer in de lijst met acties met deze actie: **HTML-tabel maken**
+3. Voer 'html-tabel maken' als filter in het zoekvak in. Selecteer deze actie uit de lijst met acties: **HTML-tabel maken**
 
    ![Selecteer de actie 'Maken HTML-tabel'](./media/logic-apps-perform-data-operations/select-create-html-table-action.png)
 
@@ -288,7 +288,7 @@ Gebruik voor het maken van een kleinere matrix met items die voldoen aan bepaald
 > 
 > Voor bewerkingen voor het gebruik van de matrixuitvoer van de **matrix filteren** actie, deze acties matrices moeten accepteert als invoer, of mogelijk hebt u de uitvoermatrix omzetten in een andere indeling die compatibel. 
 
-Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **matrix filteren** en **variabele initialiseren** definities van de actie van dit artikel in uw eigen logica-app in de onderliggende werkstroom definitie: [gegevens bewerking codevoorbeelden - matrix filteren](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
+Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **matrix filteren** en **variabele initialiseren** definities van de actie van dit artikel in uw eigen logica-app in de onderliggende werkstroom definitie van: [Voorbeelden van gegevens-bewerking code - matrix filteren](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
 
 1. In de <a href="https://portal.azure.com" target="_blank">Azure-portal</a> of Visual Studio, open uw logische app in Logic App Designer. 
 
@@ -309,7 +309,7 @@ Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **matrix fi
    * Als u wilt toevoegen een actie tussen fasen, u de muisaanwijzer over het maken van verbinding pijl, zodat het plusteken (+) wordt weergegeven. 
    Kies het plusteken en selecteer vervolgens **een actie toevoegen**.
 
-3. Typ 'matrix filteren' als filter in het zoekvak. Selecteer in de lijst met acties met deze actie: **matrix filteren**
+3. Typ 'matrix filteren' als filter in het zoekvak. Selecteer deze actie uit de lijst met acties: **Matrix filteren**
 
    ![Selecteer de actie 'Matrix filteren'](./media/logic-apps-perform-data-operations/select-filter-array-action.png)
 
@@ -357,7 +357,7 @@ Om te bevestigen of **matrix filteren** actie wordt gemaakt van de verwachte res
 
 Voor het maken van een tekenreeks is die alle items uit een matrix heeft en deze items te scheiden met een specifiek scheidingsteken, gebruikt u de **gegevensbewerkingen - lid worden** actie. U kunt vervolgens de tekenreeks in de acties die volgen na de **Join** actie.
 
-Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **Join** en **variabele initialiseren** definities van de actie van dit artikel in uw eigen logica-app in de onderliggende werkstroom-definitie: [ Voorbeelden van gegevens-bewerking code - Join](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
+Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **Join** en **variabele initialiseren** definities van de actie van dit artikel in uw eigen logica-app in de onderliggende werkstroom-definitie: [Voorbeelden van gegevens-bewerking code - Join](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
 
 1. In de <a href="https://portal.azure.com" target="_blank">Azure-portal</a> of Visual Studio, open uw logische app in Logic App Designer. 
 
@@ -376,7 +376,7 @@ Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **Join** en
    * Als u wilt toevoegen een actie tussen fasen, u de muisaanwijzer over het maken van verbinding pijl, zodat het plusteken (+) wordt weergegeven. 
    Kies het plusteken en selecteer vervolgens **een actie toevoegen**.
 
-3. Typ 'koppelen' als filter in het zoekvak. Selecteer in de lijst met acties met deze actie: **toevoegen**
+3. Typ 'koppelen' als filter in het zoekvak. Selecteer deze actie uit de lijst met acties: **Koppelen**
 
    !["Gegevens Operations – Join" actie selecteren](./media/logic-apps-perform-data-operations/select-join-action.png)
 
@@ -421,7 +421,7 @@ Om te bevestigen of de **Join** actie wordt gemaakt van de verwachte resultaten,
 Eigenschappen van verwijzing of toegang in JavaScript Object Notation (JSON) inhoud, u gebruiksvriendelijke velden of -tokens voor deze eigenschappen kunt maken met behulp van de **gegevensbewerkingen - JSON parseren** actie.
 Op die manier kunt u deze eigenschappen uit de lijst met dynamische inhoud wanneer u invoer voor uw logische app opgeeft. Voor deze actie kunt u bieden een JSON-schema of een JSON-schema genereren van uw voorbeeld-JSON-inhoud of de nettolading.
 
-Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **JSON parseren** en **variabele initialiseren** definities van de actie van dit artikel in uw eigen logica-app in de onderliggende werkstroom-definitie : [Gegevens bewerking codevoorbeelden - JSON parseren](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example) 
+Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **JSON parseren** en **variabele initialiseren** definities van de actie van dit artikel in uw eigen logica-app in de onderliggende werkstroom-definitie : [Voorbeelden van gegevens-bewerking code - JSON parseren](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example) 
 
 1. In de <a href="https://portal.azure.com" target="_blank">Azure-portal</a> of Visual Studio, open uw logische app in Logic App Designer. 
 
@@ -440,7 +440,7 @@ Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **JSON pars
    * Als u wilt toevoegen een actie tussen fasen, u de muisaanwijzer over het maken van verbinding pijl, zodat het plusteken (+) wordt weergegeven. 
    Kies het plusteken en selecteer vervolgens **een actie toevoegen**.
 
-3. Voer 'json parseren' als filter in het zoekvak. Selecteer in de lijst met acties met deze actie: **JSON parseren**
+3. Voer 'json parseren' als filter in het zoekvak. Selecteer deze actie uit de lijst met acties: **JSON parseren**
 
    ![Selecteer de actie 'JSON parseren'](./media/logic-apps-perform-data-operations/select-parse-json-action.png)
 
@@ -499,7 +499,7 @@ Gebruik voor het maken van een matrix met JSON-objecten die zijn gebouwd op basi
 > [!NOTE]
 > Voor bewerkingen voor het gebruik van de matrixuitvoer van de **Selecteer** actie, deze acties matrices moeten accepteert als invoer, of mogelijk hebt u de uitvoermatrix omzetten in een andere indeling die compatibel. 
 
-Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **Selecteer** en **variabele initialiseren** definities van de actie van dit artikel in uw eigen logica-app in de onderliggende werkstroom-definitie: [Gegevens bewerking-codevoorbeelden - selecteren](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
+Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **Selecteer** en **variabele initialiseren** definities van de actie van dit artikel in uw eigen logica-app in de onderliggende werkstroom-definitie: [Voorbeelden van gegevens-bewerking code - selecteren](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
 
 1. In de <a href="https://portal.azure.com" target="_blank">Azure-portal</a> of Visual Studio, open uw logische app in Logic App Designer. 
 
@@ -518,7 +518,7 @@ Als u liever in het code-editor weergave werkt, kunt u het voorbeeld **Selecteer
    * Als u wilt toevoegen een actie tussen fasen, u de muisaanwijzer over het maken van verbinding pijl, zodat het plusteken (+) wordt weergegeven. 
    Kies het plusteken en selecteer vervolgens **een actie toevoegen**.
 
-3. Typ 'selecteren' als filter in het zoekvak. Selecteer in de lijst met acties met deze actie: **selecteren**
+3. Typ 'selecteren' als filter in het zoekvak. Selecteer deze actie uit de lijst met acties: **Selecteren**
 
    ![Selecteer de actie 'Selecteren'](./media/logic-apps-perform-data-operations/select-select-action.png)
 

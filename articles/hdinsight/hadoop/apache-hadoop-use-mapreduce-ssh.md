@@ -2,19 +2,27 @@
 title: MapReduce en SSH-verbinding met Apache Hadoop in HDInsight - Azure
 description: Informatie over het gebruik van SSH met behulp van Apache Hadoop op HDInsight MapReduce-taken uit te voeren.
 services: hdinsight
-author: hrasheed-msft
-ms.reviewer: jasonh
+documentationcenter: ''
+author: Blackmist
+manager: cgronlunb
+editor: cgronlun
+tags: azure-portal
+ms.assetid: 844678ba-1e1f-4fda-b9ef-34df4035d547
 ms.service: hdinsight
 ms.custom: hdinsightactive
+ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/10/2018
-ms.author: hrasheed
-ms.openlocfilehash: bce79aed49b94071b4e83524de2d599fca182256
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: MT
+ms.tgt_pltfrm: na
+ms.workload: big-data
+origin.date: 04/10/2018
+ms.date: 01/14/2019
+ms.author: v-yiso
+ms.openlocfilehash: 3448a5e89f6930a5bdcb7d0d77b92576e58fc90b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438562"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129379"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>MapReduce gebruiken met Apache Hadoop op HDInsight met SSH
 
@@ -39,13 +47,13 @@ Leer hoe u MapReduce-taken verzenden via een Secure Shell (SSH)-verbinding naar 
 Verbinding maken met het cluster via SSH. Bijvoorbeeld, de volgende opdracht maakt verbinding met een cluster met de naam **myhdinsight** als de **sshuser** account:
 
 ```bash
-ssh sshuser@myhdinsight-ssh.azurehdinsight.net
+ssh sshuser@myhdinsight-ssh.azurehdinsight.cn
 ```
 
 **Als u een certificaatsleutel voor SSH-verificatie**, moet u mogelijk de locatie van de persoonlijke sleutel bijvoorbeeld op het clientsysteem opgeven:
 
 ```bash
-ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.net
+ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.cn
 ```
 
 **Als u een wachtwoord voor SSH-verificatie**, moet u het wachtwoord wanneer hierom wordt gevraagd.
@@ -80,7 +88,7 @@ Zie voor meer informatie over het gebruik van SSH met HDInsight [SSH gebruiken m
 
     Met deze opdracht u twee bestanden, `_SUCCESS` en `part-r-00000`. De `part-r-00000` -bestand bevat de uitvoer voor deze taak.
 
-    > [!NOTE]  
+    > [!NOTE]
     > Bepaalde MapReduce-taken kunnen de resultaten splitsen over meerdere **onderdeel-r-###** bestanden. Als dit het geval is, gebruikt u de ### achtervoegsel om aan te geven van de volgorde van de bestanden.
 
 4. Als u de uitvoer, gebruik de volgende opdracht:

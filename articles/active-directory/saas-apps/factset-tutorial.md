@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad0c1ac2ce39fd919cb82ce2bdb0841edf9c777
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9fa951e50a38b8bc63cc4e26ef54c013531bd7d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278943"
+ms.locfileid: "62098476"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-factset"></a>Zelfstudie: Azure Active Directory-integratie met FactSet
 
@@ -105,12 +105,12 @@ Voer de volgende stappen uit als u eenmalige aanmelding van Azure AD wilt config
 
     ![Informatie over eenmalige aanmelding voor FactSet-domein en -URL's](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://login.factset.com/services/auth-test?idpid=<GUID>`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<intendedDestinationURL>.factset.com?idpid=<GUID>`
 
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://login.factset.com`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [FactSet-ondersteuningsteam](mailto:support@factset.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met uw accountvertegenwoordiger FactSet om op te halen van deze waarden. Als u niet wie uw vertegenwoordiger FactSet is weet, kunt u hulp vinden op de [FactSet getallen ondersteuningspagina](https://www.factset.com/support-numbers). U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
@@ -128,7 +128,7 @@ Voer de volgende stappen uit als u eenmalige aanmelding van Azure AD wilt config
 
 ### <a name="configure-factset-single-sign-on"></a>FactSet configureren voor eenmalige aanmelding
 
-Als u eenmalige aanmelding aan de zijde van **FactSet** wilt configureren, moet u het gedownloade **XML-bestand met federatieve metagegevens** en de correcte uit de Azure-portal gekopieerde URL's verzenden naar het [FactSet-ondersteuningsteam](mailto:support@factset.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Het configureren van eenmalige aanmelding op **FactSet** zijde, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** en juiste gekopieerde URL's van Azure portal naar personen FactSet ondersteuning u in contact met. Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
@@ -183,7 +183,7 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 ### <a name="create-factset-test-user"></a>FactSet-testgebruiker maken
 
-In deze sectie gaat u in FactSet een gebruiker maken met de naam Britta Simon. Werk samen met het  [FactSet-ondersteuningsteam](mailto:support@factset.com) om gebruikers toe te voegen aan het FactSet-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie gaat u in FactSet een gebruiker maken met de naam Britta Simon. Werken met uw FactSet ondersteuning accountvertegenwoordigers om toe te voegen de gebruikers in het FactSet-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 

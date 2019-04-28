@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: tulasim
-ms.openlocfilehash: c18ededc428b215720f8a6a6857a2eabd93bff8b
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683584"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765661"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Een antwoord kennis met de GenerateAnswer API en metagegevens
 
@@ -83,6 +83,7 @@ De hoofdtekst van de JSON bevat verschillende instellingen:
 |`question`|vereist|string|Een vraag van de gebruiker moet worden verzonden naar uw knowledge base.|
 |`top`|optioneel|geheel getal|Het aantal gerangschikte resultaten om op te nemen in de uitvoer. De standaardwaarde is 1.|
 |`userId`|optioneel|string|Een unieke ID voor het identificeren van de gebruiker. Deze ID wordt geregistreerd in de chat-Logboeken.|
+|`scoreThreshold`|optioneel|geheel getal|Alleen antwoorden met een betrouwbaarheidsscore boven deze drempelwaarde worden geretourneerd. De standaardwaarde is 0.|
 |`isTest`|optioneel|booleaans|Indien ingesteld op true, retourneert resultaten van `testkb` Search-index in plaats van gepubliceerde index.|
 |`strictFilters`|optioneel|string|Indien opgegeven, wordt aan de QnA Maker om terug te keren alleen de antwoorden die de opgegeven metagegevens zijn. Gebruik `none` om aan te geven antwoord moet er geen filters voor metagegevens. |
 
@@ -93,6 +94,7 @@ Een voorbeeld-JSON-hoofdtekst ziet eruit zoals:
     "question": "qna maker and luis",
     "top": 6,
     "isTest": true,
+    "scoreThreshold": 20,
     "strictFilters": [
     {
         "name": "category",

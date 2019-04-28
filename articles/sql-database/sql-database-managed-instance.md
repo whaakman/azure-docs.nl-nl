@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098529"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Geavanceerde beveiliging van gegevens met virtuele netwerken en in de buurt van 100% compatibiliteit van SQL-Database gebruiken
 
@@ -71,7 +71,7 @@ De belangrijkste functies van beheerde exemplaren worden weergegeven in de volge
 | Ingebouwde Reporting Service (SSRS) | Nee, Power BI of SSRS IaaS gebruiken |
 |||
 
-## <a name="vcore-based-purchasing-model"></a>Op vCore gebaseerd aanschafmodel
+## <a name="vcore-based-purchasing-model"></a>Aankoopmodel op basis van vCore
 
 De [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) voor beheerde exemplaren biedt u flexibiliteit, controle, transparantie, en een eenvoudige manier te vertalen on-premises vereisten workloads naar de cloud. Dit model kunt u rekenkracht, geheugen en opslag op basis van uw workloadbehoefte wijzigen. Het vCore-model is ook in aanmerking komen voor van 30 procent besparen met de [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -161,7 +161,7 @@ Een nieuwe syntaxis is geïntroduceerd voor het maken van Azure AD server-princi
 
 Het beheerde exemplaar implementatie-optie kunt u centraal beheren van identiteiten van databasegebruikers en andere Microsoft-services met [Azure Active Directory-integratie](sql-database-aad-authentication.md). Deze mogelijkheid vereenvoudigt het beheer van machtigingen en verbetert de beveiliging. Azure Active Directory ondersteunt [Multi-Factor Authentication](sql-database-ssms-mfa-authentication-configure.md) (MFA) voor betere beveiliging van gegevens en toepassingen, en ondersteunt ook een proces voor eenmalige aanmelding (SSO).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Verificatie
 
 Beheerd exemplaar verificatie verwijst naar hoe gebruikers hun identiteit bewijst bij het verbinden met de database. SQL Database ondersteunt twee typen verificatie:  
 
@@ -240,5 +240,5 @@ De volgende tabel toont enkele eigenschappen, toegankelijk zijn via Transact-SQL
 - Zie voor meer informatie over VNet-configuratie, [managed instance VNet configuration](sql-database-managed-instance-connectivity-architecture.md).
 - Zie voor een snelstartgids die een beheerd exemplaar maakt en wordt een database teruggezet vanuit een back-upbestand, [een beheerd exemplaar maken](sql-database-managed-instance-get-started.md).
 - Zie voor een zelfstudie met behulp van de Azure Database Migration Service (DMS) voor de migratie, [beheerd exemplaar migreren met behulp van DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- Zie [Azure SQL Database bewaken met Azure SQL-analyse](../azure-monitor/insights/azure-sql.md) voor geavanceerde bewaking van de databaseprestaties van het beheerde exemplaar met ingebouwde intelligentie voor het oplossen van problemen
+- Zie [Azure SQL Database bewaken met Azure SQL-analyse](../azure-monitor/insights/azure-sql.md) voor geavanceerde bewaking van de prestaties van de beheerde exemplaardatabase met ingebouwde intelligentie voor het oplossen van problemen
 - Zie voor informatie over de prijzen [SQL-Database beheerd exemplaar prijzen](https://azure.microsoft.com/pricing/details/sql-database/managed/).

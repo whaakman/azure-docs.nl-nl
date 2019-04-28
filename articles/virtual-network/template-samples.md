@@ -3,8 +3,8 @@ title: Voorbeeldsjablonen van Azure Resource Manager voor virtueel netwerk | Mic
 description: Meer informatie over de verschillende Azure Resource Manager-sjablonen die u kunt implementeren met virtuele Azure-netwerken.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/13/2018
-ms.author: jdial
-ms.openlocfilehash: a16feffea6ac64423398b995499f0e6a60182636
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 04/22/2019
+ms.author: kumud
+ms.openlocfilehash: c4d0c65cfae0bb323978f4143b0058071562ddb6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039585"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098419"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>Voorbeeldsjablonen van Azure Resource Manager voor virtueel netwerk
 
@@ -33,6 +33,7 @@ Zie [Microsoft.Network resource types](/azure/templates/microsoft.network/allver
 |----|----|
 |[Een virtueel netwerk met twee subnetten maken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)| Hiermee maakt u een virtueel netwerk met twee subnetten.|
 |[Verkeer routeren via een virtueel netwerkapparaat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-userdefined-routes-appliance)| Hiermee maakt u een virtueel netwerk met drie subnetten. Hiermee implementeert u een virtuele machine in elk van de subnetten. Hiermee maakt u een routetabel met routes om verkeer van één subnet naar een andere te sturen via de virtuele machine in het derde subnet. Hiermee koppelt u de routetabel op een van de subnetten.|
-|[Hiermee maakt u een service-eindpunt van het virtuele netwerk voor Azure Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-2subnets-service-endpoints-storage-integration)|Hiermee maakt u een nieuw virtueel netwerk met twee subnetten en een netwerkinterface in elk subnet. Hiermee activeert u een service-eindpunt naar Azure Storage voor een van de subnetten en beveiligt u een nieuw opslagaccount op dat subnet.|
+|[Hiermee maakt u een service-eindpunt voor het virtuele netwerk voor Azure Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-2subnets-service-endpoints-storage-integration)|Hiermee maakt u een nieuw virtueel netwerk met twee subnetten en een netwerkinterface in elk subnet. Hiermee activeert u een service-eindpunt naar Azure Storage voor een van de subnetten en beveiligt u een nieuw opslagaccount op dat subnet.|
 |[Verbinden van twee virtuele netwerken](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-to-vnet-peering)| Hiermee maakt u twee virtuele netwerken en een virtueel peering-netwerk ertussen.|
 |[Een virtuele machine met meerdere IP-adressen maken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-ipconfig)| Hiermee maakt u een Windows- of Linux-VM met meerdere IP-adressen.|
+|[Configureer IPv4 + IPv6 dual stack-virtueel netwerk](https://github.com/Azure/azure-quickstart-templates/tree/master/ipv6-in-vnet)|Virtueel netwerk met twee virtuele machines en een Azure Basic Load Balancer met openbare IP-adressen van IPv4 en IPv6 dual stack (IPv4 + IPv6) implementeert. |

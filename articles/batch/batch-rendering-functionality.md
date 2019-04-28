@@ -8,11 +8,11 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: be6c0f9a8874507433606903bcbd58c7723d6a8a
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791797"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118684"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Mogelijkheden van Azure Batch rendering
 
@@ -32,8 +32,8 @@ Zie voor een voorbeeldconfiguratie van toepassingen, de [zelfstudie voor Azure C
 
 | Uitgever | Aanbieding | Sku | Versie |
 |---------|---------|---------|--------|
-| batch | rendering-centos73 | rendering | nieuwste |
-| batch | rendering-windows2016 | rendering | nieuwste |
+| batch | rendering-centos73 | rendering | meest recente |
+| batch | rendering-windows2016 | rendering | meest recente |
 
 Andere opties zijn beschikbaar als aanvullende toepassingen zijn vereist voor de pool-VM's:
 

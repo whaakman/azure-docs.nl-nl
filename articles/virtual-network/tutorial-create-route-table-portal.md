@@ -4,8 +4,8 @@ titlesuffix: Azure Virtual Network
 description: In deze zelfstudie leert u netwerkverkeer te routeren met een routetabel met behulp van Azure Portal.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/12/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 855adccf036f731de12810fe0f5287186048ddb0
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095954"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098638"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Zelfstudie: Netwerkverkeer routeren met een routetabel met behulp van de Azure-portal
 
@@ -54,7 +54,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 
     | Instelling | Waarde |
     | ------- | ----- |
-    | Naam | Voer *myRouteTablePublic* in. |
+    | Name | Voer *myRouteTablePublic* in. |
     | Abonnement | Selecteer uw abonnement. |
     | Resourcegroep | Selecteer **Nieuwe maken**, voer *myResourceGroup* in en selecteer *OK*. |
     | Locatie | Laat de standaardwaarde **US - oost** staan.
@@ -95,7 +95,7 @@ Voordat u een routetabel aan een subnet kunt koppelen, moet u een virtueel netwe
 
     | Instelling | Waarde |
     | ------- | ----- |
-    | Naam | Voer *myVirtualNetwork* in. |
+    | Name | Voer *myVirtualNetwork* in. |
     | Adresruimte | Voer *10.0.0.0/16* in. |
     | Abonnement | Selecteer uw abonnement. |
     | Resourcegroep | Selecteer ***Bestaande selecteren*** > **myResourceGroup**. |
@@ -119,7 +119,7 @@ Voordat u een routetabel aan een subnet kunt koppelen, moet u een virtueel netwe
 
     | Instelling | Waarde |
     | ------- | ----- |
-    | Naam | Voer *Privé* in. |
+    | Name | Voer *Privé* in. |
     | Adresruimte | Voer *10.0.1.0/24* in. |
 
 1. Laat de overige standaardwaarden staan en selecteer **OK**.
@@ -128,7 +128,7 @@ Voordat u een routetabel aan een subnet kunt koppelen, moet u een virtueel netwe
 
     | Instelling | Waarde |
     | ------- | ----- |
-    | Naam | Voer *DMZ* in. |
+    | Name | Voer *DMZ* in. |
     | Adresruimte | Voer *10.0.2.0/24* in. |
 
 1. Laat net zoals de vorige keer de standaardwaarden staan en selecteer **OK**.
@@ -151,7 +151,7 @@ NVA’s zijn VM’s die helpen met netwerkfuncties zoals routering en firewallop
 
 1. Typ of selecteer in **Een virtuele machine maken - Basisprincipes** de volgende gegevens:
 
-    | Instelling | Waarde |
+    | Instelling | Value |
     | ------- | ----- |
     | **PROJECTGEGEVENS** | |
     | Abonnement | Selecteer uw abonnement. |
@@ -160,7 +160,7 @@ NVA’s zijn VM’s die helpen met netwerkfuncties zoals routering en firewallop
     | Naam van de virtuele machine | Voer *myVmNva* in. |
     | Regio | Selecteer **US - oost**. |
     | Beschikbaarheidsopties | Laat de standaardwaarde **Geen infrastructuurredundantie vereist** staan. |
-    | Installatiekopie | Laat de standaardwaarde **Windows Server 2016 Datacenter** staan. |
+    | Image | Laat de standaardwaarde **Windows Server 2016 Datacenter** staan. |
     | Grootte | Laat de standaardwaarde **Standard DS1 v2** staan. |
     | **ADMINISTRATOR-ACCOUNT** |  |
     | Gebruikersnaam | Voer een gebruikersnaam naar keuze in. |
@@ -193,7 +193,7 @@ NVA’s zijn VM’s die helpen met netwerkfuncties zoals routering en firewallop
 
     | Instelling | Waarde |
     | ------- | ----- |
-    | Naam | Voer *mynvastorageaccount* in. |
+    | Name | Voer *mynvastorageaccount* in. |
     | Soort account | Laat de standaardwaarde **Storage (algemeen gebruik v1)** staan. |
     | Prestaties | Laat de standaardwaarde **Standard** staan. |
     | Replicatie | Laat de standaardwaarde **Lokaal redundante opslag (LRS)** staan.
@@ -230,7 +230,7 @@ Maak een openbare VM en een privé-VM in het virtuele netwerk. Later gebruikt u 
 
 Voltooi stap 1-12 van [Een VM maken](#create-an-nva). Gebruik dezelfde instellingen. Deze waarden zijn de waarden die moeten worden gewijzigd:
 
-| Instelling | Waarde |
+| Instelling | Value |
 | ------- | ----- |
 | **OPENBARE VM** | |
 | BASISPRINCIPES |  |

@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 662c78fc7074b0dafc53c393962aa4b578779095
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092255"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106967"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Een functie van Microsoft Flow aanroepen
 
@@ -75,7 +75,7 @@ U beginnen met het maken van een lijst die u als een gegevensbron voor de stroom
 
 5. Herhaal de laatste twee stappen voor de andere drie kolommen in de lijst:
 
-    1. **Aantal** > "MaxOutput"
+    1. **Number** > "MaxOutput"
 
     2. **Ja/Nee** > "ServiceRequired"
 
@@ -132,7 +132,7 @@ U eerst een stroom maken met een leeg (zonder een sjabloon) en voegt een *trigge
 
     ![Een voorwaarde toevoegen](media/functions-flow-scenario/add-condition.png)
 
-    Microsoft Flow voegt twee vertakkingen toe aan de stroom: **als Ja** en **als er geen**. U toevoegen stappen aan een of beide vertakkingen na het definiëren van de voorwaarde die u wilt vergelijken.
+    Microsoft Flow voegt twee vertakkingen toe aan de stroom: **Als u Ja** en **als er geen**. U toevoegen stappen aan een of beide vertakkingen na het definiëren van de voorwaarde die u wilt vergelijken.
 
     ![Voorwaarde vertakkingen](media/functions-flow-scenario/condition-branches.png)
 
@@ -224,7 +224,7 @@ Nu dat de stroom is voltooid, kunt u een rij toevoegt aan de SharePoint-lijst en
 
 2. Voer de volgende waarden in het raster bewerken.
 
-    | Lijstkolom     | Waarde           |
+    | Lijstkolom     | Value           |
     |-----------------|---------------------|
     | **Titel**           | Turbine 60 |
     | **LastServiceDate** | 08/04/2017 |

@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/23/2019
 ms.author: carlrab
-ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495102"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759448"
 ---
 # <a name="sql-database-release-notes"></a>Opmerkingen bij de release van SQL-Database
 
@@ -45,6 +45,22 @@ In dit artikel bevat de nieuwe functies en verbeteringen in de service SQL Datab
 |SQL Analytics|Zie voor meer informatie, [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)|
 | Tijdzone-ondersteuning voor beheerde exemplaren|Zie voor meer informatie, [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="april-2019"></a>April 2019
+
+### <a name="service-improvements"></a>Verbeteringen van de services
+
+| Verbeteringen van de services | Details |
+| --- | --- |
+| Openbare eindpunten voor het beheerde exemplaar | Zie voor meer informatie, [beheerd exemplaar veilig met een openbaar eindpunt met behulp van Azure SQL Database](sql-database-managed-instance-public-endpoint-securely.md)
+| Tijdzone-ondersteuning voor het beheerde exemplaar | Zie voor meer informatie, [Time Zone in Azure SQL Database Managed Instance (Preview)](sql-database-managed-instance-timezone.md)
+
+### <a name="documentation-improvements"></a>Verbeteringen in de documentatie bij
+
+| Verbeteringen in de documentatie bij | Details |
+| --- | --- |
+| Openbare eindpunten voor het beheerde exemplaar | Zie voor meer informatie, [beheerd exemplaar veilig met een openbaar eindpunt met behulp van Azure SQL Database](sql-database-managed-instance-public-endpoint-securely.md)
+| Tijdzone-ondersteuning voor het beheerde exemplaar | Zie voor meer informatie, [Time Zone in Azure SQL Database Managed Instance (Preview)](sql-database-managed-instance-timezone.md)
 
 ## <a name="march-2019"></a>Maart 2019
 

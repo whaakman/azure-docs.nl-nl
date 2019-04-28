@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: fd8e380ad68b86b9ffd0f1e40efde8bdadfb19c5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434769"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763306"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Een subnet delegeren aan Azure NetApp Files 
 
@@ -30,7 +30,7 @@ U dient een subnet te delegeren aan Azure NetApp Files.   Als u een volume maakt
 * In elk Azure-VNet (virtueel netwerk) kan slechts één subnet worden gedelegeerd aan Azure NetApp Files.
 * U kunt geen netwerkbeveiligingsgroep of service-eindpunt in het gedelegeerde subnet toewijzen. Als u dit doet, mislukt het delegeren van het subnet.
 * Toegang tot een volume van een wereldwijd gekoppelde virtuele netwerk wordt momenteel niet ondersteund.
-* Het maken van [gebruiker gedefinieerde aangepaste routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) op VM-subnetten met adres voorvoegsel (doel) aan een subnet gedelegeerd naar Azure NetApp bestanden wordt niet ondersteund en heeft gevolgen voor VM-connectiviteit.
+* Het maken van [gebruiker gedefinieerde aangepaste routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) op VM-subnetten met adres voorvoegsel (doel) aan een subnet gedelegeerd naar Azure NetApp bestanden wordt niet ondersteund. In dat geval is van invloed op VM-connectiviteit.
 
 ## <a name="steps"></a>Stappen 
 1.  Ga in de Azure-portal naar de blade **Virtuele netwerken** en selecteer het virtuele netwerk dat u voor Azure NetApp Files wilt gebruiken.    

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 58fb1d73509ab52551bead4526dfb47588cf1ec6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 379b8ee4a78cd8b487407e92ae32a7525f428bf0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004581"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763858"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Wat is Windows Virtual Desktop Preview? 
 
@@ -55,15 +55,17 @@ U kunt ook toewijzen en gebruikers verbinding met uw virtuele bureaubladen:
 Er zijn enkele dingen die u moet het virtuele Windows-bureaublad instellen en uw gebruikers verbinding maken met hun Windows-desktops en toepassingen.
 
 Virtuele Windows-bureaublad ondersteunt momenteel alleen de volgende twee besturingssystemen:
-- Windows 10 Enterprise meerdere sessies
-- Windows Server 2016
+
+* Windows 10 Enterprise meerdere sessies
+* Windows Server 2016
 
 We willen is ondersteuning toegevoegd voor de volgende besturingssystemen, dus zorg ervoor dat u hebt de [licenties nodig](https://azure.microsoft.com/pricing/details/virtual-desktop/) voor uw gebruikers op basis van het bureaublad en de apps die u van plan bent om te implementeren:
 
 |OS|Vereiste licentie|
 |---|---|
-
-| Meerdere sessie van Windows 10 Enterprise of Windows 10 Enterprise | Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5| |Windows 7 Enterprise |Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5 | | Windows Server 2012 R2, 2016, 2019 | Extern bureaublad-services Client Access License (CAL) met Software Assurance |
+|Meerdere sessie van Windows 10 Enterprise of Windows 10 Enterprise|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
+|Windows Server 2012 R2, 2016, 2019|Extern bureaublad-services Client Access License (CAL) met Software Assurance|
 
 Uw infrastructuur moet de volgende zaken ter ondersteuning van virtuele Windows-bureaublad:
 

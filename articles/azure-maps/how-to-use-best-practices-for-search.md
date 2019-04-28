@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f7a14e975a5ca3aee5588f55f43b28081c100074
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e60b202a32745062d2078d9721dfeba7aba69bda
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358141"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763903"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Aanbevolen procedures voor het gebruik van Azure Maps Search-Service
 
@@ -132,9 +132,9 @@ De `language` parameter kunt u om in te stellen in welke taal search resultaten 
 
 ### <a name="predictive-mode-auto-suggest"></a>Voorspellende modus (Automatische suggesties)
 
-Meer overeenkomende waarden voor gedeeltelijke query's, `typeHead` parameter moet worden ingesteld op 'true' zijn. De query wordt geïnterpreteerd als een gedeeltelijke invoer en de zoekopdracht wordt voorspeld modus invoeren. Anders wordt wordt de service uitgegaan van dat alle relevante informatie is doorgegeven.
+Meer overeenkomende waarden voor gedeeltelijke query's, `typeahead` parameter moet worden ingesteld op 'true' zijn. De query wordt geïnterpreteerd als een gedeeltelijke invoer en de zoekopdracht wordt voorspeld modus invoeren. Anders wordt wordt de service uitgegaan van dat alle relevante informatie is doorgegeven.
 
-In het voorbeeld query hieronder u ziet dat de search service voor adres voor "Microsoft" is opgevraagd met de `typehead` parameter ingesteld op **waar**. Als u het antwoord ziet, kunt u zien dat de service voor zoeken in de query als gedeeltelijke query geïnterpreteerd en antwoord bevat de resultaten voor query automatisch is voorgesteld.
+In het voorbeeld query hieronder u ziet dat de search service voor adres voor "Microsoft" is opgevraagd met de `typeahead` parameter ingesteld op **waar**. Als u het antwoord ziet, kunt u zien dat de service voor zoeken in de query als gedeeltelijke query geïnterpreteerd en antwoord bevat de resultaten voor query automatisch is voorgesteld.
 
 **Voorbeeldquery:**
 

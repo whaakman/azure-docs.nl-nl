@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4bda20d9ce06f756913e6dfb3e980399ac7e0a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32aa7a531de2e236e3941bbe8afd84d845f80f99
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348112"
+ms.locfileid: "62104745"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Zelfstudie: Azure Active Directory-integratie met RStudio Connect
 
@@ -40,7 +40,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 Voor het configureren van Azure AD-integratie met RStudio verbinding maken, moet u de volgende items:
 
 * Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, krijgt u een [gratis account](https://azure.microsoft.com/free/)
-* RStudio verbinding maken met eenmalige aanmelding ingeschakeld abonnement
+* RStudio verbinding maken. Er is een [45 dagen gratis evaluatie.](https://www.rstudio.com/products/connect/)
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
@@ -104,22 +104,22 @@ Voor het configureren van Azure AD eenmalige aanmelding met RStudio verbinding m
 
     ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. In het gedeelte **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
+4. Op de **SAML-basisconfiguratie** sectie, als u wilt configureren van de toepassing in **IDP** modus gestart Voer de volgende stappen uit, vervangen `<example.com>` met uw RStudio Server verbinding maken Adres en poort:
 
     ![RStudio verbinding maken met domein en URL's, eenmalige aanmelding informatie](common/idp-intiated.png)
 
-    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://connect.<example>.com/__login__/saml`
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<example.com>/__login__/saml`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://connect.<example>.com/__login__/saml/acs`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<example.com>/__login__/saml/acs`
 
 5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
     ![RStudio verbinding maken met domein en URL's, eenmalige aanmelding informatie](common/metadata-upload-additional-signon.png)
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://connect.<example>.com/`
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<example.com>/`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem contact op met [RStudio verbinding maken met Client-ondersteuningsteam](mailto:support@rstudio.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Ze worden bepaald uit het serveradres van RStudio verbinding maken (`https://example.com` in de bovenstaande voorbeelden). Neem contact op met de [ondersteuningsteam RStudio verbinding](mailto:support@rstudio.com) als u problemen ondervindt. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 6. Uw toepassing RStudio verbinding wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding ziet u de lijst met standaardkenmerken, waarbij **nameidentifier** is toegewezen aan **user.userprincipalname**. RStudio verbinding toepassing verwacht **nameidentifier** worden toegewezen met **user.mail**, dus u de kenmerktoewijzing van het bewerken moet door te klikken op **bewerken** pictogram en wijzig de kenmerk wordt toegewezen.
 
@@ -131,7 +131,36 @@ Voor het configureren van Azure AD eenmalige aanmelding met RStudio verbinding m
 
 ### <a name="configure-rstudio-connect-single-sign-on"></a>Configureren van RStudio verbinding maken met Single Sign-On
 
-Het configureren van eenmalige aanmelding op **RStudio verbinding** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens** naar [ondersteuningsteam RStudio verbinding maken met](mailto:support@rstudio.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Configureren van eenmalige aanmelding in voor **RStudio verbinding**, moet u de **App-Url voor federatieve metagegevens** en **serveradres** hierboven hebt gebruikt. Dit doet u in het configuratiebestand RStudio verbinding maken met `/etc/rstudio-connect.rstudio-connect.gcfg`.
+
+Dit is een voorbeeld-configuratiebestand:
+
+```
+[Server]
+SenderEmail =
+
+; Important! The user-facing URL of your RStudio Connect server.
+Address = 
+
+[Http]
+Listen = :3939
+
+[Authentication]
+Provider = saml
+
+[SAML]
+Logging = true
+
+; Important! The URL where your IdP hosts the SAML metadata or the path to a local copy of it placed in the RStudio Connect server.
+IdPMetaData = 
+
+IdPAttributeProfile = azure
+SSOInitiated = IdPAndSP
+```
+
+Store uw **serveradres** in de `Server.Address` waarde, en de **App-Url voor federatieve metagegevens** in de `SAML.IdPMetaData` waarde.
+
+Als u problemen met configuratie hebt, kunt u lezen de [beheerdershandleiding voor verbinding maken met RStudio](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) of stuur een e-mail de [RStudio ondersteuningsteam](mailto:support@rstudio.com) voor hulp.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 

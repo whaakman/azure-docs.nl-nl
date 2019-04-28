@@ -1,7 +1,6 @@
 ---
 title: 'Zelfstudie: Verwerken van gegevens uit Azure Event Hubs met Apache Spark in Azure HDInsight '
 description: Apache Spark in Azure HDInsight verbinden met Azure Event Hubs en de streaming gegevens verwerken.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
 ms.date: 12/28/2018
-ms.openlocfilehash: 81104c7b206d4fe158df1ae9d329084ad88c3bdd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: MT
+ms.openlocfilehash: 02f7bbca127ba33fcfdd15d6f00d1660bf72970c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976627"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124353"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Zelfstudie: Op tweets met behulp van Azure Event Hubs en Apache Spark in HDInsight
 
@@ -29,7 +28,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Voltooien van het artikel [zelfstudie: Gegevens laden en query's uitvoeren op een Apache Spark-cluster in Azure HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Voltooi het artikel [Zelfstudie: Gegevens laden en query's uitvoeren in een Apache Spark-cluster in Azure HDInsight](./apache-spark-load-data-run-query.md)**.
 
 ## <a name="create-a-twitter-application"></a>Een Twitter-toepassing maken
 
@@ -59,7 +58,7 @@ Als u een stream van tweets wilt ontvangen, maakt u een toepassing in Twitter. V
     - **Toegangstoken**
     - **Access Token Secret**   
 
-## <a name="create-an-azure-event-hubs-namespace"></a>Maak een Azure Event Hubs-naamruimte
+## <a name="create-an-azure-event-hubs-namespace"></a>Een Azure Event Hubs-naamruimte maken
 
 U kunt deze event hub gebruiken voor het opslaan van tweets.
 

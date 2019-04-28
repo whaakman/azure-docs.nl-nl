@@ -6,14 +6,14 @@ author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 0bc43b82a987ab065677bdbb56de73ef341c249d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.openlocfilehash: 233b26b330fabe7da8664114ba1857f74feea4bc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752123"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764277"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Een aangepaste installatiekopie gebruiken om een pool van virtuele machines te maken 
 
@@ -48,9 +48,9 @@ Met behulp van een aangepaste installatiekopie die is geconfigureerd voor uw sce
 
 U kunt een beheerde installatiekopie van momentopnamen van een Azure-VM-besturingssysteem en gegevensschijven, van een gegeneraliseerde Azure-VM met beheerde schijven of vanaf een gegeneraliseerde on-premises VHD die u uploadt voorbereiden in Azure. Als u wilt schalen Batch-pools op betrouwbare wijze met een aangepaste installatiekopie, wordt aangeraden het maken van een beheerde installatiekopie met *alleen* de eerste methode: met momentopnamen van de VM schijven. Zie de volgende stappen voor het voorbereiden van een virtuele machine, maakt u een momentopname en een installatiekopie maken van de momentopname. 
 
-### <a name="prepare-a-vm"></a>Een virtuele machine voorbereiden 
+### <a name="prepare-a-vm"></a>Een virtuele machine voorbereiden
 
-Als u een nieuwe virtuele machine voor de installatiekopie maakt, gebruikt u de installatiekopie van een Azure Marketplace ondersteund door de Batch als de basisinstallatiekopie voor uw beheerde installatiekopie en vervolgens aan te passen.  Als u een lijst met verwijzingen naar afbeeldingen Azure Marketplace wordt ondersteund door Azure Batch, raadpleegt u de [knooppuntagent-SKU's lijst](/rest/api/batchservice/account/listnodeagentskus) bewerking. 
+Als u een nieuwe virtuele machine voor de installatiekopie maakt, gebruikt u een eerste partij Azure Marketplace-installatiekopie door de Batch wordt ondersteund als de basisinstallatiekopie voor uw beheerde installatiekopie. Eigen installatiekopieën kunnen alleen worden gebruikt als basisinstallatiekopie. Als u een volledige lijst met verwijzingen naar afbeeldingen Azure Marketplace wordt ondersteund door Azure Batch, raadpleegt u de [knooppuntagent-SKU's lijst](/rest/api/batchservice/account/listnodeagentskus) bewerking.
 
 > [!NOTE]
 > U kunt een installatiekopie van derden waarvoor extra licentie en de Aankoopvoorwaarden als uw basisinstallatiekopie niet gebruiken. Zie voor informatie over deze Marketplace-installatiekopieën, de richtlijnen voor [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
@@ -78,6 +78,7 @@ Wanneer u uw aangepaste installatiekopie hebt opgeslagen en u weet dat de resour
 > [!NOTE]
 > Als u de groep met een van de Batch-API's maakt, zorg ervoor dat de identiteit die voor AAD-verificatie u machtigingen voor de bron van de installatiekopie heeft. Zie [verifiëren Batch-service-oplossingen met Active Directory](batch-aad-auth.md).
 >
+> De resource voor de beheerde installatiekopie moet bestaan voor de levensduur van de groep. Als de onderliggende resource wordt verwijderd, kan de groep kan niet worden geschaald. 
 
 1. Ga in Azure Portal naar uw Batch-account. Dit account moet zich in hetzelfde abonnement en dezelfde regio als de resourcegroep die de aangepaste installatiekopie bevat. 
 2. In de **instellingen** venster aan de linkerkant, selecteer de **Pools** menu-item.
@@ -109,6 +110,16 @@ Let ook op het volgende:
 - **Time-out voor formaat wijzigen** : als uw groep een vast bevat aantal knooppunten (niet voor automatisch schalen), verhoogt u de eigenschap resizeTimeout van de groep op een waarde zoals 20-30 minuten. Als de pool niet van de doelgrootte binnen de time-outperiode bereikt, voert u een andere [bewerking formaat](/rest/api/batchservice/pool/resize).
 
   Als u van plan een pool met meer dan 300 rekenknooppunten bent, moet u mogelijk de groep meerdere keren vergroten of verkleinen om te bereiken, de doelgrootte.
+
+## <a name="considerations-for-using-packer"></a>Overwegingen voor het gebruik van Packer
+
+Het maken van een beheerde installatiekopie resource rechtstreeks met Packer kan alleen worden gedaan met behulp van abonnement modus Batch gebruikersaccounts. Voor accounts voor Batch-service-modus moet u eerst een VHD maken en vervolgens de VHD importeren naar een beheerde installatiekopie-resource. Afhankelijk van de groepstoewijzingsmodus is ingesteld op (gebruikersabonnement of Batch-service) varieert de stappen voor het maken van een beheerde installatiekopie-resource.
+
+Zorg ervoor dat de resource die wordt gebruikt voor het maken van de beheerde installatiekopie bestaat voor de levensduur van een pool die de aangepaste installatiekopie naar verwijzen. Dit niet doet, kan leiden tot toewijzingsfouten voor groep van toepassingen en/of fouten vergroten of verkleinen. 
+
+Als de afbeelding of de onderliggende resource wordt verwijderd, krijgt u mogelijk een fout die vergelijkbaar is met: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. Als dit gebeurt, controleert u of de onderliggende bron is niet verwijderd.
+
+Zie voor meer informatie over het maken van een virtuele machine met Packer [bouwen van een Linux-installatiekopie maken met Packer](../virtual-machines/linux/build-image-with-packer.md) of [bouwen van een Windows-installatiekopie maken met Packer](../virtual-machines/windows/build-image-with-packer.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

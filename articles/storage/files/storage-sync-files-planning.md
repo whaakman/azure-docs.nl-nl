@@ -2,18 +2,18 @@
 title: Een Azure File Sync-implementatie plannen | Microsoft Docs
 description: Meer informatie over wat u moet overwegen bij het plannen van een implementatie van Azure Files.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 2/7/2019
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e5078176b14835938c190daa031c12055ba9ffc3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f29625ed8ddd6eabf8b75380d84d7a7b64396d7a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996353"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766860"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -113,7 +113,7 @@ De resultaten weergeven in CSV:
 ### <a name="system-requirements"></a>Systeemvereisten
 - Een server met Windows Server 2012 R2, Windows Server 2016 of Windows Server 2019:
 
-    | Version | Ondersteunde SKU 's | Ondersteunde implementatieopties |
+    | Versie | Ondersteunde SKU 's | Ondersteunde implementatieopties |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
     | Windows Server 2016 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
@@ -245,6 +245,8 @@ Azure File Sync is alleen beschikbaar in de volgende regio's:
 | Azië - oost | Hongkong SAR |
 | US - oost | Virginia |
 | US - oost 2 | Virginia |
+| Korea - centraal| Seoul |
+| Korea - zuid| Busan |
 | Japan - oost | Tokyo, Saitama |
 | Japan - west | Osaka |
 | US - noord-centraal | Illinois |

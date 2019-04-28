@@ -2,7 +2,6 @@
 title: Excel verbinden met Apache Hadoop met het Hive ODBC-stuurprogramma - Azure HDInsight
 description: Informatie over het instellen en het Microsoft Hive ODBC-stuurprogramma voor Excel gebruiken om gegevens te doorzoeken in HDInsight-clusters uit Microsoft Excel.
 keywords: hadoop excel-, hive-excel-, hive odbc
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3a47b18051036e925e54b9507bf2cb4e40aad844
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 37fed781629351475b384ac843a588bdaf7b5b66
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202519"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121840"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Excel verbinden met Apache Hadoop in Azure HDInsight met het Microsoft Hive ODBC-stuurprogramma
 
@@ -49,7 +48,7 @@ De volgende stappen laten zien hoe u een Hive ODBC-gegevensbron maken.
 
 4. Typ of selecteer de volgende waarden:
    
-   | Eigenschap | Description |
+   | Eigenschap | Beschrijving |
    | --- | --- |
    |  Naam van de gegevensbron |Geef uw gegevensbron een naam |
    |  Host (s) |Voer &lt;HDInsightClusterName&gt;. azurehdinsight.net. Bijvoorbeeld: myHDICluster.azurehdinsight.net |
@@ -62,7 +61,7 @@ De volgende stappen laten zien hoe u een Hive ODBC-gegevensbron maken.
    
 5. Optioneel: Selecteer **geavanceerde opties...**  
    
-   | Parameter | Description |
+   | Parameter | Beschrijving |
    | --- | --- |
    |  Systeemeigen Query gebruiken |Wanneer deze optie is geselecteerd, probeert het ODBC-stuurprogramma niet TSQL converteren naar HiveQL. U dient deze alleen als u 100% zeker dat u verzendt pure HiveQL-instructies gebruiken. Bij het verbinden met SQL Server of Azure SQL Database, laat u het vakje uitgeschakeld. |
    |  Rijen per blok wordt opgehaald |Tijdens het ophalen van een groot aantal records, kan afstemmen van deze parameter worden vereist om ervoor te zorgen van optimale prestaties. |

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122920"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Aan de slag met Azure Blob storage en Visual Studio verbonden services (webtaak projecten)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -28,7 +28,7 @@ Dit artikel bevat een C#-codevoorbeelden die laten hoe een proces wordt geactive
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Hoe u een functie wordt geactiveerd wanneer een blob wordt gemaakt of bijgewerkt
 In deze sectie ziet u hoe u de **BlobTrigger** kenmerk.
 
- **Opmerking:** de WebJobs SDK scant logboekbestanden om te bekijken voor nieuwe of gewijzigde blobs. Dit proces is inherent traag; een functie mogelijk niet ophalen geactiveerd totdat enkele minuten of langer nadat de blob is gemaakt.  Als uw toepassing nodig heeft om blobs te verwerken onmiddellijk, de aanbevolen methode is het maken van een wachtrijbericht wanneer u de blob maken en gebruiken de **QueueTrigger** kenmerk in plaats van de **BlobTrigger** kenmerk van de functie waarmee de blob wordt verwerkt.
+ **Opmerking:** De WebJobs SDK scant logboekbestanden om te bekijken voor nieuwe of gewijzigde blobs. Dit proces is inherent traag; een functie mogelijk niet ophalen geactiveerd totdat enkele minuten of langer nadat de blob is gemaakt.  Als uw toepassing nodig heeft om blobs te verwerken onmiddellijk, de aanbevolen methode is het maken van een wachtrijbericht wanneer u de blob maken en gebruiken de **QueueTrigger** kenmerk in plaats van de **BlobTrigger** kenmerk van de functie waarmee de blob wordt verwerkt.
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>Enkele tijdelijke aanduiding voor de blobnaam van de met de extensie
 Het volgende codevoorbeeld kopieert tekst blobs die worden weergegeven in de *invoer* container naar de *uitvoer* container:

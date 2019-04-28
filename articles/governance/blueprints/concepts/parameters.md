@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ac7b662bc9ef4f3ae675c4cbde18e159383d3d8e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279972"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63767019"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Het maken van dynamische blauwdrukken via parameters
 
@@ -169,7 +169,7 @@ Het maken van **statische parameters** op een artefact is vergelijkbaar, maar ne
 
 ### <a name="dynamic-parameters"></a>Dynamische parameters
 
-Het tegenovergestelde van een statische parameter is een **dynamische parameter**. Deze parameter is niet gedefinieerd in de blauwdruk, maar in plaats daarvan tijdens elke toewijzing van de blauwdruk is gedefinieerd. In het voorbeeld van de groep resource het gebruik van een **dynamische parameter** zinvol is voor de naam van de resourcegroep. Het biedt een andere naam voor elke toewijzing van de blauwdruk.
+Het tegenovergestelde van een statische parameter is een **dynamische parameter**. Deze parameter is niet gedefinieerd in de blauwdruk, maar in plaats daarvan tijdens elke toewijzing van de blauwdruk is gedefinieerd. In het voorbeeld van de groep resource het gebruik van een **dynamische parameter** zinvol is voor de naam van de resourcegroep. Het biedt een andere naam voor elke toewijzing van de blauwdruk. Zie voor een lijst van blauwdruk functies, de [blauwdruk functies](../reference/blueprint-functions.md) verwijzing.
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Dynamische parameters instellen in de portal
 
@@ -185,9 +185,7 @@ Het tegenovergestelde van een statische parameter is een **dynamische parameter*
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Dynamische parameters van de instelling van de REST-API
 
-Instellen van **dynamische parameters** tijdens de toewijzing wordt uitgevoerd door de waarde rechtstreeks invoeren.
-In plaats van een functie, zoals `parameters()`, de opgegeven waarde is de juiste tekenreeks.
-Artefacten voor een resourcegroep met een 'sjabloonnaam", zijn gedefinieerd, **naam**, en **locatie** eigenschappen. Alle andere parameters voor opgenomen artefact worden gedefinieerd onder **parameters** met een **\<naam\>** en **waarde** sleutelpaar. Als de blauwdruk is geconfigureerd voor een dynamische parameter die tijdens de toewijzing is niet opgegeven, mislukt de toewijzing.
+Instellen van **dynamische parameters** tijdens de toewijzing wordt uitgevoerd door de waarde rechtstreeks invoeren. In plaats van een functie, zoals [parameters()](../reference/blueprint-functions.md#parameters), de opgegeven waarde is de juiste tekenreeks. Artefacten voor een resourcegroep met een 'sjabloonnaam", zijn gedefinieerd, **naam**, en **locatie** eigenschappen. Alle andere parameters voor opgenomen artefact worden gedefinieerd onder **parameters** met een **\<naam\>** en **waarde** sleutelpaar. Als de blauwdruk is geconfigureerd voor een dynamische parameter die tijdens de toewijzing is niet opgegeven, mislukt de toewijzing.
 
 - REST API-URI
 
@@ -240,6 +238,7 @@ Artefacten voor een resourcegroep met een 'sjabloonnaam", zijn gedefinieerd, **n
 
 ## <a name="next-steps"></a>Volgende stappen
 
+- Overzicht van de [blauwdruk functies](../reference/blueprint-functions.md).
 - Meer informatie over de [levenscyclus van een blauwdruk](lifecycle.md).
 - Meer informatie over hoe u de [blauwdrukvolgorde](sequencing-order.md) aanpast.
 - Meer informatie over hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](resource-locking.md).

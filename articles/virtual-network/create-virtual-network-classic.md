@@ -17,11 +17,11 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
 ms.openlocfilehash: e40648ef47b108050486d43eefdb1564786c053e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421387"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098113"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Een virtueel netwerk (klassiek) maken met meerdere subnetten
 
@@ -47,7 +47,7 @@ U een virtueel netwerk (klassiek) kunt maken met behulp van de [Azure-portal](#p
 
     |Instelling|Waarde|
     |---|---|
-    |Naam|myVnet|
+    |Name|myVnet|
     |Adresruimte|10.0.0.0/16|
     |Subnetnaam|Public|
     |Subnetadresbereik|10.0.0.0/24|
@@ -60,7 +60,7 @@ U een virtueel netwerk (klassiek) kunt maken met behulp van de [Azure-portal](#p
 6. Klik op **+ toevoegen** op de **myVnet - subnetten** deelvenster dat wordt weergegeven.
 7. Voer **persoonlijke** voor **naam** op de **subnet toevoegen** deelvenster. Voer **10.0.1.0/24** voor **adresbereik**.  Klik op **OK**.
 8. Op de **myVnet - subnetten** deelvenster ziet u de **openbare** en **persoonlijke** subnetten die u hebt gemaakt.
-9. **Optionele**: wanneer u klaar bent met deze zelfstudie, kunt u de resources verwijderen die u hebt gemaakt, zodat u hiervoor geen kosten voor het gebruik:
+9. **Optioneel**: Wanneer u klaar bent met deze zelfstudie, kunt u de resources verwijderen die u hebt gemaakt, zodat u hiervoor geen kosten voor het gebruik:
     - Klik op **overzicht** op de **myVnet** deelvenster.
     - Klik op de **verwijderen** pictogram op de **myVnet** deelvenster.
     - Als u wilt bevestigen, klikt u op **Ja** in de **virtueel netwerk verwijderen** vak.
@@ -98,7 +98,7 @@ U een virtueel netwerk (klassiek) kunt maken met behulp van de [Azure-portal](#p
     azure network vnet show --vnet myVnet
     ```
 
-7. **Optionele**: kunt u de resources verwijderen die u hebt gemaakt wanneer u klaar bent met deze zelfstudie, zodat u hiervoor geen kosten voor het gebruik:
+7. **Optioneel**: Het is raadzaam om de resources die u hebt gemaakt wanneer u klaar bent met deze zelfstudie, zodat u hiervoor geen kosten voor het gebruik te verwijderen:
 
     ```azurecli-interactive
     azure network vnet delete --vnet myVnet --quiet
@@ -153,7 +153,7 @@ U een virtueel netwerk (klassiek) kunt maken met behulp van de [Azure-portal](#p
     Get-AzureVNetSite -VNetName "myVnet"
     ```
 
-8. **Optionele**: kunt u de resources verwijderen die u hebt gemaakt wanneer u klaar bent met deze zelfstudie, zodat u hiervoor geen kosten voor het gebruik. Als u wilt verwijderen van het virtuele netwerk, volledige stappen 4-6 nogmaals, het verwijderen van deze tijd de **VirtualNetworkSite** element dat u in stap 5 hebt toegevoegd.
+8. **Optioneel**: Het is raadzaam om de resources die u hebt gemaakt wanneer u klaar bent met deze zelfstudie, zodat u hiervoor geen kosten voor het gebruik te verwijderen. Als u wilt verwijderen van het virtuele netwerk, volledige stappen 4-6 nogmaals, het verwijderen van deze tijd de **VirtualNetworkSite** element dat u in stap 5 hebt toegevoegd.
  
 > [!NOTE]
 > Hoewel u een resourcegroep voor het maken van een virtueel netwerk (klassiek) in met behulp van PowerShell kan niet opgeeft, maakt Azure het virtuele netwerk in een resourcegroep met de naam *standaard-netwerk*.

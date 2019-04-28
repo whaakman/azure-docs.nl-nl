@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: f56893f830720c57c66eb4c17bb2771efbb73f6f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267169"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124627"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Wat is de Bing Video's zoeken-API?
 
@@ -23,7 +23,7 @@ Met de Bing Video's zoeken-API kunt u eenvoudig mogelijkheden voor het zoeken va
 
 ## <a name="bing-video-search-api-features"></a>Functies van Bing Video's zoeken-API
 
-| Functie                                                                                                                                                                                 | Beschrijving                                                                                                                                                            |
+| Functie                                                                                                                                                                                 | Description                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Zoektermen in realtime voorstellen](concepts/sending-requests.md#suggest-search-terms-with-the-bing-autosuggest-api) | Verbeter uw app-ervaring met de [Bing Automatische suggestie-API](../bing-autosuggest/get-suggested-search-terms.md) om voorgestelde zoektermen weer te geven wanneer deze worden getypt. |
 | [Videoresultaten filteren en beperken](concepts/get-videos.md#filtering-videos)                      | Filter de video's die worden geretourneerd door queryparameters te bewerken.                                                                                                       |

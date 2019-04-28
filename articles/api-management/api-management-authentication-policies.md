@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 9ee4a9fb5c63061eed32389b5672652aad01208a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994933"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764320"
 ---
 # <a name="api-management-authentication-policies"></a>API Management-verificatiebeleid
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -73,18 +73,23 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
 ```xml  
-<authentication-certificate thumbprint="thumbprint" />  
+<authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>  
 ```  
   
-### <a name="example"></a>Voorbeeld  
+### <a name="examples"></a>Voorbeelden  
   
+In dit voorbeeld van de client wordt certificaat aangeduid met de vingerafdruk.
 ```xml  
-<authentication-certificate thumbprint="....." />  
+<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />  
+``` 
+In dit voorbeeld wordt clientcertificaat aangeduid met de resourcenaam van de.
+```xml  
+<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ```  
-  
+
 ### <a name="elements"></a>Elementen  
   
-|Name|Beschrijving|Vereist|  
+|Name|Description|Vereist|  
 |----------|-----------------|--------------|  
 |certificaat voor clientverificatie|Root-element.|Ja|  
   
@@ -92,7 +97,8 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 |Name|Description|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|vingerafdruk|De vingerafdruk voor het clientcertificaat.|Ja|N/A|  
+|vingerafdruk|De vingerafdruk voor het clientcertificaat.|De `thumbprint` of `certificate-id` moet aanwezig zijn.|N/A|  
+|certificaat-id|De naam van de certificaat-resource.|De `thumbprint` of `certificate-id` moet aanwezig zijn.|N/A|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -118,7 +124,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="elements"></a>Elementen  
   
-|Name|Beschrijving|Vereist|  
+|Name|Description|Vereist|  
 |----------|-----------------|--------------|  
 |verificatie-beheerde identiteit |Root-element.|Ja|  
   

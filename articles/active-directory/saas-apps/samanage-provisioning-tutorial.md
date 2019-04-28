@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Samanage configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
-description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en inrichting ongedaan maken-gebruikersaccounts met Samanage.
+description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en gebruikersaccounts met Samanage inrichting ongedaan maken.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,79 +16,77 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca43b62e66e3a736aa52fdd10fe36e635daba245
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d474d9bfd6016885eaa21afcea5d44d39c624084
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280346"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104626"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Zelfstudie: Samanage configureren voor het automatisch inrichten van gebruikers
 
-Het doel van deze zelfstudie is ter illustratie van de stappen om te worden uitgevoerd in de Samanage en Azure Active Directory (Azure AD) naar Azure AD configureren voor automatisch inrichten en verwijdering van gebruikers en/of groepen aan Samanage.
+In deze zelfstudie ziet u de stappen om uit te voeren in de Samanage en Azure Active Directory (Azure AD) naar Azure AD configureren voor automatisch inrichten en de inrichting van gebruikers en groepen met Samanage ongedaan maken.
 
 > [!NOTE]
-> Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md).
+> Deze zelfstudie beschrijft een connector die gebaseerd op de Azure AD-gebruiker-service inricht. Zie voor informatie over de werking van deze service, hoe het werkt en veelgestelde vragen, [automatiseren van gebruikersinrichting en -opheffing in software-as-a-service (SaaS)-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al het volgende hebt:
+Het scenario in deze zelfstudie wordt ervan uitgegaan dat u hebt:
 
-* Een Azure AD-tenant
-* Een [Samanage tenant](https://www.samanage.com/pricing/) met het pakket voor professionals
-* Een gebruikersaccount in Samanage met beheerdersmachtigingen
+* Een Azure AD-tenant.
+* Een [Samanage tenant](https://www.samanage.com/pricing/) met het pakket voor professionals.
+* Een gebruikersaccount in Samanage met beheerdersmachtigingen.
 
 > [!NOTE]
-> De integratie wordt ingericht op Azure AD is afhankelijk van de [Samanage Rest-API](https://www.samanage.com/api/), die voor ontwikkelaars voor accounts met het pakket voor professionals Samanage beschikbaar is.
+> De integratie wordt ingericht op Azure AD is afhankelijk van de [Samanage Rest-API](https://www.samanage.com/api/). Deze API is beschikbaar voor ontwikkelaars voor accounts met het pakket voor professionals Samanage.
 
-## <a name="adding-samanage-from-the-gallery"></a>Samanage toevoegen vanuit de galerie
+## <a name="add-samanage-from-the-azure-marketplace"></a>Samanage toevoegen in Azure Marketplace
 
-Voordat u Samanage configureert voor automatisch gebruikers inrichten met Azure AD, moet u Samanage uit de galerie met Azure AD toevoegen aan uw lijst met beheerde SaaS-toepassingen.
+Voordat u Samanage voor automatisch gebruikers inrichten met Azure AD configureren, toevoegen aan uw lijst met beheerde SaaS-toepassingen Samanage vanuit Azure Marketplace.
 
-**Als u wilt toevoegen Samanage uit de galerie met Azure AD, moet u de volgende stappen uitvoeren:**
+Volg deze stappen om toe te voegen Samanage vanuit de Marketplace.
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de [Azure-portal](https://portal.azure.com), selecteert u in het navigatiedeelvenster aan de linkerkant, **Azure Active Directory**.
 
-    ![De knop Azure Active Directory](common/select-azuread.png)
+    ![De Azure Active Directory-pictogram](common/select-azuread.png)
 
-2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+2. Ga naar **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+3. Als u een nieuwe toepassing wilt toevoegen, selecteert u **Nieuwe toepassing** bovenaan het dialoogvenster.
 
     ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ **Samanage** in het zoekvak, selecteer **Samanage** in het resultaatvenster en klik op de knop **Toevoegen** om de toepassing toe te voegen.
+4. Voer in het zoekvak **Samanage** en selecteer **Samanage** vanuit het deelvenster resultaten. Als u wilt de toepassing hebt toegevoegd, selecteert u **toevoegen**.
 
     ![Samanage in de resultatenlijst](common/search-new-app.png)
 
-## <a name="assigning-users-to-samanage"></a>Gebruikers toewijzen aan Samanage
+## <a name="assign-users-to-samanage"></a>Gebruikers toewijzen aan Samanage
 
-Azure Active Directory maakt gebruik van een concept genaamd "toewijzingen" om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van het automatisch inrichten van gebruikers, worden alleen de gebruikers en/of groepen die '' aan een toepassing in Azure AD toegewezen zijn gesynchroniseerd.
+Azure Active Directory maakt gebruik van een concept genaamd *toewijzingen* om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van het automatisch inrichten van gebruikers, worden alleen de gebruikers of groepen die zijn toegewezen aan een toepassing in Azure AD gesynchroniseerd.
 
-Voordat u configureren en inschakelen van automatische inrichten van gebruikers, moet u bepalen welke gebruikers en/of groepen in Azure AD toegang hebben tot Samanage moeten. Wanneer u beslist, kunt u deze gebruikers en/of groepen toewijzen aan Samanage door de instructies hier:
-
-*   [Een gebruiker of groep toewijzen aan een enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Voordat u configureren en automatische inrichting inschakelen, moet u bepalen welke gebruikers of groepen in Azure AD toegang hebben tot Samanage moeten. Volg de instructies in deze gebruikers of groepen om aan te wijzen Samanage, [een gebruiker of groep toewijzen aan een enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
 ### <a name="important-tips-for-assigning-users-to-samanage"></a>Belangrijke tips voor het toewijzen van gebruikers aan Samanage
 
-*    Samanage functies worden dynamisch en automatisch ingevuld in de gebruikersinterface van Azure portal vandaag nog. Voordat u Samanage rollen toewijzen aan gebruikers, moet u een eerste synchronisatie is voltooid op basis van Samanage naar de nieuwste functies in uw tenant Samanage ophalen.
+*    Vandaag de dag worden Samanage functies dynamisch en automatisch ingevuld in de gebruikersinterface van Azure portal. Voordat u Samanage rollen aan gebruikers toewijzen, controleert u of er een eerste synchronisatie is voltooid op basis van Samanage naar de nieuwste functies in uw tenant Samanage ophalen.
 
-*    Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan Samanage voor het testen van uw eerste automatisch gebruikers inrichten van configuratie. Extra gebruikers en/of groepen kunnen worden toegewezen later als de tests geslaagd zijn.
+*    Het is raadzaam dat u één toewijst aan Samanage voor het testen van uw eerste automatisch gebruikers inrichten van configuratie van Azure AD-gebruiker. U kunt extra gebruikers en groepen later nadat de tests geslaagd zijn.
 
-*   Wanneer een gebruiker aan Samanage toewijzen, moet u alle geldige toepassingsspecifieke rollen (indien beschikbaar) selecteren in het dialoogvenster toewijzing. Gebruikers met de **standaardtoegang** rol worden uitgesloten van het inrichten.
+*    Wanneer u een gebruiker aan Samanage toewijzen, selecteer een geldige toepassingsspecifieke rol, indien beschikbaar, in het dialoogvenster toewijzing. Gebruikers met de **standaardtoegang** rol worden uitgesloten van het inrichten.
 
-## <a name="configuring-automatic-user-provisioning-to-samanage"></a>Automatisch gebruikers inrichten voor Samanage configureren
+## <a name="configure-automatic-user-provisioning-to-samanage"></a>Automatisch gebruikers inrichten voor Samanage configureren
 
-Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inrichtingsservice als u wilt maken, bijwerken en uitschakelen van gebruikers en/of groepen in Samanage op basis van gebruiker en/of groep toewijzingen in Azure AD.
+Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inrichtingsservice. Deze gebruiken voor het maken, bijwerken en uitschakelen van gebruikers of groepen in Samanage op basis van de gebruiker of groep toewijzingen in Azure AD.
 
 > [!TIP]
-> U kunt er ook voor kiezen om in te schakelen op SAML gebaseerde eenmalige aanmelding voor Samanage, vindt u de instructies te volgen in de [één Samanage aanmeldings-zelfstudie](samanage-tutorial.md). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatisch gebruikers inrichten, hoewel deze twee functies een fraaie aanvulling in elkaar.
+> U kunt ook inschakelen SAML gebaseerde eenmalige aanmelding voor Samanage. Volg de instructies in de [één Samanage aanmeldings-zelfstudie](samanage-tutorial.md). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatisch gebruikers inrichten, hoewel deze twee functies elkaar aanvullen.
 
-### <a name="to-configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Het configureren van automatisch gebruikers inrichten voor Samanage in Azure AD:
+### <a name="configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Automatisch gebruikers inrichten voor Samanage in Azure AD configureren
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en selecteer **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Samanage**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer **bedrijfstoepassingen** > **alle toepassingen** > **Samanage**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
@@ -102,66 +100,70 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
 4. Stel de **Inrichtingsmodus** naar **automatische**.
 
-    ![Samanage inrichten](./media/samanage-provisioning-tutorial/ProvisioningCredentials.png)
+    ![Modus voor Samanage inrichten](./media/samanage-provisioning-tutorial/ProvisioningCredentials.png)
 
-5. Onder de **beheerdersreferenties** sectie, voer de **Admin Username** en **beheerderswachtwoord** van uw account Samanage. Voorbeelden van deze waarden zijn:
+5. Onder de **beheerdersreferenties** sectie, voer de gebruikersnaam van beheerder en het beheerderswachtwoord van uw account Samanage. Voorbeelden van deze waarden zijn:
 
-   * In de **Admin Username** veld, de gebruikersnaam van het beheerdersaccount dat op uw tenant Samanage vullen. Voorbeeld: admin@contoso.com.
+   * In de **Admin Username** vak, vult u de gebruikersnaam van het beheerdersaccount dat op uw tenant Samanage. Een voorbeeld is admin@contoso.com.
 
-   * In de **beheerderswachtwoord** veld, het wachtwoord van het beheerdersaccount dat overeenkomt met de gebruikersnaam van beheerder vullen.
+   * In de **beheerderswachtwoord** vak, vult u het wachtwoord van het beheerdersaccount dat overeenkomt met de gebruikersnaam van de beheerder.
 
-6. Bij het invullen van de velden die in stap 5 wordt weergegeven, klikt u op **testverbinding** om te controleren of Azure AD kunt verbinden met Samanage. Als de verbinding is mislukt, zorg ervoor dat uw account Samanage beheerdersmachtigingen heeft en probeer het opnieuw.
+6. Nadat u in de vakken weergegeven in stap 5 hebt ingevuld, selecteert u **testverbinding** om ervoor te zorgen dat Azure AD kunt verbinden met Samanage. Als de verbinding is mislukt, zorg ervoor dat uw account Samanage beheerdersmachtigingen heeft en probeer het opnieuw.
 
-    ![Samanage inrichten](./media/samanage-provisioning-tutorial/TestConnection.png)
+    ![Verbinding Samanage testen](./media/samanage-provisioning-tutorial/TestConnection.png)
 
-7. In de **e-mailmelding** en voer het e-mailadres van een persoon of groep die u moet de inrichting fout ontvangen en schakel het selectievakje in **een e-mailmelding verzenden wanneer een foutoptreedt**.
+7. In de **e-mailmelding** vak, voer het e-mailadres van de persoon of groep voor het ontvangen van de inrichting fout-meldingen. Selecteer de **e-mailmelding verzenden wanneer er een fout optreedt** selectievakje.
 
-    ![Samanage inrichten](./media/samanage-provisioning-tutorial/EmailNotification.png)
+    ![E-mailmelding Samanage](./media/samanage-provisioning-tutorial/EmailNotification.png)
 
-8. Klik op **Opslaan**.
+8. Selecteer **Opslaan**.
 
 9. Onder de **toewijzingen** sectie, selecteer **synchroniseren Azure Active Directory: gebruikers aan Samanage**.
 
-    ![Samanage inrichten](./media/samanage-provisioning-tutorial/UserMappings.png)
+    ![Synchronisatie van de gebruiker Samanage](./media/samanage-provisioning-tutorial/UserMappings.png)
 
-10. Controleer de kenmerken van de gebruiker die van Azure AD worden gesynchroniseerd naar Samanage in de **kenmerktoewijzingen** sectie. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts in Samanage voor update-bewerkingen. Selecteer de **opslaan** knop wijzigingen doorvoeren.
+10. Controleer de kenmerken van de gebruiker die van Azure AD worden gesynchroniseerd naar Samanage in de **kenmerktoewijzingen** sectie. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts in Samanage voor update-bewerkingen. Als u wilt alle wijzigingen hebt opgeslagen, selecteert u **opslaan**.
 
-    ![Samanage inrichten](./media/samanage-provisioning-tutorial/UserAttributeMapping.png)
+    ![Overeenkomende gebruikerskenmerken Samanage](./media/samanage-provisioning-tutorial/UserAttributeMapping.png)
 
 11. Om in te schakelen groepstoewijzingen, onder de **toewijzingen** sectie, selecteer **synchroniseren Azure Active Directory-groepen aan Samanage**.
 
-    ![Samanage inrichten](./media/samanage-provisioning-tutorial/GroupMappings.png)
+    ![Synchronisatie met Samanage](./media/samanage-provisioning-tutorial/GroupMappings.png)
 
-12. Stel **ingeschakeld** naar **Ja** groepen synchroniseren. Bekijk de groepskenmerken die worden gesynchroniseerd vanuit Azure AD naar Samanage in de **kenmerktoewijzingen** sectie. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts in Samanage voor update-bewerkingen. Selecteer de **opslaan** knop wijzigingen doorvoeren.
+12. Stel **ingeschakeld** naar **Ja** groepen synchroniseren. Bekijk de groepskenmerken die worden gesynchroniseerd vanuit Azure AD naar Samanage in de **kenmerktoewijzingen** sectie. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts in Samanage voor update-bewerkingen. Als u wilt alle wijzigingen hebt opgeslagen, selecteert u **opslaan**.
 
-    ![Samanage inrichten](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
+    ![Overeenkomende groepskenmerken Samanage](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
 
-13. Als u wilt configureren bereikfilters, raadpleegt u de volgende instructies in de [Scoping filter zelfstudie](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+13. Als u wilt configureren bereikfilters, volg de instructies in de [scoping filter zelfstudie](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. Wijzigen zodat de Azure AD-inrichtingsservice voor Samanage de **Inrichtingsstatus** naar **op** in de **instellingen** sectie.
+14. Om in te schakelen van de Azure AD-inrichtingsservice voor Samanage, in de **instellingen** sectie, wijzigt u **Inrichtingsstatus** naar **op**.
 
-    ![Samanage inrichten](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
+    ![Samanage Inrichtingsstatus](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
 
-15. De gebruikers en/of groepen die u wilt definiëren voor het inrichten van Samanage door het kiezen van de gewenste waarden in **bereik** in de **instellingen** sectie. Bij het kiezen van de **alle gebruikers en groepen synchroniseren** optie, houd rekening met de beperkingen, zoals beschreven in de **Connector beperkingen** onderstaande sectie.
+15. De gebruikers of groepen die u wilt definiëren voor het inrichten van Samanage. In de **instellingen** sectie, selecteert u de waarden in de gewenste **bereik**. Wanneer u selecteert de **alle gebruikers en groepen synchroniseren** optie, houd rekening met de beperkingen, zoals beschreven in de volgende sectie "Connector-beperkingen."
 
-    ![Samanage inrichten](./media/samanage-provisioning-tutorial/ScopeSync.png)
+    ![Samanage bereik](./media/samanage-provisioning-tutorial/ScopeSync.png)
 
-16. Wanneer u klaar om in te richten bent, klikt u op **opslaan**.
+16. Wanneer u klaar om in te richten bent, selecteert u **opslaan**.
 
-    ![Samanage inrichten](./media/samanage-provisioning-tutorial/SaveProvisioning.png)
+    ![Samanage opslaan](./media/samanage-provisioning-tutorial/SaveProvisioning.png)
 
 
-Met deze bewerking wordt gestart voor de initiële synchronisatie van alle gebruikers en/of groepen die zijn gedefinieerd **bereik** in de **instellingen** sectie. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de Azure AD-inrichtingsservice wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en koppelingen volgen voor het inrichten van rapport van de activiteit, die alle acties die worden uitgevoerd door de Azure AD-inrichtingsservice op Samanage beschrijft.
+Met deze bewerking wordt gestart voor de initiële synchronisatie van alle gebruikers of groepen die zijn gedefinieerd **bereik** in de **instellingen** sectie. De eerste synchronisatie langer duren om uit te voeren dan later wordt gesynchroniseerd. Ze plaatsvindt ongeveer elke 40 minuten, zolang het Azure AD-inrichtingsservice wordt uitgevoerd. 
+
+U kunt de **synchronisatiedetails** sectie aan de vooruitgang en koppelingen naar het rapport over de inrichtingsactiviteit volgen. Het rapport worden alle acties die zijn uitgevoerd door de Azure AD-inrichtingsservice op Samanage beschreven.
 
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Connector-beperkingen
 
-* Als de **alle gebruikers en groepen synchroniseren** optie is geselecteerd en een standaardwaarde is geconfigureerd voor de Samanage **rollen** kenmerk, zorg ervoor dat de gewenste waarde onder de **standaardwaarde indien null (is optioneel)** veld wordt uitgedrukt in de volgende indeling **{'displayName': 'rol'}** waar rol is de gewenste standaardwaarde.
+Als u selecteert de **alle gebruikers en groepen synchroniseren** optie en configureer een waarde voor de Samanage **rollen** kenmerk, de waarde onder de **standaardwaarde indien null (is optioneel)** vak moet worden uitgedrukt in de volgende indeling:
+
+- {'displayName': 'rol'}, waarbij de rol is de standaardwaarde die u wilt.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Het inrichten van gebruikersaccounts voor bedrijfs-apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

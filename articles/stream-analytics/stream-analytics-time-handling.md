@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 0eb4b77964aa3c07bac2af615a26c3a9199525de
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543284"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760837"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Inzicht in de verwerking van de tijd in Azure Stream Analytics
 
@@ -26,7 +26,7 @@ Betere frame de discussie, gaan we enkele achtergrondconcepten definiëren:
 
 - **Verwerkingstijd**: De tijd waarop de gebeurtenis bereikt van het systeem verwerkt en wordt waargenomen. Bijvoorbeeld, duurt wanneer een nummer tolloket sensor ziet de auto's en het systeem enkele minuten om de gegevens te verwerken.
 
-- **Watermerk**: Een gebeurtenis tijdsmarkering die aangeeft van alle gebeurtenissen tot welk moment is inkomend verkeer naar de processor voor streaming. Watermerken kunnen het systeem aangeven wissen wordt uitgevoerd op de gebeurtenissen kan opnemen. Door de aard van streams, de binnenkomende gebeurtenisgegevens nooit wordt gestopt, zodat watermerken de voortgang naar een bepaald punt in de stroom geven.
+- **Watermerk**: Een gebeurtenis tijdsmarkering die aangeeft tot welke punt gebeurtenissen zijn ingressed naar de processor voor streaming. Watermerken kunnen het systeem aangeven wissen wordt uitgevoerd op de gebeurtenissen kan opnemen. Door de aard van streams, de binnenkomende gebeurtenisgegevens nooit wordt gestopt, zodat watermerken de voortgang naar een bepaald punt in de stroom geven.
 
    Het watermerk-concept is belangrijk. Watermerken kunnen Stream Analytics om te bepalen wanneer het systeem voltooid, juist produceren kan en herhaalbare resultaten die niet hoeven te worden ingetrokken. De verwerking kan worden uitgevoerd in een voorspelbare en herhaalbare gegarandeerde manier. Bijvoorbeeld, als een na worden uitgevoerd voor foutafhandeling is voorwaarde moet, zijn watermerken veilig eerste en laatste punten.
 
@@ -128,7 +128,7 @@ Stream Analytics-taken hebben verschillende **Gebeurtenisvolgorde** opties. Twee
 
 U kunt een aantal van de gevolgen van de tijd tolerantie via voor Gebeurtenisvolgordes observeren [metrische gegevens voor Stream Analytics-taak](stream-analytics-monitoring.md). De volgende metrische gegevens die zijn relevant:
 
-|Gegevens  | Description  |
+|Gegevens  | Beschrijving  |
 |---------|---------|
 | **Out-van-Order gebeurtenissen** | Geeft het aantal gebeurtenissen ontvangen andere volgorde, die zijn verwijderd of een aangepaste tijdstempel gegeven. Met deze metriek wordt direct beïnvloed door de configuratie van de **niet-geordende gebeurtenissen** instellen op de **Gebeurtenisvolgorde** pagina op de taak in Azure portal. |
 | **Late Invoergebeurtenissen** | Geeft het aantal gebeurtenissen dat binnenkomt laat vanuit de bron. Met deze metriek bevat gebeurtenissen die zijn verwijderd of hebben gehad hun timestamp is aangepast. Met deze metriek wordt direct beïnvloed door de configuratie van de **gebeurtenissen die te laat gemeld worden** instellen in de **Gebeurtenisvolgorde** pagina op de taak in Azure portal. |

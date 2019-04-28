@@ -11,11 +11,11 @@ ms.date: 04/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: fac33a01afc2efc1ab06c4783c11f7a089bb6208
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013755"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114151"
 ---
 # <a name="troubleshooting-source-anchor-issues-during-installation"></a>Het oplossen van problemen met het anker van bron tijdens de installatie
 In dit artikel worden de verschillende bronanker problemen die zich tijdens de installatie en aanbiedingen manieren voordoen kunnen om deze problemen oplossen.

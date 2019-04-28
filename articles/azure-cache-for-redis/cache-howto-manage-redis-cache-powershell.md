@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: f7f4f9ae6a80052e06b2cafa68cb5c11dfa1333a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233843"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097926"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure Cache voor Redis met Azure PowerShell beheren
 > [!div class="op_single_selector"]
@@ -142,7 +142,7 @@ De volgende tabel bevat de eigenschappen en beschrijvingen voor de meest gebruik
 | KeyType |Hiermee geeft u op welke toegangssleutel opnieuw genereren tijdens het vernieuwen van toegangssleutels. Geldige waarden zijn: Primary, Secondary | |
 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration eigenschappen
-| Eigenschap | Description | Prijscategorieën |
+| Eigenschap | Beschrijving | Prijscategorieën |
 | --- | --- | --- |
 | de RDB-back-up-ingeschakeld |Of [Redis-gegevenspersistentie](cache-how-to-premium-persistence.md) is ingeschakeld |Alleen Premium |
 | de RDB-opslag-connection-string |De verbindingsreeks naar het opslagaccount voor [Redis-gegevenspersistentie](cache-how-to-premium-persistence.md) |Alleen Premium |

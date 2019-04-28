@@ -1,19 +1,18 @@
 ---
 title: Azure HDInsight-Go-SDK
 description: Naslaginformatie voor Azure HDInsight Go SDK
-services: hdinsight
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: b430c69f4ed9206b34f8ca66534aa82e85c0b240
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 2e5b7816fda89e25dcb0de26f526e5187e0640b9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224784"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098555"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>Ga naar HDInsight Management SDK-Preview
 
@@ -32,7 +31,7 @@ De Go SDK voor HDInsight biedt klassen en -functies waarmee u kunt voor het behe
 
 Uitvoeren vanaf de locatie van uw GOPATH, `go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 
 De SDK moet eerst worden geverifieerd bij uw Azure-abonnement.  Ga als volgt het voorbeeld hieronder een service-principal maken en deze gebruiken om te verifiëren. Nadat dit is gebeurd, hebt u een exemplaar van een `ClustersClient`, die bevat veel functies (zoals beschreven onderstaande secties) die kunnen worden gebruikt voor het uitvoeren van beheerbewerkingen.
 

@@ -9,12 +9,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 5a07ea4d1d27dcc054d64cb4ce8893a13adc4aad
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 394ec230b836d55e4ce29a444566221c14efe296
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007658"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762794"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Geografische beschikbaarheid en ondersteuning
 
@@ -117,7 +117,7 @@ Azure Marketplace-aanbiedingen kunnen worden gekocht in 141 regio's, zoals gedef
 | Noorwegen                              | NO        | NOK          |
 | Oman                                | OM        | USD          |
 | Pakistan                            | PK        | USD          |
-| Palestijnse                           | PS        | USD          |
+| Palestijnse Autoriteit               | PS        | USD          |
 | Panama                              | PA        | USD          |
 | Paraguay                            | PY        | USD          |
 | Peru                                | PE        | USD          |

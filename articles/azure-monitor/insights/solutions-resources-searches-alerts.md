@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8590c9ef89e68a823beefd7e74a894edd219359
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779382"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104819"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Toevoegen van Log Analytics opgeslagen zoekopdrachten en waarschuwingen in management-oplossing (Preview)
 
@@ -76,7 +76,7 @@ Opnemen [opgeslagen zoekopdrachten](../../azure-monitor/log-query/log-query-over
 
 Elke eigenschap van een opgeslagen zoekopdracht wordt in de volgende tabel beschreven.
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--- |:--- |
 | category | De categorie voor de opgeslagen zoekopdracht.  Alle opgeslagen zoekopdrachten in dezelfde oplossing delen vaak één categorie, zodat ze samen worden gegroepeerd in de console. |
 | displayname | De naam om weer te geven voor de opgeslagen zoekopdracht in de portal. |
@@ -120,11 +120,13 @@ Een opgeslagen zoekopdracht kan een of meer planningen met elke planning voor ee
         }
     }
 De eigenschappen voor schema-resources worden in de volgende tabel beschreven.
+
 | De naam van element | Vereist | Description |
 |:--|:--|:--|
 | ingeschakeld       | Ja | Hiermee geeft u op of de waarschuwing is ingeschakeld wanneer deze wordt gemaakt. |
 | interval      | Ja | Hoe vaak de query wordt uitgevoerd in minuten. |
 | queryTimeSpan | Ja | De lengte van de tijd in minuten op voor het evalueren van de resultaten. |
+
 De schema-resource moet afhankelijk van de opgeslagen zoekopdracht zodat deze voordat u de planning gemaakt.
 > [!NOTE]
 > Schemanaam moet uniek zijn in een bepaalde werkruimte. twee schema's kunnen niet dezelfde ID hebben, zelfs als ze gekoppeld aan verschillende opgeslagen zoekopdrachten zijn. Naam voor alle opgeslagen zoekacties, schema's en acties die zijn gemaakt met de Log Analytics-API moet ook in kleine letters.
@@ -231,9 +233,9 @@ Elke planning heeft een **waarschuwing** actie. Hiermee definieert u de details 
 
 | De naam van element | Vereist | Description |
 |:--|:--|:--|
-| Geadresseerden | Ja | Door komma's gescheiden lijst met e-mailadressen te sturen wanneer een waarschuwing wordt gemaakt, zoals in het volgende voorbeeld.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Onderwerp | Ja | Onderwerpregel van het e-mailbericht. |
-| Bijlage | Nee | Bijlagen worden momenteel niet ondersteund. Als dit element opgenomen is, moeten deze **geen**. |
+| Recipients | Ja | Door komma's gescheiden lijst met e-mailadressen te sturen wanneer een waarschuwing wordt gemaakt, zoals in het volgende voorbeeld.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
+| Subject | Ja | Onderwerpregel van het e-mailbericht. |
+| Attachment | Nee | Bijlagen worden momenteel niet ondersteund. Als dit element opgenomen is, moeten deze **geen**. |
 
 ##### <a name="remediation"></a>Herstel
 Deze sectie is optioneel als u een runbook te starten in reactie op de waarschuwing wilt opnemen. 
@@ -242,7 +244,7 @@ Deze sectie is optioneel als u een runbook te starten in reactie op de waarschuw
 |:--|:--|:--|
 | RunbookName | Ja | De naam van het runbook te starten. |
 | WebhookUri | Ja | De URI van de webhook voor het runbook. |
-| Vervaldatum | Nee | Datum en tijd waarop het herstel is verlopen. |
+| Expiry | Nee | Datum en tijd waarop het herstel is verlopen. |
 
 ##### <a name="webhook-actions"></a>Webhookacties
 
@@ -266,7 +268,8 @@ Als de waarschuwing een webhook wordt aangeroepen, dan deze een actie-resource m
       }
     }
 De eigenschappen voor Webhook actie resources worden in de volgende tabellen beschreven.
-| De naam van element | Vereist | Description |
+
+| De naam van element | Vereist | Beschrijving |
 |:--|:--|:--|
 | type | Ja | Het type van de actie. Dit is **Webhook** voor webhookacties. |
 | naam | Ja | De weergavenaam voor de actie. Dit wordt niet weergegeven in de console. |

@@ -11,31 +11,34 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9aea7a9c9dd96bf30ebb3def9354df9e4bd30114
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: MT
+ms.openlocfilehash: dd4c5e1652eb4dbff66591aa4bbe74e51be3e6c0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558513"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759546"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Gegevenstoegang verlenen tot een omgeving
 
 Dit artikel worden de twee typen beleidsregels voor toegang van Azure Time Series Insights Preview.
 
-## <a name="grant-data-access"></a>Gegevenstoegang verlenen
-
-Volg deze stappen voor het verlenen van toegang tot gegevens voor een gebruiker-principal.
+## <a name="sign-in-to-tsi"></a>Aanmelden bij TSI
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 1. Ga naar uw Time Series Insights-omgeving. Voer `Time Series` in de **zoeken** vak. Selecteer **Time Series-omgeving** in de lijst met zoekresultaten.
 1. Selecteer uw Time Series Insights-omgeving in de lijst.
+
+## <a name="grant-data-access"></a>Gegevenstoegang verlenen
+
+Volg deze stappen voor het verlenen van toegang tot gegevens voor een gebruiker-principal.
+
 1. Selecteer **beleid voor gegevenstoegang**, en selecteer vervolgens **+ toevoegen**.
 
-    ![gegevens-access-een][1]
+    ![Data-access-one][1]
 
 1. Kies **gebruiker selecteren**. Zoeken naar de gebruiker de naam of e-mailadres om te vinden van de gebruiker die u wilt toevoegen. Klik op **Selecteer** de selectie te bevestigen.
 
-    ![data access-twee][2]
+    ![Data-access-two][2]
 
 1. Kies **rol selecteren**. Kies de juiste rol voor de gebruiker:
 
@@ -53,32 +56,29 @@ Volg deze stappen voor het verlenen van toegang tot gegevens voor een gebruiker-
 
 1. Bevestig dat de **beleid voor gegevenstoegang** pagina vindt u de gebruikers en de rollen voor elke gebruiker.
 
-    ![Data access-vijf][5]
+    ![Data-access-five][5]
 
-## <a name="provide-guest-access-to-a-user-from-another-azure-active-directory-tenant"></a>Toegang voor gasten bieden aan een gebruiker van een andere Azure Active Directory-tenant
+## <a name="provide-guest-access-from-another-aad-tenant"></a>Toegang voor gasten bieden van een andere AAD-tenant
 
 `Guest` is niet een beheerrol. Het is een term die wordt gebruikt voor een account dat wordt uitgenodigd van één tenant naar een andere. Nadat de Gast-account wordt uitgenodigd naar de map van de tenant, heeft dit de dezelfde toegangsbeheer toegepast, zoals een ander account. U kunt beheertoegang verlenen aan een Time Series Insights-omgeving met behulp van de blade van de Access Control (IAM). Of u kunt toegang verlenen tot de gegevens in de omgeving via de blade beleid voor gegevenstoegang. Lees voor meer informatie over de toegang voor gasten van Azure Active Directory (Azure AD)-tenant, [gebruikers toevoegen Azure Active Directory B2B-samenwerking in Azure portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
 Volg deze stappen voor het verlenen van toegang voor gasten met een Time Series Insights-omgeving naar een Azure AD-gebruiker van een andere tenant.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-1. Ga naar uw Time Series Insights-omgeving. Voer **Time Series** in de **zoeken** vak. Selecteer **Time Series-omgeving** in de lijst met zoekresultaten.
-1. Selecteer uw Time Series Insights-omgeving in de lijst.
 1. Selecteer **beleid voor gegevenstoegang**, en selecteer vervolgens **+ uitnodigen**.
 
-    ![gegevens-access-6][6]
+    ![Data-access-six][6]
 
 1. Voer het e-mailadres voor de gebruiker die u wilt uitnodigen. Dit e-mailadres moet worden gekoppeld aan Azure AD. U kunt desgewenst een persoonlijk bericht invoegen bij de uitnodiging opnemen.
 
-    ![gegevens-access-7][7]
+    ![Data-access-seven][7]
 
 1. Zoek naar de bevestiging bel die wordt weergegeven op het scherm.
 
-    ![acht-access-gegevens][8]
+    ![Data-access-eight][8]
 
 1. Kies **gebruiker selecteren**. Zoeken naar het e-mailadres van de gastgebruiker die u uitgenodigd om te vinden van de gebruiker die u wilt toevoegen. Klik op **Selecteer** de selectie te bevestigen.
 
-    ![gegevens-access-9][9]
+    ![Data-access-nine][9]
 
 1. Kies **rol selecteren**. Kies de juiste rol voor de gastgebruiker:
 
@@ -88,7 +88,7 @@ Volg deze stappen voor het verlenen van toegang voor gasten met een Time Series 
 
    Selecteer **OK** de keuze van de rol te bevestigen.
 
-    ![gegevens-access-tien][10]
+    ![Data-access-ten][10]
 
 1. Selecteer **OK** op de **gebruikersrol selecteren** pagina.
 
@@ -98,7 +98,7 @@ Volg deze stappen voor het verlenen van toegang voor gasten met een Time Series 
 
 1. Nu de gastgebruiker moet de stappen voor toegang tot de omgeving zich in de Azure-tenant waaraan u deze hebt uitgenodigd. Ze accepteren eerst de uitnodiging die u ze hebt verzonden. Deze uitnodiging is verzonden via e-mail naar het e-mailadres dat u in stap 5 hebt gebruikt. Ze selecteren **aan de slag** te accepteren.
 
-    ![gegevens-access-twaalf][12]
+    ![Data-access-twelve][12]
 
 1. De gastgebruiker accepteert vervolgens de machtigingen die zijn gekoppeld aan de organisatie van de beheerder.
 
@@ -112,12 +112,14 @@ Volg deze stappen voor het verlenen van toegang voor gasten met een Time Series 
 
     ![gegevens-access-vijftien][15]
 
-Nadat de gastgebruiker selecteert uw tenant, zien ze de Time Series Insights-omgeving waarnaar u hebt opgegeven ze toegang. Ze beschikt nu over de mogelijkheden die zijn gekoppeld aan de rol die u hebt deze met in stap 8 opgegeven.
+Nadat de gastgebruiker selecteert uw tenant, zien ze de Time Series Insights-omgeving waarnaar u hebt opgegeven ze toegang. Ze hebben nu de mogelijkheden die zijn gekoppeld aan de rol die u hebt opgegeven dat ze met in **stap 5**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Informatie over [toevoegen van een Azure Event Hubs-gebeurtenisbron](./time-series-insights-how-to-add-an-event-source-eventhub.md) aan uw Time Series Insights-omgeving.
+
 * Verzenden [gebeurtenissen naar de gebeurtenisbron](./time-series-insights-send-events.md).
+
 * Weergave [uw omgeving in de Verkenner van Time Series Insights Preview](./time-series-insights-update-explorer.md).
 
 <!-- Images -->

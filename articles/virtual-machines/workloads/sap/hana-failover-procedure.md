@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca4d5912d75dd7b33737f61737a209284b7a5a47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76d8bb816bdf229d13a49fa61337899a8bf29ecd
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60338520"
+ms.locfileid: "62098283"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedure bij failover van het noodherstel
 
@@ -35,34 +35,20 @@ Er zijn twee mogelijke situaties moet overwegen bij het uitvoeren van een failov
 >[!NOTE]
 >De volgende stappen moeten worden uitgevoerd op de eenheid HANA grote instantie, die staat voor de DR-eenheid. 
  
-Als u wilt herstellen naar de meest recente momentopnamen met gerepliceerde opslag, moet u de volgende stappen uitvoeren: 
+Voer de stappen uit als u wilt herstellen naar de meest recente gerepliceerde opslagmomentopnamen, zoals vermeld in de sectie **uitvoeren van volledige DR-failover - azure_hana_dr_failover** van het document [Microsoft snapshot-hulpprogramma's voor SAP HANA op Azure ](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
-1. Sluit de niet-productie-exemplaar van HANA op de eenheid van het herstel na noodgevallen van HANA grote instanties die u uitvoert. Dit is omdat een niet-actieve productie-exemplaar voor HANA is vooraf geïnstalleerd is.
-1. Zorg ervoor dat er geen SAP HANA-processen worden uitgevoerd. Gebruik de volgende opdracht voor deze controle: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. U moet worden weergegeven door de uitvoer de **hdbdaemon** verwerken in een status ' gestopt ' en er zijn geen andere HANA-processen in een status die wordt uitgevoerd of gestart.
-1. Voer het script uit op de DR-site HANA grote instantie-eenheid *azure_hana_dr_failover.pl*. Het script vraagt om een SID SAP HANA kunnen worden hersteld. Wanneer aangevraagd, typt u in een of de enige SAP HANA SID die is gerepliceerd en wordt bijgehouden in de *HANABackupCustomerDetails.txt* bestand op de eenheid HANA grote instantie in de DR-site. 
+Als u wilt dat meerdere SAP HANA-instanties failover is uitgevoerd, moet u de opdracht azure_hana_dr_failover meerdere keren uitgevoerd. Wanneer aangevraagd, typt u in de SAP HANA-SID die u wilt een failover en herstel. 
 
-      Als u wilt dat meerdere SAP HANA-instanties failover is uitgevoerd, moet u het script meerdere keren uitgevoerd. Wanneer aangevraagd, typt u in de SAP HANA-SID die u wilt een failover en herstel. Het script bevat is voltooid, een lijst met koppelpunten van de volumes die zijn toegevoegd aan de eenheid HANA grote instantie. Deze lijst bevat de herstelde DR-volumes.
 
-1. De herstelde disaster recovery-volumes koppelen met behulp van Linux-besturingssysteem-opdrachten voor de eenheid HANA grote instantie in de site voor noodherstel. 
-1. Start de niet-actieve productie-instantie van SAP HANA.
-1. Als u wilt het logboek back-up-transactielogboeken kopiëren om de RPO-tijd te beperken, moet u deze transactielogboekback-ups in de directory van de zojuist gekoppelde DR/hana/logbackups samenvoegen. Bestaande back-ups niet worden overschreven. Kopieer de nieuwere back-ups die niet zijn gerepliceerd met de meest recente replicatie van een momentopname van de opslag.
-1. U kunt ook enkele bestanden uit de momentopnamen die zijn gerepliceerd naar het volume /hana/shared/PRD in de DR-Azure-regio herstellen. 
-
-U kunt ook de DR-failover testen zonder enige impact op de werkelijke replicatierelatie. Een testfailover uitvoeren, volgt u de voorgaande stappen 1 en 2 en ga vervolgens door met de volgende stap 3.
+U kunt ook de DR-failover testen zonder enige impact op de werkelijke replicatierelatie. Als u een test-failover, volg de stappen in **uitvoeren van een test DR-failover - azure_hana_test_dr_failover** van het document [Microsoft snapshot-hulpprogramma's voor SAP HANA op Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
 >[!IMPORTANT]
->Voer *niet* productietransacties worden uitgevoerd op het exemplaar dat u hebt gemaakt in de DR-site door het proces van **testen van een failover** met het script dat is geïntroduceerd in stap 3. Deze opdracht maakt u een set van volumes die geen relatie met de primaire site hebben. Als gevolg hiervan synchronisatie naar de primaire site is *niet* mogelijk. 
+>Voer *niet* productietransacties worden uitgevoerd op het exemplaar dat u hebt gemaakt in de DR-site door het proces van **testen van een failover**. De azure_hana_test_dr_failover van deze opdracht wordt een set van volumes waarvoor geen relatie met de primaire site. Als gevolg hiervan synchronisatie naar de primaire site is *niet* mogelijk. 
 
-Stap 3 voor de failovertest:
+Als u wilt dat meerdere SAP HANA-instanties om te testen, moet u het script meerdere keren uitgevoerd. Wanneer aangevraagd, typt u in de SAP HANA-SID van het exemplaar dat u wilt testen voor failover. 
 
-Voer het script uit op de DR-site HANA grote instantie-eenheid **azure_hana_test_dr_failover.pl**. Dit script is *niet* stoppen van de replicatierelatie tussen de primaire site en de DR-site. Met dit script wordt in plaats daarvan de DR-opslagvolumes klonen. Nadat het proces voor het klonen is voltooid, worden de gekloonde volumes hersteld naar de status van de meest recente momentopname en vervolgens gekoppeld aan de DR-eenheid. Het script vraagt om een SID SAP HANA kunnen worden hersteld. Type in één of de enige SAP HANA SID die is gerepliceerd en wordt bijgehouden in de *HANABackupCustomerDetails.txt* bestand op de eenheid HANA grote instantie in de DR-site. 
-
-Als u wilt dat meerdere SAP HANA-instanties om te testen, moet u het script meerdere keren uitgevoerd. Wanneer aangevraagd, typt u in de SAP HANA-SID van het exemplaar dat u wilt testen voor failover. Na voltooiing ziet u het script een lijst met koppelpunten van de volumes die zijn toegevoegd aan de eenheid HANA grote instantie. Deze lijst bevat de gekloonde DR-volumes.
-
-Ga verder met stap 4.
-
-   >[!NOTE]
-   >Als u een failover wilt uitvoeren naar de DR-site te redden sommige gegevens met uur geleden is verwijderd en moeten de volumes voor herstel na Noodgevallen moet worden ingesteld op een eerdere momentopname, wordt deze procedure geldt. 
+>[!NOTE]
+>Als u een failover wilt uitvoeren naar de DR-site te redden ook gegevens die uur geleden is verwijderd en moet de DR-volumes worden ingesteld op een eerdere momentopname, wordt deze procedure geldt. 
 
 1. Sluit de niet-productie-exemplaar van HANA op de eenheid van het herstel na noodgevallen van HANA grote instanties die u uitvoert. Dit is omdat een niet-actieve productie-exemplaar voor HANA is vooraf geïnstalleerd is.
 1. Zorg ervoor dat er geen SAP HANA-processen worden uitgevoerd. Gebruik de volgende opdracht voor deze controle: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. U moet worden weergegeven door de uitvoer de **hdbdaemon** verwerken in een status ' gestopt ' en er zijn geen andere HANA-processen in een status die wordt uitgevoerd of gestart.
@@ -121,34 +107,8 @@ Dit is de volgorde van stappen moeten uitvoeren:
 
 ## <a name="monitor-disaster-recovery-replication"></a>Disaster recovery-replicatie controleren
 
-U kunt de status van de voortgang van uw storage-replicatie controleren door het uitvoeren van script `azure_hana_replication_status.pl`. Met dit script moet worden uitgevoerd vanaf een eenheid die wordt uitgevoerd in de locatie voor noodherstel werken zoals verwacht. Werking van het script, ongeacht of de replicatie actief is. Het script kan worden uitgevoerd voor elke eenheid HANA grote instantie van uw tenant in de locatie voor noodherstel. Het kan niet worden gebruikt voor het verkrijgen van informatie over het opstartvolume.
+U kunt de status van de voortgang van uw storage-replicatie controleren door het uitvoeren van script `azure_hana_replication_status`. Met deze opdracht moet worden uitgevoerd vanaf een eenheid die wordt uitgevoerd in de locatie voor noodherstel werken zoals verwacht. De opdracht werkt, ongeacht of de replicatie actief is. De opdracht kan worden uitgevoerd voor elke eenheid HANA grote instantie van uw tenant in de locatie voor noodherstel. Het kan niet worden gebruikt voor het verkrijgen van informatie over het opstartvolume. Lees voor meer informatie van de opdracht en de uitvoer **'Get replicatiestatus van de DR - azure_hana_replication_status'** van het document [Microsoft snapshot-hulpprogramma's voor SAP HANA op Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
-Aanroepen van het script met de volgende opdracht:
-```
-./azure_hana_replication_status.pl
-```
 
-De uitvoer wordt opgedeeld, per volume, in de volgende secties:  
-
-- Status van koppeling
-- Huidige replicatieactiviteit
-- Meest recente momentopname gerepliceerd 
-- Grootte van de meest recente momentopname
-- Huidige vertragingstijd tussen momentopnamen (tussen de laatste voltooide snapshot-replicatie en nu)
-
-Status van de koppeling wordt weergegeven als **Active** , tenzij de koppeling tussen locaties niet actief is of er een failover uitgevoerd is. De replicatieactiviteit-adressen of alle gegevens op dit moment wordt gerepliceerd of niet-actief is of dat andere activiteiten zijn nu plaatsvindt op de koppeling. De laatste momentopname gerepliceerd moet alleen worden weergegeven als `snapmirror…`. De grootte van de laatste momentopname wordt vervolgens weergegeven. Ten slotte wordt de vertraging weergegeven. De vertragingstijd geeft de tijd van de geplande replicatie wanneer de replicatie is voltooid. Een vertraging is groter is dan een uur voor replicatie van gegevens, met name in de eerste replicatie, zelfs als replicatie is gestart. De vertragingstijd blijft toenemen totdat de voortdurende replicatie is voltooid.
-
-Hier volgt een voorbeeld van de uitvoer:
-
-```
-hana_data_hm3_mnt00002_t020_dp
--------------------------------------------------
-Link Status: Broken-Off
-Current Replication Activity: Idle
-Latest Snapshot Replicated: snapmirror.c169b434-75c0-11e6-9903-00a098a13ceb_2154095454.2017-04-21_051515
-Size of Latest Snapshot Replicated: 244KB
-Current Lag Time between snapshots: -   ***Less than 90 minutes is acceptable***
-```
-
-**Volgende stappen**
+## <a name="next-steps"></a>Volgende stappen
 - Raadpleeg [bewaking en probleemoplossing van HANA kant](hana-monitor-troubleshoot.md).

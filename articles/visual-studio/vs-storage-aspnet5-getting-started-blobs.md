@@ -1,4 +1,4 @@
-﻿---
+---
 title: Aan de slag met blob storage en Visual Studio verbonden services (ASP.NET Core) | Microsoft Docs
 description: Aan de slag met Azure Blob-opslag in een Visual Studio ASP.NET Core-project nadat u een opslagaccount met behulp van Visual Studio verbonden services hebt gemaakt
 services: storage
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: b2b707585df4a7ec26f689b4213be74bdaab680d
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 388c4d5f28e87f5cfe26336771d30fa44c6f9ef0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42054316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123005"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Aan de slag met Azure Blob storage en Visual Studio verbonden services (ASP.NET Core)
 
@@ -27,7 +27,7 @@ In dit artikel wordt beschreven hoe u aan de slag kunt gaan met Azure Blob Stora
 
 Azure Blob-opslag is een service voor het opslaan van grote hoeveelheden ongestructureerde gegevens die kunnen worden benaderd vanaf elke locatie ter wereld via HTTP of HTTPS. Een enkele blob kan elke grootte zijn. Blobs kunnen items zijn zoals afbeeldingen, audio en video-bestanden, onbewerkte gegevens en bestanden. In dit artikel wordt beschreven hoe u aan de slag kunt met blob-opslag, nadat u een Azure storage-account hebt gemaakt met behulp van de Visual Studio **Connected Services** in een ASP.NET Core-project.
 
-Net zoals bestanden in mappen staan, staan opslag-blobs in containers. Nadat u een blob hebt gemaakt, maakt u een of meer containers in die blob. Bijvoorbeeld in een blob met de naam 'Plakboek', kunt u containers met de naam 'afbeeldingen' voor het opslaan van foto's maken en een andere met de naam "audio" waar u audio-bestanden wilt opslaan. Nadat u de containers hebt gemaakt, kunt u afzonderlijke bestanden er naar toe uploaden. Zie [Quickstart: blobs uploaden, downloaden, en lijst met behulp van .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) voor meer informatie over het bewerken van blobs via een programma.
+Net zoals bestanden in mappen staan, staan opslag-blobs in containers. Nadat u een blob hebt gemaakt, maakt u een of meer containers in die blob. Bijvoorbeeld in een blob met de naam 'Plakboek', kunt u containers met de naam 'afbeeldingen' voor het opslaan van foto's maken en een andere met de naam "audio" waar u audio-bestanden wilt opslaan. Nadat u de containers hebt gemaakt, kunt u afzonderlijke bestanden er naar toe uploaden. Zie [Quickstart: Blobs uploaden, downloaden, en lijst met behulp van .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) voor meer informatie over het bewerken van blobs via een programma.
 
 Enkele van de Azure Storage-API's zijn asynchroon en de code in dit artikel gaat ervan uit dat async-methoden worden gebruikt. Zie [asynchrone programmering](https://docs.microsoft.com/dotnet/csharp/async) voor meer informatie.
 
@@ -140,7 +140,7 @@ do
 } while (token != null);
 ```
 
-Zie [Quickstart: blobs uploaden, downloaden, en lijst met behulp van .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) voor andere manieren om de inhoud van een blob-container weer te geven.
+Zie [Quickstart: Blobs uploaden, downloaden, en lijst met behulp van .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) voor andere manieren om de inhoud van een blob-container weer te geven.
 
 ## <a name="download-a-blob"></a>Een blob downloaden
 
@@ -157,10 +157,10 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-Zie [Quickstart: blobs uploaden, downloaden, en lijst met behulp van .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) voor andere manieren om het opslaan van blobs als bestanden.
+Zie [Quickstart: Blobs uploaden, downloaden, en lijst met behulp van .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) voor andere manieren om het opslaan van blobs als bestanden.
 
 ## <a name="delete-a-blob"></a>Een blob verwijderen
-Als u een blob wilt verwijderen, moet u eerst een verwijzing naar de blob krijgen en vervolgens de methode `DeleteAsync` aanroepen:
+
 Als u een blob wilt verwijderen, moet u eerst een verwijzing naar de blob krijgen en vervolgens de methode `DeleteAsync` aanroepen:
 
 ```cs

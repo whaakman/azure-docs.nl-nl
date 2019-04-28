@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.openlocfilehash: 342c7903e58a5c3bc41278152630187fa0c63b7b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425037"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119143"
 ---
 # <a name="multitenant-applications-in-azure"></a>Multitenant-toepassingen in Azure
 Een multitenant-toepassing is een gedeelde resource waarmee afzonderlijke gebruikers of 'tenants,' om weer te geven van de toepassing alsof deze is hun eigen. Een typisch scenario die gepaard met een multitenant-toepassing is een waarin alle gebruikers van de toepassing desgewenst kunnen de gebruikerservaring aanpassen maar hebben verder dezelfde elementaire zakelijke vereisten. Voorbeelden van grote multitenant-toepassingen zijn Office 365, Outlook.com en visualstudio.com.
@@ -28,16 +28,16 @@ Vanuit het perspectief van de toepassingsprovider van een, van betrekking de voo
 
 De volgende geeft een lijst van de belangrijkste doelstellingen en vereisten vanuit het perspectief van een provider van.
 
-* **Inrichting**: U moet kunnen zijn voor het inrichten van nieuwe tenants voor de toepassing.  Voor multitenant-toepassingen met een groot aantal tenants is het meestal nodig voor het automatiseren van dit proces door in te schakelen selfservice inrichting.
-* **Onderhoud**: U moet kunnen om te upgraden van de toepassing en andere onderhoudstaken uitvoeren terwijl's hier gebruik van meerdere tenants.
-* **Bewaking**: U moet kunnen om de toepassing te allen tijde om eventuele problemen te identificeren en oplossen van deze te bewaken. Dit omvat controleren hoe de toepassing op elke tenant wordt gebruikt.
+* **Inrichting**: U moet mogelijk zijn voor het inrichten van nieuwe tenants voor de toepassing.  Voor multitenant-toepassingen met een groot aantal tenants is het meestal nodig voor het automatiseren van dit proces door in te schakelen selfservice inrichting.
+* **Onderhoud**: U moet mogelijk zijn om te upgraden van de toepassing en andere onderhoudstaken uitvoeren terwijl's hier gebruik van meerdere tenants.
+* **Bewaking**: U moet mogelijk zijn om de toepassing te allen tijde om eventuele problemen te identificeren en oplossen van deze te bewaken. Dit omvat controleren hoe de toepassing op elke tenant wordt gebruikt.
 
 Een goed geïmplementeerde multitenant-toepassing biedt de volgende voordelen voor gebruikers.
 
-* **Isolatie**: de activiteiten van afzonderlijke tenants hebben geen invloed op het gebruik van de toepassing door andere tenants. Tenants geen toegang tot elkaars gegevens. Deze wordt weergegeven aan de tenant alsof ze exclusief gebruik van de toepassing hebben.
-* **Beschikbaarheid**: afzonderlijke tenants wilt dat de toepassing voortdurend beschikbaar zijn, mogelijk met garanties die zijn gedefinieerd in een SLA. Nogmaals, de activiteiten van andere tenants geen invloed op de beschikbaarheid van de toepassing.
-* **Schaalbaarheid**: de toepassing kan worden geschaald om te voldoen aan de vraag van afzonderlijke tenants. De prestaties van de toepassing moeten niet van invloed op de aanwezigheid en acties van andere tenants.
-* **Kosten**: kosten zijn lager is dan het uitvoeren van een toepassing toegewezen, één tenant, omdat meerdere tenants in staat stelt het delen van resources.
+* **Isolatie**: De activiteiten van afzonderlijke tenants hebben geen invloed op het gebruik van de toepassing door andere tenants. Tenants geen toegang tot elkaars gegevens. Deze wordt weergegeven aan de tenant alsof ze exclusief gebruik van de toepassing hebben.
+* **Beschikbaarheid**: Afzonderlijke tenants wilt dat de toepassing voortdurend beschikbaar zijn, mogelijk met garanties die zijn gedefinieerd in een SLA. Nogmaals, de activiteiten van andere tenants geen invloed op de beschikbaarheid van de toepassing.
+* **Schaalbaarheid**: De toepassing kan worden geschaald om te voldoen aan de vraag van afzonderlijke tenants. De prestaties van de toepassing moeten niet van invloed op de aanwezigheid en acties van andere tenants.
+* **Kosten**: Kosten zijn lager is dan het uitvoeren van een toepassing toegewezen, één tenant, omdat meerdere tenants in staat stelt het delen van resources.
 * **Aanpasbaarheid**. De mogelijkheid om aan te passen van de toepassing voor een afzonderlijke tenant op verschillende manieren, zoals het toevoegen of verwijderen van functies, kleuren en logo's wijzigen of zelfs de toevoeging van hun eigen code of scripts.
 
 Kort gezegd, terwijl er veel overwegingen waarmee u rekening houden moet om een zeer schaalbare service te bieden zijn, zijn er ook een aantal van de doelstellingen en vereisten die gemeenschappelijk voor veel toepassingen voor meerdere tenants zijn. Sommige mogelijk niet relevant voor specifieke scenario's en het belang van afzonderlijke doelstellingen en vereisten zullen variëren in elk scenario. Als aanbieder van de multitenant-toepassing, ook hebt u doelstellingen en vereisten zoals, voldoen aan de tenants doelstellingen en vereisten, winstgevendheid, facturering, meerdere serviceniveaus, inrichten, bewaking van onderhoud en automation.

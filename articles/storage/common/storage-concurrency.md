@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.subservice: common
-ms.openlocfilehash: c45061db77c21b82744f69f00265870d5e1a8d00
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: 9e786aed031d528b8ae574444b71753ac538cf47
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883838"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766197"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gelijktijdigheid beheren in Microsoft Azure Storage
 ## <a name="overview"></a>Overzicht
 Internet op basis van moderne toepassingen hebben doorgaans meerdere gebruikers weergeven en bijwerken van gegevens tegelijkertijd. Dit is vereist voor ontwikkelaars van toepassingen moet u zorgvuldig nadenken over hoe u een voorspelbare ervaring bieden aan eindgebruikers, met name voor scenario's waarin meerdere gebruikers dezelfde gegevens kunnen bijwerken. Er zijn drie strategieën van de belangrijkste gegevens gelijktijdigheid die ontwikkelaars gewoonlijk overwegen:  
 
 1. Optimistische gelijktijdigheid: een toepassing uitvoeren van die een update als onderdeel van de update controleren wordt of de gegevens is gewijzigd sinds de toepassing die gegevens laatst gelezen. Bijvoorbeeld, als twee gebruikers die een wikipagina bekijken moeten u een update op dezelfde pagina vervolgens de wiki-platform moet ervoor zorgen dat de tweede update niet de eerste update – overschreven en dat beide gebruikers begrijpen of de update is voltooid of niet. Deze strategie wordt meestal gebruikt in webtoepassingen.
-2. Pessimistische gelijktijdigheid: een toepassing wilt uitvoeren van een update duurt een vergrendeling op een object te voorkomen dat andere gebruikers van de gegevens worden bijgewerkt, totdat de vergrendeling is uitgebracht. Bijvoorbeeld in een masterdetail gegevens replicatiescenario waarbij alleen de master updates wordt uitgevoerd wordt het model doorgaans houdt een exclusieve vergrendeling voor langere tijd op de gegevens om ervoor te zorgen dat niemand anders het kunnen bijwerken.
+2. Pessimistische gelijktijdigheid: een toepassing wilt uitvoeren van een update duurt een vergrendeling op een object te voorkomen dat andere gebruikers van de gegevens worden bijgewerkt, totdat de vergrendeling is uitgebracht. Bijvoorbeeld in een scenario voor gegevens van de hoofd-/ onderliggende replicatie waarbij alleen de master updates wordt uitgevoerd wordt het model doorgaans houdt een exclusieve vergrendeling voor langere tijd op de gegevens om ervoor te zorgen dat niemand anders het kunnen bijwerken.
 3. Laatste schrijver wins – een benadering waarmee een update-bewerkingen om door te gaan zonder te controleren als elke andere toepassing heeft de gegevens bijgewerkt sinds de toepassing eerst de gegevens niet lezen. Deze strategie (of het ontbreken van een strategie voor een formele) wordt meestal gebruikt waarbij de gegevens zijn gepartitioneerd zodanig dat er geen kans is dat meerdere gebruikers toegang krijgen dezelfde gegevens tot. Het kan ook nuttig zijn waar tijdelijke gegevensstromen worden verwerkt.  
 
 Dit artikel bevat een overzicht van hoe het Azure Storage-platform vereenvoudigt de ontwikkeling biedt een eersteklas ondersteuning voor alle drie deze gelijktijdigheidsstrategieën.  

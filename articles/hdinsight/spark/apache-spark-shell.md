@@ -1,7 +1,6 @@
 ---
 title: Een interactieve Spark-Shell gebruiken in Azure HDInsight
 description: Een interactieve Spark-Shell biedt een alleen-uitvoeren-print-proces voor het uitvoeren van de Spark opdrachten één bewerking tegelijk en de resultaten.
-services: hdinsight
 ms.service: hdinsight
 author: maxluk
 ms.author: maxluk
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: 3da6260faa87aecb7eb13f16386006e0c856d46b
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: MT
+ms.openlocfilehash: 9044ed3ad9cf9ffa2f54d130bb50b37df121b86f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653846"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116070"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Apache Spark kan worden uitgevoerd vanuit de Spark-Shell
 
@@ -62,7 +61,7 @@ De Spark-Shell-opdracht (`spark-shell`, `pyspark`, of `sparkR`) biedt ondersteun
 
 | Switch | description | Voorbeeld |
 | --- | --- | --- |
-| --model MASTER_URL | Hiermee geeft u de URL van de master. In HDInsight, is deze waarde altijd `yarn`. | `--master yarn`|
+| --master MASTER_URL | Hiermee geeft u de URL van de master. In HDInsight, is deze waarde altijd `yarn`. | `--master yarn`|
 | --jars JAR_LIST | Door komma's gescheiden lijst met lokale JAR-bestanden moeten worden opgenomen in de stuurprogramma- en executor klassepaden. In HDInsight, wordt deze lijst bestaat uit de paden naar het bestandssysteem standaard in Azure Storage of Data Lake-opslag. | `--jars /path/to/examples.jar` |
 | --MAVEN_COORDS-pakketten | Door komma's gescheiden lijst met maven-coördinaten van de JAR-bestanden moeten worden opgenomen in de stuurprogramma- en executor klassepaden. Zoekt naar de lokale maven-opslagplaats en klik vervolgens op maven central, en vervolgens extra externe opslagplaatsen die is opgegeven met `--repositories`. De notatie voor de coördinaten is *groeps-id*:*artifactId*:*versie*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | LIJST met--py-bestanden | Voor Python, een door komma's gescheiden lijst met ZIP- of .egg .py bestanden op de PYTHONPATH te plaatsen. | `--pyfiles "samples.py"` |

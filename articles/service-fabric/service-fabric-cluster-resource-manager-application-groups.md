@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7e90dc00a8e042e48d8016e25dda04c15ce9f619
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670631"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114070"
 ---
 # <a name="introduction-to-application-groups"></a>Inleiding tot toepassingsgroepen
 De service Fabric Cluster Resource Manager beheert doorgaans de clusterbronnen door de belasting te spreiden (vertegenwoordigd [metrische gegevens](service-fabric-cluster-resource-manager-metrics.md)) gelijkmatig in het cluster. Service Fabric beheert de capaciteit van de knooppunten in het cluster en het cluster als geheel via [capaciteit](service-fabric-cluster-resource-manager-cluster-description.md). Metrische gegevens en -capaciteit werken ideaal voor veel werkbelastingen, maar de patronen die intensief gebruik van verschillende exemplaren van Service Fabric-toepassing soms binnenhalen van de aanvullende vereisten. U kunt bijvoorbeeld op:

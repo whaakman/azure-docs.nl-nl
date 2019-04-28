@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 35639dac0eacd5eae04b7848bdbbc1bc30fbf214
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 18780deba1910b3ea77f7313bfb6d204dacabd82
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112018"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Serverloze op gebeurtenissen gebaseerde architecturen met een Azure Cosmos DB en Azure Functions
 
-Azure Functions biedt de eenvoudigste manier om verbinding maken met de [wijzigingenfeed](). Bij elke nieuwe gebeurtenis in uw Azure Cosmos-container wijzigingenfeed kunt u kleine reactieve Azure Functions die automatisch wordt geactiveerd.
+Azure Functions biedt de eenvoudigste manier om verbinding maken met de [wijzigingenfeed](change-feed.md). Bij elke nieuwe gebeurtenis in uw Azure Cosmos-container wijzigingenfeed kunt u kleine reactieve Azure Functions die automatisch wordt geactiveerd.
 
 ![Serverloze functies maken op basis van gebeurtenissen werken met de Azure Cosmos DB-Trigger](./media/change-feed-functions/functions.png)
 

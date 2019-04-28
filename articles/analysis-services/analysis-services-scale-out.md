@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6a69d8d60b2e588ded9ccca20521195ae11ff136
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 8c226608f6c1c776463aa05c02b1d3cc04b699ec
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449422"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766823"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-uitschalen
 
@@ -106,7 +106,7 @@ Gebruik de **synchronisatie** bewerking.
 Status van retourcodes:
 
 
-|Code  |Description  |
+|Code  |Beschrijving  |
 |---------|---------|
 |-1     |  Ongeldig       |
 |0     | Repliceren...        |
@@ -128,6 +128,8 @@ Gebruiken om uit te voeren synchronisatie, [synchronisatie AzAnalysisServicesIns
 Als u wilt dat het aantal query's, gebruikt u [Set AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Geef de optionele `-ReadonlyReplicaCount` parameter.
 
 Gebruiken om te scheiden van de verwerkingsserver van de querypool, [Set AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Geef de optionele `-DefaultConnectionMode` parameter gebruiken `Readonly`.
+
+Zie voor meer informatie, [met behulp van een service-principal met de module Az.AnalysisServices](analysis-services-service-principal.md#azmodule).
 
 ## <a name="connections"></a>Verbindingen
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
-ms.openlocfilehash: c26418d36271b4d2d39a43eda7e8b23585d69f4a
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 91c598bde0912cffb8aa1dd7ba022c86a9084faa
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149424"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127392"
 ---
 # <a name="azure-devtest-labs-faq"></a>Veelgestelde vragen over Azure DevTest Labs
 Vind antwoorden op enkele veelgestelde vragen over Azure DevTest Labs.
@@ -350,7 +350,7 @@ Voor andere continue integratie (CI) / toolchains continue levering (CD), kunt u
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Wanneer moet ik een nieuw virtueel netwerk maken voor mijn DevTest Labs-omgeving versus met behulp van een bestaand virtueel netwerk?
 Als uw VM's nodig hebt om te communiceren met de bestaande infrastructuur, klikt u vervolgens kunt u overwegen een bestaand virtueel netwerk in uw omgeving DevTest Labs. Als u ExpressRoute gebruikt, wilt u mogelijk Beperk het aantal vnet's / subnetten zodat u uw IP-adresruimte die wordt toegewezen voor gebruik in de abonnementen niet fragment. 
 
-Overweeg het gebruik van het patroon van VNet-peering hier ([Hub-Spoke-model](/architecture/reference-architectures/hybrid-networking/hub-spoke)) te. Deze aanpak maakt vnet/subnet-communicatie mogelijk meerdere abonnementen. Elke DevTest Labs-omgeving kan anders zijn eigen virtueel netwerk hebt. 
+Overweeg het gebruik van het patroon van VNet-peering hier ([Hub-Spoke-model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) te. Deze aanpak maakt vnet/subnet-communicatie mogelijk meerdere abonnementen. Elke DevTest Labs-omgeving kan anders zijn eigen virtueel netwerk hebt. 
 
 Er zijn [limieten](../azure-subscription-service-limits.md) op het aantal virtuele netwerken per abonnement. De standaardinstelling is 50, hoewel deze limiet kan worden verhoogd tot 100.
 

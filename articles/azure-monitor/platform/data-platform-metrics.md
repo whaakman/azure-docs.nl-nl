@@ -11,18 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 2646941e2384acf6d303615f564b65d616931180
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c00f703c5cfa606eaeb6ea0dea5fe5d754d3de5d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794249"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108081"
 ---
 # <a name="metrics-in-azure-monitor"></a>Metrische gegevens in Azure Monitor
 
 > [!NOTE]
 > Het gegevensplatform van Azure Monitor is gebaseerd op twee fundamentele gegevenstypen: Metrische gegevens en Logboeken. Dit artikel beschrijft de metrische gegevens. Raadpleeg [registreert in Azure Monitor](data-platform-logs.md) voor een gedetailleerde beschrijving van Logboeken en zo [Azure Monitor gegevens platforn](data-platform.md) voor een vergelijking van de twee.
-
 
 Metrische gegevens in Azure Monitor zijn lichtgewicht en kan ondersteunen bijna realtime scenario's, waardoor ze met name handig voor meldingen en snelle detectie van problemen. In dit artikel wordt beschreven hoe metrische gegevens zijn gestructureerd, wat u ermee kunt doen, en identificeert verschillende gegevensbronnen die gegevens opslaan in metrische gegevens.
 
@@ -42,7 +41,6 @@ De volgende tabel bevat de verschillende manieren die u kunt metrische gegevens 
 | Ophalen | Toegang tot metrische waarden vanuit een opdrachtregel met [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Toegang tot metrische waarden van het gebruik van aangepaste toepassing [REST-API](rest-api-walkthrough.md).<br>Toegang tot metrische waarden vanuit een opdrachtregel met [CLI](/cli/azure/monitor/metrics). |
 | Archiveren | [Archief](..//learn/tutorial-archive-data.md) de geschiedenis van prestaties of de status van uw resource voor naleving, controle- of offline rapportagedoeleinden. |
 
-
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Hoe zijn de gegevens in Azure Monitor Metrics gestructureerd?
 Gegevens die worden verzameld door Azure Monitor metrische gegevens worden opgeslagen in een time series-database die is geoptimaliseerd voor het analyseren van gegevens tijdstempel. Elke set metrische waarden is een tijdreeks met de volgende eigenschappen:
 
@@ -52,8 +50,6 @@ Gegevens die worden verzameld door Azure Monitor metrische gegevens worden opges
 * Een naam van de meetwaarde
 * De waarde zelf
 * Sommige metrische gegevens kan meerdere dimensies hebben, zoals beschreven in [multi-dimensionale metrische gegevens](#multi-dimensional-metrics). Aangepaste metrische gegevens kan maximaal 10 dimensies hebben.
-
-Metrische gegevens in Azure worden 93 dagen bewaard. U kunt [platform metrische gegevens voor resources van Azure Monitor verzenden naar Log Analytics-werkruimte](diagnostic-logs-stream-log-store.md) voor de lange termijn trends.
 
 ## <a name="multi-dimensional-metrics"></a>Multi-dimensionale metrische gegevens
 Een van de uitdagingen bij het metrische gegevens is dat het vaak heeft beperkte informatie voor meer context voor waarden die worden verzameld. Azure Monitor lost deze uitdaging met multi-dimensionale metrische gegevens. De grootte van een metrische waarde zijn naam / waarde-paren die aanvullende gegevens om te beschrijven van de metrische waarde bevatten. Bijvoorbeeld, een metrische waarde _beschikbare ruimte op schijf_ kan hebben een dimensie met de naam _station_ met waarden _C:_, _D:_, waarmee zou weergeven de beschikbare schijfruimte op alle stations of voor elk station afzonderlijk.
@@ -101,6 +97,13 @@ Er zijn drie fundamentele bronnen van metrische gegevens die door Azure Monitor 
 
 **Aangepaste metrische gegevens** metrische gegevens die u definieert naast de standaard metrische gegevens die automatisch beschikbaar zijn zijn. U kunt [aangepaste metrische gegevens in uw toepassing definiëren](../app/api-custom-events-metrics.md) die wordt bewaakt door Application Insights of maak aangepaste metrische gegevens voor het gebruik van een Azure-service de [aangepaste metrische gegevens API](metrics-store-custom-rest-api.md).
 
+## <a name="retention-of-metrics"></a>Retentie van metrische gegevens
+Voor de meeste resources in Azure worden metrische gegevens 93 dagen bewaard. Er zijn enkele uitzonderingen:
+  * **Klassieke metrische gegevens van Guest OS**. Klassieke Gast OS metrische gegevens worden gedurende 14 dagen bewaard. Voor een langere periode, wordt u aangeraden nieuwe Gastbesturingssysteem metrische gegevens die worden verzameld met [Windows diagnostische extensie (WAD),](../platform/diagnostics-extension-overview.md) en voor virtuele Linux-machines met [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/).
+  * **Application Insights logboek op basis van metrische gegevens**. Achter de scène [logboek op basis van metrische gegevens](../app/pre-aggregated-metrics-log-metrics.md) vertalen in Logboeken-query's. De bewaarperiode komt overeen met het bewaren van gebeurtenissen in onderliggende Logboeken. Logboeken worden opgeslagen voor Application Insights-resources, 90 dagen. 
+
+> [!NOTE]
+> U kunt [platform metrische gegevens voor resources van Azure Monitor verzenden naar Log Analytics-werkruimte](diagnostic-logs-stream-log-store.md) voor de lange termijn trends.
 
 ## <a name="next-steps"></a>Volgende stappen
 

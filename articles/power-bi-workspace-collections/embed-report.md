@@ -3,17 +3,17 @@ title: Een rapport insluiten in Azure Power BI Workspace Collections | Microsoft
 description: Leer hoe u een rapport dat is in Power BI Workspace Collections in uw toepassing insluit.
 services: power-bi-workspace-collections
 ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: bdfaaf3ecd5beb7cea56f017006921a86ecfb3f6
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: a7d6ccc2360d63b888dc46badc742f2618a08dac
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519254"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110662"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Een rapport insluiten in Power BI-Werkruimteverzamelingen
 

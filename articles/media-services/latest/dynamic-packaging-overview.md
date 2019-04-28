@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: c9254c8dd629230a549dd95aba9afbd932746007
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 90af9d40f797e493696d52e4cd744b99e3b57911
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886451"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104119"
 ---
 # <a name="dynamic-packaging"></a>Dynamische verpakking
 
@@ -73,7 +73,7 @@ Een Live-gebeurtenis kan een van twee typen zijn: Pass Through- en live codering
 
 Het volgende diagram toont de live streamen met dynamische verpakking werkstroom.
 
-![Pass Through-query](./media/live-streaming/pass-through.svg)
+![passthrough](./media/live-streaming/pass-through.svg)
 
 ## <a name="delivery-protocols"></a>Levering protocollen
 
@@ -197,6 +197,10 @@ Dynamische filtering is gebruikt om te bepalen het aantal sporen te wissen, inde
 
 > [!NOTE]
 > U kunt momenteel geen gebruik maken van de Azure-portal om v3-resources te beheren. Gebruik de [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) of een van de ondersteunde [SDK's](developers-guide.md).
+
+## <a name="provide-feedback"></a>Feedback geven
+
+Bekijk de [Azure Media Services-community](media-services-community.md) artikel om te zien van verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

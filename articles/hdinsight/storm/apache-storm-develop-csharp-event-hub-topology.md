@@ -1,7 +1,6 @@
 ---
 title: Gebeurtenissen verwerken van Event Hubs met Storm - Azure HDInsight
 description: Leer hoe u gegevens van Azure Event Hubs verwerken met een C# Storm-topologie die in Visual Studio zijn gemaakt met behulp van de HDInsight-hulpprogramma's voor Visual Studio.
-services: hdinsight,notification hubs
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 85d95354d24a3f107fc518b367ab1187da43269d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: MT
+ms.openlocfilehash: b02945197b20c7fe704d0f8cfa9201a5b9cbc292
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633756"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125201"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Verwerken van gebeurtenissen uit Azure Event Hubs met Apache Storm op HDInsight (C#)
 
@@ -153,7 +152,7 @@ Eventhubs is de gegevensbron voor dit voorbeeld. Gebruik de informatie in de sec
 
 3. In de **EventHubWriter** project, open de **App.config** bestand. Gebruik de informatie uit de event hub die u eerder hebt geconfigureerd om in te vullen in de waarde voor de volgende sleutels:
 
-   | Sleutel | Waarde |
+   | Sleutel | Value |
    | --- | --- |
    | EventHubPolicyName |schrijver (als u een andere naam voor het beleid met gebruikt *verzenden* machtiging, in plaats daarvan gebruiken.) |
    | EventHubPolicyKey |De sleutel voor de schrijver-beleid. |
@@ -169,7 +168,7 @@ Eventhubs is de gegevensbron voor dit voorbeeld. Gebruik de informatie in de sec
 
 2. Open de **App.config** bestand voor de **EventHubReader**. Gebruik de informatie uit de event hub die u eerder hebt geconfigureerd om in te vullen in de waarde voor de volgende sleutels:
 
-   | Sleutel | Waarde |
+   | Sleutel | Value |
    | --- | --- |
    | EventHubPolicyName |lezer (als u een andere naam voor het beleid met gebruikt *luisteren* machtiging, in plaats daarvan gebruiken.) |
    | EventHubPolicyKey |De sleutel voor het beleid van de lezer. |

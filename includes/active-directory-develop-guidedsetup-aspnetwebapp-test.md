@@ -15,11 +15,11 @@ ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 8795c9ab0a4dbb76327d0ead48ed33fb0cff9e86
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528534"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298215"
 ---
 ## <a name="test-your-code"></a>Uw code testen
 
@@ -47,7 +47,7 @@ Nadat u naar de weergave van de controller bladert, ziet u een tabel met de bela
 |---|---|---|
 |**Naam** |Volledige naam van gebruiker | En achternaam van eerst de gebruiker.
 |**Gebruikersnaam** |Gebruiker<span>@domain.com</span> | De gebruikersnaam die wordt gebruikt om de gebruiker te identificeren.
-|**Onderwerp** |Onderwerp |Een tekenreeks die een unieke identificatie van de gebruiker op het web.|
+|**Onderwerp** |Subject |Een tekenreeks die een unieke identificatie van de gebruiker op het web.|
 |**Tenant ID** |Guid | Een **guid** die Azure AD-organisatie van de gebruiker een unieke vertegenwoordigt.|
 
 Bovendien ziet u een tabel met alle claims die zich in de verificatieaanvraag. Zie voor meer informatie de [lijst met claims die zich in een Azure AD-ID-Token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).

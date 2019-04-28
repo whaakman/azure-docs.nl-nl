@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
 ms.openlocfilehash: bdae273506a238c4d47c1cdce004cdd92b2d58a1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355551"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121021"
 ---
-# <a name="marketing-best-practices"></a>Aanbevolen procedures voor marketing
+# <a name="marketing-best-practices"></a>Best practices voor marketing
 
 Publiceren van uw aanbieding op marketplace is alleen de eerste stap. Bovendien moet u over het optimaliseren van uw aanbieding naar schijf voor een maximale impact bepalen. Het goede nieuws is dat door het publiceren een aanbieding op marketplace, u begint voor het ontgrendelen van belangrijke activiteiten in de gezamenlijke Go-To-Market (GTM) met Microsoft.  Om optimaal gebruikmaken van dit nieuwe GTM-initiatief en echt Breid uw bedrijf, die u wilt opnemen van de nieuwe aanbieding als onderdeel van uw bestaande marketing- en -activiteiten.
 

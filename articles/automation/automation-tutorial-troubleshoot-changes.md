@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
 ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116631"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Problemen met wijzigingen in uw omgeving oplossen
 
@@ -101,7 +101,7 @@ In het venster **Werkruimteconfiguratie** voegt u Windows-registersleutels, Wind
 
 |Eigenschap  |Beschrijving  |
 |---------|---------|
-|Ingeschakeld     | Bepaalt of de instelling wordt toegepast        |
+|Enabled     | Bepaalt of de instelling wordt toegepast        |
 |Itemnaam     | Beschrijvende naam van het bestand dat moet worden bijgehouden        |
 |Groep     | De naam van een groep voor het logisch groeperen van bestanden        |
 |Windows-registersleutel   | Het pad voor het bestand, bijvoorbeeld: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup      |
@@ -114,7 +114,7 @@ In het venster **Werkruimteconfiguratie** voegt u Windows-registersleutels, Wind
 
 |Eigenschap  |Beschrijving  |
 |---------|---------|
-|Ingeschakeld     | Bepaalt of de instelling wordt toegepast        |
+|Enabled     | Bepaalt of de instelling wordt toegepast        |
 |Itemnaam     | Beschrijvende naam van het bestand dat moet worden bijgehouden        |
 |Groep     | De naam van een groep voor het logisch groeperen van bestanden        |
 |Pad invoeren     | Het pad voor het controleren op het bestand, bijvoorbeeld: "C:\temp\\\*.txt"<br>U kunt ook omgevingsvariabelen gebruiken zoals ' %winDir%\System32\\\*. * "         |
@@ -127,9 +127,9 @@ In het venster **Werkruimteconfiguratie** voegt u Windows-registersleutels, Wind
 
 1. In **Linux-bestand voor het bijhouden van wijzigingen toevoegen** voert u de gegevens van het bestand of de map voor het bijhouden van wijzigingen in en klikt u op **Opslaan**
 
-|Eigenschap  |Beschrijving  |
+|Eigenschap  |Description  |
 |---------|---------|
-|Ingeschakeld     | Bepaalt of de instelling wordt toegepast        |
+|Enabled     | Bepaalt of de instelling wordt toegepast        |
 |Itemnaam     | Beschrijvende naam van het bestand dat moet worden bijgehouden        |
 |Groep     | De naam van een groep voor het logisch groeperen van bestanden        |
 |Pad invoeren     | Het pad voor het controleren op het bestand, bijvoorbeeld: "/etc/*.conf"       |

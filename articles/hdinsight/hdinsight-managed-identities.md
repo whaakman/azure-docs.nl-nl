@@ -1,19 +1,18 @@
 ---
 title: Beheerde identiteiten in Azure HDInsight
 description: Bevat een overzicht van de implementatie van beheerde identiteiten in Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9386bcb8e455bff5ceed1fccdf55874caf7b6507
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 5012b669b7460a44cb2732d7db7bf76fd1f567cf
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175783"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766938"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Beheerde identiteiten in Azure HDInsight
 
@@ -31,7 +30,7 @@ In Azure HDInsight, worden beheerde identiteiten ingericht op elk knooppunt van 
 
 Beheerde identiteiten kunnen worden gemaakt met een van de volgende methoden:
 
-* [Azure-portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
+* [Azure Portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
 * [Azure Resource Manager](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)
 * [Azure-CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)

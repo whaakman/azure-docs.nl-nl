@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 4d854aef62af1004faacf73c11bb417cf508a727
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437340"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763565"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure Maps ondersteunde categorieën
 
@@ -105,7 +105,7 @@ Bij het uitvoeren van een [categorie zoeken](https://docs.microsoft.com/rest/api
 | REPARATIE\_FACILITEIT | bodyshops, band (band)-services, herstel winkels, auto glas vervanging winkels, algemene auto herstellen onderhoud van de installatie van de verkoop van Autoaccessoires, motor herstellen, vrachtwagen repair-service, herstellen faciliteit |
 | ONDERZOEK\_FACILITEIT | onderzoek faciliteit |
 | WOONADRES\_ACCOMMODATIE | buiten gebruik stellen community, townhouse complexe, appartementen/appartementencomplex, condominium complexe, woonadres goed, woonadres accommodatie |
-| RESTAURANT | Duits, creole Cajun, Nederlands, voetbal ruimten, bistro, Israëlische, Slowakije, Jamaicaanse, vegetarisch, vis, Vietnamees, Maltees, Sichuan, welsh, Chinese, Japans, Algerijns, Californian, passen, Shandong, salade balk Savoy een, Spaans, Ethiopische, Taiwanees, donuts, Iraans, Canada, American, Noors, Frans, Hunan, Polynesische, afghan, weg, Oosten, Zwitserland, erotic, crêperie, Surinamese, Egyptische, Hongaars, Nepalese, barbecue, warm-pot, hamburgers, Middellandse, Latijns-Amerika, tapas, Britse, Mexicaanse, Guangdong, Azië (Overig), buffet, sushi, Mongools, international, mosselen, Thai, Venezolaans, Rumanian, kip, soep, koosjer, biefstuk house, yoghurt/SAP balk, Italiaans, Koreaans, Cypriotische, Bosnisch, Boliviaans, Dominicaanse, België, Tunesië, Schots, Engels, Pakistaans, Tsjechisch, Hawaiïaans, Maghrib, Tibetaans, Arabisch, eastern, Chileense midden, Shanghai, Pools, Filipijns, Soedanese, Armeens, Birmaans, Brazilië, Scandinavisch, Bulgaars, ziel food, Colombia, Joodse, pizza, Sicilian, organische, Grieks, Baskisch, Behalve, cafetaria's, Fins, Afrikaanse, Corsicaans, Syrië, Caribisch gebied, Dongbei, Russisch, grill, dit is opgeslagen, snel food, Australië, Ierland, pub food, fondue, Libanon, Indonesisch, Deens, Provençal, teppanyaki, vasteland van de Indiase, Mauritiaanse, westen, Peruaans, Cambodjaanse, eten, Zweeds, macrobiotic, ice cream parlor, Slavisch, Turks, Argentijnse, Oostenrijk, exotische, Portugees, Luxemburgse, Marokkaanse, sandwich, Cubaanse, restaurant |
+| RESTAURANT | Duits, creole Cajun, Nederlands, voetbal ruimten, bistro, Israëlische, Slowakije, Jamaicaanse, vegetarisch, vis, Vietnamees, Maltees, Sichuan, welsh, Chinese, Japans, Algerijns, Californian, passen, Shandong, salade balk Savoy een, Spaans, Ethiopische, Taiwanees, donuts, Iraans, Canada, American, Noors, Frans, Hunan, Polynesische, afghan, weg, Aziatische, Zwitserland, erotic, crêperie, Surinamese, Egyptische, Hongaars, Nepalese, barbecue, warm-pot, hamburgers, Middellandse, Latijns-Amerika, tapas, Britse, Mexicaanse, Guangdong, Azië (Overig), buffet, sushi, Mongools, international, mosselen, Thai, Venezolaans, Rumanian, kip, soep, koosjer, biefstuk house, yoghurt/SAP balk, Italiaans, Koreaans, Cypriotische, Bosnisch, Boliviaans, Dominicaanse, België, Tunesië, Schots, Engels, Pakistaans, Tsjechisch, Hawaiïaans, Maghrib, Tibetaans, Arabisch, eastern, Chileense midden, Shanghai, Pools, Filipijns, Soedanese, Armeens, Birmaans, Brazilië, Scandinavisch, Bulgaars, ziel food, Colombia, Joodse, pizza, Sicilian, organische, Grieks, Baskisch, Behalve, cafetaria's, Fins, Afrikaanse, Corsicaans, Syrië, Caribisch gebied, Dongbei, Russisch, grill, dit is opgeslagen, snel food, Australië, Ierland, pub food, fondue, Libanon, Indonesisch, Deens, Provençal, teppanyaki, vasteland van de Indiase, Mauritiaanse, westen, Peruaans, Cambodjaanse, eten, Zweeds, macrobiotic, ice cream parlor, Slavisch, Turks, Argentijnse, Oostenrijk, exotische, Portugees, Luxemburgse, Marokkaanse, sandwich, Cubaanse, restaurant |
 | RESTAURANT\_GEBIED | restaurant gebied |
 | REST\_GEBIED | rest-gebied, plaats beëindiging van de aantasting |
 | PROFESSIONELE\_PANORAMIC\_WEERGEVEN | landschap/panorama weergave waarneming punt |

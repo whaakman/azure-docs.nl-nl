@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7f1352b018fe9ea46b0f0824ba53ee0204c7dc7c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 711f6395959b3718ca0a094a03c07c4381892104
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005516"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762858"
 ---
 # <a name="api-management-policies"></a>API Management-beleidsregels
 Deze sectie bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](api-management-howto-policies.md).  
@@ -53,7 +53,7 @@ Deze sectie bevat een verwijzing voor de volgende API Management-beleidsregels. 
 -   [Verificatiebeleid](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Verifiëren met Basic](api-management-authentication-policies.md#Basic) -verificatie met een back-endservice basisverificatie wordt gebruikt.  
     -   [Verifiëren met clientcertificaat](api-management-authentication-policies.md#ClientCertificate) -verificatie met een back endservice met behulp van clientcertificaten.  
-    -   [Verifiëren met beheerde identiteit](api-management-authentication-policies.md#ManagedIdentity) -verificatie met een back endservice met behulp van clientcertificaten.  
+    -   [Verifiëren met beheerde identiteit](api-management-authentication-policies.md#ManagedIdentity) -verificatie met een back-end-service met een [beheerde identiteit](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
 -   [Cachebeleidsregels](api-management-caching-policies.md#CachingPolicies)  
     -   [Ophalen uit de cache](api-management-caching-policies.md#GetFromCache) -cache uitvoeren opzoeken en retourneren een geldige in de cache opgeslagen reactie indien beschikbaar.  
     -   [Store cache](api-management-caching-policies.md#StoreToCache) -antwoord op basis van de opgegeven cache-control-configuratie in de cache opslaat.  

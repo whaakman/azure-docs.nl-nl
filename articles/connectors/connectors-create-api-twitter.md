@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230655"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104983"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Controleren en beheren van Twitter met behulp van Azure Logic Apps
 
@@ -70,7 +70,7 @@ U kunt triggers die te antwoorden krijgen van uw Twitter-account en de uitvoer b
 
 ## <a name="examples"></a>Voorbeelden
 
-### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter-trigger: wanneer een nieuwe tweet wordt geplaatst
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter-trigger: Wanneer er een nieuwe tweet wordt geplaatst
 
 Deze trigger start een werkstroom voor logische Apps wanneer de trigger wordt een nieuwe tweet bijvoorbeeld gedetecteerd met de hashtag, #Seattle. Wanneer deze tweets worden gevonden, kunt u bijvoorbeeld een bestand met de tweets inhoud toevoegen aan opslag, zoals een Dropbox-account met behulp van de Dropbox-connector. 
 
@@ -78,7 +78,7 @@ U kunt eventueel een voorwaarde die in aanmerking komende tweets afkomstig van g
 
 **Voorbeeld van de onderneming**: U kunt deze trigger gebruiken om te controleren van tweets over uw bedrijf en de tweets inhoud uploaden naar een SQL-database.
 
-### <a name="twitter-action-post-a-tweet"></a>Twitter-actie: een tweet plaatsen
+### <a name="twitter-action-post-a-tweet"></a>Twitter-actie: Een tweet plaatsen
 
 Deze actie een tweet geplaatst, maar u kunt de actie instellen zodat de tweet de inhoud van de tweets die door de eerder beschreven trigger is gevonden bevat. 
 

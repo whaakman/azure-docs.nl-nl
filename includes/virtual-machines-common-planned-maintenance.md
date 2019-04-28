@@ -9,11 +9,11 @@ ms.date: 12/14/2018
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551477"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301709"
 ---
 Azure werkt periodiek een platform voor het verbeteren van de betrouwbaarheid, prestaties en beveiliging van de host-infrastructuur voor virtuele machines. Deze updates kunnen variëren van het patchen van software-onderdelen in de hosting-omgeving, netwerkonderdelen, upgraden naar het buiten gebruik stellen van hardware. De meeste van deze updates bevatten geen invloed hebben op de gehoste virtuele machines. Er zijn echter gevallen waar updates hebben invloed en Azure kiest de minste krachtige methode voor updates:
 

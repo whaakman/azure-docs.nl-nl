@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 6dffc7a24bb0c6b006d06a1018364f08abaaee41
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266953"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128665"
 ---
-# <a name="audit-history-page"></a>Pagina audit-geschiedenis
+# <a name="audit-history-page"></a>Pagina voor Controlegeschiedenis
 
 De [ **controlegeschiedenis** ](https://cloudpartner.azure.com/#history) pagina geeft een lijst van de publicatie gebeurtenissen voor alle marketplace-aanbiedingen.  De kolommen bevatten gebeurtenistype, gebeurtenis datum/tijd, de aanbiedingsnaam van de, uitgever en gebruiker die de actie heeft gestart.  De resultaten kunnen worden gesorteerd op kolom of gefilterd op een opgegeven tekenreeks.  Deze pagina kunt ook de gebruiker een bestand met door komma's gescheiden waarden (.csv) van de huidige audit-aanbieding te downloaden.
 

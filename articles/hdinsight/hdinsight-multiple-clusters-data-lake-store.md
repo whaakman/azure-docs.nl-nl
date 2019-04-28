@@ -2,7 +2,6 @@
 title: Gebruik van meerdere HDInsight-clusters met een Azure Data Lake Storage-account - Azure
 description: Informatie over het gebruik van meer dan één HDInsight-cluster met één Data Lake Storage-account
 keywords: hdinsight-opslag, hdfs, gestructureerde gegevens, niet-gestructureerde gegevens, data lake store
-services: hdinsight,storage
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0d57c65c93ffcd6c4c5249a1e5effeb457ed1736
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: b580890b1663aa6ce742443e927e4d760585d4ce
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440893"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764390"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Meerdere HDInsight-clusters met een Azure Data Lake Storage-account gebruiken
 

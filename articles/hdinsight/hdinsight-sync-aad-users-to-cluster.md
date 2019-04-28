@@ -1,7 +1,6 @@
 ---
 title: Synchronisatie van Azure Active Directory-gebruikers in een cluster - Azure HDInsight
 description: Geverifieerde gebruikers van Azure Active Directory naar een cluster synchroniseert.
-services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -9,14 +8,14 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ebb1e3614309f92fc21442100a13c53291b3acbb
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: MT
+ms.openlocfilehash: 2be67c604bebbe9b4c4356e241d1480ca0778d4a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407284"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764049"
 ---
-# <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synchronisatie van Azure Active Directory-gebruikers met een HDInsight-cluster
+# <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Azure Active Directory-gebruikers synchroniseren met een HDInsight-cluster
 
 [HDInsight-clusters met Enterprise Security Package (ESP)](hdinsight-domain-joined-introduction.md) kunt sterke verificatie gebruiken met Azure Active Directory (Azure AD)-gebruikers, evenals gebruiken *op rollen gebaseerd toegangsbeheer* (RBAC)-beleidsregels. Als u gebruikers en groepen aan Azure AD toevoegen, kunt u de gebruikers die toegang nodig tot uw cluster kunt synchroniseren.
 
@@ -132,7 +131,7 @@ Open de [Apache Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md
 
 1. Selecteer in het dashboard Ambari **beheren Ambari** onder de **admin** menu.
 
-    ![Ambari beheren](./media/hdinsight-sync-aad-users-to-cluster/manage-ambari.png)
+    ![Manage Ambari](./media/hdinsight-sync-aad-users-to-cluster/manage-ambari.png)
 
 2. Selecteer **gebruikers** onder de **gebruiker en groepsbeheer** menugroep aan de linkerkant van de pagina.
 
@@ -140,7 +139,7 @@ Open de [Apache Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md
 
 3. De nieuwe gebruiker moet worden vermeld in de tabel-gebruikers. Het Type is ingesteld op `LDAP` in plaats van `Local`.
 
-    ![Pagina gebruikers](./media/hdinsight-sync-aad-users-to-cluster/users.png)
+    ![Pagina voor Gebruikers](./media/hdinsight-sync-aad-users-to-cluster/users.png)
 
 ## <a name="log-in-to-ambari-as-the-new-user"></a>Als de nieuwe gebruiker aanmelden bij de Ambari
 

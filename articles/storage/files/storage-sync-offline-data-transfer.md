@@ -2,18 +2,18 @@
 title: Migreren van gegevens in Azure File Sync met behulp van Azure Data Box en andere methoden
 description: Migreren van grote hoeveelheden gegevens op een manier die compatibel is met Azure File Sync.
 services: storage
-author: fauhse
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: fauhse
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 04b13c1e511f54c1fcf7b632d3a368fde16bf319
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: d1ec5168b898d0aa75c12e6eb435e20c09de1929
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549008"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759360"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Grote hoeveelheden gegevens migreren naar Azure File Sync
 U kunt grote hoeveelheden gegevens migreren naar Azure File Sync op twee manieren:

@@ -2,7 +2,6 @@
 title: Kernels voor Jupyter-notebook in Spark-clusters in Azure HDInsight
 description: Meer informatie over de PySpark, PySpark3 en Spark kernels voor Jupyter-notitieblok met Spark-clusters in Azure HDInsight.
 keywords: jupyter notebook on spark,jupyter spark
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 68581c957e2835aa8841e3ce490c9a7898ed4ff5
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: fed8791fbc7cc7f049a1161fb3903c7f6d42d4e8
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527469"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124213"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels voor Jupyter-notebook op Apache Spark-clusters in Azure HDInsight 
 
@@ -73,7 +72,7 @@ Hier volgen enkele voordelen van het gebruik van de nieuwe kernels op Jupyter-no
    
     De volgende tabel geeft een lijst van de andere magics die beschikbaar zijn via de kernels.
 
-   | Magic-pakket | Voorbeeld | Description |
+   | Magic-pakket | Voorbeeld | Beschrijving |
    | --- | --- | --- |
    | Help |`%%help` |Genereert een tabel met alle beschikbare magics met voorbeeld en beschrijving |
    | informatie |`%%info` |Uitvoer sessie-informatie voor het eindpunt van de huidige Livy |

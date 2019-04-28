@@ -10,11 +10,11 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
 ms.openlocfilehash: 12799a308157c3c0e19de1f82c0fe3df44fad37e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195158"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106297"
 ---
 # <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>B2B-berichten met Azure Monitor-Logboeken in Azure Logic Apps bewaken
 
@@ -88,7 +88,7 @@ Wanneer u klaar bent, kiest u **diagnostische instelling toevoegen**.
 1. Nu zoeken en selecteer uw integratieaccount. In een lijst met een filter, selecteert u de waarden die betrekking hebben op uw integratie-account.
 Wanneer u klaar bent, kiest u **diagnostische instelling toevoegen**.
 
-   | Eigenschap | Waarde | Description | 
+   | Eigenschap | Waarde | Beschrijving | 
    |----------|-------|-------------|
    | **Abonnement** | <*Azure-subscription-name*> | De Azure-abonnement dat is gekoppeld aan uw integratie-account | 
    | **Resourcegroep** | <*Azure-resource-group-name*> | De Azure-resourcegroep voor uw integratie-account | 

@@ -2,19 +2,19 @@
 title: Ontwikkelen voor Azure Files met Python | Microsoft Docs
 description: Meer informatie over het ontwikkelen van Python-toepassingen en services die Azure Files gebruiken voor het opslaan van gegevens uit een bestand.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.devlang: python
 ms.topic: article
 ms.date: 12/14/2018
-ms.author: tamram
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 06c0256043ef27e6298cc4e30dc3f372e6bd3959
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: MT
+ms.openlocfilehash: ecb3ef82196c3b6febd44850b47f467ba37facc2
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456592"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763517"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Ontwikkelen voor Azure Files met Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]

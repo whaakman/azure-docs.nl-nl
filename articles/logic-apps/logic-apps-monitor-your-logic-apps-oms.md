@@ -10,13 +10,13 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 3f890e6cabd757fdd38374befaaccd1a10c9bd96
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106207"
 ---
-# <a name="monitor-logic-apps-with-azure-monitor-logs"></a>Logische apps met Azure Monitor-logboeken bewaken
+# <a name="monitor-logic-apps-with-azure-monitor-logs"></a>Logische apps bewaken met Azure Monitor-logboeken
 
 Inschakelen om te controleren en uitgebreidere foutopsporing meer informatie over uw logische apps, [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md) wanneer u uw logische app maakt. Logboeken in Azure Monitor biedt Diagnostische logboekregistratie en bewaking voor uw logische apps wanneer u de oplossing voor Logic Apps-beheer in Azure portal installeren. Deze oplossing biedt ook de verzamelde informatie voor uw logische app wordt uitgevoerd met specifieke details zoals status, uitvoeringstijd, de status opnieuw indienen en correlatie-id's. Dit artikel laat het inschakelen van Azure Monitor-Logboeken, zodat u de runtime-gebeurtenissen weergeven kunt en gegevens voor uw logische app wordt uitgevoerd.
 

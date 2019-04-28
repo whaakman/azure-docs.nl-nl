@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 3fdb0f566789382a1606b19e4fac179f9ecf40cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887456"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122954"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Weergeven en wijzigen van hostnamen
 Als u wilt toestaan dat uw rolinstanties worden verwezen door de hostnaam van de, moet u de waarde voor de hostnaam instellen in het configuratiebestand van de service voor elke rol. U doet dit door het toevoegen van de gewenste hostnaam in de **vmName** kenmerk van de **rol** element. De waarde van de **vmName** kenmerk wordt gebruikt als basis voor de hostnaam van elke rolinstantie. Bijvoorbeeld, als **vmName** is *webrole* en er zijn drie exemplaren van deze rol, de hostnamen van de exemplaren worden *webrole0*, *webrole1*, en *webrole2*. U hoeft niet om op te geven van de naam van een host voor virtuele machines in het configuratiebestand, omdat de hostnaam voor een virtuele machine is ingevuld op basis van de naam van de virtuele machine. Zie voor meer informatie over het configureren van een Microsoft Azure-service [configuratieschema voor Azure-Service (.cscfg-bestand)](https://msdn.microsoft.com/library/azure/ee758710.aspx)

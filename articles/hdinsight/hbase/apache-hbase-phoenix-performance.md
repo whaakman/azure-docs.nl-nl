@@ -2,19 +2,27 @@
 title: Phoenix-prestaties in Azure HDInsight
 description: Aanbevolen procedures om Phoenix prestaties te optimaliseren.
 services: hdinsight
+documentationcenter: ''
+tags: azure-portal
 author: ashishthaps
-ms.reviewer: jasonh
+manager: jhubbard
+editor: cgronlun
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: ashishth
-ms.openlocfilehash: da227151dd056dd5e852ae8790b6f20ac3c0c790
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: MT
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 01/22/2018
+ms.date: 01/14/2019
+ms.author: v-yiso
+ms.openlocfilehash: 4fc4d1843ddb8d007ca062d928ebbddf90909583
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114304"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Best practices voor Apache Phoenix-prestaties
 
@@ -32,34 +40,34 @@ De primaire sleutel gedefinieerd voor een tabel in Phoenix bepaalt hoe gegevens 
 
 Een tabel met contacten heeft bijvoorbeeld de voornaam, laatste naam, telefoonnummer, en het adres, allemaal in dezelfde kolomfamilie. U kunt een primaire sleutel op basis van een toenemende volgnummer definiëren:
 
-|rowkey|       address|   telefoon| Voornaam| lastName|
+|rowkey|       address|   telefoon| voornaam| achternaam|
 |------|--------------------|--------------|-------------|--------------|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Davids|
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
 Echter, als u regelmatig query's met lastName uitvoeren deze primaire sleutel kan niet uitvoeren, omdat voor elke query is vereist voor een volledige tabelcontrole uitgevoerd om te lezen van de waarde van elke lastName. In plaats daarvan kunt u een primaire sleutel op de achternaam, firstName en sociaal-fiscaal nummer kolommen. Deze laatste kolom is te onderscheiden van inwoners van de twee op hetzelfde adres met dezelfde naam, zoals een vader en zoon.
 
-|rowkey|       address|   telefoon| Voornaam| lastName| socialSecurityNum |
+|rowkey|       address|   telefoon| voornaam| achternaam| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Davids| 111 |
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Met deze nieuwe primaire sleutel van de rij zou sleutels die worden gegenereerd door Phoenix zijn:
 
-|rowkey|       address|   telefoon| Voornaam| lastName| socialSecurityNum |
+|rowkey|       address|   telefoon| voornaam| achternaam| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  Davids-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Davids| 111 |
+|  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Davids| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 In de eerste rij boven, worden de gegevens voor de rowkey wordt weergegeven zoals wordt weergegeven:
 
-|rowkey|       sleutel|   waarde| 
+|rowkey|       key|   value| 
 |------|--------------------|---|
-|  Davids-John-111|address |1111 San Gabriel Dr.|  
-|  Davids-John-111|telefoon |1-425-000-0002|  
-|  Davids-John-111|Voornaam |John|  
-|  Davids-John-111|lastName |Davids|  
-|  Davids-John-111|socialSecurityNum |111| 
+|  Dole-John-111|address |1111 San Gabriel Dr.|  
+|  Dole-John-111|telefoon |1-425-000-0002|  
+|  Dole-John-111|voornaam |John|  
+|  Dole-John-111|achternaam |Davids|  
+|  Dole-John-111|socialSecurityNum |111| 
 
 Deze rowkey slaat nu een kopie van de gegevens. Houd rekening met de grootte en het aantal kolommen worden opgenomen in uw primaire sleutel, omdat deze waarde opgenomen in elke cel in de onderliggende HBase-tabel is.
 
@@ -114,9 +122,9 @@ Gedekte indexen zijn indexen die gegevens opnemen uit de rij samen met de waarde
 
 Bijvoorbeeld, in het voorbeeld contact op met tabel kunt u een secundaire index maken voor alleen de kolom socialSecurityNum. Deze secundaire index query's die op socialSecurityNum waarden filteren wilt versnellen, maar bij het ophalen van andere waarden moet een andere lezen op de belangrijkste tabel.
 
-|rowkey|       address|   telefoon| Voornaam| lastName| socialSecurityNum |
+|rowkey|       address|   telefoon| voornaam| achternaam| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  Davids-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Davids| 111 |
+|  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Davids| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Als u doorgaans wilt de voornaam en achternaam gegeven van de socialSecurityNum opzoeken, kan u echter een gedekte index die de voornaam en achternaam als de werkelijke gegevens in de indextabel bevat maken:

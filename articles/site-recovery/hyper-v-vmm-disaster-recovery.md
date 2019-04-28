@@ -10,11 +10,11 @@ ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: cccfc3d028cb2da9346e629a5aca080bedd7fee9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794512"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124140"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Herstel na noodgevallen instellen voor Hyper-V-VM's naar een secundaire on-premises site
 
@@ -96,7 +96,7 @@ Installeer de Azure Site Recovery-provider op de VMM-servers en detecteer en reg
 5. Wanneer de installatie is voltooid, klikt u op **Registreren** om de server in de kluis te registreren.
 
     ![Installatielocatie](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
-6. Controleer in **Kluisnaam** de naam van de kluis waarin de server wordt geregistreerd. Klik op **Volgende**.
+6. Controleer in **Kluisnaam** de naam van de kluis waarin de server wordt geregistreerd. Klik op **volgende**.
 7. Geef bij **Proxyverbinding** op hoe de provider die wordt uitgevoerd op de VMM-server verbinding maakt met Azure.
    - U kunt opgeven dat de provider rechtstreeks met internet of via een proxyserver verbinding moet maken. Geef indien nodig proxyinstellingen op.
    - Als u een proxy gebruikt, wordt er automatisch een VMM RunAs-account (DRAProxyAccount) gemaakt met de opgegeven proxyreferenties. Configureer de proxyserver zodanig dat dit account kan worden geverifieerd. De VMM RunAs-accountinstellingen kunnen worden gewijzigd in de VMM-console > **Instellingen** > **Beveiliging** > **Uitvoeren als-accounts**.

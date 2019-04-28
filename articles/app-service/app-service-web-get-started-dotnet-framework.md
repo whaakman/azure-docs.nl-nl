@@ -16,11 +16,11 @@ ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 8dc062a1c9490a03aa5369dc103db750d7531140
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62117784"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Een ASP.NET Framework-web-app maken in Azure
 
@@ -98,7 +98,7 @@ Gebruik in het dialoogvenster **Hostingabonnement configureren** de instellingen
 
 ![Een App Service-plan maken](./media/app-service-web-get-started-dotnet-framework/configure-app-service-plan.png)
 
-| Instelling | Voorgestelde waarde | Beschrijving |
+| Instelling | Voorgestelde waarde | Description |
 |-|-|-|
 |App Service-plan| myAppServicePlan | De naam van het App Service-plan. |
 | Locatie | Europa -west | Het datacenter waar de web-app wordt gehost. |

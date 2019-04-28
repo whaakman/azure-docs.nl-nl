@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/18/2019
+ms.date: 04/23/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: dffbb2c52b4e43eefe6b4f377bd7af529bae8cc5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004768"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125556"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -245,11 +245,15 @@ Ja, maar houd er rekening mee dat de fysieke computer kan alleen worden mislukte
 
 Klik in de Recovery Services-kluis op **configuratieservers** in **Site Recovery-infrastructuur** > **beheren**. Klik vervolgens in **Servers**, selecteer **registratiesleutel downloaden** voor het downloaden van het bestand met kluisreferenties.
 
+## <a name="process-server"></a>Processerver
 
+### <a name="unable-to-select-process-server-during-enable-replication"></a>Kan geen processerver selecteren tijdens replicatie inschakelen
 
+Van 9.24 versie verbeteringen zijn aangebracht voor [binnen het product richtlijnen](vmware-azure-manage-process-server.md#process-server-selection-guidance) op bij het instellen van een uitbreidbare processerver. Dit is om te voorkomen dat processen server beperken en te voorkomen dat het gebruik van de processerver niet in orde.
 
+### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>Wat moet ik doen om te verkrijgen van nauwkeurige status van de processerver
 
-
+Upgraden van Site Recovery-onderdelen op de [meest recente versies](service-updates-how-to.md#links-to-currently-supported-update-rollups) (ten minste 9.24 of hoger).
 
 ## <a name="failover-and-failback"></a>Failover en failback
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>Kan ik de processerver op on-premises voor failback gebruiken?

@@ -1,8 +1,9 @@
 ---
 title: Azure Cloud Services-Rolschema | Microsoft Docs
 ms.custom: ''
-ms.date: 12/07/2016
-services: cloud-services
+origin.date: 12/07/2016
+ms.date: 11/06/2017
+ms.prod: azure
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -10,15 +11,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
 caps.latest.revision: 12
-author: jpconnock
-ms.author: jeconnoc
+author: ''
+ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: 20f4186426152d2dc9b445981a69881c35587eb6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: aa6f8a821edea6261d64bb411154e82fdf212a8d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005778"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130242"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Azure Cloud Services-rol Config-Schema
 
@@ -45,14 +46,14 @@ Het volgende voorbeeld wordt de `Role` -element en de onderliggende elementen.
 
 De volgende tabel beschrijft de kenmerken voor de `Role` element.
 
-| Kenmerk | Beschrijving |
+| Kenmerk | Description |
 | --------- | ----------- |
 | naam   | Vereist. Hiermee geeft u de naam van de rol. De naam moet overeenkomen met de naam opgegeven voor de rol in het servicedefinitiebestand.|
 | vmName | Optioneel. Hiermee geeft u de DNS-naam voor een virtuele Machine. De naam moet uit 10 tekens of minder.|
 
 De volgende tabel beschrijft de onderliggende elementen van de `Role` element.
 
-| Element | Beschrijving |
+| Element | Description |
 | ------- | ----------- |
 | Exemplaren | Vereist. Hiermee geeft u het aantal exemplaren moeten worden geïmplementeerd voor de rol. Het aantal exemplaren wordt gedefinieerd door een geheel getal voor de `count` kenmerk.|
 | Instelling   | Optioneel. Hiermee geeft u een naam van de instelling en waarde in een verzameling instellingen voor een rol. Naam van de instelling wordt gedefinieerd door een tekenreeks op voor de `name` kenmerk en de waarde van de instelling wordt gedefinieerd door een tekenreeks op voor de `value` kenmerk.|

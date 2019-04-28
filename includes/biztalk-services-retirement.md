@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/09/2017
 ms.author: mandia
 ms.custom: include file
-ms.openlocfilehash: 81e053c8258d24177d5c7ea499595c4dd4a3b0f0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 58a97ddf46a611d9a70c6662e315379629ffbec1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38943941"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108868"
 ---
 > [!IMPORTANT]
 > Microsoft Azure BizTalk Services (MABS) wordt buiten gebruik gesteld en vervangen door Azure Logic Apps.
-> Als u momenteel MABS gebruikt, raadpleegt u dit artikel voor richtlijnen voor het migreren van uw integratieoplossingen naar Logic Apps: [Move from BizTalk Services to Logic Apps](../articles/logic-apps/logic-apps-move-from-mabs.md) (Migreren van BizTalk Services naar Logic Apps) 
+> Als u momenteel MABS gebruikt, raadpleegt u dit artikel voor informatie over het migreren van uw integratieoplossingen naar Logic Apps: [Overstappen van BizTalk Services naar Logic Apps](../articles/logic-apps/logic-apps-move-from-mabs.md) 
 > 
 > Als u geen ervaring hebt met Logic Apps, kunt u hier beginnen: 
 > 

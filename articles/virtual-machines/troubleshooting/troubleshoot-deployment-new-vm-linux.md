@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
 ms.openlocfilehash: 9fea914fdf9b025fd5d38219a6bfc81b4a9cc584
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450277"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125613"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Probleemoplossing voor implementatieproblemen bij het maken van een nieuwe virtuele Linux-machine in Azure Resource Manager
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "57450277"
 ## <a name="top-issues"></a>Meest voorkomende problemen
 [!INCLUDE [support-disclaimer](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
 
-Zie voor andere problemen met VM-implementatie en vragen [problemen met implementatie Linux virtuele machine in Azure](troubleshoot-deploy-vm-linux.md).
+Voor andere problemen met en vragen over de VM-implementatie raadpleegt u [Troubleshoot deploying Linux virtual machine issues in Azure](troubleshoot-deploy-vm-linux.md) (Problemen met de implementatie van Linux-VM's in Azure oplossen).
 
 ## <a name="collect-activity-logs"></a>Activiteitenlogboeken verzamelen
 Als u wilt gaan met het oplossen van problemen, de activiteitenlogboeken voor het identificeren van de fout die is gekoppeld aan het probleem te verzamelen. De volgende koppelingen bevatten gedetailleerde informatie over de procedure te volgen.

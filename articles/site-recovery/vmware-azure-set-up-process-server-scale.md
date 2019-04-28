@@ -1,28 +1,30 @@
 ---
-title: Instellen van een processerver in Azure mislukken tijdens het herstel na noodgevallen van virtuele VMware-machines en fysieke servers met Azure Site Recovery | Microsoft-Docs
-description: Dit artikel wordt beschreven hoe u voor het instellen van een processerver in Azure, failback van Azure naar on-premises tijdens herstel na noodgevallen van virtuele VMware-machines en fysieke servers.
+title: Een uitbreidbare processerver instellen tijdens het herstel na noodgevallen van virtuele VMware-machines en fysieke servers met Azure Site Recovery | Microsoft-Docs
+description: In dit artikel wordt beschreven hoe u uitbreidbare processerver instellen tijdens het herstel na noodgevallen van virtuele VMware-machines en fysieke servers.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 6849ffb6fa46365aa775b9410067cb0874c70ef8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 678f9aa60d4970540ded8ba0bb1a4ddaa6281a49
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59362153"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101894"
 ---
-# <a name="scale-for-failback-with-additional-process-servers"></a>Schaal voor failback met extra processervers
+# <a name="scale-with-additional-process-servers"></a>Schaal aanpassen met extra processervers
 
-Wanneer u repliceert virtuele VMware-machines of fysieke servers naar Azure met [siteherstel](site-recovery-overview.md), een processerver is geïnstalleerd op de configuratie van server-machine en wordt gebruikt voor de coördinatie van gegevensoverdracht tussen de Site Recovery en uw on-premises infrastructuur. U kunt aanvullende zelfstandige processervers toevoegen om te vergroten capaciteit en scale-out-implementatie van uw replicatie. Dit artikel wordt beschreven hoe u dit doet.
+Wanneer u repliceert virtuele VMware-machines of fysieke servers naar Azure met [siteherstel](site-recovery-overview.md), een processerver is geïnstalleerd op de configuratie van server-machine en wordt gebruikt voor de coördinatie van gegevensoverdracht tussen de Site Recovery en uw on-premises infrastructuur. U kunt aanvullende zelfstandige processervers toevoegen om te vergroten capaciteit en scale-out-implementatie van uw replicatie. In dit artikel wordt beschreven hoe u een uitbreidbare processerver instellen.
 
 ## <a name="before-you-start"></a>Voordat u begint
 
 ### <a name="capacity-planning"></a>Capaciteitsplanning
 
 Zorg ervoor dat u hebt uitgevoerd [capaciteitsplanning](site-recovery-plan-capacity-vmware.md) voor VMware-replicatie. Dit helpt u om te bepalen hoe en wanneer u aanvullende processenservers te implementeren.
+
+Van 9.24 versie richtlijnen toegevoegd tijdens de selectie van de processerver voor nieuwe replicaties. Processerver gemarkeerd in orde, waarschuwingen en kritieke op basis van bepaalde criteria. Voor meer informatie over verschillende scenario's die kunnen van invloed zijn op de status van de processerver, gaat u naar [server selectie richtlijnen verwerken](vmware-azure-manage-process-server.md#process-server-selection-guidance).
 
 > [!NOTE]
 > Gebruik van een gekloonde onderdeel van de processerver wordt niet ondersteund. Volg de stappen in dit artikel voor elke PS scale-out.
@@ -44,8 +46,6 @@ Waarbij elke beveiligde bron-VM is geconfigureerd met 3 schijven van 100 GB elk.
 De vereisten voor de aanvullende processerver worden samengevat in de volgende tabel.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-
 
 ## <a name="download-installation-file"></a>Installatiebestand downloaden
 

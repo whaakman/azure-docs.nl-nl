@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 05/22/2017
+ms.date: 04/17/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5583ccb6076dae2f33e265b95387bcd35aa9fa4d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 79b45bd423ed6715cdb7cc7c0e079c150eefede5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547279"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763696"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Voer taken gelijktijdig maximaal gebruik van Batch-rekenknooppunten 
 
@@ -41,7 +41,7 @@ In plaats van Standard\_D1-knooppunten die 1 CPU-kern hebt, kunt u [Standard\_D1
 ## <a name="enable-parallel-task-execution"></a>Uitvoering van de parallelle taak inschakelen
 U configureren rekenknooppunten voor de uitvoering van de parallelle taak op het niveau van de groep van toepassingen. Met de Batch .NET-bibliotheek, stel de [CloudPool.MaxTasksPerComputeNode] [ maxtasks_net] eigenschap wanneer u een pool maakt. Als u de Batch REST-API, stelt u de [maxTasksPerNode] [ rest_addpool] -element in de hoofdtekst van de aanvraag tijdens het maken van toepassingen.
 
-Azure Batch kunt u het maximum aantal taken per knooppunt maximaal vier keer instellen (4 x) het aantal kernen knooppunt. Bijvoorbeeld, als de groep is geconfigureerd met knooppunten van het formaat van "Large' (vier kernen), klikt u vervolgens `maxTasksPerNode` kan worden ingesteld op 16. Zie voor meer informatie over het aantal kernen voor elk van de grootte, [groottes voor Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Zie voor meer informatie over Servicelimieten [quota en limieten voor de Azure Batch-service](batch-quota-limit.md).
+Azure Batch kunt u taken per knooppunt maximaal (4 x) het aantal knooppunten core. Bijvoorbeeld, als de groep is geconfigureerd met knooppunten van het formaat van "Large' (vier kernen), klikt u vervolgens `maxTasksPerNode` kan worden ingesteld op 16. Echter, ongeacht het aantal kernen het knooppunt is, er geen meer dan 256 taken per knooppunt. Zie voor meer informatie over het aantal kernen voor elk van de grootte, [groottes voor Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Zie voor meer informatie over Servicelimieten [quota en limieten voor de Azure Batch-service](batch-quota-limit.md).
 
 > [!TIP]
 > Zorg ervoor dat u rekening mee dat de `maxTasksPerNode` waarde als u een [formule voor automatisch schalen] [ enable_autoscaling] voor uw pool. Bijvoorbeeld, een formule die evalueert `$RunningTasks` aanzienlijk kunnen worden beïnvloed door een toename in taken per knooppunt. Zie [automatisch schalen rekenknooppunten in een Azure Batch-pool](batch-automatic-scaling.md) voor meer informatie.

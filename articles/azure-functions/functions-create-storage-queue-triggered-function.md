@@ -13,11 +13,11 @@ ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 44d6311246ab303966b7cfd8bee854b1c017f85d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902683"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107122"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Een door Azure Queue Storage geactiveerde functie maken
 
@@ -61,7 +61,7 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
     ![Configureer de door de opslagwachtrij geactiveerde functie.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
 
-    | Instelling | Voorgestelde waarde | Beschrijving |
+    | Instelling | Voorgestelde waarde | Description |
     |---|---|---|
     | **Naam** | Uniek in uw functie-app | Naam van deze door een wachtrij geactiveerde functie. |
     | **Wachtrijnaam**   | myqueue-items    | De naam van de wachtrij waarmee u verbinding moet maken in uw opslagaccount. |

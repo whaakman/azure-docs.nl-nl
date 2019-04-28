@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/05/2019
 ms.author: terrylan
 ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404804"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107435"
 ---
 # <a name="securing-paas-deployments"></a>PaaS-implementaties beveiligen
 
@@ -111,8 +111,8 @@ De volgende tabel geeft een lijst van de STRIDE-bedreigingen en enkele voorbeeld
 
 | Bedreiging | De beveiligingseigenschap | Mogelijke oplossingen voor Azure-platform |
 | --- | --- | --- |
-| Adresvervalsing (spoofing) | Authentication | HTTPS-verbindingen vereisen. |
-| Tampering | Gegevensintegriteit | Valideer de SSL-certificaten. |
+| Adresvervalsing (spoofing) | Verificatie | HTTPS-verbindingen vereisen. |
+| Manipulatie | Gegevensintegriteit | Valideer de SSL-certificaten. |
 | Afwijzing | Geen weerlegbaarheid | Inschakelen van Azure [controle en diagnose](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Openbaarmaking van informatie | Vertrouwelijkheid | Gevoelige gegevens in rust versleutelen met behulp van [service-certificaten](https://docs.microsoft.com/rest/api/appservice/certificates). |
 | Denial of service | Beschikbaarheid | Prestatiegegevens mogelijke situaties waarbij een denial-of-service controleren. Verbindingsfilters implementeren. |

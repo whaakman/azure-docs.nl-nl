@@ -1,7 +1,6 @@
 ---
 title: Poorten die worden gebruikt door Hadoop op HDInsight - Azure-services
 description: Een lijst met poorten die worden gebruikt door Hadoop-services die worden uitgevoerd op HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: be264be41b198e95dae64730ef31f431ec06a2e7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: MT
+ms.openlocfilehash: 2d0b8aba95787f179733dd596e783f097cba4299
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715457"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761249"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Poorten die worden gebruikt door de services van Apache Hadoop op HDInsight
 
@@ -42,7 +41,7 @@ Alle knooppunten in een HDInsight-cluster bevinden zich in een Azure-netwerk en 
 | sshd |22 |SSH |Verbonden clients met sshd op het edge-knooppunt. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie. |
 | sshd |23 |SSH |Verbonden clients met sshd op het secundaire hoofdknooppunt. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie. |
 | Ambari |443 |HTTPS |Ambari-Webgebruikersinterface. Zie [beheren HDInsight met behulp van de Apache Ambari-Webinterface](hdinsight-hadoop-manage-ambari.md) |
-| Ambari |443 |HTTPS |Ambari REST-API. Zie [beheren HDInsight met behulp van de Apache Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md) |
+| Ambari |443 |HTTPS |Ambari REST API. Zie [beheren HDInsight met behulp van de Apache Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md) |
 | WebHCat |443 |HTTPS |HCatalog REST-API. Zie [Apache Hive gebruiken met Curl](hadoop/apache-hadoop-use-pig-curl.md), [Apache Pig gebruiken met Curl](hadoop/apache-hadoop-use-pig-curl.md), [MapReduce gebruiken met Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |Maakt verbinding met het Hive ODBC gebruiken. Zie [Excel verbinding maken met HDInsight met het Microsoft ODBC-stuurprogramma](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
 | HiveServer2 |443 |JDBC |Maakt verbinding met ApacheHive met behulp van JDBC. Zie [verbinding maken met Apache Hive in HDInsight met behulp van het Hive JDBC-stuurprogramma](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
@@ -52,7 +51,7 @@ De volgende zijn beschikbaar voor specifieke clustertypen:
 | Service | Poort | Protocol | Clustertype | Description |
 | --- | --- | --- | --- | --- |
 | Stargate |443 |HTTPS |HBase |HBase REST-API. Zie [aan de slag met Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |Spark REST-API. Zie [indienen Apache Spark-taken op afstand met behulp van Apache Livy](spark/apache-spark-livy-rest-interface.md) |
+| Livy |443 |HTTPS |Spark |Spark REST API. Zie [indienen Apache Spark-taken op afstand met behulp van Apache Livy](spark/apache-spark-livy-rest-interface.md) |
 | Spark Thrift-server |443 |HTTPS |Spark |Spark Thrift-server gebruikt voor het indienen van Hive-query's. Zie [Beeline gebruiken met Apache Hive in HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |Storm-Webgebruikersinterface. Zie [implementeren en beheren van Apache Storm-topologieën op HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
@@ -78,11 +77,11 @@ Alle services die openbaar worden weergegeven op het internet moeten worden geve
 | Service | Knooppunten | Poort | URL-pad | Protocol | 
 | --- | --- | --- | --- | --- |
 | Ambari-Webgebruikersinterface | Hoofdknooppunten | 8080 | / | HTTP |
-| Ambari REST-API | Hoofdknooppunten | 8080 | / api/v1 | HTTP |
+| Ambari REST API | Hoofdknooppunten | 8080 | /api/v1 | HTTP |
 
 Voorbeelden:
 
-* Ambari REST-API: `curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
+* Ambari REST API: `curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
 
 ### <a name="hdfs-ports"></a>HDFS-poorten
 
@@ -97,7 +96,7 @@ Voorbeelden:
 
 ### <a name="yarn-ports"></a>YARN-poorten
 
-| Service | Knooppunten | Poort | Protocol | Description |
+| Service | Knooppunten | Poort | Protocol | Beschrijving |
 | --- | --- | --- | --- | --- |
 | Resource Manager-Webgebruikersinterface |Hoofdknooppunten |8088 |HTTP |Web-UI voor Resource Manager |
 | Resource Manager-Webgebruikersinterface |Hoofdknooppunten |8090 |HTTPS |Web-UI voor Resource Manager |
@@ -114,11 +113,11 @@ Voorbeelden:
 | Service | Knooppunten | Poort | Protocol | Description |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |Hoofdknooppunten |10001 |Thrift |Service voor het verbinden met Hive (Thrift/JDBC) |
-| Hive-Metastore |Hoofdknooppunten |9083 |Thrift |Service voor het verbinden met Hive-metagegevens (Thrift/JDBC) |
+| Hive-metastore |Hoofdknooppunten |9083 |Thrift |Service voor het verbinden met Hive-metagegevens (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>WebHCat-poorten
 
-| Service | Knooppunten | Poort | Protocol | Description |
+| Service | Knooppunten | Poort | Protocol | Beschrijving |
 | --- | --- | --- | --- | --- |
 | WebHCat-server |Hoofdknooppunten |30111 |HTTP |Web-API op HCatalog en andere Hadoop-services |
 
@@ -137,7 +136,7 @@ Voorbeelden:
 | Oozie-server |Hoofdknooppunten |11000 |HTTP |URL voor Oozie-service |
 | Oozie-server |Hoofdknooppunten |11001 |HTTP |Poort voor Oozie-beheerder |
 
-### <a name="ambari-metrics"></a>Ambari metrische gegevens
+### <a name="ambari-metrics"></a>Metrische gegevens van Ambari
 
 | Service | Knooppunten | Poort | Protocol | Description |
 | --- | --- | --- | --- | --- |
@@ -157,7 +156,7 @@ Voorbeelden:
 
 | Service | Knooppunten | Poort | Protocol | Description |
 | --- | --- | --- | --- | --- |
-| Broker |Worker-knooppunten |9092 |[Kafka Wire Protocol](https://kafka.apache.org/protocol.html) |Gebruikt voor communicatie van clients |
+| Broker |Werkknooppunten |9092 |[Kafka Wire Protocol](https://kafka.apache.org/protocol.html) |Gebruikt voor communicatie van clients |
 | &nbsp; |ZooKeeper-knooppunten |2181 |&nbsp; |De poort die clients gebruiken voor verbinding met Zookeeper |
 
 ### <a name="spark-ports"></a>Spark-poorten

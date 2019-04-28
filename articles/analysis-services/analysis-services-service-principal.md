@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b10be061e015686c68684723fd2d73c1431c7266
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: a440494b183d18c1d888b5d39836eb4317190d02
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699403"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764323"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering met service-principals
 
@@ -47,13 +47,37 @@ App service principal-id en wachtwoord of certificaat kan worden gebruikt in con
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Bij het gebruik van een service-principal voor resource management-bewerkingen met de [Az.AnalysisServices](/powershell/module/az.analysisservices) -module, gebruik `Connect-AzAccount` cmdlet. Wanneer u een service-principal voor de werking van de server met de [SQLServer](https://www.powershellgallery.com/packages/SqlServer) -module, gebruik `Add-AzAnalysisServicesAccount` cmdlet. 
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Met behulp van de module Az.AnalysisServices
+
+Bij het gebruik van een service-principal voor resource management-bewerkingen met de [Az.AnalysisServices](/powershell/module/az.analysisservices) -module, gebruik `Connect-AzAccount` cmdlet. 
+
+Toepassings-id en het wachtwoord in het volgende voorbeeld worden gebruikt voor het uitvoeren van bewerkingen voor de controlelaag voor synchronisatie met alleen-lezen replica's en schalen omhoog/uit:
+
+```powershell
+Param (
+        [Parameter(Mandatory=$true)] [String] $AppId,
+        [Parameter(Mandatory=$true)] [String] $PlainPWord,
+        [Parameter(Mandatory=$true)] [String] $TenantId
+       )
+$PWord = ConvertTo-SecureString -String $PlainPWord -AsPlainText -Force
+$Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AppId, $PWord
+
+# Connect using Az module
+Connect-AzAccount -Credential $Credential -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx"
+
+# Syncronize a database for query scale out
+Sync-AzAnalysisServicesInstance -Instance "asazure://westus.asazure.windows.net/testsvr" -Database "testdb"
+
+# Scale up the server to an S1, set 2 read-only replicas, and remove the primary from the query pool. The new replicas will hydrate from the synchronized data.
+Set-AzAnalysisServicesServer -Name "testsvr" -ResourceGroupName "testRG" -Sku "S1" -ReadonlyReplicaCount 2 -DefaultConnectionMode Readonly
+```
+
+#### <a name="using-sqlserver-module"></a>Met behulp van SQL Server-module
 
 Toepassings-id en het wachtwoord in het volgende voorbeeld worden gebruikt om uit te voeren van een model-bewerking voor het vernieuwen van database:
 
 ```powershell
 Param (
-
         [Parameter(Mandatory=$true)] [String] $AppId,
         [Parameter(Mandatory=$true)] [String] $PlainPWord,
         [Parameter(Mandatory=$true)] [String] $TenantId

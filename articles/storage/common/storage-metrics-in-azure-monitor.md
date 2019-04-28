@@ -9,11 +9,11 @@ ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: 244d7fc3caa96173e408a193e13acd656d4a7f77
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698772"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101979"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metrische gegevens van Azure Storage in Azure Monitor
 
@@ -334,7 +334,7 @@ Azure Storage biedt de volgende metrische gegevens over capaciteit in Azure Moni
 
 ### <a name="account-level"></a>Accountniveau
 
-| Naam van meetwaarde | Description |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
 | UsedCapacity | De hoeveelheid opslag die wordt gebruikt door de storage-account. Voor standard storage-accounts is het de som van de capaciteit die wordt gebruikt door de blob-, tabel-, bestands- en wachtrij. Voor premium-opslagaccounts en Blob storage-accounts is het hetzelfde als BlobCapacity. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 
@@ -349,7 +349,7 @@ Azure Storage biedt de volgende metrische gegevens over capaciteit in Azure Moni
 
 ### <a name="table-storage"></a>Table Storage
 
-| Naam van meetwaarde | Description |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
 | TableCapacity | De hoeveelheid van Table storage die worden gebruikt door de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 | TableCount   | Het aantal tabellen in de storage-account. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
@@ -377,7 +377,7 @@ Metrische gegevens die transactie zijn bij elke aanvraag verzonden naar een opsl
 
 Azure Storage biedt de volgende metrische gegevens van de transactie uit in Azure Monitor.
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
 | Transacties | Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen, evenals aanvragen waarbij fouten zijn opgetreden. <br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Van toepassing afmetingen: De ResponseType, GeoType ApiName en -verificatie ([definitie](#metrics-dimensions))<br/> Voorbeeld van een waarde: 1024 |
 | Inkomend verkeer | De hoeveelheid inkomende gegevens. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Totaal <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
@@ -390,7 +390,7 @@ Azure Storage biedt de volgende metrische gegevens van de transactie uit in Azur
 
 Azure Storage ondersteunt de volgende dimensies voor metrische gegevens in Azure Monitor.
 
-| Dimensienaam | Beschrijving |
+| Dimensienaam | Description |
 | ------------------- | ----------------- |
 | **BlobType** | Het type blob voor alleen Blob-metrische gegevens. De ondersteunde waarden zijn **BlockBlob**, **PageBlob**, en **Azure Data Lake Storage**. Toevoeg-Blob is opgenomen in BlockBlob. |
 | **BlobTier** | Azure storage biedt verschillende toegangslagen, waarmee u kunt voor het opslaan van gegevens voor blob-object in de meest kostenefficiënte manier. Zie voor meer informatie in [Azure Storage blob-laag](../blobs/storage-blob-storage-tiers.md). De ondersteunde waarden zijn: <br/> <li>**Hot**: Warme laag</li> <li>**' Cool '**: Koude laag</li> <li>**Archief**: Archive-laag</li> <li>**Premium**: Premium-laag voor blok-blob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Laag-typen voor premium-pagina-blobs</li> <li>**Standard**: Laagtype voor standard-pagina Blob</li> <li>**Untiered**: Laagtype voor opslagaccount voor algemeen gebruik v1</li> |

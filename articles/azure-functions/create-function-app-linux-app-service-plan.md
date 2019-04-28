@@ -12,11 +12,11 @@ ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: ''
 ms.openlocfilehash: cc99bc4345c388f22e72957590f3917a85e214e0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339805"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126618"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Een functie-app in Linux maken in een Azure App Service-plan
 
@@ -53,7 +53,7 @@ U moet beschikken over een functie-app om de uitvoering van uw functies in Linux
     | **App Service-plan /-locatie** | Plan maken | Kies **nieuw** en geef een **App Service-plan** naam. Kies een **locatie** in een [regio](https://azure.microsoft.com/regions/) in de buurt of in de buurt van andere services uw functies toegang hebben tot. Kies de gewenste  **[prijscategorie](https://azure.microsoft.com/pricing/details/app-service/linux/)**. <br/>U kunt zowel Windows als Linux-functie-apps niet uitvoeren in hetzelfde App Service-plan. |
     | **Runtimestack** | Voorkeurstaal | Kies een runtime die uw favoriete functieprogrammeertaal ondersteunt. Kies **.NET** voor C#- en F#-functies. [Ondersteuning voor Python](functions-reference-python.md) is beschikbaar als preview op dit moment. |
     | **[Opslag](../storage/common/storage-quickstart-create-account.md)** |  Wereldwijd unieke naam |  Maak een opslagaccount die wordt gebruikt door uw functie-app. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten. U kunt ook een bestaand account gebruiken dat voldoet aan de [vereisten voor een opslagaccount](functions-scale.md#storage-account-requirements). |
-    | **[Application Insights](functions-monitoring.md)** | Ingeschakeld | Application Insights is standaard uitgeschakeld. U wordt aangeraden nu Application Insights-integratie inschakelen en het kiezen van een hosting-locatie in de buurt van uw App Service-plan-locatie. Als u dit later doen wilt, raadpleegt u [Monitor Azure Functions](functions-monitoring.md).  |
+    | **[Application Insights](functions-monitoring.md)** | Enabled | Application Insights is standaard uitgeschakeld. U wordt aangeraden nu Application Insights-integratie inschakelen en het kiezen van een hosting-locatie in de buurt van uw App Service-plan-locatie. Als u dit later doen wilt, raadpleegt u [Monitor Azure Functions](functions-monitoring.md).  |
 
 3. Selecteer **Maken** om de functie-app in te richten en te implementeren.
 

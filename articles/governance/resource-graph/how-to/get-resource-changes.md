@@ -1,5 +1,5 @@
 ---
-title: Wijzigingen van resources ophalen
+title: Resourcewijzigingen ophalen
 description: Meer informatie over het zoeken wanneer een resource is gewijzigd en een overzicht van de eigenschappen die gewijzigd.
 services: resource-graph
 author: DCtheGeek
@@ -8,20 +8,20 @@ ms.date: 04/20/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f4618e945db443e8d7cf9fdcc49e20e5a09ebd39
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 0ae85b45dfcd80056316ed5f2099aab4057d24c8
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013668"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760806"
 ---
-# <a name="get-resource-changes"></a>Wijzigingen van resources ophalen
+# <a name="get-resource-changes"></a>Resourcewijzigingen ophalen
 
 Resources gewijzigd in de loop van dagelijks gebruik herconfiguratie en zelfs opnieuw implementeren.
 Wijziging kan afkomstig zijn van een persoon of door een geautomatiseerd proces. De meeste wijzigen is standaard, maar soms is het niet. Met de afgelopen 14 dagen van de wijzigingsgeschiedenis kunt u Azure Resource Graph:
 
-- Wanneer er wijzigingen zijn gedetecteerd op een eigenschap van een Azure Resource Manager vinden.
-- Zie wat er eigenschappen gewijzigd als onderdeel van die wijzigingsgebeurtenis.
+- Zien wanneer wijzigingen in een Azure Resource Manager-eigenschap zijn gedetecteerd.
+- Zien welke eigenschappen tijdens die gebeurtenis zijn gewijzigd.
 
 Wijziging detectie en gegevens zijn waardevol zijn bij de volgende voorbeeldscenario:
 
@@ -39,7 +39,7 @@ In dit artikel laat zien hoe deze informatie via de SDK van de grafiek van de re
 
 ## <a name="find-when-changes-were-detected"></a>Zoeken wanneer wijzigingen gedetecteerd
 
-De eerste stap bij het zien wat er gewijzigd voor een bron is te vinden van de gebeurtenissen met betrekking tot die resource binnen een periode. Deze stap vindt plaats via de [resourceChanges](/rest/api/azureresourcegraph/resourceChanges) REST-eindpunt.
+De eerste stap bij het zien wat er gewijzigd voor een bron is te vinden van de gebeurtenissen met betrekking tot die resource binnen een periode. Deze stap vindt plaats via de **resourceChanges** REST-eindpunt.
 
 De **resourceChanges** eindpunt vereist twee parameters in de aanvraagtekst:
 
@@ -95,7 +95,7 @@ De wijzigingsgebeurtenis heeft plaatsgevonden op een bepaald moment in dit venst
 
 ## <a name="see-what-properties-changed"></a>Zie wat er eigenschappen gewijzigd
 
-Met de **changeId** uit de **resourceChanges** eindpunt, de [resourceChangeDetails](/rest/api/azureresourcegraph/resourceChangeDetails) REST-eindpunt wordt vervolgens gebruikt om de details van de wijzigingsgebeurtenis ophalen.
+Met de **changeId** uit de **resourceChanges** eindpunt, de **resourceChangeDetails** REST-eindpunt wordt vervolgens gebruikt om de details van de wijzigingsgebeurtenis ophalen.
 
 De **resourceChangeDetails** eindpunt vereist twee parameters in de aanvraagtekst:
 
@@ -108,7 +108,6 @@ Voorbeeld van de aanvraag hoofdtekst:
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
     "changeId": "53dc0515-b86b-4bc2-979b-e4694ab4a556"
-    }
 }
 ```
 

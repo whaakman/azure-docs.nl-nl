@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 51b072bfd0827528a5504133dff8c1cdd7a7ca86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089383"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122766"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Het apparaatregistraties beheren met Azure Portal
 
@@ -29,8 +29,8 @@ Er zijn twee manieren waarop u uw apparaten met de provisioning-service kunt ins
     U kunt een registratiegroep maken in de portal voor een groep van apparaten met behulp van de volgende stappen uit:
 
   1. Meld u aan bij de Azure-portal en klikt u op **alle resources** in het menu links.  
-  1. Klik op de Device Provisioning service die u wilt uw apparaat inschrijven bij in de lijst met resources.  
-  1. In de provisioning-service:  
+  2. Klik op de Device Provisioning service die u wilt uw apparaat inschrijven bij in de lijst met resources.  
+  3. In de provisioning-service:  
      a. Klik op **registraties beheren**en selecteer vervolgens de **Registratiegroepen** tabblad.  
      b. Klik bovenaan op de knop **Toevoegen**.  
      c. Wanneer het paneel 'Registratiegroep toevoegen' wordt weergegeven, voert u de gegevens voor de inschrijving van de lijst.  **Naam van groep** is vereist. Ook selecteren 'CA of tussenliggende' voor **certificaattype**, en upload de hoofdmap **primair certificaat** voor de groep van apparaten.  

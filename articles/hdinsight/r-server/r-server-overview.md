@@ -1,7 +1,6 @@
 ---
 title: Kennismaking met ML-Services op Azure HDInsight
 description: Informatie over het gebruik van ML-Services op HDInsight te maken van toepassingen voor big data-analyse.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: a07f052cf89da039bb9fe091f1cd997c19d2fcc7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: MT
+ms.openlocfilehash: 56a11a17de3c66a3d45edb71c72be20ce1a1c89e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584527"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124727"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Inleiding tot ML-Services en mogelijkheden van de open-source R op HDInsight
 
@@ -61,9 +60,9 @@ ML-Services in HDInsight biedt de volgende voordelen:
 
 De volgende functies zijn opgenomen in ML-Services op HDInsight.
 
-| Functie-categorie | Description |
+| Functie-categorie | Beschrijving |
 |------------------|-------------|
-| R-ingeschakeld | [R-pakketten](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) voor oplossingen die zijn geschreven in R, met een open-source-distributie van R- en runtime-infrastructuur voor het uitvoeren van script. |
+| R-enabled | [R-pakketten](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) voor oplossingen die zijn geschreven in R, met een open-source-distributie van R- en runtime-infrastructuur voor het uitvoeren van script. |
 | Python-ingeschakeld | [Python-modules](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) voor oplossingen die zijn geschreven in Python, met een open-source-verdeling van Python en runtime-infrastructuur voor het uitvoeren van script.
 | [Vooraf getrainde modellen](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | Voor visuele analyse en tekstsentimentanalyse, klaar om gegevens te beoordelen u bieden. |
 | [Implementeren en gebruiken](r-server-operationalize.md) | Operationeel maken van uw server en -oplossingen implementeren als een webservice. |

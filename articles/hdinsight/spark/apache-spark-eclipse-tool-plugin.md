@@ -1,7 +1,6 @@
 ---
 title: 'Azure Toolkit voor Eclipse: Voor HDInsight Spark Scala-toepassingen maken '
 description: Gebruik HDInsight-hulpprogramma's in Azure Toolkit voor Eclipse Spark-toepassingen die zijn geschreven in Scala ontwikkelen en deze verzenden naar een HDInsight Spark-cluster, rechtstreeks vanuit de Eclipse IDE.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 123c05470f8f162095b92c0894716c7b5d2a92b2
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 1ae585322316a9c215fc32cc2f8ffba2f332ff61
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648768"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124370"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit voor Eclipse gebruiken voor het maken van Apache Spark-toepassingen voor een HDInsight-cluster
 

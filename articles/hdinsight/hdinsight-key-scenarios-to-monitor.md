@@ -1,7 +1,6 @@
 ---
 title: Cluster-prestaties bewaken - Azure HDInsight
 description: Klik hier voor meer informatie over het bewaken van een HDInsight-cluster voor capaciteit en prestaties.
-services: hdinsight
 author: maxluk
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 83cbb2a54ed712f8aa5084408ab852432470b73c
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: MT
+ms.openlocfilehash: 22484885663a4f9a908ae988882b87612129251a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742470"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763779"
 ---
 # <a name="monitor-cluster-performance"></a>Cluster-prestaties bewaken
 
@@ -28,7 +27,7 @@ Hadoop-clusters kunnen de meest optimale prestaties leveren wanneer de belasting
 
 Als u een Kijk op de knooppunten van het cluster en hun laden, moet u zich aanmelden bij de [Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md)en selecteer vervolgens de **Hosts** tabblad. Uw hosts worden weergegeven door de volledig gekwalificeerde domeinnamen. Operationele status van elke host wordt weergegeven door een gekleurde integriteitsindicator:
 
-| Kleur | Description |
+| Kleur | Beschrijving |
 | --- | --- |
 | Rood | Ten minste één master onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |
 | Orange | Ten minste één ondergeschikt onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |
@@ -87,6 +86,6 @@ Als Azure Data Lake Storage (ADLS) van uw cluster externe opslag is is de beperk
 
 Ga naar de volgende koppelingen voor meer informatie over het oplossen van problemen en uw clusters controleren:
 
-* [HDInsight-logboekbestanden analyseren](hdinsight-debug-jobs.md)
+* [HDInsight-logboeken analyseren](hdinsight-debug-jobs.md)
 * [Fouten opsporen in apps met Apache Hadoop YARN-Logboeken](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Heapdumps voor Apache Hadoop-services op Linux gebaseerde HDInsight inschakelen](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 5d7dccfecc47b14be62a78600561a8ff0f7ca501
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312254"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62111946"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine streaming voor Android
 
@@ -44,8 +44,8 @@ Het artikel bevat ook antwoorden op enkele veelgestelde vragen met betrekking to
 Voordat u implementeert offline DRM voor Widevine op Android-apparaten, moet u eerst:
 
 - Vertrouwd raken met de concepten geïntroduceerd voor online beveiliging van inhoud met Widevine DRM. Dit wordt in de volgende documenten/samples in detail behandeld:
-    - [Ontwerp van een multi-DRM-beveiliging van inhoud-systeem met toegangsbeheer](design-multi-drm-system-with-access-control.md)
-    - [Gebruik DRM dynamische versleuteling en licentie leveringsservice voor](protect-with-drm.md)
+    - [Ontwerp van een inhoudsbeveiligingssysteem van een multi-DRM met toegangsbeheer](design-multi-drm-system-with-access-control.md)
+    - [De Digital Rights Management-service gebruiken voor dynamische versleuteling en licentielevering](protect-with-drm.md)
 - Kloon https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git.
 
     U moet de code in wijzigen [versleutelen met behulp van .NET DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) om toe te voegen Widevine-configuraties.  

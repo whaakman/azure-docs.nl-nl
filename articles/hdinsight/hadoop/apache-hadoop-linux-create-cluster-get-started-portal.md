@@ -2,7 +2,6 @@
 title: 'Snelstart: Aan de slag met Apache Hadoop en Apache Hive met behulp van Azure Portal - Azure HDInsight'
 description: Lees hier alles over het maken van HDInsight-clusters met behulp van Azure Portal en het opvragen van gegevens met Hive.
 keywords: aan de slag met hadoop, hadoop linux, hadoop quickstart, aan de slag met hive, hive quickstart
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 81eb750f271062bcb4891edf8008d76a18ac85c7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 0c466840c3de9337d7bb8d22f00da0ba52227770
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881194"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121928"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Snelstart: Aan de slag met Apache Hadoop en Apache Hive in Azure HDInsight met behulp van Azure Portal
 
@@ -60,7 +59,7 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van Azure Port
 
     Selecteer de volgende waarden:
     
-    |Eigenschap  |Description  |
+    |Eigenschap  |Beschrijving  |
     |---------|---------|
     |**Clustertype**     | Selecteer **Hadoop**. |
     |**Besturingssysteem**     | Selecteer **Linux** |
@@ -74,7 +73,7 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van Azure Port
 
     Selecteer de volgende waarden:
     
-    |Eigenschap  |Description  |
+    |Eigenschap  |Beschrijving  |
     |---------|---------|
     |**Type van primaire opslag**     | Selecteer voor dit artikel **Azure Storage** om Azure Storage Blob te gebruiken als het standaardopslagaccount. U kunt ook Azure Data Lake Storage gebruiken als standaardopslag. |
     |**Selectiemethode**     |  Selecteer voor dit artikel **Mijn abonnementen** om een opslagaccount uit uw Azure-abonnement te gebruiken. Als u een opslagaccount uit andere abonnementen wilt gebruiken, selecteert u **Toegangssleutel** en geeft u vervolgens de toegangssleutel voor dat account op. |

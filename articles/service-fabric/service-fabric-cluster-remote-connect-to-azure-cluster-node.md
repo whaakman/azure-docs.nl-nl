@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/23/2018
 ms.author: aljo
 ms.openlocfilehash: 4cc2d6355a0147c33048f1c2c27a3648b9223db4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110920"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Extern verbinding maken met een instantie van virtuele-machineschaalset of een clusterknooppunt
 In een Service Fabric-cluster worden uitgevoerd in Azure, elk cluster-knooppunttype die u definieert [stelt u een virtuele-machineschaalset in afzonderlijke](service-fabric-cluster-nodetypes.md).  U kunt extern verbinding maken met specifieke schaalsetinstanties (knooppunten).  In tegenstelling tot single instance virtuele machines hebben niet schaalsetinstanties hun eigen virtuele IP-adressen. Dit kan lastig zijn wanneer u zoekt een IP-adres en poort die u gebruiken kunt voor externe verbinding met een specifiek exemplaar.

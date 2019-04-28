@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: c198e6cd9d5c5e0aca69491db9df5d0ab8e08c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7b10db06ab4ade1b23985b1a259d82d4818941b1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124963"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Plannen van capaciteit en schaalbaarheid voor noodherstel van VMware naar Azure
 
@@ -120,7 +120,7 @@ Voordat u de Site Recovery-infrastructuur hebt ingesteld, toegang krijgen tot de
 
 ## <a name="deploy-additional-process-servers"></a>Extra processervers implementeren
 
-Als u de schaal van uw implementatie meer dan 200 bronmachines of als u een totaal dagelijks verloop snelheid van meer dan 2 TB hebt, moet u processervers voor het afhandelen van het verkeersvolume toevoegen. Zie voor meer informatie over het instellen van de processerver, [schaal voor failback met behulp van extra processervers](vmware-azure-set-up-process-server-scale.md). Na het instellen van de processerver, kunt u migreren bronmachines om deze te gebruiken.
+Als u de schaal van uw implementatie meer dan 200 bronmachines of als u een totaal dagelijks verloop snelheid van meer dan 2 TB hebt, moet u processervers voor het afhandelen van het verkeersvolume toevoegen. We hebben het product 9.24 versie voor een verbeterde [binnen het product richtlijnen](vmware-azure-manage-process-server.md#process-server-selection-guidance) op bij het instellen van een uitbreidbare processerver. [Instellen van de processerver](vmware-azure-set-up-process-server-scale.md) om nieuwe bronmachines te beveiligen of [verdelen](vmware-azure-manage-process-server.md#balance-the-load-on-process-server).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migreren van machines voor het gebruik van de nieuwe processerver
 

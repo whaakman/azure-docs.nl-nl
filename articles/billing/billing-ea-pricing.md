@@ -16,11 +16,11 @@ ms.date: 02/22/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: d4c64433089f14d845cea8be9adf0ef13675cfd1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892469"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127630"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Weergeven en downloaden van uw organisatie Azure-prijzen
 
@@ -51,7 +51,7 @@ U moet de facturering profieleigenaar, bijdrager, lezer of factuur manager weerg
 ### <a name="download-price-sheets-for-the-current-billing-period"></a>Prijzenoverzichten downloaden voor de huidige factureringsperiode
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Zoeken op **kosten Management en facturering**.
+1. Zoek naar **kostenbeheer en facturering**.
 1. Selecteer een profiel voor facturering. Afhankelijk van uw toegang moet u mogelijk eerst een factureringsaccount selecteren.
 1. In de **overzicht** blade zoeken naar de downloadkoppelingen onder de kosten maand tot heden.
 1. Selecteer **Azure prijslijst**.
@@ -60,9 +60,9 @@ U moet de facturering profieleigenaar, bijdrager, lezer of factuur manager weerg
 ### <a name="download-price-sheets-for-billed-charges"></a>Prijzenoverzichten voor gefactureerde kosten voor downloaden
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Zoeken op **kosten Management en facturering**.
+1. Zoek naar **kostenbeheer en facturering**.
 1. Selecteer een profiel voor facturering. Afhankelijk van uw toegang moet u mogelijk eerst een factureringsaccount selecteren.
-1. Selecteer **facturen**.
+1. Selecteer **Facturen**.
 1. In het raster factuur vindt u de rij van de factuur overeenkomt met de prijslijst die u wilt downloaden.
 1. Klik op het weglatingsteken (`...`) aan het einde van de rij.
 ![Schermafbeelding van het weglatingsteken geselecteerd](./media/billing-ea-pricing/billingprofile-invoicegrid.png)

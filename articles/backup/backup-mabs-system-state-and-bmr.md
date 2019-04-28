@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: raynew
 ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880094"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116172"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Back-up van systeemstatus en bare-metalcomputers maken met Azure Backup Server herstellen
 
 Azure Backup-Server een back-up van systeemstatus en bare metal recovery (BMR)-beveiliging biedt.
 
-*   **Systeemstatusback-up**: back-ups van besturingssysteembestanden, zodat u herstellen kunt wanneer een computer wordt gestart, maar u systeembestanden en het register, gaan verloren. Een systeemstatusback-up bevat:
-    * Domeinlid: opstartbestanden, registratiedatabase van COM +-klasse, register
+*   **Systeemstatusback-up**: Back-ups van besturingssysteembestanden, zodat u herstellen kunt wanneer een computer wordt gestart, maar u systeembestanden en het register, gaan verloren. Een systeemstatusback-up bevat:
+    * Lid van domein: Opstartbestanden, registratiedatabase van COM +-klasse, register
     * Domeincontroller: Windows Server Active Directory (NTDS), opstartbestanden, registratiedatabase van COM +-klasse, register, systeemvolume (SYSVOL)
-    * Computer waarop clusterservices: metagegevens van de Cluster-server
-    * Computer waarop certificaatservices: gegevens van het certificaat
-* **Bare metal-back-up**: back-ups van besturingssysteembestanden en alle gegevens op essentiële volumes (met uitzondering van gebruikersgegevens). Een BMR back-up bevat per definitie een systeemstatusback-up. Het biedt beveiliging wanneer een computer niet start en u alles moet herstellen.
+    * De computer waarop clusterservices: Metagegevens van de server-cluster
+    * De computer waarop certificaatservices: Certificaatgegevens
+* **Bare metal-back-up**: Back-ups van besturingssysteembestanden en alle gegevens op essentiële volumes (met uitzondering van gebruikersgegevens). Een BMR back-up bevat per definitie een systeemstatusback-up. Het biedt beveiliging wanneer een computer niet start en u alles moet herstellen.
 
 De volgende tabel geeft een overzicht van wat u kunt een back-up en herstellen. Zie voor gedetailleerde informatie over app-versies die kunnen worden beveiligd met systeemstatus en BMR [wat Azure Backup Server doet een back-up?](backup-mabs-protection-matrix.md).
 

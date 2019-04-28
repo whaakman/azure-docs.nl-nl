@@ -1,52 +1,54 @@
 ---
-title: Ansible uitvoeren met Bash in Azure Cloud Shell
-description: Leer hoe u verschillende Ansible-taken met Bash uitvoert in Azure Cloud Shell
-ms.service: azure
+title: Snelstartgids - Ansible-playbooks uitvoeren via Bash in Azure Cloud Shell | Microsoft Docs
+description: In deze snelstartgids leert u hoe u verschillende Ansible-taken met Bash in Azure Cloud Shell uit te voeren
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
+ms.topic: quickstart
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 08/07/2018
-ms.topic: quickstart
-ms.openlocfilehash: 37426f1cdc51734c28b2c9739e26ad35f08e606f
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: a0d0544601bfc6ce0c7ef642f576ed780c8642ba
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791389"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763362"
 ---
-# <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Ansible uitvoeren met Bash in Azure Cloud Shell
+# <a name="quickstart-run-ansible-playbooks-via-bash-in-azure-cloud-shell"></a>Quickstart: Ansible-playbooks uitvoeren via Bash in Azure Cloud Shell
 
-In deze zelfstudie leert u hoe u Bash in Cloud Shell gebruikt om een Azure-abonnement als uw Ansible-werkruimte te configureren. 
+Azure Cloud Shell is een interactieve, browser toegankelijke shell voor het beheren van Azure-resources. Cloudshell biedt maakt u een Bash- of Powershell-opdrachtregel te gebruiken. In dit artikel gebruikt u Bash in Azure Cloud Shell een Ansible-playbook uitvoeren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **Azure-abonnement**: als u nog geen Azure-abonnement hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan.
-
-- **Azure Cloud Shell configureren**: als u niet eerder hebt gewerkt met Azure Cloud Shell, leest u in het artikel [Snelstartgids voor Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) hoe u Cloud Shell start en configureert. 
-
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- **Configureren van Azure Cloud Shell** : als u geen ervaring met Azure Cloud Shell, Zie [Snelstartgids voor Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="automatic-credential-configuration"></a>Automatische configuratie van referenties
 
-Ansible wordt geverifieerd bij Azure wanneer u zich aanmeldt bij Cloud Shell om de infrastructuur te beheren zonder extra configuratie. Als u meer dan één abonnement hebt, kunt u kiezen met welk abonnement Ansible moet werken door de omgevingsvariabele `AZURE_SUBSCRIPTION_ID` te exporteren. Voer de volgende opdracht uit om al uw Azure-abonnementen weer te geven:
+Ansible wordt geverifieerd bij Azure wanneer u zich aanmeldt bij Cloud Shell om de infrastructuur te beheren zonder extra configuratie. 
+
+Als u werkt met meerdere abonnementen, geef het abonnement op Ansible wordt gebruikt door het exporteren van de `AZURE_SUBSCRIPTION_ID` omgevingsvariabele. 
+
+Voer de volgende opdracht uit om al uw Azure-abonnementen weer te geven:
 
 ```azurecli-interactive
 az account list
 ```
 
-Stel met behulp van de **id** van het abonnement waarmee u wilt werken de **AZURE_SUBSCRIPTION_ID** als volgt in:
+Met uw Azure-abonnement-ID, stelt u de `AZURE_SUBSCRIPTION_ID` als volgt:
 
 ```azurecli-interactive
 export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 ```
 
 ## <a name="verify-the-configuration"></a>De configuratie controleren
-Als u wilt controleren of het configureren is geslaagd, gebruikt u Ansible om een resourcegroep te maken.
+Om te controleren of de juiste configuratie, Ansible te gebruiken om een Azure-resourcegroep te maken.
 
-[!INCLUDE [create-resource-group-with-ansible.md](../../includes/ansible-create-resource-group.md)]
+[!INCLUDE [create-resource-group-with-ansible.md](../../includes/ansible-snippet-create-resource-group.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"] 
-> [Een eenvoudige virtuele machine maken in Azure met Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Snelstart: Virtuele machine in Azure met behulp van Ansible configureren](/azure/virtual-machines/linux/ansible-create-vm)

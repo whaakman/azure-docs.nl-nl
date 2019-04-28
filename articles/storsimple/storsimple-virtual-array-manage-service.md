@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: alkohli
-ms.openlocfilehash: 1881a0625b107ae1a90e5b772f5296a4d728973d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9f6e5b606caa661429a3c4d4a53e2021d57730aa
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688150"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116944"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>De StorSimple Device Manager-service voor StorSimple Virtual Array implementeren
 ## <a name="overview"></a>Overzicht
@@ -67,7 +67,7 @@ Voer de volgende stappen uit als een service wilt verwijderen.
 
 #### <a name="to-delete-a-service"></a>Verwijderen van een service
 
-1. Ga naar **alle resources**. Zoeken naar uw StorSimple Device Manager-service. Selecteer de service die u wilt verwijderen.
+1. Ga naar **Alle resources**. Zoeken naar uw StorSimple Device Manager-service. Selecteer de service die u wilt verwijderen.
    
     ![Selecteer service verwijderen](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
 2. Ga naar uw servicedashboard om te controleren of er zijn geen apparaten die zijn verbonden met de service. Als er geen apparaten geregistreerd bij deze service, ziet u ook een banner weergegeven aan het effect. Klik op **Verwijderen**.

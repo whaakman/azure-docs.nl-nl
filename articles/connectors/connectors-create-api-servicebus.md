@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232712"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105577"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Exchange-berichten in de cloud met Azure Service Bus en Azure Logic Apps
 
@@ -74,7 +74,7 @@ Controleer of uw logische app machtigingen voor toegang tot uw Service Bus-naamr
 
 1. Om toe te voegen een *trigger* naar een lege, logische app, in het zoekvak 'Azure Service Bus' Voer als filter. Selecteer de gewenste trigger onder de lijst met triggers. 
 
-   Bijvoorbeeld, als u wilt uw logische app wordt geactiveerd wanneer een nieuw item wordt verzonden naar een Service Bus-wachtrij, selecteer deze trigger: **wanneer een bericht wordt ontvangen in een wachtrij (automatisch voltooien)**
+   Selecteer bijvoorbeeld voor het activeren van uw logische app wanneer een nieuw item wordt verzonden naar een Service Bus-wachtrij, deze trigger: **Wanneer een bericht wordt ontvangen in een wachtrij (automatisch voltooien)**
 
    ![Service Bus-trigger selecteren](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
@@ -95,7 +95,7 @@ Controleer of uw logische app machtigingen voor toegang tot uw Service Bus-naamr
    1. Typ 'Azure Service Bus' als filter in het zoekvak. 
    Selecteer de actie die u wilt onder de lijst met acties. 
  
-      Bijvoorbeeld: Selecteer deze actie: **bericht verzenden**
+      Bijvoorbeeld: Selecteer deze actie: **Bericht verzenden**
 
       ![Service Bus-actie selecteren](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
@@ -118,14 +118,14 @@ Controleer of uw logische app machtigingen voor toegang tot uw Service Bus-naamr
 
 1. Geef de benodigde informatie voor uw trigger of actie. In dit voorbeeld gaat u als volgt de relevante stappen uit voor uw trigger of actie: 
 
-   * **Voor de voorbeeld-trigger**: de polling-interval en frequentie voor het controleren van de wachtrij instellen.
+   * **Voor de voorbeeld-trigger**: Stel de polling-interval en frequentie voor het controleren van de wachtrij.
 
      ![Polling-interval instellen](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
      Wanneer u klaar bent, doorgaan met het ontwikkelen van uw logische app-werkstroom door toe te voegen van de acties die u wilt. U kunt bijvoorbeeld een actie die e-mail wordt verzonden zodra een nieuw bericht binnenkomt toevoegen.
      Wanneer de trigger wordt de wachtrij gecontroleerd en wordt een nieuw bericht gevonden, wordt de geselecteerde acties voor het bericht gevonden in uw logische app uitgevoerd.
 
-   * **Voor de actie voorbeeld**: de inhoud van het bericht en andere details invoeren. 
+   * **Voor de actie voorbeeld**: Voer de inhoud van het bericht en andere details. 
 
      ![Geef de inhoud van het bericht en details](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 

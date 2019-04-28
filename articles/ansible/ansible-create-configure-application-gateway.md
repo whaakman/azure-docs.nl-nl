@@ -1,46 +1,44 @@
 ---
-title: Ansible gebruiken om webverkeer te beheren met Azure Application Gateway
+title: Zelfstudie - webverkeer beheren met Azure Application Gateway met behulp van Ansible | Microsoft Docs
 description: Meer informatie over hoe u Ansible gebruikt om een Azure Application Gateway te maken en te configureren voor het beheren van webverkeer
-ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, application gateway, load balancer, webverkeer
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 09/20/2018
-ms.openlocfilehash: 83f21573af7ec523acc376c4b3364cdcfb47f96f
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: 3fd16381aba87b711e799835c9f069e9c53a02ce
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792137"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765948"
 ---
-# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible"></a>Ansible gebruiken om webverkeer te beheren met Azure Application Gateway
+# <a name="tutorial-manage-web-traffic-with-azure-application-gateway-using-ansible"></a>Zelfstudie: Webverkeer beheren met Azure Application Gateway met Ansible
 
-[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) is een load balancer voor webverkeer waarmee u het verkeer naar uw webapps kunt beheren.
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-Ansible kan worden gebruikt om de implementatie en configuratie van resources in uw omgeving te automatiseren. In dit artikel leest u hoe u Ansible gebruikt om een toepassingsgateway te maken. U kunt hier ook lezen u hoe u de gateway kunt gebruiken voor het beheren van verkeer naar twee webservers die worden uitgevoerd in Azure-containerinstanties.
+[Azure Application Gateway](/azure/application-gateway/overview) is een load balancer voor webverkeer waarmee u het verkeer naar uw webapps kunt beheren. Op basis van de bron-IP-adres en poort, routeren traditionele load balancers van verkeer naar een doel-IP-adres en poort. Application Gateway biedt een gedetailleerder niveau naar besturingselement waar verkeer kan worden gerouteerd op basis van de URL. Bijvoorbeeld, kunt u definiëren dat als `images` van URL-pad, wordt verkeer wordt doorgestuurd naar een specifieke set servers (ook wel een pool) geconfigureerd voor afbeeldingen.
 
-In deze zelfstudie ontdekt u hoe u:
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
-> * Het netwerk instellen
+>
+> * Een netwerk instellen
 > * Twee Azure-containerinstanties maken met HTTPD-installatiekopieën
 > * Een toepassingsgateway maken die werkt met de Azure-containerinstanties in de serverpool
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **Azure-abonnement**: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-
-> [!Note]
-> Ansible 2.7 is vereist om de volgende voorbeeld-playbooks in deze zelfstudie uit te voeren. 
+* [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+* [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.  
+De code playbook in deze sectie maakt u een Azure-resourcegroep. Een resourcegroep is een logische container waarin Azure resources zijn geconfigureerd.  
 
-In het volgende voorbeeld wordt een resourcegroep met de naam **myResourceGroup** gemaakt op de locatie **VS - oost**.
+Sla het volgende playbook op als `rg.yml`:
 
 ```yml
 - hosts: localhost
@@ -54,7 +52,12 @@ In het volgende voorbeeld wordt een resourcegroep met de naam **myResourceGroup*
         location: "{{ location }}"
 ```
 
-Sla dit playbook op als *rg.yml*. Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
+Voordat u de playbook uitvoert, Zie de volgende opmerkingen:
+
+- Naam van de resourcegroep is `myResourceGroup`. Deze waarde wordt gebruikt in de zelfstudie.
+- De resourcegroep wordt gemaakt in de `eastus` locatie.
+
+Voer de playbook met behulp de `ansible-playbook` opdracht:
 
 ```bash
 ansible-playbook rg.yml
@@ -62,9 +65,9 @@ ansible-playbook rg.yml
 
 ## <a name="create-network-resources"></a>Netwerkbronnen maken
 
-Maak eerst een virtueel netwerk om de toepassingsgateway in staat te stellen te communiceren met andere resources.
+De code playbook in deze sectie maakt u een virtueel netwerk om in te schakelen van de toepassingsgateway om te communiceren met andere resources.
 
-In het volgende voorbeeld worden een virtueel netwerk met de naam **myVNet**, een subnet met de naam **myAGSubnet** en een openbaar IP-adres met de naam **myAGPublicIPAddress** met een domein met de naam **mydomain** gemaakt.
+Sla het volgende playbook op als `vnet_create.yml`:
 
 ```yml
 - hosts: localhost
@@ -102,7 +105,12 @@ In het volgende voorbeeld worden een virtueel netwerk met de naam **myVNet**, ee
         domain_name_label: "{{ publicip_domain }}"
 ```
 
-Sla dit playbook op als *vnet_create.yml*. Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
+Voordat u de playbook uitvoert, Zie de volgende opmerkingen:
+
+* De `vars` sectie bevat de waarden die worden gebruikt om de netwerkresources te maken. 
+* U moet deze waarden voor uw specifieke omgeving te wijzigen.
+
+Voer de playbook met behulp de `ansible-playbook` opdracht:
 
 ```bash
 ansible-playbook vnet_create.yml
@@ -110,7 +118,9 @@ ansible-playbook vnet_create.yml
 
 ## <a name="create-servers"></a>Servers maken
 
-In het volgende voorbeeld wordt getoond hoe u twee Azure-containerinstanties met HTTPD-installatiekopieën maakt die worden gebruikt als webservers voor de toepassingsgateway.  
+De playbook-code in deze sectie maakt twee Azure-containerinstanties met HTTPD installatiekopieën moet worden gebruikt als webservers voor application gateway.  
+
+Sla het volgende playbook op als `aci_create.yml`:
 
 ```yml
 - hosts: localhost
@@ -153,7 +163,7 @@ In het volgende voorbeeld wordt getoond hoe u twee Azure-containerinstanties met
               - 80
 ```
 
-Sla dit playbook op als *aci_create.yml*. Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
+Voer de playbook met behulp de `ansible-playbook` opdracht:
 
 ```bash
 ansible-playbook aci_create.yml
@@ -161,14 +171,9 @@ ansible-playbook aci_create.yml
 
 ## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-In het volgende voorbeeld wordt een toepassingsgateway met de naam **myAppGateway** gemaakt, met configuraties voor back-end-, front-end- en HTTP.  
+De code playbook in deze sectie maakt u een toepassingsgateway met de naam `myAppGateway`.  
 
-* **appGatewayIP** wordt gedefinieerd in het blok **gateway_ip_configurations**. Er is een subnetverwijzing vereist voor de IP-configuratie van de gateway.
-* **appGatewayBackendPool** wordt gedefinieerd in het blok **backend_address_pools**. Een toepassingsgateway moet ten minste één back-endadresgroep hebben.
-* **appGatewayBackendHttpSettings** wordt gedefinieerd in het blok **backend_http_settings_collection**. Hiermee wordt aangegeven dat voor de communicatie poort 80 en een HTTP-protocol worden gebruikt.
-* **appGatewayHttpListener** wordt gedefinieerd in het blok **backend_http_settings_collection**. Dit is de standaard-listener die aan appGatewayBackendPool is gekoppeld.
-* **appGatewayFrontendIP** wordt gedefinieerd in het blok **frontend_ip_configurations**. Hiermee wordt myAGPublicIPAddress aan appGatewayHttpListener toegewezen.
-* **Rule1** wordt gedefinieerd in het blok **request_routing_rules**. Dit is de standaardregel voor doorsturen die aan appGatewayHttpListener is gekoppeld.
+Sla het volgende playbook op als `appgw_create.yml`:
 
 ```yml
 - hosts: localhost
@@ -252,7 +257,16 @@ In het volgende voorbeeld wordt een toepassingsgateway met de naam **myAppGatewa
             name: rule1
 ```
 
-Sla dit playbook op als*appgw_create.yml*. Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
+Voordat u de playbook uitvoert, Zie de volgende opmerkingen:
+
+* `appGatewayIP` is gedefinieerd in de `gateway_ip_configurations` blokkeren. Er is een subnetverwijzing vereist voor de IP-configuratie van de gateway.
+* `appGatewayBackendPool` is gedefinieerd in de `backend_address_pools` blokkeren. Een toepassingsgateway moet ten minste één back-endadresgroep hebben.
+* `appGatewayBackendHttpSettings` is gedefinieerd in de `backend_http_settings_collection` blokkeren. Hiermee geeft u poort 80 en een HTTP-protocol wordt gebruikt voor communicatie.
+* `appGatewayHttpListener` is gedefinieerd in de `backend_http_settings_collection` blokkeren. Dit is de standaard-listener die aan appGatewayBackendPool is gekoppeld.
+* `appGatewayFrontendIP` is gedefinieerd in de `frontend_ip_configurations` blokkeren. Hiermee wordt myAGPublicIPAddress aan appGatewayHttpListener toegewezen.
+* `rule1` is gedefinieerd in de `request_routing_rules` blokkeren. Dit is de standaardregel voor doorsturen die aan appGatewayHttpListener is gekoppeld.
+
+Voer de playbook met behulp de `ansible-playbook` opdracht:
 
 ```bash
 ansible-playbook appgw_create.yml
@@ -262,13 +276,23 @@ Het kan enkele minuten duren voordat de toepassingsgateway is gemaakt.
 
 ## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
-In het voorbeeldplaybook voor netwerkresources hebt u het domein met de naam **mydomain** gemaakt in **eastus**. Ga naar `http://mydomain.eastus.cloudapp.azure.com` in uw browser. Als u de volgende pagina ziet, werkt de toepassingsgateway zoals verwacht.
+1. In de [een resourcegroep maken](#create-a-resource-group) sectie maakt u een locatie opgeven. Noteer de waarde.
 
-![Testen of een toepassingsgateway werkt](media/ansible-create-configure-application-gateway/applicationgateway.PNG)
+1. In de [netwerkresources maken](#create-network-resources) sectie maakt u het domein opgeven. Noteer de waarde.
+
+1. Voor de test-URL door het volgende patroon vervangen door de locatie en het domein: `http://<domain>.<location>.cloudapp.azure.com`.
+
+1. Blader naar de URL van de test.
+
+1. Als u de volgende pagina ziet, werkt de toepassingsgateway zoals verwacht.
+
+    ![Testen of een toepassingsgateway werkt](media/ansible-application-gateway-configure/application-gateway.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u deze resources niet nodig hebt, kunt u ze verwijderen door de volgende code uit te voeren. Hiermee verwijdert u een resourcegroep met de naam **myResourceGroup**.
+Wanneer het niet meer nodig hebt, verwijdert u de resources die in dit artikel is gemaakt. 
+
+Sla de volgende code als `cleanup.yml`:
 
 ```yml
 - hosts: localhost
@@ -281,13 +305,13 @@ Als u deze resources niet nodig hebt, kunt u ze verwijderen door de volgende cod
         state: absent
 ```
 
-Sla het dit playbook op als *rg_delete*.yml. Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
+Voer de playbook met behulp de `ansible-playbook` opdracht:
 
 ```bash
-ansible-playbook rg_delete.yml
+ansible-playbook cleanup.yml
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Ansible in Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible in Azure](/azure/ansible/)

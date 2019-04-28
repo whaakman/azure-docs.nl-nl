@@ -1,111 +1,121 @@
 ---
-title: Azure Kubernetes Service-clusters maken en configureren in Azure met behulp van Ansible
+title: Zelfstudie - Azure Kubernetes Service (AKS)-clusters configureren in Azure met behulp van Ansible | Microsoft Docs
 description: Leer hoe u Ansible gebruikt om een Azure Kubernetes Service-cluster in Azure te maken en beheren
-ms.service: azure
-keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, Kubernetes
+keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 08/23/2018
-ms.openlocfilehash: 2270a9225d26329f3d78d78895223aaa6ccc855f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: 64b8eb12c755f41cde28067b5c145c4e95066886
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176392"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766049"
 ---
-# <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Azure Kubernetes Service-clusters maken en configureren in Azure met behulp van Ansible
-U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. U kunt Ansible gebruiken voor het beheren van uw Azure Kubernetes Service (AKS). Dit artikel laat zien hoe u Ansible gebruikt om een Azure Kubernetes Service-cluster te maken en beheren.
+# <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Zelfstudie: Azure Kubernetes Service (AKS)-clusters in Azure met behulp van Ansible configureren
+
+[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
+
+[!INCLUDE [open-source-devops-intro-aks.md](../../includes/open-source-devops-intro-aks.md)]
+
+AKS kan worden geconfigureerd voor het gebruik van [Azure Active Directory (AD)](/azure/active-directory/) voor gebruikersverificatie. Nadat geconfigureerd, gebruikt u uw Azure AD-verificatietoken aan te melden bij het AKS-cluster. De RBAC kan worden gebaseerd op de identiteit van een gebruiker of groepslidmaatschap van een directory.
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Een AKS-cluster maken
+> * Een AKS-cluster configureren
 
 ## <a name="prerequisites"></a>Vereisten
-- **Azure-abonnement**: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
-- **Azure service-principal**: houd bij [het maken van de service-principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) rekening met de volgende waarden: **appId**, **displayName**, **wachtwoord**, en **tenant**.
 
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-
-> [!Note]
-> Ansible 2.6 is vereist voor het uitvoeren van de volgende playbooks-voorbeelden in deze zelfstudie.
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
+- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-managed-aks-cluster"></a>Een beheerd AKS-cluster maken
-De code in dit gedeelte is een Ansible-playbook-voorbeeld voor het maken van een resourcegroep en een AKS-cluster dat zich in de resourcegroep bevindt.
 
-> [!Tip]
-> Voor de tijdelijke aanduiding `your_ssh_key` voert u uw openbare RSA-sleutel in in de indeling met één regel, beginnend met 'ssh-rsa' (zonder aanhalingstekens).
+De playbook voorbeeld maakt u een resourcegroep en een AKS-cluster in de resourcegroep.
 
-  ```yaml
-  - name: Create Azure Kubernetes Service
-    hosts: localhost
-    connection: local
-    vars:
-      resource_group: myResourceGroup
-      location: eastus
-      aks_name: myAKSCluster
-      username: azureuser
-      ssh_key: "your_ssh_key"
-      client_id: "your_client_id"
-      client_secret: "your_client_secret"
-    tasks:
-    - name: Create resource group
-      azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
-        location: "{{ location }}"
-    - name: Create a managed Azure Container Services (AKS) cluster
-      azure_rm_aks:
-        name: "{{ aks_name }}"
-        location: "{{ location }}"
-        resource_group: "{{ resource_group }}"
-        dns_prefix: "{{ aks_name }}"
-        linux_profile:
-          admin_username: "{{ username }}"
-          ssh_key: "{{ ssh_key }}"
-        service_principal:
-          client_id: "{{ client_id }}"
-          client_secret: "{{ client_secret }}"
-        agent_pool_profiles:
-          - name: default
-            count: 2
-            vm_size: Standard_D2_v2
-        tags:
-          Environment: Production
-  ```
+Sla het volgende playbook op als `azure_create_aks.yml`:
 
-De onderstaande lijst met opsommingstekens helpt om bovenstaande code van het Ansible-playbook uit te leggen:
-- De eerste sectie binnen **taken** definieert een resourcegroep met de naam **myResourceGroup** binnen de locatie **eastus**.
-- De tweede sectie in **taken** definieert een AKS-cluster met de naam **myAKSCluster** binnen de resourcegroep **myResourceGroup**.
+```yml
+- name: Create Azure Kubernetes Service
+  hosts: localhost
+  connection: local
+  vars:
+    resource_group: myResourceGroup
+    location: eastus
+    aks_name: myAKSCluster
+    username: azureuser
+    ssh_key: "your_ssh_key"
+    client_id: "your_client_id"
+    client_secret: "your_client_secret"
+  tasks:
+  - name: Create resource group
+    azure_rm_resourcegroup:
+      name: "{{ resource_group }}"
+      location: "{{ location }}"
+  - name: Create a managed Azure Container Services (AKS) cluster
+    azure_rm_aks:
+      name: "{{ aks_name }}"
+      location: "{{ location }}"
+      resource_group: "{{ resource_group }}"
+      dns_prefix: "{{ aks_name }}"
+      linux_profile:
+        admin_username: "{{ username }}"
+        ssh_key: "{{ ssh_key }}"
+      service_principal:
+        client_id: "{{ client_id }}"
+        client_secret: "{{ client_secret }}"
+      agent_pool_profiles:
+        - name: default
+          count: 2
+          vm_size: Standard_D2_v2
+      tags:
+        Environment: Production
+```
 
-Voor het maken van het AKS-cluster met Ansible slaat u het voorgaande playbook-voorbeeld op als `azure_create_aks.yml`, en voert u het playbook uit met de volgende opdracht:
+Voordat u de playbook uitvoert, Zie de volgende opmerkingen:
 
-  ```bash
-  ansible-playbook azure_create_aks.yml
-  ```
+- De eerste sectie binnen `tasks` definieert een resourcegroep met de naam `myResourceGroup` binnen de `eastus` locatie.
+- De tweede sectie in `tasks` definieert een AKS-cluster met de naam `myAKSCluster` binnen de `myResourceGroup` resourcegroep.
+- Voor de tijdelijke aanduiding `your_ssh_key` voert u uw openbare RSA-sleutel in in de indeling met één regel, beginnend met 'ssh-rsa' (zonder aanhalingstekens).
 
-De uitvoer van de **ansible-playbook*-opdracht lijkt op het volgende, dat laat zien dat het AKS-cluster is aangemaakt:
+Voer de playbook met behulp de `ansible-playbook` opdracht:
 
-  ```Output
-  PLAY [Create AKS] ****************************************************************************************
+```bash
+ansible-playbook azure_create_aks.yml
+```
 
-  TASK [Gathering Facts] ********************************************************************************************
-  ok: [localhost]
+Uitvoeren van de playbook toont resultaten die lijkt op de volgende uitvoer:
 
-  TASK [Create resource group] **************************************************************************************
-  changed: [localhost]
+```Output
+PLAY [Create AKS] 
 
-  TASK [Create an Azure Container Services (AKS) cluster] ***************************************************
-  changed: [localhost]
+TASK [Gathering Facts] 
+ok: [localhost]
 
-  PLAY RECAP *********************************************************************************************************
-  localhost                  : ok=3    changed=2    unreachable=0    failed=0
-  ```
+TASK [Create resource group] 
+changed: [localhost]
+
+TASK [Create an Azure Container Services (AKS) cluster] 
+changed: [localhost]
+
+PLAY RECAP 
+localhost                  : ok=3    changed=2    unreachable=0    failed=0
+```
 
 ## <a name="scale-aks-nodes"></a>AKS-knooppunten schalen
 
-Het voorbeeld-playbook in de vorige sectie definieert twee knooppunten. U kunt het aantal knooppunten eenvoudig aanpassen als u meer of minder container-workloads in uw cluster nodig heeft. Het voorbeeld-playbook in deze sectie verhoogt het aantal knooppunten van twee knooppunten tot drie. Het wijzigen van het aantal knooppunten wordt uitgevoerd door het wijzigen van de waarde **aantal** in het blok **agent_pool_profiles**.
+Het voorbeeld-playbook in de vorige sectie definieert twee knooppunten. U het aantal knooppunten aanpassen door het wijzigen van de `count` waarde in de `agent_pool_profiles` blokkeren.
 
-> [!Tip]
-> Voor de tijdelijke aanduiding `your_ssh_key` voert u uw openbare RSA-sleutel in in de indeling met één regel, beginnend met 'ssh-rsa' (zonder aanhalingstekens).
+Sla het volgende playbook op als `azure_configure_aks.yml`:
 
-```yaml
+```yml
 - name: Scale AKS cluster
   hosts: localhost
   connection: local
@@ -136,64 +146,74 @@ Het voorbeeld-playbook in de vorige sectie definieert twee knooppunten. U kunt h
             vm_size: Standard_D2_v2
 ```
 
-Als u het Azure Kubernetes Service-cluster wilt schalen met Ansible, slaat u het voorgaande playbook op als *azure_configure_aks.yml* en voert u het playbook als volgt uit:
+Voordat u de playbook uitvoert, Zie de volgende opmerkingen:
 
-  ```bash
-  ansible-playbook azure_configure_aks.yml
-  ```
+- Voor de tijdelijke aanduiding `your_ssh_key` voert u uw openbare RSA-sleutel in in de indeling met één regel, beginnend met 'ssh-rsa' (zonder aanhalingstekens).
 
-In de volgende uitvoer ziet u dat het AKS-cluster is aangemaakt:
+Voer de playbook met behulp de `ansible-playbook` opdracht:
 
-  ```Output
-  PLAY [Scale AKS cluster] ***************************************************************
+```bash
+ansible-playbook azure_configure_aks.yml
+```
 
-  TASK [Gathering Facts] ******************************************************************
-  ok: [localhost]
+Uitvoeren van de playbook toont resultaten die lijkt op de volgende uitvoer:
 
-  TASK [Scaling an existed AKS cluster] **************************************************
-  changed: [localhost]
+```Output
+PLAY [Scale AKS cluster] 
 
-  PLAY RECAP ******************************************************************************
-  localhost                  : ok=2    changed=1    unreachable=0    failed=0
-  ```
-## <a name="delete-a-managed-aks-cluster"></a>Wis een beheerd AKS-cluster
-
-In het volgende gedeelte van een Ansible-playbook-voorbeeld ziet u hoe u een AKS-cluster verwijdert:
-
-  ```yaml
-  - name: Delete a managed Azure Container Services (AKS) cluster
-    hosts: localhost
-    connection: local
-    vars:
-      resource_group: myResourceGroup
-      aks_name: myAKSCluster
-    tasks:
-    - name:
-      azure_rm_aks:
-        name: "{{ aks_name }}"
-        resource_group: "{{ resource_group }}"
-        state: absent
-   ```
-
-Als u het Azure Kubernetes Service-cluster met Ansible wilt verwijderen, slaat u het voorgaande playbook op als *azure_delete_aks.yml* en voert u het playbook als volgt uit:
-
-  ```bash
-  ansible-playbook azure_delete_aks.yml
-  ```
-
-In de volgende uitvoer ziet u dat het AKS-cluster is verwijderd:
-  ```Output
-PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
-
-TASK [Gathering Facts] ********************************************************************
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [azure_rm_aks] *********************************************************************
+TASK [Scaling an existed AKS cluster] 
+changed: [localhost]
 
-PLAY RECAP *********************************************************************
+PLAY RECAP 
 localhost                  : ok=2    changed=1    unreachable=0    failed=0
+```
+
+## <a name="delete-a-managed-aks-cluster"></a>Wis een beheerd AKS-cluster
+
+De voorbeeld-playbook Hiermee verwijdert u een AKS-cluster.
+
+Sla het volgende playbook op als `azure_delete_aks.yml`:
+
+
+```yml
+- name: Delete a managed Azure Container Services (AKS) cluster
+  hosts: localhost
+  connection: local
+  vars:
+    resource_group: myResourceGroup
+    aks_name: myAKSCluster
+  tasks:
+  - name:
+    azure_rm_aks:
+      name: "{{ aks_name }}"
+      resource_group: "{{ resource_group }}"
+      state: absent
   ```
 
+Voer de playbook met behulp de `ansible-playbook` opdracht:
+
+```bash
+ansible-playbook azure_delete_aks.yml
+```
+
+Uitvoeren van de playbook toont resultaten die lijkt op de volgende uitvoer:
+
+```Output
+PLAY [Delete a managed Azure Container Services (AKS) cluster] 
+
+TASK [Gathering Facts] 
+ok: [localhost]
+
+TASK [azure_rm_aks] 
+
+PLAY RECAP 
+localhost                  : ok=2    changed=1    unreachable=0    failed=0
+```
+
 ## <a name="next-steps"></a>Volgende stappen
+
 > [!div class="nextstepaction"]
-> [Zelfstudie: een toepassing schalen in AKS (Azure Kubernetes Service)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)
+> [Zelfstudie: een toepassing schalen in AKS (Azure Kubernetes Service)](/azure/aks/tutorial-kubernetes-scale)

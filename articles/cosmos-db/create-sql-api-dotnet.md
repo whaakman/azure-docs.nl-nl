@@ -9,11 +9,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/05/2019
 ms.openlocfilehash: 7ecb2269243ae96b629a20a26956e6220a2e616c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280839"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120262"
 ---
 # <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>Quickstart: Een .NET-web-app met behulp van de SQL API-account in Azure Cosmos DB maken
 
@@ -60,7 +60,7 @@ U kunt Data Explorer in Azure portal om te maken van een database en verzameling
     
 1.  Geef op de pagina **Verzameling toevoegen** de instellingen voor de nieuwe verzameling op.
     
-    |Instelling|Voorgestelde waarde|Beschrijving
+    |Instelling|Voorgestelde waarde|Description
     |---|---|---|
     |**Database-id**|Takenlijst|Voer *ToDoList* als de naam voor de nieuwe database. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen `/, \\, #, ?` bevatten en mogen niet eindigen met een spatie.|
     |**Verzamelings-id**|Items|Voer *Items* in als de naam voor de nieuwe verzameling. Verzameling-ID's hebben dezelfde tekenvereisten als voor databasenamen.|

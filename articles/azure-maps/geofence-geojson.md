@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6f76eea365311cd6c10dd39054187bf3a07bd595
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.openlocfilehash: d4b6c8289ae7c22521fc433c928f2b25a56c87ef
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568988"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130208"
 ---
 # <a name="geofencing-geojson-data"></a>Met Geofencing GeoJSON-gegevens
 
-De Azure-kaarten [ophalen Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofencepreview) en [POST Geofence](https://docs.microsoft.com/rest/api/maps/spatial/postgeofencepreview) API kunt u de nabijheid van een coördinaat ten opzichte van een opgegeven geofence of set fences ophalen. In dit artikel wordt uitgelegd hoe het voorbereiden van de gegevens van de geofence die kunnen worden gebruikt in de Azure Maps ophalen en de POST-API.
+De Azure-kaarten [ophalen Geofence](/rest/api/maps/spatial/getgeofence) en [POST Geofence](/rest/api/maps/spatial/postgeofence) API kunt u de nabijheid van een coördinaat ten opzichte van een opgegeven geofence of set fences ophalen. In dit artikel wordt uitgelegd hoe het voorbereiden van de gegevens van de geofence die kunnen worden gebruikt in de Azure Maps ophalen en de POST-API.
 
 De gegevens voor de geofence bevindt of een set van geofences wordt vertegenwoordigd door `Feature` Object en `FeatureCollection` van het Object in `GeoJSON` -indeling, die is gedefinieerd in [rfc7946](https://tools.ietf.org/html/rfc7946). Naast het volgende:
 

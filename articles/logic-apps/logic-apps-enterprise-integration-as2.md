@@ -1,6 +1,6 @@
 ---
-title: AS2-berichten voor B2B-bedrijfsintegratie - Azure Logic Apps | Microsoft Docs
-description: AS2-berichten uitwisselen voor B2B-bedrijfsintegratie in Azure Logic Apps met Enterprise Integration Pack
+title: AS2-berichten voor B2B-bedrijfsintegratie - Azure Logic Apps
+description: AS2-berichten uitwisselen in Azure Logic Apps met Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,170 +8,122 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
-ms.date: 06/08/2017
-ms.openlocfilehash: 3413b235d9202530eb1a3129637e3746bbe6585b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: b494f6524e5105a95bc8a24a6fa2521abcca3f7b
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872556"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760270"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>AS2-berichten uitwisselen voor B2B-bedrijfsintegratie in Azure Logic Apps met Enterprise Integration Pack
 
-Voordat u AS2-berichten voor Azure Logic Apps uitwisselen kan, moet u een AS2-overeenkomst maken en opslaan van deze overeenkomst in uw integratie-account. Hier volgen de stappen voor het maken van een AS2-overeenkomst.
+Als u wilt werken met AS2-berichten in Azure Logic Apps, kunt u de AS2-connector, waarmee u triggers en acties voor het beheren van de AS2-communicatie. Bijvoorbeeld, voor het maken van beveiliging en betrouwbaarheid bij het verzenden van berichten, kunt u deze acties:
 
-## <a name="before-you-start"></a>Voordat u begint
+* [**AS2-bericht coderen** actie](#encode) voor het bieden van versleuteling, digitaal te ondertekenen en bevestigingen via bericht toestand meldingen (MDN), die ter ondersteuning van niet-afwijzing. Bijvoorbeeld, met deze actie is van toepassing AS2/HTTP-headers en voert deze taken uit wanneer geconfigureerd:
 
-Hier volgt de items die u nodig hebt:
+  * Symptomen uitgaande berichten.
+  * Uitgaande berichten versleutelt.
+  * Comprimeren van het bericht.
+  * De bestandsnaam in de MIME-header verzendt.
 
-* Een [integratieaccount](../logic-apps/logic-apps-enterprise-integration-accounts.md) die al is gedefinieerd en die zijn gekoppeld aan uw Azure-abonnement
-* Ten minste twee [partners](logic-apps-enterprise-integration-partners.md) die al zijn gedefinieerd in uw integratie-account en geconfigureerd met de kwalificatie van de AS2 onder **Bedrijfsidentiteiten**
+* [**AS2-bericht decoderen** actie](#decode) voor ontsleuteling, digitale ondertekening en bevestigingen via bericht toestand meldingen (MDN) te leveren. Bijvoorbeeld: met deze actie voert deze taken uit: 
 
-> [!NOTE]
-> Wanneer u een overeenkomst maakt, moet het overeenkomsttype overeenkomen met de inhoud in de overeenkomst-bestand.    
+  * AS2/HTTP-headers worden verwerkt.
+  * Ontvangen MDN's met de oorspronkelijke uitgaande berichten voor overeenstemming zorgt.
+  * Updates en records in de database niet-afwijzing verbindt.
+  * Schrijft voor AS2-statusrapportage.
+  * Uitvoer nettolading inhoud als base64-gecodeerd.
+  * Bepaalt of MDN's vereist zijn. Op basis van de AS2 bepaalt-overeenkomst, of MDN's synchrone of asynchrone moeten zijn.
+  * Genereert synchrone of asynchrone MDN's op basis van de AS2-overeenkomst.
+  * Hiermee stelt u de eigenschappen en correlatietokens op MDN's.
 
-Nadat u [maken van een integratieaccount](../logic-apps/logic-apps-enterprise-integration-accounts.md) en [partners toevoegen](logic-apps-enterprise-integration-partners.md), kunt u een AS2-overeenkomst maken door deze stappen te volgen.
+  Deze actie wordt ook uitgevoerd voor deze taken wanneer dit wordt geconfigureerd:
 
-## <a name="create-an-as2-agreement"></a>Maken van een AS2-overeenkomst
+  * Controleert of de handtekening.
+  * Hiermee ontsleutelt u de berichten.
+  * Decomprimeert het bericht. 
+  * Controleer en bericht-ID duplicaten weigeren.
 
-1.  Meld u aan bij [Azure Portal](https://portal.azure.com "Azure Portal").  
+In dit artikel wordt uitgelegd hoe om toe te voegen de AS2-codering en decodering acties aan een bestaande logische app.
 
-2. Selecteer in het hoofdmenu van Azure **alle services**. Voer 'integration' in het zoekvak en selecteer vervolgens **integratieaccounts**.
+## <a name="prerequisites"></a>Vereisten
 
-   ![Uw integratie-account zoeken](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+* Een Azure-abonnement. Als u een Azure-abonnement nog geen [zich aanmelden voor een gratis Azure-account](https://azure.microsoft.com/free/).
 
-   > [!TIP]
-   > Als er geen **alle services**, mogelijk hebt u eerst het menu uitvouwen. Selecteer aan de bovenkant van het menu samengevouwen **tekstlabels weergeven**.
+* De logische app van waar u het gebruik van de AS2-connector en een trigger die de werkstroom van uw logische app wordt gestart. De AS2-connector biedt alleen acties, geen triggers. Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Quick Start: Maak uw eerste logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-3. Onder **Integratieaccounts**, selecteert u de integratieaccount waar u wilt maken van de overeenkomst.
+* Een [integratieaccount](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) die is gekoppeld aan uw Azure-abonnement en gekoppeld aan de logische app waar u van plan bent om de AS2-connector te gebruiken. Beide uw logische app en integratie-account moet zich in dezelfde locatie of Azure-regio.
 
-   ![Selecteer het integratieaccount waar moet worden gemaakt van de overeenkomst](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+* Ten minste twee [handelspartners](../logic-apps/logic-apps-enterprise-integration-partners.md) dat u al hebt gedefinieerd in uw integratie-account met behulp van de kwalificatie van de AS2-identiteit.
 
-4. Kies de **overeenkomsten** tegel. Als u geen een tegel overeenkomsten, eerst de tegel toevoegen.
+* Voordat u de AS2-connector gebruiken kunt, moet u een AS2 [overeenkomst](../logic-apps/logic-apps-enterprise-integration-agreements.md) tussen uw handelspartners en store die overeenkomst in het integratieaccount.
 
-    ![Kies 'Overeenkomsten' tegel](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+* Als u [Azure Key Vault](../key-vault/key-vault-overview.md) voor certificaatbeheer, controleert u dat de sleutels van uw kluis toestaan de **versleutelen** en **ontsleutelen** bewerkingen. Anders mislukt de codering en decodering van acties.
 
-5. Onder **overeenkomsten**, kiest u **toevoegen**.
+  In de Azure-portal, gaat u naar uw key vault, bekijken van de kluissleutel van uw **operations toegestaan**, en zorg ervoor dat de **versleutelen** en **ontsleutelen** bewerkingen zijn geselecteerd.
 
-    ![Kies 'Toevoegen'](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
+  ![Key vault-bewerkingen controleren](media/logic-apps-enterprise-integration-as2/vault-key-permitted-operations.png)
 
-6. Onder **toevoegen**, voer een **naam** voor uw overeenkomst. Voor **overeenkomsttype**, selecteer **AS2**. Selecteer de **Hostpartner**, **Hostidentiteit**, **Gastpartner**, en **Gastidentiteit** voor uw overeenkomst.
+<a name="encode"></a>
 
-    ![Geef overeenkomstdetails](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
+## <a name="encode-as2-messages"></a>AS2-berichten coderen
 
-    | Eigenschap | Description |
-    | --- | --- |
-    | Name |Naam van de overeenkomst |
-    | Overeenkomsttype | Moet AS2 |
-    | Hostpartner |Een overeenkomst moet een host en de Gast-partner. De hostpartner vertegenwoordigt de organisatie die Hiermee configureert u de overeenkomst. |
-    | Hostidentiteit |Een id voor de hostpartner |
-    | Gastpartner |Een overeenkomst moet een host en de Gast-partner. De gastpartner vertegenwoordigt de organisatie die wordt zakendoen met de hostpartner. |
-    | Gastidentiteit |Een id voor de gastpartner |
-    | Ontvangstinstellingen |Deze eigenschappen zijn van toepassing op alle berichten ontvangen door een overeenkomst. |
-    | Verzendinstellingen |Deze eigenschappen zijn van toepassing op alle berichten die door een overeenkomst worden verzonden. |
+1. Als u dat nog niet gedaan hebt, in de [Azure-portal](https://portal.azure.com), opent u uw logische app in Logic App Designer.
 
-## <a name="configure-how-your-agreement-handles-received-messages"></a>Configureren hoe uw overeenkomst verwerkt berichten ontvangen
+1. In de ontwerpfunctie voor de nieuwe actie toevoegen aan uw logische app. 
 
-Nu u de eigenschappen van de overeenkomst hebt ingesteld, kunt u configureren hoe deze overeenkomst identificeert en binnenkomende berichten ontvangen van uw partner via deze overeenkomst worden verwerkt.
+1. Onder **een actie kiezen** en wordt de zoekopdracht Kies **alle**. Voer 'coderen as2' in het zoekvak en selecteer deze actie: **AS2-bericht coderen**.
 
-1.  Onder **toevoegen**, selecteer **instellingen ontvangen**.
-Configureer deze eigenschappen op basis van uw overeenkomst met de partner die berichten met u worden uitgewisseld. Zie voor eigenschapbeschrijvingen, de tabel in deze sectie.
+   ![Selecteer "Coderen voor AS2-bericht"](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
 
-    !['Ontvangen instellingen' configureren](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
+1. Als u geen een bestaande verbinding naar uw integratie-account, wordt u gevraagd om nu deze verbinding te maken. Naam van de verbinding, selecteer de integratieaccount dat u wilt verbinden en kies **maken**.
 
-2. U kunt eventueel de eigenschappen van binnenkomende berichten overschrijven door te selecteren **berichteigenschappen negeren**.
+   ![Maak verbinding met de integratie-account](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
+ 
+1. Nu bevatten informatie voor deze eigenschappen:
 
-3. Selecteer om te vereisen dat alle inkomende berichten moeten worden ondertekend, **bericht moet ondertekend zijn**. Uit de **certificaat** , selecteert u een bestaande [Gast partner openbaar certificaat](../logic-apps/logic-apps-enterprise-integration-certificates.md) voor het valideren van de handtekening van de berichten. Of maak het certificaat, als u dit niet hebt.
+   | Eigenschap | Description |
+   |----------|-------------|
+   | **AS2-From** | De id van de afzender van het bericht zoals opgegeven door de AS2-overeenkomst |
+   | **AS2-To** | De id voor het ontvangen bericht zoals opgegeven door de AS2-overeenkomst |
+   | **body** | De berichtnettolading van het |
+   |||
 
-4.  Selecteer om te vereisen dat alle inkomende berichten moeten worden versleuteld, **bericht moet worden versleuteld**. Uit de **certificaat** , selecteert u een bestaande [host partner persoonlijk certificaat](../logic-apps/logic-apps-enterprise-integration-certificates.md) voor het ontsleutelen van binnenkomende berichten. Of maak het certificaat, als u dit niet hebt.
+   Bijvoorbeeld:
 
-5. Selecteer om te vereisen dat berichten moeten worden gecomprimeerd, **bericht moet worden gecomprimeerd**.
+   ![Eigenschappen van berichten coderen](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 
-6. Selecteer voor het verzenden van een synchrone toestand melding (MDN) voor de ontvangen berichten, **MDN verzenden**.
+<a name="decode"></a>
 
-7. Selecteer voor het verzenden van ondertekende MDN's voor de ontvangen berichten, **ondertekende MDN verzenden**.
+## <a name="decode-as2-messages"></a>AS2-berichten decoderen
 
-8. Selecteer voor het verzenden van asynchrone MDN's voor de ontvangen berichten, **verzenden van asynchrone MDN**.
+1. Als u dat nog niet gedaan hebt, in de [Azure-portal](https://portal.azure.com), opent u uw logische app in Logic App Designer.
 
-9. Als u klaar bent, zorg ervoor dat u uw instellingen opslaan door te kiezen **OK**.
+1. In de ontwerpfunctie voor de nieuwe actie toevoegen aan uw logische app. 
 
-De overeenkomst is nu gereed voor het afhandelen van berichten die aan de geselecteerde instellingen voldoen.
+1. Onder **een actie kiezen** en wordt de zoekopdracht Kies **alle**. Voer 'as2-decodering' in het zoekvak en selecteer deze actie: **AS2-bericht decoderen**
 
-| Eigenschap | Description |
-| --- | --- |
-| Berichteigenschappen negeren |Geeft aan dat de eigenschappen van de ontvangen berichten kunnen worden genegeerd. |
-| Het bericht moet ondertekend zijn |Vereist dat berichten naar digitaal worden ondertekend. Configureer het openbare certificaat van Gast partner voor controle van de handtekening.  |
-| Het bericht moet worden versleuteld |Vereist berichten moeten worden versleuteld. Niet-versleutelde berichten worden geweigerd. Configureer het host-partner persoonlijke certificaat voor het ontsleutelen van de berichten.  |
-| Het bericht moet worden gecomprimeerd |Vereist berichten moeten worden gecomprimeerd. Niet-gecomprimeerde berichten worden geweigerd. |
-| MDN-tekst |De standaard toestand melding (MDN) moet worden verzonden naar de afzender van het bericht. |
-| MDN verzenden |Vereist MDN's worden verzonden. |
-| Ondertekende MDN verzenden |Vereist MDN's moeten worden ondertekend. |
-| MIC-algoritme |Selecteer het algoritme moet worden gebruikt voor het ondertekenen van berichten. |
-| Asynchrone MDN verzenden | Vereist berichten asynchroon worden verzonden. |
-| URL | Geef de URL op waar voor het verzenden van de MDN's. |
+   ![Selecteer "Decoderen AS2-bericht"](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 
-## <a name="configure-how-your-agreement-sends-messages"></a>Configureren hoe berichten worden verzonden door uw overeenkomst
+1. Als u geen een bestaande verbinding naar uw integratie-account, wordt u gevraagd om nu deze verbinding te maken. Naam van de verbinding, selecteer de integratieaccount dat u wilt verbinden en kies **maken**.
 
-U kunt configureren hoe deze overeenkomst identificeert en uitgaande berichten die u naar uw partners via deze overeenkomst verzendt worden verwerkt.
+   ![Maak verbinding met de integratie-account](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
 
-1.  Onder **toevoegen**, selecteer **instellingen voor verzenden**.
-Configureer deze eigenschappen op basis van uw overeenkomst met de partner die berichten met u worden uitgewisseld. Zie voor eigenschapbeschrijvingen, de tabel in deze sectie.
+1. Voor **hoofdtekst** en **Headers**, selecteert u deze waarden uit de vorige trigger of actie-uitvoer.
 
-    ![Stel de eigenschappen 'Instellingen verzenden'](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
+   Stel bijvoorbeeld dat uw logische app ontvangt berichten via een trigger voor de aanvraag. U kunt de uitvoer van deze trigger selecteren.
 
-2. Ondertekende om berichten te verzenden naar uw partner, selecteer **Berichtondertekening inschakelen**. Voor het ondertekenen van de berichten in de **MIC-algoritme** in de lijst met de *host partner persoonlijk certificaat MIC-algoritme*. En in de **certificaat** , selecteert u een bestaande [host partner persoonlijk certificaat](../logic-apps/logic-apps-enterprise-integration-certificates.md).
+   ![Selecteer hoofdtekst en koppen uit de uitvoer van de aanvraag](media/logic-apps-enterprise-integration-as2/as2-message-decoding-details.png) 
 
-3. Selecteer voor het verzenden van versleutelde berichten naar de partner, **berichtversleuteling inschakelen**. Voor het versleutelen van de berichten de **versleutelingsalgoritme** in de lijst met de *Gast partner openbaar certificaat algoritme*.
-En in de **certificaat** , selecteert u een bestaande [Gast partner openbaar certificaat](../logic-apps/logic-apps-enterprise-integration-certificates.md).
+## <a name="sample"></a>Voorbeeld
 
-4. Selecteer voor het comprimeren van het bericht, **berichtcompressie inschakelen**.
+Als u wilt proberen om de implementatie van een volledig operationeel logische app en voorbeeld AS2-scenario, Zie de [AS2 scenario en de sjabloon voor logische app](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
 
-5. Als u wilt de HTTP-header content-type uitvouwen tot één regel, selecteer **uitvouwen HTTP-headers**.
+## <a name="connector-reference"></a>Connector-verwijzing
 
-6. Selecteer voor het ontvangen van synchrone MDN's voor de verzonden berichten **MDN aanvragen**.
-
-7. Selecteer voor het ontvangen van ondertekende MDN's voor de verzonden berichten **ondertekende MDN aanvragen**.
-
-8. Selecteer voor het ontvangen van asynchrone MDN's voor de verzonden berichten **asynchrone MDN aanvragen**. Als u deze optie selecteert, voert u de URL voor het verzenden van de MDN's.
-
-9. Selecteer om te vereisen dat niet-afwijzing van ontvangst, **NRR inschakelen**.  
-
-10. Als u de algoritme indeling moet worden gebruikt in de MIC of in de uitgaande headers van de AS2-bericht of MDN-ondertekening, schakelt u **SHA2-algoritme indeling**.  
-
-11. Als u klaar bent, zorg ervoor dat u uw instellingen opslaan door te kiezen **OK**.
-
-De overeenkomst is nu gereed om af te handelen uitgaande berichten die aan de geselecteerde instellingen voldoen.
-
-| Eigenschap | Description |
-| --- | --- |
-| Berichtondertekening inschakelen |Vereist dat alle berichten die zijn verzonden vanaf de overeenkomst moet worden ondertekend. |
-| MIC-algoritme |Het algoritme moet worden gebruikt voor het ondertekenen van berichten. Hiermee configureert u de host partner persoonlijk certificaat MIC-algoritme voor het ondertekenen van berichten. |
-| Certificaat |Selecteer het certificaat moet worden gebruikt voor het ondertekenen van berichten. Hiermee configureert u de host partner persoonlijk certificaat voor ondertekening van de berichten. |
-| Berichtversleuteling inschakelen |Versleuteling van alle berichten die worden verzonden van deze overeenkomst vereist. Hiermee configureert u het algoritme Gast partner openbaar certificaat voor het versleutelen van berichten. |
-| Versleutelingsalgoritme |Het versleutelingsalgoritme te gebruiken voor codering. Hiermee configureert u het openbare certificaat van Gast-partner voor het versleutelen van berichten. |
-| Certificaat |Het certificaat te gebruiken om berichten te versleutelen. Hiermee configureert u de partner Gast persoonlijk certificaat voor het versleutelen van berichten. |
-| Berichtcompressie inschakelen |Compressie van alle berichten die zijn verzonden vanaf deze overeenkomst vereist. |
-| HTTP-headers uitvouwen |Hiermee plaatst u de inhoud van het type HTTP-header op één regel. |
-| MDN aanvragen |Vereist een MDN voor alle berichten die van deze overeenkomst worden verzonden. |
-| Ondertekende MDN aanvragen |Vereist dat alle MDN's die worden verzonden naar deze overeenkomst moet worden ondertekend. |
-| Asynchrone MDN aanvragen |Asynchrone MDN's worden verzonden naar deze overeenkomst vereist. |
-| URL |Geef de URL op waar voor het verzenden van de MDN's. |
-| NRR inschakelen |Vereist niet-afwijzing van ontvangst (NRR), een communicatiekenmerk die aantoont dat de gegevens als opgelost is ontvangen. |
-| Indeling van het SHA2-algoritme |Selecteer de indeling algoritme moet worden gebruikt in de MIC of in de uitgaande headers van de AS2-bericht of MDN-ondertekening |
-
-## <a name="find-your-created-agreement"></a>Uw overeenkomst gevonden
-
-1. Nadat u klaar bent met het instellen van alle uw overeenkomst-eigenschappen op de **toevoegen** pagina, kies **OK** te maken van uw overeenkomst voltooien en keer terug naar uw integratie-account.
-
-    Nu uw zojuist toegevoegde overeenkomst wordt weergegeven in uw **overeenkomsten** lijst.
-
-2. U kunt ook uw overeenkomsten weergeven in een overzicht van uw integratie-account. Kies uw integratie-account in het menu van **overzicht**en selecteer vervolgens de **overeenkomsten** tegel. 
-
-   ![Kies 'Overeenkomsten' tegel als u wilt weergeven van alle overeenkomsten](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
-
-## <a name="view-the-swagger"></a>De swagger weergeven
-Zie de [details swagger](/connectors/as2/). 
+Voor technische informatie, zoals triggers en acties limieten, zoals is beschreven in van de connector OpenAPI (voorheen Swagger)-bestand, raadpleegt u de [van de connector-verwijzingspagina](/connectors/as2/).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Meer informatie over het Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "meer informatie over Enterprise Integration Pack")  
+
+Meer informatie over de [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)

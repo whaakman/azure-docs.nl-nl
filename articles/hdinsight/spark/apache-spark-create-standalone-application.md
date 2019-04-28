@@ -1,7 +1,6 @@
 ---
 title: 'Zelfstudie: Een Scala Maven-toepassing maken voor Apache Spark in Azure HDInsight met behulp van IntelliJ'
 description: U gaat een Spark-toepassing maken die is geschreven in Scala met Apache Maven als het buildsysteem en een bestaand Maven-archetype voor Scala geleverd door IntelliJ IDEA.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 01/30/2019
-ms.openlocfilehash: a969c026d702c423bee4871651c8b4fa26b3d37a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2d431659e46465bf16f6e597f3a49f7008432bb5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700941"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124472"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Zelfstudie: Een Scala Maven-toepassing maken voor Apache Spark in HDInsight met behulp van IntelliJ
 
@@ -39,7 +38,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 * Een Apache Spark-cluster in HDInsight. Zie [Apache Spark-clusters maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md) voor instructies.
 * [Oracle Java Development Kit](https://www.azul.com/downloads/azure-only/zulu/).  In deze zelfstudie wordt gebruikgemaakt van Java-versie 8.0.202.
-* Een Java-IDE. In dit artikel wordt [IntelliJ IDEA Community versie 2018.3.4](https://www.jetbrains.com/idea/download/) gebruikt.  
+* Een Java-IDE. In dit artikel wordt gebruikgemaakt van [IntelliJ IDEA Community-versie  2018.3.4](https://www.jetbrains.com/idea/download/).
 * Azure-toolkit voor IntelliJ.  Zie [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable) (De Azure Toolkit voor IntelliJ installeren).
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Scala-invoegtoepassing voor IntelliJ IDEA installeren
@@ -76,7 +75,7 @@ Voer de volgende stappen uit om de Scala-invoegtoepassing te installeren:
 
 6. Geef in het venster **New project** de volgende gegevens op:  
 
-  	|  Eigenschap   | Beschrijving   |  
+  	|  Eigenschap   | Description   |  
   	| ----- | ----- |  
   	|Projectnaam| Voer een naam in.|  
   	|Project&nbsp;location| Voer de gewenste locatie in om uw project in op te slaan.|

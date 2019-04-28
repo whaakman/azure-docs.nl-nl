@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 1a9d26736a444efb83f9040b51676202b1ea4450
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 84e3aff9c1c8cb3e7fe399c861c2c7d58c278fed
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006111"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107870"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Upgrade van uw big data analytics-oplossingen van Azure Data Lake Storage Gen1 naar Azure Data Lake Storage Gen2
 
@@ -131,7 +131,7 @@ Wanneer u Data Lake Storage Gen1 gebruikt, kunt u diverse Microsoft-services en 
 | Verbruik          | [Power BI Desktop](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-power-bi)                                                                           | *Nog niet beschikbaar*                                                                                                                                                          | *Nog niet beschikbaar*                                                                                                                             |
 |                      | [Excel](https://techcommunity.microsoft.com/t5/Excel-Blog/Announcing-the-Azure-Data-Lake-Store-Connector-in-Excel/ba-p/91677)                                                 | *Nog niet beschikbaar*                                                                                                                                                          | *Nog niet beschikbaar*                                                                                                                             |
 |                      | [Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/2017/09/05/using-azure-analysis-services-on-top-of-azure-data-lake-storage/)                            | *Nog niet beschikbaar*                                                                                                                                                          | *Nog niet beschikbaar*                                                                                                                             |
-| Productiviteit         | [Azure-portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)                                                                      | *Niet ondersteund*                                                                                                                                                              | Accountbeheer *– nu beschikbaar* <br><br>Gegevensbewerkingen *–**nog niet beschikbaar*                                                                   |
+| Productiviteit         | [Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)                                                                      | *Niet ondersteund*                                                                                                                                                              | Accountbeheer *– nu beschikbaar* <br><br>Gegevensbewerkingen *–**nog niet beschikbaar*                                                                   |
 |                      | [Data Lake Tools voor Visual Studio](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-install)                                   | *Nog niet beschikbaar*                                                                                                                                                          | *Nog niet beschikbaar*                                                                                                                             |
 |                      | [Azure-opslagverkenner](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-in-storage-explorer)                                                          | *Nu beschikbaar*                                                                                                                                                              | *Nu beschikbaar*                                                                                                                                 |
 |                      | [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=usqlextpublisher.usql-vscode-ext)                                                                     | *Nog niet beschikbaar*                                                                                                                                                          | *Nog niet beschikbaar*                                                                                                                             |
@@ -249,7 +249,7 @@ Hier de belangrijkste taak is voor de omzetting van URI's die zijn voorzien van 
 
 Het URI-schema voor Data Lake Storage Gen1 wordt vermeld [hier](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store) in detail, maar breed spreken, is het *adl://mydatalakestore.azuredatalakestore.net/\<bestandspad\>.*
 
-Het URI-schema voor toegang tot bestanden in Data Lake Storage Gen2 wordt uitgelegd [hier](https://docs.microsoft.com/azure/storage/data-lake-storage/use-hdi-cluster) in detail, maar breed spreken, is het `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
+Het URI-schema voor toegang tot bestanden in Data Lake Storage Gen2 wordt uitgelegd [hier](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) in detail, maar breed spreken, is het `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
 
 U moet doorlopen van uw bestaande toepassingen en zorg ervoor dat u hebt gewijzigd de URI's op de juiste manier om te verwijzen naar Data Lake Storage Gen2 opvallend. U moet ook de juiste referenties toevoegen. Ten slotte moeten hoe u de oorspronkelijke toepassingen buiten gebruik stellen en vervangen door de nieuwe toepassing nauw worden afgestemd op uw strategie voor algehele upgrade.
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: cd2ad16f910f5d2b3b801c8d54e9df7660751462
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103945"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121653"
 ---
 # <a name="azure-sql-database-security-features"></a>Azure SQL Database-beveiligingsfuncties    
 Azure SQL Database voorziet in een relationele database-service in Azure. Voor het beveiligen van klantgegevens en bieden krachtige beveiliging-functies die klanten van een relationele database-service verwachten, beschikt SQL Database over een eigen sets met mogelijkheden voor beveiliging. Deze mogelijkheden zijn gebaseerd op de besturingselementen die worden overgenomen van Azure.

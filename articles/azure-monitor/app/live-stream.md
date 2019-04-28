@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009962"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115324"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Bewaking en Diagnose met een latentie van 1 seconde
 
@@ -50,10 +50,13 @@ Live metrische gegevens worden momenteel ondersteund voor ASP.NET, ASP.NET Core,
 
 4. [Beveiligen van het besturingskanaal](#secure-the-control-channel) als u gevoelige gegevens, zoals namen van klanten in de filters gebruiken.
 
+### <a name="nodejs"></a>Node.js
+
+Voor het gebruik van Live metrische gegevens met behulp van Node.js moet u bijwerken naar versie 1,30 of hoger van de SDK. Live Metrics is standaard uitgeschakeld in de Node.js-SDK. Om in te schakelen Live metrische gegevens toevoegen `setSendLiveMetrics(true)` aan uw [configuratiemethoden](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) als u de SDK worden geïnitialiseerd.
+
 ### <a name="no-data-check-your-server-firewall"></a>Zijn er geen gegevens? Controleer de firewall van uw server
 
 Controleer de [uitgaande poorten voor Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) zijn geopend in de firewall van uw servers. 
-
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Hoe verschilt Live Metrics Stream van Metrics Explorer en Analytics?
 
@@ -65,7 +68,6 @@ Controleer de [uitgaande poorten voor Live Metrics Stream](../../azure-monitor/a
 |Gratis|Er zijn geen kosten voor Live Stream-gegevens|Onderhevig aan [prijzen](../../azure-monitor/app/pricing.md)
 |Steekproeven|Alle geselecteerde metrische gegevens en prestatiemeteritems worden verzonden. Fouten en stack-traces steekproeven worden genomen. TelemetryProcessors worden niet toegepast.|Mogelijk zijn gebeurtenissen [steekproef](../../azure-monitor/app/api-filtering-sampling.md)|
 |Besturingskanaal|Filter beheer locatiesignalen worden verzonden naar de SDK. Het is raadzaam dat dit kanaal kunt u beveiligen.|Communicatie kan niet worden teruggedraaid naar de portal|
-
 
 ## <a name="select-and-filter-your-metrics"></a>Selecteren en filteren van uw metrische gegevens
 

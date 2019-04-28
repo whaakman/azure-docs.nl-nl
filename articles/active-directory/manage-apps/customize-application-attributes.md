@@ -15,15 +15,15 @@ ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291636"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759771"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kenmerktoewijzingen voor Gebruikersinrichting voor SaaS-toepassingen in Azure Active Directory aanpassen
-Microsoft Azure AD biedt ondersteuning voor het inrichten van gebruikers voor SaaS-toepassingen van derden zoals Salesforce, Google Apps en anderen. Als u het inrichten van gebruikers voor een SaaS-toepassing van derden hebt ingeschakeld, bepaalt de Azure-portal de kenmerkwaarden via kenmerktoewijzingen.
+Microsoft Azure AD biedt ondersteuning voor het inrichten van gebruikers voor SaaS-toepassingen van derden zoals Salesforce, G Suite en anderen. Als u het inrichten van gebruikers voor een SaaS-toepassing van derden hebt ingeschakeld, bepaalt de Azure-portal de kenmerkwaarden via kenmerktoewijzingen.
 
 Er is een vooraf geconfigureerde set kenmerken en kenmerktoewijzingen tussen Azure AD-gebruikersobjecten en gebruikersobjecten elke SaaS-app. Sommige apps beheren andere soorten objecten, samen met gebruikers, zoals groepen.
 
@@ -84,7 +84,7 @@ Samen met deze eigenschap ondersteuning kenmerktoewijzingen ook voor de volgende
 
 ## <a name="editing-group-attribute-mappings"></a>Kenmerktoewijzingen groep bewerken
 
-Aantal toepassingen, zoals ServiceNow, Box en Google Apps, ondersteunen de mogelijkheid voor het inrichten van de groep en gebruikersobjecten. Groepsobjecten kunnen bevatten groepseigenschappen zoals weergavenamen en aliassen, samen met leden van een e-mail.
+Aantal toepassingen, zoals ServiceNow, Box en G Suite, ondersteunen de mogelijkheid voor het inrichten van de groep en gebruikersobjecten. Groepsobjecten kunnen bevatten groepseigenschappen zoals weergavenamen en aliassen, samen met leden van een e-mail.
 
 ![ServiceNow](./media/customize-application-attributes/24.png)
 

@@ -15,11 +15,11 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ebced83346a7b130598e4a5f49a72d51ffd18e4f
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56584893"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118770"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Aangepaste rollen maken voor Azure-resources met behulp van Azure CLI
 
@@ -32,7 +32,7 @@ Zie voor een stapsgewijze zelfstudie voor het maken van een aangepaste rol [zelf
 Voor het maken van aangepaste rollen, hebt u het volgende nodig:
 
 - Machtigingen voor het maken van aangepaste rollen, zoals [Eigenaar](built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator)
-- [Azure Cloudshell](../cloud-shell/overview.md) of [Azure CLI](/cli/azure/install-azure-cli)
+- [Azure Cloud Shell](../cloud-shell/overview.md) of [Azure CLI](/cli/azure/install-azure-cli)
 
 ## <a name="list-custom-roles"></a>Aangepaste rollen opvragen
 

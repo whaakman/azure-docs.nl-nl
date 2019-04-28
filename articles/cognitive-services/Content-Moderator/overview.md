@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
 ms.openlocfilehash: 440471acb6e122bf25ba21b0ab3b5a2f7d9b021d
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758132"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129431"
 ---
 # <a name="what-is-azure-content-moderator"></a>Wat is Azure Content Moderator?
 
@@ -41,7 +41,7 @@ De Content Moderator-service bestaat uit verschillende webservice-API's die besc
 
 De Content Moderator-service omvat API's voor de volgende scenario's.
 
-| API-groep | Description |
+| API-groep | Beschrijving |
 | ------ | ----------- |
 |[**Teksttoezicht**](text-moderation-api.md)| Tekst voor aanstootgevende inhoud, seksueel expliciet of suggestieve inhoud, grof taalgebruik en persoonlijke gegevens scant.|
 |[**Aangepaste terminologielijsten**](try-terms-list-api.md)| Hiermee wordt tekst niet alleen vergeleken met de ingebouwde termen maar ook met een aangepaste terminologielijst. U kunt aangepaste lijsten gebruiken om inhoud te blokkeren of toe te staan volgens uw eigen beleidsregels voor inhoud.|  

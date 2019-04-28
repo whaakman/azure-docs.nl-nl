@@ -8,17 +8,17 @@ ms.service: service-health
 ms.workload: Supportability
 ms.date: 11/16/2018
 ms.openlocfilehash: d2a77e831290aa1ee0fcb6d4addf8f6e90786d52
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858906"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119843"
 ---
 # <a name="azure-resource-health-overview"></a>Overzicht van Azure Resource Health
  
 Azure Resource Health helpt u bij het diagnosticeren en ondersteuning krijgen wanneer een probleem met de Azure-service is van invloed op uw resources. U informeren te over de huidige en eerdere status van uw resources. En het biedt technische ondersteuning om te helpen u bij het beperken van problemen.
 
-Terwijl [Azure Status](https://status.azure.com) u wordt geïnformeerd over problemen die invloed hebben op een breed scala aan Azure-klanten, Resource Health biedt u een gepersonaliseerd dashboard van de status van uw resources. Resource Health ziet u alle keren uw resources in het verleden niet beschikbaar vanwege problemen met Azure-service zijn. Vervolgens wordt het eenvoudig voor u te begrijpen als een SLA wordt geschonden. 
+Terwijl [Azure Status](https://status.azure.com) u wordt geïnformeerd over problemen die invloed hebben op een breed scala aan Azure-klanten, Resource Health biedt u een gepersonaliseerd dashboard van de status van uw resources. Resource Health geeft alle momenten weer waarop uw resources in het verleden niet beschikbaar waren vanwege Azure-serviceproblemen. Vervolgens wordt het eenvoudig voor u te begrijpen als een SLA wordt geschonden. 
 
 ## <a name="resource-definition-and-health-assessment"></a>De evaluatie van de definitie en de status van de resource
 Een resource is een specifiek exemplaar van een Azure-service: bijvoorbeeld een virtuele machine, een web-app of een SQL-database.

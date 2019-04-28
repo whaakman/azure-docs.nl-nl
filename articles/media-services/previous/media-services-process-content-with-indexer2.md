@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 6a798d0f33ba4d1960f07e670e6e71916f68eff1
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: MT
+ms.openlocfilehash: 304ecda320e1fdd9573bc961fde74efe03400aa3
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258267"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764167"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexeren van mediabestanden met Azure Media Indexer 2-Preview
 ## <a name="overview"></a>Overzicht

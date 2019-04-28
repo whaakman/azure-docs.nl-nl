@@ -2,18 +2,18 @@
 title: Azure File Sync controleren | Microsoft Docs
 description: Klik hier voor meer informatie over het bewaken van Azure File Sync.
 services: storage
-author: jeffpatt24
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: jeffpatt
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4ae17249903f317e7a75a3e6bc7c03292021c96a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: c0f19e3ea4f5952ac96b589fa267a2136c85e4f3
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534630"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759477"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure File Sync bewaken
 
@@ -66,7 +66,7 @@ Voor Azure File Sync metrische gegevens weergeven in Azure Monitor, selecteer de
 
 De volgende metrische gegevens voor Azure File Sync zijn beschikbaar in Azure Monitor:
 
-| Naam van de meetwaarde | Description |
+| Naam van de meetwaarde | Beschrijving |
 |-|-|
 | Bytes die worden gesynchroniseerd | Grootte van gegevens die worden overgedragen (uploaden en downloaden).<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
 | Warmtemeting intrekken in de cloud | Grootte van gegevens ingetrokken.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: Servernaam |
@@ -119,7 +119,7 @@ Voor Azure File Sync-prestatiemeteritems op de server, opent u de Prestatiemeter
 
 De volgende prestatiemeteritems voor Azure File Sync zijn beschikbaar in Prestatiemeter:
 
-| De naam van de prestatie-object item | Description |
+| De naam van de prestatie-object item | Beschrijving |
 |-|-|
 | AFS Bytes Transferred\Downloaded Bytes per seconde | Het aantal bytes per seconde wordt gedownload. |
 | AFS Bytes Transferred\Uploaded Bytes per seconde | Het aantal bytes per seconde wordt geüpload. |

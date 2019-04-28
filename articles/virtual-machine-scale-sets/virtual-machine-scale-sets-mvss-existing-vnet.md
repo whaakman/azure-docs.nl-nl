@@ -13,14 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
-ms.author: manayar
+origin.date: 06/27/2017
+ms.date: 11/30/2018
+ms.author: v-junlch
 ms.openlocfilehash: 1dcb97a94bd5790edc2e40acf890bb47baec7a4b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740090"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108024"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Verwijzing naar een bestaand virtueel netwerk toevoegen in een sjabloon van de Azure-schaal
 
@@ -106,3 +107,5 @@ Ten slotte doorgeven de `subnetId` parameter ingesteld door de gebruiker (in pla
 ## <a name="next-steps"></a>Volgende stappen
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
+
+<!-- Update_Description: update metedata properties -->

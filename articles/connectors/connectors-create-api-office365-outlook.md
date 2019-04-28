@@ -3,20 +3,21 @@ title: Verbinding maken met Office 365 Outlook - Azure Logic Apps | Microsoft Do
 description: E-mail, contactpersonen en agenda's met REST API's van Office 365 en Azure Logic Apps beheren
 author: ecfan
 manager: jeconnoc
-ms.author: estfan
-ms.date: 10/18/2016
+ms.author: v-yiso
+origin.date: 10/18/2016
+ms.date: 09/03/2018
 ms.topic: article
 ms.service: logic-apps
 services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 0355f121a09e1ba89f98a8af5037eb1371db2242
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 52abf17e869216e65780129a7b48df79bd79f67a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105051"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Aan de slag met de Office 365 Outlook-connector
 De Office 365 Outlook-connector wordt interactie met Outlook in Office 365. Met deze connector kunt maken, bewerken, bijwerken, contactpersonen en agenda-items, en ook ophalen, verzenden en e-mail beantwoorden.
@@ -68,7 +69,7 @@ Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom gedefini
 ## <a name="use-an-action"></a>Gebruik een actie
 Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Selecteer het plusteken. Ziet u verschillende mogelijkheden: **een actie toevoegen**, **een voorwaarde toevoegen**, of een van de **meer** opties.
+1. Selecteer het plusteken. Ziet u verschillende mogelijkheden: **Een actie toevoegen**, **een voorwaarde toevoegen**, of een van de **meer** opties.
    
     ![](./media/connectors-create-api-office365-outlook/add-action.png)
 2. Kies **een actie toevoegen**.

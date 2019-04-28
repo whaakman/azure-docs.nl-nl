@@ -1,20 +1,19 @@
 ---
 title: Enterprise-beveiligingspakket-configuratie met behulp van Azure Active Directory Domain Services - Azure HDInsight
 description: Informatie over het instellen en configureren van een Enterprise-beveiligingspakket van HDInsight-cluster met behulp van Azure Active Directory Domain Services.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
-ms.reviewer: hrasheed
+ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 03/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2b7364a2bb32f2d38f5cf9ddeddd5e4e1f928e01
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.date: 04/23/2019
+ms.openlocfilehash: 7ad6d4b3a1f465f3d15e00f0164da9f2778f7f1c
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519788"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760801"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Een HDInsight-cluster met Enterprise Security Package configureren met behulp van Azure Active Directory Domain Services
 
@@ -22,23 +21,21 @@ Enterprise Security Package (ESP)-clusters bieden toegang door meerdere gebruike
 
 In dit artikel leert u hoe u een HDInsight-cluster met ESP configureren met behulp van Azure Active Directory Domain Services (Azure AD-DS).
 
->[!NOTE]  
->ESP is algemeen beschikbaar in HDI 3.6 voor Apache Spark, interactief en Apache Hadoop. ESP voor Apache HBase- en Apache Kafka-cluster is beschikbaar als preview.
+> [!NOTE]  
+> ESP is algemeen beschikbaar in HDI 3.6 voor Apache Spark, interactief en Apache Hadoop. ESP voor Apache HBase- en Apache Kafka-cluster is beschikbaar als preview.
 
 ## <a name="enable-azure-ad-ds"></a>Inschakelen van Azure AD DS
 
 > [!NOTE]  
-> Alleen tenantbeheerders hebben de bevoegdheid om in te schakelen van Azure AD DS. Als de clusteropslag is het Azure Data Lake Storage (ADLS) Gen1 en Gen2 moet u multi-factor Authentication (MFA) alleen voor gebruikers die toegang tot het cluster met behulp van basisauthenticaties Kerberose moet uitschakelen. U kunt [vertrouwde IP-adressen](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) of [voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) MFA uitschakelen voor specifieke gebruikers alleen wanneer ze toegang hebben tot het HDInsight-cluster VNET IP-adresbereik. Als u voorwaardelijke toegang Zorg ervoor dat AD-service-eindpunt in ingeschakeld op het HDInsight VNET.
+> Alleen tenantbeheerders hebben de bevoegdheid om in te schakelen van Azure AD DS. Als de clusteropslag is het Azure Data Lake Storage (ADLS) Gen1 en Gen2 moet u multi-factor Authentication (MFA) alleen voor gebruikers die toegang tot het cluster met behulp van basisauthenticaties Kerberose moet uitschakelen. U kunt [vertrouwde IP-adressen](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) of [voorwaardelijke toegang](../../active-directory/conditional-access/overview.md) MFA uitschakelen voor specifieke gebruikers alleen wanneer ze toegang hebben tot het HDInsight-cluster VNET IP-adresbereik. Als u voorwaardelijke toegang gebruikt, zorg ervoor dat die AD-service-eindpunt in ingeschakeld op het HDInsight VNET.
 >
->Als de clusteropslag is Azure Blob Storage (WASB), u MFA niet uitschakelen.
-
-
+> Als de clusteropslag is Azure Blob Storage (WASB), u MFA niet uitschakelen.
 
 Inschakelen van DS-AzureAD is een vereiste voordat u een HDInsight-cluster met ESP maken kunt. Zie voor meer informatie, [inschakelen Azure Active Directory Domain Services met behulp van de Azure-portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 Wanneer Azure AD DS-is ingeschakeld, start alle gebruikers en objecten synchroniseren van Azure Active Directory (AAD) naar Azure AD DS-standaard. De lengte van de synchronisatiebewerking is afhankelijk van het aantal objecten in Azure AD. De synchronisatie kan enkele dagen voor honderden of duizenden objecten krijgen. 
 
-Klanten kunnen kiezen om te synchroniseren van alleen de groepen die toegang nodig tot de HDInsight-clusters. Deze optie alleen bepaalde groepen synchroniseren van de heet *binnen het bereik van synchronisatie*. Zie [configureren binnen het bereik van synchronisatie van Azure AD met uw beheerde domein](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-scoped-synchronization) voor instructies.
+U kunt alleen de groepen die toegang nodig tot de HDInsight-clusters worden gesynchroniseerd. Deze optie alleen bepaalde groepen synchroniseren van de heet *binnen het bereik van synchronisatie*. Zie [configureren binnen het bereik van synchronisatie van Azure AD met uw beheerde domein](../../active-directory-domain-services/active-directory-ds-scoped-synchronization.md) voor instructies.
 
 Bij het inschakelen van secure LDAP, plaatst u de domeinnaam in de naam van het onderwerp en de alternatieve naam voor onderwerp in het certificaat. Bijvoorbeeld, als uw domeinnaam *contoso100.onmicrosoft.com*, zorg ervoor dat de exacte naam bestaat in de naam van de certificaathouder en de alternatieve naam voor onderwerp. Zie voor meer informatie, [configureren secure LDAP voor een Azure AD DS-domein beheerd](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md). Hieronder volgt een voorbeeld van het maken van een zelfondertekend certificaat en de domeinnaam hebt (*contoso100.onmicrosoft.com*) in zowel de objectnaam en de DNS-naam (alternatieve naam voor onderwerp):
 
@@ -56,22 +53,22 @@ De status van uw Azure Active Directory Domain Services weergeven door te select
 
 ## <a name="create-and-authorize-a-managed-identity"></a>Maken en machtigen van een beheerde identiteit
 
-Een **gebruiker toegewezen beheerde identiteit** wordt gebruikt om te vereenvoudigen en veilige bewerkingen voor domain services. Wanneer u de rol Inzender voor HDInsight Domain Services aan de beheerde identiteit toewijzen, kan het lezen, maken, wijzigen en verwijderbewerkingen met domain services. Bepaalde bewerkingen domain services, zoals het maken van de organisatie-eenheden en service beginselen nodig zijn voor de Enterprise-beveiligingspakket van HDInsight. Beheerde identiteiten kunnen worden gemaakt in elk abonnement. Zie voor meer informatie over identiteiten in het algemeen beheerde, [beheerde identiteiten voor een Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md). Zie voor meer informatie over de manier waarop beheerde identiteiten werk in Azure HDInsight, [beheerde identiteiten in Azure HDInsight](../hdinsight-managed-identities.md).
+Een **gebruiker toegewezen beheerde identiteit** wordt gebruikt om te vereenvoudigen en veilige bewerkingen voor domain services. Wanneer u de rol Inzender voor HDInsight Domain Services aan de beheerde identiteit toewijzen, kan het lezen, maken, wijzigen en verwijderbewerkingen met domain services. Bepaalde bewerkingen domain services, zoals het maken van de organisatie-eenheden en service-principals zijn nodig voor de Enterprise-beveiligingspakket van HDInsight. Beheerde identiteiten kunnen worden gemaakt in elk abonnement. Zie voor meer informatie over identiteiten in het algemeen beheerde, [beheerde identiteiten voor een Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md). Zie voor meer informatie over de manier waarop beheerde identiteiten werk in Azure HDInsight, [beheerde identiteiten in Azure HDInsight](../hdinsight-managed-identities.md).
 
-Als u ESP-clusters instelt, maakt u een beheerde identiteit voor de gebruiker toegewezen als u nog niet hebt. Zie [maken, lijst, verwijderen of wijs een rol aan een gebruiker toegewezen beheerde identiteit met Azure portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) voor instructies. Vervolgens kunt toewijzen aan de **HDInsight Domain Services Inzender** rol aan de beheerde identiteit in Azure AD DS-toegangsbeheer (AAD-DS-beheerdersbevoegdheden zijn vereist voor het maken van deze roltoewijzing).
+Als u ESP-clusters instelt, maakt u een beheerde identiteit voor de gebruiker toegewezen als u nog niet hebt. Zie [maken, lijst, verwijderen of wijs een rol aan een gebruiker toegewezen beheerde identiteit met Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) voor instructies. Vervolgens kunt toewijzen aan de **HDInsight Domain Services Inzender** rol aan de beheerde identiteit in Azure AD DS-toegangsbeheer (AAD-DS-beheerdersbevoegdheden zijn vereist voor het maken van deze roltoewijzing).
 
 ![Active Directory Domain Services Access control van Azure](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
 
 Toewijzen van de **HDInsight Domain Services Inzender** rol zorgt ervoor dat deze identiteit juiste toegang heeft tot het domein services bewerkingen uitvoeren zoals het maken van de organisatie-eenheden, verwijderen van de organisatie-eenheden, enz., op het AAD-DS-domein (namens).
 
-Zodra de beheerde identiteit is gemaakt en de juiste rol toegewezen, kunt de AAD-DS-beheerder instellen die deze beheerde identiteit kunt gebruiken. Als u gebruikers voor de beheerde identiteit instelt, de beheerder moet de beheerde identiteit selecteert in de portal en klik vervolgens op **Access Control (IAM)** onder **overzicht**. Vervolgens toewijzen aan de rechterkant de **beheerde identiteit Operator** rol aan de gebruikers of groepen die u wilt maken van ESP HDInsight-clusters. De AAD-DS-beheerder kan bijvoorbeeld deze rol toewijzen aan de groep 'MarketingTeam' voor de identiteit van de 'sjmsi' beheerd zoals wordt weergegeven in de volgende afbeelding. Dit zorgt ervoor dat de juiste mensen in de organisatie toegang hebben tot deze beheerde identiteit ten behoeve van het maken van ESP-clusters gebruiken.
+Zodra de beheerde identiteit is gemaakt en de juiste rol toegewezen, kunt de AAD-DS-beheerder instellen die deze beheerde identiteit kunt gebruiken. Als u gebruikers voor de beheerde identiteit instelt, de beheerder moet de beheerde identiteit selecteert in de portal en klik vervolgens op **Access Control (IAM)** onder **overzicht**. Vervolgens toewijzen aan de rechterkant de **beheerde identiteit Operator** rol aan de gebruikers of groepen die u wilt maken van ESP HDInsight-clusters. Bijvoorbeeld, de AAD-DS-beheerder deze rol kunt toewijzen de **MarketingTeam** groep voor de **sjmsi** beheerde identiteit, zoals wordt weergegeven in de volgende afbeelding. Dit zorgt ervoor dat de juiste mensen in de organisatie toegang hebben tot deze beheerde identiteit ten behoeve van het maken van ESP-clusters gebruiken.
 
 ![HDInsight beheerde identiteit Operator roltoewijzing](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png)
 
 ## <a name="networking-considerations"></a>Aandachtspunten voor netwerken
 
 > [!NOTE]  
-> Azure AD DS moet worden geïmplementeerd in een Azure Resource Manager (ARM) op basis van vNET. Klassieke virtuele netwerken worden niet ondersteund voor Azure AD DS. Raadpleeg [inschakelen Azure Active Directory Domain Services met behulp van de Azure-portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-network) voor meer informatie.
+> Azure AD DS moet worden geïmplementeerd in een Azure Resource Manager (ARM) op basis van vNET. Klassieke virtuele netwerken worden niet ondersteund voor Azure AD DS. Raadpleeg voor meer informatie, [inschakelen Azure Active Directory Domain Services met behulp van de Azure-portal](../../active-directory-domain-services/active-directory-ds-getting-started-network.md).
 
 Nadat u Azure AD DS-inschakelt, wordt een lokale Domain Name Service (DNS)-server wordt uitgevoerd op de AD-virtuele Machines (VM's). Configureer uw Azure AD DS Virtual Network (VNET) voor het gebruik van deze aangepaste DNS-servers. Als u wilt zoeken in de juiste IP-adressen, selecteer **eigenschappen** onder de **beheren** categorie en bekijk de IP-adressen die worden vermeld onder **IP-adres op Virtueelnetwerk**.
 
@@ -87,10 +84,10 @@ Nadat de VNETs zijn gekoppeld, configureert u het HDInsight VNET voor het gebrui
 
 ![Aangepaste DNS-Servers configureren voor het gekoppelde VNET](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-Als u regels voor Netwerkbeveiligingsgroep groepen (NSG) in uw HDInsight-subnet gebruikt, moet u toestaan de [IP-adressen vereist](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network) voor zowel inkomend als uitgaand verkeer. 
+Als u regels voor Netwerkbeveiligingsgroep groepen (NSG) in uw HDInsight-subnet gebruikt, moet u toestaan de [IP-adressen vereist](../hdinsight-extend-hadoop-virtual-network.md) voor zowel inkomend als uitgaand verkeer. 
 
 **Voor het testen van** als uw netwerk juist is ingesteld, lid worden van een windows-VM naar het HDInsight VNET/Subnet en de naam van het domein (dit moet worden omgezet naar een IP-adres) te pingen en voer vervolgens **ldp.exe** voor toegang tot Azure AD DS-domein. Vervolgens **deze windows-VM toevoegen aan het domein om te bevestigen** die alle vereiste RPC-aanroepen tussen de client en server mislukt. U kunt ook **nslookup** netwerken toegang tot uw storage-account of een externe database (voor bijvoorbeeld externe Hive-metastore of Ranger DB) kunt u te bevestigen.
-Moet u ervoor zorgen dat alle van de [poorten vereist](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) zijn opgenomen in de whitelist in het AAD-DS-subnet als AAD-DS wordt beveiligd door een NSG regels voor Network Security Group. Als de toevoegen aan het domein van de windows-VM geslaagd is, kunt u doorgaan met de volgende stap en maken van ESP-clusters.
+Zorg ervoor dat alle van de [poorten vereist](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) zijn opgenomen in de whitelist in het AAD-DS-subnet als AAD-DS wordt beveiligd door een NSG regels voor Network Security Group. Als de toevoegen aan het domein van de windows-VM geslaagd is, kunt u doorgaan met de volgende stap en maken van ESP-clusters.
 
 ## <a name="create-a-hdinsight-cluster-with-esp"></a>Een HDInsight-cluster maken met ESP
 

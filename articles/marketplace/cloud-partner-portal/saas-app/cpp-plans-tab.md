@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0394fa759f4b6f6af59e075d9bc67668886d8075
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120202"
 ---
 # <a name="saas-application-plans-tab"></a>Tabblad voor SaaS-toepassing plannen
 
@@ -64,5 +64,5 @@ Een nieuw plan maken:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Tabblad Info kanaal](./cpp-channel-info-tab.md)
+[Tabblad Informatiekanaal](./cpp-channel-info-tab.md)
 

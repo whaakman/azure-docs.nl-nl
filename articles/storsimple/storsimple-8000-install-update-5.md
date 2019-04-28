@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: d6e17c7609fd41b8f4457edda373f6882a1a9d2b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698707"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126746"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Update 5 installeren op uw StorSimple-apparaat
 
@@ -76,28 +76,28 @@ De hotfix-methode omvat de volgende drie stappen:
 
 U moet downloaden en installeren van de volgende hotfixes in de aangegeven volgorde en de voorgestelde mappen:
 
-| Volgorde | KB | Beschrijving | Updatetype | Tijd van installatie |Installeren in map|
+| Bestellen | KB | Description | Updatetype | Tijd van installatie |Installeren in map|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Software-update<br> Download beide _HcsSoftwareUpdate.exe_ en _CisMSDAgent.exe_ |Reguliere <br></br>Niet-verstorend |~ 25 minuten |FirstOrderUpdate|
+| 1. |KB4037264 |Software-update<br> Download beide _HcsSoftwareUpdate.exe_ en _CisMSDAgent.exe_ |Normaal <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
 
 Als het bijwerken van een apparaat met Update 4, moet u alleen voor het installeren van de cumulatieve updates van het besturingssysteem als de tweede belangrijkste updates.
 
-| Volgorde | KB | Beschrijving | Updatetype | Tijd van installatie |Installeren in map|
+| Bestellen | KB | Description | Updatetype | Tijd van installatie |Installeren in map|
 | --- | --- | --- | --- | --- | --- |
-| 2A. |KB4025336 |Besturingssysteem van de cumulatieve updates pakket <br> Versie van Windows Server 2012 R2 downloaden |Reguliere <br></br>Niet-verstorend |- |SecondOrderUpdate|
+| 2A. |KB4025336 |Besturingssysteem van de cumulatieve updates pakket <br> Versie van Windows Server 2012 R2 downloaden |Normaal <br></br>Non-disruptive |- |SecondOrderUpdate|
 
 Als installeren vanaf een apparaat met Update 3 of eerder, installeert u de volgende naast de cumulatieve updates.
 
-| Volgorde | KB | Beschrijving | Updatetype | Tijd van installatie |Installeren in map|
+| Bestellen | KB | Description | Updatetype | Tijd van installatie |Installeren in map|
 | --- | --- | --- | --- | --- | --- |
-| 2B HEBT OPGEZOCHT. |KB4011841 <br> KB4011842 |LSI-stuurprogramma's en firmware-updates <br> Voor Gebruikersbeheer firmware-update (versie 3.38) |Reguliere <br></br>Niet-verstorend |~ 3 uur <br> (inclusief 2A. + 2B HEBT OPGEZOCHT. (+ 2 C.)|SecondOrderUpdate|
-| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS-updates-beveiligingspakket <br> Versie van Windows Server 2012 R2 downloaden |Reguliere <br></br>Niet-verstorend |- |SecondOrderUpdate|
-| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS-updates-pakket <br> Versie van Windows Server 2012 R2 downloaden |Reguliere <br></br>Niet-verstorend |- |SecondOrderUpdate|
+| 2B. |KB4011841 <br> KB4011842 |LSI-stuurprogramma's en firmware-updates <br> Voor Gebruikersbeheer firmware-update (versie 3.38) |Normaal <br></br>Non-disruptive |~ 3 uur <br> (inclusief 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS-updates-beveiligingspakket <br> Versie van Windows Server 2012 R2 downloaden |Normaal <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS-updates-pakket <br> Versie van Windows Server 2012 R2 downloaden |Normaal <br></br>Non-disruptive |- |SecondOrderUpdate|
 
 
 U moet mogelijk ook installeren van updates van de schijffirmware boven op alle updates die wordt weergegeven in de voorgaande tabellen. U kunt controleren of u de schijf firmware-updates door te voeren moet de `Get-HcsFirmwareVersion` cmdlet. Als u deze firmwareversies: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, en u niet hoeft om deze updates te installeren.
 
-| Volgorde | KB | Beschrijving | Updatetype | Tijd van installatie | Installeren in map|
+| Bestellen | KB | Beschrijving | Updatetype | Tijd van installatie | Installeren in map|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |Schijffirmware |Onderhoud <br></br>Verstorend |~ 30 mins | ThirdOrderUpdate |
 

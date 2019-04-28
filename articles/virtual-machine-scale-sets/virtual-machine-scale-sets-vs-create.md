@@ -17,18 +17,18 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: manayar
 ms.openlocfilehash: 3d472aeaae7e7f02eba58aadea1df042d6c0f27b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741419"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108055"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Een virtuele-Machineschaalset maken met Visual Studio
 Dit artikel laat u over het implementeren van een Azure VM-Schaalset met Visual Studio implementatie van een resourcegroep.
 
 [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) is een Azure Compute-resource om te implementeren en beheren van een verzameling van dergelijke virtuele machines met automatisch schalen en taakverdeling. U kunt inrichten en implementeren van Virtual Machine Scale Sets met behulp van [Azure Resource Manager-sjablonen](https://github.com/Azure/azure-quickstart-templates). Azure Resource Manager-sjablonen kunnen worden geïmplementeerd met behulp van Azure CLI, PowerShell, REST en ook rechtstreeks vanuit Visual Studio. Visual Studio biedt een aantal voorbeeldsjablonen, die kan worden geïmplementeerd als onderdeel van een implementatie van Azure Resource Group-project.
 
-Azure-resourcegroep implementaties zijn een manier om te groeperen en publiceren van een set van gerelateerde Azure-resources in een van één implementatiebewerking. Meer informatie over deze hier: [maken en implementeren van Azure-resourcegroepen met Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Azure-resourcegroep implementaties zijn een manier om te groeperen en publiceren van een set van gerelateerde Azure-resources in een van één implementatiebewerking. U kunt meer informatie over deze hier: [Het maken en implementeren van Azure-resourcegroepen met Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## <a name="pre-requisites"></a>Vereisten
 Om te beginnen Virtual Machine Scale Sets in Visual Studio implementeren, moet u het volgende:

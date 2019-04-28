@@ -2,19 +2,20 @@
 title: Een Apache Spark-taak uitvoeren met Azure Kubernetes Service (AKS)
 description: Azure Kubernetes Service (AKS) gebruiken voor het uitvoeren van een Apache Spark-taak
 services: container-service
-author: lenadroid
-manager: jeconnoc
+author: rockboyfor
+manager: digimobile
 ms.service: container-service
 ms.topic: article
-ms.date: 03/15/2018
-ms.author: alehall
+origin.date: 03/15/2018
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: ddaff590fd493b430a72c30dd35cb1b891b80d84
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104943"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Apache Spark-taken die worden uitgevoerd in AKS
 
@@ -40,7 +41,7 @@ Als u een AKS-cluster die voldoet aan deze minimale aanbeveling nodig hebt, kunt
 Maak een resourcegroep voor het cluster.
 
 ```azurecli
-az group create --name mySparkCluster --location eastus
+az group create --name mySparkCluster --location chinaeast2
 ```
 
 De AKS-cluster maken met knooppunten die van de grootte van zijn `Standard_D3_v2`.
@@ -176,7 +177,7 @@ Maak een Azure storage-account en een container voor het opslaan van de jar-best
 ```azurecli
 RESOURCE_GROUP=sparkdemo
 STORAGE_ACCT=sparkdemo$RANDOM
-az group create --name $RESOURCE_GROUP --location eastus
+az group create --name $RESOURCE_GROUP --location chinaeast2
 az storage account create --resource-group $RESOURCE_GROUP --name $STORAGE_ACCT --sku Standard_LRS
 export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string --resource-group $RESOURCE_GROUP --name $STORAGE_ACCT -o tsv`
 ```
@@ -313,7 +314,7 @@ Bij het uitvoeren van de taak, in plaats van die wijzen op een externe jar-URL, 
 ```
 
 > [!WARNING]
-> Uit Spark [documentatie][spark-docs]: "de scheduler Kubernetes is momenteel experimentele. In toekomstige versies, mogelijk zijn er wijzigingen om de configuratie, containerinstallatiekopieën en toegangspunten'.
+> Uit Spark [documentatie][spark-docs]: "De scheduler Kubernetes is momenteel experimentele. In toekomstige versies, mogelijk zijn er wijzigingen om de configuratie, containerinstallatiekopieën en toegangspunten'.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -325,16 +326,15 @@ Bekijk de Spark-documentatie voor meer informatie.
 <!-- LINKS - external -->
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
-[java-install]: https://aka.ms/azure-jdks
+[java-install]: https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
 [spark-latest-release]: https://spark.apache.org/releases/spark-release-2-3-0.html
 [spark-quickstart]: https://spark.apache.org/docs/latest/quick-start.html
 
-
 <!-- LINKS - internal -->
-[acr-aks]: https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks
-[acr-create]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
-[aks-quickstart]: https://docs.microsoft.com/azure/aks/
-[azure-cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
-[storage-account]: https://docs.microsoft.com/azure/storage/common/storage-azure-cli
+[acr-aks]: /container-registry/container-registry-auth-aks
+[acr-create]: /container-registry/container-registry-get-started-azure-cli
+[aks-quickstart]: /aks/
+[azure-cli]: https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest?view=azure-cli-latest
+[storage-account]: /storage/common/storage-azure-cli

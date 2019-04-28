@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/23/2019
-ms.openlocfilehash: 067ea8eee297eb8572bd37e240b8d13afe458ca7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a027e6c0afd526139484240f288205fa946d557
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331856"
+ms.locfileid: "62111796"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database-Servicelagen
 
@@ -63,5 +63,5 @@ Opslag voor back-ups ter ondersteuning van het punt in tijd herstellen (PITR) is
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over specifieke-grootten en opties voor opslag beschikbaar voor individuele database in de lagen algemeen gebruik en kritieke bedrijfsservice Reken, [SQL Database vCore gebaseerde resourcelimieten voor individuele databases](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- Zie voor meer informatie over specifieke-grootten en opties voor opslag beschikbaar voor individuele database in de lagen algemeen gebruik en kritieke bedrijfsservice Reken, [SQL Database vCore gebaseerde resourcelimieten voor individuele databases](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier)
 - Zie voor meer informatie over specifieke-grootten en opties voor opslag beschikbaar voor elastische pools in de lagen algemeen gebruik en kritieke bedrijfsservice Reken, [SQL Database vCore gebaseerde resourcelimieten voor elastische pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

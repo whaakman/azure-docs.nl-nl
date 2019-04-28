@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 743246881463d9cb5156677a0c3ec719d80a079c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 18ee967d421eb2a170955a4b75939e5f084a65fb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264349"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62111403"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Zelfstudie: Azure Active Directory-integratie met Promapp
 
@@ -121,7 +121,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Promapp, moet u de v
     > [!NOTE] 
     > Azure AD-integratie met Promapp is momenteel alleen is geconfigureerd voor verificatie van service gestart wilt bijvoorbeeld een URL Promapp het verificatieproces voor start. De antwoord-URL is echter een verplicht veld.
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<DOMAINNAME>.promapp.com/azuread/saml/authenticate.aspx`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate.aspx`
 
 5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 

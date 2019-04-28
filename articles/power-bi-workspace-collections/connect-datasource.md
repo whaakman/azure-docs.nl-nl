@@ -3,17 +3,17 @@ title: Verbinding maken met een gegevensbron in Power BI Workspace Collections |
 description: Leer hoe u verbinding maken met een gegevensbron in Power BI Workspace Collections.
 services: power-bi-workspace-collections
 ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 143213b148518fdf936974152d5d9196c42febd8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 721458c5725e912d801b307ac05f3fde0776580e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521496"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110628"
 ---
 # <a name="connect-to-a-data-source"></a>Verbinding maken met een gegevensbron
 
@@ -36,7 +36,7 @@ Met Power BI Workspace Collections, u kunt gebruikmaken van DirectQuery met clou
 ## <a name="supported-data-sources"></a>Ondersteunde gegevensbronnen
 
 **DirectQuery**
-* Azure SQL Database
+* Azure SQL-database
 * Azure SQL Data Warehouse
 
 **Importeren**

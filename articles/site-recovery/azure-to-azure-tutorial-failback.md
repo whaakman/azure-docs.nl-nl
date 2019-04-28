@@ -2,19 +2,20 @@
 title: Azure-VM gerepliceerd naar een secundaire Azure-regio voor herstel na noodgeval met de Azure Site Recovery-service mislukt.
 description: Leer hoe u een failover voor Azure-VM met de Azure Site Recovery-service.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
-ms.author: raynew
+origin.date: 03/18/2019
+ms.date: 04/22/2019
+ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: c8ce05e644ad556542314b17151b808586734824
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315314"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118176"
 ---
 # <a name="fail-back-azure-vms-between-azure-regions"></a>Azure-VM's tussen Azure-regio's mislukken
 
@@ -68,3 +69,6 @@ Nadat de virtuele machines opnieuw zijn beveiligd, kunt u een failback naar de p
 ## <a name="next-steps"></a>Volgende stappen
 
 [Meer informatie](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) over de stroom opnieuw beveiligen.
+
+<!--Update_Description: new articles on azure to azure tutorial failback -->
+<!--ms.date: 04/22/2019-->

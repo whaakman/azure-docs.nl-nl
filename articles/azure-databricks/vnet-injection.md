@@ -9,11 +9,11 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003442"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126678"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Azure Databricks implementeren in uw virtuele netwerk (Preview)
 
@@ -37,7 +37,7 @@ U kunt de interface Azure Databricks-werkruimte-implementatie in Azure portal ge
 
 Het virtuele netwerk dat u uw Azure Databricks-werkruimte te implementeren, moet voldoen aan de volgende vereisten:
 
-### <a name="location"></a>Location
+### <a name="location"></a>Locatie
 
 Het virtuele netwerk moet zich bevinden op dezelfde locatie bevinden als de Azure Databricks-werkruimte.
 

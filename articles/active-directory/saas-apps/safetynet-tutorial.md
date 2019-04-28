@@ -17,11 +17,11 @@ ms.date: 04/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4fadebc689f10b40131bb0feb12d846d3bdde704
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104678"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-safetynet"></a>Zelfstudie: Azure Active Directory-integratie met SafetyNet
 
@@ -166,7 +166,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="create-a-safetynet-test-user"></a>Maak een testgebruiker SafetyNet
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in SafetyNet. Werken met [SafetyNet-ondersteuningsteam](mailto:dev@predictivesolutions.com) om toe te voegen de gebruikers in het SafetyNet-platform. Gebruikers moeten worden gemaakt en geactiveerd voordat u eenmalige aanmelding gebruiken
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in SafetyNet. Werken met [SafetyNet-ondersteuningsteam](mailto:dev@predictivesolutions.com) om toe te voegen de gebruikers in het SafetyNet-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
@@ -207,7 +207,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

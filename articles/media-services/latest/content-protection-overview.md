@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 984c5d6b5e6e2010489533a3889501c5b524a6bd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 40e7ebcddb5cc215e071f1a34dfa8f3f4ea95141
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103712"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Beveiliging van inhoud met dynamische versleuteling
 
@@ -206,6 +206,9 @@ Als u de `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` fout, zorg ervoor dat u
 
 Als er fouten optreden die met eindigen `_NOT_SPECIFIED_IN_URL`, zorg ervoor dat u de coderingsindeling in de URL opgeeft. Bijvoorbeeld `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Zie [Streaming-protocollen en versleutelingstypen](#streaming-protocols-and-encryption-types).
 
+## <a name="provide-feedback"></a>Feedback geven
+
+Bekijk de [Azure Media Services-community](media-services-community.md) artikel om te zien van verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

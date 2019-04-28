@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58804527"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121820"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Informatie over roldefinities voor Azure-resources
 
@@ -48,7 +48,7 @@ Bewerkingen zijn opgegeven met tekenreeksen die de volgende notatie hebben:
 
 De `{action}` gedeelte van een tekenreeks bewerking geeft het type van de bewerkingen die u op een resourcetype uitvoeren kunt. Bijvoorbeeld, ziet u de volgende subtekenreeksen in `{action}`:
 
-| Actie subtekenreeks    | Description         |
+| Actie subtekenreeks    | Beschrijving         |
 | ------------------- | ------------------- |
 | `*` | Het jokerteken verleent toegang tot alle bewerkingen die overeenkomen met de tekenreeks. |
 | `read` | Hiermee leesbewerkingen (GET). |
@@ -179,7 +179,7 @@ De Azure-portal ook kan gebruikers bladeren en beheren van de inhoud van wachtri
 
 De `Actions` machtiging Hiermee geeft u de beheerbewerkingen die de rol kan worden uitgevoerd. Er is een verzameling van bewerking tekenreeksen die beveiligbare bewerkingen van Azure-resource-providers identificeren. Hier volgen enkele voorbeelden van bewerkingen die kunnen worden gebruikt in `Actions`.
 
-| Bewerking tekenreeks    | Description         |
+| Bewerking tekenreeks    | Beschrijving         |
 | ------------------- | ------------------- |
 | `*/read` | Verleent toegang tot de leesbewerkingen voor alle resourcetypen van alle Azure-resource-providers.|
 | `Microsoft.Compute/*` | Verleent toegang tot alle bewerkingen voor alle resourcetypen in de Microsoft.Compute-resourceprovider.|
@@ -199,7 +199,7 @@ De `NotActions` machtiging Hiermee geeft u de beheerbewerkingen die zijn uitgesl
 
 De `DataActions` machtiging Hiermee geeft u de bewerkingen die de rol kan worden uitgevoerd met uw gegevens binnen dat object. Bijvoorbeeld, als een gebruiker toegang tot blob-gegevens in een storage-account lezen heeft, kan deze lezen de blobs in het storage-account. Hier volgen enkele voorbeelden van bewerkingen voor gegevens die kunnen worden gebruikt in `DataActions`.
 
-| Bewerking tekenreeks    | Beschrijving         |
+| Bewerking tekenreeks    | Description         |
 | ------------------- | ------------------- |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | Retourneert een blob of een lijst met blobs. |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | Retourneert het resultaat van het schrijven van een blob. |

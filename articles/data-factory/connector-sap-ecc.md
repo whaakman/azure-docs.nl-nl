@@ -3,21 +3,22 @@ title: Gegevens kopiëren van SAP ECC met Azure Data Factory | Microsoft Docs
 description: Leer hoe u gegevens kopiëren van SAP ECC naar ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2018
-ms.author: jingwang
+origin.date: 04/26/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121958"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128114"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Gegevens kopiëren van SAP ECC met Azure Data Factory
 
@@ -56,7 +57,7 @@ De volgende eigenschappen worden ondersteund voor SAP ECC gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **SapEcc** | Ja |
 | url | De url van de SAP ECC OData-service. | Ja |
 | gebruikersnaam | De gebruikersnaam die wordt gebruikt voor verbinding met de SAP ECC. | Nee |
-| wachtwoord | Het leesbare wachtwoord gebruikt voor verbinding met de SAP ECC. | Nee |
+| password | Het leesbare wachtwoord gebruikt voor verbinding met de SAP ECC. | Nee |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 **Voorbeeld:**

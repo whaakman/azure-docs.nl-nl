@@ -5,15 +5,15 @@ services: storage
 author: MichaelHauss
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2018
+ms.date: 04/23/2019
 ms.author: mihauss
 ms.subservice: blobs
-ms.openlocfilehash: 08d51b1b6a09bb4df3986bd8c4c44d3834882def
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: MT
+ms.openlocfilehash: d9055b0c0decbeca0bb43969af4e854c396c3bb6
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506121"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764229"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Voorlopig verwijderen voor Azure Storage-blobs
 Azure Storage biedt nu voorlopig verwijderen voor blob-objecten, zodat u uw gegevens eenvoudig herstellen kunt wanneer deze per ongeluk wordt gewijzigd of verwijderd door een toepassing of de gebruiker van andere storage-account.
@@ -278,6 +278,9 @@ blockBlob.StartCopy(copySource);
 Als er een kans is dat uw gegevens per ongeluk wordt gewijzigd of verwijderd door een toepassing of een andere gebruiker van de storage-account, raden wij inschakelen van voorlopig verwijderen. Voorlopig verwijderen maakt deel uit van een strategie voor gegevensbescherming en onbedoeld gegevensverlies kunt voorkomen.
 
 ## <a name="faq"></a>Veelgestelde vragen
+**Zijn er speciale overwegingen voor het gebruik van voorlopig verwijderen?**  
+Inschakelen van de functie voor voorlopig verwijderen voor vaak overschreven gegevens kan leiden tot hogere opslagkosten voor capaciteit en hogere latentie wanneer blobs wordt weergegeven. U kunt dit oplossen door u te vaak overschreven gegevens op te slaan in een afzonderlijk opslagaccount met voorlopig verwijderen uitgeschakeld. 
+
 **Voor welke typen gegevensopslag kan ik voorlopig verwijderen gebruiken?**  
 Voorlopig verwijderen is momenteel alleen beschikbaar voor blobopslag (object).
 

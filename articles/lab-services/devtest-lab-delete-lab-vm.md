@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: spelluru
 ms.openlocfilehash: 9634c70566aba21bdd28ee016c9fa94464ec9c1b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956327"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127409"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Verwijderen van een testomgeving of een virtuele machine in een lab in Azure DevTest Labs
 In dit artikel wordt beschreven hoe u een lab of de virtuele machine verwijderen in een testomgeving.
@@ -37,7 +37,7 @@ Als u wilt verwijderen van een lab, moet u de volgende acties uitvoeren:
     ![Selecteer uw lab](media/devtest-lab-delete-lab-vm/select-lab.png)
 3. Op de **DevTest Lab** pagina, klikt u op **verwijderen** op de werkbalk. 
 
-    ![Knop verwijderen](media/devtest-lab-delete-lab-vm/delete-button.png)
+    ![De knop Verwijderen](media/devtest-lab-delete-lab-vm/delete-button.png)
 4. Op de **bevestiging** pagina de **naam** van uw lab, en selecteer **verwijderen**. 
 
     ![Bevestigen](media/devtest-lab-delete-lab-vm/confirm-delete.png)

@@ -1,19 +1,18 @@
 ---
 title: ScaleR en SparkR gebruiken met Azure HDInsight
 description: ScaleR en SparkR met ML-Services op HDInsight gebruiken
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: c92a55ec1d56b83457167fc2db0bd7897a447852
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: MT
+ms.openlocfilehash: 78ea29b9b37c55a588a44f8d4b69486b89ee2fee
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974842"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761359"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>ScaleR en SparkR in HDInsight combineren
 
@@ -109,7 +108,7 @@ Als u wilt de weergegevens voorbereiden, subset worden de kolommen die nodig zij
 - "DryBulbCelsius"
 - "DewPointCelsius"
 - "RelativeHumidity"
-- "Windsnelheid"
+- "WindSpeed"
 - "Altimeter"
 
 Vervolgens voegt u een luchthaven-code die is gekoppeld aan het station weer toe en de metingen van de lokale tijd converteren naar UTC.

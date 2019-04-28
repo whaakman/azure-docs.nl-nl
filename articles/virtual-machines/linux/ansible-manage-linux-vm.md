@@ -1,73 +1,68 @@
 ---
-title: Een virtuele Linux-machine beheren in Azure met Ansible
-description: Lees hoe u een virtuele Linux-machine beheert in Azure met behulp van Ansible
-ms.service: virtual-machines-linux
+title: 'Snelstartgids: Linux virtuele machines in Azure met behulp van Ansible beheren | Microsoft Docs'
+description: In deze snelstartgids leert u hoe u voor het beheren van een virtuele Linux-machine in Azure met Ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
+ms.topic: quickstart
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: quickstart
-ms.date: 09/27/2018
-ms.openlocfilehash: 8f97cf8a4231e9a2144f27c0540de96574e13795
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: cab179980f6093bf259556fd690e55c99a817c79
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188197"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760653"
 ---
-# <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Een virtuele Linux-machine beheren in Azure met Ansible
-U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. U kunt Ansible gebruiken voor het beheren van uw virtuele Azure-machines, net zoals andere resources. In dit artikel leest u hoe u een virtuele Linux-machine start en stopt met een Ansible-playbook. 
+# <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>Quickstart: Beheren van virtuele Linux-machines in Azure met Ansible
+
+U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. In dit artikel gebruikt u een Ansible-playbook starten en stoppen van een virtuele Linux-machine. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **Azure-abonnement**: als u nog geen Azure-abonnement hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan.
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
+## <a name="stop-a-virtual-machine"></a>Een virtuele machine stoppen
 
-## <a name="use-ansible-to-deallocate-stop-an-azure-virtual-machine"></a>Toewijzing van een virtuele Azure-machine ongedaan maken (stoppen) met Ansible
-In deze sectie wordt beschreven hoe u de toewijzing van een virtuele Azure-machine ongedaan maakt (stopt) met Ansible
+In deze sectie gebruikt u Ansible toewijzing (stop) een Azure virtuele machine.
 
-1.  Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1.  Open [Cloud Shell](/azure/cloud-shell/overview).
+1. Open [Cloud Shell](/azure/cloud-shell/overview).
 
-1.  Maak een bestand (voor het playbook) met de naam `azure-vm-stop.yml` en open dit in de vi-editor:
+1. Maak een bestand met de naam `azure-vm-stop.yml`, en open het in de editor:
 
     ```azurecli-interactive
-    vi azure-vm-stop.yml
+    code azure-vm-stop.yml
     ```
 
-1.  Activeer de invoegmodus door op de toets **I** te drukken.
-
-1.  Plak de volgende voorbeeldcode in de editor:
+1. Plak de volgende voorbeeldcode in de editor:
 
     ```yaml
     - name: Stop Azure VM
       hosts: localhost
       connection: local
       tasks:
-      - name: Deallocate the virtual machine
-        azure_rm_virtualmachine:
-          resource_group: myResourceGroup
-          name: myVM
-          allocated: no
+        - name: Stop virtual machine
+          azure_rm_virtualmachine:
+            resource_group: {{ resource_group_name }}
+            name: {{ vm_name }}
+            allocated: no
     ```
 
-1.  Verlaat de invoegmodus door op **Esc** te drukken.
+1. Vervang de `{{ resource_group_name }}` en `{{ vm_name }}` tijdelijke aanduidingen door uw waarden.
 
-1.  Sla het bestand op en sluit vi Editor af met de volgende opdracht:
+1. Sla het bestand op en sluit de editor af.
 
-    ```bash
-    :wq
-    ```
-
-1.  Voer het voorbeeld van het Ansible-playbook uit.
+1. Voer de playbook met behulp de `ansible-playbook` opdracht:
 
     ```bash
     ansible-playbook azure-vm-stop.yml
     ```
 
-1.  De uitvoer lijkt op de onderstaande uitvoer, waar u kunt zien dat de toewijzing van de virtuele machine ongedaan is gemaakt (gestopt):
+1. Nadat de playbook is uitgevoerd, ziet u uitvoer die vergelijkbaar is met de volgende resultaten:
 
     ```bash
     PLAY [Stop Azure VM] ********************************************************
@@ -82,49 +77,44 @@ In deze sectie wordt beschreven hoe u de toewijzing van een virtuele Azure-machi
     localhost                  : ok=2    changed=1    unreachable=0    failed=0
     ```
 
-## <a name="use-ansible-to-start-a-deallocated-stopped-azure-virtual-machine"></a>Een virtuele Azure-machine starten waarvan de toewijzing ongedaan is gemaakt (gestopt)
-In deze sectie wordt beschreven hoe u een virtuele Azure-machine start waarvan de toewijzing ongedaan is gemaakt (gestopt) met Ansible
+## <a name="start-a-virtual-machine"></a>Een virtuele machine starten
 
-1.  Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+In deze sectie maakt u Ansible gebruiken om te beginnen een (gestopt) Azure virtuele machine is ongedaan gemaakt.
 
-1.  Open [Cloud Shell](/azure/cloud-shell/overview).
+1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1.  Maak een bestand (voor het playbook) met de naam `azure-vm-start.yml` en open dit in de vi-editor:
+1. Open [Cloud Shell](/azure/cloud-shell/overview).
+
+1. Maak een bestand met de naam `azure-vm-start.yml`, en open het in de editor:
 
     ```azurecli-interactive
-    vi azure-vm-start.yml
+    code azure-vm-start.yml
     ```
 
-1.  Activeer de invoegmodus door op de toets **I** te drukken.
-
-1.  Plak de volgende voorbeeldcode in de editor:
+1. Plak de volgende voorbeeldcode in de editor:
 
     ```yaml
     - name: Start Azure VM
       hosts: localhost
       connection: local
       tasks:
-      - name: Start the virtual machine
-        azure_rm_virtualmachine:
-          resource_group: myResourceGroup
-          name: myVM
+        - name: Start virtual machine
+          azure_rm_virtualmachine:
+            resource_group: {{ resource_group_name }}
+            name: {{ vm_name }}
     ```
 
-1.  Verlaat de invoegmodus door op **Esc** te drukken.
+1. Vervang de `{{ resource_group_name }}` en `{{ vm_name }}` tijdelijke aanduidingen door uw waarden.
 
-1.  Sla het bestand op en sluit vi Editor af met de volgende opdracht:
+1. Sla het bestand op en sluit de editor af.
 
-    ```bash
-    :wq
-    ```
-
-1.  Voer het voorbeeld van het Ansible-playbook uit.
+1. Voer de playbook met behulp de `ansible-playbook` opdracht:
 
     ```bash
     ansible-playbook azure-vm-start.yml
     ```
 
-1.  De uitvoer lijkt op de onderstaande uitvoer, waar u kunt zien dat de toewijzing van de virtuele machine is gestart:
+1. Nadat de playbook is uitgevoerd, ziet u uitvoer die vergelijkbaar is met de volgende resultaten:
 
     ```bash
     PLAY [Start Azure VM] ********************************************************
@@ -140,5 +130,6 @@ In deze sectie wordt beschreven hoe u een virtuele Azure-machine start waarvan d
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
 > [!div class="nextstepaction"] 
-> [Inventarisatie van dynamische Azure-resources beheren met Ansible](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)
+> [Zelfstudie: Beheren Azure dynamische voorraden met Ansible](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)

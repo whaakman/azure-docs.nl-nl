@@ -9,22 +9,22 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8f21374ae5da76c9954acc5227f593ab4be19ce9
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 74a4ee03562963c8a50159f085e4b76b6d461ed9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630558"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103834"
 ---
 # <a name="media-services-concepts"></a>Media Services-concepten
 
 Dit onderwerp biedt een kort overzicht van Azure Media Services-concepten en bevat koppelingen naar artikelen met gedetailleerde uitleg van Media Services v3-concepten en functies. Bekijk de basisconcepten die worden beschreven in de volgende onderwerpen voordat u start met de ontwikkeling.
 
 > [!NOTE]
-> U kunt de Azure-portal op dit moment niet gebruiken om v3-resources te beheren. Gebruik de [REST-API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), of een van de ondersteunde [SDK's](developers-guide.md).
+> U kunt momenteel geen gebruik maken van de Azure-portal om v3-resources te beheren. Gebruik de [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) of een van de ondersteunde [SDK's](developers-guide.md).
 
 ## <a name="cloud-upload-and-storage"></a>Uploaden naar en opslaan in de cloud
 
@@ -89,7 +89,7 @@ Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. 
 
 De volgende afbeelding illustreert de werkstroom van Pass Through-type:
 
-![Pass Through-query](./media/live-streaming/pass-through.svg)
+![passthrough](./media/live-streaming/pass-through.svg)
 
 - [Overzicht van live streaming](live-streaming-overview.md)
 - [Livegebeurtenissen en live-uitvoer](live-events-outputs-concept.md)
@@ -115,6 +115,10 @@ Monitor voor metrische gegevens en logboeken met diagnostische gegevens die u he
 U kunt Azure Media Player gebruiken voor het afspelen van media-inhoud gestreamd door Media Services op een groot aantal browsers en apparaten. Azure Media Player maakt gebruik van industriële standaarden, zoals HTML5, Media bron-extensies (MSE) en Encrypted Media Extensions (EME) voor een geavanceerde adaptieve streamingervaring. 
 
 - [Overzicht van Azure Media Player](use-azure-media-player.md)
+
+## <a name="provide-feedback"></a>Feedback geven
+
+Bekijk de [Azure Media Services-community](media-services-community.md) artikel om te zien van verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

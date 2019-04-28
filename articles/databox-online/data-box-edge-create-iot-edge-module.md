@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 522dddde4994bb019e6547fcd18465b201f048d8
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: c2803ba598895834bb197f4a06ff0635354fcaca
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401733"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759972"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Ontwikkel een C# IoT Edge-module te verplaatsen van bestanden voor gegevens in het edge-apparaten
 
@@ -36,7 +36,7 @@ Uw gegevens in het Edge-apparaat kunt implementeren en uitvoeren van IoT Edge mo
 2. De gebeurtenis bestand generator maakt een bestandgebeurtenis voor elk bestand geschreven naar de lokale share. De bestand-gebeurtenissen worden ook gegenereerd wanneer een bestand wordt gewijzigd. De gebeurtenissen bestand worden vervolgens verzonden naar IoT Edge Hub (in IoT Edge-runtime).
 3. De bestandgebeurtenis voor het maken van een bestand event-object dat ook een relatief pad voor het bestand bevat wordt verwerkt door de aangepaste IoT Edge-module. De module een absoluut pad met behulp van het relatieve bestandspad genereert en het bestand vanaf de lokale share gekopieerd naar de cloud-share. De module wordt het bestand vervolgens verwijderd uit de lokale share.
 
-![De werking van Azure IoT Edge-module voor gegevens in het edge-apparaten](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
+![De werking van Azure IoT Edge-module voor gegevens in het edge-apparaten](./media/data-box-edge-create-iot-edge-module/how-module-works-1.png)
 
 Zodra het bestand zich in de cloud-share, automatisch wordt het geüpload naar uw Azure Storage-account.
 

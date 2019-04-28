@@ -11,11 +11,11 @@ ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
 ms.openlocfilehash: b6876bf8210d47729ad8e765ccffe709a0fccacc
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958691"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120343"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Zelfstudie: een Cassandra-API-account maken in Azure Cosmos DB met behulp van een Java-toepassing om sleutel-/waardegegevens op te slaan
 
@@ -47,7 +47,7 @@ Deze zelfstudie bestaat uit de volgende taken:
 
 3. Voer in het deelvenster **Nieuw account** de instellingen in voor het nieuwe Azure Cosmos-account. 
 
-   |Instelling   |Voorgestelde waarde  |Beschrijving  |
+   |Instelling   |Voorgestelde waarde  |Description  |
    |---------|---------|---------|
    |Id   |   Voer een unieke naam in    | Voer een unieke naam in om dit Azure Cosmos-account te identificeren. <br/><br/>Omdat cassandra.cosmosdb.azure.com wordt toegevoegd aan de id die u opgeeft om het contactpunt te maken, moet u een unieke, maar herkenbare id gebruiken.         |
    |API    |  Cassandra   |  De API bepaalt het type te maken account. <br/> Selecteer **Cassandra**, aangezien u in dit artikel u een wide-column-database maakt waarop een query kan worden uitgevoerd met de Cassandra Query Language (CQL)-syntaxis.  |

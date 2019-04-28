@@ -7,14 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.author: maxluk
-ms.openlocfilehash: 8c37093b5369d2390942bc00c1531248bc4424c8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+orgin.date: 02/05/2018
+ms.date: 04/01/2019
+ms.author: v-yiso
+ms.openlocfilehash: 0e9d87e5b344b7091a2a0cf41d6f7fa3484dfcf3
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869085"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098572"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Overzicht van Apache Spark Structured Streaming
 
@@ -24,9 +25,9 @@ Structured Streaming-toepassingen uitvoeren in HDInsight Spark-clusters, en maak
 
 Structured Streaming maakt een langlopende query waarin u bewerkingen kunt toepassen op de invoergegevens, zoals selectie, projectie, aggregatie, windowing en lid worden van het gegevensframe streaming met verwijzing gegevensframes. U kunt vervolgens de resultaten met file storage (Azure Storage-Blobs of Data Lake Storage) of naar een gegevensarchief uitvoeren met behulp van aangepaste code (zoals SQL-Database of Power BI). Structured Streaming biedt ook uitvoer naar de console voor foutopsporing op lokaal en in een tabel in het geheugen, zodat u de gegevens die worden gegenereerd voor foutopsporing in HDInsight kunt zien. 
 
-![Stream verwerken met HDInsight en Spark Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+![Stream verwerken met HDInsight en Spark Structured Streaming ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
-> [!NOTE]  
+> [!NOTE]
 > Spark Structured Streaming is vervangen door Spark Streaming (DStreams). Voortaan kunt ontvangt Structured Streaming uitbreidingen en onderhoud, terwijl DStreams in de onderhoudsmodus alleen. Structured Streaming is momenteel niet als functie aanvullen als DStreams voor de bronnen en sinks dat het gebruiksklaar ondersteunt, dus uw vereisten voor het kiezen van de juiste Spark stream verwerkingsoptie evalueren. 
 
 ## <a name="streams-as-tables"></a>Streams als tabellen

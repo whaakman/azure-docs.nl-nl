@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3fea858f23c6b271a117f2edcc749e0c6b737e27
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 346ebd9636623a2fc8b08d42c2170a21a5e9a316
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159988"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121075"
 ---
 # <a name="enable-lead-sharing"></a>Schakel het delen van leads
 Ervoor te zorgen dat de lead management is ingeschakeld voor uw aanbieding in de [Azure Marketplace](https://azuremarketplace.microsoft.com) of [Microsoft AppSource](https://appsource.microsoft.com) kunt u ontvangen van de contactgegevens van de volgende doelgroepen:
@@ -33,7 +33,7 @@ Leads vormen de basis van een dienstverlenende voor de campagnes die zijn vermel
 
 | Storefront | Campagne |
 |:--- |:--- |
-| AppSource | Vormingscampagne |
+| AppSource | Nurture |
 | Azure Marketplace | In de aanvraag genereren |
 
 Gebruik de volgende procedures voor uw leads:
@@ -45,7 +45,7 @@ Leads demonstreren interesse van klanten in de volgende aanbiedingen:
 
 | Storefront | Aanbieding |
 |:--- |:--- |
-| AppSource | <table> <tr><td>App</td></tr> <tr><td>Adviesservices</td></tr> </table> |
+| AppSource | <table> <tr><td>App</td></tr> <tr><td>Adviesdiensten</td></tr> </table> |
 | Azure Marketplace | <table> <tr><td>Aanbieding</td></tr> <tr><td>Technologie</td></tr> </table> |
 
 U hebt een proces om te volgen met uw leads zoals beschreven in de volgende tabel:

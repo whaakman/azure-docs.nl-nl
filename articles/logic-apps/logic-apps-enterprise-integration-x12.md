@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.openlocfilehash: 6665ea8bc4016c9d64005f9c742115cf785ed5ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f06e213dbae31c9d7c4e212d605cc962aba71d2d
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842131"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766524"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Exchange X12 berichten voor B2B-bedrijfsintegratie in Azure Logic Apps met Enterprise Integration Pack
 
@@ -53,11 +53,11 @@ Nadat u [maken van een integratieaccount](../logic-apps/logic-apps-enterprise-in
 4. Selecteer **overzicht**en selecteer vervolgens de **overeenkomsten** tegel. 
    Als u geen een tegel overeenkomsten, eerst de tegel toevoegen. 
 
-   ![Kies 'Overeenkomsten' tegel](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![Kies 'Overeenkomsten' tegel](./media/logic-apps-enterprise-integration-x12/agreement-1.png)
 
 5. Onder **overeenkomsten**, kiest u **toevoegen**.
 
-   ![Kies 'Toevoegen'](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   ![Kies 'Toevoegen'](./media/logic-apps-enterprise-integration-x12/agreement-2.png)     
 
 6. Onder **toevoegen**, voer een **naam** voor uw overeenkomst. 
    Selecteer voor het overeenkomsttype **X12**. 
@@ -214,7 +214,7 @@ De overeenkomst is nu gereed om af te handelen uitgaande berichten die aan de ge
 
 ![Selecteer schema moet worden gebruikt](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 | --- | --- |
 | Versie |Selecteer de X12 versie |
 | Transactietype (ST01) |Selecteer het transactietype |
@@ -227,7 +227,7 @@ De overeenkomst is nu gereed om af te handelen uitgaande berichten die aan de ge
 
 ![Geef het scheidingsteken in een transactieset: standaard-id of het scheidingsteken voor herhalingen kiezen](./media/logic-apps-enterprise-integration-x12/x12-6.png) 
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 | --- | --- |
 | ISA11-gebruik |Hiermee geeft u het scheidingsteken gebruiken in een transactieset: <p>Selecteer **standaard id** ontvangen voor het gebruik van een punt (.) voor de decimale notatie, in plaats van de decimale notatie van het binnenkomende document in de EDI pijplijn. <p>Selecteer **scheidingsteken voor herhalingen** om op te geven van het scheidingsteken voor herhaalde exemplaren van een eenvoudige gegevenselement of een herhaalde gegevensstructuur. Bijvoorbeeld, wordt meestal de karaat (^) gebruikt als het scheidingsteken voor herhalingen. Voor HIPAA schema's, kunt u alleen de karaat gebruiken. |
 
@@ -235,7 +235,7 @@ De overeenkomst is nu gereed om af te handelen uitgaande berichten die aan de ge
 
 ![Geef de eigenschappen van het controlenummer](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 | --- | --- |
 | Controleversienummer (ISA12) |Selecteer de versie van de standaard X12 |
 | Gebruiksindicator (ISA15) |Selecteer de context van een knooppunt.  De waarden zijn gegevens, productiegegevens, of gegevens te testen |
@@ -279,7 +279,7 @@ Anders dan het teken is ingesteld, kunt u een andere set scheidingstekens voor e
 
 Wanneer elke rij van de validatie is voltooid, wordt een andere automatisch toegevoegd. Als u een van de regels niet opgeeft, wordt validatie van de rij 'Standaard'.
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 | --- | --- |
 | Berichttype |Selecteer het type EDI-bericht. |
 | EDI-validatie |EDI-validatie op gegevenstypen zoals gedefinieerd door de schema's EDI eigenschappen, beperkingen voor de lengte, lege gegevenselementen en volgscheidingstekens uitvoeren. |

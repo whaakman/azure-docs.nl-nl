@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 85ab5e3bb963ee692e5b70af3eb90cc68cec361f
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: MT
+ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593383"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098589"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Service Bus-entiteiten met autoforwarding-koppeling
 
@@ -47,6 +47,10 @@ U kunt ook autoforwarding afzenders van berichten van ontvangers van los te kopp
 
 Als Els op vakantie, haar persoonlijke wachtrij, in plaats van het onderwerp ERP gaat, gevuld. In dit scenario, omdat een verkoopmedewerker niet van berichten ontvangen is, bereiken geen van de onderwerpen ERP ooit quotum.
 
+> [!NOTE]
+> Wanneer autoforwarding ingesteld is, wordt de waarde voor AutoDeleteOnIdle op de doelcomputer automatisch ingesteld op de maximale waarde van het gegevenstype.
+> Dit wordt gedaan om ervoor te zorgen dat er altijd een doel voor het doorsturen van het bericht dat wordt.
+
 ## <a name="autoforwarding-considerations"></a>Overwegingen voor Autoforwarding
 
 Als de doelentiteit worden te veel berichten bij elkaar opgeteld en het quotum overschrijdt of als de doelentiteit is uitgeschakeld, de bron-entiteit wordt toegevoegd de berichten naar de [dead-letter-wachtrij](service-bus-dead-letter-queues.md) totdat er ruimte in de bestemming (of de entiteit is opnieuw ingeschakeld). Deze berichten blijven bevinden zich in de wachtrij voor onbestelbare berichten, zodat u moet expliciet ontvangt en verwerkt door ze uit de wachtrij voor onbestelbare berichten.
@@ -67,7 +71,7 @@ Zie de volgende onderwerpen met naslaginformatie voor gedetailleerde informatie 
 
 Zie voor meer informatie over Service Bus voor verbeterde prestaties 
 
-* [Aanbevolen procedures voor prestatieverbeteringen met Service Bus-berichten](service-bus-performance-improvements.md)
+* [Best Practices voor prestatieverbeteringen met Service Bus Messaging](service-bus-performance-improvements.md)
 * [Gepartitioneerde berichtentiteiten][Partitioned messaging entities].
 
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo

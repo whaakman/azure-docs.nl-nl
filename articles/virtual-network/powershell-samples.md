@@ -3,8 +3,8 @@ title: Azure PowerShell-voorbeelden voor virtueel netwerk | Microsoft Docs
 description: Azure PowerShell-voorbeelden voor virtueel netwerk.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 03/20/2018
-ms.author: jdial
-ms.openlocfilehash: ab3a0935f23cda70cfef49af3563f6b1e85d1d8b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/17/2019
+ms.author: kumud
+ms.openlocfilehash: e10f7ad4ae8995d9efffec97a37dc64b28fa37b0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841213"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123549"
 ---
 # <a name="azure-powershell-samples-for-virtual-network"></a>Azure PowerShell-voorbeelden voor virtueel netwerk
 
@@ -32,3 +32,4 @@ De volgende tabel bevat links naar Azure PowerShell-scripts:
 | [Peering van twee virtuele netwerken](./scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md) | Hiermee worden twee virtuele netwerken in dezelfde regio gemaakt en verbonden. |
 | [Verkeer routeren via een virtueel netwerkapparaat](./scripts/virtual-network-powershell-sample-route-traffic-through-nva.md) | Hiermee wordt een virtueel netwerk gemaakt met front-end- en back-end-subnetten en een VM die verkeer tussen de twee subnetten kan routeren. |
 | [Binnenkomend en uitgaand VM-netwerkverkeer filteren](./scripts/virtual-network-powershell-sample-filter-network-traffic.md) | Hiermee wordt een virtueel netwerk met front-end- en back-end-subnetten gemaakt. Binnenkomend netwerkverkeer naar het front-end-subnet wordt beperkt tot HTTP en HTTPS. Uitgaand verkeer van het back-end-subnet naar internet is niet toegestaan. |
+|[Configureer IPv4 + IPv6 dual stack-virtueel netwerk](./scripts/virtual-network-powershell-sample-ipv6-dual-stack.md)|Virtueel netwerk met twee virtuele machines en een Azure Basic Load Balancer met openbare IP-adressen van IPv4 en IPv6 dual stack (IPv4 + IPv6) implementeert. |

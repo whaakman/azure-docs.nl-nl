@@ -1,7 +1,6 @@
 ---
 title: Instellen van replicatie van HBase-cluster in Azure, virtuele netwerken - Azure HDInsight
 description: Meer informatie over het instellen van HBase-replicatie van een HDInsight-versie naar een andere voor taakverdeling, hoge beschikbaarheid, zonder enige uitvaltijd migratie en updates en herstel na noodgevallen.
-services: hdinsight,virtual-network
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: d50c3f4452dd00b5656b6cde5e671caebcb4bb7c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112531"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123075"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Apache HBase-cluster-replicatie in virtuele Azure-netwerken instellen
 
@@ -302,7 +301,7 @@ De volgende stappen wordt beschreven hoe u het script van de actie script aanroe
 
 Vereiste argumenten:
 
-|Name|Description|
+|Name|Beschrijving|
 |----|-----------|
 |-s,--src-cluster | Hiermee geeft u de DNS-naam van de bron HBase-cluster. Bijvoorbeeld: hbsrccluster -s-,--src-cluster hbsrccluster = |
 |-d--dst-cluster | Hiermee geeft u de DNS-naam van de HBase doelclusterknooppunten (replica). Bijvoorbeeld: dsthbcluster -s-,--src-cluster dsthbcluster = |
@@ -311,7 +310,7 @@ Vereiste argumenten:
 
 Optionele argumenten:
 
-|Name|Description|
+|Name|Beschrijving|
 |----|-----------|
 |-su, --src-ambari-user | Hiermee geeft u de beheerdersnaam voor de Ambari op de bron HBase-cluster. De standaardwaarde is **admin**. |
 |-du, --dst-ambari-user | Hiermee geeft u de beheerdersnaam voor de Ambari op de bestemming HBase-cluster. De standaardwaarde is **admin**. |

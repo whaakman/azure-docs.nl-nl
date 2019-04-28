@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
 ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492085"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122588"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hoe u Logboeken voor query's van Azure Monitor voor virtuele machines (preview)
 Azure Monitor voor virtuele machines verzamelt prestaties en metrische verbindingsgegevens, computer- en inventarisgegevens proces en informatie over de status en stuurt deze door naar de Log Analytics-werkruimte in Azure Monitor.  Deze gegevens zijn beschikbaar voor [query](../../azure-monitor/log-query/log-query-overview.md) in Azure Monitor. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.
@@ -50,11 +50,11 @@ De volgende velden en conventies van toepassing op zowel VMConnection en VMBound
 
 Voor het beheren van kosten en complexiteit, vertegenwoordigen verbinding records geen afzonderlijke fysieke netwerkverbindingen. Verbindingen van meerdere fysieke netwerk zijn gegroepeerd in een logische verbinding, die vervolgens wordt weergegeven in de bijbehorende tabel.  Betekenis, registreert in *VMConnection* tabel staan voor een logische groepering en niet de afzonderlijke fysieke verbindingen die zijn waargenomen. Fysieke netwerkverbinding delen dezelfde waarde voor de volgende kenmerken tijdens een opgegeven interval van één minuut worden samengevoegd in één logische record in *VMConnection*. 
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 |Direction |Richting van de verbinding met de waarde is *inkomende* of *uitgaande* |
 |Machine |De FQDN-naam van de computer |
-|Process |Identiteit van het proces of groepen van processen, de verbinding initiëren/accepteren |
+|Verwerken |Identiteit van het proces of groepen van processen, de verbinding initiëren/accepteren |
 |SourceIp |IP-adres van de bron |
 |DestinationIp |IP-adres van de bestemming |
 |DestinationPort |Poortnummer van de bestemming |
@@ -62,7 +62,7 @@ Voor het beheren van kosten en complexiteit, vertegenwoordigen verbinding record
 
 Voor het account voor de impact van groepering, informatie over het aantal gegroepeerde fysieke verbindingen vindt u in de volgende eigenschappen van de record:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 |LinksEstablished |Het aantal fysieke netwerkverbindingen die zijn gemaakt tijdens de rapportage venster |
 |LinksTerminated |Het aantal fysieke netwerkverbindingen die tijdens de rapportage venster zijn beëindigd |
@@ -77,7 +77,7 @@ Naast de verbinding aantal metrische gegevens, informatie over de hoeveelheid ge
 |:--|:--|
 |BytesSent |Totaal aantal bytes dat is verzonden tijdens het rapportage venster |
 |BytesReceived |Totaal aantal bytes dat is ontvangen tijdens het rapportage venster |
-|Responses |Het aantal antwoorden is waargenomen tijdens het rapportage venster. 
+|Antwoorden |Het aantal antwoorden is waargenomen tijdens het rapportage venster. 
 |ResponseTimeMax |De grootste reactietijd (milliseconden) waargenomen tijdens het rapportage venster. Als er geen waarde is de eigenschap leeg.|
 |ResponseTimeMin |De kleinste reactietijd (milliseconden) waargenomen tijdens het rapportage venster. Als er geen waarde is de eigenschap leeg.|
 |ResponseTimeSum |De som van alle reactietijden (milliseconden) die is waargenomen tijdens het rapportage venster. Als er geen waarde is de eigenschap leeg.|
@@ -108,13 +108,13 @@ Het IP-adres van het externe uiteinde van een verbinding is voor het gemak opgen
 #### <a name="malicious-ip"></a>Schadelijk IP
 Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is ingeschakeld met bekende schadelijke activiteiten. Als de RemoteIp wordt geïdentificeerd als schadelijk de volgende eigenschappen worden ingevuld (ze zijn leeg is, wanneer het IP-adres wordt niet als schadelijk beschouwd) in de volgende eigenschappen van de record:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 |MaliciousIp |Het adres RemoteIp |
 |IndicatorThreadType |Threat indicator gedetecteerd is een van de volgende waarden *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *pua's*, *Watchlist*.   |
 |Description |Beschrijving van de waargenomen bedreiging. |
 |TLPLevel |Niveau van stoplicht Protocol (TLP) is een van de gedefinieerde waarden, *wit*, *groen*, *oranje*, *Red*. |
-|Confidence |Waarden zijn *0-100*. |
+|Betrouwbaarheid |Waarden zijn *0-100*. |
 |Severity |Waarden zijn *0 – 5*, waarbij *5* is het meest ernstige en *0* is helemaal niet ernstig. Standaardwaarde is *3*.  |
 |FirstReportedDateTime |De eerste keer dat de provider meldt de indicator. |
 |LastReportedDateTime |De laatste keer dat de indicator is gezien door Interflow. |
@@ -134,11 +134,11 @@ Poorten op een virtuele machine die actief accepteren van binnenkomend verkeer o
 
 Elke record in VMBoundPort wordt geïdentificeerd door de volgende velden: 
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
-|Process | De identiteit van proces (of groepen van processen) waarmee de poort gekoppeld is.|
-|Ip | IP-adres-poort (mag jokertekens IP-adres, *0.0.0.0*) |
-|Port |Het poortnummer |
+|Verwerken | De identiteit van proces (of groepen van processen) waarmee de poort gekoppeld is.|
+|IP | IP-adres-poort (mag jokertekens IP-adres, *0.0.0.0*) |
+|Poort |Het poortnummer |
 |Protocol | Het protocol.  Bijvoorbeeld *tcp* of *udp* (alleen *tcp* wordt momenteel ondersteund).|
  
 De identiteit een poort is afgeleid van de bovenstaande vijf velden en wordt opgeslagen in de eigenschap PortId. Deze eigenschap kan worden gebruikt om snel te vinden records voor een specifieke poort in de tijd. 
@@ -204,7 +204,7 @@ Records met een type *ServiceMapProcess_CL* beschikken over inventarisgegevens v
 | CommandLine_s | Vanaf de opdrachtregel |
 | ExecutablePath _s | Het pad naar het uitvoerbare bestand |
 | WorkingDirectory_s | De werkmap |
-| UserName | Het account waaronder het proces wordt uitgevoerd |
+| Gebruikersnaam | Het account waaronder het proces wordt uitgevoerd |
 | UserDomain | Het domein waarin het proces wordt uitgevoerd |
 
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken

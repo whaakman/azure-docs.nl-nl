@@ -15,11 +15,11 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: include file
 ms.openlocfilehash: 8c2dc41fde9387da291b6e4a6c8a6220ae62b514
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59502989"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60297977"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Meld u aan gebruikers en de Microsoft Graph-API aanroepen vanuit een toepassing in JavaScript één pagina (SPA)
 
@@ -41,7 +41,7 @@ De voorbeeldtoepassing die is gemaakt in deze handleiding kunt een JavaScript-SP
 
 Deze handleiding worden de volgende bibliotheek gebruikt:
 
-|Bibliotheek|Beschrijving|
+|Bibliotheek|Description|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library voor JavaScript-Preview|
 

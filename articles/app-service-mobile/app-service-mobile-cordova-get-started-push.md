@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960325"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114326"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Pushmeldingen toevoegen aan uw Apache Cordova-app
 
@@ -240,11 +240,11 @@ De huidige vereiste bibliotheken worden vermeld in de [phonegap plugin push-inst
 
 U kunt nu testpushmeldingen uitvoeren van de app en het invoegen van items in de TodoItem-tabel. U kunt vanuit hetzelfde apparaat of vanuit een tweede apparaat, testen, zolang u de dezelfde back-end gebruikt. Test uw Cordova-app op het Android-platform in een van de volgende manieren:
 
-* *Op een fysiek apparaat:* uw Android-apparaat koppelen aan uw computer met een USB-kabel.  In plaats van **Google Android-Emulator**, selecteer **apparaat**. Visual Studio implementeert de toepassing op het apparaat en de toepassing wordt uitgevoerd. U kunt vervolgens met de toepassing op het apparaat werken.
+* *Op een fysiek apparaat:* Uw Android-apparaat koppelen aan uw computer met een USB-kabel.  In plaats van **Google Android-Emulator**, selecteer **apparaat**. Visual Studio implementeert de toepassing op het apparaat en de toepassing wordt uitgevoerd. U kunt vervolgens met de toepassing op het apparaat werken.
 
   Delen van het scherm toepassingen, zoals [Mobizen] [ 20] kan u helpen bij het ontwikkelen van Android-toepassingen. Uw scherm Android naar een webbrowser projecten Mobizen op uw PC.
 
-* *Op een Android-emulator:* er zijn aanvullende configuratiestappen die vereist zijn wanneer u een emulator.
+* *Op een Android-emulator:* Er zijn aanvullende configuratiestappen die vereist zijn wanneer u een emulator.
 
     Zorg ervoor dat u implementeert een virtueel apparaat met Google APIs ingesteld als doel, zoals wordt weergegeven in de Android-apparaat (AVD) manager.
 

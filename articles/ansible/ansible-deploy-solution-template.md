@@ -1,21 +1,22 @@
 ---
-title: Een Ansible-oplossingssjabloon voor Azure implementeren in CentOS
-description: Ontdek hoe u de Ansible-oplossingssjabloom implementeert op een CentOS-VM dat in Azure wordt gehost, in combinatie met hulpprogramma's die zijn geconfigureerd om te werken met Azure.
-ms.service: azure
+title: QuickStart - sjabloon van de Ansible-oplossing implementeren voor Azure op CentOS | Microsoft Docs
+description: In deze snelstartgids leert u over het implementeren van de oplossingssjabloon Ansible op een CentOS-virtuele machine die wordt gehost op Azure, en de hulpprogramma's die zijn geconfigureerd om te werken met Azure.
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
+ms.topic: quickstart
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 01/28/2019
-ms.openlocfilehash: 78fe5211f135b4a4c7d0fd21c66340025ad2d05d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: 2d2ab769c2d4c5a594cb57f2fa9dfed599578506
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104213"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764567"
 ---
-# <a name="deploy-the-ansible-solution-template-for-azure-to-centos"></a>Een Ansible-oplossingssjabloon voor Azure implementeren in CentOS
+# <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Quickstart: Een Ansible-oplossingssjabloon voor Azure implementeren in CentOS
+
 De Ansible-oplossingssjabloon voor Azure is ontworpen voor het configureren van een Ansible-exemplaar op een CentOS virtuele machine, samen met Ansible en een reeks hulpprogramma's die is geconfigureerd om te werken met Azure. Tot de hulpmiddelen behoren:
 
 - **Ansible-modules voor Azure**: de [Ansible-modules voor Azure](./ansible-matrix.md) zijn een reeks modules waarmee u uw infrastructuur in Azure kunt maken en beheren. De meest recente versie van deze modules wordt standaard geïmplementeerd. Tijdens het implementeren van de oplossingssjabloon kunt u echter ook een versienummer opgeven dat past bij uw omgeving.
@@ -23,9 +24,10 @@ De Ansible-oplossingssjabloon voor Azure is ontworpen voor het configureren van 
 - **Beheerde identiteiten voor Azure-resources**: de [beheerde identiteiten voor Azure-resources](/azure/active-directory/managed-identities-azure-resources/overview) maken het mogelijk om referenties voor cloudtoepassingen veilig te houden.
 
 ## <a name="prerequisites"></a>Vereisten
-- **Azure-abonnement**: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
 
-## <a name="deploy-the-ansible-solution-template-from-the-azure-marketplace"></a>De Ansible-oplossingssjabloon implementeren vanuit Azure Marketplace
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+
+## <a name="deploy-the-ansible-solution-template"></a>De sjabloon van de Ansible-oplossing implementeren
 
 1. Blader naar de [Ansible-oplossingssjabloon in Azure Marketplace](https://azuremarketplace.microsoft.com/en-%20%20us/marketplace/apps/azure-oss.ansible?tab=Overview).
 
@@ -46,7 +48,7 @@ De Ansible-oplossingssjabloon voor Azure is ontworpen voor het configureren van 
    - **Resourcegroep**: selecteer een bestaande resourcegroep in de vervolgkeuzelijst of selecteer **Nieuwe maken** en geef een naam op voor de nieuwe resourcegroep. Voor deze demo wordt een nieuwe resourcegroep met de naam `ansiblerg` gebruikt.
    - **Locatie**: selecteer de locatie in de vervolgkeuzelijst die geschikt is voor uw scenario.
 
-     ![Azure-portaltabblad voor de Ansible-basisinstellingen](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-1.png)
+     ![Azure-portaltabblad voor de Ansible-basisinstellingen](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-1.png)
 
 1. Selecteer **OK**.
 
@@ -60,19 +62,19 @@ De Ansible-oplossingssjabloon voor Azure is ontworpen voor het configureren van 
    - **Domeinnaamlabel**: geef de openbare-domeinnaam op van de virtuele machine. De naam moet uniek zijn en voldoen aan de vereisten voor naamgeving. Zie [Naamconventies voor Azure-resources](/azure/architecture/best-practices/naming-conventions) voor meer informatie over het opgeven van een naam voor de virtuele machine.
    - **Ansible-versie**: geef een versienummer of de waarde `latest` op om de nieuwste versie te implementeren. Selecteer het informatiepictogram naast de **Ansible-versie** voor meer informatie over de beschikbare versies.
 
-     ![Azure-portaltabblad voor de aanvullende Ansible-instellingen](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-2.png)
+     ![Azure-portaltabblad voor de aanvullende Ansible-instellingen](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-2.png)
 
 1. Selecteer **OK**.
 
 1. Op het tabblad **Ansible-integratie-instellingen** geeft u het verificatietype op. Zie [Wat zijn beheerde identiteiten voor Azure-resources?](/azure/active-directory/managed-identities-azure-resources/overview) voor meer informatie over het beveiligen van Azure-resources.
 
-    ![Azure-portaltabblad voor de Ansible-integratie-instellingen](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-3.png)
+    ![Azure-portaltabblad voor de Ansible-integratie-instellingen](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-3.png)
 
 1. Selecteer **OK**.
 
 1. De **samenvatting**spagina wordt weergegeven. Hier ziet u het validatieproces en hier worden de opgegeven criteria voor de Ansible-implementatie vermeld. Met een koppeling aan de onderkant van het tabblad kunt u **de sjabloon en parameters downloaden** voor gebruik met ondersteunde Azure-talen en -platforms. 
 
-     ![Azure-portaltabblad met het tabblad Ansible-overzicht](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-4.png)
+     ![Azure-portaltabblad met het tabblad Ansible-overzicht](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-4.png)
 
 1. Selecteer **OK**.
 
@@ -80,10 +82,11 @@ De Ansible-oplossingssjabloon voor Azure is ontworpen voor het configureren van 
 
 1. Selecteer het pictogram **Meldingen** boven aan de portalpagina om de voortgang van de Ansible-implementatie bij te houden. Nadat de implementatie is voltooid, selecteert u **Ga naar resourcegroep**. 
 
-     ![Azure-portaltabblad met het tabblad Ansible-overzicht](./media/ansible-deploy-solution-template/portal-ansible-setup-complete.png)
+     ![Azure-portaltabblad met het tabblad Ansible-overzicht](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-complete.png)
 
 1. Op de pagina van de resourcegroep haalt u het IP-adres van uw Ansible-host op en meldt u zich aan voor het beheren van uw Azure-resources met behulp van Ansible.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 > [!div class="nextstepaction"] 
-> [Een virtuele Linux-machine maken in Azure met Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Snelstart: Een virtuele Linux-machine in Azure met behulp van Ansible configureren](/azure/virtual-machines/linux/ansible-create-vm)

@@ -1,7 +1,6 @@
 ---
 title: Configureren van instellingen voor Spark - Azure HDInsight
 description: Klik hier voor meer informatie over het configureren van Spark voor een Azure HDInsight-cluster.
-services: hdinsight
 author: maxluk
 ms.author: maxluk
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 91f706b882c4f245dbd111b0f9cac269db6fd65f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: MT
+ms.openlocfilehash: 77f4ec9cce5d02ea4cbcc4968d02773a13edfe5b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652232"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098372"
 ---
 # <a name="configure-apache-spark-settings"></a>Apache Spark-instellingen configureren
 
@@ -71,7 +70,7 @@ Om te zien en afzonderlijke waarden van de Spark-configuratie wijzigen, selectee
 * Aangepaste Spark2-standaardinstellingen
 * Aangepaste metrische gegevens-Spark2-eigenschappen
 * Geavanceerde Spark2-standaardinstellingen
-* Geavanceerde Spark2-env
+* Advanced Spark2-env
 * Geavanceerde spark2-hive-site-overschrijven
 
 Als u een niet-standaard set-configuratiewaarden maakt, kunt u ook de geschiedenis van uw configuratie-updates zien.  De geschiedenis van deze configuratie kan zijn handig om te zien welke niet-standaard-configuratie met optimale prestaties.
@@ -111,8 +110,8 @@ Hier volgt een voorbeeld van twee worker-knooppunten met verschillende configura
 De volgende lijst bevat belangrijke Spark-uitvoerder geheugen parameters.
 
 * `spark.executor.memory` de totale hoeveelheid geheugen die beschikbaar is definieert voor een executor.
-* `spark.storage.memoryFraction` (standaard ~ 60%) bepaalt de hoeveelheid geheugen die beschikbaar is voor het opslaan van persistente rdd's.
-* `spark.shuffle.memoryFraction` (standaard ~ 20%) bepaalt de hoeveelheid geheugen gereserveerd voor willekeurige volgorde.
+* `spark.storage.memoryFraction` (standaard ~ 60%) Hiermee definieert u de hoeveelheid geheugen die beschikbaar is voor het opslaan van persistente rdd's.
+* `spark.shuffle.memoryFraction` (standaard ~ 20%) Hiermee definieert u de hoeveelheid geheugen gereserveerd voor willekeurige volgorde.
 * `spark.storage.unrollFraction` en `spark.storage.safetyFraction` (in totaal ongeveer 30% van het totale geheugen) - deze waarden wordt intern gebruikt door Spark en mag niet worden gewijzigd.
 
 YARN bepaalt de maximale som van geheugen gebruikt door de containers op elk knooppunt Spark. Het volgende diagram toont de per knooppunt relaties tussen configuratie- en Spark-objecten YARN.
@@ -150,5 +149,5 @@ Er zijn een aantal core configuratie-instellingen die u nodig hebt om te control
 * [Apache Hadoop-onderdelen en versies die beschikbaar met HDInsight?](../hdinsight-component-versioning.md)
 * [Resources beheren voor een Apache Spark-cluster in HDInsight](apache-spark-resource-manager.md)
 * [Clusters in HDInsight met Apache Hadoop, Apache Spark en Apache Kafka instellen](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Configuratie van een Apache Spark](https://spark.apache.org/docs/latest/configuration.html)
+* [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html)
 * [Actieve Apache Spark op Apache Hadoop YARN](https://spark.apache.org/docs/latest/running-on-yarn.html)

@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f466a1c3fd0b2d527fc4ab407d096f6bb9b7d8b9
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001079"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766906"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Een overzicht van de mogelijkheden van Azure SQL Database-beveiliging
 
@@ -47,7 +47,7 @@ IP-firewallregels verlenen toegang tot databases op basis van het oorspronkelijk
 > [!IMPORTANT]
 > Beheer van databases en database-servers in Azure wordt bepaald door de roltoewijzingen van de account van uw portal-gebruiker. Zie voor meer informatie over dit artikel [rollen gebaseerd toegangsbeheer in Azure portal](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Verificatie
 
 Verificatie is het proces van de gebruiker aan te tonen die zij beweren te zijn. Azure SQL Database ondersteunt twee typen verificatie:
 
@@ -66,19 +66,17 @@ Verificatie is het proces van de gebruiker aan te tonen die zij beweren te zijn.
 > [!IMPORTANT]
 > Beheer van databases en servers in Azure wordt bepaald door de roltoewijzingen van de account van uw portal-gebruiker. Zie voor meer informatie over dit artikel [rollen gebaseerd toegangsbeheer in Azure portal](../role-based-access-control/overview.md). Beheren van toegang met firewallregels heeft *niet* zijn van toepassing op **een beheerd exemplaar**. Raadpleeg het volgende artikel over [verbinding te maken met een beheerd exemplaar](sql-database-managed-instance-connect-app.md) voor meer informatie over welke netwerkconfiguratie is vereist.
 
-Autorisatie verwijst naar de machtigingen worden toegewezen aan een gebruiker binnen een Azure SQL Database, en bepaalt wat de gebruiker mag doen. Machtigingen worden bepaald door het toevoegen van gebruikersaccounts aan [databaserollen](/sql/relational-databases/security/authentication-access/database-level-roles) waarmee u de machtigingen op databaseniveau of het verlenen van de gebruiker bepaalde [objectmachtigingen](/sql/relational-databases/security/permissions-database-engine). Zie voor meer informatie, [aanmeldingen en gebruikers](sql-database-manage-logins.md)
+## <a name="authorization"></a>Autorisatie
 
-Als een best practice, moet u gebruikers toevoegen aan de rol met de minste bevoegdheden die nodig is voor hun functie. Het serverbeheerdersaccount is lid van de rol db_owner, die beschikt over uitgebreide machtigingen en moet worden verleend aan gebruikers voorzichtig. Wanneer u toepassingen met Azure SQL Database, gebruiken [toepassingsrollen](/sql/relational-databases/security/authentication-access/application-roles) met beperkte machtigingen. Dit zorgt ervoor dat de toepassing die verbinding maken met de database de minimaal benodigde bevoegdheden die nodig zijn voor de toepassing is.
+Autorisatie verwijst naar de machtigingen worden toegewezen aan een gebruiker binnen een Azure SQL Database, en bepaalt wat de gebruiker mag doen. Machtigingen worden bepaald door het toevoegen van gebruikersaccounts aan [databaserollen](/sql/relational-databases/security/authentication-access/database-level-roles) en op databaseniveau machtigingen toewijzen aan deze rollen of door de gebruiker bepaalde [objectmachtigingen](/sql/relational-databases/security/permissions-database-engine). Zie voor meer informatie, [aanmeldingen en gebruikers](sql-database-manage-logins.md)
+
+Als een best practice, maak aangepaste rollen wanneer dat nodig is. Gebruikers toevoegen aan de rol met de minste bevoegdheden die nodig is voor hun functie. Wijs machtigingen niet rechtstreeks aan gebruikers. Het serverbeheerdersaccount is lid van de ingebouwde rol db_owner, die beschikt over uitgebreide machtigingen en moet alleen worden verleend aan enkele gebruikers met administratieve taken. Voor Azure SQL Database-toepassingen, gebruiken de [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) opgeven van de uitvoeringscontext van de module met de naam of gebruik [toepassingsrollen](/sql/relational-databases/security/authentication-access/application-roles) met beperkte machtigingen. Met deze procedure zorgt ervoor dat de toepassing die verbinding met de database maakt de minimaal benodigde bevoegdheden die nodig zijn voor de toepassing is. Deze aanbevolen procedures volgt bevordert scheiding van functies ook.
 
 ### <a name="row-level-security"></a>Beveiliging op rijniveau
 
-Beveiliging op rijniveau kunnen klanten voor het beheren van toegang tot rijen in een database-tabel op basis van de kenmerken van de gebruiker die een query uitvoert (bijvoorbeeld groep groepslidmaatschap of uitvoeringscontext context). Zie [Beveiliging op rijniveau](/sql/relational-databases/security/row-level-security) voor meer informatie.
+Beveiliging op rijniveau kunnen klanten voor het beheren van toegang tot rijen in een database-tabel op basis van de kenmerken van de gebruiker die een query uitvoert (bijvoorbeeld groep groepslidmaatschap of uitvoeringscontext context). Beveiliging op rijniveau kan ook worden gebruikt voor het implementeren van aangepaste beveiligingsconcepten op basis van een Label. Zie [Beveiliging op rijniveau](/sql/relational-databases/security/row-level-security) voor meer informatie.
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
-
-  Deze verificatiemethode maakt gebruik van een gebruikersnaam en wachtwoord. 
-
-Zie voor een overzicht van machtigingen in Azure SQL Database, [aanmeldingen en gebruikers](sql-database-manage-logins.md#permissions)
 
 ## <a name="threat-protection"></a>Bescherming tegen bedreigingen
 

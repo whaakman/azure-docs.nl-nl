@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
 ms.openlocfilehash: 0a9d63f4064952adbfedfc3f9656370ef7c4a1cc
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511274"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123672"
 ---
 # <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Zelfstudie: Een LEMP-webserver installeren op een virtuele Linux-machine in Azure
 
@@ -91,7 +91,7 @@ sudo mysql -u root -p
 
 Als u klaar bent, sluit u de mysql-prompt door `\q` te typen.
 
-### <a name="verify-php"></a>PHP controleren
+### <a name="verify-php"></a>PHP verifiëren
 
 Controleer de versie van PHP met de volgende opdracht:
 

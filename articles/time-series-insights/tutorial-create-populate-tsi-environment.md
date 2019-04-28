@@ -9,12 +9,12 @@ ms.date: 12/05/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 58b19a039bb6aebcd2687ab80cdd29c5f378645e
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 306d0fb49cd9eca0f24e95088dfdb8403e66311c
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200204"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761566"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Zelfstudie: Een Azure Time Series Insights-omgeving maken
 
@@ -59,7 +59,7 @@ Maak eerst een TSI-omgeving in uw Azure-abonnement:
 
 4. Vul de vereiste parameters in op de pagina **Time Series Insights**:
    
-   Parameter|Beschrijving
+   Parameter|Description
    ---|---
    **Omgevingsnaam** | Kies een unieke naam voor de TSI-omgeving. De naam wordt gebruikt door TSI-verkenner en de API-Query.
    **Abonnement** | Abonnementen zijn containers voor Azure-resources. Kies het abonnement waar u de TSI-omgeving wilt maken.
@@ -86,7 +86,7 @@ Maak vervolgens de oplossing voor apparaatsimulatie, waarmee testgegevens worden
 
 2. Voer de vereiste parameters in op de pagina **Apparaatsimulatieoplossing maken**:
 
-   Parameter|Beschrijving
+   Parameter|Description
    ---|---
    **Naam van de oplossing** | Een unieke waarde die wordt gebruikt voor het maken van een nieuwe resourcegroep. De vermelde Azure-resources worden gemaakt en toegewezen aan de resourcegroep.
    **Abonnement** | Geef hetzelfde abonnement op dat is gebruikt voor het maken van uw TSI-omgeving in de vorige sectie.
@@ -146,7 +146,7 @@ Verbind nu het nieuwe eindpunt van de gebeurtenisgroep ‘consumentengroep’ va
 
 3. Voer de vereiste parameters in op de pagina **Nieuwe gebeurtenisbron**: 
 
-   Parameter|Beschrijving
+   Parameter|Description
    ---|---
    **Naam van gebeurtenisbron** | Vereist een unieke waarde, die wordt gebruikt om de gebeurtenisbron een naam te geven.
    **Bron** | Selecteer ‘IoT Hub’.
@@ -178,7 +178,7 @@ U zult zich herinneren dat in het gedeelte [Een apparaatsimulatie maken](#create
 
 3. Nadat de pagina **Simulatie-instellingen** is geladen, voert u de vereiste parameters in: 
 
-   Parameter|Beschrijving
+   Parameter|Description
    ---|---
    **Doel-IoT-hub** | Selecteer ‘Vooraf ingerichte IoT-hub gebruiken’.
    **Apparaatmodel** | Selecteer ‘Koelinstallatie’.

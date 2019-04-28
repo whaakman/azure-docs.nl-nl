@@ -1,7 +1,6 @@
 ---
 title: Opmerkingen bij de release voor Azure HDInsight
 description: Meest recente opmerkingen bij de release voor Azure HDInsight. Krijg tips voor ontwikkelaars en details voor Hadoop, Spark, R Server, Hive en meer.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 5769f90ef69a82497194ff6de01b378acc84deec
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 0beac64ceb0bbf729d2f6d0f6a0ca8d5af499f42
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678383"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760106"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Opmerkingen bij de release voor Azure HDInsight
 

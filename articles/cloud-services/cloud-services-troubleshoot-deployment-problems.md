@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: cc2a0177525013736445db5fd1befa478dc9b9b8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798567"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106910"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Problemen met cloud service-implementaties oplossen
 Wanneer u een toepassingspakket voor cloud-service in Azure implementeert, kunt u informatie over de implementatie van de **eigenschappen** deelvenster in de Azure-portal. U kunt de details in dit deelvenster gebruiken om u te helpen bij het oplossen van problemen met de cloudservice en u kunt deze informatie opgeven voor de ondersteuning van Azure bij het openen van een nieuwe ondersteuningsaanvraag.

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: c1c20e225e15769a8cb09f60dfc371f4ec4d81f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e67737e26edfee94a5a4d740d6c575817c66ff0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306863"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766187"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
@@ -426,7 +426,7 @@ Azure Functions-winkels blob ontvangstbevestigingen voor e-mails in een containe
 * Naam van de blob
 * De ETag (een blob versie-id, bijvoorbeeld: "0x8D1DC6E70A277EF")
 
-Om af te dwingen opnieuw verwerken van een blob, verwijdert u de blob-ontvangstbewijs voor die blob uit de *azure-webtaken-hosts* container handmatig.
+Om af te dwingen opnieuw verwerken van een blob, verwijdert u de blob-ontvangstbewijs voor die blob uit de *azure-webtaken-hosts* container handmatig. Hoewel herverwerking mogelijk niet direct plaats, is het gegarandeerde worden uitgevoerd op een later tijdstip in de tijd.
 
 ## <a name="trigger---poison-blobs"></a>Trigger - poison blobs
 
@@ -450,9 +450,13 @@ JavaScript en Java-functies in het geheugen, de hele blob laden en C# functies d
 
 ## <a name="trigger---polling"></a>Trigger - polling
 
-Als de blob-container die worden bewaakt bevat meer dan 10.000 blobs (voor alle containers), logboekbestanden de Functions-runtime-scans om te bekijken voor nieuwe of gewijzigde blobs. Dit proces kan leiden tot vertragingen. Een functie mogelijk niet ophalen geactiveerd totdat enkele minuten of langer nadat de blob is gemaakt. Bovendien [opslaglogboeken worden gemaakt op een "aanbevolen inspanning"](/rest/api/storageservices/About-Storage-Analytics-Logging) uit te voeren. Er is geen garantie dat alle gebeurtenissen worden vastgelegd. Onder bepaalde omstandigheden, logboeken gemist.
+Als de blob-container die worden bewaakt bevat meer dan 10.000 blobs (voor alle containers), logboekbestanden de Functions-runtime-scans om te bekijken voor nieuwe of gewijzigde blobs. Dit proces kan leiden tot vertragingen. Een functie mogelijk niet ophalen geactiveerd totdat enkele minuten of langer nadat de blob is gemaakt.
 
-Als u sneller of betrouwbaarder blob verwerking nodig hebt, kunt u het maken van een [wachtrijbericht](../storage/queues/storage-dotnet-how-to-use-queues.md) bij het maken van de blob. Gebruik vervolgens een [wachtrijtrigger](functions-bindings-storage-queue.md) in plaats van een blobtrigger voor het verwerken van de blob. Een andere optie is het gebruik van Event Grid; Zie de zelfstudie [automatisch vergroten of verkleinen geüploade afbeeldingen met behulp van Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+> [!WARNING]
+> Bovendien [opslaglogboeken worden gemaakt op een "aanbevolen inspanning"](/rest/api/storageservices/About-Storage-Analytics-Logging) uit te voeren. Er is geen garantie dat alle gebeurtenissen worden vastgelegd. Onder bepaalde omstandigheden, logboeken gemist.
+> 
+> Als u sneller of betrouwbaarder blob verwerking nodig hebt, kunt u het maken van een [wachtrijbericht](../storage/queues/storage-dotnet-how-to-use-queues.md) bij het maken van de blob. Gebruik vervolgens een [wachtrijtrigger](functions-bindings-storage-queue.md) in plaats van een blobtrigger voor het verwerken van de blob. Een andere optie is het gebruik van Event Grid; Zie de zelfstudie [automatisch vergroten of verkleinen geüploade afbeeldingen met behulp van Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+>
 
 ## <a name="input"></a>Invoer
 
