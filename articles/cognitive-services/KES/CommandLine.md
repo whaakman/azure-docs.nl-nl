@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
 ms.openlocfilehash: 018552982a8ece3bbbaea2d60e2a6e64f681f822
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860113"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60815136"
 ---
 # <a name="command-line-interface"></a>Opdrachtregelinterface
 
@@ -94,7 +94,7 @@ De **deploy_service** opdracht wordt een exemplaar van de service KES geïmpleme
 
 `kes.exe deploy_service <grammarFile> <indexFile> <serviceName> <vmSize>[options]`
 
-| Parameter       | Description                  |
+| Parameter       | Beschrijving                  |
 |-----------------|------------------------------|
 | `<grammarFile>` | Invoer binaire grammatica-pad           |
 | `<indexFile>`   | Pad van invoer binaire index             |
@@ -114,7 +114,7 @@ De **describe_index** opdracht voert informatie over een indexbestand, met inbeg
 
 `kes.exe describe_index <indexFile>`
 
-| Parameter     | Description      |
+| Parameter     | Beschrijving      |
 |---------------|------------------|
 | `<indexFile>` | Pad van de invoer-index |
 

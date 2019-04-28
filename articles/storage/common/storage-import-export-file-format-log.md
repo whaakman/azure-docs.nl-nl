@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478603"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Logboekbestandindeling van Azure Import/Export-service
 Wanneer de Microsoft Azure Import/Export-service een actie op een station dat als onderdeel van een import-taak of een exporttaak bekijken uitvoert, worden de logboeken geschreven naar het blok-blobs in de storage-account dat is gekoppeld aan die taak.  
@@ -193,7 +193,7 @@ De volgende tabel bevat de statuscodes voor het verwerken van een blob.
 ## <a name="import-disposition-status-codes"></a>Statuscodes toestand importeren  
 De volgende tabel bevat de statuscodes voor het oplossen van een toestand importeren.  
   
-|Statuscode|Description|  
+|Statuscode|Beschrijving|  
 |-----------------|-----------------|  
 |`Created`|De blob is gemaakt.|  
 |`Renamed`|De blob is per naam importeren toestand gewijzigd. De `Blob/BlobPath` element bevat de URI voor de nieuwe naam van de blob.|  

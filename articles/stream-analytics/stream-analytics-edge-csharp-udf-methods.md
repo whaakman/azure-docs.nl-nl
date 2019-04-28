@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 5df4c9dfe18b02ade3a37717da9c68acbfcf1853
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106597"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61480904"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Ontwikkelen van .NET Standard door de gebruiker gedefinieerde functies voor Azure Stream Analytics Edge-taken (Preview)
 
@@ -134,6 +134,6 @@ De UDF-preview heeft momenteel de volgende beperkingen:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Zelfstudie: Een C# gebruiker gedefinieerde functie schrijven voor een Azure Stream Analytics Edge-taak (Preview)](stream-analytics-edge-csharp-udf.md)
+* [Zelfstudie: Schrijf een C# door de gebruiker gedefinieerde functie voor een Azure Stream Analytics Edge-taak (Preview)](stream-analytics-edge-csharp-udf.md)
 * [Zelfstudie: Azure Stream Analytics gebruiker gedefinieerde JavaScript-functies](stream-analytics-javascript-user-defined-functions.md)
 * [Visual Studio gebruiken om Azure Stream Analytics-taken weer te geven](stream-analytics-vs-tools.md)

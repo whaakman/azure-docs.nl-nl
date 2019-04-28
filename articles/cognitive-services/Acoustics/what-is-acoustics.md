@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 1fc125322b83a0eb51095fac21dee05c7ffb39c1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61432422"
 ---
 # <a name="what-is-project-acoustics"></a>Wat is Project Acoustics?
 Project akoestische is een engine voor het akoestische van wave voor 3D-interactieve ervaringen. Deze wave effecten als diffraction, portaling en weerklank effecten in complexe schermen zonder handmatige zone markup-modellen. Dit omvat ook game-engine en audio middleware-integratie. Project akoestische filosofie is vergelijkbaar met statische verlichting: gedetailleerde physics offline maken voor een fysieke basislijn en gebruikt een lichtgewicht runtime met expressieve ontwerp besturingselementen om uw artistieke doelstellingen te behalen.

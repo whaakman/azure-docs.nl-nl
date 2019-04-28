@@ -1,7 +1,6 @@
 ---
 title: On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - opslag aanbevolen procedures
 description: Informatie over aanbevolen procedures van de opslagruimte voor migratie on-premises Hadoop-clusters op Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f3ac60eb45c86b6cd2ded0340ac6bde478086464
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: c62a5384edf66fd9309bc7afcb50ada48e3fca7d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000059"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095279"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - opslag aanbevolen procedures
 
@@ -172,11 +171,11 @@ HDInsight standaard heeft volledige toegang tot gegevens in de Azure Storage-acc
 
 5. Als u wilt beperken van toegang tot een container met Shared Access Signature, moet u een aangepaste vermelding toevoegen aan de core-site-configuratie voor het cluster onder Ambari HDFS configuraties geavanceerde aangepaste eigenschap van de core-site toevoegen.
 
-6. Gebruik de volgende waarden voor de **sleutel** en **waarde** velden:
+6. Gebruik de volgende waarden voor de **sleutel** en **waarde** velden:
 
     **sleutel**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Waarde**: De SAS-sleutel wordt geretourneerd door de Python-toepassing vanaf stap 4 hierboven.
 
-7. Klik op de **toevoegen** klikken om deze sleutel en waarde opslaan en klik vervolgens op de **opslaan** om op te slaan van de configuratiewijzigingen. Wanneer u hierom wordt gevraagd, een beschrijving van de wijziging ('toe te voegen toegang tot de SAS-opslag' bijvoorbeeld) toevoegen en klik vervolgens op **opslaan**.
+7. Klik op de **toevoegen** klikken om deze sleutel en waarde opslaan en klik vervolgens op de **opslaan** om op te slaan van de configuratiewijzigingen. Wanneer u hierom wordt gevraagd, een beschrijving van de wijziging ('toe te voegen toegang tot de SAS-opslag' bijvoorbeeld) toevoegen en klik vervolgens op **opslaan**.
 
 8. In de Ambari-webgebruikersinterface, HDFS Selecteer in de lijst aan de linkerkant en selecteer vervolgens **start opnieuw op alle betrokken** Vervolgkeuzelijst lijst aan de rechterkant van de Service-acties. Wanneer u hierom wordt gevraagd, selecteert u **alle opnieuw starten bevestigen**.
 

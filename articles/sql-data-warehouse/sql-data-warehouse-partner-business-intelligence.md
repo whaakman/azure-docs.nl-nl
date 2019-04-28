@@ -11,17 +11,17 @@ ms.date: 03/27/2019
 ms.author: jrj
 ms.reviewer: igorstan
 ms.openlocfilehash: 6860746a1b20fe06de2dafa6035ae560bde24a29
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477007"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL Data Warehouse business intelligence-partners
 Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw end-to-end datawarehouse-oplossing.  In dit artikel ziet u Microsoft partnerbedrijven met officiële business intelligence (BI)-oplossingen is ondersteuning van Azure SQL Data Warehouse.
 
 ## <a name="our-business-intelligence-partners"></a>Onze business intelligence-partners
-| Partner | Beschrijving | Koppeling naar website/Product |
+| Partner | Description | Koppeling naar website/Product |
 | ------- | ----------- | -------------------- |
 | ![Birst][1] |**Birst**<br>Birst verbindt de hele organisatie via een netwerk van ineengevlochten gevirtualiseerde BI exemplaren op-bovenaan een gedeelde algemene analytische-infrastructuur|[Productpagina][birst_website]<br>[Azure Marketplace][birst_marketplace]<br> |
 | ![ClearStory gegevens][2] |**ClearStory gegevens (continue zakelijke inzichten worden verkregen)**<br>Fast-cyclus analysis biedt clearStory gegevens voor verschillende gegevens die zijn opgeslagen in SQL Data Warehouse. ClearStory van geïntegreerde Spark gebaseerd platform en analyses snelheid van toegang tot toepassingsgegevens en onderlinge aanpassing van verschillende gegevenssets. Ze inschakelen van verkenning van fast, samenwerkende waarmee zakelijke gebruikers om te worden gewortelde autonome om inzicht te krijgen. |[Productpagina][clearstory_website]<br> |

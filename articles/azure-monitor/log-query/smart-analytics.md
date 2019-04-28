@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2019
 ms.author: bwren
 ms.openlocfilehash: f6617a504bbda666ce9ece018ccb0cf02635c360
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355527"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61425804"
 ---
 # <a name="log-analytics-smart-analytics-examples"></a>Log Analytics slimme analyse-voorbeelden
 In dit artikel bevat voorbeelden die gebruikmaken van functies van slimme analyses in Log Analytics voor analyse van gebruikersactiviteit. U kunt deze voorbeelden voor het analyseren van uw eigen toepassingen bewaakt door Application Insights gebruiken of u kunt de concepten in deze query's voor vergelijkbare analyse van andere gegevens. 

@@ -13,15 +13,15 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 05f3213383c526944a8a1cf51fb92d5186ac7434
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449027"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60861868"
 ---
 # <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Quickstart: Ruby gebruiken om een query uit te voeren voor een Azure SQL-database
 
-In deze snelstart wordt gedemonstreerd hoe u [Ruby](https://www.ruby-lang.org) gebruikt om verbinding te maken met een Azure SQL Database en hoe u met Transact-SQL-instructies een query uitvoert voor de gegevens.
+In deze quickstart wordt gedemonstreerd hoe u [Ruby](https://www.ruby-lang.org) gebruikt om verbinding te maken met een Azure SQL-database en hoe u met Transact-SQL-instructies een query uitvoert voor de gegevens.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -65,7 +65,7 @@ Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Az
 
 1. Maak in een tekst- of code-editor een nieuw bestand met de naam *sqltest.rb*.
    
-1. Voeg de volgende code toe. Vervang de waarden van uw Azure SQL Database door `<server>`, `<database>`, `<username>` en `<password>`.
+1. Voeg de volgende code toe. Vervang de waarden van uw Azure SQL-database door `<server>`, `<database>`, `<username>` en `<password>`.
    
    >[!IMPORTANT]
    >Voor de code in dit voorbeeld worden de voorbeeldgegevens gebruikt van AdventureWorksLT, die u als bron kunt kiezen bij het maken van uw database. Als in uw database andere gegevens staan, kunt u tabellen uit uw eigen database gebruiken in de SELECT-query. 
@@ -101,7 +101,7 @@ Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Az
 1. Controleer of de bovenste twintig rijen voor Categorie/Product in uw database worden geretourneerd. 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Uw eerste Azure SQL Database ontwerpen](sql-database-design-first-database.md).
+- [Uw eerste Azure SQL-database ontwerpen](sql-database-design-first-database.md).
 - [GitHub-opslagplaats voor TinyTDS](https://github.com/rails-sqlserver/tiny_tds).
 - [Problemen melden of vragen over TinyTDS stellen](https://github.com/rails-sqlserver/tiny_tds/issues).
 - [Ruby-stuurprogramma voor SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/).

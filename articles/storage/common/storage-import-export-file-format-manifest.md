@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: ee53cc3a639a79e1b29ac6cd537bfb04e05b1bca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692473"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478620"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Azure Import/Export-service manifest-bestand-indeling
 Het manifestbestand van het station beschrijving van de toewijzing tussen de blobs in Azure Blob-opslag en bestanden op schijf die bestaat uit een taak importeren of exporteren. Het manifestbestand is gemaakt als onderdeel van het voorbereidingsproces station en is opgeslagen op de schijf voordat het station wordt verzonden naar de Azure-Datacenter voor een importbewerking. Tijdens een exportbewerking, het manifest gemaakt en opgeslagen op de schijf met de Azure Import/Export-service.  

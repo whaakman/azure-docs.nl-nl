@@ -10,11 +10,11 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598671"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61448237"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: problemen detecteren met apparaten die zijn verbonden met uw bewakingsoplossing
 
@@ -51,10 +51,10 @@ Als u alleen de regels wilt zien die betrekking hebben op chillers, moet u een f
 
 Als u een regel wilt maken waarmee een waarschuwing wordt gegenereerd wanneer de druk in een chiller hoger wordt dan 150 PSI, klikt u op **Nieuwe regel**. Gebruik de volgende waarden om de regel te maken:
 
-| Instelling          | Waarde                                 |
+| Instelling          | Value                                 |
 | ---------------- | ------------------------------------- |
 | Regelnaam        | Waarschuwing voor chiller                       |
-| Beschrijving      | De druk in de chiller heeft 150 PSI overschreden |
+| Description      | De druk in de chiller heeft 150 PSI overschreden |
 | Apparaatgroep     | **Chillers**-apparaatgroep             |
 | Berekening      | Direct                               |
 | Veld Voorwaarde 1| pressure                              |
@@ -74,12 +74,12 @@ U kunt zien wanneer de regel wordt geactiveerd op de pagina **Regels** of op de 
 
 Klik op **Nieuwe regel**  als u een regel met meerdere voorwaarden wilt maken die een kritieke melding genereert wanneer in de laatste vijf minuten voor een chiller de gemiddelde vochtigheid hoger is dan 80% en de gemiddelde temperatuur hoger dan 75 graden Fahrenheit. Gebruik de volgende waarden om de regel te maken:
 
-| Instelling          | Waarde                                 |
+| Instelling          | Value                                 |
 | ---------------- | ------------------------------------- |
 | Regelnaam        | Kritieke vochtigheid en temp van chiller    |
-| Beschrijving      | Vochtigheid en temperatuur zijn kritiek |
+| Description      | Vochtigheid en temperatuur zijn kritiek |
 | Apparaatgroep     | **Chillers**-apparaatgroep             |
-| Berekening      | Average                               |
+| Berekening      | Gemiddeld                               |
 | Periode      | 5                                     |
 | Veld Voorwaarde 1| vochtigheid                              |
 | Operator Voorwaarde 1 | Groter dan                      |
@@ -90,7 +90,7 @@ Klik op **Nieuwe regel**  als u een regel met meerdere voorwaarden wilt maken di
 
 Als u wilt de tweede voorwaarde wilt toevoegen, klikt u op '+ Voorwaarde toevoegen'. Gebruik de volgende waarden voor de nieuwe voorwaarde:
 
-| Instelling          | Waarde                                 |
+| Instelling          | Value                                 |
 | ---------------- | ------------------------------------- |
 | Veld Voorwaarde 2| temperatuur                           |
 | Operator Voorwaarde 2 | Groter dan                      |

@@ -10,11 +10,11 @@ ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61305964"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -269,7 +269,7 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 
 ### <a name="windows"></a>Windows
 
-|Classificatie  |Beschrijving  |
+|Classificatie  |Description  |
 |---------|---------|
 |Essentiële updates     | Een update voor een specifiek probleem die een kritieke bug niet-beveiliging.        |
 |Beveiligingsupdates     | Een update voor een probleem met de productspecifieke, productspecifieke beveiliging.        |

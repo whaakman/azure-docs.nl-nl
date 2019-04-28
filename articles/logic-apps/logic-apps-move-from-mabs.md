@@ -9,12 +9,12 @@ ms.author: jonfan
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: f27e82e780917e00625ef6a14ab8317d1f5b8ae8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f813cb5d8d5c442fc17f126c3a2ff6de7b0bdde1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124796"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61321120"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Migreren van BizTalk Services naar Azure Logic Apps
 
@@ -24,7 +24,7 @@ Microsoft Azure BizTalk Services (MABS) wordt buiten gebruik gesteld. Uw MABS-in
 
 BizTalk Services bestaat uit twee subservices:
 
-* Microsoft BizTalk Services-hybride verbindingen
+* Microsoft BizTalk Services Hybrid Connections
 * EAI en EDI bruggebaseerde integratie
 
 [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md) vervangt Hybrid Connections van BizTalk Services. Azure Hybrid Connections is beschikbaar met Azure App Service via de Azure-portal. Deze service biedt een Hybrid Connection Manager zodat u kunt bestaande hybride verbindingen van BizTalk Services en ook nieuwe hybride verbindingen die u in de portal maakt beheren. 
@@ -115,16 +115,16 @@ Als u aangepaste code in assembly's die u vanuit BizTalk Services aanroept hebt,
 BizTalk Services en Logic Apps zijn onder andere EDI en B2B-verwerking met ondersteuning voor AS2 (Applicability Statement 2), X12 en EDIFACT. In de BizTalk Services, het maken van EDI-bruggen en maken of beheren van handelspartners en -overeenkomsten in de toegewezen bijhouden en beheren-portal.
 In Logic Apps kunt u deze functionaliteit kunt ophalen via de [Enterprise Integration Pack (EIP)](../logic-apps/logic-apps-enterprise-integration-overview.md). De EIP biedt [Integratieaccount](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) en B2B-acties voor EDI en B2B-verwerking. Ook gebruik van een Integratieaccount maakt en beheert [handelspartners](../logic-apps/logic-apps-enterprise-integration-partners.md) en [overeenkomsten](../logic-apps/logic-apps-enterprise-integration-agreements.md). Nadat u een Integratieaccount maakt, kunt u een of meer logische apps kunt koppelen aan het account. U kunt vervolgens B2B-acties gebruiken voor toegang tot trading Partnerinformatie van uw logische app. De volgende acties zijn beschikbaar:
 
-* AS2-codering
+* AS2 Encode
 * AS2-decodering
-* X12 coderen
-* X12 decoderen
+* X12 Encode
+* X12 Decode
 * EDIFACT-codering
 * EDIFACT-decodering
 
 In tegenstelling tot BizTalk Services, worden deze acties zijn ontkoppeld van de transportprotocollen. Dus wanneer u uw logische apps maakt, u meer flexibiliteit in welke connectors hebt waarmee u kunt gegevens verzenden en ontvangen. Bijvoorbeeld, kunt u ontvangen X12-bestanden als bijlagen van e-mail en vervolgens verwerken deze bestanden in een logische app. 
 
-## <a name="manage-and-monitor"></a>Beheren en controleren
+## <a name="manage-and-monitor"></a>Beheren en bewaken
 
 Een speciale portal opgegeven in BizTalk Services, bijhouden mogelijkheden om te controleren en oplossen van problemen. Logic Apps biedt uitgebreidere bijhouden en bewakingsmogelijkheden via de [Azure-portal](../logic-apps/logic-apps-monitor-your-logic-apps.md), en is voorzien van een mobiele app voor het bewaren van gaten op zaken wanneer u onderweg bent.
 

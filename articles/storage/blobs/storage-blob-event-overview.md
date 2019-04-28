@@ -9,11 +9,11 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: 4bc683908646a5c05fee14f721e2c26482518947
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751392"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61427610"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reageren op gebeurtenissen van Blob storage
 
@@ -33,7 +33,7 @@ Blob-opslaggebeurtenissen zijn beschikbaar in v2-opslagaccounts en Blob-opslagac
 ## <a name="available-blob-storage-events"></a>Beschikbare gebeurtenissen van Blob storage
 Maakt gebruik van Event grid [gebeurtenisabonnementen](../../event-grid/concepts.md#event-subscriptions) gebeurtenis om berichten te routeren voor abonnees.  Gebeurtenisabonnementen voor BLOB-opslag kunnen twee soorten gebeurtenissen omvatten:  
 
-> |Naam van de gebeurtenis|Description|
+> |Naam van de gebeurtenis|Beschrijving|
 > |----------|-----------|
 > |`Microsoft.Storage.BlobCreated`|Geactiveerd wanneer een blob wordt gemaakt of vervangen door de `PutBlob`, `PutBlockList`, of `CopyBlob` bewerkingen|
 > |`Microsoft.Storage.BlobDeleted`|Geactiveerd wanneer een blob wordt verwijderd via een `DeleteBlob` bewerking|

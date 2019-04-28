@@ -11,17 +11,17 @@ ms.date: 03/27/2019
 ms.author: jrj
 ms.reviewer: igorstan
 ms.openlocfilehash: 74449f7319f800e8008c5d457351fa49ae1af59a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621699"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476735"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Integratiepartners voor SQL Data Warehouse-gegevens
 Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw datawarehouse-oplossing. In dit artikel ziet u Microsoft partnerbedrijven met officiële oplossingen voor gegevensintegratie ondersteuning van Azure SQL Data Warehouse.
 
 ## <a name="data-integration-partners"></a>Integratiepartners gegevens
-| Partner | Description | Koppeling naar website/Product |
+| Partner | Beschrijving | Koppeling naar website/Product |
 | ------- | ----------- | -------------------- |
 | ![Alooma][7] |**Alooma**<br> Alooma is een ETL-oplossing waarmee gegevensteams om te integreren, verrijken en streamen van gegevens van verschillende gegevenssilo naar SQL Data Warehouse in realtime. |[Productpagina][alooma_website] |
 | ![Alteryx][1] |**Alteryx**<br> Alteryx Designer biedt een herhaalbare werkstroom voor selfservice gegevensanalyse die tot meer inzicht te krijgen in uren, niet de weken van traditionele benaderingen typische leidt! Alteryx Designer helpt gegevensanalisten door het combineren van gegevens voor te bereiden, blending van gegevens en analyses: voorspellende, statistische en ruimtelijke – met behulp van de intuïtieve gebruikersinterface. |[Productpagina][alteryx_designer_website]<br>[Azure Marketplace][alteryx_marketplace]<br>|

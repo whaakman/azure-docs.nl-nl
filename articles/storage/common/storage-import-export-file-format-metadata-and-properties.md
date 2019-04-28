@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 2066d4a2ed6db97285d92d15e14dbd21629dbdfa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457000"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478552"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure Import/Export-service eigenschappen en metagegevens bestandsindeling
 U kunt de eigenschappen voor een of meer blobs en metagegevens opgeven als onderdeel van een import-taak of een exporttaak bekijken. Om in te stellen metagegevens of eigenschappen voor blobs als onderdeel van een import-taak wordt gemaakt, bieden u een bestand met metagegevens of eigenschappen op de harde schijf met de gegevens die kunnen worden geïmporteerd. Voor een exporttaak bekijken, worden eigenschappen en metagegevens geschreven naar een bestand metagegevens of eigenschappen die is opgenomen op de harde schijf die aan u worden geretourneerd.  
@@ -52,7 +52,7 @@ De indeling van een eigenschappenbestand is als volgt:
 </Properties>  
 ```
   
-|XML-Element|Type|Description|  
+|XML-Element|Type|Beschrijving|  
 |-----------------|----------|-----------------|  
 |`Properties`|Root-element|Het hoofdelement van het eigenschappenbestand.|  
 |`Last-Modified`|String|Optioneel. Het tijdstip laatst gewijzigd voor de blob. Voor alleen voor export-taken.|  

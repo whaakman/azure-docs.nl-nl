@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
 ms.openlocfilehash: 3b4ee688d6a5606ab6008b459fcf6331c24afaae
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091637"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61429787"
 ---
-# <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Zelfstudie: Een aliasrecord maken dat naar een resourcerecord voor een zone verwijst
+# <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Zelfstudie: Een alias-record om te verwijzen naar een zone resourcerecord maken
 
 Aliasrecords kunnen naar andere recordsets van hetzelfde type verwijzen. U kunt bijvoorbeeld een DNS CNAME-recordset hebben als alias voor een andere CNAME-recordset van hetzelfde type. Dit is handig als u wilt dat sommige recordsets zich gedragen als aliassen en andere als niet-aliassen.
 
@@ -30,7 +30,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 ## <a name="prerequisites"></a>Vereisten
 U moet een beschikbare domeinnaam hebben die u in Azure DNS kunt hosten om te testen. U moet het volledige beheer over dit domein hebben. Volledig beheer betekent ook de mogelijkheid om naamserverrecords (NS) voor het domein in te stellen.
 
-Zie voor instructies voor het hosten van uw domein in Azure DNS [Zelfstudie: Uw domein in Azure DNS hosten](dns-delegate-domain-azure-dns.md).
+Zie voor instructies voor het hosten van uw domein in Azure DNS [zelfstudie: Uw domein hosten in Azure DNS](dns-delegate-domain-azure-dns.md) voor meer informatie.
 
 
 ## <a name="create-an-alias-record"></a>Een aliasrecord maken

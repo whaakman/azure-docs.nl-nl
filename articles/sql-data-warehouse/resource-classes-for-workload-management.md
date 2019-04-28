@@ -2,20 +2,21 @@
 title: Resourceklassen voor het beheer van de werkbelasting - Azure SQL Data Warehouse | Microsoft Docs
 description: Richtlijnen voor het gebruik van resource-klassen voor het beheren van gelijktijdigheid van taken en rekenresources voor query's in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/15/2019
-ms.author: rortloff
+origin.date: 03/15/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.reviewer: jrasnick
 ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520051"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475079"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Beheer van de werkbelasting met resourceklassen in Azure SQL Data Warehouse
 
@@ -941,6 +942,7 @@ Zie voor meer informatie over het beheren van databasegebruikers en beveiliging 
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
+[Managing Databases and Logins in Azure SQL Database]:../sql-database/sql-database-manage-logins.md
 
 <!--Other Web references-->
+<!-- Update_Description: update link, wording update-->

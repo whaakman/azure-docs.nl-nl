@@ -1,6 +1,6 @@
 ---
-title: Een Azure-cloud-service schalen in Windows PowerShell | Microsoft Docs
-description: (klassiek) Informatie over het gebruiken van PowerShell een Webrol of worker-rol in of uit te schalen in Azure.
+title: Een Azure-cloud-service in Windows PowerShell schalen | Microsoft Docs
+description: (klassiek) Leer hoe u PowerShell gebruiken om te schalen van een Webrol of werkrol in- of uitschalen in Azure.
 services: cloud-services
 documentationcenter: ''
 author: mmccrory
@@ -14,69 +14,69 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: mmccrory
-ms.openlocfilehash: a7ae8ff202d403dff19b8c9a6a09492235db27ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 240b34abd2f9b937c8a7ea449ad7f148870a9d33
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23842949"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61433226"
 ---
-# <a name="how-to-scale-a-cloud-service-in-powershell"></a>Schalen van een cloudservice in PowerShell
+# <a name="how-to-scale-a-cloud-service-in-powershell"></a>Een cloudservice schalen in PowerShell
 
-Windows PowerShell kunt u een Webrol of worker-rol in- of schalen door het toevoegen of verwijderen van exemplaren.  
+U kunt Windows PowerShell gebruiken voor het schalen van een Webrol of werkrol in of uit door het toevoegen of verwijderen van exemplaren.  
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Voordat u geen bewerkingen uit op uw abonnement via PowerShell uitvoeren kunt, moet u zich aanmeldt:
+Voordat u bewerkingen op uw abonnement via PowerShell uitvoeren kunt, moet u zich aanmeldt:
 
 ```powershell
 Add-AzureAccount
 ```
 
-Als u meerdere abonnementen die zijn gekoppeld aan uw account hebt, moet u wellicht wijzigen van het huidige abonnement, afhankelijk van waar uw cloudservice zich bevindt. Als u wilt controleren in het huidige abonnement, uitvoeren:
+Als u meerdere abonnementen die zijn gekoppeld aan uw account hebt, moet u mogelijk om te wijzigen van het huidige abonnement, afhankelijk van waar uw cloudservice zich bevindt. Om te controleren of het huidige abonnement, voert u de volgende uit:
 
 ```powershell
 Get-AzureSubscription -Current
 ```
 
-Als u wijzigen van het huidige abonnement wilt, uitvoeren:
+Als u wijzigen van het huidige abonnement wilt, moet uitvoeren:
 
 ```powershell
 Set-AzureSubscription -SubscriptionId <subscription_id>
 ```
 
-## <a name="check-the-current-instance-count-for-your-role"></a>Controleer het huidige aantal exemplaren voor uw rol
+## <a name="check-the-current-instance-count-for-your-role"></a>Controleer het huidige aantal instanties voor uw rol
 
-Als u wilt controleren in de huidige status van uw rol, worden uitgevoerd:
+Om te controleren of de huidige status van uw rol, voert u de volgende uit:
 
 ```powershell
 Get-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>'
 ```
 
-Ontvangt u informatie over de functie, inclusief de huidige OS-versie en exemplaar aantal. In dit geval heeft de rol één exemplaar.
+U moet terug informatie ophalen over de functie, inclusief de huidige OS-versie en exemplaar aantal. In dit geval heeft de rol van één exemplaar.
 
 ![Informatie over de rol](./media/cloud-services-how-to-scale-powershell/get-azure-role.png)
 
-## <a name="scale-out-the-role-by-adding-more-instances"></a>De rol uitbreiden door meer exemplaren toe te voegen
+## <a name="scale-out-the-role-by-adding-more-instances"></a>De rol uitschalen door meer instanties toe te voegen
 
-Als u wilt uitbreiden uw rol, geeft u het gewenste aantal exemplaren als de **aantal** -parameter voor de **Set AzureRole** cmdlet:
+Als u wilt schalen uw rol, geeft u het gewenste aantal exemplaren als de **aantal** parameter voor de **Set AzureRole** cmdlet:
 
 ```powershell
 Set-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>' -Slot <target_slot> -Count <desired_instances>
 ```
 
-De cmdlet-blokken tijdelijk worden tijdens de nieuwe exemplaren worden ingericht en gestart. Tijdens deze periode, als u een nieuwe PowerShell-venster en aanroep openen **Get-AzureRole** zoals eerder besproken, ziet u de nieuwe doel-exemplaren. En als u de Rolstatus van de in de portal inspecteren, ziet u het nieuwe exemplaar wordt opgestart:
+De cmdlet-blokken verbroken terwijl de nieuwe instanties zijn ingericht en is gestart. Gedurende deze tijd, als u een nieuwe PowerShell-venster en aanroep opent **Get-AzureRole** zoals eerder besproken, ziet u de nieuwe doel-exemplaren. En als u de Rolstatus van de in de portal inspecteren, ziet u het nieuwe exemplaar starten:
 
-![VM-instantie in de portal wordt gestart](./media/cloud-services-how-to-scale-powershell/role-instance-starting.png)
+![VM-exemplaar starten in de portal](./media/cloud-services-how-to-scale-powershell/role-instance-starting.png)
 
-Nadat de nieuwe exemplaren hebt gestart, wordt de cmdlet is geretourneerd:
+Nadat de nieuwe exemplaren hebt gestart, retourneert de cmdlet is:
 
 ![Rol exemplaar toename geslaagd](./media/cloud-services-how-to-scale-powershell/set-azure-role-success.png)
 
-## <a name="scale-in-the-role-by-removing-instances"></a>In de rol schalen door het verwijderen van instanties
+## <a name="scale-in-the-role-by-removing-instances"></a>In de rol door het verwijderen van instanties schalen
 
-U kunt een rol schalen door het verwijderen van instanties op dezelfde manier. Stel de **aantal** parameter op **Set AzureRole** aan het aantal exemplaren dat u hebben wilt nadat de schaal in de bewerking voltooid is.
+U kunt schalen in een rol door het verwijderen van exemplaren op dezelfde manier. Stel de **aantal** parameter op **Set AzureRole** aan het aantal instanties dat u wilt, nadat de schaal in de bewerking voltooid is.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Het is niet mogelijk automatisch geschaald voor cloudservices vanuit PowerShell configureren. Zie hiervoor [automatisch schalen een cloudservice](cloud-services-how-to-scale-portal.md).
+Het is niet mogelijk om te configureren van automatisch schalen voor cloud-services vanuit PowerShell. Om dit te doen, Zie [schalen een cloudservice](cloud-services-how-to-scale-portal.md).

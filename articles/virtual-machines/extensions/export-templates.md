@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: roiyz
 ms.openlocfilehash: f56cfeeede393dbdb9632ea4120d3a81e89f3f7c
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61484019"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Resourcegroepen met VM-extensies exporteren
 
@@ -36,13 +36,13 @@ De volgende extensies kunnen worden geëxporteerd met de functie voor automation
 
 | Toestelnummer ||||
 |---|---|---|---|
-| Acronis back-up | Datadog Windows-Agent | OS-patches voor Linux | VM-momentopname Linux
-| Back-up Acronis Linux | Docker-extensie | Puppet Agent |
+| Acronis back-up | Datadog Windows Agent | OS-patches voor Linux | VM-momentopname Linux
+| Back-up Acronis Linux | Docker Extension | Puppet Agent |
 | BG-Info | DSC-extensie | Site 24 x 7 Apm inzicht |
-| BMC-CMT Agent Linux | Dynatrace-Linux | 24 x 7 Linux siteserver |
-| BMC-CMT Agent-Windows | Dynatrace Windows | 24 x 7 Windows siteserver |
+| BMC CTM Agent Linux | Dynatrace-Linux | 24 x 7 Linux siteserver |
+| BMC CTM Agent Windows | Dynatrace Windows | Site 24x7 Windows Server |
 | Chef-Client | HPE Security toepassing Defender | Trend Micro DSA |
-| Aangepast script | IaaS-Antimalware | Trend Micro DSA Linux |
+| Aangepast script | IaaS Antimalware | Trend Micro DSA Linux |
 | Aangepaste scriptextensie | Diagnostische gegevens over IaaS | Voor Linux-VM-toegang |
 | Aangepast Script voor Linux | Chef-Client voor Linux | Voor Linux-VM-toegang |
 | Datadog Linux-Agent | De diagnostische Linux | VM-momentopname |

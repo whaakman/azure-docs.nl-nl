@@ -1,7 +1,6 @@
 ---
 title: Apache Ambari-weergaven gebruiken om te werken met Hive in HDInsight (Apache Hadoop) - Azure
 description: Leer hoe u de Hive-weergave in uw webbrowser gebruiken voor het indienen van Hive-query's. Het Hive-weergave maakt deel uit van de Ambari-Webgebruikersinterface voorzien van uw Linux gebaseerde HDInsight-cluster.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 978b865f6dd7e3427a0139e7e71ed4b2d937fbe5
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 55f8f453faf35d52c5c292e6b309194443980466
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517297"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095316"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Apache Ambari Hive-weergave gebruiken met Apache Hadoop in HDInsight
 

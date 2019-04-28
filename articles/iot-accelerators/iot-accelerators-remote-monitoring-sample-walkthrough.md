@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: af09ea39f373d518d5600e3fa46adc378fd9236d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176133"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61442530"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Overzicht van de verbetering voor de externe bewakingsoplossing
 
@@ -102,7 +102,7 @@ De [opslag adapter microservice](https://github.com/Azure/remote-monitoring-serv
 
 Waarden zijn ingedeeld in verzamelingen. U kunt werken op de afzonderlijke waarden of hele verzamelingen ophalen. Complexe gegevensstructuren worden geserialiseerd met de clients en beheerd als eenvoudige tekst-nettolading.
 
-De service biedt een RESTful-eindpunt voor CRUD-bewerkingen op sleutel / waarde-paren. Waarden
+De service biedt een RESTful-eindpunt voor CRUD-bewerkingen op sleutel / waarde-paren. waarden
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 

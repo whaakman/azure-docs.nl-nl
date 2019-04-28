@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 225164fe00f70839446f8b74155cd3959f745a49
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467744"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478018"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>De status van de Azure Import/Export-taken weergeven
 
@@ -34,7 +34,7 @@ U ziet een van de volgende status van een taak, afhankelijk van waar de schijf z
 | Verzenden | Nadat u het pakket te verzenden, moet u de controle-informatie in de Azure-portal bijwerken.  Hiermee schakelt u de taak in **verzending** staat. De taak blijft in de **verzending** staat voor maximaal twee weken. 
 | Ontvangen | Nadat alle stations zijn ontvangen in het datacenter, de taakstatus is ingesteld op **ontvangen**. |
 | Overbrengen | Nadat ten minste één station is begonnen verwerking, de taakstatus is ingesteld op **overdragen**. Ga voor meer informatie naar [station Staten](#view-drive-status). |
-| Verpakken | Nadat alle stations verwerking is voltooid, de taak wordt geplaatst **verpakking** status totdat de schijven terug naar u worden verzonden. |
+| Verpakking | Nadat alle stations verwerking is voltooid, de taak wordt geplaatst **verpakking** status totdat de schijven terug naar u worden verzonden. |
 | Voltooid | Nadat alle stations worden verzonden naar u, als de taak is voltooid zonder fouten, wordt de taak ingesteld op **voltooid**. De taak wordt automatisch verwijderd na 90 dagen in de **voltooid** staat. |
 | Gesloten | Nadat alle stations worden verzonden naar u, als er fouten tijdens de verwerking van de taak zijn, de taak is ingesteld op **gesloten**. De taak wordt automatisch verwijderd na 90 dagen in de **gesloten** staat. |
 

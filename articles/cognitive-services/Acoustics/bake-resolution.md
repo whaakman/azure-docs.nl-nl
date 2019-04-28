@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: KyleStorck
 ms.openlocfilehash: 7dbf63ba39c5dcdebb363cfc37a45f0216a07497
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789751"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61335444"
 ---
 # <a name="project-acoustics-bake-resolution"></a>Project akoestische Bake resolutie
 In dit overzicht wordt het verschil tussen grof en fijn oplossingen tijdens het akoestische bakken beschreven. U kiezen deze instelling tijdens de stap tests van de werkstroom gebakken.

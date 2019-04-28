@@ -10,11 +10,11 @@ ms.date: 03/31/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762936"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61306448"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -207,7 +207,7 @@ Alle bovenliggende runbooks bevatten de _WhatIf_ parameter. Als de waarde **waar
 
 De volgende tabel bevat de variabelen die in uw Automation-account gemaakt. Alleen Wijzig variabelen die worden voorafgegaan door **externe**. Variabelen wijzigen voorafgegaan door **intern** zorgt ervoor dat ongewenste effecten.
 
-|Variabele | Beschrijving|
+|Variabele | Description|
 |---------|------------|
 |External_AutoStop_Condition | De conditionele operator vereist voor het configureren van de voorwaarde voordat een waarschuwing wordt geactiveerd. Acceptabele waarden zijn **groter dan**, **GreaterThanOrEqual**, **LessThan**, en **LessThanOrEqual**.|
 |External_AutoStop_Description | De waarschuwing op de virtuele machine stoppen als het CPU-percentage hoger is dan de drempelwaarde.|
@@ -267,7 +267,7 @@ Automation worden twee typen records gemaakt in de Log Analytics-werkruimte: taa
 
 ### <a name="job-streams"></a>Taakstromen
 
-|Eigenschap | Beschrijving|
+|Eigenschap | Description|
 |----------|----------|
 |Caller |  Wie de bewerking heeft gestart. Mogelijke waarden zijn een e-mailadres of het systeem voor geplande taken.|
 |Category | Classificatie van het type gegevens. Voor Automation is de waarde JobStreams.|

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 32f533d06b7db0284459951e65f9c04fe0bb0285
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735842"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485323"
 ---
 Een beschikbaarheidsset helpt houden van uw virtuele machines die beschikbaar zijn tijdens de downtime, zoals tijdens onderhoud. Als u twee of meer op soortgelijke wijze geconfigureerde virtuele machines in een beschikbaarheidsset plaatst, maakt u de redundantie die nodig is voor de beschikbaarheid van de toepassingen of services die uw virtuele machine wordt uitgevoerd. Zie voor meer informatie over hoe dit werkt [de beschikbaarheid van virtuele machines beheren][Manage the availability of virtual machines].
 

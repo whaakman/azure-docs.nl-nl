@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 7d024dd958e6b29b52f095a9a55a67154bf6cde6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792077"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459790"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configureren van een web application firewall-beleid met behulp van Azure PowerShell
 Azure-web application firewall (WAF)-beleid definieert inspecties vereist wanneer een aanvraag bij de voordeur aankomt.

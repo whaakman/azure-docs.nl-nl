@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61442931"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integreer Azure Time Series Insights met Externe bewaking
 
@@ -62,7 +62,7 @@ Vervolgens Time Series Insights implementeren als een extra bron in uw oplossing
     | Naam van de omgeving | De volgende schermafbeelding wordt gebruikt voor de naam van de **contorosrmtsi**. Kies uw eigen unieke naam wanneer u deze stap hebt voltooid. |
     | Abonnement | Selecteer uw Azure-abonnement in de vervolgkeuzelijst. |
     | Resourcegroep | **Gebruik bestaande**. Selecteer de naam van uw bestaande resourcegroep voor externe controle. |
-    | Location | We gebruiken **VS-Oost**. Indien mogelijk de omgeving maken in dezelfde regio als uw oplossing voor externe controle. |
+    | Locatie | We gebruiken **VS-Oost**. Indien mogelijk de omgeving maken in dezelfde regio als uw oplossing voor externe controle. |
     | Sku |**S1** |
     | Capaciteit | **1** |
 

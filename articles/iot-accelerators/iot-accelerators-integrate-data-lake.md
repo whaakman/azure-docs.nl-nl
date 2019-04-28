@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603926"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61449345"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>De oplossing voor externe controle integreren met Azure Data Lake Store
 
@@ -154,7 +154,7 @@ Azure Stream Analytics maakt gebruik van een SQL-achtige querytaal voor het opge
 
 1. Aangepaste tijd om een paar uur terug om op te halen gegevens uit wanneer het apparaat is gestart streaming instellen.
 
-1. Klik op **Starten**.
+1. Klik op **Start**.
 
     ![Aangepaste datum kiezen](./media/iot-accelerators-integrate-data-lake/stream-analytics-start-custom.png)
 
