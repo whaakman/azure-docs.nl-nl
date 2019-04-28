@@ -1,18 +1,19 @@
 ---
 title: MongoDB per document TTL-functie in Azure Cosmos DB
 description: Leer hoe u een TTL-waarde kunt instellen voor documenten die de Azure Cosmos DB-API voor MongoDB gebruiken om deze na een bepaalde periode automatisch te verwijderen uit het systeem.
-author: sivethe
-ms.author: sivethe
+author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 12/26/2018
+origin.date: 12/26/2018
+ms.date: 03/18/2019
 ms.openlocfilehash: cd6cb68014eea00077328f39c2c9bf0a1f7fb679
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436286"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61330684"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Gegevens automatisch laten verlopen met de Azure Cosmos DB-API voor MongoDB
 
@@ -38,7 +39,7 @@ Met de opdracht in het bovenstaande voorbeeld wordt een index met TTL-functional
 > [!NOTE]
 > **_ts** is een veld dat specifiek is voor Cosmos DB en dat niet toegankelijk is vanuit MongoDB-clients. Het is een gereserveerde eigenschap (systeemeigenschap) met het tijdstempel van de laatste wijziging van het document.
 >
-    
+
 En een voorbeeld met C#: 
 
 ```csharp
@@ -72,6 +73,7 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 
 ## <a name="how-to-activate-the-per-document-ttl-feature"></a>TTL per document activeren
 
+<!-- Verify successfully on mongodb TTL-->
 TTL per document kan worden geactiveerd met de Azure Cosmos DB-API voor MongoDB.
 
 ![Schermafbeelding van de activering van de Per-document TTL-functie in Portal](./media/mongodb-ttl/mongodb_portal_ttl.png) 
@@ -79,3 +81,5 @@ TTL per document kan worden geactiveerd met de Azure Cosmos DB-API voor MongoDB.
 ## <a name="next-steps"></a>Volgende stappen
 * [Gegevens in Azure Cosmos DB automatisch laten verlopen met TTL](../cosmos-db/time-to-live.md)
 * [Cosmos-databases indexeren die zijn geconfigureerd met de Azure Cosmos DB-API voor MongoDB](../cosmos-db/mongodb-indexing.md)
+
+<!-- Update_Description: update meta properties, wording update -->

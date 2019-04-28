@@ -10,11 +10,11 @@ ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: d230fa97d009f0ee2a3bc86a0b6b7c8d40687a46
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010276"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61216029"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Certificaatassets in Azure Automation
 
@@ -50,7 +50,7 @@ De activiteiten in de volgende tabel worden gebruikt voor toegang tot de certifi
 
 De functie in de volgende tabel wordt gebruikt voor toegang tot de certificaten in een Python2-runbook.
 
-| Function | Beschrijving |
+| Function | Description |
 |:---|:---|
 | automationassets.get_automation_certificate | Informatie over een certificaatasset opgehaald. |
 

@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: aahi
 ms.openlocfilehash: c4c5059bc57ea33357145f6b119456dc6c5bdb7b
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60946638"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Quickstart: Aanroepen van uw Bing Custom Search-eindpunt met behulp van de Python-SDK 
 

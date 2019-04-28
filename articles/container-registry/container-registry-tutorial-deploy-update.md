@@ -9,11 +9,11 @@ ms.date: 04/30/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: d9faa89d33dde7da35ad4490b78b9a1d023274ae
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61333378"
 ---
 # <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Zelfstudie: een bijgewerkte containerinstallatiekopie naar een containerregister met geo-replicatie voor regionale web-app-implementaties pushen
 
@@ -103,13 +103,13 @@ v1: digest: sha256:4c3f2211569346fbe2d1006c18cbea2a4a9dcc1eb3a078608cef70d3a186e
 
 Terwijl de installatiekopie wordt gerepliceerd, worden de Azure Container Registry-webhooks geactiveerd.
 
-Als u de regionale webhooks wilt bekijken die zijn gemaakt tijdens de implementatie van de container naar *Web App for Containers* in een vorige zelfstudie, gaat u naar het containerregister in de Azure-portal en selecteert u onder **SERVICES** de optie **Webhooks**.
+Als u de regionale webhooks wilt bekijken die zijn gemaakt tijdens de implementatie van de container naar *Web App for Containers* in een vorige zelfstudie, gaat u naar het containerregister in Azure Portal en selecteert u onder **SERVICES** de optie **Webhooks**.
 
-![Webhooks van containerregisters in de Azure-portal][tutorial-portal-01]
+![Webhooks van containerregisters in Azure Portal][tutorial-portal-01]
 
 Selecteer elke webhook om de geschiedenis van de bijbehorende aanroepen en antwoorden te bekijken. U zou een rij moeten zien voor de actie **push** in de logboeken van beide webhooks. Hier toont het logboek voor de webhook in de regio *US - west* de actie **push** die is geactiveerd door de `docker push` in de vorige stap:
 
-![Logboek voor containerregister-webhook in de Azure-portal (US - west)][tutorial-portal-02]
+![Logboek voor containerregister-webhook in Azure Portal (US - west)][tutorial-portal-02]
 
 ## <a name="view-the-updated-web-app"></a>Bijgewerkte web-app weergeven
 
@@ -117,7 +117,7 @@ De webhooks geven door aan de web-apps dat een nieuwe installatiekopie naar het 
 
 Controleer of de app in beide implementaties is bijgewerkt door naar beide regionale web-app-implementaties te navigeren in uw webbrowser. U kunt de URL voor de geïmplementeerde web-app vinden in de rechterbovenhoek van elk App Service-overzichtstabblad.
 
-![App Service-overzicht in de Azure-portal][tutorial-portal-03]
+![App Service-overzicht in Azure Portal][tutorial-portal-03]
 
 Selecteer de link in het App Service-overzicht om de bijgewerkte app te bekijken. Hier volgt een voorbeeldweergave van de app die wordt uitgevoerd in *US - west*:
 

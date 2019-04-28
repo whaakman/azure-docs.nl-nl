@@ -10,11 +10,11 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: 884381cc3b9aaeec29f5697485cd90c28b2bd97e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681247"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748482"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Zelfstudie: Een nieuw apparaattype definiëren in uw Azure IoT Central-toepassing
 
@@ -324,7 +324,7 @@ U gebruikt *toepassingseigenschappen* om gegevens over uw apparaat in de toepass
     | Weergavenaam         | Firmwareversie        |
     | Veldnaam           | firmwareversie         |
     | Gegevenstype            | tekst                    |
-    | Beschrijving          | De firmwareversie van de airconditioner |
+    | Description          | De firmwareversie van de airconditioner |
 
     ![Firmwareversie configureren](./media/tutorial-define-device-type/configureproperties3.png)
 

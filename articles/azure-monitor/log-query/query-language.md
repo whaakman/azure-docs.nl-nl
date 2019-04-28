@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
 ms.openlocfilehash: ecbea91cef69c80975dd105c35f526b357033a6b
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61425959"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure Monitor logboeken-query 's
 Logboeken in Azure Monitor zijn gebouwd op Azure Data Explorer en logboeken-query's van Azure Monitor gebruikt een versie van dezelfde Kusto-query-taal. De [Kusto-query language-documentatie](/azure/kusto/query) heeft alle van de details voor de taal en moet de primaire bron voor het schrijven van Azure Monitor logboeken-query's. Deze pagina bevat koppelingen naar andere bronnen voor het leren over het schrijven van query's en over de verschillen met de Azure Monitor-implementatie van de taal.
@@ -34,7 +34,7 @@ Logboeken in Azure Monitor zijn gebouwd op Azure Data Explorer en logboeken-quer
 - [Analyseren van logboekgegevens in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) geeft een kort overzicht van het logboek een query uitgevoerd en wordt beschreven hoe de logboekgegevens van Azure Monitor is opgebouwd.
 - [Weergeven en analyseren van logboekgegevens in Azure Monitor](../../azure-monitor/log-query/portals.md) wordt uitgelegd van de portals waar u maken en uitvoeren van Logboeken-query's.
 
-## <a name="reference"></a>Verwijzing
+## <a name="reference"></a>Referentie
 
 - [Query language reference](/azure/kusto/query) is de volledige Naslaggids voor de Kusto-query-taal.
 - [Azure Monitor log-query language verschillen](data-explorer-difference.md) beschrijving van de verschillen tussen versies van de Kusto-query-taal.

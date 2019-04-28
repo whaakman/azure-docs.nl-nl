@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 22b7f2380b509daa4cb9931d6fc57c1297628e3d
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522856"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61233151"
 ---
-# <a name="quickstart-stream-video-files---nodejs"></a>Quickstart: Stream videobestanden - Node.js
+# <a name="quickstart-stream-video-files---nodejs"></a>Quickstart: Videobestanden streamen - Node.js
 
 Deze snelstartgids laat zien hoe u met Azure Media Services eenvoudig video's kunt coderen en streamen naar allerlei verschillende browsers en apparaten. De invoerinhoud kan worden opgegeven met HTTPS-URL's, SAS-URL's of paden naar bestanden in Azure Blob-opslag.
 Met het voorbeeld in dit onderwerp wordt inhoud gecodeerd die u toegankelijk maakt via een HTTPS-URL. Op dit moment biedt AMS v3 geen ondersteuning voor gesegmenteerde overdrachtscodering via HTTPS-URL's.

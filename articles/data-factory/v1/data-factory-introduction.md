@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 9bf8c51fda6985f88ecffa60b32c1c62e364a511
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014927"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60825051"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Inleiding tot Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -142,7 +142,7 @@ U kunt een van deze hulpprogramma's of API's gebruiken om gegevenspijplijnen te 
 
 Volg de stapsgewijze instructies in de onderstaande zelfstudies voor informatie over het bouwen van gegevensfactory’s met gegevenspijplijnen:
 
-| Zelfstudie | Beschrijving |
+| Zelfstudie | Description |
 | --- | --- |
 | [Gegevens verplaatsen tussen twee cloudlocaties voor gegevensopslag](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Maak een gegevensfactory met een pijplijn die gegevens verplaatst van blobopslag naar een SQL-database. |
 | [Gegevens transformeren met een Hadoop-cluster](data-factory-build-your-first-pipeline.md) |Bouw uw eerste Azure-gegevensfactory met een gegevenspijplijn die gegevens verwerkt door een Hive-script uit te voeren op een Azure HDInsight-cluster (Hadoop). |

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: a241f66adecbab1d0b1462f379d3765d6c1de252
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995387"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466772"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Bestanden uploaden naar een Media Services-account met behulp van REST
 
@@ -63,4 +63,4 @@ Gebruik de Azure Storage-API's of de SDK's (bijvoorbeeld de [REST API voor Stora
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Zelfstudie: Een extern bestand op basis van URL coderen en streamen van de video - REST](stream-files-tutorial-with-rest.md)
+[Zelfstudie: Extern bestand coderen op basis van URL en video streamen - REST](stream-files-tutorial-with-rest.md)

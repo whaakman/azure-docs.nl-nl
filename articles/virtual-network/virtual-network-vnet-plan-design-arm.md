@@ -3,8 +3,8 @@ title: Virtuele Azure-netwerken plannen | Microsoft Docs
 description: Informatie over het plannen voor virtuele netwerken op basis van uw isolatie, connectiviteit en Locatievereisten.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61034736"
 ---
 # <a name="plan-virtual-networks"></a>Virtuele netwerken plannen
 
@@ -37,7 +37,7 @@ Alle Azure-resources worden gemaakt in een Azure-regio en een abonnement. Een re
 - Hebt u gegevensvereisten gegevenslocatie, soevereiniteit, naleving en tolerantie? Als dit het geval is, is het essentieel dat u de regio die met de vereisten overeenstemt te kiezen. Zie voor meer informatie, [Azure-geografieën](https://azure.microsoft.com/global-infrastructure/geographies/).
 - U moet tolerantie in meerdere Azure-Beschikbaarheidszones binnen dezelfde Azure-regio voor de resources die u hebt geïmplementeerd? U kunt resources, zoals virtuele machines (VM) implementeren voor verschillende beschikbaarheidszones binnen hetzelfde virtuele netwerk. Niet alle Azure-regio's ondersteuning echter voor beschikbaarheidszones. Zie voor meer informatie over beschikbaarheidszones en de regio's die ondersteuning bieden voor deze [beschikbaarheidszones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="subscriptions"></a>Abonnementen
+## <a name="subscriptions"></a>Subscriptions
 
 U kunt zo veel virtuele netwerken als vereiste binnen elk abonnement maximaal implementeren de [limiet](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Sommige organisaties hebben bijvoorbeeld verschillende abonnementen voor verschillende afdelingen. Zie voor meer informatie en overwegingen over abonnementen, [abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
 

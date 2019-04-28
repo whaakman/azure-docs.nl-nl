@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254363"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481831"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Maken en beheren van een ondersteuningspakket met voor StorSimple 8000-serie
 
@@ -72,7 +72,7 @@ U kunt uw handmatig gegenereerde ondersteuningspakket delen met Microsoft Suppor
 
 Met de cmdlet Export-HcsSupportPackage kunt u de volgende parameters.
 
-| Parameter | Vereist/optioneel | Beschrijving |
+| Parameter | Vereist/optioneel | Description |
 | --- | --- | --- |
 | `-Path` |Vereist |Gebruik voor de locatie van de gedeelde netwerkmap waarin het ondersteuningspakket wordt geplaatst. |
 | `-EncryptionPassphrase` |Vereist |Gebruik een wachtwoordzin in om u te helpen bij het versleutelen van het ondersteuningspakket. |

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: danlep
 ms.openlocfilehash: 4c0845b9cf5194ecbd0ab813997e17e070840f44
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099896"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61331338"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Naslaginformatie over Azure Container Registry webhook
 
@@ -50,7 +50,7 @@ Webhook wordt geactiveerd wanneer een containerinstallatiekopie is gepusht naar 
 
 ### <a name="target"></a>Doel
 
-|Element|Type|Description|
+|Element|Type|Beschrijving|
 |------------------|----------|-----------|
 |`mediaType`|String|Het MIME-type van het object waarnaar wordt verwezen.|
 |`size`|Int32|Het aantal bytes van de inhoud. Hetzelfde als het veld lengte.|
@@ -61,7 +61,7 @@ Webhook wordt geactiveerd wanneer een containerinstallatiekopie is gepusht naar 
 
 ### <a name="request"></a>Aanvraag
 
-|Element|Type|Description|
+|Element|Type|Beschrijving|
 |------------------|----------|-----------|
 |`id`|String|De ID van de aanvraag die de gebeurtenis heeft gestart.|
 |`host`|String|De extern toegankelijke hostnaam van de registry-exemplaar, zoals opgegeven door de HTTP host-header op binnenkomende aanvragen.|
@@ -164,7 +164,7 @@ Webhook wordt geactiveerd wanneer een opslagplaats voor installatiekopieën of h
 
 ### <a name="delete_target"></a> Doel
 
-|Element|Type|Description|
+|Element|Type|Beschrijving|
 |------------------|----------|-----------|
 |`mediaType`|String|Het MIME-type van het object waarnaar wordt verwezen.|
 |`digest`|String|De samenvatting van de inhoud, zoals gedefinieerd door het register V2 HTTP API-specificatie.|

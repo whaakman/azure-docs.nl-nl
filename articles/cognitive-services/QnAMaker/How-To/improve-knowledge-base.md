@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
 ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678986"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61372665"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Actief leren gebruiken voor het verbeteren van uw knowledge base
 
@@ -181,7 +181,7 @@ De hoofdtekst van de JSON bevat verschillende instellingen:
 
 |JSON-hoofdtekst van de eigenschap|Type|Doel|
 |--|--|--|--|
-|`feedbackRecords`|array|Lijst van de feedback.|
+|`feedbackRecords`|matrix|Lijst van de feedback.|
 |`userId`|string|De gebruikers-ID van de persoon die de voorgestelde vragen accepteren. De indeling van de gebruiker-ID is aan u. Een e-mailadres kan bijvoorbeeld een geldige gebruikers-ID in uw architectuur. Optioneel.|
 |`userQuestion`|string|Exact overeenkomende tekst van de vraag. Vereist.|
 |`qnaID`|getal|ID van de vraag, gevonden in de [GenerateAnswer antwoord](metadata-generateanswer-usage.md#generateanswer-response-properties). |

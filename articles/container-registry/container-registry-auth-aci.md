@@ -2,17 +2,18 @@
 title: Verifiëren met Azure Container Registry van Azure Container Instances
 description: Informatie over het bieden van toegang tot afbeeldingen in uw persoonlijke containerregister van Azure Container Instances met behulp van een service-principal voor Azure Active Directory.
 services: container-registry
-author: dlepow
+author: rockboyfor
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/23/2018
-ms.author: danlep
+origin.date: 04/23/2018
+ms.date: 03/25/2019
+ms.author: v-yeche
 ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390670"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61333578"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Verifiëren met Azure Container Registry van Azure Container Instances
 
@@ -34,12 +35,12 @@ Service-principals moeten ook worden gebruikt wanneer het register [gebruiker me
 
 Om te starten in een container in Azure Container Instances met behulp van een service-principal, geef de ID voor `--registry-username`, en het bijbehorende wachtwoord voor `--registry-password`.
 
-```azurecli-interactive
+```azurecli
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image mycontainerregistry.azurecr.io/myimage:v1 \
-    --registry-login-server mycontainerregistry.azurecr.io \
+    --image mycontainerregistry.azurecr.cn/myimage:v1 \
+    --registry-login-server mycontainerregistry.azurecr.cn \
     --registry-username <service-principal-ID> \
     --registry-password <service-principal-password>
 ```

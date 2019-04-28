@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
 ms.openlocfilehash: 5b76d7393e78b464227e93a4c7c8a3f22ccc169e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092528"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60891707"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Quickstart: een grafiekdatabase maken in Azure Cosmos DB met behulp van Python en de Azure-portal
 
@@ -191,7 +191,7 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 
 5. Klik op **Eigenschap toevoegen** om elk van de volgende eigenschappen toe te voegen. U kunt unieke eigenschappen maken voor elke persoon in de grafiek. Alleen de id-sleutel is vereist.
 
-    sleutel|waarde|Opmerkingen
+    key|waarde|Opmerkingen
     ----|----|----
     id|ashley|De unieke id voor het hoekpunt. Als u geen id opgeeft, wordt er een id voor u gegenereerd.
     geslacht|vrouwelijk| 
@@ -208,7 +208,7 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 
 9. Klik op **Eigenschap toevoegen** om elk van de volgende eigenschappen toe te voegen:
 
-    sleutel|waarde|Opmerkingen
+    key|waarde|Opmerkingen
     ----|----|----
     id|rakesh|De unieke id voor het hoekpunt. Als u geen id opgeeft, wordt er een id voor u gegenereerd.
     geslacht|man| 

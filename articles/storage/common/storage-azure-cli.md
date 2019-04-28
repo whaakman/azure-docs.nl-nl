@@ -10,11 +10,11 @@ ms.date: 06/02/2017
 ms.author: rogarana
 ms.subservice: common
 ms.openlocfilehash: f485f38d4c580937b027bb76d0c34c98f699ed93
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816846"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483555"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>De Azure CLI gebruiken met Azure Storage
 
@@ -31,7 +31,7 @@ Deze handleiding wordt ervan uitgegaan dat u inzicht in de basisbeginselen van A
 
 ### <a name="accounts"></a>Accounts
 * **Azure-account**: Als u nog een Azure-abonnement hebt [maken van een gratis Azure-account](https://azure.microsoft.com/free/).
-* **Storage-account**: Zie [een opslagaccount maken](storage-quickstart-create-account.md) in [over Azure storage-accounts](storage-create-storage-account.md).
+* **Opslagaccount**: Zie [een opslagaccount maken](storage-quickstart-create-account.md) in [over Azure storage-accounts](storage-create-storage-account.md).
 
 ### <a name="install-the-azure-cli"></a>Azure-CLI installeren
 

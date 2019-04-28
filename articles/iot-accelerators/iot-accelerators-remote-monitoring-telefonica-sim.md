@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606781"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61442212"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>SIM-gegevens in de oplossing voor externe controle integreren
 
@@ -37,7 +37,7 @@ Deze extra bewaking op afstand-functie is momenteel in preview. Als u wilt synch
 2. Telefónica wordt geactiveerd voor uw account.
 3. Als u nog niet een client Telefónica en u wilt profiteren van deze of andere IoT-connectiviteit Cloud gereed services, gaat u naar [Telefónica van site](https://iot.telefonica.com/) en selecteer de optie **connectiviteit**.
 
-### <a name="telefnica-sim-setup"></a>Telefónica SIM-installatie
+### <a name="telefnica-sim-setup"></a>Telefónica SIM setup
 Telefónica SIM & Azure dubbele apparaat-ID-koppeling is gebaseerd op de eigenschap 'alias' Telefónica IoT SIM. 
 
 Navigeer naar [Telefónica IoT connectiviteit Platform Portal](https://m2m-movistar-es.telefonica.com/) > SIM-inventarisatie > Selecteer de SIM-kaart en elk SIM 'alias' werken met uw gewenste dubbele apparaat-id. Deze taak kan ook worden uitgevoerd in bulkmodus (Zie handleidingen Telefónica IoT connectiviteit Platform).

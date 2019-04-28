@@ -3,8 +3,8 @@ title: Diagnose uitvoeren voor een probleem met netwerkverkeersfilters op een vi
 description: In deze snelstart leert u hoe u een diagnose uitvoert voor een probleem met netwerkverkeersfilters op een virtuele machine met behulp van de functie IP-stroomverificatie in Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: d469ee5148e3742f30795c09acf1a217db1b997a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004649"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61065102"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Quickstart: Diagnose uitvoeren voor een probleem met netwerkverkeersfilters op een virtuele machine met behulp van de Azure-portal
 
@@ -82,7 +82,7 @@ Als u een VM maakt, wordt netwerkverkeer van en naar de VM standaard toegestaan 
     | Virtuele machine   | Selecteer myVm                                                                                       |
     | Netwerkinterface | myvm - De naam van de netwerkinterface die is gemaakt in de portal toen u de VM maakte, wijkt af. |
     | Protocol          | TCP                                                                                               |
-    | Richting         | Uitgaand                                                                                          |
+    | Direction         | Uitgaand                                                                                          |
     | Lokaal IP-adres  | 10.0.0.4                                                                                          |
     | Lokale poort      | 60000                                                                                                |
     | Extern IP-adres | 13.107.21.200 - een van de adressen voor < www.bing.com>.                                             |

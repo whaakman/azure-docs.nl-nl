@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
 ms.openlocfilehash: 134a8f9625b45a8196ebd47f10286093f6ba0d46
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193446"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459626"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Het maken van de logic app workflows met vooraf gedefinieerde sjablonen
 
@@ -23,7 +23,7 @@ Logic Apps biedt om u snel werkstromen maken, sjablonen, die zijn vooraf gemaakt
 
 Hier volgen enkele Sjablooncategorieën:
 
-| Het sjabloontype | Description | 
+| Het sjabloontype | Beschrijving | 
 | ------------- | ----------- | 
 | Sjablonen van Enterprise cloud | Voor het integreren van Azure Blob-, Dynamics CRM, Salesforce, Box, en andere connectors bevat voor de cloud voor ondernemingen. Bijvoorbeeld, kunt u deze sjablonen kunt organiseren zakelijke potentiële klanten of back-up van uw zakelijke bestandsgegevens. | 
 | Hun eigen sjablonen | De persoonlijke productiviteit te verbeteren door in te stellen van dagelijkse herinneringen ontvangen, schakelen belangrijk werkitems in takenlijsten en automatisering van langdurige taken op een enkele gebruiker goedkeuringsstap. | 

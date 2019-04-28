@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
 ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997305"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829715"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Herkenning van entiteit met de naam in Text Analytics gebruiken
 
@@ -42,7 +42,7 @@ Entiteiten koppelen in verschillende talen, moet met behulp van een betreffende 
 | Type  | SubType | Voorbeeld |
 |:-----------   |:------------- |:---------|
 | Person        | N.V.T.\*         | "Jeff", "Bill Gates"     |
-| Location      | N.V.T.\*         | "Redmond, Washington", "Paris"  |
+| Locatie      | N.V.T.\*         | "Redmond, Washington", "Paris"  |
 | Organisatie  | N.V.T.\*         | "Microsoft"   |
 | Hoeveelheid      | Aantal        | "6", "six"     | 
 | Hoeveelheid      | Percentage    | "50%", "50%"| 

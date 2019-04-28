@@ -12,11 +12,11 @@ ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431135"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61401182"
 ---
 # <a name="analyze-method"></a>Analysemethode
 
@@ -50,7 +50,7 @@ Een matrix van analysis-uitvoer, één voor elk kenmerk dat is opgegeven in de a
 
 De resultaten er als volgt uitzien:
 
-Name | Type | Description
+Name | Type | Beschrijving
 -----|------|--------------
 analyzerId | string | GUID van de opgegeven analyzer
 Resultaat | object | resultaat van de Analyzer
@@ -59,7 +59,7 @@ Houd er rekening mee dat het type van het resultaat is afhankelijk van het type 
 
 ### <a name="tokens-response-json"></a>Tokens antwoord (JSON)
 
-Name | Type | Description
+Name | Type | Beschrijving
 -----|------|-------------
 Resultaat | lijst met objecten zin | zin grenzen geïdentificeerd binnen de tekst |
 result[x].Offset | int | tekenverschuiving van de eerste van elke zin |

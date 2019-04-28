@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 5587d86cb4b3a213961ce46e77c75e947de2d29e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 26c3466080cb356ca3610d42eaaf5ee4975d3731
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866369"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61471879"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Azure Automation-runbooks aan herstelplannen toevoegen
 In dit artikel wordt beschreven hoe Azure Site Recovery kan worden geïntegreerd met Azure Automation kunt u uw herstelplannen uitbreiden. Plannen voor herstel kunnen gecoördineerd herstel van virtuele machines die zijn beveiligd met Site Recovery. Plannen voor herstel werkt zowel voor replicatie naar een secundaire cloud, en voor replicatie naar Azure. Plannen voor herstel ook helpen met het herstel **accuraat**, **herhaalbare**, en **geautomatiseerde**. Als u uw virtuele machines naar Azure failover, een uitbreiding voor integratie met Azure Automation uw plannen voor herstel. U kunt deze gebruiken voor het uitvoeren van runbooks, deze bieden een krachtige geautomatiseerde taken.
@@ -29,7 +29,7 @@ In dit artikel wordt beschreven hoe u Azure Automation-runbooks kunt integreren 
 
 2. Met de rechtermuisknop op **groep 1: Start**, en selecteer vervolgens **actie achteraf toevoegen**.
 
-    ![Klik met de rechtermuisknop groep 1: Start en actie achteraf toevoegen](media/site-recovery-runbook-automation-new/customize-rp.png)
+    ![Klik met de rechtermuisknop groep 1: Start en na actie toevoegen](media/site-recovery-runbook-automation-new/customize-rp.png)
 
 3. Klik op **Kies een script**.
 
@@ -43,7 +43,7 @@ In dit artikel wordt beschreven hoe u Azure Automation-runbooks kunt integreren 
 
 6. Selecteer een runbook in uw Automation-account. Dit runbook is het script dat wordt uitgevoerd tijdens het uitvoeren van het herstelplan te gaan, na het herstel van de eerste groep.
 
-7. Om het script hebt opgeslagen, klikt u op **OK**. Het script wordt toegevoegd aan **groep 1: stappen na**.
+7. Om het script hebt opgeslagen, klikt u op **OK**. Het script wordt toegevoegd aan **groep 1: Stappen na**.
 
     ![De actie na de groep 1:Start](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
 
@@ -87,7 +87,7 @@ In dit artikel wordt beschreven hoe u Azure Automation-runbooks kunt integreren 
     | RecoveryPlanName |De naam van de planning wordt uitgevoerd. Deze variabele kunt u verschillende acties op basis van de naam van het herstelplan uitvoeren. U kunt ook het script hergebruiken. |
     | FailoverType |Hiermee geeft u op of de failover een test is, gepland of ongepland. |
     | FailoverDirection |Geeft aan of herstel naar een primaire of secundaire site. |
-    | Groeps-id |Geeft het nummer van de in het herstelplan te gaan wanneer de planning wordt uitgevoerd. |
+    | GroupID |Geeft het nummer van de in het herstelplan te gaan wanneer de planning wordt uitgevoerd. |
     | VmMap |Een matrix met alle virtuele machines in de groep. |
     | VMMap sleutel |Een unieke sleutel (GUID) voor elke virtuele machine. Dit is hetzelfde als de Azure Virtual Machine Manager (VMM)-ID van de virtuele machine, indien van toepassing. |
     | SubscriptionId |De Azure-abonnement-ID waarmee de virtuele machine is gemaakt. |

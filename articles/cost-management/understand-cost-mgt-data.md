@@ -5,21 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 5c8f70ff76da458fcc1433226a51012fb7ccd18e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 81947baccf723ab759f2dc24df40b81af4502e09
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544633"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61003984"
 ---
 # <a name="understand-cost-management-data"></a>Inzicht in gegevens van Cost Management
 
 In dit artikel kunt u beter begrijpen welke gegevens in Azure Cost Management is opgenomen. En wordt uitgelegd hoe vaak gegevens worden verwerkt, die worden verzameld, wordt weergegeven en gesloten. U wordt maandelijks gefactureerd voor gebruik van Azure. Het type Azure-abonnement bepaalt echter als uw Factureringsmaand wordt beëindigd. Hoe vaak Cost Management ontvangt gebruik gegevens varieert op basis van verschillende factoren. Deze factoren omvatten hoe lang het duurt om de gegevens te verwerken en hoe vaak de gebruik het factureringssysteem voor het verzenden van Azure-services.
+
+Cost Management omvat alle gebruik en aankopen, met inbegrip van reserveringen en aanbiedingen van derden voor Enterprise Agreement (EA)-accounts. Overeenkomst voor Microsoft-klanten (MCA) accounts en betalen per gebruik-abonnementen zijn alleen gebruik van Azure en Marketplace-services. Ondersteuning en andere kosten zijn niet opgenomen. Kosten worden geschat totdat een factuur wordt gegenereerd en niet doen factor aan tegoed.
 
 ## <a name="supported-microsoft-offers"></a>Ondersteunde Microsoft-aanbiedingen
 
@@ -86,6 +88,7 @@ De volgende tabellen bevatten gegevens die is opgenomen of zich niet in Cost Man
 |   | Tegoed - Zie voor meer informatie, [condities uitgelegd](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> gebruik van de azure-service is gebaseerd op de reservering en heeft onderhandeld over prijzen.
+
 <sup>2</sup> marketplace gebruik-aanbieding is niet beschikbaar voor betalen per gebruik, MSDN, en Visual Studio biedt op dit moment.
 
 **Metadata**
@@ -113,7 +116,7 @@ Betalen per gebruik-abonnementen: als de Factureringsmaand wordt beëindigd op 1
 
 ### <a name="rerated-data"></a>Rerated gegevens
 
-Of u gebruikt de [Cost Management-API's](https://aka.ms/costmgmt/docs), Power BI, of de Azure-portal voor het ophalen van gegevens, verwacht dat de kosten voor de huidige factureringsperiode opnieuw worden geclassificeerd en als gevolg hiervan wijzigen, totdat de factuur wordt gesloten.
+Of u gebruikt de [Cost Management-API's](https://aka.ms/costmgmt/docs), Power BI of de Azure-portal voor het ophalen van gegevens, verwacht dat de kosten voor de huidige factureringsperiode opnieuw worden geclassificeerd en als gevolg hiervan wijzigen, totdat de factuur wordt gesloten.
 
 ## <a name="usage-data-update-frequency-varies"></a>Gebruik gegevens updatefrequentie varieert
 

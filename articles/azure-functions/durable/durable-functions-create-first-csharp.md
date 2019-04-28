@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 2a0cee1ad750144f30b9ab6732e0bbdf8138db28
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731512"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Uw eerste Durable Function maken in C\#
 
@@ -52,7 +52,7 @@ De Azure Functions-sjabloon maakt een project dat kan worden gepubliceerd in een
 
     ![Dialoogvenster voor een nieuwe functie in Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
-    | Instelling      | Voorgestelde waarde  | Beschrijving                      |
+    | Instelling      | Voorgestelde waarde  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
     | **Versie** | Azure Functions 2.x <br />(.NET Core) | Hiermee wordt een functieproject gemaakt dat gebruikmaakt van versie 2.x van de runtime van Azure Functions, die ondersteuning biedt voor .NET Core. Azure Functions 1.x ondersteunt .NET Framework. Zie [Een versie kiezen voor de runtime van Azure Functions](../functions-versions.md) voor meer informatie.   |
     | **Sjabloon** | Leeg | Hiermee wordt een lege functie-app gemaakt. |

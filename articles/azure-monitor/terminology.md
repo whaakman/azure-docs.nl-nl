@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2019
 ms.author: bwren
 ms.openlocfilehash: 8f645f7d569546a8362d0149806a2b4636567fd0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789988"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61086737"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor-wijzigingen voor naamgeving en terminologie
 Belangrijke wijzigingen zijn aangebracht naar Azure Monitor onlangs met verschillende services worden geconsolideerd vereenvoudigt bewaking voor Azure-klanten. In dit artikel beschrijft de naam van de recente en terminologie wijzigingen in de documentatie bij Azure Monitor.

@@ -9,11 +9,11 @@ ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 777e0aac46dbffb1e491874b5889667a888aadf5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898683"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478506"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Harde schijven voorbereiden voor een importtaak
 
@@ -76,7 +76,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 ### <a name="dataset-csv-file-fields"></a>Velden van de DataSet CSV-bestanden
 
-| Veld | Description |
+| Veld | Beschrijving |
 | --- | --- |
 | BasePath | **(Vereist)**<br/>De waarde van deze parameter geeft de bron waar de gegevens worden geïmporteerd. Het hulpprogramma wordt recursief kopiëren alle gegevens die zich onder dit pad.<br><br/>**Toegestane waarden**: Dit moet een geldig pad op de lokale computer of een geldig sharepad en toegankelijk is door de gebruiker moet zijn. Het mappad moet een absoluut pad (niet een relatief pad). Als het pad eindigt op "\\', een andere map staat voor een pad beëindigen zonder'\\' staat voor een bestand.<br/>Er is geen reguliere expressie is toegestaan in dit veld. Als het pad spaties bevat, plaatst u deze in ' ".<br><br/>**Voorbeeld**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
 | DstBlobPathOrPrefix | **(Vereist)**<br/> Het pad naar de virtuele map van de bestemming in uw Windows Azure storage-account. De virtuele map kan of mogelijk niet al bestaat. Als deze niet bestaat, wordt een Import/Export-service maken.<br/><br/>Zorg ervoor dat geldige containernamen gebruiken bij het opgeven van doel-virtuele mappen of -blobs. Houd er rekening mee dat containernamen kleine letters moeten. Zie voor naamgevingsregels voor containers, [Naming en verwijzen naar Containers, Blobs en metagegevens](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Als er slechts hoofdmap is opgegeven, wordt de mapstructuur van de bron wordt gerepliceerd in de doel-blob-container. Als een andere directory-structuur dan de versie in de bron, meerdere rijen van de toewijzing van in CSV vereist is<br/><br/>Kunt u een container of een blob-voorvoegsel, zoals muziek/70s /. De doelmap moet beginnen met de containernaam van de, gevolgd door een slash '/', en kan desgewenst een virtuele blob-map die eindigt op '/'.<br/><br/>Wanneer de doelcontainer het root-container is, moet u expliciet de root-container, met inbegrip van de gewone slash, als $root opgeven /. Sinds de blobs onder de container hoofdmap niet opnemen '/' in hun namen, worden eventuele submappen in de bronmap niet gekopieerd als de doelmap is een container voor hoofdmap.<br/><br/>**Voorbeeld**<br/>Als het pad naar de bestemming is https://mystorageaccount.blob.core.windows.net/video, de waarde van dit veld mag video /  |
@@ -199,7 +199,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 
 ## <a name="waimportexport-parameters"></a>WAImportExport parameters
 
-| Parameters | Description |
+| Parameters | Beschrijving |
 | --- | --- |
 |     /j:&lt;JournalFile&gt;  | **Vereist**<br/> Pad naar het logboekbestand. Een logboekbestand houdt een set schijven en de voortgang van de records in deze schijven voorbereiden. Het logboekbestand moet altijd worden opgegeven.  |
 |     schakeloptie/LOGDIR op:&lt;LogDirectory&gt;  | **Optioneel**. De logboekmap.<br/> Uitgebreide logboekbestanden, evenals een aantal tijdelijke bestanden naar deze map geschreven. Als dat niet wordt opgegeven, de huidige directory gebruikt als de logboekmap. De logboekmap kan slechts één keer worden opgegeven voor de dezelfde logboekbestand.  |
@@ -366,7 +366,7 @@ Alle versies van Microsoft .NET Framework zijn geïnstalleerd in de volgende map
 
 Navigeer naar de hierboven genoemde onderdeel op de doelcomputer waarop het hulpprogramma moet worden uitgevoerd. Zoek naar mapnaam beginnen met 'v4'. Afwezigheid van dergelijk een directory betekent dat.NET 4 is niet geïnstalleerd op uw computer. U kunt .NET 4 downloaden op uw machine met [Microsoft .NET Framework 4 (webinstallatie)](https://www.microsoft.com/download/details.aspx?id=17851).
 
-### <a name="limits"></a>Limieten
+### <a name="limits"></a>Limits
 
 #### <a name="how-many-drives-can-i-preparesend-at-the-same-time"></a>Het aantal stations kan ik voorbereiden/verzenden op hetzelfde moment?
 

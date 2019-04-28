@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: 5cb406a52cb8fa9b5e40d9b0775f4a616950f507
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60935667"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Vervangend sleutels in Azure SQL Data Warehouse maken met behulp van identiteit
 Aanbevelingen en voorbeelden voor het gebruik van de eigenschap id voor het maken van vervangend sleutels in tabellen in Azure SQL Data Warehouse.

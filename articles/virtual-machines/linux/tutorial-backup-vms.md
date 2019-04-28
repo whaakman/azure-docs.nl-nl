@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c91e2b1380e5048fa1dfb7a0e028c88e589cbaa4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 99ec8ea6a5b08323021a168e8ec47b976e1ae7f9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190555"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739381"
 ---
-# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Zelfstudie: Back-ups maken en bestanden herstellen voor virtuele Linux-machines in Azure
+# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Zelfstudie: Back-up en herstellen van bestanden voor virtuele Linux-machines in Azure
 
 U kunt uw gegevens beschermen door regelmatig back-ups te maken. Azure Backup maakt herstelpunten die worden opgeslagen in geografisch redundante Recovery Services-kluizen. Wanneer u vanaf een herstelpunt herstelt, kunt u de hele VM of specifieke bestanden herstellen. In dit artikel wordt uitgelegd hoe u een enkel bestand herstelt naar een Linux-VM waarop nginx wordt uitgevoerd. Als u nog geen VM hebt om te gebruiken, kunt u er een maken met behulp van de [Linux-quickstart](quick-create-cli.md). In deze zelfstudie leert u het volgende:
 
@@ -94,8 +94,8 @@ In dit voorbeeld laten we zien hoe u de standaard-nginx-webpagina herstelt /var/
 7. Selecteer de VM in de lijst.
 8. Klik in de sectie **Instellingen** van de VM-blade op **Back-up**. De blade **Back-up** wordt geopend. 
 9. Selecteer in het menu boven aan de blade de optie **Bestandsherstel**. De blade **Bestandsherstel** wordt geopend.
-10. Selecteer in **Stap 1: Herstelpunt selecteren** een herstelpunt in de vervolgkeuzelijst.
-11. Klik in **Stap 2: Script downloaden om naar bestanden te zoeken en ze te herstellen** op de knop **Uitvoerbaar bestand downloaden**. Sla het gedownloade bestand op de lokale computer op.
+10. In **stap 1: Selecteer herstelpunt**, selecteer een herstelpunt in de vervolgkeuzelijst.
+11. In **stap 2: Script om te zoeken en te herstellen van bestanden downloaden**, klikt u op de **uitvoerbaar bestand downloaden** knop. Sla het gedownloade bestand op de lokale computer op.
 7. Klik op **Script downloaden** om het scriptbestand lokaal te downloaden.
 8. Open een Bash-prompt en type het volgende, waarbij u *Linux_myVM_05-05-2017.sh* vervangt door het juiste pad en de juiste bestandsnaam voor het script dat u hebt gedownload, *azureuser* vervangt door de gebruikersnaam voor de VM en *13.69.75.209* vervangt door het openbare IP-adres voor de VM.
     
@@ -156,7 +156,7 @@ In dit voorbeeld laten we zien hoe u de standaard-nginx-webpagina herstelt /var/
 
     ![Standaard-nginx-webpagina](./media/tutorial-backup-vms/nginx-working.png)
 
-18. Ga op de lokale computer terug naar het browsertabblad voor Azure Portal en klik in **Stap 3: De schijven ontkoppelen na het herstel** op de knop **Schijven ontkoppelen**. Als u deze stap vergeet uit te voeren, wordt de verbinding met het koppelpunt na 12 uur automatisch verbroken. Na deze 12 uur moet u een nieuw script downloaden voor het maken van een nieuw koppelpunt.
+18. Op uw lokale computer, gaat u terug naar het browsertabblad voor Azure portal en in **stap 3: De schijven ontkoppelen na het herstel** klikt u op de **schijven ontkoppelen** knop. Als u deze stap vergeet uit te voeren, wordt de verbinding met het koppelpunt na 12 uur automatisch verbroken. Na deze 12 uur moet u een nieuw script downloaden voor het maken van een nieuw koppelpunt.
 
 
 ## <a name="next-steps"></a>Volgende stappen

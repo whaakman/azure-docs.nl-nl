@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: ae984cc2e0f43b81b8aa2f08b3944886733c9054
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848262"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Over het implementeren van een bot Conversatiecursist
 
@@ -113,7 +113,7 @@ Hieronder vindt u stapsgewijze instructies voor het implementeren van een cursis
    1. Schuif omlaag naar het gedeelte 'App-instellingen'
    2. Voeg deze instellingen toe:
 
-       Omgevingsvariabele | waarde
+       Omgevingsvariabele | value
        --- | --- 
        CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
        CONVERSATION_LEARNER_MODEL_ID      | Aanvraag-Id-GUID, verkregen via de gebruikersinterface van de cursist conversatie onder 'instellingen' voor het model >

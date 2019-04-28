@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
 ms.openlocfilehash: 07da7f8905d7b8952db852d3da1dab12884de509
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041795"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60932915"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Tips voor betere prestaties voor Azure Cosmos DB en Async Java
 
@@ -34,7 +34,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     ![Afbeelding van het beleid voor Azure Cosmos DB-verbinding](./media/performance-tips/same-region.png)
 
-## <a name="sdk-usage"></a>SDK-gebruik
+## <a name="sdk-usage"></a>SDK Usage
 1. **Installeer de meest recente SDK**
 
     De Azure Cosmos DB SDK's worden voortdurend verbeterd om de beste prestaties bieden. Zie de [Azure Cosmos DB SDK](sql-api-sdk-async-java.md) pagina's om te bepalen van de meest recente SDK en verbeteringen te bekijken.
@@ -151,7 +151,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
 12. **Gebruik van systeemeigen SSL-implementatie voor netty** Netty OpenSSL rechtstreeks voor SSL-implementatie stack kunt gebruiken voor betere prestaties. In de afwezigheid van deze configuratie netty wordt terugvallen op van de Java standaard SSL-implementatie.
 
-    op Ubuntu:
+    on Ubuntu:
     ```bash
     sudo apt-get install openssl
     sudo apt-get install libapr1

@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
 ms.openlocfilehash: 463ef5f4a655617074915078fb4ced9e596f8957
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257711"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478286"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Maximale beschikbaarheid en herstel na noodgeval voor SQL Server in SQL Server Virtual Machine
 
@@ -44,7 +44,7 @@ SQL Server HADR-technologieën die worden ondersteund in Azure zijn onder andere
 
 Het is mogelijk het combineren van de technologieën bij elkaar voor het implementeren van een SQL Server-oplossing met hoge beschikbaarheid- en herstelfunctionaliteit bij noodgevallen. Een hybride implementatie mogelijk, afhankelijk van de technologie die u gebruikt, een VPN-tunnel met het Azure-netwerk. De onderstaande secties ziet u enkele van de voorbeeld-implementatie-architecturen.
 
-## <a name="azure-only-high-availability-solutions"></a>Azure alleen-lezen: oplossingen voor hoge beschikbaarheid
+## <a name="azure-only-high-availability-solutions"></a>Azure alleen-lezen: Oplossingen voor hoge beschikbaarheid
 
 U kunt een oplossing voor hoge beschikbaarheid voor SQL Server op het databaseniveau van een met Always On Availability Groups - beschikbaarheidsgroepen met de naam hebben. U kunt ook maken een oplossing voor hoge beschikbaarheid op het exemplaarniveau van een met Always On Failover Cluster Instances - failover-clusterexemplaren. Voor aanvullende redundantie, kunt u redundantie op beide niveaus maken door te maken van beschikbaarheidsgroepen voor failover-clusterexemplaren. 
 
@@ -53,7 +53,7 @@ U kunt een oplossing voor hoge beschikbaarheid voor SQL Server op het databaseni
 | **Beschikbaarheidsgroepen** |Beschikbare replica's die worden uitgevoerd in virtuele Azure-machines in dezelfde regio bieden hoge beschikbaarheid. U moet configureren van een domeincontroller-VM, omdat Windows failover clustering is vereist voor Active Directory-domein.<br/> ![Beschikbaarheidsgroepen](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>Zie voor meer informatie, [beschikbaarheidsgroepen configureren in Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). |
 | **Failover-clusterexemplaren** |Failover Cluster Instances (FCI), waarvoor u gedeelde opslag, kunnen worden gemaakt op 3 verschillende manieren.<br/><br/>1. Een failovercluster met twee knooppunten met behulp van gekoppelde opslag in Azure VM's met [Windows Server 2016 Storage Spaces Direct \(S2D\) ](virtual-machines-windows-portal-sql-create-failover-cluster.md) voor een op software gebaseerde virtuele SAN.<br/><br/>2. Een twee knooppunten failover-cluster in Azure VM's met opslag ondersteund door een clustering oplossing van derden. Zie voor een specifiek voorbeeld met SIOS DataKeeper [hoge beschikbaarheid voor een bestandsshare met behulp van failover clustering en 3e partij software SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>3. Een failovercluster met twee knooppunten externe iSCSI-doel in virtuele Azure-machines met gedeelde blokopslag via ExpressRoute. Bijvoorbeeld, NetApp Private Storage (NPS) wordt aangegeven dat een iSCSI-doel via ExpressRoute met Equinix virtuele Azure-machines.<br/><br/>Voor de gedeelde opslag van derden en oplossingen voor replicatie van gegevens, neemt u contact op met de leverancier voor eventuele problemen met betrekking tot het openen van gegevens bij failover.<br/><br/>Houd er rekening mee dat als u met FCI boven [Azure File storage](https://azure.microsoft.com/services/storage/files/) wordt nog niet ondersteund, omdat deze oplossing niet van Premium-opslag gebruikmaken biedt. We werken ter ondersteuning hiervan binnenkort. |
 
-## <a name="azure-only-disaster-recovery-solutions"></a>Azure alleen-lezen: oplossingen voor herstel na noodgevallen
+## <a name="azure-only-disaster-recovery-solutions"></a>Azure alleen-lezen: Oplossingen voor herstel na noodgevallen
 U kunt een oplossing voor noodherstel voor SQL Server-databases in Azure met behulp van de van beschikbaarheidsgroepen, databasespiegeling of back-up en herstellen met de storage-blobs.
 
 | Technologie | Voorbeeldarchitecturen |
@@ -64,12 +64,12 @@ U kunt een oplossing voor noodherstel voor SQL Server-databases in Azure met beh
 | **Repliceren en failover-SQL-Server naar Azure met Azure Site Recovery** |Productie SQL Server van een Azure-datacenter gerepliceerd rechtstreeks naar Azure Storage van andere Azure-datacenter voor herstel na noodgevallen.<br/>![Repliceren met Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_standalone_sqlserver-asr.png)<br/>Zie voor meer informatie, [SQL Server beveiligen met behulp van SQL Server-noodherstel en Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
 
 
-## <a name="hybrid-it-disaster-recovery-solutions"></a>Hybride IT: Noodhersteloplossingen
+## <a name="hybrid-it-disaster-recovery-solutions"></a>Hybride IT: Oplossingen voor herstel na noodgevallen
 U kunt een oplossing voor noodherstel voor SQL Server-databases in een hybride IT-omgeving met beschikbaarheidsgroepen, databasespiegeling, back-upfunctie en back-up en herstellen met Azure BLOB-opslag.
 
 | Technologie | Voorbeeldarchitecturen |
 | --- | --- |
-| **Beschikbaarheidsgroepen** |Sommige beschikbaarheidsreplica's die worden uitgevoerd in Azure VM's en andere replica's met on-premises voor herstel na noodgevallen voor cross-site. De productiesite mag on-premises of in een Azure-datacenter.<br/>![Beschikbaarheidsgroepen](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_alwayson.gif)<br/>Omdat alle beschikbare replica's moeten zich in hetzelfde failovercluster, moet het cluster beide netwerken (een meerdere subnetten failover-cluster) omvatten. Deze configuratie moet een VPN-verbinding tussen Azure en de on-premises netwerk.<br/><br/>Voor succesvolle noodherstel van uw databases, moet u ook een replicadomeincontroller op de site voor noodherstel installeren.<br/><br/>Het is mogelijk een Azure-replica toevoegen aan een bestaande AlwaysOn-beschikbaarheidsgroep met de Wizard Replica toevoegen in SSMS. Zie voor meer informatie de zelfstudie: uw AlwaysOn-beschikbaarheidsgroep uitbreiden naar Azure. |
+| **Beschikbaarheidsgroepen** |Sommige beschikbaarheidsreplica's die worden uitgevoerd in Azure VM's en andere replica's met on-premises voor herstel na noodgevallen voor cross-site. De productiesite mag on-premises of in een Azure-datacenter.<br/>![Beschikbaarheidsgroepen](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_alwayson.gif)<br/>Omdat alle beschikbare replica's moeten zich in hetzelfde failovercluster, moet het cluster beide netwerken (een meerdere subnetten failover-cluster) omvatten. Deze configuratie moet een VPN-verbinding tussen Azure en de on-premises netwerk.<br/><br/>Voor succesvolle noodherstel van uw databases, moet u ook een replicadomeincontroller op de site voor noodherstel installeren.<br/><br/>Het is mogelijk een Azure-replica toevoegen aan een bestaande AlwaysOn-beschikbaarheidsgroep met de Wizard Replica toevoegen in SSMS. Zie de zelfstudie voor meer informatie: De AlwaysOn-beschikbaarheidsgroep uitbreiden naar Azure. |
 | **Databasespiegeling** |Een partner die worden uitgevoerd in een Azure-VM en de andere actieve on-premises voor cross-site-noodherstel met behulp van certificaten. Partners hoeft niet in hetzelfde Active Directory-domein en er is geen VPN-verbinding is vereist.<br/>![Databasespiegeling](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Een andere database mirroring scenario omvat een partner die worden uitgevoerd in een Azure-VM en de andere actieve on-premises in hetzelfde Active Directory-domein voor herstel na noodgevallen voor cross-site. Een [VPN-verbinding tussen de Azure-netwerk en de on-premises netwerk](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) is vereist.<br/><br/>Voor succesvolle noodherstel van uw databases, moet u ook een replicadomeincontroller op de site voor noodherstel installeren. |
 | **Back-upfunctie** |Een server die wordt uitgevoerd in een Azure-VM en de andere actieve on-premises voor herstel na noodgevallen voor cross-site. Back-upfunctie hangt af van het Windows delen van bestanden, zodat een VPN-verbinding tussen de Azure-netwerk en de on-premises-netwerk vereist is.<br/>![Back-upfunctie](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_log_shipping.gif)<br/>Voor succesvolle noodherstel van uw databases, moet u ook een replicadomeincontroller op de site voor noodherstel installeren. |
 | **Back-up en herstel met Azure Blob Storage-Service** |On-premises productiedatabases back-ups rechtstreeks op de Azure blob-opslag voor herstel na noodgevallen.<br/>![Back-up en herstel](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_backup_restore.gif)<br/>Zie voor meer informatie, [back-up en herstel voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md). |

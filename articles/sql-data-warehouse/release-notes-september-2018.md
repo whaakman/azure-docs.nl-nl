@@ -11,11 +11,11 @@ ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
 ms.openlocfilehash: bc559a1224aace2ee599c24c8dce07a6d55173fd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863709"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474965"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? September 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in September 2018.
@@ -99,7 +99,7 @@ Ten slotte vermindert het verbeteren de algehele uitvoering van de instructies d
 
 ## <a name="bug-fixes"></a>Opgeloste fouten
 
-| Titel | Description |
+| Titel | Beschrijving |
 |:---|:---|
 | **Bij het maken van statistieken op distributies voor unieke beperkingen oplossen** | Deze oplossing wordt een fout die gebruikers ondervinden bij het actieve UPDATE STATISTICS met alleen de tabel wordt opgegeven, als de tabel had een unique-beperking gedefinieerd. |
 | **Probleem bij het compileren van query's over externe tabellen** | Deze oplossing wordt een defect die beïnvloed compilatietijd voor query's met betrekking tot externe tabellen.|

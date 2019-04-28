@@ -11,11 +11,11 @@ ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
 ms.openlocfilehash: a1dba92a9e156c82f49b9f6f85faf227fc652029
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240077"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61427537"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Grote hoeveelheden willekeurige gegevens gelijktijdig uploaden naar Azure Storage
 
@@ -35,7 +35,7 @@ Azure Blob-opslag biedt een schaalbare service voor het opslaan van gegevens. Om
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het voltooien van deze zelfstudie, moet u de vorige zelfstudie over opslag hebben voltooid: [Een virtuele machine en een opslagaccount maken voor een schaalbare toepassing][previous-tutorial].
+U moet de vorige zelfstudie over opslag hebben voltooid: [Maak een virtuele machine en de storage-account voor een schaalbare toepassing][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Extern verbinding maken met uw virtuele machine
 
@@ -69,7 +69,7 @@ De toepassing maakt vijf containers met willekeurige namen en begint met het upl
 
 Naast het instellen van de limietinstellingen voor threads en verbindingen zijn de [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) voor de methode [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) geconfigureerd om gebruik te maken van parallelle uitvoering en om validatie van de MD5-hash uit te schakelen. De bestanden worden geüpload in blokken van 100 MB. Deze configuratie biedt betere prestaties maar kan duur zijn als er een slecht presterend netwerk wordt gebruikt, omdat, wanneer er zich een storing voordoet, het gehele blok van 100 MB opnieuw wordt geüpload.
 
-|Eigenschap|Waarde|Beschrijving|
+|Eigenschap|Waarde|Description|
 |---|---|---|
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| Met deze instelling wordt de blob in blokken opgesplitst bij het uploaden. Voor de beste prestaties, moet deze waarde acht keer het aantal kerngeheugens zijn. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Met deze eigenschap wordt de controle uitgeschakeld van de MD5-hash van de inhoud die wordt geüpload. MD5-validatie zorgt voor een snellere overdracht. Maar hiermee wordt de geldigheid of de integriteit van de bestanden die worden overgebracht, niet bevestigd.   |

@@ -11,11 +11,11 @@ ms.date: 04/12/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: f80c1817d5c0ce79f2dc53f40a2cc4e00dd5c72b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545553"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61420963"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Controleren van de resource-gebruik en query-activiteit in Azure SQL Data Warehouse
 Azure SQL Data Warehouse biedt een uitgebreide controle-ervaring in Azure portal om inzichten te kunnen verkrijgen voor uw datawarehouse-workload. De Azure portal is het aanbevolen hulpmiddel bij het bewaken van uw datawarehouse, aangezien deze configureerbare bewaarperioden, waarschuwingen, aanbevelingen, en aanpasbare grafieken en dashboards voor metrische gegevens en Logboeken biedt. Via de portal kunt u integreren met andere Azure-bewakingsservices zoals Operations Management Suite (OMS) en Azure Monitor (Logboeken) voor een holistische controle-ervaring voor het niet alleen uw datawarehouse, maar ook uw hele Azure analytics platform voor een geïntegreerde ervaring voor de bewaking. Deze documentatie wordt beschreven welke mogelijkheden voor bewaking zijn beschikbaar om te optimaliseren en beheren van uw platform voor streaminganalyse met SQL Data Warehouse. 
@@ -26,7 +26,7 @@ De volgende metrische gegevens zijn beschikbaar in de Azure-portal voor SQL Data
 > [!NOTE]
 > Op dit moment knooppuntniveau CPU- en i/o-metrische gegevens zijn niet correct aan datawarehouse gebruik. Deze metrische gegevens worden in de nabije toekomst verwijderd als het team verbetert de bewaking en probleemoplossing voor SQL Data Warehouse. 
 
-| Naam van meetwaarde                           | Description     | Aggregatietype |
+| Naam van meetwaarde                           | Beschrijving     | Aggregatietype |
 | --------------------------------------- | ---------------- | --------------------------------------- |
 | CPU-percentage                          | CPU-gebruik voor alle knooppunten voor het datawarehouse | Maximum      |
 | Gegevens-I/O-percentage                      | I/o-gebruik voor alle knooppunten voor het datawarehouse | Maximum   |

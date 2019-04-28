@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/7/2019
 ms.openlocfilehash: a20030a1dc6cd8b89064731c283f9b462d30ec8f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61422567"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Opnieuw opstarten van Azure Database voor MySQL-server met behulp van Azure portal
 In dit onderwerp wordt beschreven hoe u een Azure Database for MySQL-server opnieuw kunt starten. Mogelijk moet u de server voor onderhoudsredenen, waardoor een korte onderbreking als de server de bewerking voert opnieuw.

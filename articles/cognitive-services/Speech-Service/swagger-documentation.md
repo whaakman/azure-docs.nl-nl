@@ -11,13 +11,13 @@ ms.topic: overview
 ms.date: 04/12/2019
 ms.author: erhopf
 ms.openlocfilehash: 29fcbd058651c428b488f5ce1c767105cb7921a6
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59580406"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461660"
 ---
-# <a name="swagger-documentation"></a>Swagger-documentatie
+# <a name="swagger-documentation"></a>Documentatie voor Swagger
 
 De spraakservices bieden een Swagger-specificatie om te communiceren met een handvol REST-API's gebruikt voor het importeren van gegevens, modellen maken, de nauwkeurigheid van model testen, aangepaste eindpunten maken, in de wachtrij plaatsen batch transcripties en abonnementen beheren. De meeste bewerkingen weergegeven die beschikbaar zijn via de portal voor aangepaste spraak kunnen worden uitgevoerd via een programma met behulp van deze API's. 
 

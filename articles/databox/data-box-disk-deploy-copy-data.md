@@ -10,11 +10,11 @@ ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ms.openlocfilehash: 418b158b127a688314fb3a0a506d116cc27da98c
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727523"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box Disk en deze gegevens controleren
 
@@ -86,7 +86,7 @@ Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer 
     
     De parameters en opties voor de opdracht worden in de volgende tabel weergegeven:
     
-    |Parameters/opties  |Description |
+    |Parameters/opties  |Beschrijving |
     |--------------------|------------|
     |Bron            | Hiermee geeft u het pad naar de bronmap op.        |
     |Doel       | Hiermee geeft u het pad naar de doelmap op.        |

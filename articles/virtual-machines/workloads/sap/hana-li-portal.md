@@ -17,11 +17,11 @@ ms.date: 04/02/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61482228"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Beheer van grote Azure HANA-exemplaren via de Azure-portal
 In dit document bevat informatie over de manier hoe [HANA grote instanties](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) worden voorgesteld in [Azure-portal](https://portal.azure.com) en welke activiteiten kunnen worden uitgevoerd via Azure portal met HANA grote instantie eenheden die zijn geïmplementeerd. De zichtbaarheid van HANA grote instanties in Azure portal wordt geboden via een Azure-resourceprovider voor HANA grote instanties, die momenteel in openbare preview

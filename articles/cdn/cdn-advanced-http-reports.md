@@ -1,6 +1,6 @@
 ---
-title: Gebruiksstatistieken analyseren met Azure CDN geavanceerde HTTP-rapporten | Microsoft Docs
-description: Informatie over het maken van geavanceerde HTTP-rapporten in Microsoft Azure CDN. Deze rapporten bevatten gedetailleerde informatie over CDN-activiteit.
+title: Statistieken voor Poortgebruik analyseren met Azure CDN geavanceerde HTTP-rapporten | Microsoft Docs
+description: Informatie over het maken van geavanceerde HTTP-rapporten in Microsoft Azure CDN. Deze rapporten bieden gedetailleerde informatie over CDN-activiteit.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 2dfbc046674b2da692f30c945aee3ea25ae524eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8cb4713e38ca0da610c687325f3810f57da2b26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23843614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61216090"
 ---
-# <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Gebruiksstatistieken analyseren met Azure CDN geavanceerde HTTP-rapporten
+# <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Statistieken voor Poortgebruik analyseren met Azure CDN geavanceerde HTTP-rapporten
 ## <a name="overview"></a>Overzicht
-Dit document wordt uitgelegd geavanceerde HTTP-rapportage in Microsoft Azure CDN. Deze rapporten bevatten gedetailleerde informatie over CDN-activiteit.
+Dit document wordt uitgelegd geavanceerde HTTP-rapporten in Microsoft Azure CDN. Deze rapporten bieden gedetailleerde informatie over CDN-activiteit.
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
@@ -32,176 +32,176 @@ Dit document wordt uitgelegd geavanceerde HTTP-rapportage in Microsoft Azure CDN
    
     ![Knop blade CDN-profiel beheren](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
-    Hiermee opent u de CDN-beheerportal.
-2. Beweeg de muisaanwijzer over de **Analytics** tabblad en klik vervolgens Beweeg de muisaanwijzer over de **geavanceerde HTTP-rapporten** doel.  Klik op **HTTP grote Platform**.
+    De CDN-beheerportal wordt geopend.
+2. Beweeg de muisaanwijzer over de **Analytics** tabblad en klik vervolgens Beweeg de muisaanwijzer over de **geavanceerde HTTP-rapporten** flyout.  Klik op **HTTP grote Platform**.
    
     ![CDN-beheerportal - menu Geavanceerde rapporten](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    
-    Rapportopties worden weergegeven.
+    Opties voor het analyserapport worden weergegeven.
 
-## <a name="geography-reports-map-based"></a>Geografie-rapporten (kaart gebaseerd)
-Er zijn vijf rapporten die gebruikmaken van een kaart om aan te geven de regio's waar uw inhoud wordt aangevraagd. Deze rapporten zijn wereld-kaart, Verenigde Staten-kaart, Canada-kaart, Europa kaart en Azië en Stille Oceaan kaart.
+## <a name="geography-reports-map-based"></a>Geografie-rapporten (op een kaart gebaseerd)
+Er zijn vijf rapporten die gebruikmaken van een kaart om aan te geven van de regio's waaruit uw inhoud wordt aangevraagd. Deze rapporten zijn wereldkaart, toewijzing van de Verenigde Staten, Canada-kaart, Europa-kaart en Azië en Stille Oceaan-kaart.
 
-Elk rapport op basis van de kaart posities geografische entiteiten (dat wil zeggen, landen, provincies en provincies) volgens het percentage treffers die afkomstig van die regio zijn. Bovendien wordt een toewijzing opgegeven voor hulp bij het visualiseren van de locaties waarvan de inhoud wordt aangevraagd. Het kan dit doen door kleurcodering elke regio volgens de hoeveelheid vraag ervaren in deze regio. Lichter gearceerde gebieden aangeven lagere vraag naar de inhoud, terwijl donkere regio's hogere niveaus van de vraag naar uw inhoud geven.
+Elk rapport op basis van een kaart worden gerangschikt op geografische entiteiten (dat wil zeggen, landen, Staten en de provincies) op basis van het percentage treffers die afkomstig zijn van die regio. Bovendien wordt een kaart die bij het visualiseren van de locaties van waaruit de inhoud wordt aangevraagd. Wordt uitgevoerd om dit te doen door de kleurcodering elke regio op basis van het bedrag van de vraag ervaren in die regio. Lichter gekleurd wordt weergegeven regio's geven lagere vraag voor uw inhoud, terwijl donkerder regio's hogere niveaus van de vraag naar uw inhoud geven.
 
-Gedetailleerde informatie voor de verkeer en bandbreedte voor elke regio is opgegeven direct onder de kaart. Hiermee kunt u weergeven van het totale aantal hits, het percentage treffers, de totale hoeveelheid gegevens overgedragen (in gigabytes) en de hoeveelheid gegevens overgedragen voor elke regio. Een beschrijving op voor elk van deze metrische gegevens weergeven. Ten slotte wanneer u de muisaanwijzer op een regio (dat wil zeggen, land, staat of provincie), wordt de naam en het percentage treffers dat is opgetreden in de regio weergegeven als knopinfo.
+Direct hieronder de kaart vindt u gedetailleerde informatie over de verkeer en bandbreedte voor elke regio. Hiermee kunt u weergeven van het totale aantal hits, het percentage treffers, de totale hoeveelheid gegevens verzonden (in gigabytes) en het percentage van de gegevens overgedragen voor elke regio. Een beschrijving van elk van deze metrische gegevens weergeven. Ten slotte, als u de muisaanwijzer over een regio (dat wil zeggen, land, staat of provincie), de naam en het percentage treffers en dat is opgetreden in de regio worden weergegeven als knopinfo.
 
-Hieronder vindt u een korte beschrijving voor elk type op basis van kaart Geografie-rapport.
+Hieronder vindt u een korte beschrijving voor elk type toewijzing op basis van Geografie rapport.
 
-| Rapportnaam | Beschrijving |
+| De naam van rapport | Beschrijving |
 | --- | --- |
-| Wereldkaart |Dit rapport kunt u de wereldwijde vraag naar uw CDN-inhoud weergeven. Elk land is gekleurde op de wereldkaart om aan te geven voor het percentage treffers die afkomstig van die regio zijn. |
-| Verenigde Staten-kaart |Dit rapport kunt u de vraag naar uw CDN-inhoud weergeven in de Verenigde Staten. Elke status is voorzien van een kleurcode op deze kaart om aan te geven voor het percentage treffers die afkomstig van die regio zijn. |
-| Canada-kaart |Dit rapport kunt u de vraag naar uw CDN-inhoud weergeven in Canada. Elke provincie is voorzien van een kleurcode op deze kaart om aan te geven voor het percentage treffers die afkomstig van die regio zijn. |
-| Europa-kaart |Dit rapport kunt u de vraag naar uw CDN-inhoud weergeven in Europa. Elk land wordt voorzien van een kleurcode op deze kaart om aan te geven voor het percentage treffers die afkomstig van die regio zijn. |
-| Azië Pacific-kaart |Dit rapport kunt u de vraag naar uw CDN-inhoud weergeven in Azië. Elk land wordt voorzien van een kleurcode op deze kaart om aan te geven voor het percentage treffers die afkomstig van die regio zijn. |
+| Wereldkaart |Dit rapport kunt u om de wereldwijde vraag naar uw CDN-inhoud weer te geven. Elk land is kleurgecodeerde op de wereldkaart om aan te geven van het percentage treffers die afkomstig van die regio zijn. |
+| Verenigde Staten-kaart |Dit rapport kunt u de vraag naar uw CDN-inhoud weergeven in de Verenigde Staten. Elke status is voorzien van een kleurcode op deze kaart om aan te geven van het percentage treffers die afkomstig van die regio zijn. |
+| Canada Map |Dit rapport kunt u de vraag naar uw CDN-inhoud weergeven in Canada. Elke provincie is voorzien van een kleurcode op deze kaart om aan te geven van het percentage treffers die afkomstig van die regio zijn. |
+| Europa-kaart |Dit rapport kunt u de vraag naar uw CDN-inhoud weergeven in Europa. Elk land is voorzien van een kleurcode op deze kaart om aan te geven van het percentage treffers die afkomstig van die regio zijn. |
+| Azië en Stille Oceaan-kaart |Dit rapport kunt u de vraag naar uw CDN-inhoud weergeven in Azië. Elk land is voorzien van een kleurcode op deze kaart om aan te geven van het percentage treffers die afkomstig van die regio zijn. |
 
 ## <a name="geography-reports-bar-charts"></a>Geografie rapporten (staafdiagrammen)
-Er zijn twee aanvullende rapporten die geven statistische gegevens op basis van Geografie boven steden en Top landen. Deze rapporten rangschikken steden en landen, respectievelijk volgens het aantal treffers die afkomstig van die regio's zijn. Bij het genereren van dit type rapport wordt geeft een staafdiagram de bovenste 10 steden of landen aangevraagde inhoud via een specifiek platform. Deze staafdiagram kunt u snel inzicht in de regio's die genereren van het hoogste aantal aanvragen voor uw inhoud.
+Er zijn twee aanvullende rapporten met statistische informatie op basis van Geografie, boven steden en boven-landen. Deze rapporten rangschikking steden en landen, respectievelijk op basis van het aantal treffers die afkomstig van die regio's zijn. Bij het genereren van dit type rapport wordt geven een staafdiagram de top 10 van steden of landen die inhoud op een specifiek platform heeft aangevraagd. In dit staafdiagram kunt u snel inzicht in de regio's die het hoogste aantal aanvragen voor uw inhoud te genereren.
 
-De linkerkant van de grafiek (y-as) geeft aan hoe vaak opgetreden in de opgegeven regio. Direct onder de grafiek (x-as) vindt u een label voor elk van de top 10 regio's.
+De linkerkant van de grafiek (y-as) geeft aan hoeveel treffers is opgetreden in de opgegeven regio. Direct onder de grafiek (x-as) vindt u een label voor elk van de bovenste 10 regio's.
 
 ### <a name="using-the-bar-charts"></a>Met behulp van de staafdiagrammen
-* Als u de muisaanwijzer op een balk, wordt de naam en het totaal aantal treffers dat is opgetreden in de regio worden weergegeven als knopinfo.
-* De knopinfo voor het rapport boven steden identificeert een plaats door de naam, staat/provincie en Landafkorting.
-* Als de plaats of regio (dat wil zeggen, staat/provincie) die een aanvraag afkomstig is kan niet worden bepaald, wordt deze vervolgens aangegeven dat onbekende zijn. Als het land onbekend en klik vervolgens twee vraagtekens (dat wil zeggen veldnamenrij), wordt weergegeven.
-* Een rapport kan metrische gegevens voor 'Europa' of 'Azië/Pacific.' bevatten Deze items zijn niet bedoeld voor statistische gegevens op alle IP-adressen in die gebieden. In plaats daarvan ze alleen van toepassing op aanvragen die afkomstig zijn van IP-adressen die zijn verdeeld over Europa of Azië in plaats van aan een bepaalde plaats of land.
+* Als u de muisaanwijzer boven een balk, wordt de naam en het totale aantal hits dat is opgetreden in de regio worden weergegeven als knopinfo.
+* De knopinfo voor de Top steden-rapport geeft een plaats op de naam, staat/provincie en Landafkorting.
+* Als de stad of regio (dat wil zeggen, staat/provincie) waaruit een aanvraag afkomstig is kan niet worden vastgesteld, wordt deze vervolgens aangegeven dat ze onbekend zijn. Als het land is onbekend en klik vervolgens twee vraagtekens (dat wil zeggen?), worden weergegeven.
+* Een rapport kan metrische gegevens voor "Europa" of het "Azië/Stille Oceaan.' bevatten Deze items zijn niet bedoeld voor statistische gegevens op alle IP-adressen in die regio's. In plaats daarvan ze alleen van toepassing op aanvragen die afkomstig zijn van IP-adressen die zijn verdeeld over de Europa of Azië/Stille in plaats van aan een specifieke stad of land/regio.
 
-De gegevens die is gebruikt voor het genereren van het staafdiagram kunnen worden bekeken eronder. Er vindt u het totale aantal hits, het percentage treffers, de hoeveelheid gegevens overgedragen (in gigabytes) en de hoeveelheid gegevens overgedragen voor de top 250 regio's. Een beschrijving op voor elk van deze metrische gegevens weergeven.
+De gegevens die is gebruikt voor het genereren van het staafdiagram kunnen hieronder worden weergegeven. U vindt het totale aantal hits, het percentage treffers, de hoeveelheid gegevens verzonden (in gigabytes) en het percentage van de gegevens overgedragen voor de top 250 regio's. Een beschrijving van elk van deze metrische gegevens weergeven.
 
-Een korte beschrijving is opgegeven voor beide rapporttypen hieronder.
+Een korte beschrijving is opgegeven voor beide typen rapporten die hieronder.
 
-| Rapportnaam | Beschrijving |
+| De naam van rapport | Beschrijving |
 | --- | --- |
-| Top plaatsen |Dit rapport worden gerangschikt op steden volgens het aantal treffers die afkomstig zijn van die regio. |
-| Bovenste landen |Dit rapport worden gerangschikt op landen volgens het aantal treffers die afkomstig zijn van die regio. |
+| Bovenaan plaatsen |Dit rapport worden gerangschikt op steden op basis van het aantal treffers die afkomstig zijn van die regio. |
+| Belangrijkste landen |Dit rapport worden gerangschikt op landen op basis van het aantal treffers die afkomstig zijn van die regio. |
 
-## <a name="daily-summary"></a>Dagelijkse samenvatting
-Het dagelijkse overzichtsrapport kunt u het totale aantal treffers en gegevens die overgedragen via een bepaald platform dagelijks weergeven. Deze gegevens kunnen worden gebruikt om snel CDN activiteit patronen te achterhalen. Bijvoorbeeld: in dit rapport kunt u detecteren welke dagen ervaren hoger of lager is dan het verwachte verkeer.
+## <a name="daily-summary"></a>Dagelijks overzicht
+Het rapport dagelijks overzicht kunt u het totale aantal treffers en gegevens die worden overgedragen via een bepaald platform dagelijks weergeven. Deze informatie kan worden gebruikt te onderscheiden zijn snel patronen voor CDN-activiteit. Bijvoorbeeld: in dit rapport kunt u detecteren welke dagen ervaren hoger of lager is dan het verwachte verkeer.
 
-Bij het genereren van dit type rapport wordt biedt een staafdiagram een visuele aanwijzing van de hoeveelheid platform-specifieke aanvraag ervaren dagelijks gedurende de periode waarvoor de lijst. Het wordt dit doen door een balk voor elke dag in het rapport weer te geven. Bijvoorbeeld 'Afgelopen Week' als u de periode aangeroepen een staafdiagram met zeven balken wordt gegenereerd. Elke balk geeft het totaal aantal treffers op die dag ervaren.
+Bij dit type rapport wordt gegenereerd, wordt een staafdiagram een visuele aanwijzing van de hoeveelheid platform-specifieke aanvraag ervaren dagelijks geboden gedurende de periode wordt gedekt door het rapport. Het zal dit doen door een balk voor elke dag in het rapport weer te geven. Bijvoorbeeld, de tijdsperiode selecteren genoemd 'Afgelopen Week' een staafdiagram met zeven balken wordt gegenereerd. Elke balk geeft het totale aantal hits ervaren op die dag.
 
-De linkerkant van de grafiek (y-as) geeft aan hoe vaak opgetreden op de opgegeven datum. Direct onder de grafiek (x-as) vindt u een label dat de datum geeft (indeling: jjjj-MM-DD) voor elke dag in het rapport opgenomen.
+De linkerkant van de grafiek (y-as) geeft aan hoeveel treffers opgetreden op de opgegeven datum. Direct onder de grafiek (x-as), vindt u een label dat de datum geeft (indeling: YYYY-MM-DD) voor elke dag dat is opgenomen in het rapport.
 
 > [!TIP]
-> Als u de muisaanwijzer op een balk, wordt het totale aantal hits die is opgetreden op die datum weergegeven als knopinfo.
+> Als u de muisaanwijzer boven een balk, wordt het totale aantal hits dat is opgetreden op die datum worden weergegeven als knopinfo.
 > 
 > 
 
-De gegevens die is gebruikt voor het genereren van het staafdiagram kunnen worden bekeken eronder. Er vindt u het totaal aantal treffers en de hoeveelheid gegevens overgedragen (in gigabytes) voor elke dag wordt gedekt door het rapport.
+De gegevens die is gebruikt voor het genereren van het staafdiagram kunnen hieronder worden weergegeven. U vindt het totaal aantal treffers en de hoeveelheid overgedragen gegevens (in gigabytes) voor elke dag wordt gedekt door het rapport.
 
 ## <a name="by-hour"></a>Per uur
-Het rapport door uur kunt u het totale aantal treffers en gegevens die overgedragen via een bepaald platform op uurbasis weergeven. Deze gegevens kunnen worden gebruikt om snel CDN activiteit patronen te achterhalen. Bijvoorbeeld: in dit rapport kunt u de tijdsperioden gedurende de dag die zich hoger of lager is dan het verwachte verkeer detecteren.
+Het rapport door uur kunt u weergeven van het totale aantal treffers en gegevens die via een bepaald platform worden overgedragen op uurbasis. Deze informatie kan worden gebruikt te onderscheiden zijn snel patronen voor CDN-activiteit. Bijvoorbeeld: in dit rapport kunt u de perioden gedurende de dag die zich hoger of lager is dan het verwachte verkeer detecteren.
 
-Bij het genereren van dit type rapport bieden een staafdiagram een visuele aanwijzing van de hoeveelheid platform-specifieke aanvraag opgetreden op uurbasis gedurende de periode waarvoor de lijst. Het wordt dit doen door een balk voor elk uur wordt gedekt door het rapport weer te geven. Bijvoorbeeld, een 24-uurs selecteren periode genereert een staafdiagram met 24 balken. Elke balk geeft het totaal aantal treffers ervaren tijdens dat uur.
+Bij het genereren van dit type rapport wordt biedt een staafdiagram een visuele aanwijzing van de hoeveelheid platform-specifieke aanvraag opgetreden op uurbasis gedurende de periode wordt gedekt door het rapport. Het zal dit doen door een balk voor elk uur wordt gedekt door het rapport weer te geven. Bijvoorbeeld een 24-uurs selecteren periode genereert een staafdiagram met twintig vier balken. Elke balk geeft het totale aantal hits ervaren tijdens dat uur.
 
-De linkerkant van de grafiek (y-as) geeft aan hoe vaak opgetreden op de opgegeven uur. Direct onder de grafiek (x-as) vindt u een label dat de datum/tijd geeft (indeling: jjjj-MM-DD uu: mm) voor elk uur in het rapport opgenomen. Tijd wordt aangegeven met 24-uurs indeling en deze is opgegeven met de UTC/GMT-tijdzone.
+De linkerkant van de grafiek (y-as) geeft aan hoeveel treffers opgetreden op het opgegeven uur. Direct onder de grafiek (x-as), vindt u een label dat geeft aan de datum/tijd dat (indeling: YYYY-MM-DD uu: mm) voor elk uur dat is opgenomen in het rapport. Tijd is gerapporteerd op basis van 24-uurs indeling en deze is opgegeven met behulp van de UTC/GMT-tijdzone.
 
 > [!TIP]
-> Als u de muisaanwijzer op een balk, wordt het totale aantal hits die is opgetreden tijdens dat uur weergegeven als knopinfo.
+> Als u de muisaanwijzer boven een balk, wordt het totale aantal hits die zijn opgetreden tijdens dat uur worden weergegeven als knopinfo.
 > 
 > 
 
-De gegevens die is gebruikt voor het genereren van het staafdiagram kunnen worden bekeken eronder. Er vindt u het totaal aantal treffers en de hoeveelheid gegevens overgedragen (in gigabytes) voor elk uur wordt gedekt door het rapport.
+De gegevens die is gebruikt voor het genereren van het staafdiagram kunnen hieronder worden weergegeven. U vindt het totaal aantal treffers en de hoeveelheid overgedragen gegevens (in gigabytes) voor elk uur wordt gedekt door het rapport.
 
 ## <a name="by-file"></a>Door het bestand
-Het rapport door bestand kunt u de hoeveelheid vraag en het verkeer dat gedurende een bepaald platform voor de meest aangevraagde activa weergeven. Bij dit type rapport worden gegenereerd, wordt een staafdiagram worden gegenereerd op de bovenste 10 meest aangevraagde activa via de opgegeven periode.
+Het rapport door kunt u het bedrag van vraag en het verkeer in rekening gebracht via een bepaald platform voor de meest aangevraagde activa weergeven. Bij dit type rapport wordt gegenereerd, wordt een staafdiagram worden gegenereerd op de bovenste 10 meest aangevraagde activa gedurende de opgegeven periode.
 
 > [!NOTE]
-> Voor de doeleinden van dit rapport worden rand CNAME-URL's geconverteerd naar de equivalente CDN-URL's. Hiermee kunt een nauwkeurige tally voor het totaal aantal treffers die zijn gekoppeld aan een asset ongeacht de CDN of edge gebruikt voor het aanvragen van het CNAME-URL.
+> Voor de doeleinden van dit rapport worden edge CNAME-URL's geconverteerd naar de equivalente CDN-URL's. Hiermee wordt een nauwkeurige tally voor het totale aantal hits die zijn gekoppeld aan een asset, ongeacht de CDN- of edge CNAME-URL die wordt gebruikt aan te vragen.
 > 
 > 
 
-De linkerkant van de grafiek (y-as) geeft het aantal aanvragen voor elk actief gedurende de opgegeven periode. Direct onder de grafiek (x-as) vindt u een label dat de bestandsnaam voor elk van de top 10 aangevraagde activa geeft.
+De linkerkant van de grafiek (y-as) geeft het aantal aanvragen voor elk actief gedurende de opgegeven periode. Direct onder de grafiek (x-as) vindt u een label dat geeft aan de bestandsnaam op voor elk van de bovenste 10 aangevraagde activa dat.
 
-De gegevens die is gebruikt voor het genereren van het staafdiagram kunnen worden bekeken eronder. Hier vindt u de volgende informatie voor elk van de bovenste 250 aangevraagde activa: relatief pad, het totale aantal hits, het percentage treffers, de hoeveelheid gegevens overgedragen (in gigabytes), en het percentage van de gegevens overgebracht.
+De gegevens die is gebruikt voor het genereren van het staafdiagram kunnen hieronder worden weergegeven. Er vindt u de volgende informatie voor elk van de bovenste 250 aangevraagde assets: relatief pad, het totale aantal hits, het percentage treffers, de hoeveelheid gegevens die zijn overgedragen (in gigabytes), en het percentage van de gegevens worden overgebracht.
 
-## <a name="by-file-detail"></a>Door het bestand details
-Het rapport met details kunt u de hoeveelheid vraag en het verkeer dat gedurende een bepaald platform voor een specifieke asset weergeven. Is de optie voor meer informatie in het bestand op de menubalk van dit rapport. Deze optie biedt een lijst met de meest aangevraagde activa op het geselecteerde platform. Om een rapport met details van het genereren, moet u de gewenste asset selecteert in de optie voor meer informatie in het bestand. Waarna een staafdiagram geeft de hoeveelheid dagelijkse vraag die wordt gegenereerd via de opgegeven periode.
+## <a name="by-file-detail"></a>Door de details van het
+Het rapport met details kunt u om de hoeveelheid vraag en het verkeer in rekening gebracht via een bepaald platform voor een specifieke asset weer te geven. Helemaal boven aan dit rapport is de optie voor meer informatie in het bestand. Deze optie geeft een lijst van de meest aangevraagde activa op het geselecteerde platform. Als u wilt een rapport met details van het genereren, moet u de gewenste asset software selecteren uit de optie voor meer informatie in het bestand. Waarna een staafdiagram geeft de hoeveelheid dagelijkse aanvraag die wordt gegenereerd via de opgegeven periode.
 
-De linkerkant van de grafiek (y-as) geeft het totale aantal aanvragen dat een actief op een bepaalde dag is. Direct onder de grafiek (x-as) vindt u een label dat de datum geeft (indeling: jjjj-MM-DD) voor welke CDN aanvraag voor de asset is gerapporteerd.
+De linkerkant van de grafiek (y-as) geeft het totale aantal aanvragen dat een actief op een bepaalde dag is. Direct onder de grafiek (x-as), vindt u een label dat de datum geeft (indeling: YYYY-MM-DD) voor welke CDN een aanvraag voor de asset is gemeld.
 
-De gegevens die is gebruikt voor het genereren van het staafdiagram kunnen worden bekeken eronder. Er vindt u het totaal aantal treffers en de hoeveelheid gegevens overgedragen (in gigabytes) voor elke dag wordt gedekt door het rapport.
+De gegevens die is gebruikt voor het genereren van het staafdiagram kunnen hieronder worden weergegeven. U vindt het totaal aantal treffers en de hoeveelheid overgedragen gegevens (in gigabytes) voor elke dag wordt gedekt door het rapport.
 
 ## <a name="by-file-type"></a>Door het bestandstype
-Het rapport door het bestandstype kunt u de hoeveelheid vraag en het verkeer dat door het bestandstype gemaakte weergeven. Bij het genereren van dit type rapport geeft een grafiek ring het percentage treffers in die zijn gegenereerd door de bovenste 10 bestandstypen.
+Het rapport door het bestandstype kunt u om de hoeveelheid vraag en het verkeer in rekening gebracht door het bestandstype weer te geven. Bij dit type rapport wordt gegenereerd, wordt een ringdiagram geven het percentage treffers en die worden gegenereerd door de bovenste 10 bestandstypen.
 
 > [!TIP]
-> Als u de muisaanwijzer op een segment in de grafiek ring, mediatype het Internet van dat bestandstype wordt weergegeven als knopinfo.
+> Als u de muisaanwijzer over een segment in het ringdiagram, mediatype het Internet van dat bestandstype wordt weergegeven als knopinfo.
 > 
 > 
 
-De gegevens die is gebruikt voor het genereren van het diagram ring kunnen worden bekeken eronder. Er vindt u het bestandstype naam extensie/Internet media, het totale aantal hits, het percentage treffers, de hoeveelheid gegevens overgedragen (in gigabytes) en de hoeveelheid gegevens overgedragen voor elk van de top 250 bestandstypen.
+De gegevens die is gebruikt voor het genereren van het ringdiagram kunnen hieronder worden weergegeven. U vindt het mediatype van bestand naam-extensie/Internet, het totale aantal hits, het percentage treffers, de hoeveelheid gegevens verzonden (in gigabytes) en het percentage van de gegevens overgedragen voor elk van de bestandstypen boven 250.
 
 ## <a name="by-directory"></a>Door Directory
-Het rapport door Directory kunt u de hoeveelheid vraag en het verkeer dat gedurende een bepaald platform naar inhoud vanaf een specifieke map weergeven. Bij het genereren van dit type rapport geeft een staafdiagram het totaal aantal treffers die worden gegenereerd door de inhoud in de bovenste 10 mappen.
+Het rapport door Directory kunt u het bedrag van vraag en het verkeer in rekening gebracht via een bepaald platform voor de inhoud van een specifieke map weergeven. Bij dit type rapport wordt gegenereerd, wordt een staafdiagram het totale aantal hits die worden gegenereerd door de inhoud in de bovenste 10 mappen aangegeven.
 
 ### <a name="using-the-bar-chart"></a>Met behulp van het staafdiagram
-* Beweeg de muisaanwijzer over een balk om het relatieve pad naar de bijbehorende map weer te geven.
-* Inhoud die is opgeslagen in een submap van een map telt niet mee bij het berekenen van de aanvraag door de directory. Deze berekening uitsluitend gebruikmaakt van het aantal aanvragen voor inhoud die is opgeslagen in de huidige map zijn gegenereerd.
-* Voor de doeleinden van dit rapport worden rand CNAME-URL's geconverteerd naar de equivalente CDN-URL's. Hiermee kunt een nauwkeurige tally voor alle statistische gegevens die zijn gekoppeld aan een asset ongeacht de CDN of edge gebruikt voor het aanvragen van het CNAME-URL.
+* Beweeg de muisaanwijzer boven een balk om het relatieve pad naar de bijbehorende map weer te geven.
+* Inhoud die is opgeslagen in een submap van een map telt niet mee bij het berekenen van de aanvraag door directory. Deze berekening is gebaseerd uitsluitend op het aantal aanvragen voor inhoud die is opgeslagen in de werkelijke directory gegenereerd.
+* Voor de doeleinden van dit rapport worden edge CNAME-URL's geconverteerd naar de equivalente CDN-URL's. Hiermee wordt een nauwkeurige tally voor alle statistische gegevens die zijn gekoppeld aan een asset, ongeacht de CDN- of edge CNAME-URL die wordt gebruikt aan te vragen.
 
-De linkerkant van de grafiek (y-as) geeft het totale aantal aanvragen voor de inhoud die is opgeslagen in uw adreslijsten top 10. Elke staaf op de grafiek vertegenwoordigt een map. Gebruik de kleurcodering schema aan een balk naar een map die wordt vermeld in het gedeelte boven 250 volledige mappen.
+De linkerkant van de grafiek (y-as) geeft het totale aantal aanvragen voor de inhoud die is opgeslagen in uw mappen top 10. Elke balk in de grafiek vertegenwoordigt een map. Gebruik de kleurcodering schema hierbij wordt een balk naar een map die worden vermeld in de sectie boven 250 volledige mappen.
 
-De gegevens die is gebruikt voor het genereren van het staafdiagram kunnen worden bekeken eronder. Hier vindt u de volgende informatie voor elk van de mappen boven 250: relatief pad, het totale aantal hits, het percentage treffers, de hoeveelheid gegevens overgedragen (in gigabytes), en het percentage van de gegevens overgebracht.
+De gegevens die is gebruikt voor het genereren van het staafdiagram kunnen hieronder worden weergegeven. Er vindt u de volgende informatie voor elk van de mappen boven 250: relatief pad, het totale aantal hits, het percentage treffers, de hoeveelheid gegevens die zijn overgedragen (in gigabytes), en het percentage van de gegevens worden overgebracht.
 
 ## <a name="by-browser"></a>Door de Browser
-Het rapport door Browser kunt u bekijken welke browsers zijn gebruikt voor het aanvragen van inhoud. Bij het genereren van dit type rapport geeft een cirkeldiagram het percentage aanvragen dat is verwerkt door de bovenste 10 browsers.
+Het rapport door Browser kunt u bekijken welke browsers zijn gebruikt voor het aanvragen van inhoud. Bij dit type rapport wordt gegenereerd, wordt een cirkeldiagram het percentage aanvragen dat is verwerkt door de bovenste 10 browsers aangegeven.
 
-### <a name="using-the-pie-chart"></a>Met behulp van het cirkeldiagram
-* Beweeg de muisaanwijzer over een segment in het cirkeldiagram om weer te geven van de naam en versie van de browser.
-* Voor de doeleinden van dit rapport wordt elke combinatie unieke browserversie beschouwd als een andere browser.
-* Het segment aangeroepen 'Overig' geeft het percentage aanvragen dat is verwerkt door andere browsers en versies.
+### <a name="using-the-pie-chart"></a>Met behulp van de cirkeldiagram
+* Beweeg de muisaanwijzer over een segment in het cirkeldiagram om de naam en versie van een browser weer te geven.
+* Voor de doeleinden van dit rapport wordt elke combinatie van unieke browserversie beschouwd als een andere browser.
+* Het segment met de naam 'Overige' geeft het percentage aanvragen dat is verwerkt door alle browsers en andere versies.
 
-De gegevens die is gebruikt voor het genereren van het cirkeldiagram kunnen worden bekeken eronder. Er vindt u het type/versienummer van de browser, het totaal aantal treffers en het percentage treffers voor elk van de top 250 browsers.
+De gegevens die is gebruikt voor het genereren van het cirkeldiagram kunnen hieronder worden weergegeven. U vindt hier het type/versienummer van de browser, het totale aantal hits en het percentage treffers en voor elk van de top 250 browsers.
 
 ## <a name="by-referrer"></a>Door de verwijzende site
-Het rapport door verwijzende site kunt u de bovenste verwijzingen naar de inhoud bekijken op het geselecteerde platform. Een verwijzende site geeft de naam van de host van waaruit u een aanvraag werd gegenereerd. Bij het genereren van dit type rapport geeft een staafdiagram het bedrag van aanvraag (dat wil zeggen, hits) die worden gegenereerd door de bovenste 10 verwijzingen.
+Het rapport door verwijzende site kunt u de bovenste verwijzingen naar de inhoud bekijken op het geselecteerde platform. Een verwijzende site geeft aan dat de hostnaam op basis waarvan u een aanvraag werd gegenereerd. Bij dit type rapport wordt gegenereerd, wordt een staafdiagram het bedrag van de aanvraag (dat wil zeggen, hits) die worden gegenereerd door de bovenste 10 verwijzende sites aangegeven.
 
-De linkerkant van de grafiek (y-as) geeft het totale aantal aanvragen dat een asset voor elke verwijzende site opgetreden. Elke staaf op de grafiek vertegenwoordigt een verwijzende site. Gebruik de kleurcodering schema aan een balk aan een verwijzende vermeld in het gedeelte boven 250 verwijzende site.
+De linkerkant van de grafiek (y-as) geeft het totale aantal aanvragen dat een actief voor elke verwijzende site is. Elke balk in de grafiek vertegenwoordigt een verwijzende site. Gebruik de kleurcodering schema hierbij wordt een balk aan een verwijzende site weergegeven in de sectie boven 250 verwijzende site.
 
-De gegevens die is gebruikt voor het genereren van het staafdiagram kunnen worden bekeken eronder. Er vindt u de URL, het totaal aantal treffers en het percentage treffers gegenereerd op basis van elk van de bovenste 250 verwijzingen.
+De gegevens die is gebruikt voor het genereren van het staafdiagram kunnen hieronder worden weergegeven. U vindt hier de URL, het totale aantal hits en het percentage treffers in en gegenereerd op basis van elk van de bovenste 250 verwijzende sites.
 
-## <a name="by-download"></a>Door downloaden
-Het rapport door downloaden, kunt u downloaden patronen voor uw meest aangevraagde inhoud analyseren. De bovenkant van het rapport bevat een staafdiagram dat vergelijkt heeft geprobeerd downloads met voltooide downloads voor de top 10 aangevraagde activa. Elke staaf is gekleurde volgens een poging tot gedownload (blauw) of een voltooide download (groen).
+## <a name="by-download"></a>Door bits-Download
+Het rapport downloaden door kunt u voor het analyseren van patronen voor uw meest aangevraagde inhoud downloaden. De bovenkant van het rapport bevat een staafdiagram dat vergelijkt heeft geprobeerd downloads met voltooide downloads voor de top 10 aangevraagde activa. Elke staaf is kleurgecodeerde op basis van een poging tot kon worden gedownload (blauw) of een downloaden voltooid (groen).
 
 > [!NOTE]
-> Voor de doeleinden van dit rapport worden rand CNAME-URL's geconverteerd naar de equivalente CDN-URL's. Hiermee kunt een nauwkeurige tally voor alle statistische gegevens die zijn gekoppeld aan een asset ongeacht de CDN of edge gebruikt voor het aanvragen van het CNAME-URL.
+> Voor de doeleinden van dit rapport worden edge CNAME-URL's geconverteerd naar de equivalente CDN-URL's. Hiermee wordt een nauwkeurige tally voor alle statistische gegevens die zijn gekoppeld aan een asset, ongeacht de CDN- of edge CNAME-URL die wordt gebruikt aan te vragen.
 > 
 > 
 
-De linkerkant van de grafiek (y-as) geeft aan dat de bestandsnaam voor elk van de top 10 aangevraagde activa. U ziet direct onder de grafiek (x-as) labels die wijzen op het totale aantal downloads geprobeerd kan niet worden voltooid.
+De linkerkant van de grafiek (y-as) geeft aan dat de bestandsnaam op voor elk van de bovenste 10 aangevraagde activa. Direct onder de grafiek (x-as) vindt u labels die wijzen op het totale aantal downloads geprobeerd/voltooid.
 
-Direct onder het staafdiagram de volgende informatie wordt weergegeven voor de bovenste 250 aangevraagde activa: relatief pad (inclusief de bestandsnaam), het aantal keren dat het volledig is gedownload, het aantal keren dat deze is gevraagd en het percentage aanvragen dat heeft geresulteerd in een volledige download.
+Direct onder het staafdiagram de volgende informatie wordt weergegeven voor de eerste 250 aangevraagde activa: relatief pad (inclusief de bestandsnaam), het aantal keren dat deze is gedownload naar voltooiing, het aantal keren dat deze is gevraagd en het percentage van aanvragen dat heeft geresulteerd in een volledige download.
 
 > [!TIP]
-> Onze CDN is niet op de hoogte door een HTTP-client (dat wil zeggen browser) wanneer een asset volledig zijn gedownload. Als gevolg hiervan we hebben voor de berekening of een asset volledig zijn gedownload volgens statuscodes en bytebereik aanvragen. Het eerste wat dat we zoekt bij deze berekening is of de aanvraag resulteert in een statuscode van 200 OK. Als dit het geval is, klikt u vervolgens kijken we byte-bereikaanvragen om ervoor te zorgen dat ze hebben betrekking op de gehele activa. Ten slotte vergelijkt u de hoeveelheid gegevens overgedragen naar de grootte van de aangevraagde asset. Als de gegevensoverdracht gelijk aan of groter zijn dan de bestandsgrootte is en de byte-bereikaanvragen geschikt voor dat actief zijn, wordt de treffer worden beschouwd als een volledige download.
+> Het CDN niet op de hoogte gesteld door een HTTP-client (dat wil zeggen browser) wanneer een asset volledig zijn gedownload. Als gevolg hiervan hebben we om te berekenen of een asset volledig zijn gedownload op basis van-statuscodes en bytebereik aanvragen. Het eerste wat dat we controleren wanneer deze berekening is of de aanvraag resulteert in een 200 OK statuscode. Als dit het geval is, klikt u vervolgens kijken we byte-bereikaanvragen om ervoor te zorgen dat ze betrekking hebben op de gehele activa. Ten slotte vergelijken we de hoeveelheid gegevens die overgedragen naar de grootte van de aangevraagde asset. Als de gegevens die worden overgedragen gelijk aan of groter is dan de bestandsgrootte is en de byte-bereikaanvragen geschikt is voor die actief zijn, wordt de treffers worden geteld als een volledige download.
 > 
-> Vanwege de interpretatie aard van dit rapport moet u rekening houden de volgende punten die hebben voor de consistentie en de nauwkeurigheid van dit rapport gevolgen mogelijk.
+> Vanwege de interpretatief aard van dit rapport, moet u rekening met de volgende punten die hebben voor de consistentie en de nauwkeurigheid van dit rapport gevolgen mogelijk behouden.
 > 
-> * Verkeerspatronen kunnen niet nauwkeurig worden voorspeld wanneer gebruikersagenten zich anders gedragen. Dit kan leiden tot downloadresultaten voltooide die groter dan 100 zijn %.
-> * Activa die van HTTP-progressief downloaden gebruikmaken mogelijk niet nauwkeurig worden vertegenwoordigd door dit rapport. Dit komt door gebruikers zoeken naar een andere positie in een video.
+> * Patronen in het netwerkverkeer kunnen niet correct worden voorspeld wanneer de gebruiker agents zich anders gedragen. Dit kan leiden tot resultaten downloaden voltooid die groter dan 100 zijn %.
+> * Activa die van de HTTP-progressieve Download profiteren mogelijk niet nauwkeurig worden vertegenwoordigd door dit rapport. Dit komt door gebruikers om te zoeken naar een andere positie in een video.
 > 
 > 
 
-## <a name="by-404-errors"></a>Door 404-fouten
-Het rapport door 404-fouten kunt u identificeren van het type inhoud dat het hoogste aantal 404 statuscodes niet gevonden genereert. De bovenkant van het rapport bevat een staafdiagram voor de top 10 activa waarvoor een statuscode 404 niet gevonden geretourneerd. Deze staafdiagram vergelijkt het totale aantal aanvragen met aanvragen dat heeft geresulteerd in een 404 niet gevonden statuscode voor deze activa. Elke balk is gekleurde. Een gele balk wordt gebruikt om aan te geven dat de aanvraag heeft geresulteerd in een statuscode 404 niet gevonden. Een rode balk wordt gebruikt om aan te geven van het totale aantal aanvragen voor de asset.
+## <a name="by-404-errors"></a>Met 404-fouten
+Het rapport met 404-fouten kunt u bij het identificeren van het type inhoud dat het hoogste aantal 404 niet gevonden statuscodes genereert. De bovenkant van het rapport bevat een staafdiagram voor de top 10-activa waarvoor een 404 niet gevonden-statuscode is geretourneerd. In dit staafdiagram vergelijkt het totale aantal aanvragen met aanvragen dat heeft geresulteerd in een 404 niet gevonden statuscode die middelen. Elke staaf is kleurgecodeerde. Een gele balk wordt gebruikt om aan te geven dat de aanvraag heeft geresulteerd in een statuscode 404 niet gevonden. Een rode balk wordt gebruikt om aan te geven van het totale aantal aanvragen voor de asset.
 
 > [!NOTE]
-> Let op het volgende voor de doeleinden van dit rapport:
+> Voor de doeleinden van dit rapport, Let op het volgende:
 > 
-> * Een treffer vertegenwoordigt een aanvraag voor een asset ongeacht de statuscode.
-> * Rand CNAME-URL's worden geconverteerd naar de equivalente CDN-URL's. Hiermee kunt een nauwkeurige tally voor alle statistische gegevens die zijn gekoppeld aan een asset ongeacht de CDN of edge gebruikt voor het aanvragen van het CNAME-URL.
+> * Een treffer vertegenwoordigt een verzoek om een asset, ongeacht de statuscode.
+> * Edge CNAME-URL's worden geconverteerd naar de equivalente CDN-URL's. Hiermee wordt een nauwkeurige tally voor alle statistische gegevens die zijn gekoppeld aan een asset, ongeacht de CDN- of edge CNAME-URL die wordt gebruikt aan te vragen.
 > 
 > 
 
-De linkerkant van de grafiek (y-as) geeft aan dat de bestandsnaam voor elk van de top 10 aangevraagde activa dat heeft geresulteerd in een statuscode 404 niet gevonden. U ziet direct onder de grafiek (x-as) labels die wijzen op het totale aantal aanvragen en het aantal aanvragen dat heeft geresulteerd in een statuscode 404 niet gevonden.
+De linkerkant van de grafiek (y-as) geeft aan dat de bestandsnaam op voor elk van de bovenste 10 aangevraagde activa dat heeft geresulteerd in een statuscode 404 niet gevonden. Direct onder de grafiek (x-as) vindt u labels die wijzen op het totale aantal aanvragen en het aantal aanvragen dat heeft geresulteerd in een statuscode 404 niet gevonden.
 
-Direct onder het staafdiagram de volgende informatie wordt weergegeven voor de bovenste 250 aangevraagde activa: relatief pad (inclusief de bestandsnaam), het aantal aanvragen dat heeft geresulteerd in een statuscode 404 niet gevonden, het totale aantal keren dat de asset is aangevraagd en het percentage aanvragen dat heeft geresulteerd in een statuscode 404 niet gevonden.
+Direct onder het staafdiagram de volgende informatie wordt weergegeven voor de eerste 250 aangevraagde activa: relatief pad (inclusief bestandsnaam), het aantal aanvragen dat heeft geresulteerd in een 404 niet gevonden-statuscode, het totale aantal keren dat de asset is aangevraagd, en het percentage aanvragen dat heeft geresulteerd in een statuscode 404 niet gevonden.
 
 ## <a name="see-also"></a>Zie ook
 * [Overzicht van Azure CDN](cdn-overview.md)
 * [Realtime statistieken in Microsoft Azure CDN](cdn-real-time-stats.md)
-* [Standaardgedrag HTTP met de regelengine van](cdn-rules-engine.md)
-* [Edge-prestaties analyseren](cdn-edge-performance.md)
+* [Standaardgedrag HTTP met behulp van de regelengine](cdn-rules-engine.md)
+* [Prestaties van Edge analyseren](cdn-edge-performance.md)
 

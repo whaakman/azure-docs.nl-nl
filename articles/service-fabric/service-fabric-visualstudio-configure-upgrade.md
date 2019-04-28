@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
 ms.openlocfilehash: 79120371ca2a62e5ef9f2bf38476635db12e9fcc
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42060562"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61082835"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>De upgrade van een Service Fabric-toepassing in Visual Studio configureren
 Visual Studio-hulpprogramma's voor Azure Service Fabric bieden ondersteuning voor de upgrade voor publicatie naar lokale of externe-clusters. Er zijn drie scenario's waarin u upgraden van uw toepassing naar een nieuwere versie in plaats van de toepassing wilt tijdens het testen en foutopsporing vervangen:
@@ -31,7 +31,7 @@ Visual Studio-hulpprogramma's voor Azure Service Fabric bieden ondersteuning voo
 ## <a name="parameters-needed-to-upgrade"></a>Parameters die nodig zijn om bij te werken
 U kunt kiezen uit twee typen implementatie: reguliere of een upgrade. Een normale implementatie wist u alle vorige informatie over de implementatie en gegevens op het cluster, terwijl een upgrade-implementatie blijft behouden in het. Wanneer u een upgrade uitvoert van een Service Fabric-toepassing in Visual Studio, moet u parameters toepassingsupgrade, status en controleer de beleidsregels voor opgeven. Parameters toepassingsupgrade helpen bij de controle van de upgrade, terwijl het statusbeleid selectievakje te bepalen of de upgrade geslaagd is. Zie [Service Fabric-toepassingsupgrade: Upgradeparameters](service-fabric-application-upgrade-parameters.md) voor meer informatie.
 
-Er zijn drie upgrade modi: *bewaakte*, *UnmonitoredAuto*, en *UnmonitoredManual*.
+Er zijn drie upgrade modi: *Bewaakt*, *UnmonitoredAuto*, en *UnmonitoredManual*.
 
 * Een upgrade van een gecontroleerde automatiseert de upgrade en statuscontrole van de toepassing.
 * Een upgrade UnmonitoredAuto automatiseert de upgrade, maar de statuscontrole van de toepassing wordt overgeslagen.

@@ -8,11 +8,11 @@ ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
 ms.openlocfilehash: e1cb588d68153a88d8b55b2696b376c4eb8704f5
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199267"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61232248"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Wat is Azure Internet of Things (IoT)?
 

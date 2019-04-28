@@ -10,11 +10,11 @@ services: iot-dps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: ef0a3d251679d7dd6760f1f928cbf0f0daf3db01
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099134"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61248982"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd TPM-apparaat maken en inrichten voor IoT Hub Device Provisioning Service met de apparaat-SDK voor Node.js
 
@@ -47,19 +47,19 @@ In dit artikel worden afzonderlijke registraties gedemonstreerd.
     git clone https://github.com/Azure/azure-utpm-c.git --recursive
     ```
 
-1. Ga naar de hoofdmap van GitHub en voer de [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview)-simulator uit. Deze luistert via een socket op poorten 2321 en 2322. Sluit dit opdrachtvenster niet; de simulator moet actief blijven tot u deze Snelstartgids hebt voltooid: 
+2. Ga naar de hoofdmap van GitHub en voer de [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview)-simulator uit. Deze luistert via een socket op poorten 2321 en 2322. Sluit dit opdrachtvenster niet; de simulator moet actief blijven tot u deze Snelstartgids hebt voltooid: 
 
     ```cmd/sh
     .\azure-utpm-c\tools\tpm_simulator\Simulator.exe
     ```
 
-1. Maak een nieuwe, lege map met de naam **registerdevice**. Maak in de map **registerdevice** een bestand met de naam package.json door achter de opdrachtprompt de volgende opdracht op te geven. Beantwoord alle vragen die door `npm` worden gesteld of accepteer de standaardwaarden als deze voor u geschikt zijn:
+3. Maak een nieuwe, lege map met de naam **registerdevice**. Maak in de map **registerdevice** een bestand met de naam package.json door achter de opdrachtprompt de volgende opdracht op te geven. Beantwoord alle vragen die door `npm` worden gesteld of accepteer de standaardwaarden als deze voor u geschikt zijn:
    
     ```cmd/sh
     npm init
     ```
 
-1. Installeer de volgende precursorpakketten:
+4. Installeer de volgende precursorpakketten:
 
     ```cmd/sh
     npm install node-gyp -g
@@ -70,7 +70,7 @@ In dit artikel worden afzonderlijke registraties gedemonstreerd.
     > Het installeren van de bovengenoemde pakketten kan problemen met zich meebrengen. U kunt deze oplossen door `npm install --global --production windows-build-tools` uit te voeren via een opdrachtprompt in de modus **Uitvoeren als administrator**. Vervolgens voert u `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` uit nadat u het pad hebt vervangen door dat van de geïnstalleerde versie. Voer ten slotte de bovenstaande installatieopdrachten opnieuw uit.
     >
 
-1. Installeer de volgende pakketten met de onderdelen die worden gebruikt tijdens de registratie:
+5. Installeer de volgende pakketten met de onderdelen die worden gebruikt tijdens de registratie:
 
    - een beveiligingsclient die werkt met TPM: `azure-iot-security-tpm`
    - een transport voor het apparaat om verbinding te maken met de Device Provisioning Service: `azure-iot-provisioning-device-http` of `azure-iot-provisioning-device-amqp`
@@ -92,9 +92,9 @@ In dit artikel worden afzonderlijke registraties gedemonstreerd.
        npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
        ```
 
-1. Maak met behulp van een teksteditor een nieuw bestand **ExtractDevice.js** in de map **registerdevice**.
+6. Maak met behulp van een teksteditor een nieuw bestand **ExtractDevice.js** in de map **registerdevice**.
 
-1. Voeg de volgende `require`-instructies toe aan het begin van het bestand **ExtractDevice.js**:
+7. Voeg de volgende `require`-instructies toe aan het begin van het bestand **ExtractDevice.js**:
    
     ```
     'use strict';
@@ -105,7 +105,7 @@ In dit artikel worden afzonderlijke registraties gedemonstreerd.
     var myTpm = new tpmSecurity.TpmSecurityClient(undefined, new tssJs.Tpm(true));
     ```
 
-1. Voeg de volgende functie toe om de methode te implementeren:
+8. Voeg de volgende functie toe om de methode te implementeren:
    
     ```
     myTpm.getEndorsementKey(function(err, endorsementKey) {
@@ -125,22 +125,22 @@ In dit artikel worden afzonderlijke registraties gedemonstreerd.
     });
     ```
 
-1. Sla het bestand **ExtractDevice.js** op en sluit het. Voer het voorbeeld uit:
+9. Sla het bestand **ExtractDevice.js** op en sluit het. Voer het voorbeeld uit:
 
     ```cmd/sh
     node ExtractDevice.js
     ```
 
-1. In het uitvoervenster worden de voor apparaatinschrijving vereiste **_goedkeuringssleutel_** en **_registratie-id_** weergegeven. Noteer deze waarden. 
+10. In het uitvoervenster worden de voor apparaatinschrijving vereiste **_goedkeuringssleutel_** en **_registratie-id_** weergegeven. Noteer deze waarden. 
 
 
 ## <a name="create-a-device-entry"></a>Apparaatvermelding maken
 
 1. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **Alle bronnen** en open Device Provisioning Service.
 
-1. Selecteer **Manage enrollments** in de overzichtsblade van Device Provisioning Service. Selecteer het tabblad **Afzonderlijke registraties** en klik vervolgens op de knop **Afzonderlijke inschrijving toevoegen** bovenaan. 
+2. Selecteer **Manage enrollments** in de overzichtsblade van Device Provisioning Service. Selecteer het tabblad **Afzonderlijke registraties** en klik vervolgens op de knop **Afzonderlijke inschrijving toevoegen** bovenaan. 
 
-1. Voer onder **Inschrijving toevoegen** de volgende gegevens in:
+3. Voer onder **Inschrijving toevoegen** de volgende gegevens in:
    - Selecteer **TPM** als *mechanisme* voor identiteitscontrole.
    - Voer de *registratie-id* en *goedkeuringssleutel* voor het TPM-apparaat in.
    - Desgewenst kunt u de volgende informatie verstrekken:

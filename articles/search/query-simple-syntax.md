@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 99729141e5e1478f45ad385cf671c44a8e08f21a
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61316894"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Vereenvoudigde querysyntaxis in Azure Search
 Azure Search worden twee op basis van Lucene querytalen geïmplementeerd: [De eenvoudige Queryparser](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) en de [Lucene-Queryparser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Azure Search sluit de vereenvoudigde querysyntaxis de fuzzy/slop-opties.  

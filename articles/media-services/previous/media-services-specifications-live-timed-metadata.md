@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
 ms.openlocfilehash: 10dbf7e8cf67ab721cf525d4a1e7594473592bd4
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295164"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459110"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Getimede metagegevens signaleren in Live streamen 
 
@@ -103,7 +103,7 @@ De track voor sparse moet worden gedeclareerd in het Manifest van Live-Server me
 |--------------------|----------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | systemBitrate      | Aantal         | Vereist      | Moet '0', die wijzen op een bijhouden met onbekende, variabele bitrate.                                                                                                                                                                                                 |
 | parentTrackName    | String         | Vereist      | Moet u de naam van de bovenliggende bijhouden, waarbij de tijdcodes sparse bijhouden tijdschaal uitgelijnd zijn. De track bovenliggende mag niet een sparse bijhouden.                                                                                                                    |
-| manifestOutput     | Booleaans        | Vereist      | Moet 'true', om aan te geven dat de track voor sparse worden ingesloten in het manifest Smooth client.                                                                                                                                                               |
+| manifestOutput     | Boolean        | Vereist      | Moet 'true', om aan te geven dat de track voor sparse worden ingesloten in het manifest Smooth client.                                                                                                                                                               |
 | Subtype            | String         | Vereist      | MOET worden de vier tekens van de code "Gegevens".                                                                                                                                                                                                                         |
 | Schema             | String         | Vereist      | Moet een URN of een URL voor het identificeren van het bericht-schema. Voor [SCTE-35] berichten moet dit "urn: scte:scte35:2013a:bin" in volgorde van berichten worden verzonden naar HLS, Smooth en Dash-clients in overeenstemming met [SCTE-67]. |
 | trackName          | String         | Vereist      | Moet u de naam van de sparse bijhouden. De trackName kan worden gebruikt om onderscheid maken tussen meerdere gebeurtenisstreams met hetzelfde schema. Elke unieke gebeurtenisstroom moet de naam van een uniek nummer hebben.                                                                           |
@@ -283,7 +283,7 @@ Het EventStream-element heeft de volgende kenmerken:
 | **De naam van kenmerk** | **Type**                | **Vereist?** | **Beschrijving**                                                                                                                                                                                                                                                                                   |
 |--------------------|-------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | scheme_id_uri      | string                  | Vereist      | Hiermee geeft u het schema van het bericht. Het schema is ingesteld op de waarde van de schema-kenmerk in het Manifest van Live-Server. De waarde moet een URN of een URL voor het identificeren van het schema message; bijvoorbeeld: 'urn: scte:scte35:2013a:bin'.                                                                |
-| waarde              | string                  | Optioneel      | Een extra string-waarde die wordt gebruikt door de eigenaren van het schema voor het aanpassen van de semantiek van het bericht. Om te onderscheiden van meerdere gebeurtenisstreams met hetzelfde schema, moet de waarde worden ingesteld op de naam van de gebeurtenisstroom (trackName voor Smooth opnemen of AMF berichtnaam voor RTMP opnemen). |
+| value              | string                  | Optioneel      | Een extra string-waarde die wordt gebruikt door de eigenaren van het schema voor het aanpassen van de semantiek van het bericht. Om te onderscheiden van meerdere gebeurtenisstreams met hetzelfde schema, moet de waarde worden ingesteld op de naam van de gebeurtenisstroom (trackName voor Smooth opnemen of AMF berichtnaam voor RTMP opnemen). |
 | Tijdschaal          | niet-ondertekende 32-bits geheel getal | Vereist      | De tijdschaal, in tikken per seconde van de van de duurvelden in het vak 'emsg' en tijden.                                                                                                                                                                                                       |
 
 

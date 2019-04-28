@@ -11,11 +11,11 @@ ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 26791aecb2ca57b31358d3385d07230c73c84904
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903858"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474392"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>De cache Gen2 bewaken
 De opslagarchitectuur Gen2 wordt automatisch de meest aangevraagde columnstore-segmenten in een cache op basis van SSD's die zijn ontworpen voor datawarehouses Gen2 NVMe lagen. Betere prestaties wordt gerealiseerd wanneer uw query's halen segmenten die die zich in de cache bevinden zijn. Dit artikel wordt beschreven hoe u controleert en prestaties van trage query's op te lossen door te bepalen of uw werkbelasting is optimaal gebruik te maken van de cache Gen2.  

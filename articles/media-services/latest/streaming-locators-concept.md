@@ -12,15 +12,15 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 51aa33e4ff387a1030dac42bce8d12cf72343b35
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317473"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466728"
 ---
 # <a name="streaming-locators"></a>Streaming-locators
 
-Om video's in de uitvoer van de Asset die beschikbaar zijn voor clients om te worden afgespeeld, die u moet maken een [Streaming-Locator gemaakt](https://docs.microsoft.com/rest/api/media/streaminglocators) en bouw vervolgens de streaming-URL's. Zie voor .NET-voorbeeld, [ophalen van een Streaming-Locator gemaakt](stream-files-tutorial-with-api.md#get-a-streaming-locator).
+Om video's in de uitvoerasset beschikbaar te maken voor clients om af te spelen, moet u een [streaming-locator](https://docs.microsoft.com/rest/api/media/streaminglocators) maken en streaming-URL's maken. Zie [Een streaming-locator ophalen](stream-files-tutorial-with-api.md#get-a-streaming-locator) voor een voorbeeld met .NET.
 
 Het proces van het maken van een **streaming-locator** wordt publiceren genoemd. De **streaming-locator** is standaard onmiddellijk geldig nadat u de API-aanroepen hebt gemaakt en totdat deze wordt verwijderd, tenzij u de optionele start- en eindtijden configureert. 
 
@@ -42,5 +42,5 @@ Zie [filteren, bestellen, voor het wisselbestand van Media Services-entiteiten](
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Zelfstudie: Uploaden, coderen en streamen van video's met behulp van .NET](stream-files-tutorial-with-api.md)
-* [Gebruik DRM dynamische versleuteling en licentie leveringsservice voor](protect-with-drm.md)
+* [Zelfstudie: Video’s uploaden, coderen en streamen met behulp van .NET](stream-files-tutorial-with-api.md)
+* [De Digital Rights Management-service gebruiken voor dynamische versleuteling en licentielevering](protect-with-drm.md)

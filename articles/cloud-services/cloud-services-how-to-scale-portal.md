@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 29ee71e7946145e50cc875df96b674abec3e12df
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f5597773b3127852481d5e14844bed889c4d6f83
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61435238"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Functie voor automatisch schalen voor een Cloudservice in de portal configureren
 
@@ -41,14 +41,14 @@ U kunt de volgende informatie moet overwegen voordat u configureert voor uw toep
 
 * Om in te schakelen hoge beschikbaarheid van uw toepassing, moet u ervoor zorgen dat deze is geïmplementeerd met twee of meer rolinstanties. Zie voor meer informatie, [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
-* Automatisch schalen gebeurt alleen als alle rollen **gereed** staat.  
+* Automatisch schalen gebeurt alleen als alle rollen **gereed** staat.  
 
 
 ## <a name="where-scale-is-located"></a>Waar bevindt zich schaal
 Nadat u uw cloudservice hebt geselecteerd, moet u de cloud service-blade zichtbaar hebben.
 
 1. Op de blade cloud-service op de **rollen en instanties** tegel, selecteert u de naam van de cloudservice.   
-   **BELANGRIJKE**: Zorg ervoor dat u de rol van cloud service, niet de rolinstantie die lager is dan de rol.
+   **BELANGRIJK**: Zorg ervoor dat op de cloud service-rol, niet de rolinstantie die lager is dan de rol te klikken.
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Selecteer de **schaal** tegel.

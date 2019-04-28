@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 82418c03039219adedf45828d769d278a14499ff
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816166"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61259717"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Cosmos DB-API voor MongoDB met behulp van Azure Data Factory
 
@@ -171,7 +171,7 @@ De volgende eigenschappen worden ondersteund in de Kopieeractiviteit **sink** se
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de Copy-activiteit-sink moet zijn ingesteld op **CosmosDbMongoDbApiSink**. |Ja |
 | WriteBehavior |Beschrijft hoe u gegevens naar Azure Cosmos DB te schrijven. Toegestane waarden: **invoegen** en **upsert**.<br/><br/>Het gedrag van **upsert** wordt vervangen door het document als een document met dezelfde ID al bestaat; anders wordt het document invoegen.<br /><br />**Opmerking**: Data Factory genereert automatisch een ID voor een document als een ID niet is opgegeven in het oorspronkelijke document of door in de kolomtoewijzing. Dit betekent dat u moet ervoor zorgen dat voor **upsert** om te werken zoals verwacht, heeft uw document een ID. |Nee<br />(de standaardwaarde is **invoegen**) |
-| WriteBatchSize | De **writeBatchSize** eigenschap bepaalt de grootte van documenten om te schrijven in elke batch. U kunt proberen te verhogen van de waarde voor **writeBatchSize** voor betere prestaties en het verminderen van de waarde als de documentgrootte van uw wordt groot. |Nee<br />(de standaardwaarde is **10.000**) |
+| writeBatchSize | De **writeBatchSize** eigenschap bepaalt de grootte van documenten om te schrijven in elke batch. U kunt proberen te verhogen van de waarde voor **writeBatchSize** voor betere prestaties en het verminderen van de waarde als de documentgrootte van uw wordt groot. |Nee<br />(de standaardwaarde is **10.000**) |
 | writeBatchTimeout | De wachttijd voor de batch invoegen bewerking is voltooid voordat er een optreedt time-out. De toegestane waarde is duur. | Nee<br/>(de standaardwaarde is **00:30:00** : 30 minuten) |
 
 **Voorbeeld**

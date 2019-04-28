@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
 ms.openlocfilehash: 3f76721129906b57a05e597aade9f2febb609968
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343524"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727796"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Zelfstudie: De gegevenskopieerservice gebruiken om gegevens direct op te nemen in Azure Data Box (preview)
 
@@ -55,7 +55,7 @@ U moet een taak maken als u gegevens wilt kopiëren met behulp van de gegevensko
 
 3. Voer in het dialoogvenster **Taak configureren en starten** de volgende velden in:
     
-    |Veld                          |Waarde    |
+    |Veld                          |Value    |
     |-------------------------------|---------|
     |**Taaknaam**                       |Een unieke naam van maximaal 230 tekens voor de taak. De volgende tekens zijn niet toegestaan in de naam van de taak: \<, \>, \|, \?, \*, \\, \:, \/ en \\\.         |
     |**Bronlocatie**                |Geef het SMB-pad naar de gegevensbron op in de indeling: `\\<ServerIPAddress>\<ShareName>` of `\\<ServerName>\<ShareName>`.        |

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
 ms.openlocfilehash: 9a4d5acfe16a2fdbb3b631cb8baf6cb8e90a7d58
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016284"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60935701"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Systeemvariabelen ondersteund door Azure Data Factory
 Dit artikel beschrijft de systeemvariabelen ondersteund door Azure Data Factory. U kunt deze variabelen gebruiken in expressies voor bij het definiëren van Data Factory-entiteiten.
@@ -25,7 +25,7 @@ Dit artikel beschrijft de systeemvariabelen ondersteund door Azure Data Factory.
 ## <a name="pipeline-scope"></a>Bereik van de pijplijn
 Deze systeemvariabelen kunnen overal worden verwezen in de pijplijn-JSON.
 
-| De naam van variabele | Description |
+| De naam van variabele | Beschrijving |
 | --- | --- |
 | @pipeline().DataFactory |Naam van de data factory de pijplijnuitvoering wordt uitgevoerd binnen |
 | @pipeline().Pipeline |Naam van de pijplijn |
@@ -40,15 +40,15 @@ Deze systeemvariabelen kunnen overal worden verwezen in de trigger JSON als de t
 
 | De naam van variabele | Description |
 | --- | --- |
-| @trigger.scheduledTime) |Tijd wanneer de trigger is gepland voor het aanroepen van de pijplijn-run. Bijvoorbeeld, voor een trigger die elke 5 minuten wordt geactiveerd, deze variabele retourneerde `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:29:00Z` respectievelijk.|
-| @trigger.startTime) |Tijdstip waarop de trigger **daadwerkelijk** geactiveerd voor het aanroepen van de pijplijn-run. Bijvoorbeeld voor een trigger die elke 5 minuten wordt geactiveerd, deze variabele kan retourneren er ongeveer als volgt `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z` respectievelijk.|
+| @trigger().scheduledTime |Tijd wanneer de trigger is gepland voor het aanroepen van de pijplijn-run. Bijvoorbeeld, voor een trigger die elke 5 minuten wordt geactiveerd, deze variabele retourneerde `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:29:00Z` respectievelijk.|
+| @trigger().startTime |Tijdstip waarop de trigger **daadwerkelijk** geactiveerd voor het aanroepen van de pijplijn-run. Bijvoorbeeld voor een trigger die elke 5 minuten wordt geactiveerd, deze variabele kan retourneren er ongeveer als volgt `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z` respectievelijk.|
 
 ## <a name="tumbling-window-trigger-scope"></a>Tumblingvenstertrigger venster Trigger bereik
 Deze systeemvariabelen kunnen overal worden verwezen in de trigger JSON als de trigger van het type is: "TumblingWindowTrigger."
 
 | De naam van variabele | Description |
 | --- | --- |
-| @trigger(). outputs.windowStartTime |Begin van het venster wanneer de trigger is gepland om aan te roepen van de pijplijnuitvoering. Als tumblingvenstertriggers een frequentie van 'uur heeft' zou dit de tijd aan het begin van het uur.|
-| @trigger(). outputs.windowEndTime |Einde van het venster wanneer de trigger is gepland om aan te roepen van de pijplijn-run. Als tumblingvenstertriggers een frequentie van 'uur heeft' zou dit de tijd aan het einde van het uur.|
+| @trigger().outputs.windowStartTime |Begin van het venster wanneer de trigger is gepland om aan te roepen van de pijplijnuitvoering. Als tumblingvenstertriggers een frequentie van 'uur heeft' zou dit de tijd aan het begin van het uur.|
+| @trigger().outputs.windowEndTime |Einde van het venster wanneer de trigger is gepland om aan te roepen van de pijplijn-run. Als tumblingvenstertriggers een frequentie van 'uur heeft' zou dit de tijd aan het einde van het uur.|
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over hoe deze variabelen worden gebruikt in expressies voor [expressietaal & functies](control-flow-expression-language-functions.md).

@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: b-juche
 ms.openlocfilehash: 8cda5921a1aec86d28beabbd9cea5b07a203a0e8
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401487"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61086152"
 ---
-# <a name="configure-export-policy-for-an-nfs-volume"></a>Exporteren-beleid voor een NFS-volume configureren
+# <a name="configure-export-policy-for-an-nfs-volume"></a>Exportbeleid voor een NFS-volume configureren
 
 U kunt desgewenst exportbeleid configureren om de toegang tot een Azure NetApp Files-volume te beheren. Exporteren-beleid is ondersteuning voor NFS-volumes. 
 

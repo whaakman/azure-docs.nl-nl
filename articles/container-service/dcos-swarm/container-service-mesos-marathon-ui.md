@@ -10,11 +10,11 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 16c16c0217a796ffbb57e10430f90cb4a7660ac6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317609"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61468228"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(AFGESCHAFT) Een Azure Container Service DC/OS-cluster via de webgebruikersinterface van Marathon beheren
 
@@ -52,7 +52,7 @@ Voor het implementeren van een nieuwe container via Marathon, klikt u op **Toepa
 | --- | --- |
 | Id |nginx |
 | Geheugen | 32 |
-| Installatiekopie |nginx |
+| Image |nginx |
 | Netwerk |Overbrugd |
 | Hostpoort |80 |
 | Protocol |TCP |

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
 ms.openlocfilehash: 03871c3f3627e85cc2af2f05a5fba38bd8069a15
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609486"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481107"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 Dit artikel wordt beschreven welke typen beschikbaar zijn voor een Azure Stream Analytics-taak uitvoer. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. U kunt doen met behulp van de uitvoergegevens, meer business analytics en datawarehousing van uw gegevens.

@@ -1,6 +1,6 @@
 ---
-title: Voorbeelden van Azure CLI voor Azure Lab Services | Microsoft Docs
-description: Azure CLI-voorbeelden - Scripts voor het beheren van labs in Azure Lab Services
+title: Azure CLI-voorbeelden voor Azure Lab-Services | Microsoft Docs
+description: Voorbeelden van Azure CLI - Scripts voor het beheren van labs in Azure Lab Services
 services: lab-services
 author: spelluru
 manager: ''
@@ -13,19 +13,19 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 1caed6aa859b780648ac58e425ab52a030e9cc65
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5c713215001c65c4bf735817f2e15caad0ae7eb8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788695"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61084845"
 ---
-# <a name="azure-cli-samples-for-azure-lab-services"></a>Voorbeelden van Azure CLI voor Azure Lab-Services
+# <a name="azure-cli-samples-for-azure-lab-services"></a>Azure CLI-voorbeelden voor Azure Lab-Services
 
 De volgende tabel bevat koppelingen naar bash-scripts die zijn gebouwd met behulp van de Azure CLI-scripts voor Azure Lab-Services. 
 
 | | |
 |---|---|
-| [Maken en controleer of de beschikbaarheid van een virtuele machine](scripts/create-verify-virtual-machine-in-lab-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Maakt een virtuele Windows-computer met een minimale configuratie. |
-| [Een virtuele machine starten](scripts/start-connect-virtual-machine-in-lab-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Een virtuele machine start. |
+| [Maken en controleren van beschikbaarheid van een virtuele machine](scripts/create-verify-virtual-machine-in-lab-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Hiermee maakt u een Windows-machine met een minimale configuratie. |
+| [Een virtuele machine starten](scripts/start-connect-virtual-machine-in-lab-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Hiermee start u een virtuele machine. |
 | [Stoppen en verwijderen van een virtuele machine](scripts/stop-delete-virtual-machine-in-lab-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Stopt en verwijdert een virtuele machine. |

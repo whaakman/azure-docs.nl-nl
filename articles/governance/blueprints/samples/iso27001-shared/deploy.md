@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d27f2495c70dbe6e10fb3adf5370a31903be3abf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 19ed39fac66a7abe4c65cf37ff616ba10fd8d96b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60875174"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Het voorbeeld van de blauwdruk ISO 27001 gedeelde Services implementeren
 
@@ -105,12 +105,12 @@ Nadat de kopie van het voorbeeld van de blauwdruk is **gepubliceerd**, deze kan 
 
 De volgende tabel geeft een lijst van de blauwdruk artefact parameters:
 
-|Naam van het artefact|Type artefact|Parameternaam|Beschrijving|
+|Naam van het artefact|Type artefact|Parameternaam|Description|
 |-|-|-|-|
-|[Preview]: Log Analytics-Agent voor Linux VM-Schaalsets (VMSS) implementeren|Beleidstoewijzing|Optioneel: Lijst met VM-installatiekopieën waarop ondersteunde Linux-besturingssysteem toe te voegen aan het bereik|(Optioneel) Standaardwaarde is _['geen']_.|
-|[Preview]: Log Analytics-Agent voor Linux-VM's implementeren|Beleidstoewijzing|Optioneel: Lijst met VM-installatiekopieën waarop ondersteunde Linux-besturingssysteem toe te voegen aan het bereik|(Optioneel) Standaardwaarde is _['geen']_.|
-|[Preview]: Log Analytics-Agent voor Windows VM-Schaalsets (VMSS) implementeren|Beleidstoewijzing|Optioneel: Lijst met VM-installatiekopieën waarop ondersteunde Windows-besturingssysteem toe te voegen aan het bereik|(Optioneel) Standaardwaarde is _['geen']_.|
-|[Preview]: Log Analytics-Agent voor Windows-VM's implementeren|Beleidstoewijzing|Optioneel: Lijst met VM-installatiekopieën waarop ondersteunde Windows-besturingssysteem toe te voegen aan het bereik|(Optioneel) Standaardwaarde is _['geen']_.|
+|\[Preview-versie\]: Log Analytics-Agent voor Linux VM-Schaalsets (VMSS) implementeren|Beleidstoewijzing|Optioneel: Lijst met VM-installatiekopieën waarop ondersteunde Linux-besturingssysteem toe te voegen aan het bereik|(Optioneel) Standaardwaarde is _['geen']_.|
+|\[Preview-versie\]: Log Analytics-Agent voor Linux-VM's implementeren|Beleidstoewijzing|Optioneel: Lijst met VM-installatiekopieën waarop ondersteunde Linux-besturingssysteem toe te voegen aan het bereik|(Optioneel) Standaardwaarde is _['geen']_.|
+|\[Preview-versie\]: Log Analytics-Agent voor Windows VM-Schaalsets (VMSS) implementeren|Beleidstoewijzing|Optioneel: Lijst met VM-installatiekopieën waarop ondersteunde Windows-besturingssysteem toe te voegen aan het bereik|(Optioneel) Standaardwaarde is _['geen']_.|
+|\[Preview-versie\]: Log Analytics-Agent voor Windows-VM's implementeren|Beleidstoewijzing|Optioneel: Lijst met VM-installatiekopieën waarop ondersteunde Windows-besturingssysteem toe te voegen aan het bereik|(Optioneel) Standaardwaarde is _['geen']_.|
 |Toegestane brontypen|Beleidstoewijzing|Toegestane brontypen|Lijst met resourcetypen die mogen worden geïmplementeerd. Deze lijst bestaat uit alle brontypen die zijn geïmplementeerd in gedeelde Services.|
 |Toegestane opslagaccount-SKU's|Beleidstoewijzing|Toegestane SKU's voor opslag|Lijst met diagnostische logboeken toegestane SKU's voor opslag. Standaardwaarde is _["Standard_LRS"]_.|
 |Toegestane SKU's van virtuele machines|Beleidstoewijzing|Lijst met SKU's voor virtuele machine mag worden geïmplementeerd. Standaardwaarde is _['Standard_DS1_v2', "Standard_DS2_v2"]_.|

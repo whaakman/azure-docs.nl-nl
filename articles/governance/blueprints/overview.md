@@ -8,11 +8,11 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259419"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60876236"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Overzicht van de service Azure blauwdrukken
 
@@ -52,7 +52,7 @@ Een beleid kan worden opgenomen als een van de vele _artefacten_ in de definitie
 
 Een blauwdruk bestaat uit _artefacten_. Blauwdrukken ondersteunen momenteel de volgende resources als artefacten:
 
-|Resource  | Hiërarchieopties| Description  |
+|Resource  | Hiërarchieopties| Beschrijving  |
 |---------|---------|---------|
 |Resourcegroepen | Abonnement | Een nieuwe resourcegroep maken voor gebruik door andere artefacten binnen de blauwdruk.  Met deze tijdelijke resourcegroepen kunt u resources precies zo indelen als u ze wilt structureren, en het bereik beperken voor opgenomen beleids- en roltoewijzingsartefacten, en Azure Resource Manager-sjablonen. |
 |Azure Resource Manager-sjabloon | Abonnement, resourcegroep | Sjablonen worden gebruikt om complexe omgevingen samen te stellen. Voorbeeldomgevingen: een SharePoint-farm, Azure Automation State Configuration of een Log Analytics-werkruimte. |

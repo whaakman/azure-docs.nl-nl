@@ -12,11 +12,11 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6c0951eb6ad3b7651da97e1a49c5edf5ab55a199
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209571"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61044338"
 ---
 # <a name="copy-data-to-and-from-azure-blob-storage-using-azcopy"></a>Gegevens kopiëren naar en van Azure Blob Storage met behulp van AzCopy
 AzCopy is een opdrachtregelprogramma voor het uploaden, downloaden en kopiëren van gegevens naar en van Microsoft Azure-blob, bestand en table storage.

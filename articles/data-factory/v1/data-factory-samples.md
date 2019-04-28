@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 03127dc777588f669ef07af52c8f73d986bfe0ea
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61260012"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - voorbeelden
 > [!NOTE]
@@ -48,7 +48,7 @@ De [GitHub Azure-Data Factory-opslagplaats](https://github.com/azure/azure-dataf
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen
 U vindt de volgende Azure Resource Manager-sjablonen voor Data Factory op GitHub.
 
-| Template | Description |
+| Template | Beschrijving |
 | --- | --- |
 | [Kopiëren van Azure Blob Storage naar Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Implementeren van deze sjabloon maakt u een Azure-gegevensfactory met een pijplijn waarmee gegevens uit de opgegeven Azure-blobopslag worden gekopieerd naar de Azure SQL database |
 | [Kopiëren van Salesforce worden naar Azure Blob-opslag](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Implementeren van deze sjabloon maakt u een Azure-gegevensfactory met een pijplijn waarmee gegevens uit de opgegeven Salesforce-account gekopieerd naar de Azure blob-opslag. |
@@ -82,7 +82,7 @@ De volgende zaken moeten op uw computer zijn geïnstalleerd:
 
 * Visual Studio 2013 of Visual Studio 2015
 * Download de Azure SDK voor Visual Studio 2013 of Visual Studio 2015. Ga naar de [Azure-downloadpagina](https://azure.microsoft.com/downloads/) en klik in het gedeelte **.NET** op **VS 2013** of **VS 2015**.
-* Download de nieuwste Azure Data Factory-invoegtoepassing voor Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) of [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Als u Visual Studio 2013 gebruikt, kunt u de invoegtoepassing ook bijwerken door de volgende stappen: In het menu, klikt u op **extra** -> **extensies en Updates** -> **Online** -> **voorVisualStudio-galerie**  ->  **Microsoft Azure Data Factory-hulpprogramma's voor Visual Studio** -> **Update**.
+* Download de nieuwste Azure Data Factory-invoegtoepassing voor Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) of [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Als u Visual Studio 2013 gebruikt, kunt u de invoegtoepassing ook bijwerken door de volgende stappen: Klik in het menu op **Extra** -> **Extensies en updates** -> **Online** -> **Visual Studio-galerie** -> **Microsoft Azure Data Factory-hulpprogramma's voor Visual Studio** -> **Bijwerken**.
 
 ### <a name="use-data-factory-templates"></a>Gebruik Data Factory-sjablonen
 1. Klik op **bestand** Wijs in het menu **nieuw**, en klikt u op **Project**.

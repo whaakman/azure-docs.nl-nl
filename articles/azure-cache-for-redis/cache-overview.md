@@ -15,11 +15,11 @@ ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
 ms.openlocfilehash: 9d789572abf0545eb51b357da091e5a1d712eab2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433804"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831432"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>Wat is Azure Cache voor Redis
 
@@ -45,7 +45,7 @@ Er zijn veel algemene patronen waar Azure Cache voor Redis wordt gebruikt ter on
 
 Azure Cache voor Redis is beschikbaar in de volgende lagen:
 
-| Laag | Description |
+| Laag | Beschrijving |
 |---|---|
 Basic | Een cache met één knooppunt. Deze laag biedt ondersteuning voor meerdere geheugengrootten (250 MB - 53 GB). Dit is een ideale laag voor het ontwikkelen/testen en voor niet-essentiële werkbelastingen. De Basic-laag heeft geen SLA (Service Level Agreement) |
 | Standard | Een gerepliceerde cache in een configuratie met twee knooppunten (primair/secundair) die door Microsoft wordt beheerd, met een SLA met hoge beschikbaarheid (99,9%). |

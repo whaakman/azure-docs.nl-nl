@@ -4,20 +4,20 @@ description: Een overzicht van hoe configuratiegegevens worden opgeslagen in Azu
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
-manager: balans
+manager: maiye
 editor: ''
 ms.service: azure-app-configuration
 ms.devlang: na
 ms.topic: overview
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 24216d1bf82789d2d0fc312d9af4c06fa3c8cf4e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 39367cbe6c001fc782fd899ee3a99b37ece70a77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011279"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741186"
 ---
 # <a name="key-value-store"></a>Sleutel-waardearchief
 
@@ -45,29 +45,27 @@ U kunt sleutels in App Configuration op allerlei manieren hiërarchisch indelen.
 
 Hier volgen enkele voorbeelden van hoe u sleutelnamen in een hiërarchie kunt indelen:
 
-* Op basis van omgevingen
-
-        AppName:Test:DB:Endpoint
-        AppName:Staging:DB:Endpoint
-        AppName:Production:DB:Endpoint
-
 * Op basis van componentservices
 
-        AppName:Service1:Test:DB:Endpoint
-        AppName:Service1:Staging:DB:Endpoint
-        AppName:Service1:Production:DB:Endpoint
-        AppName:Service2:Test:DB:Endpoint
-        AppName:Service2:Staging:DB:Endpoint
-        AppName:Service2:Production:DB:Endpoint
+        AppName:Service1:ApiEndpoint
+        AppName:Service2:ApiEndpoint
 
 * Op basis van implementatieregio's
 
-        AppName:Production:Region1:DB:Endpoint
-        AppName:Production:Region2:DB:Endpoint
+        AppName:Region1:DbEndpoint
+        AppName:Region2:DbEndpoint
+
+### <a name="label-keys"></a>Label-sleutels
+
+Sleutelwaarden in App-configuratie kunnen eventueel een label-kenmerk hebben. Labels worden gebruikt om u te onderscheiden van sleutelwaarden met dezelfde sleutel. Een sleutel *app1* met labels *A* en *B* bestaat uit twee afzonderlijke sleutels in een configuratie van apps. Het label voor waarde van een sleutel is standaard leeg is, of `null`.
+
+Label biedt een handige manier om te maken van varianten van een sleutel. Een algemene gebruik van labels is het opgeven van meerdere omgevingen voor dezelfde sleutel:
+
+    Key = AppName:DbEndpoint & Label = Test
+    Key = AppName:DbEndpoint & Label = Staging
+    Key = AppName:DbEndpoint & Label = Production
 
 ### <a name="version-key-values"></a>Versie sleutelwaarden
-
-Sleutelwaarden in App-configuratie kunnen eventueel een label-kenmerk hebben. Labels worden gebruikt om u te onderscheiden van sleutelwaarden met dezelfde sleutel. Een sleutel *app1* met labels *v1* en *v2* vormen twee afzonderlijke waarden in een configuratie van apps. Het label voor waarde van een sleutel is standaard leeg is, of `null`.
 
 App-configuratie niet automatisch versie sleutelwaarden zoals deze zijn gewijzigd. Labels gebruiken als een manier om te maken van meerdere versies van een sleutelwaarde. Bijvoorbeeld, kunt u een versienummer van de toepassing invoeren of een ID van de Git-doorvoer in labels voor het identificeren van sleutelwaarden die zijn gekoppeld aan een bepaalde software-build.
 

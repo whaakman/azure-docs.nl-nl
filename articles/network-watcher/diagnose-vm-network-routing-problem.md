@@ -3,8 +3,8 @@ title: 'Zelfstudie: Diagnose van een routeringsprobleem in een netwerk van virtu
 description: In deze snelstart leert u hoe u met behulp van de functie Volgende hop van Azure Network Watcher een diagnose uitvoert voor een probleem met de routering in een netwerk van virtuele machines.
 services: network-watcher
 documentationcenter: network-watcher
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: ea64c93726c3bc5c5d60f35790bb337333d4d47a
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 5a5a60ecb1861b63d9a37f65f471bfa3b8fc7fde
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312192"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60790210"
 ---
-# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Zelfstudie: Diagnose van een routeringsprobleem in een netwerk van virtuele machines met behulp van Azure Portal
+# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Zelfstudie: Een virtuele machine netwerk routeringsprobleem met behulp van de Azure-portal vaststellen
 
 Wanneer u een virtuele machine (VM) implementeert, maakt Azure verschillende standaardroutes voor de VM. U kunt uw eigen, aangepaste routes maken om de standaardroutes van Azure te overschrijven. Soms kan een aangepaste route tot gevolg hebben dat een VM niet kan communiceren met andere resources. In deze zelfstudie leert u het volgende:
 
@@ -50,7 +50,7 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 
     |Instelling|Waarde|
     |---|---|
-    |Naam|myVm|
+    |Name|myVm|
     |Gebruikersnaam| Voer een gebruikersnaam naar keuze in.|
     |Wachtwoord| Voer een wachtwoord naar keuze in. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Abonnement| Selecteer uw abonnement.|
@@ -70,7 +70,7 @@ Als u de netwerkcommunicatie wilt testen met Network Watcher, schakelt u eerst e
 Als u al een netwerk-watcher hebt ingeschakeld in ten minste één regio, gaat u verder met [Volgende hop gebruiken](#use-next-hop).
 
 1. Selecteer in de portal de optie **Alle services**. Typ *Network Watcher* in het vak **Filteren**. Selecteer **Network Watcher** in de resultaten.
-2. Selecteer **Regio's** om dit item uit te vouwen en selecteer vervolgens **...** rechts van **VS - oost**, zoals wordt weergegeven in de volgende afbeelding:
+2. Selecteer **Regio's** om dit item uit te vouwen en selecteer vervolgens **...** rechts van **US - oost**, zoals wordt weergegeven in de volgende afbeelding:
 
     ![Network Watcher inschakelen](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 
@@ -89,7 +89,7 @@ Azure maakt automatisch routes naar standaardbestemmingen. U kunt uw eigen, aang
     | Virtuele machine         | Selecteer myVm                                            |
     | Netwerkinterface       | myvm - uw netwerkinterface kan een andere naam hebben.   |
     | IP-adres van bron       | 10.0.0.4                                               |
-    | IP-adres van doel  | 13.107.21.200 - een van de adressen voor www.bing.com. |
+    | IP-adres van doel  | 13.107.21.200 - een van de adressen voor < www.bing.com>. |
 
     ![Volgende hop](./media/diagnose-vm-network-routing-problem/next-hop.png)
 

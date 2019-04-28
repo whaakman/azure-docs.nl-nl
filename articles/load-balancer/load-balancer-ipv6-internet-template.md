@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 4a8c7309a07238ef3410e42c3d631ad525f023cc
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61216790"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Een internetgerichte load balancer-oplossing met IPv6 met behulp van een sjabloon implementeren
 
@@ -53,11 +53,11 @@ In dit artikel wordt verwezen naar een sjabloon die is gepubliceerd in de [Azure
 1. Open het Azure-portal en meld u aan met een account met machtigingen voor het maken van VM's en netwerken bronnen binnen een Azure-abonnement. Bovendien, tenzij u bestaande resources, het account heeft toestemming nodig om een resourcegroep en een opslagaccount te maken.
 2. Klik op '+ Nieuw' van de menu vervolgens naar het type 'sjabloon' in het zoekvak in. Selecteer 'Sjabloonimplementatie' in de zoekresultaten.
 
-    ![lb-ipv6-portal-stap 2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
+    ![lb-ipv6-portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
 
 3. In de alles blade, klikt u op "Sjabloonimplementatie."
 
-    ![lb-ipv6-portal-stap 3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
+    ![lb-ipv6-portal-step3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
 4. Klik op 'Maken'.
 

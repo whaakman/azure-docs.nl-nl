@@ -1,27 +1,22 @@
 ---
-title: Giraph installeren en gebruiken op HDInsight (Hadoop) - Azure
-description: Leer hoe u Giraph installeren op Linux gebaseerde HDInsight-clusters met behulp van scriptacties. Scriptacties kunnen u het cluster tijdens het maken, aanpassen door het wijzigen van de configuratie van het cluster of het installeren van hulpprogramma's en services.
-services: hdinsight
+title: Giraph installeren en gebruiken op Azure HDInsight
+description: Leer hoe u Giraph installeren op HDInsight-clusters met behulp van scriptacties. Giraph kunt u doen grafische verwerking in Apache Hadoop in de Azure-cloud.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: hrasheed
-ms.openlocfilehash: a2f964915efda6ce83439c3c1970de58b0467456
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 04/22/2019
+ms.openlocfilehash: aa13d8dfc65f020f3f27183423913933cd0b9404
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201718"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61395361"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Apache Giraph installeren op HDInsight Hadoop-clusters en Giraph gebruiken om grootschalige grafieken te verwerken
 
 Leer hoe u Apache Giraph installeren op een HDInsight-cluster. Het script action-functie van HDInsight kunt u het aanpassen van uw cluster een bash-script uit te voeren. Scripts kunnen worden gebruikt voor het aanpassen van clusters tijdens en na het maken van clusters.
-
-> [!IMPORTANT]  
-> Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a name="whatis"></a>Wat is Giraph
 
@@ -58,7 +53,7 @@ Deze sectie vindt u instructies over het gebruik van het voorbeeldscript tijdens
 > [!NOTE]  
 > Een scriptactie kan worden toegepast met behulp van een van de volgende methoden:
 > * Azure PowerShell
-> * De klassieke Azure-CLI
+> * De Azure CLI
 > * De HDInsight .NET SDK
 > * Azure Resource Manager-sjablonen
 > 
@@ -148,7 +143,7 @@ Zodra het cluster is gemaakt, gebruikt u de volgende stappen uit om uit te voere
 
     Zie voor meer informatie over deze en andere parameters gebruikt met Giraph voorbeelden de [Giraph snelstartgids](https://giraph.apache.org/quick_start.html).
 
-6. Nadat de taak is voltooid, de resultaten worden opgeslagen de **/example/out/shotestpaths** directory. De namen van de uitvoer beginnen met **onderdeel-m -** en moet eindigen met een getal dat aangeeft van de eerste, tweede, enzovoort-bestand. Gebruik de volgende opdracht om de uitvoer weer te geven:
+6. Nadat de taak is voltooid, de resultaten worden opgeslagen de **/example/out/shortestpaths** directory. De namen van de uitvoer beginnen met **onderdeel-m -** en moet eindigen met een getal dat aangeeft van de eerste, tweede, enzovoort-bestand. Gebruik de volgende opdracht om de uitvoer weer te geven:
 
     ```bash
     hdfs dfs -text /example/output/shortestpaths/*

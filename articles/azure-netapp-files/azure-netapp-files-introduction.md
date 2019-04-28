@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: d7eb73c8fb4573084ba0a213282fdb71e14ff5fa
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546737"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61086326"
 ---
 # <a name="introduction-to-azure-netapp-files"></a>Kennismaking met Azure NetApp Files
 De service Azure NetApp Files is een bestandsopslagservice op enterprise-niveau met hoge prestaties die naar gebruik wordt gefactureerd. Azure NetApp Files biedt ondersteuning voor elk type werkbelasting en is standaard maximaal beschikbaar. U kunt gegarandeerde service- en prestatieniveaus selecteren en via de service momentopnamen instellen. 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 784fb99fc2cd721a43c9ca7c767b449a9d0d6cb3
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: 887bda92a1165a3dd17e9105e921a5df9e0c5534
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41920703"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61248161"
 ---
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>Apparaten inrichten in IoT-hubs met gelijke taakverdeling
 
@@ -46,11 +46,11 @@ Via de registratielijst wordt voor de Device Provisioning Service aangegeven wel
 
 ## <a name="set-the-device-provisioning-service-allocation-policy"></a>Het toewijzingsbeleid instellen van de Device Provisioning Service
 
-Het toewijzingsbeleid is een instelling voor de Device Provisioning Service die bepaalt hoe apparaten aan een IoT-hub worden toegewezen. Er worden drie soorten toewijzingsbeleid ondersteund: 
+Het toewijzingsbeleid is een instelling voor de Device Provisioning Service die bepaalt hoe apparaten aan een IoT-hub worden toegewezen. Er worden drie soorten toewijzingsbeleid ondersteund: 
 
-1. **Laagste latentie**: apparaten worden ingericht voor een IoT-hub op basis van de hub met de laagste latentie voor het apparaat.
-2. **Gelijk gewogen distributie** (standaardinstelling): gekoppelde IoT-hubs hebben evenveel kans dat apparaten voor ze worden ingericht. Dit is de standaardinstelling. Als u apparaten voor slechts één IoT-hub inricht, kunt u deze instelling bewaren. 
-3. **Statische configuratie via de lijst inschrijving**: specificatie van de gewenste IoT-hub in de registratielijst heeft voorrang boven het toewijzingsbeleid op het niveau van de Device Provisioning Service.
+1. **Laagste latentie**: Apparaten worden ingericht voor een IoT-hub op basis van de hub met de laagste latentie voor het apparaat.
+2. **Gelijk gewogen distributie** (standaard): Gekoppelde IoT-hubs hebben evenveel kans dat apparaten die voor hen ingericht. Dit is de standaardinstelling. Als u apparaten voor slechts één IoT-hub inricht, kunt u deze instelling bewaren. 
+3. **Statische configuratie via de registratielijst**: Specificatie van de gewenste IoT-hub in de registratielijst heeft voorrang boven het toewijzingsbeleid Device Provisioning Service-niveau.
 
 Volg deze stappen om het toewijzingsbeleid in te stellen:
 

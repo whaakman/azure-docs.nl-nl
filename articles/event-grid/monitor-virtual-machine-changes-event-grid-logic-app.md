@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 01/12/2019
 ms.openlocfilehash: e735c9773971a4c594c32e9ae29eeb295c32810c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473704"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824534"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Zelfstudie: Wijzigingen in virtuele machines bewaken met Azure Event Grid en Logic Apps
 
@@ -58,7 +58,7 @@ U gaat eerst een logische app maken en een trigger voor Event Grid toevoegen die
 
    ![Gegevens van logische app opgeven](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
-   | Instelling | Voorgestelde waarde | Beschrijving | 
+   | Instelling | Voorgestelde waarde | Description | 
    | ------- | --------------- | ----------- | 
    | **Naam** | *{naam-van-uw-logische-app}* | Geef een unieke naam voor de logische app op. | 
    | **Abonnement** | *{uw-Azure-abonnement}* | Selecteer hetzelfde Azure-abonnement voor alle services in deze zelfstudie. | 
@@ -96,7 +96,7 @@ U gaat eerst een logische app maken en een trigger voor Event Grid toevoegen die
 
    ![Details opgeven voor gebeurtenisabonnement](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details-generic.png)
 
-   | Instelling | Voorgestelde waarde | Beschrijving | 
+   | Instelling | Voorgestelde waarde | Description | 
    | ------- | --------------- | ----------- | 
    | **Abonnement** | *{Azure-abonnement-virtuele-machine}* | Selecteer het Azure-abonnement van de gebeurtenisuitgever. Selecteer voor deze zelfstudie het Azure-abonnement voor uw virtuele machine. | 
    | **Resourcetype** | Microsoft.Resources.resourceGroups | Selecteer het resourcetype van de gebeurtenisuitgever. Selecteer voor deze zelfstudie de opgegeven waarde, zodat uw logische app alleen resourcegroepen bewaakt. | 
@@ -179,7 +179,7 @@ U gaat nu een [*actie*](../logic-apps/logic-apps-overview.md#logic-app-concepts)
    > [!TIP]
    > Als u een keuze wilt maken uit de beschikbare velden in de werkstroom, klikt u in een invoervak zodat de lijst **Dynamische inhoud** wordt geopend. U kunt ook **Dynamische inhoud toevoegen** kiezen. Als u meer velden wilt zien, kiest u **Meer weergeven** voor elke sectie in de lijst. U sluit de lijst **Dynamische inhoud** door **Dynamische inhoud toevoegen** te kiezen.
 
-   | Instelling | Voorgestelde waarde | Beschrijving | 
+   | Instelling | Voorgestelde waarde | Description | 
    | ------- | --------------- | ----------- | 
    | **Aan** | *{e-mailadres-geadresseerde}* |Voer het e-mailadres van de ontvanger in. Voor testdoeleinden kunt u uw eigen e-mailadres gebruiken. | 
    | **Onderwerp** | Resource bijgewerkt: **Onderwerp**| Voer de inhoud van het onderwerp van de e-mail in. Voor deze zelfstudie voert u de voorgestelde tekst in en selecteert u het veld **Onderwerp** van de gebeurtenis. Hier bevat het onderwerp van de e-mail de naam voor de bijgewerkte resource (virtuele machine). | 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421280"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60931701"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Hoe u E-mail verzenden via SendGrid met Node.js
 
@@ -59,7 +59,7 @@ var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
 Hiermee exporteert u de SendGrid-module de **SendGrid** en **e** functies.
 **SendGrid** is verantwoordelijk voor het verzenden van e-mail via Web-API, terwijl **e** ingekapseld een e-mailbericht.
 
-## <a name="how-to-create-an-email"></a>Hoe: een e-mailbericht maken
+## <a name="how-to-create-an-email"></a>Procedure: Maken van een e-mailbericht
 
 Maken van een e-mailbericht met de SendGrid-module, moet eerst het maken van een e-mailbericht met behulp van de functie e-mailbericht, en vervolgens te verzenden met behulp van de SendGrid-functie. Hier volgt een voorbeeld van het maken van een nieuw bericht met de functie e-mailadres:
 
@@ -82,7 +82,7 @@ Instellen van de eigenschappen van de tekst- en HTML-biedt vensters terugval naa
 
 Zie voor meer informatie over alle eigenschappen die worden ondersteund door de functie e [sendgrid-nodejs][sendgrid-nodejs].
 
-## <a name="how-to-send-an-email"></a>Hoe: een e-mailbericht verzenden
+## <a name="how-to-send-an-email"></a>Procedure: Een E-mail verzenden
 
 Na het maken van een e-mailbericht met de functie e-mailbericht, kunt u met behulp van de Web-API die is geleverd door SendGrid verzenden. 
 
@@ -108,7 +108,7 @@ sendgrid.send(email, function(err, json){
 > ```
 >
 
-## <a name="how-to-add-an-attachment"></a>Hoe: een bijlage toevoegen
+## <a name="how-to-add-an-attachment"></a>Procedure: Voeg een bijlage toe
 Bijlagen kunnen worden toegevoegd aan een bericht door op te geven de bestandsnaam of-namen en paden in de **bestanden** eigenschap. Het volgende voorbeeld ziet u een bijlage verzenden:
 
 ```javascript
@@ -135,7 +135,7 @@ sendgrid.send({
 > 
 > 
 
-## <a name="how-to-use-filters-to-enable-footers-and-tracking"></a>Hoe: Filters gebruiken om te inschakelen voetteksten en bijhouden
+## <a name="how-to-use-filters-to-enable-footers-and-tracking"></a>Procedure: Filters gebruiken om te inschakelen voetteksten en bijhouden
 
 SendGrid zorgt voor extra e-mailfunctionaliteit door het gebruik van filters. Dit zijn de instellingen die kunnen worden toegevoegd aan een e-mailbericht om in te schakelen specifieke functionaliteit, zoals het inschakelen van klikken traceren in, Google analytics en abonnement bijhouden. Zie voor een volledige lijst met filters, [filterinstellingen][Filter Settings].
 
@@ -186,7 +186,7 @@ email.setFilters({
 sendgrid.send(email);
 ```
 
-## <a name="how-to-update-email-properties"></a>Hoe: de eigenschappen van de e-mailadres bijwerken
+## <a name="how-to-update-email-properties"></a>Procedure: Eigenschappen van de e-mailadres bijwerken
 
 Sommige eigenschappen van het e-mailadres kunnen worden overschreven met behulp van **setProperty** of toegevoegd met behulp van **addProperty**. Bijvoorbeeld, kunt u extra ontvangers toevoegen met behulp van
 
@@ -203,7 +203,7 @@ email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
 Zie voor meer informatie, [sendgrid-nodejs][sendgrid-nodejs].
 
-## <a name="how-to-use-additional-sendgrid-services"></a>Hoe: extra SendGrid Services gebruiken
+## <a name="how-to-use-additional-sendgrid-services"></a>Procedure: Aanvullende SendGrid Services gebruiken
 
 SendGrid biedt web-API's die u kunt gebruikmaken van aanvullende SendGrid-functionaliteit van uw Azure-toepassing. Zie voor meer informatie, de [SendGrid-API-documentatie][SendGrid API documentation].
 

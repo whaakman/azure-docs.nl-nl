@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 55ff6d37f18f4ffa2f12e17bd33dd196b77f79af
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025773"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473056"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Gegevens kopiëren van Sybase met Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-onprem-sybase-connector.md)
 > * [Huidige versie](connector-sybase.md)
 
@@ -59,7 +59,7 @@ De volgende eigenschappen worden ondersteund voor Sybase gekoppelde service:
 | database | De naam van de Sybase-database. |Ja |
 | authenticationType | Het type verificatie gebruikt voor verbinding met de Sybase-database.<br/>Toegestane waarden zijn: **Basic**, en **Windows**. |Ja |
 | gebruikersnaam | Geef de naam van de gebruiker verbinding maakt met de Sybase-database. |Ja |
-| wachtwoord | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| password | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Er is een zelfgehoste Cloudintegratieruntime vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
 
 **Voorbeeld:**

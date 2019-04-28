@@ -7,11 +7,11 @@ ms.topic: overview
 ms.date: 3/21/2019
 ms.author: victorh
 ms.openlocfilehash: cea19ad2ba03d3e71df32912a1d7ee9e6171689a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339450"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926100"
 ---
 # <a name="what-is-azure-dns"></a>Wat is Azure DNS?
 
@@ -31,7 +31,7 @@ DNS-domeinen in Azure DNS worden gehost op het wereldwijde netwerk van Azure DNS
 
 * [op rollen gebaseerd toegangsbeheer](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) om te bepalen wie er toegang heeft tot bepaalde acties voor uw organisatie.
 
-* [activiteitenlogboeken](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) om te controleren hoe een gebruiker in uw organisatie een resource heeft gewijzigd, of te gebruiken bij het opsporen van fouten.
+* [Activiteitenlogboeken](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) om te controleren hoe een gebruiker in uw organisatie een resource heeft gewijzigd, of te gebruiken bij het opsporen van fouten.
 
 * [vergrendelen van resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) om een abonnement, een resourcegroep of een resource te vergrendelen. Met vergrendeling voorkomt u dat andere gebruikers in uw organisatie per ongeluk kritieke bronnen wijzigen of verwijderen.
 

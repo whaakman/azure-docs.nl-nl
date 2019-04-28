@@ -8,11 +8,11 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2019
 ms.openlocfilehash: 0db49e2c370aee37cca4181cecbe4cf0b5585c51
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136441"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61091630"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-a-simple-azure-cli-command---az-postgres-up-preview"></a>Quickstart: Een Azure Database for PostgreSQL maken met een eenvoudige Azure CLI-opdracht - az postgres van (preview)
 

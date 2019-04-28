@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
 ms.openlocfilehash: c97c94492417dcc87d34751908f1766393ad37ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102554"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476252"
 ---
 Wanneer u een gegevensschijf die is gekoppeld aan een virtuele machine niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Als u een schijf loskoppelt, wordt de schijf van de virtuele machine verwijderd, maar wordt de schijf niet verwijderd uit het Azure-opslagaccount.
 
@@ -28,7 +28,7 @@ Als u de naam van de schijf niet weet of de schijf wilt controleren voordat u de
 
 3. Klik onder **Instellingen** op **Schijven** aan de linkerkant van het dashboard van de virtuele machine.
 
-   Het dashboard van de virtuele machine bevat de naam en het type van alle gekoppelde schijven. Op dit scherm wordt bijvoorbeeld een virtuele machine weergegeven met een besturingssysteemschijf en een gegevensschijf:
+ Het dashboard van de virtuele machine bevat de naam en het type van alle gekoppelde schijven. Op dit scherm wordt bijvoorbeeld een virtuele machine weergegeven met een besturingssysteemschijf en een gegevensschijf:
 
     ![Gegevensschijf vinden](./media/howto-detach-disk-windows-linux/vmwithdisklist.png)
 
@@ -39,14 +39,14 @@ Als u de naam van de schijf niet weet of de schijf wilt controleren voordat u de
 
 3. Klik op de schijf die u wilt loskoppelen.
 
-   ![De schijf zoeken die u wilt loskoppelen](./media/howto-detach-disk-windows-linux/disklist.png)
+  ![De schijf zoeken die u wilt loskoppelen](./media/howto-detach-disk-windows-linux/disklist.png)
 
 4. Klik vanuit de opdrachtbalk op **Loskoppelen**.
 
-   ![De opdracht Loskoppelen vinden](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
+  ![De opdracht Loskoppelen vinden](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
 
 5. Klik in het bevestigingsvenster op **Ja** om de schijf los te koppelen.
 
-   ![Het loskoppelen van de schijf bevestigen](./media/howto-detach-disk-windows-linux/confirmdetach.png)
+  ![Het loskoppelen van de schijf bevestigen](./media/howto-detach-disk-windows-linux/confirmdetach.png)
 
 De schijf blijft in de opslag, maar is niet meer gekoppeld aan een virtuele machine.

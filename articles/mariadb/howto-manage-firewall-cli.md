@@ -8,11 +8,11 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: 562987b953f0a8a20a917e208f43557bd768c0a0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61038617"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Maken en beheren van Azure Database voor MariaDB-firewallregels met behulp van de Azure CLI
 Firewallregels op serverniveau kunnen worden gebruikt om toegang tot een Azure Database voor MariaDB-Server beheren vanaf een specifiek IP-adres of een bereik van IP-adressen. Met behulp van handige Azure CLI-opdrachten, kunt u maken, bijwerken, verwijderen, lijst, en firewallregels voor het beheren van uw server weergeven. Zie voor een overzicht van Azure Database voor MariaDB firewalls, [Azure Database voor MariaDB server firewall-regels](./concepts-firewall-rules.md).
@@ -29,7 +29,7 @@ De **az mariadb server firewall-rule** opdracht van de Azure CLI wordt gebruikt 
 Opdrachten:
 - **Maak**: Maak een firewallregel voor Azure MariaDB-server.
 - **Verwijder**: Een Azure MariaDB server firewall-regel verwijderen.
-- **Lijst met**: Lijst met de Azure-MariaDB server firewall-regels.
+- **lijst met**: Lijst met de Azure-MariaDB server firewall-regels.
 - **weergeven**: De details van een Azure-MariaDB-server firewall-regel weergeven.
 - **Update**: Een firewallregel voor Azure MariaDB-server bijwerken.
 

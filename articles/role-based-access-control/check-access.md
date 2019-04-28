@@ -15,11 +15,11 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: f388215b2829066906ee7faf41abb17307bf3fff
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782322"
 ---
 # <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Quickstart: De toegang die een gebruiker heeft tot Azure-resources bekijken
 
