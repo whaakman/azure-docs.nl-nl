@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889567"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60633282"
 ---
 > [!NOTE]
 > Als u wijzigingen aanbrengt aan de StorSimple-Adapter voor SharePoint RBS configuratie, moet u zijn aangemeld met een gebruikersaccount dat deel uitmaakt van de groep Domeinadministrators. Bovendien moet u toegang tot de configuratiepagina vanuit een browser die wordt uitgevoerd op dezelfde host als de centrale beheersite.

@@ -9,11 +9,11 @@ ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;danlep
 ms.custom: include file
 ms.openlocfilehash: c12fff63cdb7241d89e7511a3dac2ff9c1363ae6
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346101"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540476"
 ---
 ## <a name="deployment-considerations"></a>Overwegingen bij de implementatie
 * **Azure-abonnement** : het implementeren van meer dan een paar rekenintensieve instanties, kunt u een abonnement op gebruiksbasis of andere Aankoopopties. Als u een [gratis account van Azure](https://azure.microsoft.com/free/) gebruikt, kunt u slechts een paar Azure Compute-resources van Azure gebruiken.
@@ -28,7 +28,7 @@ ms.locfileid: "49346101"
 * **Virtueel netwerk** ; een Azure [virtueel netwerk](https://azure.microsoft.com/documentation/services/virtual-network/) is niet vereist voor het gebruik van de rekenintensieve instanties. Echter, voor veel implementaties moet u ten minste een cloud-gebaseerde Azure-netwerk, of een site-naar-site-verbinding als u nodig hebt voor toegang tot on-premises bronnen. Wanneer dat nodig is, maakt u een nieuw virtueel netwerk voor het implementeren van de exemplaren. Rekenintensieve VM's toe te voegen aan een virtueel netwerk in een affiniteitsgroep wordt niet ondersteund.
 * **Vergroten of verkleinen** – vanwege hun gespecialiseerde hardware, u kunt alleen de grootte van rekenintensieve instanties binnen dezelfde grootte familie (H-serie of rekenintensieve A-serie). U kunt bijvoorbeeld alleen een VM uit de H-serie van een grootte van de H-serie naar een ander formaat. Bovendien wordt vergroten of verkleinen van de grootte van een niet-rekenintensieve rekenintensieve grootte niet ondersteund.  
 
-## <a name="rdma-capable-instances"></a>RDMA-compatibele exemplaren
+## <a name="rdma-capable-instances"></a>Met RDMA compatibele exemplaren
 Een subset van de rekenintensieve instanties (H16r, H16mr A8 en A9) zijn voorzien van een netwerkinterface voor remote direct memory access (RDMA) verbinding. (Aangeduid met 'r' zoals NC24r geselecteerde N-serie-grootten zijn ook RDMA-compatibele). Deze interface is naast de standaard Azure netwerkinterface beschikbaar voor andere VM-grootten. 
   
 Deze interface kunt de RDMA-functionaliteit om te communiceren via een netwerk InfiniBand (IB), op FDR tarieven voor virtuele machines H16r, H16mr en RDMA-compatibele N-serie, en QDR tarieven voor virtuele machines van A8 en A9-exemplaren. Deze RDMA-mogelijkheden kunnen stimuleren de schaalbaarheid en prestaties van bepaalde Message Passing Interface (MPI)-toepassingen.

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/13/2018
 ms.author: nitinme
 ms.openlocfilehash: eedfd4e3b46a104fdfeed84034536e98b4c6ddaa
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50973758"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60513980"
 ---
 > [!NOTE] 
-> Bing Speech, dat werkt niet meer vanaf 15 oktober 2019 wordt vervangen door de nieuwe Service voor spraak en SDK. Zie voor meer informatie over het overschakelen naar de Spraakservice [migreren van Bing Speech naar de Spraakservice](../articles/cognitive-services/Speech-Service/how-to-migrate-from-bing-speech.md).
+> De nieuwe service Spraak en de SDK vervangen Bing Speech, die met ingang van 15 oktober 2019 niet meer functioneert. Zie voor meer informatie over het overschakelen naar de Spraakservice [migreren van Bing Speech naar de Spraakservice](../articles/cognitive-services/Speech-Service/how-to-migrate-from-bing-speech.md).

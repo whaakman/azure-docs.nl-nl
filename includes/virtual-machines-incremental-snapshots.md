@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49960188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543789"
 ---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Back-up van Azure niet-beheerde VM-schijven met incrementele momentopnamen
 ## <a name="overview"></a>Overzicht
@@ -58,7 +58,7 @@ De volgende voorwaarden wordt voldaan, opgegeven
 * De blob is gemaakt op Jan-1-2016 of later.
 * De blob is niet overschreven met [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) of [kopiëren van de Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) tussen twee momentopnamen.
 
-**Houd er rekening mee**: deze functie is beschikbaar voor Premium en Standard Azure-pagina-Blobs.
+**Opmerking**: Deze functie is beschikbaar voor Premium en Standard Azure-pagina-Blobs.
 
 Wanneer u een aangepaste back-upstrategie met momentopnamen hebt, de momentopnamen van één opslagaccount kopiëren naar een andere kan traag zijn en hoeveel opslagruimte kan worden gebruikt. In plaats van de momentopname van het gehele kopiëren naar een back-upopslag-account, kunt u het verschil tussen opeenvolgende momentopnamen om een back-pagina-blob te schrijven. Op deze manier wordt de tijd voor het kopiëren en de ruimte voor het opslaan van back-ups aanzienlijk verminderd.
 

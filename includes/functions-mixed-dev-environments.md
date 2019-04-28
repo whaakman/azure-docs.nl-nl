@@ -5,15 +5,18 @@ services: functions
 author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 06/27/2018
-ms.author: glenga
+origin.date: 06/27/2018
+ms.date: 07/24/2018
+ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: dcebef9dde173f5a26c5abed26a2d20b6d0bd116
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: a5252d64c00a4de4c5d2faf083904a994e67a994
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37086378"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614013"
 ---
 >[!IMPORTANT]  
-> Niet door elkaar op lokale ontwikkeling met portal-ontwikkeling in dezelfde functie-app. Wanneer u maken en publiceren van de functies van een lokaal project, moet u niet proberen te onderhouden of te wijzigen projectcode in de portal.
+> Geen verschillende lokale ontwikkeling met portal-ontwikkeling in dezelfde functie-app. Wanneer u maken en publiceren van functies in een lokale-project, moet u niet proberen te onderhouden of projectcode in de portal wijzigen.
+
+<!-- ms.date: 07/24/2018 -->

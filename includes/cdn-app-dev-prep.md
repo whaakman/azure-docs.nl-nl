@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 7f80c8f1773cfeb8ddfb222d068a5c6571c2e5c7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52330898"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564143"
 ---
 ## <a name="prerequisites"></a>Vereisten
 Voordat het CDN management code schrijft, moet u de voorbereiding om in te schakelen van de code om te communiceren met de Azure Resource Manager doen. Als deze voorbereiding doet, moet u naar:
@@ -32,7 +32,7 @@ Voordat het CDN management code schrijft, moet u de voorbereiding om in te schak
     ![Naamgeving van de resourcegroep](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Het maken van de Azure AD-toepassing en machtigingen toe te passen
-Er zijn twee methoden voor het app-verificatie met Azure Active Directory: individuele gebruikers of een service-principal. Een service-principal is vergelijkbaar met een service-account in Windows.  In plaats van een bepaalde gebruiker machtigingen verlenen aan de interactie met de CDN-profielen, worden in plaats daarvan machtigingen verleend aan de service-principal.  Service-principals worden meestal gebruikt voor geautomatiseerde, niet-interactieve processen.  Hoewel in deze zelfstudie een interactieve console-app schrijft is, ligt de focus op de aanpak van service-principal.
+Er zijn twee methoden voor het app-verificatie met Azure Active Directory: Afzonderlijke gebruikers of een service-principal. Een service-principal is vergelijkbaar met een service-account in Windows.  In plaats van een bepaalde gebruiker machtigingen verlenen aan de interactie met de CDN-profielen, worden in plaats daarvan machtigingen verleend aan de service-principal.  Service-principals worden meestal gebruikt voor geautomatiseerde, niet-interactieve processen.  Hoewel in deze zelfstudie een interactieve console-app schrijft is, ligt de focus op de aanpak van service-principal.
 
 Het maken van een service-principal bestaat uit meerdere stappen, waaronder het maken van een Azure Active Directory-toepassing.  Als u wilt maken, gaan we [Volg deze zelfstudie](../articles/active-directory/develop/howto-create-service-principal-portal.md).
 

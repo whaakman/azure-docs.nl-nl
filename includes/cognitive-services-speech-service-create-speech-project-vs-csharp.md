@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 7a028f65467c517be59be6f0c6d2c45ef9a7685e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: afe6f1493c7fa8272c67f23d6708ad6e4eea9381
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285801"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60619679"
 ---
 1. Start Visual Studio 2017.
 
-1. Selecteer in de menubalk van Visual Studio **Extra > Hulpprogramma's ophalen** en zorg ervoor dat de **.Net-desktopontwikkeling**-workload beschikbaar is. Als de workload niet is geïnstalleerd, schakelt u het selectievakje in en klikt u op **Wijzigen** om de installatie te starten. Het downloaden en installeren kan een paar minuten duren.
+1. Selecteer in de menubalk in Visual Studio, **Extra > hulpmiddelen ophalen** en zorg ervoor dat de **.NET-desktopontwikkeling** werkbelasting beschikbaar is. Als de workload niet is geïnstalleerd, schakelt u het selectievakje in en klikt u op **Wijzigen** om de installatie te starten. Het downloaden en installeren kan een paar minuten duren.
 
    Als het selectievakje naast **.NET-desktopontwikkeling** is ingeschakeld, kunt u nu het dialoogvenster sluiten.
 

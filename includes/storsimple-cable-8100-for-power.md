@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: db2104020e9478b1fedf68e1c9467f75e16044e2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889153"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482678"
 ---
 #### <a name="to-cable-for-power"></a>Op de kabel voor energiebeheer
 1. Zorg ervoor dat de kracht switches op elk van de stroom en koeling Modules (PCMs) op de positie OFF zijn.
@@ -25,7 +25,7 @@ ms.locfileid: "55889153"
    
     **Power bekabeling op een 8100-apparaat**
    
-   | Label | Description |
+   | Label | Beschrijving |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |Controller 1 |

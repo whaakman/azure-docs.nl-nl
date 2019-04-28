@@ -9,11 +9,11 @@ ms.date: 02/21/2019
 ms.author: juliako
 ms.custom: include file
 ms.openlocfilehash: 79af6512e9ce3d3f897be216ee3626c5d4fbcf1d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56740948"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733880"
 ---
 ## <a name="create-a-media-services-account"></a>Een Media Services-account kunt maken
 
@@ -33,7 +33,7 @@ Als u een Media Services-account gaat maken, moet u de naam van een Azure Storag
 
 U kunt maar één **primaire** opslagaccount koppelen aan uw Media Services-account, maar een onbeperkt aantal **secundaire** opslagaccounts. Media Services ondersteunt **GPv2**-accounts (General-purpose v2) of **GPv1**-accounts (General-purpose v1). Blob-accounts kunt u niet instellen als **primaire** account. Zie [Opties voor Azure Storage-account](../articles/storage/common/storage-account-options.md) voor meer informatie over opslagaccounts. 
 
-In dit voorbeeld maken we een algemeen gebruik v2-, Standard LRS-account. Als u experimenteren met de storage-accounts wilt, gebruikt u `--sku Standard_LRS`. Echter tijdens het selecteren van een SKU voor de productie kunt u overwegen, `--sku Standard_RAGRS`, waarmee u geografische replicatie voor bedrijfscontinuïteit. Zie voor meer informatie, [opslagaccounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
+In dit voorbeeld maakt u een Standard LRS-account voor algemeen gebruik (v2). Als u wilt experimenteren met opslagaccounts, gebruikt u `--sku Standard_LRS`. Als u echter een SKU voor productie selecteert, kunt u overwegen om `--sku Standard_RAGRS` te gebruiken. Deze biedt geografische replicatie voor bedrijfscontinuïteit. Zie [Opslagaccounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest) voor meer informatie.
  
 Met de volgende opdracht maakt u een Storage-account die wordt gekoppeld aan de Media Services-account. In het onderstaande script kunt u `storageaccountforams` door uw waarde vervangen. De accountnaam moet uit minder dan 24 tekens bestaan.
 
