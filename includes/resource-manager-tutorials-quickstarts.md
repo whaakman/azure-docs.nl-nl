@@ -15,11 +15,11 @@ ms.date: 01/15/2019
 ms.author: jgao
 ms.custom: include file
 ms.openlocfilehash: 8c5347b412475b86222acabb76b88baaceb7645a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59291678"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589374"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Snelstarts en zelfstudies
 
@@ -27,7 +27,7 @@ Gebruik de volgende snelstarts en zelfstudies voor meer informatie over het ontw
 
 - Snelstartgidsen
 
-    |Titel|Description|
+    |Titel|Beschrijving|
     |------|-----|
     |[Azure Portal gebruiken](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)|Een sjabloon met behulp van de portal genereren en inzicht in het proces van bewerken en de sjabloon te implementeren.|
     |[Visual Studio Code gebruiken](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Leer hoe u met Visual Studio Code sjablonen kunt maken en bewerken en hoe u de Azure Cloud-shell kunt gebruiken om sjablonen te implementeren.|

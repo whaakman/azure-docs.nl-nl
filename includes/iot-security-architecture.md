@@ -9,11 +9,11 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125098"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626567"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Internet of Things (IoT)-beveiligingsarchitectuur
 
@@ -171,13 +171,13 @@ In elk van de categorieën die worden beschreven in de Azure IoT-architectuur is
 
 **Adresvervalsing (spoofing) (S)**: Een aanvaller kan cryptografische sleutelmateriaal extraheren uit een apparaat, op de software of hardwareniveau, en vervolgens toegang tot die het systeem met een ander fysiek of virtueel apparaat onder de identiteit van het apparaat het sleutelmateriaal is genomen van. Een goede illustratie is beheer op afstand die elke TV kunt inschakelen en die populaire prankster hulpprogramma's zijn.
 
-**Denial of Service (D)**: Een apparaat kan worden gerenderd waarvoor niet werkt of de communicatie door te keuzerondje frequenties of knippen draden verstoren. Gegevens, kan bijvoorbeeld helemaal niet een camera toezicht op waarop de stroom of de netwerk-verbinding opzettelijk toenemende rapporteren.
+**Denial of Service (D)**: Een apparaat kan onbruikbaar worden gemaakt of niet in staat om te communiceren door verstoring van radiofrequenties of het doorknippen van draden. Een bewakingscamera die met opzet van voeding of het netwerk is afgesloten, kan bijvoorbeeld helemaal geen gegevens doorgeven.
 
-**(T) knoeien**: Een aanvaller kan geheel of gedeeltelijk vervangen door de software die wordt uitgevoerd op het apparaat, waardoor de vervangen software gebruikmaken van de legitieme identiteit van het apparaat als het sleutelmateriaal of de cryptografische sleutel materiaal houden-installaties zijn beschikbaar voor de illegaal programma. Een aanvaller kan bijvoorbeeld gebruikmaken van uitgepakte sleutelmateriaal onderscheppen en gegevens van het apparaat op het communicatiepad onderdrukken en vervang deze door de waarde false gegevens die met de gestolen sleutelmateriaal is geverifieerd.
+**(T) knoeien**: Een aanvaller kan de software op het apparaat deels of volledig vervangen, waardoor in potentie de vervangen software gebruik kan maken van de werkelijke identiteit van het apparaat, als de sleutels of cryptografische faciliteiten met sleutels beschikbaar zouden zijn voor het illegale programma. Een aanvaller kan bijvoorbeeld gebruikmaken van uitgepakte sleutelmateriaal onderscheppen en gegevens van het apparaat op het communicatiepad onderdrukken en vervang deze door de waarde false gegevens die met de gestolen sleutelmateriaal is geverifieerd.
 
 **Openbaarmaking van informatie (I)**: Als het apparaat gezelschapsdieren software wordt uitgevoerd, kan deze gezelschapsdieren software gegevens naar niet-geautoriseerde partijen mogelijk lekken. Een aanvaller kan bijvoorbeeld gebruikmaken van geëxtraheerde sleutelmateriaal zelf invoeren in het communicatiepad tussen het apparaat en een veld of controller gateway of cloudgateway naar siphon uit informatie.
 
-**Misbruik van bevoegdheden (E)**: Een apparaat dat specifieke functie kan worden gedwongen om iets anders te doen. Bijvoorbeeld, kunt een klep die is geprogrammeerd om te openen halverwege worden misleiden helemaal openen.
+**Misbruik van bevoegdheden (E)**: Een apparaat met een specifieke functie kan worden gedwongen om iets anders te doen. Bijvoorbeeld, kunt een klep die is geprogrammeerd om te openen halverwege worden misleiden helemaal openen.
 
 | **Onderdeel** | **Threat** | **Risicobeperking** | **Risk** | **Implementatie** |
 | --- | --- | --- | --- | --- |
@@ -192,9 +192,9 @@ Hier volgen enkele voorbeelden van bedreigingen in deze categorie:
 
 **Adresvervalsing (spoofing)**: Een aanvaller kan cryptografische sleutelmateriaal extraheren uit een apparaat, op de software of hardwareniveau, en vervolgens toegang tot die het systeem met een ander fysiek of virtueel apparaat onder de identiteit van het apparaat het sleutelmateriaal is genomen van.
 
-**Denial of Service**: Een apparaat kan worden gerenderd waarvoor niet werkt of de communicatie door te keuzerondje frequenties of knippen draden verstoren. Gegevens, kan bijvoorbeeld helemaal niet een camera toezicht op waarop de stroom of de netwerk-verbinding opzettelijk toenemende rapporteren.
+**Denial of Service**: Een apparaat kan onbruikbaar worden gemaakt of niet in staat om te communiceren door verstoring van radiofrequenties of het doorknippen van draden. Een bewakingscamera die met opzet van voeding of het netwerk is afgesloten, kan bijvoorbeeld helemaal geen gegevens doorgeven.
 
-**Knoeien**: Een aanvaller kan geheel of gedeeltelijk vervangen door de software die wordt uitgevoerd op het apparaat, waardoor de vervangen software gebruikmaken van de legitieme identiteit van het apparaat als het sleutelmateriaal of de cryptografische sleutel materiaal houden-installaties zijn beschikbaar voor de illegaal programma.
+**Knoeien**: Een aanvaller kan de software op het apparaat deels of volledig vervangen, waardoor in potentie de vervangen software gebruik kan maken van de werkelijke identiteit van het apparaat, als de sleutels of cryptografische faciliteiten met sleutels beschikbaar zouden zijn voor het illegale programma.
 
 **Knoeien**: Een camera toezicht dat wordt weergegeven een afbeelding zichtbaar spectrum van een lege gang kan worden gericht op een foto van een dergelijke hotellobby. Een sensor rook of brand kan iemand met een lichtere daaronder reporting. In beide gevallen moet het apparaat mogelijk technisch volledig vertrouwen op het systeem, maar deze rapporteert gezelschapsdieren informatie.
 
@@ -210,7 +210,7 @@ Hier volgen enkele voorbeelden van bedreigingen in deze categorie:
 
 **Knoeien**: Het apparaat opnieuw kan worden geconfigureerd om te werken in een status onbekend op het systeem (buiten bekende kalibreren parameters) en dus zorgen dat gegevens die kan worden geïnterpreteerd
 
-**Misbruik van bevoegdheden**: Een apparaat dat specifieke functie kan worden gedwongen om iets anders te doen. Bijvoorbeeld, kunt een klep die is geprogrammeerd om te openen halverwege worden misleiden helemaal openen.
+**Misbruik van bevoegdheden**: Een apparaat met een specifieke functie kan worden gedwongen om iets anders te doen. Bijvoorbeeld, kunt een klep die is geprogrammeerd om te openen halverwege worden misleiden helemaal openen.
 
 **Denial of Service**: Het apparaat kan worden omgezet in een status waar communicatie niet mogelijk is.
 
@@ -242,7 +242,7 @@ Hier volgen enkele voorbeelden van bedreigingen in deze categorie:
 
 **Vrijgeven van informatie:** een aanvaller kan op een broadcast afluisteren en informatie zonder toestemming te verkrijgen **denial of Service:** een aanvaller kan het signaal jam en informatie distributie weigeren
 
-#### <a name="storage"></a>Opslag
+#### <a name="storage"></a>Storage
 
 Elke gateway-apparaat en elk veld heeft een vorm van opslag (tijdelijke voor de gegevens, het besturingssysteem (OS) afbeeldingopslag queuing).
 

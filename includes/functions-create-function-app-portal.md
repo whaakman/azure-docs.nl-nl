@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/25/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e6387c528bb24a66edb2fa1706adc005980dc90e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
-ms.translationtype: HT
+ms.openlocfilehash: 5070b6ced29599660afa28308239e1ba07c2cbd0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47185636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710830"
 ---
-1. Selecteer de knop **Nieuw** in de linkerbovenhoek van Azure Portal. Selecteer vervolgens **Compute** > **Functie-app**.
+1. Selecteer de **een resource maken** knop gevonden in de linkerbovenhoek van Azure portal, klikt u vervolgens selecteren **Compute** > **functie-App**.
 
     ![Een functie-app maken in Azure Portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
@@ -23,17 +23,17 @@ ms.locfileid: "47185636"
 
     ![Instellingen voor nieuwe functie-apps definiëren](./media/functions-create-function-app-portal/function-app-create-flow2.png)
 
-    | Instelling      | Voorgestelde waarde  | Beschrijving                                        |
+    | Instelling      | Voorgestelde waarde  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Naam van app** | Wereldwijd unieke naam | Naam waarmee uw nieuwe functie-app wordt aangeduid. Geldige tekens zijn `a-z`, `0-9` en `-`.  | 
     | **Abonnement** | Uw abonnement | Het abonnement waarmee deze nieuwe functie-app is gemaakt. | 
     | **[Resourcegroep](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Naam voor de nieuwe resourcegroep waarin uw functie-app moet worden gemaakt. |
-    | **Besturingssysteem** | Windows | Hosten zonder server is momenteel alleen beschikbaar wanneer u gebruikmaakt van Windows. Raadpleeg [Create your first function running on Linux using the Azure CLI](../articles/azure-functions/functions-create-first-azure-function-azure-cli-linux.md) (Uw eerste Linux-functie maken met behulp van de Azure CLI) voor meer informatie over hosten met Linux. |
+    | **Besturingssysteem** | Windows | Hosten zonder server op Linux is momenteel in preview. Zie voor meer informatie, [in dit artikel overwegingen met betrekking tot](https://aka.ms/funclinux).|
     | **[Hostingplan](../articles/azure-functions/functions-scale.md)** | Verbruiksabonnement | Hostingabonnement dat definieert hoe resources worden toegewezen aan uw functie-app. In het standaard **Verbruiksabonnement** worden resources dynamisch toegevoegd zoals door uw functies wordt vereist. Met hosten [zonder server](https://azure.microsoft.com/overview/serverless-computing/) betaalt u alleen voor de tijd dat uw functies actief zijn. Wanneer u in een App Service-plan uitvoert, moet u het [Schalen van uw functie-app](../articles/azure-functions/functions-scale.md) beheren.  |
     | **Locatie** | Europa -west | Kies een [regio](https://azure.microsoft.com/regions/) in de buurt of in de buurt van andere services die door uw functie worden gebruikt. |
     | **Runtimestack** | Voorkeurstaal | Kies een runtime die uw favoriete functieprogrammeertaal ondersteunt. Kies **.NET** voor C#- en F#-functies. |
     | **[Opslag](../articles/storage/common/storage-quickstart-create-account.md)** |  Wereldwijd unieke naam |  Maak een opslagaccount die wordt gebruikt door uw functie-app. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten. U kunt ook een bestaand account gebruiken dat voldoet aan de [vereisten voor een opslagaccount](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
-    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Standaard | Application Insights is standaard ingeschakeld. Kies een locatie dichtbij uw functie-app.  |
+    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Standaard | Hiermee maakt u een Application Insights-resource met dezelfde *appnaam* in de dichtstbijzijnde ondersteunde regio bevindt. Door het uitbreiden van deze instelling kunt u de **nieuwe resourcenaam** of kies een andere **locatie** in een [Azure-Geografie](https://azure.microsoft.com/global-infrastructure/geographies/) waar u uw gegevens kunt opslaan. |
 
 3. Selecteer **Maken** om de functie-app in te richten en te implementeren.
 

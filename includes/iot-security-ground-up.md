@@ -9,11 +9,11 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626460"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Beveiliging van Internet of Things (IoT) vanaf de grond
 
@@ -103,14 +103,14 @@ De oplossingsversnellers ontwikkelen in beveiligingsmaatregelen standaard inscha
 
 Elke oplossingsverbetering maakt exemplaren van Azure-services, zoals:
 
-* [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): de gateway die de cloud met apparaten verbindt. U kunt schalen naar miljoenen verbindingen per hub en verwerken grote hoeveelheden gegevens met ondersteuning voor verificatie per apparaat helpt beveiligen van uw oplossing.
+* [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): Uw gateway die de cloud met apparaten verbindt. U kunt schalen naar miljoenen verbindingen per hub en verwerken grote hoeveelheden gegevens met ondersteuning voor verificatie per apparaat helpt beveiligen van uw oplossing.
 
-* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): een schaalbare, volledig geïndexeerd databaseservice voor de semi-gestructureerde gegevens die worden beheerd metagegevens voor de apparaten die u inricht, zoals kenmerken, configuratie en de eigenschappen voor beveiliging. Azure Cosmos DB biedt hoge prestaties en hoge doorvoer verwerkt, schema-agnostische indexering van gegevens en een geavanceerde SQL-QueryInterface.
+* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): Een schaalbare, volledig geïndexeerd databaseservice voor de semi-gestructureerde gegevens die worden beheerd metagegevens voor de apparaten die u, zoals kenmerken, configuratie en de eigenschappen voor beveiliging inricht. Azure Cosmos DB biedt hoge prestaties en hoge doorvoer verwerkt, schema-agnostische indexering van gegevens en een geavanceerde SQL-QueryInterface.
 
-* [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): realtime-verwerking in de cloud waarmee u snel ontwikkelen en implementeren van een goedkope analyseoplossing realtime inzichten kunt van apparaten, sensoren, infrastructuur en toepassingen . De gegevens uit deze volledig beheerde service kan worden geschaald naar een volume behoud van hoge doorvoer, lage latentie en tolerantie.
+* [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): Realtime-verwerking in de cloud waarmee u snel ontwikkelen en implementeren van een goedkope analyseoplossing realtime inzichten kunt van apparaten, sensoren, infrastructuur en toepassingen. De gegevens uit deze volledig beheerde service kan worden geschaald naar een volume behoud van hoge doorvoer, lage latentie en tolerantie.
 
-* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): een cloudplatform voor het bouwen van krachtige web- en mobiele apps die verbinding met gegevens waar dan ook; in de cloud of on-premises maken. Aansprekende mobiele apps bouwen voor iOS, Android en Windows. Integreren met uw Software as a Service (SaaS) en zakelijke toepassingen met out-of-the-box-connectiviteit met tientallen cloudgebaseerde services en zakelijke toepassingen. Code in uw favoriete taal en IDE – .NET, Node.js, PHP, Python of Java: sneller dan ooit webtoepassingen en API's bouwen.
+* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): Een cloudplatform voor het bouwen van krachtige web- en mobiele apps die verbinding met gegevens waar dan ook maken; in de cloud of on-premises. Aansprekende mobiele apps bouwen voor iOS, Android en Windows. Integreren met uw Software as a Service (SaaS) en zakelijke toepassingen met out-of-the-box-connectiviteit met tientallen cloudgebaseerde services en zakelijke toepassingen. Code in uw favoriete taal en IDE – .NET, Node.js, PHP, Python of Java: sneller dan ooit webtoepassingen en API's bouwen.
 
-* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): Logic Apps-functie van Azure App Service helpt uw IoT-oplossing met uw bestaande line-of-business-systemen integreren en automatiseren van werkstroomprocessen worden uitgevoerd. Logic Apps kan ontwikkelaars werkstromen ontwerpen die na een trigger worden gestart en voer vervolgens een reeks stappen, regels en acties die gebruikmaken van krachtige connectors om te integreren in uw bedrijfsprocessen. Logic Apps biedt out-of-the-box verbinding met een uitgebreid ecosysteem van SaaS, op basis van cloud en on-premises toepassingen.
+* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): De functie logische Apps van Azure App Service kunt uw IoT-oplossing met uw bestaande line-of-business-systemen integreren en automatiseren van werkstroomprocessen worden uitgevoerd. Logic Apps kan ontwikkelaars werkstromen ontwerpen die na een trigger worden gestart en voer vervolgens een reeks stappen, regels en acties die gebruikmaken van krachtige connectors om te integreren in uw bedrijfsprocessen. Logic Apps biedt out-of-the-box verbinding met een uitgebreid ecosysteem van SaaS, op basis van cloud en on-premises toepassingen.
 
-* [**Azure Blob-opslag**](https://azure.microsoft.com/services/storage/): betrouwbare, betaalbare cloudopslag voor de gegevens die uw apparaten naar de cloud verzenden.
+* [**Azure Blob-opslag**](https://azure.microsoft.com/services/storage/): Betrouwbare, betaalbare cloudopslag voor de gegevens die uw apparaten naar de cloud verzenden.

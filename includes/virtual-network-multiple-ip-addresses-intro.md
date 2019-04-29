@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: f1dc43b6fea4ebfb47439ec64b573cc471614d98
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 0c3bc3f2995131c7777bfc48269a17fceda33192
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31531732"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742237"
 ---
 > [!div class="op_single_selector"]
 > * [Azure Portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
@@ -29,4 +29,4 @@ Aan een virtuele Azure-machine zijn een of meer netwerkinterfaces (NIC's) gekopp
 
 Aan elke NIC die aan een virtuele machine is gekoppeld, zijn een of meer IP-configuraties gekoppeld. Aan elke configuratie is één statisch of dynamisch privé-IP-adres toegewezen. Aan elke configuratie kan ook één resource met een openbaar IP-adres zijn gekoppeld. Aan een resource met een openbaar IP-adres is een dynamisch of een statisch openbaar IP-adres toegewezen. In het artikel [IP addresses in Azure](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) (IP-adressen in Azure) vindt u meer informatie over IP-adressen in Azure. 
 
-Er is een limiet aan hoeveel particuliere IP-adressen kan worden toegewezen aan een NIC. Er is een limiet aan het aantal openbare IP-adressen die kunnen worden gebruikt in een Azure-abonnement. Raadpleeg het artikel [Azure limits](../articles/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) (Beperkingen van Azure) voor meer informatie.
+Er is een limiet aan het aantal privé IP-adressen kan worden toegewezen aan een NIC wordt gebruikt. Er is ook een limiet aan het aantal openbare IP-adressen die kunnen worden gebruikt in een Azure-abonnement. Raadpleeg het artikel [Azure limits](../articles/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) (Beperkingen van Azure) voor meer informatie.

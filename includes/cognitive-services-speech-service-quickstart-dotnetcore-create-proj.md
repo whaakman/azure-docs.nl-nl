@@ -2,14 +2,15 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/12/2018
-ms.author: erhopf
+origin.date: 12/12/2018
+ms.date: 04/01/2019
+ms.author: v-biyu
 ms.openlocfilehash: 6e49db90aa9e9f933a190425afbafd15e0057fca
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621080"
 ---
 1. Start Visual Studio 2017.
 

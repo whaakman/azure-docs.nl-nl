@@ -1,23 +1,24 @@
 ---
-author: genlin
+author: rockboyfor
 ms.service: virtual-network
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: genli
+origin.date: 11/09/2018
+ms.date: 01/21/2019
+ms.author: v-yeche
 ms.openlocfilehash: 3df4108907a4e1e65a444faf1049163966b7accf
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52269696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742236"
 ---
 ## <a name="scenario"></a>Scenario
 Een virtuele machine met één NIC is gemaakt en verbonden met een virtueel netwerk. De virtuele machine vereist drie verschillende *persoonlijke* IP-adressen en twee *openbare* IP-adressen. De IP-adressen zijn toegewezen aan de volgende IP-configuraties:
 
-* **IP-configuratie-1:** wijst een *statische* privé IP-adres en een *statische* openbaar IP-adres.
-* **IP-configuratie-2:** wijst een *statische* privé IP-adres en een *statische* openbaar IP-adres.
-* **IP-configuratie-3:** wijst een *statische* privé IP-adres en geen openbaar IP-adres.
-  
+* **IP-configuratie-1:** Wijst een *statische* privé IP-adres en een *statische* openbaar IP-adres.
+* **IPConfig-2:** Wijst een *statische* privé IP-adres en een *statische* openbaar IP-adres.
+* **IPConfig-3:** Wijst een *statische* privé IP-adres en geen openbaar IP-adres.
+
     ![Meerdere IP-adressen](./media/virtual-network-multiple-ip-addresses-scenario/multiple-ipconfigs.png)
 
 De IP-configuraties zijn gekoppeld aan de NIC wanneer de NIC is gemaakt en de NIC is gekoppeld aan de virtuele machine wanneer de virtuele machine wordt gemaakt. De typen van IP-adressen die worden gebruikt voor het scenario zijn bedoeld als voorbeeld. Welke IP-adres en de toewijzing typen dat u nodig hebt, kunt u toewijzen.

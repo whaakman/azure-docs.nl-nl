@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: e431e7c45dc2cb41db5b9fa762abc908cc76b375
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: c58b226c0f3bd63cb2a54bd3d8c91eb750a26f0a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34665279"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684618"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Nieuwe CDN-profielen maken
 
@@ -31,12 +31,12 @@ Een CDN-profiel is een container voor CDN-eindpunten waarmee een prijscategorie 
 
 3. Gebruik voor de CDN-profielinstellingen de waarden die in de volgende tabel zijn opgegeven:
    
-    | Instelling  | Waarde |
+    | Instelling  | Value |
     | -------- | ----- |
     | **Naam** | Voer *my-cdn-profile-123* in als profielnaam. Deze naam moet wereldwijd uniek zijn. Als deze al in gebruik is, kunt u een andere naam invoeren. |
     | **Abonnement** | Kies een Azure-abonnement in de vervolgkeuzelijst. |
     | **Resourcegroep** | Selecteer **Nieuwe maken** en voer *my-resource-group-123* in als naam voor de resourcegroep. Deze naam moet wereldwijd uniek zijn. Als deze al in gebruik is, kunt u een andere naam invoeren of **Bestaande gebruiken** selecteren en **my-resource-group-123** in de vervolgkeuzelijst selecteren. | 
-    | **Resourcegroeplocatie** | Selecteer **VS Centraal** in de vervolgkeuzelijst. |
+    | **Resourcegroeplocatie** | Selecteer **US - centraal** in de vervolgkeuzelijst. |
     | **Prijscategorie** | Selecteer **Standard - Verizon** in de vervolgkeuzelijst. |
     | **Nu een nieuw CDN-eindpunt maken** | Laat het selectievakje uitgeschakeld. |  
    

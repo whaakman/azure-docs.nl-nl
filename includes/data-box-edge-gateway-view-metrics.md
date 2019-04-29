@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: e02c0b86cd542b3ea12914e35a6577cf4e9b43d8
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618509"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60754957"
 ---
 U kunt ook de metrische gegevens voor het controleren van de prestaties van het apparaat en in sommige gevallen voor het oplossen van problemen met het apparaat weergeven.
 
@@ -29,7 +29,7 @@ De volgende stappen uitvoeren in Azure portal een grafiek voor metrische gegeven
 
 3. Selecteer een metrische waarde voor het bewaken van uw apparaat in de vervolgkeuzelijst. De metrische gegevens kunnen worden **metrische gegevens over capaciteit** of **metrische gegevens die transactie**. De metrische gegevens over de capaciteit zijn gerelateerd aan de capaciteit van het apparaat. De metrische gegevens transactie zijn gerelateerd aan de lees- en schrijfbewerkingen naar Azure Storage.
 
-    |Capaciteit metrische gegevens                     |Description  |
+    |Capaciteit metrische gegevens                     |Beschrijving  |
     |-------------------------------------|-------------|
     |**Beschikbare capaciteit**               | Verwijst naar de grootte van de gegevens die kunnen worden geschreven naar het apparaat. Dit is met andere woorden, de capaciteit die beschikbaar kan worden gemaakt op het apparaat. <br></br>U kunt de capaciteit van het apparaat vrij door het verwijderen van de lokale kopie van bestanden die een kopie op zowel het apparaat als de cloud hebben.        |
     |**Totale capaciteit**                   | Verwijst naar het totaal aantal bytes op het apparaat om gegevens op te schrijven. Dit is ook aangeduid als de totale grootte van de lokale cache. <br></br> Nu kunt u de capaciteit van een bestaand virtueel apparaat verhogen door een gegevensschijf toe te voegen. Een gegevensschijf via de hypervisor-voor de virtuele machine toevoegt en opnieuw opstarten van uw virtuele machine. De groep lokale opslag van het Gateway-apparaat wilt uitbreiden om te voldoen aan de toegevoegde gegevensschijf. <br></br>Ga voor meer informatie naar [toevoegen van een harde schijf voor Hyper-V virtuele machine](https://www.youtube.com/watch?v=EWdqUw9tTe4). |

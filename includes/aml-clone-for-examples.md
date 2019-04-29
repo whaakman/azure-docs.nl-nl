@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 12/04/2018
 ms.openlocfilehash: c4b5bd8eaa5ddf636609976ff6ab05d23cf52f7e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52881454"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817722"
 ---
-Meer informatie over het uitvoeren van notitieblokken door het artikel te volgen [gebruik Jupyter-notebooks om te verkennen van deze service](../articles/machine-learning/service/samples-notebooks.md).
+Informatie over het uitvoeren van notebooks vindt u in het artikel [Use Jupyter notebooks to explore this service](../articles/machine-learning/service/samples-notebooks.md) (Jupyter Notebooks gebruiken om deze service te verkennen).

@@ -9,19 +9,19 @@ ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: da63a5418ab94623f6ce3c9f35a085dd8b198d1a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858091"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684158"
 ---
 U moet aan de volgende vereisten voldoen om deze zelfstudie te voltooien:
 
-**Azure CLI**: Azure CLI versie 2.0.29 of hoger moet op uw lokale computer zijn geïnstalleerd. Voer `az --version` uit om de versie te bekijken. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren][azure-cli-install].
+**Azure CLI**: U moet Azure CLI versie 2.0.29 of hoger is geïnstalleerd op uw lokale computer. Voer `az --version` uit om de versie te bekijken. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren][azure-cli-install].
 
-**Docker**: in deze zelfstudie wordt ervan uitgegaan dat u een basiskennis hebt van Docker-kernconcepten zoals containers, containerinstallatiekopieën en eenvoudige `docker`-opdrachten. Zie het [Docker-overzicht][docker-get-started] voor een inleiding tot de basisprincipes van Docker en containers.
+**Docker**: In deze zelfstudie wordt ervan uitgegaan dat een basiskennis hebt van Docker-kernconcepten zoals containers, containerinstallatiekopieën en eenvoudige `docker` opdrachten. Zie het [Docker-overzicht][docker-get-started] voor een inleiding tot de basisprincipes van Docker en containers.
 
-**Docker Engine**: om deze zelfstudie te voltooien, moet Docker Engine lokaal zijn geïnstalleerd. Docker biedt pakketten waarmee de Docker-omgeving op [MacOS][docker-mac], [Windows][docker-windows] en [Linux][docker-linux] kan worden geconfigureerd.
+**Docker-Engine**: Voor deze zelfstudie, moet u de Docker-Engine lokaal zijn geïnstalleerd. Docker biedt pakketten waarmee de Docker-omgeving op [MacOS][docker-mac], [Windows][docker-windows] en [Linux][docker-linux] kan worden geconfigureerd.
 
 > [!IMPORTANT]
 > Omdat de Docker-daemon niet is opgenomen in Azure Cloud Shell, *moeten* zowel Azure CLI als Docker Engine op uw *lokale computer* zijn geïnstalleerd om deze zelfstudie te voltooien. U kunt niet Azure Cloud Shell gebruiken voor deze zelfstudie.

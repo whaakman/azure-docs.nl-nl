@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888994"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482677"
 ---
 #### <a name="to-attach-the-sas-cables"></a>De SAS-kabels koppelen
 1. Identificeer de primaire en de EBOD-behuizingen. De twee bijlagen kunnen worden geïdentificeerd door hun respectieve back vlakken kijken. Zie de volgende afbeelding voor hulp. 
@@ -28,7 +28,7 @@ ms.locfileid: "55888994"
    
     **Locatie van het serienummer sticker**
    
-   | Label | Description |
+   | Label | Beschrijving |
    |:--- |:--- |
    | 1 |Wissen van de behuizing |
 3. Gebruik de opgegeven SAS-kabels verbinden met de behuizing EBOD de primaire behuizing als volgt:

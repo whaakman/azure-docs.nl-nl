@@ -9,11 +9,11 @@ ms.date: 02/12/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 32032f729283cb3f2a786412b563fdee88ba4c8a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238564"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729613"
 ---
 Lokaal redundante opslag (LRS) biedt ten minste 99,999999999% (11 nines) duurzaamheid van objecten in een bepaald jaar. LRS biedt de duurzaamheid van dit object door te repliceren van uw gegevens naar een opslagschaaleenheid. Een datacenter, zich in de regio waar u uw storage-account hebt gemaakt als host fungeert voor de eenheid voor opslag schalen. Een schrijfaanvraag naar een opslagaccount LRS retourneert is pas mogelijk nadat de gegevens worden geschreven naar alle replica's. Elke replica bevindt zich in afzonderlijke foutdomeinen en upgradedomeinen in een opslagschaaleenheid.
 

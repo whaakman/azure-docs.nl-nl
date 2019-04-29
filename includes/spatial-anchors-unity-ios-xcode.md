@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
 ms.openlocfilehash: e8daaaf5b6b15eb3095f11e94c707a33b4b18e28
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305281"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60681192"
 ---
 Selecteer **bouwen**. In het dialoogvenster dat wordt geopend, moet u een map voor het exporteren van de Xcode-project te selecteren.
 

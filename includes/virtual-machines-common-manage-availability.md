@@ -9,11 +9,11 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 42b6dde708e2a1dbda225fd95e3db964267ae48a
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613815"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Informatie over het opnieuw opstarten van VM's - onderhoud versus downtime
 Er zijn drie scenario's die kunnen leiden tot een virtuele machine in Azure wordt beïnvloed: niet-gepland hardwareonderhoud, onverwachte downtime en gepland onderhoud.
@@ -47,7 +47,8 @@ Elke virtuele machine in uw beschikbaarheidsset krijgt een **updatedomein** en e
 
 Foutdomeinen duiden de groep virtuele machines aan die een gemeenschappelijke voeding en switch delen. Standaard worden bij Resource Manager-implementaties de virtuele machines die zijn geconfigureerd in uw beschikbaarheidsset verdeeld over maximaal drie foutdomeinen (twee foutdomeinen bij klassieke implementaties). Hoewel het in een beschikbaarheidsset plaatsen van uw virtuele machines uw toepassing niet beschermt tegen problemen met het besturingssysteem of de toepassing zelf, worden zo wel de gevolgen van mogelijke problemen met de fysieke hardware, netwerkstoringen of stroomonderbrekingen beperkt.
 
-<!--Image reference--> ![Concepttekening van de configuratie van de update-domein- en foutdomeinen](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+<!--Image reference-->
+   ![Concepttekening van de configuratie van de update-domein- en foutdomeinen](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Beheerde schijven voor VM's in een beschikbaarheidsset gebruiken
 Als u momenteel VM's met niet-beheerde schijven gebruikt, raden wij u ten zeerste aan [VM's in een beschikbaarheidsset te converteren voor het gebruik van beheerde schijven](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
@@ -75,7 +76,8 @@ Als uw virtuele machines allemaal bijna identiek zijn en hetzelfde doel dienen v
 
 U kunt bijvoorbeeld alle virtuele machines in de front-end van uw toepassing waarop IIS, Apache en Nginx worden uitgevoerd, in één beschikbaarheidsset plaatsen. Zorg ervoor dat er alleen virtuele machines van de front-end in dezelfde beschikbaarheidsset worden geplaatst. Zorg er ook voor dat alleen virtuele machines uit de gegevenslaag in een eigen beschikbaarheidsset worden geplaatst, zoals gerepliceerde virtuele machines met SQL Server of virtuele machines met MySQL.
 
-<!--Image reference--> ![Toepassingslagen](./media/virtual-machines-common-manage-availability/application-tiers.png)
+<!--Image reference-->
+   ![Toepassingslagen](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-sets"></a>Combineer het gebruik van een load balancer met beschikbaarheidssets
 Combineer de [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) met een beschikbaarheidsset om uw toepassingen zo stabiel mogelijk te maken. De Azure Load Balancer verdeelt het verkeer tussen meerdere virtuele machines. De Azure Load Balancer is voor virtuele machines uit de prijscategorie Standard bij de prijs inbegrepen. De Azure Load Balancer is niet bij alle prijscategorieën voor virtuele machines inbegrepen. Zie voor meer informatie over het gebruik van load balancers voor uw virtuele machines [Taakverdeling voor virtuele machines](../articles/virtual-machines/virtual-machines-linux-load-balance.md).

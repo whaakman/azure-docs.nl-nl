@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/10/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 97fb29205136aacaa1722bf2abf441c207b0c4cb
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
-ms.translationtype: HT
+ms.openlocfilehash: c1e5027b192f32b50af10a2bdfbadfeb123b39ce
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40046901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611651"
 ---
 ### <a name="delete-azure-resources"></a>Azure-resources verwijderen 
 
@@ -21,7 +21,7 @@ Het verwijderen van de Azure-resources en resourcegroepen kan niet ongedaan word
 
 Om de resources te verwijderen:
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en selecteer **Resourcegroepen**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com) en selecteer **Resourcegroepen**.
 
 2. Selecteer de naam van de resourcegroep die uw IoT Edge-testresources bevat. 
 

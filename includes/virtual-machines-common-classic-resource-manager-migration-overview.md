@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: d1a6ff8dbd17d2792709a1ce065bcf793154e585
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ca4063d31d93aab3814abed202b6b91b7726185f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37780669"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542919"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Platform ondersteunde migratie van IaaS-resources van klassiek naar Azure Resource Manager
 In dit artikel wordt beschreven hoe u voor het migreren van infrastructuur als een service (IaaS)-resources van het klassieke naar Resource Manager-implementatiemodel en details van hoe u resources van de twee implementatiemodellen die naast elkaar worden gebruikt in uw abonnement met behulp van virtueel netwerk verbinden site-naar-site gateways. U kunt meer lezen over [Azure Resource Manager-functies en voordelen](../articles/azure-resource-manager/resource-group-overview.md). 
@@ -28,10 +28,10 @@ Deze klassieke IaaS-resources worden ondersteund tijdens de migratie
 
 * Virtuele machines
 * Beschikbaarheidssets
-* Cloudservices met virtuele Machines
+* Cloudservices met virtuele machines
 * Opslagaccounts
 * Virtuele netwerken
-* VPN Gateways
+* VPN-gateways
 * Express Route-Gateways _(in hetzelfde abonnement als het Virtueelnetwerk alleen)_
 * Netwerkbeveiligingsgroepen
 * Routetabellen
