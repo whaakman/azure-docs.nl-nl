@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 2216deb7a59dda2a7c3b99c55956ef8541925425
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa6b4ef76b039e9e24b4a72cfb6e76dcfae8378d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326374"
+ms.locfileid: "62111984"
 ---
 # <a name="tutorial-use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Zelfstudie: Gebruik dynamische AES-128-versleuteling en de sleutelleveringsservice
 
@@ -158,6 +158,11 @@ Voer de volgende CLI-opdracht uit:
 ```azurecli
 az group delete --name amsResourceGroup
 ```
+
+## <a name="provide-feedback"></a>Feedback geven
+
+Bekijk de [Azure Media Services-community](media-services-community.md) artikel om te zien van verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
 ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886009"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119300"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>De beheerde client gebruiken voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -62,7 +62,7 @@ public class TodoItem
 
 De [JsonPropertyAttribute] [ 6] wordt gebruikt voor het definiëren van de *PropertyName* toewijzing tussen de velden van de client en de tabel.
 
-Zie voor meer informatie over het maken van tabellen in uw back-end van Mobile Apps, de [.NET Server SDK onderwerp] [ 7] of de [Node.js Server SDK onderwerp][8]. Als u de back-end van uw mobiele App in Azure portal met behulp van de Quick Start hebt gemaakt, kunt u ook gebruiken de **eenvoudige tabellen** instellen in de [Azure-portal].
+Zie voor meer informatie over het maken van tabellen in uw back-end van Mobile Apps, de [.NET Server SDK onderwerp] [ 7] of de [Node.js Server SDK onderwerp][8]. Als u de back-end van uw mobiele App in Azure portal met behulp van de Quick Start hebt gemaakt, kunt u ook gebruiken de **eenvoudige tabellen** instellen in de [Azure Portal].
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>Procedure: De beheerde client-SDK-pakket installeren
 Gebruik een van de volgende methoden voor het installeren van de beheerde client-SDK-pakket voor mobiele Apps van [NuGet][9]:
@@ -89,7 +89,7 @@ De volgende code maakt de [MobileServiceClient] [ 12] -object dat wordt gebruikt
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-Vervang in de bovenstaande code `MOBILE_APP_URL` met de URL van de back-end van de mobiele App, die is gevonden in de blade voor uw mobiele App back-end in de [Azure-portal]. Het object MobileServiceClient moet een singleton.
+Vervang in de bovenstaande code `MOBILE_APP_URL` met de URL van de back-end van de mobiele App, die is gevonden in de blade voor uw mobiele App back-end in de [Azure Portal]. Het object MobileServiceClient moet een singleton.
 
 ## <a name="work-with-tables"></a>Werken met tabellen
 De volgende sectie wordt uitgelegd hoe om te zoeken en records ophalen en de gegevens in de tabel wijzigen.  De volgende onderwerpen komen aan bod:
@@ -654,7 +654,7 @@ U kunt de Active Directory Authentication Library (ADAL) te initiëren gebruiker
 2. Open uw project in Visual Studio of Xamarin Studio, en voeg een verwijzing naar de `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet-pakket. Wanneer u zoekt, neemt u voorlopige versies.
 3. Voeg de volgende code aan uw toepassing, op basis van het platform dat u gebruikt. In elk, moet u de volgende vervangingen:
 
-   * Vervang **INSERT-instantie-HERE** met de naam van de tenant waarin u uw toepassing hebt ingericht. De indeling moet https://login.microsoftonline.com/contoso.onmicrosoft.com. Deze waarde kan worden gekopieerd vanaf het tabblad domein in uw Azure Active Directory in de [Azure-portal].
+   * Vervang **INSERT-instantie-HERE** met de naam van de tenant waarin u uw toepassing hebt ingericht. De indeling moet https://login.microsoftonline.com/contoso.onmicrosoft.com. Deze waarde kan worden gekopieerd vanaf het tabblad domein in uw Azure Active Directory in de [Azure Portal].
    * Vervang **INSERT-RESOURCE-ID-HERE** met de client-ID voor de back-end van uw mobiele app. U vindt de client-ID van de **Geavanceerd** tabblad onder **Azure Active Directory-instellingen** in de portal.
    * Vervang **INSERT-CLIENT-ID-HERE** met de client-ID die u hebt gekopieerd uit de toepassing native client.
    * Vervang **INSERT-OMLEIDINGS-URI-HERE** met van uw site */.auth/login/done* eindpunt, met behulp van het HTTPS-schema. Deze waarde moet zijn vergelijkbaar met *https://contoso.azurewebsites.net/.auth/login/done*.
@@ -1068,7 +1068,7 @@ public class MyHandler : DelegatingHandler
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [waar]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
-[Azure-portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx

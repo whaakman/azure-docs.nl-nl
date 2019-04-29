@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: crdun
-ms.openlocfilehash: 557f6f6a6d4925ec167760455dfc67449582c05c
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 352e64664e6796fb4e0a7941de91ef4045076aed
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811667"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104600"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Pushmeldingen toevoegen aan uw Android-app
 
@@ -27,7 +27,7 @@ ms.locfileid: "42811667"
 
 ## <a name="overview"></a>Overzicht
 
-In deze zelfstudie voegt u pushmeldingen kunt verzenden naar de [Android snel aan de slag] project, zodat een pushmelding wordt verzonden naar het apparaat telkens wanneer een record wordt ingevoegd.
+In deze zelfstudie voegt u pushmeldingen kunt verzenden naar de [Android snel starten] project, zodat een pushmelding wordt verzonden naar het apparaat telkens wanneer een record wordt ingevoegd.
 
 Als u het gedownloade quick start-serverproject niet gebruikt, moet u de push notification-uitbreidingspakket. Zie voor meer informatie, [werken met de .NET back-endserver SDK voor Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
@@ -40,7 +40,7 @@ U hebt het volgende nodig:
   * [Android Studio](https://developer.android.com/sdk/index.html) als deze app een Node.js-back-end heeft.
   * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) of hoger als u deze app heeft een Microsoft .NET-back-end.
 * Android 2.3 of hoger, Google Repository revisie 27 of hoger en Google Play-Services 9.0.2 of hoger voor Firebase Cloud Messaging.
-* Voltooi de [Android snel aan de slag].
+* Voltooi de [Android snel starten].
 
 ## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Een project maken dat Firebase Cloud Messaging ondersteunt
 
@@ -92,5 +92,5 @@ Nu dat u deze zelfstudie hebt voltooid, kunt u doorgaan naar een van de volgende
   Informatie over het toevoegen van Offlineondersteuning aan uw app met behulp van een back-end voor mobiele Apps. Offline synchroniseren zorgt gebruikers met een mobiele app kunnen werken&mdash;weergeven, toevoegen of wijzigen van gegevens&mdash;, zelfs wanneer er geen netwerkverbinding.
 
 <!-- URLs -->
-[Android snel aan de slag]: app-service-mobile-android-get-started.md
+[Android snel starten]: app-service-mobile-android-get-started.md
 [Firebase toevoegen aan uw Android-Project]:https://firebase.google.com/docs/android/setup

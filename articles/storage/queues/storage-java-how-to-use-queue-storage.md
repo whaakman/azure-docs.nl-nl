@@ -11,11 +11,11 @@ ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: queues
 ms.openlocfilehash: 7c2fbc168c663cc4dc5981071d40540cfc4797ca
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648483"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108937"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Queue Storage gebruiken met Java
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

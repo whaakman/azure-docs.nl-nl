@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: crdun
 ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445905"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128146"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Verificatie toevoegen aan uw iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -33,7 +33,7 @@ In deze zelfstudie voegt u verificatie van de [Snelstartgids voor iOS] project m
 
 Veilige verificatie is vereist dat u een nieuwe URL-schema voor uw app definiëren.  Hiermee kunt het verificatiesysteem terug te keren naar uw app nadat het verificatieproces voltooid is.  In deze zelfstudie gebruiken we het URL-schema _appname_ in.  U kunt echter een URL-schema dat u kiest.  Deze moet uniek zijn voor uw mobiele App.  De omleiding aan serverzijde th inschakelen:
 
-1. In de [Azure-portal], selecteert u uw App Service.
+1. In de [Azure Portal], selecteert u uw App Service.
 
 2. Klik op de **verificatie / autorisatie** menu-optie.
 
@@ -217,7 +217,7 @@ App Service-verificatie wordt gebruikt voor communicatie van appels Inter-App.  
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
 [Snelstartgids voor iOS]: app-service-mobile-ios-get-started.md
 

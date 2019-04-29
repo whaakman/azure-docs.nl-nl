@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078785"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119511"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Werken met de .NET-back-endserver-SDK voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -36,7 +36,7 @@ Dit onderwerp ziet u hoe u de .NET back-endserver SDK in belangrijke scenario's 
 De referentiedocumentatie voor de SDK-server bevindt zich hier: [Naslaginformatie over Azure Mobile Apps .NET][1].
 
 ## <a name="create-app"></a>Procedures: De back-end van een .NET Mobile Apps maken
-Als u een nieuw project start, kunt u een App Service-toepassing met behulp van de [Azure-portal] of Visual Studio. U kunt de App Service-toepassing lokaal uitvoeren of het project om uw cloud-gebaseerde mobiele App Service-app te publiceren.
+Als u een nieuw project start, kunt u een App Service-toepassing met behulp van de [Azure Portal] of Visual Studio. U kunt de App Service-toepassing lokaal uitvoeren of het project om uw cloud-gebaseerde mobiele App Service-app te publiceren.
 
 Als u mobiele mogelijkheden aan een bestaand project toevoegt, raadpleegt u de [downloaden en het initialiseren van de SDK](#install-sdk) sectie.
 
@@ -469,7 +469,7 @@ Zorg ervoor dat uw mobiele back-end [Microsoft.Azure.Mobile.Server.Authenticatio
 In het voorgaande voorbeeld, moet u configureren de *authAudience* en *authIssuer* toepassingsinstellingen binnen uw Web.config-bestand op elke worden de URL van de toepassingshoofdmap van uw, met behulp van het HTTPS-schema. U moet op dezelfde manier ingesteld *authSigningKey* moet de waarde van uw toepassing de ondertekeningssleutel.
 Als u de ondertekeningssleutel:
 
-1. Ga naar de app binnen de [Azure-portal]
+1. Ga naar de app binnen de [Azure Portal]
 2. Klik op **extra**, **Kudu**, **gaat**.
 3. Klik op de site Kudu Management **omgeving**.
 4. Zoek de waarde voor *WEBSITE\_AUTH\_ondertekening\_sleutel*.
@@ -482,7 +482,7 @@ Gebruik de sleutel voor de *authSigningKey* parameter in de configuratie van uw 
 [4]: https://azure.microsoft.com/downloads/
 [5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
 [6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [NuGet.org]: https://www.nuget.org/
 [Microsoft.Azure.Mobile.Server]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
 [Microsoft.Azure.Mobile.Server.Quickstart]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/

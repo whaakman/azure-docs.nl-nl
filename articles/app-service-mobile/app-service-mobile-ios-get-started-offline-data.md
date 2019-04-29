@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435130"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112647"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Offline synchroniseren met mobiele iOS-apps inschakelen
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -186,10 +186,10 @@ Wanneer u de functie voor offlinesynchronisatie, definieert u de drie tabellen e
 | Kenmerk | Type |
 | --- | --- |
 | id |String |
-| sleutel |String |
+| key |String |
 | keyType |Geheel getal 64 |
 | tabel |String |
-| waarde |String |
+| value |String |
 
 ### <a name="data-table"></a>Gegevenstabel
 
@@ -198,7 +198,7 @@ Wanneer u de functie voor offlinesynchronisatie, definieert u de drie tabellen e
 | Kenmerk | Type | Opmerking |
 | --- | --- | --- |
 | id | Tekenreeks, gemarkeerd als vereist |primaire sleutel in de externe opslag |
-| Voltooien | Booleaans | Veld to-do-item |
+| Voltooien | Boolean | Veld to-do-item |
 | tekst |String |Veld to-do-item |
 | createdAt | Date | (optioneel) Toegewezen aan **createdAt** systeemeigenschap |
 | updatedAt | Date | (optioneel) Toegewezen aan **updatedAt** systeemeigenschap |

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 3c22aab20a9260bfd21869f0b327211e2f3d8894
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004220"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62109573"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Het gebruik van Apache Cordova-clientbibliotheek voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -93,7 +93,7 @@ Verschillende typen Apache Cordova-toepassingen gebruiken een loopback-mogelijkh
 
 Volg deze instructies voor uw lokale instellingen toevoegen aan de configuratie:
 
-1. Meld u aan bij [Azure-portal].
+1. Meld u aan bij [Azure Portal].
 2. Selecteer **alle resources** of **App Services** klik vervolgens op de naam van uw mobiele App.
 3. Klik op **hulpprogramma's**
 4. Klik op **Resource explorer** Klik in het menu OBSERVE **gaat**.  Een nieuw venster of tabblad wordt geopend.
@@ -113,7 +113,7 @@ Volg deze instructies voor uw lokale instellingen toevoegen aan de configuratie:
 De instellingen worden op dit moment opgeslagen.  Het browservenster niet sluiten totdat de instellingen hebt opgeslagen.
 Ook deze loopback-URL's toevoegen aan de CORS-instellingen voor uw App Service:
 
-1. Meld u aan bij [Azure-portal].
+1. Meld u aan bij [Azure Portal].
 2. Selecteer **alle resources** of **App Services** klik vervolgens op de naam van uw mobiele App.
 3. De instellingen-blade wordt automatisch geopend.  Als dit niet zo is, klikt u op **alle instellingen**.
 4. Klik op **CORS** onder het menu van de API.
@@ -170,7 +170,7 @@ De Notification Hubs SDK gebruiken om pushmeldingen te verzenden van de server. 
 U vindt gedetailleerde API-details in onze [API-documentatie](https://azure.github.io/azure-mobile-apps-js-client/).
 
 <!-- URLs. -->
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Azure Mobile Apps snel starten]: app-service-mobile-cordova-get-started.md
 [Aan de slag met verificatie]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md

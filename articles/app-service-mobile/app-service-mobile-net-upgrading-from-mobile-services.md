@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: f5ffc795e6469971d1eaf335d6683f94d05f0807
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278598"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122435"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Uw bestaande .NET Azure Mobile Service upgraden naar App Service
 App Service Mobile is een nieuwe manier voor het bouwen van mobiele toepassingen met Microsoft Azure. Zie voor meer informatie, [Wat zijn mobiele apps?].
@@ -73,7 +73,7 @@ U zult waarschijnlijk de dezelfde database en de Notification Hub gebruiken net 
 Maak een kopie van de ASP.NET-project voor uw toepassing en deze publiceren naar de nieuwe site. Met behulp van een kopie van uw clienttoepassing bijgewerkt met de nieuwe URL, valideren dat alles werkt zoals verwacht.
 
 ## <a name="updating-the-server-project"></a>Bijwerken van het serverproject
-Mobile Apps biedt een nieuwe [Mobiele App Server SDK] waarmee veel van dezelfde functionaliteit als de Mobile Services-runtime. Verwijder eerst alle verwijzingen naar de Mobile Services-pakketten. Zoek in het NuGet-Pakketbeheer `WindowsAzure.MobileServices.Backend`. De meeste apps ziet verschillende pakketten hier, met inbegrip van `WindowsAzure.MobileServices.Backend.Tables` en `WindowsAzure.MobileServices.Backend.Entity`. In dat geval moet beginnen met het laagste pakket in de structuur van afhankelijkheden, zoals `Entity`, en deze te verwijderen. Wanneer u hierom wordt gevraagd, niet alle afhankelijke pakketten verwijderen. Herhaal dit proces totdat u hebt verwijderd `WindowsAzure.MobileServices.Backend` zelf.
+Mobile Apps biedt een nieuwe [Mobile App Server SDK] waarmee veel van dezelfde functionaliteit als de Mobile Services-runtime. Verwijder eerst alle verwijzingen naar de Mobile Services-pakketten. Zoek in het NuGet-Pakketbeheer `WindowsAzure.MobileServices.Backend`. De meeste apps ziet verschillende pakketten hier, met inbegrip van `WindowsAzure.MobileServices.Backend.Tables` en `WindowsAzure.MobileServices.Backend.Entity`. In dat geval moet beginnen met het laagste pakket in de structuur van afhankelijkheden, zoals `Entity`, en deze te verwijderen. Wanneer u hierom wordt gevraagd, niet alle afhankelijke pakketten verwijderen. Herhaal dit proces totdat u hebt verwijderd `WindowsAzure.MobileServices.Backend` zelf.
 
 Op dit moment hebt u een project dat niet meer wordt verwezen naar Mobile Services SDK's.
 
@@ -165,7 +165,7 @@ Op iOS-, moet u het schema van de belangrijkste gegevens voor uw gegevensentitei
 | id |Tekenreeks, gemarkeerd als vereist |primaire sleutel in de externe opslag |
 | createdAt |Date |(optioneel) is toegewezen aan createdAt systeemeigenschap |
 | updatedAt |Date |(optioneel) is toegewezen aan updatedAt systeemeigenschap |
-| versie |Reeks |(optioneel) gebruikt voor het detecteren van conflicten, toegewezen aan versie |
+| versie |String |(optioneel) gebruikt voor het detecteren van conflicten, toegewezen aan versie |
 
 #### <a name="querying-system-properties"></a>Eigenschappen van het uitvoeren van query 's
 In Azure Mobile Services, Systeemeigenschappen worden niet verzonden standaard, maar alleen wanneer ze worden opgevraagd met behulp van de queryreeks `__systemProperties`. Daarentegen in Azure Mobile Apps-systeem eigenschappen zijn **altijd ingeschakeld** omdat ze deel van de server SDK-objectmodel uitmaken.
@@ -281,7 +281,7 @@ Wanneer u de nieuwe clientversie gereed, probeer het op basis van uw project bij
 
 [Azure Portal]: https://portal.azure.com/
 [Wat zijn mobiele apps?]: app-service-mobile-value-prop.md
-[Mobiele App Server SDK]: https://www.nuget.org/packages/microsoft.azure.mobile.server
+[Mobile App Server SDK]: https://www.nuget.org/packages/microsoft.azure.mobile.server
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /azure/scheduler/
 [Web Job]: https://github.com/Azure/azure-webjobs-sdk/wiki

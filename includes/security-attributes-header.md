@@ -1,15 +1,16 @@
 ---
-author: msmbaldwin
+author: WenJason
 ms.service: security
 ms.topic: include
-ms.date: 04/17/2019
-ms.author: mbaldwin
+origin.date: 03/15/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: cd0ab47a46e452701307986d3fbfc7cdfe040c58
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60461400"
 ---
 Een beveiligingskenmerk is een kwaliteit of functie van een Azure-service die aan van de service-mogelijkheid om te voorkomen bijdraagt, detecteren en reageren op beveiligingsproblemen.
 
