@@ -60,7 +60,7 @@ De volgende tabel bevat beschrijvingen van JSON-elementen die specifiek voor de 
 | -------- | ----------- | -------- |
 | type | De eigenschap type moet worden ingesteld op: **AzureSearch**. | Ja |
 | url | De URL voor de Azure Search-service. | Ja |
-| sleutel | Administrator-code voor de Azure Search-service. | Ja |
+| key | Administrator-code voor de Azure Search-service. | Ja |
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
@@ -100,13 +100,13 @@ De volgende tabel geeft aan of een Azure Search-gegevenstype of niet wordt onder
 
 | Azure Search-gegevenstype | Ondersteund in Azure Search-Sink |
 | ---------------------- | ------------------------------ |
-| Reeks | J |
+| String | J |
 | Int32 | J |
 | Int64 | J |
-| Double-waarde | J |
-| Booleaans | J |
+| Double | J |
+| Boolean | J |
 | DataTimeOffset | J |
-| String-matrix | N |
+| String Array | N |
 | GeographyPoint | N |
 
 ## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>JSON-voorbeeld: Gegevens kopiëren van on-premises SQL Server naar Azure Search-index
