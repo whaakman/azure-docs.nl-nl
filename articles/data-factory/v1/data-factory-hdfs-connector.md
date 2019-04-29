@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4ae5b3b9016af0d35e40d66d527e51230e0f11ce
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486539"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Gegevens verplaatsen van on-premises HDFS met Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,8 +70,8 @@ Een gekoppelde service verbindt een gegevensopslag op een data factory. U maakt 
 | type |De eigenschap type moet worden ingesteld op: **Hdfs** |Ja |
 | URL |URL naar het HDFS |Ja |
 | authenticationType |Anoniem, of Windows. <br><br> Gebruik **Kerberos-verificatie** voor HDFS-connector, raadpleegt u [in deze sectie](#use-kerberos-authentication-for-hdfs-connector) voor het instellen van uw on-premises omgeving dienovereenkomstig. |Ja |
-| Gebruikersnaam |Gebruikersnaam voor Windows-verificatie. Geef voor Kerberos-verificatie, `<username>@<domain>.com`. |Ja (voor Windows-verificatie) |
-| wachtwoord |Wachtwoord voor Windows-verificatie. |Ja (voor Windows-verificatie) |
+| userName |Gebruikersnaam voor Windows-verificatie. Geef voor Kerberos-verificatie, `<username>@<domain>.com`. |Ja (voor Windows-verificatie) |
+| password |Wachtwoord voor Windows-verificatie. |Ja (voor Windows-verificatie) |
 | gatewayName |De naam van de gateway die de Data Factory-service gebruiken moet voor verbinding met het HDFS. |Ja |
 | encryptedCredential |[New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) output of the access credential. |Nee |
 
