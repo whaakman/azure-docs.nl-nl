@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: d3af6484a2c62a0ffa0a21e2df277ef3255ada84
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: cf7216d5634adf42c2e3435b122dcff58446821a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160855"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60625309"
 ---
 # <a name="build-your-landing-page"></a>Bouw uw startpagina
 
@@ -43,7 +43,7 @@ De consistente bent u in uw berichtgeving en in de aanroep van actie, des te mak
 
 Wanneer u een campagne plan klaar hebt, maakt u uw startpagina in de Marketplace. De volgende tabel beschrijft de manieren waarop u de effectiviteit van uw startpagina kunt maximaliseren: 
 
-| Best practices | Voorkomen |
+| Best practice | Avoid |
 |:--- |:--- |
 | **Wat is het probleem klant uw oplossing is opgelost en hoe u Azure gebruiken om te realiseren communiceren** | Geen communicatie van de manieren waarop uw oplossing met Azure werkt. |
 | **Een korte, gemakkelijk te onthouden URL maken** | Met behulp van lange URL's. Lange URL's zijn niet gemakkelijk te onthouden en moeilijk te vinden. |

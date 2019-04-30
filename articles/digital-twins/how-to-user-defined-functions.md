@@ -10,11 +10,11 @@ ms.date: 01/02/2019
 ms.author: alinast
 ms.custom: seodec18
 ms.openlocfilehash: 7208f96d99127247b51510e0c43c1733bb327dfb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076243"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60921841"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Over het maken van de gebruiker gedefinieerde functies in Azure, digitale dubbels
 
@@ -67,7 +67,7 @@ Met JSON-hoofdtekst:
 }
 ```
 
-| Waarde | Vervangen door |
+| Value | Vervangen door |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | De serverregio waarin het exemplaar wordt gehost |
 
@@ -107,7 +107,7 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Waarde | Vervangen door |
+| Value | Vervangen door |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | De naam van een meerdelige inhoud grens |
 | YOUR_SPACE_IDENTIFIER | De ruimte-id  |
@@ -212,7 +212,7 @@ Een roltoewijzing voor de gebruiker gedefinieerde functie om uit te voeren onder
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | Waarde | Vervangen door |
+    | Value | Vervangen door |
     | --- | --- |
     | YOUR_SPACE_NAME | De naam van de ruimte die u wilt gebruiken |
 
@@ -232,7 +232,7 @@ Een roltoewijzing voor de gebruiker gedefinieerde functie om uit te voeren onder
     }
     ```
 
-    | Waarde | Vervangen door |
+    | Value | Vervangen door |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | De id voor de gewenste rol |
     | YOUR_USER_DEFINED_FUNCTION_ID | De ID voor de gebruiker gedefinieerde functie die u wilt gebruiken |

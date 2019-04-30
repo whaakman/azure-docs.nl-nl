@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: douglasl
 ms.openlocfilehash: 634e1b097f2ca16a8c52da02445b3f5f2af7ff3d
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744782"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60708818"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Transparent Data Encryption (TDE) inschakelen voor Stretch Database in Azure (Transact-SQL)
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "53744782"
 
 Transparante gegevensversleuteling (TDE) helpt te beschermen tegen de dreiging van schadelijke activiteiten door het uitvoeren van real-time versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogboekbestanden in rust zonder wijzigingen aan de toepassing.
 
-De opslag van een volledige database versleutelt TDE met behulp van een symmetrische sleutel met de naam de databaseversleutelingssleutel. De versleutelingssleutel van de database wordt beveiligd door een ingebouwde servercertificaat. Het certificaat van de ingebouwde is uniek voor elke Azure-server. Microsoft draait automatisch deze certificaten ten minste elke 90 dagen. Zie voor een algemene beschrijving van TDE [transparante gegevensversleuteling (TDE)].
+De opslag van een volledige database versleutelt TDE met behulp van een symmetrische sleutel met de naam de databaseversleutelingssleutel. De versleutelingssleutel van de database wordt beveiligd door een ingebouwde servercertificaat. Het certificaat van de ingebouwde is uniek voor elke Azure-server. Microsoft draait automatisch deze certificaten ten minste elke 90 dagen. Zie voor een algemene beschrijving van TDE [TDE (Transparent Data Encryption)].
 
 ## <a name="enabling-encryption"></a>Versleuteling is ingeschakeld
 Als u wilt TDE inschakelen voor een Azure-database die de gegevens opslaat gemigreerd van een Stretch-functionaliteit van SQL Server-database, het volgende doen:
@@ -67,7 +67,7 @@ FROM
 Een resultaat van ```1``` geeft aan dat een versleutelde database ```0``` geeft aan dat een niet-versleutelde database.
 
 <!--Anchors-->
-[Transparante gegevensversleuteling (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[TDE (Transparent Data Encryption)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->

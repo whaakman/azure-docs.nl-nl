@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
 ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59494166"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61033897"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Beleid voor service-eindpunten voor virtuele netwerken (preview)
 
@@ -190,6 +190,6 @@ Voor beleid voor service-eindpunten gelden de volgende limieten:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Lees [hoe u beleid voor service-eindpunten configureert voor virtuele netwerken](virtual-network-service-endpoint-policies-portal.md)
+- Lees [hoe u beleid voor service-eindpunten voor virtuele netwerken configureert](virtual-network-service-endpoint-policies-portal.md)
 - Meer informatie over [Service-eindpunten voor virtuele netwerken](virtual-network-service-endpoints-overview.md)
 

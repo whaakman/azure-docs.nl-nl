@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 01/14/2019
-ms.author: cshoe
+origin.date: 01/14/2019
+ms.date: 03/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 4ccfe192eaea94cb9b199bd3c6f0bdacf1685519
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437715"
 ---
 # <a name="using-the-azure-function-return-value"></a>Met behulp van de geretourneerde waarde van de Azure-functie
 
@@ -23,8 +24,8 @@ Dit artikel wordt uitgelegd hoe return werk waarden binnen een functie.
 
 In de talen waarvoor de geretourneerde waarde, kunt u een functie binden [Uitvoerbinding](./functions-triggers-bindings.md#binding-direction) op de geretourneerde waarde:
 
-* In een C#-klassenbibliotheek vormt, het kenmerk van de binding uitvoer van toepassing op de geretourneerde waarde van de methode.
-* In andere talen, stelt u de `name` eigenschap in *function.json* naar `$return`.
+- In een C#-klassenbibliotheek vormt, het kenmerk van de binding uitvoer van toepassing op de geretourneerde waarde van de methode.
+- In andere talen, stelt u de `name` eigenschap in *function.json* naar `$return`.
 
 Als er meerdere uitvoerbindingen, gebruikt u de geretourneerde waarde voor slechts één provider.
 
@@ -32,11 +33,11 @@ In C# en C#-script, andere manieren om gegevens te verzenden naar een Uitvoerbin
 
 Zie het gebruik van de geretourneerde waarde van taalspecifieke-voorbeeld:
 
-* [C#](#c-example)
-* [C# script (.csx)](#c-script-example)
-* [F#](#f-example)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
+- [C#](#c-example)
+- [C# script (.csx)](#c-script-example)
+- [F#](#f-example)
+- [JavaScript](#javascript-example)
+- [Python](#python-example)
 
 ## <a name="c-example"></a>C#-voorbeeld
 
@@ -169,3 +170,4 @@ def main(input: azure.functions.InputStream) -> str:
 
 > [!div class="nextstepaction"]
 > [Azure Functions-binding fouten afhandelen](./functions-bindings-errors.md)
+

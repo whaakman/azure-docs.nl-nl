@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
-ms.openlocfilehash: 11fbec81e88eec6c7daa9136eb5421387b79d71c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60998814"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>B2B-fouten en oplossingen voor Azure Logic Apps
 
@@ -145,7 +145,7 @@ Bijvoorbeeld:
 
 |   |   | 
 |---|---|
-| Foutbeschrijving | InvalidTemplate. Kan de sjabloontaalexpressies proces in actie-invoer voor 'Flat_File_Decoding' op de regel '1' en '1902' kolom: ' vereiste eigenschap 'inhoud' wordt verwacht dat een waarde, maar is null. Pad '.'. |
+| Foutbeschrijving | InvalidTemplate. Kan niet worden verwerkt sjabloontaalexpressies in de actie 'Flat_File_Decoding' invoer op de regel '1' en in de kolom '1902': De vereiste eigenschap 'inhoud' wordt verwacht dat een waarde, maar is null. Path ''.'. |
 | Actie van de gebruiker | Deze fout geeft aan dat het invoerbericht een instantie niet bevat. |
 |   |   | 
 

@@ -4,15 +4,16 @@ description: Dit artikel bevat een overzicht van de Azure Application Gateway-on
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 1/17/2019
-ms.author: amsriva
+origin.date: 01/17/2019
+ms.date: 04/16/2019
+ms.author: v-junlch
 ms.topic: conceptual
 ms.openlocfilehash: 335545f86c9c23feefb6ac21ca9cc5c8fcb5e7fb
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790609"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60715839"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Meerdere sites in Application Gateway hosten
 
@@ -124,3 +125,5 @@ Er is geen wijziging vereist in de routeringsregel. De routeringsregel Basic moe
 
 Nadat u meer hebt geleerd over het hosten van meerdere sites, gaat u naar [Een toepassingsgateway maken met het hosten van meerdere sites](tutorial-multiple-sites-powershell.md) om een toepassingsgateway te maken met de mogelijkheid om meer dan één webtoepassing te ondersteunen.
 
+
+<!-- Update_Description: update metedata properties -->

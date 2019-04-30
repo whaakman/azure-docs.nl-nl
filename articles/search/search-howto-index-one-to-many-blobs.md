@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seofeb2018
 ms.openlocfilehash: e95eff015340659b642dff800a03f615e22c1577
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57220569"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871196"
 ---
 # <a name="indexing-blobs-producing-multiple-search-documents"></a>Indexeren van blobs produceren van documenten met meerdere zoeken
 Standaard wordt een blob-indexeerfunctie de inhoud van een blob behandelen als een document met één zoekopdracht doorzoeken. Bepaalde **parsingMode** waarden ondersteuning van scenario's waarbij een afzonderlijke blob in meerdere documenten met zoeken resulteren kan. De verschillende typen **parsingMode** waarmee een indexeerfunctie om op te halen van meer dan één zoekopdracht documenten van een blob zijn:
@@ -64,7 +64,7 @@ Wanneer u een indexeerfunctie maken en stel de **parsingMode** naar `jsonLines` 
 
 Deze configuratie leidt tot de Azure Search-index met de volgende informatie (base64-gecodeerde id verkort voor beknoptheid)
 
-| id | temperatuur | pressure | tijdstempel |
+| id | temperatuur | pressure | timestamp |
 |----|-------------|----------|-----------|
 | aHR0... YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0... YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |

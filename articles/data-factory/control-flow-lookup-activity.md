@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60768657"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Lookup-activiteit in Azure Data Factory
 
@@ -53,14 +53,15 @@ De volgende gegevensbronnen worden ondersteund voor een Lookup-activiteit. Het g
 ```
 
 ## <a name="type-properties"></a>Type-eigenschappen
+
 Name | Description | Type | Vereist?
 ---- | ----------- | ---- | --------
 Gegevensset | Bevat de gegevensset-referentie voor de zoekopdracht. Informatie van de **gegevensseteigenschappen** sectie in elke betreffende connector-artikel. | Sleutel/waarde-paar | Ja
 source | Bevat de eigenschappen van gegevensset-specifieke gegevensbron, gelijk zijn aan de Kopieeractiviteit-bron. Informatie van de **Kopieeractiviteit eigenschappen** sectie in elke betreffende connector-artikel. | Sleutel/waarde-paar | Ja
-firstRowOnly | Hiermee wordt aangegeven of alleen de eerste rij of alle rijen retourneren. | Booleaans | Nee. De standaardwaarde is `true`.
+firstRowOnly | Hiermee wordt aangegeven of alleen de eerste rij of alle rijen retourneren. | Boolean | Nee. De standaardwaarde is `true`.
 
 > [!NOTE]
-
+> 
 > * Kolommen met de gegevensbron **ByteArray** type worden niet ondersteund.
 > * **Structuur** in definities van de gegevensset wordt niet ondersteund. Gebruik voor tekstindeling bestanden, de rij met koppen de kolomnaam te geven.
 > * Als de lookup-bron een JSON-bestand is, de `jsonPathDefinition` instellen voor het omzetten van het JSON-object wordt niet ondersteund. De volledige objecten opgehaald.
@@ -267,7 +268,7 @@ Dit exemplaar van Azure SQL Database bevat de gegevens moeten worden gekopieerd 
 }
 ```
 
-### <a name="sourcetablejson"></a>SourceTable.JSON
+### <a name="sourcetablejson"></a>sourcetable.json
 
 #### <a name="set-of-objects"></a>Set van objecten
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
 ms.openlocfilehash: cb32069de295b883cdc6d3a9fa495b1bea719c39
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691766"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnose-uitzonderingen in uw web-apps met Application Insights
 Uitzonderingen in uw live web-app worden gerapporteerd door [Application Insights](../../azure-monitor/app/app-insights-overview.md). U kunt mislukte aanvragen correleren met uitzonderingen en andere gebeurtenissen op de client en de server, zodat u kunt snel onderzoek de oorzaken.
@@ -298,7 +298,7 @@ Niet-verwerkte uitzonderingen die afkomstig zijn van domeincontrollers doorgaans
 ### <a name="prior-versions-support"></a>Ondersteuning voor oudere versies
 Als u WebAPI-1 (en vóór de) van Application Insights Web SDK 2.5 (en de voorafgaande) gebruikt, raadpleegt u de volgende voorbeelden voor het bijhouden van uitzonderingen.
 
-#### <a name="web-api-1x"></a>Web-API 1.x
+#### <a name="web-api-1x"></a>Web API 1.x
 Override System.Web.Http.Filters.ExceptionFilterAttribute:
 
 ```csharp
@@ -348,7 +348,7 @@ U kan dit overschreven kenmerk toevoegen aan specifieke domeincontrollers of toe
 
 [Voorbeeld](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-#### <a name="web-api-2x"></a>Web-API 2.x
+#### <a name="web-api-2x"></a>Web API 2.x
 Voeg een implementatie van IExceptionLogger toe:
 
 ```csharp

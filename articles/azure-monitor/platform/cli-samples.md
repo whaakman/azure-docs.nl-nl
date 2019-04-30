@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
-ms.subservice: ''
+ms.component: ''
 ms.openlocfilehash: fa3293346fee6f6666db01dab5587dd760df84b2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471003"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60740880"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>Voorbeelden om snel aan de slag met Azure Monitor CLI
 Dit artikel laat u voorbeelden opdrachtregelinterface (CLI)-opdrachten kunt u toegang tot de functies van Azure Monitor. Azure Monitor kunt u om de Cloudservices voor automatisch schalen, virtuele Machines en Web-Apps te verzenden van meldingen van waarschuwingen of aanroepen van web-URL's op basis van waarden van de geconfigureerde telemetrische gegevens.
@@ -208,4 +208,3 @@ az monitor autoscale create --name <settings name> --resource-group <group name>
     --count <# instances> \
     --resource <target resource ID>
 ```
-

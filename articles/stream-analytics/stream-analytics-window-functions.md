@@ -2,19 +2,19 @@
 title: Inleiding tot Azure Stream Analytics windowing functies
 description: Dit artikel wordt beschreven vier windowing functies (tumbling, Hopping plaatsvindt, schuiven, sessie) die worden gebruikt in Azure Stream Analytics-taken.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
-manager: kfile
+author: lingliw
+ms.author: v-lingwu
+manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 01/21/19
 ms.openlocfilehash: 04c19e7e51777db4c59bfab3d5a8a7598560556a
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231645"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844723"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Inleiding tot Stream Analytics windowing functies
 In scenario's voor het streamen van tijd is uitvoeren van bewerkingen op de gegevens die zijn opgenomen in windows temporal een algemeen patroon. Stream Analytics biedt ingebouwde ondersteuning voor windowing functies, zodat ontwikkelaars kunnen de auteur van complexe verwerking taken met een minimale inspanning.
@@ -51,7 +51,6 @@ Als gebeurtenissen binnen de opgegeven time-out plaatsvinden blijven, wordt het 
 
 Wanneer een partitiesleutel is opgegeven, wordt de gebeurtenissen zijn gegroepeerd door de sleutel en sessievenster wordt onafhankelijk toegepast op elke groep. Deze partitioneren is handig in situaties waar u andere sessie windows nodig hebt voor verschillende gebruikers of apparaten.
 
-
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
@@ -59,3 +58,4 @@ Wanneer een partitiesleutel is opgegeven, wordt de gebeurtenissen zijn gegroepee
 * [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
+<!--Update_Description: update meta properties -->

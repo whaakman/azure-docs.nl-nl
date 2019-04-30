@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.openlocfilehash: 84c578fdbcfb555bde23d6a9e6f8258259cff8de
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59497097"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61034987"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -149,7 +149,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` ondersteunt de volgende opties, die versie 2.x alleen-lezen, tenzij anders wordt vermeld:
 
-| Optie     | Beschrijving                            |
+| Optie     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | Initialiseert een C#-script (.csx)-project. U moet opgeven `--csx` in de volgende opdrachten. |
 | **`--docker`** | Maken van een docker-bestand voor een container met behulp van een basisinstallatiekopie die is gebaseerd op de gekozen `--worker-runtime`. Gebruik deze optie als u van plan bent om te publiceren naar een aangepaste Linux-container. |
@@ -469,7 +469,7 @@ func deploy
 
 De volgende aangepaste container implementatie-opties zijn beschikbaar:
 
-| Optie     | Beschrijving                            |
+| Optie     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | De naam van een Docker-register van de huidige gebruiker aangemeld. |
 | **`--platform`** | Host-platform voor de functie-app. Geldige opties zijn `kubernetes` |

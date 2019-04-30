@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 4282c9e9b660476992ba6f948bc5e408e9b064a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 33e738f31be493d5890fc972ec71e7c6cd733bf4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968608"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736444"
 ---
 # <a name="http2-support-in-azure-front-door-service"></a>HTTP/2-ondersteuning in Azure voordeur Service
 HTTP/2 is een belangrijke revisie voor HTTP/1.1. Het biedt sneller webprestaties, verminderde reactietijd, en verbeterde gebruikerservaring, behoud van de vertrouwde HTTP-methoden, -statuscodes en semantiek. Hoewel HTTP/2 is ontworpen voor gebruik met HTTP en HTTPS, ondersteunen veel client webbrowsers alleen HTTP/2 via Transport Layer Security (TLS).
@@ -60,5 +60,5 @@ Voor meer informatie over HTTP/2, gaat u naar de volgende bronnen:
 
 - [Startpagina voor HTTP/2-specificatie](https://http2.github.io/)
 - [Officiële HTTP/2 Veelgestelde vragen](https://http2.github.io/faq/)
-- Meer informatie over het [maken van een voordeur](quickstart-create-front-door.md).
-- Informatie over [de werking van de voordeur](front-door-routing-architecture.md).
+- Lees hoe u [een Front Door maakt](quickstart-create-front-door.md).
+- Lees [hoe Front Door werkt](front-door-routing-architecture.md).

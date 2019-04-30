@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789648"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60906473"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Problemen met endpoint protection met Azure Security Center beheren
 Azure Security Center bewaakt de status van bescherming tegen malware en rapporteert deze op de blade problemen van Endpoint protection. Security Center worden de kwesties, zoals de gedetecteerde bedreigingen en onvoldoende beveiliging, waardoor uw virtuele machines (VM's) en de computers kwetsbaar voor antimalwarebedreigingen gemarkeerd. Met behulp van de gegevens in onder **problemen met Endpoint protection**, kunt u een plan om alle vastgestelde problemen identificeren.

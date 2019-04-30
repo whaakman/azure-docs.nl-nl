@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648843"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60918989"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Weergeven en downloaden van uw Azure-gebruik en kosten
 
@@ -77,9 +77,9 @@ Als u een KLANTOVEREENKOMST van Microsoft hebt, kunt u uw Azure-gebruik en koste
 ### <a name="download-usage-for-billed-charges"></a>Gebruiksgegevens voor gefactureerde kosten voor downloaden
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zoeken op **kosten Management en facturering**.
+2. Zoek naar **kostenbeheer en facturering**.
 3. Selecteer een profiel voor facturering. Afhankelijk van uw toegang moet u mogelijk eerst een factureringsaccount selecteren.
-4. Selecteer **facturen**.
+4. Selecteer **Facturen**.
 5. In het raster factuur vindt u de rij van de factuur overeenkomt met het gebruik dat u wilt downloaden.
 6. Klik op het weglatingsteken (`...`) aan het einde van de rij.
 
@@ -94,7 +94,7 @@ Als u een KLANTOVEREENKOMST van Microsoft hebt, kunt u uw Azure-gebruik en koste
 U kunt ook gebruik van de maand tot heden downloaden voor de huidige factureringsperiode. Deze kosten voor het gebruik dat nog niet is gefactureerd.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zoeken op **kosten Management en facturering**.
+2. Zoek naar **kostenbeheer en facturering**.
 3. Selecteer een profiel voor facturering. Afhankelijk van uw toegang moet u mogelijk eerst een factureringsaccount selecteren.
 4. In de **overzicht** blade zoeken naar de downloadkoppelingen onder de kosten maand tot heden.
 5. Selecteer **kosten en het gebruik van Azure**.

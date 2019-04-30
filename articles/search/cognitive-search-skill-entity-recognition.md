@@ -12,11 +12,11 @@ ms.date: 02/27/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 2a245a6e3d76a7df41b5ef28f9bac8a2c2122402
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985415"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61127050"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Entiteit herkenning van cognitieve vaardigheden
 
@@ -49,7 +49,7 @@ Dit zijn de entiteiten die goed bekend zijn, maar niet zijn geclassificeerd als 
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
 
-| Voer een naam in      | Description                   |
+| Naam invoeren      | Description                   |
 |---------------|-------------------------------|
 | languageCode  | Optioneel. De standaardwaarde is `"en"`.  |
 | tekst          | De tekst die moet worden geanalyseerd.          |

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: 76be814e0dd4c054fc3a873716dbfe395eeeb2dc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660388"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837778"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Het opstartscript van een service uitvoeren als lokale gebruiker of systeemaccount
 Voordat een uitvoerbaar bestand Service Fabric-service wordt gestart is het mogelijk nodig is om uit te voeren werk configuratie of configuratie nodig.  Bijvoorbeeld: configureren van omgevingsvariabelen. U kunt opgeven dat een script uit te voeren voordat de uitvoerbare-service wordt gestart in het servicemanifest voor de service. Het uitvoerbare installatieprogramma uitgevoerd door het configureren van een RunAs-beleid voor het service-instelling toegangspunt dat u kunt wijzigen welk account onder.  Het beginpunt van een afzonderlijke installatie kunt u verhoogde configuratie voor een korte periode, zodat de ServiceHost uitvoerbare niet wilt uitvoeren met hoge bevoegdheden voor langere tijd worden uitgevoerd.

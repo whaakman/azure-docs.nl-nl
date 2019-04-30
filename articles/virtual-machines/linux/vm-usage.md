@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
 ms.openlocfilehash: d3e6d3c534a9295b76043dc8a6e01b9c1bb1496e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448523"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743204"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Inzicht in het gebruik van de virtuele machine van Azure
 Uw gebruik van Azure door gegevens te analyseren, krachtige verbruik inzichten kunnen worden verkregen – inzichten die mogelijk kosten beter beheer en de toewijzing binnen uw organisatie. Dit document bevat een dieper ingaan op de details van uw Azure Compute-gebruik. Voor meer informatie over algemene Azure-gebruik, gaat u naar [informatie over uw factuur](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).

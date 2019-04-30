@@ -10,11 +10,11 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579492"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60904916"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Data-driven Style Expressions (Web SDK)
 
@@ -41,7 +41,7 @@ Expressies worden weergegeven als JSON-matrices. Het eerste element van een expr
 
 Azure Maps Web SDK ondersteunt veel typen expressies die kunnen worden gebruikt op hun eigen of in combinatie met andere expressies.
 
-| Type van expressies | Beschrijving |
+| Type van expressies | Description |
 |---------------------|-------------|
 | [Booleaanse expressies](#boolean-expressions) | Booleaanse expressies bevatten een set met Booleaanse operators expressies voor het evalueren van Booleaanse vergelijkingen. |
 | [Kleur-expressies](#color-expressions) | Kleur expressies wordt het eenvoudiger maken en manipuleren van kleurwaarden. |
@@ -83,11 +83,11 @@ Gegevensexpressies bieden toegang tot de gegevens van de eigenschap een functie.
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Een item wordt opgehaald uit een matrix. |
 | `['geometry-type']` | string | Hiermee wordt opgehaald van de functie geometrie-type: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
-| `['get', string]` | waarde | Hiermee haalt u de waarde van eigenschap van eigenschappen van de huidige functie. Retourneert null als de aangevraagde eigenschap ontbreekt. |
-| `['get', string, object]` | waarde | Hiermee haalt u de waarde van eigenschap van de eigenschappen van het opgegeven object. Retourneert null als de aangevraagde eigenschap ontbreekt. |
+| `['get', string]` | value | Hiermee haalt u de waarde van eigenschap van eigenschappen van de huidige functie. Retourneert null als de aangevraagde eigenschap ontbreekt. |
+| `['get', string, object]` | value | Hiermee haalt u de waarde van eigenschap van de eigenschappen van het opgegeven object. Retourneert null als de aangevraagde eigenschap ontbreekt. |
 | `['has', string]` | booleaans | Hiermee bepaalt u als de eigenschappen van een functie voor de opgegeven eigenschap. |
 | `['has', string, object]` | booleaans | Hiermee bepaalt u als de eigenschappen van het object dat de opgegeven eigenschap. |
-| `['id']` | waarde | Hiermee haalt u de ID van de functie als er een. |
+| `['id']` | value | Hiermee haalt u de ID van de functie als er een. |
 | `['length', string | array]` | getal | Hiermee haalt u de lengte van een tekenreeks of een matrix. |
 
 **Voorbeelden**
@@ -137,7 +137,7 @@ Op dezelfde manier worden de omtrek van veelhoeken weergegeven in de lagen van d
 
 Wiskundige expressies bevatten rekenkundige operatoren voor het uitvoeren van gegevensgestuurde berekeningen in het kader van de expressie.
 
-| Expressie | Retourtype | Beschrijving |
+| Expressie | Retourtype | Description |
 |------------|-------------|-------------|
 | `['+', number, number, …]` | getal | Berekent de som van de opgegeven getallen. |
 | `['-', number]` | getal | Trekt 0 door het opgegeven getal. |
@@ -171,7 +171,7 @@ Booleaanse expressies bevatten een set met Booleaanse operators expressies voor 
 
 Bij het vergelijken van waarden, wordt de vergelijking strikt hebt getypt. Waarden van verschillende typen worden altijd als ongelijk beschouwd. Gevallen waar de typen bekend is dat deze verschillende tijdens het parseren ongeldig worden beschouwd en treedt er een parseringsfout. 
 
-| Expressie | Retourtype | Beschrijving |
+| Expressie | Retourtype | Description |
 |------------|-------------|-------------|
 | `['! ', boolean]` | booleaans | Logische negatie. Retourneert `true` als de invoer `false`, en `false` als de invoer `true`. |
 | `['!= ', value, value]` | booleaans | Retourneert `true` als de ingevoerde waarden niet gelijk aan, `false` anders. |
@@ -369,7 +369,7 @@ Type expressies over hulpprogramma's voor het testen en te converteren van versc
 
 Kleur expressies wordt het eenvoudiger maken en manipuleren van kleurwaarden.
 
-| Expressie | Retourtype | Beschrijving |
+| Expressie | Retourtype | Description |
 |------------|-------------|-------------|
 | `['rgb', number, number, number]` | color | Hiermee maakt u een kleurwaarde van *rode*, *groen*, en *blauwe* onderdelen die tussen liggen moeten `0` en `255`, en een alpha-component van `1`. Als een onderdeel buiten het bereik is, is de expressie een fout. |
 | `['rgba', number, number, number, number]` | color | Hiermee maakt u een kleurwaarde van *rode*, *groen*, *blauw* onderdelen die tussen liggen moeten `0` en `255`, en binnen een bereik van een alpha-component `0` en `1`. Als een onderdeel buiten het bereik is, is de expressie een fout. |
@@ -397,7 +397,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Expressies voor verbindingsreeksen operator uitvoeren conversiebewerkingen op tekenreeksen, zoals samenvoegen en omzetten van de aanvraag. 
 
-| Expressie | Retourtype | Beschrijving |
+| Expressie | Retourtype | Description |
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | string | Meerdere tekenreeksen samen worden samengevoegd. Elke waarde moet een tekenreeks zijn. Gebruik de `to-string` expressie andere waardetypen converteren naar tekenreeks, indien nodig. |
 | `['downcase', string]` | string | De opgegeven tekenreeks converteren naar kleine letters. |

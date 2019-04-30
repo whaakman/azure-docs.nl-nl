@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: d12c5097d4ba5e0ccfe0e2b2cbc8ccd758c32d98
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051286"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865006"
 ---
 # <a name="testability-scenarios"></a>Testbaarheidsscenario 's
 Grote gedistribueerde systemen cloudinfrastructuren zijn inherent onbetrouwbaar. Azure Service Fabric biedt ontwikkelaars de mogelijkheid om services om uit te voeren op onbetrouwbare infrastructuur te ontwikkelen. Ontwikkelaars moeten om te kunnen schrijven hoogwaardige services, om een dergelijke onbetrouwbare infrastructuur voor het testen van de stabiliteit van de services te kunnen.
@@ -49,11 +49,11 @@ Bijvoorbeeld, kunt u overwegen een test ingesteld op gedurende één uur worden 
 In de huidige vorm induceert de engine voor het genereren van fouttolerantie in de chaos-test alleen veilige fouten. Dit betekent dat in de afwezigheid van externe fouten kunnen een quorum of gegevensverlies wordt nooit uitgevoerd.
 
 ### <a name="important-configuration-options"></a>Belangrijke configuratie-opties
-* **TimeToRun**: totale tijd dat de test wordt uitgevoerd voordat u met succes is voltooid. De test kan eerder voltooid in plaats van een mislukte validatie.
-* **MaxClusterStabilizationTimeout**: maximumhoeveelheid tijd moet worden gewacht op het cluster op in orde worden voordat de test mislukt. Controles zijn of de clusterstatus van de OK is, de servicestatus van de is OK, de grootte van de doel-replica is bereikt voor de servicepartitie en geen InBuild-replica's bestaan.
-* **MaxConcurrentFaults**: maximumaantal gelijktijdige fouten die in elke iteratie. Hoe hoger het getal, de agressiever de test, dus dit resulteert in meer complexe failovers en overgang combinaties. De test wordt gegarandeerd dat op de afwezigheid van externe fouten niet een quorum of gegevensverlies worden, ongeacht hoe hoog deze configuratie is.
-* **EnableMoveReplicaFaults**: Hiermee schakelt u de fouten die worden veroorzaakt door het verplaatsen van de primaire of secundaire replica's of uit. Deze fouten zijn standaard uitgeschakeld.
-* **WaitTimeBetweenIterations**: hoeveelheid tijd die moet worden gewacht tussen pogingen, dat wil zeggen na een ronde van fouten en de bijbehorende validatie.
+* **TimeToRun**: Totale tijd dat de test wordt uitgevoerd voordat u met succes is voltooid. De test kan eerder voltooid in plaats van een mislukte validatie.
+* **MaxClusterStabilizationTimeout**: Maximale hoeveelheid tijd moet worden gewacht op het cluster op in orde worden voordat de test mislukt. Controles zijn of de clusterstatus van de OK is, de servicestatus van de is OK, de grootte van de doel-replica is bereikt voor de servicepartitie en geen InBuild-replica's bestaan.
+* **MaxConcurrentFaults**: Maximum aantal gelijktijdige fouten die in elke iteratie. Hoe hoger het getal, de agressiever de test, dus dit resulteert in meer complexe failovers en overgang combinaties. De test wordt gegarandeerd dat op de afwezigheid van externe fouten niet een quorum of gegevensverlies worden, ongeacht hoe hoog deze configuratie is.
+* **EnableMoveReplicaFaults**: Hiermee schakelt de fouten die worden veroorzaakt door het verplaatsen van de primaire of secundaire replica's of. Deze fouten zijn standaard uitgeschakeld.
+* **WaitTimeBetweenIterations**: Hoeveelheid tijd moet worden gewacht tussen pogingen, dat wil zeggen na een ronde van fouten en de bijbehorende validatie.
 
 ### <a name="how-to-run-the-chaos-test"></a>Het uitvoeren van de chaos-test
 C#-voorbeeld
@@ -160,10 +160,10 @@ Het scenario voor het testen van failover is een versie van het scenario voor he
 De failovertest induceert een fout is gekozen en voert vervolgens de validatie van de service om te controleren of de stabiliteit. De failovertest induceert maar één fout op een tijdstip, in plaats van mogelijk meerdere fouten in de chaos-test. Als de servicepartitie niet binnen de geconfigureerde time-out na elke fout stabiliseren heeft, wordt de test mislukt. De test induceert alleen veilige fouten. Dit betekent dat in de afwezigheid van externe storingen, een quorum of gegevensverlies wordt niet uitgevoerd.
 
 ### <a name="important-configuration-options"></a>Belangrijke configuratie-opties
-* **PartitionSelector**: Selector-object dat Hiermee geeft u de partitie die moet worden toegepast.
-* **TimeToRun**: totale tijd dat de test wordt uitgevoerd voordat u klaar bent.
-* **MaxServiceStabilizationTimeout**: maximumhoeveelheid tijd moet worden gewacht op het cluster op in orde worden voordat de test mislukt. Controles zijn of de servicestatus van de OK is, de grootte van de doel-replica is bereikt voor alle partities en geen InBuild-replica's bestaan.
-* **WaitTimeBetweenFaults**: hoeveelheid tijd die moet worden gewacht tussen elke cyclus domeinen met fouten en validatie.
+* **PartitionSelector**: Kiezer-object dat Hiermee geeft u de partitie die moet worden toegepast.
+* **TimeToRun**: Totale tijd dat de test wordt uitgevoerd voordat u klaar bent.
+* **MaxServiceStabilizationTimeout**: Maximale hoeveelheid tijd moet worden gewacht op het cluster op in orde worden voordat de test mislukt. Controles zijn of de servicestatus van de OK is, de grootte van de doel-replica is bereikt voor alle partities en geen InBuild-replica's bestaan.
+* **WaitTimeBetweenFaults**: Hoeveelheid tijd moet worden gewacht tussen elke cyclus domeinen met fouten en validatie.
 
 ### <a name="how-to-run-the-failover-test"></a>Het uitvoeren van de failovertest
 **C#**

@@ -14,11 +14,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/06/2019
 ms.openlocfilehash: 2682f98628f3c1cf22a2c3767f52bedbc148fa62
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888567"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60723489"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-foutcodes voor SQL Database-clienttoepassingen: Database-verbindingsfouten en andere problemen
 
@@ -30,7 +30,7 @@ De volgende tabel bevat informatie over de SQL-foutcodes voor verlies-verbinding
 
 ### <a name="most-common-database-connection-errors-and-transient-fault-errors"></a>Meest voorkomende database-verbindingsfouten en tijdelijke fouten fouten
 
-De Azure-infrastructuur heeft de mogelijkheid om servers dynamisch opnieuw te configureren wanneer zware werklasten in de service SQL Database optreden.  Dit dynamische gedrag kan ertoe leiden dat uw clientprogramma verliest de verbinding met SQL-Database. Dit type fout heet een *tijdelijke fouten*.
+De Azure-infrastructuur biedt de mogelijkheid om servers dynamisch opnieuw te configureren wanneer zware workloads optreden in de SQL Database-service.  Dit dynamische gedrag kan ervoor zorgen dat uw clientprogramma de verbinding met SQL Database verliest. Dit type fout heet een *tijdelijke fouten*.
 
 Het is raadzaam dat uw clientprogramma logica voor opnieuw proberen heeft, zodat deze kan opnieuw verbinding te maken na waardoor de tijd van de tijdelijke fouten te corrigeren zelf.  Het is raadzaam dat u gedurende vijf seconden voordat u uw eerste opnieuw proberen uitstellen. Opnieuw proberen na een vertraging van minder dan 5 seconden risico's overbelasting van de cloudservice. Voor elke volgende opnieuw proberen de vertraging exponentieel toeneemt, moet vergroten tot maximaal 60 seconden.
 

@@ -3,8 +3,8 @@ title: Azure Service Fabric Docker Compose implementatie-Preview
 description: Azure Service Fabric accepteert Docker Compose-indeling voor het indelen van bestaande containers met behulp van Service Fabric te vereenvoudigen. Deze ondersteuning is momenteel in preview.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
+author: rockboyfor
+manager: digimobile
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
@@ -12,14 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
-ms.author: aljo, subramar
+origin.date: 02/23/2018
+ms.date: 04/29/2019
+ms.author: v-yeche
 ms.openlocfilehash: da86ed9a3e6979bd1dc05aef6ef70c7b8533a8c1
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661391"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60948831"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Ondersteuning voor de implementatie van docker Compose in Azure Service Fabric (Preview)
 
@@ -165,3 +166,5 @@ Hoewel dit model biedt een flexibiliteit, zijn we ook plannen voor de ondersteun
 
 * Lees de [Service Fabric-toepassingsmodel](service-fabric-application-model.md)
 * [Aan de slag met Service Fabric-CLI](service-fabric-cli.md)
+
+<!-- Update_Description: wording update -->

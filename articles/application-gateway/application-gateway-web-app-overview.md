@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: victorh
 ms.openlocfilehash: 8434340bb7ed95cc36115c05048b2b67682b5796
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224495"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831320"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Application Gateway-ondersteuning voor meerdere tenants back-ends zoals appservice
 
@@ -47,7 +47,7 @@ Zowel SSL-beëindiging en end-to-end SSL-versleuteling wordt ondersteund met mul
 
 U ziet dat in de bovenstaande afbeelding, er is geen vereiste certificaten voor serververificatie toevoegen wanneer appservice is geselecteerd als back-end.
 
-### <a name="health-probe"></a>Test
+### <a name="health-probe"></a>Statustest
 
 Het overschrijven van de host-header in de **HTTP-instellingen** alleen van invloed op de aanvraag en de routering. Dit heeft geen invloed op het gedrag van de statustest. Als u wilt dat de end-to-end configuratie werkt, moeten zowel de test als de HTTP-instellingen worden bewerkt op basis van de juiste configuratie. Naast de biedt de mogelijkheid om op te geven van een host-header in de Testconfiguratie, bieden de mogelijkheid worden afgeleid van de host-header van de momenteel geconfigureerde HTTP-instellingen ook ondersteuning voor aangepaste tests. Deze configuratie kan worden opgegeven met behulp van de parameter `PickHostNameFromBackendHttpSettings` in de testconfiguratie.
 

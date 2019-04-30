@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6d1684c4bc0031978fb5e76548a3112b0f1ef2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e293eb555269a1f8beeeccd74000358abe1ef5c8
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441989"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759764"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Zelfstudie: Rapportage over het inrichten van automatische gebruikersaccounts
 
@@ -43,7 +43,7 @@ In dit artikel wordt gebruikgemaakt van de volgende voorwaarden is hieronder ged
 
 * **Bronsysteem** -de opslagplaats van de gebruikers die de Azure AD-inrichtingsservice synchroniseert uit. Azure Active Directory is het bronsysteem voor het merendeel van vooraf geïntegreerde inrichting connectors, maar er zijn enkele uitzonderingen (voorbeeld: WorkDay inkomende synchronisatie).
 
-* **Doelsysteem** -de opslagplaats van de gebruikers die de Azure AD-inrichtingsservice synchroniseert op. Dit is meestal een SaaS-toepassing (voorbeelden: SalesForce, ServiceNow, Google Apps, Dropbox voor bedrijven), maar in sommige gevallen kan een on-premises systeem, zoals Active Directory (voorbeeld: WorkDay inkomende synchronisatie naar Active Directory).
+* **Doelsysteem** -de opslagplaats van de gebruikers die de Azure AD-inrichtingsservice synchroniseert op. Dit is meestal een SaaS-toepassing (voorbeelden: SalesForce, ServiceNow, G Suite, Dropbox voor bedrijven), maar in sommige gevallen kan een on-premises systeem, zoals Active Directory (voorbeeld: WorkDay inkomende synchronisatie naar Active Directory).
 
 
 ## <a name="getting-provisioning-reports-from-the-azure-management-portal"></a>Ophalen van de inrichting van rapporten in de Azure management portal

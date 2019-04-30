@@ -9,11 +9,11 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: f8af19056a343abdbafcd4ead8b072330cb41fd9
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192069"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61438451"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Instellen van een toepassing ontwikkelaars beheerd distributie (ADCD) in de IBM zD & T v1
 

@@ -13,13 +13,13 @@ ms.workload: na
 ms.date: 04/12/2019
 ms.author: banders
 ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011092"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771240"
 ---
-# <a name="prepay-for-azure-software-plans"></a>Betaal vooruit voor Azure-software plannen
+# <a name="prepay-for-azure-software-plans"></a>Vooruitbetalen voor Azure-softwareabonnementen
 
 Wanneer u voor uw gebruik van de software SUSE- en Red Hat in Azure vooruitbetaalt, kunt u geld besparen ten opzichte van uw betalen per gebruik. De kortingen die gelden alleen voor SUSE- en Red Hat meters en niet op het gebruik van de virtuele machine. U kunt de reserveringen voor virtuele machines afzonderlijk voor nog meer ruimtebesparing kopen.
 
@@ -35,7 +35,7 @@ U kunt kopen SUSE- en Red Hat softwareabonnementen in Azure portal. Een abonneme
 2. Klik op **toevoegen** en selecteer vervolgens het plan van de software die u wilt kopen.
 Vul de vereiste velden in. Alle SUSE Linux-VM of RedHat VM die overeenkomt met de kenmerken van wat u koopt krijgen korting. Het werkelijke aantal implementaties die aan de korting is afhankelijk van het bereik en de hoeveelheid die is geselecteerd.
 3. Selecteer een abonnement. Het wordt gebruikt om te betalen voor het abonnement.
-De betalingswijze abonnement, wordt in rekening gebracht de kosten vooraf voor de reservering. Het abonnementstype moet een Enterprise Agreement (getallen bieden: MS-AZR-0017P of MS-AZR - 0148 P) en betalen per gebruik (getallen bieden: MS-AZR-0003P of MS-AZR - 0023 P).
+De betalingswijze abonnement, wordt in rekening gebracht de kosten vooraf voor de reservering. Het abonnementstype moet een Enterprise Agreement (getallen bieden: MS-AZR-0017P of MS-AZR - 0148 P) en betalen per gebruik (getallen bieden: MS-AZR-0003P of MS-AZR-0023P).
     - Voor een Enterprise-abonnement worden de kosten in mindering gebracht op het toezeggingsbedrag of ze worden in rekening gebracht als overschrijding.
     - Voor een betalen per gebruik-abonnement, de kosten worden in rekening gebracht op van het abonnement of creditcard of factuur betalingswijze wordt gebruikt.
 4. Selecteer een bereik. Het bereik kan betrekking hebben op één abonnement of meerdere abonnementen (gedeeld bereik).

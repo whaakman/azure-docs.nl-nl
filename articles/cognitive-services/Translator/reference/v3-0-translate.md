@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: f69fd7af23c360edc208561f915bd351c3fd373c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 593cd83dab6e0cd93cdd1aedac278f4d94a27cc5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336793"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760584"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text-API 3.0: Translate
 
@@ -42,11 +42,11 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
   </tr>
   <tr>
     <td>uit</td>
-    <td><em>Optionele parameter</em>.<br/>Hiermee geeft u de taal van de invoertekst. Welke talen zijn beschikbaar voor de omzetting van door het opzoeken [ondersteunde talen](./v3-0-languages.md) met behulp van de <code>translation</code> bereik. Als de <code>from</code> parameter niet wordt opgegeven, wordt automatische taaldetectie toegepast om te bepalen van de source-taal.</td>
+    <td><em>Optionele parameter</em>.<br/>Hiermee geeft u de taal van de invoertekst. Welke talen zijn beschikbaar voor de omzetting van door het opzoeken <a href="./v3-0-languages.md">ondersteunde talen</a> met behulp van de <code>translation</code> bereik. Als de <code>from</code> parameter niet wordt opgegeven, wordt automatische taaldetectie toegepast om te bepalen van de source-taal.</td>
   </tr>
   <tr>
     <td>tot</td>
-    <td><em>Vereiste parameter</em>.<br/>Hiermee geeft u de taal van de uitvoertekst. De doeltaal moet een van de [ondersteunde talen](./v3-0-languages.md) opgenomen in de <code>translation</code> bereik. Gebruik bijvoorbeeld <code>to=de</code> te vertalen in Duitsland.<br/>Het is mogelijk te vertalen in meerdere talen tegelijkertijd door te herhalen van de parameter in de query-tekenreeks. Gebruik bijvoorbeeld <code>to=de&to=it</code> te vertalen in het Duits en Italiaans.</td>
+    <td><em>Vereiste parameter</em>.<br/>Hiermee geeft u de taal van de uitvoertekst. De doeltaal moet een van de <a href="./v3-0-languages.md">ondersteunde talen</a> opgenomen in de <code>translation</code> bereik. Gebruik bijvoorbeeld <code>to=de</code> te vertalen in Duitsland.<br/>Het is mogelijk te vertalen in meerdere talen tegelijkertijd door te herhalen van de parameter in de query-tekenreeks. Gebruik bijvoorbeeld <code>to=de&to=it</code> te vertalen in het Duits en Italiaans.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -54,15 +54,15 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Optionele parameter</em>.<br/>Een tekenreeks op te geven de categorie (domein) van de vertaling. Deze parameter wordt gebruikt om op te halen van vertalingen van een aangepast systeem die zijn gebouwd met [aangepaste Translator](../customization.md). De categorie-ID van uw aangepaste Translator-project toevoegen aan deze parameter om het gebruik van uw geïmplementeerde aangepaste systeem. Standaardwaarde: <code>general</code>.</td>
+    <td><em>Optionele parameter</em>.<br/>Een tekenreeks op te geven de categorie (domein) van de vertaling. Deze parameter wordt gebruikt om op te halen van vertalingen van een aangepast systeem die zijn gebouwd met <a href="../customization.md">aangepaste Translator</a>. De categorie-ID van uw aangepaste Translator-project toevoegen aan deze parameter om het gebruik van uw geïmplementeerde aangepaste systeem. Standaardwaarde: <code>general</code>.</td>
   </tr>
   <tr>
     <td>ProfanityAction</td>
-    <td><em>Optionele parameter</em>.<br/>Hiermee geeft u op hoe profanities moeten worden behandeld in vertalingen. Mogelijke waarden zijn: <code>NoAction</code> (standaard), <code>Marked</code> of <code>Deleted</code>. Zie voor meer informatie over manieren om te behandelen grof taalgebruik, [grof taalgebruik verwerking](#handle-profanity).</td>
+    <td><em>Optionele parameter</em>.<br/>Hiermee geeft u op hoe profanities moeten worden behandeld in vertalingen. Mogelijke waarden zijn: <code>NoAction</code> (standaard), <code>Marked</code> of <code>Deleted</code>. Zie voor meer informatie over manieren om te behandelen grof taalgebruik, <a href="#handle-profanity">grof taalgebruik verwerking</a>.</td>
   </tr>
   <tr>
     <td>profanityMarker</td>
-    <td><em>Optionele parameter</em>.<br/>Hiermee geeft u op hoe profanities moet worden gemarkeerd met de vertaling. Mogelijke waarden zijn: <code>Asterisk</code> (standaard) of <code>Tag</code>. Zie voor meer informatie over manieren om te behandelen grof taalgebruik, [grof taalgebruik verwerking](#handle-profanity).</td>
+    <td><em>Optionele parameter</em>.<br/>Hiermee geeft u op hoe profanities moet worden gemarkeerd met de vertaling. Mogelijke waarden zijn: <code>Asterisk</code> (standaard) of <code>Tag</code>. Zie voor meer informatie over manieren om te behandelen grof taalgebruik, <a href="#handle-profanity">grof taalgebruik verwerking</a>.</td>
   </tr>
   <tr>
     <td>includeAlignment</td>
@@ -190,7 +190,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
 
 <table width="100%">
   <th width="20%">Statuscode</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>Geslaagd.</td>

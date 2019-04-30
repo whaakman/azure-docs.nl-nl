@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
 ms.openlocfilehash: d50bf7d865cb286f2a1421156b477dc92dc978d1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453600"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60889441"
 ---
-# <a name="work-with-data-using-azure-cosmos-explorer"></a>Werken met gegevens met behulp van Azure Cosmos-explorer 
+# <a name="work-with-data-using-azure-cosmos-explorer"></a>Werken met gegevens in Azure Cosmos Explorer 
 
 Azure Cosmos DB explorer is een zelfstandige webconsole interface waarmee u de gegevens die zijn opgeslagen in Azure Cosmos DB weergeven en beheren. Azure Cosmos DB explorer is gelijk aan de bestaande **Data Explorer** tabblad dat is beschikbaar in Azure portal wanneer u een Azure Cosmos DB-account maakt. De belangrijke voordelen van Azure Cosmos DB explorer ten opzichte van de bestaande Data explorer zijn:
 

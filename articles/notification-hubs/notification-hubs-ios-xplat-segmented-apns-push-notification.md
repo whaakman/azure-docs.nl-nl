@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: dd625dba0e125ccf993af524a0ab0c0cc66555fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60873143"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar specifieke iOS-apparaten met Azure Notification Hubs
 
@@ -242,7 +242,7 @@ De app kan nu een set categorieën opslaan in de lokale opslag van apparaat word
 
 ## <a name="optional-send-tagged-notifications"></a>(optioneel) Met tags meldingen verzenden
 
-Als u geen toegang tot Visual Studio, kunt u direct doorgaan naar de volgende sectie en meldingen verzenden vanuit de app zelf. U kunt ook de juiste sjabloon melding verzenden de [Azure-portal] met behulp van het foutopsporingstabblad voor uw notification hub.
+Als u geen toegang tot Visual Studio, kunt u direct doorgaan naar de volgende sectie en meldingen verzenden vanuit de app zelf. U kunt ook de juiste sjabloon melding verzenden de [Azure Portal] met behulp van het foutopsporingstabblad voor uw notification hub.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -366,4 +366,4 @@ In deze zelfstudie, kunt u meldingen uitgezonden naar specifieke iOS-apparaten d
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

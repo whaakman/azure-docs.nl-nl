@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 370d8160661c1f73124151a3a49d0bb3170dfb77
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276037"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60910870"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Tabblad IoT Edge module-SKU 's
 
@@ -41,7 +41,7 @@ De **SKU's** tabblad wordt vernieuwd en worden de velden die u voor het configur
 
 |  **Veld**       |     **Beschrijving**                                                          |
 |  ---------       |     ---------------                                                          |
-| **SKU-ID**       | De id voor deze SKU. Deze naam is een maximum van 50 tekens, die bestaan uit kleine letters, alfanumerieke tekens en streepjes (-), maar mag niet eindigen met een streepje. **Opmerking:** u deze naam niet wijzigen nadat de aanbieding de gepubliceerd. De naam is zichtbaar voor iedereen in product URL's. |
+| **SKU-ID**       | De id voor deze SKU. Deze naam is een maximum van 50 tekens, die bestaan uit kleine letters, alfanumerieke tekens en streepjes (-), maar mag niet eindigen met een streepje. **Opmerking:** U kunt deze naam niet wijzigen nadat de aanbieding de gepubliceerd. De naam is zichtbaar voor iedereen in product URL's. |
 
 ## <a name="sku-details"></a>SKU-Details
 
@@ -106,10 +106,10 @@ De volgende tabel beschrijft het doel, inhoud en opmaak van de velden voor:
 |  **Veld**       |     **Beschrijving**                                                          |
 |  ---------       |     ---------------                                                          |
 |  ***Details van de installatiekopie van-opslagplaats***   |  |
-| **abonnements-ID**        | De Azure-abonnement-ID van uw ACR.|
+| **Subscription ID**        | De Azure-abonnement-ID van uw ACR.|
 | **De naam van resourcegroep**      | Naam van de resourcegroep van uw ACR.|
 | **Registernaam**  | De naam van uw ACR-register. Alleen kopiëren de registernaam, niet de naam van server (bijvoorbeeld, zonder de `azurecr.io`.) |
-| **Naam van de opslagplaats**  | De naam van de opslagplaats van uw ACR met uw IoT Edge-module. **Opmerking:** nadat de naam is ingesteld, deze later niet meer wijzigen. Gebruik een unieke naam om ervoor te zorgen dat er geen andere aanbieding in uw account dezelfde naam heeft. |
+| **Naam van de opslagplaats**  | De naam van de opslagplaats van uw ACR met uw IoT Edge-module. **Opmerking:** Nadat de naam is ingesteld, kan niet deze later worden gewijzigd. Gebruik een unieke naam om ervoor te zorgen dat er geen andere aanbieding in uw account dezelfde naam heeft. |
 | **Gebruikersnaam** | De gebruikersnaam die is gekoppeld aan uw ACR (admin gebruikersnaam). |
 | **Wachtwoord** | Het wachtwoord dat is gekoppeld aan uw ACR. |
 |  ***De versie van installatiekopie***   |  |

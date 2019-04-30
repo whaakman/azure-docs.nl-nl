@@ -1,15 +1,10 @@
 ---
-author: conceptdev
-ms.service: app-service-mobile
-ms.topic: include
-ms.date: 08/23/2018
-ms.author: crdun
 ms.openlocfilehash: b609a708a987194398c53bdf83f0d6e1f281808d
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62113518"
 ---
 Standaard worden-API's in een back-end van Mobile Apps anoniem aangeroepen. Vervolgens moet u de toegang beperken tot alleen geverifieerde clients.  
 
@@ -20,13 +15,17 @@ Standaard worden-API's in een back-end van Mobile Apps anoniem aangeroepen. Verv
 
     In het serverproject, gaat u naar **Controllers** > **TodoItemController.cs**. Toevoegen de `[Authorize]` kenmerk aan de **TodoItemController** klasse, als volgt. Om toegang te beperken tot specifieke methoden, kunt u dit kenmerk ook van toepassing alleen op deze methoden in plaats van de klasse. Het serverproject publiceren.
 
-        [Authorize]
-        public class TodoItemController : TableController<TodoItem>
+    ```
+    [Authorize]
+    public class TodoItemController : TableController<TodoItem>
+    ```
 
 * **Node.js-back-end (via Node.js-code)** :  
 
     Als u wilt verificatie vereisen voor toegang tot tabellen, voeg de volgende regel aan het Node.js-server-script:
 
-        table.access = 'authenticated';
+    ```
+    table.access = 'authenticated';
+    ```
 
-    Zie voor meer informatie, [hoe: verificatie vereisen voor toegang tot tabellen](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Zie voor informatie over het downloaden van het snelstartproject dat code van uw site, [hoe: downloaden van de Node.js-back-end snelstartgids code van uw project met behulp van Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).
+    Zie voor meer informatie, [het: Verificatie vereisen voor toegang tot tabellen](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Zie voor informatie over het downloaden van het snelstartproject dat code van uw site, [het: De Node.js-back-end snelstartgids code-project hebt gedownload met behulp van Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).

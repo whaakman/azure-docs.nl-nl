@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311525"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824011"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Gegevens verplaatsen van DB2 met behulp van Azure Data Factory Copy-activiteit
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -316,12 +316,12 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | Float |Double |
 | decimaal |Decimal |
 | DecimalFloat |Decimal |
-| Numeriek |Decimal |
+| Numeric |Decimal |
 | Date |DateTime |
 | Time |TimeSpan |
 | Tijdstempel |DateTime |
 | Xml |Byte[] |
-| CHAR |String |
+| char |String |
 | VarChar |String |
 | LongVarChar |String |
 | DB2DynArray |String |
@@ -342,12 +342,12 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | Float |Double |
 | decimaal |Decimal |
 | DecimalFloat |Decimal |
-| Numeriek |Decimal |
+| Numeric |Decimal |
 | Date |DateTime |
 | Time |TimeSpan |
 | Tijdstempel |DateTime |
 | Xml |Byte[] |
-| CHAR |String |
+| char |String |
 
 ## <a name="map-source-to-sink-columns"></a>Kaartbron met sink-kolommen
 Zie voor informatie over het toewijzen van kolommen in de brongegevensset naar kolommen in de sink-gegevensset, [toewijzing van kolommen in Azure Data Factory](data-factory-map-columns.md).

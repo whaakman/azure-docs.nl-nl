@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164637"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122727"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Uw toepassing configureren voor toegang tot Azure Storage
 Er zijn twee manieren om uw toepassing voor toegang tot opslagservices te verifiëren:
 
 * Gedeelde sleutel: Gedeelde sleutel gebruiken alleen voor testdoeleinden
-* Shared Access Signature (SAS): Gebruik SAS voor productie-Apps
+* Shared Access Signature (SAS): SAS gebruiken voor productie-Apps
 
 ### <a name="shared-key"></a>Gedeelde sleutel
 Gedeelde sleutelverificatie betekent dat uw toepassing uw accountnaam en accountsleutel wordt gebruikt voor toegang tot opslagservices. Voor de toepassing van het snel weergeven van het gebruik van deze bibliotheek, gebruiken we gedeelde sleutelverificatie in deze aan de slag.
@@ -49,5 +49,5 @@ Het volgende voorbeeld ziet hoe u kunt de Microsoft Azure Storage Explorer gebru
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-Zoals u zien kunt, wanneer u een SAS, bent u niet uw accountsleutel weergeeft in uw toepassing. U kunt meer informatie over SAS en aanbevolen procedures voor het gebruik van SAS door uit te checken [Shared Access Signatures: inzicht in het SAS-model](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Zoals u zien kunt, wanneer u een SAS, bent u niet uw accountsleutel weergeeft in uw toepassing. U kunt meer informatie over SAS en aanbevolen procedures voor het gebruik van SAS door uit te checken [handtekeningen voor gedeelde toegang: Inzicht in het SAS-model](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.date: 10/15/2017
-ms.openlocfilehash: 994e7945a7107815029bd415f4cc0d45bb68e335
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 62a74364939fffb6e06f51f1c0cabb6cce8c10e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123684"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60999749"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Werkstroom-fouten in Azure Logic Apps vaststellen en oplossen
 
@@ -38,11 +38,11 @@ Elke logische app begint met de trigger. Als de trigger wordt niet gestart, cont
 
    Hier volgen de mogelijke statussen van een trigger poging:
 
-   | Status | Beschrijving | 
+   | Status | Description | 
    | ------ | ----------- | 
-   | **Is voltooid** | De trigger gecontroleerd van het eindpunt en beschikbare gegevens gevonden. Normaal gesproken een 'Fired'-status wordt ook weergegeven naast deze status. Als niet zo is, de definitie van de trigger een voorwaarde wellicht of `SplitOn` opdracht die niet is voldaan. <p>Deze status kunt toepassen op een handmatige trigger, een trigger met terugkeerpatroon of een polling-trigger. Een trigger met succes kunt uitvoeren, maar de uitvoering zelf nog steeds kan mislukken als de acties die niet-opgeloste fouten gegenereerd. | 
+   | **Geslaagd** | De trigger gecontroleerd van het eindpunt en beschikbare gegevens gevonden. Normaal gesproken een 'Fired'-status wordt ook weergegeven naast deze status. Als niet zo is, de definitie van de trigger een voorwaarde wellicht of `SplitOn` opdracht die niet is voldaan. <p>Deze status kunt toepassen op een handmatige trigger, een trigger met terugkeerpatroon of een polling-trigger. Een trigger met succes kunt uitvoeren, maar de uitvoering zelf nog steeds kan mislukken als de acties die niet-opgeloste fouten gegenereerd. | 
    | **Overgeslagen** | De trigger is ingeschakeld voor het eindpunt, maar er zijn geen gegevens gevonden. | 
-   | **Is mislukt** | Er is een fout opgetreden. Als u wilt controleren eventuele gegenereerde foutberichten voor een mislukte trigger, selecteert u die poging trigger en kies **uitvoer**. Bijvoorbeeld, wellicht u invoer die niet geldig. | 
+   | **Mislukt** | Er is een fout opgetreden. Als u wilt controleren eventuele gegenereerde foutberichten voor een mislukte trigger, selecteert u die poging trigger en kies **uitvoer**. Bijvoorbeeld, wellicht u invoer die niet geldig. | 
    ||| 
 
    Mogelijk hebt u meerdere trigger vermeldingen met dezelfde datum en tijd, die wordt uitgevoerd wanneer de logische app vindt meerdere items. 
@@ -79,10 +79,10 @@ Elke geactiveerde trigger start een werkstroom uitvoert. U kunt bekijken wat is 
 
    Hier volgen de mogelijke statussen voor het uitvoeren van:
 
-   | Status | Beschrijving | 
+   | Status | Description | 
    | ------ | ----------- | 
-   | **Is voltooid** | Alle acties is voltooid. <p>Als er fouten opgetreden in een bepaalde actie, verwerkt een volgende actie in de werkstroom die fout. | 
-   | **Is mislukt** | Ten minste één actie is mislukt en er is geen latere acties in de werkstroom zijn ingesteld voor het afhandelen van de fout. | 
+   | **Geslaagd** | Alle acties is voltooid. <p>Als er fouten opgetreden in een bepaalde actie, verwerkt een volgende actie in de werkstroom die fout. | 
+   | **Mislukt** | Ten minste één actie is mislukt en er is geen latere acties in de werkstroom zijn ingesteld voor het afhandelen van de fout. | 
    | **Geannuleerd** | De werkstroom werd uitgevoerd, maar heeft een aanvraag annuleren ontvangen. | 
    | **Wordt uitgevoerd** | De werkstroom wordt momenteel uitgevoerd. <p>Deze status kan optreden voor beperkte werkstromen, hetzij vanwege het huidige prijsschema. Zie voor meer informatie de [actie limieten op de pagina met prijzen](https://azure.microsoft.com/pricing/details/logic-apps/). Als u [Diagnostische logboekregistratie](../logic-apps/logic-apps-monitor-your-logic-apps.md), krijgt u ook informatie over eventuele vertraging gebeurtenissen die plaatsvinden. | 
    ||| 

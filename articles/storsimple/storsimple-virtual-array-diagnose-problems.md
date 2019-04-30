@@ -1,6 +1,6 @@
 ---
-title: Problemen met virtuele StorSimple-matrix | Microsoft Docs
-description: Beschrijft de StorSimple-Apparaatbeheer mogelijkheid diagnosticeren en wordt uitgelegd hoe u het oplossen van problemen met uw virtuele StorSimple-matrix.
+title: StorSimple Virtual Array oplossen | Microsoft Docs
+description: Beschrijving van de StorSimple Device Manager mogelijkheid vaststellen en wordt uitgelegd hoe u het oplossen van uw StorSimple Virtual Array.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: a75e68c84a50977b162ca4d3a4a02936ca78cb6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d222097f9fb99a24f6213584a3419ed777f4a22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23875254"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61408411"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>De service Apparaatbeheer StorSimple gebruiken voor het oplossen van het virtuele StorSimple-matrix
+# <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>De StorSimple Device Manager-service gebruiken voor het oplossen van de StorSimple Virtual Array
 ## <a name="overview"></a>Overzicht
 
-De StorSimple-apparaat Manager biedt een **diagnosticeren en oplossen van problemen** binnen de samenvatting blade service, die worden enkele van de vaak voorkomende problemen die zich kunnen voordoen met uw virtuele matrix en het oplossen van deze instelling. Deze zelfstudie maakt u kennis met eigen beheer voor probleemoplossing gebruiker krijgt de mogelijkheid in de service Manager voor StorSimple-apparaat.
+StorSimple Device Manager biedt een **vaststellen en oplossen van problemen met** instellen in de overzichtsblade service, die worden enkele veel voorkomende problemen die kunnen optreden met uw virtuele matrix en over het oplossen van problemen. In deze zelfstudie wordt de opgegeven in de StorSimple Device Manager-service de selfservice voor het oplossen van problemen mogelijkheid geïntroduceerd.
 
 ![Problemen vaststellen en oplossen](./media/storsimple-virtual-array-diagnose-problems/diagnose-problems-main.png)
 
-## <a name="diagnose-and-solve-issues"></a>Diagnosticeren en oplossen van problemen
+## <a name="diagnose-and-solve-issues"></a>Vaststellen en oplossen van problemen
 
-U kunt een aantal veelvoorkomende problemen met het virtuele StorSimple-matrix bekijken en de oplossingen bekijken om die problemen rechts van de blade voor een overzicht van het StorSimple-Apparaatbeheer service.
+U kunt een aantal van de veelvoorkomende problemen met de StorSimple Virtual Array bekijken en de oplossingen die op de juiste problemen bekijken in de overzichtsblade van uw StorSimple Device Manager-service.
 
-#### <a name="to-diagnose-an-issue-with-your-virtual-array"></a>Voor het vaststellen van een probleem met uw virtuele matrix
+#### <a name="to-diagnose-an-issue-with-your-virtual-array"></a>Om een probleem met uw virtuele array vast te stellen
 
-1. Klik op **diagnosticeren en oplossen van problemen** instellen in het linkerdeelvenster van de blade voor een overzicht van het StorSimple-Apparaatbeheer service om een lijst met bekende problemen weer te geven.
+1. Klik op **vaststellen en oplossen van problemen met** instellen in het linkerdeelvenster van de overzichtsblade van uw StorSimple Device Manager-service om een lijst met veelvoorkomende problemen weer te geven.
 
-2. **Vouw** op het symptoom van het probleem dat u ondervindt als u wilt controleren **aanbevolen stappen** om u te helpen bij het oplossen van het probleem. Als u wenst, kunt u ook de gedetailleerde documentatie koppelingen voor verdere verwijzing bekijken.
+2. **Vouw** op het symptoom van het probleem dat u regelmatig om te controleren **aanbevolen stappen** om u te helpen bij het oplossen van het probleem. Als u wilt, kunt u ook de koppelingen voor gedetailleerde informatie voor verdere verwijzing bekijken.
    
-    ![Een probleem op te lossen](./media/storsimple-virtual-array-diagnose-problems/diagnose-problems-offline.png)
+    ![Een probleem kunt oplossen](./media/storsimple-virtual-array-diagnose-problems/diagnose-problems-offline.png)
 
-3. Als u niet een verwijzing naar het probleem vinden of oplossen, bereiken Microsoft Support voor verdere ondersteuning.
+3. Als u niet een verwijzing naar het probleem vinden of het oplossen, contact opnemen met Microsoft Support voor verdere ondersteuning.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over hoe [een ondersteuningsticket melden](storsimple-virtual-array-log-support-ticket.md)
+Meer informatie over het [ondersteuningsticket maken](storsimple-virtual-array-log-support-ticket.md)
 

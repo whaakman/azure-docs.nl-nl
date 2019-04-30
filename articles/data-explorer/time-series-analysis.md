@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: 8492f736e64366802b3601f9b5fc8bd1d9b6ea79
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273070"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60827368"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Tijdseries analyseren in Azure Data Explorer
 
@@ -72,7 +72,7 @@ We hebben drie partities in de bovenstaande tabel. We kunnen een afzonderlijke t
 In deze sectie wordt we typische reeks functies voor het verwerken uitvoeren.
 Nadat een set van tijdreeks is gemaakt, ADX biedt ondersteuning voor een groeiende lijst met functies voor het verwerken en analyseren die kan worden gevonden in de [time series-documentatie](/azure/kusto/query/machine-learning-and-tsa). We wordt enkele representatieve functies voor het verwerken en analyseren van de tijdreeks beschreven.
 
-### <a name="filtering"></a>Filteren
+### <a name="filtering"></a>Filtering
 
 Filteren van een gebruikelijk bij het signaal verwerkings- en handig voor tijdreeks standaardtaken voor de verwerking is (bijvoorbeeld een ruis signaal vloeiende, detectie te wijzigen).
 - Er zijn twee algemene filters gebruiken om functies:

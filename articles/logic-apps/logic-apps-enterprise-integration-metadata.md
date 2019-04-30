@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 01/17/2019
 ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446779"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60846134"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Metagegevens van artefacten in integratieaccounts met Azure Logic Apps en Enterprise Integration Pack beheren
 
@@ -63,7 +63,7 @@ U kunt aangepaste metagegevens voor artefacten in integratieaccounts definiëren
 
 1. Geef deze informatie voor het artefact die u wilt zoeken:
 
-   | Eigenschap | Vereist | Waarde | Description | 
+   | Eigenschap | Vereist | Value | Description | 
    |----------|---------|-------|-------------| 
    | **Artefacttype** | Ja | **Schema**, **kaart**, **Partner**, **overeenkomst**, of een aangepast type | Het type voor het artefact dat u wilt | 
    | **Naam van het assemblyartefact** | Ja | <*naam van het assemblyartefact*> | De naam van het artefact dat u wilt | 
@@ -85,7 +85,7 @@ U kunt aangepaste metagegevens voor artefacten in integratieaccounts definiëren
 
       Stel bijvoorbeeld dat u wilt de `routingUrl` metagegevens die eerder in dit onderwerp wordt toegevoegd. Hier volgen de eigenschapswaarden die u kunt opgeven: 
 
-      | Eigenschap | Vereist | Waarde | Description | 
+      | Eigenschap | Vereist | Value | Description | 
       |----------|----------|-------|-------------| 
       | **Methode** | Ja | <*operation-to-run*> | De HTTP-bewerking uit te voeren op het artefact. Deze actie HTTP gebruikt bijvoorbeeld de **ophalen** methode. | 
       | **URI** | Ja | <*metadata-location*> | Toegang krijgen tot de `routingUrl` metagegevens waarde van het artefact die u hebt opgehaald, kunt u een expressie, bijvoorbeeld: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 

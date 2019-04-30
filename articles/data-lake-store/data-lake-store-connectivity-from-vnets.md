@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: elsung
 ms.openlocfilehash: c8d028a981d7811ed2c864db5750afc83ab93b2b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878057"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878865"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Toegang tot Azure Data Lake Storage Gen1 van virtuele machines binnen een Azure VNET
 Azure Data Lake Storage Gen1 is een PaaS-service die wordt uitgevoerd op het openbare Internet-IP-adressen. Een server die u verbinding met het openbare Internet maken kunt kunt maken doorgaans verbinding met Azure Data Lake Storage Gen1 eindpunten ook. Standaard worden alle virtuele machines die zich in Azure vnet's hebben toegang tot het Internet en daarom hebben toegang tot Azure Data Lake Storage Gen1. Het is echter mogelijk om te configureren van virtuele machines in een VNET-naar-geen toegang tot het Internet. Voor dergelijke VM's wordt toegang tot Azure Data Lake Storage Gen1 beperkt ook. Openbare toegang via Internet blokkeren voor virtuele machines in Azure vnet's kan worden gedaan met behulp van een van de volgende methoden:

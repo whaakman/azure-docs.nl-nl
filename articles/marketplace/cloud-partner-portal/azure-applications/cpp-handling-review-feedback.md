@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
 ms.openlocfilehash: e5fe076cfe733b4fa0151570603c090af98de0e8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882685"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60745582"
 ---
-# <a name="handling-review-feedback"></a>Afhandeling van revisie feedback
+# <a name="handling-review-feedback"></a>Beoordelingsfeedback verwerken
 
 In dit artikel wordt uitgelegd hoe u toegang tot het Azure DevOps-omgeving gebruikt door het team van Microsoft Azure Marketplace controleren.  Als er kritieke problemen worden gevonden in de aanbieding van uw Azure-toepassing tijdens de **Microsoft revisie** stap, kunt u zich in het systeem om gedetailleerde informatie over deze problemen (feedback bekijken) weer te geven.  Nadat u alle deze problemen oplossen, moet u uw aanbieding om door te gaan publiceren op Azure Marketplace naar opnieuw indienen.  Het volgende diagram illustreert hoe dit Feedbackproces is gekoppeld aan het publicatieproces.
 

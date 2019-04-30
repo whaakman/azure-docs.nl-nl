@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 2a9214b918883e493ebe5c93fc7f56e7ce9c77ec
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234491"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60652210"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Algemene problemen waardoor rollen worden herhaald
 In dit artikel worden enkele van de veelvoorkomende oorzaken van problemen met implementatie beschreven en vindt u tips voor probleemoplossing voor u deze problemen oplossen. Een indicatie dat er een probleem met een toepassing is is wanneer de rolinstantie niet kan worden gestart, of deze cycli tussen de statussen initialiseren, bezet en stoppen.

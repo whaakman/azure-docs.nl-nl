@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
 ms.openlocfilehash: c129c394f3d694b832722287027c1f9e58028a33
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957688"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61065849"
 ---
 # <a name="azure-firewall-logs"></a>Azure Firewall-logboeken
 
 U kunt Azure Firewall bewaken met behulp van firewall-logboeken. U kunt ook activiteitenlogboeken gebruiken om bewerkingen in Azure Firewall-resources te controleren.
 
-Via de portal kunt u toegang verkrijgen tot sommige van deze logboeken. Logboeken kunnen worden verzonden naar [logboeken van Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), opslag- en Event Hubs en geanalyseerd in Logboeken van Azure Monitor of door verschillende hulpprogramma's zoals Excel en Power BI.
+Via de portal kunt u toegang verkrijgen tot sommige van deze logboeken. Logboeken kunnen worden verzonden naar [Azure Monitor-logboeken](../azure-monitor/insights/azure-networking-analytics.md), Storage en Event Hubs en kunnen worden geanalyseerd in Azure Monitor-logboeken of door verschillende hulpprogramma's zoals Excel en Power BI.
 
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
 
@@ -73,7 +73,7 @@ Via de portal kunt u toegang verkrijgen tot sommige van deze logboeken. Logboeke
 
 U hebt drie opties voor het opslaan van uw logboeken:
 
-* **Storage-account**: Storage-accounts zijn beste worden gebruikt voor Logboeken als Logboeken worden opgeslagen voor een langere duur en gecontroleerd wanneer dit nodig is.
+* **Opslagaccount**: Storage-accounts zijn beste worden gebruikt voor Logboeken als Logboeken worden opgeslagen voor een langere duur en gecontroleerd wanneer dit nodig is.
 * **Eventhubs**: Eventhubs zijn een goede optie voor het integreren met andere security information en event management (SEIM) hulpprogramma's voor waarschuwingen over uw resources.
 * **Logboeken in Azure Monitor**: Logboeken in Azure Monitor is best gebruikt voor algemene realtime-controle van uw toepassing of trends kijken.
 

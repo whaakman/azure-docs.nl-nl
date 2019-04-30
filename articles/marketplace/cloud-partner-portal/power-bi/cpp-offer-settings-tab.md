@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 49bbe5dcf17a9aa20cb47f477c59e7115d29dacc
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819596"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727932"
 ---
 # <a name="power-bi-apps-offer-settings-tab"></a>Power BI-Apps bieden instellingen tabblad
 
 Wanneer u opent de **nieuwe aanbieding** pagina voor service-apps, ziet u eerst de **instellingen bieden** tabblad. U opgeven de primaire id's en de naam voor uw aanbod op dit tabblad. Een sterretje (*) geeft aan dat een vereist veld.
 
-![Tabblad instellingen bieden](./media/offer-settings-tab.png)
+![Tabblad voor aanbiedingsinstellingen](./media/offer-settings-tab.png)
 
 
 ## <a name="offer-settings-fields"></a>Velden van aanbod-instellingen 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
 ms.openlocfilehash: d87293d89e4009512494bf47f9742ea5901f909a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445359"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656928"
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API Management-pagina controles
 Azure API Management levert de volgende besturingselementen voor gebruik in de developer portal-sjablonen.  
@@ -38,13 +38,13 @@ Voor het gebruik van een besturingselement, plaatst u het in de gewenste locatie
 ## <a name="developer-portal-template-page-controls"></a>Developer portal sjabloon paginabesturingselementen  
   
 -   [App-acties](#app-actions)  
--   [Basic-aanmelding](#basic-signin)  
--   [besturingselement voor paginering](#paging-control)  
+-   [basic-signin](#basic-signin)  
+-   [paging-control](#paging-control)  
 -   [Providers](#providers)  
--   [besturingselement voor zoeken](#search-control)  
--   [Meld u aan](#sign-up)  
+-   [search-control](#search-control)  
+-   [sign-up](#sign-up)  
 -   [abonnement-knop](#subscribe-button)  
--   [abonnement annuleren](#subscription-cancel)  
+-   [subscription-cancel](#subscription-cancel)  
   
 ##  <a name="app-actions"></a> App-acties  
  De `app-actions` controle biedt een gebruikersinterface voor interactie met toepassingen op de gebruikersprofielpagina in de portal voor ontwikkelaars.  
@@ -59,7 +59,7 @@ Voor het gebruik van een besturingselement, plaatst u het in de gewenste locatie
   
 ### <a name="parameters"></a>Parameters  
   
-|Parameter|Beschrijving|  
+|Parameter|Description|  
 |---------------|-----------------|  
 |appId|De id van de toepassing.|  
   
@@ -203,7 +203,7 @@ Voor het gebruik van een besturingselement, plaatst u het in de gewenste locatie
   
 ### <a name="parameters"></a>Parameters  
   
-|Parameter|Beschrijving|  
+|Parameter|Description|  
 |---------------|-----------------|  
 |subscriptionId|De id van het abonnement te annuleren.|  
 |cancelUrl|Het abonnement wordt geannuleerd URL.|  

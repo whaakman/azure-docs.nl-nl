@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 4629b52f3b2c9e351ddc2a68a40c5178a9a73950
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: d3601fd8c32c70cf828cd08fada71258ec8fa5d4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048252"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812711"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Quota en limieten in Azure Data Lake Analytics aanpassen
 
@@ -22,7 +22,7 @@ Informatie over het aanpassen en het verhogen van quota en limieten in Azure Dat
 
 ## <a name="azure-subscriptions-limits"></a>Limieten voor Azure-abonnementen
 
-**Maximum aantal ADLA-accounts per abonnement per regio:** 5
+**Maximum aantal ADLA-accounts per abonnement per regio:**  5
 
 Als u probeert een zesde ADLA-account maakt, wordt u er een foutbericht "U hebt het maximum aantal Data Lake Analytics-accounts toegestaan (5) in het gebied onder de naam van abonnement bereikt". 
 

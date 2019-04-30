@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 3b7b821227478d8c6b5859f24c50407f9eb213fe
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312339"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61235251"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-concepten 
 
@@ -105,7 +105,7 @@ Media Services ondersteunt de volgende on-demand coderingsprogramma's die worden
 
 Zie voor meer informatie over ondersteunde encoders [Encoders](media-services-encode-asset.md).
 
-## <a name="live-streaming"></a>Live Streaming
+## <a name="live-streaming"></a>Live streamen
 In Azure Media Services vertegenwoordigt een kanaal een pijplijn voor het verwerken van live streaming-inhoud. Een kanaal ontvangt live invoerstromen op twee manieren:
 
 * Een on-premises live codering verzendt multi-bitrate RTMP of Smooth Streaming (gefragmenteerde MP4) naar het kanaal. U kunt de volgende live coderingsprogramma's die multi-bitrate Smooth Streaming gebruiken: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco en Elemental. De volgende live coderingsprogramma's voeren RTMP uit: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision and Tricaster encoders. De opgenomen streams doorgegeven via de kanalen zonder een verdere (trans) codering. Desgevraagd levert Media Services de stream aan klanten.

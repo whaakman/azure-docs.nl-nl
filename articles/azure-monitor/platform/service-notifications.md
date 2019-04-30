@@ -9,13 +9,13 @@ ms.date: 4/12/2018
 ms.author: dukek
 ms.subservice: logs
 ms.openlocfilehash: ab4aa2f37d5a883c83b8ee09b5de6551ebf13d2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995156"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883626"
 ---
-# <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Servicestatusmeldingen bekijken met behulp van Azure portal
+# <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Servicestatusmeldingen bekijken met de Azure-portal
 
 Servicestatusmeldingen zijn gepubliceerd door Azure, en bevatten informatie over de resources in uw abonnement. Deze meldingen zijn een subklasse van de activiteit van gebeurtenissen, en kunnen u ook vinden in het activiteitenlogboek. Servicestatusmeldingen zijn informatieve en bruikbare, afhankelijk van de klasse.
 

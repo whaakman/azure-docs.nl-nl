@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.openlocfilehash: aacb0ab69dad45f9ca7655daaae0c2acff0403f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59044369"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60740436"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Taken op meerdere apparaten plannen
 
@@ -113,7 +113,7 @@ U kunt een query voor de status van de taak kan worden uitgevoerd op elk apparaa
 
 De volgende lijst bevat de eigenschappen en de bijbehorende beschrijvingen, die kunnen worden gebruikt voor het uitvoeren van query's voor taken of Taakresultaten.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | **jobId** |Toepassing opgegeven ID voor de taak. |
 | **startTime** |Toepassing opgegeven begintijd (ISO 8601-) voor de taak. |

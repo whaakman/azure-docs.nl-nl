@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 74fe4f7c4c231f80c7555f39f840a85baae310e9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809439"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Taakverdeling van uw service fabric-cluster
 De Service Fabric Cluster Resource Manager biedt ondersteuning voor dynamische belasting verandert, reageren op toevoegingen of verwijderingen van knooppunten of services. Het wordt ook automatisch gecorrigeerd schendingen van plaatsingsbeperkingen en proactief rebalances de cluster. Maar hoe vaak deze acties worden uitgevoerd, en wat ze activeert?

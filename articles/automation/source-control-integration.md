@@ -10,11 +10,11 @@ ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 81602f1a30fb753d7a8fcfccace581cd8c7b2f0c
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60880326"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integratie van broncodebeheer in Azure Automation
 
@@ -45,7 +45,7 @@ Kies **broncodebeheer type**, klikt u op **verifiëren**. Een browservenster wor
 
 Op de **samenvatting van de bron-besturingselement** pagina, vult u uw gegevens in en klikt u op **opslaan**. De volgende tabel bevat een beschrijving van de beschikbare velden.
 
-|Eigenschap  |Beschrijving  |
+|Eigenschap  |Description  |
 |---------|---------|
 |Naam van de bron-besturingselement     | Een beschrijvende naam voor broncodebeheer. *Deze naam mag alleen letters en cijfers.*        |
 |Broncodebeheertype     | Het type van de bron van het besturingselement. De volgende opties zijn beschikbaar:</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
@@ -54,7 +54,7 @@ Op de **samenvatting van de bron-besturingselement** pagina, vult u uw gegevens 
 |Mappad     | De map met de runbooks om te synchroniseren. Voorbeeld: /Runbooks </br>*Alleen runbooks in de map die is opgegeven, worden gesynchroniseerd. Recursie wordt niet ondersteund.*        |
 |Automatisch synchroniseren     | Hiermee schakelt u in- of uitschakelen van automatische synchronisatie wanneer een wijziging wordt aangebracht in de opslagplaats voor bronbeheer         |
 |Runbook publiceren     | Indien ingesteld op **op**nadat runbooks zijn gesynchroniseerd vanuit broncodebeheer ze automatisch moeten worden gepubliceerd.         |
-|Beschrijving     | Een tekstveld om meer duidelijkheid te geven        |
+|Description     | Een tekstveld om meer duidelijkheid te geven        |
 
 ![Overzicht van de bron-besturingselement](./media/source-control-integration/source-control-summary.png)
 
@@ -91,7 +91,7 @@ Broncodebeheer vereist minimale machtigingen voor persoonlijke toegangstokens. D
 
 Ga voor meer informatie over het maken van een persoonlijk toegangstoken in GitHub naar [het maken van een persoonlijk toegangstoken voor de opdrachtregel](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Bereik  |Beschrijving  |
+|Bereik  |Description  |
 |---------|---------|
 |**opslagplaats**     |         |
 |status van-opslagplaats:     | Commit-toegangsstatus         |

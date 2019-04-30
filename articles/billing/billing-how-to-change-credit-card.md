@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 3/13/2019
 ms.author: banders
 ms.openlocfilehash: b910cb3061b1451ea80b9843e2aa4047a784548f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876864"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60918593"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Toevoegen, bijwerken of verwijderen van een creditcard of betaalpas nodig voor Azure
 
@@ -35,12 +35,12 @@ In de Azure-portal, kunt u een nieuwe creditcard toevoegen, een bestaande credit
 ## <a name="add-a-new-credit-or-debit-card-to-an-azure-subscription"></a>Een nieuwe creditcard toevoegen aan een Azure-abonnement
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als de accountbeheerder.
-1. Zoeken op **kosten Management en facturering**.
+1. Zoek naar **kostenbeheer en facturering**.
 
     ![Schermafbeelding van search](./media/billing-how-to-change-credit-card/search.png)
 
 1. Selecteer het abonnement dat u wilt toevoegen van de creditcard of betaalpas kaart.
-1. Selecteer **betalingswijzen**.
+1. Selecteer **Betalingswijzen**.
 
     ![Schermopname die laat beheren methoden betalingsoptie geselecteerd zien.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
@@ -60,11 +60,11 @@ Als u een foutmelding krijgt nadat u de creditcard hebt toegevoegd, Zie [creditc
 Als uw creditcard wordt vernieuwd en het aantal hetzelfde blijft, moet u de details van de bestaande creditcard is geregistreerd, zoals de datum van afloop voor bijwerken. Als uw creditcard telefoonnummer is gewijzigd omdat de kaart verloren is, gestolen of verlopen, volg de stappen in de [creditcard is geregistreerd als een betalingswijze toevoegen](#addcard) sectie. U hoeft niet te werken van de CVW.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als de accountbeheerder.
-1. Zoeken op **kosten Management en facturering**.
+1. Zoek naar **kostenbeheer en facturering**.
 
     ![Schermafbeelding van search](./media/billing-how-to-change-credit-card/search.png)
 
-1. Selecteer **betalingswijzen**.
+1. Selecteer **Betalingswijzen**.
 
     ![Schermopname die laat beheren methoden betalingsoptie geselecteerd zien.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
@@ -80,12 +80,12 @@ Als uw creditcard wordt vernieuwd en het aantal hetzelfde blijft, moet u de deta
 Als meer dan een van uw abonnementen de dezelfde actieve betalingswijze wordt gebruikt hebben, klikt u vervolgens wijzigen van de actieve betalingswijze wordt gebruikt op een van deze abonnementen ook bijgewerkt voor de actieve betalingswijze wordt gebruikt op de andere.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als de accountbeheerder.
-1. Zoeken op **kosten Management en facturering**.
+1. Zoek naar **kostenbeheer en facturering**.
 
     ![Schermafbeelding van search](./media/billing-how-to-change-credit-card/search.png)
 
 1. Selecteer het abonnement dat u wilt toevoegen van de creditcard of betaalpas kaart.
-1. Selecteer **betalingswijzen**.
+1. Selecteer **Betalingswijzen**.
 
     ![Schermopname die laat beheren methoden betalingsoptie geselecteerd zien.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 

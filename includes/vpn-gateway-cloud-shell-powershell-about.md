@@ -9,11 +9,11 @@ ms.date: 02/13/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c8f45e4bb16c05c9f322dd04d2c80f6144744e64
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884029"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320041"
 ---
 In dit artikel maakt gebruik van PowerShell-cmdlets. Als u wilt de cmdlets uitvoert, kunt u Azure Cloud Shell. Azure Cloud Shell is een gratis interactieve shell die algemene Azure-hulpprogramma's die vooraf is geïnstalleerd en geconfigureerd voor gebruik met uw account heeft. Klik op **kopie** voor het kopiëren van de code, plak deze in de Cloud Shell en druk op enter uit te voeren. U kunt Cloud Shell op verschillende manieren starten:
 

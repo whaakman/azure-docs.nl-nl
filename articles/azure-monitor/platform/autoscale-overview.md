@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.subservice: autoscale
+ms.component: autoscale
 ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085640"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787575"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Overzicht van automatisch schalen in een Microsoft Azure Virtual Machines, Cloud Services en Web-Apps
 Dit artikel wordt beschreven welke Microsoft Azure voor automatisch schalen is, de voordelen ervan, en hoe u aan de slag met behulp van deze.  
@@ -96,12 +96,13 @@ Zie voor meer informatie, [verticaal schalen met Azure Automation virtuele Azure
 ## <a name="methods-of-access"></a>Methoden voor toegang
 U kunt automatisch schalen via instellen
 
-* [Azure-portal](../../azure-monitor/platform/autoscale-get-started.md)
+* [Azure Portal](../../azure-monitor/platform/autoscale-get-started.md)
 * [PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 * [Platformonafhankelijke opdrachtregelinterface (CLI)](../../azure-monitor/platform/cli-samples.md#autoscale)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Ondersteunde services voor automatisch schalen
+
 | Service | Schema en documenten |
 | --- | --- |
 | Web Apps |[Schalen van Web-Apps](../../azure-monitor/platform/autoscale-get-started.md) |
@@ -120,4 +121,3 @@ Voor meer informatie over automatisch schalen, gebruik de Autoscale Walkthroughs
 * [Acties voor automatisch schalen gebruiken voor het verzenden van e-mail en webhook waarschuwingsmeldingen](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [REST-API voor automatisch schalen](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Oplossen van problemen met Virtual Machine Scale Sets automatisch schalen](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
-

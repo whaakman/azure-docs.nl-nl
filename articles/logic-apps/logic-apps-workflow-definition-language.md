@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 04/30/2018
 ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616795"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845734"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Definitietaal van werkstroom in Azure Logic Apps-schemaverwijzing
 
@@ -69,7 +69,7 @@ Hier volgt de algemene structuur voor een parameterdefinitie:
 },
 ```
 
-| Element | Vereist | Type | Beschrijving |
+| Element | Vereist | Type | Description |
 |---------|----------|------|-------------|
 | type | Ja | int, float, string, securestring, bool, matrix, JSON-object, secureobject <p><p>**Opmerking**: Voor alle wachtwoorden, sleutels en geheimen, gebruikt u de `securestring` en `secureobject` omdat de `GET` bewerking deze typen niet retourneren. Zie voor meer informatie over het beveiligen van parameters [uw logische app beveiligen](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Het type voor de parameter |
 | defaultValue | Ja | Gelijk aan `type` | De standaardwaarde voor parameter wanneer er geen waarde is opgegeven wanneer de werkstroom waarmee een wordt gemaakt |
@@ -103,7 +103,7 @@ Hier volgt de algemene structuur voor de uitvoerdefinitie van een:
 |---------|----------|------|-------------|
 | <*key-name*> | Ja | String | De naam van de sleutel voor de uitvoer waarde retourneren |
 | type | Ja | int, float, string, securestring, bool, matrix, JSON-object | Het type voor de geretourneerde waarde van uitvoer |
-| waarde | Ja | Gelijk aan `type` | De geretourneerde waarde van uitvoer |
+| value | Ja | Gelijk aan `type` | De geretourneerde waarde van uitvoer |
 |||||
 
 Als u de uitvoer van een werkstroom, bekijk de uitvoeringsgeschiedenis en details in de Azure-portal van uw logische app of gebruik de [werkstroom REST-API](https://docs.microsoft.com/rest/api/logic/workflows). U kunt ook uitvoer doorgeven aan externe systemen, bijvoorbeeld Power BI, zodat u kunt dashboards maken.

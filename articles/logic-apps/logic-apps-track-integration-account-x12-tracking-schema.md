@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
 ms.openlocfilehash: 1db324006e1e6332b5fdd8afd28ebed8a32ac707
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195180"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845763"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>Maken van schema's voor het bijhouden van X12 berichten in integratieaccounts voor Azure Logic Apps
 
@@ -72,10 +72,10 @@ Om u te helpen succes van de monitor, fouten en eigenschappen van berichten voor
 | transactionSetControlNumber | String | Transactiereekscontrolenummer. (Optioneel) |
 | CorrelationMessageId | String | Correlatie bericht-ID. A combination of {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber}. (Optioneel) |
 | messageType | String | Transactie standaarddocumenttype of ingesteld. (Optioneel) |
-| isMessageFailed | Booleaans | Of de X12 bericht is mislukt. (Verplicht) |
-| isTechnicalAcknowledgmentExpected | Booleaans | Of de technische bevestiging is geconfigureerd in de X12 overeenkomst. (Verplicht) |
-| isFunctionalAcknowledgmentExpected | Booleaans | Of de functionele bevestiging is geconfigureerd in de X12 overeenkomst. (Verplicht) |
-| needAk2LoopForValidMessages | Booleaans | Of de AK2-lus is vereist voor een geldig bericht. (Verplicht) |
+| isMessageFailed | Boolean | Of de X12 bericht is mislukt. (Verplicht) |
+| isTechnicalAcknowledgmentExpected | Boolean | Of de technische bevestiging is geconfigureerd in de X12 overeenkomst. (Verplicht) |
+| isFunctionalAcknowledgmentExpected | Boolean | Of de functionele bevestiging is geconfigureerd in de X12 overeenkomst. (Verplicht) |
+| needAk2LoopForValidMessages | Boolean | Of de AK2-lus is vereist voor een geldig bericht. (Verplicht) |
 | segmentsCount | Geheel getal | Aantal segmenten in de X12 transactieset. (Optioneel) |
 ||||
 
@@ -131,11 +131,11 @@ Om u te helpen succes van de monitor, fouten en eigenschappen van berichten voor
 | respondingFunctionalGroupId | String | Functionele groep-ID, die in de ontvangstbevestiging wordt toegewezen aan AK101 reageert. (Optioneel) |
 | respondingtransactionSetControlNumber | String | Reageert transactiereekscontrolenummer. (Optioneel) |
 | respondingTransactionSetId | String | Reageert transactieset-ID, die wordt toegewezen aan AK201 in de bevestiging. (Optioneel) |
-| statusCode | Booleaans | Bevestiging statuscode voor de transactieset. (Verplicht) |
+| statusCode | Boolean | Bevestiging statuscode voor de transactieset. (Verplicht) |
 | segmentsCount | Enum | Bevestiging statuscode. Toegestane waarden zijn **geaccepteerde**, **afgewezen**, en **AcceptedWithErrors**. (Verplicht) |
 | Verwerkingsstatusnaam | Enum | De verwerkingsstatus van de bevestiging. Toegestane waarden zijn **ontvangen**, **gegenereerde**, en **verzonden**. (Verplicht) |
 | CorrelationMessageId | String | Correlatie bericht-ID. A combination of {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber}. (Optioneel) |
-| isMessageFailed | Booleaans | Of de X12 bericht is mislukt. (Verplicht) |
+| isMessageFailed | Boolean | Of de X12 bericht is mislukt. (Verplicht) |
 | ak2Segment | String | Bevestiging voor een transactie die is ingesteld in de functiegroep ontvangen. (Optioneel) |
 | ak3Segment | String | Rapporten fouten in een gegevenssegment. (Optioneel) |
 | ak5Segment | String | Rapporten of de transactie is ingesteld in het segment AK2 geïdentificeerde wordt geaccepteerd of geweigerd en waarom. (Optioneel) |
@@ -183,8 +183,8 @@ Om u te helpen succes van de monitor, fouten en eigenschappen van berichten voor
 | richting | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
 | interchangeControlNumber | String | Uitwisselingscontrolenummer. (Optioneel) |
 | isaSegment | String | Bericht ISA-segment. (Optioneel) |
-| isTechnicalAcknowledgmentExpected | Booleaans | Of de technische bevestiging is geconfigureerd in de X12 overeenkomst. (Verplicht) |
-| isMessageFailed | Booleaans | Of de X12 bericht is mislukt. (Verplicht) |
+| isTechnicalAcknowledgmentExpected | Boolean | Of de technische bevestiging is geconfigureerd in de X12 overeenkomst. (Verplicht) |
+| isMessageFailed | Boolean | Of de X12 bericht is mislukt. (Verplicht) |
 | isa09 | String | X12 document uitwisseling datum. (Optioneel) |
 | isa10 | String | X12 document uitwisseling tijd. (Optioneel) |
 | isa11 | String | X12 interchange besturingselement standaarden-id. (Optioneel) |
@@ -235,7 +235,7 @@ Om u te helpen succes van de monitor, fouten en eigenschappen van berichten voor
 | interchangeControlNumber | String | Uitwisselingscontrolenummer van de technische ontvangstbevestiging die worden ontvangen van partners. (Optioneel) |
 | isaSegment | String | Het ISA-segment voor de technische bevestiging dat ontvangen van partners. (Optioneel) |
 | respondingInterchangeControlNumber |String | Uitwisselingscontrolenummer voor de technische bevestiging dat ontvangen van partners. (Optioneel) |
-| isMessageFailed | Booleaans | Of de X12 bericht is mislukt. (Verplicht) |
+| isMessageFailed | Boolean | Of de X12 bericht is mislukt. (Verplicht) |
 | statusCode | Enum | Uitwisseling statuscode bevestiging. Toegestane waarden zijn **geaccepteerde**, **afgewezen**, en **AcceptedWithErrors**. (Verplicht) |
 | Verwerkingsstatusnaam | Enum | Bevestigingsstatus. Toegestane waarden zijn **ontvangen**, **gegenereerde**, en **verzonden**. (Verplicht) |
 | ta102 | String | Uitwisseling datum. (Optioneel) |
@@ -288,9 +288,9 @@ Om u te helpen succes van de monitor, fouten en eigenschappen van berichten voor
 | interchangeControlNumber | String | Uitwisselingscontrolenummer. (Optioneel) |
 | functionalGroupControlNumber | String | Functionele controlenummer. (Optioneel) |
 | gsSegment | String | GS-berichtsegment. (Optioneel) |
-| isTechnicalAcknowledgmentExpected | Booleaans | Of de technische bevestiging is geconfigureerd in de X12 overeenkomst. (Verplicht) |
-| isFunctionalAcknowledgmentExpected | Booleaans | Of de functionele bevestiging is geconfigureerd in de X12 overeenkomst. (Verplicht) |
-| isMessageFailed | Booleaans | Of de X12 bericht is mislukt. (Verplicht)|
+| isTechnicalAcknowledgmentExpected | Boolean | Of de technische bevestiging is geconfigureerd in de X12 overeenkomst. (Verplicht) |
+| isFunctionalAcknowledgmentExpected | Boolean | Of de functionele bevestiging is geconfigureerd in de X12 overeenkomst. (Verplicht) |
+| isMessageFailed | Boolean | Of de X12 bericht is mislukt. (Verplicht)|
 | gs01 | String | Functionele id-code. (Optioneel) |
 | gs02 | String | De code van de afzender van de toepassing. (Optioneel) |
 | gs03 | String | De code van de ontvanger van de toepassing. (Optioneel) |
@@ -347,7 +347,7 @@ Om u te helpen succes van de monitor, fouten en eigenschappen van berichten voor
 | gsSegment | String | Hetzelfde als functiegroep aantal, maar alleen in bepaalde gevallen ingevuld bepalen. (Optioneel) |
 | respondingfunctionalGroupControlNumber | String | Aantal van de oorspronkelijke functiegroep bepalen. (Optioneel) |
 | respondingFunctionalGroupId | String | In de functiegroep bevestiging is toegewezen aan AK101-id. (Optioneel) |
-| isMessageFailed | Booleaans | Of de X12 bericht is mislukt. (Verplicht) |
+| isMessageFailed | Boolean | Of de X12 bericht is mislukt. (Verplicht) |
 | statusCode | Enum | Bevestiging statuscode. Toegestane waarden zijn **geaccepteerde**, **afgewezen**, en **AcceptedWithErrors**. (Verplicht) |
 | Verwerkingsstatusnaam | Enum | De verwerkingsstatus van de bevestiging. Toegestane waarden zijn **ontvangen**, **gegenereerde**, en **verzonden**. (Verplicht) |
 | ak903 | String | Het aantal transactiesets ontvangen. (Optioneel) |

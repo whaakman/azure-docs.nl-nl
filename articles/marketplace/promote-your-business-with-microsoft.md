@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
 ms.openlocfilehash: 3bd2361547a8210ae287eabaa67b60e8ba1f26e3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60735881"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promoot uw bedrijf met Microsoft  
 Microsoft heeft het doel om ondersteuning voor partners (u) te vereenvoudigen de verkoop van uw app of in de storefronts op marketplace bieden. Door de aanbieding op marketplace, u toegang tot de programma's en bronnen op de marketplace. 

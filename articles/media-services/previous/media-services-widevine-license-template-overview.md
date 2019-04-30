@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: d0bb72361e1bff3615f6785ac4c91a10ea773498
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312968"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60825530"
 ---
 # <a name="widevine-license-template-overview"></a>Overzicht van Widevine-licentiesjablonen 
 U kunt Azure Media Services gebruiken om te configureren en Google Widevine-licenties aanvragen. Wanneer de speler probeert uw Widevine beschermde inhoud af te spelen, wordt een aanvraag verzonden naar de service voor het leveren van licenties om een licentie te verkrijgen. Als de licentieservice de aanvraag goedkeurt, wordt de licentie serviceproblemen. Het wordt verzonden naar de client en wordt gebruikt om te ontsleutelen en de opgegeven inhoud af te spelen.
@@ -82,7 +82,7 @@ Elke waarde content_key_specs moet worden opgegeven voor alle sporen te wissen, 
 | content_key_specs. track_type |string |Een typenaam bijhouden. Als content_key_specs is opgegeven in de licentieaanvraag, zorg ervoor dat alle typen expliciet bijhouden opgeven. Dit niet doet, resulteert in de afgelopen 10 seconden worden afgespeeld is mislukt. |
 | content_key_specs  <br/> security_level |uint32 |Hiermee definieert u robuustheid clientvereisten om te worden afgespeeld. <br/> -Software-wit-box cryptografie is vereist. <br/> -Cryptografie software en een verborgen decoder zijn vereist. <br/> -De belangrijkste materiaal en cryptografie-bewerkingen moeten worden uitgevoerd binnen een van vertrouwde hardware ondersteunde uitvoeringsomgeving. <br/> -De codering en decodering van inhoud moet worden uitgevoerd binnen een van vertrouwde hardware ondersteunde uitvoeringsomgeving.  <br/> -De cryptografie, decoderen en alle verwerking van de media (gecomprimeerde en ongecomprimeerde) moeten worden afgehandeld in een vertrouwde hardware ondersteunde uitvoeringsomgeving. |
 | content_key_specs <br/> required_output_protection.hdc |tekenreeks, een van de HDCP_NONE, HDCP_V1, HDCP_V2 |Geeft aan of HDCP vereist is. |
-| content_key_specs <br/>sleutel |Base64-<br/>gecodeerde tekenreeks |De inhoudssleutel moet worden gebruikt voor dit nummer. Als u opgeeft, is de track_type of key_id vereist. Provider van de inhoud kunt u deze optie gebruiken om te injecteren de inhoudssleutel voor dit nummer in plaats van dat de Widevine-licentie-server of opzoeken van een sleutel genereren. |
+| content_key_specs <br/>key |Base64-<br/>gecodeerde tekenreeks |De inhoudssleutel moet worden gebruikt voor dit nummer. Als u opgeeft, is de track_type of key_id vereist. Provider van de inhoud kunt u deze optie gebruiken om te injecteren de inhoudssleutel voor dit nummer in plaats van dat de Widevine-licentie-server of opzoeken van een sleutel genereren. |
 | content_key_specs.key_id |Binary base64-gecodeerde tekenreeks, 16 bytes |De unieke id voor de sleutel. |
 
 ## <a name="policy-overrides"></a>Beleid negeren
@@ -197,5 +197,5 @@ Het volgende voorbeeld ziet u hoe u .NET-API's gebruiken voor het configureren v
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zie ook
-[PlayReady en/of Widevine dynamic common encryption gebruiken](media-services-protect-with-playready-widevine.md)
+[Dynamische algemene versleuteling met PlayReady en/of Widevine gebruiken](media-services-protect-with-playready-widevine.md)
 

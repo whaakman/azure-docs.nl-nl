@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f2d7aba05fc01c5a4dcdb123f25242c4e4a72578
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: e4d20cd39d2a843ee1ab57a412ac668b3495fdb1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "43426421"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320029"
 ---
 >[!NOTE]
 >Vanaf 1 juli 2018 is ondersteuning voor TLS 1.0 en 1.1 uit Azure VPN Gateway verwijderd. VPN Gateway ondersteunt alleen TLS 1.2. Om ondersteuning te behouden, Zie de [updates voor het inschakelen van ondersteuning voor TLS1.2](#tls1).

@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315211"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817172"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Verbinding maken met en inhoud met behulp van Azure Search-indexeerfuncties van Azure SQL Database indexeren
 
@@ -288,7 +288,7 @@ De **softDeleteMarkerValue** moet een tekenreeks is: Gebruik de tekenreeksweerga
 ## <a name="mapping-between-sql-and-azure-search-data-types"></a>Toewijzing tussen gegevenstypen SQL en Azure Search
 | SQL-gegevenstype | Doelindex veldtypen toegestaan | Opmerkingen |
 | --- | --- | --- |
-| bits |Edm.Boolean, Edm.String | |
+| bit |Edm.Boolean, Edm.String | |
 | int en smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
 | bigint |Edm.Int64, Edm.String | |
 | echte, drijvende komma |Edm.Double, Edm.String | |
@@ -297,7 +297,7 @@ De **softDeleteMarkerValue** moet een tekenreeks is: Gebruik de tekenreeksweerga
 | smalldatetime, datum/tijd, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | Geografie |Edm.GeographyPoint |Alleen Geografie exemplaren van het type punt met SRID 4326 (dit is de standaardinstelling) worden ondersteund |
-| ROWVERSION |N/A |Kolommen van de rij-versie kunnen niet worden opgeslagen in de search-index, maar ze kunnen worden gebruikt voor het bijhouden |
+| rowversion |N/A |Kolommen van de rij-versie kunnen niet worden opgeslagen in de search-index, maar ze kunnen worden gebruikt voor het bijhouden |
 | tijd, timespan, binary, varbinary, image, xml, geometrie, CLR-typen |N/A |Niet ondersteund |
 
 ## <a name="configuration-settings"></a>Configuratie-instellingen

@@ -1,6 +1,6 @@
 ---
 title: Azure-sjabloon met SAS-token en Azure CLI implementeren | Microsoft Docs
-description: Azure Resource Manager en Azure CLI gebruiken voor het implementeren van resources in Azure uit een sjabloon die wordt beveiligd met SAS-token.
+description: Azure Resource Manager en Azure CLI gebruiken om resources te implementeren naar Azure met een sjabloon die is beveiligd met SAS-token.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: d09aa46eabe705082edafe12da8442a79d1080b3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c869b76a0d1ba10bc27aefa60cbe4ed5b8d8201a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603193"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61061353"
 ---
-# <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-cli"></a>Met SAS-token en Azure CLI persoonlijke Resource Manager-sjabloon implementeren
+# <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-cli"></a>Persoonlijke Resource Manager-sjablonen met SAS-token en Azure CLI implementeren
 
-Wanneer de sjabloon bevindt zich in een opslagaccount, kunt u het beperken van toegang aan de sjabloon en een shared access signature (SAS)-token opgeven tijdens de implementatie. In dit onderwerp wordt uitgelegd hoe u Azure PowerShell gebruiken met Resource Manager-sjablonen te geven van een SAS-token tijdens de implementatie. 
+Wanneer de sjabloon bevindt zich in een storage-account, kunt u beperken van toegang aan de sjabloon en de token van een shared access signature (SAS) opgeven tijdens de implementatie. In dit onderwerp wordt uitgelegd hoe u Azure PowerShell gebruiken met Resource Manager-sjablonen voor het opgeven van een SAS-token tijdens de implementatie. 
 
-## <a name="add-private-template-to-storage-account"></a>Persoonlijke sjabloon toevoegen aan de storage-account
+## <a name="add-private-template-to-storage-account"></a>Persoonlijke sjabloon met storage-account toevoegen
 
-U kunt uw sjablonen toevoegen aan een opslagaccount en een koppeling naar deze tijdens de implementatie met een SAS-token.
+U kunt uw sjablonen toevoegen aan een storage-account en een koppeling naar deze tijdens de implementatie met een SAS-token.
 
 > [!IMPORTANT]
-> De blob met de sjabloon is door de onderstaande stappen te volgen, toegankelijk voor de eigenaar van het account. De blob is echter toegankelijk voor iedereen met de URI die bij het maken van een SAS-token voor de blob. Als een andere gebruiker de URI onderschept, kan die gebruiker toegang tot de sjabloon. Met behulp van een SAS-token is een prima manier voor het beperken van toegang tot uw sjablonen moet, maar u geen gevoelige gegevens, zoals wachtwoorden rechtstreeks in de sjabloon.
+> De blob met de sjabloon is door de onderstaande stappen te volgen, toegankelijk voor de eigenaar van het account. De blob is echter toegankelijk voor iedereen met deze URI bij het maken van een SAS-token voor de blob. Als een andere gebruiker de URI onderschept, kan die gebruiker toegang tot de sjabloon. Met behulp van een SAS-token is een goede manier van het beperken van toegang tot uw sjablonen, maar u moet geen gevoelige gegevens zoals wachtwoorden rechtstreeks in de sjabloon.
 > 
 > 
 
-Het volgende voorbeeld stelt u een persoonlijke opslag account-container en een sjabloon geüpload:
+Het volgende voorbeeld stelt u een persoonlijke account van de opslagcontainer en uploadt een sjabloon:
    
 ```azurecli
 az group create --name "ManageGroup" --location "South Central US"
@@ -60,7 +60,7 @@ az storage blob upload \
 ```
 
 ### <a name="provide-sas-token-during-deployment"></a>SAS-token opgeven tijdens de implementatie
-Een SAS-token genereren en deze opnemen in de URI voor de sjabloon voor het implementeren van een persoonlijke sjabloon in een opslagaccount. Stel het verlooptijdstip voldoende tijd laten om de implementatie te vervolledigen.
+Een SAS-token genereren voor het implementeren van een persoonlijke sjablonen in een opslagaccount, en deze opnemen in de URI voor de sjabloon. Stel het verlooptijdstip om toe te staan voldoende tijd voor het voltooien van de implementatie.
    
 ```azurecli
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -86,6 +86,6 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 Zie voor een voorbeeld van het gebruik van een SAS-token met gekoppelde sjablonen [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een inleiding tot het implementeren van sjablonen [implementeren van resources met Resource Manager-sjablonen en Azure PowerShell](resource-group-template-deploy-cli.md).
-* Zie voor een compleet codevoorbeeld-script waarmee een sjabloon wordt geïmplementeerd, [sjabloonscript Resource Manager implementeren](resource-manager-samples-cli-deploy.md)
-* Om parameters te definiëren in de sjabloon, Zie [sjablonen](resource-group-authoring-templates.md#parameters).
+* Zie voor een inleiding tot het implementeren van sjablonen, [resources implementeren met Resource Manager-sjablonen en Azure PowerShell](resource-group-template-deploy-cli.md).
+* Zie voor een volledig voorbeeld van een script waarmee een sjabloon wordt geïmplementeerd, [sjabloonscript voor implementatie van Resource Manager-](resource-manager-samples-cli-deploy.md)
+* Zie voor het definiëren van parameters in sjabloon, [-sjablonen maken](resource-group-authoring-templates.md#parameters).

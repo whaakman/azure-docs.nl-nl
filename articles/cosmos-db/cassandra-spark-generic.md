@@ -9,11 +9,11 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 75d2930363b6ad1aeace22d7529df04f31deefe5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037222"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60893623"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Verbinding maken met Azure Cosmos DB Cassandra-API van Spark
 
@@ -42,14 +42,14 @@ De volgende tabel bevat configuratie-parameters voor Azure Cosmos DB Cassandra-A
 
 | **De naam van eigenschap** | **Standaardwaarde** | **Beschrijving** |
 |---------|---------|---------|
-| Spark.cassandra.output.batch.Size.Rows |  1 |Het aantal rijen per één batch. Stel deze parameter in op 1. Deze parameter wordt gebruikt voor een hogere doorvoer voor zware workloads. |
-| Spark.cassandra.Connection.connections_per_executor_max  | Geen | Maximum aantal verbindingen per knooppunt per executor. 10 * n is gelijk aan 10 verbindingen per knooppunt in een n-knooppunt Cassandra-cluster. Dus als u 5 verbindingen per knooppunt per executor voor een 5 knooppunt Cassandra-cluster nodig hebt, moet klikt u vervolgens stelt u deze configuratie op 25. Deze waarde op basis van de mate van parallelle uitvoering of het nummer van uw spark-taken zijn geconfigureerd voor uitvoerders wijzigen.   |
-| Spark.cassandra.output.concurrent.Writes  |  100 | Hiermee definieert u het aantal parallelle schrijfbewerkingen die per executor kunnen optreden. Omdat u "batch.size.rows" ingesteld op 1, zorg ervoor dat deze waarde dienovereenkomstig opschalen. Wijzig deze waarde op basis van de mate van parallelle uitvoering of de doorvoer die u wilt bereiken voor uw workload. |
-| Spark.cassandra.concurrent.reads |  512 | Hiermee definieert u het aantal parallelle leesbewerkingen die per executor kunnen optreden. Deze waarde op basis van de mate van parallelle uitvoering of de doorvoer die u wilt bereiken voor uw workload wijzigen  |
-| Spark.cassandra.output.throughput_mb_per_sec  | Geen | De totale schrijven-doorvoer per executor definieert. Deze parameter kan worden gebruikt als een hoofdletters beperken voor de doorvoer van uw spark-taak en baseren op de ingerichte doorvoer van uw Cosmos DB-verzameling.   |
-| Spark.cassandra.Input.reads_per_sec| Geen   | De totale lezen doorvoer per executor definieert. Deze parameter kan worden gebruikt als een hoofdletters beperken voor de doorvoer van uw spark-taak en baseren op de ingerichte doorvoer van uw Cosmos DB-verzameling.  |
-| Spark.cassandra.output.batch.Grouping.buffer.Size |  1000  | Definieert het aantal batches per één spark-taak die in het geheugen kunnen worden opgeslagen voordat ze worden verzonden met Cassandra-API |
-| Spark.cassandra.Connection.keep_alive_ms | 60000 | Hiermee definieert u de periode tot welke niet-gebruikte verbindingen beschikbaar zijn. | 
+| spark.cassandra.output.batch.size.rows |  1 |Het aantal rijen per één batch. Stel deze parameter in op 1. Deze parameter wordt gebruikt voor een hogere doorvoer voor zware workloads. |
+| spark.cassandra.connection.connections_per_executor_max  | Geen | Maximum aantal verbindingen per knooppunt per executor. 10 * n is gelijk aan 10 verbindingen per knooppunt in een n-knooppunt Cassandra-cluster. Dus als u 5 verbindingen per knooppunt per executor voor een 5 knooppunt Cassandra-cluster nodig hebt, moet klikt u vervolgens stelt u deze configuratie op 25. Deze waarde op basis van de mate van parallelle uitvoering of het nummer van uw spark-taken zijn geconfigureerd voor uitvoerders wijzigen.   |
+| spark.cassandra.output.concurrent.writes  |  100 | Hiermee definieert u het aantal parallelle schrijfbewerkingen die per executor kunnen optreden. Omdat u "batch.size.rows" ingesteld op 1, zorg ervoor dat deze waarde dienovereenkomstig opschalen. Wijzig deze waarde op basis van de mate van parallelle uitvoering of de doorvoer die u wilt bereiken voor uw workload. |
+| spark.cassandra.concurrent.reads |  512 | Hiermee definieert u het aantal parallelle leesbewerkingen die per executor kunnen optreden. Deze waarde op basis van de mate van parallelle uitvoering of de doorvoer die u wilt bereiken voor uw workload wijzigen  |
+| spark.cassandra.output.throughput_mb_per_sec  | Geen | De totale schrijven-doorvoer per executor definieert. Deze parameter kan worden gebruikt als een hoofdletters beperken voor de doorvoer van uw spark-taak en baseren op de ingerichte doorvoer van uw Cosmos DB-verzameling.   |
+| spark.cassandra.input.reads_per_sec| Geen   | De totale lezen doorvoer per executor definieert. Deze parameter kan worden gebruikt als een hoofdletters beperken voor de doorvoer van uw spark-taak en baseren op de ingerichte doorvoer van uw Cosmos DB-verzameling.  |
+| spark.cassandra.output.batch.grouping.buffer.size |  1000  | Definieert het aantal batches per één spark-taak die in het geheugen kunnen worden opgeslagen voordat ze worden verzonden met Cassandra-API |
+| spark.cassandra.connection.keep_alive_ms | 60000 | Hiermee definieert u de periode tot welke niet-gebruikte verbindingen beschikbaar zijn. | 
 
 Pas de doorvoer en de mate van parallelle uitvoering van deze parameters op basis van de werkbelasting die u kunt verwachten bij uw spark-taken en de doorvoer die u hebt ingericht voor uw Cosmos DB-account.
 

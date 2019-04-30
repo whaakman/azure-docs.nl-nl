@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: b965fea3d4f166b1a801dda7cafd8e4190790c68
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 60912adbecbfdb4e6bebd7ddfea59eafa09b985e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45739501"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477965"
 ---
 De volgende replicatieopties zijn beschikbaar voor een opslagaccount:
 
-* [Lokaal redundante opslag (LRS)](../articles/storage/common/storage-redundancy-lrs.md): een eenvoudige, goedkope replicatiestrategie. Gegevens worden gerepliceerd binnen een enkele opslagschaaleenheid.
-* [Zone-redundante opslag (ZRS)](../articles/storage/common/storage-redundancy-zrs.md): replicatie voor hoge beschikbaarheid en duurzaamheid. Gegevens worden synchroon gerepliceerd in drie beschikbaarheidszones. 
-* [Geografisch redundante opslag (GRS)](../articles/storage/common/storage-redundancy-grs.md): regio-overschrijdende replicatie om te beschermen tegen regiobrede onbeschikbaarheid.
-* [Geo-redundante opslag met leestoegang (RA-GRS)](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage): regio-overschrijdende replicatie met leestoegang tot de replica.
+* [Lokaal redundante opslag (LRS)](../articles/storage/common/storage-redundancy-lrs.md): Een eenvoudige, goedkope replicatiestrategie. Gegevens worden gerepliceerd binnen een enkele opslagschaaleenheid.
+* [Zone-redundante opslag (ZRS)](../articles/storage/common/storage-redundancy-zrs.md): Replicatie voor hoge beschikbaarheid en duurzaamheid. Gegevens worden synchroon gerepliceerd in drie beschikbaarheidszones. 
+* [Geografisch redundante opslag (GRS)](../articles/storage/common/storage-redundancy-grs.md): Regio-overschrijdend-replicatie te beschermen tegen regiobrede niet beschikbaar zijn.
+* [Geo-redundante opslag met leestoegang (RA-GRS)](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage): Regio-overschrijdend-replicatie met leestoegang tot de replica.

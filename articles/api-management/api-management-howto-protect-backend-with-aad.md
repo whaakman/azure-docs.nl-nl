@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
 ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635064"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657557"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Een API beveiligen met behulp van OAuth 2.0 met Azure Active Directory en API Management
 
@@ -148,7 +148,7 @@ De volgende stap is om in te schakelen gebruikersautorisatie OAuth 2.0 voor uw A
 
 2. Selecteer de API die u wilt beveiligen. In dit voorbeeld gebruikt u de `Echo API`.
 
-3. Ga naar **instellingen**.
+3. Ga naar **Settings**.
 
 4. Onder **Security**, kiest u **OAuth 2.0**, en selecteer de OAuth 2.0-server die u eerder hebt geconfigureerd. 
 

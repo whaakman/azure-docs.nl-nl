@@ -4,14 +4,15 @@ description: In dit artikel bevat informatie over het aanpassen van regels voor 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
-ms.author: victorh
+origin.date: 02/22/2019
+ms.date: 02/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 5e364c597b8c524e95297f279003462f2d16abe1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726258"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832894"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>Regels voor web application firewall via de Azure CLI aanpassen
 
@@ -25,7 +26,7 @@ De volgende codevoorbeelden laten zien hoe regels en regelgroepen die kunnen wor
 
 Het volgende voorbeeld laat zien hoe de regelgroepen weergeven:
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config list-rule-sets --type OWASP
 ```
 
@@ -78,7 +79,7 @@ De volgende uitvoer is een afgekapte reactie van het vorige voorbeeld:
 
 Het volgende voorbeeld laat zien hoe om regels in een opgegeven regel-groep weer te geven:
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP-REPUTATION"
 ```
 
@@ -117,7 +118,7 @@ De volgende uitvoer is een afgekapte reactie van het vorige voorbeeld:
 
 Het volgende voorbeeld wordt uitgeschakeld regels `910018` en `910017` in een toepassingsgateway:
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
 ```
 
@@ -125,14 +126,14 @@ az network application-gateway waf-config set --resource-group AdatumAppGatewayR
 
 De volgende lijst bevat de voorwaarden die ertoe leiden dat het WAF moet worden geblokkeerd dat de aanvraag in de Preventiemodus (in de detectiemodus die ze zijn aangemeld als uitzonderingen). Deze kunnen niet worden geconfigureerd of uitgeschakeld:
 
-* Fout bij parseren van de hoofdtekst van de aanvraag resulteert in de aanvraag wordt geblokkeerd, tenzij de hoofdtekst van de controle is uitgeschakeld (XML, JSON, formuliergegevens)
-* Gegevenslengte aanvraag-instantie (met geen bestanden) is groter dan de geconfigureerde limiet
-* De aanvraag hoofdtekst (met inbegrip van bestanden) is groter dan de limiet
-* Er is een interne fout opgetreden in de WAF-engine
+- Fout bij parseren van de hoofdtekst van de aanvraag resulteert in de aanvraag wordt geblokkeerd, tenzij de hoofdtekst van de controle is uitgeschakeld (XML, JSON, formuliergegevens)
+- Gegevenslengte aanvraag-instantie (met geen bestanden) is groter dan de geconfigureerde limiet
+- De aanvraag hoofdtekst (met inbegrip van bestanden) is groter dan de limiet
+- Er is een interne fout opgetreden in de WAF-engine
 
 CRS 3.x specifieke:
 
-* Inkomende anomaliedetectie score overschreden drempelwaarde
+- Inkomende anomaliedetectie score overschreden drempelwaarde
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -142,3 +143,5 @@ Nadat u uw uitgeschakelde regels hebt geconfigureerd, leert u hoe u om uw WAF-lo
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
+
+<!-- Update_Description: wording update -->

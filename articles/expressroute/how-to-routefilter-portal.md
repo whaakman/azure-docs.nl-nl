@@ -1,5 +1,5 @@
 ---
-title: 'Routefilters voor Microsoft-peering configureren: Azure ExpressRoute - Portal | Microsoft Docs'
+title: 'Routefilters voor Microsoft-peering configureren: Met Azure ExpressRoute - Portal | Microsoft Docs'
 description: In dit artikel wordt beschreven hoe u routefilters voor Microsoft-peering met behulp van de Azure-portal configureren.
 services: expressroute
 author: ganesr
@@ -9,13 +9,13 @@ ms.date: 09/26/2018
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 0515b5e85c3bcf56f1f238620d6036d1be0bec7e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104200"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60839208"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Routefilters voor Microsoft-peering configureren: Azure portal
+# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Routefilters voor Microsoft-peering configureren: Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
@@ -81,7 +81,7 @@ BGP-Communitywaarden die zijn gekoppeld aan services die toegankelijk zijn via M
 
 Maak een lijst van BGP-Communitywaarden die u wilt gebruiken in de routefilter. De BGP-communitywaarde voor Dynamics 365-services is een voorbeeld: 12076:5040.
 
-## <a name="filter"></a>Stap 2: Maak een routefilter en een filterregel
+## <a name="filter"></a>Stap 2: Een routefilter en een filterregel voor een maken
 
 Een routefilter kan slechts één regel, en de regel moet van het type 'Toestaan'. Deze regel kan een lijst met BGP-Communitywaarden die zijn gekoppeld aan deze hebben.
 

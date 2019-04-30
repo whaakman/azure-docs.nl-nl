@@ -7,11 +7,11 @@ ms.service: application-gateway
 ms.date: 4/11/2019
 ms.author: victorh
 ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523916"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832911"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Web application firewall CRS-regelgroepen en -regels
 
@@ -138,7 +138,7 @@ De volgende regelgroepen en regels zijn beschikbaar bij het gebruik van Applicat
 
 ### <a name="crs933"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|RuleId|Beschrijving|
+|RuleId|Description|
 |---|---|
 |933100|PHP-injectie-aanval = openen/eindcode gevonden|
 |933110|PHP-injectie-aanval = PHP-Script uploaden van het bestand gevonden|
@@ -224,7 +224,7 @@ De volgende regelgroepen en regels zijn beschikbaar bij het gebruik van Applicat
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
-|RuleId|Beschrijving|
+|RuleId|Description|
 |---|---|
 |960911|Ongeldige HTTP-aanvraag regel|
 |981227|Apache-fout = Ongeldige URI in de aanvraag.|
@@ -250,7 +250,7 @@ De volgende regelgroepen en regels zijn beschikbaar bij het gebruik van Applicat
 
 ### <a name="crs21"></a> crs_21_protocol_anomalies
 
-|RuleId|Beschrijving|
+|RuleId|Description|
 |---|---|
 |960008|Aanvraag voor een Host-Header ontbreekt|
 |960007|Lege Host-Header|
@@ -263,7 +263,7 @@ De volgende regelgroepen en regels zijn beschikbaar bij het gebruik van Applicat
 
 ### <a name="crs23"></a> crs_23_request_limits
 
-|RuleId|Beschrijving|
+|RuleId|Description|
 |---|---|
 |960209|Argumentnaam te lang.|
 |960208|Argumentwaarde is te lang|
@@ -274,7 +274,7 @@ De volgende regelgroepen en regels zijn beschikbaar bij het gebruik van Applicat
 
 ### <a name="crs30"></a> crs_30_http_policy
 
-|RuleId|Beschrijving|
+|RuleId|Description|
 |---|---|
 |960032|Methode is niet toegestaan door het beleid|
 |960010|Inhoud van het type is niet toegestaan door het beleid|
@@ -284,7 +284,7 @@ De volgende regelgroepen en regels zijn beschikbaar bij het gebruik van Applicat
 
 ### <a name="crs35"></a> crs_35_bad_robots
 
-|RuleId|Beschrijving|
+|RuleId|Description|
 |---|---|
 |990002|Aanvraag geeft aan dat een beveiligingsscanner gescand de Site|
 |990901|Aanvraag geeft aan dat een beveiligingsscanner gescand de Site|
@@ -464,13 +464,13 @@ De volgende regelgroepen en regels zijn beschikbaar bij het gebruik van Applicat
 
 ### <a name="crs42"></a> crs_42_tight_security
 
-|RuleId|Beschrijving|
+|RuleId|Description|
 |---|---|
 |950103|Pad verandering aanval|
 
 ### <a name="crs45"></a> crs_45_trojans
 
-|RuleId|Beschrijving|
+|RuleId|Description|
 |---|---|
 |950110|Achterdeurtoegang|
 |950921|Achterdeurtoegang|

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: b661499786057a3083f79684dfd12c85266b7b5c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b9e5d034db4711384d2ac8a1083da5c93ea11900
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437239"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Richtlijnen voor MapReduce in HDInsight en Azure Data Lake Storage Gen1 afstemmen van prestaties
 
@@ -44,11 +44,11 @@ Bij het uitvoeren van MapReduce-taken, vindt hier u de belangrijkste parameters 
 
 ## <a name="guidance"></a>Richtlijnen
 
-**Stap 1: Het aantal actieve taken bepalen** -standaard MapReduce het hele cluster wordt gebruikt voor de taak.  U kunt minder van het cluster met behulp van minder mappers dan er beschikbaar containers.  De instructies in dit document wordt ervan uitgegaan dat uw toepassing is de enige toepassing die wordt uitgevoerd op uw cluster.      
+**Stap 1: Aantal actieve taken bepalen** -standaard MapReduce het hele cluster wordt gebruikt voor de taak.  U kunt minder van het cluster met behulp van minder mappers dan er beschikbaar containers.  De instructies in dit document wordt ervan uitgegaan dat uw toepassing is de enige toepassing die wordt uitgevoerd op uw cluster.      
 
-**Stap 2: Stel mapreduce.map.memory/mapreduce.reduce.memory** : de grootte van het geheugen voor de kaart en verminder taken zijn afhankelijk van uw specifieke taak.  U kunt de geheugengrootte verminderen als u wilt verhogen gelijktijdigheid.  Het aantal gelijktijdig uitvoeren van taken, is afhankelijk van het aantal containers.  De hoeveelheid geheugen per toewijzen of reducer verlaagt, kunnen meer containers worden gemaakt, waarmee meer mappers en reducers tegelijkertijd kunnen gelijktijdig worden uitgevoerd.  De hoeveelheid geheugen te veel verlagen, kan dit ertoe leiden dat bepaalde processen te weinig geheugen.  Als u een heap-fout optreedt bij het uitvoeren van uw taak, moet u de hoeveelheid geheugen per toewijzen of reducer vergroten.  U moet rekening houden met toevoegen van meer containers wordt toegevoegd extra overhead voor elke extra container, zodat mogelijk de prestaties kan verslechteren.  Een ander alternatief is om op te halen van meer geheugen met behulp van een cluster met grotere hoeveelheden geheugen of het aantal knooppunten in uw cluster verhoogt.  Meer geheugen kunnen meer containers kunnen worden gebruikt, wat betekent dat meer gelijktijdigheid.  
+**Stap 2: Stel mapreduce.map.memory/mapreduce.reduce.memory** – de grootte van het geheugen voor de kaart en verminder taken zijn afhankelijk van uw specifieke taak.  U kunt de geheugengrootte verminderen als u wilt verhogen gelijktijdigheid.  Het aantal gelijktijdig uitvoeren van taken, is afhankelijk van het aantal containers.  De hoeveelheid geheugen per toewijzen of reducer verlaagt, kunnen meer containers worden gemaakt, waarmee meer mappers en reducers tegelijkertijd kunnen gelijktijdig worden uitgevoerd.  De hoeveelheid geheugen te veel verlagen, kan dit ertoe leiden dat bepaalde processen te weinig geheugen.  Als u een heap-fout optreedt bij het uitvoeren van uw taak, moet u de hoeveelheid geheugen per toewijzen of reducer vergroten.  U moet rekening houden met toevoegen van meer containers wordt toegevoegd extra overhead voor elke extra container, zodat mogelijk de prestaties kan verslechteren.  Een ander alternatief is om op te halen van meer geheugen met behulp van een cluster met grotere hoeveelheden geheugen of het aantal knooppunten in uw cluster verhoogt.  Meer geheugen kunnen meer containers kunnen worden gebruikt, wat betekent dat meer gelijktijdigheid.  
 
-**Stap 3: Bepalen totale YARN geheugen** - om af te stemmen mapreduce.job.maps/mapreduce.job.reduces, moet u rekening houden met de hoeveelheid totale YARN-geheugen beschikbaar voor gebruik.  Deze informatie is beschikbaar in Ambari.  Navigeer naar YARN en weergeven van het tabblad configuraties.  De YARN-geheugen wordt weergegeven in dit venster.  U moet de YARN-geheugen met het aantal knooppunten in uw cluster om op te halen van het totale geheugen van de YARN vermenigvuldigen.
+**Stap 3: Totaal aantal YARN geheugen bepalen** - om af te stemmen mapreduce.job.maps/mapreduce.job.reduces, moet u rekening houden met de hoeveelheid totale YARN-geheugen beschikbaar voor gebruik.  Deze informatie is beschikbaar in Ambari.  Navigeer naar YARN en weergeven van het tabblad configuraties.  De YARN-geheugen wordt weergegeven in dit venster.  U moet de YARN-geheugen met het aantal knooppunten in uw cluster om op te halen van het totale geheugen van de YARN vermenigvuldigen.
 
     Total YARN memory = nodes * YARN memory per node
 Als u een lege cluster gebruikt, kan het totale YARN-geheugen voor uw cluster zijn op geheugen.  Als u andere toepassingen gebruikt geheugen, kunt klikt u vervolgens u alleen een gedeelte van het geheugen van uw cluster worden gebruikt door het aantal mappers of reducers tegelijkertijd beperken tot het aantal containers dat u wilt gebruiken.  
@@ -65,19 +65,19 @@ CPU-plannings- en CPU-isolatie zijn standaard uitgeschakeld zodat het nummer van
 
 Stel dat u momenteel een cluster bestaat uit 8 D14 knooppunten hebt en u wilt een i/o-intensieve taak uit te voeren.  Hier volgen de berekeningen die u moet doen:
 
-**Stap 1: Het aantal actieve taken bepalen** -in ons voorbeeld gaan we ervan uit dat de taak de slechts één die wordt uitgevoerd is.  
+**Stap 1: Aantal actieve taken bepalen** -in ons voorbeeld gaan we ervan uit dat de taak de slechts één die wordt uitgevoerd is.  
 
 **Stap 2: Stel mapreduce.map.memory/mapreduce.reduce.memory** – in ons voorbeeld u een i/o-intensieve taak worden uitgevoerd en besluit 3 GB aan geheugen voor de taken van de kaart is voldoende.
 
     mapreduce.map.memory = 3GB
-**Stap 3: Bepalen totale YARN-geheugen**
+**Stap 3: Bepalen van de totale YARN-geheugen**
 
     total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
 **Stap 4: Berekenen # van YARN-containers**
 
     # of YARN containers = 768GB of available memory / 3 GB of memory =   256
 
-**Stap 5: Mapreduce.job.maps/mapreduce.job.reduces instellen**
+**Stap 5: Set mapreduce.job.maps/mapreduce.job.reduces**
 
     mapreduce.map.jobs = 256
 

@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bb5dc4e01a872178af1bc7d5d57fc189424e7e9d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7add8c10fd3224b9c287ea4cc672191157f56a09
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553660"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60861889"
 ---
 De volgende tabel bevat quotumgegevens die specifiek zijn voor Azure Service Bus-berichten. Zie voor informatie over prijzen en andere quota's voor Service Bus [prijzen van Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 | Quotumnaam | Bereik | Opmerkingen | Value |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Maximum aantal Basic of Standard-naamruimten per Azure-abonnement |Naamruimte |De volgende aanvragen voor extra Basic of Standard-naamruimten worden geweigerd door de Azure-portal. |100|
 | Maximum aantal Premium-naamruimten per Azure-abonnement |Naamruimte |De volgende aanvragen voor extra Premium-naamruimten worden geweigerd door de portal. |25 |
 | Grootte van de wachtrij of onderwerp |Entiteit |Gedefinieerd bij het maken van de wachtrij of onderwerp. <br/><br/> Binnenkomende berichten worden geweigerd en een uitzondering wordt ontvangen door de aanroepende code. |1, 2, 3, 4 of 5 GB.<br /><br />In de Premium-SKU, en de standaard-SKU met [partitioneren](/azure/service-bus-messaging/service-bus-partitioning) ingeschakeld, is de maximale grootte van de wachtrij of onderwerp 80 GB. |

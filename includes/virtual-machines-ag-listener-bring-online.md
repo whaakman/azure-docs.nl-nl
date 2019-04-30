@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: 760bb5b62e9bba9b7a83f99760f7fe5d8c399dfb
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226712"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097692"
 ---
 1. Vouw in Failoverclusterbeheer **rollen**, en selecteer vervolgens de beschikbaarheidsgroep.  
 
@@ -22,11 +23,11 @@ ms.locfileid: "50226712"
 5. Met de rechtermuisknop op de listenernaam van de, en klik vervolgens op **Online brengen**.
 
 6. Nadat de listener is online op het **Resources** tabblad en klik vervolgens op met de rechtermuisknop op de beschikbaarheidsgroep **eigenschappen**.
-   
+
     ![De beschikbaarheidsgroepresource configureren](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
 
 7. Maken van een afhankelijkheid op de bron van listener (niet de IP-adres resources naam) en klik vervolgens op **OK**.
-   
+
     ![Afhankelijkheid toevoegen op de listenernaam van de](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
 
 8. Start SQL Server Management Studio en maak verbinding met de primaire replica.
@@ -38,3 +39,4 @@ ms.locfileid: "50226712"
 
 11. In de **poort** vak, geef het poortnummer voor de beschikbaarheidsgroep-listener met behulp van de $EndpointPort die u eerder hebt gebruikt (in deze zelfstudie is 1433 de standaardinstelling), en klik vervolgens op **OK**.
 
+<!-- Update_Description: update meta properties -->

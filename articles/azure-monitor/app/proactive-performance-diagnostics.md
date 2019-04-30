@@ -14,11 +14,11 @@ ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
 ms.openlocfilehash: b1a3b04427839736359c88f8ad6a8db5eedf8488
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121240"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61294053"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Slimme detectie: afwijkende prestaties
 
@@ -48,8 +48,8 @@ De meldingen betreffen: diagnostische gegevens. Hier volgt een voorbeeld:
 
 ![Hier volgt een voorbeeld van detectie van degradatie van de serverreactietijd](media/proactive-performance-diagnostics/server_response_time_degradation.png)
 
-1. **Sorteren**. De melding ziet u hoeveel gebruikers of het aantal bewerkingen worden beïnvloed. Hiermee kunt u een prioriteit toewijzen aan het probleem.
-2. **Bereik**. Het probleem invloed heeft op al het verkeer of slechts enkele pagina's? Is deze beperkt tot bepaalde browsers of locaties? Deze gegevens kan worden opgehaald van de melding.
+1. **Triage**. De melding ziet u hoeveel gebruikers of het aantal bewerkingen worden beïnvloed. Hiermee kunt u een prioriteit toewijzen aan het probleem.
+2. **Scope**. Het probleem invloed heeft op al het verkeer of slechts enkele pagina's? Is deze beperkt tot bepaalde browsers of locaties? Deze gegevens kan worden opgehaald van de melding.
 3. **Diagnose**. De diagnostische gegevens in de melding wordt vaak de aard van het probleem voorgesteld. Bijvoorbeeld, als reactietijd wordt vertraagd als aanvraagsnelheid hoog is, met suggesties dat van uw server of afhankelijkheden overbelast zijn. 
 
     Anders opent u de blade Performance in Application Insights. Hier vindt u [Profiler](profiler.md) gegevens. Als er uitzonderingen worden veroorzaakt, kunt u ook proberen de [snapshot debugger](../../azure-monitor/app/snapshot-debugger.md).

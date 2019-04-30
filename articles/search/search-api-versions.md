@@ -11,11 +11,11 @@ ms.date: 06/28/2018
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: c07a0c8f5440033455c69fe40806adf9b548c16f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631147"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126955"
 ---
 # <a name="api-versions-in-azure-search"></a>API-versies in Azure Search
 Azure Search de regelmatig updates van de functie. Soms, maar niet altijd noodzakelijk een nieuwe versie van de API te behouden voor achterwaartse compatibiliteit. Publiceren van een nieuwe versie, kunt u bepalen wanneer en hoe u de search service-updates in uw code integreren.
@@ -33,7 +33,7 @@ Hieronder wordt een momentopname van de huidige versies van alle interfaces voor
 | Interfaces | Meest recente primaire versie | Status |
 | --- | --- | --- |
 | [.NET SDK](https://aka.ms/search-sdk) |5.0 |In het algemeen beschikbaar, die zijn uitgebracht April 2018 |
-| [Preview-versie van .NET SDK](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Preview-versie, uitgebracht: mei 2017 |
+| [Preview-versie van .NET SDK](https://aka.ms/search-sdk-preview) |4.0.1-preview |Preview-versie, uitgebracht: mei 2017 |
 | [Service REST API](https://docs.microsoft.com/rest/api/searchservice/) |2017-11-11 |Algemeen verkrijgbaar |
 | [Service REST API-2017-11-11-Preview](search-api-2017-11-11-preview.md) |11-11-2017-preview |Preview |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |2.0 |Algemeen verkrijgbaar |

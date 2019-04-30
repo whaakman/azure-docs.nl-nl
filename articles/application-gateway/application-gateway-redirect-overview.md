@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2017
-ms.author: amsriva
+origin.date: 07/18/2017
+ms.date: 01/15/2019
+ms.author: v-junlch
 ms.openlocfilehash: d05d509b67fd26c958e0e2fa2bbd877db26e6521
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232206"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831743"
 ---
 # <a name="application-gateway-redirect-overview"></a>Overzicht van Application Gateway redirect
 
@@ -29,10 +30,12 @@ Een veelvoorkomend scenario voor veel webtoepassingen is voor de ondersteuning v
 2. Padgebaseerde omleiding. Dit type omleiding kunt HTTP naar HTTPS-omleiding alleen op het gebied van een specifieke site, bijvoorbeeld een winkelwagentje winkelwagen gebied aangeduid met/winkelwagen / *.
 3. Omleiden naar de externe site.
 
-![omleiden](./media/application-gateway-redirect-overview/redirect.png)
+![redirect](./media/application-gateway-redirect-overview/redirect.png)
 
 Met deze wijziging moeten klanten zou maken van een nieuwe omleiden configuration-object, dat aangeeft van de doel-listener of een externe site waarvoor omleiding is vereist. De configuratie-element ondersteunt ook opties voor het inschakelen van de URI-pad en de query-tekenreeks toe te voegen aan de omgeleide URL. Klanten kunnen er ook voor kiezen of omleiding een tijdelijke (HTTP-statuscode 302) of een permanente omleiding (HTTP-statuscode 301 is). Als deze configuratie omleiden gemaakt is gekoppeld aan de bron-listener via een nieuwe regel. Wanneer u een basisregel, wordt de configuratie van de omleidings-is gekoppeld aan de listener van een bron en is een algemene omleiding. Wanneer een pad gebaseerde regel wordt gebruikt, wordt de configuratie van de omleiding is gedefinieerd in de URL-path-map en daarom alleen van toepassing op het padgebied van het specifieke van een site.
 
 ### <a name="next-steps"></a>Volgende stappen
 
 [HTTP naar HTTPS-omleiding in een toepassingsgateway configureren](redirect-http-to-https-portal.md)
+
+<!-- Update_Description: wording update -->

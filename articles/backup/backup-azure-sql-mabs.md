@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: kasinh
 ms.openlocfilehash: 72b2368979f0c9e546e1c7ef7fc462bf1d64c947
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490462"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782058"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Back-up van SQL Server naar Azure met Azure Backup Server
 In dit artikel leidt u door de configuratiestappen voor back-up van SQL Server-databases met behulp van Microsoft Azure Backup Server (MABS).

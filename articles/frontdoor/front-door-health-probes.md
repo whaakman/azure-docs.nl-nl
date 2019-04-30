@@ -11,25 +11,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 256d530590fadc9e2aeb1ea1efb7a52608014978
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 59a3bac39437b91eeee3b005bd23476a34a308b7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988560"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736578"
 ---
 # <a name="health-probes"></a>Statuscontroles
 
-Om te bepalen van de status van elke back-end, verzendt elke omgeving voordeur periodiek een synthetische HTTP/HTTPS-aanvraag naar elk van de geconfigureerde back-ends. Antwoorden van deze tests voordeur vervolgens gebruikt om te bepalen van de 'aanbevolen' back-ends waarnaar het echte clientaanvragen te routeren.
+Om te bepalen van de status van elke back-end, verzendt elke omgeving voordeur periodiek een synthetische HTTP/HTTPS-aanvraag naar elk van de geconfigureerde back-ends. Front Door gebruikt de reacties op deze tests dan om te bepalen welke back-ends het beste zijn voor het routeren van echte aanvragen van klanten.
 
 
 ## <a name="supported-protocols"></a>Ondersteunde protocollen
 
-Voordeur ondersteunt het verzenden van tests via HTTP of HTTPS-protocol. Deze tests worden verzonden via dezelfde TCP-poorten geconfigureerd voor routering aanvragen van clients, en kunnen niet worden overschreven.
+Voordeur ondersteunt het verzenden van tests via HTTP of HTTPS-protocol. De tests worden via dezelfde TCP-poorten verzonden als de poorten die zijn geconfigureerd voor het routeren van aanvragen van klanten. Deze instelling kan niet worden overschreven.
 
 ## <a name="health-probe-responses"></a>Test statusverklaringsreacties
 
-| Antwoorden  | Beschrijving | 
+| Antwoorden  | Description | 
 | ------------- | ------------- |
 | Status bepalen  |  Een 200 OK statuscode geeft aan dat de back-end in orde is. Alle andere wordt beschouwd als een fout. Als een geldige HTTP-antwoord niet voor een bepaalde reden (inclusief vanwege een netwerkfout) voor een test ontvangen wordt, wordt de test als mislukt beschouwd.|
 | Latentie meten  | Latentie is de kloktijd gemeten vanaf het moment dat onmiddellijk voordat we de test-aanvraag verzenden naar het moment waarop we de laatste byte van het antwoord ontvangen. We gebruiken een nieuwe TCP-verbinding voor elke aanvraag, zodat deze meting niet op de back-ends met bestaande warm-verbindingen gericht is.  |
@@ -58,5 +58,5 @@ Wanneer een back-end een goede status retourneert, hervat voordeur het normale a
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het [maken van een voordeur](quickstart-create-front-door.md).
-- Informatie over [de werking van de voordeur](front-door-routing-architecture.md).
+- Lees hoe u [een Front Door maakt](quickstart-create-front-door.md).
+- Lees [hoe Front Door werkt](front-door-routing-architecture.md).

@@ -15,47 +15,47 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: a24aa6aa1695a3d1166816b7960bdd7b551e1a37
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60882194"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Herconfiguratie in Azure Service Fabric
-Een *configuratie* is gedefinieerd als de replica's en hun rollen voor een partitie van een stateful service.
+Een *configuratie* wordt gedefinieerd als de replica's en hun rollen voor een partitie van een stateful service.
 
-Een *herconfiguratie* is het proces van één configuratie verplaatsen naar een andere configuratie. Maakt een wijziging aan de replicaset voor een partitie van een stateful service. De configuratie van de oude heet de *vorige configuratie (PC)*, en de naam van de nieuwe configuratie de *huidige configuratie (CC)*. Het protocol herconfiguratie in Azure Service Fabric consistentie bewaart en onderhoudt beschikbaarheid tijdens eventuele wijzigingen aan de replicaset.
+Een *herconfiguratie* is het proces van het verplaatsen van één configuratie naar een andere configuratie. Wordt een wijziging aan de replicaset voor een partitie van een stateful service verzonden. De oude configuratie heet de *vorige configuratie (PC)*, en de nieuwe configuratie heet de *huidige configuratie (CC)*. Het protocol herconfiguratie in Azure Service Fabric behoudt consistentie en beschikbaarheid tijdens alle wijzigingen aan de replicaset onderhoudt.
 
-Failover Manager initieert herconfiguraties in reactie op verschillende gebeurtenissen in het systeem. Bijvoorbeeld, als de primaire vervolgens een nieuwe configuratie mislukt wordt gestart om het promoveren van een actieve secundaire aan een primaire. Een ander voorbeeld is in reactie op toepassingsupgrades wanneer mogelijk de primaire naar een ander knooppunt verplaatsen om de upgrade van het knooppunt.
+Failover Manager initieert wanneer in reactie op verschillende gebeurtenissen in het systeem. Bijvoorbeeld, als de primaire vervolgens een nieuwe configuratie mislukt wordt gestart als u wilt promoveren van een actieve secundaire aan een primaire. Een ander voorbeeld is in reactie op upgrades van toepassingen kan het nodig zijn om te verplaatsen van de primaire naar een ander knooppunt om bij te werken van het knooppunt zijn.
 
 ## <a name="reconfiguration-types"></a>Herconfiguratie van typen
-Herconfiguraties worden ingedeeld in twee typen:
+Wanneer kunnen worden ingedeeld in twee typen:
 
-- Herconfiguraties waar het wijzigen van de primaire:
-    - **Failover**: Failovers herconfiguraties in reactie op het mislukken van een primaire actief zijn.
-    - **SwapPrimary**: worden verwisseld zijn herconfiguraties waarin Service Fabric verplaatsen van een actief primaire van het ene knooppunt naar een andere, gewoonlijk in reactie moet op taakverdeling of een upgrade.
+- Wanneer waar de primaire wordt gewijzigd:
+    - **Failover**: Failovers zijn wanneer in reactie op het mislukken van een primaire die wordt uitgevoerd.
+    - **SwapPrimary**: Swaps zijn wanneer waar Service Fabric moeten zijn om te verplaatsen van een actief primaire van het ene knooppunt naar een andere, gewoonlijk in reactie op de taakverdeling of een upgrade.
 
-- Herconfiguraties waarbij de primaire zelf niet worden gewijzigd.
+- Wanneer waar wordt de primaire niet is gewijzigd.
 
 ## <a name="reconfiguration-phases"></a>Herconfiguratie fasen
 Een nieuwe configuratie wordt uitgevoerd in verschillende fasen:
 
-- **Phase0**: deze fase in swap-primaire herconfiguraties waar de huidige primaire de status naar de nieuwe primaire en de overgang naar het actieve secundaire overgebracht gebeurt.
+- **Phase0**: Deze fase gebeurt in swap-primaire wanneer, waar de huidige primaire de status naar de nieuwe primaire en de overgang naar het actieve secundaire overgebracht.
 
-- **Phase1**: deze fase er gebeurt tijdens herconfiguraties waarbij de primaire wordt gewijzigd. Tijdens deze fase identificeert Service Fabric de juiste primaire van de huidige replica's. In deze fase is niet nodig tijdens swap-primaire herconfiguraties omdat de nieuwe primaire zijn al geselecteerd. 
+- **Phase1**: Deze fase er gebeurt tijdens het rekening gebracht wanneer de primaire wordt gewijzigd. Tijdens deze fase identificeert de Service Fabric de juiste primaire tussen de huidige replica's. Deze fase is niet tijdens het wisselen van primaire wanneer nodig, omdat de nieuwe primaire al is gekozen. 
 
-- **Phase2**: tijdens deze fase Service Fabric zorgt ervoor dat alle gegevens beschikbaar zijn in een meerderheid van de replica's van de huidige configuratie.
+- **Phase2**: Tijdens deze fase, Service Fabric zorgt ervoor dat alle gegevens beschikbaar zijn in een meerderheid van de replica's van de huidige configuratie.
 
-Er zijn verschillende andere fasen uitsluitend voor intern gebruik worden.
+Er zijn verschillende andere fasen die alleen voor intern gebruik.
 
-## <a name="stuck-reconfigurations"></a>Vastgelopen herconfiguraties
-Vind herconfiguraties *vastgelopen* voor een aantal redenen. Enkele veelvoorkomende redenen:
+## <a name="stuck-reconfigurations"></a>Vastgelopen wanneer
+Wanneer krijg *vastgelopen* voor tal van redenen. Enkele van de veelvoorkomende oorzaken zijn:
 
-- **Replica's omlaag**: een aantal fasen herconfiguratie vereisen meerderheid van de replica's in de configuratie moet.
-- **Netwerk-of**: herconfiguraties vereisen netwerkverbinding tussen de verschillende knooppunten.
-- **API-fouten**: het protocol herconfiguratie vereist dat-serverimplementaties bepaalde API's eindigt. Bijvoorbeeld niet naleven van de annulering token in een betrouwbare service zorgt ervoor dat SwapPrimary herconfiguraties niet.
+- **Replica's omlaag**: Sommige fasen herconfiguratie vereisen een meerderheid van de replica's in de configuratie uit.
+- **Problemen met netwerk of communicatie**: Wanneer de netwerkverbinding tussen de verschillende knooppunten nodig hebt.
+- **API-fouten**: Het protocol herconfiguratie is vereist dat de service-implementaties bepaalde API's voltooien. Bijvoorbeeld, niet naleven van de annulering token in een betrouwbare service zorgt ervoor dat wanneer SwapPrimary te zitten.
 
-Statusrapporten van onderdelen van het systeem worden gebruikt, zoals System.FM System.RA en System.RAP, om op te sporen wanneer een nieuwe configuratie is vastgelopen. De [system health rapportpagina](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) beschrijft deze health-rapporten.
+Statusrapporten betrekking op systeemonderdelen gebruiken, zoals System.FM, System.RA en System.RAP, als u wilt vaststellen waar een herconfiguratie is vastgelopen. De [system health rapportpagina](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) beschrijft deze health-rapporten.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen voor meer informatie over Service Fabric-concepten:

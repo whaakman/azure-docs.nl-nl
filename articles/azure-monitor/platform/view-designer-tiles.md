@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.openlocfilehash: 9c0283081bd7245b1b886ed82ba03130a7a3bf2c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495325"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61341740"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Naslaggids voor Weergaveontwerper tegels in Azure Monitor
 Met behulp van Designer bekijken in Azure Monitor, kunt u tal van aangepaste weergaven maken in Azure portal waarmee u gegevens visualiseren in uw Log Analytics-werkruimte kunt. In dit artikel is een referentie-handleiding voor de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
@@ -31,7 +31,7 @@ Zie voor meer informatie over Designer bekijken:
 
 De beschikbare Weergaveontwerper-tegels worden in de volgende tabel beschreven:  
 
-| Naast elkaar | Beschrijving |
+| Naast elkaar | Description |
 |:--- |:--- |
 | [Number](#number-tile) |Het aantal records uit een query. |
 | [Twee getallen](#two-numbers-tile) |Het aantal records uit twee verschillende query's. |
@@ -50,15 +50,15 @@ De **getal** tegel zowel het aantal records uit een logbestand-query en een labe
 
 ![Een tegel getal](media/view-designer-tiles/tile-number.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
-| Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
+| Description |De tekst die wordt weergegeven onder de naam van de tegel. |
 | **tegel** | |
 | Legenda |De tekst die wordt weergegeven onder de waarde. |
 | Query’s uitvoeren |De query die wordt uitgevoerd. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
 | **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
-| Ingeschakeld |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
+| Enabled |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
 | Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
 | Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 
@@ -68,10 +68,10 @@ Deze tegel toont het aantal records uit twee verschillende logboeken-query's en 
 
 ![Twee getallen tegel](media/view-designer-tiles/tile-two-numbers.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
-| Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
+| Description |De tekst die wordt weergegeven onder de naam van de tegel. |
 | **Eerste tegel** | |
 | Legenda |De tekst die wordt weergegeven onder de waarde. |
 | Query’s uitvoeren |De query die wordt uitgevoerd. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
@@ -79,7 +79,7 @@ Deze tegel toont het aantal records uit twee verschillende logboeken-query's en 
 | Legenda |De tekst die wordt weergegeven onder de waarde. |
 | Query’s uitvoeren |De query die wordt uitgevoerd. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
 | **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
-| Ingeschakeld |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
+| Enabled |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
 | Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
 | Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 
@@ -96,14 +96,14 @@ De **ring** tegel geeft één getal met een overzicht van de kolom van een waard
 | **ringdiagram** | |
 | Query’s uitvoeren |De query die wordt uitgevoerd voor de ring. De eerste eigenschap een tekstwaarde is en de tweede eigenschap is een numerieke waarde. Deze query gebruikt normaal gesproken de *meting* trefwoord om samen te vatten resultaten. |
 | **ringdiagram** |**> Center** |
-| Tekst |De tekst die wordt weergegeven onder de waarde binnen de ring. |
+| Text |De tekst die wordt weergegeven onder de waarde binnen de ring. |
 | Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als één waarde.<ul><li>Som: De waarden van alle records met de waarde van eigenschap toevoegen.</li><li>Percentage: Percentage van de opgetelde waarden van records met de waarde van de eigenschap in vergelijking met de opgetelde waarden van alle records.</li></ul> |
 | Resultaatwaarden gebruikt in middenbewerking |(Optioneel) Selecteer het plusteken (+) om toe te voegen een of meer waarden. De resultaten van de query zijn beperkt tot records met de eigenschapswaarden die u opgeeft. Als er geen waarden worden toegevoegd, worden alle records worden opgenomen in de query. |
 | **ringdiagram** |**> Aanvullende opties** |
 | Kleuren |De kleur die wordt weergegeven voor elk van de drie belangrijkste eigenschappen. Gebruik het opgeven van alternatieve kleuren voor specifieke eigenschapswaarden *geavanceerde kleur toewijzing*. |
 | Geavanceerde kleurtoewijzing |Geeft een kleur die specifieke eigenschapswaarden vertegenwoordigt. Als de waarde die u opgeeft in de rechterbovenhoek drie is, wordt de alternatieve kleur weergegeven in plaats van de standaard kleur. Als de eigenschap niet in de rechterbovenhoek drie is, wordt de kleur niet weergegeven. |
 | **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
-| Ingeschakeld |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
+| Enabled |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
 | Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
 | Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 
@@ -124,7 +124,7 @@ Deze tegel is een lijndiagram met meerdere reeksen uit een logboekquery na verlo
 | Eenheden |Geef de eenheden voor de waarden die zijn geretourneerd door de query. Deze informatie wordt gebruikt om de labels worden weergegeven in de grafiek die aangeeft welke waarde en eventueel om de waarden te converteren. De **eenheidstype** Hiermee geeft u de categorie van de eenheid en definieert de **huidige eenheidstype** waarden die beschikbaar zijn. Als u een waarde in **converteren naar** en vervolgens de numerieke waarden worden geconverteerd van de **huidige eenheid** type de **converteren naar** type. |
 | Aangepast label |De tekst die wordt weergegeven voor de y-as naast het label voor de *eenheid* type. Als er geen label is opgegeven, alleen de *eenheid* type weergegeven. |
 | **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
-| Ingeschakeld |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
+| Enabled |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
 | Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
 | Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 
@@ -134,7 +134,7 @@ Deze tegel is zowel een regel die meerdere reeksen uit een logbestand query's ui
 
 ![Regel grafiek en een bijschrift tegel](media/view-designer-tiles/tile-line-chart-callout.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
 | Description |De tekst die wordt weergegeven onder de naam van de tegel. |
@@ -149,7 +149,7 @@ Deze tegel is zowel een regel die meerdere reeksen uit een logbestand query's ui
 | Eenheden |Geef de eenheden voor de waarden moeten worden geretourneerd door de query. Deze informatie wordt gebruikt op gegevenslabels weergegeven die wijzen op de typen en, optioneel, om te converteren van de waarden. De *eenheid* type Hiermee geeft u de categorie van de eenheid en definieert de beschikbare *huidige eenheid* waarden. Als u een waarde in *converteren naar*, de numerieke waarden worden geconverteerd van de *huidige eenheid* type de *converteren naar* type. |
 | Aangepast label |De tekst die wordt weergegeven voor de y-as naast het label voor de *eenheid* type. Als er geen label is opgegeven, alleen de *eenheid* type weergegeven. |
 | **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
-| Ingeschakeld |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
+| Enabled |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
 | Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
 | Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 
@@ -174,7 +174,7 @@ De **twee tijdlijnen** tegel toont de resultaten van de twee logboeken-query's n
 | Grafiekquery |De query die wordt uitgevoerd voor de tweede reeks. Het aantal records via elk tijdsinterval wordt vertegenwoordigd door de grafiekkolommen. |
 | Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li><li>Laatste voorbeeld: De waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Max.: De maximale waarde van de tijden die zijn opgenomen in de grafiek. |
 | **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
-| Ingeschakeld |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
+| Enabled |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
 | Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
 | Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 

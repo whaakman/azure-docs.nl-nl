@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
 ms.openlocfilehash: 642e586371a0ce6abe362f8b10b54bfd8baff678
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998920"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60872034"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Pushmeldingen verzenden met Azure Notification Hubs: Veelgestelde vragen
 
@@ -56,7 +56,7 @@ Voor de lagen Basic en Standard Notification Hubs kunnen correct geconfigureerde
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Hoe ik upgraden en downgraden van mijn hub of de naamruimte naar een andere laag?
 
-Ga naar de  **[Azure-portal]** > **Notification Hubs-naamruimten** of **Notification Hubs**. Selecteer de resource die u wilt bijwerken, en Ga naar **prijscategorie**. Houd rekening met de volgende vereisten:
+Ga naar de  **[Azure Portal]** > **Notification Hubs-naamruimten** of **Notification Hubs**. Selecteer de resource die u wilt bijwerken, en Ga naar **prijscategorie**. Houd rekening met de volgende vereisten:
 
 * De bijgewerkte prijscategorie is van toepassing op *alle* hubs in de naamruimte die u samenwerkt.
 * Als het aantal apparaten de limiet van de laag die u overschrijdt naar downgraden wilt, moet u de apparaten verwijderen voordat u downgraden.
@@ -183,7 +183,7 @@ Er is een bepaalde periode apparaten met niet-geopende apps wanneer geen melding
 
 ### <a name="is-there-audit-log-capability"></a>Is er audit log mogelijkheid?
 
-Ja. Alle Notification Hubs management operations update de Azure-activiteitenlogboek waarop wordt weergegeven in de [Azure-portal]. De Azure-activiteitenlogboek biedt inzicht in de bewerkingen die worden uitgevoerd voor resources in uw abonnementen. Met behulp van het activiteitenlogboek, u kunt bepalen wat, wie, en wanneer u voor alle schrijfbewerkingen (PUT, POST, DELETE) die voor de resources in uw abonnement. U kunt ook de status van de bewerkingen en andere relevante eigenschappen begrijpen. Maar. het activiteitenlogboek bevat geen lees (GET)-bewerking.
+Ja. Alle Notification Hubs management operations update de Azure-activiteitenlogboek waarop wordt weergegeven in de [Azure Portal]. De Azure-activiteitenlogboek biedt inzicht in de bewerkingen die worden uitgevoerd voor resources in uw abonnementen. Met behulp van het activiteitenlogboek, u kunt bepalen wat, wie, en wanneer u voor alle schrijfbewerkingen (PUT, POST, DELETE) die voor de resources in uw abonnement. U kunt ook de status van de bewerkingen en andere relevante eigenschappen begrijpen. Maar. het activiteitenlogboek bevat geen lees (GET)-bewerking.
 
 ## <a name="monitoring-and-troubleshooting"></a>Bewaking en probleemoplossing
 
@@ -193,7 +193,7 @@ Azure Notification Hubs biedt verschillende functies voor het oplossen van probl
 
 ### <a name="what-telemetry-features-are-available"></a>Welke telemetriefuncties zijn beschikbaar?
 
-Met Azure Notification Hubs kunnen weergeven van telemetriegegevens in de [Azure-portal]. Details van de metrische gegevens zijn beschikbaar op de [Notification Hubs metrische gegevens] pagina.
+Met Azure Notification Hubs kunnen weergeven van telemetriegegevens in de [Azure Portal]. Details van de metrische gegevens zijn beschikbaar op de [Notification Hubs metrische gegevens] pagina.
 
 U kunt ook programmatisch toegang tot metrische gegevens. Raadpleeg voor meer informatie de volgende artikelen:
 
@@ -205,7 +205,7 @@ U kunt ook programmatisch toegang tot metrische gegevens. Raadpleeg voor meer in
 > [!NOTE]
 > Meldingen over voltooide betekent alleen dat pushmeldingen te verzenden naar de externe PNS (bijvoorbeeld, APNS van Apple) of FCM voor Google zijn geleverd. Het is de verantwoordelijkheid van de PNS om te leveren van de meldingen aan doelapparaten. De PNS maakt normaal gesproken niet beschikbaar voor levering van metrische gegevens aan derden.  
 
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Prijzen van Notification Hubs]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Notification Hubs REST-API 's]: https://msdn.microsoft.com/library/azure/dn530746.aspx
@@ -219,7 +219,7 @@ U kunt ook programmatisch toegang tot metrische gegevens. Raadpleeg voor meer in
 [Notification Hubs oplossen van problemen]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Notification Hubs metrische gegevens]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Registraties exporteren/importeren]: https://docs.microsoft.com/en-us/azure/notification-hubs/export-modify-registrations-bulk
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
 [App Service-prijzen]: https://azure.microsoft.com/pricing/details/app-service/

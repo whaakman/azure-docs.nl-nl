@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 86dcd39ad7b9f1e207e9254ec72698db3998bbd6
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320477"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61400471"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Gegevens kopiëren van MongoDB met Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ De volgende eigenschappen worden ondersteund voor MongoDB gekoppelde service:
 | databaseName |De naam van de MongoDB-database die u wilt openen. |Ja |
 | authenticationType | Het type verificatie gebruikt voor verbinding met de MongoDB-database.<br/>Toegestane waarden zijn: **Basic**, en **anonieme**. |Ja |
 | gebruikersnaam |Gebruikersaccount voor toegang tot MongoDB. |Ja (als basisverificatie wordt gebruikt). |
-| wachtwoord |Het wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja (als basisverificatie wordt gebruikt). |
+| password |Het wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja (als basisverificatie wordt gebruikt). |
 | authSource |De naam van de MongoDB-database die u wilt gebruiken om te controleren of uw referenties voor verificatie. |Nee. Standaard wordt het beheerdersaccount en de database die is opgegeven met behulp van de eigenschap databaseName gebruiken voor basisverificatie. |
 | enableSsl | Hiermee geeft u op of de verbindingen met de server zijn versleuteld met behulp van SSL. De standaardwaarde is false.  | Nee |
 | allowSelfSignedServerCert | Hiermee geeft u op of zelfondertekende certificaten van de server is toegestaan. De standaardwaarde is false.  | Nee |
@@ -177,14 +177,14 @@ Het kopiëren van gegevens van MongoDB, worden de volgende toewijzingen van Mong
 | MongoDB-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | Binair bestand |Byte[] |
-| Booleaans |Booleaans |
+| Boolean |Boolean |
 | Date |DateTime |
-| NumberDouble |Double-waarde |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Reeks |
-| Reeks |Reeks |
-| UUID |GUID |
+| ObjectID |String |
+| Reeks |String |
+| UUID |Guid |
 | Object |Renormalized afvlakken in kolommen met '_' als geneste scheidingsteken |
 
 > [!NOTE]

@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309139"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Structuurdefinitie opgeven voor rechthoekige gegevenssets
 De sectie structuur in de gegevenssets JSON wordt een **optionele** sectie voor rechthoekige tabellen (met rijen en kolommen) en bevat een verzameling van kolommen voor de tabel. U gebruikt de sectie structuur voor beide met type-informatie voor typeconversies of kolomtoewijzingen doen. De volgende secties worden deze functies in detail beschreven. 
 
 Elke kolom bevat de volgende eigenschappen:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | naam |Naam van de kolom. |Ja |
 | type |Het gegevenstype van de kolom. Zie type conversies hieronder voor meer informatie met betrekking tot wanneer moet u informatie opgeven |Nee |
@@ -49,14 +49,14 @@ Data factory ondersteunt de volgende CLS compatibele .NET op basis van typewaard
 * Int16
 * Int32 
 * Int64
-* Enkelvoudig
-* Double-waarde
-* decimaal
+* Single
+* Double
+* Decimal
 * Byte[]
-* BOOL
-* Reeks 
-* GUID
-* Datum en tijd
+* Bool
+* String 
+* Guid
+* DateTime
 * Datetimeoffset
 * Periode 
 

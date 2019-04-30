@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 0f1d4fdbb9e5d2b05b8ec43c1393951a4c6a87b8
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6486b38040fc92c2ece839801293817c4afc7cf5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094756"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614018"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Code en Azure Functions lokaal testen
 
@@ -25,7 +25,7 @@ Terwijl u bent kunnen ontwikkelen en testen van Azure Functions in de [Azure Por
 
 De manier waarop u functies op uw lokale computer ontwikkelen is afhankelijk van uw [taal](supported-languages.md) en hulpprogramma's van voorkeuren. De omgevingen in de volgende tabel bieden ondersteuning voor lokale ontwikkeling:
 
-|Omgeving                              |Talen         |Beschrijving|
+|Omgeving                              |Languages         |Description|
 |-----------------------------------------|------------|---|
 | [Opdrachtprompt of terminal](functions-run-local.md) | [C# (klassebibliotheek)](functions-dotnet-class-library.md), [C#-script (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [Azure Functions Core Tools] bevat van de core runtime en sjablonen voor het maken van functies, waarmee lokale ontwikkeling. Versie 2.x ondersteunt ontwikkeling op Linux, MacOS en Windows. Alle omgevingen zijn afhankelijk van de Core-hulpprogramma's voor de lokale Functions-runtime. |
 |[Visual Studio Code](functions-create-first-function-vs-code.md)| [C# (klassebibliotheek)](functions-dotnet-class-library.md), [C#-script (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | De [Azure Functions-extensie voor VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) voegt functies aan Visual Studio Code ondersteunen. De essentiële hulpprogramma vereist. Ondersteunt de ontwikkeling van Linux, MacOS en Windows, wanneer u versie 2.x van de Core-hulpprogramma's. Zie voor meer informatie, [uw eerste functie maken met Visual Studio Code](functions-create-first-function-vs-code.md). |

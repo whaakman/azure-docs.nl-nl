@@ -10,11 +10,11 @@ ms.topic: article
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60738983"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Inschakelen van updatebeheer, wijzigingen bijhouden en inventaris-oplossingen op meerdere virtuele machines
 
@@ -59,7 +59,7 @@ Als de geselecteerde werkruimte is niet gekoppeld aan een Automation-Account, zi
 
 ![Er is geen werkruimte](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-Bij het inschakelen van oplossingen, worden alleen bepaalde regio's worden ondersteund voor het koppelen van een Log Analytics-werkruimte en een Automation-Account.
+Bij het inschakelen van oplossingen worden slechts bepaalde regio's ondersteund voor het koppelen van een Log Analytics-werkruimte aan een Automation-Account.
 
 De volgende tabel bevat de ondersteunde toewijzingen:
 

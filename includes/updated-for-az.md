@@ -9,7 +9,7 @@ ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188309"
+ms.locfileid: "62088796"
 ---
 > [!NOTE]
 > Dit artikel is bijgewerkt voor het gebruik van de nieuwe Azure PowerShell Az-module. U kunt nog steeds de AzureRM-module die blijven ontvangen van oplossingen voor problemen tot ten minste December 2020.

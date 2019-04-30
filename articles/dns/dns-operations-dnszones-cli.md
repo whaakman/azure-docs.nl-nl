@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: victorh
-ms.openlocfilehash: 7f132c513354a87b4f1bd37db4c6c6ed8e0fd041
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: df741b34e1268c547723af87401760197d395780
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949958"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61293826"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Over het beheren van DNS-Zones in Azure DNS met behulp van de Azure CLI
 
@@ -68,7 +68,7 @@ Kies welk Azure-abonnement u wilt gebruiken.
 az account set --subscription "subscription name"
 ```
 
-### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Optioneel: Als u wilt installeren en gebruiken van Azure DNS Private Zones functie (openbare Preview)
+### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Optioneel: De functie Azure DNS Private Zones installeren (openbare preview)
 De functie Azure DNS Private Zones wordt uitgebracht in een openbare preview via een extensie van Azure CLI. De extensie dns van Azure CLI installeren 
 ```
 az extension add --name dns

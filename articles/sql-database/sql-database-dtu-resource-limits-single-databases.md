@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/20/2019
 ms.openlocfilehash: b3514eca8db5d5b68b3e5784ee95e8583813945c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008964"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075233"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Resourcelimieten voor individuele databases met behulp van het op DTU gebaseerde aankoopmodel
 
@@ -32,7 +32,7 @@ In de volgende tabellen geven de beschikbare resources voor een individuele data
 > [!IMPORTANT]
 > Zie voor richtlijnen en overwegingen bij schalen, [een individuele database schalen](sql-database-single-database-scale.md)
 
-### <a name="basic-service-tier"></a>Basisservicelaag
+### <a name="basic-service-tier"></a>Servicelaag Basic
 
 | **COMPUTE-grootte** | **Basic** |
 | :--- | --: |
@@ -44,7 +44,7 @@ In de volgende tabellen geven de beschikbare resources voor een individuele data
 | Maximaal aantal gelijktijdige sessies | 300 |
 |||
 
-### <a name="standard-service-tier"></a>Standaardservicelaag
+### <a name="standard-service-tier"></a>Servicelaag Standard
 
 | **COMPUTE-grootte** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|

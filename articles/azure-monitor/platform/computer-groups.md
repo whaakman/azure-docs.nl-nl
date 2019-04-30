@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
 ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549300"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60740917"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Computergroepen in Logboeken-query's van Azure Monitor
 Computergroepen in Azure Monitor kunnen u aan het bereik [query's bijgehouden](../log-query/log-query-overview.md) aan een bepaalde set computers.  Elke groep wordt gevuld met computers met behulp van een query die u definieert of door het importeren van groepen van verschillende bronnen.  Wanneer de groep is opgenomen in een logboekquery, worden de resultaten beperkt tot de records die voldoen aan de computers in de groep.
@@ -53,7 +53,7 @@ Gebruik de volgende procedure een computergroep maken vanuit een zoeken in Logbo
 
 De volgende tabel beschrijft de eigenschappen die een computergroep definiëren.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:---|:---|
 | Name   | Naam van de query om weer te geven in de portal. |
 | Functiealias | Een unieke alias die wordt gebruikt voor het identificeren van de groep van de computer in een query. |

@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 04/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 4b44eec5557d2083c38fe2714d93800f79b21b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8e251aa5031a8eadd2d567bff2830449c7decc3
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457878"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766650"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Zelfstudie: Maak een Site-naar-Site-verbinding met behulp van Azure virtuele WAN
 
-In deze zelfstudie leert u hoe u Virtual WAN kunt gebruiken om verbinding te maken met uw resources in Azure via een VPN-verbinding met IPsec/IKE (IKEv1 en IKEv2). Voor dit type verbinding moet er on-premises een VPN-apparaat aanwezig zijn waaraan een extern openbaar IP-adres is toegewezen. Zie voor meer informatie over Virtual WAN het [Overzicht van Virtual WAN](virtual-wan-about.md)
+In deze zelfstudie leert u hoe u Virtual WAN kunt gebruiken om verbinding te maken met uw resources in Azure via een VPN-verbinding met IPsec/IKE (IKEv1 en IKEv2). Voor dit type verbinding moet er on-premises een VPN-apparaat aanwezig zijn waaraan een extern openbaar IP-adres is toegewezen. Zie voor meer informatie over Virtual WAN het [Overzicht van Virtual WAN](virtual-wan-about.md).
 
 > [!NOTE]
 > Als u veel sites hebt, zou u normaal gesproken een [Virtual WAN-partner](https://aka.ms/virtualwan) gebruiken om deze configuratie te maken. U kunt deze configuratie echter ook zelf maken als bekend bent met netwerktechnologie en uw eigen VPN-apparaat kunt configureren.
@@ -32,6 +32,7 @@ In deze zelfstudie leert u het volgende:
 > * Een site maken
 > * Een hub maken
 > * Een hub verbinden met een site
+> * Een compatibel VNet maken (als u nog een hebt)
 > * Een VNet verbinden met een hub
 > * Een configuratie voor een VPN-apparaat downloaden en toepassen
 > * Uw virtuele WAN weergeven
@@ -40,21 +41,15 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-## <a name="vnet"></a>1. Een virtueel netwerk maken
-
-[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
-
-## <a name="openvwan"></a>2. Een virtueel WAN maken
+## <a name="openvwan"></a>1. Een virtueel WAN maken
 
 Open een browser, ga naar [Azure Portal](https://aka.ms/azurevirtualwanpreviewfeatures) en meld u aan met uw Azure-account.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
-## <a name="site"></a>3. Een site maken
+## <a name="site"></a>2. Een site maken
 
 Maak het aantal sites dat u nodig hebt voor uw fysieke locaties. Als u bijvoorbeeld een filiaal in NY, een filiaal in Londen en een filiaal in LA hebt, maakt u drie afzonderlijke sites. Deze sites bevatten de eindpunten voor uw on-premises VPN-apparaat. Op dit moment kunt u slechts één privé-adresruimte voor uw site opgeven.
 
@@ -62,21 +57,21 @@ Maak het aantal sites dat u nodig hebt voor uw fysieke locaties. Als u bijvoorbe
 2. Op de pagina **VPN sites** klikt u op **+Site maken**.
 3. Vul de volgende velden in op de pagina **Site maken**:
 
-   * **Naam** - dit is de naam waarmee u naar uw on-premises site wilt verwijzen.
-   * **Openbaar IP-adres** - dit is het openbare IP-adres van het VPN-apparaat van uw on-premises site.
+   * **Naam** -de naam die u wilt verwijzen naar uw on-premises site.
+   * **Openbare IP-adres** -het openbare IP-adres van de VPN-apparaat bevindt zich op uw on-premises site.
    * **Privié-adresruimte** - dit is de IP-adresruimte op uw on-premises site. Verkeer dat bestemd is voor deze adresruimte wordt doorgestuurd naar uw lokale site.
    * **Abonnement** - controleer of het abonnement klopt.
    * **Resourcegroep** - selecteer de resourcegroep die u wilt gebruiken.
-   * **Locatie**.
-4. Klik op **Geavanceerd weergeven** om aanvullende instellingen weer te geven. U kunt **BGP** inschakelen, waarmee u deze functionaliteit inschakelt voor alle verbindingen die voor deze site in Azure worden gemaakt. U kunt ook **Apparaatgegevens** invoeren (optionele velden). Hierdoor krijgt het Azure-team meer inzicht in uw omgeving, zodat het makkelijker wordt om later aanvullende optimalisatiemogelijkheden toe te voegen of u te helpen bij het oplossen van problemen.
+   * **Locatie**
+4. Klik op **Geavanceerd weergeven** om aanvullende instellingen weer te geven. U kunt selecteren **BGP** om in te schakelen, BGP, waarmee de functionaliteit BGP op alle verbindingen die zijn gemaakt voor deze site in Azure. U kunt ook **Apparaatgegevens** invoeren (optionele velden). In dat geval kan helpen bij het Azure-Team beter inzicht in uw omgeving om toe te voegen extra optimalisatiemogelijkheden in de toekomst, of om op te lossen.
 5. Klik op **Bevestigen**.
 6. Nadat u op **Bevestigen** hebt geklikt, kunt u de status bekijken op de pagina met de VPN-sites. De site verandert van **Inrichten** in **Ingericht**.
 
-## <a name="hub"></a>4. Een hub maken
+## <a name="hub"></a>3. Een hub maken
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
 
-## <a name="associate"></a>5. De sites aan de hub koppelen
+## <a name="associate"></a>4. De sites aan de hub koppelen
 
 Hubs moeten in het algemeen worden gekoppeld aan sites die zich in dezelfde regio als het VNet bevinden.
 
@@ -85,6 +80,12 @@ Hubs moeten in het algemeen worden gekoppeld aan sites die zich in dezelfde regi
 3. U kunt hier ook een specifieke **PSK** (vooraf gedeelde sleutel) toevoegen of de standaardwaarde gebruiken.
 4. Klik op **Bevestigen**.
 5. U kunt de verbindingsstatus bekijken op de pagina met de **VPN-sites**.
+
+## <a name="vnet"></a>5. Een virtueel netwerk maken
+
+Als u nog geen een VNet, kunt u snel één met PowerShell of Azure portal maken. Als u al een VNet hebt, dient u te controleren u of dit VNet voldoet aan de vereiste criteria en geen virtuele netwerkgateway heeft.
+
+[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
 
 ## <a name="vnet"></a>6. Uw VNet verbinden met een hub
 
@@ -114,7 +115,7 @@ Gebruik de VPN-apparaatconfiguratie om uw on-premises VPN-apparaat te configurer
 Het apparaatconfiguratiebestand bevat de instellingen die u dient te gebruiken om uw on-premises VPN-apparaat te configureren. Wanneer u dit bestand bekijkt, ziet u de volgende informatie:
 
 * **vpnSiteConfiguration -** in deze sectie vindt u de apparaatgegevens, ingesteld als een site die verbinding maakt met het virtuele WAN. Hier vindt u ook de naam en het openbare ip-adres van het branch-apparaat.
-* **vpnSiteConnections -** deze sectie bevat informatie over het volgende:
+* **vpnSiteConnections -** in deze sectie bevat informatie over de volgende instellingen:
 
     * **Adresruimte** van het VNet van de virtuele hub(s)<br>Voorbeeld:
  
@@ -126,7 +127,7 @@ Het apparaatconfiguratiebestand bevat de instellingen die u dient te gebruiken o
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * **IP-adressen** van de VPN-gateway van de virtuele hub. Omdat voor de VPN-gateway elke verbinding is opgebouwd uit 2 tunnels in een actief/actief-configuratie, worden beide IP-adressen in dit bestand vermeld. In dit voorbeeld ziet u voor elke site 'Instance0' en 'Instance1'.<br>Voorbeeld:
+    * **IP-adressen** van de VPN-gateway van de virtuele hub. Omdat elke verbinding van de VPN-gateway uit twee tunnels in actief / actief-configuratie bestaat, ziet u beide IP-adressen die worden vermeld in dit bestand. In dit voorbeeld ziet u voor elke site 'Instance0' en 'Instance1'.<br>Voorbeeld:
 
         ``` 
         "Instance0":"104.45.18.186"

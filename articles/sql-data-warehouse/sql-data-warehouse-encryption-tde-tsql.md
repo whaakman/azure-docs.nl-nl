@@ -2,20 +2,21 @@
 title: Transparante gegevensversleuteling in SQL datawarehouse (T-SQL) | Microsoft Docs
 description: Transparante gegevensversleuteling (TDE) in SQL datawarehouse (T-SQL)
 services: sql-data-warehouse
-author: KavithaJonnakuti
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: security
-ms.date: 04/17/2018
-ms.author: kavithaj
+ms.subservice: implement
+origin.date: 04/17/2018
+ms.date: 03/25/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 7908e6e0927357446ea45e16b7c44adb83ec1fd3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892435"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61439057"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Aan de slag met transparante gegevensversleuteling (TDE)
 > [!div class="op_single_selector"]
@@ -76,7 +77,7 @@ Een resultaat van ```1``` geeft aan dat een versleutelde database ```0``` geeft 
 
 <!--Anchors-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
-[sys.databases]: https://msdn.microsoft.com/library/ms178534.aspx  
+[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx  
 [sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx  
 
 <!--Image references-->

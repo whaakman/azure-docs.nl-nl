@@ -13,17 +13,17 @@ ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
 ms.openlocfilehash: 1c8400898dba59f312ba9d994ee711a5e241973a
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268001"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60946719"
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric-omgevingsvariabelen
 
 Service Fabric heeft ingebouwde omgevingsvariabelen instellen voor elke service-exemplaar. De volledige lijst van omgevingsvariabelen lager is dan:
 
-| Omgevingsvariabele                         | Beschrijving                                                            | Voorbeeld                                                              |
+| Omgevingsvariabele                         | Description                                                            | Voorbeeld                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Fabric_ApplicationName                       | De naam van de fabric-uri van de toepassing                                 | fabric: / Mijntoepassing                                                |
 | Fabric_CodePackageName                       | De naam van het codepakket met die het proces behoort              | Code                                                                 |
@@ -38,7 +38,7 @@ Service Fabric heeft ingebouwde omgevingsvariabelen instellen voor elke service-
 | Fabric_NodeIPOrFQDN                          | De IP- of FQDN-naam van het knooppunt, zoals opgegeven in het cluster-manifestbestand. | localhost of 10.0.0.1                                                |
 | Fabric_NodeName                              | De naam van het knooppunt van het knooppunt waarop het proces wordt uitgevoerd                          | _Node_0                                                              |
 | Fabric_ServiceName                           | De fabric-uri-naam van de service, als service wordt gehost in de modus ExclusiveProcess. De waarde van deze variabele is alleen beschikbaar als u de service ServicePackageActivationMode ExclusiveProcess maakt.  | fabric: / Mijntoepassing/MijnService                                               |
-| Fabric_ServicePackageActivationId            | De ServicePackageActivationId                                         | EEN GUID                                                               |
+| Fabric_ServicePackageActivationId            | The ServicePackageActivationId                                         | A GUID                                                               |
 | Fabric_ServicePackageName                    | Naam van het pakket met de service het proces maakt deel uit van                     | Web1Pkg                                                              |
 
 Interne omgevingsvariabelen die worden gebruikt door de Service Fabric-Runtime:

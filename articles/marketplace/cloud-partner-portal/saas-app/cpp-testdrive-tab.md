@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 04/24/2019
 ms.author: pbutlerm
 ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649030"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594237"
 ---
 # <a name="saas-application-test-drive-tab"></a>SaaS-toepassing Test Drive-tabblad
 
@@ -31,9 +31,11 @@ Het maken van een evaluatieversie voor uw klanten is een aanbevolen procedure om
 
 Test drive biedt klanten een praktische Zelfgestuurde evaluatieversie van de belangrijke functies en voordelen, gedemonstreerd in een implementatiescenario voor het werkelijke van uw product.
 
+
 ## <a name="how-a-test-drive-works"></a>De werking van een test uit
 
 Een potentiële klant wordt gezocht en detecteert de toepassing op de Marketplace. De klant zich heeft aangemeld en gaat akkoord met de gebruiksvoorwaarden. Op dit moment ontvangt de klant uw vooraf geconfigureerde omgeving om te proberen voor een vast aantal uren, terwijl u een zeer gekwalificeerde lead te ontvangen. Zie voor meer informatie, [wat is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+
 
 ## <a name="publishing-steps"></a>Publiceren stappen
 
@@ -43,6 +45,7 @@ De belangrijkste publishing stappen voor het toevoegen van een test Drive zijn:
 2. Bouw en/of wijzigen van de Resource Manager-sjabloon
 3. Stapsgewijze handleiding van uw Test Drive maken
 4. Uw aanbod opnieuw publiceren
+
 
 ## <a name="setting-up-a-test-drive"></a>Instellen van een test uit
 
@@ -54,6 +57,8 @@ Er zijn vier verschillende typen Test Drives beschikbaar, elk op basis van het t
 |       Gehost             |       Een gehost Test Drive wordt de complexiteit van de installatie door Microsoft hosting en onderhouden van de service die de gebruiker Test Drive-inrichting en ongedaan maken van inrichting uitvoert.             |         [Gehoste Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
 |      Logische apps              |       Een logische App Test Drive is een sjabloon voor de implementatie die is bedoeld om alle complexe architecturen omvatten. Alle Dynamics-toepassingen of aangepaste producten moeten gebruiken voor dit type Test Drive.            |      [Logische App Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
 |       Power BI             |         Een Power BI Test Drive bestaat uit een ingesloten koppeling naar een op maat gemaakte dashboard. Alle producten die wil ter illustratie van dat een interactieve Power BI-visualisatie dit type Test Drive moet gebruiken. U moet uploaden, is de URL van uw ingesloten Power BI.          |        [Power BI-Test Drive](#power-bi-test-drive)           |
+|   |   |   |
+
 
 ### <a name="power-bi-test-drive"></a>Power BI uitproberen
 

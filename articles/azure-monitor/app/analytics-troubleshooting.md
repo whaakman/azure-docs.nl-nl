@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: mbullwin
 ms.openlocfilehash: ecf0638aa999208331603ac30ccf4eb17b3c4500
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960680"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60692289"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Problemen met analyses in Application Insights oplossen
 Problemen met [Application Insights Analytics](analytics.md)? Begin hier. Analytics is de krachtige zoekfunctie van Azure Application Insights.
 
-## <a name="limits"></a>Limieten
+## <a name="limits"></a>Limits
 * Op dit moment zijn queryresultaten beperkt tot alleen gedurende een week van oude gegevens.
 * We testen op browsers: meest recente versies van Chrome, Microsoft Edge en Internet Explorer.
 

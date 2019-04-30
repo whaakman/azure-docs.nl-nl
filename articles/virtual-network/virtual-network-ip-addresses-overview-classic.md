@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
 ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652164"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742115"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP-adrestypen en toewijzingsmethoden (klassiek) in Azure
 U kunt IP-adressen toewijzen aan Azure-resources om te communiceren met andere Azure-resources, uw on-premises netwerk en internet. Er zijn twee soorten IP-adressen die u in Azure gebruiken kunt: openbare en privéclouds.
@@ -144,7 +144,7 @@ De onderstaande tabel ziet u elk resourcetype met de mogelijke toewijzingsmethod
 | Interne load balancer-front-end |Ja |Ja |Ja |
 | Application gateway-front-end |Ja |Ja |Ja |
 
-## <a name="limits"></a>Limieten
+## <a name="limits"></a>Limits
 De onderstaande tabel bevat de limieten die zijn opgelegd voor IP-adressen in Azure per abonnement. U kunt [contact opnemen met ondersteuning](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) als u op basis van uw bedrijfsbehoeften de standaardlimieten wilt verhogen tot de maximumlimieten.
 
 |  | Standaardlimiet | Maximumaantal |

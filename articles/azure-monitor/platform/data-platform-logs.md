@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
 ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003680"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809159"
 ---
 # <a name="logs-in-azure-monitor"></a>Logboeken in Azure Monitor
 
@@ -76,7 +76,7 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 
 ### <a name="azure-tenant-and-subscription"></a>Azure-tenant en -abonnement
 
-| Gegevens | Beschrijving |
+| Gegevens | Description |
 |:---|:---|
 | Auditlogboeken van Azure Active Directory | Geconfigureerd via diagnostische instellingen voor elke map. Zie [logboeken van Azure AD integreren met Azure Monitor logboeken](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
 | Activiteitenlogboeken | Standaard afzonderlijk opgeslagen en kan worden gebruikt voor bijna realtime waarschuwingen. Installeer de oplossing Activity Log Analytics om te schrijven naar Log Analytics-werkruimte. Zie [verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics](collect-activity-logs.md). |
@@ -92,7 +92,7 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 
 ### <a name="virtual-machines"></a>Virtuele machines
 
-| Gegevens | Beschrijving |
+| Gegevens | Description |
 |:---|:---|
 |  Agent-gegevensbronnen | Gegevensbronnen die worden verzameld van [Windows](agent-windows.md) en [Linux](../learn/quick-collect-linux-computer.md) agents zijn gebeurtenissen, prestatiegegevens en aangepaste logboeken. Zie [Agent gegevensbronnen in Azure Monitor](data-sources.md) voor een lijst van gegevensbronnen en gegevens over de configuratie. |
 | Bewakingsoplossingen | Bewakingsoplossingen schrijven gegevens dat ze verzamelen van agents aan de Log Analytics-werkruimte. Zie [details van de verzameling gegevens voor de beheeroplossingen in Azure](../insights/solutions-inventory.md) voor een overzicht van oplossingen. Zie [bewakingsoplossingen in Azure Monitor](../insights/solutions.md) voor meer informatie over het installeren en gebruiken van oplossingen. |

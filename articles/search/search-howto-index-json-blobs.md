@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527350"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871574"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexeren van JSON-blobs met behulp van de indexeerfunctie Azure Search Blob
 Dit artikel leest u hoe het configureren van een Azure Search blob [indexeerfunctie](search-indexer-overview.md) gestructureerde inhoud ophalen van JSON-documenten in Azure Blob-opslag en kunt u in Azure Search kan worden doorzocht. Deze werkstroom wordt een Azure Search-index gemaakt en wordt geladen met de bestaande tekst die is geëxtraheerd uit JSON-blobs. 
@@ -129,7 +129,7 @@ De volgorde van bewerkingen is vereist dat u maakt en aanroepen van objecten in 
 
 JSON-blobs in Azure Blob-opslag zijn doorgaans een enkele JSON-document of een JSON 'matrix'. De bouw, afhankelijk van hoe u ingesteld kan worden geparseerd in de blob-indexeerfunctie in Azure Search de **parsingMode** parameter voor de aanvraag.
 
-| JSON-document | parsingMode | Beschrijving | Beschikbaarheid |
+| JSON-document | parsingMode | Description | Beschikbaarheid |
 |--------------|-------------|--------------|--------------|
 | Een per-blob | `json` | Geparseerd JSON-blobs als één segment van de tekst. Elk JSON-blob wordt één Azure Search-document. | Algemeen beschikbaar in zowel [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 | Meerdere per blob | `jsonArray` | Een JSON-matrix in de blob, waarbij elk element van de matrix een afzonderlijke Azure Search-document wordt geparseerd.  | Beschikbaar in preview in beide [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
@@ -293,7 +293,7 @@ De .NET SDK is volledig pariteit met de REST-API. Het is raadzaam om de vorige s
 
 JSON-blobs kunnen ervan uitgaan dat meerdere formulieren. De **parsingMode** parameter in de JSON-indexeerfunctie bepaalt hoe de inhoud van de JSON-blob wordt geparseerd en een Azure Search-index zijn gestructureerd:
 
-| parsingMode | Beschrijving |
+| parsingMode | Description |
 |-------------|-------------|
 | `json`  | Elke blob worden geïndexeerd als één document. Dit is de standaardinstelling. |
 | `jsonArray` | Kies deze modus als uw blobs bestaan uit JSON-matrices en moet u elk element van de matrix om te worden van een afzonderlijke document in Azure Search. |

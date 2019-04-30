@@ -9,11 +9,11 @@ ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: ecdd419331c88e712644851f9213861f882cf0f6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53381448"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832766"
 ---
 ## <a name="prepare-your-web-app"></a>Uw web-app voorbereiden
 
@@ -21,7 +21,7 @@ Als u een aangepast SSL-certificaat (een certificaat van een derde of een App Se
 
 ### <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Open de [Azure-portal](https://portal.azure.com).
+Open de [Azure Portal](https://portal.azure.com).
 
 ### <a name="navigate-to-your-web-app"></a>Navigeer naar uw web-app
 

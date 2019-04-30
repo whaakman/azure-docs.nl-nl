@@ -12,11 +12,11 @@ ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 28fae27b52ea150c1fa732715212e2f2c9534bc6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126888"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Met de naam entiteit erkenning cognitieve vaardigheden
 
@@ -48,7 +48,7 @@ Parameters zijn hoofdlettergevoelig.
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
 
-| Voer een naam in      | Description                   |
+| Naam invoeren      | Description                   |
 |---------------|-------------------------------|
 | languageCode  | Optioneel. De standaardwaarde is `"en"`.  |
 | tekst          | De tekst die moet worden geanalyseerd.          |

@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 3/14/2019
 ms.openlocfilehash: d8aaf51c836a8e88c4e9b92798067167cd044e72
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58015362"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848077"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Resources voor elastische pool schalen in Azure SQL Database
 
@@ -74,7 +74,7 @@ U worden in rekening gebracht voor elk uur bestaat in een database met behulp va
 > [!IMPORTANT]
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
 
-### <a name="vcore-based-purchasing-model"></a>Op vCore gebaseerd aanschafmodel
+### <a name="vcore-based-purchasing-model"></a>Aankoopmodel op basis van vCore
 
 - Opslag kan worden ingericht tot de maximale grootte is bereikt:
 

@@ -12,11 +12,11 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165897"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60690811"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Aan de slag met de Informix-connector
 Logic Apps verbindt connector van Microsoft voor Informix met bronnen die zijn opgeslagen in een IBM Informix-database. De Informix-connector bevat een client voor Microsoft om te communiceren met externe computers voor Informix-server via een TCP/IP-netwerk. Dit omvat clouddatabases zoals IBM Informix voor Windows die wordt uitgevoerd in Azure-virtualisatie, en het on-premises databases met behulp van de on-premises gegevensgateway. Zie de [lijst met ondersteunde](connectors-create-api-informix.md#supported-informix-platforms-and-versions) van IBM Informix-platforms en versies (in dit onderwerp).
@@ -86,7 +86,7 @@ Deze connector biedt ondersteuning voor verbindingen met database on-premises en
 | database |Vereist. Accepteert een string-waarde vertegenwoordigt een DRDA relationele Database de naam (RDBNAM). Informix accepteert een 128-byte-tekenreeks (de database staat bekend als de naam van een IBM Informix-database (dbname)). |
 | verificatie |Optioneel. Accepteert een item lijstwaarde, Basic of Windows (kerberos). |
 | gebruikersnaam |Vereist. Een string-waarde accepteert. |
-| wachtwoord |Vereist. Een string-waarde accepteert. |
+| password |Vereist. Een string-waarde accepteert. |
 | gateway |Vereist. Accepteert een lijst met item-waarde voor de on-premises gegevensgateway naar Logic Apps is gedefinieerd in de opslaggroep. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>De on-premises gatewayverbinding maken

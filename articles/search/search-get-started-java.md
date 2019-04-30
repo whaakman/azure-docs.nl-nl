@@ -10,11 +10,11 @@ ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
 ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629898"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61289803"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Aan de slag met Azure Search in Java
 > [!div class="op_single_selector"]
@@ -46,13 +46,13 @@ In deze toepassing zorgt het programma **SearchServlet.java** er met een [indexe
 ## <a name="about-the-program-files"></a>Over de programmabestanden
 In de volgende lijst worden de bestanden beschreven die relevant zijn voor dit voorbeeld.
 
-* Search.JSP: Levert de gebruikersinterface
+* Search.jsp: Levert de gebruikersinterface
 * SearchServlet.java: Biedt methoden (vergelijkbaar met een controller in MVC)
 * SearchServiceClient.java: HTTP-aanvragen worden verwerkt
 * SearchServiceHelper.java: Een helperklasse die statische methoden biedt
-* Document.Java: Levert het gegevensmodel
-* Config.Properties: Stelt de Search service-URL en api-sleutel
-* pom.XML: Een Maven-afhankelijkheid
+* Document.java: Levert het gegevensmodel
+* config.properties: Stelt de Search service-URL en api-sleutel
+* pom.xml: Een Maven-afhankelijkheid
 
 <a id="sub-2"></a>
 

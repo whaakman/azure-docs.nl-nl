@@ -9,11 +9,11 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.openlocfilehash: 78a8b5e7a1c5512f81315519210bc7759dd15342
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578472"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800867"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>TmaxSoft OpenFrame installeren op Azure
 
@@ -64,7 +64,7 @@ De volgende tabel bevat de vereisten voor de installatie op Azure.
 
 <table>
 <thead>
-    <tr><th>Vereiste</th><th>Beschrijving</th></tr>
+    <tr><th>Vereiste</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td>Ondersteunde Linux-distributies op Azure

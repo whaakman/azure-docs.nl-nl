@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.subservice: autoscale
+ms.component: autoscale
 ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474826"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787492"
 ---
 # <a name="understand-autoscale-settings"></a>Inzicht in instellingen voor automatisch schalen
 Instellingen voor automatisch schalen kunt u ervoor zorgen dat u hebt de juiste hoeveelheid resources die worden uitgevoerd om de wisselende belasting van uw toepassing te voldoen. U kunt de instellingen voor automatisch schalen op basis van metrische gegevens die wijzen op belasting of prestaties of trigger wordt geactiveerd op een geplande datum en tijd configureren. In dit artikel wordt een gedetailleerde Kijk op de anatomie van een instelling voor automatisch schalen. Het artikel begint met het schema en de eigenschappen van een instelling en klikt u vervolgens helpt bij de verschillende profieltypen die kunnen worden geconfigureerd. Ten slotte het artikel wordt beschreven hoe de functie voor automatisch schalen in Azure evalueert profiel om uit te voeren op een bepaald moment.
@@ -110,7 +110,7 @@ Ter illustratie van het schema van de instelling voor automatisch schalen, wordt
 | metricTrigger | timeAggregation | De aggregatiemethode die wordt gebruikt om de metrische. Bijvoorbeeld, **TimeAggregation = "Gemiddelde"** moet de metrische aggregeren op basis van het gemiddelde te nemen. In het geval is voorgaande, de tien voorbeelden van 1 minuut duren en gemiddelde ze. |
 | regel | scaleAction | De actie die moet worden uitgevoerd wanneer de metricTrigger van de regel wordt geactiveerd. |
 | scaleAction | richting | "Verhogen' als u wilt uitschalen, of 'Verkleinen' om te schalen in.|
-| scaleAction | waarde | Hoeveel vergroten of verkleinen van de capaciteit van de resource. |
+| scaleAction | value | Hoeveel vergroten of verkleinen van de capaciteit van de resource. |
 | scaleAction | afkoeltijd | De hoeveelheid tijd moet wachten na een schaalbewerking voordat opnieuw kan worden geschaald. Bijvoorbeeld, als **afkoeltijd = "PT10M"**, automatisch schalen wordt niet getracht te schalen opnieuw voor een andere 10 minuten. De afkoeltijd is om de metrische waarden na het toevoegen of verwijderen van exemplaren. |
 
 ## <a name="autoscale-profiles"></a>Profielen voor automatisch schalen
@@ -310,4 +310,3 @@ Meer informatie over automatisch schalen door te verwijzen naar het volgende:
 * [Aanbevolen procedures voor automatisch schalen van Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Acties voor automatisch schalen gebruiken voor het verzenden van e-mail en webhook waarschuwingsmeldingen](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [REST-API voor automatisch schalen](https://msdn.microsoft.com/library/dn931953.aspx)
-

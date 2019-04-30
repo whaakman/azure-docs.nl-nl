@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 96d16552cfadca9b345d0f0cd0a344249897f571
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020945"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61258433"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Gegevens verplaatsen van SAP HANA, met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](data-factory-sap-hana-connector.md)
 > * [Versie 2 (huidige versie)](../connector-sap-hana.md)
 
@@ -61,7 +61,7 @@ De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zi
 Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
 server | Naam van de server waarop de SAP HANA-instantie zich bevindt. Als uw server een aangepaste poort gebruikt is, geeft u `server:port`. | string | Ja
-authenticationType | Het type verificatie. | tekenreeks. 'Basic' of 'Windows' | Ja 
+authenticationType | Het type verificatie. | tekenreeks. "Basic" or "Windows" | Ja 
 gebruikersnaam | Naam van de gebruiker die toegang tot de SAP-server heeft | string | Ja
 wachtwoord | Het wachtwoord voor de gebruiker. | string | Ja
 gatewayName | De naam van de gateway die de Data Factory-service gebruiken moet voor verbinding met de on-premises SAP HANA-exemplaar. | string | Ja
@@ -288,14 +288,14 @@ TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-ECHTE | Enkelvoudig
-DOUBLE-WAARDE | Enkelvoudig
-DECIMAAL | Decimaal
+ECHTE | Single
+DOUBLE | Single
+DECIMAL | Decimal
 BOOLEAANSE WAARDE | Byte
-VARCHAR | Reeks
-NVARCHAR | Reeks
+VARCHAR | String
+NVARCHAR | String
 CLOB | Byte[]
-ALPHANUM | Reeks
+ALPHANUM | String
 BLOB | Byte[]
 DATE | DateTime
 TIME | TimeSpan

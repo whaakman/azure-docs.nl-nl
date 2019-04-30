@@ -10,11 +10,11 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8b2f16f45be1d095e9be8042611de328af36f064
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724057"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813446"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Data Lake Analytics met Azure portal beheren
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -32,11 +32,11 @@ In dit artikel wordt beschreven hoe u Azure Data Lake Analytics-accounts, gegeve
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op **een resource maken** > **Intelligence en analyse** > **Data Lake Analytics**.
 3. Selecteer waarden voor de volgende items: 
-   1. **Naam**: de naam van de Data Lake Analytics-account.
-   2. **Abonnement**: het Azure-abonnement gebruikt voor het account.
-   3. **Resourcegroep**: de Azure-resourcegroep waarin u wilt maken van het account. 
-   4. **Locatie**: de Azure-datacenter voor het Data Lake Analytics-account. 
-   5. **Data Lake Store**: het standaardarchief van moet worden gebruikt voor het Data Lake Analytics-account. Het Azure Data Lake Store-account en de Data Lake Analytics-account moeten zich op dezelfde locatie.
+   1. **Naam**: De naam van de Data Lake Analytics-account.
+   2. **Abonnement**: De Azure-abonnement gebruikt voor het account.
+   3. **Resourcegroep**: De Azure-resourcegroep waarin u wilt maken van het account. 
+   4. **Locatie**: Het Azure-datacenter voor het Data Lake Analytics-account. 
+   5. **Data Lake Store**: Het standaardarchief van moet worden gebruikt voor het Data Lake Analytics-account. Het Azure Data Lake Store-account en de Data Lake Analytics-account moeten zich op dezelfde locatie.
 4. Klik op **Create**. 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Een Data Lake Analytics-account verwijderen
@@ -98,9 +98,9 @@ U kunt de **Wizard gebruiker toevoegen** voor het eenvoudig inrichten van nieuwe
 Net als andere Azure-services, kunt u rollen gebaseerd toegangsbeheer (RBAC) om te bepalen hoe gebruikers interacteren met de service.
 
 De standaard RBAC-rollen hebben de volgende mogelijkheden:
-* **De eigenaar van**: kunt verzenden van taken, taken controleren, annuleren taken van elke gebruiker en het account configureren.
-* **Inzender**: kunt verzenden van taken, taken controleren, annuleren taken van elke gebruiker en het account configureren.
-* **Lezer**: taken kunt bewaken.
+* **De eigenaar van**: Kan verzenden van taken, taken controleren, annuleren taken van elke gebruiker en het account configureren.
+* **Inzender**: Kan verzenden van taken, taken controleren, annuleren taken van elke gebruiker en het account configureren.
+* **Lezer**: Kan taken bewaken.
 
 Gebruik de functie Data Lake Analytics-ontwikkelaar zodat U-SQL-ontwikkelaars kunnen gebruikmaken van de Data Lake Analytics-service. U kunt de rol van Data Lake Analytics-ontwikkelaar te gebruiken:
 * Verzenden van taken.
@@ -113,7 +113,7 @@ Gebruik de functie Data Lake Analytics-ontwikkelaar zodat U-SQL-ontwikkelaars ku
 1. In de Azure-portal, gaat u naar uw Data Lake Analytics-account.
 2. Klik op **toegangsbeheer (IAM)** > **roltoewijzing toevoegen**.
 3. Selecteer een rol.
-4. Een gebruiker toevoegen.
+4. Voeg een gebruiker toe.
 5. Klik op **OK**.
 
 >[!NOTE]
@@ -125,15 +125,15 @@ Gebruik de functie Data Lake Analytics-ontwikkelaar zodat U-SQL-ontwikkelaars ku
 
 ## <a name="manage-jobs"></a>Taken beheren
 
-### <a name="submit-a-job"></a>Een taak verzenden
+### <a name="submit-a-job"></a>Een taak indienen
 
 1. In de Azure-portal, gaat u naar uw Data Lake Analytics-account.
 
 2. Klik op **nieuwe taak**. Voor elke taak configureren:
 
-    1. **Taaknaam**: de naam van de taak.
-    2. **Prioriteit**: lagere getallen een hogere prioriteit hebben. Als u twee taken in de wachtrij, met lagere prioriteit eerst wordt uitgevoerd.
-    3. **Parallelle uitvoering**: het maximum aantal rekenprocessen te reserveren voor deze taak.
+    1. **Job Name**: De naam van de taak.
+    2. **Prioriteit**: Lagere getallen een hogere prioriteit hebben. Als u twee taken in de wachtrij, met lagere prioriteit eerst wordt uitgevoerd.
+    3. **Parallelle uitvoering**: Het maximum aantal rekenprocessen te reserveren voor deze taak.
 
 3. Klik op **Taak verzenden**.
 

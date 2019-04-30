@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 9802296170f07bb8599058e230798f647e900d4d
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093694"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636222"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Mediastreaming optimalisatie met Azure CDN 
  
@@ -86,8 +86,8 @@ De korte tijd voor negatieve opslaan in cache is nuttig om de oorsprong offload 
 
 |   | Algemene webweergave | Algemene mediastreaming | Video on demand streaming van media  
 --- | --- | --- | ---
-Opslaan in cache: positief <br> HTTP 200, 203, 300, <br> 301, 302 en 410 | 7 dagen |365 dagen | 365 dagen   
-Opslaan in cache: negatief zijn <br> HTTP 204, 305, 404, <br> en 405 | Geen | 1 seconde | 1 seconde
+Caching: Positief <br> HTTP 200, 203, 300, <br> 301, 302 en 410 | 7 dagen |365 dagen | 365 dagen   
+Caching: Negatief <br> HTTP 204, 305, 404, <br> en 405 | Geen | 1 seconde | 1 seconde
  
 ### <a name="deal-with-origin-failure"></a>Fout bij de oorsprong zijn getroffen  
 
@@ -105,7 +105,7 @@ Ondersteunde typen voor streaming | Bestandsextensies
 --- | ---  
 Apple HLS | m3u8, m3u, m3ub, sleutel, ts, aac
 Adobe HDS | f4m, f4x, drmmeta, bootstrap, f4f,<br>Segmenten-totaal aantal URL-structuur <br> (die overeenkomt met de reguliere expressie: ^(/.*)Seq(\d+)-Frag(\d+)
-STREEPJE | MPD, streepje, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
-Smooth streaming | / manifest//QualityLevels /-fragmenten /
+DASH | MPD, streepje, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
+Smooth streaming | /manifest/, /QualityLevels/Fragments/
   
  

@@ -14,11 +14,11 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0a3adbd082c68121e762fd03c2221a0c800f0bc5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892639"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60823977"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Gegevens verplaatsen van een on-premises Cassandra-database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +71,7 @@ De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zi
 | poort |De TCP-poort die gebruikmaakt van de Cassandra-server om te luisteren naar clientverbindingen. |Nee, standaardwaarde: 9042 |
 | authenticationType |Basis- of anonieme |Ja |
 | gebruikersnaam |Geef de gebruikersnaam op voor het gebruikersaccount. |Ja, als authenticationType is ingesteld op het Basislidmaatschap. |
-| wachtwoord |Wachtwoord voor het gebruikersaccount opgeven. |Ja, als authenticationType is ingesteld op het Basislidmaatschap. |
+| password |Wachtwoord voor het gebruikersaccount opgeven. |Ja, als authenticationType is ingesteld op het Basislidmaatschap. |
 | gatewayName |De naam van de gateway die wordt gebruikt om te verbinden met de on-premises Cassandra-database. |Ja |
 | encryptedCredential |Referentie versleuteld door de gateway. |Nee |
 
@@ -265,7 +265,7 @@ Zie [RelationalSource typeproperties](#copy-activity-properties) voor de lijst m
 | ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLEAANSE WAARDE |Booleaans |
+| BOOLEAANSE WAARDE |Boolean |
 | DECIMAL |Decimal |
 | DOUBLE |Double |
 | FLOAT |Single |

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 34bc8263053cd4a701c16ee1832cf1b27340a345
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55501359"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60695948"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Maken en beheren van schema's voor leslokaallabs in Azure Lab Services 
 Schema's kunt u een leslokaallab configureren zodat virtuele machines in het lab automatisch starten en op een bepaald tijdstip afsluiten. U kunt een eenmalige planning of een terugkerend schema definiëren. De volgende procedures kunnen u de stappen voor het maken en beheren van schema's voor een leslokaallab: 

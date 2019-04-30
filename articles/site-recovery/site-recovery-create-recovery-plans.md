@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
 ms.openlocfilehash: d52aa3b39a17c42c0f0e0cb669c69d336b41ba48
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973199"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61035819"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Maken en plannen voor herstel aanpassen
 
@@ -25,7 +25,7 @@ In dit artikel wordt beschreven hoe u maken en aanpassen van een plan voor herst
 2. In **herstelplan maken**, Geef een naam voor het abonnement.
 3. Kies een bron en doel op basis van de machines in het abonnement en selecteer **Resource Manager** voor het implementatiemodel. Beschikken over de locatie van de machines die zijn ingeschakeld voor failover en herstel. 
 
-   **Failover** | **Bron** | **Doel** 
+   **Failover** | **Bron** | **Target** 
    --- | --- | ---
    Azure naar Azure | Azure-regio |Azure-regio
    VMware naar Azure | Configuratieserver | Azure

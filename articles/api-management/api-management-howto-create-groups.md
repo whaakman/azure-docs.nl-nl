@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 5392cf5463dd0b11d1ce53856c8e4e2e788892b0
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442410"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60658391"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Hoe u groepen maken en gebruiken voor het beheren van accounts voor ontwikkelaars in Azure API Management
 
@@ -40,7 +40,7 @@ Naast het maken en beheren van groepen in de publicatieportal bevindt, kunt u ma
 
 ## <a name="prerequisites"></a>Vereisten
 
-Taken in dit artikel uit te voeren: [maken van een Azure API Management-exemplaar](get-started-create-service-instance.md).
+Taken in dit artikel uitvoeren: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

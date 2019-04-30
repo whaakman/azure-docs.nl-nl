@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: a17bc3cf8c8f1ffbb2a91e17944bfc1c203f439d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111863"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60905840"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Versie van besturingssysteem bijwerken in Azure Security Center
 Voor virtuele machines (VM's) in de cloudservices, Azure Security Center aangeraden dat het besturingssysteem (OS) worden bijgewerkt als er een recentere versie beschikbaar.  Alleen cloud services-web- en werkrollen rollen in productie sleuven worden bewaakt.

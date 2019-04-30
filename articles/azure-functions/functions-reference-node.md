@@ -13,11 +13,11 @@ ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
 ms.openlocfilehash: 9ef7dd7603b93f6b15988cc4cca089f0486eb3b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010113"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61032422"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
@@ -271,7 +271,7 @@ context.log(message)
 Kunt u schrijven naar de streaminglogboeken functie op het standaardniveau voor tracering. Op `context.log`, extra logboekregistratie methoden zijn beschikbaar waarmee u de functie Logboeken op andere traceringsniveaus:
 
 
-| Methode                 | Beschrijving                                |
+| Methode                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | **fout (_bericht_)**   | Schrijft naar foutniveau logboekregistratie of lager.   |
 | **waarschuwing (_bericht_)**    | Schrijft naar waarschuwingsniveau logboekregistratie of lager. |
@@ -348,7 +348,7 @@ HTTP- en webhook-triggers en HTTP-output bindingen met de aanvraag en respons ob
 
 De `context.req` (aanvraag)-object heeft de volgende eigenschappen:
 
-| Eigenschap      | Beschrijving                                                    |
+| Eigenschap      | Description                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Een object dat de hoofdtekst van de aanvraag bevat.               |
 | _headers_     | Een object dat de aanvraagheaders bevat.                   |

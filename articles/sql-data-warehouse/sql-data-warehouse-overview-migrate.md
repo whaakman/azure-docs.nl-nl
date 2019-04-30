@@ -2,20 +2,21 @@
 title: Uw oplossing migreren naar SQL Data Warehouse | Microsoft Docs
 description: Hulp bij de migratie naar Azure SQL Data Warehouse-platform om uw oplossing.
 services: sql-data-warehouse
-author: jrowlandjones
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: jrj
+origin.date: 04/17/2018
+ms.date: 03/25/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 04c921282d3591e7326d326c230bf72e7f5c1812
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776217"
 ---
 # <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>Uw oplossing migreren naar Azure SQL Data Warehouse
 Zie wat betrokken bij een bestaande databaseoplossing migreren naar Azure SQL Data Warehouse. 
@@ -36,7 +37,6 @@ Gebruik geen SQL Data Warehouse voor operationele (OLTP)-werkbelastingen met:
 - Rij moet verwerken
 - Niet-compatibele indeling (JSON, XML)
 
-
 ## <a name="plan-the-migration"></a>De migratie plannen
 
 Nadat u hebt besloten om een bestaande oplossing migreren naar SQL Data Warehouse, is het belangrijk dat u van plan bent de migratie voordat u aan de slag. 
@@ -51,17 +51,6 @@ Als u wilt uitvoeren van een geslaagde migratie, moet u het tabelschema, uw code
 -  [Uw code migreren](sql-data-warehouse-migrate-code.md)
 -  [Migreer uw gegevens](sql-data-warehouse-migrate-data.md). 
 
-<!--
-## Perform the migration
-
-
-## Deploy the solution
-
-
-## Validate the migration
-
--->
-
 ## <a name="next-steps"></a>Volgende stappen
 De CAT (Customer Advisory Team) heeft ook enkele geweldige SQL Data Warehouse-instructie, die ze via blogs publiceren.  Kijk eens hun artikel [migreren van gegevens naar Azure SQL Data Warehouse in de praktijk] [ Migrating data to Azure SQL Data Warehouse in practice] voor meer informatie over migratie.
 
@@ -73,3 +62,5 @@ De CAT (Customer Advisory Team) heeft ook enkele geweldige SQL Data Warehouse-in
 
 <!--Other Web references-->
 [Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
+
+<!--Update_Description: update meta properties, wording update-->

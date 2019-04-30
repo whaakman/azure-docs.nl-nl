@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: e72b115420e49a50f18ae9a27c6243394427ea4a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000416"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093196"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Richtlijnen voor Azure Marketplace-vermelding
 
@@ -95,7 +95,7 @@ Alle aanbiedingen moeten voldoen aan de [alle vereisten van de aanbieding](https
 | 7 | Privacybeleid & gebruiksvoorwaarden beschikbaar  |  Beleidsregels of voorwaarden die niet vereist  | | 
 | 8 | Servicetypen | Zorg ervoor dat het servicetype komt overeen met de titel | |
 | 9 | Competenties |<br>• Moet ten minste een van de volgende opties:<br>• Toepassingsontwikkeling <br>• Application Integration <br>• Application Lifecycle Management <br>• Cloud Platform <br>• Data Analytics <br>• Data Center <br>• Data Platform <br>• DevOps |
-| 10 | Producten | Azure moet worden | |
+| 10 | Products | Azure moet worden | |
 | 11 | Land/regio | Zorg ervoor dat land en regio overeenkomsten gekozen valuta | |
 | 12 | Meer informatie  | <br>• Koppelingen aan de onderkant (onder de beschrijving, niet de marketplace-koppelingen aan de linkerkant) leidt tot meer informatie over de oplossing en openbaar beschikbaar en weer te geven correct zijn. <br>• Koppelingen moet een 'beschrijvende naam"hebben en niet worden weergegeven als de bestandsnaam van alle downloads | |
 

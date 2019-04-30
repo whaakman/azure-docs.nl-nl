@@ -10,11 +10,11 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578438"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739236"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Onboarding updatebeheer, wijzigingen bijhouden en inventaris oplossingen
 
@@ -32,7 +32,7 @@ Kies de Log Analytics-werkruimte en het Automation-account en klikt u op **insch
 
 ![Onboarding inventarisoplossing](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-Bij het inschakelen van oplossingen, worden alleen bepaalde regio's worden ondersteund voor het koppelen van een Log Analytics-werkruimte en een Automation-Account.
+Bij het inschakelen van oplossingen worden slechts bepaalde regio's ondersteund voor het koppelen van een Log Analytics-werkruimte aan een Automation-Account.
 
 De volgende tabel bevat de ondersteunde toewijzingen:
 

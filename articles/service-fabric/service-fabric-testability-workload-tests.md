@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: ceb6ad1a6a1182d78c473b8b0387c365eb660065
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667205"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865269"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Storingen simuleren tijdens servicewerkbelastingen
 De testbaarheidsscenario's in Azure Service Fabric kunnen ontwikkelaars over het afhandelen van de afzonderlijke fouten u geen zorgen. Er zijn scenario's, maar waarbij een expliciete interleaving van client-werkbelasting en fouten nodig zijn. De interleaving van client-werkbelasting en fouten, zorgt u ervoor dat de service daadwerkelijk een actie wordt uitgevoerd wanneer de fout doet zich voor. Gezien de mate van controle die testbaarheid biedt, kunnen deze worden op exacte momenten van de werkbelasting kan worden uitgevoerd. Dit doen ontstaan van fouten op verschillende statussen in de toepassing kunt vinden fouten en de kwaliteit te verbeteren.

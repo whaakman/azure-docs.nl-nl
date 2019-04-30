@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 81535d51617a419174331dbf9b18ea558913dfa9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413159"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60922146"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Verbindingsproblemen van toepassing op virtuele machines in Azure oplossen
 
@@ -69,7 +69,7 @@ Voor clientcomputers die toegang de toepassing via een site-naar-site VPN of Exp
 
 Volg deze stappen om te bepalen van de bron van het probleem en de correctie.
 
-## <a name="step-1-access-application-from-target-vm"></a>Stap 1: Toegang tot de toepassing van de doel-VM
+## <a name="step-1-access-application-from-target-vm"></a>Stap 1: Toegang tot de toepassing van het doel-VM
 Probeert te krijgen tot de toepassing met de juiste client-programma van de virtuele machine waarop deze wordt uitgevoerd. Naam van de lokale host, het lokale IP-adres of de loopbackadres (127.0.0.1) gebruiken.
 
 ![toepassing rechtstreeks vanuit de virtuele machine starten](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)

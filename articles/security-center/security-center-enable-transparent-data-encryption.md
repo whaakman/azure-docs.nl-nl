@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: d5ddec40a1b20e377ec18ce871018f674557e7b4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703996"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Transparent Data Encryption in Azure Security Center inschakelen
 Azure Security Center wordt aanbevolen dat u transparante gegevensversleuteling (TDE) voor SQL-databases inschakelen als TDE is nog niet ingeschakeld. TDE beschermt uw gegevens en helpt u bij het voldoen aan nalevingsvereisten door het versleutelen van uw database, gekoppelde back-ups en transactielogboekbestanden in rust, zonder wijzigingen aan uw toepassing. Voor meer informatie over meer Zie [Transparent Data Encryption met Azure SQL Database](https://msdn.microsoft.com/library/dn948096).

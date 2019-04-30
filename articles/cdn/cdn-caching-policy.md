@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
 ms.openlocfilehash: 516df2f6177303987fc0354dde647c1fc26820ef
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798601"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61069437"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Azure CDN-beleid voor caching in Azure Media Services beheren
 Azure Media Services biedt HTTP op basis van adaptief streamen en progressief downloaden. HTTP op basis van streaming is zeer schaalbaar met de voordelen van opslaan in cache in de proxy- en CDN-lagen, evenals caching aan clientzijde. Streaming-eindpunten biedt algemene mogelijkheden voor streamen en ook de configuratie van cache-HTTP-headers. HTTP-Cache-Control streaming-eindpunten worden ingesteld: max-age en Expires-koppen. U krijgt meer informatie voor HTTP-headers cache van [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).

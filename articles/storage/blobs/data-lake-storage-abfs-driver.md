@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 83e2f6f42de5c729667f366a6e068f1c8bd71f02
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011066"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60708614"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Het stuurprogramma van het Azure Blob-bestandssysteem (ABFS): Een speciale Azure Storage-stuurprogramma voor Hadoop
 
@@ -42,7 +42,7 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 Intern, het stuurprogramma ABFS vertaalt de resource (s) opgegeven in de URI op bestanden en mappen en aanroepen van de Azure Data Lake Storage REST API met deze verwijzingen.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Verificatie
 
 Het stuurprogramma ABFS ondersteunt twee soorten verificatie zodat de Hadoop-toepassing veilig toegang krijgen resources die zich in een Data Lake Storage Gen2 geschikt-account tot kan. Volledige details van de beschikbare verificatiemethoden zijn opgegeven de [Azure Storage-beveiligingshandleiding](../common/storage-security-guide.md). Dit zijn:
 

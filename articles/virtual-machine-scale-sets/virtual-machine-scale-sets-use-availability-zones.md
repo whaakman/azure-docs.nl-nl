@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
 ms.openlocfilehash: 7fa903f65a6c7d244ff424eae4a0def258b50bbc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994704"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60803260"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Maken van een virtuele-machineschaalset die gebruikmaakt van Beschikbaarheidszones
 
@@ -64,7 +64,7 @@ Wanneer u een schaalset maken in een enkele zone, u bepaalt welke zone alle deze
 
 Als u wilt gebruiken voor Beschikbaarheidszones, moet uw schaalset worden gemaakt in een [ondersteunde Azure-regio](../availability-zones/az-overview.md#services-support-by-region). U kunt een schaalset die gebruikmaakt van Beschikbaarheidszones met een van de volgende manieren maken:
 
-- [Azure-portal](#use-the-azure-portal)
+- [Azure Portal](#use-the-azure-portal)
 - Azure-CLI
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager-sjablonen](#use-azure-resource-manager-templates)

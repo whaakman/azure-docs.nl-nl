@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
 ms.openlocfilehash: 1fbafcdab938a0f8653df48631d7733cc58a3668
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441907"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656790"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Sjablonen in Azure API Management
 Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud van ontwikkelaarsportalpagina's met behulp van een set van sjablonen die hun inhoud hebt geconfigureerd. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [tekenreeks resources](api-management-template-resources.md#strings), [Glyph resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u geweldige flexibiliteit voor het configureren van de inhoud van de pagina's naar eigen inzicht met behulp van deze sjablonen.  
@@ -101,7 +101,7 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
 ### <a name="controls"></a>Besturingselementen  
  Deze sjabloon mogelijk gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
   
--   [Basic-aanmelding](api-management-page-controls.md#basic-signin)  
+-   [basic-signin](api-management-page-controls.md#basic-signin)  
   
 -   [Providers](api-management-page-controls.md#providers)  
   
@@ -160,7 +160,7 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
 ### <a name="controls"></a>Besturingselementen  
  Deze sjabloon mogelijk gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
   
--   [Meld u aan](api-management-page-controls.md#sign-up)  
+-   [sign-up](api-management-page-controls.md#sign-up)  
   
 ### <a name="data-model"></a>Gegevensmodel  
  [Gebruikersregistraties](api-management-template-data-model-reference.md#UserSignUp) entiteit.  
@@ -226,13 +226,13 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
   
 ### <a name="data-model"></a>Gegevensmodel  
   
-|Eigenschap|Type|Beschrijving|  
+|Eigenschap|Type|Description|  
 |--------------|----------|-----------------|  
-|referenceCode|tekenreeks|Code gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
-|errorCode|tekenreeks|Code gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
-|emailBody|tekenreeks|E-instantie die worden gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
-|requestedUrl|tekenreeks|De URL die wordt gevraagd wanneer de pagina is niet gevonden.|  
-|referrerUrl|tekenreeks|De verwijzende site-URL voor de aangevraagde URL.|  
+|referenceCode|string|Code gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
+|errorCode|string|Code gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
+|emailBody|string|E-instantie die worden gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
+|requestedUrl|string|De URL die wordt gevraagd wanneer de pagina is niet gevonden.|  
+|referrerUrl|string|De verwijzende site-URL voor de aangevraagde URL.|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   

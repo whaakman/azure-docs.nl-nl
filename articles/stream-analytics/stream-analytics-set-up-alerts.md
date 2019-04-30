@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769481"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771904"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Waarschuwingen instellen voor Azure Stream Analytics-taken
 
@@ -46,7 +46,7 @@ Het volgende voorbeeld ziet u hoe u waarschuwingen instellen voor wanneer de taa
 
    ![Instellen van een waarschuwing voor een Azure stream Analytics-taak](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. De **RESOURCE**, **voorwaarde**, en **ACTIEGROEPEN** krijgen een vermelding. Houd er rekening mee dat in de volgorde voor de waarschuwingen die moeten worden geactiveerd, de gedefinieerde voorwaarden moeten worden voldaan. U kunt bijvoorbeeld de gemiddelde waarde van een metrische waarde van meten in de afgelopen 15 minuten om de 5 minuten.
+7. De **RESOURCE**, **voorwaarde**, en **ACTIEGROEPEN** krijgen een vermelding. Houd er rekening mee dat in de volgorde voor de waarschuwingen die moeten worden geactiveerd, de gedefinieerde voorwaarden moeten worden voldaan. U kunt bijvoorbeeld het gemiddelde meten van een metrische waarde over de afgelopen 15 minuten, op basis van metingen om de 5 minuten.
 
    ![Maken van waarschuwingsregel voor Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 

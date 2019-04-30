@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider
 ms.openlocfilehash: 1789c7489e58df09dccfde3e7ab106ef54b5c1ae
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727009"
 ---
 # <a name="reliable-services-overview"></a>Overzicht van Reliable Services
 Azure Service Fabric wordt het schrijven en beheren van staatloze en stateful Reliable Services. In dit onderwerp bevat informatie over:

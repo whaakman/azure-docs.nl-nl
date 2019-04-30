@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: bc4673a12ec5b752a513b4a95796f2aeb8b8ce5d
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 9253051d907a811ffedad3a714112c9b25543a35
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991238"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60667411"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - schaal een migratie naar Azure
 
@@ -293,6 +293,7 @@ Contoso moet weten over het implementeren van deze onderdelen, op basis van capa
 **Processerver** | Contoso wordt een speciaal toegewezen proces zelfstandige server implementeren met de mogelijkheid voor het repliceren van 100-200 virtuele machines:<br/><br/> CPU: 16 vCPUs (2 sockets * 8 cores @ 2.5 GHz)<br/><br/> Geheugen: 32 GB<br/><br/> Cacheschijf: 1 TB<br/><br/> Veranderingssnelheid van gegevens: 1 TB tot 2 TB.<br/><br/> De processerver is hard werken en als zodanig moet zich bevinden op een ESXi-host die de schijf-i/o, het netwerkverkeer en de CPU nodig is voor de replicatie kan verwerken. Contoso worden beschouwd als een toegewezen host voor dit doel. 
 **Netwerken** | Contoso heeft gecontroleerd van de huidige site-naar-site VPN-infrastructuur en besloten voor het implementeren van Azure ExpressRoute. De implementatie is kritiek omdat het wordt lagere latentie en bandbreedte naar de primaire East US 2 Azure-regio van Contoso te verbeteren.<br/><br/> **Bewaking**: Contoso moet zorgvuldig controleren gegevensstromen van de processerver. Als de gegevens de bandbreedte van het netwerk worden beschouwd als Contoso overloads [beperking van de bandbreedte van de server proces](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 **Azure Storage** | Voor de migratie, moet het identificeren van Contoso het juiste type en aantal doel-Azure storage-accounts.  Site Recovery repliceert de VM-gegevens naar Azure storage.<br/><br/> Site Recovery kunt repliceren naar standard of premium (SSD) storage-accounts.<br/><br/> Om te beslissen over storage, Contoso moet doornemen [opslaglimieten](../virtual-machines/windows/disks-types.md), en factor van de verwachte groei en toegenomen gebruik na verloop van tijd. Gezien de snelheid en de prioriteit van de migratie, heeft Contoso besloten premium SSD's gebruiken<br/><br/>
+
 Contoso heeft gemaakt de beslissing om beheerde schijven gebruiken voor alle virtuele machines die zijn geïmplementeerd naar Azure.  De vereiste IOPS-waarde bepaalt als de schijven standaard harde schijf-, Standard-SSD- en Premium (SSD zijn).<br/><br/>
 
 #### <a name="data-migration-service"></a>Data migratieservice

@@ -11,11 +11,11 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882409"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60685403"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Uitvoeren van acties op basis van status van de groep met een bereik in Azure Logic Apps
 
@@ -65,7 +65,7 @@ U kunt uw logische app op elk gewenst moment opslaan, zo vaak Sla uw werk.
 
    1. Als u nog een verbinding met Bing kaarten hebt, wordt u gevraagd om een verbinding te maken.
 
-      | Instelling | Waarde | Beschrijving |
+      | Instelling | Waarde | Description |
       | ------- | ----- | ----------- |
       | **Verbindingsnaam** | BingMapsConnection | Geef een naam op voor uw verbinding. | 
       | **API-sleutel** | <*your-Bing-Maps-key*> | Voer de sleutel voor Bing Kaarten in die u eerder hebt ontvangen. | 

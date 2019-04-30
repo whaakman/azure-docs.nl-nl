@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: v-sharos
-ms.openlocfilehash: 412978d2c343394f295e336690ec72153dda4b79
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d973a16c121a1e8ebee10826d135bcbb33ef748c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61409931"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Uw StorSimple 8000-serie-apparaat bijwerken
 > [!NOTE]
-> De klassieke portal voor StorSimple is afgeschaft. De StorSimple-apparaatbeheerfuncties worden automatisch volgens schema verplaatst naar de nieuwe Azure Portal. U ontvangt hierover een e-mailbericht en een portalmelding. Dit document wordt binnenkort ook ingetrokken. Zie [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md) (Veelgestelde vragen: verplaatsing naar Azure Portal) voor vragen met betrekking tot de verplaatsing.
+> De klassieke portal voor StorSimple is afgeschaft. De StorSimple-apparaatbeheerfuncties worden automatisch volgens schema verplaatst naar de nieuwe Azure Portal. U ontvangt hierover een e-mailbericht en een portalmelding. Dit document wordt binnenkort ook ingetrokken. Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: Verplaatsen naar Azure portal](storsimple-8000-move-azure-portal-faq.md).
 
 ## <a name="overview"></a>Overzicht
 De StorSimple-updates-functies kunnen u eenvoudig uw StorSimple-apparaat om up-to-date te houden. Afhankelijk van het updatetype, kunt u updates toepassen op het apparaat via de klassieke Azure portal of via de Windows PowerShell-interface. Deze zelfstudie wordt de update-typen en hoe u het installeren van elk van beide beschreven.
@@ -76,7 +76,7 @@ U kunt ook Windows PowerShell voor StorSimple gebruiken normaal (normale modus)-
 ## <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Installeren van updates voor de onderhoudsmodus via Windows PowerShell voor StorSimple
 Windows PowerShell voor StorSimple kunt u updates voor de onderhoudsmodus toepassen op uw StorSimple-apparaat. Alle i/o-aanvragen zijn in deze modus onderbroken. Services, zoals niet-vluchtige RAM-geheugen (NVRAM) of de clustering-service worden ook gestopt. Beide controllers zijn opnieuw gestart wanneer u opgeven of deze modus sluit. Wanneer u deze modus afsluit, worden alle services wordt hervat en moeten in orde. (Dit kan enkele minuten duren.)
 
-Als u toepassen van updates voor de onderhoudsmodus wilt, ontvangt u een waarschuwing via de klassieke Azure portal dat er updates die moeten worden geïnstalleerd. Deze waarschuwing bevat instructies voor het gebruik van Windows PowerShell voor StorSimple om de updates te installeren. Nadat u uw apparaat bijwerkt, gebruikt u dezelfde procedure om te wijzigen van het apparaat in de normale modus. Zie voor stapsgewijze instructies [stap 4: onderhoudsmodus afsluiten](#step4).
+Als u toepassen van updates voor de onderhoudsmodus wilt, ontvangt u een waarschuwing via de klassieke Azure portal dat er updates die moeten worden geïnstalleerd. Deze waarschuwing bevat instructies voor het gebruik van Windows PowerShell voor StorSimple om de updates te installeren. Nadat u uw apparaat bijwerkt, gebruikt u dezelfde procedure om te wijzigen van het apparaat in de normale modus. Zie voor stapsgewijze instructies [stap 4: Onderhoudsmodus afsluiten](#step4).
 
 > [!IMPORTANT]
 > * Controleer of beide apparaatcontrollers in orde zijn door te controleren voordat u de onderhoudsmodus invoert, de **hardwarestatus** op de **onderhoud** pagina in de klassieke Azure portal. Als de controller niet in orde is, contact op met Microsoft Support voor de volgende stappen. Ga voor meer informatie naar contact opnemen met Microsoft ondersteuning. 
@@ -89,7 +89,7 @@ Gebruik een toepassing, zoals PuTTY eerst toegang tot de seriële console. De vo
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>Stap 2: Voer de onderhoudsmodus <a name="step2">
+### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>Stap 2: Onderhoudsmodus starten <a name="step2">
 Nadat u verbinding met de console maakt, moet u bepalen of er updates beschikbaar zijn voor installeren en voer de onderhoudsmodus voor het installeren van deze.
 
 [!INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
@@ -99,7 +99,7 @@ Vervolgens installeert u de updates.
 
 [!INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
 
-### <a name="step-4-exit-maintenance-mode-a-namestep4"></a>Stap 4: Afsluiten in onderhoudsmodus <a name="step4">
+### <a name="step-4-exit-maintenance-mode-a-namestep4"></a>Stap 4: Onderhoudsmodus afsluiten <a name="step4">
 Ten slotte de onderhoudsmodus afsluit.
 
 [!INCLUDE [storsimple-exit-maintenance-mode](../../includes/storsimple-exit-maintenance-mode.md)]

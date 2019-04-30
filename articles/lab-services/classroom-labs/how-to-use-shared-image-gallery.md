@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
 ms.openlocfilehash: 93136c7d685bd9fc8ec4bcdea3a900b28029059b
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652984"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60695166"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Gebruik een galerie met gedeelde installatiekopieën in Azure Lab Services
 Dit artikel wordt beschreven hoe docenten/lab-beheerder een sjabloon voor VM-installatiekopie voor het opnieuw worden gebruikt door anderen kan opslaan. Deze installatiekopieën worden opgeslagen in een Azure [gedeelde afbeeldingengalerie](../../virtual-machines/windows/shared-image-galleries.md). Als een eerste stap koppelt u de lab-beheerder een bestaande gedeelde afbeeldingengalerie aan het lab-account. Zodra de galerie met installatiekopieën van de gedeelde is gekoppeld, kunnen labs gemaakt in het lab-account afbeeldingen opslaan in de galerie met installatiekopieën van de gedeelde. Andere docenten kunnen deze installatiekopie in de galerie gedeelde installatiekopie te maken van een sjabloon voor de klassen selecteren. 

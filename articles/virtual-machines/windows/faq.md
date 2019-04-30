@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
 ms.openlocfilehash: 65d4326763ef9754159e94c9426f3aee69f80ffd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253360"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61095606"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Veelgestelde vragen over Windows Virtual Machines
 In dit artikel komen enkele veelgestelde vragen over Windows virtuele machines die in Azure met behulp van de Resource Manager-implementatiemodel zijn gemaakt. Zie voor de Linux-versie van dit onderwerp, [Veelgestelde vragen over virtuele Linux-Machines](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -33,7 +33,7 @@ Bepaalde versies van Windows 7, Windows 8.1 en Windows 10 zijn beschikbaar voor 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Hoeveel opslagruimte kan ik gebruiken met een virtuele machine?
 Elke gegevensschijf kan tot 4 TB (4095 GB) zijn. Het aantal gegevensschijven dat u kunt gebruiken, is afhankelijk van de grootte van de virtuele machine. Zie [Grootten voor virtuele machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor meer informatie.
 
-Azure Managed Disks is de aanbevolen product voor schijfopslag gebruiken met Azure Virtual Machines voor permanente opslag van gegevens. U kunt voor elke virtuele machine Managed Disks gebruiken. Azure Managed Disks biedt twee typen duurzame opslag: Premium en Standard Managed Disks. Zie voor informatie over de prijzen [Managed Disks-prijzen](https://azure.microsoft.com/pricing/details/managed-disks).
+Azure Managed Disks is de aanbevolen product voor schijfopslag gebruiken met Azure Virtual Machines voor permanente opslag van gegevens. U kunt voor elke virtuele machine Managed Disks gebruiken. Beheerde schijven bieden twee typen duurzame opslag: Premium en Standard Managed Disks. Zie voor informatie over de prijzen [Managed Disks-prijzen](https://azure.microsoft.com/pricing/details/managed-disks).
 
 Azure storage-accounts kunnen ook opslag bieden voor de schijf van het besturingssysteem en eventuele gegevensschijven. Elke schijf is een VHD-bestand dat wordt opgeslagen als een pagina-blob. Zie [deze pagina](https://azure.microsoft.com/pricing/details/storage/) voor prijsinformatie.
 
@@ -94,7 +94,7 @@ De volgende gebruikersnamen zijn niet toegestaan:
     <tr>
         <td style="text-align:center">adm</td><td style="text-align:center">beheerder</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
     </tr>   <tr>
-        <td style="text-align:center">de beheerder</td><td style="text-align:center">ASPNET</td><td style="text-align:center">Back-up</td><td style="text-align:center">console</td>
+        <td style="text-align:center">beheerder</td><td style="text-align:center">aspnet</td><td style="text-align:center">Back-up</td><td style="text-align:center">console</td>
     </tr>
     <tr>
         <td style="text-align:center">David </td><td style="text-align:center">Gast</td><td style="text-align:center">John</td><td style="text-align:center">eigenaar</td>
@@ -106,7 +106,7 @@ De volgende gebruikersnamen zijn niet toegestaan:
         <td style="text-align:center">support_388945a0</td><td style="text-align:center">sys</td><td style="text-align:center">test</td><td style="text-align:center">test1</td>
     </tr>
     <tr>
-        <td style="text-align:center">test2</td><td style="text-align:center">test3</td><td style="text-align:center">Gebruiker</td><td style="text-align:center">Gebruiker1</td>
+        <td style="text-align:center">test2</td><td style="text-align:center">test3</td><td style="text-align:center">user</td><td style="text-align:center">Gebruiker1</td>
     </tr>
     <tr>
         <td style="text-align:center">Gebruiker2</td><td style="text-align:center">gebruiker3</td><td style="text-align:center">Gebruiker4</td><td style="text-align:center">gebruiker5</td>
@@ -132,7 +132,7 @@ De volgende wachtwoorden zijn niet toegestaan:
         <td>P@ssword123</td>
     </tr>
     <tr>
-        <td>Pa$ $word</td>
+        <td>Pa$$word</td>
         <td>pass@word1</td>
         <td>Wachtwoord!</td>
         <td>Wachtwoord1</td>

@@ -1,6 +1,6 @@
 ---
 title: Verizon-rapporten Core | Microsoft Docs
-description: 'U kunt gebruikspatronen voor uw CDN weergeven met behulp van de volgende rapporten: bandbreedte, gegevensoverdracht, treffers, Cachestatussen, Cache Hit Ratio, IPV4/IPV6-gegevens overgebracht.'
+description: 'U kunt gebruikspatronen voor uw CDN bekijken met behulp van de volgende rapporten: Bandbreedte, gegevens overgebracht, treffers, Cachestatussen, het aantal cachetreffers, IPV4/IPV6-gegevens die worden overgebracht.'
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: d10a40d03f0f76676e70afdec94e9adfaa0dd09f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 6eb0fe592196466f7f49c21ce38afdf13b254d86
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162067"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61061479"
 ---
 # <a name="core-reports-from-verizon"></a>Kernrapporten
 
@@ -88,8 +88,8 @@ Als u wilt verkleinen verlopen cachetreffers, instellen van een asset `max-age` 
 ### <a name="main-cache-statuses-include"></a>Belangrijkste cachestatussen zijn onder andere:
 * TCP_HIT: Worden aangeleverd vanuit edge-server. Het object is in de cache en de max-age niet is overschreden.
 * TCP_MISS: Worden aangeleverd vanuit de oorspronkelijke server. Het object is niet in de cache en het antwoord terug naar de oorsprong is.
-* TCP_EXPIRED _MISS: aangeleverd vanuit de oorspronkelijke server na het opnieuw te worden gevalideerd met de oorsprong. Het object is in de cache, maar de max-age had overschreden. Een hervalidatie met oorsprong heeft geresulteerd in de cache-object wordt vervangen door een nieuw antwoord van de oorsprong.
-* TCP_EXPIRED _HIT: na het opnieuw te worden gevalideerd met oorsprong worden aangeleverd vanuit Microsoft Edge. Het object is in de cache, maar de max-age had overschreden. Een hervalidatie met de oorspronkelijke server heeft geresulteerd in de cache-object wordt niet gewijzigd.
+* TCP_EXPIRED _MISS: Worden aangeleverd vanuit de oorspronkelijke server na het opnieuw te worden gevalideerd met de oorsprong. Het object is in de cache, maar de max-age had overschreden. Een hervalidatie met oorsprong heeft geresulteerd in de cache-object wordt vervangen door een nieuw antwoord van de oorsprong.
+* TCP_EXPIRED _HIT: Worden aangeleverd vanuit Edge na hervalidatie met oorsprong. Het object is in de cache, maar de max-age had overschreden. Een hervalidatie met de oorspronkelijke server heeft geresulteerd in de cache-object wordt niet gewijzigd.
 
 ### <a name="full-list-of-cache-statuses"></a>Volledige lijst met cachestatussen van de
 * TCP_HIT - deze status wordt gerapporteerd bij een aanvraag naar de client rechtstreeks vanuit de pop-server wordt uitgevoerd. Een asset is onmiddellijk worden aangeleverd vanuit een pop-server wanneer deze is in de cache op de pop-server die het dichtst bij de client en een geldige time-to-live (TTL). TTL-waarde wordt bepaald door de volgende antwoordheaders:
@@ -123,7 +123,7 @@ Het rapport bevat geen:
 * Aanvragen voor activa waarvan headers aangeven dat ze moeten niet worden opgeslagen in de cache. Bijvoorbeeld, `Cache-Control: private`, `Cache-Control: no-cache`, of `Pragma: no-cache` headers te voorkomen dat een actief in de cache worden opgeslagen.
 * Byte-bereikaanvragen voor gedeeltelijk in de cache-inhoud.
 
-De formule is: (TCP_ HIT / (TCP_ TREFFERS + TCP_MISS)) * 100
+De formule is: (TCP_ HIT/(TCP_ HIT+TCP_MISS))*100
 
 ![Rapport van de verhouding tussen treffers in cache](./media/cdn-reports/cdn-cache-hit-ratio.png)
 

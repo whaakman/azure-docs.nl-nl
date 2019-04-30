@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
 ms.openlocfilehash: 19637a1fe49550d0ed7aea7e3a596f1f77f5984b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60869874"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>De versie 2 van Azure Custom Script-extensie gebruiken met virtuele Linux-machines
 De Custom Script Extension versie 2 downloads en scripts uitvoeren op Azure virtual machines. Deze uitbreiding is handig voor post-implementatieconfiguratie, software-installatie of een andere Configuratiebeheer /-taak. U kunt scripts downloaden via Azure Storage of een andere toegankelijke internetlocatie of u ze aan de extensie-runtime kunt leveren. 
@@ -51,15 +51,15 @@ Als u nodig hebt voor het downloaden van een script extern zoals GitHub of Azure
 Als uw script op een lokale server is, moet u mogelijk nog steeds extra firewall/Network Security Group-poorten moeten worden geopend.
 
 ### <a name="tips-and-tricks"></a>Tips en trucs
-* Het hoogste aantal fouten voor deze extensie wordt veroorzaakt door fouten in de syntaxis in het script test het script wordt uitgevoerd zonder fouten, en ook plaatsen extra logboekregistratie in het script om gemakkelijker vinden wanneer deze is mislukt.
-* Schrijven van scripts die idempotent zijn zijn, zodat als ze opnieuw meer dan één keer per ongeluk uitvoert ophalen, worden er geen wijzigingen in het systeem.
+* De meeste fouten voor deze extensie worden veroorzaakt door syntaxisfouten in het script. Test de scriptuitvoeringen zonder fouten en schakel aanvullende logboekregistratie in het script in om gemakkelijker te achterhalen waar het misging.
+* Schrijf scripts die idempotent zijn, zodat het systeem niet wordt gewijzigd als de scripts per ongeluk opnieuw meer dan één keer worden uitgevoerd.
 * Zorg ervoor dat de scripts hebben geen gebruikersinvoer nodig wanneer ze worden uitgevoerd.
 * Er is 90 minuten toegestaan voor het script uit te voeren, iets langer resulteert in een mislukte bepaling van de extensie.
 * Plaats niet opnieuw wordt opgestart in het script, wordt dit problemen veroorzaken met andere extensies die worden geïnstalleerd en na opnieuw opstarten, de uitbreiding wordt niet voortgezet na het opnieuw opstarten. 
-* Hebt u een script dat zal opnieuw worden opgestart, toepassingen installeren en uitvoeren van scripts, enzovoort. U moet het opnieuw opstarten met behulp van een Cron-taak, of hulpprogramma's zoals DSC of Chef, Puppet-uitbreidingen plannen.
+* Hebt u een script dat een herstart veroorzaakt? Installeer dan toepassingen en voer scripts uit etc. U moet het opnieuw opstarten met behulp van een Cron-taak, of hulpprogramma's zoals DSC of Chef, Puppet-uitbreidingen plannen.
 * De extensie wordt alleen een script één keer uitgevoerd, als u een script uitvoeren op elke keer opstarten, wilt kunt u [cloud-init-installatiekopie](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) en gebruik een [Scripts Per opstarten](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) module. U kunt het script ook gebruiken om een Systemd service-eenheid te maken.
 * Als u wilt om te plannen wanneer een script wordt uitgevoerd, moet u de extensie hebben een Cron-taak maken. 
-* Wanneer het script wordt uitgevoerd, ziet u alleen een 'transitioning' status van de extensie van de Azure portal of de CLI. Als u vaker statusupdates van een script uit te voeren, moet u om uw eigen oplossing te maken.
+* Wanneer het script wordt uitgevoerd, ziet u alleen de extensiestatus 'overgang maken' van de Azure-portal of CLI. Als u vaker statusupdates van een script uit te voeren, moet u om uw eigen oplossing te maken.
 * Aangepaste scriptextensie biedt geen systeemeigen ondersteuning voor proxy-servers, maar u kunt een hulpprogramma voor bestandsoverdracht die ondersteuning biedt voor proxy-servers in uw script, zoals *Curl*. 
 * Houd rekening met het niet standaard directory-locaties die uw scripts of opdrachten kunnen afhankelijk zijn, hebben de logica voor het afhandelen van dit.
 
@@ -113,7 +113,7 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
 | Uitgever | Microsoft.Compute.Extensions | string |
 | type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
-| fileUris (bijvoorbeeld) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| fileUris (bijvoorbeeld) | https://github.com/MyProject/Archive/MyPythonScript.py | matrix |
 | commandToExecute (bijvoorbeeld) | python MyPythonScript.py <my-param1> | string |
 | Script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (bijvoorbeeld) | false | booleaans |

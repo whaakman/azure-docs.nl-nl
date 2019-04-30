@@ -1,6 +1,6 @@
 ---
-title: Beheren van sjablonen voor StorSimple 8000 serie bandbreedte | Microsoft Docs
-description: Beschrijft hoe voor het beheren van StorSimple bandbreedte sjablonen waarmee u kunt het gebruik van netwerkbandbreedte te beheren.
+title: Bandbreedtesjablonen voor StorSimple 8000-serie beheren | Microsoft Docs
+description: Beschrijft hoe u StorSimple bandbreedtesjablonen, waarmee u kunt voor het beheren van bandbreedtegebruik beheren.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,162 +14,162 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 50d0a920bef097013feddc828d2c37133b9057b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13a3e57bb27c075fc045e87790dbe13369ed9f8e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23875072"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60699452"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>De service Manager voor StorSimple-apparaat gebruiken voor het beheren van sjablonen voor StorSimple-bandbreedte
+# <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>De StorSimple Device Manager-service gebruiken voor het StorSimple-bandbreedtesjablonen beheren
 
 ## <a name="overview"></a>Overzicht
 
-Bandbreedte-sjablonen kunt u gebruik van de netwerkbandbreedte tussen meerdere tijdgegevens-planningen trapsgewijs van de gegevens van het StorSimple-apparaat naar de cloud te configureren.
+Bandbreedtesjablonen kunnen u gebruik van netwerkbandbreedte tussen meerdere van de dag planningen om de gegevens van de StorSimple-apparaat naar de cloud in lagen configureren.
 
-Met de schema's voor bandbreedteregeling kunt u:
+Met schema's voor bandbreedteregeling kunt u het volgende doen:
 
-* Aangepaste bandbreedte's afhankelijk van het gebruik van de werkbelasting netwerk opgeven.
-* Management centraliseren en schema's op meerdere apparaten in een eenvoudig en naadloos manier opnieuw gebruiken.
+* Geef aangepaste bandbreedte schema's, afhankelijk van het gebruik van de werkbelasting netwerk.
+* Centraliseer het beheer en de planning op meerdere apparaten in een eenvoudig en naadloze wijze opnieuw gebruiken.
 
 > [!NOTE]
-> Deze functie is alleen beschikbaar voor fysieke StorSimple-apparaten (modellen 8100 en 8600) en niet voor StorSimple Cloud toestellen (modellen 8010 als de 8020).
+> Deze functie is alleen beschikbaar voor fysieke StorSimple-apparaten (modellen 8100- en 8600) en niet voor StorSimple Cloud Appliances (modellen 8010 en 8020).
 
 
-## <a name="the-bandwidth-templates-blade"></a>De blade bandbreedte-sjablonen
+## <a name="the-bandwidth-templates-blade"></a>De blade sjabloon voor bandbreedte
 
-De **bandbreedte sjablonen** blade de bandbreedte-sjablonen voor uw service in tabelvorm en bevat de volgende informatie:
+De **bandbreedtesjablonen** blade de bandbreedtesjablonen voor uw service in tabelvorm en bevat de volgende informatie:
 
-* **Naam** : een unieke naam toegewezen aan de bandbreedtesjabloon wanneer deze is gemaakt.
-* **Planning** – het nummer van schema's die zijn opgenomen in een bandbreedtesjabloon opgegeven.
-* **Gebruikt door** : het aantal volumes met behulp van de bandbreedte-sjablonen.
+* **Naam** : een unieke naam die aan de bandbreedtesjabloon wordt toegewezen wanneer deze is gemaakt.
+* **Planning** : het aantal planningen die deel uitmaken van een bepaalde bandbreedte-sjabloon.
+* **Gebruikt door** : het aantal volumes met behulp van de bandbreedtesjablonen.
 
-U kunt ook aanvullende informatie voor het configureren van de bandbreedte-sjablonen in vinden:
+U vindt hier ook aanvullende informatie over het configureren van bandbreedtesjablonen in:
 
-* [Vragen en antwoorden over de bandbreedte-sjablonen](#questions-and-answers-about-bandwidth-templates)
-* [Aanbevolen procedures voor de bandbreedte-sjablonen](#best-practices-for-bandwidth-templates)
+* [Vragen en antwoorden over bandbreedtesjablonen](#questions-and-answers-about-bandwidth-templates)
+* [Aanbevolen procedures voor bandbreedtesjablonen](#best-practices-for-bandwidth-templates)
 
-## <a name="add-a-bandwidth-template"></a>Voeg een bandbreedtesjabloon
+## <a name="add-a-bandwidth-template"></a>Een bandbreedtesjabloon toevoegen
 
-Voer de volgende stappen uit om een nieuwe bandbreedtesjabloon te maken.
+Voer de volgende stappen uit voor het maken van een nieuwe bandbreedtesjabloon.
 
 #### <a name="to-add-a-bandwidth-template"></a>Een bandbreedtesjabloon toevoegen
 
-1. Ga naar uw StorSimple-apparaat Manager-service, klikt u op **bandbreedte sjablonen** en klik vervolgens op **+ bandbreedtesjabloon toevoegen**.
+1. Ga naar uw StorSimple Device Manager-service, klikt u op **bandbreedtesjablonen** en klik vervolgens op **+ bandbreedtesjabloon toevoegen**.
 
     ![Klik op + bandbreedtesjabloon toevoegen](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp1.png)
 
-2. In de **bandbreedtesjabloon toevoegen** blade, moet u de volgende stappen uitvoeren:
+2. In de **bandbreedtesjabloon toevoegen** blade de volgende stappen uit:
    
     1. Geef een unieke naam voor de bandbreedtesjabloon.
     2. Een schema bandbreedte definiëren. Een planning maken:
    
         1. Kies in de vervolgkeuzelijst de **dagen** van de week voor de planning is geconfigureerd. U kunt meerdere dagen selecteren.        
         
-        2. Voer een **begintijd** in _uu: mm_ indeling. Dit is bij de planning begint.
+        2. Voer een **begintijd** in _uu: mm_ indeling. Dit is bij de planning wordt gestart.
 
-        3. Voer een **eindtijd** in _uu: mm_ indeling. Dit is bij de planning wordt gestopt.
+        3. Voer een **eindtijd** in _uu: mm_ indeling. Dit is bij de planning wordt beëindigd.
       
            > [!NOTE]
-           > Overlappende schema's zijn niet toegestaan. Als de begin- en eindtijden in een overlappende planning resulteren zal, ziet u een foutbericht toe.
+           > Overlappende schema's zijn niet toegestaan. Als de begin- en eindtijden tot een overlappende schema leiden zal, ziet u een foutbericht weergegeven met deze informatie.
 
-        4. Geef de **bandbreedte snelheid**. Dit is de bandbreedte in Megabits per seconde (Mbps) die wordt gebruikt door uw StorSimple-apparaat in bewerkingen met betrekking tot de cloud (uploads en downloads). Geef een getal tussen 1 en 1000 voor dit veld.
+        4. Geef de **Bandbreedtesnelheid**. Dit is de bandbreedte in Megabits per seconde (Mbps) die worden gebruikt door uw StorSimple-apparaat in bewerkingen met betrekking tot de cloud (uploaden en downloaden). Geef voor dit veld een waarde op tussen 1 en 1000.
 
             ![Bandbreedte-schema definiëren](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp2.png)
          
             Herhaal de bovenstaande stappen voor het definiëren van meerdere planningen voor de sjabloon totdat u klaar bent.
 
-        5. Klik op **toevoegen** om te beginnen met het maken van een bandbreedtesjabloon. De gemaakte sjabloon is toegevoegd aan de lijst met sjablonen van de bandbreedte.
+        5. Klik op **toevoegen** om te beginnen met het maken van een bandbreedtesjabloon. De gemaakte sjabloon wordt toegevoegd aan de lijst met bandbreedtesjablonen.
       
 
-## <a name="edit-a-bandwidth-template"></a>Een bandbreedtesjabloon bewerken
+## <a name="edit-a-bandwidth-template"></a>Een van de bandbreedtesjabloon bewerken
 
-De volgende stappen uitvoeren om te bewerken van een bandbreedtesjabloon.
+De volgende stappen uitvoeren om een bandbreedtesjabloon bewerken.
 
-### <a name="to-edit-a-bandwidth-template"></a>Een bandbreedtesjabloon bewerken
+### <a name="to-edit-a-bandwidth-template"></a>Een van de bandbreedtesjabloon bewerken
 
-1. Ga naar uw StorSimple-Apparaatbeheer service en klik op **bandbreedte sjablonen**.
-2. Selecteer in de lijst met sjablonen van bandbreedte, de sjabloon die u wilt verwijderen. Met de rechtermuisknop en selecteer in het contextmenu **verwijderen**.
-3. Wanneer u om bevestiging gevraagd, klikt u op **OK**. Dit moet de bandbreedtesjabloon verwijderen. 
-4. De lijst met updates van de bandbreedte-sjablonen in overeenstemming met de verwijdering.
+1. Ga naar uw StorSimple Device Manager-service en klik op **bandbreedtesjablonen**.
+2. Selecteer in de lijst met bandbreedtesjablonen, de sjabloon die u wilt verwijderen. Met de rechtermuisknop en selecteer in het contextmenu **verwijderen**.
+3. Wanneer u hierom wordt gevraagd om bevestiging, klikt u op **OK**. Dit moet de bandbreedtesjabloon verwijderen. 
+4. De lijst met updates van de bandbreedte-sjablonen in overeenstemming met het verwijderen.
 
 > [!NOTE]
 > U kunt uw wijzigingen niet opslaan als de bewerkte planning overlapt met een bestaand schema in de bandbreedtesjabloon die u wilt wijzigen.
 
 ## <a name="delete-a-bandwidth-template"></a>Een bandbreedtesjabloon verwijderen
 
-De volgende stappen uitvoeren om te verwijderen van een bandbreedtesjabloon.
+De volgende stappen uitvoeren om een bandbreedtesjabloon verwijderen.
 
-#### <a name="to-delete-a-bandwidth-template"></a>Om een bandbreedtesjabloon te verwijderen
+#### <a name="to-delete-a-bandwidth-template"></a>Een van de bandbreedtesjabloon verwijderen
 
-1. Ga naar uw StorSimple-Apparaatbeheer service en klik op **bandbreedte sjablonen**.
-2. Selecteer in de lijst met sjablonen van bandbreedte, de sjabloon die u wilt verwijderen. Klik met de rechtermuisknop en selecteer in het contextmenu verwijderen.
-3. Wanneer u om bevestiging gevraagd, klikt u op **OK**. Dit moet de bandbreedtesjabloon verwijderen.
-4. De lijst met updates van de bandbreedte-sjablonen in overeenstemming met de verwijdering.
+1. Ga naar uw StorSimple Device Manager-service en klik op **bandbreedtesjablonen**.
+2. Selecteer in de lijst met bandbreedtesjablonen, de sjabloon die u wilt verwijderen. Met de rechtermuisknop en selecteer verwijderen in het contextmenu.
+3. Wanneer u hierom wordt gevraagd om bevestiging, klikt u op **OK**. Dit moet de bandbreedtesjabloon verwijderen.
+4. De lijst met updates van de bandbreedte-sjablonen in overeenstemming met het verwijderen.
 
-Als de sjabloon door een of meer volumes gebruikt is, wordt u niet toegestaan om deze te verwijderen. U ziet een foutbericht met de mededeling dat de sjabloon die gebruikt wordt. Het dialoogvenster met een foutbericht wordt weergegeven waarin wordt gemeld dat alle verwijzingen naar de sjabloon moeten worden verwijderd.
+Als de sjabloon gebruikt door alle volumes wordt, wordt u niet toegestaan om deze te verwijderen. U ziet een foutbericht met de mededeling dat de sjabloon gebruikt wordt. Het dialoogvenster met een foutbericht wordt weergegeven waarin wordt gemeld dat alle verwijzingen naar de sjabloon moeten worden verwijderd.
 
-U kunt alle verwijzingen naar de sjabloon verwijderen door het openen van de **Volumecontainers** pagina en wijzigen van de volumecontainers die gebruikmaken van deze sjabloon, zodat ze een andere sjabloon gebruiken of gebruik een aangepaste of onbeperkte bandbreedte-instelling. Als u alle verwijzingen zijn verwijderd, kunt u de sjabloon verwijderen.
+U kunt alle verwijzingen naar de sjabloon verwijderen door het openen van de **Volumecontainers** pagina en wijzigen van de volumecontainers die gebruikmaken van deze sjabloon, zodat ze een andere sjabloon gebruiken of een aangepaste of onbeperkte bandbreedte-instelling gebruiken. Wanneer alle verwijzingen naar zijn verwijderd, kunt u de sjabloon verwijderen.
 
 ## <a name="use-a-default-bandwidth-template"></a>Een standaardsjabloon voor bandbreedte
 
-Een standaardsjabloon voor de bandbreedte wordt geleverd en wordt gebruikt door volumecontainers standaard bandbreedte besturingselementen afdwingen bij het openen van de cloud. De standaardsjabloon fungeert ook als een verwijzing gereed is voor gebruikers die hun eigen sjablonen maken. De details van deze standaardsjabloon zijn:
+Een standaardsjabloon voor bandbreedte wordt geleverd en wordt gebruikt door volumecontainers standaard bandbreedte besturingselementen afdwingen bij het openen van de cloud. De standaardsjabloon fungeert ook als uitgangspunt klaar voor gebruikers die hun eigen sjablonen maken. De details van deze sjabloon zijn:
 
-* **Naam** : onbeperkte nachten en weekends
-* **Planning** – één schema van maandag tot vrijdag van die van toepassing een hoeveelheid bandbreedte van 1 Mbps tussen de 8 uur en 17: 00 uur tijd op het apparaat is. De bandbreedte is voor de rest van de week ingesteld op onbeperkt.
+* **Naam** : onbeperkt aantal nachten en weekenden
+* **Planning** – één schema van maandag tot en met vrijdag die van toepassing een snelheid van 1 Mbps tussen 8: 00 uur en 17: 00 uur tijd op het apparaat is. De bandbreedte is voor de rest van de week ingesteld op onbeperkt.
 
 De standaardsjabloon kan worden bewerkt. Het gebruik van deze sjabloon (inclusief bewerkte versies) wordt bijgehouden.
 
-## <a name="create-an-all-day-bandwidth-template-that-starts-at-a-specified-time"></a>Een hele bandbreedtesjabloon maken die bij een opgegeven periode begint
+## <a name="create-an-all-day-bandwidth-template-that-starts-at-a-specified-time"></a>Maken van een hele dag duurt bandbreedtesjabloon die bij een opgegeven periode begint
 
-Volg deze procedure voor het maken van een planning die begint bij een opgegeven periode en alle dag wordt uitgevoerd. In het voorbeeld wordt de planning begint bij 9: 00 uur in de ochtend en wordt uitgevoerd tot en met 9: 00 uur van de volgende ochtend. Het is belangrijk te weten dat de begin- en eindtijden voor een opgegeven schema moet beide op dezelfde 24-uurs planning zijn opgenomen en kan geen gegevens voor meerdere dagen. Als u bandbreedte sjablonen meerdere dagen instellen wilt, moet u meerdere planningen gebruiken (zoals weergegeven in het voorbeeld).
+Volg deze procedure voor het maken van een schema dat begint met een opgegeven periode en alle dag wordt uitgevoerd. In het voorbeeld wordt de planning begint om 9 uur's ochtends en wordt tot en met 9: 00 de volgende ochtend wordt uitgevoerd. Het is belangrijk te weten dat de begin- en eindtijden voor een opgegeven schema moet beide op hetzelfde schema voor 24 uur per dag worden opgenomen en kunnen niet meerdere dagen omvatten. Als u nodig hebt voor het instellen van de bandbreedtesjablonen die over meerdere dagen, moet u meerdere planningen gebruiken (zoals weergegeven in het voorbeeld).
 
-#### <a name="to-create-an-all-day-bandwidth-template"></a>Een bandbreedtesjabloon voor de hele dag maken
+#### <a name="to-create-an-all-day-bandwidth-template"></a>Het maken van een hele dag duurt bandbreedtesjabloon
 
-1. Maak een planning die begint bij 9: 00 uur in de ochtend en tot middernacht uitgevoerd.
-2. Voeg een ander schema toe. Configureer de tweede planning vanaf middernacht uitgevoerd tot en met 9: 00 uur in de ochtend.
-3. Sla de bandbreedtesjabloon.
+1. Maak een planning die wordt gestart om 9 uur's ochtends en wordt tot middernacht wordt uitgevoerd.
+2. Een ander schema toevoegen. Configureer de tweede planning om uit te voeren van middernacht tot en met 9 uur's ochtends.
+3. De bandbreedtesjabloon opslaan.
 
-De samengestelde planning wordt vervolgens starten op een tijdstip van uw keuze en hele dag worden uitgevoerd.
+De samengestelde planning wordt vervolgens gestart op een tijdstip van uw keuze en hele dag worden uitgevoerd.
 
-## <a name="questions-and-answers-about-bandwidth-templates"></a>Vragen en antwoorden over de bandbreedte-sjablonen
+## <a name="questions-and-answers-about-bandwidth-templates"></a>Vragen en antwoorden over bandbreedtesjablonen
 
-**Q**. Wat gebeurt er met bandbreedte besturingselementen wanneer u tussen de schema's bent? (Een schema is beëindigd en een andere is nog niet gestart.)
+**Q**. Wat gebeurt er met bandbreedteregelingen wanneer u tussen de schema's? (Een schema is beëindigd en een andere naam nog niet is gestart.)
 
-**EEN**. In dergelijke gevallen wordt geen bandbreedte besturingselementen worden gebruikt. Dit betekent dat het apparaat onbeperkte bandbreedte gebruiken kunt wanneer gegevens in de cloud tiering.
+**A**. In dergelijke gevallen wordt er geen bandbreedteregelingen worden gebruikt. Dit betekent dat het apparaat onbeperkte bandbreedte gebruiken kunt wanneer meerdere lagen van gegevens naar de cloud.
 
-**Q**. Kunt u bandbreedte sjablonen op een apparaat offline wijzigen?
+**Q**. Kunt u bandbreedtesjablonen op een offline-apparaat wijzigen?
 
-**EEN**. Niet mogelijk om te wijzigen van bandbreedte-sjablonen op volumes containers als het bijbehorende apparaat offline is.
+**A**. Niet mogelijk om te wijzigen van bandbreedtesjablonen op volumes containers als de bijbehorende apparaat offline is.
 
-**Q**. Kunt u een bandbreedtesjabloon voor die is gekoppeld aan een volumecontainer wanneer de gekoppelde volumes offline zijn bewerken?
+**Q**. Kunt u een van de bandbreedtesjabloon die zijn gekoppeld aan een volumecontainer wanneer de gekoppelde volumes offline zijn bewerken?
 
-**EEN**. U kunt een bandbreedtesjabloon voor die is gekoppeld aan een volumecontainer waarvan volumes offline zijn wijzigen. Houd er rekening mee dat wanneer volumes offline zijn, geen gegevens worden in tiers worden verdeeld van het apparaat naar de cloud.
+**A**. Een van de bandbreedtesjabloon die zijn gekoppeld aan een volumecontainer waarvan volumes offline zijn, kunt u wijzigen. Houd er rekening mee dat wanneer de volumes offline zijn, geen zal worden gelaagde gegevens van het apparaat naar de cloud.
 
 **Q**. Kunt u een standaardsjabloon verwijderen?
 
-**EEN**. Hoewel u een standaardsjabloon verwijderen kunt, is het niet een goed idee om dit te doen. Het gebruik van een standaardsjabloon, inclusief bewerkte versies wordt bijgehouden. De traceringsgegevens is geanalyseerd en in de loop van de tijd die wordt gebruikt voor het verbeteren van de standaardsjabloon.
+**A**. Hoewel u een standaardsjabloon verwijderen kunt, is het niet een goed idee om dit te doen. Het gebruik van een standaardsjabloon, met inbegrip van bewerkte versies wordt bijgehouden. De traceringsgegevens worden geanalyseerd en in de loop van de tijd, wordt gebruikt voor het verbeteren van de standaardsjabloon.
 
-**Q**. Hoe bepaal u dat uw bandbreedte sjablonen moeten worden gewijzigd?
+**Q**. Hoe bepaal u dat uw bandbreedtesjablonen moeten worden gewijzigd?
 
-**EEN**. Een van de tekens die u wilt wijzigen van de bandbreedte-sjablonen is bij het starten van het netwerk vertragen of onderdrukking meerdere keren in een dag te zien. Als dit gebeurt, kunt u het opslag- en gebruiksgegevens netwerk bewaken kijken naar de i/o-prestaties en netwerkdoorvoer grafieken.
+**A**. Een van de tekens die u wilt wijzigen van de bandbreedtesjablonen is wanneer u weer te geven van het netwerk vertragen of onderdrukking meerdere keren in een dag. Als dit gebeurt, bewaken van het netwerk opslag en het gebruik door te kijken naar de i/o-prestaties en de netwerkdoorvoer grafieken.
 
-Identificeren van de gegevens van het netwerk doorvoer, de tijd van de dag en de volumecontainers waarin het knelpunt netwerk zich voordoet. Als dit gebeurt wanneer de gegevens naar de cloud is wordt gelaagd (deze informatie vinden in de i/o-prestaties voor alle volumecontainers voor apparaat in de cloud), moet u de bandbreedte-sjablonen die zijn gekoppeld aan uw volumecontainers wijzigen.
+Identificeren van de netwerkgegevens doorvoer, de tijd van de dag en de volumecontainers waarin het knelpunt netwerk zich voordoet. Als dit gebeurt wanneer de gegevens naar de cloud is dat wordt gelaagd (deze informatie ophalen van i/o-prestaties voor alle volumecontainers van apparaat naar de cloud), moet u de bandbreedtesjablonen die zijn gekoppeld aan uw volumecontainers wijzigen.
 
-Nadat de gewijzigde sjablonen gebruikt worden, moet u het netwerk voor belangrijke latenties nogmaals controleren. Als deze nog steeds bestaan, moet u terugkeren naar uw sjablonen bandbreedte.
+Nadat de gewijzigde sjablonen gebruikt worden, moet u voor het bewaken van het netwerk opnieuw voor aanzienlijke latentie. Als deze nog steeds aanwezig zijn, moet u terugkeren naar uw bandbreedtesjablonen.
 
-**Q**. Wat gebeurt er als meerdere volumecontainers op mijn apparaat plant die elkaar overlappen, maar andere beperkingen gelden voor elk?
+**Q**. Wat gebeurt er als meerdere volumecontainers op mijn apparaat plant die elkaar overlappen, maar andere limieten op elk(e) toepassen?
 
-**EEN**. Stel dat u een apparaat met 3 volumecontainers hebben. De schema's die zijn gekoppeld aan deze containers volledig overlappen. Voor elk van deze containers zijn de bandbreedte gebruikt 5, 10 en 15 Mbps respectievelijk. Wanneer de i/o plaatsvinden op al deze containers op hetzelfde moment, het minimum van 3-bandbreedtelimieten kan worden toegepast: in dit geval 5 Mbps als deze i/o-aanvragen voor uitgaande delen dezelfde wachtrij.
+**A**. Stel dat u een apparaat met 3 volumecontainers hebt. De schema's die volledig zijn gekoppeld aan deze containers overlappen. Voor elk van deze containers zijn de bandbreedtelimieten gebruikt 5, 10, en 15 Mbps respectievelijk. Wanneer de i/o plaatsvinden op al deze containers op hetzelfde moment, het minimum van de 3 bandbreedtelimieten kan worden toegepast: in dit geval de dezelfde wachtrij voor het delen van 5 Mbps als uitgaande i/o-aanvragen.
 
-## <a name="best-practices-for-bandwidth-templates"></a>Aanbevolen procedures voor de bandbreedte-sjablonen
+## <a name="best-practices-for-bandwidth-templates"></a>Aanbevolen procedures voor bandbreedtesjablonen
 
 Volg deze aanbevolen procedures voor uw StorSimple-apparaat:
 
-* Bandbreedte-sjablonen configureren op uw apparaat om in te schakelen variabele beperken van de doorvoer van het netwerk door het apparaat op verschillende tijdstippen van de dag. Deze sjablonen bandbreedte gebruikt in combinatie met de back-upschema's kunnen effectief gebruikmaken van aanvullende netwerkbandbreedte voor cloud-bewerkingen tijdens de daluren.
-* De werkelijke bandbreedte die vereist zijn voor een bepaalde implementatie op basis van de grootte van de implementatie en de vereiste beoogde hersteltijd (RTO) berekenen.
+* Bandbreedtesjablonen configureren op uw apparaat om in te schakelen variabele bandbreedtebeperking van de netwerkdoorvoer door het apparaat op verschillende tijdstippen van de dag. Deze bandbreedtesjablonen gebruikt in combinatie met de back-upschema's kunnen effectief gebruikmaken van extra bandbreedte voor cloudbewerkingen tijdens de daluren.
+* Bereken de werkelijke bandbreedte die is vereist voor een bepaalde implementatie op basis van de grootte van de implementatie en de vereiste beoogde hersteltijd (RTO).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over [de service Manager voor StorSimple-apparaat gebruiken voor het beheer van uw StorSimple-apparaat](storsimple-8000-manager-service-administration.md).
+Meer informatie over [met de StorSimple Device Manager-service voor het beheren van uw StorSimple-apparaat](storsimple-8000-manager-service-administration.md).
 

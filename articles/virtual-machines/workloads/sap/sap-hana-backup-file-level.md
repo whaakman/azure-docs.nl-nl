@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: d3d1769766053b513a98df153cb635ae148f26b1
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: fc35077e00bc6322a815a52ca6ab3571a4e06d3d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60937594"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>SAP HANA Azure back-up op bestandsniveau
 
@@ -36,7 +36,7 @@ In deze afbeelding ziet u het dialoogvenster van de back-menu-item in SAP HANA S
 
 Deze keuze klinkt eenvoudig en duidelijk, maar er zijn enkele overwegingen. Zoals al eerder vermeld, is een Azure-VM beperkt tot het aantal gegevensschijven dat kan worden gekoppeld. Er kan niet worden capaciteit voor het opslaan van back-upbestanden van de SAP HANA op de bestandssystemen van de virtuele machine, afhankelijk van de grootte van de database en de schijf doorvoer-vereisten, waarbij software striping over meerdere gegevensschijven mogelijk. Verschillende opties voor het verplaatsen van deze back-upbestanden en beheren van bestand groottebeperkingen en prestaties bij het verwerken van terabytes aan gegevens, vindt u verderop in dit artikel.
 
-Een andere optie, die meer vrijheid met betrekking tot de totale capaciteit biedt, is Azure blob-opslag. Één blob is ook beperkt tot 1 TB, is de totale capaciteit van een enkele blob-container momenteel 500 TB. Bovendien het biedt klanten de keuze om te selecteren, zogenaamde &quot;cool&quot; blob-opslag, het voordeel van een kosten heeft. Zie [Azure Blob Storage: Hot en cool storage-lagen](../../../storage/blobs/storage-blob-storage-tiers.md) voor meer informatie over cool blob-opslag.
+Een andere optie, die meer vrijheid met betrekking tot de totale capaciteit biedt, is Azure blob-opslag. Één blob is ook beperkt tot 1 TB, is de totale capaciteit van een enkele blob-container momenteel 500 TB. Bovendien het biedt klanten de keuze om te selecteren, zogenaamde &quot;cool&quot; blob-opslag, het voordeel van een kosten heeft. Zie [Azure Blob-opslag: Hot en cool storage-lagen](../../../storage/blobs/storage-blob-storage-tiers.md) voor meer informatie over cool blob-opslag.
 
 Voor extra veiligheid, door een opslag met geo-replicatie-account te gebruiken voor het opslaan van de back-ups van SAP HANA. Zie [Azure Storage-replicatie](../../../storage/common/storage-redundancy.md) voor meer informatie over de storage-account-replicatie.
 
@@ -70,7 +70,7 @@ De dezelfde back-up op software herhalende RAID met striping in alle vijf Azure 
 
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>Back-upbestanden voor SAP HANA naar Azure blob storage kopiëren
 
-Een andere optie voor het snel opslaan van back-upbestanden voor SAP HANA wordt Azure blob-opslag. Een enkele blob-container heeft een limiet van 500 TB, voldoende zijn voor sommige kleinere SAP HANA-systemen, typen M32ts, M32ls M64ls en GS5-VM's van Azure, met voldoende SAP HANA-back-ups behouden. Klanten hebben de keuze tussen &quot;hot&quot; en &quot;koude&quot; blob-opslag (Zie [Azure Blob Storage: Hot en cool storage-lagen](../../../storage/blobs/storage-blob-storage-tiers.md)).
+Een andere optie voor het snel opslaan van back-upbestanden voor SAP HANA wordt Azure blob-opslag. Een enkele blob-container heeft een limiet van 500 TB, voldoende zijn voor sommige kleinere SAP HANA-systemen, typen M32ts, M32ls M64ls en GS5-VM's van Azure, met voldoende SAP HANA-back-ups behouden. Klanten hebben de keuze tussen &quot;hot&quot; en &quot;koude&quot; blob-opslag (Zie [Azure Blob-opslag: Hot en cool storage-lagen](../../../storage/blobs/storage-blob-storage-tiers.md)).
 
 Met het hulpprogramma blobxfer is het eenvoudig om te kopiëren van de back-upbestanden van de SAP HANA rechtstreeks naar Azure blob-opslag.
 

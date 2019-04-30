@@ -15,11 +15,11 @@ ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709482"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Beheerders van de klassieke Azure-abonnement
 
@@ -77,7 +77,7 @@ Houd er rekening mee dat de [ingebouwde rollen voor Azure-resources](../role-bas
 
 1. Voeg een vinkje naast de CO-beheerder u wilt verwijderen.
 
-1. Klik op **verwijderen**.
+1. Klik op **Verwijderen**.
 
 1. In het vak van het bericht dat wordt weergegeven, klikt u op **Ja**.
 
@@ -155,5 +155,5 @@ Volg deze stappen om de accountbeheerder weer te geven.
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Inzicht in de verschillende rollen](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Toegang tot Azure-resources met behulp van RBAC en de Azure-portal beheren](../role-based-access-control/role-assignments-portal.md)
+* [Toegang tot Azure-resources beheren met op rollen gebaseerd toegangsbeheer en de Azure-portal](../role-based-access-control/role-assignments-portal.md)
 * [Azure-abonnementsbeheerders toevoegen of wijzigen](../billing/billing-add-change-azure-subscription-administrator.md)

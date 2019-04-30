@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
 ms.openlocfilehash: 3c07f7ac2b6407a3edf53fd5d3a4b402714fefbb
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61065000"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace commercieel transactiemogelijkheden en aandachtspunten
 
@@ -165,7 +165,7 @@ Klanten kunnen ook betalen met creditcard is geregistreerd en een maandelijkse f
 
 Bijvoorbeeld, als de klant koopt via een creditcard:
 
-|Beschrijving    |    Date  |
+|Description    |    Date  |
 |----------|----------|
 |Volgorde-periode   | 15 augustus 2018 - en met 30 augustus 2018 |
 |Term beëindigen (maand)   | En met 30 augustus 2018 |
@@ -179,7 +179,7 @@ Bijvoorbeeld, als de klant koopt via een creditcard:
 
 Als de klant koopt met behulp van een Enterprise Agreement:
 
-| Beschrijving |    Date  |
+| Description |    Date  |
 |----------|----------|
 |Volgorde-periode | 15 augustus 2018 - en met 30 augustus 2018 |
 |Term beëindigen (kwartaal) | En met 30 september 2018 |
