@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232440"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60683086"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Switch-instructies die worden uitgevoerd op basis van specifieke waarden in Azure Logic Apps werkstroomacties maken
 
@@ -32,7 +32,7 @@ Stel bijvoorbeeld dat u wilt dat een logische app waarmee verschillende stappen 
 
 * Het voorbeeld in dit artikel volgen [in dit voorbeeld logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md) met een Outlook.com- of Office 365 Outlook-account.
 
-  1. Wanneer u de actie voor het verzenden van e-mailadres toevoegt, zoeken en in plaats daarvan selecteert u deze actie: **een e-mail voor goedkeuring verzenden**
+  1. Wanneer u de actie voor het verzenden van e-mailadres toevoegt, zoek en selecteer deze actie in plaats daarvan: **Een e-mail voor goedkeuring verzenden**
 
      ![Selecteer 'Een e-mail met goedkeuring verzenden'](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
@@ -47,7 +47,7 @@ Stel bijvoorbeeld dat u wilt dat een logische app waarmee verschillende stappen 
 
    Als u toevoegen van een switch-instructie tussen fasen wilt, gaat u de aanwijzer over de pijl waar u wilt toevoegen van de switch-instructie. Kies de **plusteken** (**+**) die wordt weergegeven, en kies vervolgens **een actie toevoegen**.
 
-1. Typ 'Ga' als filter in het zoekvak. Selecteer deze actie: **overschakelen - controle**
+1. Typ 'Ga' als filter in het zoekvak. Selecteer deze actie: **Switch - besturingselement**
 
    ![Switch toevoegen](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
@@ -113,7 +113,7 @@ Nu u een logische app met behulp van een switch-instructie hebt gemaakt, gaan we
 }
 ```
 
-| Label | Beschrijving |
+| Label | Description |
 |-------|-------------|
 | `"Switch"`         | De naam van de switch-instructie, die u kunt de naam voor de leesbaarheid |
 | `"type": "Switch"` | Geeft aan dat de actie een switch-instructie |

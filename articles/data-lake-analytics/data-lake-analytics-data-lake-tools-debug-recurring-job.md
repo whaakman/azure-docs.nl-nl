@@ -10,11 +10,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
 ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260037"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629711"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Problemen met een abnormale terugkerende taak oplossen
 
@@ -56,7 +56,7 @@ Een overzicht en een rapport statistieken worden weergegeven boven aan het bijbe
 
 ![Procesdiagram voor het controleren van statistieken](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-metrics-debugging-flow.png)
 
-## <a name="step-3-compare-the-abnormal-job-to-a-normal-job"></a>Stap 3: De taak is abnormaal een normale taak vergelijken
+## <a name="step-3-compare-the-abnormal-job-to-a-normal-job"></a>Stap 3: De afwijkende taak aan een normale taak vergelijken
 
 U vindt dat alle terugkerende taken via de lijst aan de onderkant van gerelateerde taakweergave verzonden. Ga voor meer inzichten en mogelijke oplossingen, met de rechtermuisknop op de afwijkende taak. De taak Diff-weergave gebruiken om te vergelijken van de afwijkende taak met een eerdere normale.
 

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326922"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630184"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000-serie: een oplossing voor hybride cloudopslag
 ## <a name="overview"></a>Overzicht
@@ -96,7 +96,7 @@ De StorSimple-Cloudapparaat is beschikbaar in twee modellen: de 8010-apparaat (v
 
 Voor meer informatie over de StorSimple-Cloudapparaat, gaat u naar [implementeren en beheren van een StorSimple-Cloudapparaat in Azure](storsimple-8000-cloud-appliance-u2.md).
 
-## <a name="storsimple-device-manager-service"></a>StorSimple-apparaatbeheerservice
+## <a name="storsimple-device-manager-service"></a>StorSimple-apparaatbeheerfunctie
 Microsoft Azure StorSimple biedt een web gebaseerde gebruikersinterface (de StorSimple Device Manager-service) waarmee u centraal beheren van datacenter- en cloudopslag. De service StorSimple Device Manager kunt u de volgende taken uitvoeren:
 
 * Configureren van systeeminstellingen voor StorSimple-apparaten.
@@ -299,7 +299,7 @@ Voordat u uw Microsoft Azure StorSimple-oplossing implementeert, wordt u aangera
 | SSD (Solid-state drive) |Een schijf die geen bewegende onderdelen bevat; bijvoorbeeld: een flash-station. |
 | opslagaccount |Een set referenties voor toegang is gekoppeld aan uw storage-account voor een bepaalde cloudserviceprovider. |
 | StorSimple Adapter voor SharePoint |Een Microsoft Azure StorSimple-component die transparant wordt uitgebreid StorSimple en gegevensbescherming naar SharePoint-serverfarms. |
-| StorSimple-apparaatbeheerservice |Een uitbreiding van de Azure-portal waarmee u voor het beheren van uw Azure StorSimple on-premises en virtuele apparaten. |
+| StorSimple-apparaatbeheerfunctie |Een uitbreiding van de Azure-portal waarmee u voor het beheren van uw Azure StorSimple on-premises en virtuele apparaten. |
 | StorSimple Snapshot Manager |Een Microsoft Management Console (MMC)-module voor het beheren van back-up en herstellen van bewerkingen in Microsoft Azure StorSimple. |
 | back-up maken |Een functie waarmee de gebruiker een interactieve back-up van een volume. Het is een alternatieve manier om een handmatige back-up maken van een volume in plaats van een geautomatiseerde back-up maken via een gedefinieerd beleid. |
 | Thin provisioning |Een methode voor het optimaliseren van de efficiëntie waarmee de beschikbare opslagruimte wordt gebruikt in opslagsystemen. De opslag wordt in dunne inrichting wordt toegewezen door meerdere gebruikers op basis van de minimale schijfruimte vereist voor elke gebruiker op een bepaald moment. Zie ook *fat inrichting*. |

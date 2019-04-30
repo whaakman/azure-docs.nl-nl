@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: 5f573db887b3acc2c4a668a8c19c7f8e3cb25019
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726567"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnose- en prestatiecontrole voor betrouwbare actoren
 De Reliable Actors-runtime verzendt [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) gebeurtenissen en [prestatiemeteritems](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Deze bieden inzicht in hoe de runtime wordt uitgevoerd en u te helpen bij het oplossen van problemen en bewaking van toepassingsprestaties.
@@ -42,7 +42,7 @@ Alle gebeurtenissen die deel uitmaken van de betrouwbare actoren EventSource zij
 ## <a name="performance-counters"></a>Prestatiemeteritems
 De runtime Reliable Actors definieert de volgende categorieën voor prestatiemeteritems.
 
-| Categorie | Description |
+| Category | Description |
 | --- | --- |
 | Service Fabric-actor |Prestatiemeteritems specifiek voor Azure Service Fabric-actoren, bijvoorbeeld tijd genomen om op te slaan van de actorstatus |
 | Service Fabric-actormethode |Prestatiemeteritems specifiek zijn voor methoden die worden geïmplementeerd door de Service Fabric-actoren, bijvoorbeeld hoe vaak een actormethode wordt aangeroepen |

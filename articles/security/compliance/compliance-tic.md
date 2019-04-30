@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
 ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341710"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607928"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Richtlijnen voor vertrouwde verbindingen via Internet
 
@@ -247,7 +247,7 @@ U kunt eenvoudig toegang tot Microsoft Azure, Office 365 en Dynamics 365 om te v
 
 ## <a name="appendix-trusted-internet-connections-patterns-for-common-workloads"></a>Bijlage: Vertrouwde verbindingen via Internet patronen voor veelvoorkomende workloads
 
-| Categorie | Workload | IaaS | Toegewezen PaaS / Virtual network-injectie  | Service-eindpunten  |
+| Category | Workload | IaaS | Toegewezen PaaS / Virtual network-injectie  | Service-eindpunten  |
 |---------|---------|---------|---------|--------|
 | Compute | Azure virtuele Linux-machines | Ja | | |
 | Compute | Windows virtuele machines van Azure | Ja | | |
@@ -264,10 +264,10 @@ U kunt eenvoudig toegang tot Microsoft Azure, Office 365 en Dynamics 365 om te v
 | Database | Azure SQL Data Warehouse | | | Ja |
 | Database | Azure Cosmos DB | | | Ja |
 | Database | Azure Cache voor Redis | | Ja | |
-| Opslag | Azure Blob Storage | Ja | | |
-| Opslag | Azure Files | Ja | | |
-| Opslag | Azure Queue storage | Ja | | |
-| Opslag | Azure Table Storage | Ja | | |
-| Opslag | Azure Disk-opslag | Ja | | |
+| Storage | Azure Blob Storage | Ja | | |
+| Storage | Azure Files | Ja | | |
+| Storage | Azure Queue storage | Ja | | |
+| Storage | Azure Table Storage | Ja | | |
+| Storage | Azure Disk-opslag | Ja | | |
 
 \* Openbare preview-versie in Azure Government, mei 2018.

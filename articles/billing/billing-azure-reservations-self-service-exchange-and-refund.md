@@ -13,17 +13,17 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 54578746ea8029a760663edc456660f98358abc5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009307"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60616014"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Self-servicegebruikers worden uitgewisseld en terugbetalingen voor Azure-reserveringen
 
-Azure-reserveringen bieden flexibiliteit om te voldoen aan uw groeiende behoeften. U kunt een reservering voor een andere reservering van hetzelfde type kan uitwisselen. Als u deze niet meer nodig hebt, kunt u ook een reservering, maximaal 50.000 USD per jaar, terugbetaling.
+Azure-reserveringen bieden flexibiliteit om te voldoen aan uw groeiende behoeften. U kunt een reservering inwisselen voor een andere reservering van hetzelfde type. U kunt ook een restitutie (tot USD 50.000 per jaar) voor een reservering aanvragen als u deze niet meer nodig hebt.
 
-Selfservice exchange en annuleren mogelijkheid is niet beschikbaar voor US Government Enterprise Agreement-klanten. Andere voor de Amerikaanse overheid abonnementstypen zoals betalen per gebruik en CSP worden ondersteund.
+De selfserviceoptie voor inwisselen en annuleren is niet beschikbaar voor Enterprise Agreement-klanten van de Amerikaanse overheid. Andere voor de Amerikaanse overheid abonnementstypen zoals betalen per gebruik en CSP worden ondersteund.
 
 U moet de eigenaar toegang hebben op de Reserveringsorder worden omgeruild of een bestaande reservering terugbetaling.
 
@@ -33,7 +33,7 @@ U kunt uw reservering met drie snelle stappen in exchange de [Azure-portal](http
 
 1. Selecteer de reserveringen die u wilt een restitutie en klikt u op **Exchange**.  
     ![Voorbeeldafbeelding van de reserveringen om terug te keren](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
-2. Selecteer het VM-product dat u wilt kopen en typ een aantal. Zorg ervoor dat het nieuwe aankoop totaal meer dan het geretourneerde totaal. [De juiste grootte te bepalen voordat u aanschaft](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
+2. Selecteer het VM-product dat u wilt aanschaffen en geef een hoeveelheid op. Zorg ervoor dat het nieuwe aankoop totaal meer dan het geretourneerde totaal. [De juiste grootte te bepalen voordat u aanschaft](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     ![Van de voorbeeldafbeelding van het VM-product te kopen met een exchange](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
 3. Bekijk en de transactie te voltooien.  
     ![Van de voorbeeldafbeelding van het VM-product te kopen met een exchange-, het rendement voltooien](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)

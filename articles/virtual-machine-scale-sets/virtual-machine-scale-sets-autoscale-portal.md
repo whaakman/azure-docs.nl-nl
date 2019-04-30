@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.openlocfilehash: 648bc0295cd5435e9c3e44f33b7ae80522fa8e0e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60618805"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Automatisch schalen van een virtuele-machineschaalset in Azure portal
 Wanneer u een schaalset maakt, definieert u het aantal VM-exemplaren dat u wilt uitvoeren. Wanneer de vraag van de toepassing verandert, kunt u het aantal VM-exemplaren automatisch vergroten of verkleinen. De mogelijkheid van automatisch schalen stelt u in staat om altijd te voldoen aan de vraag van klanten houden of om gedurende de levenscyclus van uw app te reageren op wijzigingen in de prestaties van de toepassing.
@@ -47,7 +47,7 @@ Als de vraag van uw toepassing toeneemt, neemt de belasting van de VM-exemplaren
 
     Geef de volgende instellingen voor de regel:
     
-    | Parameter              | Uitleg                                                                                                         | Waarde          |
+    | Parameter              | Uitleg                                                                                                         | Value          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
     | *Tijdverzameling*     | Hiermee definieert u hoe de verzamelde meetwaarden moeten worden samengevoegd voor analyse.                                                | Gemiddeld        |
     | *Naam van de meetwaarde*          | De prestatiemeetwaarde die u wilt bewaken en waarvoor u acties wilt toepassen op de schaalset.                                                   | Percentage CPU |
@@ -74,7 +74,7 @@ In het weekend of 's avonds kan de vraag voor uw toepassing afnemen. Als deze af
 
     Dezelfde benadering gebruiken net als bij de vorige regel. De volgende instellingen voor de regel aanpassen:
     
-    | Parameter              | Uitleg                                                                                                          | Waarde          |
+    | Parameter              | Uitleg                                                                                                          | Value          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operator*             | De operator die wordt gebruikt voor het vergelijken van de meetwaarden met de drempelwaarde.                                                      | Kleiner dan   |
     | *Drempelwaarde*            | Het percentage dat ervoor zorgt dat de regel voor automatisch schalen een actie activeert.                                                 | 30             |

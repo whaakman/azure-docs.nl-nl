@@ -1,5 +1,5 @@
 ---
-title: 'Azure back-up: Back-up van virtuele Azure-machines met behulp van REST-API'
+title: 'Azure Backup: Maak een back-up van virtuele Azure-machines met behulp van REST-API'
 description: Beheren van back-upbewerkingen van Azure VM Backup met behulp van REST-API
 services: backup
 author: pvrk
@@ -11,11 +11,11 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289783"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646761"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Maak een back-up van een Azure-VM met behulp van Azure Backup via REST-API
 
@@ -45,9 +45,9 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 De vernieuwingsbewerking is een [asynchrone bewerking](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Dit betekent dat deze bewerking wordt gemaakt van een andere bewerking waardoor moet afzonderlijk worden bijgehouden.
 
-Deze twee antwoorden retourneert: 202 (aanvaard) wanneer een andere bewerking wordt gemaakt en klik vervolgens op 200 (OK) wanneer deze bewerking is voltooid.
+Deze retourneert twee antwoorden: 202 (aanvaard) wanneer een andere bewerking wordt gemaakt en vervolgens 200 (OK) wanneer deze bewerking is voltooid.
 
-|Naam  |Type  |Beschrijving  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |204 geen inhoud     |         |  OK met geen inhoud geretourneerd      |
 |202 geaccepteerd     |         |     Geaccepteerd    |
@@ -110,7 +110,7 @@ De *ophalen* URI heeft de vereiste parameters. Er zijn geen extra aanvraagtekst 
 
 #### <a name="responses"></a>Antwoorden
 
-|Naam  |Type  |Beschrijving  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
@@ -157,8 +157,8 @@ X-Powered-By: ASP.NET
 
 Het antwoord bevat de lijst met alle niet-beveiligde Azure-VM's en elk `{value}` bevat alle gegevens die zijn vereist door de Azure Recovery-Service voor het configureren van back-up. Voor het configureren van back-up, houd er rekening mee de `{name}` veld en de `{virtualMachineId}` veld `{properties}` sectie. Twee variabelen uit deze waarden opgeven, zoals hieronder wordt beschreven.
 
-- containerName = "iaasvmcontainer;" +`{name}`
-- protectedItemName = 'vm'; + `{name}`
+- containerName = "iaasvmcontainer;"+`{name}`
+- protectedItemName = "vm;"+ `{name}`
 - `{virtualMachineId}` we later tijdens [hoofdtekst van de aanvraag](#example-request-body)
 
 In het voorbeeld wordt de bovenstaande waarden vertalen naar:
@@ -186,7 +186,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Hier volgen voor het maken van een beveiligd item, de onderdelen van de aanvraagtekst.
 
-|Naam  |Type  |Beschrijving  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem Resource-eigenschappen         |
 
@@ -212,9 +212,9 @@ De `{sourceResourceId}` is de `{virtualMachineId}` hierboven is vermeld in de [r
 
 Het maken van een beveiligd item is een [asynchrone bewerking](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Dit betekent dat deze bewerking wordt gemaakt van een andere bewerking waardoor moet afzonderlijk worden bijgehouden.
 
-Deze twee antwoorden retourneert: 202 (aanvaard) wanneer een andere bewerking wordt gemaakt en klik vervolgens op 200 (OK) wanneer deze bewerking is voltooid.
+Deze retourneert twee antwoorden: 202 (aanvaard) wanneer een andere bewerking wordt gemaakt en vervolgens 200 (OK) wanneer deze bewerking is voltooid.
 
-|Naam  |Type  |Beschrijving  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 geaccepteerd     |         |     Geaccepteerd    |
@@ -300,7 +300,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 Voor het activeren van een on-demand back-up, vindt hieronder u de onderdelen van de aanvraagtekst.
 
-|Naam  |Type  |Beschrijving  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource eigenschappen         |
 
@@ -323,9 +323,9 @@ De hoofdtekst van de volgende aanvraag definieert de eigenschappen die zijn vere
 
 Activeren van een on-demand back-up is een [asynchrone bewerking](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Dit betekent dat deze bewerking wordt gemaakt van een andere bewerking waardoor moet afzonderlijk worden bijgehouden.
 
-Deze twee antwoorden retourneert: 202 (aanvaard) wanneer een andere bewerking wordt gemaakt en klik vervolgens op 200 (OK) wanneer deze bewerking is voltooid.
+Deze retourneert twee antwoorden: 202 (aanvaard) wanneer een andere bewerking wordt gemaakt en vervolgens 200 (OK) wanneer deze bewerking is voltooid.
 
-|Naam  |Type  |Beschrijving  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |202 geaccepteerd     |         |     Geaccepteerd    |
 
@@ -393,7 +393,7 @@ Omdat de back-uptaak een langdurige bewerking is, deze moet worden bijgehouden, 
 
 ### <a name="changing-the-policy-of-protection"></a>Wijzigen van het beleid van beveiliging
 
-Als u wilt wijzigen van het beleid waarmee de virtuele machine is beveiligd, kunt u dezelfde indeling als [inschakelen van beveiliging](#enabling-protection-for-the-azure-vm). Geeft u alleen de nieuwe beleids-ID in [hoofdtekst van de aanvraag](#example-request-body) en dien de aanvraag. Voor bijvoorbeeld: als u wilt wijzigen in het beleid van testVM van 'DefaultPolicy' naar 'ProdPolicy', geef de id 'ProdPolicy' in de aanvraagtekst.
+Als u wilt wijzigen van het beleid waarmee de virtuele machine is beveiligd, kunt u dezelfde indeling als [inschakelen van beveiliging](#enabling-protection-for-the-azure-vm). Geeft u alleen de nieuwe beleids-ID in [hoofdtekst van de aanvraag](#example-request-body) en dien de aanvraag. Voor bijvoorbeeld: Als u wilt wijzigen in het beleid van testVM van 'DefaultPolicy' naar 'ProdPolicy', geef de id 'ProdPolicy' in de aanvraagtekst.
 
 ```http
 {
@@ -443,9 +443,9 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 *Verwijder* beveiliging is een [asynchrone bewerking](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Dit betekent dat deze bewerking wordt gemaakt van een andere bewerking waardoor moet afzonderlijk worden bijgehouden.
 
-Deze twee antwoorden retourneert: 202 (aanvaard) wanneer een andere bewerking wordt gemaakt en vervolgens 204 (NoContent) wanneer deze bewerking is voltooid.
+Deze retourneert twee antwoorden: 202 (aanvaard) wanneer een andere bewerking wordt gemaakt en vervolgens 204 (NoContent) wanneer deze bewerking is voltooid.
 
-|Naam  |Type  |Beschrijving  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 geaccepteerd     |         |     Geaccepteerd    |

@@ -3,21 +3,22 @@ title: Gegevens kopiëren van/naar SAP-Cloud voor klanten met Azure Data Factory
 description: Meer informatie over het kopiëren van gegevens van SAP-Cloud voor klant ondersteunde sink-gegevensopslag (of) van de ondersteunde bron-gegevensopslag naar SAP-Cloud voor klanten met behulp van Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/17/2018
-ms.author: jingwang
+origin.date: 04/17/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: e4625b934f9e1cf98254f3dee59f9c26e8e16fb5
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353376"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578705"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Kopiëren van gegevens van SAP-Cloud voor klant (C4C) met behulp van Azure Data Factory
 
@@ -44,7 +45,7 @@ De volgende eigenschappen worden ondersteund voor SAP-Cloud voor de service van 
 | type | De eigenschap type moet worden ingesteld op: **SapCloudForCustomer**. | Ja |
 | url | De URL van de SAP C4C OData-service. | Ja |
 | gebruikersnaam | Geef de naam van de gebruiker verbinding maken met de SAP-C4C. | Ja |
-| wachtwoord | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| password | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Als niet is opgegeven, wordt de standaard Azure Integration Runtime. | Nee voor bron, Ja voor sink |
 
 >[!IMPORTANT]
@@ -58,7 +59,7 @@ De volgende eigenschappen worden ondersteund voor SAP-Cloud voor de service van 
     "properties": {
         "type": "SapCloudForCustomer",
         "typeProperties": {
-            "url": "https://<tenantname>.crm.ondemand.com/sap/c4c/odata/v1/c4codata/" ,
+            "url": "https://<tenantname>.crm.ondemand.cn/sap/c4c/odata/v1/c4codata/" ,
             "username": "<username>",
             "password": {
                 "type": "SecureString",
@@ -156,8 +157,8 @@ Om gegevens te kopiëren naar SAP-Cloud voor klanten, stelt u het sink-type in d
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **SapCloudForCustomerSink**  | Ja |
-| WriteBehavior | Het gedrag van het schrijven van de bewerking. Kan worden 'Insert', 'Update'. | Nee. Standaard 'Insert'. |
-| WriteBatchSize | De batchgrootte van de schrijfbewerking. De batchgrootte om de beste prestaties kan mogelijk verschillen voor andere tabel of de server. | Nee. Standaard 10. |
+| writeBehavior | Het gedrag van het schrijven van de bewerking. Kan worden 'Insert', 'Update'. | Nee. Standaard 'Insert'. |
+| writeBatchSize | De batchgrootte van de schrijfbewerking. De batchgrootte om de beste prestaties kan mogelijk verschillen voor andere tabel of de server. | Nee. Standaard 10. |
 
 **Voorbeeld:**
 
@@ -205,18 +206,18 @@ Bij het kopiëren van gegevens van SAP-Cloud voor klanten, worden de volgende to
 | SAP C4C OData-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | Edm.Binary | Byte[] |
-| Edm.Boolean | BOOL |
+| Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
-| Edm.Decimal | Decimaal |
-| Edm.Double | Double-waarde |
-| Edm.Single | Enkelvoudig |
-| Edm.Guid | GUID |
+| Edm.Decimal | Decimal |
+| Edm.Double | Double |
+| Edm.Single | Single |
+| Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | Reeks |
+| Edm.String | String |
 | Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 

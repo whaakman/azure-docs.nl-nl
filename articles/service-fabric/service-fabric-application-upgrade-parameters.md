@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
 ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614400"
 ---
 # <a name="application-upgrade-parameters"></a>Parameters toepassingsupgrade
 Dit artikel beschrijft de verschillende parameters die van toepassing tijdens de upgrade van een Azure Service Fabric-toepassing zijn. Parameters toepassingsupgrade bepaalt de time-outs en statuscontroles die worden toegepast tijdens de upgrade en u deze opgeven met de beleidsregels die moeten worden toegepast wanneer een upgrade mislukt. Parameters voor de toepassing van toepassing op upgrades met behulp van:

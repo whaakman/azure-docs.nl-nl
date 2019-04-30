@@ -1,5 +1,5 @@
 ---
-title: Een Azure-netwerk (klassiek) migreren van een affiniteitsgroep naar een regio | Microsoft Docs
+title: Migreren van een Azure-netwerk (klassiek) van een affiniteitsgroep naar een regio | Microsoft Docs
 description: Informatie over het migreren van een virtueel netwerk (klassiek) van een affiniteitsgroep naar een regio.
 services: virtual-network
 documentationcenter: na
@@ -15,50 +15,50 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 1fca7f6165998b95254f841638cf8bcbc1fb352d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d3bb93d12a217e6d9066d037ff92f071b6139ab3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792151"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648632"
 ---
-# <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>Een virtueel netwerk (klassiek) migreren van een affiniteitsgroep naar een regio
+# <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>Migreren van een virtueel netwerk (klassiek) van een affiniteitsgroep naar een regio
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en classic](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Dit artikel gaat over het gebruik van het klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-implementatiemodel gebruiken.
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Dit artikel gaat over het gebruik van het klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-implementatiemodel gebruiken.
 
-Affiniteitsgroepen Zorg ervoor dat resources gemaakt binnen dezelfde affiniteitsgroep fysiek op servers die zich dicht bij elkaar inschakelen van deze bronnen te laten communiceren sneller worden gehost. In het verleden waren affiniteitsgroepen een vereiste voor het maken van virtuele netwerken (klassiek). Op dat moment werken manager met de netwerkservice die virtuele netwerken (klassiek beheerde) kan alleen binnen een set van fysieke servers of schaaleenheid. Architectuur verbeteringen zijn het bereik van netwerkbeheer in een regio toegenomen.
+Affiniteitsgroepen ervoor te zorgen dat resources die zijn gemaakt in dezelfde affiniteitsgroep fysiek op servers die zich dicht bij elkaar, zodat deze resources om te communiceren sneller worden gehost. In het verleden waren affiniteitsgroepen vereist voor het maken van virtuele netwerken (klassiek). Op dat moment kan de network manager-service die virtuele netwerken (klassiek) worden beheerd uitsluitend worden gebruikt in een set van fysieke servers of schaaleenheid. Architectuur verbeteringen zijn het bereik van beheer van het netwerk naar een regio toegenomen.
 
-Als gevolg van deze architectuur verbeteringen zijn affiniteitsgroepen niet langer aanbevolen of vereist zijn voor virtuele netwerken (klassiek). Het gebruik van affiniteitsgroepen voor virtuele netwerken (klassiek) wordt vervangen door de regio's. Regionale virtuele netwerken, virtuele netwerken (klassiek) die gekoppeld aan de regio's zijn worden genoemd.
+Als gevolg van deze architectuur verbeteringen zijn affiniteitsgroepen niet langer aanbevolen of vereist zijn voor virtuele netwerken (klassiek). Het gebruik van affiniteitsgroepen voor virtuele netwerken (klassiek) wordt vervangen door de regio's. Virtuele netwerken (klassiek) die gekoppeld aan regio's zijn, regionale virtuele netwerken worden genoemd.
 
-Het is raadzaam dat u in het algemeen affiniteitsgroepen niet gebruikt. Naast de vereiste virtueel netwerk affiniteitsgroepen is ook belangrijk om te gebruiken om ervoor te zorgen resources, zoals berekeningen (klassiek) en opslag (klassiek), in de buurt van elkaar zijn geplaatst. Met de huidige architectuur van de Azure-netwerk zijn niet langer deze vereisten plaatsing vereist.
+U wordt aangeraden dat u affiniteitsgroepen in het algemeen niet gebruikt. Afgezien van de vereiste virtuele netwerk affiniteitsgroepen zijn ook belangrijk om te gebruiken om te controleren of de resources, zoals compute (klassiek) en storage (klassiek), in de buurt van elkaar zijn geplaatst. Met de architectuur van de huidige Azure-netwerk zijn niet langer deze plaatsing vereisten die nodig zijn.
 
 > [!IMPORTANT]
-> Hoewel het technisch nog steeds mogelijk te maken van een virtueel netwerk dat is gekoppeld aan een affiniteitsgroep, is er geen dwingende redenen om dit te doen. Veel functies van virtueel netwerk, zoals netwerkbeveiligingsgroepen, zijn alleen beschikbaar wanneer u een regionaal virtueel netwerk en zijn niet beschikbaar voor virtuele netwerken die gekoppeld aan affiniteitsgroepen zijn.
+> Hoewel het is nog steeds technisch mogelijk te maken van een virtueel netwerk dat is gekoppeld aan een affiniteitsgroep, is er geen dwingende redenen om dit te doen. Veel functies van virtual network, zoals netwerkbeveiligingsgroepen, zijn alleen beschikbaar wanneer u een regionaal virtueel netwerk, en zijn niet beschikbaar voor virtuele netwerken die gekoppeld aan affiniteitsgroepen zijn.
 > 
 > 
 
-## <a name="edit-the-network-configuration-file"></a>De netwerk-configuratiebestand bewerken
+## <a name="edit-the-network-configuration-file"></a>Het netwerkconfiguratiebestand bewerken
 
-1. Exporteer het configuratiebestand van het netwerk. Zie voor meer informatie over het exporteren van een netwerk-configuratiebestand met PowerShell of de Azure-opdrachtregelinterface (CLI) 1.0, [configureren van een virtueel netwerk met een netwerk-configuratiebestand](virtual-networks-using-network-configuration-file.md#export).
-2. Bewerk het bestand van de configuratie van netwerk vervangen **AffinityGroup** met **locatie**. Geef van een Azure [regio](https://azure.microsoft.com/regions) voor **locatie**.
+1. Het netwerkconfiguratiebestand exporteert. Zie voor informatie over het exporteren van een netwerkconfiguratiebestand met PowerShell of de Azure-opdrachtregelinterface (CLI) 1.0, [configureren van een virtueel netwerk met een netwerkconfiguratiebestand](virtual-networks-using-network-configuration-file.md#export).
+2. Bewerken van het netwerkconfiguratiebestand vervangen **AffinityGroup** met **locatie**. Opgeven van een Azure [regio](https://azure.microsoft.com/regions) voor **locatie**.
    
    > [!NOTE]
-   > De **locatie** de regio die u hebt opgegeven voor de affiniteitsgroep die is gekoppeld aan het virtuele netwerk (klassiek). Als het virtuele netwerk (klassiek) is gekoppeld aan een affiniteitsgroep die zich in VS-West, wanneer u migreert, bijvoorbeeld uw **locatie** moet verwijzen naar VS-West. 
+   > De **locatie** is de regio die u hebt opgegeven voor de affiniteitsgroep die is gekoppeld aan het virtuele netwerk (klassiek). Bijvoorbeeld, als uw virtuele netwerk (klassiek) is gekoppeld aan een affiniteitsgroep die zich in VS-West, wanneer u migreert, uw **locatie** moet verwijzen naar VS-West. 
    > 
    > 
    
-    De volgende regels in het configuratiebestand van uw netwerk, waarbij de waarden vervangt door uw eigen bewerken: 
+    De volgende regels in het configuratiebestand van uw netwerk, vervang de waarden door uw eigen bewerken: 
    
-    **Oude waarde:** \<VirtualNetworkSitename = 'VNetUSWest' AffinityGroup = "VNetDemoAG"\> 
+    **Oude waarde:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
    
-    **Nieuwe waarde:** \<VirtualNetworkSitename = "VNetUSWest" locatie 'VS-West' =\>
-3. Uw wijzigingen hebt opgeslagen en [importeren](virtual-networks-using-network-configuration-file.md#import) de netwerkconfiguratie in Azure.
+    **Nieuwe waarde:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
+3. Sla uw wijzigingen en [importeren](virtual-networks-using-network-configuration-file.md#import) de netwerkconfiguratie naar Azure.
 
 > [!NOTE]
-> Deze migratie veroorzaakt geen uitvaltijd voor uw service.
+> Deze migratie leidt niet tot uitvaltijd voor uw service.
 > 
 > 
 
-## <a name="what-to-do-if-you-have-a-vm-classic-in-an-affinity-group"></a>Wat te doen als u een VM (klassiek) in een affiniteitsgroep hebt
-VMs (klassiek) die momenteel in een affiniteitsgroep hoeft niet worden verwijderd uit de affiniteitsgroep. Zodra een virtuele machine is geïmplementeerd, wordt deze op een enkele schaaleenheid geïmplementeerd. Affiniteitsgroepen kunt Beperk het aantal beschikbare VM-grootten voor een nieuwe VM-implementatie, maar er is al een bestaande virtuele machine die wordt geïmplementeerd beperkt tot de groep van VM-formaten is beschikbaar in de schaaleenheid waarin de virtuele machine wordt geïmplementeerd. Omdat de virtuele machine is al geïmplementeerd op een schaaleenheid, heeft een virtuele machine verwijderen uit een affiniteitsgroep geen effect op de virtuele machine.
+## <a name="what-to-do-if-you-have-a-vm-classic-in-an-affinity-group"></a>Wat te doen als u een virtuele machine (klassiek) in een affiniteitsgroep hebt
+(Klassiek), die momenteel zijn opgenomen in een affiniteitsgroep VM's hoeft te worden verwijderd uit de affiniteitsgroep. Wanneer een virtuele machine is geïmplementeerd, wordt deze geïmplementeerd op een enkele schaaleenheid. Affiniteitsgroepen kunt beperken de set beschikbare VM-grootten voor een nieuwe VM-implementatie, maar elke bestaande virtuele machine die wordt geïmplementeerd is al beperkt tot het instellen van VM-grootten die beschikbaar zijn in de schaaleenheid waarin de virtuele machine is geïmplementeerd. Omdat de virtuele machine al is geïmplementeerd op een schaaleenheid, heeft een virtuele machine verwijderen uit een affiniteitsgroep geen effect op de virtuele machine.

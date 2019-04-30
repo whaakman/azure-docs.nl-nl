@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238927"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629897"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>StorSimple Virtual Array implementeren voor Cloud Solution Provider Program
 
@@ -44,7 +44,7 @@ Als u een klant toevoegt, wordt een abonnement wordt automatisch gemaakt. Als u 
 
      ![Dashboard in Partnercentrum](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. Klik in het linkerdeelvenster op **klanten**. Klik in het rechterdeelvenster op **klanten toevoegen**. Geef de details van de klant. Klik op **volgende: abonnementen** abonnement van een klant maken.
+2. Klik in het linkerdeelvenster op **klanten**. Klik in het rechterdeelvenster op **klanten toevoegen**. Geef de details van de klant. Klik op **Next: Abonnementen** abonnement van een klant maken.
 
     ![Klant toevoegen](./media/storsimple-partner-csp-deploy/image2.png)
 
@@ -83,7 +83,7 @@ In sommige gevallen mogelijk hebt u een bestaande klant bent en u moet een abonn
                               
 2. Klik in het linkerdeelvenster op **klanten**. Zoek of Ga naar de klant die u wilt toevoegen van een abonnement op. Klik op de ![vinkje uit te breiden](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) pictogram om uit te breiden de rij voor de naam van het bedrijf voor uw klant. Klik in de details op **abonnementen toevoegen**.
 
-    ![Klanten](./media/storsimple-partner-csp-deploy/image10.png)
+    ![Customers](./media/storsimple-partner-csp-deploy/image10.png)
 
 3. Controleer **Microsoft Azure** voor de **aanbiedingen Top** in het abonnement en op **indienen**. Hiermee maakt u een nieuw abonnement.
 
@@ -103,5 +103,5 @@ In sommige gevallen mogelijk hebt u een bestaande klant bent en u moet een abonn
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u meer vragen over de StorSimple in CSP hebt, gaat u naar [StorSimple in CSP: veelgestelde vragen over](storsimple-partner-csp-faq.md).
+- Als u meer vragen over de StorSimple in CSP hebt, gaat u naar [StorSimple in CSP: Veelgestelde vragen over](storsimple-partner-csp-faq.md).
 - Als u klaar bent voor uw StorSimple implementeren, gaat u naar [StorSimple in CSP implementeren](storsimple-partner-csp-deploy.md).

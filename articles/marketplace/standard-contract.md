@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
 ms.openlocfilehash: 3c3b3c3af3dbe78bd08a0803c7fc2a37f554e4d7
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733591"
 ---
-# <a name="standard-contract"></a>Standard Contract
+# <a name="standard-contract"></a>Standaardcontract
 
 Voor het vereenvoudigen van het aankoopproces voor klanten en juridische vanwege de complexiteit van softwareleveranciers, biedt Microsoft een Standard Contract-sjabloon om een transactie in de marketplace te vergemakkelijken. In plaats van het samenstellen van aangepaste voorwaarden en bepalingen, kunt Azure Marketplace-uitgevers bieden van hun software onder het standaardcontract, klanten alleen hoeven om te screenen en één keer te accepteren. Het standaardcontract vindt u hier: [ https://go.microsoft.com/fwlink/?linkid=2041178 ](https://go.microsoft.com/fwlink/?linkid=2041178). 
 

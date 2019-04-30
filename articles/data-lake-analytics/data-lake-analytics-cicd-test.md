@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 4532e0c6e8095c9d64897410e0492e2135d8a478
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630082"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Testen van uw Azure Data Lake Analytics-code
 
@@ -58,7 +58,7 @@ De `Run()` interface retourneert een resultaat van de uitvoering van taak. 0 wor
 
 Een project U-SQL-script te testen, is gebaseerd op de testframework van een C#-eenheid. Nadat u het project bouwt, kunt u alle testcases uitvoeren via **testen Explorer > afspeellijst**. U kunt ook met de rechtermuisknop op het bestand .cs en selecteer vervolgens **Tests uitvoeren**.
 
-## <a name="test-c-udos"></a>C# UDO's testen
+## <a name="test-c-udos"></a>Test C# UDOs
 
 ### <a name="create-test-cases-for-c-udos"></a>Testcases voor C# UDO's maken
 

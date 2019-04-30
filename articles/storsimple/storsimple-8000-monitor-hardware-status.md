@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 58007eea9ce25423bc3a9c2847de42db04be43eb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056868"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60632823"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Gebruik van de service StorSimple Device Manager voor de hardware-onderdelen bewaken en de status
 
@@ -79,7 +79,7 @@ Voer de volgende stappen uit om de status van de hardware van een apparaatonderd
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Lijst met onderdelen voor primaire behuizing van StorSimple-apparaat
 De volgende tabel geeft een overzicht van de fysieke en logische onderdelen die deel uitmaken van de primaire behuizing (aanwezig in 8100- en 8600) van uw on-premises StorSimple-apparaat.
 
-| Onderdeel | Module | Type | Locatie | Veld FRU (replaceable unit)? | Beschrijving |
+| Onderdeel | Module | Type | Locatie | Veld FRU (replaceable unit)? | Description |
 | --- | --- | --- | --- | --- | --- |
 | Station in sleuf [0-11] |Schijfstations |Fysiek |Gedeeld |Ja |Een regel wordt weergegeven voor elk van de SSD of HDD stations op de primaire behuizing. |
 | Omgevingstemperatuursensor |Systeembehuizing |Fysiek |Gedeeld |Nee |Hiermee wordt de temperatuur binnen het chassis. |
@@ -93,18 +93,18 @@ De volgende tabel geeft een overzicht van de fysieke en logische onderdelen die 
 | Voeding [0-1] |PCM |Fysiek |Gedeeld |Ja |Een regel wordt weergegeven voor elk van de stroom wordt voorzien in de twee PCMs zich aan de achterzijde van het apparaat. |
 | Koeling [0-1] |PCM |Fysiek |Gedeeld |Ja |Een regel wordt weergegeven voor elk van de vier ventilatoren die zich in de twee PCMs bevinden. |
 | Accu [0-1] |PCM |Fysiek |Gedeeld |Ja |Een regel wordt weergegeven voor elk van de back-upbatterij-modules die in de PCM worden geplaatst. |
-| Metis |N/A |Logische |Gedeeld |N/A |Geeft de status van de accu's: of kosten in rekening gebracht en ze einde van de levensduur nadert. |
-| Cluster |N/A |Logische |Gedeeld |N/A |Geeft de status van het cluster dat is gemaakt tussen de twee geïntegreerde controller-modules. |
-| Clusterknooppunt |N/A |Logische |Gedeeld |N/A |Geeft de status van de controller als onderdeel van het cluster. |
-| Clusterquorum |N/A |Logische | |N/A |Geeft aan dat de aanwezigheid van het lidmaatschap van de meeste schijfruimte in de HDD-opslaggroep. |
-| Gegevensruimte op de harde schijf |N/A |Logische |Gedeeld |N/A |De opslagruimte die wordt gebruikt voor gegevens in de opslaggroep van vasteschijfstations (HDD). |
-| Beheerruimte op |N/A |Logische |Gedeeld |N/A |De ruimte die is gereserveerd in de HDD-opslaggroep voor beheertaken. |
-| Quorumruimte op |N/A |Logische |Gedeeld |N/A |De ruimte die is gereserveerd in de HDD-opslaggroep voor het clusterquorum. |
-| Vervangingsruimte op |N/A |Logische |Gedeeld |N/A |De ruimte die is gereserveerd in de HDD-opslaggroep voor de vervanging van de domeincontroller. |
-| Gegevensruimte op de SSD |N/A |Logische |Gedeeld |N/A |De opslagruimte die wordt gebruikt voor gegevens in de opslaggroep Solid-state drive (SSD). |
-| SSD NVRAM-ruimte |N/A |Logische |Gedeeld |N/A |De opslagruimte in de SSD-opslaggroep die is toegewezen voor NVRAM-logica. |
-| HDD-opslaggroep |N/A |Logische |Gedeeld |N/A |Geeft de status van de logische opslaggroep die is gemaakt op basis van apparaat HDD's. |
-| SSD-opslaggroep |N/A |Logische |Gedeeld |N/A |Geeft de status van de logische opslaggroep die is gemaakt op basis van apparaat SSD's. |
+| Metis |N/A |Logisch |Gedeeld |N/A |Geeft de status van de accu's: of kosten in rekening gebracht en ze einde van de levensduur nadert. |
+| Cluster |N/A |Logisch |Gedeeld |N/A |Geeft de status van het cluster dat is gemaakt tussen de twee geïntegreerde controller-modules. |
+| Clusterknooppunt |N/A |Logisch |Gedeeld |N/A |Geeft de status van de controller als onderdeel van het cluster. |
+| Clusterquorum |N/A |Logisch | |N/A |Geeft aan dat de aanwezigheid van het lidmaatschap van de meeste schijfruimte in de HDD-opslaggroep. |
+| Gegevensruimte op de harde schijf |N/A |Logisch |Gedeeld |N/A |De opslagruimte die wordt gebruikt voor gegevens in de opslaggroep van vasteschijfstations (HDD). |
+| Beheerruimte op |N/A |Logisch |Gedeeld |N/A |De ruimte die is gereserveerd in de HDD-opslaggroep voor beheertaken. |
+| HDD quorum space |N/A |Logisch |Gedeeld |N/A |De ruimte die is gereserveerd in de HDD-opslaggroep voor het clusterquorum. |
+| Vervangingsruimte op |N/A |Logisch |Gedeeld |N/A |De ruimte die is gereserveerd in de HDD-opslaggroep voor de vervanging van de domeincontroller. |
+| Gegevensruimte op de SSD |N/A |Logisch |Gedeeld |N/A |De opslagruimte die wordt gebruikt voor gegevens in de opslaggroep Solid-state drive (SSD). |
+| SSD NVRAM space |N/A |Logisch |Gedeeld |N/A |De opslagruimte in de SSD-opslaggroep die is toegewezen voor NVRAM-logica. |
+| HDD-opslaggroep |N/A |Logisch |Gedeeld |N/A |Geeft de status van de logische opslaggroep die is gemaakt op basis van apparaat HDD's. |
+| SSD-opslaggroep |N/A |Logisch |Gedeeld |N/A |Geeft de status van de logische opslaggroep die is gemaakt op basis van apparaat SSD's. |
 | Controller [0-1] [status] |I/O |Fysiek |Controller |Ja |Geeft de status van de domeincontroller, en of deze in de modus actief of stand-by binnen het chassis. |
 | Temperatuursensoren in netwerkcontroller |I/O |Fysiek |Controller |Nee |Groot aantal Temperatuursensoren zoals i/o-module, CPU-temperatuur, DIMM en PCIe sensoren hebben hun status wordt weergegeven, waarin wordt aangegeven of de temperatuur aangetroffen binnen de tolerantie. |
 | SAS-expander |I/O |Fysiek |Controller |Nee |Geeft de status van de seriële gekoppelde SCSI (SAS)-expander, dat wordt gebruikt om verbinding maken met de geïntegreerde opslag naar de controller. |
@@ -120,7 +120,7 @@ De volgende tabel geeft een overzicht van de fysieke en logische onderdelen die 
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Lijst met onderdelen van EBOD-behuizing van StorSimple-apparaat
 De volgende tabel geeft een overzicht van de fysieke en logische onderdelen die deel uitmaken van de behuizing EBOD (alleen aanwezig in het model 8600) van uw on-premises StorSimple-apparaat.
 
-| Onderdeel | Module | Type | Locatie | FRU? | Beschrijving |
+| Onderdeel | Module | Type | Locatie | FRU? | Description |
 | --- | --- | --- | --- | --- | --- |
 | Station in sleuf [0-11] |Schijfstations |Fysiek |Gedeeld |Ja |Een regel wordt weergegeven voor elk van de harde schijf stations vooraan in de EBOD-behuizing. |
 | Omgevingstemperatuursensor |Systeembehuizing |Fysiek |Gedeeld |Nee |Hiermee wordt de temperatuur binnen het chassis. |
@@ -133,7 +133,7 @@ De volgende tabel geeft een overzicht van de fysieke en logische onderdelen die 
 | Temperatuursensoren in PCM |PCM |Fysiek |Gedeeld |Nee |Groot aantal Temperatuursensoren zoals Inlet en hotspots sensoren hebben hun status wordt weergegeven, waarin wordt aangegeven of de temperatuur gemeten binnen de tolerantie. |
 | Voeding [0-1] |PCM |Fysiek |Gedeeld |Ja |Een regel wordt weergegeven voor elk van de stroom wordt voorzien in de twee PCMs zich aan de achterzijde van het apparaat. |
 | Koeling [0-1] |PCM |Fysiek |Gedeeld |Ja |Een regel wordt weergegeven voor elk van de vier ventilatoren die zich in de twee PCMs bevinden. |
-| Lokale opslag [HDD] |N/A |Logische |Gedeeld |N/A |Geeft de status van de logische opslaggroep die is gemaakt op basis van apparaat HDD's. |
+| Lokale opslag [HDD] |N/A |Logisch |Gedeeld |N/A |Geeft de status van de logische opslaggroep die is gemaakt op basis van apparaat HDD's. |
 | Controller [0-1] [status] |I/O |Fysiek |Controller |Ja |Geeft de status van de domeincontrollers in de EBOD-module. |
 | Temperatuursensoren in EBOD |I/O |Fysiek |Controller |Nee |Groot aantal Temperatuursensoren van elke domeincontroller hebben hun status wordt weergegeven, waarin wordt aangegeven of de temperatuur aangetroffen binnen de tolerantie. |
 | SAS-expander |I/O |Fysiek |Controller |Nee |Geeft de status van de SAS-Expander bevinden, dat wordt gebruikt om verbinding maken met de geïntegreerde opslag naar de controller. |

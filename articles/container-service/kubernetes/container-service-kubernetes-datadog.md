@@ -10,11 +10,11 @@ ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 6a682c199b40035bfd44fc5611a7d44b49f7b3ab
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995360"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712335"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-datadog"></a>(AFGESCHAFT) Een Azure Container Service-cluster bewaken met DataDog
 

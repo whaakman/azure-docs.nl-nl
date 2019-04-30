@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
 ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107454"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648256"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Werkstroom voor offline back-ups maken in Azure Backup
 Azure Backup heeft diverse ingebouwde efficiëntie die netwerk- en kosten tijdens de eerste volledige back-ups van gegevens naar Azure besparen. Initiële volledige back-ups wordt gewoonlijk grote hoeveelheden gegevens overdragen en meer netwerkbandbreedte in vergelijking met de volgende back-ups waarbij alleen de delta's / plaatsvindt worden overgedragen. Door het proces van het offline-seeding, kunt Azure Backup gebruiken schijven voor de offline back-upgegevens uploaden naar Azure.
@@ -175,7 +175,7 @@ De volgende procedure werkt de verzendgegevens van het Azure Import-taak. Deze i
 5. Wanneer u het volgnummer van de vervoerder hebt, klikt u op de banner op de overzichtspagina van Azure Import-taak en voer de volgende details:
 
    > [!IMPORTANT] 
-   > Zorg ervoor dat de provider-informatie en Traceringsnummer binnen twee weken na het maken van de Azure import-taak worden bijgewerkt. Fout bij om te controleren of deze informatie binnen twee weken kan resulteren in de taak wordt verwijderd en stations die niet worden verwerkt.
+   > Zorg dat de informatie voor de vervoerder en het traceringsnummer binnen twee weken van het maken van de Azure-importtaak zijn bijgewerkt. Fout bij om te controleren of deze informatie binnen twee weken kan resulteren in de taak wordt verwijderd en stations die niet worden verwerkt.
 
    ![Verzendgegevens opslaan](./media/backup-azure-backup-import-export/joboverview.png)<br/>
 

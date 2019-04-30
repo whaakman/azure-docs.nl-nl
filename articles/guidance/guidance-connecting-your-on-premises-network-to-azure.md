@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 08/25/2016
 ms.author: cherylmc
 ms.openlocfilehash: 9361c0b2ee84d7459bd432f5a8ce13fc5fd85ef8
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "23851013"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583505"
 ---
 # <a name="connecting-your-on-premises-network-to-azure"></a>Uw on-premises netwerk verbinden met Azure
 Microsoft biedt verschillende soorten cloudservices. Terwijl u verbinding voor alle services via het openbare Internet maken kunt, kunt u ook verbinding maken met een van de services met behulp van een virtueel particulier netwerk (VPN)-tunnel via Internet of via een directe, particuliere verbinding met Microsoft. Dit artikel helpt u bepalen welke verbindingsoptie het beste voldoet aan uw behoeften op basis van de typen Microsoft-cloudservices die u verbruikt. De meeste organisaties maken gebruik van meerdere verbindingstypen die hieronder worden beschreven.

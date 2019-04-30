@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: alkohli
 ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300911"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630135"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Aanbevolen procedures voor StorSimple Virtual Array
 ## <a name="overview"></a>Overzicht
@@ -77,7 +77,7 @@ Eerst, voor elke gelaagde volume/delen, lokale reservering zou gelijk zijn aan 1
 
 De totale ruimte vereist op de lokale laag tot nu toe is: 240 GB + 120 GB + 330 GB = 690 GB.
 
-Ten tweede moet ten minste net zoveel ruimte op de lokale laag als de grootste één reservering. Deze extra hoeveelheid die wordt gebruikt als u wilt herstellen vanuit een cloudmomentopname. In dit voorbeeld is de grootste lokale reservering 330 GB (met inbegrip van de reservering voor file system), zodat u kunt het beste toevoegen dat naar de 690 GB: 690 GB + 330 GB = 1020 GB.
+Ten tweede moet ten minste net zoveel ruimte op de lokale laag als de grootste één reservering. Deze extra hoeveelheid die wordt gebruikt als u wilt herstellen vanuit een cloudmomentopname. In dit voorbeeld is de grootste lokale reservering 330 GB (met inbegrip van de reservering voor file system), zodat u die aan de 690 GB toevoegen wilt: 690 GB + 330 GB = 1020 GB.
 Als we herstelt de volgende aanvullende uitgevoerd, kunnen we altijd de ruimte van de vorige herstelbewerking vrij.
 
 Derde, moeten we 15% van uw totale lokale ruimte tot nu toe voor het opslaan van lokale momentopnamen, zodat alleen 85% van het beschikbaar is. In dit voorbeeld, dat zou zijn 1020 GB = 0.85&ast;ingerichte gegevensschijf TB. Dus de ingerichte gegevensschijf zou zijn (1020&ast;(1/0.85)) 1200 GB = 1,20 TB = ~ 1,25 TB (afronden naar de dichtstbijzijnde kwartiel)

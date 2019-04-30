@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: de31ceea4faeecabd54c0d23e9263cbb4090925d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791817"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733518"
 ---
 # <a name="support-for-the-marketplace"></a>Ondersteuning voor de Marketplace  
 Hier volgt een lijst met opties voor ondersteuning voor de Marketplace.  
@@ -32,7 +32,7 @@ Open een ticket bij Microsoft [marketplace publisher ondersteuning](https://supp
 
 ## <a name="cloud-partner-portal"></a>Cloud Partner-portal  
 
-| Ondersteuning van kanaal | Beschrijving | Beschikbaarheid |  
+| Ondersteuning van kanaal | Description | Beschikbaarheid |  
 |:--- |:--- |:--- |  
 | Hulp nodig hebt, gaat u naar de maken een incident-pagina te vinden op [Marketplace-ondersteuning](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Ondersteuning voor Cloud Partner-Portal. | Tussen 6 am - 6 uur PST, wordt ondersteuning geboden. |  
 

@@ -8,11 +8,11 @@ ms.date: 03/26/2019
 ms.author: snehaa
 services: azure-migrate
 ms.openlocfilehash: 224511b9748c540f2cd48a3d8393a9c74f76ce32
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498414"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679252"
 ---
 # <a name="about-the-collector-appliance"></a>Over het Collector-apparaat
 
@@ -242,11 +242,11 @@ De collector wordt geleverd met een licentie voor de evaluatie van Windows Serve
 
 ## <a name="updating-the-os-of-the-collector-vm"></a>Bijwerken van het besturingssysteem van de Collector-VM
 
-Hoewel het collector-apparaat een evaluatielicentie gedurende 180 dagen heeft, moet u continu bijwerken van het besturingssysteem op het apparaat om te voorkomen dat automatisch afsluiten omlaag van het apparaat.
+Hoewel de collector een evaluatielicentie heeft die 180 dagen geldig is, moet het besturingssysteem van de collector continu worden bijgewerkt om automatisch afsluiten van de collector te voorkomen.
 
-- Als de Collector wordt niet in verband met 60 dagen bijgewerkt, begint deze automatisch afsluiten van de machine.
-- Als een detectie wordt uitgevoerd, de machine wordt niet worden uitgeschakeld, zelfs als er 60 dagen zijn verstreken. De machine worden uitgeschakeld nadat de detectie is voltooid.
-- Als u de Collector gedurende meer dan 60 dagen gebruikt hebt, raden wij houden van de machine bijgewerkt op alle tijden door actieve Windows update.
+- Als de collector zestig dagen lang niet wordt bijgewerkt, wordt de machine automatisch afgesloten.
+- Als er detectie wordt uitgevoerd, wordt de machine niet uitgeschakeld, ook niet als er zestig dagen voorbij zijn. De machine wordt uitgeschakeld als de detectie is voltooid.
+- Als u de collector langer dan zestig dagen hebt gebruikt, wordt u aangeraden de machine up-to-date te houden door Windows Update continu uit te voeren.
 
 ## <a name="upgrading-the-collector-appliance-version"></a>Bijwerken van de Collector-apparaat-versie
 

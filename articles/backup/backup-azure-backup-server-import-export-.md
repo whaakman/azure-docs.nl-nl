@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
 ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094970"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60647950"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Werkstroom voor offline back-ups voor DPM en Azure Backup-Server
 Azure Backup heeft diverse ingebouwde efficiëntie die netwerk- en kosten tijdens de eerste volledige back-ups van gegevens naar Azure besparen. Initiële volledige back-ups wordt gewoonlijk grote hoeveelheden gegevens overdragen en meer netwerkbandbreedte in vergelijking met de volgende back-ups waarbij alleen de delta's / plaatsvindt worden overgedragen. Azure Backup wordt de eerste back-ups gecomprimeerd. Door het proces van het offline-seeding, kunt Azure Backup gebruiken schijven voor de gecomprimeerde eerste back-upgegevens offline uploaden naar Azure.

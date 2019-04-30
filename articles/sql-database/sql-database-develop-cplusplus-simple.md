@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/12/2018
 ms.openlocfilehash: 00a3904bd78f3bb76266c726af28582770b23921
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316486"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60723988"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Verbinding maken met SQL Database met behulp van C en C++
 
@@ -42,7 +42,7 @@ Verbinding maken met Azure SQL-database is niet anders en er zijn momenteel twee
 ## <a id="Create"></a>Stap 1:  Het maken van uw Azure SQL-Database
 Zie de [aan de slag pagina](sql-database-single-database-get-started.md) voor informatie over het maken van een voorbeelddatabase.  U kunt ook kunt u volgen dit [korte video van twee minuten](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) te maken van een Azure SQL-database met behulp van de Azure-portal.
 
-## <a id="ConnectionString"></a>Stap 2:  Verbindingsreeks ophalen
+## <a id="ConnectionString"></a>Stap 2:  Verbindingstekenreeks ophalen
 Nadat u uw Azure SQL database is ingericht, moet u bij het uitvoeren van de volgende stappen uit om te bepalen van de verbindingsgegevens en uw client-IP-adres voor firewalltoegang toevoegen.
 
 In [Azure-portal](https://portal.azure.com/), gaat u naar uw Azure SQL-database ODBC-verbindingsreeks met behulp van de **databaseverbindingsreeksen tonen** vermeld als een deel van de overzichtssectie voor uw database:

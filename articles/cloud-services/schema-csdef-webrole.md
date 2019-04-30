@@ -14,11 +14,11 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 0bb0946ea48a4c206d6bfe683da0835aca9b198b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613231"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure Cloud Services-definitie WebRole Schema
 De Azure-web-rol is een rol die is aangepast voor web application programming ondersteund door IIS 7, zoals ASP.NET, PHP, Windows Communication Foundation en FastCGI.
@@ -337,7 +337,7 @@ De volgende tabel beschrijft de kenmerken van de `Variable` element:
 | Kenmerk | Type | Description |  
 | --------- | ---- | ----------- |  
 |naam|string|Vereist. De naam van de omgevingsvariabele om in te stellen.|  
-|waarde|string|Optioneel. De waarde om in te stellen voor de omgevingsvariabele. U moet een waardekenmerk bevatten of een `RoleInstanceValue` element.|  
+|value|string|Optioneel. De waarde om in te stellen voor de omgevingsvariabele. U moet een waardekenmerk bevatten of een `RoleInstanceValue` element.|  
 
 ##  <a name="RoleInstanceValue"></a> RoleInstanceValue  
 De `RoleInstanceValue` element Hiermee geeft u het xPath waaruit u wilt ophalen van de waarde van de variabele.
@@ -405,7 +405,7 @@ De volgende tabel beschrijft de kenmerken van de `VirtualDirectory` element.
 | Kenmerk | Type | Description |  
 | --------- | ---- | ----------- |  
 |naam|string|Vereist. Hiermee geeft u een unieke naam in voor de virtuele map.|  
-|waarde|physicalDirectory|Vereist. Hiermee geeft u het pad op de ontwikkelcomputer waarin de website of de inhoud van de virtuele map. In de rekenemulator wordt IIS geconfigureerd voor het ophalen van inhoud vanaf deze locatie. Wanneer u de Azure implementeert, wordt de inhoud van de fysieke map zijn verpakt samen met de rest van de service. Wanneer de servicepakket wordt geïmplementeerd naar Azure, wordt IIS geconfigureerd met de locatie van de uitgepakte inhoud.|  
+|value|physicalDirectory|Vereist. Hiermee geeft u het pad op de ontwikkelcomputer waarin de website of de inhoud van de virtuele map. In de rekenemulator wordt IIS geconfigureerd voor het ophalen van inhoud vanaf deze locatie. Wanneer u de Azure implementeert, wordt de inhoud van de fysieke map zijn verpakt samen met de rest van de service. Wanneer de servicepakket wordt geïmplementeerd naar Azure, wordt IIS geconfigureerd met de locatie van de uitgepakte inhoud.|  
 
 ##  <a name="Bindings"></a> Bindingen  
 De `Bindings` -element een verzameling van bindingen voor een website worden beschreven. Het is het bovenliggende element van de `Binding` element. Het element is vereist voor elke `Site` element. Zie voor meer informatie over het configureren van eindpunten [communicatie inschakelen voor Rolinstanties](cloud-services-enable-communication-role-instances.md).

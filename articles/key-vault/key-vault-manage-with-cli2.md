@@ -2,23 +2,19 @@
 title: Beheren van Azure Key Vault met behulp van CLI - Azure Key Vault | Microsoft Docs
 description: In dit artikel gebruiken voor het automatiseren van algemene taken in Key Vault met behulp van de Azure CLI
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
 ms.openlocfilehash: 1679fbe0dedc88ca3e8293512f9a79bb7da69790
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641021"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Key Vault met de Azure CLI beheren 
 
@@ -132,7 +128,7 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 De uitvoer van deze opdracht toont eigenschappen van de sleutelkluis die u hebt gemaakt. De twee belangrijkste eigenschappen zijn:
 
-* **Naam**: In het voorbeeld is de naam van de ContosoKeyVault. U gebruikt deze naam voor andere Key Vault-opdrachten.
+* **name**: In het voorbeeld is de naam van de ContosoKeyVault. U gebruikt deze naam voor andere Key Vault-opdrachten.
 * **vaultUri**: In het voorbeeld wordt de URI is https://contosokeyvault.vault.azure.net. Toepassingen die via de REST API gebruikmaken van uw kluis, moeten deze URI gebruiken.
 
 Uw Azure-account is nu gemachtigd om alle bewerkingen op deze sleutelkluis uit te voeren. Vanaf nog is niemand anders gemachtigd.

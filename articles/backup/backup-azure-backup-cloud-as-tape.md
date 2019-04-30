@@ -10,11 +10,11 @@ ms.date: 1/10/2017
 ms.author: saurse
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259596"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646917"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Uw langdurige opslag van tape verplaatsen naar de Azure-cloud
 Azure Backup en System Center Data Protection Manager-klanten kunnen:
@@ -44,10 +44,10 @@ Het totale aantal 'bewaarpunten' opgegeven in dit beleid is 90 (punten per dag) 
 ## <a name="example--putting-both-together"></a>Voorbeeld: het samenstellen van beide
 ![Voorbeeldscherm](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Dagelijks bewaarbeleid**: back-ups dagelijks die zijn opgeslagen voor de zeven dagen.
-2. **Wekelijks bewaarbeleid**: back-ups die elke dag om middernacht en 18: 00 uur zaterdag bewaard voor vier weken
-3. **Maandelijks bewaarbeleid**: back-ups genomen om middernacht en 18: 00 uur op de laatste zaterdag van elke maand worden bewaard gedurende 12 maanden
-4. **Jaarlijks bewaarbeleid**: back-ups die op de laatste zaterdag van elke maart om middernacht worden bewaard gedurende tien jaar
+1. **Dagelijks bewaarbeleid**: Back-ups dagelijks die worden opgeslagen voor de zeven dagen.
+2. **Wekelijks bewaarbeleid**: Back-ups die elke dag om middernacht en 18: 00 uur zaterdag bewaard voor vier weken
+3. **Maandelijks bewaarbeleid**: Back-ups genomen om middernacht en 18: 00 uur op de laatste zaterdag van elke maand worden bewaard gedurende 12 maanden
+4. **Jaarlijks bewaarbeleid**: Back-ups die op de laatste zaterdag van elke maart om middernacht worden bewaard gedurende tien jaar
 
 Het totale aantal 'bewaarpunten' (punt van waaruit een klant kunt gegevens herstellen) in het voorgaande diagram wordt berekend als volgt:
 

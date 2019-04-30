@@ -1,5 +1,5 @@
 ---
-title: Geavanceerde functies van R schrijven
+title: Geavanceerde R-functies schrijven
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: Informatie over het schrijven van een R-functie voor geavanceerde statistische berekeningen in Azure SQL Database met behulp van Machine Learning-Services (preview).
 services: sql-database
@@ -14,11 +14,11 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ms.openlocfilehash: 939798d5d9eb2843d7bbbbe74680342e4ce6ce95
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013773"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60702449"
 ---
 # <a name="write-advanced-r-functions-in-azure-sql-database-using-machine-learning-services-preview"></a>Schrijven van geavanceerde R-functies in Azure SQL Database met behulp van Machine Learning-Services (preview)
 

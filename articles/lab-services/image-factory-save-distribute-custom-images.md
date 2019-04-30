@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: feabd055833e5f0d850138af528cce1da82cae49
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439862"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622605"
 ---
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Aangepaste installatiekopieën opslaan en distribueren naar meerdere labs
 In dit artikel behandelt biedt u de stappen voor het opslaan van aangepaste installatiekopieën van de gemaakte virtuele machines (VM's). Ook wordt beschreven hoe u deze aangepaste installatiekopieën naar andere DevTest Labs in de organisatie distribueren.

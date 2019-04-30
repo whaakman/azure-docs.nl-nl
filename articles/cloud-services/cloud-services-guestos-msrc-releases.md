@@ -14,11 +14,11 @@ ms.workload: tbd
 ms.date: 3/26/2019
 ms.author: raiye
 ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500607"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623065"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
@@ -487,7 +487,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | Rel 17-09 | [4038779], [4038786], [4038793] |Alleen Windows-beveiliging |2.66, 3.53, 4.46 |Op 12 september 2017 |
 | Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|Update van september .NET |2.66, 3.53, 4.46 |Op 12 september 2017 |
 | Rel 17-09 | [4036586] |Internet explorer |2.66, 3.53, 4.46 |Op 12 september 2017 |
-| CVE-2017-8704 | [4038782] |Denial of Service |5.11 |Op 12 september 2017 |
+| CVE-2017-8704 | [4038782] |Denial of service (DoS) |5.11 |Op 12 september 2017 |
 | N/A | [4034664] |Totalisering van de niet-beveiligde augustus  |2.66 |8 augustus 2017 |
 | N/A | [4034665] |Totalisering van de niet-beveiligde augustus |5.11 |8 augustus 2017 |
 | N/A | [4034681] |Totalisering van de niet-beveiligde augustus |4.46 |8 augustus 2017 |

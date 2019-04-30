@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: c7aed97c442c414e86c9531f9b0a8431e22b8b44
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809441"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60624986"
 ---
 <a name="create-or-modify-an-offer"></a>Maken of wijzigen van een aanbieding
 =========================
@@ -34,17 +34,17 @@ Deze aanroep updates van een bepaalde aanbieding binnen de naamruimte van de uit
 
 |  **Naam**         |  **Beschrijving**                      |  **Gegevenstype**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Uitgever-ID, bijvoorbeeld `contoso` |   Reeks |
-| offerId           |  Aanbiedings-id                     |   Reeks        |
+| publisherId       |  Uitgever-ID, bijvoorbeeld `contoso` |   String |
+| offerId           |  Aanbiedings-id                     |   String        |
 | API-versie       |  Meest recente versie van de API            |   Date           |
 |  |  |  |
 
-<a name="header"></a>Koptekst
+<a name="header"></a>Header
 ------
 
 |  **Naam**        |  **Waarde**               |
 |  ---------       |  ----------              | 
-| Inhoudstype     | `application/json`       |
+| Content-Type     | `application/json`       |
 | Autorisatie    | `Bearer YOUR_TOKEN`      |
 |  |  |
 

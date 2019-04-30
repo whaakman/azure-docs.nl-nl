@@ -1,6 +1,6 @@
 ---
-title: Wijzigen van de DATA 0-instellingen op StorSimple 8000 series apparaat | Microsoft Docs
-description: Informatie over het gebruik van Windows PowerShell voor StorSimple opnieuw configureren van de DATA 0-netwerkinterface op uw StorSimple-apparaat.
+title: Wijzigen van de DATA 0-instellingen op de StorSimple 8000-apparaat | Microsoft Docs
+description: Informatie over het gebruik van Windows PowerShell voor StorSimple om de DATA 0-netwerkinterface op uw StorSimple-apparaat opnieuw te configureren.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,59 +14,59 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 90df43e22f17fd32fe642514df098b72700e77af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3cf136c5ddec8f4998d15c597914e1f806453945
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23927584"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631580"
 ---
-# <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>De DATA 0 netwerkinterface-instellingen op uw StorSimple 8000 series apparaat wijzigen
+# <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Wijzigen van de DATA 0 netwerkinterface-instellingen op uw apparaat StorSimple 8000-serie
 
 ## <a name="overview"></a>Overzicht
 
-Uw Microsoft Azure StorSimple-apparaat heeft zes netwerkinterfaces van DATA 0 tot en met 5 van de gegevens. De DATA 0-interface is altijd geconfigureerd via de Windows PowerShell-interface of de seriële console en is automatisch ingeschakeld voor de cloud. Houd er rekening mee dat u kunt DATA 0-netwerkinterface via de Azure portal niet configureren.
+Uw Microsoft Azure StorSimple-apparaat heeft zes netwerkinterfaces, van de DATA 0 tot en met 5 van de gegevens. De DATA 0-interface wordt altijd geconfigureerd via de Windows PowerShell-interface of de seriële console, en is automatisch ingeschakeld voor de cloud. Houd er rekening mee dat u DATA 0-netwerkinterface via de Azure-portal niet configureren.
 
-De DATA 0 interface eerst wordt geconfigureerd via de wizard setup tijdens de eerste implementatie van het StorSimple-apparaat. Wanneer het apparaat zich in een bedrijfsmodus, moet u mogelijk opnieuw configureren van DATA 0 instellingen. Deze zelfstudie bestaat uit twee methoden voor het wijzigen van de DATA 0 netwerk beide via Windows PowerShell voor StorSimple-instellingen.
+De DATA 0-interface is eerst geconfigureerd via de installatiewizard tijdens de eerste implementatie van het StorSimple-apparaat. Wanneer het apparaat zich in een operationele modus, moet u mogelijk opnieuw configureren van DATA 0 instellingen. Deze zelfstudie biedt twee methoden voor het wijzigen van de DATA 0 netwerkinstellingen, zowel via Windows PowerShell voor StorSimple.
 
-Na het lezen van deze zelfstudie, kunt u zich kunt:
+Na het lezen van deze zelfstudie, kunt u zich aan:
 
-* Wijzigen van de DATA 0-instelling via de wizard setup-netwerk
-* Wijzigen van de DATA 0 netwerkinstellingen via de `Set-HcsNetInterface` cmdlet
+* Wijzigen van de DATA 0-netwerkinstelling via de wizard setup
+* DATA 0 instellingen wijzigen via de `Set-HcsNetInterface` cmdlet
 
-## <a name="modify-data-0-network-settings-through-setup-wizard"></a>DATA 0 netwerkinstellingen via de wizard setup wijzigen
-U kunt DATA 0-netwerkinstellingen configureren door verbinding te maken met de Windows PowerShell-interface van uw StorSimple-apparaat en het starten van een sessie van de wizard setup. Voer de volgende stappen uit voor het wijzigen van de DATA 0 instellingen:
+## <a name="modify-data-0-network-settings-through-setup-wizard"></a>DATA 0 instellingen wijzigen via de wizard setup
+U kunt DATA 0-netwerkinstellingen configureren door verbinding te maken met de Windows PowerShell-interface van uw StorSimple-apparaat en een sessie van de wizard setup te starten. Voer de volgende stappen uit als u wilt wijzigen van de DATA 0 instellingen:
 
-#### <a name="to-modify-data-0-network-settings-through-setup-wizard"></a>Instellingen voor DATA 0 netwerk via de wizard setup wijzigen
-1. Kies in het menu van de seriële console optie 1, **aanmelden met volledige toegang**. Als u wordt gevraagd bieden de **wachtwoord apparaatbeheerder**. Is het standaardwachtwoord `Password1`.
-2. Typ het volgende achter de opdrachtprompt:
+#### <a name="to-modify-data-0-network-settings-through-setup-wizard"></a>DATA 0 netwerkinstellingen via de installatiewizard wijzigen
+1. Kies in het menu van de seriële console optie 1, **Meld u aan met volledige toegang tot de**. Wanneer u hierom wordt gevraagd bieden de **beheerderswachtwoord**. Is het standaardwachtwoord `Password1`.
+2. Typ in de opdrachtprompt:
    
     `Invoke-HcsSetupWizard`
-3. Een setup-wizard wordt weergegeven om u te helpen bij het configureren van de DATA 0-interface van het apparaat. Nieuwe waarden opgeven voor de IP-adres, de gateway en de IP-masker.
+3. Een setup-wizard wordt weergegeven voor het configureren van de DATA 0-interface van uw apparaat. Nieuwe waarden opgeven voor de IP-adres, de gateway en de IP-masker.
 
 > [!NOTE]
-> De vaste IP-adressen-controllers moet opnieuw worden geconfigureerd via de **instellingen** blade van het StorSimple-apparaat in de Azure portal. Ga voor meer informatie naar [netwerkinterfaces wijzigen](storsimple-8000-modify-device-config.md#modify-network-interfaces).
+> De vaste IP-adressen-controllers moet opnieuw worden geconfigureerd via de **netwerkinstellingen** blade van de StorSimple-apparaat in Azure portal. Ga voor meer informatie naar [netwerkinterfaces wijzigen](storsimple-8000-modify-device-config.md#modify-network-interfaces).
 
-## <a name="modify-data-0-network-settings-through-set-hcsnetinterface-cmdlet"></a>DATA 0 netwerkinstellingen via de cmdlet Set-HcsNetInterface wijzigen
-Een andere methode voor het configureren van de DATA 0-netwerkinterface met behulp van is de `Set-HcsNetInterface` cmdlet. De cmdlet wordt uitgevoerd vanuit de Windows PowerShell-interface van uw StorSimple-apparaat. Wanneer u deze procedure gebruikt, kan de controller vaste IP-adressen ook hier worden geconfigureerd. Voer de volgende stappen uit voor het wijzigen van de DATA 0 instellingen: 
+## <a name="modify-data-0-network-settings-through-set-hcsnetinterface-cmdlet"></a>DATA 0 instellingen wijzigen via de cmdlet Set-HcsNetInterface
+Een alternatieve manier om te configureren van de DATA 0-netwerkinterface via het gebruik van is de `Set-HcsNetInterface` cmdlet. De cmdlet wordt uitgevoerd vanuit de Windows PowerShell-interface van uw StorSimple-apparaat. Wanneer u deze procedure gebruikt, kan het vaste IP-adressen voor de controllers ook hier worden geconfigureerd. Voer de volgende stappen uit voor het wijzigen van de DATA 0 instellingen: 
 
-#### <a name="to-modify-data-0-network-settings-through-the-set-hcsnetinterface-cmdlet"></a>Instellingen voor DATA 0-netwerk via de cmdlet Set-HcsNetInterface wijzigen
-1. Kies in het menu van de seriële console optie 1, **aanmelden met volledige toegang**. Als u wordt gevraagd het beheerderswachtwoord van het apparaat te bieden. Is het standaardwachtwoord `Password1`.
-2. Typ het volgende achter de opdrachtprompt:
+#### <a name="to-modify-data-0-network-settings-through-the-set-hcsnetinterface-cmdlet"></a>DATA 0 netwerkinstellingen via de cmdlet Set-HcsNetInterface wijzigen
+1. Kies in het menu van de seriële console optie 1, **Meld u aan met volledige toegang tot de**. Wanneer u hierom wordt gevraagd het beheerderswachtwoord voor het apparaat opgeven. Is het standaardwachtwoord `Password1`.
+2. Typ in de opdrachtprompt:
    
     `Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
    
-    Typ de volgende waarden voor de DATA 0 in de punthaken:
+    In de punthaken, typt u de volgende waarden voor de DATA 0:
    
    * IPv4-adres
    * IPv4-gateway
    * IPv4-subnetmasker
-   * Vaste IPv4-adressen voor Controller 0
-   * Vaste IPv4-adres voor de Controller 1
+   * Vaste IPv4-adres van Controller 0
+   * Vaste IPv4-adres van Controller 1
      
-     Ga voor meer informatie over het gebruik van deze cmdlet naar [Windows PowerShell voor StorSimple cmdlet-verwijzing](https://technet.microsoft.com/library/dn688161.aspx).
+     Voor meer informatie over het gebruik van deze cmdlet, gaat u naar [Windows PowerShell voor StorSimple-cmdlet-verwijzing](https://technet.microsoft.com/library/dn688161.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Als u wilt configureren netwerkinterfaces, behalve DATA 0, kunt u de [netwerkinstellingen configureren in de Azure-portal](storsimple-8000-modify-device-config.md). 
-* Als u problemen ondervindt bij het configureren van uw netwerkinterfaces, raadpleegt u [implementatieproblemen oplossen](storsimple-troubleshoot-deployment.md).
+* Voor het configureren van netwerkinterfaces dan DATA 0, kunt u de [netwerkinstellingen configureren in Azure portal](storsimple-8000-modify-device-config.md). 
+* Als u problemen ondervindt bij het configureren van de netwerkinterfaces, verwijzen naar [probleemoplossing voor implementatieproblemen](storsimple-troubleshoot-deployment.md).
 

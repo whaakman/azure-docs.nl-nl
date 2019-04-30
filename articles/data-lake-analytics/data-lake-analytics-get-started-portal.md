@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 1e6c71a68c4357d82d086f3e2ca098e4039def5a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 25d58bdc5791de868c6302b4d2763fa34e98af17
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615045"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Aan de slag met Azure Data Lake Analytics met het Azure-portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -32,8 +32,8 @@ U maakt nu een Data Lake Analytics en een account met Azure Data Lake Storage Ge
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op **Een resource maken** >  **Gegevens en analyses** > **Data Lake Analytics**.
 3. Selecteer waarden voor de volgende items:
-   * **Naam**: geef uw Data Lake Analytics-account een naam (alleen kleine letters en cijfers zijn toegestaan).
-   * **Abonnement**: kies het Azure-abonnement dat u gebruikt voor het Analytics-account.
+   * **Naam**: Naam van uw Data Lake Analytics-account (alleen kleine letters en cijfers zijn toegestaan).
+   * **Abonnement**: Kies het Azure-abonnement gebruikt voor het Analytics-account.
    * **Resourcegroep**. Selecteer een bestaande Azure-resourcegroep of maak een nieuwe.
    * **Locatie**. Selecteer een Azure-datacenter voor het Data Lake Analytics-account.
    * **Data Lake Storage Gen1**: Volg de instructies voor het maken van een nieuw Data Lake Storage Gen1-account of Selecteer een bestaande resourcegroep. 

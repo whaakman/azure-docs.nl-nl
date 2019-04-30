@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: fd7c5fd929163dc7fcd22fbb045dee0fe3070394
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359031"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611563"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Microsoft Threat Modeling Tool bedreigingen
 
@@ -37,7 +37,7 @@ De Threat Modeling Tool kunt u bepaalde beantwoorden, zoals de volgende oplossin
 
 Betere Help u dit soort verwezen vragen formuleren, Microsoft maakt gebruik van de STRIDE-model, die verschillende soorten bedreigingen ingedeeld en vereenvoudigt de algehele beveiliging-conversaties.
 
-| Categorie | Description |
+| Category | Description |
 | -------- | ----------- |
 | **Adresvervalsing (spoofing)** | Omvat het illegale wijze toegang tot en met behulp van de verificatiegegevens van een andere gebruiker, zoals gebruikersnaam en wachtwoord |
 | **Tampering** | Omvat de schadelijke wijzigen van gegevens. Voorbeelden zijn onder meer niet-geautoriseerde wijzigingen aangebracht in uw permanente gegevens, zoals die in een database en de wijziging van de gegevens bewaard als deze tussen de twee computers via een open-netwerk, zoals het Internet stromen |

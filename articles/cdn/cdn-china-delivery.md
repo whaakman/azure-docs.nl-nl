@@ -16,11 +16,11 @@ ms.date: 05/16/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: ce136a341809b1a485e86337f428b4685eba22f7
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093541"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60681505"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>China levering van inhoud met Azure CDN
 
@@ -38,7 +38,7 @@ Azure CDN algemene en Azure CDN China hebben de volgende kenmerken:
 
      - Wordt uitgevoerd voor de levering van inhoud buiten China
 
-     - Vier Prijscategorieën: Microsoft standard, standard van Verizon, Verizon premium en standard van Akamai
+     - Vier categorieën: Microsoft-standaard, standard van Verizon, Verizon premium en standard van Akamai
 
      - [Documentatie](https://docs.microsoft.com/azure/cdn/)
 
@@ -48,7 +48,7 @@ Azure CDN algemene en Azure CDN China hebben de volgende kenmerken:
 
      - Wordt uitgevoerd voor de levering van inhoud binnen China
 
-     - Twee Prijscategorieën: Standard en premium
+     - Twee categorieën: Standard en premium
 
      - [Documentatie](https://docs.azure.cn/en-us/cdn/)
  

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013910"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630310"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Inleiding tot StorSimple Virtual Array
 
@@ -137,7 +137,7 @@ De virtuele matrix heeft de volgende functies:
 > [!NOTE]
 > Een virtuele matrix kan niet worden uitgebreid. Daarom is het belangrijk dat u voldoende opslagruimte inrichten bij het maken van de virtuele matrix.
 
-### <a name="storsimple-device-manager-service"></a>StorSimple-apparaatbeheerservice
+### <a name="storsimple-device-manager-service"></a>StorSimple-apparaatbeheerfunctie
 
 Microsoft Azure StorSimple biedt een web gebaseerde gebruikersinterface, de StorSimple Device Manager-service, waarmee u centraal StorSimple om opslag te beheren. De service StorSimple Device Manager kunt u de volgende taken uitvoeren:
 

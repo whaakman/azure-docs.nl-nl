@@ -3,8 +3,8 @@ title: Over cryptografische vereisten en Azure VPN-gateways | Microsoft Docs
 description: In dit artikel wordt beschreven cryptografische vereisten en Azure VPN-gateways
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: WenJason
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2017
-ms.author: yushwang
+origin.date: 05/22/2017
+ms.date: 10/01/2018
+ms.author: v-jay
 ms.openlocfilehash: 060e647badcc3bad7b44d7cef3530c36b8ecdf57
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "23884249"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648678"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Over cryptografische vereisten en Azure VPN-gateways
 
@@ -39,7 +40,7 @@ Bijvoorbeeld, de IKEv2 hoofdmodus beleid voor Azure VPN-gateways maken gebruik v
 ## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Aangepast IPsec/IKE-beleid met Azure VPN-gateways
 Azure VPN-gateways bieden nu ondersteuning per verbinding, aangepast IPsec/IKE-beleid. Voor een Site-naar-Site of VNet-naar-VNet-verbinding kunt u een specifieke combinatie van cryptografische algoritmen voor IPsec en IKE met de gewenste sleutelsterkte, zoals wordt weergegeven in het volgende voorbeeld:
 
-![ike-IPSec-beleid](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
+![ipsec-ike-policy](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
 
 U kunt een IPsec/IKE-beleid maken en toepassen op een nieuwe of bestaande verbinding. 
 

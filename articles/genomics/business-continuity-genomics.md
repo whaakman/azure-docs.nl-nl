@@ -10,12 +10,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 04/06/2018
-ms.openlocfilehash: be678648ab93fcbdfd0a0baa1b01dcb273060ce2
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 7a51477dbbf6f4e50959a6d979342961c7e49ad9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729449"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641106"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Overzicht van bedrijfscontinuïteit met Microsoft Genomics
 Dit overzicht beschrijft de mogelijkheden met Microsoft Genomics voor zakelijke continuïteit en herstel na noodgevallen. Meer informatie over opties voor het herstellen van storingen, zoals een storing Azure-regio, dat leiden gegevensverlies tot kan. 

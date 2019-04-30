@@ -2,17 +2,18 @@
 title: Voorbeeldconfiguratie voor Cisco ASA-apparaten verbinden met Azure VPN-gateways | Microsoft Docs
 description: Dit artikel bevat een voorbeeldconfiguratie voor Cisco ASA-apparaten verbinden met Azure VPN-gateways.
 services: vpn-gateway
-author: yushwang
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 10/19/2018
-ms.author: yushwang
+origin.date: 10/19/2018
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648746"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Voorbeeldconfiguratie: Cisco ASA-apparaat (IKEv2/geen BGP)
 Dit artikel bevat voorbeelden van configuraties voor netwerkapparaten Cisco Adaptive Security toestel (ASA) met Azure VPN-gateways. Het voorbeeld geldt voor Cisco ASA-apparaten die worden uitgevoerd zonder de Border Gateway Protocol (BGP) IKEv2. 
@@ -21,7 +22,7 @@ Dit artikel bevat voorbeelden van configuraties voor netwerkapparaten Cisco Adap
 
 |                        |                                   |
 | ---                    | ---                               |
-| De leverancier van apparaat          | Cisco                             |
+| De leverancier van het apparaat          | Cisco                             |
 | Apparaatmodel           | ASA                               |
 | Doelversie         | 8.4 en hoger                     |
 | Geteste model           | ASA 5505                          |
@@ -302,3 +303,4 @@ Gebruik de volgende ASA-opdrachten voor foutopsporing:
 
 ## <a name="next-steps"></a>Volgende stappen
 Voor het actief / actief cross-premises en VNet-naar-VNet-verbindingen configureren, Zie [actief / actief VPN-gateways configureren](vpn-gateway-activeactive-rm-powershell.md).
+<!--Update_Description: wording update -->

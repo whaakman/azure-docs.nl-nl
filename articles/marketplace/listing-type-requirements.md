@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
 ms.openlocfilehash: ebe344d9f596f862fe5ffbfef083725e6527d0d3
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650203"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60599313"
 ---
 # <a name="requirements-by-listing-type"></a>Vereisten van het Type aanbieding  
 De technische en marketingmateriaal inhoud vereisten variëren per winkel, aanbiedingtype en het type van de aanbieding. Bekijk de volgende specificaties om te controleren of de naleving.  

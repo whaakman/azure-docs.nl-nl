@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 18f00391beded0744c80eab73bb1efe1c6ab8dbc
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809451"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60625037"
 ---
 <a name="cancel-operation"></a>Bewerking annuleren 
 =================
@@ -35,18 +35,18 @@ U kunt een door komma's gescheiden lijst met e-mailadressen opgeven met de aanvr
 
 |  **Naam**    |      **Beschrijving**                                  |    **Gegevenstype**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Uitgever-ID, bijvoorbeeld: `contoso`         |   Reeks          |
-| offerId      |  Aanbiedings-id                                     |   Reeks          |
+| publisherId  |  Uitgever-ID, bijvoorbeeld: `contoso`         |   String          |
+| offerId      |  Aanbiedings-id                                     |   String          |
 | API-versie  |  Huidige versie van API                               |    Date           |
 |  |  |  |
 
 
-<a name="header"></a>Koptekst
+<a name="header"></a>Header
 ------
 
 |  **Naam**              |  **Waarde**         |
 |  ---------             |  ----------        |
-|  Inhoudstype          |  application/json  |
+|  Content-Type          |  application/json  |
 |  Autorisatie         |  Bearer-TOKEN van uw |
 |  |  |
 
@@ -81,7 +81,7 @@ U kunt een door komma's gescheiden lijst met e-mailadressen opgeven met de aanvr
 
 |  **Naam**             |    **Waarde**                       |
 |  ---------            |    ----------                      |
-| Bewerking-locatie    | URL, om te bepalen van de huidige status van de bewerking kan worden opgevraagd. |
+| Operation-Location    | URL, om te bepalen van de huidige status van de bewerking kan worden opgevraagd. |
 |  |  |
 
 
@@ -92,6 +92,6 @@ U kunt een door komma's gescheiden lijst met e-mailadressen opgeven met de aanvr
 |  200      | OK. De aanvraag is verwerkt en de bewerking synchroon is geannuleerd. |
 |  202      | Geaccepteerd. De aanvraag is verwerkt en de bewerking wordt momenteel wordt geannuleerd. Locatie van de annuleringsbewerking wordt geretourneerd in de antwoordkop. |
 |  400      | Ongeldige/verkeerd ingedeeld aanvraag. De antwoordtekst voor fout kan bevatten meer informatie.  |
-|  403      | De toegang is niet toegestaan. De client heeft geen toegang tot de naamruimte die is opgegeven in de aanvraag. |
+|  403      | Access Forbidden. De client heeft geen toegang tot de naamruimte die is opgegeven in de aanvraag. |
 |  404      | Niet gevonden. De opgegeven entiteit bestaat niet. |
 |  |  |

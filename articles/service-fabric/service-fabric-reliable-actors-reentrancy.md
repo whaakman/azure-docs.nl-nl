@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 46682787bac2d60d188384a4078ca2fa1f46ae7a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725411"
 ---
 # <a name="reliable-actors-reentrancy"></a>Herbetreedbaarheid van betrouwbare actoren
 De runtime Reliable Actors kan standaard logische aanroep op basis van een context herbetreedbaarheid van. Hierdoor via actoren op inspringende als ze zich in dezelfde aanroep context keten. Bijvoorbeeld, verzendt een Actor een bericht naar Actor B, die een bericht naar Actor C. verzendt Als onderdeel van de berichtverwerking als Actor C Actor A aanroept, het bericht is inspringende, zodat deze kunnen worden. Andere berichten die deel van een andere context uitmaken wordt op een van de Actor wordt geblokkeerd totdat het verwerken is voltooid.

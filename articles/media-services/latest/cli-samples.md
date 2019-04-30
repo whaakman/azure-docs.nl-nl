@@ -13,11 +13,11 @@ ms.custom: seodec18
 ms.date: 03/11/2019
 ms.author: juliako
 ms.openlocfilehash: dee7f831562dc1f4b2478d13b204aab1d8455e1e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840627"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733178"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Azure CLI-voorbeelden voor Azure Media Services
 
@@ -28,7 +28,7 @@ De volgende tabel bevat koppelingen naar de Azure CLI-voorbeelden voor Azure Med
 |  |  |
 |---|---|
 |**Schalen**||
-| [Gereserveerde schaal Media-eenheden](media-reserved-units-cli-how-to.md)|Voor de analyse van Audio en Video Analysis-taken die worden geactiveerd door Media Services v3 of Video Indexer, is het raadzaam om in te richten van uw account met 10 S3 groepsbeleidsinstelling. <br/>Het script laat zien hoe CLI gebruiken om te schalen van gereserveerde Media-eenheden (groepsbeleidsinstelling).|
+| [Gereserveerde schaal Media-eenheden](media-reserved-units-cli-how-to.md)|Voor de analysetaken van audio en video die worden geactiveerd door Media Services v3 of Video Indexer is het raadzaam om uw account in te richten met 10 S3 MRU’s. <br/>Het script laat zien hoe CLI gebruiken om te schalen van gereserveerde Media-eenheden (groepsbeleidsinstelling).|
 |**Account**||
 | [Een Azure Media Services-account maken](create-account-cli-how-to.md) | Het script maakt u een Azure Media Services-account. |
 | [Opnieuw instellen van accountreferenties](./scripts/cli-reset-account-credentials.md)|Hiermee stelt u referenties voor uw account en de instellingen app.config terug worden opgehaald.|
@@ -47,4 +47,4 @@ De volgende tabel bevat koppelingen naar de Azure CLI-voorbeelden voor Azure Med
 ## <a name="see-also"></a>Zie ook
 
 - [Azure-CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
-- [Snelstart: Stream-video's - CLI](stream-files-cli-quickstart.md)
+- [Snelstart: Videobestanden streamen - CLI](stream-files-cli-quickstart.md)

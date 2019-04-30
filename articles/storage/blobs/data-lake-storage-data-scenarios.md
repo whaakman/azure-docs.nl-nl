@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
 ms.openlocfilehash: 9deaa2f1e381dffbd85b0ee150c5782098a9db6b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006808"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628214"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Met behulp van Azure Data Lake Storage Gen2 voor big data-vereisten
 
@@ -118,7 +118,7 @@ Hier volgt een lijst met hulpprogramma's die u gebruiken kunt om op te nemen van
 
 |Hulpprogramma | Richtlijnen |
 |---|--|
-|Azure Data Factory | [De Kopieeractiviteit in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
+|Azure Data Factory | [Kopieeractiviteit in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Logboekgegevens voor web server (uploaden met behulp van aangepaste toepassingen)
 
@@ -128,7 +128,7 @@ Hier volgt een lijst met hulpprogramma's die u gebruiken kunt voor het Web serve
 
 |Hulpprogramma | Richtlijnen |
 |---|--|
-|Azure Data Factory | [De Kopieeractiviteit in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
+|Azure Data Factory | [Kopieeractiviteit in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
 
 Voor het uploaden van logboekgegevens van web server, en ook voor het uploaden van andere soorten gegevens (bijvoorbeeld sociale sentimenten gegevens), is het een goede benadering voor het schrijven van uw eigen aangepaste scripts/toepassingen omdat deze biedt u de flexibiliteit om op te nemen van uw gegevens onderdeel worden geüpload als onderdeel van de grotere big data-toepassing. In sommige gevallen kan deze code kan duren voordat de vorm van een script of een eenvoudig opdrachtregelprogramma. In andere gevallen kan de code worden gebruikt om de verwerking van big data integreren in een zakelijke toepassing of oplossing.
 
@@ -195,5 +195,5 @@ Hier volgt een lijst met hulpprogramma's die u gebruiken kunt om gegevens te dow
 
 |Hulpprogramma | Richtlijnen |
 |---|--|
-|Azure Data Factory | [De Kopieeractiviteit in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
+|Azure Data Factory | [Kopieeractiviteit in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 |Apache DistCop | [DistCp gebruiken om gegevens tussen Azure Storage-Blobs en Azure Data Lake Storage Gen2 te kopiëren](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |

@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 8aadddbc9ae13a87f89db4d7e7189ea7aa8aeef5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883501"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612034"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Beveiligingsstandaarden voor Azure IoT Edge
 
@@ -28,7 +28,7 @@ Dit artikel bevat een overzicht van het IoT Edge security-framework. Zie voor m
 
 Standaarden bevorderen gebruiksgemak controle en het gemak van implementatie, die beide hallmarks van beveiliging zijn. Een beveiligingsoplossing moet leent voor controle onder evaluatie vertrouwen te bouwen en mag niet een drempel voor implementatie. Het ontwerp van het framework voor het beveiligen van Azure IoT Edge is gebaseerd op beproefde en beproefde security protocollen voor kennis en hergebruik. 
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 
 Wanneer u een IoT-oplossing implementeert, moet u weten dat alleen vertrouwde actors, apparaten en -modules toegang tot uw oplossing hebben. Deze kennis biedt veilige verantwoordelijkheid van de deelnemers. Azure IoT Edge attains deze kennis door middel van verificatie. Verificatie op basis van certificaten is het primaire mechanisme voor verificatie voor de Azure IoT Edge-platform. Dit mechanisme is afgeleid van een set normen opgelegd Public Key Infrastructure (PKiX) door de Internet Engineering Task Force (IETF).     
 

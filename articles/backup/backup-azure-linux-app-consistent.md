@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 1/12/2018
 ms.author: anuragm
 ms.openlocfilehash: a81c0b9c87db85771fcecab87c6b9ac88dcbd472
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581842"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641123"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Toepassingsconsistente back-up van Azure Linux VM 's
 
@@ -62,7 +62,7 @@ Scripts die voorafgaan aan aanroepen systeemeigen toepassing API's, welke stille
 
     - **postScriptNoOfRetries**:  Stel het aantal keren dat die het script dat volgt opnieuw moet worden uitgevoerd als er een fout beëindigd is. Nul betekent dat slechts één probeer en er geen nieuwe als er een storing optreedt.
 
-    - **Time-outInSeconden**: Geef individuele time-outs voor de Pre-script en het script dat volgt (maximumwaarde kan 1800 zijn).
+    - **timeoutInSeconds**: Geef individuele time-outs voor de Pre-script en het script dat volgt (maximumwaarde kan 1800 zijn).
 
     - **continueBackupOnFailure**: Deze waarde instelt op **waar** als u wilt dat Azure Backup terugvallen op een bestand system consistente/crashconsistente back-up als Pre-script of mislukt na een script. Als u dit op **false** mislukt de back-up in geval van storing script (met uitzondering van wanneer u één schijf-VM die op het crashconsistente back-up, ongeacht deze instelling terugvalt hebt).
 

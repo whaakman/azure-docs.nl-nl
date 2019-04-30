@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: f05e3e85d36ffc23a193a6771a0271c71b2f8544
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013638"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631903"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000-serie software, hoge beschikbaarheid en netwerkvereisten
 
@@ -96,7 +96,7 @@ U wordt aangeraden dat u uw firewall-regels voor uitgaand verkeer, op basis van 
 
 | URL-patroon | Onderdeel/functionaliteit | Apparaat-IP-adressen |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple-apparaatbeheerservice<br>Access Control Service<br>Azure Service Bus<br>Verificatieservice |Netwerkinterfaces die zijn ingeschakeld voor de cloud |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple-apparaatbeheerfunctie<br>Access Control Service<br>Azure Service Bus<br>Verificatieservice |Netwerkinterfaces die zijn ingeschakeld voor de cloud |
 | `https://*.backup.windowsazure.com` |Apparaatregistratie |Alleen DATA 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Het intrekken van certificaten |Netwerkinterfaces die zijn ingeschakeld voor de cloud |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage-accounts en bewaking |Netwerkinterfaces die zijn ingeschakeld voor de cloud |
@@ -108,7 +108,7 @@ U wordt aangeraden dat u uw firewall-regels voor uitgaand verkeer, op basis van 
 
 | URL-patroon | Onderdeel/functionaliteit | Apparaat-IP-adressen |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple-apparaatbeheerservice<br>Access Control Service<br>Azure Service Bus<br>Verificatieservice |Netwerkinterfaces die zijn ingeschakeld voor de cloud |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple-apparaatbeheerfunctie<br>Access Control Service<br>Azure Service Bus<br>Verificatieservice |Netwerkinterfaces die zijn ingeschakeld voor de cloud |
 | `https://*.backup.windowsazure.us` |Apparaatregistratie |Alleen DATA 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Het intrekken van certificaten |Netwerkinterfaces die zijn ingeschakeld voor de cloud |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage-accounts en bewaking |Netwerkinterfaces die zijn ingeschakeld voor de cloud |

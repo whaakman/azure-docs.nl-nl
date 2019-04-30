@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: bc1e8a5abc85af95448570497177030f17649d87
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b968cc29a7139a4a6db5d2dea8dd6f8f4e1c7ccd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877581"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630762"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>U kunt MPIO configureren op een StorSimple-host waarop CentOS wordt uitgevoerd
 In dit artikel worden de stappen beschreven die vereist voor het configureren van multipath i/o-(MPIO) op uw Centos 6.6 host-server. De host-server is verbonden met uw Microsoft Azure StorSimple-apparaat voor hoge beschikbaarheid via iSCSI-initiators. Er wordt in detail beschreven de automatische detectie van multipath-apparaten en de specifieke instellingen alleen van StorSimple-volumes.
@@ -420,7 +420,7 @@ A. Als u wilt controleren of uw apparaat in de whitelist opgenomen, gebruik de v
 Ga voor meer informatie naar [gebruiken het oplossen van interactieve opdracht voor meerdere paden](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
 ## <a name="list-of-useful-commands"></a>Lijst met nuttige opdrachten
-| Type | Opdracht | Beschrijving |
+| Type | Opdracht | Description |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |ISCSI-service starten |
 | &nbsp; |`service iscsid stop` |ISCSI-service stoppen |
