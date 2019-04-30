@@ -13,11 +13,11 @@ ms.reviewer: genemi
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: efb6d932e616ada6b8dfff637af469c16fc2f293
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761818"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60723405"
 ---
 # <a name="sql-database-application-development-overview"></a>Overzicht van SQL Database-toepassing voor ontwikkelaars
 
@@ -33,7 +33,7 @@ U kunt verschillende [programmeertalen en platforms](sql-database-connect-query.
 
 U kunt gebruikmaken van open-source hulpprogramma's zoals [cheetah](https://github.com/wunderlist/cheetah), [sql cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Daarnaast werkt Azure SQL Database met Microsoft-hulpprogramma's zoals [Visual Studio](https://www.visualstudio.com/downloads/) en [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). U kunt ook de Azure-portal, PowerShell en REST-API's kunt u nog productiever.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 
 Toegang tot Azure SQL Database is beveiligd met aanmeldingen en firewalls. Azure SQL Database ondersteunt zowel SQL Server en [verificatie van Azure Active Directory (AAD)](sql-database-aad-authentication.md) gebruikers en aanmeldgegevens. AAD-aanmeldingen zijn alleen beschikbaar in de Managed Instance. 
 

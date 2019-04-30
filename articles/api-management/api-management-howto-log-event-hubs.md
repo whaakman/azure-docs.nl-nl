@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
 ms.openlocfilehash: 14f84b5380a1c106114cdab425de7f69f4e19825
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793557"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657540"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Hoe u gebeurtenissen registreren bij Azure Event Hubs in Azure API Management
 Azure Event Hubs is een zeer schaalbare service voor inkomende gegevens die miljoenen gebeurtenissen per seconde kan opnemen, voor verwerking en analyse van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Eventhubs fungeert als de 'voordeur' van een gebeurtenispijplijn en zodra de gegevens zijn verzameld in een event hub, kunnen worden omgezet en opgeslagen met elke gewenste realtime analyseprovider of batching/opslagadapters. Event Hubs koppelt de productie van een gebeurtenissenstroom los van het gebruik van deze gebeurtenissen, zodat de consumenten ervan toegang hebben tot de gebeurtenissen op basis van hun eigen planning.

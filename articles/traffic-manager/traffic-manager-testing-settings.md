@@ -2,20 +2,21 @@
 title: Azure Traffic Manager-instellingen controleren
 description: In dit artikel helpt u uw Traffic Manager-instellingen verifiëren.
 services: traffic-manager
-author: kumudd
+author: rockboyfor
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/16/2017
-ms.author: kumud
+origin.date: 03/16/2017
+ms.date: 02/18/2019
+ms.author: v-yeche
 ms.openlocfilehash: 1e954e3c4ebba245d91cfb84ab583b314150e5b2
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200782"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771614"
 ---
 # <a name="verify-traffic-manager-settings"></a>Traffic Manager-instellingen controleren
 
@@ -35,7 +36,7 @@ De volgende voorbeelden kunnen u testen van uw Traffic Manager-profiel.
 2. Type `ipconfig /flushdns` leegmaken van de cache van de DNS-resolver.
 3. Typ `nslookup <your Traffic Manager domain name>`. Bijvoorbeeld de volgende opdracht wordt gecontroleerd met de naam van het domein met het voorvoegsel *myapp.contoso*
 
-        nslookup myapp.contoso.trafficmanager.net
+        nslookup myapp.contoso.trafficmanager.cn
 
     Een typische resultaat bevat de volgende informatie:
 
@@ -71,3 +72,5 @@ U kunt ook er zijn gratis, webgebaseerde DNS-zoekactie en graven services die be
 * [Over verkeersrouteringsmethoden voor Traffic Manager](traffic-manager-routing-methods.md)
 * [Prestatieoverwegingen voor Traffic Manager](traffic-manager-performance-considerations.md)
 * [Problemen met Traffic Manager in gedegradeerde status oplossen](traffic-manager-troubleshooting-degraded.md)
+
+<!-- Update_Description: update meta properties -->

@@ -2,20 +2,21 @@
 title: Uw workload controleren met DMV's | Microsoft Docs
 description: Leer hoe u uw workload controleren met DMV's.
 services: sql-data-warehouse
-author: ronortloff
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/12/2019
-ms.author: rortloff
+origin.date: 04/12/2019
+ms.date: 04/29/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546893"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748765"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitor your workload using DMVs
 Dit artikel wordt beschreven hoe u uw workload controleren met dynamische beheerweergaven (DMV's). Dit omvat het onderzoeken van de uitvoering van de query in Azure SQL Data Warehouse.
@@ -282,3 +283,5 @@ Zie voor meer informatie over DMV's [systeemweergaven][System views].
 [DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
 [LABEL]: https://msdn.microsoft.com/library/ms190322.aspx
+
+<!-- Update_Description: update meta properties, wording update -->

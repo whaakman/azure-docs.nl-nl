@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 9bb8a168f54658ea14b174d19a1795e575646304
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310383"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749339"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Veldtoewijzingen in indexeerfuncties in Azure Search
 Bij het gebruik van Azure Search-indexeerfuncties vindt van tijd tot tijd u uzelf in situaties waarin de invoergegevens niet helemaal overeen met het schema van de doelindex. In deze gevallen kunt u **veldtoewijzingen** het transformeren van uw gegevens in de gewenste vorm.

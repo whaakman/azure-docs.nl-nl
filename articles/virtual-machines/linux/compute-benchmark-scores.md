@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn;davberg
 ms.openlocfilehash: 2a558f2cf91907e85bb8b14c7214a63afd1faca0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60627721"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>COMPUTE benchmarkscores voor virtuele Linux-machines
 De volgende CoreMark benchmarkscores weergeven computerprestaties voor Azure van hoogwaardige VM selectie met Ubuntu. COMPUTE benchmarkscores zijn ook beschikbaar voor [Windows VMs](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

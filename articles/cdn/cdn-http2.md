@@ -1,5 +1,5 @@
 ---
-title: HTTP-/ 2-ondersteuning in Azure CDN | Microsoft Docs
+title: HTTP/2-ondersteuning in Azure CDN | Microsoft Docs
 description: Meer informatie over ondersteuning voor HTTP/2- en CDN.
 services: cdn
 documentationcenter: ''
@@ -13,37 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.openlocfilehash: b4751320af82a29fb13dc6012c1b197ebc2b1f9b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2d27cd54486a08e18fe74c852af29d5cf6432023
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764839"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60737071"
 ---
-# <a name="http2-support-in-azure-cdn"></a>HTTP-/ 2-ondersteuning in Azure CDN
+# <a name="http2-support-in-azure-cdn"></a>Ondersteuning voor HTTP/2 in Azure CDN
 
-HTTP/2 is een grote revisie naar HTTP/1.1\. Het biedt sneller webprestaties, verminderde reactietijd, en verbeterde gebruikerservaring, terwijl de bekende HTTP-methoden, statuscodes en semantiek behouden. Hoewel HTTP/2 is ontworpen voor gebruik met HTTP en HTTPS, ondersteunen veel client webbrowsers alleen HTTP/2 via TLS.
+HTTP/2 is een belangrijke revisie in HTTP/1.1\. Het biedt sneller webprestaties, verminderde reactietijd, en verbeterde gebruikerservaring, behoud van de vertrouwde HTTP-methoden, -statuscodes en semantiek. Hoewel HTTP/2 is ontworpen voor gebruik met HTTP en HTTPS, ondersteunen veel webbrowsers van de client alleen HTTP/2 via TLS.
 
-### <a name="http2-benefits"></a>Voordelen van de HTTP-/ 2
+### <a name="http2-benefits"></a>HTTP/2-voordelen
 
-De voordelen van het HTTP/2 zijn onder andere:
+De voordelen van HTTP/2 zijn:
 
-*   **Multiplex en gelijktijdigheid**
+*   **Multiplexing en gelijktijdigheid**
 
-    Met behulp van HTTP 1.1, waardoor meerdere aanvragen van de resource vereist meerdere TCP-verbindingen en elke verbinding heeft prestatieoverhead gekoppeld. HTTP/2 kunt meerdere resources moet worden gevraagd op een enkele TCP-verbinding.
+    Met behulp van HTTP 1.1, meerdere aanvragen van de resource is vereist voor meerdere TCP-verbindingen en elke verbinding heeft prestatieoverhead die ermee verbonden zijn. HTTP/2 kunnen meerdere resources op één TCP-verbinding worden aangevraagd.
 
 *   **Headercompressie**
 
-    Door het comprimeren van de HTTP-headers voor aangeboden bronnen tijd op de kabel aanzienlijk verminderd.
+    Door het comprimeren van de HTTP-headers voor aangeboden resources tijd op de kabel aanzienlijk verminderd.
 
-*   **Stroom-afhankelijkheden**
+*   **Stream-afhankelijkheden**
 
-    Afhankelijkheden van de stroom kunnen de client om aan te geven met de server welke resources prioriteit hebben.
+    Stream-afhankelijkheden dat de client om aan te geven op de server welke resources prioriteit hebben.
 
 
 ## <a name="http2-browser-support"></a>Ondersteuning voor HTTP/2-Browser
 
-Alle belangrijke browsers hebt HTTP/2-ondersteuning in de versies van hun huidige geïmplementeerd. Niet-ondersteunde browsers automatisch fallback naar HTTP/1.1.
+Alle belangrijke browsers hebt ondersteuning voor HTTP/2 geïmplementeerd in hun huidige versies. Niet-ondersteunde browsers automatisch terugval naar HTTP/1.1.
 
 |Browser|Minimale versie|
 |-------------|------------|
@@ -53,9 +53,9 @@ Alle belangrijke browsers hebt HTTP/2-ondersteuning in de versies van hun huidig
 |Opera| 32|
 |Safari| 9|
 
-## <a name="enabling-http2-support-in-azure-cdn"></a>HTTP-/ 2-ondersteuning in Azure CDN inschakelen
+## <a name="enabling-http2-support-in-azure-cdn"></a>HTTP/2-ondersteuning in Azure CDN inschakelen
 
-HTTP-/ 2-ondersteuning is momenteel actief is voor alle Azure CDN-profielen. Er is geen verdere actie vereist van klanten.
+Ondersteuning voor HTTP/2 is momenteel actief is voor alle Azure CDN-profielen. Is geen verdere actie vereist van klanten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -63,7 +63,7 @@ Zie voor de voordelen van het HTTP/2 in actie [deze demo van Akamai](https://htt
 
 Voor meer informatie over HTTP/2, gaat u naar de volgende bronnen:
 
-*   [HTTP-/ 2-specificatie startpagina](https://http2.github.io/)
+*   [Startpagina voor HTTP/2-specificatie](https://http2.github.io/)
 *   [Officiële HTTP/2 Veelgestelde vragen](https://http2.github.io/faq/)
 *   [Akamai HTTP/2-gegevens](https://http2.akamai.com/)
 

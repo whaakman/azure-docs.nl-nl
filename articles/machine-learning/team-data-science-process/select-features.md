@@ -12,11 +12,11 @@ ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a74f2c21746deb16372174d4a769f9abb825a1cd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473303"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809608"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Functies selecteren in Team Data Science Process (TDSP)
 Dit artikel worden de doeleinden van functieselectie en bevat voorbeelden van de rol in de uitbreiding van de synchronisatiegegevens van machine learning. Deze voorbeelden worden van Azure Machine Learning Studio getekend. 

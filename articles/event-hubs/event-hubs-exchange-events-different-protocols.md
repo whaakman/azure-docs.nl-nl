@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: bahariri
 ms.openlocfilehash: e704a2595130a2a815388447ac482ab96789d64a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453980"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821770"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Exchange-gebeurtenissen tussen consumenten en producenten die gebruikmaken van verschillende protocollen: AMQP-, Kafka- en HTTPS
 Azure Event Hubs ondersteunt drie protocollen voor consumenten en producenten: AMQP, Kafka en HTTPS. Elk van deze protocollen heeft zijn eigen manier voor het weergeven van een bericht, dus op een natuurlijke manier rijst de vraag van de volgende: als een toepassing gebeurtenissen naar een Event Hub met één protocol verzonden en met een ander protocol worden verbruikt, wat doet de verschillende onderdelen en waarden van de gebeurtenis er als volgt uitzien wanneer ze binnenkomen bij de consument? In dit artikel wordt beschreven aanbevolen procedures voor de producent en consument om ervoor te zorgen dat de waarden in een gebeurtenis correct worden geïnterpreteerd door de betreffende toepassing.

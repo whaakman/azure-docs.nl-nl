@@ -12,11 +12,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087725"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746886"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Beheerde identiteiten voor Azure-resources met Event Hubs
 
@@ -54,7 +54,7 @@ Nadat u de functie hebt ingeschakeld, is een nieuwe service-identiteit in uw Azu
 
 ### <a name="create-a-new-event-hubs-namespace"></a>Een nieuwe Event Hubs-naamruimte maken
 
-Volgende [maken van een Event Hubs-naamruimte](event-hubs-create.md) in een van de Azure-regio's met Preview-versie-ondersteuning voor beheerde identiteiten voor Azure-resources: **VS Oost**, **VS Oost 2**, of  **West-Europa**. 
+Volgende [maken van een Event Hubs-naamruimte](event-hubs-create.md) in een van de Azure-regio's met Preview-versie-ondersteuning voor beheerde identiteiten voor Azure-resources: **VS Oost**, **VS Oost 2**, of **West-Europa**. 
 
 Navigeer naar de naamruimte **Access Control (IAM)** pagina in de portal en klik vervolgens op **roltoewijzing toevoegen** om toe te voegen van de beheerde identiteit op de **eigenaar** rol. Om dit te doen, zoekt u de naam van de web-App in de **machtigingen toevoegen** deelvenster **Selecteer** veld en klik vervolgens op de vermelding. Klik vervolgens op **Opslaan**. De beheerde identiteit voor de webtoepassing nu heeft toegang tot de Event Hubs-naamruimte en naar de event hub die u eerder hebt gemaakt. 
 

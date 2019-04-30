@@ -9,11 +9,11 @@ ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787300"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Acties voor automatisch schalen gebruiken voor het verzenden van e-mail en webhook-meldingen van waarschuwingen in Azure Monitor
 Dit artikel leest u hoe triggers zo instellen dat u kunt specifieke web-URL's aanroepen of verzenden van e-mailberichten op basis van de acties voor automatisch schalen in Azure.  
@@ -108,7 +108,7 @@ Wanneer de melding voor automatisch schalen wordt gegenereerd, wordt de volgende
 | status |ja |De status die aangeeft dat een actie voor automatisch schalen is gegenereerd |
 | bewerking |ja |Voor een verhoging van de exemplaren worden 'Scale Out' en voor een afname in exemplaren, is 'Schaal In' |
 | context |ja |De context van de actie voor automatisch schalen |
-| tijdstempel |ja |Tijdstempel wanneer het voor automatisch schalen is geactiveerd |
+| timestamp |ja |Tijdstempel wanneer het voor automatisch schalen is geactiveerd |
 | id |Ja |Resource Manager-ID van de instelling voor automatisch schalen |
 | naam |Ja |De naam van de instelling voor automatisch schalen |
 | details |Ja |Uitleg van de actie die de service voor automatisch schalen heeft geduurd en de wijziging in het aantal instanties |

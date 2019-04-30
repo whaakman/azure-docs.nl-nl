@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: shlo
 ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092001"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808762"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach-activiteit in Azure Data Factory
 De ForEach-activiteit definieert een herhalende controlestroom in de pijplijn. Deze activiteit wordt gebruikt om een verzameling te herhalen en voert opgegeven activiteiten uit in een lus. De lusimplementatie van deze activiteit is vergelijkbaar met Foreach-lusstructuur in computertalen.
@@ -73,7 +73,7 @@ Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
 naam | Naam van de voor elke activiteit. | String | Ja
 type | Moet worden ingesteld op **ForEach** | String | Ja
-isSequential | Hiermee geeft u op of de lus sequentieel of parallel moet worden uitgevoerd.  Maximaal 20 lus iteraties kan worden uitgevoerd in één keer parallel). Bijvoorbeeld, als u hebt een ForEach activiteit met iteratie van een kopieeractiviteit met 10 verschillende gegevensbronnen en sinks gegevenssets met **isSequential** ingesteld op False, alle exemplaren worden uitgevoerd in één keer. Standaardinstelling is False. <br/><br/> Als 'isSequential' is ingesteld op False, zorg ervoor dat er een juiste configuratie om uit te voeren van meerdere uitvoerbare bestanden. Deze eigenschap moet anders voorzichtig worden gebruikt om te vermijden kunt oplossen. Zie voor meer informatie, [parallelle uitvoering](#parallel-execution) sectie. | Booleaans | Nee. Standaardinstelling is False.
+isSequential | Hiermee geeft u op of de lus sequentieel of parallel moet worden uitgevoerd.  Maximaal 20 lus iteraties kan worden uitgevoerd in één keer parallel). Bijvoorbeeld, als u hebt een ForEach activiteit met iteratie van een kopieeractiviteit met 10 verschillende gegevensbronnen en sinks gegevenssets met **isSequential** ingesteld op False, alle exemplaren worden uitgevoerd in één keer. Standaardinstelling is False. <br/><br/> Als 'isSequential' is ingesteld op False, zorg ervoor dat er een juiste configuratie om uit te voeren van meerdere uitvoerbare bestanden. Deze eigenschap moet anders voorzichtig worden gebruikt om te vermijden kunt oplossen. Zie voor meer informatie, [parallelle uitvoering](#parallel-execution) sectie. | Boolean | Nee. Standaardinstelling is False.
 batchCount | Batch-aantal moet worden gebruikt voor het beheren van het aantal parallelle uitvoering (als isSequential is ingesteld op false). | Geheel getal (maximum 50) | Nee. Standaardwaarde is 20.
 Items | Een expressie die als een JSON-matrix resultaat te worden herhaald. | Expressie (die resulteert in een JSON-matrix) | Ja
 Activiteiten | De activiteiten worden uitgevoerd. | Lijst van activiteiten | Ja

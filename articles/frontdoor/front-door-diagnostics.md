@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: 16770ea0a320b3d9f081cc21a102ab050a6467f6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736775"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Metrische gegevens en Logboeken in Azure voordeur Service bewaken
 
@@ -73,7 +73,7 @@ Diagnostische logboeken configureren voor uw Service voordeur:
 
 Voordeur Service biedt momenteel diagnostische logboeken (ingedeeld in batches per uur). Diagnoselogboeken bieden afzonderlijke API-aanvragen waarbij elk item in het volgende schema:
 
-| Eigenschap  | Beschrijving |
+| Eigenschap  | Description |
 | ------------- | ------------- |
 | ClientIp | Het IP-adres van de client die de aanvraag heeft ingediend. |
 | ClientPort | De IP-poort van de client die de aanvraag heeft ingediend. |

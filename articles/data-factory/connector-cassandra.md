@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 743dad6032547f8f535543413adff416efb56ac0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998390"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640075"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Gegevens kopiëren van Cassandra met Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,7 +59,7 @@ De volgende eigenschappen worden ondersteund voor Cassandra gekoppelde service:
 | poort |De TCP-poort die gebruikmaakt van de Cassandra-server om te luisteren naar clientverbindingen. |Nee (de standaardinstelling is 9042) |
 | authenticationType | Het type verificatie gebruikt voor verbinding met de Cassandra-database.<br/>Toegestane waarden zijn: **Basic**, en **anonieme**. |Ja |
 | gebruikersnaam |Geef de gebruikersnaam op voor het gebruikersaccount. |Ja, als authenticationType is ingesteld op het Basislidmaatschap. |
-| wachtwoord |Wachtwoord voor het gebruikersaccount opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja, als authenticationType is ingesteld op het Basislidmaatschap. |
+| password |Wachtwoord voor het gebruikersaccount opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja, als authenticationType is ingesteld op het Basislidmaatschap. |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 >[!NOTE]
@@ -176,7 +176,7 @@ Het kopiëren van gegevens van Cassandra, worden de volgende toewijzingen van Ca
 | ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLEAANSE WAARDE |Booleaans |
+| BOOLEAANSE WAARDE |Boolean |
 | DECIMAL |Decimal |
 | DOUBLE |Double |
 | FLOAT |Single |

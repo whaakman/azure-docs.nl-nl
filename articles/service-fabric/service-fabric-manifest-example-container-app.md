@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 622e6f7552d91cdb9ccf3668c302496c68a5920f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665981"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60719240"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Voorbeelden van toepassings- en servicemanifesten voor toepassingen met meerdere containers
 Hier volgen enkele voorbeelden van de toepassing en service manifesten voor een Service Fabric-toepassing met meerdere containers. Het doel van deze voorbeelden is om weer te geven welke instellingen zijn beschikbaar en het gebruik ervan. Deze toepassing en service manifesten zijn gebaseerd op de [voorbeeld van Windows Server 2016 Container](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) manifesten.

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: 4e39357a765ec85aa64055b1aa422d8d7a01c116
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727128"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Reliable Actors--ReliableDictionaryActorStateProvider configureren
 U kunt de standaardconfiguratie van ReliableDictionaryActorStateProvider wijzigen door het veranderen van de settings.xml-bestand gegenereerd in de hoofdmap van het Visual Studio-pakket in de Config-map voor de opgegeven actor.
@@ -93,7 +93,7 @@ De standaardconfiguratie wordt gegenereerd door de sjabloon voor Visual Studio e
 | MaxSecondaryReplicationQueueSize |Aantal bewerkingen |16384 |Maximum aantal bewerkingen in de secundaire wachtrij. Een bewerking wordt vrijgemaakt nadat u de status maximaal beschikbaar is via persistentie. Deze waarde moet groter zijn dan 64 en een macht van 2. |
 | CheckpointThresholdInMB |MB |200 |De hoeveelheid ruimte in logboekbestand waarna de status gecontroleerd wordt. |
 | MaxRecordSizeInKB |KB |1024 |Grootste recordgrootte die de replicatie in het logboek kan schrijven. Deze waarde moet een meervoud van 4 en hoger zijn dan 16. |
-| OptimizeLogForLowerDiskUsage |Booleaans |true |Indien waar, wordt het logboek geconfigureerd zodat toegewezen logboekbestand van de replica wordt gemaakt met behulp van een NTFS-sparse-bestand. Hiermee wordt het werkelijke gebruik van schijfruimte voor het bestand verlaagd. Als deze eigenschap ONWAAR is, wordt het bestand wordt gemaakt met vaste toewijzingen, waardoor dat de beste prestaties schrijven. |
+| OptimizeLogForLowerDiskUsage |Boolean |true |Indien waar, wordt het logboek geconfigureerd zodat toegewezen logboekbestand van de replica wordt gemaakt met behulp van een NTFS-sparse-bestand. Hiermee wordt het werkelijke gebruik van schijfruimte voor het bestand verlaagd. Als deze eigenschap ONWAAR is, wordt het bestand wordt gemaakt met vaste toewijzingen, waardoor dat de beste prestaties schrijven. |
 | SharedLogId |GUID |"" |Hiermee geeft u een unieke guid moet worden gebruikt voor het identificeren van de gedeelde logboekbestand gebruikt in combinatie met deze replica. Normaal gesproken moeten deze instelling niet gebruikt door services. Echter, als SharedLogId is opgegeven, klikt u vervolgens SharedLogPath moeten ook worden opgegeven. |
 | SharedLogPath |De naam van de volledig gekwalificeerde pad |"" |Hiermee geeft u de volledig gekwalificeerde pad waar het gedeelde logboekbestand voor deze replica wordt gemaakt. Normaal gesproken moeten deze instelling niet gebruikt door services. Echter, als SharedLogPath is opgegeven, klikt u vervolgens SharedLogId moeten ook worden opgegeven. |
 

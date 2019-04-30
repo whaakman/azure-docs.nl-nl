@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60772955"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnosefunctionaliteit voor Stateful Reliable Services
 De Azure Service Fabric Stateful Reliable Services StatefulServiceBase-klasse verzendt [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) gebeurtenissen die kunnen worden gebruikt voor fouten opsporen in de service bieden inzicht in hoe de runtime is functioneren en kunnen oplossen.
@@ -102,7 +102,7 @@ In het voorgaande voorbeeld `00d0126d-3e36-4d68-98da-cc4f7195d85e` is van de tek
 
 De Reliable Services-runtime verzendt de volgende gebeurtenissen onder de `Service Fabric Transactional Replicator` categorie
 
- Naam van het prestatiemeteritem | Beschrijving |
+ Naam van het prestatiemeteritem | Description |
 | --- | --- |
 | Transactiebewerkingen starten/sec | Het aantal nieuwe schrijven transacties per seconde worden gemaakt.|
 | Transactiebewerkingen/sec | Het aantal bewerkingen toevoegen/bijwerken/verwijderen die worden uitgevoerd op een betrouwbare verzamelingen per seconde.|

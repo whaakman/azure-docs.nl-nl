@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 82eb9c895f016efe569651dc89885d2e4850fd59
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 2a9318317d5a01136a42b4fb6d580bafaf53ec4e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159088"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60685742"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Inhoudstypen in Azure Logic Apps verwerken
 
@@ -140,14 +140,14 @@ Als u wilt behouden bepaalde gegevenstypen, Logic Apps inhoud converteert naar e
 
 Deze lijst wordt beschreven hoe inhoud door Logic Apps worden geconverteerd wanneer u deze [functies](../logic-apps/workflow-definition-language-functions-reference.md):
 
-* `json()`: Gegevens webcasts `application/json`
-* `xml()`: Gegevens webcasts `application/xml`
-* `binary()`: Gegevens webcasts `application/octet-stream`
-* `string()`: Gegevens webcasts `text/plain`
+* `json()`: Webcasts gegevens `application/json`
+* `xml()`: Webcasts gegevens `application/xml`
+* `binary()`: Webcasts gegevens `application/octet-stream`
+* `string()`: Webcasts gegevens `text/plain`
 * `base64()`: Inhoud converteert naar een Base 64-tekenreeks
-* `base64toString()`: Een base64-gecodeerde tekenreeks die moet worden geconverteerd `text/plain`
-* `base64toBinary()`: Een base64-gecodeerde tekenreeks die moet worden geconverteerd `application/octet-stream`
-* `encodeDataUri()`: Een tekenreeks als een bytematrix van gegevens-URI die codeert
+* `base64toString()`: Een met base64 gecodeerde tekenreeks die moet worden geconverteerd `text/plain`
+* `base64toBinary()`: Een met base64 gecodeerde tekenreeks die moet worden geconverteerd `application/octet-stream`
+* `encodeDataUri()`: Hiermee wordt een tekenreeks gecodeerd als een bytematrix van gegevens-URI die
 * `decodeDataUri()`: Decodeert een `dataUri` in een matrix van bytes
 
 Bijvoorbeeld, als u een HTTP-aanvraag ontvangt waar `Content-Type` ingesteld op `application/xml`, zoals deze inhoud:
