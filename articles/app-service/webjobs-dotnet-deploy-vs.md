@@ -15,11 +15,11 @@ ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
 ms.openlocfilehash: ede7e2fe3a2ab4c0dfd4efaea5ec789924968194
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750154"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832301"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Ontwikkelen en implementeren met Visual Studio - Azure App Service WebJobs
 
@@ -239,7 +239,7 @@ De volgende instellingen worden ondersteund door WebJobs:
 | **Instelling** | **Type**  | **Beschrijving** |
 | ----------- | --------- | --------------- |
 | `is_in_place` | Alle | Kan de taak om uit te voeren in plaats zonder het eerst wordt gekopieerd naar een tijdelijke map. Zie voor meer informatie, [WebJobs werkmap](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
-| `is_singleton` | Doorlopend | Alleen de webtaken worden uitgevoerd op een enkele instantie als uitgeschaald. Zie voor meer informatie, [een continue taak instellen als singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
+| `is_singleton` | Continu | Alleen de webtaken worden uitgevoerd op een enkele instantie als uitgeschaald. Zie voor meer informatie, [een continue taak instellen als singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
 | `schedule` | Geactiveerd | De webtaak uitvoeren volgens een schema op basis van een CRON. Zie voor meer informatie, de [naslagartikel voor timer trigger](../azure-functions/functions-bindings-timer.md#cron-expressions). |
 | `stopping_wait_time`| Alle | Biedt controle over het afsluitgedrag. Zie voor meer informatie, [correct afsluiten](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 

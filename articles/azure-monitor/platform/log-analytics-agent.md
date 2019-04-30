@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 5f9a225e8a256dd55feadf97f0a7b9f922487a6f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 328433664d22925b4e991f2f18c858c5505cade1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492801"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60781997"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Verzamelen van logboekgegevens met de Azure Log Analytics-agent
 
-De Azure Log Analytics-agent, voorheen aangeduid als de Microsoft Monitoring Agent (MMA) of OMS-Linux-agent is ontwikkeld voor het beheer van uitgebreide in on-premises machines computers bewaakt door [System Center Operations Manager ](https://docs.microsoft.com/system-center/scom/), en virtuele machines in elke cloud. De Windows- en Linux-agents koppelen aan een werkruimte voor logboekanalyse voor het verzamelen van gegevens uit verschillende bronnen, evenals alle unieke Logboeken of metrische gegevens als gedefinieerd in een oplossing voor bewaking. 
+De Azure Log Analytics-agent, voorheen aangeduid als de Microsoft Monitoring Agent (MMA) of OMS-Linux-agent is ontwikkeld voor het beheer van uitgebreide in on-premises machines computers bewaakt door [System Center Operations Manager ](https://docs.microsoft.com/system-center/scom/), en virtuele machines in elke cloud. De Windows- en Linux-agents koppelen aan een Azure-Monitor en opslaan van verzamelde logboekgegevens uit verschillende bronnen in uw Log Analytics-werkruimte, evenals een unieke Logboeken of de metrische gegevens zoals gedefinieerd in een oplossing voor bewaking. 
 
 Dit artikel bevat een gedetailleerd overzicht van de agent, system en netwerkvereisten en de verschillende implementatiemethoden.   
 
@@ -30,13 +30,15 @@ Dit artikel bevat een gedetailleerd overzicht van de agent, system en netwerkver
 
 ![Log Analytics-agent communicatie diagram](./media/log-analytics-agent/log-analytics-agent-01.png)
 
-Voordat u analyseren en uitvoeren van de verzamelde gegevens, moet u eerst installeren en verbinden-agents voor alle machines die u wilt gegevens verzenden naar de Log Analytics-service. U kunt agents installeren op uw Azure-VM's met behulp van de Azure Log Analytics VM-extensie voor Windows en Linux, en voor computers in een hybride omgeving met behulp van setup, vanaf de opdrachtregel, of met Desired State Configuration (DSC) in Azure Automation. 
+Voordat u analyseren en uitvoeren van de verzamelde gegevens, moet u eerst installeren en verbinden-agents voor alle machines die u wilt gegevens verzenden naar de service Azure Monitor. U kunt agents installeren op uw Azure-VM's met behulp van de Azure Log Analytics VM-extensie voor Windows en Linux, en voor computers in een hybride omgeving met behulp van setup, vanaf de opdrachtregel, of met Desired State Configuration (DSC) in Azure Automation. 
 
-De agent voor Linux en Windows uitgaand naar de Log Analytics-service communiceert via TCP-poort 443, en als de computer verbinding maakt via een firewall of proxyserver om te communiceren via Internet, raadpleegt u onderstaande voorwaarden om te begrijpen van de netwerkconfiguratie Vereist. Als uw IT-beveiligingsbeleid niet computers op het netwerk verbinding maken met Internet toestaat, kunt u instellen een [Log Analytics gateway](gateway.md) en configureer vervolgens de agent verbinding maken via de gateway naar Log Analytics. De agent vervolgens configuratie-informatie ontvangen en verzenden van gegevens die worden verzameld, afhankelijk van welke gegevens u regels voor het verzamelen en oplossingen voor de controle u hebt ingeschakeld. 
+De agent voor Linux en Windows uitgaand naar de Azure Monitor-service communiceert via TCP-poort 443, en als de computer verbinding maakt via een firewall of proxyserver om te communiceren via Internet, raadpleegt u onderstaande voorwaarden om te begrijpen van de netwerkconfiguratie Vereist. Als uw IT-beveiligingsbeleid niet computers op het netwerk verbinding maken met Internet toestaat, kunt u instellen een [Log Analytics gateway](gateway.md) en configureer vervolgens de agent verbinding maken via de gateway naar de logboeken van Azure Monitor. De agent vervolgens configuratie-informatie ontvangen en verzenden van gegevens die worden verzameld, afhankelijk van welke gegevens u regels voor het verzamelen en oplossingen voor de controle die u hebt ingeschakeld in uw werkruimte. 
 
-Als u de computer met System Center Operations Manager 2012 R2 of hoger worden bewaakt, kan zijn bij de Log Analytics-service voor het verzamelen van gegevens en door te sturen naar de service en nog steeds worden bewaakt door multihomed [Operations Manager](../../azure-monitor/platform/om-agents.md). Linux-computers bewaakt door een Operations Manager-beheergroep is geïntegreerd met Log Analytics wordt geen configuratie voor gegevensbronnen en vooruit verzamelde gegevens via de beheergroep. De Windows-agent kan rapporteren dat maximaal vier Log Analytics-werkruimten, terwijl de Linux-agent biedt alleen ondersteuning voor rapportage aan één werkruimte.  
+Als u een computer met System Center Operations Manager 2012 R2 of hoger worden bewaakt, kan zijn met de Azure Monitor-service voor het verzamelen van gegevens en door te sturen naar de service en nog steeds worden bewaakt door multihomed [Operations Manager](../../azure-monitor/platform/om-agents.md). Met Linux-computers, de agent bevat geen een onderdeel van health-service als de Windows-agent wordt en gegevens worden verzameld en verwerkt door een beheerserver voor zijn rekening. Omdat de Linux-computers worden verschillende manieren worden bewaakt met Operations Manager, ze niet configuratie ontvangen of rechtstreeks gegevens te verzamelen en doorsturen via de beheergroep, zoals een Windows-agent beheerde systeem heeft. Als gevolg hiervan wordt niet in dit scenario ondersteund met Linux-computers die rapporteren aan Operations Manager.  
 
-De agent voor Linux en Windows wordt niet alleen voor het verbinden met Log Analytics, ondersteunt ook Azure Automation voor het hosten van de functie Hybrid Runbook worker en andere services zoals [bijhouden](../../automation/automation-change-tracking.md) en [updatebeheer](../../automation/automation-update-management.md). Zie voor meer informatie over de Hybrid Runbook Worker-rol, [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
+De Windows-agent kan rapporteren dat maximaal vier Log Analytics-werkruimten, terwijl de Linux-agent biedt alleen ondersteuning voor rapportage aan één werkruimte.  
+
+De agent voor Linux en Windows wordt niet alleen voor het verbinden met Azure Monitor, ondersteunt ook Azure Automation voor het hosten van de functie Hybrid Runbook worker en andere services zoals [bijhouden](../../automation/automation-change-tracking.md) en [updatebeheer](../../automation/automation-update-management.md). Zie voor meer informatie over de Hybrid Runbook Worker-rol, [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="supported-windows-operating-systems"></a>Ondersteunde Windows-besturingssystemen
 De volgende versies van het Windows-besturingssysteem worden officieel ondersteund voor de Windows-agent:
@@ -72,10 +74,10 @@ Als u een distributie of een versie die wordt momenteel niet ondersteund en word
 >
 
 ## <a name="tls-12-protocol"></a>TLS 1.2-protocol
-Als u wilt controleren of de beveiliging van gegevens die onderweg zijn naar Log Analytics, we raden u aan de agent configureren voor het gebruik van ten minste Transport Layer Security (TLS) 1.2. Oudere versies van TLS/Secure Sockets Layer (SSL) kwetsbaar zijn gevonden en hoewel ze op dit moment nog steeds werken om toe te staan achterwaartse compatibiliteit, zijn ze onderling **niet aanbevolen**.  Raadpleeg voor meer informatie, [verzenden van gegevens veilig gebruik TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+Als u wilt controleren of de beveiliging van gegevens die onderweg zijn naar Azure Monitor-Logboeken, we raden u aan de agent configureren voor het gebruik van ten minste Transport Layer Security (TLS) 1.2. Oudere versies van TLS/Secure Sockets Layer (SSL) kwetsbaar zijn gevonden en hoewel ze op dit moment nog steeds werken om toe te staan achterwaartse compatibiliteit, zijn ze onderling **niet aanbevolen**.  Raadpleeg voor meer informatie, [verzenden van gegevens veilig gebruik TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ## <a name="network-firewall-requirements"></a>Netwerkvereisten voor de firewall
-Gegevens van de onderstaande lijst de proxy- en firewallinstellingen configuratie-informatie voor de agent voor Linux en Windows om te communiceren met Log Analytics vereist.  
+Gegevens van de onderstaande lijst de proxy- en firewallinstellingen configuratie-informatie nodig is voor de agent voor Linux en Windows om te communiceren met Azure Monitor-Logboeken.  
 
 |Agentresource|Poorten |Richting |HTTPS-controle overslaan|
 |------|---------|--------|--------|   
@@ -88,7 +90,7 @@ Zie voor firewall-informatie is vereist voor Azure Government, [beheer van Azure
 
 Als u van plan bent de Hybrid Runbook Worker voor Azure Automation gebruiken om te verbinden en registreren bij de service Automation runbooks gebruiken in uw omgeving, moet er toegang tot het poortnummer en de URL's die worden beschreven in [het netwerk configureren voor de Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
-De Windows- en Linux-agent ondersteunt communiceren via een proxyserver of de Log Analytics-gateway bij de Log Analytics-service met behulp van het HTTPS-protocol.  Zowel eenvoudige als anonieme verificatie (gebruikersnaam en wachtwoord) worden ondersteund.  Voor de Windows-agent rechtstreeks verbonden met de service, de configuratie van de proxy is opgegeven tijdens de installatie of [na de implementatie](agent-manage.md#update-proxy-settings) via het Configuratiescherm of met PowerShell.  
+De Windows- en Linux-agent ondersteunt communiceren via een proxyserver of de Log Analytics-gateway naar Azure Monitor met behulp van het HTTPS-protocol.  Zowel eenvoudige als anonieme verificatie (gebruikersnaam en wachtwoord) worden ondersteund.  Voor de Windows-agent rechtstreeks verbonden met de service, de configuratie van de proxy is opgegeven tijdens de installatie of [na de implementatie](agent-manage.md#update-proxy-settings) via het Configuratiescherm of met PowerShell.  
 
 Voor de Linux-agent de proxyserver wordt opgegeven tijdens de installatie of [na de installatie](agent-manage.md#update-proxy-settings) door het wijzigen van het configuratiebestand proxy.conf.  Waarde voor de Linux-agent proxyconfiguratie heeft de volgende syntaxis:
 
@@ -111,14 +113,14 @@ Bijvoorbeeld: `https://user01:password@proxy01.contoso.com:30443`
 > Als u speciale tekens zoals "\@" in uw wachtwoord, ontvangt u een proxy-verbindingsfout omdat de waarde is niet juist geparseerd.  U kunt dit probleem omzeilen, codeert u het wachtwoord in de URL met behulp van een hulpprogramma zoals [URLDecode](https://www.urldecoder.org/).  
 
 ## <a name="install-and-configure-agent"></a>Agent installeren en configureren 
-Verbinden van computers in uw Azure-abonnement of een hybride omgeving rechtstreeks met Azure Log Analytics kan worden bewerkstelligd met verschillende methoden, afhankelijk van uw vereisten. De volgende tabel ziet u elke methode om te bepalen welke het beste werkt in uw organisatie.
+Computers in uw Azure-abonnement of een hybride omgeving rechtstreeks met Azure Monitor Logboeken verbinding kan worden bewerkstelligd met verschillende methoden, afhankelijk van uw vereisten. De volgende tabel ziet u elke methode om te bepalen welke het beste werkt in uw organisatie.
 
 |Bron | Methode | Description|
 |-------|-------------|-------------|
 |Azure VM| -Log Analytics VM-extensie voor [Windows](../../virtual-machines/extensions/oms-windows.md) of [Linux](../../virtual-machines/extensions/oms-linux.md) met behulp van Azure CLI of met een Azure Resource Manager-sjabloon<br>- [Handmatig vanuit de Azure-portal](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | De extensie voor de Log Analytics-agent geïnstalleerd op virtuele machines van Azure en deze heeft geregistreerd in een bestaande werkruimte van Azure Monitor.|
 | Hybride Windows-computer|- [Handmatige installatie](agent-windows.md)<br>- [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Resource Manager-sjabloon met Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |De Microsoft Monitoring agent installeren vanaf de opdrachtregel of met behulp van een geautomatiseerde methode, zoals Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), of met een Azure Resource Manager-sjabloon als u Microsoft hebt geïmplementeerd Azure Stack in uw datacenter.| 
 | Hybride Linux-computer| [Handmatige installatie](../../azure-monitor/learn/quick-collect-linux-computer.md)|Installeer de agent voor Linux aanroepen van een wrapper-scripts die worden gehost op GitHub. | 
-| System Center Operations Manager|[Operations Manager integreert met Log Analytics](../../azure-monitor/platform/om-agents.md) | Configureren van de integratie tussen Operations Manager en de Log Analytics voor het doorsturen van gegevens die worden verzameld van Linux en Windows-computers die rapporteren aan een beheergroep.|  
+| System Center Operations Manager|[Operations Manager integreert met Log Analytics](../../azure-monitor/platform/om-agents.md) | Configureren van de integratie tussen Operations Manager en Azure Monitor logboeken naar doorsturen van Windows-computers die rapporteren aan een beheergroep die gegevens worden verzameld.|  
 
 ## <a name="next-steps"></a>Volgende stappen
 

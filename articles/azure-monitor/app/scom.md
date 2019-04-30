@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
 ms.openlocfilehash: a08a67a78362325e29b1002b44f390a94e78888a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028394"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60784823"
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>Toepassingsprestaties bewaken met Application Insights voor SCOM
 Als u System Center Operations Manager (SCOM) gebruikt voor het beheren van uw servers, kunt u prestaties bewaken en diagnosticeren van prestatieproblemen met behulp van [Azure Application Insights](../../azure-monitor/app/asp-net.md). Application Insights bewaakt uw webtoepassing inkomende aanvragen, uitgaande REST en SQL-aanroepen, uitzonderingen en logboektraceringen. Het biedt dashboards met grafieken met metrische gegevens en slimme waarschuwingen, evenals krachtige diagnostische gegevens doorzoeken en analytische query's in deze telemetrie. 

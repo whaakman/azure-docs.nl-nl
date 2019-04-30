@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278782"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782919"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Tekenreeksfuncties voor Azure Resource Manager-sjablonen
 
@@ -65,7 +65,7 @@ Retourneert de Base 64-weergave van de ingevoerde tekenreeks.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputString |Ja |string |De waarde dat wordt geretourneerd als een Base 64-indeling. |
 
@@ -130,7 +130,7 @@ Converteert een Base 64-indeling naar een JSON-object.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | base64Value |Ja |string |De Base 64-indeling converteren naar een JSON-object. |
 
@@ -195,7 +195,7 @@ Converteert een Base 64-indeling naar een tekenreeks.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | base64Value |Ja |string |De Base 64-indeling converteren naar een tekenreeks. |
 
@@ -347,7 +347,7 @@ Controleert of een matrix een waarde bevat, een object een sleutel bevat of een 
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | container |Ja |matrix of object tekenreeks |De waarde met de waarde om te zoeken. |
 | itemToFind |Ja |tekenreeks of int |De waarde om te zoeken. |
@@ -483,7 +483,7 @@ Een gegevens-URI converteert opgemaakt waarde naar een tekenreeks.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | dataUriToConvert |Ja |string |De gegevens-URI-waarde te converteren. |
 
@@ -721,7 +721,7 @@ Maakt een opgemaakte tekenreeks van de invoerwaarden.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | formatString | Ja | string | De samengestelde tekenreeks. |
 | arg1 | Ja | tekenreeks, geheel getal of Booleaanse waarde | De waarde in de opgemaakte tekenreeks wilt opnemen. |
@@ -778,7 +778,7 @@ Hiermee maakt een waarde in de indeling van een globally unique identifier op ba
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | baseString |Ja |string |De waarde die wordt gebruikt in de hash-functie voor het maken van de GUID. |
 | aanvullende parameters indien nodig |Nee |string |U kunt zoveel tekenreeksen als nodig voor het maken van de waarde die het niveau van de uniciteit bepaalt toevoegen. |
@@ -849,7 +849,7 @@ Retourneert de eerste positie van een waarde van een tekenreeks. De vergelijking
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Ja |string |De waarde die bevat het artikel om te zoeken. |
 | stringToFind |Ja |string |De waarde om te zoeken. |
@@ -962,7 +962,7 @@ Retourneert de laatste positie van een waarde van een tekenreeks. De vergelijkin
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Ja |string |De waarde die bevat het artikel om te zoeken. |
 | stringToFind |Ja |string |De waarde om te zoeken. |
@@ -1023,7 +1023,7 @@ Retourneert het aantal tekens in een tekenreeks of elementen in een matrix.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |matrix of tekenreeks |De matrix te gebruiken voor het ophalen van het aantal elementen, of een tekenreeks te gebruiken voor het ophalen van het aantal tekens. |
 
@@ -1229,7 +1229,7 @@ Retourneert een nieuwe tekenreeks met alle exemplaren van een tekenreeks vervang
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalString |Ja |string |De waarde waarvoor alle exemplaren van een tekenreeks vervangen door een andere tekenreeks. |
 | oldString |Ja |string |De tekenreeks die moet worden verwijderd uit de oorspronkelijke reeks. |
@@ -1546,7 +1546,7 @@ Retourneert een subtekenreeks die begint op de positie van het opgegeven teken e
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToParse |Ja |string |De oorspronkelijke tekenreeks waaruit de subtekenreeks wordt opgehaald. |
 | startIndex |Nee |int |De op nul gebaseerde beginpositie voor de subtekenreeks. |
@@ -1675,7 +1675,7 @@ De opgegeven tekenreeks die wordt omgezet in kleine letters.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToChange |Ja |string |De waarde moet worden geconverteerd naar kleine letters. |
 
@@ -1777,7 +1777,7 @@ Verwijdert alle voorloop- en volgspaties spatietekens bestaan uit de opgegeven t
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToTrim |Ja |string |De waarde naar trim. |
 
@@ -2020,7 +2020,7 @@ Retourneert dat een tekenreeks van een URI-gecodeerde waarde.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | uriEncodedString |Ja |string |Waarde moet worden geconverteerd naar een tekenreeks met de URI-codering. |
 

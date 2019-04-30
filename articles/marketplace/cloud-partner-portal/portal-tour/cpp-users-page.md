@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 22768e90a419e7a5c3c9e286953afbf3ba2ab311
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266949"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60825558"
 ---
-# <a name="users-page"></a>Pagina gebruikers
+# <a name="users-page"></a>Pagina voor Gebruikers
 
 De [ **gebruikers** ](https://cloudpartner.azure.com/#users) pagina geeft een lijst van alle geregistreerde gebruikers van de Cloud Partner-Portal.  De kolommen bevatten van elke gebruiker e-mailadres, portal-rol, aanbiedingtype en uitgever. De resultaten kunnen worden gesorteerd op kolom of gefilterd op een opgegeven tekenreeks.  
 
@@ -32,7 +32,7 @@ Deze pagina bevat ook een **gebruiker toevoegen** knop voor het toevoegen van ge
 
 De volgende afbeelding toont de **gebruikers** pagina gefilterd op de tekenreeks `contoso`.
 
-![Pagina gebruikers](./media/users-page1.png)
+![Pagina voor Gebruikers](./media/users-page1.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
