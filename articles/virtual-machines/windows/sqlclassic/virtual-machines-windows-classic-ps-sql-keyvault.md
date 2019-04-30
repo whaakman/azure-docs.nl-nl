@@ -51,7 +51,7 @@ Eerste, [installeren van de SQL Server IaaS-extensie](../classic/sql-server-agen
 ### <a name="understand-the-input-parameters"></a>Inzicht in de invoerparameters
 De volgende tabel bevat de vereiste parameters voor de PowerShell-script uitvoeren in de volgende sectie.
 
-| Parameter | Beschrijving | Voorbeeld |
+| Parameter | Description | Voorbeeld |
 | --- | --- | --- |
 | **$akvURL** |**De URL voor key vault** |"https:\//contosokeyvault.vault.azure.net/" |
 | **$spName** |**Service-Principal-naam** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
