@@ -36,7 +36,7 @@ App-tokens zijn een JWT (JSON Web Token) die is ondertekend door een van uw sleu
 
 Uw app-token kan de volgende claims bevatten:
 
-| Claim | Beschrijving |    
+| Claim | Description |    
 | --- | --- |
 | **ver** |De versie van het app-token. 0.2.0 is de huidige versie. |
 | **aud** |De beoogde ontvanger van het token. Voor Power BI Workspace Collections gebruiken: *https:\//analysis.windows.net/powerbi/api*. |

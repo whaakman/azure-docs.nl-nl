@@ -64,7 +64,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=password
 ```
 
-| Parameter | Voorwaarde | Beschrijving |
+| Parameter | Voorwaarde | Description |
 | --- | --- | --- |
 | `tenant` | Vereist | De directory-tenant die u wilt vastleggen van de gebruiker in. Dit kan zijn in de beschrijvende naamindeling of GUID. Deze parameter kan niet worden ingesteld op `common` of `consumers`, maar kan worden ingesteld op `organizations`. |
 | `grant_type` | Vereist | Moet worden ingesteld op `password`. |
@@ -102,7 +102,7 @@ U kunt het vernieuwingstoken dat nieuwe toegangstokens verkrijgen en vernieuwen 
 
 Als de gebruiker de juiste gebruikersnaam of wachtwoord is niet opgegeven of de client nog niet de aangevraagde toestemming verkregen, mislukt de verificatie.
 
-| Fout | Beschrijving | Clientactie |
+| Fout | Description | Clientactie |
 |------ | ----------- | -------------|
 | `invalid_grant` | De verificatie is mislukt | De referenties zijn onjuist of de client geen toestemming voor de aangevraagde bereiken. Als de scopes niet zijn verleend, een `consent_required` fout wordt geretourneerd. Als dit het geval is, moet de client de gebruiker doorsturen naar een interactieve prompt met behulp van een webweergave of in de browser. |
 | `invalid_request` | De aanvraag is niet goed samengesteld. | Het machtigingstype wordt niet ondersteund op de `/common` of `/consumers` verificatie contexten.  Gebruik `/organizations` in plaats daarvan. |

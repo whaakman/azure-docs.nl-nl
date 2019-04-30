@@ -41,7 +41,7 @@ De eerste keer dat u zich aanmelden bij uw toepassing u ook wordt gevraagd voor 
 
 Nadat u zich hebt aangemeld, ziet u de gebruikersgegevens van het profiel dat wordt geretourneerd door de aanroep naar de Microsoft Graph API. De resultaten worden weergegeven in de **API Gespreksresultaten** vak. Algemene informatie over het token dat is verkregen via de aanroep van `AcquireTokenInteractive` of `AcquireTokenSilent` moeten worden weergegeven in de **Token Info** vak. De resultaten bevatten de volgende eigenschappen:
 
-|Eigenschap  |Indeling  |Beschrijving |
+|Eigenschap  |Indeling  |Description |
 |---------|---------|---------|
 
 |**Gebruikersnaam**  | <span> user@domain.com </span> | De gebruikersnaam die wordt gebruikt om de gebruiker te identificeren. | | **Token verloopt** | Datum/tijd | De tijd waarop het token is verlopen. MSAL vervolg op de vervaldatum vernieuwen van het token naar behoefte. |

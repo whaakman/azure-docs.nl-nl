@@ -67,7 +67,7 @@ Het volgende voorbeeld wordt de `NetworkConfiguration` -element en de onderligge
 
 De volgende tabel beschrijft de onderliggende elementen van de `NetworkConfiguration` element.
 
-| Element       | Beschrijving |
+| Element       | Description |
 | ------------- | ----------- |
 | AccessControl | Optioneel. Hiermee geeft u de regels voor toegang tot eindpunten in een cloudservice. De naam van de access control wordt gedefinieerd door een tekenreeks op voor `name` kenmerk. De `AccessControl` element bevat een of meer `Rule` elementen. Meer dan één `AccessControl` element kan worden gedefinieerd.|
 | Regel | Optioneel. Hiermee geeft u de actie die moet worden uitgevoerd voor een opgegeven subnet bereik van IP-adressen. De volgorde van de regel wordt gedefinieerd door een string-waarde voor de `order` kenmerk. Hoe lager nummer op voor de regel hoe hoger de prioriteit. Regels kunnen bijvoorbeeld worden opgegeven met volgnummers van 100, 200 en 300. De regel met het volgnummer van 100 heeft voorrang op de regel die een order van 200.<br /><br /> De actie voor de regel wordt gedefinieerd door een tekenreeks op voor de `action` kenmerk. Mogelijke waarden zijn:<br /><br /> -   `permit` – Geeft aan dat alleen pakketten uit het opgegeven subnet-bereik met het eindpunt communiceren kunnen.<br />-   `deny` : Hiermee geeft u dat de toegang is geweigerd met de eindpunten in het opgegeven subnet-bereik.<br /><br /> Het subnet bereik van IP-adressen die worden beïnvloed door de regel zijn gedefinieerd door een tekenreeks op voor de `remoteSubnet` kenmerk. De beschrijving voor de regel wordt gedefinieerd door een tekenreeks op voor de `description` kenmerk.|

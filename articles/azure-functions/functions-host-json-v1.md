@@ -163,7 +163,7 @@ Configuratie-instellingen voor [health monitor voor de Host](https://github.com/
 }
 ```
 
-|Eigenschap  |Standaard | Beschrijving |
+|Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
 |ingeschakeld|true|Hiermee geeft u op of de functie is ingeschakeld. | 
 |healthCheckInterval|10 seconden|Het tijdsinterval tussen de periodieke achtergrond-status wordt gecontroleerd. | 
@@ -232,7 +232,7 @@ Configuratie-instellingen voor [Storage queue-triggers en bindingen](functions-b
 }
 ```
 
-|Eigenschap  |Standaard | Beschrijving |
+|Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
 |maxPollingInterval|60000|Het maximale interval in milliseconden tussen de wachtrij worden opgevraagd.| 
 |visibilityTimeout|0|Het tijdsinterval tussen nieuwe pogingen bij het verwerken van een bericht is mislukt.| 
@@ -299,7 +299,7 @@ Configuratie-instellingen voor logboeken die u met behulp van maakt een `TraceWr
 }
 ```
 
-|Eigenschap  |Standaard | Beschrijving |
+|Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
 |consoleLevel|informatie|Het traceringsniveau bepaald voor console-aanmelding. Opties zijn: `off`, `error`, `warning`, `info`, en `verbose`.|
 |fileLoggingMode|debugOnly|Het traceringsniveau bepaald voor logboekregistratie. Opties zijn `never`, `always`, `debugOnly`.| 

@@ -61,7 +61,7 @@ De `ServiceConfiguration` -element is het element op het hoogste niveau van het 
 
 De volgende tabel beschrijft de kenmerken van de `ServiceConfiguration` element. Alle kenmerken waarden zijn tekenreekstypen.
 
-| Kenmerk | Beschrijving |
+| Kenmerk | Description |
 | --------- | ----------- |
 |serviceName|Vereist. De naam van de cloudservice. De hier opgegeven naam moet overeenkomen met de naam die is opgegeven in het servicedefinitiebestand.|
 |besturingssysteemtype|Optioneel. Hiermee geeft u het Gastbesturingssysteem dat wordt uitgevoerd op rolinstanties in de cloudservice. Zie voor meer informatie over ondersteunde Guest OS releases [Azure Guest OS Releases en SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).<br /><br /> Als u geen een `osFamily` waarde en u niet hebt ingesteld de `osVersion` kenmerk naar een specifieke Guest OS-versie, een standaardwaarde van 1 wordt gebruikt.|
