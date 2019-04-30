@@ -16,7 +16,7 @@ ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: c8cb4713e38ca0da610c687325f3810f57da2b26
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61216090"
@@ -48,7 +48,7 @@ Direct hieronder de kaart vindt u gedetailleerde informatie over de verkeer en b
 
 Hieronder vindt u een korte beschrijving voor elk type toewijzing op basis van Geografie rapport.
 
-| De naam van rapport | Beschrijving |
+| De naam van rapport | Description |
 | --- | --- |
 | Wereldkaart |Dit rapport kunt u om de wereldwijde vraag naar uw CDN-inhoud weer te geven. Elk land is kleurgecodeerde op de wereldkaart om aan te geven van het percentage treffers die afkomstig van die regio zijn. |
 | Verenigde Staten-kaart |Dit rapport kunt u de vraag naar uw CDN-inhoud weergeven in de Verenigde Staten. Elke status is voorzien van een kleurcode op deze kaart om aan te geven van het percentage treffers die afkomstig van die regio zijn. |
@@ -71,7 +71,7 @@ De gegevens die is gebruikt voor het genereren van het staafdiagram kunnen hiero
 
 Een korte beschrijving is opgegeven voor beide typen rapporten die hieronder.
 
-| De naam van rapport | Beschrijving |
+| De naam van rapport | Description |
 | --- | --- |
 | Bovenaan plaatsen |Dit rapport worden gerangschikt op steden op basis van het aantal treffers die afkomstig zijn van die regio. |
 | Belangrijkste landen |Dit rapport worden gerangschikt op landen op basis van het aantal treffers die afkomstig zijn van die regio. |

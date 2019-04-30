@@ -14,11 +14,11 @@ ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
 ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267229"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60903211"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights voor Azure cloud services
 [Application Insights] [ start] kunt bewaken [Azure cloud service-apps](https://azure.microsoft.com/services/cloud-services/) voor beschikbaarheid, prestaties, fouten en gebruik door het combineren van gegevens uit Application Insights-SDK's met [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) gegevens van uw cloudservices. Op basis van de feedback die u krijgt over de prestaties en de effectiviteit van uw app tijdens het gebruik, kunt u weldoordachte beslissingen nemen over de richting van het ontwerp in elke fase van de ontwikkelingslevenscyclus.

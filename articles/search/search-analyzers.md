@@ -40,7 +40,7 @@ Het wordt automatisch gebruikt op elke doorzoekbaar veld. U kunt de standaardins
 
 De volgende lijst wordt beschreven welke analysefuncties zijn beschikbaar in Azure Search.
 
-| Category | Beschrijving |
+| Category | Description |
 |----------|-------------|
 | [Standard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Standaard. Er is geen specificatie of configuratie vereist. Deze algemene analyzer wordt uitgevoerd voor de meeste scenario's en talen.|
 | Vooraf gedefinieerde analyzers | Als een voltooide product bedoeld om te worden gebruikt als aangeboden-is. <br/>Er zijn twee typen: gespecialiseerde en taal. Wat is dan "vooraf gedefinieerde" het is u ernaar te verwijzen met de naam, zonder configuratie of aanpassen. <br/><br/>[(Taal-neutraal) analyzers gespecialiseerde](index-add-custom-analyzers.md#AnalyzerTable) worden gebruikt als invoer van tekst speciale verwerking of minimale vereist. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Taalanalyse](index-add-language-analyzers.md) worden gebruikt wanneer u geavanceerde linguïstische ondersteuning nodig hebt voor de afzonderlijke talen. Azure Search biedt ondersteuning voor 35 Lucene taalanalyse en 50 analyzers voor Microsoft-verwerking van natuurlijke taal. |

@@ -52,7 +52,7 @@ De indeling van een eigenschappenbestand is als volgt:
 </Properties>  
 ```
   
-|XML-Element|Type|Beschrijving|  
+|XML-Element|Type|Description|  
 |-----------------|----------|-----------------|  
 |`Properties`|Root-element|Het hoofdelement van het eigenschappenbestand.|  
 |`Last-Modified`|String|Optioneel. Het tijdstip laatst gewijzigd voor de blob. Voor alleen voor export-taken.|  

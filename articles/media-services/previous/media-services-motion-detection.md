@@ -92,7 +92,7 @@ De Motion Detector-API biedt indicatoren zodra er objecten in beweging op een va
 
 De volgende tabel beschrijft de elementen van de uitvoer-JSON-bestand.
 
-| Element | Beschrijving |
+| Element | Description |
 | --- | --- |
 | Versie |Dit verwijst naar de versie van de Video-API. De huidige versie is 2. |
 | Tijdschaal |'Tikken"per seconde van de video. |

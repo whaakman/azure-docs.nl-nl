@@ -50,7 +50,7 @@ Webhook wordt geactiveerd wanneer een containerinstallatiekopie is gepusht naar 
 
 ### <a name="target"></a>Doel
 
-|Element|Type|Beschrijving|
+|Element|Type|Description|
 |------------------|----------|-----------|
 |`mediaType`|String|Het MIME-type van het object waarnaar wordt verwezen.|
 |`size`|Int32|Het aantal bytes van de inhoud. Hetzelfde als het veld lengte.|
@@ -61,7 +61,7 @@ Webhook wordt geactiveerd wanneer een containerinstallatiekopie is gepusht naar 
 
 ### <a name="request"></a>Aanvraag
 
-|Element|Type|Beschrijving|
+|Element|Type|Description|
 |------------------|----------|-----------|
 |`id`|String|De ID van de aanvraag die de gebeurtenis heeft gestart.|
 |`host`|String|De extern toegankelijke hostnaam van de registry-exemplaar, zoals opgegeven door de HTTP host-header op binnenkomende aanvragen.|
@@ -164,7 +164,7 @@ Webhook wordt geactiveerd wanneer een opslagplaats voor installatiekopieën of h
 
 ### <a name="delete_target"></a> Doel
 
-|Element|Type|Beschrijving|
+|Element|Type|Description|
 |------------------|----------|-----------|
 |`mediaType`|String|Het MIME-type van het object waarnaar wordt verwezen.|
 |`digest`|String|De samenvatting van de inhoud, zoals gedefinieerd door het register V2 HTTP API-specificatie.|

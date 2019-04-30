@@ -192,7 +192,7 @@ De volgende tabel bevat de runbooks die zijn geïmplementeerd in uw Automation-a
 
 Alle bovenliggende runbooks bevatten de _WhatIf_ parameter. Als de waarde **waar**, _WhatIf_ ondersteunt met gedetailleerde informatie over het exacte probleem moet het runbook worden uitgevoerd wanneer uitvoeren zonder de _WhatIf_ parameter en valideert de juiste virtuele machines worden het doel. Een runbook worden alleen de gedefinieerde acties uitgevoerd wanneer de _WhatIf_ parameter is ingesteld op **False**.
 
-|Runbook | Parameters | Beschrijving|
+|Runbook | Parameters | Description|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Met de naam van het bovenliggende runbook. Dit runbook maakt waarschuwingen op basis van per-resource voor het scenario AutoStop.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: De waarde True of False  | Hiermee of Azure waarschuwingsregels op virtuele machines in de doelgroepen voor abonnement of resourcegroep bijgewerkt. <br> VMList: Door komma's gescheiden lijst met virtuele machines. Bijvoorbeeld, _vm1, vm2, vm3_.<br> *WhatIf* valideert de runbooklogica zonder uit te voeren.|

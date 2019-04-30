@@ -26,7 +26,7 @@ De volgende metrische gegevens zijn beschikbaar in de Azure-portal voor SQL Data
 > [!NOTE]
 > Op dit moment knooppuntniveau CPU- en i/o-metrische gegevens zijn niet correct aan datawarehouse gebruik. Deze metrische gegevens worden in de nabije toekomst verwijderd als het team verbetert de bewaking en probleemoplossing voor SQL Data Warehouse. 
 
-| Naam van meetwaarde                           | Beschrijving     | Aggregatietype |
+| Naam van meetwaarde                           | Description     | Aggregatietype |
 | --------------------------------------- | ---------------- | --------------------------------------- |
 | CPU-percentage                          | CPU-gebruik voor alle knooppunten voor het datawarehouse | Maximum      |
 | Gegevens-I/O-percentage                      | I/o-gebruik voor alle knooppunten voor het datawarehouse | Maximum   |

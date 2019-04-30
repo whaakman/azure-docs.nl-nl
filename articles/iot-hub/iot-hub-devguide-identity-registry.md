@@ -205,7 +205,7 @@ Apparaat-id's worden weergegeven als JSON-documenten met de volgende eigenschapp
 
 Module-id's worden weergegeven als JSON-documenten met de volgende eigenschappen:
 
-| Eigenschap | Opties | Beschrijving |
+| Eigenschap | Opties | Description |
 | --- | --- | --- |
 | deviceId |vereist, alleen-lezen op updates |Een hoofdlettergevoelige tekenreeks (maximaal 128 tekens lang) van ASCII-7-bits alfanumerieke tekens, plus bepaalde speciale tekens: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | moduleId |vereist, alleen-lezen op updates |Een hoofdlettergevoelige tekenreeks (maximaal 128 tekens lang) van ASCII-7-bits alfanumerieke tekens, plus bepaalde speciale tekens: `- . + % _ # * ? ! ( ) , = @ $ '`. |

@@ -30,7 +30,7 @@ U kunt inzoomen op elke categorie om te zien van de aanbevelingen voor de specif
 
 ## <a name="bug-fixes"></a>Opgeloste fouten
 
-| Titel | Beschrijving |
+| Titel | Description |
 |:---|:---|
 | **Mogelijke Query mislukt wanneer het aantal split overschrijdt de maximale limiet** |Wanneer de bovengrens van 1 miljoen bestand-split-limiet wordt overschreden is een onverwerkte uitzondering veroorzaakt de SQL-Engine dump en alle query's is mislukt. Deze oplossing hebben oog voor het probleem met de uitzondering correct verwerken en een fout geretourneerd zonder dat de query's mislukken. |
 | **Verbeterde ExternalMoveReadersPerNode standaardwaarde laden prestaties te verbeteren** |Dit probleem is veroorzaakt door de instelling van de eigenschap ExternalMoveReadersPerNode wordt niet gesynchroniseerd met de service fabric instellen. Deze regressie veroorzaakt een verslechterde Gen2 laadprestaties. De oplossing voorziet in Gen2 laadprestaties binnen geoptimaliseerde ontwerpparameters gebruikt.|

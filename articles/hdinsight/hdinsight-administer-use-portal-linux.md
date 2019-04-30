@@ -10,7 +10,7 @@ ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: 003aeadba1f4683af40f390d40dd3bbe32e02a83
 ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "62096352"
@@ -78,7 +78,7 @@ Selecteer de clusternaam van uw vanaf het [ **HDInsight-clusters** ](#showCluste
 
   - **Bewaking van menu**
 
-    | Item| Beschrijving |
+    | Item| Description |
     |---|---|
     |Waarschuwingen|De waarschuwingen en acties beheren.|
     |Metrische gegevens|Controleer de metrische gegevens voor cluster in Azure Monitor-Logboeken.|

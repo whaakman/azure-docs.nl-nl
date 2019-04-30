@@ -29,7 +29,7 @@ De **az mariadb server firewall-rule** opdracht van de Azure CLI wordt gebruikt 
 Opdrachten:
 - **Maak**: Maak een firewallregel voor Azure MariaDB-server.
 - **Verwijder**: Een Azure MariaDB server firewall-regel verwijderen.
-- **lijst met**: Lijst met de Azure-MariaDB server firewall-regels.
+- **Lijst met**: Lijst met de Azure-MariaDB server firewall-regels.
 - **weergeven**: De details van een Azure-MariaDB-server firewall-regel weergeven.
 - **Update**: Een firewallregel voor Azure MariaDB-server bijwerken.
 

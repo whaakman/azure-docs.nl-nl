@@ -39,7 +39,7 @@ Aanbevelingen voor prestaties worden weergegeven in de tabel die vergelijkbaar i
 
 Aanbevelingen worden gesorteerd op hun mogelijke invloed op de prestaties in de volgende categorieën:
 
-| Impact | Beschrijving |
+| Impact | Description |
 |:--- |:--- |
 | Hoog |Aanbevelingen voor hoge impact moeten de meeste impact prestaties bieden. |
 | Middelgroot |Normale impact aanbevelingen voor moeten de prestaties verbeteren, maar niet aanzienlijk. |

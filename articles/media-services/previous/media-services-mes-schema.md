@@ -28,7 +28,7 @@ Hiermee definieert u een vooraf ingestelde standaardcodering.
 
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **Encoding** |[Encoding](media-services-mes-schema.md#Encoding) |Root-element geeft aan dat de invoerbronnen moeten worden gecodeerd. |
 | **Uitvoer** |[Uitvoer](media-services-mes-schema.md#Output) |Verzameling van gewenste uitvoerbestanden. |
@@ -36,7 +36,7 @@ Hiermee definieert u een vooraf ingestelde standaardcodering.
 
 ### <a name="attributes"></a>Kenmerken
 
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **Versie**<br/><br/> Vereist |**xs: decimaal** |De vooraf ingestelde versie. De volgende beperkingen zijn van toepassing: xs:fractionDigits waarde = "1" en xs:minInclusive value = "1" bijvoorbeeld **versie = "1.0"**. |
 
@@ -45,7 +45,7 @@ Bevat een reeks van de volgende elementen:
 
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **H264Video** |[H264Video](media-services-mes-schema.md#H264Video) |Instellingen voor H.264-codering van video. |
 | **AACAudio** |[AACAudio](media-services-mes-schema.md#AACAudio) |Instellingen voor de AAC-codering van audio. |
@@ -56,7 +56,7 @@ Bevat een reeks van de volgende elementen:
 ## <a name="H264Video"></a> H264Video
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Op dit moment wordt slechts één keer codering ondersteund. |
 | **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Bepaalt de vaste afstand tussen de IDR frames in eenheden van seconden. Als de duur van de GOP ook genoemd. Zie **SceneChangeDetection** voor het beheren van of het coderingsprogramma van deze waarde afwijken kan. |
@@ -67,7 +67,7 @@ Bevat een reeks van de volgende elementen:
 
 ### <a name="attributes"></a>Kenmerken
 
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **voorwaarde** |**xs:String** | Wanneer de invoer geen video heeft, kunt u om af te dwingen van het coderingsprogramma om in te voegen een zwart-wit video bijhouden. Om dit te doen, gebruikt u de voorwaarde = "InsertBlackIfNoVideoBottomLayerOnly" (aan een video op alleen de laagste bitrate invoegen) of een voorwaarde = "InsertBlackIfNoVideo" (uitvoer bitsnelheden helemaal invoegen van een video). Raadpleeg [dit artikel](media-services-advanced-encoding-with-mes.md#no_video) voor meer informatie.|
 
@@ -77,7 +77,7 @@ Als u een invoer voor de codering met alleen audio en geen video, verzendt bevat
               
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **H264Layer**<br/><br/> minOccurs = "0" maxOccurs = "niet-gebonden" |[H264Layer](media-services-mes-schema.md#H264Layer) |Een verzameling van H264 lagen. |
 
@@ -89,7 +89,7 @@ Als u een invoer voor de codering met alleen audio en geen video, verzendt bevat
 
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **Profiel**<br/><br/> minOccurs="0"<br/><br/> standaardwaarde = 'Auto' |**xs: tekenreeks** |Kan worden van een van de volgende **xs: tekenreeks** waarden: **Auto**, **Baseline**, **Main**, **High**. |
 | **Niveau**<br/><br/> minOccurs="0"<br/><br/> standaardwaarde = 'Auto' |**xs: tekenreeks** | |
@@ -124,7 +124,7 @@ Als u een invoer voor de codering met alleen audio en geen video, verzendt bevat
 
 ### <a name="groups"></a>Groepen
 
-| Referentie | Beschrijving |
+| Referentie | Description |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Beschrijving van [AudioGroup](media-services-mes-schema.md#AudioGroup) weten van het juiste aantal kanalen, samplefrequentie en bitsnelheid die kan worden ingesteld voor elk profiel. |
 
@@ -133,7 +133,7 @@ Zie de volgende tabel 'details Audio codec' voor meer informatie over welke waar
 
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **kanalen**<br/><br/> minOccurs="0" |**xs: int** |Het aantal audio kanalen gecodeerd. Hier volgen de geldige opties: 1, 2, 5, 6, 8.<br/><br/> Standaard: 2. |
 | **SamplingRate**<br/><br/> minOccurs="0" |**xs: int** |De samplefrequentie van audio, opgegeven in Hz. |
@@ -150,7 +150,7 @@ Audio Codec|Details
 ## <a name="Clip"></a> Clip
 ### <a name="attributes"></a>Kenmerken
 
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **startTime** |**xs:duration** |Hiermee geeft u de begintijd van de presentatie. De waarde van de starttijd moet overeenkomen met de absolute tijdstempel van de invoervideo. Bijvoorbeeld, als het eerste frame van de invoervideo een tijdstempel van 12:00:10.000 heeft, klikt u vervolgens StartTime moet ten minste 12:00:10.000 of hoger. |
 | **Duur** |**xs:duration** |Hiermee geeft u de duur van een presentatie (bijvoorbeeld de weergave van een overlay in de video). |
@@ -158,7 +158,7 @@ Audio Codec|Details
 ## <a name="Output"></a> Uitvoer
 ### <a name="attributes"></a>Kenmerken
 
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **FileName** |**xs:String** |De naam van het uitvoerbestand.<br/><br/> Macro's die worden beschreven in de volgende tabel kunt u de namen van de uitvoer te bouwen. Bijvoorbeeld:<br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"}}]** |
 
@@ -203,7 +203,7 @@ U kunt ook kunt u het gebruik van de **PreserveResolutionAfterRotation** markere
 ## <a name="FormatGroup"></a> FormatGroup (groep)
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **BmpFormat** |**BmpFormat** | |
 | **PngFormat** |**PngFormat** | |
@@ -233,14 +233,14 @@ U kunt ook kunt u het gebruik van de **PreserveResolutionAfterRotation** markere
 
 ### <a name="attributes"></a>Kenmerken
 
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **voorwaarde** |**xs:String** | |
 
 ## <a name="JpgLayer"></a> JpgLayer
 ### <a name="element"></a>Element
 
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **Breedte**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Hoogte**<br/><br/> minOccurs="0" |**xs:int** | |
@@ -276,21 +276,21 @@ U kunt ook kunt u het gebruik van de **PreserveResolutionAfterRotation** markere
 ## <a name="BmpImage"></a> BmpImage (complex type overneemt van de Video)
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |PNG-lagen |
 
 ## <a name="JpgImage"></a> JpgImage (complex type overneemt van de Video)
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |PNG-lagen |
 
 ## <a name="PngImage"></a> PngImage (complex type overneemt van de Video)
 ### <a name="elements"></a>Elementen
 
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |PNG-lagen |
 

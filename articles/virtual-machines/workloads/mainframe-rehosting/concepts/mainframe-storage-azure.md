@@ -51,7 +51,7 @@ Azure storage is beschikbaar als [Azure Disks](/azure/virtual-machines/windows/m
 
 <table>
 <thead>
-    <tr><th>Type</th><th>Beschrijving</th><th>Gebruik deze wanneer u het volgende wilt doen:</th></tr>
+    <tr><th>Type</th><th>Description</th><th>Gebruik deze wanneer u het volgende wilt doen:</th></tr>
 </thead>
 <tbody>
 <tr><td>Azure Files

@@ -83,7 +83,7 @@ Als **Ack** is **volledige**, en u niet een feedbackbericht ontvangt, betekent d
 
 Zoals uitgelegd in [eindpunten](iot-hub-devguide-endpoints.md), IoT-Hub biedt feedback via een gerichte service-eindpunt (**/messages/servicebound/feedback**) als berichten. De semantiek voor het ontvangen van feedback zijn dezelfde als die voor cloud-naar-apparaat-berichten. Indien mogelijk, batch bericht feedback wordt verwerkt in een enkel bericht met de volgende indeling:
 
-| Eigenschap     | Beschrijving |
+| Eigenschap     | Description |
 | ------------ | ----------- |
 | EnqueuedTime | De tijdstempel die aangeeft wanneer de Feedbackbericht is ontvangen door de hub. |
 | UserId       | `{iot hub name}` |
@@ -125,7 +125,7 @@ Het volgende voorbeeld ziet de hoofdtekst van een feedbackbericht.
 
 Elke IoT hub bevat de volgende configuratieopties voor cloud-naar-apparaat-berichten:
 
-| Eigenschap                  | Beschrijving | Bereik en de standaard |
+| Eigenschap                  | Description | Bereik en de standaard |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | Standaard-TTL voor cloud-naar-apparaat-berichten. | Interval voor ISO_8601 maximaal 2D (minimaal 1 minuut). Standaard: 1 uur. |
 | maxDeliveryCount          | Maximumaantal leveringen voor cloud-naar-apparaat per apparaat wachtrijen. | 1 tot en met 100. Standaard: 10. |

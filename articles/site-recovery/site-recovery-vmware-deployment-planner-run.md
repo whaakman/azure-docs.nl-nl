@@ -145,7 +145,7 @@ Nadat de profilering is voltooid, kunt u het hulpprogramma uitvoeren in de modus
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|Parameternaam | Beschrijving |
+|Parameternaam | Description |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  De FQDN-naam of het IP-adres van de vCenter- of vSphere-server (gebruik dezelfde naam of hetzelfde IP-adres als op het moment van profilering) waar de geprofileerde virtuele machines zich bevinden waarvan een rapport wordt gegenereerd. Let op: als u ten tijde van de profilering een vCenter-server hebt gebruikt, kunt u geen vSphere-server gebruiken voor het genereren van rapporten en omgekeerd.|

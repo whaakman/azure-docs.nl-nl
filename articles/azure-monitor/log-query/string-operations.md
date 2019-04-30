@@ -49,7 +49,7 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>Tekenreeksvergelijkingen
 
-Operator       |Beschrijving                         |Hoofdlettergevoelig|Voorbeeld (levert `true`)
+Operator       |Description                         |Hoofdlettergevoelig|Voorbeeld (levert `true`)
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |Is gelijk aan                              |Ja           |`"aBc" == "aBc"`
 `!=`           |Niet gelijk aan                          |Ja           |`"abc" != "ABC"`

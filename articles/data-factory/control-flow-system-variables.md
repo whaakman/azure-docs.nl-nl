@@ -14,7 +14,7 @@ ms.date: 06/12/2018
 ms.author: shlo
 ms.openlocfilehash: 9a4d5acfe16a2fdbb3b631cb8baf6cb8e90a7d58
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60935701"
@@ -25,7 +25,7 @@ Dit artikel beschrijft de systeemvariabelen ondersteund door Azure Data Factory.
 ## <a name="pipeline-scope"></a>Bereik van de pijplijn
 Deze systeemvariabelen kunnen overal worden verwezen in de pijplijn-JSON.
 
-| De naam van variabele | Beschrijving |
+| De naam van variabele | Description |
 | --- | --- |
 | @pipeline().DataFactory |Naam van de data factory de pijplijnuitvoering wordt uitgevoerd binnen |
 | @pipeline().Pipeline |Naam van de pijplijn |

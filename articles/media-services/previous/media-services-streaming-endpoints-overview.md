@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c5979fa7ff67c5acda9ab653bc4ee52d8b5129a5
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293801"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60544948"
 ---
 # <a name="streaming-endpoints-overview"></a>Overzicht van streaming eindpunten  
 
@@ -46,7 +46,7 @@ Voor elke extra eindpunten: `{EndpointName}-{AccountName}.streaming.mediaservice
 
 ### <a name="standardpremium-types-version-20"></a>Standard/Premium-typen (versie 2.0)
 
-Beginnen met de release van januari 2017 van Media Services, hebt u twee streaming typen: **Standard** en **Premium**. Deze typen zijn onderdeel van de Streaming-eindpunt versie '2.0'.
+Beginnen met de release van januari 2017 van Media Services, hebt u twee streaming typen: **Standard** en Premium. Deze typen zijn onderdeel van de Streaming-eindpunt versie '2.0'.
 
 Type|Description
 ---|---

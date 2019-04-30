@@ -9,11 +9,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
 ms.openlocfilehash: eb6b23d8f8c476ba41bea918456fdf7fb9782920
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541129"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422141"
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Python gebruiken om verbinding te maken met gegevens en er query's op uit te voeren
 In deze snelstartgids ziet u hoe u met behulp van [Python](https://python.org) verbinding maakt met Azure Database PostgreSQL. U kunt ook zien hoe SQL-instructies worden gebruikt om gegevens in te voegen, bij te werken, te verwijderen en er query's op uit te voeren in de database vanaf Mac OS-, Ubuntu Linux- en Windows-platforms. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Python en geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
@@ -63,7 +63,7 @@ Dit artikel bevat in totaal vier codevoorbeelden. Met elk van deze codes kan een
 -  Typ de Python-opdracht, gevolgd door de bestandsnaam (bijvoorbeeld `Python postgres.py`) om de code uit te voeren.
 
 > [!NOTE]
-> Vanaf versie 3 van Python ziet u mogelijk de fout `SyntaxError: Missing parentheses in call to 'print'` wanneer de volgende codeblokken worden uitgevoerd: Als dat gebeurt, vervangt u elke aanroep van de opdracht `print "string"` door een functieaanroep met haakjes, zoals `print("string")`.
+> Vanaf versie 3 van Python ziet u mogelijk de fout `SyntaxError: Missing parentheses in call to 'print'` wanneer de volgende codeblokken worden uitgevoerd: Als dat gebeurt, vervangt u elke aanroep van de opdracht  door een functieaanroep met haakjes, zoals `print("string")`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Verbinden, tabel maken en gegevens invoegen
 Gebruik de volgende code om verbinding te maken en de gegevens te laden met de functie [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) met een SQL-instructie **INSERT**. De functie [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) wordt gebruikt om de SQL-query uit te voeren op de PostgreSQL-database. Vervang de parameters host, dbname, user en password door de waarden die u hebt opgegeven tijdens het maken van de server en database.

@@ -64,7 +64,7 @@ Verzameling van invoer/transcoderen, die is verwerkt om te kunnen deze AssetFile
 U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="child-elements"></a>Onderliggende elementen
-| Name | Beschrijving |
+| Name | Description |
 | --- | --- |
 | **Bron**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Een invoer/bronbestand dat wordt gebruikt bij het genereren van deze asset. Zie voor meer informatie, bron-element. |
 
@@ -116,7 +116,7 @@ Elke fysieke AssetFile kan nul of meer audionummers interleaved in een indeling 
 U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="child-elements"></a>Onderliggende elementen
-| Name | Beschrijving |
+| Name | Description |
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Een specifieke audiotrack in de bovenliggende AssetFile. Zie voor meer informatie, AudioTrack element. |
 
@@ -126,7 +126,7 @@ Een specifieke audiotrack in de bovenliggende AssetFile.
 U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="attributes"></a>Kenmerken
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Vereist |**xs:int** |Op nul gebaseerde index van deze audiotrack. **Opmerking:**  Dit is niet noodzakelijkerwijs de TrackID zoals gebruikt in een MP4-bestand. |
 | **Codec** |**xs:String** |Audiotrack codec tekenreeks. |
@@ -137,7 +137,7 @@ U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).
 | **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> Vereist |**xs:int** |Bits per voorbeeld voor de indeling wFormatTag typt. |
 
 ### <a name="child-elements"></a>Onderliggende elementen
-| Name | Beschrijving |
+| Name | Description |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Volume softwarelicentiecontrole resultaat parameters. Zie voor meer informatie, LoudnessMeteringResultParameters-element. |
 
@@ -147,7 +147,7 @@ Volume softwarelicentiecontrole resultaat parameters.
 U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="attributes"></a>Kenmerken
-| Name | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:String** |**Dolby** professionele volume softwarelicentiecontrole development kitversie. |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Vereist |**xs:int** |DialogNormalization die worden gegenereerd via DPLM, vereist wanneer LoudnessMetering is ingesteld |

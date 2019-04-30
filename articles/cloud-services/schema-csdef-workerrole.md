@@ -149,7 +149,7 @@ De `WorkerRole` element beschrijft een rol die is handig voor het ontwikkelen va
 
 De volgende tabel beschrijft de kenmerken van de `WorkerRole` element.
 
-| Kenmerk | Type | Beschrijving |
+| Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
 |naam|string|Vereist. De naam voor de werkrol. De naam van de rol moet uniek zijn.|
 |enableNativeCodeExecution|booleaans|Optioneel. De standaardwaarde is `true`; systeemeigen uitvoering van code en volledig vertrouwen zijn standaard ingeschakeld. Dit kenmerk instelt op `false` systeemeigen code uitvoeren voor de werkrol uitschakelen, en gebruik in plaats daarvan Azure gedeeltelijk vertrouwen.|
@@ -163,7 +163,7 @@ De `Setting` -element een naam en waarde-paar dat Hiermee geeft u een configurat
 
 De volgende tabel beschrijft de kenmerken van de `Setting` element.
 
-| Kenmerk | Type | Beschrijving |
+| Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
 |naam|string|Vereist. Een unieke naam voor de configuratie-instelling.|
 
@@ -203,7 +203,7 @@ U kunt meerdere eindpunten die zijn een combinatie van HTTP, HTTPS, UDP en TCP-e
 
 De volgende tabel beschrijft de kenmerken van de `InputEndpoint` element.
 
-| Kenmerk | Type | Beschrijving |
+| Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
 |naam|string|Vereist. Een unieke naam voor het externe eindpunt.|
 |protocol|string|Vereist. Het transportprotocol voor het externe eindpunt. Mogelijke waarden zijn voor een werkrol `HTTP`, `HTTPS`, `UDP`, of `TCP`.|
@@ -249,7 +249,7 @@ De `FixedPort` element is alleen beschikbaar via de Azure SDK-versie 1.3 of hoge
 
 De volgende tabel beschrijft de kenmerken van de `FixedPort` element.
 
-| Kenmerk | Type | Beschrijving |
+| Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
 |poort|int|Vereist. De poort voor het interne eindpunt. Dit heeft hetzelfde effect als de instelling de `FixedPortRange` min en max op dezelfde poort.<br /><br /> Mogelijke waarden liggen tussen 1 en 65535, inclusief (Azure SDK versie 1.7 of hoger).|
 
@@ -263,7 +263,7 @@ De `FixedPortRange` element is alleen beschikbaar via de Azure SDK-versie 1.3 of
 
 De volgende tabel beschrijft de kenmerken van de `FixedPortRange` element.
 
-| Kenmerk | Type | Beschrijving |
+| Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
 |min.|int|Vereist. De minimale poort in het bereik. Mogelijke waarden liggen tussen 1 en 65535, inclusief (Azure SDK versie 1.7 of hoger).|
 |max|string|Vereist. De maximale poort in het bereik. Mogelijke waarden liggen tussen 1 en 65535, inclusief (Azure SDK versie 1.7 of hoger).|
@@ -276,7 +276,7 @@ De `Certificate` -element een certificaat dat is gekoppeld aan een werkrol worde
 
 De volgende tabel beschrijft de kenmerken van de `Certificate` element.
 
-| Kenmerk | Type | Beschrijving |
+| Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
 |naam|string|Vereist. Een naam op voor dit certificaat, dat wordt gebruikt om te verwijzen naar deze wanneer deze gekoppeld aan een HTTPS is `InputEndpoint` element.|
 |storeLocation|string|Vereist. De locatie van het certificaatarchief waar dit certificaat kan worden gevonden op de lokale computer. Mogelijke waarden zijn `CurrentUser` en `LocalMachine`.|
@@ -295,7 +295,7 @@ De `Import` element is alleen beschikbaar via de Azure SDK-versie 1.3 of hoger.
 
 De volgende tabel beschrijft de kenmerken van de `Import` element.
 
-| Kenmerk | Type | Beschrijving |
+| Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
 |moduleName|string|Vereist. De naam van de module te importeren. Geldige import-modules zijn:<br /><br /> -   RemoteAccess<br />-RemoteForwarder<br />-Diagnostics<br /><br /> De modules RemoteAccess en RemoteForwarder kunnen u uw rolinstantie voor verbindingen met extern bureaublad configureren. Zie voor meer informatie [verbinding met extern bureaublad inschakelen](cloud-services-role-enable-remote-desktop-new-portal.md).<br /><br /> De module voor diagnostische gegevens kunt u voor het verzamelen van diagnostische gegevens voor een rolinstantie|
 
@@ -320,7 +320,7 @@ De `Variable` element is alleen beschikbaar via de Azure SDK-versie 1.3 of hoger
 
 De volgende tabel beschrijft de kenmerken van de `Variable` element:
 
-| Kenmerk | Type | Beschrijving |
+| Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
 |naam|string|Vereist. De naam van de omgevingsvariabele om in te stellen.|
 |value|string|Optioneel. De waarde om in te stellen voor de omgevingsvariabele. U moet een waardekenmerk bevatten of een `RoleInstanceValue` element.|
@@ -360,7 +360,7 @@ De `ProgramEntryPoint` element Hiermee geeft u het programma voor een rol uit te
 
 De volgende tabel beschrijft de kenmerken van de `ProgramEntryPoint` element.
 
-| Kenmerk | Type | Beschrijving |
+| Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
 |Opdrachtregel|string|Vereist. Het pad, bestandsnaam en opdrachtregelargumenten op van het programma uit te voeren. Het pad is ten opzichte van de map **%ROLEROOT%\Approot** (Geef geen **%ROLEROOT%\Approot** in de opdrachtregel, wordt ervan uitgegaan). **% ROLEROOT** wordt een omgevingsvariabele onderhouden door Azure en staat voor de locatie van de basismap voor uw rol. De **%ROLEROOT%\Approot** map vertegenwoordigt de map voor uw rol.<br /><br /> Als het programma wordt beëindigd, wordt de rol gerecycled, dus meestal het programma om door te gaan om uit te voeren, in plaats van een programma dat alleen wordt gestart en wordt uitgevoerd een eindige taak instellen.|
 |setReadyOnProcessStart|booleaans|Vereist. Hiermee geeft u op of de rolinstantie wacht tot het programma vanaf de opdrachtregel om aan te geven dat deze is gestart. Deze waarde moet worden ingesteld op `true` op dit moment. Als de waarde instelt op `false` is gereserveerd voor toekomstig gebruik.|
@@ -370,7 +370,7 @@ De `Startup` -element worden beschreven van een verzameling taken die worden uit
 
 De volgende tabel beschrijft het kenmerk van de `Startup` element.
 
-| Kenmerk | Type | Beschrijving |
+| Kenmerk | Type | Description |
 | --------- | ---- | ----------- |
 |priority|int|Alleen voor intern gebruik.|
 

@@ -15,7 +15,7 @@ ms.date: 04/02/2019
 ms.author: bwren
 ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60931754"
@@ -56,7 +56,7 @@ Voor het gebruik van de API HTTP Data Collector, maakt u een POST-aanvraag met d
 | API-versie |De versie van de API voor gebruik met deze aanvraag. Het is momenteel, 2016-04-01. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
-| Header | Beschrijving |
+| Header | Description |
 |:--- |:--- |
 | Autorisatie |De autorisatie-handtekening. Later in dit artikel, kunt u lezen over het maken van een HMAC-SHA256-header. |
 | Log-Type |Geef het recordtype van de gegevens die wordt verzonden. De maximale grootte voor deze parameter is 100 tekens. |
@@ -187,7 +187,7 @@ De HTTP-statuscode 200 betekent dat de aanvraag is ontvangen voor verwerking. Hi
 
 Deze tabel bevat de volledige reeks statuscodes die de service kan worden geretourneerd:
 
-| Code | Status | Foutcode | Beschrijving |
+| Code | Status | Foutcode | Description |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |De aanvraag is geaccepteerd. |
 | 400 |Ongeldig verzoek |InactiveCustomer |De werkruimte is gesloten. |
