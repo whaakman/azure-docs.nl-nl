@@ -40,7 +40,7 @@ U hebt beheerdersbevoegdheden nodig om het installatie- en configuratieproces ui
 ## <a name="deployment-steps"></a>Implementatiestappen
 Voer de volgende verplichte stappen uit om uw StorSimple-apparaat te configureren en te verbinden met uw StorSimple-apparaatbeheerfunctie. Naast de verplichte stappen zijn er nog optionele stappen en procedures die u tijdens de implementatie misschien nodig hebt. In de stapsgewijze implementatie-instructies wordt aangeven wanneer u deze optionele stappen moet uitvoeren.
 
-| Stap | Beschrijving |
+| Stap | Description |
 | --- | --- |
 | **VEREISTEN** |Deze moeten zijn worden voltooid ter voorbereiding van de implementatie. |
 | [Configuratiecontrolelijst voor implementatie](#deployment-configuration-checklist) |Gebruik deze controlelijst om informatie te verzamelen en te registreren voorafgaand aan en tijdens de implementatie. |

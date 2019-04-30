@@ -143,7 +143,7 @@ Azure maakt gebruik van de volgende instellingen om te maken van de opslaggroep 
 
 De volgende tabel beschrijft de drie werkbelasting opties beschikbaar en hun bijbehorende optimalisatie:
 
-| Type werkbelasting | Beschrijving | Optimalisaties |
+| Type werkbelasting | Description | Optimalisaties |
 | --- | --- | --- |
 | **Algemeen** |Standaardinstelling die ondersteuning biedt voor de meeste workloads |Geen |
 | **Transactieverwerking** |Wordt de opslag voor OLTP-workloads van traditionele databases geoptimaliseerd |Traceringsvlag 1117<br/>Traceringsvlag 1118 |

@@ -87,7 +87,7 @@ Elke waarde content_key_specs moet worden opgegeven voor alle sporen te wissen, 
 | content_key_specs.key_id |Binary base64-gecodeerde tekenreeks, 16 bytes |De unieke id voor de sleutel. |
 
 ## <a name="policy-overrides"></a>Beleid negeren
-| Name | Value | Beschrijving |
+| Name | Value | Description |
 | --- | --- | --- |
 | policy_overrides&#46;can_play |Booleaanse waarde, true of false |Geeft aan dat het afspelen van de inhoud is toegestaan. De standaardinstelling is onwaar. |
 | policy_overrides&#46;can_persist |Booleaanse waarde, true of false |Geeft aan dat de licentie kan worden vastgehouden naar permanente opslag voor offlinegebruik. De standaardinstelling is onwaar. |
@@ -102,7 +102,7 @@ Elke waarde content_key_specs moet worden opgegeven voor alle sporen te wissen, 
 | policy_overrides&#46;renew_with_usage |Booleaanse waarde, true of false |Geeft aan dat de licentie voor vernieuwing wordt verzonden wanneer gebruik wordt gestart. Dit veld wordt alleen gebruikt als can_renew ingesteld op true is. |
 
 ## <a name="session-initialization"></a>De initialisatie-sessie
-| Name | Value | Beschrijving |
+| Name | Value | Description |
 | --- | --- | --- |
 | provider_session_token |Base64-gecodeerde tekenreeks |Dit sessietoken wordt doorgegeven in de licentie en bestaat in de volgende vernieuwing. Het sessietoken persistent niet dan sessies. |
 | provider_client_token |Base64-gecodeerde tekenreeks |Het clienttoken verzenden terug in het antwoord van de licentie. Als de licentieaanvraag een clienttoken bevat, wordt deze waarde wordt genegeerd. Het clienttoken zich blijft voordoen na licentie-sessies. |

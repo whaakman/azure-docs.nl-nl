@@ -40,7 +40,7 @@ Als u de zelfstudies doorlopen en met de app werken, zich richten op de SaaS-pat
 Nadat u de app hebt geïmplementeerd, bekijk de volgende zelfstudies die op de eerste implementatie voortbouwen. Deze zelfstudies verkennen veelvoorkomende SaaS-patronen die van ingebouwde functies van SQL Database, Azure SQL Data Warehouse en andere Azure-services gebruikmaken. Zelfstudies zijn PowerShell-scripts met gedetailleerde uitleg. De uitleg vereenvoudigen begrijpen en de implementatie van de dezelfde SaaS-beheerpatronen in uw toepassingen.
 
 
-| Zelfstudie | Beschrijving |
+| Zelfstudie | Description |
 |:--|:--|
 | [Richtlijnen en tips voor het SQL-Database multitenant SaaS-app-voorbeeld](saas-tenancy-wingtip-app-guidance-tips.md) | Downloaden en uitvoeren van PowerShell-scripts om voor te bereiden van onderdelen van de toepassing. |
 |[De Wingtip SaaS-toepassing implementeren en verkennen](saas-dbpertenant-get-started-deploy.md)|  Implementeren en verkennen van de Wingtip SaaS-toepassing met uw Azure-abonnement. |

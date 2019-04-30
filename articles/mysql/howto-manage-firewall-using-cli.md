@@ -29,7 +29,7 @@ De **az mysql server firewall-rule** opdracht van de Azure CLI wordt gebruikt vo
 Opdrachten:
 - **Maak**: Maak een Azure MySQL server firewall-regel.
 - **Verwijder**: Een Azure MySQL server firewall-regel verwijderen.
-- **lijst met**: Lijst met de Azure MySQL server firewall-regels.
+- **Lijst met**: Lijst met de Azure MySQL server firewall-regels.
 - **weergeven**: De details van een Azure MySQL server firewall-regel weergeven.
 - **Update**: Een firewallregel voor Azure MySQL-server bijwerken.
 

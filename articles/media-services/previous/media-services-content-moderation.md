@@ -44,7 +44,7 @@ De JSON-uitvoer bevat de volgende elementen:
 
 ### <a name="root-json-elements"></a>Hoofdmap JSON-elementen
 
-| Element | Beschrijving |
+| Element | Description |
 | --- | --- |
 | versie |De versie van de Content Moderator. |
 | tijdschaal |'Tikken"per seconde van de video. |

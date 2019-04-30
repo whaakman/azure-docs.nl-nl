@@ -420,7 +420,7 @@ Deze systeemweergaven bevatten informatie over statistieken:
 
 Deze systeemfuncties zijn nuttig voor het werken met statistieken:
 
-| Systeemfunctie | Beschrijving |
+| Systeemfunctie | Description |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |De datum is die het object statistieken voor het laatst is bijgewerkt. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Samenvatting niveau en gedetailleerde informatie over de distributie van waarden zoals begrepen door het object statistieken. |

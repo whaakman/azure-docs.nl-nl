@@ -10,7 +10,7 @@ ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: 09a5a6d823240b724e6ec88de38df068a58982d9
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61483499"
@@ -86,7 +86,7 @@ Zie voor meer informatie over het aanbieden van blobs programmatisch [Blobbronne
 
  De volgende tabel beschrijft elke kenmerk in de naam van het logboek:
 
-|Kenmerk|Beschrijving|
+|Kenmerk|Description|
 |---------------|-----------------|
 |`<service-name>`|De naam van de storage-service. Bijvoorbeeld: `blob`, `table`, of `queue`|
 |`YYYY`|Het jaar in vier cijfers voor het logboek. Bijvoorbeeld: `2011`|
@@ -110,7 +110,7 @@ Zie voor meer informatie over het aanbieden van blobs programmatisch [Blobbronne
 
  Alle logboekbestanden blobs worden opgeslagen met metagegevens die kan worden gebruikt om te identificeren welke logboekgegevens bevat van de blob. De volgende tabel beschrijft elke metagegevenskenmerk:
 
-|Kenmerk|Beschrijving|
+|Kenmerk|Description|
 |---------------|-----------------|
 |`LogType`|Hierin wordt beschreven of het logboek informatie over als u wilt lezen bevat, schrijven of verwijderen van bewerkingen. Deze waarde kan een type of een combinatie van alle drie, gescheiden door komma's bevatten.<br /><br /> Voorbeeld 1: `write`<br /><br /> Voorbeeld 2: `read,write`<br /><br /> Voorbeeld 3: `read,write,delete`|
 |`StartTime`|De vroegste tijd van een vermelding in het logboek, in de vorm van `YYYY-MM-DDThh:mm:ssZ`. Bijvoorbeeld: `2011-07-31T18:21:46Z`|

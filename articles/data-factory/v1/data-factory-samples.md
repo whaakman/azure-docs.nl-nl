@@ -48,7 +48,7 @@ De [GitHub Azure-Data Factory-opslagplaats](https://github.com/azure/azure-dataf
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen
 U vindt de volgende Azure Resource Manager-sjablonen voor Data Factory op GitHub.
 
-| Template | Beschrijving |
+| Template | Description |
 | --- | --- |
 | [Kopiëren van Azure Blob Storage naar Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Implementeren van deze sjabloon maakt u een Azure-gegevensfactory met een pijplijn waarmee gegevens uit de opgegeven Azure-blobopslag worden gekopieerd naar de Azure SQL database |
 | [Kopiëren van Salesforce worden naar Azure Blob-opslag](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Implementeren van deze sjabloon maakt u een Azure-gegevensfactory met een pijplijn waarmee gegevens uit de opgegeven Salesforce-account gekopieerd naar de Azure blob-opslag. |

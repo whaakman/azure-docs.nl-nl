@@ -193,7 +193,7 @@ De volgende tabel bevat de statuscodes voor het verwerken van een blob.
 ## <a name="import-disposition-status-codes"></a>Statuscodes toestand importeren  
 De volgende tabel bevat de statuscodes voor het oplossen van een toestand importeren.  
   
-|Statuscode|Beschrijving|  
+|Statuscode|Description|  
 |-----------------|-----------------|  
 |`Created`|De blob is gemaakt.|  
 |`Renamed`|De blob is per naam importeren toestand gewijzigd. De `Blob/BlobPath` element bevat de URI voor de nieuwe naam van de blob.|  

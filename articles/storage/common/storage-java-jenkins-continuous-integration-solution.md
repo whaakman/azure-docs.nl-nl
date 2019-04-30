@@ -129,7 +129,7 @@ Nadat u een build uitvoert, kunt u het console-uitvoer van de build-geschiedenis
 Deze sectie bevat een overzicht van de onderdelen van de Blob-service.
 
 * **Storage-Account**: Alle toegang tot Azure Storage vindt plaats via een opslagaccount. Een storage-account is het hoogste niveau van de naamruimte voor toegang tot blobs. Een account kan een onbeperkt aantal containers bevatten, zolang de totale grootte onder 100 TB is.
-* **Container**: Een container is een groepering van een reeks blobs. Alle blobs moeten zich in een container bevinden. Een account kan een onbeperkt aantal containers bevatten. Een container kan een onbeperkt aantal blobs bevatten.
+* **container**: Een container is een groepering van een reeks blobs. Alle blobs moeten zich in een container bevinden. Een account kan een onbeperkt aantal containers bevatten. Een container kan een onbeperkt aantal blobs bevatten.
 * **BLOB**: Een bestand van willekeurig type en grootte. Er zijn twee typen die kunnen worden opgeslagen in Azure Storage-blobs: blok- en pagina-blobs. De meeste bestanden zijn blok-blobs. Eén blok-blob kan maximaal 200 GB groot zijn. In deze zelfstudie maakt gebruik van blok-blobs. Pagina-blobs, een ander blobtype, kunnen tot 1 TB in grootte, en zijn efficiënter zijn bij het bereiken van de bytes in een bestand regelmatig worden gewijzigd. Zie voor meer informatie over blobs [blok-Blobs, toevoeg-Blobs en pagina-Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **URL-indeling**: BLOBs kunnen worden opgevraagd met de volgende URL-indeling:
   
@@ -146,7 +146,7 @@ Deze sectie bevat een overzicht van de onderdelen van de Blob-service.
 Als u problemen ondervindt met de Jenkins-invoegtoepassingen, kunt u in [Jenkins JIRA](https://issues.jenkins-ci.org/) een ticket openen voor het specifieke onderdeel.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Meet Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
+* [Voldoen aan Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 * [Azure Storage SDK voor Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage Client SDK-referentie](http://dl.windowsazure.com/storage/javadoc/)
 * [REST-API voor Azure Storage-services](https://msdn.microsoft.com/library/azure/dd179355.aspx)

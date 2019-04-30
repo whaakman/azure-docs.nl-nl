@@ -29,7 +29,7 @@ Hieronder is een architectuur op hoog niveau en IIS Smooth Streaming Porting Kit
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>Beschrijving
+## <a name="description"></a>Description
 SSPK wordt gelicentieerd op termen die uitstekende bedrijfswaarde bieden. SSPK licentie biedt de bedrijfstak met:
 
 * Smooth Streaming Porting Kit-bron in C++ 

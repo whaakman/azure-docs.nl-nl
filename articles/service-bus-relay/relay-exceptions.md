@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: 0fe30fe95e77adceaa5013f89206b08daf2a58a2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: fe8f057443b978e70e7cdd2591affd455fefdca8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702092"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749033"
 ---
 # <a name="azure-relay-exceptions"></a>Azure Relay-uitzonderingen
 
@@ -29,18 +29,18 @@ Dit artikel worden enkele uitzonderingen die mogelijk worden gegenereerd door de
 
 De Relay-API's genereren uitzonderingen die mogelijk kunnen worden onderverdeeld in de volgende categorieën. Ook vermeld zijn voorgestelde acties die u nemen kunt om u te helpen bij het oplossen van de uitzonderingen.
 
-*   **Fout met de code gebruiker**: [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). 
+*   **Fout met de code gebruiker**: System.ArgumentException, [System.InvalidOperationException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). 
 
-    **Algemene actie**: probeert op te lossen van de code voordat u doorgaat.
+    **Algemene actie**: Probeer om de code voordat u doorgaat.
 *   **Fout bij installatie/configuratie**: [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 
 
-    **Algemene actie**: de configuratie controleren. Indien nodig, de configuratie wijzigen.
-*   **Tijdelijke uitzonderingen**: [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [ Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
+    **Algemene actie**: Controleer uw configuratie. Indien nodig, de configuratie wijzigen.
+*   **Tijdelijke uitzonderingen**: [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
 
     **Algemene actie**: Voer de bewerking opnieuw uit of gebruikers een melding ontvangen.
 *   **Andere uitzonderingen**: [System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx). 
 
-    **Algemene actie**: specifiek zijn voor het uitzonderingstype. Zie de tabel in de volgende sectie. 
+    **Algemene actie**: Die specifiek zijn voor het uitzonderingstype. Zie de tabel in de volgende sectie. 
 
 ## <a name="exception-types"></a>Uitzonderingstypen
 

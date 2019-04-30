@@ -33,7 +33,7 @@ Blob-opslaggebeurtenissen zijn beschikbaar in v2-opslagaccounts en Blob-opslagac
 ## <a name="available-blob-storage-events"></a>Beschikbare gebeurtenissen van Blob storage
 Maakt gebruik van Event grid [gebeurtenisabonnementen](../../event-grid/concepts.md#event-subscriptions) gebeurtenis om berichten te routeren voor abonnees.  Gebeurtenisabonnementen voor BLOB-opslag kunnen twee soorten gebeurtenissen omvatten:  
 
-> |Naam van de gebeurtenis|Beschrijving|
+> |Naam van de gebeurtenis|Description|
 > |----------|-----------|
 > |`Microsoft.Storage.BlobCreated`|Geactiveerd wanneer een blob wordt gemaakt of vervangen door de `PutBlob`, `PutBlockList`, of `CopyBlob` bewerkingen|
 > |`Microsoft.Storage.BlobDeleted`|Geactiveerd wanneer een blob wordt verwijderd via een `DeleteBlob` bewerking|

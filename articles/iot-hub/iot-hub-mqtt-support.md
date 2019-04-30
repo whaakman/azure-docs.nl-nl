@@ -244,7 +244,7 @@ De antwoordtekst bevat de sectie met eigenschappen van het dubbele apparaat, zoa
 
 De mogelijke waarden zijn:
 
-|Status | Beschrijving |
+|Status | Description |
 | ----- | ----------- |
 | 204 | Geslaagd (geen inhoud wordt geretourneerd) |
 | 429 | Te veel aanvragen (beperkt), als per [IoT-Hub beperking](iot-hub-devguide-quotas-throttling.md) |

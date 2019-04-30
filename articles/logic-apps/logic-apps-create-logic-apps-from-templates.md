@@ -23,7 +23,7 @@ Logic Apps biedt om u snel werkstromen maken, sjablonen, die zijn vooraf gemaakt
 
 Hier volgen enkele Sjablooncategorieën:
 
-| Het sjabloontype | Beschrijving | 
+| Het sjabloontype | Description | 
 | ------------- | ----------- | 
 | Sjablonen van Enterprise cloud | Voor het integreren van Azure Blob-, Dynamics CRM, Salesforce, Box, en andere connectors bevat voor de cloud voor ondernemingen. Bijvoorbeeld, kunt u deze sjablonen kunt organiseren zakelijke potentiële klanten of back-up van uw zakelijke bestandsgegevens. | 
 | Hun eigen sjablonen | De persoonlijke productiviteit te verbeteren door in te stellen van dagelijkse herinneringen ontvangen, schakelen belangrijk werkitems in takenlijsten en automatisering van langdurige taken op een enkele gebruiker goedkeuringsstap. | 

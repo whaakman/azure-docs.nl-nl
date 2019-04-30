@@ -21,7 +21,7 @@ Microsoft Azure biedt verschillende functies in Azure Storage voor het opslaan e
 ## <a name="scenarios"></a>Scenario's
 De volgende tabel vergelijkt de bestanden, Blobs en schijven en ziet u geschikt is voor elk scenario's met voorbeelden.
 
-| Functie | Beschrijving | Wanneer gebruikt u dit? |
+| Functie | Description | Wanneer gebruikt u dit? |
 |--------------|-------------|-------------|
 | **Azure Files** | Voorziet in een SMB-interface, clientbibliotheken, en een [REST-interface](/rest/api/storageservices/file-service-rest-api) waarmee toegang vanaf elke locatie opgeslagen bestanden. | U wilt 'lift and shift' een toepassing in de cloud die al gebruikmaken van de systeemeigen bestandssysteem-API's voor het delen van gegevens tussen deze en andere toepassingen die worden uitgevoerd in Azure.<br/><br/>U wilt opslaan van de ontwikkeling en foutopsporing van hulpprogramma's die moeten worden geopend via een groot aantal virtuele machines. |
 | **Azure Blobs** | Beschikt over clientbibliotheken en een [REST-interface](/rest/api/storageservices/blob-service-rest-api) waarmee ongestructureerde gegevens worden opgeslagen en geopend op een zeer grote schaal in blok-blobs.<br/><br/>Biedt ook ondersteuning voor [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) voor enterprise big data analytics-oplossingen. | Wilt u uw toepassing voor de ondersteuning van streaming en scenario's voor willekeurige toegang.<br/><br/>U wilt toegang krijgen tot toepassingsgegevens vanaf elke locatie.<br/><br/>U wilt een enterprise data lake bouwen op Azure en big data-analyses uitvoeren. |

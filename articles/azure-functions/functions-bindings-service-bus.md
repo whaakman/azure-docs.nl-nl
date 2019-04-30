@@ -348,7 +348,7 @@ De [host.json](functions-host-json.md#servicebus) bestand bevat instellingen die
 }
 ```
 
-|Eigenschap  |Standaard | Beschrijving |
+|Eigenschap  |Standaard | Description |
 |---------|---------|---------|
 |maxConcurrentCalls|16|Het maximale aantal gelijktijdige oproepen aan de callback die de bericht-pomp moet starten. Standaard verwerkt de Functions-runtime meerdere berichten tegelijkertijd. Instellen om de runtime voor het verwerken van alleen een één wachtrij of onderwerp bericht op een tijdstip, `maxConcurrentCalls` op 1. |
 |prefetchCount|N.v.t.|De standaard PrefetchCount die wordt gebruikt door de onderliggende MessageReceiver.|

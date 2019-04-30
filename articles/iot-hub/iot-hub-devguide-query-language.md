@@ -454,7 +454,7 @@ De volgende operators worden ondersteund:
 ### <a name="functions"></a>Functions
 Bij het opvragen van dubbels en taken die de enige ondersteunde is functie:
 
-| Function | Beschrijving |
+| Function | Description |
 | -------- | ----------- |
 | IS_DEFINED(Property) | Retourneert een Booleaanse waarde waarmee wordt aangegeven als de eigenschap een waarde is toegewezen (met inbegrip van `null`). |
 

@@ -53,7 +53,7 @@ In de solution accelerator is een gesimuleerd apparaat een vliegtuigmotor. De op
 
 De gesimuleerde apparaten kunnen de volgende opdrachten verwerken die zijn verzonden vanaf de IoT Hub in de oplossing:
 
-| Opdracht | Beschrijving |
+| Opdracht | Description |
 | --- | --- |
 | StartTelemetry |Bepaalt de status van de simulatie.<br/>Start het verzenden van telemetrie vanaf het apparaat |
 | StopTelemetry |Bepaalt de status van de simulatie.<br/>Stopt het verzenden van telemetrie vanaf het apparaat |

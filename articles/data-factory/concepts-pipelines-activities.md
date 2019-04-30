@@ -94,7 +94,7 @@ Een pijplijn wordt als volgt in de JSON-indeling gedefinieerd:
 }
 ```
 
-Label | Beschrijving | Type | Vereist
+Label | Description | Type | Vereist
 --- | ----------- | ---- | --------
 naam | Naam van de pijplijn. Geef een naam op die staat voor de actie die de pijplijn uitvoert. <br/><ul><li>Maximum aantal tekens: 140</li><li>Moet beginnen met een letter, cijfer of een onderstrepingsteken (\_)</li><li>De volgende tekens zijn niet toegestaan: '.', '+', '?', '/', '<', '>', ' * ', '%', '&', ':', '\'</li></ul> | String | Ja
 description | Voer een beschrijving in van het doel waarvoor de pijplijn wordt gebruikt. | String | Nee

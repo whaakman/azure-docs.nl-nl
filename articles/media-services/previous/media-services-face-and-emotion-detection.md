@@ -75,7 +75,7 @@ Bij het maken van een taak met **Azure Media Face Detector**, moet u een configu
 ```
 
 #### <a name="attribute-descriptions"></a>Beschrijvingen van kenmerken
-| De naam van kenmerk | Beschrijving |
+| De naam van kenmerk | Description |
 | --- | --- |
 | Modus |Snel verwerken Fast - snelheid, maar minder nauwkeurig (standaard).|
 

@@ -178,7 +178,7 @@ Zie voor een lijst van de argumenten die beschikbaar voor een script voor de con
 
 ## <a name="details"></a>Details
 
-| Naam van eigenschap | Type | Beschrijving |
+| Naam van eigenschap | Type | Description |
 | --- | --- | --- |
 | settings.wmfVersion |string |Hiermee geeft u de versie van Windows Management Framework (WMF) die moet worden geïnstalleerd op de virtuele machine. Als deze eigenschap instelt op **nieuwste** installeert de meest recente versie van WMF. Op dit moment de enige mogelijke waarden voor deze eigenschap zijn **4.0**, **5.0**, **5.1**, en **nieuwste**. Deze mogelijke waarden zijn afhankelijk van updates. De standaardwaarde is **nieuwste**. |
 | settings.configuration.url |string |Hiermee geeft u de URL-locatie van waaruit het ZIP-bestand van uw DSC-configuratie gedownload. Als de opgegeven URL is een SAS-token voor toegang vereist, stelt u de **protectedSettings.configurationUrlSasToken** eigenschap met de waarde van uw SAS-token. Deze eigenschap is vereist als **settings.configuration.script** of **settings.configuration.function** zijn gedefinieerd. Als er geen waarde is opgegeven voor deze eigenschappen, de extensie roept de standaard-configuratiescript voor het instellen van de metagegevens van de locatie van Configuration Manager (LCM) en moeten worden opgegeven als argumenten. |

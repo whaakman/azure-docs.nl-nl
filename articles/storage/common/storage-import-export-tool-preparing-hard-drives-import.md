@@ -76,7 +76,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 ### <a name="dataset-csv-file-fields"></a>Velden van de DataSet CSV-bestanden
 
-| Veld | Beschrijving |
+| Veld | Description |
 | --- | --- |
 | BasePath | **(Vereist)**<br/>De waarde van deze parameter geeft de bron waar de gegevens worden geïmporteerd. Het hulpprogramma wordt recursief kopiëren alle gegevens die zich onder dit pad.<br><br/>**Toegestane waarden**: Dit moet een geldig pad op de lokale computer of een geldig sharepad en toegankelijk is door de gebruiker moet zijn. Het mappad moet een absoluut pad (niet een relatief pad). Als het pad eindigt op "\\', een andere map staat voor een pad beëindigen zonder'\\' staat voor een bestand.<br/>Er is geen reguliere expressie is toegestaan in dit veld. Als het pad spaties bevat, plaatst u deze in ' ".<br><br/>**Voorbeeld**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
 | DstBlobPathOrPrefix | **(Vereist)**<br/> Het pad naar de virtuele map van de bestemming in uw Windows Azure storage-account. De virtuele map kan of mogelijk niet al bestaat. Als deze niet bestaat, wordt een Import/Export-service maken.<br/><br/>Zorg ervoor dat geldige containernamen gebruiken bij het opgeven van doel-virtuele mappen of -blobs. Houd er rekening mee dat containernamen kleine letters moeten. Zie voor naamgevingsregels voor containers, [Naming en verwijzen naar Containers, Blobs en metagegevens](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Als er slechts hoofdmap is opgegeven, wordt de mapstructuur van de bron wordt gerepliceerd in de doel-blob-container. Als een andere directory-structuur dan de versie in de bron, meerdere rijen van de toewijzing van in CSV vereist is<br/><br/>Kunt u een container of een blob-voorvoegsel, zoals muziek/70s /. De doelmap moet beginnen met de containernaam van de, gevolgd door een slash '/', en kan desgewenst een virtuele blob-map die eindigt op '/'.<br/><br/>Wanneer de doelcontainer het root-container is, moet u expliciet de root-container, met inbegrip van de gewone slash, als $root opgeven /. Sinds de blobs onder de container hoofdmap niet opnemen '/' in hun namen, worden eventuele submappen in de bronmap niet gekopieerd als de doelmap is een container voor hoofdmap.<br/><br/>**Voorbeeld**<br/>Als het pad naar de bestemming is https://mystorageaccount.blob.core.windows.net/video, de waarde van dit veld mag video /  |
@@ -199,7 +199,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 
 ## <a name="waimportexport-parameters"></a>WAImportExport parameters
 
-| Parameters | Beschrijving |
+| Parameters | Description |
 | --- | --- |
 |     /j:&lt;JournalFile&gt;  | **Vereist**<br/> Pad naar het logboekbestand. Een logboekbestand houdt een set schijven en de voortgang van de records in deze schijven voorbereiden. Het logboekbestand moet altijd worden opgegeven.  |
 |     schakeloptie/LOGDIR op:&lt;LogDirectory&gt;  | **Optioneel**. De logboekmap.<br/> Uitgebreide logboekbestanden, evenals een aantal tijdelijke bestanden naar deze map geschreven. Als dat niet wordt opgegeven, de huidige directory gebruikt als de logboekmap. De logboekmap kan slechts één keer worden opgegeven voor de dezelfde logboekbestand.  |

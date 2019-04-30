@@ -41,7 +41,7 @@ U kunt veel soorten toepassingen met n-aantal lagen ontwikkelen door te scheiden
 
 Een typische *n-aantal lagen* toepassing bevat de presentatielaag, de bedrijfslaag en de gegevenslaag:
 
-| Laag | Beschrijving |
+| Laag | Description |
 | --- | --- |
 | **Presentatie** |De *presentatielaag* (weblaag, front-end-laag) is de laag waarop gebruikers werken interactief met een toepassing. |
 | **Business** |De *bedrijfslaag* (middelste laag) is de laag die de presentatie-laag en de gegevenslaag gebruiken om te communiceren met elkaar en bevat de kernfunctionaliteit van het systeem. |

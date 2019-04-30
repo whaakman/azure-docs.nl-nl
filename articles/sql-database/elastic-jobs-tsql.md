@@ -406,7 +406,7 @@ De volgende opgeslagen procedures worden de [taken database](sql-database-job-au
 
 
 
-|Opgeslagen procedure  |Beschrijving  |
+|Opgeslagen procedure  |Description  |
 |---------|---------|
 |[sp_add_job](#sp_add_job)     |     Hiermee wordt een nieuwe taak toegevoegd.    |
 |[sp_update_job](#sp_update_job)    |      Een bestaande taak voor het bijwerken.   |

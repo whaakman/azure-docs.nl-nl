@@ -99,7 +99,7 @@ Ten slotte vermindert het verbeteren de algehele uitvoering van de instructies d
 
 ## <a name="bug-fixes"></a>Opgeloste fouten
 
-| Titel | Beschrijving |
+| Titel | Description |
 |:---|:---|
 | **Bij het maken van statistieken op distributies voor unieke beperkingen oplossen** | Deze oplossing wordt een fout die gebruikers ondervinden bij het actieve UPDATE STATISTICS met alleen de tabel wordt opgegeven, als de tabel had een unique-beperking gedefinieerd. |
 | **Probleem bij het compileren van query's over externe tabellen** | Deze oplossing wordt een defect die beïnvloed compilatietijd voor query's met betrekking tot externe tabellen.|

@@ -121,7 +121,7 @@ De volgende JSON ziet u het schema voor het gedeelte instellingen van de DSC-ext
 
 ### <a name="protected-settings-property-values"></a>Beveiligde instellingen eigenschapswaarden
 
-| Name | Gegevenstype | Beschrijving
+| Name | Gegevenstype | Description
 | ---- | ---- | ---- |
 | protectedSettings.configurationArguments | string | Hiermee definieert u de parameters die u wilt doorgeven aan uw DSC-configuratie. Deze eigenschap worden, versleuteld. |
 | protectedSettings.configurationUrlSasToken | string | Hiermee geeft u de SAS-token voor toegang tot de URL die is gedefinieerd door configuration.url. Deze eigenschap worden, versleuteld. |

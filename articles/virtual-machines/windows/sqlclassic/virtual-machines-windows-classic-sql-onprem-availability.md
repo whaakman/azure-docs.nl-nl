@@ -56,7 +56,7 @@ Deze sectie leest u hoe u de **Wizard Azure Replica toevoegen** om uit te breide
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742864.png)
 7. U kunt elk veld op de pagina met waarden die worden gebruikt voor het maken van de Azure Virtual Machine (VM) die als voor de replica host wordt gevuld.
    
-   | Instelling | Beschrijving |
+   | Instelling | Description |
    | --- | --- |
    | **Installatiekopie** |Selecteer de gewenste combinatie van OS- en SQL Server |
    | **VM-grootte** |Selecteer de grootte van virtuele machine die het beste bij uw bedrijfsbehoeften |

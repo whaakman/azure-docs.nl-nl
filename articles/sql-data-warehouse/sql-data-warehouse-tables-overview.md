@@ -112,7 +112,7 @@ Het queryoptimalisatieprogramma maakt gebruik van statistieken op kolomniveau bi
 ## <a name="commands-for-creating-tables"></a>Opdrachten voor het maken van tabellen
 U kunt een tabel maken als een nieuwe, lege tabel. U kunt ook maken en vullen van een tabel met de resultaten van een select-instructie. Hier volgen de T-SQL-opdrachten voor het maken van een tabel.
 
-| T-SQL-instructie | Beschrijving |
+| T-SQL-instructie | Description |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Hiermee maakt u een lege tabel met het definiëren van de kolommen in de tabel en opties. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | Hiermee maakt u een externe tabel. De definitie van de tabel wordt opgeslagen in SQL Data Warehouse. Gegevens in de tabel is opgeslagen in Azure Blob storage of Azure Data Lake Store. |
