@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: Kumud
 ms.openlocfilehash: 77c3c595994092ff2ca68f3cefa5eb3c8a54bcd6
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189044"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60735152"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Metrische gegevens en de gezondheid van diagnostische gegevens voor de standaardversie van Load Balancer
 
 Azure Standard Load Balancer wordt Azure Standard Load Balancer biedt de volgende diagnostische mogelijkheden van uw resources:
 * **Multi-dimensionale metrische gegevens**: Biedt nieuwe mogelijkheden van de multi-dimensionale diagnostische via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) voor openbare en interne load balancer-configuraties. U kunt controleren, beheren en oplossen van uw resources voor load balancer.
 
-* **Resourcestatus**: De Load Balancer-pagina in Azure portal en de Resource Health-pagina (onder Monitor) tonen de sectie resourcestatus voor de openbare load balancer-configuratie van de standaardversie van Load Balancer.
+* **Status van resources**: De Load Balancer-pagina in Azure portal en de Resource Health-pagina (onder Monitor) tonen de sectie resourcestatus voor de openbare load balancer-configuratie van de standaardversie van Load Balancer.
 
 Dit artikel bevat een kort overzicht van deze mogelijkheden en manieren om ze te gebruiken voor de standaardversie van Load Balancer biedt.
 
@@ -40,7 +40,7 @@ De verschillende configuraties voor de standaardversie van Load Balancer bieden 
 | VIP-beschikbaarheid (beschikbaarheid van gegevens-pad) | Openbare load balancer | Standaardversie van Load Balancer oefeningen continu het gegevenspad van binnen een regio voor de load balancer front-end, helemaal tot aan de SDN-stack die ondersteuning biedt voor uw virtuele machine. Als in orde exemplaren blijven, volgt de meting hetzelfde pad als verkeer met netwerktaakverdeling van uw toepassing. Het gegevenspad die gebruikmaken van uw klanten wordt ook gevalideerd. De meting is zichtbaar voor uw toepassing en niet van invloed op andere bewerkingen.| Gemiddeld |
 | Beschikbaarheid van DIP (status health test) |  Openbare en interne load balancer | Standard Load Balancer maakt gebruik van een gedistribueerde statustesten service die de status van het toepassingseindpunt van uw op basis van uw configuratie-instellingen controleert. Met deze metriek biedt een aggregatie of per eindpunt gefilterde weergave van elk eindpunt exemplaar in de load balancer-groep. U kunt zien hoe de Load Balancer de status van uw toepassing bekijkt zoals aangegeven door de configuratie van de health test. |  Gemiddeld |
 | SYN (synchroniseren) pakketten |  Openbare load balancer | Standard Load Balancer niet beëindigen Transmission Control Protocol (TCP)-verbindingen of ermee TCP of UDP-pakketten stromen. Stromen en hun aantal-handshakes zijn altijd tussen de bron en het VM-exemplaar. Als u wilt uw TCP-protocol-scenario's op te lossen, kunt u het gebruik van SYN pakketten items om te begrijpen hoeveel TCP-verbinding pogingen worden uitgevoerd. De metrische gegevens rapporteert het aantal TCP SYN-pakketten die zijn ontvangen.| Gemiddeld |
-| SNAT-verbindingen |  Openbare Load Balancer |Standard Load Balancer rapporteert het aantal uitgaande stromen die zijn masqueraded aan de front-end van het openbare IP-adres. Adres bron-NAT (SNAT) netwerkpoorten vormen een onuitputtelijk resource. Met deze metriek krijgt een indicatie van de mate waarin uw toepassing wordt afhankelijk zijn van SNAT voor uitgaande stromen. Tellers voor geslaagde en mislukte uitgaande SNAT-stromen worden gerapporteerd en kunnen worden gebruikt om problemen op te begrijpen van de status van uw uitgaande stromen.| Gemiddeld |
+| SNAT-verbindingen |  Openbare load balancer |Standard Load Balancer rapporteert het aantal uitgaande stromen die zijn masqueraded aan de front-end van het openbare IP-adres. Adres bron-NAT (SNAT) netwerkpoorten vormen een onuitputtelijk resource. Met deze metriek krijgt een indicatie van de mate waarin uw toepassing wordt afhankelijk zijn van SNAT voor uitgaande stromen. Tellers voor geslaagde en mislukte uitgaande SNAT-stromen worden gerapporteerd en kunnen worden gebruikt om problemen op te begrijpen van de status van uw uitgaande stromen.| Gemiddeld |
 | Byte-prestatiemeteritems |  Openbare en interne load balancer | Standard Load Balancer rapporten de gegevens verwerkte per front-end.| Gemiddeld |
 | Pakket-prestatiemeteritems |  Openbare en interne load balancer | Standard Load Balancer rapporteert de pakketten dat per front-end wordt verwerkt.| Gemiddeld |
 

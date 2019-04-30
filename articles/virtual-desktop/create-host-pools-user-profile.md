@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: 0cb4df099faad8ca482fd15cf0bb50504c1528ab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276385"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883867"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Een gebruikersprofielshare instellen voor een hostpool
 
@@ -64,7 +64,7 @@ Voor het configureren van de virtuele machines met de software FSLogix, doe het 
 
 | Name                | Type               | Gegevenswaarde /                        |
 |---------------------|--------------------|-----------------------------------|
-| Ingeschakeld             | DWORD              | 1                                 |
+| Enabled             | DWORD              | 1                                 |
 | VHDLocations        | Waarde met meerdere tekenreeksen | "Netwerkpad voor de bestandsshare"     |
 
 >[!IMPORTANT]

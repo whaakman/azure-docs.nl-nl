@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9f525e68502e32a3f9c7e7cebe6d45627f9077c3
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 09df1421d6deae6db305cef2a46d6c40d0c12ba3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60835876"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Herstel na noodgevallen voor een Oracle Database 12c-database in een Azure-omgeving
 
@@ -78,7 +78,7 @@ Hieronder volgt een samenvatting van de installatie van de Azure:
 
 ![Schermafbeelding van de DR-topologie-pagina](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
-### <a name="approach-2-site-to-site-vpn"></a>Methode 2: Site-naar-site VPN
+### <a name="approach-2-site-to-site-vpn"></a>Methode 2: Site-naar-site-VPN
 Site-naar-site VPN is een betere benadering. Zie voor meer informatie over het instellen van een VPN [een virtueel netwerk maken met een Site-naar-Site-VPN-verbinding met behulp van CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
 
 #### <a name="topology"></a>Topologie
@@ -106,5 +106,5 @@ Hieronder volgt een samenvatting van de installatie van de Azure:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zelfstudie: Een maximaal beschikbare virtuele machines maken](../../linux/create-cli-complete.md)
+- [Zelfstudie: Maximaal beschikbare virtuele machines maken](../../linux/create-cli-complete.md)
 - [Azure CLI-voorbeelden voor VM-implementatie verkennen](../../linux/cli-samples.md)

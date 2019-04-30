@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: magattus
 ms.openlocfilehash: afe959e80b339db5112fa97fd79d0528390e3954
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096449"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636959"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>De prestaties verbeteren door bestanden in Azure CDN te comprimeren
 Bestandscompressie is een eenvoudige maar effectieve methode voor het verbeteren van bestand overdrachtssnelheid en het laden van de pagina prestaties van een bestand door grootte te beperken voordat deze wordt verzonden vanaf de server. Bestandscompressie kunt bandbreedtekosten verlagen en biedt een beter te laten reageren ervaring voor uw gebruikers.

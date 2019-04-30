@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: fd68846b9144c3efcc71dec369d64119427758a3
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744483"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Verbinding maken met uw virtuele machine van Azure
 
@@ -29,7 +29,7 @@ In dit artikel wordt uitgelegd hoe u verbinding maken met en meld u aan de virtu
 
 U gebruikt de extern bureaublad-client verbinding maken met de virtuele machine wordt gehost in Azure op basis van Windows.  De meeste versies van Windows bevatten systeemeigen ondersteuning voor remote desktop protocol (RDP).  Voor andere virtuele machines, vindt u meer informatie over de clients in [extern bureaublad-clients](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  
 
-Het volgende artikel wordt uitgelegd hoe u de ingebouwde ondersteuning voor Windows-RDP verbinding maken met uw virtuele machine: [hoe u verbinding maken met en meld u aan een virtuele Azure-machine waarop Windows wordt uitgevoerd bij](../../../virtual-machines/windows/connect-logon.md).  
+Het volgende artikel wordt uitgelegd hoe u de ingebouwde ondersteuning voor Windows-RDP verbinding maken met uw virtuele machine: [Hoe u verbinding maken met en meld u aan een virtuele Azure-machine waarop Windows wordt uitgevoerd bij](../../../virtual-machines/windows/connect-logon.md).  
 
 >[!TIP]
 > Krijgt u mogelijk waarschuwingen tijdens het proces zo dat het RDP-bestand van een onbekende uitgever is of dat de referenties van de gebruiker kunnen niet worden geverifieerd.  Het is veilig negeren van deze waarschuwingen.
@@ -54,7 +54,7 @@ Verbind de VM op basis van Linux, moet u een secure shell (SSH)-protocol-client.
 7. Klik op **Open** een PuTTY terminal te openen.  
 8. Wanneer u wordt gevraagd, voert u de accountnaam en het wachtwoord van uw Linux-VM-account. 
 
-   Als u verbindingsproblemen ondervindt, raadpleegt u de documentatie van uw SSH-client, bijvoorbeeld [hoofdstuk 10: veelvoorkomende foutberichten](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
+   Als u verbindingsproblemen ondervindt, raadpleegt u de documentatie van uw SSH-client, bijvoorbeeld [hoofdstuk 10: Veelvoorkomende foutberichten](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
 
 Zie voor meer informatie, waaronder het toevoegen van een bureaublad met een ingerichte Linux-VM, [installeren en configureren van extern bureaublad verbinding maken met een Linux-VM in Azure](../../../virtual-machines/linux/use-remote-desktop.md).
 

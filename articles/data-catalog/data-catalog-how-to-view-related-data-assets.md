@@ -8,11 +8,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: b01c328812113ad721b7632978ad28e54a6a3ef1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996472"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61000115"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Hoe kan ik gerelateerde gegevensassets weergeven in Azure Data Catalog?
 Azure Data Catalog kunt u weergeven die betrekking hebben op een geselecteerde gegevens asset en bekijk de relaties tussen deze gegevensassets. 

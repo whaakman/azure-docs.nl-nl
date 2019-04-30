@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/19/2019
 ms.openlocfilehash: d2c852b48c219283bba2304a993dd26e802b3252
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226977"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61036496"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Prestaties optimaliseren met behulp van technologieën In het geheugen in SQL-Database
 
@@ -204,6 +204,6 @@ Als u hebt een **geclusterde** columnstore-index, de hele tabel niet meer beschi
 
 ### <a name="tools"></a>Hulpprogramma's
 
-- [Azure-portal](https://portal.azure.com/)
+- [Azure Portal](https://portal.azure.com/)
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 - [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)

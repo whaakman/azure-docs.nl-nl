@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 14b7cc8f8162574380ca21ac515af8b7d3d5ded9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60911415"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Netwerkbeveiligingsgroepen in Azure Security Center inschakelen
 Azure Security Center raadt aan dat u een netwerkbeveiligingsgroep (NSG) inschakelen als een nog niet is ingeschakeld. Nsg's bevatten een lijst van lijst met ACL (Access Control)-regels toestaan of weigeren van netwerkverkeer naar uw VM-exemplaren in een Virtueelnetwerk. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet. Bovendien verkeer naar een afzonderlijke virtuele machine kan worden beperkt verder door een NSG rechtstreeks naar die virtuele machine koppelen. Voor meer informatie over meer [wat is er een Netwerkbeveiligingsgroep (NSG)?](../virtual-network/security-overview.md)

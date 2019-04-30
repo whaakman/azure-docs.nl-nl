@@ -17,11 +17,11 @@ ms.date: 08/07/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 175e678365016bafd3d18f590a5434c32ac9fadd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176472"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60798385"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Zelfstudie: Azure Active Directory-integratie met Ziflow
 
@@ -138,7 +138,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Meld u Ziflow-configuratie](./media/ziflow-tutorial/tutorial_ziflow_signon.png)
 
-10. Op de **Single Sign-On** pagina, voert u de volgende stappen uit:
+10. Voer op de pagina **Single Sign-On** de volgende stappen uit:
 
     ![Ziflow configuratie één](./media/ziflow-tutorial/tutorial_ziflow_page.png)
 
@@ -215,7 +215,7 @@ Voer de volgende stappen uit als u een gebruikersaccount wilt inrichten:
     e. Klik op **toevoegen 1 gebruiker**.
 
     > [!NOTE]
-    > De houder van Azure Active Directory-account ontvangt een e-mailbericht en volgt een koppeling om te bevestigen van hun account voordat deze geactiveerd wordt.
+    > De houder van het Azure Active Directory-account ontvangt een e-mail en volgt een koppeling om het account te bevestigen voordat het actief wordt.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
@@ -256,7 +256,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

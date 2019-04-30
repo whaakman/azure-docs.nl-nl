@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.openlocfilehash: f4307da2e74846507cafb9f767a6ccae855e42a2
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554670"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60816799"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Een Azure Stream Analytics-taak voor een betere doorvoer schalen
 Dit artikel ziet u hoe u een Stream Analytics-query voor een betere doorvoer voor Streaming Analytics-taken af te stemmen. U kunt de volgende procedure gebruiken voor het schalen van uw taak voor het verwerken van de hogere load en profiteer van meer systeembronnen (zoals meer bandbreedte, meer CPU-resources, meer geheugen).

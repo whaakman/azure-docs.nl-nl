@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833498"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744343"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configureer de VM wordt gehost op Azure
 
@@ -77,7 +77,7 @@ Zie voor meer informatie over het uitvoeren van sysprep [stappen voor het genera
 
 ### <a name="linux"></a>Linux
 
-Proces in twee stappen te volgen, wordt een Linux-VM generaliseren en opnieuw te implementeren als een afzonderlijke virtuele machine.  Zie voor meer informatie, [over het maken van een installatiekopie van een virtuele machine of VHD](../../../virtual-machines/linux/capture-image.md). 
+Proces in twee stappen te volgen, wordt een Linux-VM generaliseren en opnieuw te implementeren als een afzonderlijke virtuele machine.  Raadpleeg voor meer informatie [Een installatiekopie maken van een virtuele machine of VHD](../../../virtual-machines/linux/capture-image.md). 
 
 #### <a name="remove-the-azure-linux-agent"></a>De Azure Linux-agent verwijderen
 1.  Verbinding maken met uw Linux-VM met behulp van een SSH-client.

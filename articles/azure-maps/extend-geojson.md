@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 319f9cba23d088553f361b6a0d648bbde94e0743
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: be3c31951c4721a861f9239c5220419dec11b6bf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968558"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60799149"
 ---
 # <a name="extending-geojson-geometries"></a>GeoJSON geometrie uitbreiden
 
@@ -28,9 +28,9 @@ De [GeoJSON-specificatie] [ 1] biedt alleen ondersteuning voor de volgende geome
 * MultiPoint
 * MultiPolygon
 * Punt
-* Veelhoek
+* Polygon
 
-Sommige Azure kaarten-API's (bijvoorbeeld: [zoeken binnen geometrie](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) accepteren geometrie, zoals "Cirkel", die niet deel uitmaakt van de [GeoJSON-specificatie][1].
+Sommige Azure kaarten-API's (bijvoorbeeld: [Zoeken binnen geometrie](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) accepteren geometrie, zoals "Cirkel", die geen deel uitmaakt van de [GeoJSON-specificatie][1].
 
 In dit artikel biedt een gedetailleerde beschrijving van hoe Azure Maps breidt de [GeoJSON-specificatie] [ 1] bepaalde geometrie vertegenwoordigt.
 

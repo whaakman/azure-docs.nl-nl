@@ -10,11 +10,11 @@ ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: seodec18
 ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263064"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926424"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Blobs toevoegen aan objecten in Azure, digitale dubbels
 
@@ -53,14 +53,14 @@ JSON-blob-metagegevens voldoet aan de volgende model:
 
 | Kenmerk | Type | Description |
 | --- | --- | --- |
-| **parentId** | Reeks | De bovenliggende entiteit te koppelen aan de blob (spaties, apparaten of gebruikers) |
-| **De naam** |Reeks | Een human-beschrijvende naam voor de blob |
-| **type** | Reeks | Kan geen gebruik van het type van de blob - *type* en *typeId*  |
+| **parentId** | String | De bovenliggende entiteit te koppelen aan de blob (spaties, apparaten of gebruikers) |
+| **De naam** |String | Een human-beschrijvende naam voor de blob |
+| **type** | String | Kan geen gebruik van het type van de blob - *type* en *typeId*  |
 | **typeId** | Geheel getal | Kan niet worden gebruikt door de ID van het type blob - *type* en *typeId* |
-| **subtype** | Reeks | Kan niet worden gebruikt door het subtype van het blob - *subtype* en *subtypeId* |
+| **subtype** | String | Kan niet worden gebruikt door het subtype van het blob - *subtype* en *subtypeId* |
 | **subtypeId** | Geheel getal | Kan niet worden gebruikt door de subtype-ID voor de blob - *subtype* en *subtypeId* |
-| **Beschrijving** | Reeks | Aangepaste beschrijving van de blob |
-| **delen** | Reeks | Of de blob kan worden gedeeld - enum [`None`, `Tree`, `Global`] |
+| **Beschrijving** | String | Aangepaste beschrijving van de blob |
+| **delen** | String | Of de blob kan worden gedeeld - enum [`None`, `Tree`, `Global`] |
 
 Metagegevens van de BLOB wordt altijd opgegeven als de eerste chunk met **Content-Type** `application/json` of als een `.json` bestand. Gegevens uit een bestand is opgegeven in de tweede chunk en van alle ondersteunde MIME-type kan zijn.
 
@@ -110,18 +110,18 @@ Afzonderlijk geretourneerde blobs voldoen aan de volgende JSON-schema:
 
 | Kenmerk | Type | Description |
 | --- | --- | --- |
-| **id** | Reeks | De unieke id voor de blob |
-| **De naam** |Reeks | Een human-beschrijvende naam voor de blob |
-| **parentId** | Reeks | De bovenliggende entiteit te koppelen aan de blob (spaties, apparaten of gebruikers) |
-| **type** | Reeks | Kan geen gebruik van het type van de blob - *type* en *typeId*  |
+| **id** | String | De unieke id voor de blob |
+| **De naam** |String | Een human-beschrijvende naam voor de blob |
+| **parentId** | String | De bovenliggende entiteit te koppelen aan de blob (spaties, apparaten of gebruikers) |
+| **type** | String | Kan geen gebruik van het type van de blob - *type* en *typeId*  |
 | **typeId** | Geheel getal | Kan niet worden gebruikt door de ID van het type blob - *type* en *typeId* |
-| **subtype** | Reeks | Kan niet worden gebruikt door het subtype van het blob - *subtype* en *subtypeId* |
+| **subtype** | String | Kan niet worden gebruikt door het subtype van het blob - *subtype* en *subtypeId* |
 | **subtypeId** | Geheel getal | Kan niet worden gebruikt door de subtype-ID voor de blob - *subtype* en *subtypeId* |
-| **delen** | Reeks | Of de blob kan worden gedeeld - enum [`None`, `Tree`, `Global`] |
-| **Beschrijving** | Reeks | Aangepaste beschrijving van de blob |
+| **delen** | String | Of de blob kan worden gedeeld - enum [`None`, `Tree`, `Global`] |
+| **Beschrijving** | String | Aangepaste beschrijving van de blob |
 | **contentInfos** | Matrix | Hiermee geeft u de metagegevens van niet-gestructureerde gegevens met inbegrip van versie |
-| **Volledige naam** | Reeks | De volledige naam van de blob |
-| **spacePaths** | Reeks | Het pad van de ruimte |
+| **Volledige naam** | String | De volledige naam van de blob |
+| **spacePaths** | String | Het pad van de ruimte |
 
 Metagegevens van de BLOB wordt altijd opgegeven als de eerste chunk met **Content-Type** `application/json` of als een `.json` bestand. Gegevens uit een bestand is opgegeven in de tweede chunk en van alle ondersteunde MIME-type kan zijn.
 
@@ -159,7 +159,7 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Waarde | Vervangen door |
+| Value | Vervangen door |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | De naam van een meerdelige inhoud grens |
 
@@ -195,7 +195,7 @@ curl
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
-| Waarde | Vervangen door |
+| Value | Vervangen door |
 | --- | --- |
 | YOUR_TOKEN | Uw geldige OAuth 2.0-token |
 | YOUR_SPACE_ID | De ID van de ruimte moet het koppelen van de blob met |

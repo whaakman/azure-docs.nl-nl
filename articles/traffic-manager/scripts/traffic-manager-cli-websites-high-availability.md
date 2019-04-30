@@ -16,11 +16,11 @@ ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: kumud
 ms.openlocfilehash: 6c610a1cddb0854878d4c2bd5531f88a1cf2ec51
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009101"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60884220"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Verkeer routeren voor hoge beschikbaarheid van toepassingen met behulp van Azure CLI
 
@@ -50,7 +50,7 @@ Dit script gebruikt de volgende opdrachten voor het maken van een resourcegroep,
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan) | Hiermee maakt u een App Service-plan. Dit is vergelijkbaar met een serverfarm voor uw Azure-web-app. |
 | [AZ webapp web maken](https://docs.microsoft.com/cli/azure/webapp#az-webapp-create) | Hiermee maakt u een Azure-web-app in de App Service-plan. |
 | [AZ network traffic-manager-profiel maken](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile) | Hiermee maakt u een Azure Traffic Manager-profiel. |

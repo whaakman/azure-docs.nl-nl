@@ -11,11 +11,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
 ms.openlocfilehash: 8bf381e7c66e06bbaa140ed865f0f7c9b4f001af
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452340"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821705"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Azure Event Hubs gebruiken vanuit toepassingen van Apache Kafka
 Eventhubs biedt een Kafka-eindpunt dat kan worden gebruikt door uw bestaande Kafka op basis van toepassingen als alternatief voor het uitvoeren van uw eigen Kafka-cluster. Biedt ondersteuning voor Eventhubs [Apache Kafka-protocol 1.0 en hoger](https://kafka.apache.org/documentation/), en werkt met uw bestaande Kafka-toepassingen, met inbegrip van MirrorMaker.  

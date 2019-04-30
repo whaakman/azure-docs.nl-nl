@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
 ms.openlocfilehash: 5daf0944212dc4b8040a39e6efbf5bb25f7f39f0
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117228"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60901800"
 ---
 # <a name="create-an-application-insights-resource"></a>Een Application Insights-resource maken
 Azure Application Insights geeft gegevens over uw toepassing in een Microsoft Azure *resource*. Het maken van een nieuwe resource maakt daarom deel uit van [Application Insights instellen voor het bewaken van een nieuwe toepassing][start]. In veel gevallen, kan het maken van een resource automatisch worden uitgevoerd door de IDE. Maar in sommige gevallen, maakt u een resource handmatig - bijvoorbeeld als afzonderlijke resources voor de ontwikkeling en productie builds van uw toepassing.

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
 ms.openlocfilehash: 5ae2ca352c6d3cbe02b659a97fe3147c1a31128f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664570"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60947392"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Service Fabric-container die Apache Tomcat-server op Linux maken
 Apache Tomcat is een populaire, open-source implementatie van de Java Servlet- en Java-Server-technologieën. Dit artikel ziet u hoe u een container met Apache Tomcat en een eenvoudige webtoepassing bouwen, de container geïmplementeerd naar een Service Fabric-cluster waarop Linux wordt uitgevoerd en verbinding maken met de Web-App.  

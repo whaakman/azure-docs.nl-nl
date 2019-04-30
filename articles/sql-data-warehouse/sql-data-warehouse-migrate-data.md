@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
 ms.openlocfilehash: 6a2acf602252ee4319f9a5eccef53a25d8e2dd7f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014263"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748183"
 ---
 # <a name="migrate-your-data"></a>Uw gegevens migreren
 Gegevens kunnen worden verplaatst uit verschillende bronnen in uw SQL Data Warehouse met een verschillende hulpprogramma's.  ADF kopiëren, SSIS en bcp kunnen alles worden gebruikt om dit doel te bereiken. Echter, als de hoeveelheid gegevens toeneemt moet u bedenken afbreken van de procedure voor het migreren van gegevens in stappen. Dit biedt u de mogelijkheid om elke stap voor prestaties en flexibiliteit om te controleren of een soepele migratie te optimaliseren.

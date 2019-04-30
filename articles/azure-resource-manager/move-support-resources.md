@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 03/22/2019
 ms.author: tomfitz
 ms.openlocfilehash: d44b1bf778c7ec9551e2fd30f67083f8dded22d1
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729287"
 ---
 # <a name="move-operation-support-for-resources"></a>Ondersteuning voor resources verplaatsen
 In dit artikel wordt aangegeven of een Azure-resourcetype de verplaatsing ondersteunt. Hoewel een resourcetype de verplaatsing ondersteunt, kunnen er omstandigheden die verhinderen dat de resource die wordt verplaatst. Zie voor meer informatie over voorwaarden die invloed hebben op verplaatsingsbewerkingen [resources verplaatsen naar een nieuwe resourcegroep of abonnement](resource-group-move-resources.md).

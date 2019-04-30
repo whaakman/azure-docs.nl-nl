@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: a4d8216486c84f011d7830b7d49de8bb87b28b41
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59689065"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60652195"
 ---
 ## <a name="create-a-topic-using-the-azure-portal"></a>Een onderwerp maken met de Azure-portal
 1. Selecteer in het linkermenu op de pagina **Service Bus-naamruimte** de optie **Onderwerpen**.

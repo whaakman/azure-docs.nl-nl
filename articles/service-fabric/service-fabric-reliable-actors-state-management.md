@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 65dd47ab21ca4b1c50e0f17b73e7bc4eae8a96e8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665777"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725734"
 ---
 # <a name="reliable-actors-state-management"></a>Statusbeheer van betrouwbare actoren
 Reliable Actors zijn single-threaded objecten die zowel de logica en de status kunnen inkapselen. Omdat actoren op Reliable Services worden uitgevoerd, kunnen deze status op betrouwbare wijze onderhouden met behulp van dezelfde persistentie en replicatiemechanismen voor. Op deze manier actoren dat u geen hun status na fouten bij het reactiveren na de garbagecollection, of wanneer ze worden verplaatst tussen knooppunten in een cluster vanwege de bron-balancing of upgrades worden uitgevoerd.

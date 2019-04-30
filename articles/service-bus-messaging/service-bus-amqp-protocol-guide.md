@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658263"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749376"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 in Azure Service Bus en Event Hubs-protocolhandleiding
 
@@ -364,7 +364,7 @@ Het aanvraagbericht bevat de volgende toepassingseigenschappen:
 | bewerking |Nee |string |**Put-token** |
 | type |Nee |string |Het type van het token wordt geplaatst. |
 | naam |Nee |string |De 'doelgroep', die de token van toepassing is. |
-| verlooptijd |Ja |tijdstempel |De verlooptijd van het token. |
+| verlooptijd |Ja |timestamp |De verlooptijd van het token. |
 
 De *naam* eigenschap identificeert de entiteit waarmee het token gekoppeld worden moet. Dit is het pad naar de wachtrij of onderwerp/abonnement in Service Bus. De *type* eigenschap identificeert het type token:
 

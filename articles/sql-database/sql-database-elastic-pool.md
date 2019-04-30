@@ -13,11 +13,11 @@ ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 02/28/2019
 ms.openlocfilehash: 96160745fa8702fc6f931904098c28d8968de2c1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010236"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60936330"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastische pools kunt u beheren en schalen van meerdere Azure SQL-databases
 
@@ -30,7 +30,7 @@ SaaS-ontwikkelaars ontwikkelen toepassingen boven op grootschalige gegevenslagen
 - Te veel inrichten van resources op basis van piekgebruik en via betalen, of
 - Een te voorzichtige inrichting om kosten, ten koste van prestaties en klanttevredenheid tijdens pieken te besparen.
 
-Elastische groepen lossen dit probleem op door ervoor te zorgen dat databases de prestaties die ze nodig hebben krijgen wanneer ze deze nodig hebben. Ze bieden een eenvoudig mechanisme voor het toewijzen van resources binnen een voorspelbaar budget. Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische groepen.
+Elastische groepen lossen dit probleem op door ervoor te zorgen dat databases de prestaties die ze nodig hebben krijgen wanneer ze deze nodig hebben. Ze bieden een eenvoudig mechanisme voor het toewijzen van resources binnen een voorspelbaar budget. Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische pools.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
@@ -138,7 +138,7 @@ Zie [Scaling out with Azure SQL Database](sql-database-elastic-scale-introductio
 
 ### <a name="business-continuity-options-for-databases-in-an-elastic-pool"></a>Opties voor bedrijfscontinuïteit voor databases in een elastische pool
 
-Gepoolde databases ondersteunen in het algemeen dezelfde [bedrijfscontinuïteitsfuncties](sql-database-business-continuity.md) die beschikbaar zijn voor individuele databases.
+Pooldatabases ondersteunen in het algemeen dezelfde [bedrijfscontinuïteitsfuncties](sql-database-business-continuity.md) die beschikbaar zijn voor individuele databases.
 
 - **Point-in-time restore**
 
@@ -219,5 +219,5 @@ Zie voor meer informatie, [waarschuwingen van de SQL-Database maken in Azure por
 
 - Als u wilt schalen elastische pools, Zie [schalen van elastische pools](sql-database-elastic-pool.md) en [schalen van een elastische pool - voorbeeldcode](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 - Zie voor een video [videocursus van Microsoft Virtual Academy over elastische mogelijkheden van Azure SQL Database](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
-- Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische groepen.
+- Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische pools.
 - Zie voor een SaaS-zelfstudie met elastische pools, [Inleiding tot de Wingtip SaaS-toepassing](sql-database-wtp-overview.md).

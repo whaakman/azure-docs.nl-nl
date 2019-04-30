@@ -3,21 +3,22 @@ title: Gegevens kopiëren van SAP Business Warehouse via Open-Hub met behulp van
 description: Meer informatie over het kopiëren van gegevens van SAP Business Warehouse (BW) via Open-Hub aan ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/08/2019
-ms.author: jingwang
+origin.date: 03/08/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103907"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848867"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Gegevens kopiëren van SAP Business Warehouse via Open-Hub met behulp van Azure Data Factory
 
@@ -103,7 +104,7 @@ De volgende eigenschappen worden ondersteund voor SAP Business Warehouse Open Hu
 | systemNumber | Het systeemnummer van de SAP BW-systeem.<br/>Toegestane waarde: decimaal getal van twee cijfers weergegeven als een tekenreeks. | Ja |
 | ClientId | Client-ID van de client in het W SAP-systeem.<br/>Toegestane waarde: decimaal getal van drie cijfers wordt weergegeven als een tekenreeks. | Ja |
 | language | De taal die gebruikmaakt van de SAP-systeem. | Nee (standaardwaarde is **EN**)|
-| Gebruikersnaam | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
+| userName | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
 | wachtwoord | Het wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Er is een zelfgehoste Cloudintegratieruntime vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
 

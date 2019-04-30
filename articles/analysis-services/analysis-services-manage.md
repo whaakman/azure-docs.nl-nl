@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 0bae06d46c2c96ba9dd058e9c2d380379523811c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993925"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61065170"
 ---
 # <a name="manage-analysis-services"></a>Analyseservices beheren
 Wanneer u een Analysis Services-server in Azure hebt gemaakt, worden sommige administratie en beheer taken die u wilt uitvoeren van direct of enige tijd in de weg. Bijvoorbeeld uitvoeren om de gegevens vernieuwen, bepalen wie toegang tot de modellen op uw server, of bewaak de status van uw server. Bepaalde beheertaken kunnen alleen worden uitgevoerd in Azure portal voor anderen in SQL Server Management Studio (SSMS), en sommige taken kunnen worden uitgevoerd in een.

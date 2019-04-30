@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 74940f3b89237233acd575aa5df441163e00d178
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000935"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845458"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Een punt-naar-site-verbinding configureren met behulp van verificatie via een certificaat (klassiek)
 
@@ -29,7 +29,7 @@ ms.locfileid: "58000935"
 In dit artikel wordt beschreven hoe u een VNet maakt met een punt-naar-site-verbinding. U maakt het VNet volgens het klassieke implementatiemodel via de Azure-portal. Deze configuratie maakt gebruik van certificaten, zelfondertekende door een certificeringsinstantie uitgegeven, om de client te verifiëren waarmee verbinding wordt gemaakt. U kunt deze configuratie ook maken met een ander implementatieprogramma of -model, met behulp van de opties die worden beschreven in de volgende artikelen:
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Azure Portal (klassiek)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >

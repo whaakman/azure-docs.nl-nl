@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
 ms.openlocfilehash: c52a1942bda9881f8f782a227c81feaa4813722d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656736"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Uw API's met Azure API Management, Eventhubs en Moesif controleren
 De [API Management-service](api-management-key-concepts.md) biedt veel mogelijkheden voor het verbeteren van de verwerking van HTTP-aanvragen die worden verzonden op uw HTTP-API. Het bestaan van de aanvragen en antwoorden is echter tijdelijk. De aanvraag wordt gedaan en hiervandaan stroomt het via de API Management-service naar uw back-end-API. Uw API verwerkt de aanvraag en een antwoord doorloopt de consument API. De API Management-service houdt u enkele belangrijke statistische gegevens over de API's om weer te geven in de Azure portal-dashboard, maar ook buiten dat de gegevens verwijderd zijn.

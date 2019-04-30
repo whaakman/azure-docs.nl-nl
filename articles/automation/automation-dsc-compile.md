@@ -10,11 +10,11 @@ ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: f2c6f45081b78d330033570ff322f90cd06e50dd
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594267"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61074140"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>DSC-configuraties in Azure Automation-staat configuratie compileren
 

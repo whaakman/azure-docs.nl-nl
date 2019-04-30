@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.openlocfilehash: a653a785e99619c3e256613d6a4d2c7592f54c8c
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149390"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848489"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Problemen oplossen met virtuele machine (VM) en fouten bij het maken van omgeving in Azure DevTest Labs
 DevTest Labs kunt u waarschuwingen als een computernaam ongeldig is of als u over naar een lab-beleid schenden. Soms ziet u red `X` naast uw lab status van de virtuele machine of omgeving waarmee u wordt geïnformeerd dat er iets misgegaan is.  Dit artikel bevat een aantal tips die u gebruiken kunt om te zoeken van het onderliggende probleem en, natuurlijk het probleem te voorkomen in de toekomst.

@@ -1,20 +1,22 @@
 ---
 title: Partitioneren van gegevens in Azure Cosmos DB Gremlin-API
 description: Lees hoe u een gepartitioneerde grafiek kunt gebruiken in Azure Cosmos DB. Dit artikel beschrijft ook de vereisten en best practices voor een gepartitioneerde grafiek.
-author: luisbosquez
-ms.author: lbosq
+author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: conceptual
-ms.date: 12/06/2018
+origin.date: 12/06/2018
+ms.date: 03/18/2019
 ms.custom: seodec18
 ms.openlocfilehash: f1e486a302b440d819e15ef86f8d76ea5e50d201
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888404"
 ---
+<!--Verify sucessfully-->
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Met behulp van een gepartitioneerde grafiek in Azure Cosmos DB
 
 Een van de belangrijkste functies van de Gremlin-API in Azure Cosmos DB is de mogelijkheid om grootschalige grafieken via horizontaal schalen. Horizontaal schalen wordt bereikt door de [mogelijkheden in Azure Cosmos DB partitioneren](partition-data.md). De containers kunnen onafhankelijk worden geschaald in termen van opslag en doorvoer. U kunt containers maken in Azure Cosmos DB die automatisch kunnen worden geschaald voor het opslaan van een graph-gegevens. De gegevens wordt automatisch verdeeld op basis van de opgegeven **partitiesleutel**.
@@ -37,27 +39,26 @@ Hieronder vindt u informatie die u bij het maken van een gepartitioneerde grafie
 
     - `/id` en `/label` worden niet ondersteund als de partitiesleutels weergeven voor een container in Gremlin-API.
 
-
     - Selecteren en vervolgens een hoekpunt door-ID, **met behulp van de `.has()` stap om op te geven van de partitie-sleuteleigenschap**: 
-    
+
         ```
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
-    
+
     - Selecteren van een hoekpunt door **op te geven een tuple met inbegrip van de waarde voor de partitiesleutel en -ID**: 
-    
+
         ```
         g.V(['partitionKey_value', 'vertex_id'])
         ```
-        
+
     - Opgeven van een **matrix met tuples van partitie sleutelwaarden en id's**:
-    
+
         ```
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
-        
+
     - Selecteren van een set met hoekpunten en **op te geven een lijst met partitie-sleutelwaarden**: 
-    
+
         ```
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
         ```
@@ -81,3 +82,6 @@ Vervolgens kunt u doorgaan met het lezen van de volgende artikelen:
 * Meer informatie over [partitioneren en schalen in Azure Cosmos DB](partition-data.md).
 * Meer informatie over de [Gremlin-ondersteuning in Gremlin-API](gremlin-support.md).
 * Meer informatie over [Inleiding tot Gremlin API](graph-introduction.md).
+
+<!--Update_Description: new articles on  -->
+<!--ms.date: 03/18/2019-->

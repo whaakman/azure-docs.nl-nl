@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60885341"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Aan de slag met Azure Data Lake Store met behulp van Azure CLI
 
@@ -40,7 +40,7 @@ Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
 
 * **Azure CLI** -Zie [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli) voor instructies.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 
 In dit artikel wordt een eenvoudigere verificatiemethode met Data Lake Storage Gen1 waar u zich aanmeldt als een eindgebruiker aanmeldt. Het toegangsniveau voor de Gen1 Data Lake Storage-account en een nieuw bestandssysteem wordt vervolgens bepaald door het toegangsniveau van de aangemelde gebruiker. Er zijn echter andere manieren ook om te verifiëren met Data Lake Storage Gen1, zoals **verificatie door eindgebruikers** of **service-naar-serviceverificatie**. Zie [Verificatie door eindgebruikers](data-lake-store-end-user-authenticate-using-active-directory.md) of [Service-to-serviceverificatie](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
 

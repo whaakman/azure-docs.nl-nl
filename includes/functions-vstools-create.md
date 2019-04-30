@@ -5,15 +5,16 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/05/2019
-ms.author: glenga
+origin.date: 03/05/2019
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 6c430f22a9d4fa0fad95bcaa41675545fffd91ec
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227215"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60403643"
 ---
 De Azure Functions-projectsjabloon in Visual Studio maakt een project dat kan worden gepubliceerd in een functie-app in Azure. U kunt een functie-app groepsfuncties gebruiken als een logische eenheid voor beheer, implementatie en het delen van resources.
 
@@ -38,3 +39,4 @@ De Azure Functions-projectsjabloon in Visual Studio maakt een project dat kan wo
     > Zorg ervoor dat u de **toegangsrechten** naar `Anonymous`. Als u ervoor het standaardniveau van kiest `Function`, u verplicht bent om weer te geven de [functietoets](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) in aanvragen voor toegang tot uw functie-eindpunt.
     
 4. Selecteer **OK** de function-project en HTTP-geactiveerde functie te maken.
+

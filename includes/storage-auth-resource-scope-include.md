@@ -9,11 +9,11 @@ ms.date: 03/28/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 518c57bc3327511b70deef143826f2a1b9df8639
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632882"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483593"
 ---
 Voordat u een RBAC-rol aan een beveiligings-principal toewijzen, bepalen het bereik van toegang dat de beveiligings-principal moet hebben. Aanbevolen procedures leggen dat is het altijd verstandig om alleen de smalst mogelijke bereik verlenen.
 

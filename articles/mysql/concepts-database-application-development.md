@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 946f7011c51b7c6844e023d03e01e4c2043d2578
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544460"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615654"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>Overzicht van toepassing voor ontwikkelaars voor Azure Database for MySQL 
 Dit artikel worden besproken ontwerpoverwegingen die een ontwikkelaar volgen moet bij het schrijven van code van de toepassing verbinding maakt met Azure Database voor MySQL. 

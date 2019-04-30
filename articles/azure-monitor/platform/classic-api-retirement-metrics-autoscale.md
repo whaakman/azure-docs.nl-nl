@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
 ms.openlocfilehash: ce54b63aa7831ed40a8592d536c43fc83fdc5567
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433085"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709980"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor buiten gebruik stellen van klassieke implementatiemodel API's voor metrische gegevens en voor automatisch schalen
 
@@ -91,4 +91,4 @@ Als u vragen hebt, contact met ons op MonitorClassicAPIhelp@microsoft.com.
 ## <a name="references"></a>Verwijzingen
 
 - [Nieuwere REST-API's voor Azure Monitor](https://docs.microsoft.com/rest/api/monitor/) 
-- [Nieuwere Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)
+- [Newer Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)

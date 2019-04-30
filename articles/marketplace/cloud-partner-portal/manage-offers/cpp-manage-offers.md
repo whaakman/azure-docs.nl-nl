@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
 ms.openlocfilehash: fa5280fd834d6defaf2816167a73bf72dc3d0a1c
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355566"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729865"
 ---
 # <a name="manage-azure-and-appsource-marketplace-offers"></a>Beheren van Azure en de AppSource-Marketplace-aanbiedingen
 
@@ -33,7 +33,7 @@ De Cloud Partner-Portal kunt een uitgever om uit te voeren van de volgende eenvo
 |     Bewerking      |  Description                                           |
 |     ---------      |  -----------                                           |
 | [Aanbieding creëren](./cpp-create-offer.md)   | Maakt een vermelding in behandeling aanbieding in onboarding-opslagplaats, maar deze wordt niet automatisch gepubliceerd naar een Microsoft-marketplace | 
-| [Status van de aanbieding weergeven](./cpp-view-status-offer.md)   | Biedt de publicatiestatus van een aanbieding.  Er zijn meerdere plaatsen in de portal, waar de statusinformatie wordt weergegeven. |
+| [Aanbiedingsstatus bekijken](./cpp-view-status-offer.md)   | Biedt de publicatiestatus van een aanbieding.  Er zijn meerdere plaatsen in de portal, waar de statusinformatie wordt weergegeven. |
 | [Aanbieding publiceren](./cpp-publish-offer.md) | Valideert en vervolgens de vermelding van een voltooide aanbieding berichten naar de juiste Microsoft-marketplace.  De aanbieding wordt gezegd dat ze worden *live*. |
 | [Aanbieding bijwerken](./cpp-update-offer.md)   | Kan wijziging van bepaalde kenmerken van een bestaande aanbieding.  Van toepassing op in de wachtrij en gepubliceerde aanbiedingen. |
 | [Aanbieding verwijderen](./cpp-delete-offer.md)   | Hiermee verwijdert u een bestaande in behandeling of live-aanbieding.  | 

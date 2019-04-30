@@ -18,11 +18,11 @@ ms.date: 11/06/2018
 ms.author: rclaus
 ms.custom: ''
 ms.openlocfilehash: de282041066e18a52d596f051def598eef3d458d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648921"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>SAP-certificeringen en configuraties die worden uitgevoerd op Microsoft Azure
 
@@ -36,11 +36,11 @@ Referenties:
 | SAP-product | Ondersteund besturingssysteem | Aanbiedingen voor Azure |
 | --- | --- | --- |
 | SAP HANA Developer Edition (inclusief de HANA-clientsoftware bestaat uit SQLODBC, ODBO-Windows alleen, ODBC, JDBC-stuurprogramma's, HANA studio en HANA database) | Red Hat Enterprise Linux, SUSE Linux Enterprise | Uit de D-serie VM-reeks |
-| Zakelijke één op HANA | SUSE Linux Enterprise | DS14_v2, M32ts, M32ls, M64ls, M64s <br /> [SAP HANA-gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) |
+| Zakelijke één op HANA | SUSE Linux Enterprise | DS14_v2, M32ts, M32ls, M64ls, M64s <br /> [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) |
 | SAP S/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | Gecontroleerde beschikbaarheid voor GS5. Volledige ondersteuning voor M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, <br /> SAP HANA op Azure (grote instanties) [SAP HANA gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
-| Suite op HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, SAP HANA op Azure (grote instanties) <br /> [SAP HANA-gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| Suite op HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, SAP HANA op Azure (grote instanties) <br /> [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
 | HANA Enterprise voor BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, <br /> SAP HANA op Azure (grote instanties) [SAP HANA gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
-| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, <br /> SAP HANA op Azure (grote exemplaren) <br /> [SAP HANA-gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, <br /> SAP HANA op Azure (grote exemplaren) <br /> [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
 
 Houd er rekening mee dat SAP maakt gebruik van de term 'clustering' in [SAP HANA gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) als synoniem voor 'scale-out' en niet voor hoge beschikbaarheid 'clustering'
 
@@ -48,7 +48,7 @@ Houd er rekening mee dat SAP maakt gebruik van de term 'clustering' in [SAP HANA
 Microsoft Azure is gecertificeerd voor de volgende SAP-producten, met volledige ondersteuning van Microsoft en SAP.
 Referenties:
 
-- [1928533 - SAP-toepassingen op Azure: ondersteunde producten en Azure-VM-typen](https://launchpad.support.sap.com/#/notes/1928533) voor alle SAP NetWeaver op basis van toepassingen, waaronder SAP TREX LiveCache SAP en SAP-Server voor webinhoud. En alle databases, met uitzondering van SAP HANA.
+- [1928533 - SAP-toepassingen op Azure: Ondersteunde producten en typen Azure VM's](https://launchpad.support.sap.com/#/notes/1928533) voor alle SAP NetWeaver op basis van toepassingen, waaronder SAP TREX LiveCache SAP en SAP-Server voor webinhoud. En alle databases, met uitzondering van SAP HANA.
 
 
 | SAP-product | Gastbesturingssysteem | RDBMS | Typen virtuele machines |

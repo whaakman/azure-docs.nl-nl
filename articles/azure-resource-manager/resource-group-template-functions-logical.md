@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782987"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logische functies voor Azure Resource Manager-sjablonen
 
@@ -89,7 +89,7 @@ De parameter converteert naar een Booleaanse waarde.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |tekenreeks of int |De waarde te converteren naar een Booleaanse waarde. |
 
@@ -143,7 +143,7 @@ Retourneert een waarde op basis van of u een voorwaarde is true of false.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | voorwaarde |Ja |booleaans |De waarde moet worden gecontroleerd of dit waar of ONWAAR. |
 | trueValue |Ja | String, int, object of matrix |De waarde moet worden geretourneerd wanneer de voorwaarde waar is. |
@@ -320,7 +320,7 @@ Controleert of een waarde voor parameter ' True '.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |booleaans |De eerste waarde om te controleren of de waarde true is. |
 | arg2 |Ja |booleaans |De tweede waarde om te controleren of de waarde true is. |

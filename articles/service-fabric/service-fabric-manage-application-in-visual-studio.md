@@ -16,11 +16,11 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.openlocfilehash: 4744858869e10094389be58ddd3960cb8cc2773a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664842"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60720056"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Visual Studio gebruiken om te schrijven en beheren van uw Service Fabric-toepassingen vereenvoudigen
 U kunt uw Azure Service Fabric-toepassingen en services via Visual Studio kunt beheren. Nadat u hebt [uw ontwikkelomgeving instellen](service-fabric-get-started.md), kunt u Visual Studio te maken van Service Fabric-toepassingen, services, of het pakket, register toevoegen en implementeren van toepassingen in uw lokale ontwikkelcluster.

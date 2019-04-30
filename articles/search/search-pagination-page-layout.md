@@ -11,11 +11,11 @@ ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 7a4423449931b74afa15ca238c611f54b071402f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61283794"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Over het werken met zoeken resulteert in Azure Search
 Dit artikel bevat richtlijnen over het implementeren van standard elementen van een pagina met zoekresultaten, zoals het totale aantal, document ophalen, sorteervolgorde en navigatie. Opties voor pagina's gerelateerde die of gegevens naar uw zoekresultaten bijdragen worden opgegeven via de [Document doorzoeken](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) aanvragen naar uw Azure Search-Service verzonden. 

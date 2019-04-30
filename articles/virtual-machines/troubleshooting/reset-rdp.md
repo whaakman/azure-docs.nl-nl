@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: c61e606bde4b50fa10c194c76c79a3d8a27a4b8e
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 0a12cbabc28640283f5a28eb7a83c7d7717e0882
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407688"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60921203"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Extern bureaublad-Services of de administrator-wachtwoord in een Windows-VM opnieuw instellen
 Als u geen verbinding maken met een Windows virtuele machine (VM), kunt u uw lokale administrator-wachtwoord opnieuw instellen of opnieuw instellen van de extern bureaublad-Services-configuratie (niet ondersteund op Windows-domeincontrollers). Voor het opnieuw instellen van het wachtwoord gebruikt u de Azure-portal of de VM-toegangsextensie in Azure PowerShell. Wanneer u zich bij de VM hebt aangemeld, stelt u het wachtwoord van die lokale beheerder opnieuw in.  

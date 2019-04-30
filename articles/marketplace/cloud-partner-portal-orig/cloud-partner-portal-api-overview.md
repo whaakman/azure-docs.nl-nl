@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 116eb48330381c7560c55ea9535b3c1b7c6a6a70
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809899"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094386"
 ---
 <a name="cloud-partner-portal-api-reference"></a>Cloud Partner Portal API-verwijzing
 ==================================
@@ -49,7 +49,7 @@ Deze referentie details API's voor het uitvoeren van de volgende algemene taken.
 
 -   [Alle aanbiedingen ophalen](./cloud-partner-portal-api-retrieve-offers.md)
 -   [Een specifieke aanbiedings ophalen](./cloud-partner-portal-api-retrieve-specific-offer.md)
--   [Status van de aanbieding ophalen](./cloud-partner-portal-api-retrieve-offer-status.md)
+-   [Aanbiedingsstatus ophalen](./cloud-partner-portal-api-retrieve-offer-status.md)
 -   [Een aanbieding maken](./cloud-partner-portal-api-creating-offer.md)
 -   [Een aanbieding publiceren](./cloud-partner-portal-api-publish-offer.md)
 
@@ -68,4 +68,4 @@ Deze referentie details API's voor het uitvoeren van de volgende algemene taken.
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 
--   [Probleemoplossing-verificatiefouten](./cloud-partner-portal-api-troubleshooting-authentication-errors.md)
+-   [Problemen met verificatiefouten oplossen](./cloud-partner-portal-api-troubleshooting-authentication-errors.md)

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
 ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119167"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60900063"
 ---
 # <a name="using-search-in-application-insights"></a>Zoeken in Application Insights gebruiken
 Search is een functie van [Application Insights](../../azure-monitor/app/app-insights-overview.md) waarmee u kunt vinden en afzonderlijk telemetrie-items, zoals paginaweergaven, uitzonderingen, verkennen of webaanvragen. En u kunt weergeven, logboektraceringen en gebeurtenissen die u hebt gecodeerd.
@@ -26,7 +26,7 @@ Search is een functie van [Application Insights](../../azure-monitor/app/app-ins
 
 ## <a name="where-do-you-see-search"></a>Waar kan u Search zien?
 
-### <a name="in-the-azure-portal"></a>In de Azure-portal
+### <a name="in-the-azure-portal"></a>In de Azure Portal
 
 U kunt diagnostische gegevens doorzoeken expliciet openen vanuit de blade overzicht van Application Insights van uw toepassing:
 
@@ -114,8 +114,8 @@ Zoeken naar volledige woorden, niet subtekenreeksen. Gebruik aanhalingstekens tu
 
 | string | is *niet* gevonden | maar deze vinden |
 | --- | --- | --- |
-| HomeController.About |start<br/>domeincontroller<br/>out | homecontroller<br/>info<br/>"homecontroller.about"|
-|Verenigde Staten|UNI<br/>Ted|Verenigde<br/>statussen<br/>Verenigde Staten en<br/>"VS"
+| HomeController.About |start<br/>controller<br/>out | homecontroller<br/>info<br/>"homecontroller.about"|
+|Verenigde Staten|Uni<br/>Ted|Verenigde<br/>statussen<br/>Verenigde Staten en<br/>"VS"
 
 Hier volgen de uitdrukkingen zoeken die u kunt gebruiken:
 

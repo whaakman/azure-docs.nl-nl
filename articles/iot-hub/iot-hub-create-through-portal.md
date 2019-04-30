@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515842"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742040"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Een IoT-hub met behulp van de Azure portal maken
 
@@ -40,7 +40,7 @@ Hier volgen enkele van de eigenschappen die u voor een IoT-hub instellen kunt:
 
 **IP-Filter**: Geef een bereik van IP-adressen die worden geaccepteerd of geweigerd door de IoT-hub.
 
-**Eigenschappen**: bevat de lijst met eigenschappen die u kunt kopiëren en ergens anders, zoals de resource-ID, resourcegroep, locatie, enzovoort te gebruiken.
+**Eigenschappen**: Bevat de lijst met eigenschappen die u kunt kopiëren en ergens anders, zoals de resource-ID, resourcegroep, locatie, enzovoort te gebruiken.
 
 ### <a name="shared-access-policies"></a>Gedeeld toegangsbeleid
 

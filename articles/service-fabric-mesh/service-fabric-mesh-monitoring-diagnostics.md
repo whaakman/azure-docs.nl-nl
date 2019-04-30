@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/22/2018
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9f857c23b5500bc7790a0ff7fcf81eaec51f37c9
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 6166808c85bbee9465a8fa12332afe2163027982
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60810613"
 ---
 # <a name="monitoring-and-diagnostics"></a>Controle en diagnose
 Azure Service Fabric Mesh is een volledig beheerde service waarmee ontwikkelaars microservices-toepassingen kunnen implementeren zonder virtuele machines, opslag of netwerken hoeven te beheren. Bewaking en diagnose voor Service Fabric-NET is onderverdeeld in drie belangrijkste typen diagnostische gegevens:
@@ -49,5 +49,5 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Lees het overzicht voor meer informatie over Service Fabric NET:
-- [Service Fabric-NET-overzicht](service-fabric-mesh-overview.md)
+Lees het overzicht voor meer informatie over Service Fabric Mesh:
+- [Service Fabric Mesh - overzicht](service-fabric-mesh-overview.md)

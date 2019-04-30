@@ -13,11 +13,11 @@ ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: fb7fe0689ce54031880565c0c6409afeab2ff523
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777888"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126968"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR cognitieve vaardigheden
 
@@ -52,7 +52,7 @@ Parameters zijn hoofdlettergevoelig.
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
 
-| Voer een naam in      | Description                                          |
+| Naam invoeren      | Description                                          |
 |---------------|------------------------------------------------------|
 | image         | Complexe Type. Momenteel wordt alleen werkt met "/ document/normalized_images"-veld, die worden geproduceerd door de indexeerfunctie Azure Blob als ```imageAction``` is ingesteld op een andere waarde dan ```none```. Zie de [voorbeeld](#sample-output) voor meer informatie.|
 

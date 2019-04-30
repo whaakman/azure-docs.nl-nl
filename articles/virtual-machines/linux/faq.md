@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
 ms.openlocfilehash: 8d421adfae335a976485ed463a69484a74be5b44
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753926"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729525"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Veelgestelde vragen over virtuele Linux-Machines
 In dit artikel komen enkele veelgestelde vragen over Linux virtuele machines die in Azure met behulp van de Resource Manager-implementatiemodel zijn gemaakt. Zie voor de Windows-versie van dit onderwerp, [Veelgestelde vragen over Windows Virtual Machines](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -66,7 +66,7 @@ De volgende gebruikersnamen zijn niet toegestaan:
 
 <table>
     <tr>
-        <td style="text-align:center">de beheerder </td><td style="text-align:center"> beheerder </td><td style="text-align:center"> user </td><td style="text-align:center"> Gebruiker1</td>
+        <td style="text-align:center">beheerder </td><td style="text-align:center"> beheerder </td><td style="text-align:center"> user </td><td style="text-align:center"> Gebruiker1</td>
     </tr>
     <tr>
         <td style="text-align:center">test </td><td style="text-align:center"> Gebruiker2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> gebruiker3</td>

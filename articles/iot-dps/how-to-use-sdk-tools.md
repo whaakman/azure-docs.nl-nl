@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.openlocfilehash: dc8c29b1c7d4e5056cb6aeee6335e32687fd547f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123671"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60627306"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Het gebruik van hulpprogramma's in de SDK's voor het vereenvoudigen van ontwikkeling voor het inrichten van
 De IoT Hub Device Provisioning Service vereenvoudigt het proces van inrichting zero-touch, just-in-time [automatische inrichting](concepts-auto-provisioning.md) op een veilige en schaalbare manier.  Beveiliging attestation in de vorm van X.509-certificaat of Trusted Platform Module (TPM) is vereist.  Microsoft is ook samenwerking met [andere hardware security partners](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) te vertrouwen bij het beveiligen van IoT-implementatie te verbeteren. Informatie over de hardwarevereisten voor de beveiliging kan lastig zijn behoorlijk voor ontwikkelaars. Een set met Azure IoT Provisioning Service-SDK's zijn bedoeld om ontwikkelaars een laag gemak kunnen gebruiken voor het schrijven-clients die met de provisioning-service communiceren. De SDK's bieden ook voorbeelden voor algemene scenario's, evenals een set hulpprogramma's voor het vereenvoudigen van beveiliging attestation in ontwikkeling.

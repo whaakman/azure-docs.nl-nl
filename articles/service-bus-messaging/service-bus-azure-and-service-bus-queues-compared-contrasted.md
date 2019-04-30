@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 2086813b01de6cd06f3714477e56864b36196382
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699044"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714571"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-wachtrijen en Service Bus-wachtrijen: overeenkomsten en verschillen
 In dit artikel analyseert de verschillen en overeenkomsten tussen de twee typen wachtrijen die momenteel worden aangeboden door Microsoft Azure: Storage-wachtrijen en Service Bus-wachtrijen. U kunt deze informatie gebruiken om de verschillende technologieën te vergelijken en tegen elkaar af te zetten zodat u een weloverwogen beslissing kunt nemen en de oplossing kiest die beste voldoet aan uw behoeften.
@@ -174,7 +174,7 @@ Deze sectie wordt de verificatie en autorisatie functies die worden ondersteund 
 
 | Vergelijkingscriteria | Opslagwachtrijen | Service Bus-wachtrijen |
 | --- | --- | --- |
-| Authentication |**Symmetrische sleutel** |**Symmetrische sleutel** |
+| Verificatie |**Symmetrische sleutel** |**Symmetrische sleutel** |
 | Beveiligingsmodel |Gedelegeerde toegang via SAS-tokens. |SAS |
 | Id-provider-Federatie |**Nee** |**Ja** |
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799181"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60780817"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Aangepaste caching in Azure API Management
 Azure API Management-service heeft ingebouwde ondersteuning voor [HTTP-antwoorden in cache opslaan](api-management-howto-cache.md) met behulp van de bron-URL als de sleutel. De sleutel kan worden gewijzigd door aanvraagheaders met behulp van de `vary-by` eigenschappen. Dit is handig voor het hele HTTP-antwoorden (ook wel opmerkingen) in cache opslaan, maar soms is het nuttig om alleen cache een gedeelte van een weergave. De nieuwe [cache-lookup-waarde](/azure/api-management/api-management-caching-policies#GetFromCacheByKey) en [cache-store-waarde](/azure/api-management/api-management-caching-policies#StoreToCacheByKey) -beleid biedt u de mogelijkheid voor het opslaan en ophalen van willekeurige delen van gegevens vanuit beleidsdefinities. Deze mogelijkheid wordt ook waarde toegevoegd aan de eerder geïntroduceerd [Verzendaanvraag](/azure/api-management/api-management-advanced-policies#SendRequest) beleid omdat kunt u de antwoorden van externe services nu cache.

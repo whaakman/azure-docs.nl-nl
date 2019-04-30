@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101751"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787647"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Hulpprogramma voor kopiëren-gegevens in Azure Data Factory
 Het hulpprogramma Copy Data van Azure Data Factory vereenvoudigt en optimaliseert het proces voor het opnemen van gegevens in een data lake, die meestal een eerste stap in een scenario voor end-to-end data-integratie.  Bespaart u tijd, met name wanneer u Azure Data Factory voor opname van gegevens uit een gegevensbron voor de eerste keer gebruikt. Enkele van de voordelen van het gebruik van dit hulpprogramma zijn:

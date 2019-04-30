@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
 ms.openlocfilehash: 67bbad7e73f33d73d4c3f1d4f7e5599d2ef914e3
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791044"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60618469"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Ontwerpoverwegingen voor Schaalsets
 Dit artikel worden besproken ontwerpoverwegingen voor Schaalsets voor virtuele machines. Raadpleeg voor informatie over wat er in Virtual Machine Scale Sets zijn [Virtual Machine Scale Sets overzicht](virtual-machine-scale-sets-overview.md).
@@ -59,14 +59,14 @@ Als u een bestaande sjabloon hebt, kunt u ook [bijwerken van de sjabloon voor he
 Een schaalset die niet met Azure Managed Disks is gedefinieerd, is afhankelijk van gebruikers gecreëerde storage-accounts voor het opslaan van de OS-schijven van de virtuele machines in de set. Een ratio van 20 VM's per opslagaccount of minder wordt aanbevolen om bereiken van maximale i/o en ook profiteren van _piekmomenten_ (Zie hieronder). Het is ook raadzaam dat u het begin van de namen van opslagaccounts verdeeld over het alfabet. Hierdoor helpt belasting verdelen over verschillende interne systemen. 
 
 
-## <a name="overprovisioning"></a>Overmatige inrichting
+## <a name="overprovisioning"></a>Overprovisioning
 Schaalsets die momenteel standaard ingesteld op 'piekmomenten' virtuele machines. Overprovisioning is ingeschakeld, de schaal daadwerkelijk fabriceert van meer virtuele machines bevat dan u gevraagd om instellen en vervolgens de extra virtuele machines worden verwijderd zodra het aangevraagde aantal virtuele machines zijn ingericht. Overmatige inrichting succespercentages verbetert en minder implementatietijd. U niet worden in rekening gebracht voor de extra virtuele machines, en ze niet meetellen voor de grenzen van uw quotum.
 
 Tijdens piekmomenten inrichting succespercentages verbeteren, kan dit leiden tot verwarring gedrag voor een toepassing die niet is ontworpen voor het afhandelen van extra virtuele machines die wordt weergegeven en vervolgens verdwijnen. Als u wilt inschakelen op piekmomenten uitschakelen, zorg ervoor dat u hebt de volgende tekenreeks in de sjabloon: `"overprovision": "false"`. Meer informatie vindt u de [schaal ingesteld REST API-documentatie](/rest/api/virtualmachinescalesets/create-or-update-a-set).
 
 Als uw schaalset maakt gebruik van gebruikers beheerde opslag, en u overmatige inrichting uitschakelen, kunt u meer dan 20 VM's per opslagaccount hebt, maar het wordt afgeraden om door te gaan boven de 40 voor i/o-prestaties. 
 
-## <a name="limits"></a>Limieten
+## <a name="limits"></a>Limits
 Een schaalset die is gebouwd op een Marketplace-installatiekopie (ook wel bekend als een platforminstallatiekopie) en geconfigureerd voor het gebruik van Azure Managed Disks biedt ondersteuning voor een capaciteit van maximaal 1000 virtuele machines. Als u uw schaalset ter ondersteuning van meer dan 100 virtuele machines configureert, wordt er niet in alle scenario's werken hetzelfde (voor een voorbeeld van de load balancing). Zie voor meer informatie, [werken met grote virtuele-machineschaalsets](virtual-machine-scale-sets-placement-groups.md). 
 
 Een schaalset die is geconfigureerd met de gebruiker beheerde opslagaccounts is momenteel beperkt tot 100 virtuele machines (en 5 opslagaccounts worden aanbevolen voor deze).

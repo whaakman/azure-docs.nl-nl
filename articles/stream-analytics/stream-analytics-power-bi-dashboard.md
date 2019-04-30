@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 487c142400dc2bfa6f44e17963535051af017196
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817771"
 ---
 # <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Zelfstudie: Stream Analytics en Power BI: Een realtime analytics-dashboard voor het streamen van gegevens
 Azure Stream Analytics kunt u profiteren van een van de toonaangevende hulpprogramma's voor bedrijfsinformatie [Microsoft Power BI](https://powerbi.com/). In dit artikel leert u hoe business intelligence-hulpmiddelen te maken met behulp van Power BI als uitvoer voor uw Azure Stream Analytics-taken. U leert ook hoe u het maken en gebruiken van een realtime dashboard.

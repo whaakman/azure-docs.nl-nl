@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408152"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60822759"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Automatisch schalen van Azure Event Hubs-doorvoereenheden
 Azure Event Hubs is een uiterst schaalbaar platform voor gegevensstromen. Gebruik van Event Hubs verhoogt daarom vaak na het starten van de service wilt gebruiken. Dergelijk gebruik vereist verhogen van de vooraf ingestelde [doorvoereenheden](event-hubs-features.md#throughput-units) schalen van Event Hubs en grotere standaardtarieven voor gegevensoverdracht worden verwerkt. De **automatisch vergroten** functie van Event Hubs automatisch omhoog wordt geschaald uitgaande door het aantal doorvoereenheden, om te voldoen aan gebruik behoeften. Verhoging van doorvoereenheden wordt voorkomen dat beperkingsscenario's, waarbij:

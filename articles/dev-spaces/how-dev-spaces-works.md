@@ -11,11 +11,11 @@ ms.topic: conceptual
 description: Beschrijving van de processen die power Azure Dev spaties en hoe ze zijn geconfigureerd in het configuratiebestand azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544920"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60687144"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Hoe Azure Dev spaties werkt en is geconfigureerd
 

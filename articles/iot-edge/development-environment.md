@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f3d1fb393138aeb590bc0645d6abe93652a52a5b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052578"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61247542"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Voorbereiden van uw ontwikkel- en testomgeving voor IoT Edge
 
@@ -60,7 +60,7 @@ De module-sjablonen voor sommige talen en services zijn vereisten die nodig zijn
 | C# | [.NET core SDK 2.1](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Java SE Development Kit 10](https://aka.ms/azure-jdks) <li> [Stel de omgevingsvariabele JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Generator voor Azure IoT Edge Node.js-module](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
-| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [PIP](https://pip.pypa.io/en/stable/installing/#installation) <li> [Cookiecutteru](https://cookiecutter.readthedocs.io/en/latest/installation.html) <li> [Git](https://git-scm.com/) </ul> |
+| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [PIP](https://pip.pypa.io/en/stable/installing/#installation) <li> [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html) <li> [Git](https://git-scm.com/) </ul> |
 
 ### <a name="visual-studio-2017-extension"></a>Visual Studio 2017-extensie
 
@@ -82,10 +82,10 @@ Alleen de IoT Edge-runtime voor productie-implementaties wordt ondersteund, maar
 
 | Hulpprogramma | Ook wel bekend als | Ondersteunde platforms | Ideaal voor |
 | ---- | ------------- | ------------------- | --------- |
-| Hulpprogramma voor het ontwikkelen van IoT EdgeHub  | iotedgehubdev | Windows, Linux, Mac OS | Een apparaat om op te sporen modules simuleren. |
-| IoT Edge dev-container | Microsoft/iotedgedev | Windows, Linux, Mac OS | Ontwikkelen zonder de installatie van afhankelijkheden. |
+| Hulpprogramma voor het ontwikkelen van IoT EdgeHub  | iotedgehubdev | Windows, Linux, MacOS | Een apparaat om op te sporen modules simuleren. |
+| IoT Edge dev-container | microsoft/iotedgedev | Windows, Linux, MacOS | Ontwikkelen zonder de installatie van afhankelijkheden. |
 | IoT Edge-runtime in een container | iotedgec | Windows, Linux, MacOS, ARM | Testen op een apparaat dat de runtime wordt mogelijk niet ondersteund. |
-| IoT Edge-apparaatcontainer | toolboc/azure-iot-edge-apparaat-container | Windows, Linux, MacOS, ARM | Het testen van een scenario met veel IoT Edge-apparaten op schaal. |
+| IoT Edge-apparaatcontainer | toolboc/azure-iot-edge-device-container | Windows, Linux, MacOS, ARM | Het testen van een scenario met veel IoT Edge-apparaten op schaal. |
 
 ### <a name="iot-edgehub-dev-tool"></a>Hulpprogramma voor het ontwikkelen van IoT EdgeHub
 
@@ -120,5 +120,5 @@ Wanneer u klaar om oplossingen voor uitgebreide productiescenario's op schaal te
 Zie voor meer informatie, instructies en voorbeelden, de volgende pagina's:
 * [Continue integratie en continue implementatie voor Azure IoT Edge](how-to-ci-cd.md)
 * [Een CI/CD-pijplijn maken voor IoT Edge met Azure DevOps Projects](how-to-devops-project.md)
-* [Azure IoT Edge Jenkins-invoegtoepassing](https://plugins.jenkins.io/azure-iot-edge)
+* [Azure IoT Edge Jenkins plugin](https://plugins.jenkins.io/azure-iot-edge)
 * [IoT Edge DevOps GitHub-opslagplaats](https://github.com/toolboc/IoTEdge-DevOps)

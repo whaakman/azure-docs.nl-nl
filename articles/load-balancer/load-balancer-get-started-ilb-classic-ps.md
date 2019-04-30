@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
 ms.openlocfilehash: ef6aac0d97c38798f826304475779ea8059875c7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097978"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848539"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Aan de slag met het maken van een interne load balancer (klassiek) met behulp van PowerShell
 
@@ -30,7 +30,7 @@ ms.locfileid: "53097978"
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md).  Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Lees [meer informatie over het uitvoeren van deze stappen met het Resource Manager-model](load-balancer-get-started-ilb-arm-ps.md).
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources:  [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md).  Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Lees [meer informatie over het uitvoeren van deze stappen met het Resource Manager-model](load-balancer-get-started-ilb-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -44,7 +44,7 @@ Ga als volgt te werk om een interne load balancer-set te maken, evenals de serve
 2. Voeg eindpunten toe die overeenkomen met de virtuele machines die het binnenkomende verkeer ontvangen.
 3. Configureer de servers die het verkeer voor gelijke taakverdeling verzenden, zodanig dat het verkeer wordt verzonden naar het VIP-adres (virtuele IP) van het exemplaar van Interne taakverdeling.
 
-### <a name="step-1-create-an-internal-load-balancing-instance"></a>Stap 1: Een exemplaar van Interne taakverdeling maken
+### <a name="step-1-create-an-internal-load-balancing-instance"></a>Stap 1: Een exemplaar van interne taakverdeling maken
 
 Voor een bestaande cloudservice of een cloudservice die in een regionaal virtueel netwerk is geïmplementeerd, kunt u een exemplaar van Interne taakverdeling maken met de volgende Windows PowerShell-opdrachten:
 
@@ -59,7 +59,7 @@ Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb �
 
 Als de Windows PowerShell-cmdlet [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) op deze manier wordt gebruikt, wordt de parameterset DefaultProbe gebruikt. Zie [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) voor meer informatie over aanvullende parametersets.
 
-### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Stap 2: Eindpunten toevoegen aan het exemplaar van Interne taakverdeling
+### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Stap 2: Eindpunten toevoegen aan het exemplaar van interne taakverdeling
 
 Hier volgt een voorbeeld:
 
@@ -75,7 +75,7 @@ $ilb="ilbset"
 Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 ```
 
-### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>Stap 3: De servers zo configureren dat ze hun verkeer naar het nieuwe eindpunt voor Interne taakverdeling verzenden
+### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>Stap 3: De servers voor het verzenden van hun verkeer naar het nieuwe eindpunt voor interne taakverdeling configureren
 
 U moet de servers waarvan het verkeer gelijkmatig moet worden verdeeld, zodanig configureren dat ze het nieuwe IP-adres (VIP) van het exemplaar van Interne taakverdeling gaan gebruiken. Dit is het adres waarop het exemplaar van Interne taakverdeling luistert. In de meeste gevallen hoeft u alleen een DNS-record voor het VIP van het exemplaar van Interne taakverdeling toe te voegen of aan te passen.
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 25bc7798853d350139a7802eaad68d52a1d7d99f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60996610"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming voor iOS 
 
@@ -47,8 +47,8 @@ Voordat u offline DRM voor FairPlay implementeren op een apparaat met iOS 10 +:
 
 * Online beveiliging van inhoud voor FairPlay bekijken: 
 
-    - [Vereisten voor Apple FairPlay-licenties en configuratie](fairplay-license-overview.md)
-    - [Gebruik DRM dynamische versleuteling en licentie leveringsservice voor](protect-with-drm.md)
+    - [Vereisten voor en configuratie van Apple FairPlay-licenties](fairplay-license-overview.md)
+    - [De Digital Rights Management-service gebruiken voor dynamische versleuteling en licentielevering](protect-with-drm.md)
     - Een .NET-voorbeeld met de configuratie van online FPS streaming: [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
 * De SDK FPS ophalen met de Apple Developer Network. De SDK FPS bestaat uit twee onderdelen:
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.openlocfilehash: a6a2fb246e407d6ea240ff40f4d2fa2b1b780931
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61023714"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Virtual Kubelet gebruiken met Azure Kubernetes Service (AKS)
 
@@ -90,7 +90,7 @@ Deze argumenten zijn beschikbaar voor de `aks install-connector` opdracht.
 | `--connector-name` | Naam van de ACI-Connector.| Ja |
 | `--name` `-n` | Naam van de beheerde cluster. | Ja |
 | `--resource-group` `-g` | De naam van de resourcegroep. | Ja |
-| `--os-type` | Type in de container instances-besturingssysteem. Toegestane waarden: Beide, Linux, Windows. Standaard: Linux. | Nee |
+| `--os-type` | Type in de container instances-besturingssysteem. Toegestane waarden: Both, Linux, Windows. Standaard: Linux. | Nee |
 | `--aci-resource-group` | De resourcegroep waarin u wilt maken van de groepen ACI-container. | Nee |
 | `--location` `-l` | De locatie voor het maken van de groepen ACI-container. | Nee |
 | `--service-principal` | Service-principal gebruikt voor verificatie bij Azure-API's. | Nee |

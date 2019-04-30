@@ -13,13 +13,13 @@ ms.date: 03/19/2018
 ms.author: markscu
 ms.custom: seodec18
 ms.openlocfilehash: 17668470be3e997c215aacc4cc2c32c80de2dd81
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546790"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776127"
 ---
-# <a name="use-low-priority-vms-with-batch"></a>Virtuele machines met lage prioriteit gebruiken met Batch
+# <a name="use-low-priority-vms-with-batch"></a>Virtuele machines met lage prioriteit met Batch gebruiken
 
 Azure Batch biedt met lage prioriteit virtuele machines (VM's) om de kosten van Batch-workloads te beperken. Virtuele machines met lage prioriteit maken nieuwe typen van Batch werkbelastingen mogelijk doordat een grote hoeveelheid rekenkracht moet worden gebruikt voor zeer lage kosten.
  

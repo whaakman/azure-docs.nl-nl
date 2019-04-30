@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: victorh
-ms.openlocfilehash: d84da36ad6b1ef3e2a507a0944aac583861d5ccb
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 409595febded7b242eae876ebb2cb35ae4999e5e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162164"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686835"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Scenario's voor Azure DNS Private Zones
 Azure DNS Private Zones bieden naamomzetting binnen een virtueel netwerk evenals tussen virtuele netwerken. In dit artikel kijken we enkele algemene scenario's die kunnen worden gerealiseerd met behulp van deze functie. 
@@ -44,7 +44,7 @@ In dit scenario hebt u een use-case waar u om te profiteren van verschillende DN
 
 Het volgende diagram ziet u in dit scenario. U hebt een virtueel netwerk A met twee VM's (VNETA VM1 en VNETA VM2) waarvoor zowel privé-IP-adressen en openbare IP-adressen toegewezen. U maakt een openbare DNS-zone met de naam contoso.com en meld u aan het openbare IP-adressen voor deze virtuele machines als DNS-records in de zone. U wordt ook een privé-DNS-zone ook met de naam contoso.com A Als het Registration virtual network op te geven. Azure registreert automatisch de virtuele machines als de A-records in de Zone privé, die verwijst naar hun privé-IP-adressen.
 
-Nu wanneer een client een DNS-query om te controleren of VNETA VM1.contoso.com uitgeeft, wordt Azure de openbare IP-adresrecord geretourneerd uit de openbare zone. Als dezelfde DNS-query is uitgegeven door een andere virtuele machine (bijvoorbeeld: VNETA VM2) in hetzelfde virtuele netwerk een, Azure de privé-IP-record wordt geretourneerd vanaf de privézone. 
+Nu wanneer een client een DNS-query om te controleren of VNETA VM1.contoso.com uitgeeft, wordt Azure de openbare IP-adresrecord geretourneerd uit de openbare zone. Als dezelfde DNS-query is uitgegeven door een andere virtuele machine (bijvoorbeeld: VNETA-VM2) in hetzelfde virtuele netwerk een, Azure de privé-IP-record wordt geretourneerd vanaf de privézone. 
 
 ![Gesplitste Brian resolutie](./media/private-dns-scenarios/split-brain-resolution.png)
 
@@ -53,7 +53,7 @@ Voor meer informatie over privé-DNS-zones raadpleegt u [Using Azure DNS for pri
 
 Meer informatie over het [maken van een privé-DNS-zone](./private-dns-getstarted-powershell.md) in Azure DNS.
 
-Meer informatie over DNS-zones en records, recentst: [DNS-zones en records overzicht](dns-zones-records.md).
+Meer informatie over DNS-zones en records door naar de pagina: [DNS-zones en records overzicht](dns-zones-records.md).
 
 Informatie over enkele van de andere belangrijke [netwerkmogelijkheden](../networking/networking-overview.md) van Azure.
 

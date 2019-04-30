@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 01/24/2019
 ms.author: bwren
 ms.openlocfilehash: ba9a0ab775e062f21a058b537e289fe3ea2b40bb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000043"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093961"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tijd van beveiligingslogboek gegevens opnemen in Azure Monitor
 Azure Monitor is een service voor grootschalige die duizenden klanten terabytes aan gegevens per maand verzenden in een groeiende tempo fungeert. Er zijn vaak vragen over de tijd die nodig zijn voor de logboekgegevens beschikbaar nadat deze verzameld. In dit artikel wordt uitgelegd dat de verschillende factoren die invloed hebben op deze latentie.
@@ -30,7 +30,7 @@ Latentie verwijst naar het tijdstip waarop gegevens worden gemaakt op het bewaak
 De totale opname-tijd voor een bepaalde set gegevens kan worden onderverdeeld in de volgende algemene gebieden ingedeeld. 
 
 - Tijd agent - de tijd voor het detecteren van een gebeurtenis, verzamelen en deze vervolgens te verzenden naar Azure Monitor punt als een logboekrecord. Dit proces wordt in de meeste gevallen afgehandeld door een agent.
-- Tijd voor pipeline - de tijd voor de pijplijn opname voor het verwerken van de logboekrecord. Dit omvat het parseren van de eigenschappen van de gebeurtenis en mogelijk berekende gegevens toe te voegen.
+- Pijplijntijd. Dit is de tijd die het kost om de logboekrecord te verwerken via de opnamepijplijn. Dit omvat het parseren van de eigenschappen van de gebeurtenis en mogelijk berekende gegevens toe te voegen.
 - Indexering tijd – de tijd wordt gebruikt voor het opnemen van een logboekrecord in Azure Monitor big data-archief.
 
 Meer informatie over de verschillende latentie die is geïntroduceerd in dit proces worden hieronder beschreven.

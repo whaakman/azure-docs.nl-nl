@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
 ms.openlocfilehash: 72348085a69746306e40029bc7473df271b60221
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105281"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60946606"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-beleidsregels voor transformatie
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -507,7 +507,7 @@ OriginalUrl.
 |Name|Description|Vereist|
 |----------|-----------------|--------------|
 |set-header|Root-element.|Ja|
-|waarde|Hiermee geeft u de waarde van de header moet worden ingesteld. Voor meerdere headers met dezelfde naam voegt u extra `value` elementen.|Ja|
+|value|Hiermee geeft u de waarde van de header moet worden ingesteld. Voor meerdere headers met dezelfde naam voegt u extra `value` elementen.|Ja|
 
 ### <a name="properties"></a>Properties
 
@@ -567,7 +567,7 @@ OriginalUrl.
 |Name|Description|Vereist|
 |----------|-----------------|--------------|
 |set-query-parameter|Root-element.|Ja|
-|waarde|Hiermee geeft u de waarde van de query-parameter moet worden ingesteld. Voor meerdere queryparameters met dezelfde naam voegt u extra `value` elementen.|Ja|
+|value|Hiermee geeft u de waarde van de query-parameter moet worden ingesteld. Voor meerdere queryparameters met dezelfde naam voegt u extra `value` elementen.|Ja|
 
 ### <a name="properties"></a>Properties
 

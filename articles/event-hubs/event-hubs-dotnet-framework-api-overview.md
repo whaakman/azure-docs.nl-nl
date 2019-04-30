@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 46b0599e6c4d5b4cc2dd9370a28616019b79b50d
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: f56882d2d73c85434c6f81972a06e5ea9ccdff99
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745648"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60822048"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Overzicht van Event Hubs .NET Framework-API
 
@@ -22,7 +22,7 @@ In dit artikel vindt u een samenvatting van de sleutel Azure Event Hubs [.NET Fr
 
 [Controlescenario's](event-hubs-metrics-azure-monitor.md) beheer- en runtime-omvatten. Zie voor gedetailleerde naslagdocumentatie over de .NET API's, de [.NET Framework](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), [.NET Standard](/dotnet/api/microsoft.azure.eventhubs), en [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) verwijzingen.
 
-## <a name="management-apis"></a>Management-API 's
+## <a name="management-apis"></a>Beheer API’s
 
 Als u wilt de volgende bewerkingen uitvoeren, moet u hebben **beheren** machtigingen voor de Event Hubs-naamruimte:
 

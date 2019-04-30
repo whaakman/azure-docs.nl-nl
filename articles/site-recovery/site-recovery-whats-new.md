@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: raynew
-ms.openlocfilehash: fece1adc9ad2f5844a7d6cc1e0e9cc92d44de6d8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 5ee1328dddb6ae1e1c878384097b0e10aa32feeb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776285"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nieuw in Site Recovery
 
@@ -126,7 +126,7 @@ Herstel na noodgevallen voor Azure-VM's worden licentiekosten voor virtuele mach
 **Update** | **Details**
 --- | ---
 **Providers en agents** | Een update voor de Site-herstelagenten en providers (zoals beschreven in het pakket)
-**Herstel na noodgevallen voor Linux** | **Azure-VM's**: Added supported for RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> **Virtuele VMware-machines**: RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> Op basis van Linux-VM's gebruiken de partitiestijl GUID partitietabel (GPT) in de verouderde BIOS-compatibiliteitsmodus worden nu ondersteund.
+**Herstel na noodgevallen voor Linux** | **Azure-VM's**: Added supported for RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> **Virtuele VMware-machines**: RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> Op basis van Linux-VM's gebruiken de partitiestijl GUID partitietabel (GPT) in de verouderde BIOS-compatibiliteitsmodus worden nu ondersteund. Zie [Veelgestelde vragen over Azure IaaS VM-schijven](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/faq-for-disks) voor meer informatie. 
 **Cloudondersteuning voor** | Herstel na noodgevallen voor Azure-VM's in de cloud voor Duitsland ondersteund.
 **Herstel na noodgevallen voor abonnementen** | Ondersteuning voor het repliceren van virtuele Azure-machines in één regio naar een andere regio in een ander abonnement, binnen dezelfde Azure Active Directory-tenant. [Meer informatie](https://aka.ms/cross-sub-blog).
 **Windows Server 2008** | Ondersteuning voor het migreren van machines actieve Windows Server 2008 R2-2008 64-bits en 32-bits.<br/><br/> De migratie alleen (replicatie en failover). Failback wordt niet ondersteund.

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.openlocfilehash: a35cba0ab7df80596ba1403765980809635c0249
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881852"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60617993"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Virtuele machine van Azure-extensies en functies
 Extensies voor Azure-machines (VM) zijn kleine toepassingen die taken van configuratie- en automatiseringstaken na de implementatie op Azure Virtual machines bieden, kunt u de bestaande installatiekopieën gebruiken en ze vervolgens aanpassen als onderdeel van uw implementaties aan u buiten het bedrijf van aangepaste installatiekopie samenstellen.

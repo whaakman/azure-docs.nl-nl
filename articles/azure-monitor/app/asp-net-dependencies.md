@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
 ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273104"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691368"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights instellen: Bijhouden van afhankelijkheid
 Een *afhankelijkheid* is een externe component die wordt aangeroepen door uw app. Het is doorgaans een service die wordt aangeroepen met behulp van HTTP, of een database of een bestandssysteem. [Application Insights](../../azure-monitor/app/app-insights-overview.md) meet hoe lang de toepassing moet wachten voor afhankelijkheden en hoe vaak een afhankelijkheidsaanroep is mislukt. U kunt specifieke aanroepen te onderzoeken en koppelen aan aanvragen en uitzonderingen.

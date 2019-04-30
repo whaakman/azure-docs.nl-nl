@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: a249cf96981957de2c445079c0172b9c0c2ce543
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111885"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60799476"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Seriële Console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker
 WORMGATEN is het eindtotaal Unified Bootloader. Vanaf WORMGATEN, u kunt wijzigen van de opstartconfiguratie om op te starten in de modus voor één gebruiker, onder andere.

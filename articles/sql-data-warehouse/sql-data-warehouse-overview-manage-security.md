@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: 179925fc7411a1ccf3de02d7b6298cc66f93bc66
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175714"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126937"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Een database in SQL Data Warehouse beveiligen
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ SQL Data Warehouse maakt gebruik van firewallregels op serverniveau. Firewallreg
 
 Verbindingen met uw SQL Data Warehouse worden standaard versleuteld.  Verbindingsinstellingen aanpassen om versleuteling te schakelen worden genegeerd.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 Verificatie verwijst naar hoe u uw identiteit bewijst bij het maken van verbinding met de database. SQL Data Warehouse biedt momenteel ondersteuning voor SQL Server-verificatie met een gebruikersnaam en wachtwoord, en met Azure Active Directory. 
 
 Wanneer u de logische server voor uw database hebt gemaakt, hebt u een aanmelding 'serverbeheerder' opgegeven met een gebruikersnaam en wachtwoord. Met deze referenties, kunt u verifiëren met elke database op die server als de database-eigenaar of 'dbo' via SQL Server-verificatie.

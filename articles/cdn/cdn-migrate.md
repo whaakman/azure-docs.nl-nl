@@ -16,11 +16,11 @@ ms.date: 06/21/2018
 ms.author: magattus
 ms.custom: ''
 ms.openlocfilehash: 7768dde424aedc295b53512db50c9dfc9db9ab8c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091467"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60635632"
 ---
 # <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Een Azure CDN-profiel van de Standard-Verizon migreren naar Premium-Verizon
 
@@ -37,8 +37,8 @@ Upgrade een **Azure CDN Standard van Verizon** profiel, neem contact op met [Mic
 ## <a name="profile-comparison"></a>Vergelijking van profiel
 **Azure CDN Premium van Verizon** profielen hebben de volgende belangrijke verschillen van **Azure CDN Standard van Verizon** profielen:
 - Voor bepaalde Azure CDN functies zoals [compressie](cdn-improve-performance.md), [regels voor caching](cdn-caching-rules.md), en [geografische filtering](cdn-restrict-access-by-country.md), u kunt de Azure CDN-interface niet gebruiken, moet u de portal Verizon via de **Beheren** knop.
-- API: In tegenstelling tot met Standard-Verizon, u niet gebruiken de API voor het beheren van deze functies die worden geopend via de portal voor Premium-Verizon. U kunt echter de API gebruiken voor het beheren van andere algemene functies, zoals het maken/verwijderen van een eindpunt, assets in cache wissen/laden en in-/ uitschakelen een aangepast domein.
-- Prijs: Premium-Verizon heeft een andere prijscategorie structuur voor de gegevensoverdracht dan Standard-Verizon. Zie voor meer informatie, [prijzen van Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
+- API: In tegenstelling tot kan niet standaard Verizon, u de API gebruiken om deze functies die worden geopend via de portal voor Premium-Verizon te beheren. U kunt echter de API gebruiken voor het beheren van andere algemene functies, zoals het maken/verwijderen van een eindpunt, assets in cache wissen/laden en in-/ uitschakelen een aangepast domein.
+- Prijzen: Premium-Verizon heeft een andere prijscategorie structuur voor de gegevensoverdracht dan Standard-Verizon. Zie voor meer informatie, [prijzen van Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
 
 **Azure CDN Premium van Verizon** profielen hebben de volgende extra functies:
 - [Tokenverificatie](cdn-token-auth.md): Hiermee kunnen gebruikers verkrijgen en gebruiken van een token voor het ophalen van beveiligde bronnen.

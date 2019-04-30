@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
 ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075762"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60705083"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Controle en het verwerken van beveiligingsgebeurtenissen in Azure Security Center
 Het dashboard gebeurtenissen bevat een overzicht van het aantal beveiligingsgebeurtenissen verzameld voor tijd en een lijst van gebeurtenissen die aandacht vereisen die uw aandacht nodig hebben.  

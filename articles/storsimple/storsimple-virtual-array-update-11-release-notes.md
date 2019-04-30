@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2018
 ms.author: alkohli
-ms.openlocfilehash: d73f45ec5ff1ffbe207fc45a1f87dcbe4f8ff021
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 55103d6307614f8796c41c35d6345e1fc3aca261
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60789634"
 ---
 # <a name="storsimple-virtual-array-update-11-release-notes"></a>Opmerkingen bij de release van de StorSimple Virtual Array Update 1.1
 
@@ -65,7 +65,7 @@ De volgende tabel bevat een overzicht van de bekende problemen voor de StorSimpl
 | **3.** |Groepsbeleid |Wanneer een apparaat is het domein, toepassen van een Groepsbeleid kan nadelige invloed heeft op het apparaat opnieuw. |Zorg ervoor dat uw virtuele array kan in een eigen organisatie-eenheid (OE) voor Active Directory en geen groepsbeleidsobjecten (GPO) worden toegepast. |
 | **4.** |Lokale web-UI |Als verbeterde beveiligingsfuncties zijn ingeschakeld in Internet Explorer (IE ESC), is het mogelijk dat sommige lokale web-UI-pagina's, zoals probleemoplossing of onderhoud niet goed werkt. Knoppen op deze pagina's kunnen ook niet werken. |Geavanceerde beveiligingsfuncties in Internet Explorer uitschakelen. |
 | **5.** |Lokale web-UI |In een Hyper-V virtuele machine, de netwerkinterfaces in de web-UI worden weergegeven als 10 Gbps-interfaces. |Dit gedrag is een weerspiegeling van Hyper-V. Hyper-V bevat altijd 10 Gbps voor virtuele netwerkadapters. |
-| **6.** |Gelaagde volumes of shares |Bytebereik vergrendelen voor toepassingen die werken met de StorSimple gelaagde volumes wordt niet ondersteund. Als byte bereik vergrendeling is ingeschakeld, werkt StorSimple lagen niet. |Aanbevolen maatregelen zijn onder andere: <br></br>Bytebereik vergrendelen in uw toepassingslogica uitschakelen.<br></br>Wilt u gegevens voor deze toepassing opnemen in de lokaal vastgemaakte volumes in plaats van gelaagde volumes.<br></br>*Voorbehoud*: wanneer met behulp van lokaal volumes vastgemaakte en byte bereik vergrendeling is ingeschakeld, het lokaal vastgemaakte volume online kan worden voordat de herstelbewerking voltooid is. In dergelijke gevallen, als een herstelbewerking uitgevoerd wordt, moet klikt u vervolgens u wachten voor de herstelbewerking is voltooid. |
+| **6.** |Gelaagde volumes of shares |Bytebereik vergrendelen voor toepassingen die werken met de StorSimple gelaagde volumes wordt niet ondersteund. Als byte bereik vergrendeling is ingeschakeld, werkt StorSimple lagen niet. |Aanbevolen maatregelen zijn onder andere: <br></br>Bytebereik vergrendelen in uw toepassingslogica uitschakelen.<br></br>Wilt u gegevens voor deze toepassing opnemen in de lokaal vastgemaakte volumes in plaats van gelaagde volumes.<br></br>*Voorbehoud*: Wanneer met behulp van lokaal volumes vastgemaakte en byte bereik vergrendeling is ingeschakeld, kan het lokaal vastgemaakte volume online zijn, zelfs nog voor het herstellen voltooid is. In dergelijke gevallen, als een herstelbewerking uitgevoerd wordt, moet klikt u vervolgens u wachten voor de herstelbewerking is voltooid. |
 | **7.** |Gelaagde bestandsshares |Werken met grote bestanden kan leiden tot trage laag uitschalen. |Als u werkt met grote bestanden, wordt u aangeraden het grootste bestand kleiner is dan 3% van de grootte van de bestandsshare is. |
 | **8.** |Capaciteitsplanning voor bestandsshares |U ziet mogelijk verbruik delen wanneer er geen gegevens op de share zijn. Dit verbruik is omdat de gebruikte capaciteit voor shares metagegevens bevat. | |
 | **9.** |Herstel na noodgeval |U kunt alleen het herstel na noodgevallen van een bestandsserver aan hetzelfde domein als die van het bronapparaat uitvoeren. Herstel na noodgevallen naar een doelapparaat in een ander domein wordt niet ondersteund in deze release. |Dit is geïmplementeerd in een latere versie. Ga voor meer informatie naar [Failover en herstel na noodgevallen voor uw StorSimple Virtual Array](storsimple-virtual-array-failover-dr.md) |
@@ -76,7 +76,7 @@ De volgende tabel bevat een overzicht van de bekende problemen voor de StorSimpl
 | **14.** |Bestandsserver |Als een bestand in een map is een alternatieve gegevens Stream (AD) die ermee verbonden zijn, wordt de ADVERTENTIES niet een back-up of via herstel na noodgevallen, klonen en herstel op itemniveau wordt hersteld. | |
 | **15.** |Bestandsserver |Symbolische koppelingen worden niet ondersteund. | |
 | **16.** |Bestandsserver |Bestanden beveiligd door Windows Encrypting File System (EFS) wanneer gekopieerd of opgeslagen op het resultaat van de StorSimple Virtual Array bestand server in een niet-ondersteunde configuratie.  | |
-| **17.** |Updates |Als u deze fout ziet code: 2359302 (hex 0x240006) bij een poging om een hotfix via de gebruikersinterface voor het lokaal te installeren, klikt u vervolgens dit houdt in dat de hotfix al is geïnstalleerd op uw apparaat.   | |
+| **17.** |Updates |Als u fout ziet code: 2359302 (hex 0x240006) bij een poging om een hotfix via de gebruikersinterface voor het lokaal te installeren, klikt u vervolgens dit houdt in dat de hotfix al is geïnstalleerd op uw apparaat.   | |
 | **18.** |Updates |Als u de lokale webgebruikersinterface Update 1 installeren op uw virtuele array gebruikt, moet u ervoor zorgen dat u Update 0.6 worden uitgevoerd. Als u een versie lager is dan Update 0.6, moet u eerst Update 0.6 installeren en vervolgens toepassen Update 1. Als u Update 1.0 voor het rechtstreeks vanaf een 0,6 versie vóór het bijwerken installeren, klikt u vervolgens wordt u bepaalde updates gemist en de bewakingsgrafieken werkt niet.   | |
 
 
@@ -87,8 +87,8 @@ De volgende tabel bevat een overzicht van de bekende problemen voor de StorSimpl
 Wilt u een oudere releaseopmerking? Ga naar:
 * [Opmerkingen bij de StorSimple Virtual Array Update 1.0 Release](storsimple-virtual-array-update-1-release-notes.md)
 * [Opmerkingen bij de StorSimple Virtual Array Update 0.6 Release](storsimple-virtual-array-update-06-release-notes.md)
-* [Opmerkingen bij de StorSimple Virtual Array Update 0.5 Release](storsimple-virtual-array-update-05-release-notes.md)
-* [Opmerkingen bij de StorSimple Virtual Array Update 0.4 Release](storsimple-virtual-array-update-04-release-notes.md)
-* [Opmerkingen bij de StorSimple Virtual Array Update 0.3 Release](storsimple-ova-update-03-release-notes.md)
+* [StorSimple Virtual Array Update 0.5 Release Notes](storsimple-virtual-array-update-05-release-notes.md)
+* [StorSimple Virtual Array Update 0.4 Release Notes](storsimple-virtual-array-update-04-release-notes.md)
+* [StorSimple Virtual Array Update 0.3 Release Notes](storsimple-ova-update-03-release-notes.md)
 * [StorSimple Virtual Array Update 0.1 en 0.2 opmerkingen bij de Release](storsimple-ova-update-01-release-notes.md)
 * [Opmerkingen bij de Release van StorSimple Virtual Array algemene beschikbaarheid](storsimple-ova-pp-release-notes.md)

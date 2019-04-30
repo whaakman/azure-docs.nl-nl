@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 76ab49c7f28260249483bf3bc4387e8cbaca13b2
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570535"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60767166"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps ondersteunde kaartstijlen
 Azure kaarten biedt ondersteuning voor diverse verschillende ingebouwde kaartstijlen zoals hieronder wordt beschreven.
 
-## <a name="road"></a>kaartachtergrond als weg
+## <a name="road"></a>Kaartachtergrond als weg
 Een **weg** kaart is een standaard-kaart die wordt weergegeven wegen, natuurlijke en kunstmatige functies samen met de labels voor deze functies.
 
-![kaartachtergrond als weg](./media/supported-map-styles/road.png)
+![Kaartachtergrond als weg](./media/supported-map-styles/road.png)
 
 **Van toepassing API's:**
 * [Kaartafbeelding](https://docs.microsoft.com/rest/api/maps/render/getmapimage)

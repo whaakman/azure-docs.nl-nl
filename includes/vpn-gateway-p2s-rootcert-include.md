@@ -2,18 +2,19 @@
 title: bestand opnemen
 description: bestand opnemen
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/11/2018
-ms.author: cherylmc
+origin.date: 12/11/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 4c8e7e5272f180c482ca7fdd44302f49eb888b25
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323666"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320035"
 ---
 Gebruik een basiscertificaat dat is gegenereerd met een commerciële oplossing (aanbevolen) of genereer een zelfondertekend certificaat. Nadat u het basiscertificaat hebt gemaakt, exporteert u de gegevens van het openbare certificaat (niet de persoonlijke sleutel) als een X.509 CER-bestand dat is gecodeerd met Base64. Vervolgens uploadt u de gegevens van het openbare certificaat naar de Azure-server.
 

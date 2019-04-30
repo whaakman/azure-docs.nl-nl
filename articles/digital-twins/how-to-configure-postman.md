@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: adgera
 ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926074"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Postman voor digitale dubbels voor Azure configureren
 
@@ -68,7 +68,7 @@ Vervolgens instellen en configureren van Postman als u wilt een Azure Active Dir
 
 1. Selecteer de **autorisatie** tabblad **OAuth 2.0**, en selecteer vervolgens **nieuwe Access Token ophalen**.
 
-    | Veld  | Waarde |
+    | Veld  | Value |
     |---------|---------|
     | Toekenningstype | `Implicit` |
     | URL voor terugbellen | `https://www.getpostman.com/oauth2/callback` |

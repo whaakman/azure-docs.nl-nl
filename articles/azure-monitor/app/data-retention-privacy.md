@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3c74d3a6c5b66053fb968ad52f72eca181799a3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0f8f1c5585eb13506baea1e5ddbe611cc931758e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003590"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60899236"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
 
@@ -28,7 +28,7 @@ Eerste, de korte antwoord:
 * De standaardtelemetrie voor modules die worden uitgevoerd 'buiten het vak' waarschijnlijk geen gevoelige gegevens te verzenden naar de service. De telemetrie is betrokken bij het laden, prestaties en gebruik metrische gegevens, uitzonderingenrapporten en andere diagnostische gegevens. De belangrijkste gegevens zichtbaar zijn in de diagnostische rapporten worden URL's; maar uw app mogen geen gevoelige gegevens in elk geval geplaatst als tekst zonder opmaak in een URL.
 * U kunt code schrijven die aanvullende aangepaste telemetrie verzendt naar helpt u met de diagnostische gegevens en bewaking wordt gebruikt. (Deze uitbreiding is een fantastische functie van Application Insights.) Is het mogelijk, per ongeluk deze code schrijven, zodat het persoonlijke en andere gevoelige gegevens bevat. Als uw toepassing met dergelijke gegevens werkt, moet u een grondig processen toepassen op de code die u schrijft.
 * Tijdens het ontwikkelen en testen van uw app, is het gemakkelijk om te controleren wat er door de SDK worden verzonden. De gegevens weergegeven in de windows-foutopsporing uitvoer van de IDE en de browser. 
-* De gegevens worden bewaard in [Microsoft Azure](https://azure.com) servers in de Verenigde Staten of Europa. (Maar overal kan worden uitgevoerd door uw app.) Azure heeft [sterke beveiliging verwerkt en voldoet aan een breed scala aan standaarden voor compliance](https://azure.microsoft.com/support/trust-center/). Alleen u en uw team aangewezen hebt toegang tot uw gegevens. Medewerkers van Microsoft kunt beperkte toegang toe alleen in bepaalde beperkte omstandigheden met uw kennis. Het versleuteld in doorvoer, maar niet in de servers.
+* De gegevens worden bewaard in [Microsoft Azure](https://azure.com) servers in de Verenigde Staten of Europa. (Maar overal kan worden uitgevoerd door uw app.) Azure heeft [sterke beveiliging verwerkt en voldoet aan een breed scala aan standaarden voor compliance](https://azure.microsoft.com/support/trust-center/). Alleen u en uw team aangewezen hebt toegang tot uw gegevens. Medewerkers van Microsoft kunt beperkte toegang toe alleen in bepaalde beperkte omstandigheden met uw kennis. Het worden in-transit en in rust versleuteld.
 
 De rest van dit artikel meer volledig wordt ingegaan op wordt deze vragen te beantwoorden. Het is ontworpen om zichzelf, zodat u deze kunt weergeven aan collega's die geen deel uitmaken van uw team.
 
@@ -127,12 +127,9 @@ Ja, we https gebruiken om gegevens te verzenden naar de portal van bijna alle SD
 
 Ja, bepaalde kanalen telemetrie blijft actief data lokaal als een eindpunt kan niet worden bereikt. Controleer hieronder om te zien welke frameworks en telemetrie kanalen zijn beïnvloed.
 
-
 Telemetrie-kanalen die gebruikmaken van lokale opslag maken tijdelijke bestanden in de TEMP of APPDATA mappen die zijn beperkt tot het uitvoeren van uw toepassing specifieke-account. Dit kan gebeuren wanneer een eindpunt tijdelijk niet beschikbaar is of u de bandbreedteregeling limiet bereikt. Zodra dit probleem verholpen is, hervat de telemetrie-kanaal verzenden van alle nieuwe en persistente gegevens.
 
-
-Deze persistente gegevens **niet versleuteld** en het wordt sterk aanbevolen om te herstructureren van uw beleid voor gegevensverzameling om uit te schakelen van het verzamelen van persoonlijke gegevens. (Zie [exporteren en verwijderen van persoonlijke gegevens](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data) voor meer informatie.)
-
+Deze persistente gegevens worden niet lokaal versleuteld. Als dit een probleem is, Controleer de gegevens en het verzamelen van persoonlijke gegevens te beperken. (Zie [exporteren en verwijderen van persoonlijke gegevens](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data) voor meer informatie.)
 
 Als een klant moet deze map configureren met specifieke beveiligingsvereisten kan deze worden geconfigureerd per framework. Zorg ervoor dat het proces uitvoeren van uw toepassing schrijven toegang tot deze map heeft, maar ook voor zorgen dat deze map wordt beveiligd om te voorkomen dat telemetrie wordt gelezen door ongewenste gebruikers.
 

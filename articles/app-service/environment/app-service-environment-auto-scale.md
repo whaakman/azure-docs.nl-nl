@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 29a639142395c43fea06c1d6d18909b3c9f33b86
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270022"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60769324"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Automatisch schalen en App Service Environment v1
 
@@ -84,7 +84,7 @@ Frank is erg bekend zijn met de toepassing. Hij weet dat de piekuren voor taakve
 | --- | --- |
 | **Naam:** Profiel weekdag |**Naam:** Weekend profiel |
 | **Schaal:** Regels voor planning en prestaties |**Schaal:** Regels voor planning en prestaties |
-| **Profiel:** Weekdagen |**Profiel:** Weekend |
+| **Profiel:** Weekdays |**Profiel:** Weekend |
 | **Type:** Terugkeerpatroon |**Type:** Terugkeerpatroon |
 | **Doelbereik van:** 5 tot 20 exemplaren |**Doelbereik van:** 3 tot en met 10 exemplaren |
 | **Aantal dagen:** Maandag, dinsdag, woensdag, donderdag, vrijdag |**Aantal dagen:** Zaterdag, zondag |
@@ -155,7 +155,7 @@ Met deze informatie kunt Frank het profiel van de volgende voor automatisch scha
 | --- | --- |
 | **Naam:** Profiel weekdag |**Naam:** Weekend profiel |
 | **Schaal:** Regels voor planning en prestaties |**Schaal:** Regels voor planning en prestaties |
-| **Profiel:** Weekdagen |**Profiel:** Weekend |
+| **Profiel:** Weekdays |**Profiel:** Weekend |
 | **Type:** Terugkeerpatroon |**Type:** Terugkeerpatroon |
 | **Doelbereik van:** 13-25 exemplaren |**Doelbereik van:** 6 tot en met 15-instanties |
 | **Aantal dagen:** Maandag, dinsdag, woensdag, donderdag, vrijdag |**Aantal dagen:** Zaterdag, zondag |

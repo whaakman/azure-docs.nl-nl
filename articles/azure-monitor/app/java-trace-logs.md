@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: 614f9a44f7c699be38906ac00e12f523490ce112
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60900482"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Java in Application Insights traceerlogboeken verkennen
 Als u Logback en Log4J (versie 1.2 of 2.0) voor tracering, kunt u uw logboeken met traceringen automatisch verzonden naar Application Insights waar u kunt verkennen en zoeken op deze hebt.

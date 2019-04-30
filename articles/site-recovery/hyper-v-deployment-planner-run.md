@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361349"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748953"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>De Azure Site Recovery deployment planner voor noodherstel van Hyper-V naar Azure uitvoeren
 
@@ -35,7 +35,7 @@ Hieronder ziet u een tabel met verplichte en optionele parameters van het hulppr
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
 
-| Parameternaam | Beschrijving |
+| Parameternaam | Description |
 |---|---|
 | -Operation | GetVMList |
 | -User | De gebruikersnaam om verbinding te maken met de Hyper-V-host of het Hyper-V-cluster. De gebruiker moet beheerderstoegang hebben.|
@@ -85,7 +85,7 @@ De volgende tabel bevat verplichte en optionele parameters van het hulpprogramma
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Parameternaam | Beschrijving |
+| Parameternaam | Description |
 |---|---|
 | -Operation | StartProfiling |
 | -User | De gebruikersnaam om verbinding te maken met de Hyper-V-host of het Hyper-V-cluster. De gebruiker moet beheerderstoegang hebben.|
@@ -275,7 +275,7 @@ Open een opdrachtregelconsole en ga naar de map voor de Azure Site Recovery-impl
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
 
- Parameternaam | Beschrijving |
+ Parameternaam | Description |
 |---|---|
 | -Operation | GetThroughput |
 |-Virtualization|Het type virtualisatie (VMware of Hyper-V).|

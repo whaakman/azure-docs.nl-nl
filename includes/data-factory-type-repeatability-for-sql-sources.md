@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 24bb7a1fcb1569922fb34034fb3c0d003cdd7061
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335362"
 ---
 ## <a name="repeatability-during-copy"></a>Herhaalbaarheid tijdens het kopiëren van
 Bij het kopiëren van gegevens naar Azure SQL/SQL-Server van andere gegevens worden opgeslagen moet een herhaalbaarheid Houd er rekening mee om te voorkomen dat ongewenste resultaten. 

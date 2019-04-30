@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495905"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764302"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Webhook-activiteit in Azure Data Factory
 U kunt een webactiviteit hook gebruiken voor het beheren van de uitvoering van pijplijnen met uw aangepaste code. Met behulp van de webhook-activiteit, kunnen klanten een eindpunt aanroepen en een URL voor terugbellen voor doorgeven. De uitvoering van de pijplijn wacht tot de callback gebruikt om te worden aangeroepen voordat u doorgaat met de volgende activiteit.

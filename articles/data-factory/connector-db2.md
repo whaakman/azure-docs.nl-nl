@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
 ms.openlocfilehash: 4bf4c5c8339c8c56d91737fa1ff62f55b9c38696
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019619"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60786370"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Gegevens kopiëren van DB2 met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-onprem-db2-connector.md)
 > * [Huidige versie](connector-db2.md)
 
@@ -66,7 +66,7 @@ De volgende eigenschappen worden ondersteund voor DB2 gekoppelde service:
 | database |De naam van de DB2-database. |Ja |
 | authenticationType |Het type verificatie gebruikt voor verbinding met de DB2-database.<br/>Toegestane waarde is: **Basic**. |Ja |
 | gebruikersnaam |Geef de naam van de gebruiker verbinding maakt met de DB2-database. |Ja |
-| wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| password |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 **Voorbeeld:**
@@ -176,28 +176,28 @@ Bij het kopiëren van gegevens uit een DB2, worden de volgende toewijzingen van 
 | BigInt |Int64 |
 | Binair bestand |Byte[] |
 | Blob |Byte[] |
-| CHAR |Reeks |
-| CLOB |Reeks |
-| Date |Datum en tijd |
-| DB2DynArray |Reeks |
-| DbClob |Reeks |
-| Decimaal |Decimaal |
-| DecimalFloat |Decimaal |
-| Double-waarde |Double-waarde |
-| Float |Double-waarde |
-| Afbeelding |Reeks |
+| char |String |
+| CLOB |String |
+| Date |DateTime |
+| DB2DynArray |String |
+| DbClob |String |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| Double |Double |
+| Float |Double |
+| Afbeelding |String |
 | Geheel getal |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |Reeks |
-| LongVarGraphic |Reeks |
-| Numeriek |Decimaal |
-| Real |Enkelvoudig |
+| LongVarChar |String |
+| LongVarGraphic |String |
+| Numeric |Decimal |
+| Real |Single |
 | SmallInt |Int16 |
 | Time |TimeSpan |
 | Tijdstempel |DateTime |
 | VarBinary |Byte[] |
-| VarChar |Reeks |
-| VarGraphic |Reeks |
+| VarChar |String |
+| VarGraphic |String |
 | Xml |Byte[] |
 
 

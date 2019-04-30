@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 04e2c32b18e6897d6443fea68587aba9ae294be5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664479"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729134"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Service Fabric-betrouwbare actoren opsommen
 De Reliable Actors-service kan een client voor het inventariseren van metagegevens over de actoren waarop de service wordt gehost. Omdat de actorservice een gepartitioneerde stateful service is, wordt de opsomming per partitie uitgevoerd. Omdat elke partitie veel actoren bevatten kan, worden de opsomming wordt geretourneerd als een set pagina's met zoekresultaten. De pagina's worden via herhaald totdat alle pagina's worden gelezen. Het volgende voorbeeld ziet u hoe u een lijst met alle actieve actoren in een partitie van een actor-service maakt:

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
 ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094221"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736969"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>X-EG-Debug HTTP-headers voor regels-engine van Azure CDN
 De aanvraagheader foutopsporing cache `X-EC-Debug`, biedt aanvullende informatie over het cache-beleid dat wordt toegepast op de aangevraagde asset. Deze headers zijn specifiek voor **Azure CDN Premium van Verizon** producten.
@@ -33,13 +33,13 @@ Het antwoord van de POP-servers worden verzonden naar een gebruiker bevat de `X-
 ## <a name="requesting-debug-cache-information"></a>Aanvragen van cache-informatie voor foutopsporing
 Gebruik de volgende richtlijnen in de opgegeven aanvraag voor het definiëren van de cache-informatie voor foutopsporing worden opgenomen in het antwoord:
 
-Aanvraagheader | Beschrijving |
+Aanvraagheader | Description |
 ---------------|-------------|
-X-EG-Debug: x-EG-cache | [Cache-statuscode](#cache-status-code-information)
-X-EG-Debug: x-EG-cache-extern | [Cache-statuscode](#cache-status-code-information)
-X-EG-Debug: x-EG-controle-cache | [Gecachet kan worden](#cacheable-response-header)
-X-EG-Debug: x-EG-cache-key | [Cache-sleutel](#cache-key-response-header)
-X-EG-Debug: x-EG-cache-status | [Status van de cache](#cache-state-response-header)
+X-EC-Debug: x-ec-cache | [Cache-statuscode](#cache-status-code-information)
+X-EC-Debug: x-ec-cache-remote | [Cache-statuscode](#cache-status-code-information)
+X-EG-Debug: x-EG-controle-cache | [Cacheable](#cacheable-response-header)
+X-EC-Debug: x-ec-cache-key | [Cache-key](#cache-key-response-header)
+X-EC-Debug: x-ec-cache-state | [Status van de cache](#cache-state-response-header)
 
 ### <a name="syntax"></a>Syntaxis
 
@@ -54,10 +54,10 @@ Fouten opsporen in een cacheantwoord headers kunnen worden aangevraagd door de v
 ## <a name="cache-status-code-information"></a>Cache-statusinformatie code
 De antwoord-header X-EG-Debug kunt identificeren, een server en hoe deze verwerkt het antwoord via de volgende instructies toe:
 
-Header | Beschrijving
+Header | Description
 -------|------------
-X-EG-Debug: x-EG-cache | Deze header wordt gerapporteerd wanneer inhoud wordt doorgestuurd via het CDN. Het identificeert de POP-server die de aanvraag heeft verwerkt.
-X-EG-Debug: x-EG-cache-extern | Deze header wordt gerapporteerd, alleen wanneer de gevraagde inhoud in cache is opgeslagen op een oorsprong shield of een ADN-gatewayserver.
+X-EC-Debug: x-ec-cache | Deze header wordt gerapporteerd wanneer inhoud wordt doorgestuurd via het CDN. Het identificeert de POP-server die de aanvraag heeft verwerkt.
+X-EC-Debug: x-ec-cache-remote | Deze header wordt gerapporteerd, alleen wanneer de gevraagde inhoud in cache is opgeslagen op een oorsprong shield of een ADN-gatewayserver.
 
 ### <a name="response-header-format"></a>Antwoord-headerindeling
 
@@ -76,11 +76,11 @@ De termen die worden gebruikt in de bovenstaande syntaxis van de antwoord-header
 
     Code  | Platform
     ------| --------
-    ECAcc | HTTP-groot
-    ECS   | HTTP-klein
+    ECAcc | HTTP Large
+    ECS   | HTTP Small
     ECD   | Application Delivery Network (ADN)
 
-- Pop-server: Geeft aan dat de [POP](cdn-pop-abbreviations.md) die de aanvraag verwerkt. 
+- POP-SERVER: Geeft aan dat de [POP](cdn-pop-abbreviations.md) die de aanvraag verwerkt. 
 
 ### <a name="sample-response-headers"></a>Voorbeeld-antwoordheaders
 
@@ -103,10 +103,10 @@ De `X-EC-Debug` reactieheader melden of een aanvraag kan zijn opgenomen in de vo
 
 De term die wordt gebruikt in de bovenstaande syntaxis van de antwoord-header wordt als volgt gedefinieerd:
 
-Waarde  | Beschrijving
+Value  | Description
 -------| --------
 JA    | Geeft aan dat de gevraagde inhoud die in aanmerking komen voor in cache opslaan.
-NEE     | Geeft aan dat de gevraagde inhoud niet in aanmerking voor het opslaan in cache. Deze status kan worden veroorzaakt door een van de volgende redenen: <br /> -Klant-specifieke configuratie: een configuratie die specifiek zijn voor uw account kan voorkomen dat de pop-servers in cache plaatsen van een asset. Bijvoorbeeld regels-Engine kunt voorkomen dat een asset van cachebewerkingen door het inschakelen van de Bypass-Cache-functie voor in aanmerking komende aanvragen.<br /> -Antwoordheaders cache: De aangevraagde asset Cache-Control- en verloopt-headers kunnen voorkomen dat de POP-servers ze.
+NO     | Geeft aan dat de gevraagde inhoud niet in aanmerking voor het opslaan in cache. Deze status kan worden veroorzaakt door een van de volgende redenen: <br /> -Klant-specifieke configuratie: Een configuratie die specifiek zijn voor uw account kunt voorkomen dat de pop-servers in cache plaatsen van een asset. Bijvoorbeeld regels-Engine kunt voorkomen dat een asset van cachebewerkingen door het inschakelen van de Bypass-Cache-functie voor in aanmerking komende aanvragen.<br /> -Cache antwoordheaders: De aangevraagde asset Cache-Control- en verloopt-headers kunnen voorkomen dat de POP-servers ze.
 ONBEKEND | Geeft aan dat de servers om te beoordelen zijn of de aangevraagde asset gecachet kan worden is. Deze status treedt meestal op wanneer de aanvraag wordt geweigerd vanwege de verificatie op basis van tokens.
 
 ### <a name="sample-response-header"></a>Voorbeeld-reactieheader
@@ -149,19 +149,19 @@ De termen die worden gebruikt in de bovenstaande syntaxis van de antwoord-header
 
 - MASeconds: Geeft de max-age aan (in seconden), zoals gedefinieerd door de gewenste inhoud Cache-Control-headers.
 
-- MATimePeriod: Zet de max-age-waarde (dat wil zeggen, MASeconds) om in ongeveer het equivalent van een grotere eenheid, (bijvoorbeeld, in dagen). 
+- MATimePeriod: Zet de max-age-waarde (dat wil zeggen, MASeconds) om in ongeveer het equivalent van een grotere eenheid (bijvoorbeeld, in dagen). 
 
 - UnixTime: Geeft aan dat het tijdstempel van de cache van de gevraagde inhoud in de Unix-tijd (ook wel) POSIX tijd of Unix-epoche). De tijdstempel van de cache geeft aan dat de eerste datum en tijd op basis waarvan de TTL van een asset worden berekend. 
 
-    Als de oorspronkelijke server geen gebruik van een derde partij HTTP-server of als server niet in de antwoordheader van de leeftijd resulteert caching, klikt u vervolgens in de tijdstempel van de cache altijd de datum en tijd wanneer de activa is opgehaald of opnieuw gevalideerd zijn. Anders wordt de POP-servers wordt gebruikt voor het veld leeftijd van de asset TTL als volgt berekend: voor het ophalen/RevalidateDateTime - leeftijd.
+    Als de oorspronkelijke server geen gebruik van een derde partij HTTP-server of als server niet in de antwoordheader van de leeftijd resulteert caching, klikt u vervolgens in de tijdstempel van de cache altijd de datum en tijd wanneer de activa is opgehaald of opnieuw gevalideerd zijn. Anders wordt de POP-servers het veld leeftijd gebruiken voor het berekenen van de asset TTL als volgt: Voor het ophalen/RevalidateDateTime - leeftijd.
 
-- ddd, dd MMM jjjj uu: mm: GMT: geeft aan dat het tijdstempel van de cache van de gevraagde inhoud. Zie de bovenstaande UnixTime term voor meer informatie.
+- ddd, dd MMM jjjj uu: mm: GMT: Geeft aan dat het tijdstempel van de cache van de gevraagde inhoud. Zie de bovenstaande UnixTime term voor meer informatie.
 
 - CASeconds: Geeft het aantal seconden dat is verstreken sinds de tijdstempel van de cache.
 
-- RTSeconds: Geeft aan dat het aantal seconden resterend waarvoor de inhoud in cache wordt beschouwd als nieuwe. Deze waarde wordt als volgt berekend: RTSeconds = max-age - leeftijd in de cache.
+- RTSeconds: Geeft het aantal seconden resterend waarvoor de inhoud in cache wordt beschouwd als nieuwe. Deze waarde wordt als volgt berekend: RTSeconds = max-age - cache age.
 
-- RTTimePeriod: Omgezet in de resterende TTL-waarde (dat wil zeggen, RTSeconds) ongeveer het equivalent van een grotere eenheid (bijvoorbeeld, in dagen).
+- RTTimePeriod: Zet de resterende TTL-waarde (dat wil zeggen, RTSeconds) om ongeveer het equivalent van een grotere eenheid (bijvoorbeeld, in dagen).
 
 - ExpiresSeconds: Geeft het aantal seconden resterend voor hervatting van de datum/tijd opgegeven in de `Expires` response-header. Als de `Expires` response-header is niet opgenomen in het antwoord en vervolgens de waarde van deze term is *geen*.
 

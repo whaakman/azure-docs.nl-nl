@@ -11,11 +11,11 @@ ms.date: 01/15/2018
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 82823bae76521080634d4f7ff285d94ce8495fbf
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317284"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61292797"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>Een upgrade naar de Azure Search .NET SDK versie 1.1
 
@@ -347,7 +347,7 @@ en u stelt `IntValue` op 0, wordt deze waarde is nu correct geserialiseerd als 0
 
 Er is een mogelijk probleem rekening mee moet houden met deze methode: Als u een modeltype met een niet-nullbare eigenschap gebruikt, hebt u **garanderen** dat geen documenten in uw index een null-waarde voor het betreffende veld bevatten. De SDK noch de Azure Search REST API helpt u om af te dwingen dit.
 
-Dit is niet alleen een hypothetische probleem: Stel een scenario waarin u een nieuw veld toevoegen aan een bestaande index die is van het type `Edm.Int32`. Na het bijwerken van de indexdefinitie hebben alle documenten een null-waarde voor het nieuwe veld (omdat alle typen null in Azure Search zijn). Als u vervolgens een modelklasse met een niet-nullbare `int`-eigenschap voor dat veld gebruikt, ontvangt u een `JsonSerializationException` zoals deze bij het ophalen van documenten:
+Dit is niet alleen een hypothetisch probleem: Stelt u zich een scenario voor waarin u een nieuw veld toevoegt aan een bestaande index van het type `Edm.Int32`. Na het bijwerken van de indexdefinitie hebben alle documenten een null-waarde voor het nieuwe veld (omdat alle typen null in Azure Search zijn). Als u vervolgens een modelklasse met een niet-nullbare `int`-eigenschap voor dat veld gebruikt, ontvangt u een `JsonSerializationException` zoals deze bij het ophalen van documenten:
 
     Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 

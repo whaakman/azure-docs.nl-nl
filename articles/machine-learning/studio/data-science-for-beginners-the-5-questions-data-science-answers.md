@@ -11,11 +11,11 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: d89a701f1d4528e1f3dff08daf31873891778f07
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369187"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60751347"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Gegevenswetenschap voor Beginners, video 1: Gegevenswetenschap antwoord geeft op de 5 vragen
 Een korte inleiding data Science van *Gegevenswetenschap voor Beginners* in vijf korte video's van een top gegevenswetenschapper. Deze video's zijn basis, maar kan handig zijn, of u geïnteresseerd bent in de gegevenswetenschap of u de datawetenschappers samenwerkt.

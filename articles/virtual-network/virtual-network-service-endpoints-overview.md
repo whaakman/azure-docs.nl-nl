@@ -1,5 +1,5 @@
 ---
-title: Service-eindpunten voor Microsoft Azure Virtual Network
+title: Service-eindpunten voor een virtueel Azure-netwerk
 titlesuffix: Azure Virtual Network
 description: Ontdek hoe u directe toegang inschakelt voor Azure-resources via een virtueel netwerk met behulp van service-eindpunten.
 services: virtual-network
@@ -14,11 +14,11 @@ ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
 ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61032572"
 ---
 # <a name="virtual-network-service-endpoints"></a>Service-eindpunten voor virtueel netwerk
 
@@ -65,7 +65,7 @@ Service-eindpunten bieden de volgende voordelen:
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Azure-services aan virtuele netwerken koppelen
 
-- Een virtueel netwerkservice-eindpunt biedt de identiteit van het virtuele netwerk voor de Azure-service. Nadat de service-eindpunten in uw virtuele netwerk zijn ingeschakeld, kunt u Azure-serviceresources aan uw virtuele netwerk koppelen door een regel voor virtuele netwerken aan de resources toe te voegen.
+- Een service-eindpunt voor een virtueel netwerk biedt de identiteit van het virtuele netwerk voor de Azure-service. Nadat de service-eindpunten in uw virtuele netwerk zijn ingeschakeld, kunt u Azure-serviceresources aan uw virtuele netwerk koppelen door een regel voor virtuele netwerken aan de resources toe te voegen.
 - Tegenwoordig maakt Azure-serviceverkeer vanaf een virtueel netwerk gebruik van openbare IP-adressen als IP-bronadressen. Bij gebruik van service-eindpunten schakelt serviceverkeer over op het gebruik van privéadressen van virtuele netwerken als bron-IP-adressen bij het toegang krijgen tot de Azure-service vanuit een virtueel netwerk. Hierdoor hebt u toegang tot de services zonder dat u gereserveerde openbare IP-adressen nodig hebt die worden gebruikt in IP-firewalls.
 
 >[!NOTE]
@@ -134,21 +134,21 @@ Er geldt geen limiet voor het totale aantal service-eindpunten in een virtueel n
 
 Bepaalde Azure-services, zoals Azure Storage-Accounts, kunnen beperkingen met betrekking tot het aantal subnetten die worden gebruikt voor het beveiligen van de resource afdwingen. Raadpleeg de documentatie voor de verschillende services in [Volgende stappen](#next-steps) voor meer informatie.
 
-## <a name="virtual-network-service-endpoint-policies"></a>Beleid voor service-eindpunten voor Virtual Network 
+## <a name="virtual-network-service-endpoint-policies"></a>Beleid voor service-eindpunten voor virtueel netwerk 
 
-Met beleid voor service-eindpunten voor Virtual Network kunt u via service-eindpunten verkeer van Virtual Network naar Azure-services filteren, waardoor alleen bepaalde Azure-serviceresources worden toegelaten. Beleid voor service-eindpunten zorgt voor nauwkeurig toegangsbeheer voor verkeer van Virtual Network naar Azure-services. Meer informatie: [Beleid voor service-eindpunten voor Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+Met beleid voor service-eindpunten voor een virtueel netwerk kunt u via service-eindpunten verkeer van Virtual Network naar Azure-services filteren, waardoor alleen bepaalde Azure-serviceresources worden toegelaten. Beleid voor service-eindpunten zorgt voor nauwkeurig toegangsbeheer voor verkeer van Virtual Network naar Azure-services. Meer informatie: [Beleid voor service-eindpunten voor een virtueel netwerk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
 ## <a name="faqs"></a>Veelgestelde vragen
 
-Raadpleeg de [veelgestelde vragen over service-eindpunten voor Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints) voor veelgestelde vragen
+Raadpleeg de [veelgestelde vragen over service-eindpunten voor virtueel netwerken](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints) voor veelgestelde vragen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie [Configure Virtual Network Service Endpoints](tutorial-restrict-network-access-to-resources.md) (Service-eindpunten voor virtuele netwerken configureren) voor meer informatie
+- Zie [Service-eindpunten voor virtuele netwerken configureren](tutorial-restrict-network-access-to-resources.md) voor meer informatie
 - Zie [Secure an Azure Storage account to a virtual network](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Een Azure Storage-account aan een virtueel netwerk koppelen) voor meer informatie
 - Zie [Secure an Azure SQL Database to a virtual network](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Een Azure SQL Database aan een virtueel netwerk koppelen) voor meer informatie
 - Zie [Secure an Azure SQL Data Warehouse to a virtual network](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json) (Een Azure SQL- datawarehouse aan een virtueel netwerk koppelen) voor meer informatie
 - Zie [Azure service integration in virtual networks](virtual-network-for-azure-services.md) (Integratie van Azure-services in virtuele netwerken) voor meer informatie
-- Meer informatie over [Beleid voor service-eindpunten voor Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- Meer informatie over [Beleid voor service-eindpunten voor virtueel netwerk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 -  Quickstart: [Azure Resource Manager-sjabloon](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) als u een service-eindpunt wilt instellen op het subnet van een VNet en een Azure Storage-account op dit subnet wilt beveiligen.
 

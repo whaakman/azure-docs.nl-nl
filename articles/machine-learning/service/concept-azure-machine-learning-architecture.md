@@ -11,11 +11,11 @@ author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489944"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821248"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Hoe werkt de Azure Machine Learning-service: Architectuur en concepten
 
@@ -175,7 +175,7 @@ Een activiteit vertegenwoordigt een langdurige bewerking. De volgende bewerkinge
 
 Activiteiten kunnen meldingen via de SDK of de web-UI bieden, zodat u eenvoudig de voortgang van deze bewerkingen kunt bewaken.
 
-## <a name="image"></a>Installatiekopie
+## <a name="image"></a>Image
 
 Afbeeldingen bieden een manier om op betrouwbare wijze een model, samen met alle onderdelen die u wilt gebruiken van het model te implementeren. Een installatiekopie bevat de volgende items:
 

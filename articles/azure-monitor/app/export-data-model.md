@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: mbullwin
 ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60898913"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights Export Data Model
 Deze tabel bevat de eigenschappen van telemetrie verzonden vanaf de [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDK's aan de portal.
@@ -116,36 +116,36 @@ Alle typen telemetrie wordt gecombineerd met een sectie context. Niet al deze ve
 
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
-| context.Custom.Dimensions [0] |object] |Sleutel / waarde-tekenreeks-paren die zijn ingesteld door de parameter aangepaste eigenschappen. Maximale sleutellengte 100, waarden voor de maximale lengte van 1024. Meer dan 100 unieke waarden, de eigenschap kan worden doorzocht, maar kan niet worden gebruikt voor de segmentering. Maximaal 200 sleutels per ikey. |
-| context.Custom.metrics [0] |object] |Sleutel / waarde-paren ingesteld door de parameter aangepaste metingen en TrackMetrics. Maximale sleutellengte 100 waarden mogen alleen cijfers bevatten. |
+| context.custom.dimensions [0] |object] |Sleutel / waarde-tekenreeks-paren die zijn ingesteld door de parameter aangepaste eigenschappen. Maximale sleutellengte 100, waarden voor de maximale lengte van 1024. Meer dan 100 unieke waarden, de eigenschap kan worden doorzocht, maar kan niet worden gebruikt voor de segmentering. Maximaal 200 sleutels per ikey. |
+| context.custom.metrics [0] |object] |Sleutel / waarde-paren ingesteld door de parameter aangepaste metingen en TrackMetrics. Maximale sleutellengte 100 waarden mogen alleen cijfers bevatten. |
 | context.data.eventTime |string |UTC |
 | context.data.isSynthetic |booleaans |Er verschijnt een aanvraag afkomstig zijn van een bot of web-test. |
 | context.data.samplingRate |getal |Percentage van de telemetrie die is gegenereerd door de SDK die wordt verzonden naar de portal. Het bereik 0,0 100,0. |
-| context.Device |object |Client-apparaat |
-| context.Device.browser |string |IE, Chrome... |
+| context.device |object |Client-apparaat |
+| context.device.browser |string |IE, Chrome... |
 | context.device.browserVersion |string |Chrome 48,0... |
 | context.device.deviceModel |string | |
 | context.device.deviceName |string | |
-| context.Device.id |string | |
-| context.Device.locale |string |en-GB, nl-nl... |
-| context.Device.Network |string | |
+| context.device.id |string | |
+| context.device.locale |string |en-GB, nl-nl... |
+| context.device.network |string | |
 | context.device.oemName |string | |
-| context.Device.OS |string | |
+| context.device.os |string | |
 | context.device.osVersion |string |Hostbesturingssysteem |
 | context.device.roleInstance |string |ID van server-host |
 | context.device.roleName |string | |
 | context.device.screenResolution |string | |
-| context.Device.type |string |PC, Browser... |
-| context.Location |object |Client-IP is afgeleid. |
-| context.Location.City |string |Afgeleid van client-IP, indien bekend |
-| context.Location.clientip |string |Laatste achthoek zijn geanonimiseerd op 0. |
-| context.Location.continent |string | |
-| context.Location.Country |string | |
-| context.Location.Province |string |Staat of provincie |
-| context.Operation.id |string |Items die dezelfde bewerking-id worden weergegeven als verwante Items in de portal. Meestal de aanvraag-id. |
-| context.Operation.name |string |URL of de aanvraag |
+| context.device.type |string |PC, Browser... |
+| context.location |object |Client-IP is afgeleid. |
+| context.location.city |string |Afgeleid van client-IP, indien bekend |
+| context.location.clientip |string |Laatste achthoek zijn geanonimiseerd op 0. |
+| context.location.continent |string | |
+| context.location.country |string | |
+| context.location.province |string |Staat of provincie |
+| context.operation.id |string |Items die dezelfde bewerking-id worden weergegeven als verwante Items in de portal. Meestal de aanvraag-id. |
+| context.operation.name |string |URL of de aanvraag |
 | context.operation.parentId |string |Kan de geneste verwante items. |
-| context.Session.id |string |Id van een groep van bewerkingen van dezelfde bron. Een periode van 30 minuten zonder een bewerking geeft aan het einde van een sessie. |
+| context.session.id |string |Id van een groep van bewerkingen van dezelfde bron. Een periode van 30 minuten zonder een bewerking geeft aan het einde van een sessie. |
 | context.session.isFirst |booleaans | |
 | context.user.accountAcquisitionDate |string | |
 | context.user.accountId |string | |
@@ -166,7 +166,7 @@ Aangepaste gebeurtenissen die worden gegenereerd door [TrackEvent()](../../azure
 | aantal gebeurtenissen [0] |geheel getal |100 / ([steekproeven](../../azure-monitor/app/sampling.md) tarief). Voorbeeld 4 =&gt; 25%. |
 | de naam van de gebeurtenis [0] |string |De naam van de gebeurtenis.  Maximale lengte van 250. |
 | url van de gebeurtenis [0] |string | |
-| gebeurtenis [0] urlData.base |string | |
+| event [0] urlData.base |string | |
 | gebeurtenis [0] urlData.host |string | |
 
 ## <a name="exceptions"></a>Uitzonderingen
@@ -217,7 +217,7 @@ Verzonden door TrackDependency. Gebruikt voor het rapportprestaties en het gebru
 | baseName remoteDependency [0] |string | |
 | Opdrachtnaam remoteDependency [0] |string |Bijvoorbeeld "home/index" |
 | aantal remoteDependency [0] |geheel getal |100 / ([steekproeven](../../azure-monitor/app/sampling.md) tarief). Voorbeeld 4 =&gt; 25%. |
-| dependencyTypeName remoteDependency [0] |string |HTTP, SQL... |
+| dependencyTypeName remoteDependency [0] |string |HTTP, SQL, ... |
 | durationMetric.value remoteDependency [0] |getal |Tijd van de aanroep van antwoord met de afhankelijkheid is voltooid |
 | remoteDependency [0]-id |string | |
 | de naam van de remoteDependency [0] |string |De URL. Maximale lengte van 250. |
@@ -225,7 +225,7 @@ Verzonden door TrackDependency. Gebruikt voor het rapportprestaties en het gebru
 | remoteDependency [0] geslaagd |booleaans | |
 | type remoteDependency [0] |string |HTTP, Sql... |
 | url van remoteDependency [0] |string |Max. lengte 2000 |
-| urlData.base remoteDependency [0] |string |Max. lengte 2000 |
+| remoteDependency [0] urlData.base |string |Max. lengte 2000 |
 | urlData.hashTag remoteDependency [0] |string | |
 | urlData.host remoteDependency [0] |string |Max. lengte 200 |
 
@@ -288,7 +288,7 @@ Rapporten [webtests voor beschikbaarheid](../../azure-monitor/app/monitor-web-ap
 | beschikbaarheid [0] dataSizeMetric.name |string | |
 | beschikbaarheid [0] dataSizeMetric.value |geheel getal | |
 | beschikbaarheid [0] durationMetric.name |string | |
-| beschikbaarheid [0] durationMetric.value |getal |Duur van de test. 1e7 1s == |
+| beschikbaarheid [0] durationMetric.value |getal |Duur van de test. 1e7==1s |
 | bericht over beschikbaarheid [0] |string |Diagnose-fout |
 | resultaat van beschikbaarheid [0] |string |Geslaagd/mislukt |
 | beschikbaarheid [0] runLocation |string |Geo-bron van HTTP-aanvragen |

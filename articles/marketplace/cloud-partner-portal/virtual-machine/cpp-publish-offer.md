@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 3cf6a3d9bcb9470fd3a6bd4fef964c1966adfa1a
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844243"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>Een virtuele machine-aanbieding publiceren
 
@@ -27,12 +27,13 @@ ms.locfileid: "49639681"
 
 ![Aanbieding publiceren stappen voor de virtuele machine](./media/publishvm_013.png)
 
-De volgende tabel beschrijft de stappen en biedt een geschatte maximale tijd voor de voltooiing: <!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
+De volgende tabel beschrijft de stappen en biedt een geschatte maximale tijd voor de voltooiing:
+<!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
 |  **Publiceren stap**           | **tijd**    | **Beschrijving**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
-| Valideer de vereisten         | 15 minuten   | Biedt informatie en bieden instellingen worden gevalideerd.                        |
+| Valideer de vereisten         | 15 min   | Biedt informatie en bieden instellingen worden gevalideerd.                        |
 | Test Drive-validatie (optioneel) | 2 uur | Als u hebt geselecteerd om in te schakelen van Test Drive, wordt Microsoft valideert de configuratie van de Test Drive, de implementatie- en replicatie via de geselecteerde regio's. |
 | Certificering                  | 3 dagen | Aanbieding wordt geanalyseerd door het Team van Azure-certificering. Deze stap wordt scans voor virussen, malware, veiligheid, compatibiliteit en beveiligingsproblemen met zich mee uitvoeren. Feedback wordt gegeven als er een probleem is gevonden. |
 | Inrichten                   | 4 dagen   | VM-aanbieding wordt gerepliceerd in marketplace-productiesystemen.               |

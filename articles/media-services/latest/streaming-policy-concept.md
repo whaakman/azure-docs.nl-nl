@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/03/2019
 ms.author: juliako
 ms.openlocfilehash: 10600d8f3ff4e08b8d90f28ec15d3cb0c56bcae0
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61230893"
 ---
 # <a name="streaming-policies"></a>Beleid voor streaming
 
@@ -70,5 +70,5 @@ Zie [filteren, bestellen, voor het wisselbestand van Media Services-entiteiten](
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Een bestand streamen](stream-files-dotnet-quickstart.md)
-* [Gebruik dynamische AES-128-versleuteling en de sleutelleveringsservice](protect-with-aes128.md)
+* [Dynamische AES-128-versleuteling en de sleutelleveringsservice gebruiken](protect-with-aes128.md)
 * [Gebruik DRM dynamische versleuteling en licentie leveringsservice voor](protect-with-drm.md)

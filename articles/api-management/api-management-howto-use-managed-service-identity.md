@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
 ms.openlocfilehash: ebded5d1d58baf501ee5106d622162edc62d46ec
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310553"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656676"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Gebruik van beheerde identiteiten in Azure API Management
 
@@ -30,7 +30,7 @@ In dit artikel leest u over het maken van een beheerde identiteit voor een exemp
 
 Als u een beheerde identiteit in de portal instelt, wordt u maakt eerst een exemplaar van API Management als normale en schakel vervolgens de functie.
 
-1. API Management-exemplaar maken in de portal zoals u gewend bent. Navigeren in de portal.
+1. API Management-exemplaar maken in de portal zoals u gewend bent. Navigeer ernaar in de portal.
 2. Selecteer **beheerde service-identiteiten**.
 3. Registreren bij Azure Active Directory overschakelen naar op. Klik op Opslaan.
 

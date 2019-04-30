@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60772379"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integratie van Azure ExpressRoute met herstel na noodgevallen voor Azure VM 's
 
@@ -106,10 +106,10 @@ Enterprise-implementaties hebben meestal verdeeld over meerdere Azure VNets, met
 
 **Richting** | **Instelling** | **status**
 --- | --- | ---
-Spoke naar hub | Adres van het virtuele netwerk toestaan | Ingeschakeld
-Spoke naar hub | Doorgestuurd verkeer toestaan | Ingeschakeld
+Spoke naar hub | Adres van het virtuele netwerk toestaan | Enabled
+Spoke naar hub | Doorgestuurd verkeer toestaan | Enabled
 Spoke naar hub | Gatewayoverdracht toestaan | Uitgeschakeld
-Spoke naar hub | Remove-gateways gebruiken | Ingeschakeld
+Spoke naar hub | Remove-gateways gebruiken | Enabled
 
  ![Knooppunt naar hub peering-configuratie](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,9 +117,9 @@ Spoke naar hub | Remove-gateways gebruiken | Ingeschakeld
 
 **Richting** | **Instelling** | **status**
 --- | --- | ---
-Hub naar spoke | Adres van het virtuele netwerk toestaan | Ingeschakeld
-Hub naar spoke | Doorgestuurd verkeer toestaan | Ingeschakeld
-Hub naar spoke | Gatewayoverdracht toestaan | Ingeschakeld
+Hub naar spoke | Adres van het virtuele netwerk toestaan | Enabled
+Hub naar spoke | Doorgestuurd verkeer toestaan | Enabled
+Hub naar spoke | Gatewayoverdracht toestaan | Enabled
 Hub naar spoke | Remove-gateways gebruiken | Uitgeschakeld
 
  ![Hub en een peeringconfiguratie knooppunt](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)

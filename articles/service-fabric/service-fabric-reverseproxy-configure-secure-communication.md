@@ -14,11 +14,11 @@ ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
 ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502437"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837835"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Verbinding maken met een beveiligd service met de omgekeerde proxy
 
@@ -35,7 +35,7 @@ De omgekeerde proxy met services met behulp van het certificaat wordt aangeduid.
 Services kunnen de logica om te controleren of het certificaat dat door de omgekeerde proxy implementeren. De services kunnen u de details van het goedgekeurde client-certificaat opgeven als configuratie-instellingen in het configuratiepakket. Dit kan worden gelezen tijdens runtime en gebruikt voor het valideren van het certificaat dat door de omgekeerde proxy. Raadpleeg [beheren toepassingsparameters](service-fabric-manage-multiple-environment-app-configuration.md) om toe te voegen van de configuratie-instellingen. 
 
 ### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Omgekeerde proxy van de service-identiteit via het certificaat dat door de service te controleren:
-Omgekeerde proxy biedt ondersteuning voor de volgende beleidsregels voor het uitvoeren van validatie van het servercertificaat van de certificaten die door services: None, ServiceCommonNameAndIssuer en ServiceCertificateThumbprints.
+Omgekeerde proxy ondersteunt de volgende beleidsregels voor het uitvoeren van validatie van het servercertificaat van de certificaten die door services: None, ServiceCommonNameAndIssuer en ServiceCertificateThumbprints.
 Schakel het beleid voor omgekeerde proxy te gebruiken, geef de **ApplicationCertificateValidationPolicy** in de **ApplicationGateway/Http** sectie onder [instelling fabricSettings](service-fabric-cluster-fabric-settings.md).
 
 De volgende sectie bevat informatie over de configuratie voor elk van deze opties.
@@ -63,7 +63,7 @@ Geef de **ApplicationCertificateValidationPolicy** met waarde **geen** in de [ *
    }
    ```
 
-- **ServiceCommonNameAndIssuer**: omgekeerde proxy controleert of het certificaat dat door de service op basis van de algemene naam van het certificaat en de vingerafdruk van de directe verlener: Geef de **ApplicationCertificateValidationPolicy** met waarde **ServiceCommonNameAndIssuer** in de [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) sectie.
+- **ServiceCommonNameAndIssuer**: Omgekeerde proxy controleert of het certificaat dat door de service op basis van de algemene naam van het certificaat en de vingerafdruk van de directe verlener: Geef de **ApplicationCertificateValidationPolicy** met waarde **ServiceCommonNameAndIssuer** in de [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) sectie.
 
    ```json
    {
@@ -110,7 +110,7 @@ Geef de **ApplicationCertificateValidationPolicy** met waarde **geen** in de [ *
    }
    ```
 
-- **ServiceCertificateThumbprints**: omgekeerde proxy controleert of het via proxy op basis van de vingerafdruk van certificaat. U kunt kiezen waarmee u deze route wanneer de services die zijn geconfigureerd met de zelf-ondertekende certificaten: Geef de **ApplicationCertificateValidationPolicy** met waarde **ServiceCertificateThumbprints** in de [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) sectie.
+- **ServiceCertificateThumbprints**: Omgekeerde proxy controleert of het via proxy op basis van de vingerafdruk van certificaat. U kunt kiezen om te gaan met deze route wanneer de services die zijn geconfigureerd met de zelf-ondertekende certificaten: Geef de **ApplicationCertificateValidationPolicy** met waarde **ServiceCertificateThumbprints** in de [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) sectie.
 
    ```json
    {

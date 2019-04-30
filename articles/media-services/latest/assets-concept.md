@@ -13,11 +13,11 @@ ms.date: 02/19/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447307"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734351"
 ---
 # <a name="assets"></a>Assets
 
@@ -34,18 +34,18 @@ De **archief** storage-laag wordt alleen aanbevolen voor zeer grote bronbestande
 
 Een van de meestvoorkomende werkstromen zijn Media Services is om te uploaden, coderen en streamen van een bestand. In deze sectie geeft een overzicht van de algemene stappen.
 
-1. De Media Services v3-API gebruiken om een nieuwe "tekstinvoer" Asset maken. Deze bewerking wordt een container gemaakt in het opslagaccount dat is gekoppeld aan uw Media Services-account. De API retourneert de containernaam van de (bijvoorbeeld `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
+1. Gebruik de API van Media Services v3 om een asset voor nieuwe 'invoer' te maken. Met deze bewerking wordt een container gemaakt in het opslagaccount dat aan uw Media Services-account is gekoppeld. De API retourneert de containernaam van de (bijvoorbeeld `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
    
-    Als u een blob-container die u wilt koppelen aan een Asset al hebt, kunt u de containernaam van de opgeven bij het maken van de Asset. Media Services ondersteunt momenteel alleen blobs in de hoofdmap van de container en niet met paden in de bestandsnaam. Dus werkt een container met de naam 'input.mp4'. Een container met de naam van het bestand "videos/inputs/input.mp4" werkt echter niet.
+    Als u al een blobcontainer hebt die u aan een asset wilt koppelen, kunt u de containernaam opgeven tijdens het maken van de asset. Media Services ondersteunt momenteel alleen blobs in de hoofdmap van de container en geen mappen met paden in de bestandsnaam. Dus het werkt voor een container met de bestandsnaam 'input.mp4'. Het werkt echter niet voor de containernaam 'videos/inputs/input.mp4'.
 
-    De Azure CLI kunt u rechtstreeks naar een opslagaccount en container die u in uw abonnement rechten voor het uploaden. <br/>De containernaam moet uniek zijn en volgen richtlijnen voor de naamgeving opslag. De naam van de beschikt niet over de Media Services-Asset-containernaam (Asset-GUID) opmaak volgen. 
+    U kunt de Azure CLI gebruiken om bestanden rechtstreeks in een opslagaccount en container te uploaden waarvoor u rechten hebt in uw abonnement. <br/>De containernaam moet uniek zijn en de richtlijnen volgen voor de naamgeving van de opslag. De naam hoeft niet de indeling te volgen voor de containernaam van de Media Services-asset (Asset-GUID). 
     
     ```azurecli
     az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
     ```
-2. Een SAS-URL met machtigingen voor lezen / schrijven die wordt gebruikt voor digitale bestanden uploaden naar de container Asset ophalen. U kunt de API van Media Services naar [de URL van de container asset](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
-3. Gebruik de Azure Storage-API's of de SDK's (bijvoorbeeld de [REST API voor Storage](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md), of [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) bestanden uploaden naar de container Asset. 
-4. Media Services v3 API's gebruiken om een transformatie en een taak voor het verwerken van uw "tekstinvoer" Asset te maken. Zie [Transformaties en taken](transform-concept.md) voor meer informatie.
+2. Haal een SAS-URL op met lees-/schrijfmachtigingen die wordt gebruikt voor het uploaden van digitale bestanden in de asset-container. U kunt de Media Services-API gebruiken voor het [vermelden van de URL's voor de asset-container](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
+3. Gebruik de Azure Storage-API's of SDK's (bijvoorbeeld de [Storage REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md) of [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) voor het uploaden van bestanden in de asset-container. 
+4. Gebruik Media Services v3-API's om een transformatie en een taak te maken om uw 'invoer'-asset te verwerken. Zie [Transformaties en taken](transform-concept.md) voor meer informatie.
 5. De inhoud van de ' uitvoerasset ' Stream.
 
 Voor een volledig .NET-voorbeeld laat zien hoe u: maken van de Asset, een beschrijfbare SAS-URL ophalen van de Asset-container in de opslag, het bestand uploaden naar de container in storage met behulp van de SAS-URL, Zie [de Taakinvoer van een maken vanuit een lokaal bestand](job-input-from-local-file-how-to.md).
@@ -60,7 +60,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Zie voor een voorbeeld van de REST de [een Asset te maken met REST](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) voorbeeld.
 
-Het voorbeeld laat zien hoe maken de **aanvraagtekst** waarin u nuttige informatie, zoals beschrijving, de containernaam van de, storage-account en andere informatie kunt opgeven.
+Het voorbeeld laat zien hoe de **aanvraagbody** wordt gemaakt. U kunt nuttige informatie opgeven, zoals een beschrijving, containernaam, opslagaccount en andere gegevens.
 
 #### <a name="curl"></a>cURL
 
@@ -105,5 +105,5 @@ Ter bescherming van uw activa in rust, moeten de activa van de versleuteling van
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Een bestand streamen](stream-files-dotnet-quickstart.md)
-* [Met behulp van een cloud-DVR](live-event-cloud-dvr.md)
+* [Een cloud-DVR gebruiken](live-event-cloud-dvr.md)
 * [Verschillen tussen de Media Services v2 en v3](migrate-from-v2-to-v3.md)

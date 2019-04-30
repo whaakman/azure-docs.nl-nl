@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7cd4a54a62d7304587c55338f088c504e40a74af
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ff291bda87ca4b2b4055e36989b035cf410b3b0f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670667"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744307"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Met een beschrijving van een service fabric-cluster
 De Service Fabric Cluster Resource Manager biedt verschillende mechanismen voor het beschrijven van een cluster. Cluster Resource Manager wordt tijdens runtime gebruikgemaakt van deze informatie om hoge beschikbaarheid van de services die in het cluster wordt uitgevoerd. Tijdens het afdwingen van deze belangrijke regels, probeert deze ook aan het Optimaliseer het gebruik van resources binnen het cluster.

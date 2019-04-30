@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: cb1293a771a137f4df7e36a2b412f68b384f16ef
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810069"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094341"
 ---
 <a name="publish-an-offer"></a>Een aanbieding publiceren
 ================
@@ -33,18 +33,18 @@ Start het publicatieproces voor de opgegeven aanbieding. Deze aanroep is een lan
 
 |  **Naam**      |    **Beschrijving**                               |  **Gegevenstype** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Uitgever-ID, bijvoorbeeld `contoso`      |   Reeks       |
-|  offerId       | Aanbiedings-id                                 |   Reeks       |
+|  publisherId   | Uitgever-ID, bijvoorbeeld `contoso`      |   String       |
+|  offerId       | Aanbiedings-id                                 |   String       |
 |  API-versie   | Meest recente versie van de API                        |   Date         |
 |  |  |
 
 
-<a name="header"></a>Koptekst
+<a name="header"></a>Header
 ------
 
 |  **Naam**        |    **Waarde**          |
 |  --------        |    ---------          |
-|  Inhoudstype    | `application/json`    |
+|  Content-Type    | `application/json`    |
 |  Autorisatie   |  `Bearer YOUR_TOKEN`  |
 |  |  |
 
@@ -80,7 +80,7 @@ Start het publicatieproces voor de opgegeven aanbieding. Deze aanroep is een lan
 
 |  **Naam**             |    **Waarde**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
-| Bewerking-locatie    | De URL die kan worden doorzocht om te bepalen van de huidige status van de bewerking.    |
+| Operation-Location    | De URL die kan worden doorzocht om te bepalen van de huidige status van de bewerking.    |
 |  |  |
 
 

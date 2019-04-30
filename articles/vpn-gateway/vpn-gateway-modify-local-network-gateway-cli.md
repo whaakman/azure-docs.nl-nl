@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/29/2017
 ms.author: cherylmc
-ms.openlocfilehash: a8f0c95acf872431fe7538acbd4ff1023c1496c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 20e8269f0ee7463dcff9a5f66e46ebd81cb3df84
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961226"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60652843"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Lokale instellingen netwerkgateway wijzigen met behulp van de Azure CLI
 
@@ -35,7 +35,7 @@ Soms worden de instellingen voor uw lokale netwerkgateway het adresvoorvoegsel o
 
 ## <a name="before"></a>Voordat u begint
 
-Installeer de nieuwste versie van de CLI-opdrachten (2.0 of hoger). Zie voor meer informatie over het installeren van de CLI-opdrachten [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Installeer de nieuwste versie van de CLI-opdrachten (2.0 of hoger). Zie [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli) voor meer informatie over het installeren van de CLI-opdrachten.
 
 [!INCLUDE [CLI-login](../../includes/vpn-gateway-cli-login-include.md)]
 

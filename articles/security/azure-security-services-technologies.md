@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
 ms.openlocfilehash: 13183282e5e607f0052194a474203f97e0160adb
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610914"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Beveiligingsservices en -technologieën die beschikbaar zijn op Azure
 
@@ -72,7 +72,7 @@ Na verloop van tijd, wordt deze lijst wijzigt en groeien, net als Azure. Zorg er
 | [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)| Een cloud-gebaseerde en beheerde versie van Active Directory Domain Services. |
 | [Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md)| Een security inrichten met de diverse verschillende vormen van verificatie en verificatie voordat de toegang tot beveiligde gegevens. |
 
-## <a name="backup-and-disaster-recovery"></a>Back-up en herstel na noodgevallen
+## <a name="backup-and-disaster-recovery"></a>Back-up en herstel na noodgeval
 |Service|Description|
 |------|--------|
 | [Azure&nbsp;Backup](../backup/backup-introduction-to-azure-backup.md)| Een Azure-service gebruikt voor het back-up en herstellen van gegevens in de Azure-cloud. |

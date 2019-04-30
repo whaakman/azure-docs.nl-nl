@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
 ms.openlocfilehash: d4b8fd6ccb3fc7cb2627d4bd3e103239181e4d9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994391"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831065"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Over het configureren van Virtual Network-ondersteuning voor een Premium Azure Cache voor Redis
 Azure Redis-Cache heeft een ander cache-aanbiedingen, waardoor u flexibiliteit bij de keuze van de grootte van de cache en -onderdelen, met inbegrip van Premium-functies zoals clustering, persistentie en virtual network-ondersteuning. Een VNet is een particulier netwerk in de cloud. Wanneer een Azure-Cache voor Redis-exemplaar is geconfigureerd met een VNet, is niet openbaar toegankelijk en kunnen alleen worden geopend van virtuele machines en toepassingen binnen het VNet. In dit artikel wordt beschreven hoe het configureren van virtual network-ondersteuning voor een premium Azure Cache voor Redis-exemplaar.
@@ -110,7 +110,7 @@ Er zijn zeven vereisten van de uitgaande poort.
 - Drie van de poorten die verkeer gerouteerd naar Azure-eindpunten onderhoud van Azure Storage en Azure DNS.
 - De resterende poortbereiken en voor interne communicatie voor Redis-subnet. Er is geen subnet-NSG-regels zijn vereist voor interne communicatie voor Redis-subnet.
 
-| Poort(en) | Richting | Transportprotocol | Doel | Lokaal IP | Extern IP |
+| Poort(en) | Direction | Transportprotocol | Doel | Lokaal IP | Extern IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Uitgaand |TCP |Redis-afhankelijkheden op Azure Storage/PKI (Internet) | (Redis subnet) |* |
 | 53 |Uitgaand |TCP/UDP |Redis-afhankelijkheden van DNS (Internet/VNet) | (Redis subnet) |* |
@@ -126,7 +126,7 @@ Er zijn zeven vereisten van de uitgaande poort.
 
 Er zijn acht vereisten voor het bereik van binnenkomende poort. Inkomende aanvragen in deze bereiken zijn binnenkomend van andere services die worden gehost in hetzelfde VNET of intern is aan de Redis-subnet-communicatie.
 
-| Poort(en) | Richting | Transportprotocol | Doel | Lokaal IP | Extern IP |
+| Poort(en) | Direction | Transportprotocol | Doel | Lokaal IP | Extern IP |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |Inkomend |TCP |Communicatie van clients met Redis, Azure load balancing | (Redis subnet) | (Redis subnet), Virtual Network, Azure Load Balancer |
 | 8443 |Inkomend |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet) |

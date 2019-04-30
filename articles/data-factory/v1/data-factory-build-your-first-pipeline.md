@@ -15,11 +15,11 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544951"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564580"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Zelfstudie: Uw eerste pijplijn voor het transformeren van gegevens met behulp van Hadoop-cluster maken
 > [!div class="op_single_selector"]
@@ -93,7 +93,7 @@ Voordat u met deze zelfstudie begint, moet u aan de volgende vereisten voldoen:
 
 Nadat u de vereisten hebt voltooid, selecteert u een van de volgende hulpprogramma's / SDK's voor de zelfstudie: 
 
-- [Azure-portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md)

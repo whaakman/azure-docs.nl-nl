@@ -2,18 +2,18 @@
 title: Beveiliging-eindpunten in IoT Device Provisioning Service | Microsoft Docs
 description: Concepten - toegang tot IoT Device Provisioning Service voor back-end-apps beheren. Bevat informatie over beveiligingstokens.
 author: wesmc7777
-manager: philmea
+manager: timlt
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 04/09/2019
+ms.date: 09/28/2017
 ms.author: wesmc
 ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495427"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626647"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Toegang tot Azure IoT Hub Device Provisioning Service beheren
 
@@ -39,7 +39,7 @@ U kunt verlenen [machtigingen](#device-provisioning-service-permissions) in de v
 > [!NOTE]
 > Zie [machtigingen](#device-provisioning-service-permissions) voor gedetailleerde informatie.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 
 Azure IoT Hub Device Provisioning Service verleent toegang tot eindpunten door te controleren of een token op basis van het beleid voor gedeelde toegang. Beveiligingsreferenties, zoals symmetrische sleutels worden nooit via de kabel verzonden.
 
@@ -75,7 +75,7 @@ Het beveiligingstoken heeft de volgende indeling:
 
 Hier volgen de verwachte waarden:
 
-| Value | Beschrijving |
+| Value | Description |
 | --- | --- |
 | {handtekening} |Een tekenreeks van de HMAC-SHA256 handtekening van het formulier: `{URL-encoded-resourceURI} + "\n" + expiry`. **Belangrijke**: De sleutel is gedecodeerd op basis van base64 en gebruikt als sleutel voor het uitvoeren van de HMAC-SHA256-berekening.|
 | {expiry} |UTF8-tekenreeksen voor het aantal seconden sinds de epoche 00:00:00 UTC op 1 januari 1970. |

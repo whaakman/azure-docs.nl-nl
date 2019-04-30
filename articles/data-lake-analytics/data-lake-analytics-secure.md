@@ -8,12 +8,12 @@ ms.author: mahi
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: c6b86e25602f36896855d2593952609904396879
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9fbc94259d6fdfb6758204efd6e6f0a346dc58da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051581"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813367"
 ---
 # <a name="configure-user-access-to-job-information-to-job-information-in-azure-data-lake-analytics"></a>Gebruikerstoegang tot informatie over de taak om informatie over taak te configureren in Azure Data Lake Analytics 
 
@@ -34,15 +34,15 @@ Als u meer nodig hebt nauwkeurige controle of de noodzaak om een script van de m
    
 2. Verleen **uitvoeren** en **lezen** machtigingen (via een toegangs-ACL- en een standaard-ACL) voor de mappen die de taak mappen bevatten. Bijvoorbeeld, voor een specifieke taak die is uitgevoerd op 25 mei 2018 wordt moeten deze mappen worden geopend:
    - / System
-   - / system/jobservice
-   - /System/jobservice/jobs
-   - /System/jobservice/Jobs/Usql
-   - /System/jobservice/Jobs/Usql/2018
-   - /System/jobservice/Jobs/Usql/2018/05
-   - /System/jobservice/Jobs/Usql/2018/05/25
-   - /System/jobservice/Jobs/Usql/2018/05/25/11
-   - /System/jobservice/Jobs/Usql/2018/05/25/11/01
-   - systeem/jobservice/taken/Usql/2018/05/25/11/01/b074bd7a-1448-d879-9d75-f562b101bd3d
+   - /system/jobservice
+   - /system/jobservice/jobs
+   - /system/jobservice/jobs/Usql
+   - /system/jobservice/jobs/Usql/2018
+   - /system/jobservice/jobs/Usql/2018/05
+   - /system/jobservice/jobs/Usql/2018/05/25
+   - /system/jobservice/jobs/Usql/2018/05/25/11
+   - /system/jobservice/jobs/Usql/2018/05/25/11/01
+   - /system/jobservice/jobs/Usql/2018/05/25/11/01/b074bd7a-1448-d879-9d75-f562b101bd3d
 
 ## <a name="next-steps"></a>Volgende stappen
 [Een nieuwe gebruiker toevoegen](data-lake-analytics-manage-use-portal.md#add-a-new-user)

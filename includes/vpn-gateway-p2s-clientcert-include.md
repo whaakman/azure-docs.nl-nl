@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 31ccf14c82f6248c74d6af932fe9e338d26d2747
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57964124"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320028"
 ---
 Op elke clientcomputer die u verbindt met een VNet via een punt-naar-site-verbinding, moet een clientcertificaat zijn geïnstalleerd. U genereert het clientcertificaat op basis van het basiscertificaat en installeert het clientcertificaat op elke clientcomputer. Als u geen geldig clientcertificaat hebt geïnstalleerd en de client probeert verbinding te maken met het VNet, mislukt de verificatie.
 

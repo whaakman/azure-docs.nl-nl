@@ -9,11 +9,11 @@ ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 3ac7d8cc4705fe1b6e80f1e0c7e26d847d761cf6
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54357018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60403652"
 ---
 1. Klik in **Solution Explorer** met de rechtermuisknop op het project en selecteer **Publiceren**.
 
@@ -32,7 +32,7 @@ ms.locfileid: "54357018"
 
     ![Het dialoogvenster App Service maken](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
-    | Instelling      | Voorgestelde waarde  | Beschrijving                                |
+    | Instelling      | Voorgestelde waarde  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Naam van app** | Wereldwijd unieke naam | Naam waarmee uw nieuwe functie-app uniek wordt aangeduid. |
     | **Abonnement** | Kies uw abonnement | Het te gebruiken Azure-abonnement. |

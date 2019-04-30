@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883238"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60948507"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Herstel na noodgevallen in Azure Service Fabric
 Een belangrijk onderdeel van het leveren van hoge beschikbaarheid is ervoor te zorgen dat services verschillende typen fouten meer storingen kunnen doorstaan. Dit is vooral belangrijk voor fouten die niet-geplande zijn en buiten het besturingselement. Dit artikel worden enkele algemene foutmodi die mogelijk rampen als dat niet gemodelleerd en goed beheerd. Zij bespreken ook oplossingen en acties moet uitvoeren als er een ramp toch opgetreden. Het doel is om te beperken of de kans op downtime of gegevensverlies voorkomen wanneer ze zich voordoen met fouten, gepland of anders optreden.

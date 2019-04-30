@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
 ms.openlocfilehash: 77f8b7094c96e507eef1d360a26240627bc0e350
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60836078"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Een Site-naar-Site-verbinding toevoegen aan een VNet met een bestaande VPN-gatewayverbinding (klassiek)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (klassiek)](vpn-gateway-multi-site.md)
 >
 >

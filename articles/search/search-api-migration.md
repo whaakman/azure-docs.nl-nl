@@ -11,11 +11,11 @@ ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 23003859b9a75fb986fe65f5528004f3dd150f9b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126988"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Upgraden naar de nieuwste versie van Azure Search Service REST API
 Als u een eerdere versie van de [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/), in dit artikel ziet u een upgrade van uw toepassing voor het gebruik van de meest recente algemeen beschikbaar API-versie 2017-11-11.
@@ -32,7 +32,7 @@ Versie 2017-11-11 is de meest recente algemeen beschikbare versie van de Azure S
 
 * [Synoniemen](search-synonyms.md). De nieuwe synoniemenfunctie voor kunt u definiëren equivalente termen en vouw het bereik van de query.
 * [Ondersteuning voor het efficiënt indexeren tekst blobs](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#IndexingPlainText). De nieuwe `text` parseermodus voor Azure Blob-indexeerfuncties aanzienlijk verbetert de prestaties van indexering.
-* [Statistieken API-service](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Bekijk de huidige gebruik en limieten van resources in Azure Search met deze nieuwe API.
+* [Service Statistics API](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Bekijk de huidige gebruik en limieten van resources in Azure Search met deze nieuwe API.
 
 <a name="UpgradeSteps"></a>
 

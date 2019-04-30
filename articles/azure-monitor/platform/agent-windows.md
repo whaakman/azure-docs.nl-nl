@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
 ms.openlocfilehash: c7031e54c354392379fee83dbf2a777ba726c5e7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777350"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Windows-computers verbinden met Azure Monitor
 
@@ -182,7 +182,7 @@ Als u wilt de productcode rechtstreeks vanaf het agent-installatiepakket ophalen
 
 Zodra de installatie van de agent is voltooid, is controle is verbonden en rapportage kan worden geconfigureerd op twee manieren.  
 
-Bij de computer in **Configuratiescherm**, zoek het item **Microsoft Monitoring Agent**.  Selecteer deze en klik op de **Azure Log Analytics** tabblad en de agent moet worden weergegeven een bericht weergegeven: **De Microsoft Monitoring Agent verbonden is met de Microsoft Operations Management Suite-service.**<br><br> ![Verbindingsstatus van MMA met Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
+Ga in de computer naar **Configuratiescherm** en zoek het item **Microsoft Monitoring Agent**.  Selecteer deze en als het goed is, geeft de agent op het tabblad **Azure Log Analytics** een bericht weer met de tekst: **De Microsoft Monitoring Agent verbonden is met de Microsoft Operations Management Suite-service.**<br><br> ![Verbindingsstatus van MMA met Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
 U kunt ook een eenvoudige logboekquery uitvoeren in Azure portal.  
 

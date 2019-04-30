@@ -14,11 +14,11 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487478"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61254342"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +48,7 @@ De volgende procedure bevat stapsgewijze instructies voor het maken van een aang
 * Download en installeer [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Vereisten voor Azure Batch
-In het scenario, moet u uw aangepaste .NET-activiteiten met behulp van Azure Batch als een compute-resource uitvoeren. **Azure Batch** is een platform service voor het uitvoeren van grootschalige parallelle en high performance computing (HPC)-toepassingen efficiënt in de cloud. Azure Batch plant rekenintensief werk inplant voor uitvoering op een beheerde **verzameling van virtuele machines**, en kan automatisch de schaal van rekenkracht resources om te voldoen aan de behoeften van uw taken. Zie [basisbeginselen van Azure Batch] [ batch-technical-overview] artikel voor een gedetailleerd overzicht van de Azure Batch-service.
+In het scenario, moet u uw aangepaste .NET-activiteiten met behulp van Azure Batch als een compute-resource uitvoeren. **Azure Batch** is een platformservice voor het efficiënt uitvoeren van grootschalige parallelle en HPC-toepassingen (High Performance Computing) in de cloud. Azure Batch plant rekenintensief werk inplant voor uitvoering op een beheerde **verzameling van virtuele machines**, en kan automatisch de schaal van rekenkracht resources om te voldoen aan de behoeften van uw taken. Zie [basisbeginselen van Azure Batch] [ batch-technical-overview] artikel voor een gedetailleerd overzicht van de Azure Batch-service.
 
 Voor deze zelfstudie maakt u een Azure Batch-account aan een pool van virtuele machines. Dit zijn de stappen:
 

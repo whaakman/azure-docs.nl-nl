@@ -6,24 +6,24 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: raynew
-ms.openlocfilehash: d99a3d23959cfdd9bd068fbde3a882eb1bc9b4ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f69c2ea334109a42d63b85cb71de0deb7174beab
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527758"
+ms.locfileid: "62736440"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Over SQL Server-back-ups in virtuele Azure-machines
 
-SQL Server-databases zijn essentiële workloads waarvoor een laag Recovery Point Objective (RPO, beoogd herstelpunt) en langetermijnretentie nodig zijn. Met behulp van [Azure Backup](backup-overview.md) kunt u back-ups maken van SQL Server-databases die worden uitgevoerd op virtuele Azure-VM's.
+SQL Server-databases zijn essentiële workloads waarvoor een laag Recovery Point Objective (RPO, beoogd herstelpunt) en langetermijnretentie nodig zijn. U kunt back-up van SQL Server-databases die worden uitgevoerd op virtuele Azure-machines met behulp van [Azure Backup](backup-overview.md).
 
 ## <a name="backup-process"></a>Back-upproces
 
 Deze oplossing maakt gebruik van de SQL native-API's als u wilt maken van back-ups van uw SQL-databases.
 
-* Nadat u de SQL Server-VM die u wilt beveiligen en op te vragen voor de databases in de it-opgeeft, Azure Backup-service de Backup-extensie van een werkbelasting op de virtuele machine wordt geïnstalleerd door de naam van de `AzureBackupWindowsWorkload`  extensie.
+* Nadat u de SQL Server-VM die u wilt beveiligen en op te vragen voor de databases in deze opgeeft, Azure Backup-service de Backup-extensie van een werkbelasting op de virtuele machine wordt geïnstalleerd door de naam van de `AzureBackupWindowsWorkload`  extensie.
 * Deze extensie bestaat uit een coördinator en een SQL-invoegtoepassing. Terwijl de coördinator verantwoordelijk is voor het activeren van werkstromen voor verschillende bewerkingen zoals back-up, back-up en herstel configureren, is de invoegtoepassing is verantwoordelijk voor het werkelijke gegevensstroom.
 * Als u voor het detecteren van databases op deze virtuele machine, maakt Azure Backup de account `NT SERVICE\AzureWLBackupPluginSvc`. Dit account wordt gebruikt voor back-up en herstel en SQL sysadmin-machtigingen vereist. Azure Backup maakt gebruik van de `NT AUTHORITY\SYSTEM` account voor database-detectie/query, zodat dit account hoeft te worden van een openbare aanmelding via SQL. Als u de SQL Server-VM hebt gemaakt vanuit de Azure Marketplace, ontvangt u mogelijk een foutbericht **UserErrorSQLNoSysadminMembership**. Als dit het geval [Volg deze instructies](backup-azure-sql-database.md).
 * Zodra u trigger beveiliging configureert voor de geselecteerde databases, stelt de Backup-service u de coördinator met de back-upschema's en andere beleidsdetails, waarvan de extensie caches lokaal op de virtuele machine 
@@ -35,7 +35,7 @@ Deze oplossing maakt gebruik van de SQL native-API's als u wilt maken van back-u
 
 ## <a name="before-you-start"></a>Voordat u begint
 
-Voordat u begint, controleert u het volgende:
+Voordat u begint, controleert u of de onderstaande:
 
 1. Zorg ervoor dat er een SQL Server-exemplaar wordt uitgevoerd in Azure. U kunt [snel een SQL Server-exemplaar maken](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) in de marketplace.
 2. Controleer de [functie overweging](#feature-consideration-and-limitations) en [scenario ondersteuning](#scenario-support).
@@ -54,20 +54,27 @@ Voordat u begint, controleert u het volgende:
 ## <a name="feature-consideration-and-limitations"></a>Functie overwegingen en beperkingen
 
 - SQL Server back-up kan worden geconfigureerd in Azure portal of **PowerShell**. We bieden geen ondersteuning voor CLI.
+- De oplossing wordt ondersteund op beide typen van [implementaties](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) -virtuele machines van Azure Resource Manager en klassieke virtuele machines.
 - Virtuele machine met SQL Server moet verbinding met internet voor toegang tot Azure openbare IP-adressen.
 - SQL Server **Failover Cluster exemplaar (FCI)** en SQL Server Always on Failover Cluster Instance worden niet ondersteund.
-- Back-up en herstel bewerkingen voor de mirror-databases en momentopnamen van databases worden niet ondersteund.
-- Met behulp van meer dan een back-upoplossingen back-up van uw zelfstandige SQL Server kan-exemplaar of SQL Always on-beschikbaarheidsgroep leiden tot back-upfouten; in dat geval weerhouden.
-- Back-ups van twee knooppunten van een beschikbaarheidsgroep afzonderlijk met dezelfde of verschillende oplossingen, kunnen ook leiden tot back-upfouten. Azure Backup kunt detecteren en alle knooppunten die zich in dezelfde regio bevinden als de kluis beveiligen. Als uw SQL Server altijd op beschikbaarheidsgroep meerdere Azure-regio's omvat, stelt u de back-up van de regio waaraan het primaire knooppunt. Azure Backup kunt detecteren en beveiligen van alle databases in de beschikbaarheidsgroep op basis van uw back-upvoorkeur.  
+- Back-up en herstelbewerkingen voor gespiegelde databases en momentopnamen van databases worden niet ondersteund.
+- Met behulp van meer dan een back-upoplossingen back-up uw zelfstandige SQL Server kan-exemplaar of SQL Always on-beschikbaarheidsgroep leiden tot back-upfouten; in dat geval weerhouden.
+- Back-ups van twee knooppunten van een beschikbaarheidsgroep afzonderlijk met dezelfde of verschillende oplossingen, kunnen ook leiden tot back-upfouten.
 - Azure Backup ondersteunt alleen volledige en kopie-alleen volledige back-uptypen voor **alleen-lezen** databases
 - Databases met zeer veel bestanden kunnen niet worden beveiligd. Het maximum aantal bestanden dat wordt ondersteund is **~ 1000**.  
 - U kunt maximaal back **ongeveer 2000** SQL Server-databases in een kluis. Als u een groter aantal databases hebt, kunt u meerdere kluizen maken.
 - U kunt back-up voor maximaal **50** databases in een gaan; deze beperking kunt u back-belastingen optimaliseren.
 - We bieden ondersteuning voor databases tot **2TB** in grootte; voor groter dan die van prestatieproblemen kunnen afkomstig zijn.
-- Als u een idee van de garantie voor het aantal databases per server kunnen worden beveiligd, moeten we Houd rekening met factoren zoals bandbreedte, VM-grootte, back-upfrequentie, de grootte van de database, enzovoort. Er wordt gewerkt aan een planner waarmee u deze op uw eigen berekenen. We zullen worden gepubliceerd binnenkort.
+- Als u een idee van de garantie voor het aantal databases per server kunnen worden beveiligd, moeten we Houd rekening met factoren zoals bandbreedte, VM-grootte, back-upfrequentie, de grootte van de database, enzovoort. We werken op een planner waarmee u deze getallen op uw eigen berekenen. We zullen worden gepubliceerd binnenkort.
 - Back-ups zijn in het geval van beschikbaarheidsgroepen afkomstig uit de verschillende knooppunten op basis van een aantal factoren. Hieronder staat een samenvatting van de back-gedrag voor een beschikbaarheidsgroep.
 
-### <a name="backup-behavior-in-case-of-always-on-availability-groups"></a>Back-gedrag in het geval van altijd op beschikbaarheidsgroepen
+### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Back-up gedrag in het geval van altijd op beschikbaarheidsgroepen
+
+Het wordt aanbevolen dat de back-up is geconfigureerd op slechts één knooppunt van een Beschikbaarheidsgroep. Back-up moet altijd worden geconfigureerd in dezelfde regio als het primaire knooppunt. Met andere woorden, moet u altijd het primaire knooppunt aanwezig zijn in de regio waarin u back-up wilt configureren. Als alle knooppunten van de Beschikbaarheidsgroep zich in dezelfde regio bevinden waarin de back-up is geconfigureerd, is er geen vragen.
+
+**Voor de regio-overschrijdende AG**
+- Back-ups niet, ongeacht de back-upvoorkeur uitgevoerd van de knooppunten die zich niet in dezelfde regio bevinden waarin de back-up is geconfigureerd. Dit komt doordat de regio-overschrijdende back-ups worden niet ondersteund. Als u alleen 2 knooppunten hebt en het secundaire knooppunt in de andere regio is; in dit geval wordt de back-ups blijven optreden van het primaire knooppunt (tenzij uw back-upvoorkeur 'alleen secundaire').
+- Als het geval is een failover naar een regio die anders is dan de waarin de back-up is geconfigureerd, wordt back-ups mislukken op de knooppunten in de regio van de failover.
 
 Back-ups zijn afhankelijk van de back-upvoorkeur en typen van back-ups (volledige/differentiële/log/kopie-alleen volledig) afkomstig uit een bepaald knooppunt (primair/secundair).
 
@@ -109,7 +116,7 @@ Kopie-alleen volledige |  Secundair
 
 ## <a name="fix-sql-sysadmin-permissions"></a>Problemen met systeembeheerdersrechten voor SQL oplossen
 
-  Als u machtigingen nodig hebt i.v.m. een **UserErrorSQLNoSysadminMembership**-fout, gaat u als volgt te werk:
+  Als u nodig hebt om op te lossen machtigingen vanwege **UserErrorSQLNoSysadminMembership** fout, voer de onderstaande stappen te volgen:
 
   1. Meld u bij SQL Server Management Studio (SSMS) aan met een account met systeembeheerdersrechten voor SQL Server. Windows-verificatie zou moeten werken, tenzij u speciale machtigingen nodig hebt.
   2. Open de map **Security/Logins** op de SQL-server.

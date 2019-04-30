@@ -1,5 +1,5 @@
 ---
-title: 'Azure back-up: Back-upbeleid met behulp van REST-API maken'
+title: 'Azure Backup: Maken van back-upbeleid met behulp van REST-API'
 description: Back-upbeleid (schema en de retentie) beheren met behulp van REST-API
 services: backup
 author: pvrk
@@ -11,11 +11,11 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289832"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648802"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Azure Recovery Services back-upbeleid met behulp van REST-API maken
 
@@ -31,7 +31,7 @@ De stappen voor het maken van een back-upbeleid voor een Azure Recovery Services
 - Een beleid kan worden toegewezen aan veel resources. Een Azure-VM back-upbeleid kan worden gebruikt om u te veel Azure-VM's beveiligen.
 - Een beleid bestaat uit twee onderdelen
   - Schema: Wanneer u een back-up
-  - Bewaarperiode: Hoe lang elke back-up moet worden bewaard.
+  - Bewaarperiode: Hoe lang worden elke back-up bewaard.
 - Schema kan worden gedefinieerd als 'dagelijks' of 'wekelijks' met een bepaald punt in tijd wordt opgelost.
 - Retentie kan worden gedefinieerd voor 'dag', 'week', 'maand', 'jaarlijkse' back-uppunten.
 - 'wekelijks' verwijst naar een back-up op een bepaalde dag een van de week, 'maand' betekent een back-up op een bepaalde dag een van de maand en "jaarlijkse" verwijst naar een back-up op een bepaalde dag van het jaar.
@@ -50,7 +50,7 @@ De `{policyName}` en `{vaultName}` vindt u in de URI. Als u meer informatie vind
 
 Bijvoorbeeld, voor het maken van een beleid voor Azure VM backup, vindt hieronder u de onderdelen van de aanvraagtekst.
 
-|Naam  |Vereist  |Type  |Beschrijving  |
+|Name  |Vereist  |Type  |Description  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource eigenschappen        |
 |tags     |         | Object        |  Resourcetags       |
@@ -156,11 +156,11 @@ Het beleid zegt:
 
 De back-upbeleid maken/bijwerken is een [asynchrone bewerking](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Dit betekent dat deze bewerking wordt gemaakt van een andere bewerking waardoor moet afzonderlijk worden bijgehouden.
 
-Deze twee antwoorden retourneert: 202 (aanvaard) wanneer een andere bewerking wordt gemaakt en klik vervolgens op 200 (OK) wanneer deze bewerking is voltooid.
+Deze retourneert twee antwoorden: 202 (aanvaard) wanneer een andere bewerking wordt gemaakt en vervolgens 200 (OK) wanneer deze bewerking is voltooid.
 
-|Naam  |Type  |Beschrijving  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |    [Beveiliging PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
+|200 OK     |    [Protection PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 geaccepteerd     |         |     Geaccepteerd    |
 
 ### <a name="example-responses"></a>Van de voorbeeldantwoorden

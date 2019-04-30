@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: snehaa
 ms.openlocfilehash: 17cead93325da903161d95b315435d6e7b106dbb
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578914"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61292980"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
@@ -132,11 +132,11 @@ De gegevens die zijn verzameld door de agents afhankelijkheid is ook versleuteld
 
 ### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>Hoe de collector communiceren met de vCenter-Server en de service Azure Migrate?
 
-Het collector-apparaat verbinding maakt met de vCenter-Server (poort 443) met behulp van de referenties die zijn opgegeven door de gebruiker in het apparaat. Deze query uitgevoerd voor de vCenter-Server met behulp van VMware PowerCLI voor het verzamelen van metagegevens over de VM's beheerd door vCenter Server. Deze verzamelt beide configuratiegegevens over VM's (kernen, geheugen, schijven, NIC enzovoort) en de prestatiegeschiedenis van elke virtuele machine voor de laatste maand van vCenter-Server. De verzamelde metagegevens wordt verzonden naar de service Azure Migrate (via internet via https) voor de beoordeling. [Meer informatie](concepts-collector.md)
+De collector maakt verbinding met vCenter Server (poort 443) met de referenties die de gebruiker aan de collector heeft opgegeven. De collector voert een query van vCenter Server uit met behulp van VMware PowerCLI om metagegevens te verzamelen over de VM's die door vCenter Server worden beheerd. Van vCenter Server worden zowel configuratiegegevens over VM's (kernen, geheugen, schijven, NIC, enz.) als prestatiegeschiedenissen over de afgelopen maand van alle VM's verzameld. De verzamelde metagegevens worden ter beoordeling vervolgens verzonden naar de Azure Migrate-service (via internet, via https). [Meer informatie](concepts-collector.md)
 
 ### <a name="can-i-connect-the-same-collector-appliance-to-multiple-vcenter-servers"></a>Kan ik het dezelfde collector-apparaat verbinden met meerdere vCenter-servers?
 
-Ja, een enkel collector-apparaat kan worden gebruikt voor het detecteren van meerdere vCenter-Servers, maar niet gelijktijdig. U moet de detectie uitvoeren na elkaar.
+Ja, er kan één collector worden gebruikt voor het detecteren van meerdere vCenter-servers, maar niet tegelijkertijd. U moet de detecties een voor een uitvoeren.
 
 ### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Is het OVA-sjabloon die wordt gebruikt door Site Recovery geïntegreerd met het ova-bestand gebruikt door Azure Migrate?
 
@@ -144,7 +144,7 @@ Er is momenteel geen-integratie. De. OVA-sjabloon in Site Recovery wordt gebruik
 
 ### <a name="i-changed-my-machine-size-can-i-rerun-the-assessment"></a>Ik heb mijn machinegrootte gewijzigd. Kan ik de evaluatie opnieuw uitvoeren?
 
-Als u wijzigt de instellingen op een virtuele machine die u wilt beoordelen, Ontdek trigger opnieuw met behulp van het collector-apparaat. Gebruik in het toestel, de **verzamelen opnieuw starten** optie om dit te doen. Nadat de verzameling gereed is, selecteert u in de portal de optie **Opnieuw berekenen** voor de evaluatie om de evaluatieresultaten op te halen.
+Als u de instellingen wijzigt op een VM die u wilt evalueren, activeert u ontdekken opnieuw met behulp van de collector. Gebruik in de collector hiervoor de optie **Start collection again**. Nadat de verzameling gereed is, selecteert u in de portal de optie **Opnieuw berekenen** voor de evaluatie om de evaluatieresultaten op te halen.
 
 ### <a name="how-can-i-discover-a-multi-tenant-environment-in-azure-migrate"></a>Hoe kan ik een multitenant-omgeving in Azure Migrate detecteren?
 

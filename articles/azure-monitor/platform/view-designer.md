@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286564"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61342009"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Aangepaste weergaven maken met behulp van Designer bekijken in Azure Monitor
 Met behulp van Designer bekijken in Azure Monitor, kunt u tal van aangepaste weergaven maken in Azure portal waarmee u gegevens visualiseren in uw Log Analytics-werkruimte kunt. In dit artikel geeft een overzicht van de Weergaveontwerper en procedures voor het maken en bewerken van aangepaste weergaven.

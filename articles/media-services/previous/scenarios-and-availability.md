@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 3576a50cd1510a4da562981ff9ae98e12a357fc9
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316990"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60638183"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenario's en de beschikbaarheid van Media Services-functies in datacenters
 
@@ -222,7 +222,7 @@ Met Microsoft Azure Media Services kunt u uw media beveiligen vanaf het moment d
 
 |Versleuteling|Status|Datacenters|
 |---|---|---| 
-|Opslag|Algemene beschikbaarheid|Alle|
+|Storage|Algemene beschikbaarheid|Alle|
 |AES-128-sleutels|Algemene beschikbaarheid|Alle|
 |FairPlay|Algemene beschikbaarheid|Alle|
 |PlayReady|Algemene beschikbaarheid|Alle|

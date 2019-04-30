@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a7666ada6c4535010297415eac8b0bd9e5226d9e
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974464"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094200"
 ---
 <a name="retrieve-operations"></a>Bewerkingen ophalen
 ===================
@@ -40,10 +40,10 @@ Hiermee haalt u alle bewerkingen op de aanbieding of het opvragen van een bepaal
 
 |  **Naam**          |      **Beschrijving**                                                                                           | **Gegevenstype** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Uitgever-ID, bijvoorbeeld `Contoso`                                                                   |  Reeks       |
-|  offerId           |  Aanbiedings-id                                                                                              |  Reeks       |
-|  operationId       |  De GUID die de bewerking op de aanbieding wordt aangeduid. De bewerkings-id met behulp van deze API kan worden opgehaald en wordt ook geretourneerd als de HTTP-header van het antwoord voor langlopende bewerkingen, zoals de [aanbieding publiceren](./cloud-partner-portal-api-publish-offer.md) API.  |   GUID   |
-|  filteredStatus    | Optionele query-parameter die wordt gebruikt om te filteren op status (bijvoorbeeld `running`) op de verzameling die wordt geretourneerd door deze API.  |   Reeks |
+|  publisherId       |  Uitgever-ID, bijvoorbeeld `Contoso`                                                                   |  String       |
+|  offerId           |  Aanbiedings-id                                                                                              |  String       |
+|  operationId       |  De GUID die de bewerking op de aanbieding wordt aangeduid. De bewerkings-id met behulp van deze API kan worden opgehaald en wordt ook geretourneerd als de HTTP-header van het antwoord voor langlopende bewerkingen, zoals de [aanbieding publiceren](./cloud-partner-portal-api-publish-offer.md) API.  |   Guid   |
+|  filteredStatus    | Optionele query-parameter die wordt gebruikt om te filteren op status (bijvoorbeeld `running`) op de verzameling die wordt geretourneerd door deze API.  |   String |
 |  API-versie       | Meest recente versie van de API                                                                                           |    Date      |
 |  |  |  |
 
@@ -53,7 +53,7 @@ Hiermee haalt u alle bewerkingen op de aanbieding of het opvragen van een bepaal
 
 |  **Naam**          |  **Waarde**           |
 |  ---------------   | -------------------- |
-|  Inhoudstype      | `application/json`   |
+|  Content-Type      | `application/json`   |
 |  Autorisatie     | `Bearer YOUR_TOKEN`  |
 |  |  |
 

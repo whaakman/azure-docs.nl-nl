@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 5b70edd4f65538b52c70881258bc500a34b04d80
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025416"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60826567"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Controleren en beheren van Azure Data Factory-pijplijnen met behulp van de app bewaking en beheer
 > [!div class="op_single_selector"]
@@ -109,7 +109,7 @@ Klik op de **pijplijn openen** optie om te zien van alle activiteiten in de pijp
 
 ![Menu Pijplijn openen](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-In de geopende pijplijnweergave ziet u alle activiteiten in de pijplijn. In dit voorbeeld is er slechts één activiteit: Activiteit kopiëren. 
+In de geopende pijplijnweergave ziet u alle activiteiten in de pijplijn. In dit voorbeeld is er slechts één activiteit: kopieeractiviteit. 
 
 ![Geopende pijplijn](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
@@ -194,7 +194,7 @@ Activiteit windows, kunnen zich in een van de volgende statussen:
 <td>Het activiteitvenster wordt verwerkt.</td>
 </tr>
 <tr>
-<td rowspan="4">Mislukt</td><td>Time-out</td><td>De activiteit is uitgevoerd duurde langer dan is toegestaan door de activiteit.</td>
+<td rowspan="4">Mislukt</td><td>TimedOut</td><td>De activiteit is uitgevoerd duurde langer dan is toegestaan door de activiteit.</td>
 </tr>
 <tr>
 <td>Geannuleerd</td><td>Het venster van de activiteit is geannuleerd door gebruikersactie.</td>

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: 8bb32b2bded061bd19bcd7cfda4ef259a75b0626
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662802"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60864436"
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Oplossen van uw installatie van lokale ontwikkeling
 Als u een probleem ondervindt tijdens interactie met uw lokale ontwikkelcluster van Azure Service Fabric, raadpleegt u de volgende suggesties voor mogelijke oplossingen.

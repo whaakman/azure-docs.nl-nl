@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195095"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871524"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Serverlogboeken in Azure Database for PostgreSQL 
 Azure Database voor PostgreSQL-query en de fout genereert logboeken. Query's en fout-logboeken kunnen worden gebruikt om te bepalen, oplossen en herstellen van fouten in de configuratie en optimale prestaties. (Toegang tot transactielogboeken is niet opgenomen). 
@@ -47,7 +47,7 @@ De volgende tabel wordt beschreven wat er in elk logboek. Afhankelijk van het ui
 | ResourceType | `Servers` |
 | ResourceId | Resource-URI |
 | Resource | Naam van de server |
-| Categorie | `PostgreSQLLogs` |
+| Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Logboekregistratie op, bijvoorbeeld: U ZIET DAT LOGBOEK, FOUT: |
 | Bericht | Primaire logboekbericht | 

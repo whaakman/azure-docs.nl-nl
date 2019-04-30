@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: f84cb59e7d4fd7d8301d22348ca066a7f9d9e94e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 64095f6706bb978cd33b8fe7833fe4e65fc3b0f8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813422"
 ---
 # <a name="manage-azure-data-lake-analytics-using-policies"></a>Azure Data Lake Analytics met behulp van beleid beheren
 
@@ -68,8 +68,8 @@ Taak-niveau implementeert, kunt u bepalen het maximumaantal AU's en de maximale 
 
 Data Lake Analytics heeft twee beleidsregels die u op het taakniveau van de instellen kunt:
 
-* **AU-limiet per taak**: gebruikers kunnen alleen taken die met dit aantal AU's worden verzonden. Deze limiet is standaard hetzelfde als de maximale AU-limiet voor het account.
-* **Prioriteit**: gebruikers kunnen alleen taken die een prioriteit die lager is dan of gelijk zijn aan deze waarde indienen. Hoe hoger de waarde geeft aan dat een lagere prioriteit. Standaard is deze limiet ingesteld op 1, dit is de hoogste prioriteit mogelijk.
+* **AU-limiet per taak**: Gebruikers kunnen alleen taken die met dit aantal AU's indienen. Deze limiet is standaard hetzelfde als de maximale AU-limiet voor het account.
+* **Prioriteit**: Gebruikers kunnen alleen verzenden van taken waarvoor een prioriteit die lager is dan of gelijk zijn aan deze waarde. Hoe hoger de waarde geeft aan dat een lagere prioriteit. Standaard is deze limiet ingesteld op 1, dit is de hoogste prioriteit mogelijk.
 
 Er is een standaardbeleid instellen voor elke account. Het standaardbeleid is van toepassing op alle gebruikers van het account. U kunt extra beleidsregels instellen voor specifieke gebruikers en groepen. 
 
@@ -85,7 +85,7 @@ Er is een standaardbeleid instellen voor elke account. Het standaardbeleid is va
     1. **Beleidsnaam COMPUTE**: Voer een beleidsnaam eraan te herinneren dat u van het doel van het beleid.
     2. **Selecteer gebruiker of groep**: Selecteer de gebruiker of groep die dit beleid is van toepassing op.
     3. **De AU-limiet voor de taak instellen**: Stel de AU-limiet die van toepassing op de geselecteerde gebruiker of groep.
-    4. **De limiet van de prioriteit instellen**: de limiet voor de prioriteit die van toepassing op de geselecteerde gebruiker of groep instellen.
+    4. **De limiet van de prioriteit instellen**: De limiet voor de prioriteit die van toepassing op de geselecteerde gebruiker of groep instellen.
 
 4. Klik op **OK**.
 

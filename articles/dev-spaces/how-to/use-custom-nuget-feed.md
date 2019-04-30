@@ -11,11 +11,11 @@ description: Gebruik een aangepaste NuGet feed te openen en gebruiken van NuGet-
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, containers
 manager: ghogen
 ms.openlocfilehash: 1a000e378a9b8ecfb09d778fd6444e3f24b3df7b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772463"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686450"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Gebruik een aangepaste NuGet-feed in een Azure Dev Space
 

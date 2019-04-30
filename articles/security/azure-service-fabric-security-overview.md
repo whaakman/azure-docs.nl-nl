@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
 ms.openlocfilehash: c5b5f80a43530fe6d0b90e65c3aef89a815157e4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241388"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610892"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Overzicht van Azure Service Fabric-beveiliging
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) is een platform voor gedistribueerde systemen waarmee u eenvoudig kunnen worden verpakt, implementeren en beheren van schaalbare en betrouwbare microservices. Service Fabric is afhankelijk van de uitdagingen van ontwikkelen en beheren van cloudtoepassingen. Ontwikkelaars en beheerders kunnen complexe infrastructuurproblemen vermijden en zich richten op het implementeren van essentiële en intensieve werkbelastingen die schaalbare en betrouwbare zijn.

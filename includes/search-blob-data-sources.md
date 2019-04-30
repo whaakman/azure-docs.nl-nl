@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/01/2019
 ms.author: magottei
 ms.openlocfilehash: 4a9ed5dcb32d0e53f933b7da9163a5c8c4b4aa43
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318424"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871331"
 ---
 * PDF
 * Microsoft Office-bestandsindelingen: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook e-mailberichten)  
-* HTML-CODE
+* HTML
 * XML
 * ZIP
 * EML

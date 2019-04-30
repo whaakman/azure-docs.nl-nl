@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: szark
 ms.openlocfilehash: c0124d133fe2db9acb16251bc21ffb19f1b1268f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992190"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743442"
 ---
 # <a name="linux-distributions-endorsed-on-azure"></a>Voor Azure goedgekeurde Linux-distributies
 -Partners bieden Linux-installatiekopieën in de Azure Marketplace. We werken met verschillende Linux-community's nog meer varianten toevoegen aan de lijst met distributiepunten die zijn goedgekeurd. In de tussentijd voor distributies die niet beschikbaar zijn vanuit de Marketplace, u kunt altijd brengt uw eigen Linux door de richtlijnen op [maken en uploaden van een virtuele harde schijf met het Linux-besturingssysteem](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).

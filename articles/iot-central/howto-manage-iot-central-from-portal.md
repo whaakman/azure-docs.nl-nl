@@ -9,11 +9,11 @@ ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: f58d06cd191166f47d864241564bc57019b59132
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316571"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60707357"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>IoT Central beheren vanuit Azure portal
 
@@ -35,7 +35,7 @@ Selecteer de **IoT Central Application** regelitem in de lijst met zoekresultate
 
 ![Beheerportal: zoekresultaten](media/howto-manage-iot-central-from-portal/image0b.png)
 
-Selecteer nu **maken**.
+Selecteer nu **Maken**.
 
 ![Beheerportal: IoT Central-resource](media/howto-manage-iot-central-from-portal/image0c.png)
 

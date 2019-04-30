@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 5762e934d7735dd9617cefc1f56105823d74312f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782187"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61342857"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB-bindingen voor Azure Functions 2.x
 
@@ -260,7 +260,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type** || Moet worden ingesteld op `cosmosDBTrigger`. |
 |**direction** || Moet worden ingesteld op `in`. Deze parameter wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
-|**name** || De naam van de variabele die wordt gebruikt in functiecode aan te geven dat de lijst met documenten met wijzigingen vertegenwoordigt. |
+|**De naam** || De naam van de variabele die wordt gebruikt in functiecode aan te geven dat de lijst met documenten met wijzigingen vertegenwoordigt. |
 |**connectionStringSetting**|**connectionStringSetting** | De naam van een app-instelling met de verbindingsreeks waarmee verbinding met de Azure Cosmos DB-account dat wordt bewaakt. |
 |**databaseName**|**DatabaseName**  | De naam van de Azure Cosmos DB-database met de verzameling die worden bewaakt. |
 |**collectionName** |**collectionName** | De naam van de verzameling die worden bewaakt. |
@@ -1713,7 +1713,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type**     || Moet worden ingesteld op `cosmosDB`.        |
 |**direction**     || Moet worden ingesteld op `in`.         |
-|**name**     || De naam van de bindingsparameter die het document in de functie vertegenwoordigt.  |
+|**De naam**     || De naam van de bindingsparameter die het document in de functie vertegenwoordigt.  |
 |**databaseName** |**DatabaseName** |De database met het document.        |
 |**collectionName** |**collectionName** | De naam van de verzameling waarin het document. |
 |**id**    | **Id** | De ID van het document om op te halen. Deze eigenschap ondersteunt [expressies binding](./functions-bindings-expressions-patterns.md). Stelt beide niet de **id** en **sqlQuery** eigenschappen. Als u niet uit, één instelt, wordt de volledige verzameling worden opgehaald. |
@@ -2298,7 +2298,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type**     || Moet worden ingesteld op `cosmosDB`.        |
 |**direction**     || Moet worden ingesteld op `out`.         |
-|**name**     || De naam van de bindingsparameter die het document in de functie vertegenwoordigt.  |
+|**De naam**     || De naam van de bindingsparameter die het document in de functie vertegenwoordigt.  |
 |**databaseName** | **DatabaseName**|De database met de verzameling waarin het document wordt gemaakt.     |
 |**collectionName** |**collectionName**  | De naam van de verzameling waarin het document wordt gemaakt. |
 |**createIfNotExists**  |**createIfNotExists**    | Een Booleaanse waarde om aan te geven of de verzameling is gemaakt als deze nog niet bestaat. De standaardwaarde is *false* omdat nieuwe verzamelingen worden gemaakt met gereserveerde doorvoer, wat gevolgen heeft kosten. Zie de pagina [prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/) voor meer informatie.  |

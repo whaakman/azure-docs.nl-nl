@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 04/15/2019
 ms.author: gwallace
 ms.openlocfilehash: e2b36633996f961d100f0a98abb09135fd4393e4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007080"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60869857"
 ---
 # <a name="custom-script-extension-for-windows"></a>Aangepaste Scriptextensie voor Windows
 
@@ -46,15 +46,15 @@ Als uw script op een lokale server is, moet u mogelijk nog steeds extra firewall
 
 * Het hoogste aantal fouten voor deze extensie is vanwege syntaxisfouten in de van de in het script test het script wordt uitgevoerd zonder fouten, en ook plaatsen extra logboekregistratie in het script om gemakkelijker vinden wanneer deze is mislukt.
 * Scripts schrijven die idempotent zijn. Dit zorgt ervoor dat als ze opnieuw per ongeluk worden uitgevoerd, worden er geen wijzigingen in het systeem.
-* Zorg ervoor dat de scripts geen gebruikersinvoer nodig wanneer ze worden uitgevoerd.
-* Er is 90 minuten toegestaan voor het script uit te voeren, iets langer resulteert in een mislukte bepaling van de extensie.
-* Niet opnieuw wordt opgestart in het script plaatsen, deze actie wordt problemen veroorzaken met andere extensies die worden geïnstalleerd. Na opnieuw opstarten, de uitbreiding wordt niet voortgezet na het opnieuw opstarten.
+* Zorg ervoor dat de scripts geen gebruikersinvoer nodig hebben wanneer ze worden uitgevoerd.
+* De uitvoering van het script mag 90 minuten duren. Als het langer duurt, mislukt de inrichting van de extensie.
+* Neem opnieuw opstarten niet in het script op. Deze actie veroorzaakt problemen met andere extensies die worden geïnstalleerd. Na het opnieuw opstarten wordt de extensie niet voortgezet.
 * Hebt u een script dat ertoe leiden dat een opnieuw opstarten, klikt u vervolgens installeert toepassingen en scripts uitvoeren, kunt u het opnieuw opstarten met behulp van een Windows-taak plannen of hulpprogramma's zoals DSC, Chef of Puppet-extensies gebruiken.
-* De extensie wordt een script alleen slechts één keer uitgevoerd als u een script uitvoeren op elke keer opstarten, wilt moet u de extensie gebruikt om te maken van een Windows-taak.
-* Als u wilt om te plannen wanneer een script wordt uitgevoerd, moet u de extensie te maken van een Windows-taak.
-* Wanneer het script wordt uitgevoerd, ziet u alleen een 'transitioning' status van de extensie van de Azure portal of de CLI. Als u vaker statusupdates van een script uit te voeren, moet u om uw eigen oplossing te maken.
+* De extensie voert een script slechts eenmaal uit. Wilt u dat een script bij iedere start wordt uitgevoerd, dan moet u de extensie gebruiken om een geplande Windows-taak te maken.
+* Als u wilt plannen wanneer een script wordt uitgevoerd, dan moet u de extensie gebruiken om een geplande Windows-taak te maken.
+* Wanneer het script wordt uitgevoerd, ziet u alleen de extensiestatus 'overgang maken' van de Azure-portal of CLI. Als u meer statusupdates van een actief script wilt, dan moet u uw eigen oplossing maken.
 * Aangepaste scriptextensie biedt geen systeemeigen ondersteuning voor proxy-servers, maar u kunt een hulpprogramma voor bestandsoverdracht die ondersteuning biedt voor proxy-servers in uw script, zoals *Curl*
-* Houd rekening met niet-standaard directory-locaties die uw scripts of opdrachten kunnen afhankelijk zijn, hebben de logica voor deze situatie afhandelt.
+* Houd rekening met niet-standaard maplocaties waar uw scripts of opdrachten eventueel gebruik van maken. Pak deze situatie logisch aan.
 
 ## <a name="extension-schema"></a>Extensieschema
 
@@ -108,7 +108,7 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
 | Uitgever | Microsoft.Compute | string |
 | type | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
-| fileUris (bijvoorbeeld) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| fileUris (bijvoorbeeld) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matrix |
 | tijdstempel (bijvoorbeeld) | 123456789 | 32-bits geheel getal |
 | commandToExecute (bijvoorbeeld) | PowerShell - ExecutionPolicy Unrestricted - File configureren muziek app.ps1 | string |
 | storageAccountName (bijvoorbeeld) | examplestorageacct | string |

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: cfd46d5e9750a81d89ed6d3a79bcc9bffdc3d0dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007288"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844196"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Het station D: als gegevensstation op een Windows-VM gebruiken
 Als uw toepassing moet de D-station wilt gebruiken voor het opslaan van gegevens, volgt u deze instructies voor het gebruik van een andere stationsletter voor de tijdelijke schijf. Gebruik nooit de tijdelijke schijf voor het opslaan van gegevens die u nodig hebt om te houden.

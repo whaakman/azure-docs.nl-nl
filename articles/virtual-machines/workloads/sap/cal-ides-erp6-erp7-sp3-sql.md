@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.openlocfilehash: 413e449f005d288f66da0257f5b800733e58eb94
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60836497"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>SAP IDES EHP7 SP3 implementeren voor SAP ERP 6.0 op Azure
 In dit artikel wordt beschreven hoe u een SAP IDES-systeem dat u met SQL Server en het Windows-besturingssysteem wordt uitgevoerd, op Azure via de SAP Cloud Appliance Library (SAP CAL) 3.0 implementeren. De schermafbeeldingen tonen het stapsgewijze proces. Volg dezelfde stappen voor het implementeren van een andere oplossing.

@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
 ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281213"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749322"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 
@@ -33,7 +33,7 @@ In dit artikel geeft een lijst van de ingebouwde rollen voor Azure-resources, di
 De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de naam van de rol voor een overzicht van `Actions`, `NotActions`, `DataActions`, en `NotDataActions` voor elke rol. Zie voor meer informatie over de betekenis van deze acties en hoe ze van toepassing op het beheer en vlakken [roldefinities voor Azure-resources begrijpen](role-definitions.md).
 
 
-| Ingebouwde rol | Beschrijving |
+| Ingebouwde rol | Description |
 | --- | --- |
 | [Eigenaar](#owner) | Hiermee beheert u alles, inclusief de toegang tot resources. |
 | [Inzender](#contributor) | Hiermee beheert u alles, behalve de toegang tot resources. |

@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: b8cf4217ca6c80be998b92e71c3ba29c4f68bce2
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52269693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60874546"
 ---
-## <a name="webapi-project"></a>WebAPI-Project
+## <a name="webapi-project"></a>WebAPI Project
 1. Open in Visual Studio, de **AppBackend** project dat u hebt gemaakt in de **gebruikers waarschuwen** zelfstudie.
 2. Vervang de gehele in Notifications.cs **meldingen** klasse met de volgende code. Zorg ervoor dat de tijdelijke aanduidingen vervangt door uw verbindingsreeks (met volledige toegang) voor uw notification hub en de naam van de hub. U vindt deze waarden uit de [Azure-portal](http://portal.azure.com). Deze module geeft nu de verschillende beveiligde meldingen die worden verzonden. Voor een volledige implementatie, worden de meldingen opgeslagen in een database. voor het gemak opslaan in dit geval we deze in het geheugen.
    

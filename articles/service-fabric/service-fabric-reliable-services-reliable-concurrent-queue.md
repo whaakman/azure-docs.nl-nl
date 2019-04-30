@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 5/1/2017
 ms.author: aljo
 ms.openlocfilehash: dbdfa4686c047fa7cf5d74cd9aca768447f9db93
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663639"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60774009"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Inleiding tot ReliableConcurrentQueue in Azure Service Fabric
 Betrouwbare gelijktijdige wachtrij is een asynchrone, transactionele en gerepliceerde wachtrij welke functies hoog gelijktijdigheid voor in de wachtrij plaatsen en uit de wachtrij verwijderen bewerkingen. Het is ontworpen voor het leveren van hoge doorvoer en lage latentie door versoepeling van de strikte FIFO volgorde geleverd door [betrouwbare wachtrij](https://msdn.microsoft.com/library/azure/dn971527.aspx) en in plaats daarvan biedt een best-effort bestellen.

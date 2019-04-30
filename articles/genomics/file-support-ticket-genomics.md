@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Genomics: Het bestand een ondersteuningsaanvraag | Microsoft Docs'
+title: 'Microsoft Genomics: Hoe u een ondersteuningsaanvraag indienen | Microsoft Docs'
 titleSuffix: Azure
 description: In dit overzicht wordt beschreven hoe u een aanvraag voor ondersteuning contact opnemen met Microsoft Genomics-bestand. Dit is handig als u niet kunt oplossen met behulp van de gids voor probleemoplossing of de veelgestelde vragen over het probleem.
 keywords: problemen oplossen, fout, foutopsporing en ondersteuning
@@ -10,12 +10,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 05/23/2018
-ms.openlocfilehash: d5e33f5b22012b297cdceacbe38425934f0f65b4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ed37d42d8ec1692cc5edb62b68536803f47205f5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734366"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60721246"
 ---
 # <a name="how-to-contact-microsoft-genomics-for-support"></a>Contact opnemen met Microsoft Genomics voor ondersteuning
 In dit overzicht wordt beschreven hoe u een aanvraag voor ondersteuning contact opnemen met Microsoft Genomics-bestand. Dit is handig als u niet kunt oplossen met behulp van uw probleem de [problemen oplossen met](troubleshooting-guide-genomics.md) of de [Veelgestelde vragen over](frequently-asked-questions-genomics.md). 

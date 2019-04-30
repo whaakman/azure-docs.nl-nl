@@ -11,17 +11,17 @@ ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.openlocfilehash: 3ed1f251c8c09a52def517f4c94ed2ca1420eda8
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999634"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60778283"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Capaciteitslimieten voor SQL Data Warehouse
 Maximale waarden voor verschillende onderdelen van Azure SQL Data Warehouse is toegestaan.
 
 ## <a name="workload-management"></a>Werklastbeheer
-| Category | Beschrijving | Maximum |
+| Category | Description | Maximum |
 |:--- |:--- |:--- |
 | [Datawarehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Maximale DWU voor een enkele SQL Data Warehouse | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Datawarehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Standaard DTU per server |54,000<br></br>Elke SQL-server (bijvoorbeeld myserver.database.windows.net) heeft standaard een DTU-quotum van 54.000, waarmee maximaal DW6000c. Dit quotum is gewoon een veiligheidsbeperking. U kunt uw quotum door verhogen [het maken van een ondersteuningsticket](sql-data-warehouse-get-started-create-support-ticket.md) en selecteren *quotum* als het aanvraagtype.  Voor het berekenen van uw DTU moeten, de vermenigvuldigt u 7,5 met het totale aantal DWU die nodig zijn, of 9.0 vermenigvuldigen met de totale cDWU die nodig zijn. Bijvoorbeeld:<br></br>DW6000 x 7.5 = 45.000 dtu's<br></br>DW6000c x 9.0 = 54.000 dtu's.<br></br>U kunt uw huidige DTU-verbruik van de SQL server-optie weergeven in de portal. Zowel onderbroken als niet-onderbroken databases tellen mee voor het DTU-quotum. |

@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231934"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749638"
 ---
-# <a name="offer-settings-tab"></a>Tabblad instellingen bieden
+# <a name="offer-settings-tab"></a>Tabblad voor aanbiedingsinstellingen
 
 Op de **nieuwe aanbieding** scherm, de eerste stap is het maken van de identiteit van de aanbieding. De identiteit van de aanbieding bestaat uit drie onderdelen: **Aanbiedings-ID**, **uitgevers-ID**, en **naam**. Elk van deze onderdelen wordt in de volgende secties beschreven.
 
@@ -63,11 +63,11 @@ De volgende lijst bevat enkele goed benoemde aanbieding namen:
 -   Essentials voor professionele diensten: 1 uur Briefing
 -   Cloudplatform voor migratie: 1 uur Briefing
 -   PowerApps en Microsoft Flow: 1 dag-Workshop
--   Azure Machine Learning-Services: 3-wk PoC
+-   Azure Machine Learning Services: 3-wk PoC
 -   Brick en klikt u op van een Retailanalyse oplossing: 1 uur Briefing
--   Gebruik uw eigen gegevens: 1 wk-Workshop
+-   Gebruik uw eigen gegevens: 1-Wk Workshop
 -   Cloud-analyse: 3 dagen-Workshop
--   Training voor Power BI: 3 dagen-Workshop
+-   Power BI Training: 3 dagen-Workshop
 -   Verkoop Management-oplossing: 1 week-implementatie
 -   CRM-Snelstartgids: 1 dag-Workshop
 -   Dynamics 365 for Sales: 2-daagse evaluatie

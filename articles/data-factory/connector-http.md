@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 87505081f16008dff7da1f567c1265c695f3f0ab
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670840"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60653769"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Gegevens kopiëren van een HTTP-eindpunt met behulp van Azure Data Factory
 
@@ -70,8 +70,8 @@ Stel de **authenticationType** eigenschap **Basic**, **Digest**, of **Windows**.
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| Gebruikersnaam | De gebruikersnaam gebruiken voor toegang tot het HTTP-eindpunt. | Ja |
-| wachtwoord | Het wachtwoord voor de gebruiker (de **gebruikersnaam** waarde). Dit veld als markeert een **SecureString** type voor het veilig opslaan in Data Factory. U kunt ook [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| userName | De gebruikersnaam gebruiken voor toegang tot het HTTP-eindpunt. | Ja |
+| password | Het wachtwoord voor de gebruiker (de **gebruikersnaam** waarde). Dit veld als markeert een **SecureString** type voor het veilig opslaan in Data Factory. U kunt ook [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Voorbeeld**
 
@@ -105,7 +105,7 @@ ClientCertificate om verificatie te gebruiken, stelt de **authenticationType** e
 |:--- |:--- |:--- |
 | embeddedCertData | De gegevens van de met base64 gecodeerde certificaat. | Geef óf een **embeddedCertData** of **certThumbprint**. |
 | certThumbprint | De vingerafdruk van het certificaat dat geïnstalleerd op het certificaatarchief van de zelf-hostende Integration Runtime-machine. Geldt alleen wanneer de zelf-hostende Integration Runtime-type is opgegeven in de **connectVia** eigenschap. | Geef óf een **embeddedCertData** of **certThumbprint**. |
-| wachtwoord | Het wachtwoord dat is gekoppeld aan het certificaat. Dit veld als markeert een **SecureString** type voor het veilig opslaan in Data Factory. U kunt ook [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
+| password | Het wachtwoord dat is gekoppeld aan het certificaat. Dit veld als markeert een **SecureString** type voor het veilig opslaan in Data Factory. U kunt ook [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 
 Als u **certThumbprint** voor verificatie en het certificaat is geïnstalleerd in het persoonlijke archief van de lokale computer, Leesmachtiging verlenen aan de zelf-hostende Integration Runtime:
 

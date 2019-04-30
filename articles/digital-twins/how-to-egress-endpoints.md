@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: alinast
 ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994812"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60924802"
 ---
 # <a name="egress-and-endpoints"></a>Uitgaand verkeer en eindpunten
 
@@ -52,7 +52,7 @@ Gebeurtenissen worden verzonden door de IoT-objecten (zoals apparaten en sensore
 | id | string | De unieke id voor de gebeurtenis. |
 | onderwerp | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
 | gegevens | object | De gegevens van de gebeurtenis is specifiek voor de resourceprovider. |
-| type gebeurtenis | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
+| eventType | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
 | eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
 | dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
 | metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
@@ -122,7 +122,7 @@ De indeling voor elk gebeurtenistype worden nader beschreven in de volgende subs
 }
 ```
 
-| Waarde | Vervangen door |
+| Value | Vervangen door |
 | --- | --- |
 | YOUR_TOPIC_NAME | De naam van uw aangepaste onderwerp |
 
@@ -153,7 +153,7 @@ De indeling voor elk gebeurtenistype worden nader beschreven in de volgende subs
 }
 ```
 
-| Waarde | Vervangen door |
+| Value | Vervangen door |
 | --- | --- |
 | YOUR_TOPIC_NAME | De naam van uw aangepaste onderwerp |
 
@@ -188,7 +188,7 @@ De indeling voor elk gebeurtenistype worden nader beschreven in de volgende subs
 }
 ```
 
-| Waarde | Vervangen door |
+| Value | Vervangen door |
 | --- | --- |
 | YOUR_TOPIC_NAME | De naam van uw aangepaste onderwerp |
 
@@ -223,7 +223,7 @@ De indeling voor elk gebeurtenistype worden nader beschreven in de volgende subs
 }
 ```
 
-| Waarde | Vervangen door |
+| Value | Vervangen door |
 | --- | --- |
 | YOUR_TOPIC_NAME | De naam van uw aangepaste onderwerp |
 
@@ -268,7 +268,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Waarde | Vervangen door |
+    | Value | Vervangen door |
     | --- | --- |
     | YOUR_NAMESPACE | De naamruimte van uw eindpunt |
     | YOUR_PRIMARY_KEY | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
@@ -291,7 +291,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Waarde | Vervangen door |
+    | Value | Vervangen door |
     | --- | --- |
     | YOUR_PRIMARY_KEY | De primaire verbindingsreeks die wordt gebruikt om te verifiëren|
     | YOUR_SECONDARY_KEY | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
@@ -313,7 +313,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Waarde | Vervangen door |
+    | Value | Vervangen door |
     | --- | --- |
     | YOUR_NAMESPACE | De naamruimte van uw eindpunt |
     | YOUR_PRIMARY_KEY | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
@@ -334,7 +334,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Waarde | Vervangen door |
+    | Value | Vervangen door |
     | --- | --- |
     | YOUR_NAMESPACE | De naamruimte van uw eindpunt |
     | YOUR_PRIMARY_KEY | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |

@@ -1,6 +1,6 @@
 ---
-title: 'Beveiliging voor service Fabric-cluster: client rollen | Microsoft Docs'
-description: In dit artikel beschrijft de twee client-rollen en de machtigingen die aan de rollen.
+title: 'Beveiliging van service Fabric-clusters: clientrollen | Microsoft Docs'
+description: Dit artikel beschrijft de functies van de twee client en de machtigingen die aan de rollen.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,96 +14,96 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 39b77813e3494e809b92738924544e196d89a166
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ed000dc4be1ae45382d688d4a596ec745c69d0bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204648"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711150"
 ---
-# <a name="role-based-access-control-for-service-fabric-clients"></a>Toegangsbeheer op basis van rollen voor Service Fabric-clients
-Azure Service Fabric ondersteunt twee verschillende toegangsrechten besturingselementtypen voor clients die zijn verbonden met een Service Fabric-cluster: beheerder en gebruiker. Toegangsbeheer kan de Clusterbeheerder om te beperken van toegang tot bepaalde clusterbewerkingen voor verschillende groepen gebruikers, zodat het cluster beter te beveiligen.  
+# <a name="role-based-access-control-for-service-fabric-clients"></a>Op rollen gebaseerd toegangsbeheer voor Service Fabric-clients
+Azure Service Fabric ondersteunt twee verschillende typen voor clients die zijn verbonden met een Service Fabric-cluster: beheerder en gebruiker. Toegangsbeheer kan de Clusterbeheerder om te beperken van toegang tot bepaalde bewerkingen voor een cluster voor verschillende groepen gebruikers, waardoor het cluster beter te beveiligen.  
 
-**Beheerders** hebben volledige toegang tot beheermogelijkheden (inclusief lezen/schrijven-mogelijkheden). Standaard **gebruikers** hebben alleen leestoegang tot beheermogelijkheden (bijvoorbeeld querymogelijkheden) en de mogelijkheid om op te lossen, toepassingen en services.
+**Beheerders** hebben volledige toegang tot de mogelijkheden voor beheer (met inbegrip van de mogelijkheden voor lezen/schrijven). Standaard **gebruikers** hebben alleen leestoegang tot de mogelijkheden (bijvoorbeeld querymogelijkheden), en de mogelijkheid om op te lossen, toepassingen en services.
 
-U opgeven de twee client-rollen (administrator en client) op het moment van het maken van het cluster door afzonderlijke certificaten voor elk. Zie [Service Fabric-clusterbeveiliging](service-fabric-cluster-security.md) voor meer informatie over het instellen van een beveiligde Service Fabric-cluster.
+U opgeven de twee clientrollen (de beheerder en client) op het moment van het maken van clusters door afzonderlijke certificaten voor elk. Zie [beveiliging van Service Fabric-clusters](service-fabric-cluster-security.md) voor meer informatie over het instellen van een beveiligd Service Fabric-cluster.
 
 ## <a name="default-access-control-settings"></a>Instellingen voor toegangsbeheer standaard
-Het type beheerder toegang besturingselement heeft volledige toegang to alle FabricClient-APIs. Het kunt lees- en schrijfbewerkingen op de Service Fabric-cluster, met inbegrip van de volgende bewerkingen uitvoeren:
+Het besturingselementtype van de beheerder toegang heeft volledige toegang to alle FabricClient-APIs. Het kunt lees- en schrijfbewerkingen op de Service Fabric-cluster, met inbegrip van de volgende bewerkingen uitvoeren:
 
-### <a name="application-and-service-operations"></a>Toepassing en service-activiteiten
+### <a name="application-and-service-operations"></a>Toepassing en service-bewerkingen
 * **CreateService**: service maken                             
-* **CreateServiceFromTemplate**: service gemaakt op basis van sjabloon                             
+* **CreateServiceFromTemplate**: service van het maken van sjabloon                             
 * **UpdateService**: service-updates                             
-* **DeleteService**: verwijderen van een service                             
-* **ProvisionApplicationType**: toepassing type inrichting                             
+* **DeleteService**: service verwijderen                             
+* **ProvisionApplicationType**: type toepassingsinrichting                             
 * **SubmitMetadata**: maken van de toepassing                               
 * **DeleteApplication**: toepassing verwijderen                             
-* **UpgradeApplication**: starten of toepassingsupgrades onderbreken                             
+* **UpgradeApplication**: starten of onderbreken van upgrades van toepassingen                             
 * **UnprovisionApplicationType**: toepassing type hierbij                             
-* **MoveNextUpgradeDomain**: toepassingsupgrades met een expliciete updatedomein hervatten                             
-* **ReportUpgradeHealth**: toepassingsupgrades met de voortgang van de huidige upgrade hervatten                             
-* **ReportHealth**: reporting health                             
-* **PredeployPackageToNode**: voorafgaand aan implementatie API                            
-* **CodePackageControl**: code pakketten opnieuw te starten                             
+* **MoveNextUpgradeDomain**: upgrades van toepassingen met een expliciete updatedomein wordt hervat                             
+* **ReportUpgradeHealth**: het hervatten van de upgrades van toepassingen met de voortgang van de huidige upgrade                             
+* **ReportHealth**: status rapporteren                             
+* **PredeployPackageToNode**: voorafgaand aan implementatie-API                            
+* **CodePackageControl**: codepakketten opnieuw te starten                             
 * **RecoverPartition**: herstellen van een partitie                             
 * **RecoverPartitions**: partities herstellen                             
-* **RecoverServicePartitions**: servicepartities herstellen                             
+* **RecoverServicePartitions**: servicepartities worden hersteld                             
 * **RecoverSystemPartitions**: service systeempartities herstellen                             
 
 ### <a name="cluster-operations"></a>Clusterbewerkingen
-* **ProvisionFabric**: MSI en de clusternaambron manifest inrichten                             
-* **UpgradeFabric**: beginnen cluster                             
-* **UnprovisionFabric**: MSI en de clusternaambron manifest hierbij                         
-* **MoveNextFabricUpgradeDomain**: upgrades van de cluster met een expliciete updatedomein hervatten                             
-* **ReportFabricUpgradeHealth**: cluster-upgrades met de voortgang van de huidige upgrade hervatten                             
+* **ProvisionFabric**: MSI-bestand en/of cluster manifest van de inrichting                             
+* **UpgradeFabric**: upgraden van clusters starten                             
+* **UnprovisionFabric**: MSI-bestand en/of cluster manifest hierbij                         
+* **MoveNextFabricUpgradeDomain**: upgraden van clusters met een expliciete updatedomein wordt hervat                             
+* **ReportFabricUpgradeHealth**: upgraden van clusters met de voortgang van de huidige upgrade hervatten                             
 * **StartInfrastructureTask**: infrastructuurtaken starten                             
 * **FinishInfrastructureTask**: infrastructuurtaken is voltooid                             
 * **InvokeInfrastructureCommand**: infrastructuur-opdrachten voor het beheer van taak                              
 * **ActivateNode**: activeren van een knooppunt                             
-* **DeactivateNode**: deactiveren van een knooppunt                             
-* **DeactivateNodesBatch**: meerdere knooppunten deactiveren                             
-* **RemoveNodeDeactivations**: omzetten deactivering op meerdere knooppunten                             
-* **GetNodeDeactivationStatus**: deactivering van de status controleren                             
-* **NodeStateRemoved**: status van knooppunt reporting verwijderd                             
-* **ReportFault**: fout met betrekking tot rapportage                             
-* **FileContent**: image store client bestandsoverdracht (extern naar cluster)                             
-* **FileDownload**: image store client bestand downloaden Inleiding (externe aan cluster)                             
+* **DeactivateNode**: het deactiveren van een knooppunt                             
+* **DeactivateNodesBatch**: het deactiveren van meerdere knooppunten                             
+* **RemoveNodeDeactivations**: herstellen deactiveren op meerdere knooppunten                             
+* **GetNodeDeactivationStatus**: deactiveringsstatus controleren                             
+* **NodeStateRemoved**: status clusterknooppunt reporting verwijderd                             
+* **ReportFault**: fout melden                             
+* **FileContent**: image bestandsoverdracht store-client (extern aan cluster)                             
+* **FileDownload**: image store-client-bestand downloaden Inleiding (externe aan cluster)                             
 * **InternalList**: image store bestand lijst clientbewerking (intern)                             
-* **Verwijderen**: image store client delete-bewerking                              
-* **Uploaden**: image store-clientbewerking uploaden                             
-* **NodeControl**: starten, stoppen en opnieuw starten van de knooppunten                             
-* **MoveReplicaControl**: replica's van het ene knooppunt naar een andere verplaatsen                             
+* **Verwijder**: image bewerking voor store-client verwijderen                              
+* **Uploaden**: image uploadbewerking voor store-client                             
+* **NodeControl**: starten, stoppen en opnieuw starten van knooppunten                             
+* **MoveReplicaControl**: replica's van het ene knooppunt naar de andere verplaatsen                             
 
 ### <a name="miscellaneous-operations"></a>Verschillende bewerkingen
 * **Ping**: client-pings                             
 * **Query**: alle query's zijn toegestaan
-* **NameExists**: naming URI bestaan controles                             
+* **NameExists**: naamgeving URI bestaan controles                             
 
-Het besturingselementtype van de gebruiker toegang is standaard beperkt tot de volgende bewerkingen: 
+Het type gebruiker toegang besturingselement is standaard beperkt tot de volgende bewerkingen: 
 
-* **EnumerateSubnames**: naming URI opsomming                             
-* **EnumerateProperties**: eigenschap opsomming naming                             
+* **EnumerateSubnames**: naamgeving van URI-inventarisatie                             
+* **EnumerateProperties**: naamgeving van inventarisatie van eigenschappen                             
 * **PropertyReadBatch**: eigenschap naming leesbewerkingen                             
-* **GetServiceDescription**: long poll servicemeldingen en lezen service beschrijvingen                             
-* **ResolveService**: compatibele gebaseerde service resolutie                             
-* **ResolveNameOwner**: het omzetten van namen URI eigenaar                             
+* **GetServiceDescription**: service beschrijvingen servicemeldingen long-polling en lezen                             
+* **ResolveService**: op basis van een klacht service-oplossing                             
+* **ResolveNameOwner**: herleidende naming URI-eigenaar                             
 * **ResolvePartition**: het omzetten van systeemservices                             
 * **ServiceNotifications**: servicemeldingen op basis van gebeurtenissen                             
-* **GetUpgradeStatus**: polling upgradestatus van toepassing                             
-* **GetFabricUpgradeStatus**: polling upgradestatus van cluster                             
-* **InvokeInfrastructureQuery**: infrastructuurtaken opvragen                             
-* **Lijst**: image store client bestandsbewerking lijst                             
-* **ResetPartitionLoad**: opnieuw instellen van belasting van een failover-eenheid                             
-* **ToggleVerboseServicePlacementHealthReporting**: schakelen uitgebreide plaatsing health servicerapportages                             
+* **GetUpgradeStatus**: status van de toepassing upgrade polling                             
+* **GetFabricUpgradeStatus**: polling-status van de cluster-upgrade                             
+* **InvokeInfrastructureQuery**: infrastructuurtaken uitvoeren van query's                             
+* **Lijst met**: store client bestandsbewerking lijst met installatiekopieën                             
+* **ResetPartitionLoad**: opnieuw laden in te stellen voor een failover-eenheid                             
+* **ToggleVerboseServicePlacementHealthReporting**: bij het omschakelen van uitgebreide service plaatsing status rapporteren                             
 
 Het toegangsbeheer voor de beheerder heeft ook toegang tot de voorgaande bewerkingen.
 
-## <a name="changing-default-settings-for-client-roles"></a>Standaardinstellingen wijzigen voor client-functies
-In het manifestbestand van de cluster kunt u admin mogelijkheden opgeven naar de client, indien nodig. U kunt de standaardinstellingen wijzigen door te gaan naar de **Fabric instellingen** optie tijdens [cluster maken](service-fabric-cluster-creation-via-portal.md), en het geven van de voorgaande instellingen in de **naam**, **admin**, **gebruiker**, en **waarde** velden.
+## <a name="changing-default-settings-for-client-roles"></a>Wijzigen van de standaardinstellingen voor client-functies
+In het manifestbestand van het cluster, kunt u beheerfuncties opgeven naar de client, indien nodig. U kunt de standaardinstellingen wijzigen door te gaan naar de **Infrastructuurinstellingen** optie tijdens [cluster maken](service-fabric-cluster-creation-via-portal.md), en het geven van de voorgaande instellingen in de **naam**,  **beheerder**, **gebruiker**, en **waarde** velden.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Beveiliging voor service Fabric-cluster](service-fabric-cluster-security.md)
+[Beveiliging van service Fabric-clusters](service-fabric-cluster-security.md)
 
 [Service Fabric-cluster maken](service-fabric-cluster-creation-via-portal.md)
 

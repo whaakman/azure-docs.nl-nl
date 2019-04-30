@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: ecbc1af97ce5ed158138f2bcf47f5729842c0fe9
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098528"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657489"
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management-beleid voor meerdere domeinen
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).

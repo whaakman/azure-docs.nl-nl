@@ -5,14 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/14/2019
-ms.author: victorh
+origin.date: 02/14/2019
+ms.date: 02/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301601"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832034"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Aangepaste foutpagina's voor Application Gateway maken
 
@@ -34,7 +35,6 @@ Aangepaste foutpagina's kunnen worden gedefinieerd op het niveau van de globale 
 - **Beide** -de aangepaste foutpagina gedefinieerd op het niveau van de listener overschrijft de is ingesteld op globaal niveau.
 
 Voor het maken van een aangepaste foutpagina weergegeven, moet u het volgende hebben:
-
 - een HTTP-antwoordstatuscode.
 - de bijbehorende locatie voor de foutpagina. 
 - een openbaar toegankelijke Azure storage-blob voor de locatie.
@@ -48,10 +48,10 @@ Nadat u een foutpagina opgeeft, wordt de application gateway downloaden vanaf de
 
 1. Navigeer naar de Application Gateway in de portal en kiest u een toepassingsgateway.
 
-    ![AG-overzicht](media/custom-error/ag-overview.png)
+    ![AG-overzicht](./media/custom-error/ag-overview.png)
 2. Klik op **Listeners** en navigeer naar een bepaalde listener waar u om op te geven van een foutpagina.
 
-    ![Application Gateway listeners](media/custom-error/ag-listener.png)
+    ![Application Gateway listeners](./media/custom-error/ag-listener.png)
 3. Een aangepaste foutpagina weergegeven voor een 403 WAF-fout of een 502 onderhoudspagina configureren op het niveau van de listener.
 
     > [!NOTE]
@@ -59,7 +59,7 @@ Nadat u een foutpagina opgeeft, wordt de application gateway downloaden vanaf de
 
 4. Geef een openbaar toegankelijke blob-URL voor een bepaalde status van de foutcode en klikt u op **opslaan**. De Application Gateway is nu geconfigureerd met de aangepaste foutpagina.
 
-   ![Foutcodes voor Application Gateway](media/custom-error/ag-error-codes.png)
+   ![Foutcodes voor Application Gateway](./media/custom-error/ag-error-codes.png)
 
 ## <a name="azure-powershell-configuration"></a>Azure PowerShell-configuratie
 
@@ -76,3 +76,5 @@ Zie voor meer informatie, [toevoegen AzApplicationGatewayCustomError](https://do
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie over Application Gateway diagnostics [Back-endstatus, diagnostische logboeken en metrische gegevens voor Application Gateway](application-gateway-diagnostics.md).
+
+<!-- Update_Description: wording update -->

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/06/2019
 ms.author: heidist
 ms.openlocfilehash: 64b07d37ce9267681ccfb5de3c7201586bd85b35
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273410"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61283639"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Api-sleutels voor Azure Search-service maken en beheren
 
@@ -31,7 +31,7 @@ Een api-sleutel is een tekenreeks die bestaat uit een willekeurig gegenereerde c
 
 Twee typen sleutels worden gebruikt voor toegang tot uw search-service: beheerder (lezen-schrijven) en query (alleen-lezen).
 
-|Sleutel|Description|Limieten|  
+|Sleutel|Description|Limits|  
 |---------|-----------------|------------|  
 |Gemeente|De volledige rechten verleent voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service, maken en verwijderen van indexen, Indexeerfuncties en gegevensbronnen.<br /><br /> Twee beheersleutels, aangeduid als *primaire* en *secundaire* sleutels in de portal worden gegenereerd wanneer de service wordt gemaakt en kan afzonderlijk worden gegenereerd op aanvraag. Twee sleutels betekent dat, kunt u één sleutel tijdens het gebruik van de tweede sleutel voor blijvende toegang tot de service worden meegenomen.<br /><br /> Beheersleutels zijn alleen opgegeven in de HTTP-aanvraagheaders. U kunt een admin api-sleutel in een URL plaatsen.|Maximaal 2 per service|  
 |Query’s uitvoeren|Geeft het alleen-lezentoegang tot indexen en documenten, en worden doorgaans verleend aan clienttoepassingen die zoekaanvragen.<br /><br /> Querysleutels worden op aanvraag gemaakt. U kunt ze handmatig maken in de portal of programmatisch via de [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Querysleutels kunnen worden opgegeven in de header van een HTTP-aanvraag voor zoeken, suggesties of zoekbewerking is. U kunt ook een querysleutel als een parameter doorgeven op een URL. Afhankelijk van hoe uw clienttoepassing formuleert voor de aanvraag, is het misschien gemakkelijker om door te geven van de sleutel als een queryparameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11&api-key=[query key]`|50 per service|  

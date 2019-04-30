@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: 4ddbec6b163a939c1663630e39e89140ac6f7efe
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60761485"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Met behulp van referentiegegevens voor zoekacties in Stream Analytics
 Referentiegegevens (ook wel bekend als een opzoektabel) is een eindige gegevensset die is statische of langzaam veranderende aard is, gebruikt om uit te voeren een zoekopdracht of om te correleren met de stroom van uw gegevens. U kunt in een IoT-scenario, bijvoorbeeld slaan metagegevens over sensoren (die niet vaak wijzigen) in de referentiegegevens en ontmoet realtime IoT-gegevensstromen. Azure Stream Analytics wordt geladen referentiegegevens in het geheugen te controleren van de verwerking van gegevensstromen met lage latentie. Om het gebruik van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u in het algemeen een [verwijzing gegevens Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in uw query. 

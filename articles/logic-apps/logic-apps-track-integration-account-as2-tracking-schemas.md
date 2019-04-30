@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
 ms.openlocfilehash: 180d90450497b38f107f3601944385a003f50282
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193506"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845780"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Schema's voor het bijhouden van het AS2-berichten en MDN's integratieaccounts voor Azure Logic Apps maken
 
@@ -67,15 +67,15 @@ Om te controleren van geslaagd, fouten en eigenschappen van berichten voor busin
 | messageId | String | AS2-bericht-ID, uit de headers van de AS2-bericht (optioneel) |
 | dispositionType |String | Waarde voor brontype Message Disposition-Notification (MDN) toestand. (Optioneel) |
 | fileName | String | Bestandsnaam van de koptekst van het AS2-bericht. (Optioneel) |
-| isMessageFailed |Booleaans | Of het AS2-bericht is mislukt. (Verplicht) |
-| isMessageSigned | Booleaans | Of het AS2-bericht is ondertekend. (Verplicht) |
-| isMessageEncrypted | Booleaans | Of het AS2-bericht is versleuteld. (Verplicht) |
-| isMessageCompressed |Booleaans | Of het AS2-bericht is gecomprimeerd. (Verplicht) |
+| isMessageFailed |Boolean | Of het AS2-bericht is mislukt. (Verplicht) |
+| isMessageSigned | Boolean | Of het AS2-bericht is ondertekend. (Verplicht) |
+| isMessageEncrypted | Boolean | Of het AS2-bericht is versleuteld. (Verplicht) |
+| isMessageCompressed |Boolean | Of het AS2-bericht is gecomprimeerd. (Verplicht) |
 | correlationMessageId | String | AS2-bericht-ID, berichten correleren met MDN's. (Optioneel) |
 | incomingHeaders |Woordenlijst met JToken | Binnenkomende AS2-bericht-header details. (Optioneel) |
 | outgoingHeaders |Woordenlijst met JToken | Uitgaande AS2-bericht-header details. (Optioneel) |
-| isNrrEnabled | Booleaans | Gebruik de standaardwaarde als de waarde is niet bekend. (Verplicht) |
-| isMdnExpected | Booleaans | Gebruik de standaardwaarde als de waarde is niet bekend. (Verplicht) |
+| isNrrEnabled | Boolean | Gebruik de standaardwaarde als de waarde is niet bekend. (Verplicht) |
+| isMdnExpected | Boolean | Gebruik de standaardwaarde als de waarde is niet bekend. (Verplicht) |
 | mdnType | Enum | Toegestane waarden zijn **NotConfigured**, **synchronisatie**, en **asynchrone**. (Verplicht) |
 ||||
 
@@ -120,9 +120,9 @@ Om te controleren van geslaagd, fouten en eigenschappen van berichten voor busin
 | messageId | String | AS2-bericht-ID. (Optioneel) |
 | originalMessageId |String | AS2 oorspronkelijke bericht-ID. (Optioneel) |
 | dispositionType | String | MDN toestand typewaarde. (Optioneel) |
-| isMessageFailed |Booleaans | Of het AS2-bericht is mislukt. (Verplicht) |
-| isMessageSigned |Booleaans | Of het AS2-bericht is ondertekend. (Verplicht) |
-| isNrrEnabled | Booleaans | Gebruik de standaardwaarde als de waarde is niet bekend. (Verplicht) |
+| isMessageFailed |Boolean | Of het AS2-bericht is mislukt. (Verplicht) |
+| isMessageSigned |Boolean | Of het AS2-bericht is ondertekend. (Verplicht) |
+| isNrrEnabled | Boolean | Gebruik de standaardwaarde als de waarde is niet bekend. (Verplicht) |
 | statusCode | Enum | Toegestane waarden zijn **geaccepteerde**, **afgewezen**, en **AcceptedWithErrors**. (Verplicht) |
 | micVerificationStatus | Enum | Toegestane waarden zijn **niet van toepassing**, **geslaagd**, en **mislukt**. (Verplicht) |
 | correlationMessageId | String | Correlatie-ID. De oorspronkelijke ID mailberichten (de bericht-ID van het bericht waarvoor MDN is geconfigureerd). (Optioneel) |

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
 ms.openlocfilehash: 40f0705cfa7f0e9bb45d300a629adebd0cc5be47
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883665"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61341208"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Het oplossen van de Log Analytics VM-extensie in Azure Monitor
 Dit artikel bevat informatie over het oplossen van fouten die u mogelijk ondervindt met de Log Analytics VM-extensie voor Windows en Linux virtuele machines die worden uitgevoerd op Microsoft Azure en duidt op mogelijke oplossingen om op te lossen.

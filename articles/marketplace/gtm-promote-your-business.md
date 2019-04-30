@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
 ms.openlocfilehash: 026b8a85bf353dfe384077b1dc8e284d7c373046
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355552"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60740128"
 ---
-# <a name="promote-your-business-with-microsoft"></a>Promoot uw bedrijf met Microsoft
+# <a name="promote-your-business-with-microsoft"></a>Uw bedrijf promoten met Microsoft
 
 Marketplace-partners moeten deel uitmaken van het Microsoft Partner Network (MPN). U kunt extra zeer sterk gericht op zakelijke voordelen openen als een MPN-lid. Ga naar [partner.microsoft.com](https://partner.microsoft.com) om te zien hoe u het netwerk kunt gebruiken voor toegang tot:
 

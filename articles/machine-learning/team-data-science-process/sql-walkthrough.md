@@ -12,11 +12,11 @@ ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c9d707d1a76b3b5913d66745767df8e84362a192
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890846"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61045659"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Het Team Data Science Process in actie: met behulp van SQL Server
 In deze zelfstudie hebt u stapsgewijs door het proces van het bouwen en implementeren van een machine learning-model met behulp van SQL Server en een openbaar beschikbare gegevensset testlab voor de [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) gegevensset. De procedure volgt een standaard gegevenswetenschapwerkstroom: opnemen en Verken de gegevens, functies, dingen en vervolgens bouwen en implementeren van een model bouwen.

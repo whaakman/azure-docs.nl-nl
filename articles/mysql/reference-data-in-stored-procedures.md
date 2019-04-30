@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.openlocfilehash: a3c88953eea95871529e8ab257f52b694db443a9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544852"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61244307"
 ---
 # <a name="azure-database-for-mysql-data-in-replication-stored-procedures"></a>Azure Database for MySQL-gegevens in replicatie opgeslagen Procedures
 
@@ -21,10 +21,10 @@ De volgende opgeslagen procedures worden gebruikt om te stellen of verwijderen v
 
 |**Naam van opgeslagen Procedure**|**Invoerparameters**|**Output-Parameters**|**Gebruik Opmerking**|
 |-----|-----|-----|-----|
-|*MySQL.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/A|In de context van het CA-certificaat in de parameter master_ssl_ca doorgeven om over te dragen gegevens met SSL-modus. </br><br>In een lege tekenreeks in de parameter master_ssl_ca doorgeven om over te dragen gegevens zonder SSL.|
-|*MySQL.az_replication _starten*|N/A|N/A|Replicatie is gestart.|
-|*MySQL.az_replication _stop*|N/A|N/A|Replicatie beëindigen.|
-|*MySQL.az_replication _remove_master*|N/A|N/A|Hiermee verwijdert u de replicatierelatie tussen de hoofd- en replica.|
-|*MySQL.az_replication_skip_counter*|N/A|N/A|Hiermee slaat u een fout bij de replicatie.|
+|*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/A|In de context van het CA-certificaat in de parameter master_ssl_ca doorgeven om over te dragen gegevens met SSL-modus. </br><br>In een lege tekenreeks in de parameter master_ssl_ca doorgeven om over te dragen gegevens zonder SSL.|
+|*mysql.az_replication _start*|N/A|N/A|Replicatie is gestart.|
+|*mysql.az_replication _stop*|N/A|N/A|Replicatie beëindigen.|
+|*mysql.az_replication _remove_master*|N/A|N/A|Hiermee verwijdert u de replicatierelatie tussen de hoofd- en replica.|
+|*mysql.az_replication_skip_counter*|N/A|N/A|Hiermee slaat u een fout bij de replicatie.|
 
 Als u gegevens in replicatie tussen een hoofd- en replica in een Azure Database for MySQL instelt, raadpleegt u [het configureren van replicatie van gegevens in](howto-data-in-replication.md).

@@ -16,11 +16,11 @@ ms.date: 03/28/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
 ms.openlocfilehash: cc2a78dd547681a4b20fea14cd8cd7f4fd9c2df5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711236"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -575,7 +575,7 @@ Verification successful
 }
 ```
 
-Gegevens | Beschrijving
+Gegevens | Description
 -----|------------
 nonce | Gebruiker opgegeven optionele tekenreeks met de aanvraag. Als er geen nonce is opgegeven in de aanvraag, wordt de huidige UTC-timestamp geretourneerd
 plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) voor een virtuele machine in het is een Azure Marketplace-installatiekopie, bevat de naam, product en uitgever

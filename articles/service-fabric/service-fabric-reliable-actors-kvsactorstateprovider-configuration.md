@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: 8b10ef18fd389179a4f5422783606c45fa2e0d32
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669195"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60728046"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Reliable Actors--KVSActorStateProvider configureren
 U kunt de standaardconfiguratie van KVSActorStateProvider wijzigen door het veranderen van de settings.xml-bestand dat wordt gegenereerd in de hoofdmap van het Microsoft Visual Studio-pakket in de Config-map voor de opgegeven actor.

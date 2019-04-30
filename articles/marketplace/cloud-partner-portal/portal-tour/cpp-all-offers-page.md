@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 67ec9765e4334330da04739dd5daa3be0d7c7342
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266798"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60911094"
 ---
-# <a name="all-offers-page"></a>Alle pagina biedt
+# <a name="all-offers-page"></a>Pagina voor Alle aanbiedingen
 
 De [ **alle aanbiedingen** ](https://cloudpartner.azure.com/#alloffers) pagina kan partners om een lijst met gemaakte aanbiedingen, met inbegrip van hun naam, het type, de uitgever en de huidige status weer te geven.  U kunt een tekenreeks om de resultaten te filteren.   Het statusgebied aan de onderkant van de pagina weergegeven aantal statistische functie en pagina, en kunt u navigeren tussen de lijst met pagina's. Een aanbieding in deze lijst te selecteren, wordt deze aanbieding weergegeven in de bijbehorende aanbieding-editor. 
 
@@ -30,7 +30,7 @@ De [ **alle aanbiedingen** ](https://cloudpartner.azure.com/#alloffers) pagina k
 
 De volgende afbeelding toont de **alle aanbiedingen** pagina gefilterd op de tekenreeks `Contoso`.
 
-![Alle pagina biedt](./media/all-offers-page1.png)
+![Pagina voor Alle aanbiedingen](./media/all-offers-page1.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen

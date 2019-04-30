@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 5a237e23dffed76e6122e17b59c85d20ca7e1baf
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668667"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727172"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Inleiding tot Service Fabric Reliable Actors
 Reliable Actors is een Service Fabric-toepassingsframework op basis van de [virtuele Actor](https://research.microsoft.com/en-us/projects/orleans/) patroon. De betrouwbare actoren-API biedt een single-threaded programming model gebouwd op de schaalbaarheid en betrouwbaarheid garanties geboden door de Service Fabric.

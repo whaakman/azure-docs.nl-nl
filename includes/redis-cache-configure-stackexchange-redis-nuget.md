@@ -2,14 +2,15 @@
 author: wesmc7777
 ms.service: redis-cache
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: wesmc
+origin.date: 11/09/2018
+ms.date: 12/25/2018
+ms.author: v-junlch
 ms.openlocfilehash: 8ebf5ddfa118e0aeadeab0c00a981871a4b5708e
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53429952"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60830267"
 ---
 .NET-toepassingen kunnen de cache-client **StackExchange.Redis** gebruiken. Deze kan in Visual Studio worden geconfigureerd met een NuGet-pakket dat de configuratie van de cacheclienttoepassingen eenvoudiger maakt. 
 
@@ -20,7 +21,7 @@ ms.locfileid: "53429952"
 
 Als u in Visual Studio een clienttoepassing wilt configureren met het NuGet-pakket StackExchange.Redis, klikt u in **Solution Explorer** met de rechtermuisknop op het project en kiest u **Manage NuGet Packages**. 
 
-![Manage NuGet Packages](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
+![Manage NuGet Packages](./media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
 
 Typ in het zoekvak **StackExchange.Redis** of **StackExchange.Redis.StrongName**, selecteer de gewenste versie in de resultaten en klik op **Install**.
 
@@ -29,7 +30,7 @@ Typ in het zoekvak **StackExchange.Redis** of **StackExchange.Redis.StrongName**
 >
 >
 
-![NuGet-pakket StackExchange.Redis](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
+![NuGet-pakket StackExchange.Redis](./media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
 
 Het NuGet-pakket gedownload en de vereiste assembly-verwijzingen voor de clienttoepassing voor toegang tot Azure-Cache voor Redis met de StackExchange.Azure Cache voor Redis-client wordt toegevoegd.
 
@@ -43,3 +44,5 @@ U kunt het StackExchange.Redis-pakket NuGet ook installeren door in het menu **H
 ```
 Install-Package StackExchange.Redis
 ```
+
+<!-- ms.date: 12/25/2018 -->

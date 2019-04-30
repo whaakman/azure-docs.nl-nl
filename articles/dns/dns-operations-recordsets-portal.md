@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/6/2018
 ms.author: victorh
 ms.openlocfilehash: 891adfacde6e46b1d8fe8e2f6b5fb39c90ce27a0
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853705"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61296269"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Beheren van DNS-records en recordsets met behulp van Azure portal
 
@@ -61,7 +61,7 @@ De velden die u kunt bijwerken wanneer u een record in een bestaande recordset b
 
 3. Klik op **opslaan** aan de bovenkant van de blade uw instellingen op te slaan. In de rechterbovenhoek ziet u de melding dat de record is opgeslagen.
 
-    ![Recordset is opgeslagen](./media/dns-operations-recordsets-portal/saved150.png)
+    ![De recordset is opgeslagen](./media/dns-operations-recordsets-portal/saved150.png)
 
 Nadat de record is opgeslagen, de waarden voor de record moet worden ingesteld op de **DNS-zone** blade de bijgewerkte record weer.
 
