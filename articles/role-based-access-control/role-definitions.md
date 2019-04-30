@@ -48,7 +48,7 @@ Bewerkingen zijn opgegeven met tekenreeksen die de volgende notatie hebben:
 
 De `{action}` gedeelte van een tekenreeks bewerking geeft het type van de bewerkingen die u op een resourcetype uitvoeren kunt. Bijvoorbeeld, ziet u de volgende subtekenreeksen in `{action}`:
 
-| Actie subtekenreeks    | Beschrijving         |
+| Actie subtekenreeks    | Description         |
 | ------------------- | ------------------- |
 | `*` | Het jokerteken verleent toegang tot alle bewerkingen die overeenkomen met de tekenreeks. |
 | `read` | Hiermee leesbewerkingen (GET). |
@@ -179,7 +179,7 @@ De Azure-portal ook kan gebruikers bladeren en beheren van de inhoud van wachtri
 
 De `Actions` machtiging Hiermee geeft u de beheerbewerkingen die de rol kan worden uitgevoerd. Er is een verzameling van bewerking tekenreeksen die beveiligbare bewerkingen van Azure-resource-providers identificeren. Hier volgen enkele voorbeelden van bewerkingen die kunnen worden gebruikt in `Actions`.
 
-| Bewerking tekenreeks    | Beschrijving         |
+| Bewerking tekenreeks    | Description         |
 | ------------------- | ------------------- |
 | `*/read` | Verleent toegang tot de leesbewerkingen voor alle resourcetypen van alle Azure-resource-providers.|
 | `Microsoft.Compute/*` | Verleent toegang tot alle bewerkingen voor alle resourcetypen in de Microsoft.Compute-resourceprovider.|

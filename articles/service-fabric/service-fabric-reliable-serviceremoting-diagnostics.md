@@ -16,7 +16,7 @@ ms.date: 06/29/2017
 ms.author: suchiagicha
 ms.openlocfilehash: e4c698dc5aa8a07d09835adeac39db6ee35f720c
 ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "62123175"
@@ -28,7 +28,7 @@ De runtime betrouwbare ServiceRemoting verzendt [prestatiemeteritems](https://ms
 ## <a name="performance-counters"></a>Prestatiemeteritems
 De runtime betrouwbare ServiceRemoting definieert de volgende categorieën voor prestatiemeteritems:
 
-| Category | Beschrijving |
+| Category | Description |
 | --- | --- |
 | Service Fabric Service |Items die specifiek zijn voor Azure Service Fabric-Service voor externe toegang, bijvoorbeeld, gemiddelde tijd die nodig is voor het verwerken van aanvraag |
 | Service Fabric Service-methode |Items die specifiek zijn voor methoden geïmplementeerd door de Service Fabric Remoting Service, bijvoorbeeld hoe vaak een service-methode wordt aangeroepen |

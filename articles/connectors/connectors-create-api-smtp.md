@@ -53,7 +53,7 @@ Met Azure Logic Apps en de Simple Mail Transfer Protocol (SMTP)-connector, kunt 
 
 1. Wanneer u hierom wordt gevraagd, moet u deze verbindingsgegevens opgeven:
 
-   | Eigenschap | Vereist | Beschrijving |
+   | Eigenschap | Vereist | Description |
    |----------|----------|-------------|
    | **Verbindingsnaam** | Ja | Een naam op voor de verbinding met de SMTP-server | 
    | **SMTP-serveradres** | Ja | Het adres voor de SMTP-server | 

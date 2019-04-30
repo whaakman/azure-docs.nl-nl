@@ -146,7 +146,7 @@ Voor elk berichttype hier worden de eigenschapbeschrijvingen en typen Naamindeli
 
 Hier volgen eigenschapbeschrijvingen voor elk AS2-bericht.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | Afzender | De gastpartner die is opgegeven in **instellingen ontvangen**, of de hostpartner die is opgegeven in **instellingen voor verzenden** voor een AS2-overeenkomst |
 | Ontvanger | De hostpartner die is opgegeven in **instellingen ontvangen**, of de gastpartner is opgegeven **instellingen voor verzenden** voor een AS2-overeenkomst |
@@ -177,7 +177,7 @@ Hier volgen de typen Naamindelingen voor elke map voor gedownloade AS2-bericht e
 
 Hier vindt u de eigenschapbeschrijvingen voor elke X12 bericht.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | Afzender | De gastpartner die is opgegeven in **instellingen ontvangen**, of de hostpartner die is opgegeven in **instellingen voor verzenden** voor een X12 overeenkomst |
 | Ontvanger | De hostpartner die is opgegeven in **instellingen ontvangen**, of de gastpartner is opgegeven **instellingen voor verzenden** voor een X12 overeenkomst |

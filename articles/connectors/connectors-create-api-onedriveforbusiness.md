@@ -26,7 +26,7 @@ U kunt aan de slag met het maken van een logische app nu, Zie [maken van een log
 ## <a name="create-a-connection-to-onedrive-for-business"></a>Maak een verbinding met OneDrive voor bedrijven
 Als u wilt maken van logische apps met OneDrive voor bedrijven, moet u eerst maken een **verbinding** geeft u de details voor de volgende eigenschappen:
 
-| Eigenschap | Vereist | Beschrijving |
+| Eigenschap | Vereist | Description |
 | --- | --- | --- |
 | Token |Ja |OneDrive voor Bedrijven-referenties opgeven |
 

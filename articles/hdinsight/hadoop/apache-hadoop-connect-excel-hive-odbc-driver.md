@@ -48,7 +48,7 @@ De volgende stappen laten zien hoe u een Hive ODBC-gegevensbron maken.
 
 4. Typ of selecteer de volgende waarden:
    
-   | Eigenschap | Beschrijving |
+   | Eigenschap | Description |
    | --- | --- |
    |  Naam van de gegevensbron |Geef uw gegevensbron een naam |
    |  Host (s) |Voer &lt;HDInsightClusterName&gt;. azurehdinsight.net. Bijvoorbeeld: myHDICluster.azurehdinsight.net |
@@ -61,7 +61,7 @@ De volgende stappen laten zien hoe u een Hive ODBC-gegevensbron maken.
    
 5. Optioneel: Selecteer **geavanceerde opties...**  
    
-   | Parameter | Beschrijving |
+   | Parameter | Description |
    | --- | --- |
    |  Systeemeigen Query gebruiken |Wanneer deze optie is geselecteerd, probeert het ODBC-stuurprogramma niet TSQL converteren naar HiveQL. U dient deze alleen als u 100% zeker dat u verzendt pure HiveQL-instructies gebruiken. Bij het verbinden met SQL Server of Azure SQL Database, laat u het vakje uitgeschakeld. |
    |  Rijen per blok wordt opgehaald |Tijdens het ophalen van een groot aantal records, kan afstemmen van deze parameter worden vereist om ervoor te zorgen van optimale prestaties. |

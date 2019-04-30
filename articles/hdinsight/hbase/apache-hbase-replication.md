@@ -301,7 +301,7 @@ De volgende stappen wordt beschreven hoe u het script van de actie script aanroe
 
 Vereiste argumenten:
 
-|Name|Beschrijving|
+|Name|Description|
 |----|-----------|
 |-s,--src-cluster | Hiermee geeft u de DNS-naam van de bron HBase-cluster. Bijvoorbeeld: hbsrccluster -s-,--src-cluster hbsrccluster = |
 |-d--dst-cluster | Hiermee geeft u de DNS-naam van de HBase doelclusterknooppunten (replica). Bijvoorbeeld: dsthbcluster -s-,--src-cluster dsthbcluster = |
@@ -310,7 +310,7 @@ Vereiste argumenten:
 
 Optionele argumenten:
 
-|Name|Beschrijving|
+|Name|Description|
 |----|-----------|
 |-su, --src-ambari-user | Hiermee geeft u de beheerdersnaam voor de Ambari op de bron HBase-cluster. De standaardwaarde is **admin**. |
 |-du, --dst-ambari-user | Hiermee geeft u de beheerdersnaam voor de Ambari op de bestemming HBase-cluster. De standaardwaarde is **admin**. |

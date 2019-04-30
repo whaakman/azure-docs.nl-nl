@@ -142,7 +142,7 @@ De volgende tabel bevat de eigenschappen en beschrijvingen voor de meest gebruik
 | KeyType |Hiermee geeft u op welke toegangssleutel opnieuw genereren tijdens het vernieuwen van toegangssleutels. Geldige waarden zijn: Primary, Secondary | |
 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration eigenschappen
-| Eigenschap | Beschrijving | Prijscategorieën |
+| Eigenschap | Description | Prijscategorieën |
 | --- | --- | --- |
 | de RDB-back-up-ingeschakeld |Of [Redis-gegevenspersistentie](cache-how-to-premium-persistence.md) is ingeschakeld |Alleen Premium |
 | de RDB-opslag-connection-string |De verbindingsreeks naar het opslagaccount voor [Redis-gegevenspersistentie](cache-how-to-premium-persistence.md) |Alleen Premium |

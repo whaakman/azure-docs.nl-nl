@@ -44,7 +44,7 @@ Als u wilt maken en beheren van Azure Cache voor instanties van Redis met behulp
 ## <a name="azure-cache-for-redis-properties"></a>Eigenschappen van Azure Cache voor Redis
 De volgende eigenschappen worden gebruikt bij het maken en bijwerken van Azure Cache voor instanties van Redis.
 
-| Eigenschap | Switch | Beschrijving |
+| Eigenschap | Switch | Description |
 | --- | --- | --- |
 | naam |-n-,--naam |Naam van de Azure Cache voor Redis. |
 | resourcegroep |-g, --resource-group |De naam van de resourcegroep. |

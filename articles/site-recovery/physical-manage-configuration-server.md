@@ -108,7 +108,7 @@ Voer het bestand voor installatie als volgt uit:
 
 ### <a name="parameters"></a>Parameters
 
-|Parameternaam| Type | Beschrijving| Waarden|
+|Parameternaam| Type | Description| Waarden|
 |-|-|-|-|
 | /ServerMode|Vereist|Hiermee wordt aangegeven of zowel de configuratieserver als de processerver moet worden geïnstalleerd, of alleen de processerver|CS<br>PS|
 |/InstallLocation|Vereist|De map waarin de onderdelen worden geïnstalleerd| Een map op de computer|
