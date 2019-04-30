@@ -14,11 +14,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60584847"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Kies de juiste SQL Server-optie in Azure
 
@@ -58,7 +58,7 @@ Bij het ontwerpen van een toepassing zijn vier eenvoudige opties beschikbaar voo
 
 In de volgende secties vindt u meer informatie over SQL Server in de openbare cloud van Microsoft: Azure SQL Database en SQL Server op Azure VM's. Bovendien verkent u algemene zakelijke motivators om te bepalen welke optie het meest geschikt is voor uw toepassing.
 
-## <a name="a-closer-look-at-azure-sql-database-and-sql-server-on-azure-vms"></a>De Azure SQL Database en SQL Server op Azure Virtual Machines
+## <a name="a-closer-look-at-azure-sql-database-and-sql-server-on-azure-vms"></a>De Azure SQL Database en SQL Server op virtuele Azure-machines
 
 Over het algemeen zijn deze twee SQL-opties geoptimaliseerd voor verschillende doeleinden:
 
@@ -86,7 +86,7 @@ De volgende tabel geeft een overzicht van de belangrijkste kenmerken van de SQL 
 |  | Ondersteunt [transactionele replicatie van SQL Server](https://msdn.microsoft.com/library/mt589530.aspx) als abonnee om gegevens te repliceren. | Replicatie wordt ondersteund voor het beheerde exemplaar als preview-functie. | Biedt volledige ondersteuning voor [transactionele replicatie van SQL Server](https://msdn.microsoft.com/library/mt589530.aspx), [Always On Availability Groups](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), Integration Services en upfunctie om gegevens te repliceren. Ook worden traditionele SQL Server-back-ups volledig ondersteund. |
 |  | | |
 
-## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Zakelijke redenen om Azure SQL Database of SQL Server op Azure Virtual Machines te kiezen
+## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Zakelijke redenen om Azure SQL Database of SQL Server op virtuele Azure-machines te kiezen
 
 Er zijn diverse factoren kunnen invloed hebben op uw beslissing om PaaS of IaaS voor het hosten van uw SQL-databases te kiezen:
 

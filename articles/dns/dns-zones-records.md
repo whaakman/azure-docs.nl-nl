@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7f69d77ac7a6c2a17ef2568f0c7edaef2e1ee3f5
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-ms.translationtype: MT
+ms.openlocfilehash: 7da382a644c1db92b9915f1d3f1f3a459e8893b8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174414"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563361"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Overzicht van DNS-zones en records
 
@@ -34,7 +34,7 @@ Een domeinnaamregistrar is een organisatie waarmee u een domeinnaam, bijvoorbeel
 
 Azure DNS biedt een wereldwijd gedistribueerde, hoge beschikbaarheid naam server-infrastructuur, die u gebruiken kunt voor het hosten van uw domein. Door uw domeinen in Azure DNS hosten, kunt u uw DNS-records met dezelfde referenties, API's, hulpprogramma's, facturering en ondersteuning als uw andere Azure-services beheren.
 
-Azure DNS ondersteunt momenteel geen domeinnamen aanschaffen. Als u een domeinnaam aanschaffen wilt, moet u het gebruik van een externe domeinnaamregistrar. De registrar kosten doorgaans jaarlijks een klein rekening. De domeinen kunnen vervolgens worden gehost in Azure DNS voor het beheren van DNS-records. Zie [een domein delegeren naar Azure DNS](dns-domain-delegation.md) voor meer informatie.
+Azure DNS ondersteunt momenteel geen domeinnamen aanschaffen. Als u een domeinnaam aanschaffen wilt, moet u het gebruik van een externe domeinnaamregistrar. De registrar kosten doorgaans jaarlijks een klein rekening. De domeinen kunnen vervolgens worden gehost in Azure DNS voor het beheren van DNS-records. Zie [Een domein aan Azure DNS overdragen](dns-domain-delegation.md) voor meer informatie.
 
 ## <a name="dns-zones"></a>DNS-zones
 
@@ -59,7 +59,7 @@ Voor het maken van een recordset met jokertekens, gebruikt u de recordnaam '\*'.
 ### <a name="caa-records"></a>CAA-records
 
 CAA-records kunnen domeineigenaars om op te geven welke certificeringsinstanties (CA's) zijn gemachtigd voor het uitgeven van certificaten voor hun domein. Hierdoor kan er CA's om te voorkomen dat niet uitgeven van certificaten in sommige gevallen. CAA-records hebben drie eigenschappen:
-* **Vlaggen**: dit is een geheel getal tussen 0 en 255, de kritieke vlag waarvoor speciale betekenis per vertegenwoordigt de [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Vlaggen**: Dit is een geheel getal tussen 0 en 255, de kritieke vlag waarvoor speciale betekenis per vertegenwoordigt de [RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * **Tag**: een ASCII-tekenreeks die van de volgende een:
     * **probleem**: Gebruik deze optie als u opgeven van CA's die zijn toegestaan wilt voor het uitgeven van certificaten (alle typen)
     * **issuewild**: Gebruik deze optie als u opgeven van CA's die zijn toegestaan wilt voor het uitgeven van certificaten (alleen voor jokertekens-certificaten)
@@ -131,7 +131,7 @@ Azure DNS PowerShell gebruikt standaard Etags voorkomen dat gelijktijdige wijzig
 
 Etags zijn opgegeven met behulp van HTTP-headers op het niveau van de REST-API van Azure DNS.  Hun gedrag is opgenomen in de volgende tabel:
 
-| Koptekst | Gedrag |
+| Header | Gedrag |
 | --- | --- |
 | Geen |PUT altijd is gelukt (geen Etag-controle) |
 | If-None-match <etag> |PUT slaagt alleen als de resource bestaat en Etag komt overeen met |
@@ -139,7 +139,7 @@ Etags zijn opgegeven met behulp van HTTP-headers op het niveau van de REST-API v
 | If-none-match * |PUT slaagt alleen als de resource bestaat niet |
 
 
-## <a name="limits"></a>Limieten
+## <a name="limits"></a>Limits
 
 De volgende standaard beperkingen gelden bij het gebruik van Azure DNS:
 

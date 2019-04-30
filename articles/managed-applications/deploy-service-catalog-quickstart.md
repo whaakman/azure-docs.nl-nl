@@ -10,11 +10,11 @@ ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: 4d2e8b442f70ee791fe65a32402e5272eda3f209
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589048"
 ---
 # <a name="deploy-service-catalog-app-through-azure-portal"></a>Catalogus-app service via Azure portal implementeren
 
@@ -24,7 +24,7 @@ In de [voorgaande snelstartgids](publish-managed-app-definition-quickstart.md), 
 
 Gebruik de volgende stappen uit in de Azure-portal:
 
-1. Selecteer **een resource maken**.
+1. Selecteer **Een resource maken**.
 
    ![Een resource maken](./media/deploy-service-catalog-quickstart/create-new.png)
 

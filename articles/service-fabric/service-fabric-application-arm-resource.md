@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
 ms.openlocfilehash: e2e1b2ae354d26c3d9729e3a3fdf39bee43647ca
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663125"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621459"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Toepassingen en services als Azure Resource Manager-resources beheren
 
-U kunt toepassingen en services implementeren naar uw Service Fabric-cluster via Azure Resource Manager. Dit betekent dat in plaats van implementeren en beheren van toepassingen via PowerShell of CLI nadat er na afloop van het cluster gereed is, kunt u nu toepassingen en services in JSON express en deze implementeren in de dezelfde Resource Manager-sjabloon als uw cluster. Het proces van registratie van toepassing, inrichting en implementatie alle wordt uitgevoerd in één stap.
+U kunt toepassingen en services implementeren in uw Service Fabric-cluster via Azure Resource Manager. Dit betekent dat in plaats van implementeren en beheren van toepassingen via PowerShell of CLI nadat er na afloop van het cluster gereed is, kunt u nu toepassingen en services in JSON express en deze implementeren in de dezelfde Resource Manager-sjabloon als uw cluster. Het proces van toepassingsregistratie, -inrichting en -implementatie wordt in één stap uitgevoerd.
 
 Dit is de aanbevolen manier om een installatie, governance of Clusterbeheertoepassingen die u nodig in uw cluster hebt implementeren. Dit omvat de [Patch Orchestration toepassing](service-fabric-patch-orchestration-application.md), Watchdogs of toepassingen die moeten worden uitgevoerd in uw cluster voordat u andere toepassingen of services worden geïmplementeerd. 
 

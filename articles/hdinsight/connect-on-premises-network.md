@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.openlocfilehash: 52fe8c05101f9647549acec276f0bdb9fa52d1c7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256801"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537826"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>HDInsight verbinden met uw on-premises netwerk
 
@@ -78,7 +78,7 @@ Deze stappen wordt gebruikgemaakt van de [Azure-portal](https://portal.azure.com
     |Naam van de virtuele machine | Voer een beschrijvende naam ter identificatie van deze virtuele machine. In dit voorbeeld wordt **DNSProxy**.|
     |Regio | Selecteer dezelfde regio bevinden als het virtuele netwerk eerder hebt gemaakt.  Niet alle VM-grootten zijn beschikbaar in alle regio's.  |
     |Beschikbaarheidsopties |  Selecteer het gewenste niveau van beschikbaarheid.  Azure biedt een scala aan opties voor het beheren van beschikbaarheid en tolerantie voor uw toepassingen.  Uw oplossing voor het gebruik van gerepliceerde VM's in Beschikbaarheidszones of Beschikbaarheidssets aan uw apps en gegevens beschermen tegen storingen van de datacenter en onderhoud voor ontwerpen. In dit voorbeeld wordt **geen infrastructuur redundantie vereist**. |
-    |Installatiekopie | Laat op **Ubuntu Server 18.04 LTS**. |
+    |Image | Laat op **Ubuntu Server 18.04 LTS**. |
     |Verificatietype | __Wachtwoord__ of __openbare SSH-sleutel__: De verificatiemethode voor de SSH-account. Wordt u aangeraden openbare sleutels, omdat ze beter te beveiligen zijn. In dit voorbeeld wordt **wachtwoord**.  Zie voor meer informatie de [maken en gebruik SSH-sleutels voor Linux-VM's](../virtual-machines/linux/mac-create-ssh-keys.md) document.|
     |Gebruikersnaam |Voer de gebruikersnaam van de beheerder voor de virtuele machine.  In dit voorbeeld wordt **sshuser**.|
     |Wachtwoord of openbare SSH-sleutel | Het veld beschikbaar wordt bepaald door uw keuze voor **verificatietype**.  Voer de juiste waarde.|

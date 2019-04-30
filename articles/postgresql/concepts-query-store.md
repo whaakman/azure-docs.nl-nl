@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.openlocfilehash: c904b6e6cd7a4dc0f9d5a442e20738e43595b369
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485914"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564001"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Prestaties bijhouden met de Query Store
 
@@ -120,8 +120,8 @@ In deze weergave retourneert alle gegevens in Query Store. Er is één rij voor 
 |query_id   |bigint  || Interne hash-code, berekend vanaf parseringsstructuur van de instructie|
 |query_sql_text |Varchar(10000)  || Tekst van een representatieve instructie. Verschillende query's met dezelfde structuur zijn samen; geclusterd Deze tekst is de tekst voor de eerste dag van de query's in het cluster.|
 |plan_id    |bigint |   |ID van het abonnement nog overeenkomt met deze query is niet beschikbaar|
-|start_time |tijdstempel  ||  Query's worden samengevoegd per keer buckets - de tijdsduur van een bucket is 15 minuten standaard. Dit is de begintijd die overeenkomt met het tijdsinterval voor deze vermelding.|
-|end_time   |tijdstempel  ||  De eindtijd die overeenkomt met het tijdsinterval voor deze vermelding.|
+|start_time |timestamp  ||  Query's worden samengevoegd per keer buckets - de tijdsduur van een bucket is 15 minuten standaard. Dit is de begintijd die overeenkomt met het tijdsinterval voor deze vermelding.|
+|end_time   |timestamp  ||  De eindtijd die overeenkomt met het tijdsinterval voor deze vermelding.|
 |oproepen  |bigint  || Aantal keren dat de query wordt uitgevoerd|
 |total_time |dubbele precisie   ||  Totaal aantal query uitvoeringstijd, in milliseconden|
 |min_time   |dubbele precisie   ||  Minimale query uitvoeringstijd, in milliseconden|

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611349"
 ---
 # <a name="the-azure-production-network"></a>De Azure-productienetwerk
 De gebruikers van de Azure-productienetwerk zijn beide externe klanten die toegang hebben tot hun eigen Azure-toepassingen en interne Azure ondersteuningsmedewerkers die het productienetwerk te beheren. Dit artikel worden de beveiligingsmethoden voor toegang en beveiliging mechanismen voor het tot stand brengen van verbindingen met de Azure-productienetwerk.

@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565715"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE-omgevingen die worden ondersteund door Azure Data Factory
 > [!NOTE]
@@ -262,7 +262,7 @@ U kunt een gekoppelde HDInsight-service voor het registreren van uw eigen HDInsi
 | type              | De eigenschap type ingesteld op **HDInsight**. | Ja      |
 | clusterUri        | De URI van het HDInsight-cluster.        | Ja      |
 | gebruikersnaam          | De naam van het gebruikersaccount dat u gebruikt om te verbinden met een bestaand HDInsight-cluster. | Ja      |
-| wachtwoord          | Het wachtwoord voor het gebruikersaccount.   | Ja      |
+| password          | Het wachtwoord voor het gebruikersaccount.   | Ja      |
 | linkedServiceName | De naam van de gekoppelde storage-service die naar de Blob-opslag die wordt gebruikt door het HDInsight-cluster verwijst. <p>Momenteel kunt opgeven u niet dat een Data Lake Store gekoppelde service voor deze eigenschap. Als het HDInsight-cluster toegang tot Data Lake Store heeft, kunt u toegang tot gegevens in Data Lake Store via Hive of Pig-scripts. </p> | Ja      |
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch gekoppelde service

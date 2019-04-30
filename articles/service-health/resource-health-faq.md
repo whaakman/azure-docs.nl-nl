@@ -8,11 +8,11 @@ ms.service: service-health
 ms.date: 01/29/2019
 ms.workload: Supportability
 ms.openlocfilehash: b4062b3f0bc389de4403ac81b56688508f5ea50e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579560"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620824"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health Veelgestelde vragen
 Meer informatie over de antwoorden op veelgestelde vragen over Azure Resource Health.

@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
 ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011314"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560012"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de API
 
@@ -32,7 +32,7 @@ In dit artikel onderzoekt de JSON-inhoud die wordt geretourneerd door de **Video
 
 ## <a name="root-elements"></a>Basis-elementen
 
-|Name|Beschrijving|
+|Name|Description|
 |---|---|
 |accountId|Van de afspeellijst VI account-ID.|
 |id|Van de afspeellijst-ID.|
@@ -148,7 +148,7 @@ De inzichten zijn een set van dimensies (bijvoorbeeld regels tekst, gezichten, m
 
 Een gezicht mogelijk een ID, een naam, een miniatuur, andere metagegevens en een lijst van de tijdelijke exemplaren (bijvoorbeeld: 00: 00:05 – 00:00:10, 00:01:00-00:02:30 en 00:41:21: 00:41:49.) Elke tijdelijke instantie kan aanvullende metagegevens hebben. Bijvoorbeeld, coördinaten van het gezichtsrechthoek (20,230,60,60).
 
-|Version|De codeversie|
+|Versie|De codeversie|
 |---|---|
 |sourceLanguage|Van de video source-taal (ervan uitgaande dat één master taal). In de vorm van een [BCP-47](https://tools.ietf.org/html/bcp47) tekenreeks.|
 |language|De insights-taal (vertaald uit de source-taal). In de vorm van een [BCP-47](https://tools.ietf.org/html/bcp47) tekenreeks.|

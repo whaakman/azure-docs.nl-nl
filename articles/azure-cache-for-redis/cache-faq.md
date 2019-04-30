@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: yegu
 ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895593"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60552061"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Veelgestelde vragen over Azure Cache voor Redis
 Informatie over de antwoorden op veelgestelde vragen, patronen en best practices voor Azure Cache voor Redis.
@@ -184,7 +184,7 @@ Zie voor meer informatie over het gebruik van Azure Cache voor Redis met PowerSh
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>Wat doet de StackExchange.Redis-configuratie-opties?
 StackExchange.Redis bevat veel opties. In deze sectie vertelt over een aantal van de algemene instellingen. Zie voor meer informatie over de StackExchange.Redis-opties, [StackExchange.Redis configuratie](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
-| ConfigurationOptions | Beschrijving | Aanbeveling |
+| ConfigurationOptions | Description | Aanbeveling |
 | --- | --- | --- |
 | AbortOnConnectFail |Wanneer is ingesteld op true, wordt de verbinding wordt niet opnieuw verbinding maken na een netwerkstoring op een. |Ingesteld op false en laat StackExchange.Redis automatisch opnieuw verbinding maken. |
 | ConnectRetry |Het aantal keren laten herhalen verbindingspogingen tijdens de eerste verbinding. |Zie de volgende opmerkingen voor hulp. |

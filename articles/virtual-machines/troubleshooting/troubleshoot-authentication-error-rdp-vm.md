@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 47d3b827099d3a4a7520ac66765d2928795b6e49
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967977"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594928"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Verificatiefouten oplossen wanneer u verbinding maken met virtuele Azure-machine met RDP
 
@@ -83,7 +83,7 @@ Voor verbinding met de virtuele machine op afstand, gebruikt u een van de method
 
 ### <a name="group-policy-client-service"></a>Group policy client-service
 
-Als dit een VM domein is, moet u eerst de Group Policy Client-service om te voorkomen dat een Active Directory-beleid van het overschrijven van de wijzigingen stoppen. U doet dit door de volgende opdracht uitvoeren:
+Als dit een VM domein is, moet u eerst de Group Policy Client-service om te voorkomen dat een Active Directory-beleid van het overschrijven van de wijzigingen stoppen. Voer hiervoor de volgende opdracht uit:
 
 ```cmd
 REM Disable the member server to retrieve the latest GPO from the domain upon start
@@ -204,7 +204,7 @@ Op basis van de registerwaarde, als volgt te werk:
 
 * 4 (FIPS): Ga naar [controleren FIPs-compatibele algoritmes verbindingen](#fips-compliant).
 
-* 3 (128-bits codering): de ernst ingesteld op **2** door het uitvoeren van de volgende opdracht uit:
+* 3 (128-bits codering): De ernst ingesteld op **2** door het uitvoeren van de volgende opdracht uit:
 
     ```cmd
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 2 /f

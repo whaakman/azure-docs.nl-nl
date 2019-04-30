@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/16/2018
 ms.author: aljo
 ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670418"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621547"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric-toepassing en service-beveiliging
 Een architectuur met microservices kunt brengen [veel voordelen](service-fabric-overview-microservices.md). Beheren van de beveiliging van microservices, is echter een uitdaging en anders dan de traditionele monolithische toepassingen beveiliging beheren. 
@@ -31,7 +31,7 @@ In dit artikel is geen handleiding en microservices security, er zijn veel van d
 ## <a name="authentication-and-authorization"></a>Verificatie en autorisatie
 Het is vaak nodig zijn voor resources en API's die worden weergegeven door een service moeten worden beperkt tot bepaalde vertrouwde gebruikers of -clients. Verificatie is het proces van het op betrouwbare wijze vaststelling van de identiteit van een gebruiker.  Autorisatie is het proces dat kunt u API's of services beschikbaar zijn voor sommige geverifieerd, maar niet voor andere gebruikers.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Verificatie
 De eerste stap bij het nemen van beslissingen voor API-niveau vertrouwensrelatie is verificatie. Verificatie is het proces van het op betrouwbare wijze vaststelling van de identiteit van een gebruiker.  In scenario's microservices, verificatie, wordt doorgaans afgehandeld Centraal. Als u een API-Gateway gebruikt, kunt u [verificatie-offload](/azure/architecture/patterns/gateway-offloading) naar de gateway. Als u deze methode gebruikt, zorg ervoor dat de afzonderlijke services rechtstreeks (zonder de API-Gateway) kunnen niet worden bereikt, tenzij de extra beveiliging is ingesteld om berichten te verifiëren of ze afkomstig zijn van de gateway of niet.
 
 Als services kunnen rechtstreeks worden geopend, wordt een authentication-service zoals Azure Active Directory of een toegewezen verificatie microservice die fungeert als een security token service (STS) kan worden gebruikt om gebruikers te verifiëren. Beslissingen voor de vertrouwensrelatie worden gedeeld tussen services met beveiligingstokens of cookies. 

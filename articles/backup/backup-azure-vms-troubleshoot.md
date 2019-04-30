@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: srinathv
 ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618189"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550019"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Problemen oplossen met back-ups van virtuele Azure-machines
 U kunt fouten opgetreden tijdens het gebruik van Azure Backup met de gegevens die worden vermeld in de volgende tabel kunt oplossen:
@@ -40,7 +40,7 @@ De back-upbewerking is mislukt omdat de virtuele machine in de status mislukt. V
 ### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>Kan de UserErrorFsFreezeFailed - niet blokkeren van een of meer koppelpunten van de virtuele machine naar een bestandssysteem consistente momentopname te maken
 
 Foutcode: UserErrorFsFreezeFailed <br/>
-Foutbericht: Kan niet stilzetten van een of meer koppelpunten van de virtuele machine naar een bestandssysteem consistente momentopname te maken.
+Foutbericht: Kan een of meer koppelpunten van de VM niet stilzetten om een bestandssysteemconsistente momentopname te maken.
 
 * Controleer de status van alle gekoppelde apparaten met behulp van de **tune2fs** opdracht, bijvoorbeeld **tune2fs -l/dev/sdb1 \\** .\| grep **bestandssysteem status**.
 * Ontkoppel de apparaten die de systeemstatus van het bestand is niet opgeschoond waarvoor, met behulp van de **umount** opdracht.
@@ -82,7 +82,7 @@ Start opnieuw op VSS-schrijvers in orde. Voer vanuit een opdrachtprompt met verh
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - fout bij het parseren van de configuratie voor de Backup-extensie
 
 Foutcode: ExtensionConfigParsingFailure<br/>
-Foutbericht: Er is een fout opgetreden bij het parseren van de configuratie voor de back-upextensie.
+Foutbericht: Parseren van de configuratie voor de back-upextensie mislukt.
 
 Deze fout treedt op vanwege een gewijzigde machtigingen op de **als** directory: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
 Voer de volgende opdracht uit en controleer of dat machtigingen voor de **als** directory zijn standaard labels:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.

@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
 ms.openlocfilehash: a7e9acbe78ffdca2e615873cc4c33f86b250a429
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551488"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>De structuur van Azure-Dashboards
 Dit document begeleidt bij de structuur van een Azure-dashboard met het volgende dashboard als een voorbeeld:

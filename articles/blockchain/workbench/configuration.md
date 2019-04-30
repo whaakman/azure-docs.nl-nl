@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578744"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578977"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Naslaginformatie over Azure Blockchain Workbench-configuratie
 
@@ -211,7 +211,7 @@ Definieert de functies die kunnen worden uitgevoerd in de werkstroom.
 |-------|-------------|:--------:|-----------:|
 | Name | De unieke naam van de functie. Het bijbehorende smart contract moet dezelfde **naam** gebruiken voor de desbetreffende functie. | Ja | 50 |
 | DisplayName | Beschrijvende weergavenaam van de functie. | Ja | 255 |
-| Beschrijving | Beschrijving van de functie | Nee | 255 |
+| Description | Beschrijving van de functie | Nee | 255 |
 | Parameters | Verzameling van [id's](#identifiers) die overeenkomen met de parameters van de functie. | Ja | |
 
 ### <a name="functions-example"></a>Voorbeeld van de functies

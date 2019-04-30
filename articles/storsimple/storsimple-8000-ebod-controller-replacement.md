@@ -1,6 +1,6 @@
 ---
-title: Vervangen van een domeincontroller StorSimple 8600 EBOD | Microsoft Docs
-description: Legt uit hoe verwijdert en vervangt u een of beide EBOD domeincontrollers op een StorSimple 8600-apparaat.
+title: Een StorSimple 8600 EBOD-controller vervangen | Microsoft Docs
+description: Wordt uitgelegd hoe om te verwijderen en vervangen door een of beide EBOD-controllers op een StorSimple 8600-apparaat.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,79 +14,79 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 45699c267d1009c4884dd164fd3f2950d6d5f555
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23927577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578660"
 ---
-# <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Vervangen van een domeincontroller EBOD op uw StorSimple-apparaat
+# <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Op uw StorSimple-apparaat een EBOD-controller vervangen
 
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie wordt uitgelegd hoe ter vervanging van een defecte EBOD controllermodule op uw Microsoft Azure StorSimple-apparaat. Ter vervanging van een module van de domeincontroller EBOD, moet u:
+In deze zelfstudie wordt uitgelegd hoe u vervangen door een defecte EBOD-controller-module op uw Microsoft Azure StorSimple-apparaat. Als u wilt een module van EBOD-controller vervangen, moet u naar:
 
-* De defecte EBOD controller verwijderen
-* Een nieuwe EBOD controller installeren
+* De defecte EBOD-controller verwijderen
+* Een nieuwe EBOD-controller installeren
 
 Houd rekening met de volgende informatie voordat u begint:
 
-* Lege EBOD modules moeten worden ingevoegd in alle ongebruikte sleuven. De behuizing cool niet goed als een site wordt geopend.
-* De controller EBOD hot verwisselbare is en kan worden verwijderd of vervangen. Verwijder een mislukte module niet totdat u een vervangende hebt. Wanneer u het proces voor het vervangen start, moet u deze voltooit binnen 10 minuten.
+* Lege EBOD-modules moeten worden ingevoegd in alle niet-gebruikte sleuven. De behuizing cool niet goed als een site wordt geopend.
+* De EBOD-controller is hot swappable en kan worden verwijderd of vervangen. Verwijder een mislukte module niet totdat u een vervangende hebt. Wanneer u het proces voor het vervangen start, moet u deze voltooien binnen 10 minuten.
 
 > [!IMPORTANT]
-> Voordat u probeert te verwijderen of vervangen van een StorSimple-onderdeel, zorg ervoor dat u wordt aangeraden de [veiligheid pictogram conventies](storsimple-safety.md#safety-icon-conventions) en andere [voorzorgsmaatregelen](storsimple-safety.md).
+> Voordat u probeert te verwijderen of vervangen van een StorSimple-onderdeel, zorg ervoor dat u de [veiligheid pictogram conventies](storsimple-safety.md#safety-icon-conventions) en andere [voorzorgsmaatregelen](storsimple-safety.md).
 
-## <a name="remove-an-ebod-controller"></a>Een controller EBOD verwijderen
-Zorg dat de andere EBOD controller-module actief en wordt uitgevoerd is voordat de mislukte EBOD controllermodule in uw StorSimple-apparaat kan worden vervangen. De volgende procedure en tabel wordt uitgelegd hoe de controller EBOD module verwijderen.
+## <a name="remove-an-ebod-controller"></a>Verwijderen van een EBOD-controller
+Voordat u de mislukte EBOD-controller-module in uw StorSimple-apparaat vervangt, ervoor zorgen dat de andere EBOD-controller-module actief en wordt uitgevoerd is. De volgende procedure en tabel wordt uitgelegd hoe u de module EBOD-controller verwijderen.
 
-#### <a name="to-remove-an-ebod-module"></a>Een module EBOD verwijderen
-1. Open de Azure-portal.
-2. Ga naar het apparaat en navigeer naar **instellingen** > **Hardware health**, en controleer of de status van de LED voor de actieve EBOD controllermodule groen is en de LED voor de mislukte EBOD controller-module is rood.
-3. Zoek de mislukte EBOD controllermodule aan het einde van het apparaat.
-4. Verwijder de kabels die verbinding maken met de module van de domeincontroller EBOD de domeincontroller voordat u de module EBOD buiten het systeem.
-5. Noteer de precieze SAS-poort van de module die EBOD domeincontroller die is verbonden met de domeincontroller. U moet het systeem herstellen naar deze configuratie nadat u de module EBOD vervangen.
+#### <a name="to-remove-an-ebod-module"></a>Een EBOD-module verwijderen
+1. Open Azure Portal.
+2. Ga naar uw apparaat en navigeer naar **instellingen** > **hardwarestatus**, en controleer of de status van de LED voor de actieve EBOD-controller-module is groen en de LED voor de mislukte EBOD-controller module is rood.
+3. Zoek de mislukte EBOD-controller-module aan het einde van het apparaat.
+4. Verwijder de kabels die verbinding maken met de EBOD-controller-module met de domeincontroller alvorens de EBOD-module uit het systeem.
+5. Noteer de exacte SAS-poort van de EBOD-controller-module die is verbonden met de domeincontroller. U moet het systeem om deze configuratie te herstellen nadat u de module EBOD vervangen.
    
    > [!NOTE]
-   > Normaal gesproken is dit poort A, die wordt aangeduid als **worden gehost in** in het volgende diagram.
+   > Normaal gesproken worden deze poort A, waarmee wordt aangeduid als **hosten** in het volgende diagram.
    
     ![Backplane van EBOD-controller](./media/storsimple-ebod-controller-replacement/IC741049.png)
    
-     **Afbeelding 1** EBOD van Back-module
+     **Afbeelding 1** terug van EBOD-module
    
-   | Label | Beschrijving |
+   | Label | Description |
    |:--- |:--- |
    | 1 |Fout met betrekking tot LED |
-   | 2 |Power LED |
+   | 2 |LED voor stroom |
    | 3 |SAS-connectors |
-   | 4 |SAS LED 's |
-   | 5 |Seriële poorten factory alleen voor gebruik |
+   | 4 |SAS-LED 's |
+   | 5 |Seriële poorten voor alleen factory gebruiken |
    | 6 |Poort (Host in) |
    | 7 |Poort B (Host out) |
    | 8 |Poort C (alleen Factory gebruik) |
 
-## <a name="install-a-new-ebod-controller"></a>Een nieuwe EBOD controller installeren
-De volgende procedure en tabel wordt uitgelegd hoe u een domeincontroller EBOD module in uw StorSimple-apparaat installeert.
+## <a name="install-a-new-ebod-controller"></a>Een nieuwe EBOD-controller installeren
+De volgende procedure en tabel wordt uitgelegd hoe u een EBOD-controller-module in uw StorSimple-apparaat installeert.
 
-#### <a name="to-install-an-ebod-controller"></a>Een controller EBOD installeren
-1. Controleer het apparaat EBOD voor schade, met name op de interface-connector. Installeer de nieuwe EBOD controller niet als een pincodes verbogen zijn.
-2. Schuif de module met de vergrendelingen in de open positie in de behuizing totdat de vergrendelingen benaderen.
+#### <a name="to-install-an-ebod-controller"></a>Voor het installeren van een EBOD-controller
+1. Controleer de EBOD-apparaat voor schade, met name voor de interface-connector. Installeer de nieuwe EBOD-controller niet als een pincodes verbogen zijn.
+2. Met de vergrendelingen in de geopende positie, schuift u de module in de behuizing totdat de vergrendelingen betrekken.
    
-    ![EBOD controller installeren](./media/storsimple-ebod-controller-replacement/IC741050.png)
+    ![EBOD-controller installeren](./media/storsimple-ebod-controller-replacement/IC741050.png)
    
-    **Afbeelding 2** de EBOD controller-module installeren
-3. Sluit de vergrendeling. U moet een klik horen als het slot stelt.
+    **Afbeelding 2** de EBOD-controller-module installeren
+3. Sluit de vergrendeling. U moet één klik van u horen als de vergrendeling maken.
    
-    ![Vrijgeven van EBOD vergrendeling](./media/storsimple-ebod-controller-replacement/IC741047.png)
+    ![Vrijgeven van EBOD-vergrendeling](./media/storsimple-ebod-controller-replacement/IC741047.png)
    
-    **Afbeelding 3** sluiten van de module EBOD vergrendeling
-4. Sluit de kabels. Gebruik de exacte configuratie die aanwezig zijn voordat de vervangende was. Zie het volgende diagram en de volgende tabel voor meer informatie over het aansluiten van de kabels.
+    **Afbeelding 3** sluiten van de vergrendeling van EBOD-module
+4. Sluit de kabels. Gebruik de exacte configuratie die voordat u de vervanging is. Zie het volgende diagram en de volgende tabel voor meer informatie over het verbinden van de kabels.
    
     ![Uw apparaat 4U voor power bekabelen](./media/storsimple-ebod-controller-replacement/IC770723.png)
    
-    **Afbeelding 4**. Opnieuw verbinding te maken kabels
+    **Afbeelding 4**. Opnieuw verbinden kabels
    
-   | Label | Beschrijving |
+   | Label | Description |
    |:--- |:--- |
    | 1 |Primaire behuizing |
    | 2 |PCM 0 |
@@ -94,7 +94,7 @@ De volgende procedure en tabel wordt uitgelegd hoe u een domeincontroller EBOD m
    | 4 |Controller 0 |
    | 5 |Controller 1 |
    | 6 |EBOD-controller 0 |
-   | 7 |EBOD controller 1 |
+   | 7 |EBOD-controller 1 |
    | 8 |EBOD behuizing |
    | 9 |Power Distribution Units |
 

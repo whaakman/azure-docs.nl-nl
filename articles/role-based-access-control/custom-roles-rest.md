@@ -16,11 +16,11 @@ ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596682"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Aangepaste rollen voor Azure-resources met behulp van de REST-API maken
 
@@ -86,7 +86,7 @@ Voor informatie over een aangepaste rol op de weergavenaam, gebruikt de [roldefi
 
 1. Vervang *{filter}* met de weergavenaam voor de rol.
 
-    | Filteren | Beschrijving |
+    | Filteren | Description |
     | --- | --- |
     | `$filter=roleName%20eq%20'{roleDisplayName}'` | Gebruik het formulier URL-codering van de exacte naam van de rol. Bijvoorbeeld: `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 

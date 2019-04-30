@@ -15,15 +15,15 @@ ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533167"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Toegang tot Azure-resources met behulp van RBAC en de Azure-portal beheren
 
-[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) is de manier waarop dat u de toegang tot Azure-resources beheren. Dit artikel wordt beschreven hoe u toegang met behulp van de Azure-portal beheren. Als u nodig hebt voor het beheren van toegang tot Azure Active Directory, Zie [weergeven en toewijzen beheerdersrollen in Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
+[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) is de manier waarop u de toegang tot Azure-resources beheert. Dit artikel wordt beschreven hoe u toegang met behulp van de Azure-portal beheren. Als u nodig hebt voor het beheren van toegang tot Azure Active Directory, Zie [weergeven en toewijzen beheerdersrollen in Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -137,11 +137,11 @@ In RBAC, als u wilt toegang verlenen u een rol toewijzen aan een gebruiker, groe
 
 1. Klik op de **roltoewijzingen** tabblad om de roltoewijzingen binnen dit bereik.
 
-1. Klik op **toevoegen** > **roltoewijzing toevoegen** om het deelvenster toevoegen rol toewijzing te openen.
+1. Klik op **Toevoegen** > **Roltoewijzing toevoegen** om het deelvenster Roltoewijzing toevoegen te openen.
 
    Als u niet bent gemachtigd voor het toewijzen van rollen, is de optie Roltoewijzing toevoegen uitgeschakeld.
 
-   ![Menu toevoegen](./media/role-assignments-portal/add-menu.png)
+   ![Menu Toevoegen](./media/role-assignments-portal/add-menu.png)
 
    ![Deelvenster Roltoewijzing toevoegen](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -165,11 +165,11 @@ Als u een gebruiker een beheerder van een Azure-abonnement, deze toewijzen de [e
 
 1. Klik op de **roltoewijzingen** tabblad om de roltoewijzingen voor dit abonnement.
 
-1. Klik op **toevoegen** > **roltoewijzing toevoegen** om het deelvenster toevoegen rol toewijzing te openen.
+1. Klik op **Toevoegen** > **Roltoewijzing toevoegen** om het deelvenster Roltoewijzing toevoegen te openen.
 
    Als u niet bent gemachtigd voor het toewijzen van rollen, is de optie Roltoewijzing toevoegen uitgeschakeld.
 
-   ![Menu toevoegen](./media/role-assignments-portal/add-menu.png)
+   ![Menu Toevoegen](./media/role-assignments-portal/add-menu.png)
 
    ![Deelvenster Roltoewijzing toevoegen](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -193,11 +193,11 @@ Als u in RBAC de toegang wilt intrekken voor een rol, verwijdert u de roltoewijz
 
    ![Bericht bij verwijderen van roltoewijzing](./media/role-assignments-portal/remove-role-assignment-select.png)
 
-1. Klik op **verwijderen**.
+1. Klik op **Verwijderen**.
 
    ![Bericht bij verwijderen van roltoewijzing](./media/role-assignments-portal/remove-role-assignment.png)
 
-1. Klik in de software rol toewijzing bericht dat wordt weergegeven op **Ja**.
+1. Klik op **Ja** om te bevestigen dat u de roltoewijzing inderdaad wilt verwijderen.
 
     Overgenomen toewijzingen kunnen niet worden verwijderd. Als u een overgenomen roltoewijzing wilt verwijderen, moet u dit te doen voor het bereik waarvoor de roltoewijzing is gemaakt. In de **bereik** kolom, naast **(overgenomen)** er is een koppeling die u aan het bereik waarin deze rol is toegewezen. Ga naar het bereik dat hier wordt weergegeven om de roltoewijzing te verwijderen.
 
@@ -205,7 +205,7 @@ Als u in RBAC de toegang wilt intrekken voor een rol, verwijdert u de roltoewijz
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Zelfstudie: Een gebruiker toegang tot Azure-resources met behulp van RBAC en de Azure-portal](quickstart-assign-role-user-portal.md)
-* [Zelfstudie: Een gebruiker toegang tot Azure-resources met behulp van RBAC en Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+* [Zelfstudie: Toegang tot Azure-resources verlenen aan een gebruiker met behulp van RBAC en de Azure-portal](quickstart-assign-role-user-portal.md)
+* [Zelfstudie: Toegang tot Azure-resources verlenen aan een gebruiker met behulp van RBAC en Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 * [RBAC voor Azure-resources oplossen](troubleshooting.md)
-* [Resources organiseren met beheergroepen voor Azure](../governance/management-groups/index.md)
+* [Uw resources organiseren met Azure-beheergroepen](../governance/management-groups/index.md)

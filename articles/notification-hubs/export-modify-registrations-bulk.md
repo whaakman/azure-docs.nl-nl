@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
 ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490840"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623983"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exporteren en importeren van Azure Notification Hubs-registraties in bulk
 Er zijn scenario's waarin deze is vereist om te maken of wijzigen van grote aantallen registraties in een notification hub. Sommige van deze scenario's zijn tag updates batch berekeningen te volgen of migreert van een bestaande push-implementatie voor het gebruik van Notification Hubs.

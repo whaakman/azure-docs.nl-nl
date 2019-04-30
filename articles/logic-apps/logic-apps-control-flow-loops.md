@@ -11,11 +11,11 @@ manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
 ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60683963"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Lussen die werkstroomacties herhalen of verwerken van matrices in Azure Logic Apps maken
 
@@ -234,7 +234,7 @@ Beginnen om 8:00 uur per dag, verhoogd in dit voorbeeld van logische app een var
 
       ![E-eigenschappen instellen](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Eigenschap | Waarde | Beschrijving |
+      | Eigenschap | Waarde | Description |
       | -------- | ----- | ----------- | 
       | **Aan** | *\<email-address\@domain>* | e-mailadres van de ontvanger. Voor het testen, moet u uw eigen e-mailadres gebruiken. | 
       | **Onderwerp** | Huidige waarde voor de 'Limiet' is **limiet** | Geef het e-mailonderwerp. Zorg ervoor dat u voor dit voorbeeld wordt de **limiet** variabele. | 

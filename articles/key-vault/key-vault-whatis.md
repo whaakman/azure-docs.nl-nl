@@ -2,23 +2,19 @@
 title: Wat is Azure Sleutelkluis? | Microsoft Docs
 description: Informatie over hoe Azure Key Vault beschermt cryptografische sleutels en geheimen die cloud-toepassingen en services te gebruiken.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: e759df6f-0638-43b1-98ed-30b3913f9b82
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
 ms.openlocfilehash: 48ac0c3efe74723099e87a77871aa1a78834efbd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958529"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640540"
 ---
 # <a name="what-is-azure-key-vault"></a>Wat is Azure Sleutelkluis?
 
@@ -57,7 +53,7 @@ Hier volgen andere belangrijke termen:
 
     ![Diagram van hoe beheerde identiteiten voor Azure-resources](./media/key-vault-whatis/msi.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 Als u wilt doen bewerkingen met Key Vault, moet u eerst om deze te verifiëren. Er zijn drie manieren om te verifiëren naar Key Vault:
 
 - [Identiteiten voor een Azure-resources beheerd](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview): Wanneer u een app op een virtuele machine in Azure implementeert, kunt u een identiteit toewijzen aan uw virtuele machine die toegang tot de Key Vault heeft. U kunt ook toewijzen identiteiten met [andere Azure-resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Het voordeel van deze benadering is dat de app of service de draaihoek van het eerste geheim is niet beheren. Azure draait automatisch de identiteit. Wordt deze methode als een best practice aangeraden. 

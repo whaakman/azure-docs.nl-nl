@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
 ms.openlocfilehash: dc9b4db37e811d8bac6df2d532fd3629d98c9650
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60586545"
 ---
 # <a name="azure-infrastructure-security"></a>Beveiliging van de Azure-infrastructuur
 Microsoft Azure wordt uitgevoerd in datacenters beheerd en worden beheerd door Microsoft. Deze geografisch verspreide datacenters voldoen aan de belangrijkste industrienormen, zoals ISO/IEC 27001: 2013 en NIST SP 800-53, voor beveiliging en betrouwbaarheid. De datacenters worden beheerd, gecontroleerd en beheerd door Microsoft-personeel. Het operationele team heeft jaar ervaring in het leveren van de grootste online services met 24 x 7 bedrijfscontinuïteit te waarborgen.

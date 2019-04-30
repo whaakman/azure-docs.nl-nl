@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 7/02/2017
 ms.author: atsenthi
 ms.openlocfilehash: c9b2f9ac131e71b7c6b37ed85568adc0c3978dc2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668234"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621197"
 ---
 # <a name="service-fabric-application-scenarios"></a>Scenario's voor service Fabric-toepassing
 Azure Service Fabric biedt een betrouwbare en flexibele platform waarmee u kunt schrijven en uitvoeren van veel soorten toepassingen en services. Deze toepassingen en microservices kunnen stateless of stateful, en ze zijn resource-met gelijke taakverdeling voor virtuele machines voor een maximale efficiency. De unieke architectuur van Service Fabric kunt u om uit te voeren bijna realtime gegevensanalyse, in-memory-berekeningen, parallelle transacties en in uw toepassingen voor verwerking van gebeurtenissen. U kunt gemakkelijk schalen uw toepassingen omhoog of omlaag (echt inkomend of uitgaand), afhankelijk van uw veranderende resourcevereisten.

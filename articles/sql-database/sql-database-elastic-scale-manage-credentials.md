@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: e6c7d682d9b16266208baeeff14168b3da157251
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186616"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60584876"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Referenties voor toegang tot de clientbibliotheek voor Elastic Database
 

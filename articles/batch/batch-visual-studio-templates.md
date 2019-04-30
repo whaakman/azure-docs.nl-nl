@@ -16,11 +16,11 @@ ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538120"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550075"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Visual Studio-projectsjablonen voor Batch-oplossingen snel gebruiken
 
@@ -61,7 +61,7 @@ Voor het gebruik van de Batch-sjablonen, moet u het volgende:
   * Installeren van de sjablonen met behulp van de **extensies en Updates** in het dialoogvenster in Visual Studio (Zie voor meer informatie, [zoeken en met behulp van Visual Studio-extensies][vs_find_use_ext]). In de **extensies en Updates** dialoogvenster vak, zoeken en downloaden van de volgende twee extensies:
     
     * Azure Batch-Job Manager met taak splitsen
-    * Processor van Azure Batch-taak
+    * Azure Batch Task Processor
   * Download de sjablonen uit de galerie met online voor Visual Studio: [Microsoft Azure Batch-projectsjablonen][vs_gallery_templates]
 * Als u van plan bent te gebruiken de [toepassingspakketten](batch-application-packages.md) functie voor het implementeren van job manager en processor-taak naar de Batch-rekenknooppunten, moet u een opslagaccount koppelen aan uw Batch-account.
 

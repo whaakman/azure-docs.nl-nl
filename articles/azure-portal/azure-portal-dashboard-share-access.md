@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: c07a9d92cac13d6325e66f44426f1a64e8ac53cb
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: fbbc8a4f636a95d18baa0dc5de541279ce36789b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551931"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Azure-dashboards delen met behulp van Role-Based Access Control
 Na het configureren van een dashboard, kunt u het publiceren en deze delen met andere gebruikers in uw organisatie. U toestaan dat anderen uw dashboard weergeven met behulp van Azure [Role-Based Access Control](../role-based-access-control/role-assignments-portal.md). U een gebruiker of groep van gebruikers toewijzen aan een rol en die rol definieert of deze gebruikers kunnen weergeven of wijzigen van het gepubliceerde dashboard. 
@@ -75,6 +75,6 @@ Uw dashboard is nu gepubliceerd. Als de machtigingen die zijn overgenomen uit he
      ![toegewezen rollen](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een lijst met rollen, [RBAC: ingebouwde rollen](../role-based-access-control/built-in-roles.md).
+* Zie voor een lijst met rollen, [RBAC: Ingebouwde rollen](../role-based-access-control/built-in-roles.md).
 * Zie voor meer informatie over het beheren van resources, [Azure-resources beheren via portal](resource-group-portal.md).
 

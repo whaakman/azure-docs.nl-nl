@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 8/04/2017
 ms.author: cawa
 ms.openlocfilehash: 8d76a2144234591792359ed8dd4a0779e6a2fc5c
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42058059"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628277"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Beveiligde verbindingen configureren met een Service Fabric-cluster vanuit Visual Studio
 Informatie over het gebruik van Visual Studio veilig toegang krijgen tot een Azure Service Fabric-cluster met beleid voor toegangsbeheer geconfigureerd.
@@ -42,9 +42,9 @@ De **Service Fabric-toepassing publiceren** in het dialoogvenster automatisch va
 1. Zorg ervoor dat u hebt toegang tot een van de clientcertificaten die het doelcluster vertrouwt. Het certificaat wordt gewoonlijk gedeeld als een Personal Information Exchange (PFX)-bestand. Zie [instellen van een Service Fabric-cluster in Azure portal](service-fabric-cluster-creation-via-portal.md) voor het configureren van de server om toegang te verlenen aan een client.
 2. Installeer het vertrouwde certificaat. Dubbelklik op het pfx-bestand om dit te doen, of de Import-PfxCertificate-PowerShell-script gebruiken om te importeren van de certificaten. Het certificaat te installeren **Cert: \LocalMachine\My**. Wilt u alle standaardinstellingen accepteren tijdens het importeren van het certificaat is.
 3. Kies de **publiceren...**  opdracht in het snelmenu van het project te openen de **Publish Azure Application** in het dialoogvenster en selecteer vervolgens het doelcluster. Het hulpprogramma automatisch de verbinding wordt omgezet en worden de parameters van de beveiligde verbinding opgeslagen in het publicatieprofiel.
-4. Optioneel: U kunt bewerken het publicatieprofiel om op te geven van de verbinding van een beveiligd cluster.
+4. Optioneel: U kunt het publicatieprofiel om op te geven van een beveiligd cluster-verbinding bewerken.
    
-   Nadat u het publiceren profiel XML-bestand voor het opgeven van informatie over het certificaat en noteer de naam van het certificaatarchief handmatig bewerkt, locatie en de vingerafdruk van certificaat opslaan. U moet voor deze waarden voor het certificaatarchief van de naam en locatie opslaan. Zie [hoe: de vingerafdruk van een certificaat ophalen](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) voor meer informatie.
+   Nadat u het publiceren profiel XML-bestand voor het opgeven van informatie over het certificaat en noteer de naam van het certificaatarchief handmatig bewerkt, locatie en de vingerafdruk van certificaat opslaan. U moet voor deze waarden voor het certificaatarchief van de naam en locatie opslaan. Raadpleeg [Uitleg: De vingerafdruk van een certificaat ophalen](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) voor meer informatie.
    
    U kunt de *ClusterConnectionParameters* parameters om op te geven van de PowerShell-parameters gebruiken bij het verbinden met de Service Fabric-cluster. Geldige parameters zijn die worden geaccepteerd door de cmdlet Connect-ServiceFabricCluster. Zie [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) voor een lijst met beschikbare parameters.
    

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104548"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591477"
 ---
 # <a name="azure-production-operations-and-management"></a>-Azure-productiebewerkingen en beheer    
 Het beheer en de werking van de Azure-productienetwerk is een gecoördineerde inspanningen tussen de operations-teams van Azure en Azure SQL Database. De teams gebruiken verschillende systeem- en bewaking van toepassingsprestaties-hulpprogramma's in de omgeving. En ze de juiste hulpprogramma's gebruiken voor het bewaken van netwerkapparaten, servers, services en processen van toepassingen.

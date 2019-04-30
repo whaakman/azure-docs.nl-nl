@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 386b4b8440c74f6599e7147996b5843ea0f67e68
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423361"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623949"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Over het gebruik van Twilio voor spraak en SMS-mogelijkheden in Java
 Deze handleiding laat zien hoe u algemene programming taken met de Twilio API-service op Azure uitvoeren. De behandelde scenario's omvatten een telefonische oproep maken en verzenden van een bericht Short Message Service (SMS). Zie voor meer informatie over Twilio en het gebruik van spraak en SMS-berichten in uw toepassingen, de [Vervolgstappen](#NextSteps) sectie.
@@ -42,17 +42,17 @@ De API maakt gebruik van Twilio termen; bijvoorbeeld, de **&lt;zeg&gt;** term ge
 
 Hier volgt een lijst met Twilio-bewerkingen.
 
-* **&lt;Externe&gt;**: verbindt de oproepende functie met een ander telefoonnummer.
-* **&lt;Verzamel&gt;**: verzamelt cijfers ingevoerd op het telefoonnummer.
-* **&lt;Ophangen&gt;**: een gesprek is beëindigd.
-* **&lt;Afspelen&gt;**: een geluidsbestand afgespeeld.
+* **&lt;Dial&gt;**: De oproepende functie verbindt met een ander telefoonnummer.
+* **&lt;Gather&gt;**: Verzamelt cijfers ingevoerd op het telefoonnummer.
+* **&lt;Ophangen&gt;**: Een gesprek is beëindigd.
+* **&lt;Afspelen&gt;**: Hiermee wordt een geluidsbestand afgespeeld.
 * **&lt;Wachtrij&gt;**: Voeg het aan een wachtrij met aanroepers.
-* **&lt;Onderbreken&gt;**: wacht op de achtergrond voor een opgegeven aantal seconden.
-* **&lt;Record&gt;**: Records van de oproepende functie spraak en retourneert een URL van een bestand met de opname.
-* **&lt;Omleiden&gt;**: beheer van een telefoongesprek of SMS overgebracht naar de TwiML op een andere URL.
-* **&lt;Afwijzen&gt;**: een binnenkomende oproep naar uw Twilio-getal zonder facturering u afwijzen.
-* **&lt;Stel dat&gt;**: converteert tekst naar spraak die wordt gemaakt op een aanroep.
-* **&lt;SMS&gt;**: verzendt een SMS-bericht.
+* **&lt;Onderbreken&gt;**: Wacht op de achtergrond gedurende een opgegeven aantal seconden.
+* **&lt;Record&gt;**: Registreert de stem van de oproepende functie en het resultaat van een URL van een bestand met de opname.
+* **&lt;Omleiden&gt;**: Het besturingselement van de overdracht van een telefoongesprek of SMS aan de TwiML op een andere URL.
+* **&lt;Afwijzen&gt;**: Een binnenkomende oproep naar uw Twilio-getal afwijzen zonder facturering u.
+* **&lt;Stel dat&gt;**: Converteert tekst naar spraak die wordt gemaakt op een aanroep.
+* **&lt;Sms&gt;**: Verzendt een SMS-bericht.
 
 ### <a id="TwiML"></a>TwiML
 TwiML is een set op basis van de Twilio-termen die Twilio van het verwerken van een oproep of SMS op de hoogte op basis van een XML-instructies.
@@ -104,7 +104,7 @@ Voor de bronbestanden van de pagina voor Java-Server (JSP):
  
 Afhankelijk van welke Twilio-pakketten of klassen die u wilt gebruiken, uw **importeren** instructies kunnen mogelijk verschillen.
 
-## <a id="howto_make_call"></a>Hoe: een uitgaande aanroep
+## <a id="howto_make_call"></a>Procedures: Een uitgaande aanroep
 Hieronder ziet u hoe u een uitgaande aanroepen met behulp van de **aanroepen** klasse. Deze code maakt ook gebruik van een site Twilio-voorwaarde om te retourneren van het antwoord Twilio Markup Language (TwiML). Vervang de waarden voor de **van** en **naar** telefoonnummers, en zorg ervoor dat u controleert of de **van** telefoonnummer voor uw Twilio-account vóór het uitvoeren van de code.
 
 ```java
@@ -133,7 +133,7 @@ Voor meer informatie over de parameters doorgegeven aan de **Call.creator** meth
 
 Zoals gezegd, wordt met deze code een Twilio-opgegeven site gebruikt om terug te keren van het antwoord TwiML. U kunt uw eigen locatie in plaats daarvan gebruiken voor het antwoord TwiML; Zie voor meer informatie, [hoe TwiML antwoorden bieden in een Java-toepassing in Azure](#howto_provide_twiml_responses).
 
-## <a id="howto_send_sms"></a>Hoe: een SMS-bericht verzenden
+## <a id="howto_send_sms"></a>Procedures: Een SMS-bericht verzenden
 Hieronder ziet u hoe u verzendt een SMS-bericht met de **bericht** klasse. De **van** getal, **4155992671**, wordt geleverd door Twilio voor proefaccounts voor het verzenden van SMS-berichten. De **naar** getal moet worden geverifieerd voor uw Twilio-account vóór het uitvoeren van de code.
 
 ```java
@@ -157,7 +157,7 @@ Hieronder ziet u hoe u verzendt een SMS-bericht met de **bericht** klasse. De **
 
 Voor meer informatie over de parameters doorgegeven aan de **Message.creator** methode, Zie [ https://www.twilio.com/docs/api/rest/sending-sms ] [ twilio_rest_sending_sms].
 
-## <a id="howto_provide_twiml_responses"></a>Hoe: bieden van respons TwiML van uw eigen Website
+## <a id="howto_provide_twiml_responses"></a>Procedures: Bieden van respons TwiML van uw eigen Website
 Wanneer uw toepassing initieert een aanroep naar de Twilio API, bijvoorbeeld de **CallCreator.create** methode, Twilio wordt uw aanvraag verzenden naar een URL die wordt verwacht dat TwiML reactie retourneren. Het bovenstaande voorbeeld maakt gebruik van de URL van de geleverde Twilio [ https://twimlets.com/message ] [ twimlet_message_url]. (Hoewel TwiML is ontworpen voor gebruik door webservices, vindt u de TwiML in uw browser. Bijvoorbeeld, klikt u op [ https://twimlets.com/message ] [ twimlet_message_url] om te zien van een lege **&lt;antwoord&gt;** element; een ander voorbeeld, klikt u op [ https://twimlets.com/message?Message%5B0%5D=Hello%20World%21 ] [ twimlet_message_url_hello_world] om te zien een **&lt;antwoord&gt;** element bevat een **&lt;zeg&gt;** element.)
 
 In plaats van de geleverde Twilio-URL, kunt u uw eigen URL-locatie waarmee HTTP-antwoorden worden geretourneerd. U kunt de site maken in elke taal waarmee HTTP-antwoorden; wordt geretourneerd in dit onderwerp wordt ervan uitgegaan dat u de URL in een JSP-pagina gaat hosten.
@@ -204,7 +204,7 @@ Een andere optie voor het reageren met TwiML is via de **VoiceResponse** klasse,
 
 Zie voor meer informatie over het gebruik van Twilio in Azure met Java [hoe u een telefonische oproep met behulp van Twilio in een Java-toepassing in Azure][howto_phonecall_java].
 
-## <a id="AdditionalServices"></a>Hoe: extra Twilio-Services gebruiken
+## <a id="AdditionalServices"></a>Procedures: Aanvullende Twilio-Services gebruiken
 Naast de voorbeelden die hier worden weergegeven, biedt Twilio web-API's die u kunt gebruikmaken van aanvullende Twilio-functionaliteit van uw Azure-toepassing. Zie voor meer informatie, de [Twilio-API-documentatie][twilio_api_documentation].
 
 ## <a id="NextSteps"></a>Volgende stappen
@@ -213,7 +213,7 @@ Nu dat u de basisprincipes van de Twilio-service hebt geleerd, volgt u deze kopp
 * [Twilio-beveiligingsrichtlijnen][twilio_security_guidelines]
 * [Van Twilio HowTo en voorbeeldcode][twilio_howtos]
 * [Twilio zelfstudies][twilio_quickstarts]
-* [Twilio op GitHub][twilio_on_github]
+* [Twilio on GitHub][twilio_on_github]
 * [Neem contact op met ondersteuning voor Twilio][twilio_support]
 
 [twilio_java]: https://github.com/twilio/twilio-java

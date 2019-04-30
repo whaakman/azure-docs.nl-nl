@@ -1,8 +1,9 @@
 ---
 title: Azure Cloud Services Def. LoadBalancerProbe Schema | Microsoft Docs
 ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
+origin.date: 04/14/2015
+ms.date: 11/06/2017
+ms.prod: azure
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -10,17 +11,17 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
 caps.latest.revision: 14
-author: jpconnock
-ms.author: jeconnoc
+author: thraka
+ms.author: v-yiso
 manager: timlt
-ms.openlocfilehash: f7b0ba3b4797149798037dee0188850eff6baf1d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: de365de7bf93c0a612f102b3ec2b25c79d1c3d18
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003285"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613866"
 ---
-# <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services-definitie LoadBalancerProbe Schema
+# <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services Definition LoadBalancerProbe Schema
 De load balancer-test is een klant gedefinieerde statustest van UDP-eindpunten en -eindpunten in rolinstanties. De `LoadBalancerProbe` is geen zelfstandige element; deze wordt gecombineerd met de Webrol of werkrol in een service-definitiebestand. Een `LoadBalancerProbe` kan worden gebruikt door meer dan één rol.
 
 De standaardextensie voor het servicedefinitiebestand is .csdef.
@@ -48,18 +49,18 @@ Als u een aangepaste load balancer-test, moet u ervoor zorgen dat uw logica reke
 ## <a name="schema-elements"></a>Schema-elementen
 De `LoadBalancerProbes` element van het servicedefinitiebestand bevat de volgende elementen:
 
-- [LoadBalancerProbes-Element](#LoadBalancerProbes)
-- [LoadBalancerProbe-Element](#LoadBalancerProbe)
+- [LoadBalancerProbes Element](#LoadBalancerProbes)
+- [LoadBalancerProbe Element](#LoadBalancerProbe)
 
-##  <a name="LoadBalancerProbes"></a> LoadBalancerProbes-Element
+##  <a name="LoadBalancerProbes"></a> LoadBalancerProbes Element
 De `LoadBalancerProbes` -element worden beschreven voor het verzamelen van load balancer-testen. Dit element is het bovenliggende element van de [LoadBalancerProbe Element](#LoadBalancerProbe). 
 
-##  <a name="LoadBalancerProbe"></a> LoadBalancerProbe-Element
+##  <a name="LoadBalancerProbe"></a> LoadBalancerProbe Element
 De `LoadBalancerProbe` element wordt gedefinieerd met de statustest voor een model. U kunt meerdere load balancer-testen definiëren. 
 
 De volgende tabel beschrijft de kenmerken van de `LoadBalancerProbe` element:
 
-|Kenmerk|Type|Beschrijving|
+|Kenmerk|Type|Description|
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Vereist. De naam van de load balancer-test. De naam moet uniek zijn.|
 | `protocol`          | `string` | Vereist. Hiermee geeft u het protocol van het eindpunt. Mogelijke waarden zijn `http` en `tcp`. Als `tcp` is opgegeven, wordt een ontvangen ACK is vereist voor de test om succesvol te zijn. Als `http` is opgegeven, wordt een 200 OK reactie van de opgegeven URI is vereist voor de test om succesvol te zijn.|

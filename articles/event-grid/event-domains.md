@@ -8,11 +8,11 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 131a55d130e7ebf619ee283e943c0b0a7b45edfd
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60562017"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Inzicht in de domeinen van de gebeurtenis voor het beheren van Event Grid-onderwerpen
 
@@ -31,7 +31,7 @@ Een gebeurtenis-domein is een hulpprogramma voor grote aantallen Event Grid-onde
 
 Gebeurtenis domeinen maken beschikbaar voor u dezelfde architectuur gebruikt door Azure-services (zoals Storage en IoT Hub) voor het publiceren van de gebeurtenissen. Hiermee kunt u gebeurtenissen tot duizenden onderwerpen publiceren. Domeinen ook krijgt u autorisatie en verificatie controle over elk onderwerp zodat u uw tenants kunt partitioneren.
 
-### <a name="example-use-case"></a>Voorbeeld van de use-case
+### <a name="example-use-case"></a>Voorbeeld van een toepassing
 
 Gebeurtenis domeinen worden gebruikt met behulp van een voorbeeld van de meest eenvoudige beschreven. Stel dat u Contoso bouwmachines, waarbij de productie van door de constructie bepaalde, bestuderen apparatuur en andere zware machines worden uitgevoerd. Als onderdeel van het uitvoeren van het bedrijf, pusht u realtime gegevens naar klanten over apparatuur onderhoud, status van sitesystemen en contract-updates. Al deze gegevens gaat u naar verschillende eindpunten, met inbegrip van uw app, de klant-eindpunten en andere infrastructuur die klanten hebt ingesteld.
 

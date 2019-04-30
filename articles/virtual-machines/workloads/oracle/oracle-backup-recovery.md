@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 93fbd5bbba91b45e1afd123a2466b249302e2354
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492837"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60566815"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Back-up en herstellen van een Oracle Database 12c-database op een virtuele Azure Linux-machine
 
@@ -30,7 +30,7 @@ Voordat u begint, zorg ervoor dat Azure CLI is geïnstalleerd. Zie voor meer inf
 
 ## <a name="prepare-the-environment"></a>De omgeving voorbereiden
 
-### <a name="step-1-prerequisites"></a>Stap 1: vereisten
+### <a name="step-1-prerequisites"></a>Stap 1: Vereisten
 
 *   Als u het proces van back-up en herstel, moet u eerst een Linux-VM met een geïnstalleerd exemplaar van Oracle Database 12c maken. De Marketplace-installatiekopie die u kunt de virtuele machine maken met de naam *Oracle: Oracle-Database-Ee:12.1.0.2:latest*.
 
@@ -191,7 +191,7 @@ Toepassingsconsistente back-ups is een nieuwe functie in Azure Backup. U kunt ma
 
     Hier volgt een voorbeeld van scripts voor voorafgaat aan momentopnamen en volgt op momentopnamen voor een 'koude back-up' (een offline back-up, met afsluiten en opnieuw starten):
 
-    Voor /etc/azure/pre_script.sh:
+    For /etc/azure/pre_script.sh:
 
     ```bash
     v_date=`date +%Y%m%d%H%M`
@@ -200,7 +200,7 @@ Toepassingsconsistente back-ups is een nieuwe functie in Azure Backup. U kunt ma
     su - $ORA_OWNER -c "$ORA_HOME/bin/dbshut $ORA_HOME" > /etc/azure/pre_script_$v_date.log
     ```
 
-    Voor /etc/azure/post_script.sh:
+    For /etc/azure/post_script.sh:
 
     ```bash
     v_date=`date +%Y%m%d%H%M`
@@ -218,7 +218,7 @@ Toepassingsconsistente back-ups is een nieuwe functie in Azure Backup. U kunt ma
     su - $ORA_OWNER -c "sqlplus / as sysdba @/etc/azure/pre_script.sql" > /etc/azure/pre_script_$v_date.log
     ```
 
-    Voor /etc/azure/post_script.sh:
+    For /etc/azure/post_script.sh:
 
     ```bash
     v_date=`date +%Y%m%d%H%M`
@@ -307,7 +307,7 @@ Zie voor meer informatie, [toepassingsconsistente back-up voor virtuele Linux-ma
 
     ![Recovery Services-kluizen de opdracht nu back-up](./media/oracle-backup-recovery/recovery_service_09.png)
 
-10. Klik op de **back-up** knop. Wacht tot de back-proces is voltooid. Ga vervolgens naar [stap 6: verwijderen van de databasebestanden](#step-6-remove-the-database-files).
+10. Klik op de **back-up** knop. Wacht tot de back-proces is voltooid. Ga vervolgens naar [stap 6: Verwijderen van de databasebestanden](#step-6-remove-the-database-files).
 
     Als u wilt de status van de back-uptaak weergeven, klikt u op **taken**.
 
@@ -319,7 +319,7 @@ Zie voor meer informatie, [toepassingsconsistente back-up voor virtuele Linux-ma
 
 11. Los eventuele fouten in het logboekbestand voor een toepassingsconsistente back-up. Het logboekbestand bevindt zich op /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/1.0.9114.0.
 
-### <a name="step-6-remove-the-database-files"></a>Stap 6: De databasebestanden verwijderen 
+### <a name="step-6-remove-the-database-files"></a>Stap 6: Bestanden van de database verwijderen 
 Verderop in dit artikel leert u hoe u kunt het herstelproces te testen. Voordat u het herstelproces testen kunt, moet u de databasebestanden verwijderen.
 
 1.  Verwijder de bestanden tabelruimte en back-up:
@@ -452,7 +452,7 @@ Als u de verwijderde bestanden herstellen, voert u de volgende stappen uit:
 
 In plaats van de verwijderde bestanden terugzetten vanuit de Recovery Services-kluizen, kunt u de volledige virtuele machine herstellen.
 
-### <a name="step-1-delete-myvm"></a>Stap 1: Verwijderen myVM
+### <a name="step-1-delete-myvm"></a>Stap 1: MyVM verwijderen
 
 *   In de Azure-portal, gaat u naar de **myVM1** kluis en selecteer vervolgens **verwijderen**.
 
@@ -527,7 +527,7 @@ Nadat de virtuele machine is hersteld, instellen van het openbare IP-adres.
     ssh <publicIpAddress>
     ```
 
-### <a name="step-5-test-whether-the-database-is-accessible"></a>Stap 5: Controleren of de database toegankelijk is
+### <a name="step-5-test-whether-the-database-is-accessible"></a>Stap 5: Test of de database toegankelijk is
 *   Als u wilt testen toegankelijkheid, moet u het volgende script gebruiken:
 
     ```bash 
@@ -537,9 +537,9 @@ Nadat de virtuele machine is hersteld, instellen van het openbare IP-adres.
     ```
 
     > [!IMPORTANT]
-    > Als de database **opstarten** opdracht een fout wordt gegenereerd, waarnaar de database hersteld, Zie [stap 6: RMAN gebruiken om de database te herstellen](#step-6-optional-use-rman-to-recover-the-database).
+    > Als de database **opstarten** opdracht een fout wordt gegenereerd, waarnaar de database hersteld, Zie [stap 6: RMAN gebruiken om te herstellen van de database](#step-6-optional-use-rman-to-recover-the-database).
 
-### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Stap 6: (Optioneel) gebruik RMAN om de database te herstellen
+### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Stap 6: (Optioneel) RMAN gebruiken om de database te herstellen
 *   Als u wilt herstellen van de database, moet u het volgende script gebruiken:
 
     ```bash
@@ -564,7 +564,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Zelfstudie: Een maximaal beschikbare virtuele machines maken](../../linux/create-cli-complete.md)
+[Zelfstudie: Maximaal beschikbare virtuele machines maken](../../linux/create-cli-complete.md)
 
 [Azure CLI-voorbeelden voor VM-implementatie verkennen](../../linux/cli-samples.md)
 

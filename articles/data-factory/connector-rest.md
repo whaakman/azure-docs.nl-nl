@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: jingwang
 ms.openlocfilehash: ee47f464c59bd9deed98671f19cfcc6d2c3c1b39
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762477"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546626"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Gegevens kopiëren van een REST-eindpunt met behulp van Azure Data Factory
 
@@ -67,8 +67,8 @@ Stel de **authenticationType** eigenschap **Basic**. Naast de algemene eigenscha
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| Gebruikersnaam | De gebruikersnaam gebruiken voor toegang tot het REST-eindpunt. | Ja |
-| wachtwoord | Het wachtwoord voor de gebruiker (de **gebruikersnaam** waarde). Dit veld als markeert een **SecureString** type voor het veilig opslaan in Data Factory. U kunt ook [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| userName | De gebruikersnaam gebruiken voor toegang tot het REST-eindpunt. | Ja |
+| password | Het wachtwoord voor de gebruiker (de **gebruikersnaam** waarde). Dit veld als markeert een **SecureString** type voor het veilig opslaan in Data Factory. U kunt ook [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Voorbeeld**
 

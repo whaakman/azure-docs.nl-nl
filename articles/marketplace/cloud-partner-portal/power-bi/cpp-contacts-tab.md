@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 191f58252aadf776465bb097207a7e76c0f92003
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415167"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594983"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Power BI-App Contacts tabblad
 
 Gebruik de **contactpersonen** tabblad van de **nieuwe aanbieding** pagina voor technische en gebruiker bronnen voor ondersteuning van uw aanbieding. Het is onderverdeeld in twee secties: **Technische** en **klantondersteuning**.
 
-![Tabblad contactpersonen](media/contacts-tab.png)
+![Tabblad Contactpersonen](media/contacts-tab.png)
 
 
 ## <a name="contacts-fields"></a>Contactpersonen velden 

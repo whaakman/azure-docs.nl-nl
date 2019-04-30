@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: db701a239aedb312c7671e403cdfde7135130c6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 644cc2a4175043b523d53b39f17483c6f3acfe96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089604"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60558404"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Hoe ontwikkelaarsaccounts authoriseren met behulp van Azure Active Directory B2C in Azure API Management
 
@@ -69,29 +69,20 @@ Azure Active Directory B2C is een cloudoplossing voor het beheer van identiteit 
    ![Toepassings-ID 1][api-management-howto-aad-b2c-app-id]
 
 9. Ga terug naar de API Management **id-provider toevoegen** deelvenster en plak de ID in de **Client-Id** in het tekstvak.
-
-   ![Toepassings-ID 2][api-management-howto-aad-b2c-client-id]
-
+    
 10. Ga terug naar de B2C-app-registratie, klikt u op de **sleutels** knop en klik vervolgens op **sleutel genereren**. Klik op **opslaan** aan de configuratie opslaan en weergeven van de **App-sleutel**. De sleutel naar het Klembord kopiëren.
 
     ![App-sleutel 1][api-management-howto-aad-b2c-app-key]
 
 11. Ga terug naar de API Management **id-provider toevoegen** deelvenster en plak de sleutel in de **Clientgeheim** in het tekstvak.
+    
+12. Geef de domeinnaam van de Azure Active Directory B2C-tenant in **tenant voor aanmelding**.
 
-    ![App-sleutel 2][api-management-howto-aad-b2c-client-secret]
+13. De **instantie** veld kunt u bepalen van de Azure AD B2C-aanmeldings-URL te gebruiken. Stel de waarde voor **< your_b2c_tenant_name >. b2clogin.com**.
 
-12. Geef de domeinnaam van de Azure Active Directory B2C-tenant in **toegestane Tenant**.
+14. Geef de **registratie beleid** en **aanmelding beleid** van de B2C-Tenant voor. (Optioneel) u kunt ook opgeven de **bewerken-Mailprofielbeleid** en **wachtwoord opnieuw instellen van beleid**.
 
-    ![Toegestane tenant][api-management-howto-aad-b2c-allowed-tenant]
-
-13. Geef de **registratie beleid** en **aanmelding beleid** van de B2C-Tenant voor. (Optioneel) u kunt ook opgeven de **bewerken-Mailprofielbeleid** en **wachtwoord opnieuw instellen van beleid**.
-
-    ![Beleidsregels][api-management-howto-aad-b2c-policies]
-
-    > [!NOTE]
-    > Zie voor meer informatie over het beleid [Azure Active Directory B2C: Uitbreidbaar beleidsschema].
-
-14. Nadat u de gewenste configuratie hebt opgegeven, klikt u op **opslaan**.
+15. Nadat u de gewenste configuratie hebt opgegeven, klikt u op **opslaan**.
 
     Nadat de wijzigingen zijn opgeslagen, zich ontwikkelaars op nieuwe accounts maken en aanmelden bij de portal voor ontwikkelaars met behulp van Azure Active Directory B2C.
 

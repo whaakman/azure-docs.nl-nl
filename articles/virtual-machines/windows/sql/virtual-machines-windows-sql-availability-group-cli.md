@@ -15,11 +15,11 @@ ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 1c5c5f4c8125f801edc89d47851871d8eb06a2f9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762868"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591290"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Azure SQL VM CLI gebruiken voor het configureren van AlwaysOn-beschikbaarheidsgroep voor SQL Server op een Azure VM
 In dit artikel wordt beschreven hoe u [Azure SQL VM CLI](/cli/azure/sql/vm?view=azure-cli-latest/) voor het implementeren van een Windows Failover Cluster (WSFC), en SQL Server-VM's toevoegen aan het cluster, evenals de interne Load Balancer en voor een AlwaysOn-beschikbaarheidsgroep-listener maken.  De werkelijke implementatie van de AlwaysOn-beschikbaarheidsgroep is nog steeds handmatig uitgevoerd via SQL Server Management Studio (SSMS). 

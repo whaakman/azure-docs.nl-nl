@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
 ms.openlocfilehash: b67d656ed6ab537a01696ec9c0c98f84b880f03b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470613"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561559"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid-gebeurtenisschema
 

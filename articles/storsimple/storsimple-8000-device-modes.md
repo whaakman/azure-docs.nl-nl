@@ -1,6 +1,6 @@
 ---
-title: Modus wijzigen StorSimple-apparaat | Microsoft Docs
-description: Beschrijft de modus voor de StorSimple-apparaat en wordt uitgelegd hoe u Windows PowerShell voor StorSimple om de apparatuurmodus te wijzigen.
+title: StorSimple-apparaatmodus wijzigen | Microsoft Docs
+description: Beschrijving van de StorSimple-apparaat-modi en wordt uitgelegd hoe u Windows PowerShell voor StorSimple gebruiken om te wijzigen van de modus van het apparaat.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,76 +14,76 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: dd160ede1189b0de544c8cf5db3b13228d212419
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e55964beff48df6ce24d99c01975d39b662f1612
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23875016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60576086"
 ---
-# <a name="change-the-device-mode-on-your-storsimple-device"></a>Wijzig de apparatuurmodus op uw StorSimple-apparaat
+# <a name="change-the-device-mode-on-your-storsimple-device"></a>De apparatuurmodus op uw StorSimple-apparaat wijzigen
 
-Dit artikel bevat een korte beschrijving van de verschillende modi waarin uw StorSimple-apparaat kan worden uitgevoerd. Uw StorSimple-apparaat kan worden gebruikt in de drie beschikbare modi: standaard, onderhoud en herstel.
+Dit artikel bevat een korte beschrijving van de verschillende modi waarin uw StorSimple-apparaat kan worden uitgevoerd. Uw StorSimple-apparaat kunt werken in drie modi: normaal, onderhoud en herstel.
 
-Na het lezen van dit artikel wordt u het volgende weten:
+Na het lezen van dit artikel, wordt u het volgende weten:
 
-* Welke de StorSimple-apparaat-modi
-* Hoe om te achterhalen welke modus de StorSimple-apparaat bevindt zich in
-* Het wijzigen van de normale naar de onderhoudsmodus en *omgekeerd*
+* Wat de StorSimple-apparaat-modi
+* Hoe om te achterhalen welke modus het StorSimple-apparaat is in
+* Het wijzigen van een normale naar de onderhoudsmodus en *omgekeerd*
 
 De bovenstaande beheertaken kunnen alleen worden uitgevoerd via de Windows PowerShell-interface van uw StorSimple-apparaat.
 
-## <a name="about-storsimple-device-modes"></a>Over de modi van StorSimple-apparaat
+## <a name="about-storsimple-device-modes"></a>Over de modi van de StorSimple-apparaat
 
-Uw StorSimple-apparaat kan werken in de modus Normaal, onderhoud of herstellen. Elk van deze modi wordt kort hieronder beschreven.
+Uw StorSimple-apparaat kan werken in de modus voor normale, het onderhoud of herstel. Elk van deze modi wordt kort hieronder beschreven.
 
 ### <a name="normal-mode"></a>Normale modus
 
-Dit is gedefinieerd als de normale operationele modus voor volledig geconfigureerde StorSimple-apparaat. Standaard moet uw apparaat in de normale modus.
+Dit wordt gedefinieerd als de normale operationele modus voor een volledig geconfigureerde StorSimple-apparaat. Standaard moet uw apparaat in de normale modus.
 
 ### <a name="maintenance-mode"></a>Onderhoudsmodus
 
-Soms moet het StorSimple-apparaat kan worden geplaatst in de onderhoudsmodus. Deze modus kunt u onderhoud uitvoeren op het apparaat en verstoren updates, zoals die betrekking hebben op firmware van de schijf installeren.
+Soms kan het StorSimple-apparaat moet in de onderhoudsmodus worden geplaatst. In deze modus kunt u onderhoud uit te voeren op het apparaat en het installeren van updates waarvoor de computer, zoals die zijn gerelateerd aan de schijffirmware.
 
-U kunt het systeem plaatsen in de onderhoudsmodus alleen via de Windows PowerShell voor StorSimple. Alle i/o-aanvragen zijn in deze modus onderbroken. Services zoals niet-vluchtige RAM-geheugen (NVRAM) of de clusteringservice ook worden gestopt. Beide domeincontrollers worden opnieuw opgestart wanneer u in of uit deze modus. Wanneer u de onderhoudsmodus afsluit, worden alle services wordt hervat en moeten in orde. Dit kan enkele minuten duren.
+U kunt het systeem plaatsen in de onderhoudsmodus alleen via de Windows PowerShell voor StorSimple. Alle i/o-aanvragen zijn in deze modus onderbroken. Services, zoals niet-vluchtige RAM-geheugen (NVRAM) of de clustering-service worden ook gestopt. Beide controllers zijn opnieuw gestart wanneer u opgeven of deze modus sluit. Wanneer u de onderhoudsmodus afsluit, worden alle services wordt hervat en moeten in orde. Dit kan enkele minuten duren.
 
 > [!NOTE]
-> **Onderhoudsmodus wordt alleen ondersteund op een apparaat naar behoren werkt. Dit wordt niet ondersteund op een apparaat waarop een of beide van de domeincontrollers niet functioneren.**
+> **In de onderhoudsmodus wordt alleen ondersteund op een apparaat naar behoren werkt. Het wordt niet ondersteund op een apparaat waarop een of beide van de controllers niet werken.**
 
 
 ### <a name="recovery-mode"></a>Modus voor herstel
 
-Herstelmodus kan als 'Veilige modus voor Windows met netwerkondersteuning' worden beschreven. Herstelmodus stelt het team van Microsoft Support en kan ze voor het uitvoeren van diagnostische gegevens op het systeem. Het voornaamste doel van de herstelmodus is voor het ophalen van het systeemlogboek in Logboeken.
+Herstelmodus kan worden aangeduid met 'Windows veilige modus met netwerkondersteuning'. Herstelmodus praat met het team van Microsoft Support en kan ze uit te voeren van diagnostische gegevens op het systeem. Het voornaamste doel van de herstelmodus is om op te halen van het systeemlogboek in Logboeken.
 
-Als uw systeem in de herstelmodus overgaat wordt, neemt u contact op met Microsoft Support voor volgende stappen. Ga voor meer informatie naar [contact opnemen met Microsoft ondersteuning](storsimple-8000-contact-microsoft-support.md).
+Als uw systeem in de herstelmodus gaat, neemt u contact op met Microsoft Support voor de volgende stappen. Ga voor meer informatie naar [contact opnemen met Microsoft ondersteuning](storsimple-8000-contact-microsoft-support.md).
 
 > [!NOTE]
-> **U kunt het apparaat in herstelmodus plaatsen. Als het apparaat in orde is, probeert op te halen van het apparaat in een status waarin medewerkers van Microsoft Support Bekijk deze herstelmodus.**
+> **U kunt het apparaat kan niet plaatsen in de herstelmodus. Als het apparaat in orde is, probeert de herstelmodus om op te halen van het apparaat in een status waarin medewerkers van Microsoft Support, deze kunnen bekijken.**
 
-## <a name="determine-storsimple-device-mode"></a>Modus van StorSimple-apparaat bepalen
+## <a name="determine-storsimple-device-mode"></a>StorSimple-apparaatmodus bepalen
 
-#### <a name="to-determine-the-current-device-mode"></a>Om te bepalen van de huidige apparatuurmodus
+#### <a name="to-determine-the-current-device-mode"></a>Om te bepalen van de huidige modus van het apparaat
 
-1. Meld u aan bij de seriële console van het apparaat door de stappen in [PuTTY gebruiken om verbinding maken met de seriële console van het apparaat](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-2. Bekijk het bannerbericht aangegeven in het menu van de seriële console van het apparaat. Dit bericht expliciet geeft aan of het apparaat in de modus voor onderhoud of herstel. Als het bericht geen specifieke gegevens met betrekking tot de systeem-modus bevat, is het apparaat in de normale modus.
+1. Meld u aan bij de seriële console van het apparaat met de volgende stappen in [PuTTY gebruiken om verbinding maken met de seriële console van het apparaat](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+2. Bekijk het bannerbericht aangegeven in het menu van de seriële console van het apparaat. Dit bericht geeft expliciet aan of het apparaat zich in de modus voor onderhoud of herstel. Als het bericht bevat geen specifieke gegevens die betrekking hebben op het systeem-modus, wordt het apparaat is in de normale modus.
 
-## <a name="change-the-storsimple-device-mode"></a>De modus StorSimple-apparaat wijzigen
+## <a name="change-the-storsimple-device-mode"></a>De StorSimple-apparaatmodus wijzigen
 
-U kunt het StorSimple-apparaat plaatsen in de onderhoudsmodus (van de normale modus) voor het uitvoeren van onderhoud of onderhoud modus updates installeren. Voer de volgende procedures om in of uit de onderhoudsmodus.
+U kunt het StorSimple-apparaat in de onderhoudsmodus (van de normale modus) voor het uitvoeren van onderhoud of installeren van updates voor de onderhoudsmodus plaatsen. Voer de volgende procedures om in de of de onderhoudsmodus afsluit.
 
 > [!IMPORTANT]
-> Voordat u de onderhoudsmodus invoert, of beide apparaatcontrollers in orde zijn met het openen van de **apparaatinstellingen > Hardware health** voor uw apparaat in de Azure portal. Als een of beide domeincontrollers niet in orde, neem dan contact op met Microsoft Support voor de volgende stappen. Ga voor meer informatie naar [contact opnemen met Microsoft ondersteuning](storsimple-8000-contact-microsoft-support.md).
+> Voordat u de onderhoudsmodus invoert, te controleren of beide apparaatcontrollers in orde zijn door het openen van de **apparaatinstellingen > hardwarestatus** voor uw apparaat in Azure portal. Als een of beide controllers niet in orde, neem dan contact op met Microsoft Support voor de volgende stappen. Ga voor meer informatie naar [contact opnemen met Microsoft ondersteuning](storsimple-8000-contact-microsoft-support.md).
  
 
-#### <a name="to-enter-maintenance-mode"></a>Onderhoudsmodus invoeren
+#### <a name="to-enter-maintenance-mode"></a>Om in te voeren in de onderhoudsmodus
 
-1. Meld u aan bij de seriële console van het apparaat door de stappen in [PuTTY gebruiken om verbinding maken met de seriële console van het apparaat](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-2. Kies in het menu van de seriële console optie 1, **aanmelden met volledige toegang**. Geef desgevraagd de **wachtwoord apparaatbeheerder**. Is het standaardwachtwoord: `Password1`.
+1. Meld u aan bij de seriële console van het apparaat met de volgende stappen in [PuTTY gebruiken om verbinding maken met de seriële console van het apparaat](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+2. Kies in het menu van de seriële console optie 1, **Meld u aan met volledige toegang tot de**. Als u hierom wordt gevraagd, geeft u de **beheerderswachtwoord**. Is het standaardwachtwoord: `Password1`.
 3. Typ het volgende achter de opdrachtprompt 
    
     `Enter-HcsMaintenanceMode`
-4. Hier ziet u een waarschuwingsbericht weergegeven waarin staat dat onderhoudsmodus wordt verstoord alle i/o-aanvragen en de verbinding met de Azure portal-server en wordt u gevraagd om bevestiging. Type **Y** onderhoudsmodus invoeren.
-5. Beide domeincontrollers wordt opnieuw opgestart. Wanneer het opnieuw opstarten voltooid is, wordt de seriële console banner aangegeven dat het apparaat in de onderhoudsmodus is. Hieronder ziet u een voorbeeld van de uitvoer.
+4. Hier ziet u een waarschuwingsbericht wordt weergegeven waarin staat dat in de onderhoudsmodus wordt alle i/o-aanvragen worden onderbroken en de verbinding met de Azure-portal-server, en wordt u gevraagd om bevestiging. Type **Y** in te voeren in de onderhoudsmodus.
+5. Beide controllers wordt opnieuw opgestart. Wanneer de computer opnieuw opgestart is, kan de banner van de seriële console wordt aangegeven dat het apparaat in de onderhoudsmodus bevindt is. Hieronder ziet u een voorbeeld van de uitvoer.
 
 ```
     ---------------------------------------------------------------
@@ -119,14 +119,14 @@ U kunt het StorSimple-apparaat plaatsen in de onderhoudsmodus (van de normale mo
 
 ```
 
-#### <a name="to-exit-maintenance-mode"></a>Om af te sluiten van onderhoudsmodus
+#### <a name="to-exit-maintenance-mode"></a>Om af te sluiten in de onderhoudsmodus
 
-1. Meld u bij de seriële console van het apparaat. Controleer de van het bannerbericht aangegeven dat uw apparaat in de onderhoudsmodus.
-2. Typ het volgende achter de opdrachtprompt:
+1. Meld u op de seriële console van het apparaat. Controleer of in het bannerbericht aangegeven dat het apparaat in de onderhoudsmodus bevindt.
+2. Typ in de opdrachtprompt:
    
     `Exit-HcsMaintenanceMode`
-3. Een waarschuwing en een bevestigingsbericht wordt weergegeven. Type **Y** om af te sluiten van de onderhoudsmodus.
-4. Beide domeincontrollers wordt opnieuw opgestart. Wanneer de computer opnieuw opgestart is, de seriële console banner geeft aan dat het apparaat in de normale modus. Hieronder ziet u een voorbeeld van de uitvoer.
+3. Een waarschuwingsbericht wordt weergegeven en een bevestigingsbericht weergegeven. Type **Y** om af te sluiten in de onderhoudsmodus.
+4. Beide controllers wordt opnieuw opgestart. Wanneer de computer opnieuw opgestart is, de banner van de seriële console geeft aan dat het apparaat in de normale modus. Hieronder ziet u een voorbeeld van de uitvoer.
 
 ```
     -----------------------MAINTENANCE MODE------------------------
@@ -163,5 +163,5 @@ U kunt het StorSimple-apparaat plaatsen in de onderhoudsmodus (van de normale mo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over hoe [normaal en onderhoud modus updates toepassen](storsimple-update-device.md) op uw StorSimple-apparaat.
+Meer informatie over het [toepassen van updates voor de normale en onderhoud](storsimple-update-device.md) op uw StorSimple-apparaat.
 

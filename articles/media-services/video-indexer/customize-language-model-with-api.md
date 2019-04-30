@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
 ms.openlocfilehash: ca1e66d20b19c1a5b85a4f4ff1c433331116bee7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002031"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553739"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Een taalmodel met Video Indexer-API's aanpassen
 
@@ -236,7 +236,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |modelId|string|Ja|De taal model-id (gegenereerd wanneer het taalmodel wordt gemaakt).|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 |modelName|string|Nee|Nieuwe naam die u tot het model geven kunt|
-|inschakelen|boolean|Nee|Kiezen of alle bestanden onder dit model worden ingeschakeld (true) of uitgeschakeld (ONWAAR)|
+|inschakelen|booleaans|Nee|Kiezen of alle bestanden onder dit model worden ingeschakeld (true) of uitgeschakeld (ONWAAR)|
 
 ### <a name="request-body"></a>Aanvraagbody
 
@@ -306,7 +306,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |fileId|string|Ja|Id van het bestand dat moet worden bijgewerkt (gegenereerd wanneer het bestand geüpload bij het maken of bijwerken van het taalmodel is)|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 |fileName|string|Nee|Naam van de bestandsnaam om te werken|
-|inschakelen|boolean|Nee|Bijwerken of dit bestand is (true) of uitgeschakeld (ONWAAR) in het taalmodel|
+|inschakelen|booleaans|Nee|Bijwerken of dit bestand is (true) of uitgeschakeld (ONWAAR) in het taalmodel|
 
 ### <a name="request-body"></a>Aanvraagbody
 

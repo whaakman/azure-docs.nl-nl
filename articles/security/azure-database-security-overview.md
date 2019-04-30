@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
 ms.openlocfilehash: 7e0e93c82279ec1a4fbecbbf27c7a1866286b2f8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587605"
 ---
 # <a name="azure-database-security-overview"></a>Overzicht van de beveiliging van Azure-database
 
@@ -110,7 +110,7 @@ De beveiliging van gegevens begint met het beheren van toegang tot uw gegevens. 
 
 De Azure SQL Database-service is alleen beschikbaar via TCP-poort 1433. Voor toegang tot een SQL-database van uw computer, moet u ervoor zorgen dat de firewall van uw clientcomputer uitgaande TCP-communicatie op TCP-poort 1433 toestaat. Als binnenkomende verbindingen niet nodig zijn voor andere toepassingen, kunt u ze op TCP-poort 1433 blokkeren.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Verificatie
 
 Verificatie verwijst naar hoe u uw identiteit bewijst bij het maken van verbinding met de database. SQL Database ondersteunt twee typen verificatie:
 
@@ -188,7 +188,7 @@ Er zijn twee methoden voor controle:
 SQL geavanceerde Threat Protection (ATP) biedt een geavanceerde SQL-beveiligingsmogelijkheden, met inbegrip van gegevensdetectie en classificatie, evaluatie van beveiligingsproblemen en detectie van bedreigingen. 
 
 - [Gegevensdetectie en classificatie](../sql-database/sql-database-data-discovery-and-classification.md)
-- [Evaluatie van beveiligingsproblemen](../sql-database/sql-vulnerability-assessment.md)  
+- [Beoordeling van beveiligingsproblemen](../sql-database/sql-vulnerability-assessment.md)  
 - [Detectie van bedreigingen](../sql-database/sql-database-threat-detection.md)
 
 [Azure Database for PostgreSQL Advanced Threat Protection](../postgresql/concepts-data-access-and-security-threat-protection.md) biedt een nieuwe beveiligingslaag, waarmee u om te detecteren en op mogelijke bedreigingen reageert zodra ze zich voordoen, dankzij beveiligingswaarschuwingen over afwijkende activiteiten. Gebruikers ontvangen een waarschuwing bij verdachte databaseactiviteiten, en mogelijke beveiligingsproblemen, evenals afwijkende toegang en query's patronen. Advanced Threat Protection voor Azure Database for PostgreSQL integreert waarschuwingen met Azure Security Center. Het type waarschuwingen zijn onder andere:

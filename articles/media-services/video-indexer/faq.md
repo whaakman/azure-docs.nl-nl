@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892656"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553688"
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -160,7 +160,7 @@ Video Indexer maakt gebruik van een eenvoudige betalen per gebruik prijsmodel op
 
 ### <a name="when-am-i-billed-for-using-video-indexer"></a>Wanneer Word ik gefactureerd voor het gebruik van Video Indexer?
 
-Bij het verzenden van een video worden geïndexeerd, definieert de gebruiker het indexeren om video-analyse, audioanalyse of beide. Hierdoor kunt u bepalen welke SKU's wordt in rekening gebracht. Als er een kritieke fout tijdens de verwerking, wordt een foutcode worden geretourneerd als antwoord. In dat geval geen facturering vindt plaats.  Een kritieke fout kan zijn veroorzaakt door een fout in de code of heeft een kritieke fout in een interne afhankelijkheid van de service. Fouten, zoals onjuiste-id of het inzicht extractie worden niet beschouwd als kritiek en een antwoord wordt geretourneerd. Wanneer een reactie geldig (niet-foutcode) wordt geretourneerd, wordt in elk geval facturering plaatsvindt.
+Wanneer u een video opstuurt om deze te laten indexeren, geeft u aan dat de video, de audio of beide moeten worden geanalyseerd. Op basis hiervan wordt bepaald voor welke SKU's kosten in rekening worden gebracht. Als er tijdens de verwerking een kritieke fout optreedt, wordt er als antwoord een foutcode geretourneerd. In een dergelijk geval worden er geen kosten in rekening gebracht.  Kritieke fouten kunnen worden veroorzaakt door een bug in onze code of een kritiek probleem met een interne afhankelijkheid van de service. Bij fouten zoals onjuiste verificatie of de onjuiste extractie van inzichten, wordt er gewoon een antwoord geretourneerd; deze fouten zijn niet kritiek. Als er een geldig antwoord wordt geretourneerd (geen foutcode), worden er kosten in rekening gebracht.
  
 ### <a name="does-video-indexer-offer-a-free-trial"></a>Biedt Video Indexer een gratis proefversie?
 

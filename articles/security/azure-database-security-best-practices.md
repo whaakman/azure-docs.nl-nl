@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
 ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587514"
 ---
 # <a name="azure-database-security-best-practices"></a>Aanbevolen beveiligingsprocedures voor Azure-database
 De beveiliging is een belangrijkste aandachtspunt voor het beheren van databases en het is altijd een prioriteit voor [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Uw databases kunnen nauw worden beveiligd om te voldoen aan meest regelgevingsbehoeften of beveiligingsvereisten, zoals HIPAA, ISO 27001/27002 en PCI DSS Level 1. Een huidige lijst van nalevingscertificeringen voor beveiliging is beschikbaar op de [Microsoft Trust Center site](https://azure.microsoft.com/support/trust-center/services/). U kunt ook uw databases in specifieke Azure-datacenters op basis van wettelijke eisen die plaatsen.
@@ -77,7 +77,7 @@ Als u SQL Server-verificatie gebruikt, moet u:
 
 - De sterke referenties beheren zelf.
 - De referenties in de connection string worden beveiligd.
-- De referenties die zijn doorgegeven via het netwerk van de webserver naar de database (potentieel) beveiligen. Zie voor meer informatie, [het: Verbinding maken met SQL Server met SQL-verificatie in ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
+- De referenties die zijn doorgegeven via het netwerk van de webserver naar de database (potentieel) beveiligen. Zie voor meer informatie [Procedure: Verbinding maken met SQL Server met SQL-verificatie in ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Verificatie met Azure Active Directory (AD)*
 Azure AD-verificatie is een mechanisme van verbinding maken met Azure SQL Database en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) met behulp van identiteiten in Azure AD. Met Azure AD-verificatie, kunt u de identiteit van databasegebruikers en andere Microsoft-services op één centrale locatie kunt beheren. Centrale ID-beheer biedt één plek voor het beheren van databasegebruikers en vereenvoudigt het beheer van machtigingen.

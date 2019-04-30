@@ -15,11 +15,11 @@ ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526364"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60595771"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Het maken van een oplossingsbestand management in Azure (Preview)
 > [!NOTE]
@@ -222,7 +222,7 @@ Het bovenstaande voorbeeld is voor een oplossing met een runbook, een planning e
 ### <a name="plan"></a>Plannen
 De **plan** entiteit van de resource van de oplossing heeft de eigenschappen in de volgende tabel.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | naam |Naam van de oplossing. |
 | versie |De versie van de oplossing zoals wordt bepaald door de auteur. |

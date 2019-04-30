@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/19/2019
 ms.openlocfilehash: fad9437a631254d6c60d6d97267ae111d195040f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567448"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585679"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database elastische query overzicht (preview)
 
@@ -134,7 +134,7 @@ Verbindingsreeksen voor normale SQL Server kunt u verbinding maken met uw toepas
 
 Elastische query's is opgenomen in de kosten van Azure SQL Database-databases. Houd er rekening mee dat topologieën waar uw externe databases zich in een ander datacenter dan het eindpunt van de elastische query's bevinden worden ondersteund, maar de uitgaande gegevens uit externe databases wordt in rekening gebracht regelmatig [Azure-tarieven](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-## <a name="preview-limitations"></a>Beperkingen voor Preview
+## <a name="preview-limitations"></a>Preview-beperkingen
 
 * Uw eerste elastische query uit te voeren met een paar minuten op het serviceniveau Standard kan duren. Deze tijd is noodzakelijk om te laden van de functionaliteit van elastische query's; het laden van de prestaties worden verbeterd met hogere service-lagen en compute-grootten.
 * Scripts van externe gegevensbronnen of externe tabellen van SSMS of SSDT is nog niet ondersteund.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 895b5cfb121347f9400d1aa315fef05d9088c55c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 41a583a77f85bb1524112fa20d9098e18bc4f431
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366468"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587935"
 ---
 # <a name="createuidefinition-elements"></a>CreateUiDefinition-elementen
 Dit artikel wordt beschreven voor het schema en de eigenschappen voor alle ondersteunde elementen van een CreateUiDefinition. 
@@ -38,13 +38,13 @@ Het schema voor de meeste elementen is als volgt:
 }
 ```
 
-| Eigenschap | Vereist | Beschrijving |
+| Eigenschap | Vereist | Description |
 | -------- | -------- | ----------- |
 | naam | Ja | Een interne id om te verwijzen naar een specifiek exemplaar van een element. De meest voorkomende gebruik van de naam van het element is in `outputs`, waar de uitvoerwaarden van de opgegeven elementen zijn toegewezen aan de parameters van de sjabloon. U kunt deze ook gebruiken om te koppelen van de uitvoerwaarde van een element op de `defaultValue` van een ander element. |
 | type | Ja | De UI-besturingselement om weer te geven voor het element. Zie voor een lijst van ondersteunde typen [elementen](#elements). |
 | label | Ja | De weergegeven tekst van het element. Sommige elementtypen bevatten meerdere labels, zodat de waarde kan een object met meerdere tekenreeksen zijn. |
 | defaultValue | Nee | De standaardwaarde van het element. Sommige elementtypen ondersteuning voor complexe standaardwaarden, zodat de waarde kan een object zijn. |
-| Knopinfo | Nee | De tekst die moet worden weergegeven in de knopinfo van het element. Vergelijkbaar met `label`, bepaalde onderdelen van de ondersteuning van meerdere hulpprogramma tip tekenreeksen. Inlinelinks kan worden ingesloten Markdown-syntaxis gebruiken.
+| toolTip | Nee | De tekst die moet worden weergegeven in de knopinfo van het element. Vergelijkbaar met `label`, bepaalde onderdelen van de ondersteuning van meerdere hulpprogramma tip tekenreeksen. Inlinelinks kan worden ingesloten Markdown-syntaxis gebruiken.
 | Beperkingen | Nee | Een of meer eigenschappen die worden gebruikt voor het aanpassen van de werking van de validatie van het element. De ondersteunde eigenschappen voor beperkingen variëren per elementtype. Sommige elementtypen geen ondersteuning voor aanpassing van het validatiegedrag, en dus er is geen eigenschap beperkingen hebben. |
 | opties | Nee | Extra eigenschappen die het gedrag van het element aanpassen. Vergelijkbaar met `constraints`, de ondersteunde eigenschappen variëren per elementtype. |
 | Zichtbaar | Nee | Geeft aan of het element wordt weergegeven. Als `true`, het element en de betreffende onderliggende elementen worden weergegeven. De standaardwaarde is `true`. Gebruik [logische functies](create-uidefinition-functions.md#logical-functions) dynamisch beheren de waarde van deze eigenschap.

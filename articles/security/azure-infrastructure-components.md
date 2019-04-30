@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: b390dc9bd2b690837a85a5bab361a534b9c9d5a5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118136"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587198"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Onderdelen van het systeem Azure informatie en grenzen
 Dit artikel bevat een algemene beschrijving van de Azure-architectuur en het beheer. De Azure-systeem-omgeving bestaat uit de volgende netwerken:
@@ -84,7 +84,7 @@ De serviceteams zijn:
 - ISSD: Beveiliging
 - Multifactor Authentication
 - SQL Database
-- Opslag
+- Storage
 
 ## <a name="types-of-users"></a>Typen gebruikers
 Werknemers (of ingehuurd personeel) van Microsoft worden beschouwd als interne gebruikers. Alle andere gebruikers worden beschouwd als externe gebruikers. Alle Azure-interne gebruikers hebben de status van de werknemer gecategoriseerd met een gevoeligheidsniveau waarmee de toegang tot klantgegevens (toegang of geen toegang). Gebruiker heeft bevoegdheden die naar Azure (autorisatie machtiging nadat verificatie plaatsgevonden heeft) worden in de volgende tabel beschreven:

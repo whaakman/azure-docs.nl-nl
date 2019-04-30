@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: spelluru
 ms.openlocfilehash: 6faf32232c42f863bff52fdfb3c0714aee8e9b88
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190558"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60702413"
 ---
 # <a name="create-an-environment-with-multiple-vms-inside-a-template-vm-of-a-classroom-lab"></a>Een omgeving met meerdere VM's binnen een virtuele machine van een leslokaallab-sjabloon maken
 Azure Lab-Services kunt op dit moment u een sjabloon voor virtuele machine in een testomgeving instellen en een enkele kopie beschikbaar maken voor elk van de gebruiker. Maar als u een docent die een IT-klasse voor het instellen van firewalls of servers bent, moet u mogelijk voor elk van uw studenten met een omgeving waarin meerdere virtuele machines met elkaar via een netwerk kunnen communiceren.

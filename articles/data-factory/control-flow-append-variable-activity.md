@@ -12,11 +12,11 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: a5efe946000eb00e65d314ae53d7136761e2109d
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575151"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557219"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Activiteit in Azure Data Factory-variabele toevoegen
 
@@ -29,7 +29,7 @@ Eigenschap | Description | Vereist
 naam | Naam van de activiteit in de pijplijn | Ja
 description | Een beschrijving van de werking van de activiteit | nee
 type | Activiteitstype is AppendVariable | ja
-waarde | Tekenreeks van letterlijke waarde of expressie object-waarde die wordt gebruikt om toe te voegen in de opgegeven variabele | ja
+value | Tekenreeks van letterlijke waarde of expressie object-waarde die wordt gebruikt om toe te voegen in de opgegeven variabele | ja
 variableName | Naam van de variabele die wordt gewijzigd door de activiteit, de variabele moet van het type 'Array' | ja
 
 ## <a name="next-steps"></a>Volgende stappen

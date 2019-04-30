@@ -14,11 +14,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621631"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60522173"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Het starten en stoppen van Azure-SSIS Integration Runtime volgens een schema
 In dit artikel wordt beschreven hoe u het starten en stoppen van de Azure-SSIS Integration Runtime (IR) plannen met behulp van Azure Data Factory (ADF). Azure-SSIS IR is ADF compute resource toegewezen voor het uitvoeren van pakketten van SQL Server Integration Services (SSIS). Uitvoeren van Azure-SSIS IR is een kosten die gepaard gaan met het. Daarom wilt u doorgaans om uit te voeren van uw IR alleen als u wilt uitvoeren van SSIS-pakketten in Azure en uw IR stopt wanneer u hebt u het niet meer nodig. U kunt ADF gebruikersinterface (UI) / app of Azure PowerShell met [handmatig starten of stoppen van de IR](manage-azure-ssis-integration-runtime.md)).

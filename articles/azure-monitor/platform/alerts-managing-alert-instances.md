@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: anantr
 ms.subservice: alerts
 ms.openlocfilehash: cb93f38c05156d7ab5acb89ffff810949583e507
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551811"
 ---
 # <a name="manage-alert-instances"></a>Waarschuwingsexemplaren beheren
 Met de [ervaring voor waarschuwingen van geïntegreerde](https://aka.ms/azure-alerts-overview) in Azure Monitor kunt u nu alle de verschillende typen waarschuwingen zien in Azure, meerdere abonnementen, in één enkel glazen spanning. Dit artikel begeleidt u hoe u de waarschuwing-instanties kunt bekijken en hoe u uitgebreide op de portal voor specifieke waarschuwingen exemplaren vinden voor het oplossen van problemen.

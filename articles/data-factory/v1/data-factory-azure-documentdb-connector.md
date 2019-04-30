@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bda3df3ce869d7717f572f72c38472e7eae4a0ef
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60567211"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Gegevens verplaatsen naar en van Azure Cosmos DB met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -132,7 +132,7 @@ In het geval van kopieeractiviteit als bron van het type **DocumentDbCollectionS
 | **Eigenschap** | **Beschrijving** | **Toegestane waarden** | **Vereist** |
 | --- | --- | --- | --- |
 | nestingSeparator |Er is een speciaal teken in naam van de bronkolom om aan te geven dat geneste document nodig. <br/><br/>Zoals hierboven: `Name.First` in de uitvoer van de tabel de volgende JSON-structuur in de Cosmos DB-document maakt:<br/><br/>"Naam": {<br/>    'First': "John"<br/>}, |Teken dat wordt gebruikt voor het scheiden van geneste niveaus.<br/><br/>Standaardwaarde is `.` (punt). |Teken dat wordt gebruikt voor het scheiden van geneste niveaus. <br/><br/>Standaardwaarde is `.` (punt). |
-| WriteBatchSize |Het aantal parallelle aanvragen voor Azure Cosmos DB-service om documenten te maken.<br/><br/>U kunt de prestaties afstemmen bij het kopiëren van gegevens naar/van Cosmos DB met behulp van deze eigenschap. U kunt een betere prestaties verwachten wanneer u writeBatchSize verhogen omdat meer parallelle aanvragen met Cosmos DB worden verzonden. Echter, moet u voorkomen dat beperking, kunnen het foutbericht genereren: 'Aanvraagsnelheid is hoog'.<br/><br/>Beperking wordt bepaald door een aantal factoren, onder andere de grootte van de documenten, het aantal voorwaarden in documenten, het indexeringsbeleid van verzameling, enzovoort. Voor kopieerbewerkingen, kunt u een betere verzameling (bijvoorbeeld S3) gebruiken om de meeste doorvoer beschikbaar (2.500 request units per seconde). |Geheel getal |Nee (standaard: 5) |
+| writeBatchSize |Het aantal parallelle aanvragen voor Azure Cosmos DB-service om documenten te maken.<br/><br/>U kunt de prestaties afstemmen bij het kopiëren van gegevens naar/van Cosmos DB met behulp van deze eigenschap. U kunt een betere prestaties verwachten wanneer u writeBatchSize verhogen omdat meer parallelle aanvragen met Cosmos DB worden verzonden. Echter, moet u voorkomen dat beperking, kunnen het foutbericht genereren: 'Aanvraagsnelheid is hoog'.<br/><br/>Beperking wordt bepaald door een aantal factoren, onder andere de grootte van de documenten, het aantal voorwaarden in documenten, het indexeringsbeleid van verzameling, enzovoort. Voor kopieerbewerkingen, kunt u een betere verzameling (bijvoorbeeld S3) gebruiken om de meeste doorvoer beschikbaar (2.500 request units per seconde). |Geheel getal |Nee (standaard: 5) |
 | writeBatchTimeout |Wachttijd voor de bewerking is voltooid voordat er een optreedt time-out. |timespan<br/><br/> Voorbeeld: "00: 30:00 ' (30 minuten). |Nee |
 
 ## <a name="importexport-json-documents"></a>Import/Export-JSON-documenten

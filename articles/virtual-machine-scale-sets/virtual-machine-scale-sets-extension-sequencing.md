@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563997"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620169"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Hiermee stelt u reeks extensie wordt ingericht in virtuele-machineschaalset
 Extensies voor Azure-machines bieden mogelijkheden, zoals configuratie na implementatie en beheer, bewaking, beveiliging en meer. Productie-implementaties gebruiken vaak een combinatie van meerdere extensies die zijn geconfigureerd voor de VM-exemplaren om gewenste resultaten te behalen.

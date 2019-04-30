@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 24aa49fd4ccccda372d2632ef4aee22bd5cb2bf6
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359133"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611321"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Oplossingen van Microsoft Threat Modeling Tool
 
@@ -31,7 +31,7 @@ Ga naar de **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)** 
 
 De oplossingen Threat Modeling Tool zijn onderverdeeld op basis van het Web Application Security kader, die uit het volgende bestaat:
 
-| Categorie | Description |
+| Category | Description |
 | -------- | ----------- |
 | **[Controle en logboekregistratie](./azure-security-threat-modeling-tool-auditing-and-logging.md)** | Wie deed wat en? Controle en logboekregistratie verwijzen naar de manier waarop uw toepassing beveiligingsgerelateerde gebeurtenissen registreert |
 | **[Verificatie](./azure-security-threat-modeling-tool-authentication.md)** | Wie bent u? Verificatie is het proces waarbij een entiteit aantoont de identiteit van een andere entiteit, doorgaans via referenties, zoals een gebruikersnaam en wachtwoord dat |

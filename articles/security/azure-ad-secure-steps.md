@@ -11,11 +11,11 @@ ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
 ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314310"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587826"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Vijf stappen voor het beveiligen van uw infrastructuur voor identiteiten
 
@@ -36,7 +36,7 @@ Deze controlelijst helpt u snel implementeren kritieke aanbevolen acties ter bes
 
 De aanbevelingen in dit document zijn uitgelijnd met de [identiteit Secure Score](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score), een geautomatiseerde beoordeling van de configuratie van de beveiliging van uw Azure AD-tenant-id. Organisaties kunnen de identiteit Secure Score-pagina in de Azure AD-portal gebruiken voor de hiaten in de huidige beveiligingsconfiguratie om ervoor te zorgen dat ze volgen huidige Microsoft best practices voor beveiliging. Elke aanbeveling te implementeren op de pagina Score beveiligen, wordt uw score verhogen en kunt u uw voortgang bijhouden, plus helpen bij het vergelijken van de implementatie op basis van andere vergelijkbare grootte organisaties of uw branche.
 
-![Identiteit beveiligde Score](media/azure-ad/azure-ad-sec-steps0.png)
+![Identity Secure Score](media/azure-ad/azure-ad-sec-steps0.png)
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Voordat u begint: Beveiligen van bevoegde accounts met MFA
 
@@ -152,7 +152,7 @@ Microsoft Azure-services en functies bieden u configureerbare beveiliging, contr
 
 [Controleren van AD FS met Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs) biedt u meer inzicht krijgen in de potentiële problemen en zichtbaarheid van aanvallen op uw AD FS-infrastructuur. Azure AD Connect Health biedt waarschuwingen met meer informatie, stappen voor het oplossen en koppelingen naar gerelateerde documentatie; gebruiksanalyse voor verschillende metrische gegevens met betrekking tot verificatieverkeer; bewaking van toepassingsprestaties en rapporten.
 
-![Azure AD Connect Health (Engelstalig)](media/azure-ad/azure-ad-sec-steps4.png)
+![Azure AD Connect Health](media/azure-ad/azure-ad-sec-steps4.png)
 
 ### <a name="monitor-azure-ad-identity-protection-events"></a>Azure AD Identity Protection-gebeurtenissen controleren
 

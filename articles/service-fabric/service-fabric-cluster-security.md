@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
 ms.openlocfilehash: 6d67fa4af031480fda4a91f7356bff69830a654c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667596"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711484"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric-clusterbeveiligingsscenario 's
 Een Azure Service Fabric-cluster is een resource waarvan u eigenaar bent. Het is uw verantwoordelijkheid voor het beveiligen van uw clusters om te voorkomen dat onbevoegde gebruikers verbinding maken met deze. Een beveiligd cluster is vooral belangrijk wanneer u bij het uitvoeren van productieworkloads op het cluster. Hoewel het mogelijk te maken van een niet-beveiligd cluster als-beheereindpunten met het openbare internet wordt aangegeven dat het cluster, anonieme gebruikers verbinding mee kunnen maken. Niet-beveiligde clusters worden niet ondersteund voor productieworkloads. 

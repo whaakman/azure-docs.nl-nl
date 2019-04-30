@@ -8,11 +8,11 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.openlocfilehash: c49044d8bd96efb7e86cf54509c32033900be305
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180905"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561745"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Onderwerpen beheren en publiceren van gebeurtenissen via event-domeinen
 
@@ -106,7 +106,7 @@ New-AzureRmRoleAssignment `
 
 Zie voor meer informatie over het beheren van toegang voor Event Grid bewerkingen [Event Grid-beveiliging en verificatie](./security-authentication.md).
 
-## <a name="create-topics-and-subscriptions"></a>Maken van onderwerpen en abonnementen
+## <a name="create-topics-and-subscriptions"></a>Onderwerpen en abonnementen maken
 
 De Event Grid-service maakt en beheert het desbetreffende onderwerp in een domein op basis van de aanroep voor het maken van een gebeurtenisabonnement voor een onderwerp domein automatisch. Er is geen afzonderlijke stap het maken van een onderwerp in een domein. Op dezelfde manier als een abonnement op de laatste gebeurtenis voor een onderwerp wordt verwijderd, is het onderwerp ook verwijderd.
 

@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561825"
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Azure Event Grid-gebeurtenisschema voor eventhubs
 

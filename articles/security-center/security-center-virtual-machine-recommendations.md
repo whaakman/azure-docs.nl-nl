@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/12/2018
 ms.author: rkarlin
 ms.openlocfilehash: a4aaf440856746895a31914aeee2bddec2ce23f6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104818"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60544977"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Aanbevelingen voor Azure Security Center resource begrijpen
 
@@ -75,7 +75,7 @@ Zie de volgende onderwerpen voor meer informatie over aanbevelingen die betrekki
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
-* [Beveiligen van uw computers en toepassingen in Azure Security Center](security-center-virtual-machine-protection.md)
+* [Uw machines en toepassingen beveiligen in Azure Security Center](security-center-virtual-machine-protection.md)
 * [Setting security policies in Azure Security Center](tutorial-security-policy.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.

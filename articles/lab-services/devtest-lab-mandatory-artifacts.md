@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795403"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60562140"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Geef op verplichte artefacten voor uw lab in Azure DevTest Labs
 Als een eigenaar van een lab, kunt u verplicht artefacten die worden toegepast op elke machine die is gemaakt in het lab. Stel een scenario waar u elke computer in uw testomgeving moet worden verbonden met uw bedrijfsnetwerk. In dit geval moet elke gebruiker lab een domain-join-artefact toevoegen tijdens het maken van virtuele machine om ervoor te zorgen dat hun computer is verbonden met het bedrijfsnetwerk domein. Labgebruikers hoeft met andere woorden, in feite een virtuele machine opnieuw maken in het geval ze vergeten om toe te passen verplichte artefacten op hun computer. Als lab-eigenaar kunt maken u het artefact domain-join als een verplichte artefact in uw testomgeving. Deze stap zorgt ervoor dat elke computer is verbonden met het bedrijfsnetwerk en het opslaan van de tijd en moeite voor uw labgebruikers.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: be3f68a00647840801e7c205d7abb34b718bd61c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719002"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630883"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Unpack, rack koppelen, en uw StorSimple 8600-apparaat bekabelen
 ## <a name="overview"></a>Overzicht
@@ -34,19 +34,19 @@ Voordat u uw apparaat uitpakken, controleert u de volgende informatie.
 ![Waarschuwingspictogram](./media/storsimple-safety/IC740879.png)![zware gewicht pictogram](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **waarschuwing!**
 
 1. Zorg ervoor dat u twee personen beschikbaar voor het beheren van het gewicht van het apparaat hebt als u deze handmatig worden verwerkt. Een volledig geconfigureerde behuizing wegen maximaal 32 kg (70 lbs.).
-2. Plaats het vak op een vast, niveau voor aanvallen.
+2. Leg de doos op een vlak, horizontaal oppervlak.
 
 Vervolgens de volgende stappen uit te pakken van uw apparaat.
 
 #### <a name="to-unpack-your-device"></a>Uw apparaat uitpakken
-1. Controleer het vak en het schuim verpakking voor crushes, delen, water schade of andere voor de hand liggende schade. Als het selectievakje of de verpakking ernstig is beschadigd, opent u het selectievakje niet. Neem [Neem contact op met Microsoft Support](storsimple-8000-contact-microsoft-support.md) om te beoordelen of het apparaat zich in goede staat.
+1. Controleer de doos en het verpakkingsmateriaal op deuken, scheuren, waterschade of andere duidelijk zichtbare schade. Als de doos of het verpakkingsmateriaal ernstig beschadigd is, moet u de doos niet openen. Neem [Neem contact op met Microsoft Support](storsimple-8000-contact-microsoft-support.md) om te beoordelen of het apparaat zich in goede staat.
 2. Open het buitenste vak en vervolgens neemt u de twee vakken overeenkomt met de primaire en EBOD-behuizingen. U kunt nu de primaire en EBOD-behuizingen uitpakken. De volgende afbeelding toont de uitgepakte weergave van een van de bijlagen.
    
     ![Uw apparaat uitpakken](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
    
     **Uitgepakte weergave van uw opslagapparaat**
    
-   | Label | Beschrijving |
+   | Label | Description |
    | --- | --- |
    |   1 |Verpakking-vak |
    |   2 |SAS-kabels (in de lade accessoires en kabels) |
@@ -69,7 +69,7 @@ Vervolgens de volgende stappen uit te pakken van uw apparaat.
      
      Als u een van de items worden weergegeven, niet hebt ontvangen [Neem contact op met Microsoft Support](storsimple-8000-contact-microsoft-support.md).  
 
-De volgende stap is het rack koppelen uw apparaat.
+De volgende stap is het in het rek monteren van uw apparaat.
 
 ## <a name="rack-mount-your-storsimple-8600-device"></a>Uw StorSimple 8600-apparaat rack koppelen
 De volgende stappen voor het installeren van uw StorSimple 8600-apparaat voor gegevensopslag in een standard 19-inch rek met front-end- en achterkant berichten. Dit apparaat wordt geleverd met twee bijlagen: een primaire behuizing en een EBOD-behuizing. Deze moeten rack gekoppeld.
@@ -110,12 +110,12 @@ Een set rails koppelen wordt geleverd voor gebruik met het 19-inch rack CAB-best
    
     **Spoor dia's koppelen aan de zijde van de behuizing**
    
-   | Label | Beschrijving |
+   | Label | Description |
    | --- | --- |
    |  1 |M 3 x 4 knop head schroeven |
    |  2 |Chassis dia 's |
 2. Het linker spoor en rechterkolom assembly's koppelen aan de rack cab verticale leden. De vierkante haken zijn gemarkeerd **LH**, **RH**, en **deze kant van** om u te begeleiden u bij de juiste richting is geplaatst.
-3. Ga naar de pincodes spoor op de front-end en de achterzijde van de trein-assembly. Breid het spoor tussen de berichten rack passen en de pincodes invoegen in de front-end- en achterkant rack post verticale lid gaten. Zorg ervoor dat de assembly spoor niveau is.
+3. Zoek de pennen van de rails aan voor- en achterzijde van de rail. Breid het spoor tussen de berichten rack passen en de pincodes invoegen in de front-end- en achterkant rack post verticale lid gaten. Zorg ervoor dat de assembly spoor niveau is.
 4. Beveilig de assembly spoor op het rek verticale leden met behulp van twee van de metrische schroeven opgegeven. Een installatie op de front-end en een op de achterkant gebruiken.
 5. Herhaal deze stappen voor de andere spoor-assembly.
    
@@ -123,7 +123,7 @@ Een set rails koppelen wordt geleverd voor gebruik met het 19-inch rack CAB-best
    
     **Spoor assembly's koppelen aan het rek**
    
-   | Label | Beschrijving |
+   | Label | Description |
    | --- | --- |
    |   1 |MSS schroeven |
    |   2 |Vierkante hole front rack na installatie |
@@ -149,7 +149,7 @@ De volgende stappen uit voor het koppelen van de behuizing EBOD in het rek met b
    
     **De limieten flens installeren**
    
-   | Label | Beschrijving |
+   | Label | Description |
    | --- | --- |
    |   1 |Behuizing ervan schroeven |
 
@@ -202,7 +202,7 @@ Ter ondersteuning van deze redundante controller-failover, moet u het netwerk va
    
     **De gegevenspoorten terug van uw apparaat worden weergegeven**
    
-   | Label | Beschrijving |
+   | Label | Description |
    | --- | --- |
    |   0,1,4,5 |1 GbE-netwerkinterfaces |
    |   2,3 |10 GbE-netwerkinterfaces |
@@ -213,7 +213,7 @@ Ter ondersteuning van deze redundante controller-failover, moet u het netwerk va
 
 **Netwerk-bekabeling voor uw apparaat**
 
-| Label | Beschrijving |
+| Label | Description |
 | --- | --- |
 | A |LAN met toegang tot Internet |
 | B |Controller 0 |
@@ -222,7 +222,7 @@ Ter ondersteuning van deze redundante controller-failover, moet u het netwerk va
 | E |PCM 1 |
 | F |EBOD-controller 0 |
 | G |EBOD-controller 1 |
-| H, IK |Hosts (bijvoorbeeld bestandsservers) |
+| H,I |Hosts (bijvoorbeeld bestandsservers) |
 | 0-5 |Netwerkinterfaces |
 | 6 |Primaire behuizing |
 | 7 |EBOD behuizing |
@@ -260,7 +260,7 @@ De volgende stappen uitvoeren om de seriële poort-kabel.
 6. Controleren of de verbinding werkt door te drukken op Enter in de console. Het menu van een seriële console moet worden weergegeven.
 
 > [!NOTE]
-> **Beheer van lights-Out:** wanneer het apparaat is geïnstalleerd in een extern datacenter of in een kamer van de computer met beperkte toegang, zorg ervoor dat de seriële verbindingen met beide controllers altijd met een seriële console-switch of een vergelijkbare apparatuur verbonden bent. Hierdoor kan out-of-band-beheer op afstand en ondersteuning voor bewerkingen in geval van een onderbreking van de netwerk- of onverwachte storingen.
+> **Lights-Out Management:** Wanneer het apparaat is geïnstalleerd in een extern datacenter of in een kamer van de computer met beperkte toegang, moet u zorgen dat de seriële verbindingen met beide controllers altijd zijn verbonden met een seriële console-switch of een vergelijkbare apparatuur. Hierdoor kan out-of-band-beheer op afstand en ondersteuning voor bewerkingen in geval van een onderbreking van de netwerk- of onverwachte storingen.
 > 
 > 
 

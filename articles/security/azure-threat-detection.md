@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611046"
 ---
 # <a name="azure-advanced-threat-detection"></a>Geavanceerde bedreigingsdetectie van Azure
 
@@ -75,7 +75,7 @@ PIM kunt u:
 
 -   Ontvang waarschuwingen over de toegang tot een bevoorrechte rol.
 
-## <a name="azure-monitor-logs"></a>Logboeken in Azure Monitor
+## <a name="azure-monitor-logs"></a>Azure Monitor-logboeken
 
 [Logboeken in Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is een Microsoft cloud-gebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloudinfrastructuur. Omdat Azure Monitor-Logboeken als een cloud-gebaseerde service is geïmplementeerd, kunt u laten actief en werkend snel met minimale investeringen in infrastructuurservices. Nieuwe beveiligingsfuncties worden automatisch geleverd, voortdurende onderhoud opslaan en kosten voor een upgrade uitvoert.
 

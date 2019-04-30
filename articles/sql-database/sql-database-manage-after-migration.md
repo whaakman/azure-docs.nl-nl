@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358411"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703317"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nieuwe DBA in de cloud, uw één en gepoolde databases in Azure SQL Database beheren
 
@@ -227,7 +227,7 @@ SQL Database biedt praktische beveiligingsaanbevelingen aan bij het beveiligen v
 
 Met Azure Security Center, moet u de aanbevelingen voor beveiliging op het bord identificeren en ze toepassen met één klik.
 
-### <a name="cost-optimization"></a>Kosten optimaliseren
+### <a name="cost-optimization"></a>Kostenoptimalisatie
 
 Azure SQL-platform analyseert de gebruiksgeschiedenis voor de databases in een server om te evalueren en aan te bevelen kostenoptimalisatie opties voor u. Deze analyse duurt normaal gesproken een rijtijd te analyseren en bruikbare aanbevelingen opbouwen. Elastische Pools zijn een van deze opties. De aanbeveling wordt op de portal weergegeven als een banner:
 

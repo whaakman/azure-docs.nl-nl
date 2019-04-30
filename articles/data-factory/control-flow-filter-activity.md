@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
 ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60554844"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Filteren van activiteit in Azure Data Factory
 U kunt een filteractiviteit in een pijplijn gebruiken een filterexpressie toepassen op een invoermatrix. 
@@ -39,9 +39,9 @@ U kunt een filteractiviteit in een pijplijn gebruiken een filterexpressie toepas
 
 Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-name | Naam van de `Filter` activiteit. | Reeks | Ja
-type | Moet worden ingesteld op **filter**. | Reeks | Ja
-condition | Voorwaarde moet worden gebruikt voor het filteren van de invoer. | Expressie | Ja
+naam | Naam van de `Filter` activiteit. | String | Ja
+type | Moet worden ingesteld op **filter**. | String | Ja
+voorwaarde | Voorwaarde moet worden gebruikt voor het filteren van de invoer. | Expressie | Ja
 items | De invoermatrix waarop filter moet worden toegepast. | Expressie | Ja
 
 ## <a name="example"></a>Voorbeeld

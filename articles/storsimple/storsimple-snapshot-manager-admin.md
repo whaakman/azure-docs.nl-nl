@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: v-sharos
 ms.openlocfilehash: bc72da98800ef85ef14be0882ba856fbf01386b9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872180"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630016"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Gebruik StorSimple Snapshot Manager voor het beheren van uw StorSimple-oplossing
 
@@ -55,7 +55,7 @@ U kunt StorSimple Snapshot Manager gebruiken om te controleren en beheren van de
 | Toevoegen of vervangen van een apparaat<br>Verbinding maken met een apparaat<br>Controleer of de geïmporteerde volumegroepen<br>Vernieuwen van verbonden apparaten<br>Een apparaat verifiëren<br>Apparaatdetails weergeven<br>De apparaatconfiguratie van een verwijderen<br>Het apparaatwachtwoord van een wijzigen<br>Vervangen van een mislukte apparaat<br> |[StorSimple Snapshot Manager gebruiken om te verbinden en beheren van StorSimple-apparaten](storsimple-snapshot-manager-manage-devices.md) |
 | Volumes koppelen<br>Informatie over volumes weergeven<br>Een volume verwijderen<br>Volumes opnieuw scannen<br>Configureren en back-up van een standaardvolume<br>Configureren en back-up van een gespiegeld volume |[StorSimple Snapshot Manager weergeven en beheren van volumes gebruiken](storsimple-snapshot-manager-manage-volumes.md) |
 | Volume-groepen weergeven<br>Een volumegroep maken<br>Back-up van een volumegroep<br>Een volumegroep bewerken<br>Een volumegroep verwijderen |[StorSimple Snapshot Manager gebruiken om te maken en volumegroepen beheren](storsimple-snapshot-manager-manage-volume-groups.md) |
-| Een back-upbeleid maken <br>Een back-upbeleid bewerken<br>Verwijderen van een back-upbeleid |[StorSimple Snapshot Manager gebruiken om te maken en back-upbeleid beheren](storsimple-snapshot-manager-manage-backup-policies.md) |
+| Maak een back-upbeleid <br>Een back-upbeleid bewerken<br>Verwijderen van een back-upbeleid |[StorSimple Snapshot Manager gebruiken om te maken en back-upbeleid beheren](storsimple-snapshot-manager-manage-backup-policies.md) |
 | Geplande back-taken weergeven en beheren<br>Recente back-taken weergeven en beheren<br>Weergeven en beheren van gelijktijdig uitgevoerde back-up |[StorSimple Snapshot Manager gebruiken voor het weergeven en beheren van back-uptaken](storsimple-snapshot-manager-manage-backup-jobs.md) |
 | Een volume herstellen<br>Klonen van een volume of een volumegroep<br>Een back-up verwijderen<br>Een bestand herstellen<br>De StorSimple Snapshot Manager-database herstellen |[Gebruik StorSimple Snapshot Manager voor het beheren van de back-catalogus](storsimple-snapshot-manager-manage-backup-catalog.md) |
 

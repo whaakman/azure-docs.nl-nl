@@ -14,11 +14,11 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 4e018af7df64c9ed8050a3c618cf2645d5509cdd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918498"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613255"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>De definitie van Schema (.csdef-bestand) voor Azure Cloud Services
 Het servicedefinitiebestand definieert het servicemodel voor een toepassing. Het bestand bevat de definities voor de functies die beschikbaar voor een cloudservice zijn, Hiermee geeft u de service-eindpunten en configuratie-instellingen voor de service maakt. Configuratie-instellingswaarden zijn ingesteld in het configuratiebestand van de service, zoals is beschreven in de [configuratieschema voor Cloud-Service (klassiek)](/previous-versions/azure/reference/ee758710(v=azure.100)).

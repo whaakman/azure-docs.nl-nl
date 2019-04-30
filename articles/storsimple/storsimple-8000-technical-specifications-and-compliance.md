@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 855ea6c34082b859bb5b5b6e69b3e3f2fa54eb4a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056460"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631886"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Technische specificaties en naleving voor de StorSimple-apparaat
 
@@ -37,12 +37,12 @@ De behuizing EBOD maakt gebruik van een 580 W PCM en primaire behuizing gebruikt
 | --- | --- | --- |
 | Maximale Uitgangsstroom |580 W |764 |
 | Frequentie |50/60 Hz |50/60 Hz |
-| Bereikselectie voltage |Automatisch variëren: 90 – 264 V AC, 47/63 Hz |Automatisch variëren: 90-264 V AC, 47/63 Hz |
-| Maximale stroomoverbelasting huidige |20 EEN |20 EEN |
+| Bereikselectie voltage |Automatisch variëren: 90 – 264 V AC, 47/63 Hz |Automatisch variëren: 90- 264 V AC, 47/63 Hz |
+| Maximale stroomoverbelasting huidige |20 A |20 A |
 | Correctie van energiebeheer van meerdere factoren |> 95% nominale ingangsvoltage |> 95% nominale ingangsvoltage |
 | Harmonischen |Voldoet aan de EN61000-3-2 |Voldoet aan de EN61000-3-2 |
 | Uitvoer |5V stand-by spanning \@ 2.0 A |5V stand-by spanning \@ 2.7 A |
-| + 5V \@ 42 A |+ 5V \@ 40 A | |
+| +5V \@ 42 A |+ 5V \@ 40 A | |
 | + 12V \@ 38 A |+ 12V \@ 38 A | |
 | Hot pluggable |Ja |Ja |
 | Switches en -LED 's |AC aan/uit-schakelaar en vier status-LED 's |AC aan/uit-schakelaar en zes status-LED 's |
@@ -57,7 +57,7 @@ De volgende tabel bevat de gebruikelijke power verbruiksgegevens (werkelijke waa
 |  Fans traag, schijven niet actief |1,45 A |0.31 kW |1057.76 BTU/uur |3.19 A |0.34 kW |1160.13 BTU/uur |
 |  Fans vertragen, toegang tot stations |1,54 A |0,33 kW |1126.01 BTU/uur |3.27 A |0.36 kW |1228.37 BTU/uur |
 |  Snel, stations voor fans is niet actief, twee PSUs aangestuurd |2.14 A |0.49 kW |1671.95 BTU/uur |4,99 A |0.54 kW |1842.56 BTU/uur |
-|  Fans snelle, niet-actieve stations, een voeding mogelijk gemaakt een niet-actieve |2.05 A |0.48 kW |1637.83 BTU/uur |4,58 A |0,50 kW |1706.07 BTU/uur |
+|  Fans snelle, niet-actieve stations, een voeding mogelijk gemaakt een niet-actieve |2.05 A |0.48 kW |1637.83 BTU/hr |4,58 A |0,50 kW |1706.07 BTU/uur |
 |  Snel, fans-stations wordt benaderd, twee PSUs aangestuurd |2, 26 G A |0.51 kW |1740.19 BTU/uur |4,95 A |0.54 kW |1842.56 BTU/uur |
 |  Snelle fans, stations die toegang hebben tot, een voeding mogelijk gemaakt een niet-actieve |2.14 A |0.49 kW |1671.95 BTU/uur |4.81 A |0.53 kW |1808.44 BTU/uur |
 
@@ -107,7 +107,7 @@ Afhankelijk van de configuratie, een volledig geladen primaire behuizing wegen v
 | Systeembehuizing | Gewicht |
 | --- | --- |
 | Maximale gewicht (afhankelijk van de configuratie) |30 kg – 33 kg |
-| Leeg (Er zijn geen stations die zijn aangebracht) |21: 23 kg |
+| Leeg (Er zijn geen stations die zijn aangebracht) |21 – 23 kg |
 
 ## <a name="enclosure-environment-specifications"></a>Behuizing omgeving specificaties
 
@@ -117,8 +117,8 @@ In deze sectie bevat de specificaties die betrekking hebben op de behuizing-omge
 
 | Systeembehuizing | De omgevingstemperatuur bereik | De relatieve luchtvochtigheid | Maximale NAT thermometerbolletje |
 | --- | --- | --- | --- |
-| Operationeel |5 TEMPERATUUR - 35° C (41° F - 95° F) |20% tot 80% niet-voegen tot- |28° C (82° F) |
-| Niet-operationeel |-40 TEMPERATUUR - 70° C (40° F - 158° F) |5-100% niet-voegen tot |29 GC (84° F) |
+| Operationeel |5 TEMPERATUUR - 35° C (41° F - 95° F) |20% tot 80% niet-voegen tot- |28°C (82°F) |
+| Niet-operationeel |-40 TEMPERATUUR - 70° C (40° F - 158° F) |5-100% niet-voegen tot |29°C (84°F) |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Luchtstroom, hoogte, schudt, trillingen, richting, veiligheid en EMC
 
@@ -131,7 +131,7 @@ In deze sectie bevat de specificaties die betrekking hebben op de behuizing-omge
 | Schudt, niet-operationeel |30g 10 ms ½ sinus |
 | Trillingen, operationele |0.21g RMS 5 tot 500 Hz willekeurige |
 | Trillingen, niet-operationeel |1.04g RMS 2 tot 200 Hz willekeurige |
-| Trillingen, verplaatsing |3g 2 tot 200 Hz sinus |
+| Trillingen, verplaatsing |3g 2-200 Hz sine |
 | De afdrukstand en koppelen |19-inch rek monteren (2 EIA eenheden) |
 | Rackrails |Aan de minimale 700 mm (31.50 inch) diepte rekken compatibel zijn met IEC 297 |
 | Veiligheid en -goedkeuringen |CE en UL EN 61000-3, IEC 61000-3, UL 61000-3 |
@@ -150,7 +150,7 @@ Uw Microsoft Azure StorSimple-apparaat voldoet aan de volgende internationale st
 Uw Microsoft Azure StorSimple-apparaat voldoet aan de volgende classificaties voor veiligheid:
 
 * Goedkeuring van systeem product: UL, cUL, CE
-* Naleving van de veiligheid: UL 60950, IEC 60950, nl 60950
+* Naleving van de veiligheid: UL 60950, IEC 60950, EN 60950
 
 ## <a name="emc-compliance"></a>Naleving van EMC
 
@@ -160,8 +160,8 @@ Uw Microsoft Azure StorSimple-apparaat voldoet aan de volgende classificaties va
 
 Het apparaat is compatibel met EMC voor die wordt uitgevoerd en uitgezonden niveaus.
 
-* Uitgevoerde uitstoot beperken niveaus: CFR 47 onderdeel 15B-klasse A EN55022 klasse A CISPR klasse A
-* Uitgezonden uitstoot beperken niveaus: CFR 47 onderdeel 15B-klasse A EN55022 klasse A CISPR klasse A
+* Limiet-niveaus die wordt uitgevoerd: CFR 47 onderdeel 15B-klasse A EN55022 klasse A CISPR klasse A
+* Uitgestraalde uitstoot limiet niveaus: CFR 47 onderdeel 15B-klasse A EN55022 klasse A CISPR klasse A
 
 ### <a name="harmonics-and-flicker"></a>Harmonischen en knipperen
 
@@ -187,7 +187,7 @@ De plug en de volledige power kabel assembly moeten voldoen aan de normen die ge
 
 | Onderdeel | Specificatie |
 | --- | --- |
-| Type van de kabel |Geharmoniseerde, H05-VVF-3G1.0 |
+| Type van de kabel |Harmonized, H05-VVF-3G1.0 |
 | Socket |IEC 320 C-13, 250 V, 10 A |
 
 ## <a name="supported-network-cables"></a>Ondersteunde netwerkkabels

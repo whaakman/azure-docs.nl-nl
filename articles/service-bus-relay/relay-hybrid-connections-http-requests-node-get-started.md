@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: clemensv
 ms.openlocfilehash: e54a096bd27efddaa9eafb8619e787178550a6e0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759252"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553935"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Aan de slag met HTTP-aanvragen voor hybride verbindingen van Relay in Node
 

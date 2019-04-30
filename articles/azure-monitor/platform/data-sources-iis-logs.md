@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 402cd4723791c0bc33db22c8857d1b785862f596
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797839"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614520"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Verzamelen van IIS-logboeken in Azure Monitor
 Internet Information Services (IIS) slaat gebruikersactiviteit in logboekbestanden die kunnen worden verzameld door Azure Monitor en opgeslagen als [logboekgegevens](data-platform.md).
@@ -67,7 +67,7 @@ IIS-logboekrecords zijn een type **W3CIISLog** en hebben de eigenschappen in de 
 ## <a name="log-queries-with-iis-logs"></a>Logboeken-query's met IIS-logboeken
 De volgende tabel bevat voorbeelden van Logboeken-query's die IIS logboekrecords ophalen.
 
-| Query’s uitvoeren | Beschrijving |
+| Query’s uitvoeren | Description |
 |:--- |:--- |
 | W3CIISLog |Alle IIS-logboek records. |
 | W3CIISLog &#124; where scStatus==500 |Alle IIS-logboek records met een status van het resultaat van 500. |

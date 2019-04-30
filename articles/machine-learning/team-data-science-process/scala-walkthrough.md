@@ -12,11 +12,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: cdc37ace4687fe978030f528dcd5cbc87da596f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855934"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589577"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Gegevenswetenschap met Scala en Spark op Azure
 In dit artikel wordt beschreven hoe u met Scala voor beheerde machine learning-taken met de Spark schaalbare MLlib en Spark ML-pakketten op een Azure HDInsight Spark-cluster. Dit helpt u bij de taken die deel uitmaken van de [Data Science process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): gegevensopname en verkennen, visualisatie, feature-engineering, modellen en model verbruik. De modellen in het artikel zijn onder andere logistieke en lineaire regressie, willekeurige forests en verloop boosted structuren (GBTs), naast de twee algemene beheerde machine learning-taken:

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 529c8d74b6e0a63a7969f31d5b5e8073ecb79411
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665743"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543220"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric testbaarheidsscenario's: Servicecommunicatie
 Microservices en servicegerichte architectuurstijlen voor aanvallen op een natuurlijke manier in Azure Service Fabric. In deze typen van de gedistribueerde architectuur van samengestelde microservicetoepassingen doorgaans bestaan uit meerdere services die nodig zijn om te communiceren met elkaar. In zelfs de eenvoudigste gevallen hebt u in het algemeen ten minste een stateless webservice en een stateful data storage-service die nodig hebt om te communiceren.

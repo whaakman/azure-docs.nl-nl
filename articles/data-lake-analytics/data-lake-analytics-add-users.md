@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.openlocfilehash: f48dc07e27c6cb01a842f1f6d720ed6476028ef7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 8323c4e1b236444f55dab826d2567491f5f0f736
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629319"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Een gebruiker toe te voegen in de Azure-portal
 
@@ -42,7 +42,7 @@ Verlenen van 'L' of "LSU", indien nodig, op mappen met invoergegevens- en uitvoe
 
 ## <a name="adding-a-user-using-powershell"></a>Toevoegen van een gebruiker met behulp van PowerShell
 
-1. Volg de instructies in deze handleiding: [hoe u Azure PowerShell installeren en configureren](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+1. Volg de instructies in deze handleiding: [Hoe u Azure PowerShell installeren en configureren](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
 2. Download de [toevoegen AdlaJobUser.ps1](https://github.com/Azure/AzureDataLake/blob/master/Samples/PowerShell/ADLAUsers/Add-AdlaJobUser.ps1) PowerShell-script.
 3. Voer het PowerShell-script. 
 

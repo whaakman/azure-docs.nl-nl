@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560420"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer widgets insluiten in uw toepassingen
 
@@ -28,7 +28,7 @@ Vanaf versie 2, bevat de widget basis-URL van het account regio. Bijvoorbeeld, e
 
 De widget **Inzichten** bevat alle visuele inzichten die tijdens het indexeringsproces zijn opgehaald uit uw video. De widget voor inzichten ondersteunt de volgende optionele URL-parameters:
 
-|Name|Definitie|Beschrijving|
+|Name|Definitie|Description|
 |---|---|---|
 |widgets|Tekenreeksen gescheiden door komma's|Hiermee beheert u welke inzichten u wilt weergeven. <br/>Voorbeeld: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` geeft alleen inzichten over personen en merken weer in de gebruikersinterface<br/>Beschikbare opties: mensen, trefwoorden, aantekeningen, merken, gevoelens, transcript, zoeken.<br/>niet ondersteund via de URL bij version=2<br/><br/>**Opmerking:** De widgets URL-parameter wordt niet ondersteund in versie 2. |
 

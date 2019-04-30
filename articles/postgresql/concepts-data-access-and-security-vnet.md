@@ -1,17 +1,18 @@
 ---
 title: Azure Database for PostgreSQL-Server vnet services eindpunt overzicht van
 description: Meer informatie over de werking van VNET-service-eindpunten voor uw Azure Database for PostgreSQL-server.
-author: bolzmj
-ms.author: mbolz
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/20/2018
+origin.date: 08/20/2018
+ms.date: 04/22/2019
 ms.openlocfilehash: c6549ad170a0fc3b4387d5bc5163ca0548b92119
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560114"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure Database for PostgreSQL
 

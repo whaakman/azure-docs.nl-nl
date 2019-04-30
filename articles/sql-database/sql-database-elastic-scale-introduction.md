@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585459"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Uitbreiden met Azure SQL Database
 U kunt gemakkelijk schalen van Azure SQL-databases met behulp van de **Elastic Database** hulpprogramma's. Deze hulpprogramma's en functies, kunt u de bronnen van **Azure SQL Database** om oplossingen voor transactionele werkbelastingen en met name Software als een Service (SaaS)-toepassingen te maken. Functies voor elastische Database worden samengesteld uit de:
@@ -81,7 +81,7 @@ Sommige toepassingen gebruiken de eenvoudigste manier voor het maken van een apa
 
 ![Één tenant ten opzichte van meerdere tenants][4]
 
-Andere scenario's voor meerdere tenants samen pack in de databases in plaats van ze te isoleren in afzonderlijke databases. Dit patroon is een typische **multitenant sharding-patroon** - en deze kan worden aangestuurd door het feit dat een toepassing een groot aantal kleine tenants beheert. In de sharding van meerdere tenants zijn de rijen in de databasetabellen ontworpen voor het uitvoeren van een sleutel voor het identificeren van de tenant-ID of de sharding-sleutel. Nogmaals, de toepassingslaag is verantwoordelijk voor de routering van een tenant-aanvraag naar de juiste database en dit kan worden ondersteund door de clientbibliotheek van elastische database. Bovendien beveiliging op rijniveau kan worden gebruikt om te filteren welke rijen toegang elke tenant - voor meer informatie tot hebben, Zie [multitenant-toepassingen met elastische Databasehulpprogramma's en beveiliging op rijniveau](sql-database-elastic-tools-multi-tenant-row-level-security.md). Opnieuw distribueren van gegevens tussen databases kan nodig zijn met het patroon sharding van meerdere tenants, en wordt mogelijk gemaakt door de elastic database-hulpprogramma voor splitsen en samenvoegen. Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische groepen.
+Andere scenario's voor meerdere tenants samen pack in de databases in plaats van ze te isoleren in afzonderlijke databases. Dit patroon is een typische **multitenant sharding-patroon** - en deze kan worden aangestuurd door het feit dat een toepassing een groot aantal kleine tenants beheert. In de sharding van meerdere tenants zijn de rijen in de databasetabellen ontworpen voor het uitvoeren van een sleutel voor het identificeren van de tenant-ID of de sharding-sleutel. Nogmaals, de toepassingslaag is verantwoordelijk voor de routering van een tenant-aanvraag naar de juiste database en dit kan worden ondersteund door de clientbibliotheek van elastische database. Bovendien beveiliging op rijniveau kan worden gebruikt om te filteren welke rijen toegang elke tenant - voor meer informatie tot hebben, Zie [multitenant-toepassingen met elastische Databasehulpprogramma's en beveiliging op rijniveau](sql-database-elastic-tools-multi-tenant-row-level-security.md). Opnieuw distribueren van gegevens tussen databases kan nodig zijn met het patroon sharding van meerdere tenants, en wordt mogelijk gemaakt door de elastic database-hulpprogramma voor splitsen en samenvoegen. Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische pools.
 
 ### <a name="move-data-from-multiple-to-single-tenancy-databases"></a>Verplaatsen van gegevens uit meerdere databases voor één-tenants
 Bij het maken van een SaaS-toepassing, is het typische potentiële klanten bieden een proefversie van de software. In dit geval is het rendabele gebruik van een multitenant-database voor de gegevens. Wanneer een kandidaat een klant wordt, is een database met één tenant echter beter omdat het levert betere prestaties. Als de klant gegevens tijdens de proefperiode is afgelopen gemaakt heeft, gebruikt u de [hulpprogramma voor splitsen en samenvoegen](sql-database-elastic-scale-overview-split-and-merge.md) de gegevens van meerdere tenants verplaatsen naar de nieuwe database met één tenant.

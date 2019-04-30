@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
 ms.openlocfilehash: 76f5627a28c2c0ab326197893a9b9739628af0fb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108072"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60597846"
 ---
 # <a name="application-architecture-on-azure"></a>Toepassingsarchitectuur in Azure
 Om u te helpen beveiligen van uw cloud-gebaseerde oplossingen op Microsoft Azure, een solide basis van de architectuur is essentieel. Architecten, ontwerpers en uitvoerders profiteren van een sterke kennis van de architectuur van toepassingen en services. Deze fundamentele kennis helpt u inzicht in de onderdelen van uw cloud-gebaseerde oplossingen en het eenvoudiger is om te integreren beveiliging in alle aspecten van uw ontwerp en de implementatie.

@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 ms.openlocfilehash: 7d6c826df2a509ffb378809e3682073bd5ab1301
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798977"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612537"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integratie van virtuele netwerken voor Azure Data Lake Storage Gen1
 
@@ -38,7 +38,7 @@ Middels de integratie van virtuele netwerken in Data Lake Storage Gen1 kunt u de
 ![Scenariodiagram over de integratie van virtuele netwerken in Data Lake Storage Gen1](media/data-lake-store-network-security/scenario-diagram.png)
 
 > [!NOTE]
-> De bestaande IP-firewallregels kunnen worden gebruikt naast de virtuele-netwerkregels, om ook toegang vanaf on-premises netwerken toe te staan. 
+> De bestaande IP-firewallregels kunnen worden gebruikt naast de regels voor virtuele netwerken, om ook toegang vanaf on-premises netwerken toe te staan. 
 
 ## <a name="optimal-routing-with-data-lake-storage-gen1-virtual-network-integration"></a>Optimale routering met virtuele-netwerkintegratie in Data Lake Storage Gen1
 
@@ -75,7 +75,7 @@ Een aantal beschikbare opties zijn:
 
 - HDInsight-clusters die zijn gemaakt vóórdat ondersteuning van Data Lake Storage Gen1-virtuele-netwerkintegratie beschikbaar was, moeten opnieuw worden gemaakt zodat er ondersteuning wordt geboden voor de nieuwe functie.
  
-- Wanneer u een nieuw HDInsight-cluster maakt en u een Data Lake Storage Gen1-account selecteert waarvoor virtuele-netwerkintegratie is ingeschakeld, mislukt het proces. Schakel om te beginnen de virtuele-netwerkregel uit. U kunt ook op de blade **Firewall en virtuele netwerken** van het Data Lake Storage-account de optie **Toegang vanuit alle netwerken en services toestaan** selecteren. Maak vervolgens het HDInsight-cluster voordat u de regel voor het virtuele netwerk opnieuw inschakelt of **Toegang uit alle netwerken en services** deselecteert. Raadpleeg de sectie [Uitzonderingen](#exceptions) voor meer informatie.
+- Wanneer u een nieuw HDInsight-cluster maakt en u een Data Lake Storage Gen1-account selecteert waarvoor virtuele-netwerkintegratie is ingeschakeld, mislukt het proces. Schakel om te beginnen de regel voor het virtuele netwerk uit. U kunt ook op de blade **Firewall en virtuele netwerken** van het Data Lake Storage-account de optie **Toegang vanuit alle netwerken en services toestaan** selecteren. Maak vervolgens het HDInsight-cluster voordat u de regel voor het virtuele netwerk opnieuw inschakelt of **Toegang uit alle netwerken en services** deselecteert. Raadpleeg de sectie [Uitzonderingen](#exceptions) voor meer informatie.
 
 - De van virtuele-netwerkintegratie voor Data Lake Storage Gen1 werkt niet in combinatie met [beheerde identiteiten voor Azure-resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
   

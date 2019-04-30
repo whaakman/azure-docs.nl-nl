@@ -11,11 +11,11 @@ ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100193"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646642"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Herstellen van Azure Virtual machines met behulp van REST-API
 
@@ -37,7 +37,7 @@ De *ophalen* URI heeft de vereiste parameters. Er is niet nodig voor een aanvull
 
 ### <a name="responses"></a>Antwoorden
 
-|Name  |Type  |Beschrijving  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -137,7 +137,7 @@ De `{containerName}` en `{protectedItemName}` zijn samengesteld [hier](backup-az
 
 Hier volgen voor het activeren van een schijf herstellen vanaf een back-up van virtuele Azure-machine, de onderdelen van de aanvraagtekst.
 
-|Name  |Type  |Beschrijving  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -171,7 +171,7 @@ Het activeren van een schijf terugzetten is een [asynchrone bewerking](https://d
 
 Deze retourneert twee antwoorden: 202 (aanvaard) wanneer een andere bewerking wordt gemaakt en vervolgens 200 (OK) wanneer deze bewerking is voltooid.
 
-|Name  |Type  |Beschrijving  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |202 geaccepteerd     |         |     Geaccepteerd    |
 

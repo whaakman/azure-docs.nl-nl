@@ -16,11 +16,11 @@ ms.date: 03/28/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
 ms.openlocfilehash: c3e2102b5794fb3770b1c77e241320fa7d2222c7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850785"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613950"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -334,7 +334,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 De volgende gegevenscategorieën zijn beschikbaar via de Instance Metadata Service:
 
-Gegevens | Beschrijving | Versie geïntroduceerd
+Gegevens | Description | Versie geïntroduceerd
 -----|-------------|-----------------------
 azEnvironment | Azure-omgeving waarop de virtuele machine wordt uitgevoerd in | 10-01-2018
 location | Azure-regio de virtuele machine wordt uitgevoerd in | 2017-04-02

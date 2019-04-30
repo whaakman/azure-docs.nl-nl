@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
 ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234183"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561542"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Bronnen van gebeurtenissen in Azure Event Grid
 
@@ -117,7 +117,7 @@ Abonneren op Service Bus-gebeurtenissen om te reageren op berichten zonder een a
 | [Overzicht: Azure Service Bus met Event Grid-integratie](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Overzicht van de integratie van Service Bus met Event Grid. |
 | [Gebeurtenisschema](event-schema-service-bus.md) | Velden weergeven in Service Bus-gebeurtenissen |
 
-## <a name="storage"></a>Opslag
+## <a name="storage"></a>Storage
 
 Abonneren op gebeurtenissen van Blob-opslag om te reageren op blob-gebeurtenissen gemaakt en verwijderd.
 
@@ -138,7 +138,7 @@ Abonneren op gebeurtenissen van de Azure-kaarten om te reageren op gebeurtenisse
 |Titel  |Description  |
 |---------|---------|
 | [Reageren op gebeurtenissen van Azure Maps met behulp van Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overzicht van Azure Maps integreren met Event Grid. |
-| [Zelfstudie: Instellen van een geofence](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Deze zelfstudie leert u de basisbeginselen-stappen voor het instellen van de geofence bevindt met behulp van Azure Maps. Met Azure Event Grid kunt u de resultaten van de geofence streamen en het instellen van een melding op basis van de resultaten van de geofence bevindt. |
+| [Zelfstudie: Instellen van een geofence](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | In deze zelfstudie doorloopt u de basisstappen voor het instellen van geofence met behulp van Azure Maps. Met Azure Event Grid kunt u de resultaten van de geofence streamen en het instellen van een melding op basis van de resultaten van de geofence bevindt. |
 | [Gebeurtenisschema](event-schema-azure-maps.md) | Velden worden weergegeven in Azure Maps-gebeurtenissen. |
 
 

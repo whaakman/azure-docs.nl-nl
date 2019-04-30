@@ -1,5 +1,5 @@
 ---
-title: "Azure back-up: Back-uptaken met REST API's beheren"
+title: "Azure Backup: Back-uptaken met REST API's beheren"
 description: beheren van back-up en herstellen van taken van Azure Backup met behulp van REST-API
 services: backup
 author: pvrk
@@ -11,11 +11,11 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: eb8b7dc77d180eb56c2585e93e60a36742f6c84c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289678"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646619"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Bijhouden van back-up en herstel taken met behulp van REST-API
 
@@ -23,7 +23,7 @@ Azure Backup-service wordt geactiveerd voor taken die worden uitgevoerd op de ac
 
 ## <a name="fetch-job-information-from-operations"></a>Taakgegevens ophalen uit operations
 
-Een bewerking, zoals back-up activeren retourneert altijd een jobID is. Voor bijvoorbeeld: het definitieve antwoord van een [back-REST-API-bewerking activeren](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) is als volgt:
+Een bewerking, zoals back-up activeren retourneert altijd een jobID is. Voor bijvoorbeeld: De definitieve antwoord van een [back-REST-API-bewerking activeren](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) is als volgt:
 
 ```http
 {
@@ -51,7 +51,7 @@ De `{jobName}` 'jobId' hierboven wordt genoemd. Het antwoord is altijd 200 OK me
 
 ### <a name="response"></a>Antwoord
 
-|Naam  |Type  |Beschrijving  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 

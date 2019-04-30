@@ -17,11 +17,11 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540376"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Voorbeeld van de Azure-infrastructuur-overzicht voor het Windows-VM 's
 Dit artikel helpt bij het bouwen van de infrastructuur van een voorbeeld van de toepassing. We informatie over het ontwerpen van een infrastructuur voor een eenvoudige online winkel die de richtlijnen en besluiten over naamconventies, beschikbaarheidssets, virtuele netwerken en taakverdelers combineert en distribueren van uw virtuele machines (VM's).
@@ -72,14 +72,14 @@ Omdat het virtuele netwerk niet nodig heeft voor actieve verbinding met de Adven
 
 Een virtueel netwerk alleen in de cloud worden ze gemaakt met de volgende instellingen met behulp van de Azure-portal:
 
-* Name: AZOS-USE-VN01
-* Locatie: VS-Oost 2
+* Naam: AZOS-USE-VN01
+* Locatie: US - oost 2
 * Virtuele netwerkadresruimte: 10.0.0.0/8
 * Eerste subnet:
   * Naam: FrontEnd
   * Adresruimte: 10.0.1.0/24
 * Tweede subnet:
-  * Naam: back-end
+  * Naam: BackEnd
   * Adresruimte: 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Beschikbaarheidssets

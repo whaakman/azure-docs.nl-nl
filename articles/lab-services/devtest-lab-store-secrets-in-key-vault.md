@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: d87c8a46459a9b4bf80bef895ec97e436d38e699
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 17469d3602935715d570a496e12b6680269ff465
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622895"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Store-geheimen in een key vault in Azure DevTest Labs
 Mogelijk moet u een complexe geheim invoeren bij het gebruik van Azure DevTest Labs: wachtwoord voor uw Windows-VM, openbare SSH-sleutel voor uw Linux-VM of persoonlijk toegangstoken voor het klonen van de Git-repo via een artefact. Geheimen zijn gewoonlijk lang en willekeurige tekens bevatten. Ze voeren kan dus lastig en onhandig, met name als u meerdere keren dezelfde geheim gebruiken.

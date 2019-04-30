@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557882"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management-sjabloon-resources
 Met Azure API Management biedt de volgende typen resources voor gebruik in de developer portal-sjablonen.  
@@ -112,13 +112,13 @@ De volgende opties voor lokalisatie worden ondersteund:
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |PageTitleApis|API's|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Voorbeeld van de toepassing|  
 |WebApplicationsRequirementsHeader|Vereisten|  
@@ -127,12 +127,12 @@ De volgende opties voor lokalisatie worden ondersteund:
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Weet u zeker dat u de toepassing wilt verwijderen?|  
 |WebDevelopersAppNotPublished|Niet gepubliceerd|  
 |WebDevelopersAppNotSubmitted|Niet verzonden|  
-|WebDevelopersAppTableCategoryHeader|Categorie|  
+|WebDevelopersAppTableCategoryHeader|Category|  
 |WebDevelopersAppTableNameHeader|Name|  
 |WebDevelopersAppTableStateHeader|Status|  
 |WebDevelopersEditLink|Bewerken|  
@@ -143,13 +143,13 @@ De volgende opties voor lokalisatie worden ondersteund:
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |WebApplicationsHeader|Applicaties|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |NoItemsToDisplay|Er zijn geen resultaten gevonden.|  
 |GeneralExceptionMessage|Iets is niet goed. Het is mogelijk een tijdelijke storing of een bug. Probeer het opnieuw.|  
@@ -160,7 +160,7 @@ De volgende opties voor lokalisatie worden ondersteund:
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |ButtonLabelCancel|Annuleren|  
 |ButtonLabelSave|Opslaan|  
@@ -184,7 +184,7 @@ De volgende opties voor lokalisatie worden ondersteund:
   
 ###  <a name="Documentation"></a> Documentatie  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Ongeldige header '{0}'|  
 |WebDocumentationInvalidRequestErrorMessage|Ongeldige aanvraag-URL|  
@@ -332,7 +332,7 @@ De volgende opties voor lokalisatie worden ondersteund:
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |LinkLabelBack|terug|  
 |LinkLabelHomePage|startpagina|  
@@ -350,7 +350,7 @@ De volgende opties voor lokalisatie worden ondersteund:
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problemen|  
 |WebIssuesNoActiveSubscriptions|U hebt geen actieve abonnementen. U moet zich abonneren op een product om een probleem te melden.|  
@@ -361,7 +361,7 @@ De volgende opties voor lokalisatie worden ondersteund:
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |LinkLabelHomePage|startpagina|  
 |LinkLabelSendUsEmail|e-mail verzenden|  
@@ -376,7 +376,7 @@ De volgende opties voor lokalisatie worden ondersteund:
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |WebProductsAgreement|Abonneer u op {0} Product, ik ga akkoord met de `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Gebruiksvoorwaarden|  
@@ -398,13 +398,13 @@ De volgende opties voor lokalisatie worden ondersteund:
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
-|PageTitleProducts|Producten|  
+|PageTitleProducts|Products|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|Op het moment is het aanmelden uitgeschakeld door de beheerders.|  
 |TextboxExternalIdentitiesSigninInvitation|U kunt zich ook aanmelden met|  
@@ -412,7 +412,7 @@ De volgende opties voor lokalisatie worden ondersteund:
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |PrincipalNotFound|Kan de principal niet vinden of de handtekening is ongeldig.|  
 |ErrorSsoAuthenticationFailed|De SSO-verificatie is mislukt|  
@@ -481,7 +481,7 @@ De volgende opties voor lokalisatie worden ondersteund:
 |WebAuthenticationRequestIsNotValid|De aanvraag is ongeldig|  
 |WebAuthenticationUserIsNotConfirm|Bevestig uw registratie voordat u zich aanmeldt.|  
 |WebAuthenticationInvalidEmailFormated|E-mailadres is ongeldig: {0}|  
-|WebAuthenticationUserNotFound|De gebruiker is niet gevonden|  
+|WebAuthenticationUserNotFound|Gebruiker is niet gevonden|  
 |WebAuthenticationTenantNotRegistered|Uw account behoort tot een Azure Active Directory-tenant die is niet gemachtigd voor toegang tot deze portal.|  
 |WebAuthenticationAuthenticationFailed|De verificatie is mislukt.|  
 |WebAuthenticationGooglePlusNotEnabled|De verificatie is mislukt. Als u de toepassing hebt geverifieerd is vervolgens Neem contact op met de beheerder om ervoor te zorgen dat Google de verificatie correct geconfigureerd.|  
@@ -508,7 +508,7 @@ De volgende opties voor lokalisatie worden ondersteund:
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Wachtwoord vergeten?|  
 |WebAuthenticationIfAdministrator|Als u beheerder bent u moet zich aanmelden `<a href="{0}"\>here</a\>`.|  
@@ -520,7 +520,7 @@ De volgende opties voor lokalisatie worden ondersteund:
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |PageTitleSignup|Aanmelden|  
 |WebAuthenticationAlreadyAMember|Bent u al lid?|  
@@ -530,7 +530,7 @@ De volgende opties voor lokalisatie worden ondersteund:
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Weet u zeker dat u dit abonnement wilt annuleren?|  
 |SubscriptionRenewConfirmation|Weet u zeker dat u dit abonnement wilt verlengen?|  
@@ -553,7 +553,7 @@ De volgende opties voor lokalisatie worden ondersteund:
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Wilt u uw account sluiten?|  
 |PageTitleDeveloperProfile|Profiel|  
@@ -564,14 +564,14 @@ De volgende opties voor lokalisatie worden ondersteund:
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Profiel bijwerken|  
 |PageTitleUpdateProfile|Accountgegevens bijwerken|  
   
 ###  <a name="UserProfile"></a> Gebruikersprofiel  
   
-|Name|Tekst|  
+|Name|Text|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Accountinformatie wijzigen|  
 |ButtonLabelChangePassword|Wachtwoord wijzigen|  

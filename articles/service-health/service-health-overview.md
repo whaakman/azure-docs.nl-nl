@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
 ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328262"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620735"
 ---
 # <a name="service-health"></a>Service Health
 Status van de service biedt u een aanpasbaar dashboard houdt de status van uw Azure-services in de regio's waar u ze gebruiken. In dit dashboard, kunt u actieve gebeurtenissen, zoals problemen van de serviceonderbreking gepland onderhoud of relevante statusadvies bijhouden. Wanneer gebeurtenissen niet-actief worden, krijgen ze in de geschiedenis van uw geplaatst voor maximaal 90 dagen. Ten slotte kunt u de Service Health-dashboard maken en beheren van waarschuwingen van de health service die u proactief te waarschuwen wanneer er problemen met de service van invloed zijn op u.

@@ -12,14 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
-ms.author: yegu
+origin.date: 07/31/2017
+ms.date: 02/27/2019
+ms.author: v-junlch
 ms.openlocfilehash: dfa8b47ced70386efa1daa44af318f1da55f49e1
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235730"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542249"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Gegevens importeren en exporteren in Azure voor Redis-Cache
 Import/Export wordt een Azure-Cache voor Redis gegevensbewerking voor het beheer, zodat u kunt gegevens importeren in Azure voor Redis-Cache of exporteren van gegevens uit Azure Cache voor Redis door te importeren en exporteren van een Azure-Cache voor de momentopname Redis-Database (RDB) van een premium-cache op een BLOB in een Azure Storage-Account. 
@@ -99,16 +100,16 @@ Export kunt u de gegevens die zijn opgeslagen in Azure Cache voor Redis-Redis co
 ## <a name="importexport-faq"></a>Veelgestelde vragen over Import/Export
 In deze sectie bevat veelgestelde vragen over de Import/Export-functie.
 
-* [De prijzen van lagen, kan de Import/Export gebruiken?](#what-pricing-tiers-can-use-importexport)
-* [Kan ik gegevens importeren uit een Redis-server?](#can-i-import-data-from-any-redis-server)
-* [De RDB-versies kan ik importeren?](#what-rdb-versions-can-i-import)
-* [Mijn cache is beschikbaar tijdens een bewerking voor importeren/exporteren?](#is-my-cache-available-during-an-importexport-operation)
-* [Kan ik Import/Export gebruiken met Redis-cluster?](#can-i-use-importexport-with-redis-cluster)
-* [Hoe werkt voor importeren/exporteren met een aangepaste databases instellen?](#how-does-importexport-work-with-a-custom-databases-setting)
-* [Hoe verschilt voor importeren/exporteren van Redis-persistentie?](#how-is-importexport-different-from-redis-persistence)
-* [Kan ik automatiseren met behulp van PowerShell, CLI of andere clients beheren voor importeren/exporteren?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
-* [Ik heb ontvangen een time-outfout tijdens mijn Import/Export-bewerking. Wat betekent dit?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
-* [Ik kreeg een fout bij het exporteren van gegevens naar Azure Blob Storage. Wat is er gebeurd?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
+- [De prijzen van lagen, kan de Import/Export gebruiken?](#what-pricing-tiers-can-use-importexport)
+- [Kan ik gegevens importeren uit een Redis-server?](#can-i-import-data-from-any-redis-server)
+- [De RDB-versies kan ik importeren?](#what-rdb-versions-can-i-import)
+- [Mijn cache is beschikbaar tijdens een bewerking voor importeren/exporteren?](#is-my-cache-available-during-an-importexport-operation)
+- [Kan ik Import/Export gebruiken met Redis-cluster?](#can-i-use-importexport-with-redis-cluster)
+- [Hoe werkt voor importeren/exporteren met een aangepaste databases instellen?](#how-does-importexport-work-with-a-custom-databases-setting)
+- [Hoe verschilt voor importeren/exporteren van Redis-persistentie?](#how-is-importexport-different-from-redis-persistence)
+- [Kan ik automatiseren met behulp van PowerShell, CLI of andere clients beheren voor importeren/exporteren?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
+- [Ik heb ontvangen een time-outfout tijdens mijn Import/Export-bewerking. Wat betekent dit?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
+- [Ik kreeg een fout bij het exporteren van gegevens naar Azure Blob Storage. Wat is er gebeurd?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
 
 ### <a name="what-pricing-tiers-can-use-importexport"></a>De prijzen van lagen, kan de Import/Export gebruiken?
 Import/Export is alleen beschikbaar in de prijscategorie premium.
@@ -126,8 +127,8 @@ U kunt naast het importeren van gegevens die zijn geëxporteerd uit Azure Cache 
 Azure Redis-Cache biedt ondersteuning voor de RDB-import van via RDB versie 7.
 
 ### <a name="is-my-cache-available-during-an-importexport-operation"></a>Mijn cache is beschikbaar tijdens een bewerking voor importeren/exporteren?
-* **Exporteren** - Caches beschikbaar blijven en u kunt echter ook doorgaan met uw cache tijdens een exportbewerking.
-* **Importeren** - Caches zijn niet beschikbaar wanneer een importbewerking wordt gestart, en beschikbaar is voor gebruik wanneer de importbewerking is voltooid.
+- **Exporteren** - Caches beschikbaar blijven en u kunt echter ook doorgaan met uw cache tijdens een exportbewerking.
+- **Importeren** - Caches zijn niet beschikbaar wanneer een importbewerking wordt gestart, en beschikbaar is voor gebruik wanneer de importbewerking is voltooid.
 
 ### <a name="can-i-use-importexport-with-redis-cluster"></a>Kan ik Import/Export gebruiken met Redis-cluster?
 Ja, en u kunt importeren/exporteren tussen een geclusterde cache en een niet-geclusterde cache. Sinds de Redis-cluster [alleen ondersteunt database 0](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), alle gegevens in databases dan 0 is niet geïmporteerd. Wanneer geclusterde cache-gegevens worden geïmporteerd, wordt de sleutels herverdeeld over de shards van het cluster.
@@ -135,10 +136,10 @@ Ja, en u kunt importeren/exporteren tussen een geclusterde cache en een niet-gec
 ### <a name="how-does-importexport-work-with-a-custom-databases-setting"></a>Hoe werkt voor importeren/exporteren met een aangepaste databases instellen?
 Sommige Prijscategorieën hebben verschillende [limieten voor databases](cache-configure.md#databases), dus er enkele overwegingen zijn bij het importeren als u een aangepaste waarde voor geconfigureerd de `databases` instellen tijdens het maken van de cache.
 
-* Bij het importeren van een prijscategorie met een lagere `databases` limiet dan de laag die u hebt geëxporteerd:
-  * Als u het standaardaantal `databases`, welke 16 voor alle Prijscategorieën is, geen gegevens verloren zijn gegaan.
-  * Als u een aangepaste aantal `databases` die valt binnen de grenzen voor de laag waarop u importeren wilt, gegevens niet verloren.
-  * Als de geëxporteerde gegevens gegevens in een database die langer is dan de grenzen van de nieuwe laag opgenomen, worden de gegevens uit deze hogere databases is niet geïmporteerd.
+- Bij het importeren van een prijscategorie met een lagere `databases` limiet dan de laag die u hebt geëxporteerd:
+  - Als u het standaardaantal `databases`, welke 16 voor alle Prijscategorieën is, geen gegevens verloren zijn gegaan.
+  - Als u een aangepaste aantal `databases` die valt binnen de grenzen voor de laag waarop u importeren wilt, gegevens niet verloren.
+  - Als de geëxporteerde gegevens gegevens in een database die langer is dan de grenzen van de nieuwe laag opgenomen, worden de gegevens uit deze hogere databases is niet geïmporteerd.
 
 ### <a name="how-is-importexport-different-from-redis-persistence"></a>Hoe verschilt voor importeren/exporteren van Redis-persistentie?
 Azure Cache voor Redis-persistentie kunt u het behoud van gegevens die zijn opgeslagen in Redis naar Azure Storage. Wanneer persistentie is geconfigureerd, persistente Azure Cache voor Redis een momentopname van de Azure-Cache in een binaire indeling Redis op schijf op basis van een configureerbaar back-upfrequentie voor Redis. Als er een catastrofale gebeurtenis optreedt die zowel de primaire en replica-cache wordt uitgeschakeld, wordt de cachegegevens hersteld automatisch met behulp van de meest recente momentopname. Zie voor meer informatie, [het configureren van persistentie van de gegevens voor een Premium Azure Cache voor Redis](cache-how-to-premium-persistence.md).
@@ -161,7 +162,7 @@ Exporteren werkt alleen met de RDB-bestanden die zijn opgeslagen als pagina-blob
 ## <a name="next-steps"></a>Volgende stappen
 Informatie over het gebruik van meer functies voor premium-cache.
 
-* [Inleiding tot de Azure-Cache voor Premium-laag Redis](cache-premium-tier-intro.md)    
+- [Inleiding tot de Azure-Cache voor Premium-laag Redis](cache-premium-tier-intro.md)    
 
 <!-- IMAGES -->
 [cache-settings-import-export-menu]: ./media/cache-how-to-import-export-data/cache-settings-import-export-menu.png
@@ -176,3 +177,6 @@ Informatie over het gebruik van meer functies voor premium-cache.
 [cache-import-choose-blobs]: ./media/cache-how-to-import-export-data/cache-import-choose-blobs.png
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
+
+
+<!-- Update_Description: update metedata properties -->
