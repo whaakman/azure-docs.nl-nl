@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9484cf0f549db94be8f1ac2363addca952a3cff3
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810010"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61096060"
 ---
 <a name="retrieve-a-specific-offer"></a>Een specifieke aanbiedings ophalen
 =========================
@@ -47,20 +47,20 @@ U kunt ook ophalen van een bepaalde versie van de aanbieding of de aanbieding in
 
 | **Naam**    | **Beschrijving**                                                                          | **Gegevenstype** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId. Bijvoorbeeld: Contoso                                                        | Reeks        |
-| offerId     | De GUID die de aanbieding wordt aangeduid.                                                 | Reeks        |
-| version     | De versie van de aanbieding wordt opgehaald. Standaard zijn de meest recente versie van de aanbieding wordt opgehaald. | Geheel getal       |
-| Sleuf      | De sleuf van waaruit de aanbieding moet worden opgehaald, is mogelijk een van:      <br/>  - `Draft` (standaard) Hiermee haalt u de versie van de aanbieding op dit moment in concept.  <br/>  -  `Preview` Hiermee haalt u de versie van de aanbieding die momenteel in preview.     <br/>  -  `Production` Hiermee haalt u de versie van de aanbieding op dit moment in productie.          |      Enum |
+| publisherId | publisherId. Bijvoorbeeld: Contoso                                                        | String        |
+| offerId     | De GUID die de aanbieding wordt aangeduid.                                                 | String        |
+| versie     | De versie van de aanbieding wordt opgehaald. Standaard zijn de meest recente versie van de aanbieding wordt opgehaald. | Geheel getal       |
+| slotId      | De sleuf van waaruit de aanbieding moet worden opgehaald, is mogelijk een van:      <br/>  - `Draft` (standaard) Hiermee haalt u de versie van de aanbieding op dit moment in concept.  <br/>  -  `Preview` Hiermee haalt u de versie van de aanbieding die momenteel in preview.     <br/>  -  `Production` Hiermee haalt u de versie van de aanbieding op dit moment in productie.          |      enum |
 | API-versie | Meest recente versie van de API                                                                    | Date          |
 |  |  |  |
 
 
-<a name="header"></a>Koptekst
+<a name="header"></a>Header
 ------
 
 |  **Naam**          |   **Waarde**            |
 |  ---------------   |  --------------        |
-|  Inhoudstype      | `application/json`     |
+|  Content-Type      | `application/json`     |
 |  Autorisatie     | `Bearer YOUR_TOKEN`    |
 |  |  |
 
@@ -181,7 +181,7 @@ U kunt ook ophalen van een bepaalde versie van de aanbieding of de aanbieding in
 |  publisherId    | De unieke id van de uitgever                                                                                              |
 |  status         | De status van de aanbieding. Zie voor een lijst van mogelijke waarden, [status van het voorstel](#offer-status) hieronder.                                  |
 |  Id             | GUID die de unieke identificatie van de aanbieding                                                                                         |
-|  version        | Huidige versie van het product. De versie-eigenschap kan niet worden gewijzigd door de client. Het wordt verhoogd na elke publiceren.    |
+|  versie        | Huidige versie van het product. De versie-eigenschap kan niet worden gewijzigd door de client. Het wordt verhoogd na elke publiceren.    |
 |  definitie     | Werkelijke definitie van de werkbelasting                                                                                               |
 |  changedTime    | UTC datum/tijd waarop de aanbieding voor het laatst is gewijzigd                                                                                   |
 |  |  |

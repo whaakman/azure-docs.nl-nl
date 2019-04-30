@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: pbutlerm
 ms.openlocfilehash: e15b20c4b874e68c09321e00604aed24b7970371
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60873668"
 ---
 # <a name="azure-application-contacts-tab"></a>Tabblad Azure-toepassing-contactpersonen
 
@@ -36,7 +36,7 @@ Geef de volgende waarden voor het definiëren van de primaire **Engineering Cont
 |    ---------    |  ---------------                |
 |  **Naam**       |  De naam van de technische contactpersoon voor uw app. Deze contactpersoon, ontvangen een technische bericht van Microsoft.   |
 |  **E-mail**      |  E-mailadres van de technische contactpersoon  |
-|  **telefoon**      |  Telefoonnummer van de technische contactpersoon  |
+|  **Phone**      |  Telefoonnummer van de technische contactpersoon  |
 |  |  |
 
 Geef de volgende waarden voor het definiëren van de primaire **Ondersteuningscontactpersoon** en voor uw aanbieding.
@@ -45,7 +45,7 @@ Geef de volgende waarden voor het definiëren van de primaire **Ondersteuningsco
 |    ---------    |  ---------------                |
 |  **Naam**       |  De naam van de contactpersoon van de klant ondersteuning voor uw app. Deze contactpersoon, ontvangen een bericht met betrekking tot ondersteuning van Microsoft.   |
 |  **E-mail**      |  E-mailadres van de contactpersoon voor ondersteuning van klant  |
-|  **telefoon**      |  Het telefoonnummer van de contactpersoon voor ondersteuning van klant  |
+|  **Phone**      |  Het telefoonnummer van de contactpersoon voor ondersteuning van klant  |
 |  |  |
 
 

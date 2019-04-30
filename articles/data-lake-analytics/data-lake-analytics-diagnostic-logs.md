@@ -9,11 +9,11 @@ ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959122"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60616490"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Diagnostische logboeken openen voor Azure Data Lake Analytics
 
@@ -125,7 +125,7 @@ Hier volgt een voorbeeldvermelding voor het in het logboek van de aanvraag voor 
 
 #### <a name="request-log-schema"></a>Schema voor het logboek van aanvraag
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | time |String |De tijdstempel (in UTC) van het logboek |
 | resourceId |String |De id van de resource die bewerking duurde plaats op |
@@ -139,7 +139,7 @@ Hier volgt een voorbeeldvermelding voor het in het logboek van de aanvraag voor 
 
 #### <a name="request-log-properties-schema"></a>Schema voor eigenschappen van aanvraag-logboek
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | HttpMethod |String |De HTTP-methode gebruikt voor de bewerking. Bijvoorbeeld, krijgen. |
 | Pad |String |Het pad naar de bewerking is uitgevoerd op |
@@ -177,7 +177,7 @@ Hier volgt een voorbeeldvermelding voor het in het auditlogboek voor JSON-indeli
 
 #### <a name="audit-log-schema"></a>Schema van auditlogboek
 
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | time |String |De tijdstempel (in UTC) van het logboek |
 | resourceId |String |De id van de resource die bewerking duurde plaats op |

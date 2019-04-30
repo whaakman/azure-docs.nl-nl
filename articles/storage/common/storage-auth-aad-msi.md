@@ -9,11 +9,11 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 9209161f9c9e34320b1388e0e1edbd5069e73727
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60148846"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61438287"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Verifiëren van toegang tot blobs en wachtrijen met Azure Active Directory en beheerde identiteiten voor Azure-Resources
 
@@ -25,7 +25,7 @@ In dit artikel laat zien hoe om toegang te verlenen tot gegevens voor blob of ee
 
 Voordat u beheerde identiteiten voor Azure-Resources gebruiken kunt om toegang tot blobs en wachtrijen van de virtuele machine te verlenen, moet u eerst beheerde identiteiten inschakelen voor Azure-Resources op de virtuele machine. Voor informatie over het inschakelen van beheerde identiteiten voor Azure-Resources, Zie een van de volgende artikelen:
 
-- [Azure-portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure-CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager-sjabloon](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)

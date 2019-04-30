@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: b2398e7db7ed91dee8d85c0c50058bb15b9f4c7e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894129"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60827252"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR-taken naar te verwijzen: YAML
 
@@ -79,7 +79,7 @@ az configure --defaults acr=myregistry
 
 Taakeigenschappen is doorgaans worden weergegeven aan de bovenkant van een `acr-task.yaml` -bestand en algemene eigenschappen die gedurende de volledige uitvoering van de stappen van de van toepassing zijn. Sommige van deze algemene eigenschappen kunnen worden overschreven in een afzonderlijke stap.
 
-| Eigenschap | Type | Optioneel | Beschrijving | Onderdrukking ondersteund | Standaardwaarde |
+| Eigenschap | Type | Optioneel | Description | Onderdrukking ondersteund | Standaardwaarde |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Ja | De versie van de `acr-task.yaml` bestand zoals geparseerd door de taken van de ACR-service. Terwijl ACR taken streeft ernaar om te behouden voor achterwaartse compatibiliteit, kunt deze waarde ACR-taken voor compatibiliteit binnen een opgegeven versie. Als u niets opgeeft, kunt u standaard naar de nieuwste versie. | Nee | Geen |
 | `stepTimeout` | Int (seconden) | Ja | Het maximum aantal seconden dat een stap kunt uitvoeren. Als de eigenschap voor een taak is opgegeven, wordt de standaardwaarde ingesteld `timeout` eigenschap van de stappen uit. Als de `timeout` eigenschap is opgegeven voor een stap dit vervangt de eigenschap die is opgegeven door de taak. | Ja | 600 (10 minuten) |
@@ -102,7 +102,7 @@ Het geheime object heeft de volgende eigenschappen.
 
 Het object network heeft de volgende eigenschappen.
 
-| Eigenschap | Type | Optioneel | Beschrijving | Standaardwaarde |
+| Eigenschap | Type | Optioneel | Description | Standaardwaarde |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | string | Nee | De naam van het netwerk. | Geen |
 | `driver` | string | Ja | Het stuurprogramma voor het beheren van het netwerk. | Geen |
@@ -114,7 +114,7 @@ Het object network heeft de volgende eigenschappen.
 
 ACR taken ondersteunt drie typen van de stap. Elk staptype ondersteunt verschillende eigenschappen, zoals uiteengezet in de sectie voor elk staptype.
 
-| Staptype | Beschrijving |
+| Staptype | Description |
 | --------- | ----------- |
 | [`build`](#build) | Maakt een containerinstallatiekopie met de vertrouwde `docker build` syntaxis. |
 | [`push`](#push) | Voert een `docker push` van de zojuist gemaakte of retagged installatiekopieën naar een containerregister. Azure Container Registry, andere persoonlijke registers en de openbare Docker Hub worden ondersteund. |

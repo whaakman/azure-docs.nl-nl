@@ -11,11 +11,11 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
 ms.openlocfilehash: b950e7d38235d089c6236c76136d8ec2fc7a1f74
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731330"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821385"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Bedrijfsbeveiliging voor Azure Machine Learning-service
 
@@ -23,7 +23,7 @@ In dit artikel leert u over beveiligingsfuncties die beschikbaar zijn met de Azu
 
 Wanneer u een service in de cloud gebruikt, is het aanbevolen om te beperken van toegang tot de gebruikers die deze nodig hebben. Hiermee start u inzicht hebt in de verificatie en autorisatie model gebruikt door de service. U kunt ook wilt beperken van toegang tot het netwerk of veilig worden toegevoegd aan resources in uw on-premises netwerk met die in de cloud. Gegevensversleuteling is ook essentieel in rust en terwijl de gegevens worden verplaatst tussen services. Tot slot moet u mogelijk om te controleren van de service en een logboek van alle activiteiten te produceren.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 Multi-factor authentication wordt ondersteund als Azure Active Directory (Azure AD) is geconfigureerd voor dezelfde.
 * Client meldt zich aan bij Azure AD en Azure Resource Manager-token opgehaald.  Gebruikers- en Service-Principals worden volledig ondersteund.
 * Client geeft naar Azure Resource Manager-token en alle Azure Machine Learning-services
@@ -86,7 +86,7 @@ Zie voor meer informatie over beheerde identiteiten [beheerde identiteiten voor 
 | Resource | Machtigingen |
 | ----- | ----- |
 | Werkruimte | Inzender | 
-| Opslagaccount | Gegevensbijdrager voor Blob | 
+| Opslagaccount | Bijdrager voor opslagblobgegevens | 
 | Key Vault | Toegang tot alle sleutels en geheimen,-certificaten | 
 | Azure Container Registry | Inzender | 
 | Resourcegroep met de werkruimte | Inzender | 

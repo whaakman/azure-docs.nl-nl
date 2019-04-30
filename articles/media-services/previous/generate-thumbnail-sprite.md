@@ -12,13 +12,13 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: e5d32d1bc3bd704b03e58c62251a323ed3f4662c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57991658"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61229047"
 ---
-# <a name="generate-a-thumbnail-sprite"></a>Genereer een miniatuur sprite  
+# <a name="generate-a-thumbnail-sprite"></a>Een miniatuursprite genereren  
 
 U kunt Media Encoder Standard gebruiken voor het genereren van een miniatuur sprite, dit is een JPEG-bestand met meerdere kleine resolutie miniaturen stitched samen in één (groot) installatiekopie, samen met een VTT-bestand. Dit bestand VTT Hiermee geeft u het tijdsbereik in de invoervideo die staat voor een miniatuur, samen met de grootte en de coördinaten van deze miniatuur binnen de grote JPEG-bestanden. De installatiekopie van het VTT-bestand en sprite videospelers gebruiken voor het weergeven van een 'visual' zoekbalk een viewer voorzien van visuele feedback wanneer het weer voor het reinigen en doorsturen in de tijdlijn van de video.
 

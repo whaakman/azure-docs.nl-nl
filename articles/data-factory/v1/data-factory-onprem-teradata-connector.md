@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d22318f4d9e233a57d521fe36f0827b9fc3af3e0
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610745"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Gegevens verplaatsen van Teradata met Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,7 +68,7 @@ De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zi
 | server |Naam van de Teradata-server. |Ja |
 | authenticationType |Het type verificatie gebruikt voor verbinding met de Teradata-database. Mogelijke waarden zijn: Anoniem, basis en Windows. |Ja |
 | gebruikersnaam |Geef de gebruikersnaam op als u basisverificatie of Windows-verificatie. |Nee |
-| wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Nee |
+| password |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Nee |
 | gatewayName |De naam van de gateway die de Data Factory-service gebruiken moet voor verbinding met de on-premises Teradata-database. |Ja |
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
@@ -285,7 +285,7 @@ Wanneer u gegevens naar Teradata verplaatst, worden de volgende toewijzingen van
 
 | Type van de Teradata-Database | .NET framework-type |
 | --- | --- |
-| CHAR |String |
+| char |String |
 | CLOB |String |
 | Afbeelding |String |
 | VarChar |String |

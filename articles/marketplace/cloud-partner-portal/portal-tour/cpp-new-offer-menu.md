@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 04cac492fd044471a646444afc21bc70f92537d2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656848"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60849182"
 ---
-# <a name="new-offer-menu"></a>Menu nieuwe aanbieding
+# <a name="new-offer-menu"></a>Menu voor Nieuwe aanbieding
 
 De **nieuwe aanbieding** menu kan partners exemplaren maken van de aanbieding die worden ondersteund door de [Cloud Partner-Portal](https://cloudpartner.azure.com).  Selecteren van de **nieuwe aanbieding** menu-item op de menubalk aan de linkerkant navigatie toont u de volgende lijst met typen.  Als u een van deze typen begint met het maken van de aanbieding en het publicatieproces.
 
@@ -34,7 +34,7 @@ De **nieuwe aanbieding** menu kan partners exemplaren maken van de aanbieding di
 | ![Dynamics 365 voor Customer Engagement menu-item](./media/new-offer-menu5.png) | [Aanbieding voor Dynamics 365 for Customer Engagement](./../../cloud-partner-portal-orig/cpp-customer-engagement-offer.md) |
 | ![Dynamics 365 voor bewerkingen menu-item](./media/new-offer-menu6.png) | [Aanbieding voor Dynamics 365 for Operations](./../../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) |
 | ![IoT Edge-modules menu-item](./media/new-offer-menu7.png) | [IoT Edge module aanbieding](./../iot-edge-module/cpp-offer-process-parts.md) |
-| ![Power BI-App menu-item](./media/new-offer-pbi.png)   |  [Power BI-App-aanbieding](../power-bi/cpp-power-bi-offer.md)  |
+| ![Power BI-App menu-item](./media/new-offer-pbi.png)   |  [Power BI App-aanbieding](../power-bi/cpp-power-bi-offer.md)  |
 | ![ Menu-item voor sasS-toepassingen](./media/new-offer-menu8.png) | [Aanbieding voor sasS-toepassing](../saas-app/cpp-saas-offer.md) |
 | ![ Menu-item voor virtuele machines](./media/new-offer-menu9.png) | [Virtuele-machineaanbieding](./../virtual-machine/cpp-virtual-machine-offer.md) |
 |  |  |

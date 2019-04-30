@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: e9fd818990c8a985a77c2e7eeea19bf63c440e4e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018990"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61347651"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Gegevens kopiëren van Teradata met Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ De volgende eigenschappen worden ondersteund voor Teradata gekoppelde service:
 | server | Naam van de Teradata-server. | Ja |
 | authenticationType | Het type verificatie gebruikt voor verbinding met de Teradata-database.<br/>Toegestane waarden zijn: **Basic**, en **Windows**. | Ja |
 | gebruikersnaam | Geef de naam van de gebruiker verbinding maken met de Teradata-database. | Ja |
-| wachtwoord | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| password | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Er is een zelfgehoste Cloudintegratieruntime vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
 
 **Voorbeeld:**
@@ -167,14 +167,14 @@ Het kopiëren van gegevens uit Teradata, worden de volgende toewijzingen uit Ter
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| CHAR |Reeks |
-| CLOB |Reeks |
+| char |String |
+| CLOB |String |
 | Date |DateTime |
-| Decimaal |Decimaal |
-| Double-waarde |Double-waarde |
-| Afbeelding |Reeks |
+| Decimal |Decimal |
+| Double |Double |
+| Afbeelding |String |
 | Geheel getal |Int32 |
-| Interval dag |TimeSpan |
+| Interval Day |TimeSpan |
 | Interval voor dag uur |TimeSpan |
 | Interval voor dag minuut |TimeSpan |
 | Tweede interval dag |TimeSpan |
@@ -183,25 +183,25 @@ Het kopiëren van gegevens uit Teradata, worden de volgende toewijzingen uit Ter
 | Tweede interval uur |TimeSpan |
 | Interval minuut |TimeSpan |
 | Tweede interval minuut |TimeSpan |
-| Interval van maand |Reeks |
+| Interval van maand |String |
 | Interval voor tweede |TimeSpan |
-| Interval van jaar |Reeks |
-| Interval voor jaar tot maand |Reeks |
-| Aantal |Double-waarde |
-| Period(date) |Reeks |
-| Period(Time) |Reeks |
-| Periode (tijd met tijdzone) |Reeks |
-| Period(timestamp) |Reeks |
-| Periode (Timestamp met tijdzone) |Reeks |
+| Interval van jaar |String |
+| Interval voor jaar tot maand |String |
+| Aantal |Double |
+| Period(date) |String |
+| Period(Time) |String |
+| Periode (tijd met tijdzone) |String |
+| Period(timestamp) |String |
+| Periode (Timestamp met tijdzone) |String |
 | SmallInt |Int16 |
 | Time |TimeSpan |
-| Tijd met de tijdzone |Reeks |
+| Tijd met de tijdzone |String |
 | Tijdstempel |DateTime |
 | Tijdstempel met tijdzone |DateTimeOffset |
 | VarByte |Byte[] |
-| VarChar |Reeks |
-| VarGraphic |Reeks |
-| Xml |Reeks |
+| VarChar |String |
+| VarGraphic |String |
+| Xml |String |
 
 
 ## <a name="next-steps"></a>Volgende stappen

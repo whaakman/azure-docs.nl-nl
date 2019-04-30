@@ -17,11 +17,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003450"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60593611"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Zelfstudie: Configure AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
 
@@ -402,7 +402,7 @@ Voor het configureren van de load balancer, moet u een back-endadresgroep, een t
 
    | Instelling | Description | Voorbeeld
    | --- | --- |---
-   | **Naam** | Tekst | SQLAlwaysOnEndPointProbe |
+   | **Naam** | Text | SQLAlwaysOnEndPointProbe |
    | **Protocol** | Kies TCP | TCP |
    | **Poort** | Een niet-gebruikte poort | 59999 |
    | **Interval**  | De tijdsduur tussen testpogingen in seconden |5 |
@@ -418,7 +418,7 @@ Voor het configureren van de load balancer, moet u een back-endadresgroep, een t
 
    | Instelling | Description | Voorbeeld
    | --- | --- |---
-   | **Naam** | Tekst | SQLAlwaysOnEndPointListener |
+   | **Naam** | Text | SQLAlwaysOnEndPointListener |
    | **Frontend-IP-adres** | Kies een adres |Gebruik het adres dat u hebt gemaakt tijdens het maken van de load balancer. |
    | **Protocol** | Kies TCP |TCP |
    | **Poort** | Gebruik de poort voor de beschikbaarheidsgroep-listener | 1433 |
@@ -426,7 +426,7 @@ Voor het configureren van de load balancer, moet u een back-endadresgroep, een t
    | **Probe** |De naam die u hebt opgegeven voor de test | SQLAlwaysOnEndPointProbe |
    | **Sessiepersistentie** | Vervolgkeuzelijst | **Geen** |
    | **Time-out voor inactiviteit** | Minuten dat een TCP-verbinding openen | 4 |
-   | **Zwevend IP (direct server return)** | |Ingeschakeld |
+   | **Zwevend IP (direct server return)** | |Enabled |
 
    > [!WARNING]
    > Direct server return is ingesteld tijdens het maken van. De naam kan niet worden gewijzigd.
@@ -445,7 +445,7 @@ Het WSFC-IP-adres moet ook worden op de load balancer.
 
    | Instelling | Description | Voorbeeld
    | --- | --- |---
-   | **Naam** | Tekst | WSFCEndPointProbe |
+   | **Naam** | Text | WSFCEndPointProbe |
    | **Protocol** | Kies TCP | TCP |
    | **Poort** | Een niet-gebruikte poort | 58888 |
    | **Interval**  | De tijdsduur tussen testpogingen in seconden |5 |
@@ -459,7 +459,7 @@ Het WSFC-IP-adres moet ook worden op de load balancer.
 
    | Instelling | Description | Voorbeeld
    | --- | --- |---
-   | **Naam** | Tekst | WSFCEndPoint |
+   | **Naam** | Text | WSFCEndPoint |
    | **Frontend-IP-adres** | Kies een adres |Het adres dat u hebt gemaakt tijdens het configureren van het WSFC-IP-adres gebruiken. Dit wijkt af van het listener-IP-adres |
    | **Protocol** | Kies TCP |TCP |
    | **Poort** | De poort voor de cluster-IP-adres gebruiken. Dit is een beschikbare poort die niet wordt gebruikt voor de test-listener-poort. | 58888 |
@@ -467,7 +467,7 @@ Het WSFC-IP-adres moet ook worden op de load balancer.
    | **Probe** |De naam die u hebt opgegeven voor de test | WSFCEndPointProbe |
    | **Sessiepersistentie** | Vervolgkeuzelijst | **Geen** |
    | **Time-out voor inactiviteit** | Minuten dat een TCP-verbinding openen | 4 |
-   | **Zwevend IP (direct server return)** | |Ingeschakeld |
+   | **Zwevend IP (direct server return)** | |Enabled |
 
    > [!WARNING]
    > Direct server return is ingesteld tijdens het maken van. De naam kan niet worden gewijzigd.

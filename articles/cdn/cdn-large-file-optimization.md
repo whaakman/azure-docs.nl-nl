@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 9793348b47763e6de10992b9a8a4606fc532cc4d
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636732"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimalisatie van grote bestanden downloaden met Azure CDN
 
@@ -110,8 +110,8 @@ Optimalisatie van grote bestanden maakt gebruik van verschillende standaard opsl
 
 |    | Algemene web | Optimalisatie van grote bestanden 
 --- | --- | --- 
-Opslaan in cache: positief <br> HTTP 200, 203, 300, <br> 301, 302 en 410 | 7 dagen |1 dag  
-Opslaan in cache: negatief zijn <br> HTTP 204, 305, 404, <br> en 405 | Geen | 1 seconde 
+Caching: Positief <br> HTTP 200, 203, 300, <br> 301, 302 en 410 | 7 dagen |1 dag  
+Caching: Negatief <br> HTTP 204, 305, 404, <br> en 405 | Geen | 1 seconde 
 
 ### <a name="deal-with-origin-failure"></a>Fout bij de oorsprong zijn getroffen
 
@@ -125,7 +125,7 @@ De volgende tabel bevat de set criteria worden voldaan voordat voor optimalisati
 
 Voorwaarde | Waarden 
 --- | --- 
-Ondersteunde bestandstypen | 3g, 2, 3gp, AVP, avi, bz2, dmg, exe, f4v, flv <br> GZ, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> MPEG, mpg, mts, pak, qt, DB, swf, tar, <br> tgz, wdp, webm, webp, wma, wmv, zip  
+Ondersteunde bestandstypen | 3g2, 3gp, asf, avi, bz2, dmg, exe, f4v, flv, <br> gz, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> mpeg, mpg, mts, pkg, qt, rm, swf, tar, <br> tgz, wdp, webm, webp, wma, wmv, zip  
 Minimale bestandsgrootte | 10 MB 
 Maximale bestandsgrootte | 150 GB 
 De kenmerken van een oorsprong | Byte-bereikaanvragen moet ondersteunen 

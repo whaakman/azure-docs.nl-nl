@@ -1,6 +1,6 @@
 ---
 title: GlusterFS op Azure VM's op Red Hat Enterprise Linux voor SAP NetWeaver | Microsoft Docs
-description: GlusterFS op Azure VM's op Red Hat Enterprise Linux voor SAP NetWeaver
+description: GlusterFS in Azure VM's in Red Hat Enterprise Linux voor SAP NetWeaver
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
 ms.openlocfilehash: 484a0043b9b5eefa5491dee75e87244d1c001620
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342320"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711247"
 ---
-# <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS op Azure VM's op Red Hat Enterprise Linux voor SAP NetWeaver
+# <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS in Azure VM's in Red Hat Enterprise Linux voor SAP NetWeaver
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -137,7 +137,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    <b>10.0.0.42 glust-2</b>
    </code></pre>
 
-1. **[A]**  Registreren
+1. **[A]** Register
 
    Registreren van uw virtuele machines en deze koppelen aan een pool met opslagplaatsen voor RHEL 7 en GlusterFS
 
@@ -145,7 +145,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-1. **[A]**  GlusterFS inschakelen-opslagplaatsen
+1. **[A]** Enable GlusterFS repos
 
    Om te installeren de vereiste pakketten, schakel de volgende opslagplaatsen.
 
@@ -163,7 +163,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
 
    Start opnieuw op de knooppunten na de installatie.
 
-1. **[A]**  Firewall wijzigen
+1. **[A]** Modify Firewall
 
    Firewallregels voor clientverkeer op de knooppunten GlusterFS toevoegen.
 
@@ -182,7 +182,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    sudo systemctl enable glusterd
    </code></pre>
 
-1. **[1]**  GluserFS maken
+1. **[1]** Create GluserFS
 
    Voer de volgende opdrachten om de GlusterFS-cluster te maken
 

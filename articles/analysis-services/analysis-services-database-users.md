@@ -9,11 +9,11 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58891681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61023613"
 ---
 # <a name="manage-database-roles-and-users"></a>Databaserollen en gebruikers beheren
 
@@ -72,7 +72,7 @@ Rollen en gebruikers toevoegen aan een geïmplementeerd model-database, moet u w
 
 3. Selecteer een machtiging.
 
-   |Machtiging|Beschrijving|  
+   |Machtiging|Description|  
    |----------------|-----------------|  
    |**Volledige bevoegdheid (beheerder)**|Leden kunnen wijzigen van het modelschema verwerken, en kunnen alle gegevens op te vragen.| 
    |**Proces-database**|Leden kunnen verwerken en proces alle bewerkingen uitvoeren. Kan het modelschema niet wijzigen en kan geen gegevens op te vragen.|  
@@ -122,7 +122,7 @@ In dit voorbeeld wordt worden een externe B2B-gebruiker en een groep toegevoegd 
 
 De [SqlServer](/sql/analysis-services/powershell/analysis-services-powershell-reference) module biedt taakspecifieke database management-cmdlets en de algemene Invoke-ASCmd cmdlet die een TMSL Tabular Model Scripting Language ()-query of het script accepteert. De volgende cmdlets worden gebruikt voor het beheren van databaserollen en gebruikers.
   
-|Cmdlet|Beschrijving|
+|Cmdlet|Description|
 |------------|-----------------| 
 |[Add-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Lid toevoegen aan een databaserol.| 
 |[Remove-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Een lid verwijderen uit een databaserol.|   

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903757"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61074824"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Profielsjablonen van de gebruiker in Azure API Management
 Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud van ontwikkelaarsportalpagina's met behulp van een set van sjablonen die hun inhoud hebt geconfigureerd. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [tekenreeks resources](api-management-template-resources.md#strings), [Glyph resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u geweldige flexibiliteit voor het configureren van de inhoud van de pagina's naar eigen inzicht met behulp van deze sjablonen.  
@@ -325,7 +325,7 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
 > [!NOTE]
 >  De [profiel](#Profile), [toepassingen](#Applications), en [abonnementen](#Subscriptions) sjablonen voor het gegevensmodel met dezelfde delen en ontvangen van dezelfde sjabloongegevens.  
   
-|Eigenschap|Type|Beschrijving|  
+|Eigenschap|Type|Description|  
 |--------------|----------|-----------------|  
 |`firstName`|string|De voornaam van de huidige gebruiker.|  
 |`lastName`|string|De achternaam van de huidige gebruiker.|  

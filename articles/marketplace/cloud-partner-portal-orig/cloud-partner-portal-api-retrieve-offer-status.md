@@ -15,13 +15,13 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9233a5919ad86adcbb7947cd095945654ed015a7
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810011"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093978"
 ---
-<a name="retrieve-offer-status"></a>Status van de aanbieding ophalen 
+<a name="retrieve-offer-status"></a>Aanbiedingsstatus ophalen 
 =====================
 
 Hiermee haalt u de huidige status van de aanbieding.
@@ -33,18 +33,18 @@ Hiermee haalt u de huidige status van de aanbieding.
 
 |  **Naam**       |   **Beschrijving**                            |  **Gegevenstype** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Uitgever-ID, bijvoorbeeld `Contoso`  |     Reeks     |
-|  offerId        | GUID die de unieke identificatie van de aanbieding      |     Reeks     |
+|  publisherId    | Uitgever-ID, bijvoorbeeld `Contoso`  |     String     |
+|  offerId        | GUID die de unieke identificatie van de aanbieding      |     String     |
 |  API-versie    | Meest recente versie van de API                        |     Date       |
 |  |  |
 
 
-<a name="header"></a>Koptekst
+<a name="header"></a>Header
 ------
 
-|  Naam           |  Waarde               |
+|  Name           |  Value               |
 |  -------------  | -------------------  |
-|  Inhoudstype   |  `application/json`  |
+|  Content-Type   |  `application/json`  |
 |  Autorisatie  | `Bearer YOUR_TOKEN`  |
 |  |  |
 

@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: victorh
 ms.openlocfilehash: d0a20de8738e8c7b2719a9de85d5fd16aa5778cf
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926322"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Over het beheren van DNS-Zones in Azure portal
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [CLI van Azure classic](dns-operations-dnszones-cli-nodejs.md)
+> * [Klassieke versie van Azure CLI](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure-CLI](dns-operations-dnszones-cli.md)
 
 Dit artikel ziet u hoe u uw DNS-zones beheren met behulp van de Azure-portal. U kunt ook beheren met uw DNS-zones met behulp van de platformoverschrijdende [Azure CLI](dns-operations-dnszones-cli.md) of de Azure [PowerShell](dns-operations-dnszones.md).

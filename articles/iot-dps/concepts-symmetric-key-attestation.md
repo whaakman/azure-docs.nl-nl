@@ -3,17 +3,17 @@ title: Azure IoT Hub Device Provisioning Service - attestation-symmetrische sleu
 description: In dit artikel biedt een conceptueel overzicht van de symmetrische sleutel attestation met IoT Device Provisioning Service.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 08/18/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
+manager: timlt
 ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050941"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746085"
 ---
 # <a name="symmetric-key-attestation"></a>Attestation met behulp van een symmetrische sleutel
 
@@ -46,7 +46,7 @@ SAS-tokens hebben de volgende notatie:
 
 Hier vindt u de onderdelen van elke token:
 
-| Value | Beschrijving |
+| Value | Description |
 | --- | --- |
 | {handtekening} |Een tekenreeks van de HMAC-SHA256 handtekening. Voor afzonderlijke inschrijvingen, wordt deze handtekening gemaakt met behulp van de symmetrische sleutel (primair of secundair) om uit te voeren van de hash. Voor het registreren van groepen, wordt een sleutel die is afgeleid van de sleutel van de groep registratie gebruikt om uit te voeren van de hash. De hash wordt uitgevoerd op een bericht van het formulier: `URL-encoded-resourceURI + "\n" + expiry`. **Belangrijke**: De sleutel moet worden gedecodeerd op basis van base64 voordat het wordt gebruikt voor het uitvoeren van de HMAC-SHA256-berekening. Het resultaat van de handtekening moet ook zijn URL gecodeerd. |
 | {resourceURI} |De URI van het eindpunt voor clientregistratie die toegankelijk zijn met dit token beginnen met bereik-ID voor de Device Provisioning Service-exemplaar. Bijvoorbeeld: `{Scope ID}/registrations/{Registration ID}` |

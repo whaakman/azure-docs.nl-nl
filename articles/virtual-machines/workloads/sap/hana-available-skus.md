@@ -15,11 +15,11 @@ ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b80f872c82061c0cb87f4f1e2714183e71cf02cd
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448123"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60794020"
 ---
 # <a name="available-skus-for-hli"></a>Beschikbare SKU's voor HLI
 
@@ -27,7 +27,7 @@ SAP HANA op Azure (grote instanties)-service is beschikbaar in verschillende con
 
 [SKU's van HANA grote instanties van SAP HANA-gecertificeerde](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) lijst, zoals:
 
-| SAP-oplossing | CPU | Geheugen | Opslag | Beschikbaarheid |
+| SAP-oplossing | CPU | Geheugen | Storage | Beschikbaarheid |
 | --- | --- | --- | --- | --- |
 | Geoptimaliseerd voor OLAP: SAP BW, BW/4HANA<br /> of SAP HANA voor werkbelastingen van algemene OLAP-systemen | SAP HANA op Azure S72<br /> – 2 x Intel® Xeon® Processor E7-8890 v3<br /> 36 CPU-kernen en 72 CPU-threads |  768 GB |  3 TB | Niet beschikbaar meer |
 | --- | SAP HANA op Azure S144<br /> -4 x Intel® Xeon® Processor E7-8890 v3<br /> 72 CPU-kernen en threads 144 CPU |  1,5 TB |  6 TB | Niet beschikbaar meer |
@@ -50,12 +50,12 @@ Onder TDIv5 voor SAP HANA kunt SAP klantspecifieke grootte en klantspecifieke pr
 
 In veel gevallen voert u deze serverconfiguraties klantspecifieke meer geheugen dan de server-eenheden met SAP gecertificeerde. Klanten hoeven bij het werken met SAP, de mogelijkheid voor het ophalen van SAP-ondersteuning en certificeren voor hun klant-specifieke grootte server-configuraties. In Azure worden de volgende HANA grote instantie standaard SKU's zijn beschikbaar en in de Microsoft prijslijst voor dergelijke TDIv5 klantspecifieke sizing-projecten.
 
-| SKU|CPU | Geheugen | Opslag | Beschikbaarheid |
+| SKU|CPU | Geheugen | Storage | Beschikbaarheid |
 | ---| --- | --- | --- | --- |
 | S96 | SAP HANA op Azure S96<br /> – 2 x Intel® Xeon® Processor E7-8890 v4<br /> 48 CPU-kernen en 96 CPU-threads |  768 GB |  3 TB | Beschikbaar |
 
 
-| Oorspronkelijke SKU die kan worden <br /> uitgebreid in het geheugen | CPU | Geheugen | Opslag | Beschikbaarheid |
+| Oorspronkelijke SKU die kan worden <br /> uitgebreid in het geheugen | CPU | Geheugen | Storage | Beschikbaarheid |
 | --- | --- | --- | --- | --- |
 | S192m kan worden uitgebreid naar | SAP HANA op Azure S192xm<br /> -4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 CPU-kernen en threads 192 CPU |  6.0 TB |  16 TB | Beschikbaar |
 | S384xm kan worden uitgebreid naar | SAP HANA op Azure S384xxm<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU-kernen en threads 384 CPU |  12.0 TB |  28 TB | Beschikbaar |

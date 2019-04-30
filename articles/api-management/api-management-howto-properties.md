@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791623"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657999"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Over het gebruik van waarden met de naam in Azure API Management-beleidsregels
 API Management-beleidsregels zijn een krachtige mogelijkheid van het systeem waarmee de Azure-portal om het gedrag van de API via configuratie te wijzigen. Beleidsregels zijn een verzameling instructies die sequentieel worden uitgevoerd op de aanvraag of het antwoord van een API. Beleidsinstructies kunnen worden samengesteld met behulp van letterlijke waarden, beleidsexpressies, en met de naam waarden. 
@@ -27,10 +27,10 @@ Elk exemplaar van API Management-service heeft een verzameling eigenschappen van
 
 | Kenmerk | Type | Description |
 | --- | --- | --- |
-| `Display name` |string |Een alfanumerieke tekenreeks die wordt gebruikt om naar de eigenschap te verwijzen in de beleidsregels. |
-| `Value` |string |De waarde van de eigenschap. Het kan niet leeg zijn of alleen uit witruimte bestaan. |
-| `Secret` |booleaans|Bepaalt of de waarde is van een geheim en moet worden versleuteld of niet.|
-| `Tags` |tekenreeksmatrix |Optioneel tags die de opgegeven kan worden gebruikt voor het filteren van de lijst met eigenschappen. |
+| Weergavenaam |string |Een alfanumerieke tekenreeks die wordt gebruikt om naar de eigenschap te verwijzen in de beleidsregels. |
+| Value |string |De waarde van de eigenschap. Het kan niet leeg zijn of alleen uit witruimte bestaan. |
+|Geheim|booleaans|Bepaalt of de waarde is van een geheim en moet worden versleuteld of niet.|
+| Tags |tekenreeksmatrix |Optioneel tags die de opgegeven kan worden gebruikt voor het filteren van de lijst met eigenschappen. |
 
 ![Benoemde waarden](./media/api-management-howto-properties/named-values.png)
 

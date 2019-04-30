@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904249"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610526"
 ---
 # <a name="introduction-to-azure-security"></a>Inleiding tot Azure-beveiliging
 ## <a name="overview"></a>Overzicht
@@ -149,7 +149,7 @@ In Application Diagnostics, kunt u gebeurtenissen gegroepeerd op de volgende man
 -   Toepassingsfouten (uitzonderingsgebeurtenissen worden weergegeven)
 -   Prestaties (prestatiegebeurtenissen worden weergegeven)
 
-## <a name="storage"></a>Opslag
+## <a name="storage"></a>Storage
 De sectie biedt meer informatie over de belangrijkste functies in Azure storage-beveiligings- en samenvatting van informatie over deze mogelijkheden.
 
 ### <a name="role-based-access-control-rbac"></a>RBAC (op rollen gebaseerd toegangsbeheer)

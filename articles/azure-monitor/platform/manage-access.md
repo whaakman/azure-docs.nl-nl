@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276403"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782766"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Logboekgegevens en toegang tot werkruimten in Azure Monitor beheren
 Azure Monitor-winkels vastleggen gegevens in een Log Analytics-werkruimte is in wezen een container die gegevens en configuratie-informatie bevat. Voor het beheren van toegang tot gegevens vastleggen, kunt u verschillende beheertaken met betrekking tot werkruimten uitvoeren. U of andere leden van uw organisatie kunnen meerdere werkruimten gebruiken om verschillende gegevenssets te beheren die worden verzameld uit de gehele of delen van uw IT-infrastructuur.
@@ -80,7 +80,7 @@ Terwijl u gegevens in uw Log Analytics-werkruimte van analyseren de **Azure Moni
 ## <a name="workspace-permissions-and-scope"></a>Machtigingen voor de werkruimte en het bereik
 De gegevens die een gebruiker toegang tot heeft worden bepaald door meerdere factoren die in de volgende tabel worden vermeld. In de onderstaande secties worden beschreven.
 
-| Multi-factor Authentication | Beschrijving |
+| Multi-factor Authentication | Description |
 |:---|:---|
 | [Toegangsmodus](#access-modes) | Methode waarmee de gebruiker toegang heeft tot de werkruimte.  Definieert het bereik van de beschikbare gegevens en de modus voor het beheer van toegang dat wordt toegepast. |
 | [Access control-modus](#access-control-mode) | Instellen in de werkruimte waarmee wordt gedefinieerd of machtigingen worden toegepast op het niveau van de werkruimte of resource. |
@@ -265,7 +265,7 @@ U kunt toewijzingen op het resourceniveau van de (werkruimte) om te verzekeren d
 ### <a name="resource-permissions"></a>Machtigingen voor resources 
 Als gebruikers query zich vanaf een werkruimte met behulp van resource-georiënteerde toegang aanmeldt, wordt ze de volgende machtigingen hebben op de resource:
 
-| Machtiging | Beschrijving |
+| Machtiging | Description |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Voorbeelden:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | De mogelijkheid om alle gegevens voor de resource weer te geven.  |
 

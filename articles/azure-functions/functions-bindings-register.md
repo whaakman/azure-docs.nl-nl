@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/18/2019
-ms.author: cshoe
+origin.date: 02/18/2019
+ms.date: 04/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 5534086d5754691f650370e465fa2c63210e0dc7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739520"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437851"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Azure Functions-binding extensies registreren
 
@@ -37,7 +38,7 @@ De volgende bindingstypen zijn uitzonderingen waarvoor geen expliciete registrat
 
 ## <a name="azure-portal-development"></a>Azure portal-ontwikkeling
 
-Wanneer u een functie maken of een binding toevoegt, wordt u gevraagd wanneer de uitbreiding voor de trigger of binding moet worden geregistreerd. Door te klikken op de prompt beantwoorden **installeren** voor het registreren van de extensie. Installatie kan tot tien minuten duren in een verbruiksabonnement.
+Wanneer u een functie maken of een binding toevoegt, wordt u gevraagd wanneer de uitbreiding voor de trigger of binding moet worden geregistreerd. Door te klikken op de prompt beantwoorden **installeren** voor het registreren van de extensie. Installatie kan tot tien minuten duren in een verbruiksabonnement. 
 
 U moet elke uitbreiding slechts één keer voor een bepaalde functie-app installeren. Voor ondersteunde bindingen die niet beschikbaar in de portal of bij te werken de geïnstalleerde extensie, u kunt ook [handmatig installeren of bijwerken van Azure Functions binding extensies vanuit de portal](install-update-binding-extensions-manual.md).  
 
@@ -75,4 +76,5 @@ Vervang `<target_version>` in het voorbeeld met een specifieke versie van het pa
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
 > [Azure functie-trigger en binding voorbeeld](./functions-bindings-example.md)
+
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: spelluru
 ms.openlocfilehash: 4d2ba11181977f1976b5ae933e8b93a92424fa96
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808534"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60695278"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Leslokaallabs gebruikt voor trainingen
 U kunt een lab voor u kunt instellen. Leslokaal Labs van Azure Lab Services kunt u een lab maken voor uw training waarbij elke leerling identiek zijn en geïsoleerde omgevingen voor training gebruikt. U kunt beleid om ervoor te zorgen dat training omgevingen beschikbaar voor elke leerling zijn alleen wanneer ze deze nodig hebt en voldoende resources - zoals virtuele machines - vereiste voor de training bevatten toepassen. 

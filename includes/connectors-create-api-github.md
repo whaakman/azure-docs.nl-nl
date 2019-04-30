@@ -8,37 +8,37 @@ ms.topic: include
 ms.date: 03/02/2018
 ms.author: mandia
 ms.custom: include file
-ms.openlocfilehash: ec5b3ca9ccd139cbdf17768056eb1d835336e7a7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 11280e1678f52ede928cb2a85ea83add222e15fa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
-ms.locfileid: "29764147"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462553"
 ---
 1. In de [Azure-portal](https://portal.azure.com), een lege logische app maken. 
 
-2. Voer 'github' als filter in de ontwerpfunctie voor Logic Apps. 
+2. Voer 'github' als filter in de ontwerper van logische Apps. 
 
 3. Selecteer de GitHub-connector en de trigger die u wilt gebruiken.
 
-   ![Selecteer de GitHub-connector en een trigger](./media/connectors-create-api-github/github-connector.png)
+   ![De GitHub-connector en een trigger selecteren](./media/connectors-create-api-github/github-connector.png)
 
    > [!NOTE]
-   > Alle logische app werkstromen moeten beginnen met een trigger. Alleen wanneer de werkstroom logica al met een trigger begint, kunt u acties selecteren. 
+   > Alle werkstromen voor logische app moeten beginnen met een trigger. Alleen wanneer uw werkstroom voor logische al met een trigger begint, kunt u acties selecteren. 
 
-4. Als u een verbinding eerder hebt gemaakt, kiest u **aanmelden** zodat u uw referenties in GitHub wanneer u wordt gevraagd kan leveren.  
+4. Als u eerder een verbinding hebt gemaakt, kiest u **aanmelden** , zodat u opgeven kunt wanneer u hierom wordt gevraagd uw GitHub-referenties.  
 
    ![Meld u aan met uw GitHub-referenties](./media/connectors-create-api-github/github-connector-sign-in-credentials.png)
 
-   Uw logische app gebruikt deze referenties om verbinding te maken en toegang tot gegevens voor uw GitHub-account autoriseren. 
+   Uw logische app maakt gebruik van deze referenties om verbinding te maken en openen van gegevens voor uw GitHub-account. 
 
-5. Geef uw GitHub-gebruikersnaam en het wachtwoord en bevestig vervolgens uw autorisatie.
+5. Geef uw GitHub-gebruikersnaam en wachtwoord en Bevestig uw autorisatie.
 
-   ![Geef referenties op en Bevestig autorisatie](./media/connectors-create-api-github/github-connector-authorize.png)   
+   ![Geef referenties op en machtiging bevestigen](./media/connectors-create-api-github/github-connector-authorize.png)   
 
-   De verbinding is nu gemaakt in de Azure portal en is klaar voor gebruik.
+   De verbinding is nu gemaakt in Azure portal en is klaar voor gebruik.
 
-6. Blijven uw logische app werkstroom definiëren.
+6. Doorgaan met het definiëren van uw werkstroom voor logische Apps.
 
-   ![Meer acties toevoegen aan uw logische app-werkstroom](./media/connectors-create-api-github/github-connector-logic-app.png)
+   ![Meer acties toevoegen aan uw werkstroom voor logische Apps](./media/connectors-create-api-github/github-connector-logic-app.png)
 

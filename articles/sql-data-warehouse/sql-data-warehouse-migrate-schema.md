@@ -2,20 +2,21 @@
 title: Uw schema migreren naar SQL Data Warehouse | Microsoft Docs
 description: Tips voor het migreren van uw schema naar Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
-author: jrowlandjones
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: jrj
+ms.component: implement
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 4139ea776f6947eeacf4620c3676606d6535dd2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748149"
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Uw schema migreren naar SQL Data Warehouse
 Richtlijnen voor het migreren van uw SQL-schema's met SQL Data Warehouse. 
@@ -40,13 +41,6 @@ Minimaliseer de rijlengte van uw tabellen voor de beste prestaties. Aangezien ko
 
 PolyBase is voor de breedte van de rij tabel, een limiet van 1 MB.  Als u van plan bent om gegevens te laden in SQL Data Warehouse met PolyBase, werkt u uw tabellen voor het maximumaantal rijen breedte van minder dan 1 MB. 
 
-<!--
-- For example, this table uses variable length data but the largest possible size of the row is still less than 1 MB. PolyBase will load data into this table.
-
-- This table uses variable length data and the defined row width is less than one MB. When loading rows, PolyBase allocates the full length of the variable-length data. The full length of this row is greater than one MB.  PolyBase will not load data into this table.  
-
--->
-
 ## <a name="specify-the-distribution-option"></a>De distributieoptie opgeven
 SQL Data Warehouse is een gedistribueerde database-systeem. Elke tabel is gedistribueerd of gerepliceerd naar de rekenknooppunten. Er is een tabeloptie waarmee u kunt opgeven hoe de gegevens wilt verdelen. De opties zijn round-robin wordt gerepliceerd, of hash gedistribueerd. Elk heeft voor- en nadelen. Als u de optie-distributie niet opgeeft, gebruikt SQL Data Warehouse round robin als de standaardwaarde.
 
@@ -55,7 +49,6 @@ SQL Data Warehouse is een gedistribueerde database-systeem. Elke tabel is gedist
 - De rijen verdeelt hash gedistribueerd over alle knooppunten via een hash-functie. Gedistribueerde hashtabellen zijn de kern van SQL Data Warehouse, omdat ze zijn ontworpen voor hoge queryprestaties op grote tabellen. Deze optie vereist sommige plannen om de aanbevolen kolom waarop u wilt distribueren van de gegevens te selecteren. Echter, als u niet de aanbevolen kolom de eerste keer kiest, kunt u eenvoudig opnieuw distribueren de gegevens op een andere kolom. 
 
 Als u de beste optie voor distributie voor elke tabel, Zie [gedistribueerde tabellen](sql-data-warehouse-tables-distribute.md).
-
 
 ## <a name="next-steps"></a>Volgende stappen
 Nadat u hebt uw databaseschema is gemigreerd naar SQL Data Warehouse, gaat u verder met een van de volgende artikelen:
@@ -78,5 +71,6 @@ Zie voor meer informatie over aanbevolen procedures voor SQL Data Warehouse, de 
 
 <!--MSDN references-->
 
-
 <!--Other Web references-->
+
+<!--Update_Description: update meta properties, add new content about Migrate schemas to SQL Data Warehouse -->

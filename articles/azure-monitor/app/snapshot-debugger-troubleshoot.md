@@ -13,11 +13,11 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: bf19d4f5ce60411413c21fce12f9fe9d2f391bf1
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58094936"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60783954"
 ---
 # <a id="troubleshooting"></a> Problemen met Application Insights Snapshot Debugger inschakelen of momentopnamen weergeven
 Als u Application Insights Snapshot Debugger ingeschakeld voor uw toepassing, maar de momentopnamen voor uitzonderingen niet ziet, kunt u deze instructies om op te lossen. Er zijn veel verschillende redenen waarom de momentopnamen niet worden gegenereerd. U kunt de statuscontrole van de momentopname voor het identificeren van enkele van de veelvoorkomende oorzaken uitvoeren.

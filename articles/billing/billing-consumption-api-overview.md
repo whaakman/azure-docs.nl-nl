@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-ms.openlocfilehash: 88b7909e78f8bd36ce456eee60587acbbb94b6cd
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 16e0bdfa0fc70d5239cb4127e61891a013bf54a3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615886"
 ---
 # <a name="azure-consumption-api-overview"></a>Azure-verbruik API-overzicht 
 
-De Azure-verbruik API's bieden u programmatische toegang tot de kosten en gebruiksgegevens voor uw Azure-resources. Deze API's ondersteunen momenteel alleen Enterprise-inschrijvingen en Web Direct-abonnementen (met een paar uitzonderingen). De API's worden voortdurend bijgewerkt ter ondersteuning van andere typen Azure-abonnementen.
+De API's voor Azure-gebruiksgegevens bieden u programmatische toegang tot de kosten en gebruiksgegevens van uw Azure-resources. Deze API's ondersteunen momenteel alleen Enterprise-inschrijvingen en Web Direct-abonnementen (met een paar uitzonderingen). De API's worden voortdurend bijgewerkt ter ondersteuning van andere typen Azure-abonnementen.
 
-Azure-verbruik-API's bieden toegang tot:
+API's voor Azure-gebruiksgegevens bieden toegang tot:
 - Enterprise- en Web Direct-klanten 
-    - Gebruiksdetails 
+    - Gebruiksgegevens 
     - Marketplace-kosten 
-    - Reservering-aanbevelingen 
-    - Details van de reservering 
-    - Samenvattingen van de reservering 
-- Enterprise-klanten 
-    - Prijslijst 
+    - Aanbevelingen voor reserveringen 
+    - Reserveringsdetails 
+    - Reserveringssamenvattingen 
+- Alleen voor Enterprise-klanten 
+    - Prijzenoverzicht 
     - Budgetten 
     - Tegoeden 
 

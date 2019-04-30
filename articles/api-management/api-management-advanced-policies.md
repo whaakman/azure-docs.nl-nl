@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756623"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795877"
 ---
 # <a name="api-management-advanced-policies"></a>API Management Geavanceerde beleidsregels
 
@@ -304,7 +304,7 @@ Het volgende voorbeeld laat zien hoe u het aantal aanvragen die worden doorgestu
 
 | Kenmerk | Description                                                                                        | Vereist | Standaard |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| sleutel       | Een tekenreeks. De expressie toegestaan. Hiermee geeft u het bereik van gelijktijdigheid. Kan worden gedeeld door meerdere beleidsregels. | Ja      | N/A     |
+| key       | Een tekenreeks. De expressie toegestaan. Hiermee geeft u het bereik van gelijktijdigheid. Kan worden gedeeld door meerdere beleidsregels. | Ja      | N/A     |
 | max-count | Een geheel getal zijn. Hiermee geeft u een maximum aantal aanvragen die zijn toegestaan in te voeren van het beleid.           | Ja      | N/A     |
 
 ### <a name="usage"></a>Gebruik
@@ -355,7 +355,7 @@ Een willekeurige tekenreeks kan worden gebruikt als de waarde moet zijn aangemel
 
 ### <a name="attributes"></a>Kenmerken
 
-| Kenmerk     | Beschrijving                                                               | Vereist                                                             |
+| Kenmerk     | Description                                                               | Vereist                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | logger-id     | De id van het logboek geregistreerd met uw API Management-service.         | Ja                                                                  |
 | partitie-id  | Hiermee geeft u de index van de partitie waarnaar moeten worden verzonden.             | Optioneel. Dit kenmerk kan niet worden gebruikt als `partition-key` wordt gebruikt. |
@@ -400,7 +400,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>Kenmerken
 
-| Kenmerk    | Beschrijving                                                                                           | Vereist | Standaard |
+| Kenmerk    | Description                                                                                           | Vereist | Standaard |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | status-code  | Hiermee geeft u antwoordstatuscode en wordt gebruikt voor het selecteren van de bijbehorende voorbeeld of schema.                 | Nee       | 200     |
 | inhoudstype | Hiermee geeft u `Content-Type` headerwaarde antwoord en wordt gebruikt voor het selecteren van de bijbehorende voorbeeld of schema. | Nee       | Geen    |
@@ -675,7 +675,7 @@ In dit voorbeeld toont één manier om te controleren of de verwijzing naar een 
 
 ### <a name="attributes"></a>Kenmerken
 
-| Kenmerk                       | Beschrijving                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Vereist | Standaard  |
+| Kenmerk                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Vereist | Standaard  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string"                   | Bepaalt of dit een nieuwe aanvraag of een kopie van de huidige aanvraag is. In de uitgaande modus, modus = kopie hoofdtekst van de aanvraag niet geïnitialiseerd.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Nee       | Nieuw      |
 | response-variable-name="string" | De naam van de contextvariabele die een antwoordobject voor ontvangen. Als de variabele niet bestaat, deze na een geslaagde uitvoering van het beleid wordt gemaakt en worden daardoor toegankelijk via [ `context.Variable` ](api-management-policy-expressions.md#ContextVariables) verzameling.                                                                                                                                                                                                                                                                                                                          | Ja      | N/A      |
@@ -820,13 +820,13 @@ In dit voorbeeld laat zien hoe een 401-respons retourneren als het verificatieto
 
 ### <a name="elements"></a>Elementen
 
-| Element    | Beschrijving   | Vereist |
+| Element    | Description   | Vereist |
 | ---------- | ------------- | -------- |
 | set-status | Root-element. | Ja      |
 
 ### <a name="attributes"></a>Kenmerken
 
-| Kenmerk       | Beschrijving                                                | Vereist | Standaard |
+| Kenmerk       | Description                                                | Vereist | Standaard |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
 | code="integer"  | De HTTP-statuscode om terug te keren.                            | Ja      | N/A     |
 | reason="string" | Een beschrijving van de reden voor het retourneren van de statuscode. | Ja      | N/A     |
@@ -867,7 +867,7 @@ Het volgende voorbeeld ziet u een variabele beleid instellen in de sectie inboun
 | Kenmerk | Description                                                              | Vereist |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | naam      | De naam van de variabele.                                                | Ja      |
-| waarde     | De waarde van de variabele. Dit kan een expressie of een letterlijke waarde zijn. | Ja      |
+| value     | De waarde van de variabele. Dit kan een expressie of een letterlijke waarde zijn. | Ja      |
 
 ### <a name="usage"></a>Gebruik
 
@@ -928,13 +928,13 @@ De `trace` beleid wordt toegevoegd een tekenreeks in de [API Inspector](https://
 
 ### <a name="elements"></a>Elementen
 
-| Element | Beschrijving   | Vereist |
+| Element | Description   | Vereist |
 | ------- | ------------- | -------- |
 | Tracering   | Root-element. | Ja      |
 
 ### <a name="attributes"></a>Kenmerken
 
-| Kenmerk | Beschrijving                                                                             | Vereist | Standaard |
+| Kenmerk | Description                                                                             | Vereist | Standaard |
 | --------- | --------------------------------------------------------------------------------------- | -------- | ------- |
 | source    | Letterlijke tekenreeks zinvol is voor de traceringsviewer voor en de bron van het bericht op te geven. | Ja      | N/A     |
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 642353218960e2e995d717260ae82b6dbd7c2612
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727057"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60880108"
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Azure API Management met behulp van Azure Automation beheren
 Deze handleiding vindt u de Azure Automation-service en hoe deze kan worden gebruikt voor het vereenvoudigen van beheer van Azure API Management.
@@ -36,7 +36,7 @@ API Management kunnen worden beheerd in Azure Automation met behulp van de [Wind
 
 Hier volgen enkele voorbeelden van het gebruik van API Management met Powershell:
 
-* [Azure PowerShell-voorbeelden voor API Management](https://docs.microsoft.com/azure/api-management/powershell-samples)
+* [Voorbeelden van Azure PowerShell voor API Management](https://docs.microsoft.com/azure/api-management/powershell-samples)
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u de basisprincipes van Azure Automation en hoe deze kan worden gebruikt voor het beheren van Azure API Management hebt geleerd, volgt u deze koppelingen voor meer informatie.

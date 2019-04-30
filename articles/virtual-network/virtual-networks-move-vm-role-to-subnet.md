@@ -1,6 +1,6 @@
 ---
-title: Een VM (klassiek) of een exemplaar van Cloud Services-rol verplaatsen naar een ander subnet - Azure PowerShell | Microsoft Docs
-description: Informatie over het verplaatsen van virtuele machines (klassiek) en Cloud Services-rolinstanties naar een ander subnet met behulp van PowerShell.
+title: Een VM (klassiek) of een exemplaar van Cloud Services verplaatsen naar een ander subnet - Azure PowerShell | Microsoft Docs
+description: Leer hoe u virtuele machines (klassiek) en Cloud Services-rolinstanties verplaatsen naar een ander subnet met behulp van PowerShell.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -15,30 +15,31 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eb1576b7b842537dbdc49e6b9d402ef47ad9fae9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 787a50a0cbf16089cd15f922b494cd12d680cb43
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640392"
 ---
-# <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>Een VM (klassiek) of een exemplaar van Cloud Services-rol verplaatsen naar een ander subnet met behulp van PowerShell
-U kunt PowerShell gebruiken voor het verplaatsen van uw virtuele machines (klassiek) van één subnet naar de andere in hetzelfde virtuele netwerk (VNet). Rolinstanties kunnen worden verplaatst met het bewerken van het CSCFG-bestand in plaats van met behulp van PowerShell.
+# <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>Een VM (klassiek) of een exemplaar van Cloud Services verplaatsen naar een ander subnet met behulp van PowerShell
+U kunt PowerShell gebruiken om te verplaatsen van uw virtuele machines (klassiek) van het ene subnet naar een andere in hetzelfde virtuele netwerk (VNet). Rolinstanties kunnen worden verplaatst met het bewerken van het CSCFG-bestand, in plaats van met behulp van PowerShell.
 
 > [!NOTE]
-> In dit artikel wordt uitgelegd hoe verplaatsen van virtuele machines te implementeren via het klassieke implementatiemodel gebruikt.
+> In dit artikel wordt uitgelegd hoe u virtuele machines die zijn geïmplementeerd via het klassieke implementatiemodel alleen verplaatsen.
 > 
 > 
 
-Waarom virtuele machines verplaatsen naar een ander subnet? Migratie van subnet is handig wanneer de oudere subnet te klein is en kan niet worden uitgebreid vanwege bestaande actieve virtuele machines in dat subnet. In dat geval kunt u een nieuwe, groter subnet maken en de virtuele machines migreren naar het nieuwe subnet en nadat de migratie is voltooid, kunt u het oude leeg subnet verwijderen.
+Waarom virtuele machines verplaatsen naar een ander subnet? Migratie van het subnet is nuttig wanneer de oudere subnet te klein is en kan niet worden uitgebreid vanwege bestaande actieve virtuele machines in dat subnet. In dat geval kunt u een nieuwe, groter subnet maken en de virtuele machines migreren naar het nieuwe subnet en nadat de migratie is voltooid, kunt u de oude leeg subnet verwijderen.
 
 ## <a name="how-to-move-a-vm-to-another-subnet"></a>Een virtuele machine verplaatsen naar een ander subnet
-Voer de Set AzureSubnet PowerShell-cmdlet met het onderstaande voorbeeld als sjabloon voor het verplaatsen van een virtuele machine. In het onderstaande voorbeeld verplaatst we TestVM van de huidige subnet naar Subnet 2. Zorg ervoor dat het voorbeeld naar aanleiding van uw omgeving bewerken. Houd er rekening mee dat wanneer u de cmdlet Update-AzureVM als onderdeel van een procedure uitvoert, deze opnieuw wordt opgestart uw virtuele machine als onderdeel van het updateproces.
+Voor het verplaatsen van een virtuele machine, voert u de Set-AzureSubnet PowerShell-cmdlet, met behulp van het voorbeeld hieronder als sjabloon. In het onderstaande voorbeeld zijn we TestVM verplaatsen van een subnet aanwezig is, naar Subnet-2. Zorg ervoor dat het bewerken van het voorbeeld om uw omgeving weer te geven. Houd er rekening mee dat wanneer u de cmdlet Update-AzureVM uitgevoerd als onderdeel van een procedure, deze opnieuw wordt opgestart uw virtuele machine als onderdeel van het updateproces.
 
     Get-AzureVM –ServiceName TestVMCloud –Name TestVM `
     | Set-AzureSubnet –SubnetNames Subnet-2 `
     | Update-AzureVM
 
-Als u een statische interne persoonlijke IP-adres voor de virtuele machine opgegeven, hebt u deze instelling te wissen voordat u de virtuele machine naar een nieuw subnet verplaatsen kunt. In dat geval gebruikt u het volgende:
+Als u een statische interne privé IP-adres voor uw virtuele machine hebt opgegeven, hebt u deze instelling wijzigen voordat u de virtuele machine naar een nieuw subnet verplaatsen kunt. In dat geval gebruikt u het volgende:
 
     Get-AzureVM -ServiceName TestVMCloud -Name TestVM `
     | Remove-AzureStaticVNetIP `
@@ -48,7 +49,7 @@ Als u een statische interne persoonlijke IP-adres voor de virtuele machine opgeg
     | Update-AzureVM
 
 ## <a name="to-move-a-role-instance-to-another-subnet"></a>Een rolinstantie verplaatsen naar een ander subnet
-Bewerk het CSCFG-bestand voor het verplaatsen van een rolexemplaar. In het onderstaande voorbeeld verplaatst we 'Role0' in het virtuele netwerk *VNETName* van de aanwezig subnet *Subnet 2*. Omdat de rolinstantie al is geïmplementeerd, moet u alleen de subnetnaam wijzigen = Subnet 2. Zorg ervoor dat het voorbeeld naar aanleiding van uw omgeving bewerken.
+Bewerk het CSCFG-bestand voor het verplaatsen van een rolinstantie. In het onderstaande voorbeeld zijn we "Role0" in het virtuele netwerk verplaatsen *VNETName* van de huidige subnet *Subnet 2*. Omdat de rolinstantie is al geïmplementeerd, gaat u alleen de subnetnaam aanpassen = Subnet 2. Zorg ervoor dat het bewerken van het voorbeeld om uw omgeving weer te geven.
 
     <NetworkConfiguration>
         <VirtualNetworkSite name="VNETName" />

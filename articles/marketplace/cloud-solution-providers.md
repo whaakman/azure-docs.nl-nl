@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
 ms.openlocfilehash: 516cb10fe368334d8fe30d998857d0688dcae972
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57220499"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726895"
 ---
-# <a name="cloud-solution-providers"></a>Cloud Solution Providers
+# <a name="cloud-solution-providers"></a>Providers van cloudoplossingen
 
 Software biedt nu oplopen tot miljoenen gekwalificeerde klanten van Microsoft geleverd door partners van de Cloud Solution Provider (CSP) met minimale investeringen marketing en verkoop.  Uitgevers kunnen nu gebruikmaken van de CSP-partner-kanalen, naast de beschikbaarheid van aanbiedingen via [van Microsoft web storefronts](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
 

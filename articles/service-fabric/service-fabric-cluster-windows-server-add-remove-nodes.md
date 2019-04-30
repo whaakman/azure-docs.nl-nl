@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: c9e771d97c037ddd07834025063233c3ede1f0c2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 585d918026ca40bc1a04c55e2bac454492c55936
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711030"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Toevoegen of verwijderen van knooppunten in een zelfstandige Service Fabric-cluster op Windows Server
 Nadat u hebt [uw zelfstandige Service Fabric-cluster gemaakt op Windows Server-machines](service-fabric-cluster-creation-for-windows-server.md), uw behoeften (bedrijven) kunnen worden gewijzigd en u moet toevoegen of verwijderen van knooppunten in uw cluster. Dit artikel bevat gedetailleerde stappen om dit te bereiken. Houd er rekening mee dat toevoegen/verwijderen knooppunt functionaliteit wordt niet ondersteund in lokale ontwikkeling clusters.

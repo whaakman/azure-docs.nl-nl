@@ -2,20 +2,21 @@
 title: Oneindige indelingen in duurzame functies - Azure
 description: Informatie over het implementeren van oneindige indelingen met behulp van de extensie duurzame functies voor Azure Functions.
 services: functions
-author: ggailey777
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: azfuncdf
+origin.date: 12/07/2018
+ms.date: 12/25/2018
+ms.author: v-junlch
 ms.openlocfilehash: c4adffd457338ffebfd1c9c7727023f82088dc57
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607735"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60732413"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Oneindige indelingen in duurzame functies (Azure Functions)
 
@@ -84,3 +85,4 @@ Als een orchestrator-functie in een oneindige lus en moet worden gestopt, gebrui
 
 > [!div class="nextstepaction"]
 > [Meer informatie over het implementeren van enkelvoudige indelingen](durable-functions-singletons.md)
+

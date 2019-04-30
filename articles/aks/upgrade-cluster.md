@@ -2,17 +2,18 @@
 title: Een cluster Azure Kubernetes Service (AKS) upgraden
 description: Meer informatie over het upgraden van een cluster Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2019
-ms.author: iainfou
+origin.date: 02/12/2019
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.openlocfilehash: 59d52db8c3f5f8968eae1a544abe1e5c6bbaacca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185977"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61028437"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Een cluster Azure Kubernetes Service (AKS) upgraden
 
@@ -26,7 +27,7 @@ In dit artikel is vereist dat u de Azure CLI versie 2.0.56 worden uitgevoerd of 
 
 Als u wilt controleren welke Kubernetes-versies zijn beschikbaar voor uw cluster, gebruikt u de [az aks get-upgrades] [ az-aks-get-upgrades] opdracht. Het volgende voorbeeld wordt gecontroleerd voor beschikbare upgrades naar het cluster met de naam *myAKSCluster* in de resourcegroep met de naam *myResourceGroup*:
 
-```azurecli-interactive
+```azurecli
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
@@ -47,7 +48,7 @@ default  myResourceGroup  1.10.12          1.10.12            1.11.5, 1.11.6
 
 Een lijst met beschikbare versies voor uw AKS-cluster, gebruikt u de [az aks upgrade] [ az-aks-upgrade] opdracht uit om te upgraden. Tijdens het upgradeproces AKS voegt een nieuw knooppunt aan het cluster vervolgens zorgvuldig [cordon en afneemt] [ kubernetes-drain] één knooppunt tegelijk om onderbreking actieve toepassingen te minimaliseren. Het volgende voorbeeld wordt een cluster bijgewerkt naar versie *1.11.6*:
 
-```azurecli-interactive
+```azurecli
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.6
 ```
 
@@ -55,7 +56,7 @@ Het duurt een paar minuten om het cluster, afhankelijk van hoeveel knooppunten d
 
 Als u wilt controleren of de upgrade voltooid is, gebruikt u de [az aks show] [ az-aks-show] opdracht:
 
-```azurecli-interactive
+```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
@@ -64,7 +65,7 @@ De volgende voorbeelduitvoer ziet u dat wordt nu het cluster uitgevoerd *1.11.6*
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.11.6               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
+myAKSCluster  chinaeast2      myResourceGroup  1.11.6               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.chinaeast2.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -79,7 +80,7 @@ In dit artikel hebt u een upgrade uitvoeren van een bestaand AKS-cluster. Zie vo
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
-[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[az-aks-get-upgrades]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades
+[az-aks-upgrade]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-upgrade
+[az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show

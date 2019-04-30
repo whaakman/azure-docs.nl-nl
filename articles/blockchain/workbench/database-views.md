@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
 ms.openlocfilehash: 06b7fb678bc79203589cfa75e8afb457d6ed344f
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594318"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60866512"
 ---
 # <a name="database-views-in-azure-blockchain-workbench"></a>Databaseweergaven in Azure Blockchain Workbench
 
@@ -39,7 +39,7 @@ In deze weergave biedt details over **toepassingen** die zijn geüpload naar Azu
 | ApplicationName                  | nvarchar(50)  | Nee          | De naam van de toepassing |
 | ApplicationDescription           | nvarchar(255) | Ja         | Een beschrijving van de toepassing |
 | ApplicationDisplayName           | nvarchar(255) | Nee          | De naam moet worden weergegeven in een gebruikersinterface |
-| ApplicationEnabled               | bits           | Nee          | Wordt geïdentificeerd als de toepassing is momenteel ingeschakeld.<br /> **Opmerking:** Hoewel een toepassing kan worden weergegeven als uitgeschakeld in de database, gekoppelde contracten blijven op de blockchain en gegevens over deze opdrachten niet uit de database. |
+| ApplicationEnabled               | bit           | Nee          | Wordt geïdentificeerd als de toepassing is momenteel ingeschakeld.<br /> **Opmerking:** Hoewel een toepassing kan worden weergegeven als uitgeschakeld in de database, gekoppelde contracten blijven op de blockchain en gegevens over deze opdrachten niet uit de database. |
 | UploadedDtTm                     | datetime2(7)  | Nee          | De datum en tijd die een contract is geüpload |
 | UploadedByUserId                 | int           | Nee          | De ID van de gebruiker die de toepassing uploaden |
 | UploadedByUserExternalId         | nvarchar(255) | Nee          | De externe id voor de gebruiker die de toepassing wordt geüpload. Deze ID is standaard de gebruiker van de Azure Active Directory voor het consortium.                                                                                                |
@@ -129,7 +129,7 @@ Deze weergave bevat details over geïmplementeerde contracten. In deze weergave 
 | ApplicationId                            | int            | Nee          | Een unieke id voor de toepassing |
 | ApplicationName                          | nvarchar (50)  | Nee          | De naam van de toepassing |
 | ApplicationDisplayName                   | nvarchar (255) | Nee          | De naam moet worden weergegeven in een gebruikersinterface |
-| ApplicationEnabled                       | bits            | Nee          | Wordt geïdentificeerd als de toepassing is momenteel ingeschakeld.<br /> **Opmerking:** Hoewel een toepassing kan worden weergegeven als uitgeschakeld in de database, gekoppelde contracten blijven op de blockchain en gegevens over deze opdrachten niet uit de database.  |
+| ApplicationEnabled                       | bit            | Nee          | Wordt geïdentificeerd als de toepassing is momenteel ingeschakeld.<br /> **Opmerking:** Hoewel een toepassing kan worden weergegeven als uitgeschakeld in de database, gekoppelde contracten blijven op de blockchain en gegevens over deze opdrachten niet uit de database.  |
 | WorkflowId                               | int            | Nee          | Een unieke id voor de werkstroom die is gekoppeld aan een contract |
 | WorkflowName                             | nvarchar(50)   | Nee          | De naam van de werkstroom die is gekoppeld aan een contract |
 | WorkflowDisplayName                      | nvarchar(255)  | Nee          | De naam van de werkstroom die is gekoppeld aan het contract weergegeven in de gebruikersinterface |
@@ -164,7 +164,7 @@ In deze weergave vertegenwoordigen de meerderheid van informatie met betrekking 
 | ApplicationId                            | int           | Nee          | Een unieke id voor de toepassing |
 | ApplicationName                          | nvarchar(50)  | Nee          | De naam van de toepassing |
 | ApplicationDisplayName                   | nvarchar(255) | Nee          | De naam moet worden weergegeven in een gebruikersinterface |
-| ApplicationEnabled                       | bits           | Nee          | Dit veld wordt geïdentificeerd als de toepassing is momenteel ingeschakeld. Opmerking: hoewel een toepassing kan worden weergegeven als uitgeschakeld in de database, gekoppelde contracten op de blockchain blijven en gegevens over deze opdrachten niet uit de database.                                                  |
+| ApplicationEnabled                       | bit           | Nee          | Dit veld wordt geïdentificeerd als de toepassing is momenteel ingeschakeld. Opmerking: hoewel een toepassing kan worden weergegeven als uitgeschakeld in de database, gekoppelde contracten op de blockchain blijven en gegevens over deze opdrachten niet uit de database.                                                  |
 | WorkflowId                               | int           | Nee          | Een unieke id voor een werkstroom |
 | WorkflowName                             | nvarchar(50)  | Nee          | De naam van de werkstroom |
 | WorkflowDisplayName                      | nvarchar(255) | Nee          | De naam van de werkstroom om weer te geven in een gebruikersinterface |
@@ -203,7 +203,7 @@ In deze weergave vertegenwoordigen de meerderheid van informatie met betrekking 
 | TransactionFrom                          | nvarchar(255) | Ja         | De partij die afkomstig zijn van de transactie |
 | TransactionTo                            | nvarchar(255) | Ja         | De partij die is verwerkt met |
 | TransactionHash                          | nvarchar(255) | Ja         | De hash van een transactie |
-| TransactionIsWorkbenchTransaction        | bits           | Ja         | Een bit die wordt geïdentificeerd als de transactie is een transactie Azure Blockchain Workbench |
+| TransactionIsWorkbenchTransaction        | bit           | Ja         | Een bit die wordt geïdentificeerd als de transactie is een transactie Azure Blockchain Workbench |
 | TransactionProvisioningStatus            | int           | Ja         | Hiermee geeft u de huidige status van het inrichtingsproces voor de transactie. Mogelijke waarden zijn: <br />0: de transactie is gemaakt door de API in de database<br />1: de transactie is verzonden naar het grootboek<br />2: de transactie is geïmplementeerd op het grootboek                 |
 | TransactionValue                         | Decimal(32,2) | Ja         | De waarde van de transactie |
 
@@ -223,7 +223,7 @@ In deze weergave vertegenwoordigen de meerderheid van informatie met betrekking 
 | ApplicationId                      | int           | Nee          | Een unieke id voor de toepassing |
 | ApplicationName                    | nvarchar(50)  | Nee          | De naam van de toepassing |
 | ApplicationDisplayName             | nvarchar(255) | Nee          | De naam moet worden weergegeven in een gebruikersinterface |
-| ApplicationEnabled                 | bits           | Nee          | Wordt geïdentificeerd als de toepassing is momenteel ingeschakeld.<br />**Opmerking:** Hoewel een toepassing kan worden weergegeven als uitgeschakeld in de database, gekoppelde contracten blijven op de blockchain en gegevens over deze opdrachten niet uit de database.                      |
+| ApplicationEnabled                 | bit           | Nee          | Wordt geïdentificeerd als de toepassing is momenteel ingeschakeld.<br />**Opmerking:** Hoewel een toepassing kan worden weergegeven als uitgeschakeld in de database, gekoppelde contracten blijven op de blockchain en gegevens over deze opdrachten niet uit de database.                      |
 | WorkflowId                         | int           | Nee          | De unieke id voor de werkstroom |
 | WorkflowName                       | nvarchar(50)  | Nee          | De naam van de werkstroom |
 | WorkflowDisplayName                | nvarchar(255) | Nee          | De naam van de werkstroom weergegeven in de gebruikersinterface |
@@ -263,7 +263,7 @@ In deze weergave vertegenwoordigen de meerderheid van informatie met betrekking 
 | ApplicationId                      | int           | Nee          | Een unieke id voor de toepassing |
 | ApplicationName                    | nvarchar(50)  | Nee          | De naam van de toepassing |
 | ApplicationDisplayName             | nvarchar(255) | Nee          | De naam moet worden weergegeven in een gebruikersinterface |
-| ApplicationEnabled                 | bits           | Nee          | Wordt geïdentificeerd als de toepassing is momenteel ingeschakeld.<br />**Opmerking:** Hoewel een toepassing kan worden weergegeven als uitgeschakeld in de database, gekoppelde contracten blijven op de blockchain en gegevens over deze opdrachten niet uit de database. |
+| ApplicationEnabled                 | bit           | Nee          | Wordt geïdentificeerd als de toepassing is momenteel ingeschakeld.<br />**Opmerking:** Hoewel een toepassing kan worden weergegeven als uitgeschakeld in de database, gekoppelde contracten blijven op de blockchain en gegevens over deze opdrachten niet uit de database. |
 | WorkflowId                         | int           | Nee          | Een unieke id voor de werkstroom |
 | WorkflowName                       | nvarchar(50)  | Nee          | De naam van de werkstroom |
 | WorkflowDisplayName                | nvarchar(255) | Nee          | De naam die wordt weergegeven in de gebruikersinterface |
@@ -315,7 +315,7 @@ In deze weergave vertegenwoordigt de details van core werkstroom metagegevens, e
 | ApplicationId                     | int           | Nee          | Een unieke id voor de toepassing |
 | ApplicationName                   | nvarchar(50)  | Nee          | De naam van de toepassing |
 | ApplicationDisplayName            | nvarchar(255) | Nee          | De naam moet worden weergegeven in een gebruikersinterface |
-| ApplicationEnabled                | bits           | Nee          | Wordt geïdentificeerd als de toepassing is ingeschakeld |
+| ApplicationEnabled                | bit           | Nee          | Wordt geïdentificeerd als de toepassing is ingeschakeld |
 | WorkflowId                        | int           | Ja         | Een unieke id voor een werkstroom |
 | WorkflowName                      | nvarchar(50)  | Nee          | De naam van de werkstroom |
 | WorkflowDisplayName               | nvarchar(255) | Nee          | De naam die wordt weergegeven in de gebruikersinterface |
@@ -342,7 +342,7 @@ In deze weergave vertegenwoordigt de details van core werkstroom metagegevens, e
 | ApplicationId                        | int           | Nee          | Een unieke id voor de toepassing |
 | ApplicationName                      | nvarchar(50)  | Nee          | De naam van de toepassing |
 | ApplicationDisplayName               | nvarchar(255) | Nee          | De naam moet worden weergegeven in een gebruikersinterface |
-| ApplicationEnabled                   | bits           | Nee          | Wordt geïdentificeerd als de toepassing is ingeschakeld |
+| ApplicationEnabled                   | bit           | Nee          | Wordt geïdentificeerd als de toepassing is ingeschakeld |
 | WorkflowId                           | int           | Nee          | Een unieke id voor een werkstroom |
 | WorkflowName                         | nvarchar(50)  | Nee          | De naam van de werkstroom |
 | WorkflowDisplayName                  | nvarchar(255) | Nee          | De naam van de werkstroom weergegeven in de gebruikersinterface |
@@ -351,7 +351,7 @@ In deze weergave vertegenwoordigt de details van core werkstroom metagegevens, e
 | WorkflowFunctionName                 | nvarchar(50)  | Ja         | De naam van de functie |
 | WorkflowFunctionDisplayName          | nvarchar(255) | Nee          | De naam van een functie moet worden weergegeven in de gebruikersinterface |
 | WorkflowFunctionDescription          | nvarchar(255) | Ja         | De beschrijving van de Werkstroomfunctie |
-| WorkflowFunctionIsConstructor        | bits           | Nee          | Als de Werkstroomfunctie de constructor voor de werkstroom is identificeert |
+| WorkflowFunctionIsConstructor        | bit           | Nee          | Als de Werkstroomfunctie de constructor voor de werkstroom is identificeert |
 | WorkflowFunctionParameterId          | int           | Nee          | Een unieke id voor een parameter van een functie |
 | WorkflowFunctionParameterName        | nvarchar(50)  | Nee          | De naam van een parameter van de functie |
 | WorkflowFunctionParameterDisplayName | nvarchar(255) | Nee          | De naam van een parameter van de functie moet worden weergegeven in de gebruikersinterface |
@@ -371,7 +371,7 @@ In deze weergave geeft de eigenschappen gedefinieerd voor een werkstroom. In dez
 | ApplicationId                | int           | Nee          | Een unieke id voor de toepassing |
 | ApplicationName              | nvarchar(50)  | Nee          | De naam van de toepassing |
 | ApplicationDisplayName       | nvarchar(255) | Nee          | De naam moet worden weergegeven in een gebruikersinterface |
-| ApplicationEnabled           | bits           | Nee          | Wordt geïdentificeerd als de toepassing is momenteel ingeschakeld.<br />**Opmerking:** Hoewel een toepassing kan worden weergegeven als uitgeschakeld in de database, gekoppelde contracten blijven op de blockchain en gegevens over deze opdrachten niet uit de database. |
+| ApplicationEnabled           | bit           | Nee          | Wordt geïdentificeerd als de toepassing is momenteel ingeschakeld.<br />**Opmerking:** Hoewel een toepassing kan worden weergegeven als uitgeschakeld in de database, gekoppelde contracten blijven op de blockchain en gegevens over deze opdrachten niet uit de database. |
 | WorkflowId                   | int           | Nee          | Een unieke id voor de werkstroom |
 | WorkflowName                 | nvarchar(50)  | Nee          | De naam van de werkstroom |
 | WorkflowDisplayName          | nvarchar(255) | Nee          | De naam moet worden weergegeven voor de werkstroom in een gebruikersinterface |
@@ -383,7 +383,7 @@ In deze weergave geeft de eigenschappen gedefinieerd voor een werkstroom. In dez
 | WorkflowPropertyWorkflowId   | int           | Nee          | De ID van de werkstroom die gekoppeld aan deze eigenschap is |
 | WorkflowPropertyDataTypeId   | int           | Nee          | De ID van het gegevenstype voor de eigenschap |
 | WorkflowPropertyDataTypeName | nvarchar(50)  | Nee          | De naam van het gegevenstype voor de eigenschap |
-| WorkflowPropertyIsState      | bits           | Nee          | Dit veld wordt geïdentificeerd als deze eigenschap werkstroom de status van de werkstroom bevat |
+| WorkflowPropertyIsState      | bit           | Nee          | Dit veld wordt geïdentificeerd als deze eigenschap werkstroom de status van de werkstroom bevat |
 
 ## <a name="vwworkflowstate"></a>vwWorkflowState
 
@@ -398,7 +398,7 @@ In deze weergave geeft de eigenschappen die zijn gekoppeld aan een werkstroom. I
 | ApplicationId                | int           | Nee          | Een unieke id voor de toepassing |
 | ApplicationName              | nvarchar(50)  | Nee          | De naam van de toepassing |
 | ApplicationDisplayName       | nvarchar(255) | Nee          | Een beschrijving van de toepassing |
-| ApplicationEnabled           | bits           | Nee          | Wordt geïdentificeerd als de toepassing is momenteel ingeschakeld.<br />**Opmerking:** Hoewel een toepassing kan worden weergegeven als uitgeschakeld in de database, gekoppelde contracten blijven op de blockchain en gegevens over deze opdrachten niet uit de database. |
+| ApplicationEnabled           | bit           | Nee          | Wordt geïdentificeerd als de toepassing is momenteel ingeschakeld.<br />**Opmerking:** Hoewel een toepassing kan worden weergegeven als uitgeschakeld in de database, gekoppelde contracten blijven op de blockchain en gegevens over deze opdrachten niet uit de database. |
 | WorkflowId                   | int           | Nee          | De unieke id voor de werkstroom |
 | WorkflowName                 | nvarchar(50)  | Nee          | De naam van de werkstroom |
 | WorkflowDisplayName          | nvarchar(255) | Nee          | De naam die wordt weergegeven in de gebruikersinterface voor de werkstroom |

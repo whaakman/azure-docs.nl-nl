@@ -15,11 +15,11 @@ ms.date: 04/04/2018
 ms.author: aelnably;nicking
 ms.custom: seodec18
 ms.openlocfilehash: 8d4290f1411749e2d8d3d27fbd792ceeeea47ef7
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100487"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60851330"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Een app in Azure herstellen vanuit een momentopname
 Dit artikel leest u hoe u een app in herstellen [Azure App Service](../app-service/overview.md) vanuit een momentopname. U kunt uw app herstellen naar een eerdere status, gebaseerd op een van de momentopnamen van uw app. U hoeft geen momentopnamen back-up inschakelen, het platform een momentopname van alle apps voor gegevenshersteldoeleinden automatisch opgeslagen.

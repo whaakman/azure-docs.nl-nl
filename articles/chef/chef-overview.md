@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
 ms.openlocfilehash: 5c4e20177c1b334a34f7ce9328dfaa7bd8c66d3d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545732"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656571"
 ---
 # <a name="using-chef-with-azure"></a>Met behulp van Chef met Azure
 [Chef](https://www.chef.io) is een krachtige automatisering-platform waarmee VM-infrastructuur in Azure worden getransformeerd in code. Chef automatiseert hoe infrastructuur is geconfigureerd, geïmplementeerd en beheerd via het netwerk, ongeacht de grootte ervan.

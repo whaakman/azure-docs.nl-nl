@@ -10,11 +10,11 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138358"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60784704"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Veelgestelde vragen over Azure Databricks
 
@@ -40,11 +40,11 @@ Zie voor meer informatie, [gebruik Data Lake Store met Azure Databricks](https:/
 
 Hier volgen enkele problemen met Databricks optreden.
 
-### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Probleem: In dit abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.Databricks'
+### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Probleem: Dit abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.Databricks'
 
 #### <a name="error-message"></a>Foutbericht
 
-"Dit abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.Databricks'. Zie https://aka.ms/rps-not-found voor informatie over het registreren van abonnementen. (Code: MissingSubscriptionRegistration) "
+"Dit abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.Databricks'. Zie https://aka.ms/rps-not-found voor informatie over het registreren van abonnementen. (Code: MissingSubscriptionRegistration)"
 
 #### <a name="solution"></a>Oplossing
 
@@ -84,22 +84,22 @@ Hier volgen een aantal oplossingen voor dit probleem:
 
 Als u niet de werkruimte hebt gemaakt en u wordt toegevoegd als een gebruiker, moet u contact op met de persoon die de werkruimte hebt gemaakt. Hebben dat deze persoon u toevoegen met behulp van de Azure Databricks-beheerconsole. Zie voor instructies [toevoegen en beheren van gebruikers](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). Als u de werkruimte hebt gemaakt en nog steeds deze foutmelding, probeert u **werkruimte initialiseren** opnieuw vanuit de Azure-portal.
 
-### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Probleem: Fout bij het starten van de provider Cloud tijdens het instellen van het cluster (PublicIPCountLimitReached)
+### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Probleem: Fout bij het starten van de provider in de cloud tijdens het instellen van het cluster (PublicIPCountLimitReached)
 
 #### <a name="error-message"></a>Foutbericht
 
-"Fout bij het starten van de Provider in de cloud: Er is een cloud-provider-fout opgetreden tijdens het instellen van het cluster. Zie de Databricks-gids voor meer informatie. Azure-foutcode: PublicIPCountLimitReached. Azure-foutbericht: kan niet meer dan 60 openbare IP-adressen voor dit abonnement in deze regio maken. "
+"Fout bij het starten van de Provider in de cloud: Er is een cloud-provider-fout opgetreden tijdens het instellen van het cluster. Zie de Databricks-gids voor meer informatie. Azure-foutcode: PublicIPCountLimitReached. Azure-foutbericht: Kan niet meer dan 60 openbare IP-adressen voor dit abonnement in deze regio maken."
 
 #### <a name="solution"></a>Oplossing
 
-Databricks-clusters gebruiken één openbaar IP-adres per knooppunt. Als uw abonnement al voor alle bijbehorende openbare IP-adressen gebruikt is, moet u [aanvraag om het quotum te verhogen](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Kies **quotum** als de **Type probleem**, en **netwerk: ARM** als de **Quotumtype**. In **Details**, een verhoging van het openbare IP-adres aanvragen. Bijvoorbeeld, als de limiet momenteel 60 is en u wilt maken van een cluster met 100 knooppunten, een hogere limiet aan 160 aanvragen.
+Databricks-clusters gebruiken één openbaar IP-adres per knooppunt. Als uw abonnement al voor alle bijbehorende openbare IP-adressen gebruikt is, moet u [aanvraag om het quotum te verhogen](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Kies **quotum** als de **Type probleem**, en **netwerken: ARM** als de **Quotumtype**. In **Details**, een verhoging van het openbare IP-adres aanvragen. Bijvoorbeeld, als de limiet momenteel 60 is en u wilt maken van een cluster met 100 knooppunten, een hogere limiet aan 160 aanvragen.
 
 ### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Probleem: Een tweede type cloud provider starten fout tijdens het instellen van het cluster (MissingSubscriptionRegistration)
 
 #### <a name="error-message"></a>Foutbericht
 
 "Fout bij het starten van de Provider in de cloud: Er is een cloud-provider-fout opgetreden tijdens het instellen van het cluster. Zie de Databricks-gids voor meer informatie.
-Azure-foutcode: MissingSubscriptionRegistration Azure-foutbericht: het abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.Compute'. Zie https://aka.ms/rps-not-found voor informatie over het registreren van abonnementen. "
+Azure-foutcode: MissingSubscriptionRegistration Azure-foutbericht: Het abonnement is niet geregistreerd voor het gebruik van de naamruimte Microsoft.Compute. Zie https://aka.ms/rps-not-found voor informatie over het registreren van abonnementen. "
 
 #### <a name="solution"></a>Oplossing
 
@@ -121,6 +121,6 @@ Meld u aan als globale beheerder bij de Azure-portal. Voor Azure Active Director
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Snelstartgids: Aan de slag met Azure Databricks](quickstart-create-databricks-workspace-portal.md)
+- [Snelstart: Aan de slag met Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [Wat is Azure Databricks?](what-is-azure-databricks.md)
 

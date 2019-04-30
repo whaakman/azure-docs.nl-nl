@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
 ms.openlocfilehash: 8b76e1a168d39d2f39098754f43bae73c21c2049
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60799822"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Azure CLI-opdrachten in Resource Manager-modus
 Dit artikel bevat syntaxis en opties voor Azure-opdrachtregelinterface (CLI)-opdrachten u doorgaans gebruikt maken en beheren van Azure-resources in het Azure Resource Manager-implementatiemodel. U toegang tot deze opdrachten door het uitvoeren van de CLI in de modus Resource Manager (arm). Dit is niet een volledig overzicht en de CLI-versie kan enigszins opdrachten of parameters weergeven. Zie voor een algemeen overzicht van Azure-resources en resourcegroepen [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -48,7 +48,7 @@ Gebruik de volgende opdracht om in te schakelen van de opdrachten in de modus Re
 > 
 > 
 
-## <a name="azure-account-manage-your-account-information"></a>Azure-account: gegevens over uw account beheren
+## <a name="azure-account-manage-your-account-information"></a>Azure-account: Gegevens over uw account beheren
 De gegevens van uw Azure-abonnement wordt gebruikt door het hulpprogramma verbinding maken met uw account.
 
 **De geïmporteerde abonnementen vermelden**
@@ -75,7 +75,7 @@ De gegevens van uw Azure-abonnement wordt gebruikt door het hulpprogramma verbin
     account env set [options] [environment]
     account env delete [options] [environment]
 
-## <a name="azure-ad-commands-to-display-active-directory-objects"></a>Azure ad: opdrachten voor het Active Directory-objecten weergeven
+## <a name="azure-ad-commands-to-display-active-directory-objects"></a>Azure ad: Opdrachten voor het Active Directory-objecten weergeven
 **Opdrachten voor het weergeven van active directory-toepassingen**
 
     ad app create [options]
@@ -150,7 +150,7 @@ De gegevens van uw Azure-abonnement wordt gebruikt door het hulpprogramma verbin
 
     feature register [options] <providerName> <featureName>
 
-## <a name="azure-group-commands-to-manage-your-resource-groups"></a>Azure-groep: opdrachten voor het beheren van uw resourcegroepen
+## <a name="azure-group-commands-to-manage-your-resource-groups"></a>Azure-groep: Opdrachten voor het beheren van uw resourcegroepen
 **Hiermee maakt u een resourcegroep**
 
     group create [options] <name> <location>
@@ -189,14 +189,14 @@ De gegevens van uw Azure-abonnement wordt gebruikt door het hulpprogramma verbin
     group template download [options] [name] [file]
     group template validate [options] <resource-group>
 
-## <a name="azure-hdinsight-commands-to-manage-your-hdinsight-clusters"></a>Azure hdinsight: opdrachten voor het beheren van uw HDInsight-clusters
+## <a name="azure-hdinsight-commands-to-manage-your-hdinsight-clusters"></a>Azure hdinsight: Opdrachten voor het beheren van uw HDInsight-clusters
 **Opdrachten voor het maken of toevoegen aan een cluster-configuratiebestand**
 
     hdinsight config create [options] <configFilePath> <overwrite>
     hdinsight config add-config-values [options] <configFilePath>
     hdinsight config add-script-action [options] <configFilePath>
 
-Voorbeeld: Maak een configuratiebestand met een scriptactie om uit te voeren bij het maken van een cluster.
+Voorbeeld: Een configuratiebestand met een scriptactie om uit te voeren bij het maken van een cluster maken.
 
     hdinsight config create "C:\myFiles\configFile.config"
     hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <scriptActionURI> --name myScriptAction --parameters "-param value"
@@ -205,7 +205,7 @@ Voorbeeld: Maak een configuratiebestand met een scriptactie om uit te voeren bij
 
     hdinsight cluster create [options] <clusterName>
 
-Voorbeeld: Een Storm op Linux-cluster maken
+Voorbeeld: Maken van een Storm op Linux-cluster
 
     azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
 
@@ -307,17 +307,17 @@ De parameteropties:
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>Azure insights: opdrachten die betrekking hebben op de bewaking van Insights (gebeurtenissen, regels voor waarschuwingen, instellingen voor automatisch schalen, metrische gegevens)
+## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>Azure insights: Opdrachten met betrekking tot bewaking Insights (gebeurtenissen, regels voor waarschuwingen, instellingen voor automatisch schalen, metrische gegevens)
 **Logboeken voor bewerkingen voor een abonnement, een correlationId, een resourcegroep, resourcegroep of resourceprovider ophalen**
 
     insights logs list [options]
 
-## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>Azure-locatie: opdrachten voor het ophalen van de beschikbare locaties voor alle resourcetypen
+## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>Azure-locatie: Opdrachten voor het ophalen van de beschikbare locaties voor alle resourcetypen
 **De beschikbare locaties weergeven**
 
     location list [options]
 
-## <a name="azure-network-commands-to-manage-network-resources"></a>Azure-netwerk: opdrachten voor het beheren van netwerkbronnen
+## <a name="azure-network-commands-to-manage-network-resources"></a>Azure-netwerk: Opdrachten voor het beheren van netwerkbronnen
 **Opdrachten voor het beheren van virtuele netwerken**
 
     network vnet create [options] <resource-group> <name> <location>
@@ -1504,7 +1504,7 @@ De parameteropties:
 
     network gateway list [options] <resource-group>
 
-## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>Azure-provider: opdrachten voor het beheren van de resource provider registraties
+## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>Azure-provider: Opdrachten voor het beheren van de resource provider registraties
 **Lijst van geregistreerde providers in Resource Manager**
 
     provider list [options]
@@ -1521,7 +1521,7 @@ De parameteropties:
 
     provider unregister [options] <namespace>
 
-## <a name="azure-resource-commands-to-manage-your-resources"></a>Azure-resource: opdrachten voor het beheren van uw resources
+## <a name="azure-resource-commands-to-manage-your-resources"></a>Azure-resource: Opdrachten voor het beheren van uw resources
 **Hiermee maakt u een resource in een resourcegroep**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
@@ -1542,7 +1542,7 @@ De parameteropties:
 
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
-## <a name="azure-role-commands-to-manage-your-azure-roles"></a>Azure-rol: opdrachten voor het beheren van uw Azure-rollen
+## <a name="azure-role-commands-to-manage-your-azure-roles"></a>Azure-rol: Opdrachten voor het beheren van uw Azure-rollen
 **Alle beschikbare roldefinities ophalen**
 
     role list [options]
@@ -1557,7 +1557,7 @@ De parameteropties:
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>Azure-opslag: opdrachten voor het beheren van uw Storage-objecten
+## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>Azure-opslag: Opdrachten voor het beheren van uw Storage-objecten
 **Opdrachten voor het beheren van uw Storage-accounts**
 
     storage account list [options]
@@ -1680,7 +1680,7 @@ De parameteropties:
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>Azure-tag: opdrachten voor het beheren van uw resource manager-tag
+## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>Azure-tag: Opdrachten voor het beheren van uw resource manager-tag
 **Een label toevoegen**
 
     tag create [options] <name> <value>
@@ -1697,7 +1697,7 @@ De parameteropties:
 
     tag show [options] [name]
 
-## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>virtuele machines van Azure: opdrachten voor het beheren van uw Azure Virtual Machines
+## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>Azure-vm: Opdrachten voor het beheren van uw Azure Virtual Machines
 **Een virtuele machine maken**
 
     vm create [options] <resource-group> <name> <location> <os-type>

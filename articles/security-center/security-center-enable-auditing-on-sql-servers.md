@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 5b41af83122d74fc766e6c5179d98803979269f7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108905"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60704637"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-servers-in-azure-security-center"></a>Controle en detectie van bedreigingen op SQL-servers in Azure Security Center inschakelen
 Azure Security Center wordt aanbevolen dat u de controle en detectie van bedreigingen voor alle databases op uw Azure SQL-servers als controle is niet ingeschakeld. Controle en threat detection kunt u de naleving van regelgeving, inzicht in de databaseactiviteiten en inzicht verkrijgen in discrepanties en afwijkingen die kunnen wijzen op problemen voor het bedrijf of vermoedelijke beveiligingsschendingen.

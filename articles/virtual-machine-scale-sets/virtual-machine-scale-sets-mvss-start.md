@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
 ms.openlocfilehash: d4a3dd6ae390fd48a8085cca33063a6bb74bd96c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008413"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60805578"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Meer informatie over schaalsetsjablonen virtuele machine
 [Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) zijn bijzonder handig om groepen gerelateerde resources te implementeren. In deze reeks zelfstudies ziet over het maken van een sjabloon voor minimaal levensvatbare schaalsets en hoe u deze sjabloon aan de behoeften van verschillende scenario's te wijzigen. Alle voorbeelden afkomstig zijn van dit [GitHub-opslagplaats](https://github.com/gatneil/mvss). 

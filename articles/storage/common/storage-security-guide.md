@@ -9,11 +9,11 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 74be21629a884313e74a824bb34fb5b66f5db61d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005983"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729030"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
 
@@ -244,7 +244,7 @@ Raadpleeg de volgende artikelen voor meer gedetailleerde informatie over het geb
 
     Dit artikel bevat een uitleg van de SAS-model, voorbeelden van handtekeningen voor gedeelde toegang en aanbevelingen voor het beste gebruik van SAS. Ook wordt besproken, is het intrekken van de machtiging is verleend.
 
-* Authentication
+* Verificatie
 
   * [Verificatie voor de Azure Storage-Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Shared Access Signatures aan de slag zelfstudie

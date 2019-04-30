@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/14/2018
 ms.author: sstein
 ms.custom: include file
-ms.openlocfilehash: 0d85353e2ebd63247e810460880c362153ccf211
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c0e4ff43c3112848cbf9a095c4e258d7fffe4780
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "35591796"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61435390"
 ---
 > [!IMPORTANT]
 > In dit artikel is bedoeld voor de klant gehoste versie van *taken voor Elastic Database*. Taken voor elastic Database worden afgeschaft en vervangen door nieuwe Azure gehoste **taken voor Elastic Database**. Gebruik voor nieuwe taken [de meest recente **taken voor Elastic Database**](../articles/sql-database/elastic-jobs-overview.md). Als u momenteel gebruikmaakt van de oudere klant gehoste taken, raadpleegt u [migreren naar de nieuwe taken voor Elastic Database](../articles/sql-database/elastic-jobs-migrate.md) voor instructies en migratiescripts snel bijwerken naar de meest recente versie.

@@ -1,5 +1,5 @@
 ---
-title: Versleuteling inschakelen voor storage-account in Azure Security Center | Microsoft Docs
+title: Versleuteling voor Azure storage-account in Azure Security Center | Microsoft Docs
 description: Dit document ziet u hoe u de aanbevelingen voor Azure Security Center implementeren **versleuteling inschakelen voor Azure Storage-Account**.
 services: security-center
 documentationcenter: na
@@ -14,47 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9f8679e988513eecd778970ac796264b274a8088
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: MT
+ms.openlocfilehash: cadf375b541900600be82e76673637ff01a8ad96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111659"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703925"
 ---
-# <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Versleuteling inschakelen voor Azure storage-account in Azure Security Center
-Azure Security Center kan aanraden om Azure Storage-Serviceversleuteling voor data-at-rest in te schakelen.
+# <a name="encryption-for-azure-storage-account-in-azure-security-center"></a>Versleuteling voor Azure storage-account in Azure Security Center
 
-Storage Service Encryption (SSE) werkt door de gegevens te coderen wanneer ze worden geschreven naar Azure storage en decoderen van de gegevens voor het ophalen van.  SSE is momenteel alleen beschikbaar voor de Azure Blob-service en kan worden gebruikt voor blok-blobs, pagina-blobs en toevoeg-blobs.  Zie voor meer informatie, [Storage Service Encryption voor data-at-rest](../storage/common/storage-service-encryption.md).
-
-
-> [!Note]
-> Nadat versleuteling is ingeschakeld, worden alleen nieuwe gegevens versleuteld. Alle bestaande blobs in uw storage-account blijven onversleuteld. Voor het versleutelen van bestaande blobs, Zie de [Veelgestelde vragen over Storage Service Encryption](../storage/common/storage-service-encryption.md#faq-for-storage-service-encryption).
->
->
-
-Storage Service-versleuteling wordt alleen ondersteund op Resource Manager-opslagaccounts. Klassieke opslagaccounts worden momenteel niet ondersteund. Zie voor meer informatie over de klassieke en Resource Manager-implementatiemodel, [Azure-implementatiemodellen](../azure-classic-rm.md).
-
-> [!NOTE]
-> In dit document wordt de service geïntroduceerd aan de hand van een voorbeeldimplementatie.  Dit document is geen stapsgewijze handleiding.
->
->
-
-## <a name="implement-the-recommendation"></a>De aanbeveling voor het implementeren
-1. In de **aanbevelingen** Selecteer **versleuteling inschakelen voor Azure Storage-Account**.
-   ![Versleuteling inschakelen voor opslagaccount][1]
-2. De **storage-versleuteling inschakelt** blade wordt geopend. Deze blade bevat de Azure storage-accounts waarbij versleuteling van opslag is uitgeschakeld. In dit voorbeeld gaan we selecteren **storageacct1**.
-   ![Opslagversleuteling inschakelen][2]
-3. De **versleuteling** blade voor **storageacct1** wordt geopend. Selecteer **ingeschakeld**.
-   ![Versleuteling-blade][3]
-4. Selecteer **Opslaan**.
-
-U hebt nu versleuteling van opslag voor ingeschakeld **storageacct1**.
-
-
-## <a name="see-also"></a>Zie ook
-Dit document hebt u geleerd hoe u de aanbeveling van Security Center implementeren "Versleuteling inschakelen voor Azure Storage-Account." Voor meer informatie over Azure Storage-Serviceversleuteling, Zie de volgende:
-
-* [Azure Storage-Serviceversleuteling voor Data-at-Rest](../storage/common/storage-service-encryption.md)
+Azure Storage-versleuteling voor data-at-rest is standaard voor alle Azure storage-accounts ingeschakeld. Azure Storage versleutelt gegevens wanneer deze wordt geschreven naar Azure Storage en deze voordat ophalen ontsleutelt. Zie voor meer informatie, [Azure Storage-versleuteling van data-at-rest](../storage/common/storage-service-encryption.md).
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 

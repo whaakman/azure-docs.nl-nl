@@ -17,13 +17,13 @@ ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 101710b5a57faa37be77ff4b059fa0d494f4e617
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878061"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60835624"
 ---
-# <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business één op virtuele Machines van Azure
+# <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One in virtuele Azure-machines
 Dit document biedt richtlijnen voor het implementeren van SAP Business One on Azure Virtual Machines. De documentatie is geen vervanging voor documentatie voor de installatie van bedrijf voor SAP. De documentatie zijn voor algemene richtlijnen voor de planning en implementatie voor de Azure-infrastructuur voor het uitvoeren van een zakelijke toepassingen op.
 
 Business One ondersteunt twee verschillende databases:

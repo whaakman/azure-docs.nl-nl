@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885703"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749254"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Gebruik Servicebus van .NET met AMQP 1.0
 
@@ -75,19 +75,19 @@ Interoperabiliteit met niet-.NET-clients in het kader, alleen .NET-typen die kun
 | float |float |AMQP-waarde |
 | double |double |AMQP-waarde |
 | decimal |decimal128 |AMQP-waarde |
-| CHAR |CHAR |AMQP-waarde |
-| DateTime |tijdstempel |AMQP-waarde |
+| char |char |AMQP-waarde |
+| DateTime |timestamp |AMQP-waarde |
 | Guid |uuid |AMQP-waarde |
-| byte[] |binaire bestanden |AMQP-waarde |
+| byte[] |binary |AMQP-waarde |
 | string |string |AMQP-waarde |
 | System.Collections.IList |list |AMQP-waarde: opgenomen in de verzameling items kunnen alleen worden die zijn gedefinieerd in deze tabel. |
-| System.Array |array |AMQP-waarde: opgenomen in de verzameling items kunnen alleen worden die zijn gedefinieerd in deze tabel. |
+| System.Array |matrix |AMQP-waarde: opgenomen in de verzameling items kunnen alleen worden die zijn gedefinieerd in deze tabel. |
 | System.Collections.IDictionary |map |AMQP-waarde: opgenomen in de verzameling items kunnen alleen worden die zijn gedefinieerd in deze tabel. Opmerking: alleen tekenreekssleutels worden ondersteund. |
 | URI |Tekenreeks die wordt beschreven (Zie de volgende tabel) |AMQP-waarde |
 | DateTimeOffset |Lange beschreven (Zie de volgende tabel) |AMQP-waarde |
 | TimeSpan |Lange beschreven (Zie hieronder) |AMQP-waarde |
-| Streamen |binaire bestanden |AMQP-gegevens (mogelijk meerdere). De gegevenssecties bevatten de onbewerkte bytes lezen uit de Stream-object. |
-| Andere Object |binaire bestanden |AMQP-gegevens (mogelijk meerdere). Het geserialiseerde binaire bestand van het object dat gebruikmaakt van de DataContractSerializer of een serializer geleverd door de toepassing bevat. |
+| Streamen |binary |AMQP-gegevens (mogelijk meerdere). De gegevenssecties bevatten de onbewerkte bytes lezen uit de Stream-object. |
+| Andere Object |binary |AMQP-gegevens (mogelijk meerdere). Het geserialiseerde binaire bestand van het object dat gebruikmaakt van de DataContractSerializer of een serializer geleverd door de toepassing bevat. |
 
 | .NET-type | Toegewezen AMQP beschreven Type | Opmerkingen |
 | --- | --- | --- |

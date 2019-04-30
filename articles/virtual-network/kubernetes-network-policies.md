@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: b4f8577724781e5df10846a5fc4e30c8320403f2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a5c367402bd1e61485095fd1d565a8582acc3a9e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219767"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824885"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Overzicht van Azure Kubernetes netwerk beleid
 
@@ -38,11 +38,11 @@ Bij het implementeren van beveiliging voor uw cluster, gebruik netwerkbeveiligin
 Beleid voor Azure-netwerk kan worden gebruikt in de volgende manieren voor micro-segmentatie voor schillen.
 
 ### <a name="acs-engine"></a>ACS-engine
-ACS-Engine is een hulpprogramma dat genereert een Azure Resource Manager-sjabloon voor de implementatie van een Kubernetes-cluster in Azure. De configuratie van het cluster is opgegeven in een JSON-bestand dat wordt doorgegeven aan het hulpprogramma bij het genereren van de sjabloon. Zie voor meer informatie over de volledige lijst van ondersteunde clusterinstellingen en de bijbehorende beschrijvingen, Microsoft Azure Container Service Engine - definitie van het Cluster.
+ACS-Engine is een hulpprogramma dat genereert een Azure Resource Manager-sjabloon voor de implementatie van een Kubernetes-cluster in Azure. De configuratie van het cluster is opgenomen in een JSON-bestand dat aan het hulpprogramma wordt doorgegeven bij het genereren van de sjabloon. Zie voor meer informatie over de volledige lijst van ondersteunde clusterinstellingen en de bijbehorende beschrijvingen, Microsoft Azure Container Service Engine - definitie van het Cluster.
 
 Om in te schakelen voor clusters die zijn geïmplementeerd met behulp van de acs-engine beleidsregels, moet u de waarde van de instelling networkPolicy opgeven in het cluster-definitiebestand moet 'azure'.
 
-#### <a name="example-configuration"></a>Voorbeeld van een configuratie
+#### <a name="example-configuration"></a>Voorbeeldconfiguratie
 
 De onderstaande JSON voorbeeldconfiguratie maakt een nieuw virtueel netwerk en een subnet, en implementeert een Kubernetes-cluster in deze met Azure CNI. U wordt aangeraden dat u "Kladblok" gebruiken om de JSON-bestand te bewerken. 
 ```json
@@ -87,7 +87,7 @@ De onderstaande JSON voorbeeldconfiguratie maakt een nieuw virtueel netwerk en e
 
 ```
 ### <a name="creating-your-own-kubernetes-cluster-in-azure"></a>Het maken van uw eigen Kubernetes-cluster in Azure
-De implementatie kan worden gebruikt voor beleid voor netwerken voor schillen in Kubernetes-clusters die u zelf, zonder afhankelijkheid van hulpprogramma's zoals de ACS-Engine implementeren. In dit geval u eerst de invoegtoepassing CNI installeren en inschakelen op elke virtuele machine in een cluster. Zie voor gedetailleerde instructies [implementeren van de invoegtoepassing voor een Kubernetes-cluster dat u zelf implementeren](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
+De implementatie kan worden gebruikt voor beleid voor netwerken voor schillen in Kubernetes-clusters die u zelf, zonder afhankelijkheid van hulpprogramma's zoals de ACS-Engine implementeren. In dit geval u eerst de invoegtoepassing CNI installeren en inschakelen op elke virtuele machine in een cluster. Zie [Deploy plug-in for a Kubernetes cluster](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster) (Invoegtoepassing implementeren voor een Kubernetes-cluster) voor gedetailleerde instructies.
 
 Zodra het cluster is geïmplementeerd, voert u de volgende `kubectl` opdracht uit om te downloaden en toepassen van beleid voor de Azure-netwerk *daemonset* aan het cluster.
 

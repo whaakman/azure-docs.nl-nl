@@ -17,11 +17,11 @@ ms.date: 11/08/2018
 ms.author: yili
 ms.custom: seodec18
 ms.openlocfilehash: 4acadc4c08ef50e7d52303689c38c43f81187669
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315522"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60852521"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Doorlopende implementatie met Web App for Containers
 
@@ -69,4 +69,4 @@ Kopieer de Webhook-URL. Als u wilt toevoegen een webhook voor Docker Hub, gaat u
 * [Een Ruby-web-app maken in App Service on Linux](quickstart-ruby.md)
 * [Een Docker/Go-web-app in Web App for Containers implementeren](quickstart-docker-go.md)
 * [Veelgestelde vragen over Azure App Service on Linux](./app-service-linux-faq.md)
-* [Web App for Containers met behulp van Azure CLI beheren](./app-service-linux-cli.md)
+* [Web App for Containers beheren met behulp van Azure CLI](./app-service-linux-cli.md)

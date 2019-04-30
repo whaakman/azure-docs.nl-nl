@@ -14,11 +14,11 @@ ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331534"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824181"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Gegevens verplaatsen van MongoDB met Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +71,7 @@ De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zi
 | poort |TCP-poort die de MongoDB-server wordt gebruikt om te luisteren naar clientverbindingen. |Optionele standaardwaarde: 27017 |
 | authenticationType |Basic, of anonieme. |Ja |
 | gebruikersnaam |Gebruikersaccount voor toegang tot MongoDB. |Ja (als basisverificatie wordt gebruikt). |
-| wachtwoord |Het wachtwoord voor de gebruiker. |Ja (als basisverificatie wordt gebruikt). |
+| password |Het wachtwoord voor de gebruiker. |Ja (als basisverificatie wordt gebruikt). |
 | authSource |De naam van de MongoDB-database die u wilt gebruiken om te controleren of uw referenties voor verificatie. |Optioneel (als basisverificatie wordt gebruikt). Standaard: maakt gebruik van het beheerdersaccount en de database die is opgegeven met behulp van de eigenschap databaseName. |
 | databaseName |De naam van de MongoDB-database die u wilt openen. |Ja |
 | gatewayName |Naam van de gateway die toegang heeft tot het gegevensarchief. |Ja |
@@ -296,14 +296,14 @@ Bij het verplaatsen van gegevens met MongoDB worden de volgende toewijzingen van
 | MongoDB-type | .NET framework-type |
 | --- | --- |
 | Binair bestand |Byte[] |
-| Booleaans |Booleaans |
+| Boolean |Boolean |
 | Date |DateTime |
-| NumberDouble |Double-waarde |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Reeks |
-| Reeks |Reeks |
-| UUID |GUID |
+| ObjectID |String |
+| Reeks |String |
+| UUID |Guid |
 | Object |Renormalized afvlakken in kolommen met '_' als geneste scheidingsteken |
 
 > [!NOTE]

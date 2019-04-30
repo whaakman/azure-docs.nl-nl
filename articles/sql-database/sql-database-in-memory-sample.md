@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005737"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61035714"
 ---
 # <a name="in-memory-sample"></a>In-Memory-voorbeeld
 
@@ -414,7 +414,7 @@ In een database met de prijscategorie P2, kunt u verwachten dat ongeveer negen k
 
 #### <a name="tools"></a>Hulpprogramma's
 
-- [Azure-portal](https://portal.azure.com/)
+- [Azure Portal](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

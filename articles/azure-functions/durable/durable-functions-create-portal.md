@@ -8,14 +8,15 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
-ms.author: azfuncdf, glenga
+origin.date: 10/23/2018
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108066"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710857"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Duurzame functies met behulp van de Azure portal maken
 
@@ -91,7 +92,7 @@ Als u JavaScript duurzame functies maakt, moet u voor het installeren van de [ `
 1. Een HTTP-hulpprogramma, zoals Postman of cURL gebruiken voor het verzenden van een POST-aanvraag naar de URL die u hebt gekopieerd. Het volgende voorbeeld wordt een cURL-opdracht die een POST-aanvraag naar de duurzame functie verzendt:
 
     ```bash
-    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
+    curl -X POST https://{your-function-app-name}.chinacloudsites.cn/api/orchestrators/HelloSequence
     ```
 
     In dit voorbeeld `{your-function-app-name}` is het domein dat is de naam van uw functie-app. Het antwoordbericht bevat een set met URI-eindpunten die u gebruiken kunt om te controleren en beheren van de uitvoering van deze domeinnaam ziet als in het volgende voorbeeld eruit:
@@ -140,3 +141,5 @@ Uw eerste duurzame functie is nu actief en werkend in Azure.
 
 > [!div class="nextstepaction"]
 > [Meer informatie over algemene patronen van duurzame functies](durable-functions-concepts.md)
+
+<!-- Update_Description: wording update -->

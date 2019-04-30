@@ -3,17 +3,17 @@ title: Apparaatconcepten voor beëindiging van de Azure IoT Hub Device Provision
 description: Beschrijving apparaat beëindiging van concepten voor de Azure IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 11/14/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
+manager: timlt
 ms.openlocfilehash: fa8cb29f145c7658227f93d08a990c98563a0cfc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050846"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729958"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Concepten van IoT Hub Device beëindiging
 

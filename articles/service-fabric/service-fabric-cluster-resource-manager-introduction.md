@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: e9b1cc8b66be36a0a77118f4de672c9411433ba5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660882"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743651"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Maak kennis met de Service Fabric-cluster resource manager
 Traditioneel beheer van IT-systemen of online services bedoeld specifieke fysieke of virtuele machines toe die specifieke services of systemen. Services zijn ontworpen als lagen. Er worden een 'web'-laag en een laag "gegevens" of 'opslag'. Toepassingen hoeft een berichtenservice waar aanvragen gestroomd en afmelden, evenals een set van machines speciaal voor opslaan in cache. Elke servicelaag of het type workload specifieke computers die zijn toegewezen aan deze was: de database hebt u een aantal machines die zijn toegewezen, de webservers van een enkele. Als een bepaald type werkbelasting de machines er veroorzaakt op uitvoeren te ' hot ', en vervolgens u meer machines met dezelfde configuratie hebt toegevoegd aan die laag. Echter niet van alle werkbelastingen kunnen zo gemakkelijk worden uitgebreid - met name met de gegevenslaag zou u meestal machines met grotere machines vervangen. Eenvoudig. Als een virtuele machine is mislukt, wordt die deel uitmaken van de algemene toepassing is op lagere capaciteit totdat de computer kan worden hersteld. Nog steeds redelijk eenvoudig is (als deze niet per se leuke).

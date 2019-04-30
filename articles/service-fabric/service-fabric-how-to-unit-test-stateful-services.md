@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
 ms.openlocfilehash: b066296ca52d3067f8985245161eb4fa7b484a07
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669109"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60720124"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Eenheidstests voor Stateful Services maken
 Eenheidstesten stateful Service Fabric-services kunt verwerven op basis veelvoorkomende fouten die zou niet per se worden opgepikt door conventionele toepassing of domeinspecifieke Eenheidstesten. Tijdens het ontwikkelen van eenheidstests voor stateful services, zijn er enkele speciale overwegingen die moeten worden opgeslagen in gedachten.

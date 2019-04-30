@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ac383c85938f5cb7dfe4f711714f5bacd0c96b89
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230948"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865359"
 ---
-# <a name="storefront-details-tab"></a>Tabblad StoreFront Details
+# <a name="storefront-details-tab"></a>Tabblad Details van webwinkel
 
 In dit artikel wordt uitgelegd hoe u de details voor uw webwinkel invoeren. De **Storefront Details** tabblad bestaat uit de volgende secties:
 

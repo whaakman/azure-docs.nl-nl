@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 36e8875e91e2f04dbb60bab3211f07b2053e78f5
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3ce881da4b683cf7034100d5044dd0f3c93edb52
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414769"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800182"
 ---
-# <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption voor Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
+# <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption for Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
 ## <a name="overview"></a>Overzicht
 
@@ -72,23 +72,23 @@ Azure Disk Encryption voor Linux is verbinding met Internet vereist voor toegang
 
 ### <a name="property-values"></a>Waarden van eigenschappen
 
-| Naam | Waarde / voorbeeld | Gegevenstype |
+| Name | Waarde / voorbeeld | Gegevenstype |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
-| Uitgever | Microsoft.Azure.Security | tekenreeks |
-| type | AzureDiskEncryptionForLinux | tekenreeks |
+| apiVersion | 2015-06-15 | date |
+| Uitgever | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0.1, 1.1 (VMSS) | int |
 | AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| AADClientSecret | wachtwoord | tekenreeks |
-| AADClientCertificate | vingerafdruk | tekenreeks |
-| DiskFormatQuery | {"dev_path": "", "naam": "","file_system": ""} | JSON-woordenlijst |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | tekenreeks | 
-| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | tekenreeks |
-| KeyEncryptionKeyURL | url | tekenreeks |
-| KeyVaultURL | url | tekenreeks |
-| Wachtwoordzin | wachtwoord | tekenreeks | 
-| SequenceVersion | uniqueidentifier | tekenreeks |
-| VolumeType | OS-, gegevens, alle | tekenreeks |
+| AADClientSecret | password | string |
+| AADClientCertificate | vingerafdruk | string |
+| DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON-woordenlijst |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
+| KeyEncryptionKeyURL | url | string |
+| KeyVaultURL | url | string |
+| Wachtwoordzin | password | string | 
+| SequenceVersion | uniqueidentifier | string |
+| VolumeType | OS-, gegevens, alle | string |
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 

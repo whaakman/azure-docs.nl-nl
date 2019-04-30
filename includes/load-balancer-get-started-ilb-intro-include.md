@@ -1,15 +1,16 @@
 ---
-author: kumudD
+author: WenJason
 ms.service: load-balancer
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: kumud
+origin.date: 11/09/2018
+ms.date: 12/31/2018
+ms.author: v-jay
 ms.openlocfilehash: b3f9a453573de0737cfaddb3107df92335507366
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52269671"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60398770"
 ---
 Een internal load balancer (ILB) in Azure biedt netwerktaakverdeling tussen virtuele machines die zich in een cloudservice of een virtueel netwerk met een regionale bereik bevinden.
 

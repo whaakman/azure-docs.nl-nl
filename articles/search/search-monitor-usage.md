@@ -12,11 +12,11 @@ ms.date: 04/04/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010410"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564737"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Resource verbruik en query-activiteiten in Azure Search controleren
 
@@ -111,7 +111,7 @@ BLOBs met de verkeerslogboeken van uw search-service zijn gestructureerd zoals b
 
 | Name | Type | Voorbeeld | Opmerkingen |
 | --- | --- | --- | --- |
-| time |datum/tijd |"2018-12-07T00:00:43.6872559Z" |Tijdstempel van de bewerking |
+| time |datetime |"2018-12-07T00:00:43.6872559Z" |Tijdstempel van de bewerking |
 | resourceId |string |' / SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>STANDAARD-RESOURCEGROUPS-PROVIDERS /<br/> MICROSOFT. ZOEKEN/SEARCHSERVICES/SEARCHSERVICE" |Uw ResourceId |
 | operationName |string |"Query.Search" |De naam van de bewerking |
 | operationVersion |string |"2017-11-11" |De api-versie die wordt gebruikt |
@@ -138,7 +138,7 @@ Metrische gegevens vastgelegd voor queryaanvragen.
 | --- | --- | --- | --- |
 | resourceId |string |' / SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>STANDAARD-RESOURCEGROUPS-PROVIDERS /<br/>MICROSOFT. ZOEKEN/SEARCHSERVICES/SEARCHSERVICE" |de resource-id |
 | MetricName |string |"Latentie" |de naam van de metrische gegevens |
-| time |datum/tijd |"2018-12-07T00:00:43.6872559Z" |tijdstempel van de bewerking |
+| time |datetime |"2018-12-07T00:00:43.6872559Z" |tijdstempel van de bewerking |
 | gemiddeld |int |64 |De gemiddelde waarde van de onbewerkte voorbeelden in de metrische tijdsinterval |
 | minimum |int |37 |De minimumwaarde van de onbewerkte voorbeelden in de metrische tijdsinterval |
 | maximum |int |78 |De maximale waarde van de onbewerkte voorbeelden in de metrische tijdsinterval |

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636428"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Alle beleidsregels beheren voor een lab in Azure DevTest Labs
 
@@ -91,7 +91,7 @@ Als de eigenaar van een lab, kunt u een planning afsluiten configureren voor all
 
 1. Selecteer op de startpagina van uw lab, **configuratie en het beleid**.
 2. Selecteer **automatisch afsluiten beleid** in de **planningen** gedeelte van het menu links.
-3. Selecteer een van de opties. De volgende secties geven u meer informatie over deze opties: de set-beleid van toepassing is alleen op nieuwe virtuele machines die zijn gemaakt in de testomgeving en niet op de al bestaande VM's. 
+3. Selecteer een van de opties. De volgende secties bevatten meer informatie over deze opties: De set-beleid van toepassing alleen op nieuwe virtuele machines die zijn gemaakt in de testomgeving en niet op de al bestaande VM's. 
 
     ![Opties voor automatisch afsluiten](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 

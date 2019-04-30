@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
 ms.openlocfilehash: 9cfcdc879e36b93e21bff6f91886536d799553bb
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200952"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60924491"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Het gebruik van Azure digitale dubbels beheer-API 's
 
@@ -23,7 +23,7 @@ De beheer-API's van de digitale dubbels van Azure bieden een krachtige functies 
 
 De volgende lijst bevat de onderdelen van de digitale Twins-API's.
 
-* [/ opslagruimten](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces): Deze API's communiceren met de fysieke locaties in uw instellingen. Deze om te maken, verwijderen en beheren van de digitale toewijzingen van uw fysieke locaties in de vorm van een [ruimtelijke graph](concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph).
+* [/spaces](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces): Deze API's communiceren met de fysieke locaties in uw instellingen. Deze om te maken, verwijderen en beheren van de digitale toewijzingen van uw fysieke locaties in de vorm van een [ruimtelijke graph](concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph).
 
 * [/Devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices): Deze API's communiceren met de apparaten in uw instellingen. Deze apparaten kunnen een of meer sensoren beheren. Bijvoorbeeld, kan een apparaat worden uw telefoon of een Raspberry Pi sensor schil of een Lora-gateway, enzovoort.
 

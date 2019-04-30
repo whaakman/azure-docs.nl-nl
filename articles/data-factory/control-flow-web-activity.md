@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
 ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214297"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764285"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webactiviteit in Azure Data Factory
 De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen vanaf een Data Factory-pijplijn. U kunt gegevenssets en gekoppelde services doorgeven die moten worden verbruikt door en die toegankelijk zijn voor de activiteit.
@@ -63,8 +63,8 @@ De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen 
 
 Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | Naam van de webactiviteit | Reeks | Ja
-type | Moet worden ingesteld op **WebActivity**. | Reeks | Ja
+naam | Naam van de webactiviteit | String | Ja
+type | Moet worden ingesteld op **WebActivity**. | String | Ja
 method | De rest-API-methode voor het doel-eindpunt. | tekenreeks. <br/><br/>Ondersteunde typen: 'OPHALEN', 'POST', 'PLAATS' | Ja
 url | Doel-eindpunt en het pad | Tekenreeks (of expressie resultType van de tekenreeks). De activiteit wordt een time-out op 1 minuut met een fout als het heeft geen reactie ontvangen van het eindpunt. | Ja
 Headers | Headers die worden verzonden naar de aanvraag. Bijvoorbeeld, de taal en het type instellen op een aanvraag: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Tekenreeks (of expressie resultType van de tekenreeks) | Ja, de Content-type-header is vereist. `"headers":{ "Content-Type":"application/json"}`

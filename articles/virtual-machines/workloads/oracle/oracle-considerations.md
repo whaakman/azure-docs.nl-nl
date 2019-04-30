@@ -16,11 +16,11 @@ ms.date: 08/02/2018
 ms.author: rogirdh
 ms.custom: seodec18
 ms.openlocfilehash: 945ba9b2ba4dbc22941ca6b105417f591f2dd837
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012759"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60835410"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Oracle-oplossingen en de implementatie ervan op Microsoft Azure
 In dit artikel bevat informatie over de vereiste informatie op verschillende Oracle-oplossingen op Microsoft Azure implementeren. Deze oplossingen zijn gebaseerd op de virtuele Machine-installatiekopieën die zijn gepubliceerd door Oracle op Azure Marketplace. Als u een lijst met beschikbare installatiekopieën, voer de volgende opdracht:

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493022"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61341824"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Naslaggids voor Weergaveontwerper visualisatie delen in Azure Monitor
 Met behulp van Designer bekijken in Azure Monitor, kunt u tal van aangepaste weergaven maken in Azure portal waarmee u gegevens visualiseren in uw Log Analytics-werkruimte kunt. In dit artikel is een handleiding verwijzing naar de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
@@ -31,7 +31,7 @@ Zie voor meer informatie over Designer bekijken:
 
 De beschikbare typen van de Weergaveontwerper-tegel worden in de volgende tabel beschreven:
 
-| Weergavetype | Beschrijving |
+| Weergavetype | Description |
 |:--- |:--- |
 | [Lijst met query 's](#list-of-queries-part) |Geeft een lijst van Logboeken-query's. U kunt elke query om de resultaten weer te geven. |
 | [Getal en lijst](#number-and-list-part) |De koptekst wordt weergegeven een enkel getal dat geeft het aantal records in een logboekquery. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft. |
@@ -53,7 +53,7 @@ De lijst met query's onderdeel geeft een lijst van Logboeken-query's. U kunt elk
 
 ![Lijst met query's weergeven](media/view-designer-parts/view-list-queries.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | **Algemeen** | |
 | Titel |De tekst die wordt weergegeven aan de bovenkant van de weergave. |
@@ -98,7 +98,7 @@ De header heeft twee getallen die een aantal records uit afzonderlijke logboeken
 
 ![Twee getallen en lijst weergeven](media/view-designer-parts/view-two-numbers-list.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de weergave. |
@@ -143,7 +143,7 @@ De koptekst wordt weergegeven een enkel getal met een overzicht van de kolom van
 | Query’s uitvoeren |De query wilt uitvoeren voor de ring. De eerste eigenschap een tekstwaarde is en de tweede eigenschap is een numerieke waarde. |
 | Navigatie via klikken | Wanneer u op de kop klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
 | **ringdiagram** |**> Center** |
-| Tekst |De tekst die wordt weergegeven onder de waarde binnen de ring. |
+| Text |De tekst die wordt weergegeven onder de waarde binnen de ring. |
 | Bewerking |De bewerking uit te voeren op de eigenschap value om samen te vatten het als één waarde.<ul><li>Som: Hiermee voegt u de waarden van alle records toe.</li><li>Percentage: De verhouding van de records die zijn geretourneerd door de waarden in **leiden tot waarden die worden gebruikt in middenbewerking** naar het totaal aantal records in de query.</li></ul> |
 | Resultaatwaarden gebruikt in middenbewerking |(Optioneel) Selecteer het plusteken (+) om toe te voegen een of meer waarden. De resultaten van de query zijn beperkt tot records met de eigenschapswaarden die u opgeeft. Als er geen waarden worden toegevoegd, worden alle records worden opgenomen in de query. |
 | **Aanvullende opties** |**> Kleuren** |
@@ -202,14 +202,14 @@ De koptekst wordt weergegeven voor statische tekst en een optionele koppeling. D
 
 ![Informatie weergeven](media/view-designer-parts/view-information.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
 | Nieuwe groep |Selecteer deze koppeling naar een nieuwe groep maken in de weergave, vanaf de huidige weergave. |
 | Kleur |De achtergrondkleur voor de header. |
 | **Header** | |
-| Installatiekopie |Het afbeeldingsbestand dat wordt weergegeven in de header. |
+| Image |Het afbeeldingsbestand dat wordt weergegeven in de header. |
 | Label |De tekst die wordt weergegeven in de header. |
 | **Header** |**> Link** |
 | Label |De tekst van de koppeling. |
@@ -263,7 +263,7 @@ Een lijndiagram met meerdere reeksen uit een query voor weergegeven de koptekst 
 
 ![Regel grafiek en een lijst weergeven](media/view-designer-parts/view-line-chart-callout-list.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
@@ -329,7 +329,7 @@ Navigatie via klikken wordt gedefinieerd welke actie moet worden ondernomen wann
 
 De volgende tabel beschrijft de instellingen voor navigatie via klikken.
 
-| Instelling           | Beschrijving |
+| Instelling           | Description |
 |:--|:--|
 | Zoeken in logboeken (automatisch) | Query voor worden uitgevoerd wanneer u een header-item selecteren.  Dit is dezelfde logboekquery die het item is gebaseerd op.
 | Zoeken in logboeken        | Query voor worden uitgevoerd wanneer u een item in een lijst selecteert.  Typ de query in de **navigatiequery** vak.   Gebruik *{geselecteerde item}* om op te nemen van de syntaxis voor het item dat de gebruiker heeft geselecteerd.  Bijvoorbeeld, als de query heeft een kolom met de naam *Computer* en de navigatiequery is *{geselecteerde item}*, een query zoals *Computer = 'Computer'* wordt uitgevoerd wanneer u selecteert een computer. Als de navigatiequery is *Type = Event {geselecteerde item}*, de query *Type = Event Computer = 'Computer'* wordt uitgevoerd. |
@@ -342,7 +342,7 @@ Een sparkline is een kleine lijndiagram waarin de waarde van een lijstitem na ve
 
 De volgende tabel beschrijft de instellingen voor sparklines:
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | Sparklines inschakelen |Selecteer deze koppeling om een sparkline in plaats van een horizontale balk weer te geven. |
 | Bewerking |Als sparklines zijn ingeschakeld, is dit de bewerking uit te voeren op elke eigenschap in de lijst om de waarden voor de sparkline te berekenen.<ul><li>Laatste voorbeeld: De laatste waarde voor de reeks gedurende de tijdsinterval.</li><li>Max.: De maximale waarde voor de serie over het tijdsinterval.</li><li>Min: De minimumwaarde voor de reeks gedurende de tijdsinterval.</li><li>Som: De som van de waarden voor de serie over het tijdsinterval.</li><li>Overzicht: Maakt gebruik van dezelfde `measure` opdracht als de query in de header.</li></ul> |
@@ -356,7 +356,7 @@ Elke set drempelwaarde heeft een drempelwaarde met een waarde van **standaard**.
 
 De volgende tabel beschrijft de instellingen voor de drempelwaarden:
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om een Kleurenpictogram aan de linkerkant van elke waarde weer te geven. Het pictogram geeft de status van de waarde ten opzichte van de opgegeven drempelwaarden. |
 | Name |De naam van de drempelwaarde. |

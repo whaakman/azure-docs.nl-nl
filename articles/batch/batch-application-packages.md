@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/15/2018
+ms.date: 04/05/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fd3eccf3de5d46520dc5a50cab66667c875799e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: MT
+ms.openlocfilehash: ee54d37050991763e60a6feb96c75d80384a42ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454604"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60722122"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Toepassingen implementeren op rekenknooppunten met Batch-toepassingspakketten
 
@@ -29,14 +29,11 @@ De functie voor toepassingspakketten van Azure Batch biedt eenvoudig beheer van 
 In dit artikel leert u hoe u om te uploaden en beheren van toepassingspakketten in Azure portal. Vervolgens leert u hoe u ze moet installeren op de rekenknooppunten van een pool met de [Batch .NET] [ api_net] bibliotheek.
 
 > [!NOTE]
-> 
 > Toepassingspakketten worden ondersteund in alle Batch-pools die na 5 juli 2017 zijn gemaakt. De pakketten worden ondersteund in Batch-pools die zijn gemaakt tussen 10 maart 2016 en 5 juli 2017, maar alleen als de pool is gemaakt met behulp van een cloudservice-configuratie. Batch-pools die zijn gemaakt vóór 10 maart 2016 bieden geen ondersteuning voor toepassingspakketten.
 >
 > De API's voor het maken en beheren van toepassingspakketten maken deel uit van de [Batch Management .NET] [ api_net_mgmt] bibliotheek. De API's voor het installeren van toepassingspakketten op een rekenknooppunt maken deel uit van de [Batch .NET] [ api_net] bibliotheek. Vergelijkbare functies zijn in de beschikbare Batch-API's voor andere talen. 
 >
 > De functie voor toepassingspakketten die hier worden beschreven, vervangt de Batch-Apps-functie die beschikbaar zijn in eerdere versies van de service.
-> 
-> 
 
 ## <a name="application-package-requirements"></a>Pakket toepassingsvereisten
 Voor het gebruik van toepassingspakketten, moet u [koppelt een Azure Storage-account](#link-a-storage-account) aan uw Batch-account.
@@ -116,6 +113,14 @@ In dit venster geeft de ID van elke toepassing in uw account en de volgende eige
 * **Pakketten**: Het nummer van de versies die zijn gekoppeld aan deze toepassing.
 * **Standaardversie**: De versie van de toepassing geïnstalleerd indien u niet een versie aan wanneer u de toepassing voor een groep opgeeft. Deze instelling is optioneel.
 * **Updates toestaan**: De waarde die aangeeft of pakket met updates, verwijderingen en toevoegingen zijn toegestaan. Als deze optie is ingesteld op **Nee**, pakketupdates en verwijderingen, zijn uitgeschakeld voor de toepassing. Alleen nieuwe toepassingspakketversies kunnen worden toegevoegd. De standaardinstelling is **Ja**.
+
+Als u zien van de structuur van het bestand van het toepassingspakket op uw compute-knooppunt wilt, gaat u naar uw Batch-account in de portal. Van uw Batch-account, gaat u naar **Pools**. Selecteer de groep waarin u geïnteresseerd bent in de compute-knooppunt.
+
+![Knooppunten in de groep van toepassingen][13]
+
+Nadat u uw toepassingen hebt geselecteerd, gaat u naar het rekenknooppunt waarop het toepassingspakket is geïnstalleerd. Van daaruit de details van het toepassingspakket bevinden zich in de **toepassingen** map. Extra mappen op het rekenknooppunt bevatten andere bestanden, zoals Begintaken, uitvoerbestanden, foutuitvoer, enzovoort.
+
+![Bestanden op knooppunt][14]
 
 ### <a name="view-application-details"></a>Details van de toepassing weergeven
 Als u wilt zien van de details voor een toepassing, selecteert u de toepassing in de **toepassingen** venster.
@@ -374,3 +379,5 @@ Met toepassingspakketten kunt kunt u uw klanten de toepassingen voor hun werk te
 [10]: ./media/batch-application-packages/app_pkg_10.png "Kies blade opslagaccount in Azure portal"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Update-pakket-blade in Azure portal"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Dialoogvenster voor bevestiging pakket maken in Azure portal verwijderen"
+[13]: ./media/batch-application-packages/package-file-structure.png "COMPUTE knooppuntgegevens in Azure portal"
+[14]: ./media/batch-application-packages/package-file-structure-node.png "Bestanden op het rekenknooppunt weergegeven in Azure portal"

@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: azure
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
 ms.openlocfilehash: d98d0637c6d520193b11f4267c59016772ef063a
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792477"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809800"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Azure Role-Based toegangsbeheer (RBAC) om toegangsrechten te maken en beheren van aanvragen voor ondersteuning
 
@@ -89,7 +89,7 @@ Wilt u toegang geven tot uw peer, Jan, de mogelijkheid om te maken en beheren va
 
 7. Jaap klikt op 'Nieuwe ondersteuningsaanvraag' op de blade 'Help en ondersteuning voor' en aanvragen voor ondersteuning kunt maken voor "Visual Studio Ultimate met MSDN"
 
-    ![Nieuwe ondersteuningsaanvraag](./media/create-manage-support-requests-using-access-control/new-support-request.png)
+    ![Nieuw ondersteuningsverzoek](./media/create-manage-support-requests-using-access-control/new-support-request.png)
 
 8. Te klikken op "Alle ondersteuningsaanvragen" Jaap ziet de lijst met aanvragen voor ondersteuning voor dit abonnement gemaakt ![Aanvraagdetails weergeven](./media/create-manage-support-requests-using-access-control/case-details-view.png)
 

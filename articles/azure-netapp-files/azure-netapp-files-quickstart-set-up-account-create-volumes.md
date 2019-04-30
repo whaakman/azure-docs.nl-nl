@@ -1,5 +1,5 @@
 ---
-title: Instellen van Azure NetApp-bestanden en het maken van een volume | Microsoft Docs
+title: Instellen van Azure NetApp-bestanden en het maken van een NFS-volume | Microsoft Docs
 description: Beschrijft hoe u snel instellen van Azure NetApp-bestanden en het maken van een volume.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 634f23cf3161fff09f21c79fd8300cb269dcc5b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b9e85da29b3130d5183f577a7d83d164e217310
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454370"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759861"
 ---
-# <a name="set-up-azure-netapp-files-and-create-a-volume"></a>Azure NetApp Files instellen en een volume maken 
+# <a name="set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Instellen van Azure NetApp-bestanden en het maken van een NFS-volume 
 
 In dit artikel wordt beschreven hoe u snel Azure NetApp bestanden instellen en een volume maken. 
 
@@ -88,7 +88,7 @@ Voor deze taak moet u deel uitmaken van het Openbare Preview-programma en toegan
 
 5. Klik op **OK**.
 
-## <a name="create-a-volume-for-azure-netapp-files"></a>Een volume maken voor Azure NetApp Files
+## <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Een NFS-volume maken voor Azure NetApp-bestanden
 
 1. Vanaf de beheerblade van de Azure NetApp bestanden van uw account NetApp, klikt u op **Volumes**.
 
@@ -100,7 +100,6 @@ Voor deze taak moet u deel uitmaken van het Openbare Preview-programma en toegan
 
 3. Geef in het maken van een venster van het Volume, informatie voor het volume: 
    1. Voer **myvol1** als naam van het volume. 
-   2. Voer **myfilepath1** als het bestandspad dat wordt gebruikt voor het maken van het pad voor exporteren voor het volume.
    3. Selecteer de capaciteit van toepassingen (**mypool1**).
    4. Gebruik de standaardwaarde voor quotum. 
    5. Onder het virtuele netwerk, klikt u op **nieuw** te maken van een nieuwe Azure-netwerk (Vnet).  Vul vervolgens de volgende informatie:
@@ -116,7 +115,13 @@ Voor deze taak moet u deel uitmaken van het Openbare Preview-programma en toegan
 
       ![Venster virtuele netwerk maken](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
-4. Klik op **Controleren + maken**.
+4. Klik op **Protocol**en selecteer vervolgens **NFS** als het protocoltype voor het volume.   
+
+    Voer **myfilepath1** als het bestandspad dat wordt gebruikt voor het maken van het pad voor exporteren voor het volume. 
+
+    ![NFS-protocol voor snelstartgids opgeven](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+
+5. Klik op **Controleren + maken**.
 
     ![Controleren en venster maken](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)  
 

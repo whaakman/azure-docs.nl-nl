@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60627266"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Het apparaatregistraties beheren met Azure Device Provisioning Service-SDK 's
 Een *apparaatinschrijving* maakt een record van een enkel apparaat of een groep apparaten dat kan op een bepaald moment worden geregistreerd met de Device Provisioning Service. De inschrijvingsrecord bevat de gewenste beginconfiguratie voor de apparaten als onderdeel van dat de inschrijving, met inbegrip van de gewenste IoT-hub. Dit artikel laat u het apparaatregistraties voor uw provisioning-service programmatisch met behulp van de Azure IoT Provisioning Service-SDK's beheren.  De SDK's zijn beschikbaar op GitHub in dezelfde opslagplaats bevindt als Azure IoT SDK's.

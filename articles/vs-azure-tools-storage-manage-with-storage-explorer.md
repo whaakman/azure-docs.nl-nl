@@ -2,24 +2,18 @@
 title: Aan de slag met Storage Explorer | Microsoft Docs
 description: Azure storage-resources beheren met Opslagverkenner
 services: storage
-documentationcenter: na
 author: cawaMS
-manager: paulyuk
-editor: ''
-ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/17/2017
+ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3db1d638aa1e0d8488c310593a593465c2b9b336
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459244"
+ms.locfileid: "62128276"
 ---
 # <a name="get-started-with-storage-explorer"></a>Aan de slag met Storage Explorer
 
@@ -115,7 +109,9 @@ Bovendien kunt u wereldwijd en nationaal werken met opslagaccounts in Azure:
 
 Met Storage Explorer kunt u met lokale opslag werken via een emulator. Deze aanpak kunt u werken met Azure Storage te simuleren, zonder dat een geïmplementeerd in Azure storage-account hoeft te hebben.
 
-Vanaf versie 1.1.0 is de emulator van de lokale opslag wordt ondersteund op alle platforms. Storage Explorer verbinden met elke geëmuleerde-service te hebben geluisterd naar de Standaardeindpunten voor lokale opslag.
+Vanaf versie 1.1.0 is ondersteunt Storage Explorer het gebruik van een lokale opslag-emulator op alle platforms. Storage Explorer verbinden met elke geëmuleerde-service te hebben geluisterd naar de Standaardeindpunten voor lokale opslag.
+
+De [Azure-opslagemulator](storage/common/storage-use-emulator.md) momenteel wordt alleen uitgevoerd op Windows. Degenen die u overweegt een opslagemulator voor Linux, een optie is de community onderhouden open-source-opslagemulator [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > Ondersteuning voor storage-services en functies kan aanzienlijk verschillen, afhankelijk van uw keuze van de emulator. Zorg ervoor dat de emulator ondersteunt de services en functies die u van plan bent om te werken met.

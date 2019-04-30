@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
 ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528166"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709917"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>HTTP-variabelen voor regels-engine van Azure CDN
 HTTP-variabelen bieden de mogelijkheid waarmee u HTTP-aanvraag en respons metagegevens kunt ophalen. Deze metagegevens kunt vervolgens worden gebruikt om een aanvraag of antwoord dynamisch wijzigen. Het gebruik van HTTP-variabelen is beperkt tot de volgende regels-engine-functies:
@@ -110,7 +110,7 @@ De scheidingstekens worden beschreven in de volgende tabel.
 ## <a name="exceptions"></a>Uitzonderingen
 De volgende tabel beschrijft de omstandigheden waaronder de opgegeven tekst wordt niet beschouwd als een HTTP-variabele.
 
-| Voorwaarde | Beschrijving | Voorbeeld |
+| Voorwaarde | Description | Voorbeeld |
 | --------- | ----------- | --------|
 | Aanhalingstekens % symbool | Het percentagesymbool kan worden voorafgegaan door het gebruik van een backslash. <br />De Voorbeeldwaarde aan de rechterkant wordt beschouwd als een letterlijke waarde en niet als een HTTP-variabele.| \%{host} |
 | Onbekende variabelen | Een lege tekenreeks geretourneerd altijd voor onbekende variabelen. | % {unknownvariable} |

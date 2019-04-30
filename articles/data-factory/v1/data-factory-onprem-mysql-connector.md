@@ -14,14 +14,14 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021631"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60823943"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Gegevens verplaatsen van MySQL met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](data-factory-onprem-mysql-connector.md)
 > * [Versie 2 (huidige versie)](../connector-mysql.md)
 
@@ -74,7 +74,7 @@ De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zi
 | schema |De naam van het schema in de database. |Nee |
 | authenticationType |Het type verificatie gebruikt voor verbinding met de MySQL-database. Mogelijke waarden zijn: `Basic`. |Ja |
 | gebruikersnaam |Geef de naam van de gebruiker verbinding maken met de MySQL-database. |Ja |
-| wachtwoord |Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven. |Ja |
+| password |Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven. |Ja |
 | gatewayName |De naam van de gateway die de Data Factory-service wordt gebruikt om verbinding met de on-premises MySQL-database te maken. |Ja |
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
@@ -301,44 +301,44 @@ Bij het verplaatsen van gegevens met MySQL, worden de volgende toewijzingen van 
 
 | Type van de MySQL-Database | .NET framework-type |
 | --- | --- |
-| niet-ondertekende bigint |Decimaal |
+| niet-ondertekende bigint |Decimal |
 | bigint |Int64 |
-| bits |Decimaal |
+| bit |Decimal |
 | blob |Byte[] |
-| bool |Booleaans |
-| CHAR |Reeks |
-| date |Datum en tijd |
-| datum/tijd |Datum en tijd |
-| decimal |Decimaal |
-| dubbele precisie |Double-waarde |
-| double |Double-waarde |
-| enum |Reeks |
-| float |Enkelvoudig |
+| bool |Boolean |
+| char |String |
+| date |DateTime |
+| datetime |DateTime |
+| decimal |Decimal |
+| dubbele precisie |Double |
+| double |Double |
+| enum |String |
+| float |Single |
 | niet-ondertekende int |Int64 |
 | int |Int32 |
 | niet-ondertekende gehele getal |Int64 |
 | geheel getal |Int32 |
 | lange varbinary |Byte[] |
-| lange varchar |Reeks |
+| lange varchar |String |
 | longblob |Byte[] |
-| LONGTEXT |Reeks |
+| longtext |String |
 | mediumblob |Byte[] |
 | niet-ondertekende mediumint |Int64 |
 | mediumint |Int32 |
-| mediumtext |Reeks |
-| numerieke |Decimaal |
-| echte |Double-waarde |
-| set |Reeks |
+| mediumtext |String |
+| numeric |Decimal |
+| real |Double |
+| set |String |
 | niet-ondertekende smallint |Int32 |
 | smallint |Int16 |
-| tekst |Reeks |
+| tekst |String |
 | time |TimeSpan |
-| tijdstempel |Datum en tijd |
+| timestamp |DateTime |
 | tinyblob |Byte[] |
 | niet-ondertekende tinyint |Int16 |
 | tinyint |Int16 |
-| tinytext |Reeks |
-| varchar |Reeks |
+| tinytext |String |
+| varchar |String |
 | jaar |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Kaartbron met sink-kolommen

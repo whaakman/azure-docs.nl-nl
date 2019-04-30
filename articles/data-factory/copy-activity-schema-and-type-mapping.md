@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267120"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615610"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schematoewijzing in kopieeractiviteit
 Dit artikel wordt beschreven hoe copy activity in Azure Data Factory biedt schematoewijzing en gegevenstypetoewijzing van de brongegevens met sink-gegevens wanneer het kopiëren van gegevens uitvoert.
@@ -229,8 +229,8 @@ Hier vindt u de toewijzing tussen de systeemeigen naar tussentijdse type in de s
 Data Factory ondersteunt de volgende tijdelijke gegevenstypen: U kunt onderstaande waarden opgeven bij het configureren van type informatie in [gegevenssetstructuur](concepts-datasets-linked-services.md#dataset-structure) configuratie:
 
 * Byte[]
-* Booleaans
-* Datum en tijd
+* Boolean
+* DateTime
 * Datetimeoffset
 * Decimal
 * Double
