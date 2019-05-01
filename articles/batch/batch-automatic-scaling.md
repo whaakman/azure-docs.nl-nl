@@ -93,7 +93,7 @@ U kunt ophalen en instellen van de waarden van deze variabelen gedefinieerd met 
 
 U kunt de waarde van deze service gedefinieerde variabelen aan te passen op basis van metrische gegevens van de Batch-service krijgen:
 
-| Alleen-lezen service gedefinieerde variabelen | Beschrijving |
+| Alleen-lezen service gedefinieerde variabelen | Description |
 | --- | --- |
 | $CPUPercent |Het gemiddelde percentage van CPU-gebruik. |
 | $WallClockSeconds |Het aantal seconden verbruikt. |
@@ -211,7 +211,7 @@ Automatisch schalen formules reageren op metrische gegevens (voorbeelden) die wo
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
 ```
 
-| Methode | Beschrijving |
+| Methode | Description |
 | --- | --- |
 | GetSample() |De `GetSample()` methode retourneert een vector van voorbeelden van gegevens.<br/><br/>Een voorbeeld is 30 seconden metrische gegevens. Voorbeelden zijn met andere woorden, elke 30 seconden verkregen. Maar, zoals hieronder vermeld, is er een vertraging tussen wanneer een voorbeeld dat wordt verzameld en wanneer deze is beschikbaar op een formule. Daarom mogelijk niet alle voorbeelden voor een bepaalde periode zijn beschikbaar voor de evaluatie van een formule.<ul><li>`doubleVec GetSample(double count)`<br/>Hiermee geeft u het aantal voorbeelden voor het verkrijgen van de meest recente voorbeelden die zijn verzameld.<br/><br/>`GetSample(1)` retourneert de laatste steekproef beschikbaar. Metrische gegevens zoals `$CPUPercent`, maar deze moet niet worden gebruikt omdat het is niet mogelijk om te weten *wanneer* het voorbeeld is verzameld. Kan het zijn recente of, vanwege problemen met het systeem, is het mogelijk veel ouder. Is het beter in dergelijke gevallen voor het gebruik van een bepaalde periode, zoals hieronder weergegeven.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Hiermee geeft u een tijdsbestek voor het verzamelen van voorbeeldgegevens. (Optioneel) geeft het ook het percentage van de voorbeelden die beschikbaar in het aangevraagde tijdsbestek zijn moeten.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` Voorbeelden van 20 zou worden geretourneerd als alle voorbeelden voor de afgelopen 10 minuten aanwezig zijn in de geschiedenis CPUPercent. Als de laatste minuut van de geschiedenis niet beschikbaar is, echter zou alleen 18 voorbeelden worden geretourneerd. In dit geval:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` mislukken omdat alleen 90 procent van de voorbeelden beschikbaar zijn.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` zou slagen.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Hiermee geeft u een tijdsbestek voor het verzamelen van gegevens, met zowel een begintijd en eindtijd.<br/><br/>Zoals eerder vermeld, is er een vertraging tussen wanneer een voorbeeld dat wordt verzameld en wanneer deze is beschikbaar op een formule. Houd rekening met deze vertraging op wanneer u de `GetSample` methode. Zie `GetSamplePercent` hieronder. |
 | GetSamplePeriod() |Retourneert de periode van voorbeelden die zijn uitgevoerd in een verzameling historische voorbeeldgegevens. |

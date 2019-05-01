@@ -27,7 +27,7 @@ Hadoop-clusters kunnen de meest optimale prestaties leveren wanneer de belasting
 
 Als u een Kijk op de knooppunten van het cluster en hun laden, moet u zich aanmelden bij de [Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md)en selecteer vervolgens de **Hosts** tabblad. Uw hosts worden weergegeven door de volledig gekwalificeerde domeinnamen. Operationele status van elke host wordt weergegeven door een gekleurde integriteitsindicator:
 
-| Kleur | Beschrijving |
+| Kleur | Description |
 | --- | --- |
 | Rood | Ten minste één master onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |
 | Orange | Ten minste één ondergeschikt onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |

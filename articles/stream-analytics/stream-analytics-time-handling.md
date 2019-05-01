@@ -128,7 +128,7 @@ Stream Analytics-taken hebben verschillende **Gebeurtenisvolgorde** opties. Twee
 
 U kunt een aantal van de gevolgen van de tijd tolerantie via voor Gebeurtenisvolgordes observeren [metrische gegevens voor Stream Analytics-taak](stream-analytics-monitoring.md). De volgende metrische gegevens die zijn relevant:
 
-|Gegevens  | Beschrijving  |
+|Gegevens  | Description  |
 |---------|---------|
 | **Out-van-Order gebeurtenissen** | Geeft het aantal gebeurtenissen ontvangen andere volgorde, die zijn verwijderd of een aangepaste tijdstempel gegeven. Met deze metriek wordt direct beïnvloed door de configuratie van de **niet-geordende gebeurtenissen** instellen op de **Gebeurtenisvolgorde** pagina op de taak in Azure portal. |
 | **Late Invoergebeurtenissen** | Geeft het aantal gebeurtenissen dat binnenkomt laat vanuit de bron. Met deze metriek bevat gebeurtenissen die zijn verwijderd of hebben gehad hun timestamp is aangepast. Met deze metriek wordt direct beïnvloed door de configuratie van de **gebeurtenissen die te laat gemeld worden** instellen in de **Gebeurtenisvolgorde** pagina op de taak in Azure portal. |

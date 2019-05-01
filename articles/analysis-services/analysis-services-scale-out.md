@@ -106,7 +106,7 @@ Gebruik de **synchronisatie** bewerking.
 Status van retourcodes:
 
 
-|Code  |Beschrijving  |
+|Code  |Description  |
 |---------|---------|
 |-1     |  Ongeldig       |
 |0     | Repliceren...        |

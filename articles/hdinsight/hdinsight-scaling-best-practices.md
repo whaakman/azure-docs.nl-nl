@@ -28,7 +28,7 @@ Bijvoorbeeld, hebt u enkele batchverwerking in dat geval één keer per dag of �
 
 Microsoft biedt de volgende hulpprogramma's voor het schalen van clusters:
 
-|Hulpprogramma | Beschrijving|
+|Hulpprogramma | Description|
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - clusternaam \<Clusternaam > - TargetInstanceCount \<NewSize >|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - clusternaam \<Clusternaam > - TargetInstanceCount \<NewSize >|

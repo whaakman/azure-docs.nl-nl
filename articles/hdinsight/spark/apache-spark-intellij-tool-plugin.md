@@ -65,7 +65,7 @@ Voer de volgende stappen uit om de Scala-invoegtoepassing te installeren:
 
 6. Geef in het venster **New project** de volgende gegevens op:  
 
-    |  Eigenschap   | Beschrijving   |  
+    |  Eigenschap   | Description   |  
     | ----- | ----- |  
     |Projectnaam| Voer een naam in.  In deze zelfstudie wordt `myApp` gebruikt.|  
     |Project&nbsp;location| Voer de gewenste locatie in om uw project in op te slaan.|

@@ -66,7 +66,7 @@ Voor Azure File Sync metrische gegevens weergeven in Azure Monitor, selecteer de
 
 De volgende metrische gegevens voor Azure File Sync zijn beschikbaar in Azure Monitor:
 
-| Naam van de meetwaarde | Beschrijving |
+| Naam van de meetwaarde | Description |
 |-|-|
 | Bytes die worden gesynchroniseerd | Grootte van gegevens die worden overgedragen (uploaden en downloaden).<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
 | Warmtemeting intrekken in de cloud | Grootte van gegevens ingetrokken.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: Servernaam |
@@ -119,7 +119,7 @@ Voor Azure File Sync-prestatiemeteritems op de server, opent u de Prestatiemeter
 
 De volgende prestatiemeteritems voor Azure File Sync zijn beschikbaar in Prestatiemeter:
 
-| De naam van de prestatie-object item | Beschrijving |
+| De naam van de prestatie-object item | Description |
 |-|-|
 | AFS Bytes Transferred\Downloaded Bytes per seconde | Het aantal bytes per seconde wordt gedownload. |
 | AFS Bytes Transferred\Uploaded Bytes per seconde | Het aantal bytes per seconde wordt geüpload. |

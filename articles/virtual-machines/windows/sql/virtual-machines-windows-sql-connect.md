@@ -40,7 +40,7 @@ Als u een SQL Server-VM in Azure portal inricht, hebt u de optie voor het opgeve
 
 Uw opties voor connectiviteit zijn onder andere:
 
-| Optie | Beschrijving |
+| Optie | Description |
 |---|---|
 | **Public** | Verbinding maken met SQL Server via internet |
 | **Persoonlijke** | Verbinding maken met SQL Server in hetzelfde virtuele netwerk |
@@ -134,7 +134,7 @@ Hoewel de portal opties biedt voor het automatisch verbinding te configureren, i
 
 De volgende tabel bevat de vereisten voor het verbinding maken met SQL Server in een Azure-VM wordt uitgevoerd.
 
-| Vereiste | Beschrijving |
+| Vereiste | Description |
 |---|---|
 | [Modus van SQL Server-verificatie inschakelen](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | SQL Server-verificatie is vereist voor het verbinding maken met de virtuele machine op afstand, tenzij u Active Directory op een Virtueelnetwerk hebt geconfigureerd. |
 | [Maken van een SQL-aanmelding](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Als u SQL-verificatie gebruikt, moet u een SQL-aanmelding met een gebruikersnaam en wachtwoord die ook beschikt over machtigingen voor de doeldatabase. |

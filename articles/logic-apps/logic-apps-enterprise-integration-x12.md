@@ -214,7 +214,7 @@ De overeenkomst is nu gereed om af te handelen uitgaande berichten die aan de ge
 
 ![Selecteer schema moet worden gebruikt](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | Versie |Selecteer de X12 versie |
 | Transactietype (ST01) |Selecteer het transactietype |
@@ -227,7 +227,7 @@ De overeenkomst is nu gereed om af te handelen uitgaande berichten die aan de ge
 
 ![Geef het scheidingsteken in een transactieset: standaard-id of het scheidingsteken voor herhalingen kiezen](./media/logic-apps-enterprise-integration-x12/x12-6.png) 
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | ISA11-gebruik |Hiermee geeft u het scheidingsteken gebruiken in een transactieset: <p>Selecteer **standaard id** ontvangen voor het gebruik van een punt (.) voor de decimale notatie, in plaats van de decimale notatie van het binnenkomende document in de EDI pijplijn. <p>Selecteer **scheidingsteken voor herhalingen** om op te geven van het scheidingsteken voor herhaalde exemplaren van een eenvoudige gegevenselement of een herhaalde gegevensstructuur. Bijvoorbeeld, wordt meestal de karaat (^) gebruikt als het scheidingsteken voor herhalingen. Voor HIPAA schema's, kunt u alleen de karaat gebruiken. |
 
@@ -235,7 +235,7 @@ De overeenkomst is nu gereed om af te handelen uitgaande berichten die aan de ge
 
 ![Geef de eigenschappen van het controlenummer](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | Controleversienummer (ISA12) |Selecteer de versie van de standaard X12 |
 | Gebruiksindicator (ISA15) |Selecteer de context van een knooppunt.  De waarden zijn gegevens, productiegegevens, of gegevens te testen |
@@ -279,7 +279,7 @@ Anders dan het teken is ingesteld, kunt u een andere set scheidingstekens voor e
 
 Wanneer elke rij van de validatie is voltooid, wordt een andere automatisch toegevoegd. Als u een van de regels niet opgeeft, wordt validatie van de rij 'Standaard'.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | Berichttype |Selecteer het type EDI-bericht. |
 | EDI-validatie |EDI-validatie op gegevenstypen zoals gedefinieerd door de schema's EDI eigenschappen, beperkingen voor de lengte, lege gegevenselementen en volgscheidingstekens uitvoeren. |

@@ -97,7 +97,7 @@ Als installeren vanaf een apparaat met Update 3 of eerder, installeert u de volg
 
 U moet mogelijk ook installeren van updates van de schijffirmware boven op alle updates die wordt weergegeven in de voorgaande tabellen. U kunt controleren of u de schijf firmware-updates door te voeren moet de `Get-HcsFirmwareVersion` cmdlet. Als u deze firmwareversies: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, en u niet hoeft om deze updates te installeren.
 
-| Bestellen | KB | Beschrijving | Updatetype | Tijd van installatie | Installeren in map|
+| Bestellen | KB | Description | Updatetype | Tijd van installatie | Installeren in map|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |Schijffirmware |Onderhoud <br></br>Verstorend |~ 30 mins | ThirdOrderUpdate |
 

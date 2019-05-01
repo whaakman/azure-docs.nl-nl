@@ -35,7 +35,7 @@ Retourneert dat een object van de eigenschappen van gevuld met die blauwdrukarte
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | artifactName |Ja |string |De naam van een blauwdruk artefact. |
 

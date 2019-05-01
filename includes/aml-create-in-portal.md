@@ -34,7 +34,7 @@ ms.locfileid: "60753826"
 
 1. In de **ML-werkruimte in service** in het deelvenster voor het configureren van uw werkruimte.
 
-   Veld|Beschrijving
+   Veld|Description
    ---|---
    Naam van de werkruimte |Voer een unieke naam ter identificatie van uw werkruimte. In dit voorbeeld gebruiken we **docs-ws**. Namen moeten uniek zijn in de resourcegroep. Gebruik een naam die gemakkelijk te trekken en onderscheiden van werkruimten die door anderen zijn gemaakt.  
    Abonnement |Selecteer het Azure-abonnement dat u wilt gebruiken.
