@@ -23,7 +23,7 @@ Als u een groot aantal beheerde installatiekopieën die u moet onderhouden en wi
 
 De galerie met installatiekopieën van gedeelde functie heeft meerdere resourcetypen:
 
-| Resource | Beschrijving|
+| Resource | Description|
 |----------|------------|
 | **Beheerde installatiekopie** | Dit is een basic-installatiekopie die kan worden alleen wordt gebruikt of worden gebruikt voor het maken van een **installatiekopieversie** in een galerie met installatiekopieën. Beheerde installatiekopieën zijn gemaakt op basis van gegeneraliseerde VM's. Een beheerde installatiekopie is een speciaal type VHD die kan worden gebruikt voor het maken van meerdere virtuele machines en kan nu worden gebruikt om gedeelde installatiekopie versies te maken. |
 | **Galerie met installatiekopieën** | De Azure Marketplace, zoals een **afbeeldingengalerie** is een opslagplaats voor het beheren en delen van afbeeldingen, maar u bepaalt wie toegang heeft. |

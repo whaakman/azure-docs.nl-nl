@@ -96,7 +96,7 @@ Voorbeelden:
 
 ### <a name="yarn-ports"></a>YARN-poorten
 
-| Service | Knooppunten | Poort | Protocol | Beschrijving |
+| Service | Knooppunten | Poort | Protocol | Description |
 | --- | --- | --- | --- | --- |
 | Resource Manager-Webgebruikersinterface |Hoofdknooppunten |8088 |HTTP |Web-UI voor Resource Manager |
 | Resource Manager-Webgebruikersinterface |Hoofdknooppunten |8090 |HTTPS |Web-UI voor Resource Manager |
@@ -117,7 +117,7 @@ Voorbeelden:
 
 ### <a name="webhcat-ports"></a>WebHCat-poorten
 
-| Service | Knooppunten | Poort | Protocol | Beschrijving |
+| Service | Knooppunten | Poort | Protocol | Description |
 | --- | --- | --- | --- | --- |
 | WebHCat-server |Hoofdknooppunten |30111 |HTTP |Web-API op HCatalog en andere Hadoop-services |
 
