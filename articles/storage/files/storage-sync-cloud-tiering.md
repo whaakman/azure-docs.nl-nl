@@ -9,11 +9,11 @@ ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 1851e9b2bb5ff86583228136dee977001cf0a3fd
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763496"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714946"
 ---
 # <a name="cloud-tiering-overview"></a>Warmtemeting overzicht van cloud
 Cloud tiering is een optionele functie van Azure File Sync waarin vaak gebruikte bestanden in de cache lokaal op de server opgeslagen terwijl alle andere bestanden naar Azure Files op basis van beleidsinstellingen worden geschakeld. Wanneer een bestand is gelaagd, vervangen het bestandssysteemfilter van Azure File Sync (StorageSync.sys) het bestand lokaal door een wijzer, of een reparsepunt. Het reparsepunt vertegenwoordigt een URL naar het bestand in Azure Files. Een gelaagd bestand is zowel het kenmerk 'offline' als het FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS-kenmerk in NTFS zo instellen dat toepassingen van derden kunnen gelaagde bestanden veilig kan identificeren.

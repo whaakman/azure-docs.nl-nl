@@ -4,7 +4,7 @@ description: Krijg antwoorden op veelgestelde vragen over schaalsets voor virtue
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 04/25/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 56a31770c374cdccaec4dbee751925a6da00fa59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b5af6c5007130d71f94e1fa748adc333a8d08a48
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620240"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689326"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Veelgestelde vragen over schaalsets voor virtuele Azure-machine
 
@@ -140,7 +140,7 @@ Nee. Als regels voor automatisch schalen extra exemplaren van de virtuele machin
 
 ## <a name="certificates"></a>Certificaten
 
-### <a name="how-do-i-securely-ship-a-certificate-to-the-vm-how-do-i-provision-a-virtual-machine-scale-set-to-run-a-website-where-the-ssl-for-the-website-is-shipped-securely-from-a-certificate-configuration-the-common-certificate-rotation-operation-would-be-almost-the-same-as-a-configuration-update-operation-do-you-have-an-example-of-how-to-do-this"></a>Hoe ik een certificaat met de virtuele machine veilig verzendt? Hoe ik een virtuele-machineschaalset om uit te voeren op een website waar de SSL voor de website wordt verzonden veilig uit de configuratie van een certificaat inrichten? (De algemene certificaatbewerking rotatie is bijna hetzelfde als een configuratie-update-bewerking.) Hebt u een voorbeeld van hoe u dit doet?
+### <a name="how-do-i-securely-ship-a-certificate-to-the-vm"></a>Hoe ik een certificaat met de virtuele machine veilig verzendt?
 
 Als u wilt een certificaat met de virtuele machine veilig te verzenden, kunt u een certificaat van de klant rechtstreeks in een Windows-certificaatarchief van de sleutelkluis van de klant te installeren.
 
@@ -167,14 +167,12 @@ De code biedt ondersteuning voor Windows en Linux.
 Zie voor meer informatie, [maken of bijwerken een virtuele-machineschaalset](https://msdn.microsoft.com/library/mt589035.aspx).
 
 
-### <a name="example-of-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Voorbeeld van zelfondertekende certificaten die zijn ingericht voor Azure Service Fabric-Clusters.
+### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Hoe gebruik ik zelfondertekende certificaten die zijn ingericht voor Azure Service Fabric-Clusters?
 De volgende azure CLI-instructie in azure shell Lees Service Fabrics CLI module voorbeeld documentatie, die worden afgedrukt op stdout voor de meest recente voorbeeld van het gebruik:
 
 ```bash
 az sf cluster create -h
 ```
-
-Raadpleeg keyvaults-documentatie voor de meest recente certificaatbewerkingen API die wordt ondersteund in Azure.
 
 Zelfondertekende certificaten kunnen niet worden gebruikt voor gedistribueerde vertrouwensrelatie geleverd door een certificeringsinstantie, en mag niet worden gebruikt voor een Service Fabric-Cluster bedoeld voor host enterprise productieoplossingen; Raadpleeg voor aanvullende richtlijnen voor Service Fabric-beveiliging, [aanbevolen beveiligingsprocedures van Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) en [Service Fabric-clusterbeveiligingsscenario's](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
@@ -202,9 +200,7 @@ Opnemen **osProfile** in uw sjabloon:
 }
 ```
 
-Dit blok JSON wordt gebruikt in [101-vm-SSH-sleutelbestand GitHub quickstart-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
-
-Het besturingssysteemprofiel ook wordt gebruikt in [grelayhost.json GitHub quickstart-sjabloon](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
+Dit blok JSON wordt gebruikt in [deze Azure-quickstart-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
 Zie voor meer informatie, [maken of bijwerken een virtuele-machineschaalset](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
 
@@ -212,9 +208,9 @@ Zie voor meer informatie, [maken of bijwerken een virtuele-machineschaalset](htt
 
 Als u wilt verwijderen afgeschaft certificaten, het oude certificaat uit de lijst van de certificaten kluis te verwijderen. Laat u alle certificaten die u wilt blijven op uw computer in de lijst. Het certificaat wordt niet verwijderd van uw virtuele machines. Deze ook heeft niet het certificaat toevoegen aan nieuwe virtuele machines die zijn gemaakt in de virtuele-machineschaalset.
 
-Als u wilt verwijderen van het certificaat van bestaande VM's, een aangepaste scriptextensie voor de certificaten handmatig verwijderen uit het certificaatarchief te schrijven.
+Als het certificaat uit bestaande VM's verwijderen, gebruikt u een aangepaste scriptextensie handmatig verwijderen van de certificaten uit het certificaatarchief.
 
-### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning-i-want-to-store-the-ssh-public-key-values-in-azure-key-vault-and-then-use-them-in-my-resource-manager-template"></a>Hoe ik een bestaande openbare SSH-sleutel invoeren in de virtual machine scale set SSH laag tijdens het inrichten? Ik wil de openbare SSH-sleutelwaarden in Azure Key Vault opslaan en deze gebruiken in mijn Resource Manager-sjabloon.
+### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning"></a>Hoe ik een bestaande openbare SSH-sleutel invoeren in de virtual machine scale set SSH laag tijdens het inrichten?
 
 Als u de virtuele machines alleen met een openbare SSH-sleutel opgeeft, moet u niet om de openbare sleutels in Key Vault. Openbare sleutels zijn niet geheim.
 
@@ -234,7 +230,7 @@ Wanneer u een Linux-VM maakt, kunt u openbare SSH-sleutels als tekst zonder opma
 ```
 
 de naam van de linuxConfiguration-element | Vereist | Type | Description
---- | --- | --- | --- 
+--- | --- | --- | ---
 SSH | Nee | Verzameling | Hiermee geeft u de SSH-sleutel-configuratie voor een Linux-besturingssysteem
 pad | Ja | Reeks | Hiermee geeft u de Linux-bestandspad waarin de SSH-sleutels of het certificaat moet zich bevinden
 keyData | Ja | Reeks | Hiermee geeft u een met base64 gecodeerde openbare SSH-sleutel
@@ -303,16 +299,6 @@ De CRP-component is niet persistent geheimen van de klant. Als u `stop deallocat
 
 U kunt dit probleem niet tegenkomen bij het uitschalen omdat er een kopie van het geheim in Azure Service Fabric (in het model met één fabric tenant).
 
-### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>Waarom heb ik de exacte locatie opgeven voor de URL van het certificaat (https:\/\/\<naam van de kluis >.vault.azure.net:443/secrets/\<exacte locatie >), zoals aangegeven in [Service Fabric clusterbeveiligingsscenario's](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
-
-De Azure Key Vault-documentatie wordt aangegeven dat de ophalen-geheim REST-API de nieuwste versie van de geheime sleutel retourneren moet als de versie is niet opgegeven.
-
-Methode | URL
---- | ---
-GET | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
-
-Vervang {*geheime naam*} met de naam en vervang {*geheime versie*} met de versie van de geheime sleutel die u wilt ophalen. De geheime versie kan worden uitgesloten. In dat geval wordt is de huidige versie opgehaald.
-
 ### <a name="why-do-i-have-to-specify-the-certificate-version-when-i-use-key-vault"></a>Waarom heb ik de certificaatversie opgeven wanneer ik Key Vault gebruiken?
 
 Het doel van de vereiste voor Key Vault om op te geven van de certificaatversie moet maken voor de gebruiker duidelijk welk certificaat wordt geïmplementeerd op hun VM's.
@@ -325,7 +311,7 @@ CER implementeren openbare sleutels op een virtuele-machineschaalset is ingestel
 
 Zie voor meer informatie, [X509Certificate.Export methode (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
 
-### <a name="i-do-not-see-an-option-for-users-to-pass-in-certificates-as-base64-strings-most-other-resource-providers-have-this-option"></a>Een optie voor gebruikers om door te geven in certificaten als base64 tekenreeksen wordt niet weergegeven. De meeste andere resourceproviders hebben deze optie.
+### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>Hoe ik doorgeven in certificaten als base64 tekenreeksen?
 
 Om te emuleren doorgeven in een certificaat als een met base64-tekenreeks, kunt u de meest recente versies URL in Resource Manager-sjabloon extraheren. De volgende JSON-eigenschap in het Resource Manager-sjabloon opnemen:
 
@@ -355,7 +341,7 @@ Zie [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PC
 
 ### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Biedt [beheerde identiteiten voor een Azure-resources](https://docs.microsoft.com/azure/active-directory/msi-overview) werken met virtuele-machineschaalsets?
 
-Ja. Hier ziet u enkele voorbeeld MSI-sjablonen in Azure Quickstart-sjablonen. Linux: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi). Windows: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
+Ja. Ziet u enkele voorbeeld MSI-sjablonen in Azure Quickstart-sjablonen voor [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) en [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
 
 ## <a name="extensions"></a>Extensies
@@ -378,46 +364,19 @@ U vindt de waarde extensienaam in `$vmss`.
 
 Zie voor een virtuele-voorbeeldsjabloon die kan worden geïntegreerd met Azure Monitor-logboeken machineschaalset, het tweede voorbeeld in [implementeren van een Azure Service Fabric-cluster op en schakel bewaking met behulp van Azure Monitor logboeken](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
-### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Extensies lijkt het alsof parallel worden uitgevoerd op schaalsets voor virtuele machines. Dit zorgt ervoor dat de extensie voor aangepaste scripts mislukken. Wat kan ik doen om dit probleem oplossen?
-
-Zie voor meer informatie over de uitvoeringsvolgorde van extensies vindt in virtuele-machineschaalsets, [extensievolgorde bij in Azure virtuele-machineschaalsets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
-
-### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Hoe ik het wachtwoord opnieuw instellen voor VM's in mijn schaalset voor virtuele machine?
-
-Er zijn twee manieren voor het wijzigen van het wachtwoord voor virtuele machines in schaalsets.
-
-- Model met de virtuele machine een schaalset rechtstreeks wijzigen. Beschikbaar met Compute API 2017-12-01 en hoger.
-
-    De beheerdersreferenties rechtstreeks in het model met een schaalset (bijvoorbeeld met de Azure Resource Explorer, PowerShell of CLI) bijwerken. Zodra de schaalset bijgewerkt, worden alle nieuwe is hebben virtuele machines de nieuwe referenties. Bestaande virtuele machines hebben alleen de nieuwe referenties als ze zijn teruggezet.
-
-- Het wachtwoord met behulp van de VM-extensies voor toegang opnieuw instellen.
-
-    Gebruik het volgende PowerShell-voorbeeld:
-
-    ```powershell
-    $vmssName = "myvmss"
-    $vmssResourceGroup = "myvmssrg"
-    $publicConfig = @{"UserName" = "newuser"}
-    $privateConfig = @{"Password" = "********"}
-
-    $extName = "VMAccessAgent"
-    $publisher = "Microsoft.Compute"
-    $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-    $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-    Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
-    ```
-
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Hoe voeg ik een uitbreiding op alle VM's in mijn schaalset voor virtuele machine?
 
 Als de updatebeleid is ingesteld op **automatische**, alle virtuele machines opnieuw implementeren van de sjabloon met de nieuwe extensie-eigenschappen bijgewerkt.
 
 Als de updatebeleid is ingesteld op **handmatige**, eerst de extensie bijwerken en alle exemplaren in uw VM's vervolgens handmatig bijwerken.
 
-### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected-that-is-will-the-vms-not-match-the-virtual-machine-scale-set-model-or-are-they-ignored-when-an-existing-machine-is-service-healed-or-reimaged-are-the-scripts-that-are-currently-configured-on-the-virtual-machine-scale-set-executed-or-are-the-scripts-that-were-configured-when-the-vm-was-first-created-used"></a>Als de uitbreidingen die zijn gekoppeld aan een bestaande virtuele-machineschaalset zijn bijgewerkt, zijn de bestaande virtuele machines die worden beïnvloed? (Dat wil zeggen, wordt de virtuele machines *niet* overeen met het model van virtual machine scale set?) Of worden ze genegeerd? Wanneer u een bestaande virtuele machine is service-genezen of teruggezet, zijn de scripts die momenteel zijn geconfigureerd op de virtuele-machineschaalset uitgevoerd of zijn gebruikt de scripts die zijn geconfigureerd als de virtuele machine is gemaakt?
+### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected"></a>Als de uitbreidingen die zijn gekoppeld aan een bestaande virtuele-machineschaalset zijn bijgewerkt, zijn de bestaande virtuele machines die worden beïnvloed?
 
 Als de definitie van de extensie in de virtuele-machineschaalset ingesteld model wordt bijgewerkt en de eigenschap upgradePolicy is ingesteld op **automatische**, het bijwerken van de virtuele machines. Als de eigenschap upgradePolicy is ingesteld op **handmatige**, extensies zijn gemarkeerd als niet overeenkomt met het model.
 
-Als een bestaande virtuele machine is de service is hersteld, wordt dit weergegeven als een opnieuw opstarten en de extensies zijn niet opnieuw uitgevoerd. Als deze wordt teruggezet, is het zoals het vervangen van de besturingssysteemschijf met de installatiekopie van de bron. Alle specialisatie uit het nieuwste model, zoals extensies, worden uitgevoerd.
+### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>Worden extensies opnieuw uitgevoerd wanneer een bestaande virtuele machine-service is hersteld of teruggezet?
+
+Als een bestaande virtuele machine is de service is hersteld, wordt dit weergegeven als een opnieuw opstarten en de extensies zijn niet opnieuw uitgevoerd. Als een virtuele machine is teruggezet, is het proces is vergelijkbaar station met besturingssysteem vervangen door een installatiekopie van de bron. Alle specialisatie uit het nieuwste model, zoals extensies, worden opnieuw uitgevoerd.
 
 ### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Hoe ik deelnemen aan een virtuele-machineschaalset aan een Active Directory-domein?
 
@@ -450,7 +409,7 @@ Voor het definiëren van een uitbreiding, gebruikt u de eigenschap JsonADDomainE
 }
 ```
 
-### <a name="my-virtual-machine-scale-set-extension-is-trying-to-install-something-that-requires-a-reboot-for-example-commandtoexecute-powershellexe--executionpolicy-unrestricted-install-windowsfeature-name-fs-resource-manager-includemanagementtools"></a>Mijn extensie van virtuele-machineschaalset probeert te installeren die worden opgestart moet. Bijvoorbeeld, "commandToExecute": "powershell.exe - ExecutionPolicy Unrestricted Install-WindowsFeature – naam FS-Resource-Manager – IncludeManagementTools"
+### <a name="my-virtual-machine-scale-set-extension-is-trying-to-install-something-that-requires-a-reboot"></a>Mijn extensie van virtuele-machineschaalset probeert te installeren die worden opgestart moet.
 
 Als de extensie van virtuele-machineschaalset is probeert te installeren die worden opgestart moet, kunt u de extensie Azure Automation Desired State Configuration (DSC Automation). Als het besturingssysteem Windows Server 2012 R2 is, wordt Azure wordt tijdens de installatie van Windows Management Framework (WMF) 5.0, opnieuw wordt opgestart, en vervolgens verder met de configuratie.
 
@@ -473,9 +432,36 @@ Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publi
 Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
 ```
 
-### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>Ik heb nodig het uitvoeren van een aangepast script dat wordt gehost in een persoonlijke storage-account. Het script wordt uitgevoerd wanneer de opslag is openbaar, maar wanneer ik wil een Shared Access Signature (SAS) gebruiken, is mislukt. Dit bericht wordt weergegeven: 'Ontbreken verplichte parameters voor geldige handtekening voor gedeelde toegang'. Koppeling + SAS werkt prima vanaf mijn lokale browser.
+### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>Hoe ik een aangepast script dat wordt gehost uitvoeren in een persoonlijke storage-account?
 
-Voor het uitvoeren van een aangepast script dat wordt gehost in een persoonlijke storage-account, beveiligde instellingen instellen met de sleutel van het opslagaccount en de naam. Zie voor meer informatie, [Custom Script Extension voor Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+Voor het uitvoeren van een aangepast script dat wordt gehost in een persoonlijke storage-account, beveiligde instellingen instellen met de sleutel van het opslagaccount en de naam. Zie voor meer informatie, [Custom Script Extension](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+
+## <a name="passwords"></a>Wachtwoorden
+
+### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Hoe ik het wachtwoord opnieuw instellen voor VM's in mijn schaalset voor virtuele machine?
+
+Er zijn twee manieren voor het wijzigen van het wachtwoord voor virtuele machines in schaalsets.
+
+- Model met de virtuele machine een schaalset rechtstreeks wijzigen. Beschikbaar met API-2017-12-01 en hoger.
+
+    De beheerdersreferenties rechtstreeks in het model met een schaalset (bijvoorbeeld met de Azure Resource Explorer, PowerShell of CLI) bijwerken. Zodra de schaalset bijgewerkt, worden alle nieuwe is hebben virtuele machines de nieuwe referenties. Bestaande virtuele machines hebben alleen de nieuwe referenties als ze zijn teruggezet.
+
+- Het wachtwoord met behulp van de VM-extensies voor toegang opnieuw instellen.
+
+    Gebruik het volgende PowerShell-voorbeeld:
+
+    ```powershell
+    $vmssName = "myvmss"
+    $vmssResourceGroup = "myvmssrg"
+    $publicConfig = @{"UserName" = "newuser"}
+    $privateConfig = @{"Password" = "********"}
+
+    $extName = "VMAccessAgent"
+    $publisher = "Microsoft.Compute"
+    $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    ```
 
 ## <a name="networking"></a>Netwerken
 
@@ -533,10 +519,6 @@ De toewijzingsmethode van virtual machine scale set IP-adressen is altijd 'dynam
 
 Zie voor het implementeren van een virtuele-machineschaalset met een bestaande Azure-netwerk, [implementeren een virtuele-machineschaalset is ingesteld op een bestaand virtueel netwerk](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet).
 
-### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Hoe kan ik het IP-adres van de eerste virtuele machine in een virtuele-machineschaalset aan de uitvoer van een sjabloon toevoegen
-
-Zie voor informatie over het toevoegen van het IP-adres van de eerste virtuele machine in een virtuele-machineschaalset aan de uitvoer van een sjabloon [Azure Resource Manager: Virtuele machine schaalsets privé-IP's](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
-
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Kan ik scale sets met versnelde netwerken gebruiken?
 
 Ja. Voor het gebruik van versneld netwerken ingesteld enableAcceleratedNetworking op waar in uw schaalset networkInterfaceConfigurations van instellingen. Bijvoorbeeld
@@ -592,7 +574,7 @@ Een andere reden, die kunt u een virtuele-machineschaalset met minder dan twee V
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Hoe kan ik het aantal virtuele machines in een schaalset voor virtuele machine wijzigen
 
-Als u wilt wijzigen van het aantal virtuele machines in een virtuele-machineschaalset in Azure portal, van de virtuele-machineschaalset sectie met eigenschappen instellen, klikt u op de blade 'Schaal' en gebruik de schuifregelaar. Zie voor andere manieren om te wijzigen van het aantal exemplaren, [wijzigen van het aantal exemplaren van een virtuele-machineschaalset](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+Als u wilt wijzigen van het aantal virtuele machines in een virtuele-machineschaalset in Azure portal, van de virtuele-machineschaalset sectie met eigenschappen instellen, klikt u op de blade 'Schaal' en gebruik de schuifregelaar.
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Hoe definieer ik aangepaste waarschuwingen voor als bepaalde drempelwaarden zijn bereikt?
 
@@ -623,7 +605,7 @@ Hebt u enige flexibiliteit in hoe u waarschuwingen voor de opgegeven drempelwaar
                 },
                 "webhooks": [
                     {
-                        "serviceUri": "https://events.pagerduty.com/integration/0b75b57246814149b4d87fa6e1273687/enqueue",
+                        "serviceUri": "<service uri>",
                         "properties": {
                             "key1": "custommetric",
                             "key2": "scalevmss"
@@ -636,7 +618,6 @@ Hebt u enige flexibiliteit in hoe u waarschuwingen voor de opgegeven drempelwaar
 }
 ```
 
-In dit voorbeeld wordt een waarschuwing wordt gerouteerd naar Pagerduty.com wanneer een drempelwaarde is bereikt.
 
 ## <a name="patching-and-operations"></a>Patching en bewerkingen
 
@@ -655,8 +636,6 @@ Bijwerken van uw virtuele-machineschaalset met een nieuwe installatiekopie en vo
 ### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Kan ik de bewerking installatiekopie terugzetten uitvoeren om een virtuele machine zonder te hoeven wijzigen van de installatiekopie opnieuw in te gebruiken? (Dat wil zeggen, ik wil een virtuele machine opnieuw instellen naar de fabrieksinstellingen, in plaats van naar een nieuwe installatiekopie.)
 
 Ja, kunt u de bewerking installatiekopie terugzetten uitvoeren in te stellen van een virtuele machine zonder de afbeelding te wijzigen. Echter, als uw virtuele-machineschaalset verwijst naar een platforminstallatiekopie met `version = latest`, uw virtuele machine kunt bijwerken naar een hoger installatiekopie van het besturingssysteem bij het aanroepen van `reimage`.
-
-Zie voor meer informatie, [beheren van alle virtuele machines in een virtuele-machineschaalset](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
 ### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Is het mogelijk om schaalsets te integreren met Azure Monitor Logboeken?
 
@@ -722,25 +701,25 @@ Het belangrijkste verschil tussen een virtuele machine in een virtuele-machinesc
   - Met betrekking tot dit scenario, u mogelijk hebt gemaakt een eigen engine voor automatisch schalen en wilt een snellere end-to-end-schaal.
 - U hebt een virtuele-machineschaalset die ongelijkmatig verdeeld is over domeinen met fouten of update-domeinen. Dit kan zijn omdat u selectief virtuele machines verwijderd, of omdat virtuele machines zijn verwijderd na het piekmomenten. Met `stop deallocate` gevolgd door `start` op de virtuele machine schaalset gelijkmatig verdeeld over de virtuele machines domeinen met fouten of update-domeinen.
 
-### <a name="how-do-i-take-a-snapshot-of-a-vmss-instance"></a>Hoe ik een momentopname van een VMSS-instantie?
-Een momentopname maken van een exemplaar van een VMSS.
+### <a name="how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance"></a>Hoe ik een momentopname van een instantie van virtuele-machineschaalset?
+Een momentopname maken van een exemplaar van een virtuele-machineschaalset.
 
 ```azurepowershell-interactive
 $rgname = "myResourceGroup"
 $vmssname = "myVMScaleSet"
 $Id = 0
 $location = "East US"
- 
+
 $vmss1 = Get-AzVmssVM -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $Id     
 $snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard_LRS -OsType Windows -CreateOption Copy -SourceUri $vmss1.StorageProfile.OsDisk.ManagedDisk.id
 New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
-``` 
- 
+```
+
 Een beheerde schijf maken op basis van de momentopname.
 
 ```azurepowershell-interactive
 $snapshotName = "myShapshot"
 $snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
 $diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
-$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk') 
+$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk')
 ```

@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 033740d1ae75bb6f6fe8509d9ad123d55d9c6770
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250510"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705006"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocol voor eenmalige SAML-aanmelding
 
@@ -50,7 +50,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | Parameter |  | Description |
 | --- | --- | --- |
 | Id | Vereist | Azure AD maakt gebruik van dit kenmerk voor het vullen van de `InResponseTo` kenmerk van het geretourneerde antwoord. ID moet niet beginnen met een getal, zodat een algemene strategie bestaat uit een tekenreeks, zoals "id" aan de tekenreeksweergave van een GUID toevoegen aan het begin. Bijvoorbeeld, `id6c1c178c166d486687be4aaf5e482730` is een geldige ID. |
-| Version | Vereist | Deze parameter moet worden ingesteld op **2.0**. |
+| Versie | Vereist | Deze parameter moet worden ingesteld op **2.0**. |
 | IssueInstant | Vereist | Dit is een datum/tijd-tekenreeks met een UTC-waarde en [traject indeling ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD wordt verwacht dat een datum / tijdwaarde van dit type is, maar niet evalueren of gebruik de waarde. |
 | AssertionConsumerServiceUrl | Optioneel | Indien opgegeven, deze parameter moet overeenkomen met de `RedirectUri` van de cloudservice in Azure AD. |
 | ForceAuthn | Optioneel | Dit is een Booleaanse waarde. Indien waar, betekent dit dat de gebruiker wordt geforceerd opnieuw worden geverifieerd, zelfs als er een geldige sessie met Azure AD. |
@@ -90,7 +90,7 @@ Als `NameIDPolicy` is opgegeven, kunt u de optionele opnemen `Format` kenmerk. D
 Azure AD negeert de `AllowCreate` kenmerk.
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-De `RequestedAuthnContext` element Hiermee geeft u de gewenste verificatiemethoden. Dit is optioneel in `AuthnRequest` elementen naar Azure AD verzonden. Azure AD biedt ondersteuning voor slechts één `AuthnContextClassRef` waarde: `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+De `RequestedAuthnContext` element Hiermee geeft u de gewenste verificatiemethoden. Dit is optioneel in `AuthnRequest` elementen naar Azure AD verzonden. Azure AD ondersteunt `AuthnContextClassRef` waarden zoals `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### <a name="scoping"></a>Bereik
 De `Scoping` -element, waaronder een lijst met id-providers, is optioneel in `AuthnRequest` elementen naar Azure AD verzonden.

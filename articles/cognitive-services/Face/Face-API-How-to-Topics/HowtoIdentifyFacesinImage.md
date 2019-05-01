@@ -8,26 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
-ms.date: 03/01/2018
+ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 013467cb64220b525d429c901c48028bf65b3852
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7da146cafaf9af5c91bbbb2a3a23d8a90d49d8cd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864924"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699330"
 ---
-# <a name="example-how-to-identify-faces-in-images"></a>Voorbeeld: Gezichten in een afbeelding identificeren
+# <a name="example-identify-faces-in-images"></a>Voorbeeld: Gezichten in foto's identificeren
 
 Deze handleiding laat zien hoe u onbekende gezichten identificeert met PersonGroups (persoonsgroepen), die vooraf worden gemaakt op basis van bekende personen. De voorbeelden zijn geschreven in C# met de Face-API-clientbibliotheek.
-
-## <a name="concepts"></a>Concepten
-
-Als u niet bekend bent met de volgende concepten in deze handleiding, kunt u de definities op elk gewenst moment opzoeken in de [woordenlijst](../Glossary.md):
-
-- Face - Detecteren
-- Face - Identificeren
-- PersonGroup
 
 ## <a name="preparation"></a>Voorbereiding
 
@@ -38,7 +30,7 @@ In dit voorbeeld wordt het volgende toegelicht:
 
 Om deze demonstratie uit te voeren, moet u een aantal afbeeldingen voorbereiden:
 
-- Enkele foto's van het gezicht van de persoon. [Klik hier om voorbeeldfoto's te downloaden](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) voor Anna, Bill en Clare.
+- Enkele foto's van het gezicht van de persoon. [Voorbeeld van foto's downloaden](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) voor Anna, factureren en Clare.
 - De identificatiefunctie wordt getest met een reeks foto's waarop de gezichten van Anna, Bill of Clare al dan niet te zien zijn. U kunt ook enkele voorbeeldafbeeldingen selecteren via de vorige koppeling.
 
 ## <a name="step-1-authorize-the-api-call"></a>Stap 1: De API-aanroep autoriseren
@@ -187,6 +179,7 @@ In deze handleiding hebt u het proces voor het maken van een PersonGroup en het 
 
 ## <a name="related-topics"></a>Verwante onderwerpen
 
+- [Face-opname-concepten](../concepts/face-recognition.md)
 - [Gezichten in een afbeelding detecteren](HowtoDetectFacesinImage.md)
 - [Gezichten toevoegen](how-to-add-faces.md)
 - [De functie Grootschalig gebruiken](how-to-use-large-scale.md)

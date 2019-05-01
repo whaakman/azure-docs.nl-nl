@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 178747ffddbadb06751ce0db7d16701c3cea7416
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60513718"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712829"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>CTF-rapportage (Collaborative Translation Framework) gebruiken
 
@@ -23,8 +23,6 @@ ms.locfileid: "60513718"
 > Deze methode is afgeschaft. Het is niet beschikbaar in V3.0 van de Translator Text-API.
 > 
 > De gezamenlijke vertalingen Framework (CTF), eerder beschikbaar was voor V2.0 van de Translator Text-API is afgeschaft vanaf 1 februari 2018. De functies AddTranslation en AddTranslationArray toestaan dat gebruikers correcties via Collaborative Translation Framework inschakelen. Na 31 januari 2018 nieuwe zin inzendingen heeft niet geaccepteerd door deze twee functies en ontvangen gebruikers een foutbericht weergegeven. Deze functies zijn buiten gebruik gesteld en worden niet vervangen.
-> 
-> Vergelijkbare functionaliteit is beschikbaar in de Hub API van Translator, zodat u kunt een aangepaste vertaalsysteem met uw terminologie en stijl, bouwen en kunt u met behulp van de categorie-ID in de Translator Text-API aanroepen. Translator-Hub: [ https://hub.microsofttranslator.com ](https://hub.microsofttranslator.com). Translator Hub API: [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger).
 
 De Collaborative Translation Framework (CTF) rapportage-API retourneert statistieken en de daadwerkelijke inhoud in de store CTF. Deze API wijkt af van de methode GetTranslations() omdat deze:
 * Retourneert de vertaalde inhoud en het totale aantal alleen uit uw account (appId of Azure Marketplace-account).

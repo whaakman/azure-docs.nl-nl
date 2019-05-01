@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 77e322e32d19433d9ce4629c2e04c8bbd7e17f3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f4f54273262f60dc01f78f4bb5828c8fdd2b97a9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405501"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707247"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Een Standard load balancer maken om taken van VM's te verdelen via Azure Portal
 
@@ -44,7 +44,7 @@ In deze sectie maakt u een Standard Load Balancer die helpt bij het laden van ve
     | Abonnement               | Selecteer uw abonnement.    |    
     | Resourcegroep         | Selecteer **nieuw** en het type *myResourceGroupSLB* in het tekstvak in.|
     | Name                   | *myLoadBalancer*                                   |
-    | Regio         | Selecteer **Europa - west**.                                        |
+    | Regio         | Selecteer **US - oost**.                                        |
     | Type          | Selecteer **Openbaar**.                                        |
     | SKU           | selecteer **Standaard**.                          |
     | Openbaar IP-adres | Selecteer **Nieuw maken**. |
@@ -79,8 +79,8 @@ Als u wilt toestaan dat de Load Balancer voor het bewaken van de status van uw a
     | Protocol | Selecteer **HTTP**. |
     | Poort | Voer *80*.|
     | Interval | Voer *15* voor aantal **Interval** in seconden tussen tests. |
-    | Drempelwaarde voor onjuiste status | Selecteer *2* voor aantal **drempelwaarde voor onjuiste status** of opeenvolgende testfouten dat optreden moeten voordat een virtuele machine als slecht beschouwd.|
-    | Statustest | Select *myHealthProbe*. |
+    | Drempelwaarde voor onjuiste status | Selecteer **2** voor aantal **drempelwaarde voor onjuiste status** of opeenvolgende testfouten dat optreden moeten voordat een virtuele machine als slecht beschouwd.|
+    | | |
 4. Selecteer **OK**.
 
 ### <a name="create-a-load-balancer-rule"></a>Een load balancer-regel maken
@@ -98,12 +98,12 @@ Een load balancer-regel wordt gebruikt om de verdeling van het verkeer over de V
     | Back-endpoort | Voer *80*. |
     | Back-endpool | Select *myBackendPool*.|
     | Statustest | Select *myHealthProbe*. |
-4. Laat de overige standaardwaarden staan en selecteer **OK**.
-4. Selecteer **OK**.
+4. Laat de rest van de standaardwaarden en selecteer vervolgens **OK**.
+
 
 ## <a name="create-backend-servers"></a>Back-endservers maken
 
-In deze sectie maakt u een virtueel netwerk maken, twee virtuele machines voor de back-endpool van de Load Balancer maken en installeert u IIS op de virtuele machines om de Load Balancer te testen.
+In deze sectie maakt u een virtueel netwerk maken, drie virtuele machines voor de back-endpool van de Load Balancer maken en installeert u IIS op de virtuele machines om de Load Balancer te testen.
 
 ### <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 1. Selecteer linksboven in het scherm **Een resource maken** > **Netwerken** > **Virtueel netwerk**.
@@ -116,15 +116,15 @@ In deze sectie maakt u een virtueel netwerk maken, twee virtuele machines voor d
     | Adresruimte | Voer *10.1.0.0/16* in. |
     | Abonnement | Selecteer uw abonnement.|
     | Resourcegroep | Select existing resource - *myResourceGroupSLB*. |
-    | Location | Selecteer **Europa - west**.|
+    | Locatie | Selecteer **Europa - west**.|
     | Subnet - Naam | Voer *myBackendSubnet* in. |
     | Subnet - adresbereik | Voer *10.1.0.0/24* in. |
 1. Laat de overige standaardwaarden staan en selecteer **Maken**.
 
 ### <a name="create-virtual-machines"></a>Virtuele machines maken
-Standard Load Balancer biedt alleen ondersteuning voor VM's met standaard IP-adressen in de back-endpool. In deze sectie maakt u twee virtuele machines (*myVM1* en *myVM2*) met een Standard openbaar IP-adres in twee verschillende zones (*Zone 1* en *Zone 2*) die zijn toegevoegd aan de back-endpool van de Standard Load Balancer die eerder is gemaakt.
+Standard Load Balancer biedt alleen ondersteuning voor VM's met standaard IP-adressen in de back-endpool. In deze sectie maakt u drie virtuele machines (*myVM1*, *myVM2* en *myVM3*) met een Standard openbaar IP-adres in drie verschillende zones (*Zone 1*, *Zone 2*, en *Zone 3*) die later zijn toegevoegd aan de back-endpool van de Standard Load Balancer die eerder is gemaakt.
 
-1. Selecteer **Een resource maken** > **Compute** > **Windows Server 2016 Datacenter** linksboven in de portal. 
+1. Selecteer aan de linkerbovenhoek van de portal, **een resource maken** > **Compute** > **Windows Server 2019 Datacenter**. 
    
 1. In **Een virtuele machine maken** typt of selecteert u de volgende waarden op het tabblad **Basisinformatie**:
    - **Abonnement** > **Resourcegroep**: Select **myResourceGroupSLB**.
@@ -132,26 +132,35 @@ Standard Load Balancer biedt alleen ondersteuning voor VM's met standaard IP-adr
    - **Details van exemplaar** > **regio** > Selecteer **West-Europa**.
    - **Details van exemplaar** > **Beschikbaarheidsopties** > Selecteer **beschikbaarheidszones**. 
    - **Details van exemplaar** > **binnen een beschikbaarheidszone** > Selecteer **1**.
+   - **Administrator-account**> Voer de **gebruikersnaam**, **wachtwoord** en **wachtwoord bevestigen** informatie.
+   - Selecteer het tabblad **Netwerken** of selecteer **Volgende: Schijven** en vervolgens **Volgende: Netwerken**.
   
-1. Selecteer het tabblad **Netwerken** of selecteer **Volgende: Schijven** en vervolgens **Volgende: Netwerken**. 
-   
-   - Zorg ervoor dat de volgende opties zijn geselecteerd:
-       - **Virtueel netwerk**: *myVnet*
-       - **Subnet**: *myBackendSubnet*
-       - **Openbaar IP-adres** > Selecteer **nieuw**, en klik in de **openbare IP-adres maken** venster voor **SKU**, selecteer **Standard**, en voor **binnen een beschikbaarheidszone**, selecteer **Zone-redundante**, en selecteer vervolgens **OK**.
+1. In de **netwerken** tabblad Zorg ervoor dat de volgende zijn geselecteerd:
+   - **Virtueel netwerk**: *myVnet*
+   - **Subnet**: *myBackendSubnet*
+   - **Openbaar IP-adres** > Selecteer **nieuw**, en klik in de **openbare IP-adres maken** venster voor **SKU**, selecteer **Standard**, en voor **binnen een beschikbaarheidszone**, selecteer **Zone-redundante**, en selecteer vervolgens **OK**.
    - Als u een nieuwe netwerkbeveiligingsgroep (NSG) wilt maken, een soort firewall, selecteert u onder **Netwerkbeveiligingsgroep** de optie **Geavanceerd**. 
        1. Selecteer in het veld **Netwerkbeveiligingsgroep configureren** de optie **Nieuwe maken**. 
        1. Type *myNetworkSecurityGroup*, en selecteer **OK**.
    - Als u de virtuele machine een deel van de Load Balancer back-endpool, voert u de volgende stappen uit:
         - In **Load Balancing**, voor **plaatsen van deze virtuele machine achter een bestaande oplossing voor taakverdeling?**, selecteer **Ja**.
         - In **Load balancing-instellingen**, voor **opties voor taakverdeling**, selecteer **Azure load balancer**.
-        - Voor **selecteert u een load balancer**, *myLoadBalancer*. 
-1. Selecteer het tabblad **Beheer** of selecteer **Volgende** > **Beheer**. Stel bij **Bewaking** **Diagnostische gegevens over opstarten** in op **Uit**. 
+        - Voor **selecteert u een load balancer**, *myLoadBalancer*.
+        - Selecteer het tabblad **Beheer** of selecteer **Volgende** > **Beheer**.
+2. In de **Management** tabblad onder **bewaking**, stel **diagnostische gegevens over opstarten** naar **uit**. 
 1. Selecteer **Controleren + maken**.   
 1. Controleer de instellingen en selecteer vervolgens **Maken**.
-1. Volg de stappen voor het maken van een tweede virtuele machine met de naam *myVM2*, met een openbaar IP-adres van standaard-SKU, met de naam *myVM2-IP-*, en **binnen een beschikbaarheidszone** van **2** en alle andere instellingen hetzelfde zijn als *myVM1*. 
+1. Volg de stappen 2 tot en met 6 twee extra virtuele machines maken met de volgende waarden en alle andere instellingen hetzelfde zijn als *myVM1*:
 
-### <a name="create-nsg-rule"></a>Een NSG-regel maken
+    | Instelling | VM 2| VM 3|
+    | ------- | ----- |---|
+    | Name |  *myVM1* |*myVM3*|
+    | Beschikbaarheidszone | 2 |3|
+    |Openbare IP| **Standard** SKU|**Standard** SKU|
+    | Openbare IP - beschikbaarheidszone| Zone-redundant |
+    | Netwerkbeveiligingsgroep | Selecteer de bestaande *myNetworkSecurity groep*| Selecteer de bestaande *myNetworkSecurity groep*|
+
+ ### <a name="create-nsg-rule"></a>Een NSG-regel maken
 
 In deze sectie maakt u een regel voor de netwerkbeveiligingsgroep voor binnenkomende verbindingen via HTTP.
 
@@ -166,30 +175,38 @@ In deze sectie maakt u een regel voor de netwerkbeveiligingsgroep voor binnenkom
     - *100* bij **Prioriteit**
     - *myHTTPRule* als naam
     - *Allow HTTP* als beschrijving
-4. Selecteer **OK**.
+4. Selecteer **Toevoegen**.
  
 ### <a name="install-iis"></a>IIS installeren
 
 1. Selecteer **alle services** Selecteer in het menu links **alle resources**, en selecteer vervolgens in de lijst met resources **myVM1** die bevindt zich in de  *myResourceGroupSLB* resourcegroep.
 2. Selecteer op de pagina **Overzicht** de optie **Verbinding maken** om extern verbinding te maken met de VM.
-3. Meld u aan bij de VM met gebruikersnaam *azureuser*.
-4. Ga op de serverdesktop naar **Windows Systeembeheer**>**Serverbeheer**.
-5. Selecteer in Serverbeheer **functies en onderdelen toevoegen**.
-6. Gebruik in de **wizard Rollen en functies toevoegen** de volgende waarden:
-    - In de **installatietype selecteren** pagina, selecteert u **op basis van functie of onderdeel gebaseerde installatie**.
-    - In de **Selecteer doelserver** pagina, selecteert u **myVM1**
-    - In de **serverfunctie selecteren** pagina, selecteert u **webserver (IIS)**
-    - Volg de aanwijzingen om de rest van de wizard te voltooien 
-7. Herhaal stap 1 t/m 6 voor virtuele machine *myVM2*.
+5. Meld u aan bij de virtuele machine met de referenties die u hebt opgegeven tijdens het maken van deze virtuele machine. Hiermee wordt een sessie met extern bureaublad met virtuele machine *myVM1* gestart.
+6. Ga op de serverdesktop naar **Windows Systeembeheer**>**Windows Powershell**.
+7. Voer in het venster PowerShell de volgende opdrachten uit om de IIS-server te installeren, het standaardbestand iisstart.htm te verwijderen en een nieuw bestand iisstart.htm toe te voegen dat de naam van de VM weergeeft:
+
+   ```azurepowershell-interactive
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+   ```
+6. Sluit de RDP-sessie met *myVM1*.
+7. Herhaal stappen 1 tot en met 6 om IIS en het bijgewerkte bestand iisstart.htm te installeren op *myVM2* en *myVM3*.
 
 ## <a name="test-the-load-balancer"></a>Test de Load Balancer
 1. Zoek op het scherm **Overzicht** het openbare IP-adres voor de load balancer. Selecteer **alle services** Selecteer in het menu links **alle resources**, en selecteer vervolgens **myPublicIP**.
 
 2. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. De standaardpagina van IIS-webserver wordt weergegeven in de browser.
 
-      ![IIS-webserver](./media/load-balancer-standard-public-portal/9-load-balancer-test.png)
+   ![IIS-webserver](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-Als u wilt zien hoe de Load Balancer verkeer distribueert naar alle drie virtuele machines waarop uw app wordt uitgevoerd, u kunt forceren vernieuwing van uw webbrowser.
+Als u wilt zien hoe de Load Balancer verkeer distribueert naar alle drie virtuele machines, kunt u de standaardpagina van IIS-webserver van elke virtuele machine en geforceerd vernieuwen uw webbrowser de clientcomputer.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

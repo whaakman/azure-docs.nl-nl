@@ -5,15 +5,15 @@ manager: kfile
 description: Leer verbinding maken met Azure Analysis Services met Power BI Desktop.
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 04/25/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 5d021aa7a6d55bb071340ebcd8e7090a4b0c2e2f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ea2a6612a568d4080a8df2c569f79aaaa283e9c4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60788191"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702844"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Zelfstudie: Verbinding maken met Power BI Desktop
 
@@ -71,4 +71,4 @@ In **Azure Portal** > server > **Overview** > **Servernaam**,kopieer de serverna
 Als u het rapport niet meer nodig hebt, slaat u het niet op of verwijdert u het bestand als u het rapport wel hebt opgeslagen.
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe u Power BI Desktop gebruikt om verbinding te maken met een gegevensmodel op een server en een basisrapport te maken. Zie de [zelfstudie Gegevensmodellering in tabelvorm voor de internetverkoop van Adventure Works](aas-adventure-works-tutorial.md) als u niet bekend bent met het maken van een gegevensmodel.
+In deze zelfstudie hebt u geleerd hoe u Power BI Desktop gebruikt om verbinding te maken met een gegevensmodel op een server en een basisrapport te maken. Als u niet bekend met het maken van een gegevensmodel bent, raadpleegt u de [Adventure Works Internet Sales tabelgegevens modellering zelfstudie](https://docs.microsoft.com/sql/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) in de SQL Server Analysis Services-documenten.

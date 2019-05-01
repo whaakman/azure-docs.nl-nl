@@ -1,6 +1,6 @@
 ---
-title: Instellen van Azure NetApp-bestanden en het maken van een NFS-volume | Microsoft Docs
-description: Beschrijft hoe u snel instellen van Azure NetApp-bestanden en het maken van een volume.
+title: Instellen van de Quick Start - up Azure NetApp bestanden en het maken van een NFS-volume | Microsoft Docs
+description: Snelstartgids - wordt beschreven hoe u snel instellen van Azure NetApp-bestanden en het maken van een volume.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,27 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 4/16/2019
 ms.author: b-juche
-ms.openlocfilehash: 5b9e85da29b3130d5183f577a7d83d164e217310
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: f0f3dea1c30790bb109d7cb7af07abd8fbb1ace4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63759861"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702887"
 ---
-# <a name="set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Instellen van Azure NetApp-bestanden en het maken van een NFS-volume 
+# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Quickstart: Instellen van Azure NetApp-bestanden en het maken van een NFS-volume 
 
 In dit artikel wordt beschreven hoe u snel Azure NetApp bestanden instellen en een volume maken. 
+
+In deze Quick Start stelt u de volgende items:
+
+- Registratie voor Azure NetApp bestanden en NetApp-Resourceprovider
+- Een NetApp-account
+- Een capaciteit van toepassingen
+- Een NFS-volume voor Azure NetApp-bestanden
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="before-you-begin"></a>Voordat u begint 
 
@@ -33,7 +42,7 @@ Voor deze taak moet u deel uitmaken van het Openbare Preview-programma en toegan
 
 1. Klik op het Azure Cloud Shell-pictogram in de rechterbovenhoek van de Azure-portal.
 
-      ![Pictogram voor Azure Cloud Shell](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
+    ![Pictogram voor Azure Cloud Shell](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell-window.png)
 
 2. Geef het abonnement dat opgenomen in de whitelist voor Azure NetApp bestanden is:
     
@@ -130,7 +139,31 @@ Voor deze taak moet u deel uitmaken van het Openbare Preview-programma en toegan
 
     ![Volume gemaakt](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)  
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Wanneer u klaar bent en u wilt, kunt u de resourcegroep verwijderen. De actie van het verwijderen van een resourcegroep is niet ongedaan worden gemaakt.  
+
+> [!IMPORTANT]
+> Alle resources binnen de resourcegroepen worden definitief verwijderd en kunnen niet ongedaan worden gemaakt. 
+
+1. Voer in het zoekvak van de Azure portal, **Azure NetApp Files** en selecteer vervolgens **Azure NetApp Files** in de lijst die wordt weergegeven.
+
+2. Klik in de lijst met abonnementen op de resourcegroep (myRG1) die u wilt verwijderen. 
+
+    ![Navigeer naar resourcegroepen](../media/azure-netapp-files/azure-netapp-files-azure-navigate-to-resource-groups.png)
+
+
+3. Klik in de pagina van de resourcegroep op **resourcegroep verwijderen**.
+
+    ![Resourcegroep verwijderen](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+
+    Een venster wordt geopend en toont een waarschuwing over de resources die worden verwijderd met de resourcegroep.
+
+4. Voer de naam van de resourcegroep (myRG1) om te bevestigen dat u wilt de resourcegroep en alle resources permanent verwijderd en klik vervolgens op **verwijderen**.
+
+    ![Resourcegroep verwijderen](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
+
 ## <a name="next-steps"></a>Volgende stappen  
 
-* [Informatie over de opslaghiërarchie van Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
-* [Volumes beheren met behulp van Azure NetApp bestanden](azure-netapp-files-manage-volumes.md) 
+> [!div class="nextstepaction"]
+> [Volumes beheren met behulp van Azure NetApp bestanden](azure-netapp-files-manage-volumes.md)  

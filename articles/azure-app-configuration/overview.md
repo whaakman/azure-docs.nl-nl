@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a76eab5d51dd73fb6b38ebebaa8421e789274f84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f2019dd5a810a9e9099fd9f9e171fd5af21d1dc5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201287"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64715063"
 ---
 # <a name="what-is-azure-app-configuration"></a>Wat is App-configuratie voor Azure?
 
@@ -68,5 +68,8 @@ De eenvoudigste manier om een appconfiguratiearchief toe te voegen aan uw toepas
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Een ASP.NET Core web-app maken](./quickstart-aspnet-core-app.md)  
+* [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md)
+* [.NET Core quickstart](./quickstart-dotnet-core-app.md)
+* [.NET Framework quickstart](./quickstart-dotnet-app.md)
+* [Snelstartgids voor Java Spring](./quickstart-java-spring-app.md)
+* [Azure Function quickstart](./quickstart-azure-function-csharp.md)

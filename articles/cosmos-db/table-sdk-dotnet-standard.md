@@ -9,11 +9,11 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
 ms.openlocfilehash: 4b193dd41c137907e56e2bf38b18ebcf2f2b481a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326866"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692255"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabel standaard .NET-API: Download en opmerkingen bij de release
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ ms.locfileid: "60326866"
 ## <a name="release-and-retirement-dates"></a>Release-en buiten gebruik stellen
 Microsoft biedt melding ten minste **12 maanden** voorafgaand aan buiten gebruik stellen van een SDK soepel te verwerken de overgang naar een nieuwere/ondersteunde versie.
 
-| Version | Releasedatum | Vervaldatum |
+| Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
 | [1.0.1](#1.0.1) |19 april 2019 |--- |
 | [1.0.0](#1.0.0) |13 maart 2019 |--- |

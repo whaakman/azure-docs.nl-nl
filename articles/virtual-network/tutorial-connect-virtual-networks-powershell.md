@@ -3,8 +3,8 @@ title: Virtuele netwerken verbinden met virtueel-netwerkpeering - PowerShell | M
 description: In dit artikel leert u hoe u virtuele netwerken verbinden met virtueel-netwerkpeering met behulp van Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 49a6c91587905a8f7086b46b275a5078197939eb
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 0ee39e83ef49db1d6231b5c20eee4dbf984f9f13
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649948"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698964"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Virtuele netwerken verbinden met virtueel-netwerkpeering met behulp van PowerShell
 
@@ -43,7 +43,7 @@ Als u wilt installeren en gebruiken van PowerShell lokaal, in dit artikel is ver
 
 ## <a name="create-virtual-networks"></a>Virtuele netwerken maken
 
-Voordat u een virtueel netwerk maakt, moet u maken van een resourcegroep voor het virtuele netwerk en alle andere resources in dit artikel hebt gemaakt. Maak een resourcegroep met [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
+Voordat u een virtueel netwerk maakt, moet u maken van een resourcegroep voor het virtuele netwerk en alle andere resources in dit artikel hebt gemaakt. Maak een resourcegroep met behulp van de opdracht [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
@@ -160,7 +160,7 @@ Het maken van de virtuele machine duurt een paar minuten. Ga niet verder met lat
 
 ## <a name="communicate-between-vms"></a>Communiceren tussen VM's
 
-U kunt verbinding maken met het openbare IP-adres van een virtuele machine via internet. Gebruik [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) om terug te keren van het openbare IP-adres van een virtuele machine. In het volgende voorbeeld wordt het openbare IP-adres van de VM *myVm1* opgehaald:
+U kunt verbinding maken met het openbare IP-adres van een virtuele machine via internet. Gebruik [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) om het openbare IP-adres van een virtuele machine op te halen. In het volgende voorbeeld wordt het openbare IP-adres van de VM *myVm1* opgehaald:
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress `

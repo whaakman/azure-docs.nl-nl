@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 85757ace20501bea1db22ecfdd2fdb63284038d5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/23/2019
+ms.openlocfilehash: 0f764ebbad53185f46c7166011e05493ed261d6a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108743"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696646"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL Database-back-ups voor maximaal 10 jaar Store
 
@@ -29,17 +29,17 @@ Veel toepassingen hebben regelgeving, naleving, of andere zakelijke doeleinden w
 
 ## <a name="how-sql-database-long-term-retention-works"></a>De werking van de SQL-Database met een langetermijnbewaarperiode
 
-Langetermijnretentie (LTR) maakt gebruik van de volledige databaseback-ups die zijn [automatisch gemaakte](sql-database-automated-backups.md) moment terugzetten (PITR) inschakelen. Deze back-ups worden gekopieerd naar de andere opslag-blobs als LTR-beleid is geconfigureerd.
-U kunt een LTR-beleid voor elke SQL-database configureren en opgeven hoe vaak u wilt kopiëren van de back-ups naar de lange termijn opslagblobs. Om in te schakelen dat flexibiliteit kunt u het beleid met behulp van een combinatie van vier parameters definiëren: wekelijkse back-upretentie (S), maandelijkse back-upretentie (M), de jaarlijkse back-upretentie (Y) en de week van jaar (WeekOfYear). Als u opgeeft W, één back-up elke week worden gekopieerd naar de opslag op lange termijn. Als u M opgeeft, wordt één back-up tijdens de eerste week van elke maand worden gekopieerd naar de opslag op lange termijn. Als u Y opgeeft, wordt een back-up van de week is opgegeven door WeekOfYear worden gekopieerd naar de opslag op lange termijn. Elke back-up worden voor de periode die door deze parameters worden opgegeven in de opslag op lange termijn behouden. 
+Langetermijnretentie (LTR) maakt gebruik van de volledige databaseback-ups die zijn [automatisch gemaakte](sql-database-automated-backups.md) moment terugzetten (PITR) inschakelen. Als een LTR-beleid is geconfigureerd, worden deze back-ups worden gekopieerd naar verschillende blobs voor langdurige opslag. De kopieerbewerking is een achtergrondtaak die geen invloed op de prestaties op de werkbelasting van de database heeft. De LTR back-ups worden bewaard gedurende een bepaalde periode ingesteld door het LTR-beleid. Het LTR-beleid voor elke SQL-database kunt ook opgeven hoe vaak de LTR back-ups worden gemaakt. Om in te schakelen dat flexibiliteit kunt u het beleid met behulp van een combinatie van vier parameters definiëren: wekelijkse back-upretentie (S), maandelijkse back-upretentie (M), de jaarlijkse back-upretentie (Y) en de week van jaar (WeekOfYear). Als u opgeeft W, één back-up elke week worden gekopieerd naar de opslag op lange termijn. Als u M opgeeft, wordt één back-up tijdens de eerste week van elke maand worden gekopieerd naar de opslag op lange termijn. Als u Y opgeeft, wordt een back-up van de week is opgegeven door WeekOfYear worden gekopieerd naar de opslag op lange termijn. Elke back-up worden voor de periode die door deze parameters worden opgegeven in de opslag op lange termijn behouden. Elke wijziging van de LTR-beleid is van toepassing op de toekomstige back-ups. Bijvoorbeeld als de opgegeven WeekOfYear in het verleden wanneer het beleid is geconfigureerd is, wordt de eerste LTR back-up gemaakt volgend jaar. 
 
-Voorbeelden:
+Voorbeelden van de LTR-beleid:
 
 -  W=0, M=0, Y=5, WeekOfYear=3
 
-   De 3e volledige back-up van elk jaar worden voor 5 jaar behouden.
+   De derde volledige back-up van elk jaar wordt vijf jaar worden bewaard.
+   
 - W=0, M=3, Y=0
 
-   De eerste volledige back-up van elke maand worden, bewaard gedurende 3 maanden.
+   De eerste volledige back-up van elke maand worden, bewaard gedurende drie maanden.
 
 - W=12, M=0, Y=0
 
@@ -47,7 +47,7 @@ Voorbeelden:
 
 - W=6, M=12, Y=10, WeekOfYear=16
 
-   Elke wekelijkse volledige back-up worden voor 6 weken behouden. Behalve de eerste volledige back-up van elke maand, wordt die worden bewaard gedurende 12 maanden. Met uitzondering van de volledige back-up die wordt gemaakt op 16 week van jaar, wordt die worden bewaard gedurende tien jaar. 
+   Elke wekelijkse volledige back-up worden voor zes weken behouden. Behalve de eerste volledige back-up van elke maand, wordt die worden bewaard gedurende 12 maanden. Met uitzondering van de volledige back-up die wordt gemaakt op 16 week van jaar, wordt die worden bewaard gedurende tien jaar. 
 
 De volgende tabel ziet u de uitgebracht en de vervaldatum van de lange termijn back-ups voor het volgende beleid:
 
@@ -57,23 +57,26 @@ W = 12 weken (84 dagen), M = 12 maanden (365 dagen), Y = 10 jaar (3650 dagen), W
 
 
 
-Als u zou het bovenstaande beleid wijzigen en set W = 0 (geen wekelijkse back-ups), de frequentie van back-ups gewijzigd zou worden als die wordt weergegeven in de bovenstaande tabel op de gemarkeerde datums. De hoeveelheid opslagruimte die nodig zijn voor deze back-ups behouden zou dienovereenkomstig verminderen. 
+Als u het bovenstaande beleid wijzigen en set W = 0 (geen wekelijkse back-ups), de frequentie van back-ups worden gewijzigd, zoals weergegeven in de bovenstaande tabel op de gemarkeerde datums. De hoeveelheid opslagruimte die nodig zijn voor deze back-ups behouden zou dienovereenkomstig verminderen. 
 
 > [!NOTE]
-> 1. De LTR-exemplaren worden gemaakt door Azure storage-service, zodat het kopieerproces geen invloed op de prestaties op de bestaande database heeft.
-> 2. Het beleid is van toepassing op de toekomstige back-ups. Bijvoorbeeld Als de opgegeven WeekOfYear in het verleden wanneer het beleid is geconfigureerd is, wordt de eerste LTR back-up gemaakt van volgend jaar. 
-> 3. Database herstellen vanuit de LTR-opslag, kunt u een specifieke back-up op basis van de tijdstempel.   De database kan worden hersteld op een bestaande server onder hetzelfde abonnement als de oorspronkelijke database. 
+> De timing van de afzonderlijke LTR back-ups wordt bepaald door de Azure SQL Database. U kan handmatig maken van een back-up van links naar rechts of de timing van het maken van back-up wilt bepalen.
+> 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>Geo-replicatie en langetermijnretentie
 
-Als u actieve geo-replicatie of failover-groepen als uw zakelijke continuïteit-oplossing u moet voorbereiden op het uiteindelijke failovers en de dezelfde LTR-beleid configureren op de geo-secundaire database gebruiken. Dit naarmate niet uw opslagkosten LTR-back-ups zijn niet gegenereerd op basis van de secundaire replica's. Alleen wanneer de secundaire primaire wordt wordt de back-ups worden gemaakt. Op deze manier garandeert u generatie van de LTR back-ups niet onderbroken wanneer de failover wordt geactiveerd en de primaire worden verplaatst naar de secundaire regio. 
+Als u actieve geo-replicatie of failover-groepen als zakelijke continuïteit-oplossing gebruikt, moet u voorbereiden op het uiteindelijke failovers en de dezelfde LTR-beleid configureren op de geo-secundaire database. Uw opslagkosten LTR naarmate niet er back-ups zijn niet gegenereerd op basis van de secundaire replica's. Alleen wanneer de secundaire primaire wordt wordt de back-ups worden gemaakt. Daardoor wordt niet onderbroken generatie van de LTR back-ups wanneer de failover wordt geactiveerd en de primaire naar de secundaire regio verplaatst. 
 
 > [!NOTE]
-> Wanneer de oorspronkelijke primaire database wordt hersteld na de storing waardoor er failover plaatsvindt, wordt er een nieuwe secundaire. Daarom het back-up maken wordt niet voortgezet en het bestaande LTR-beleid wordt pas van kracht totdat deze opnieuw de primaire verandert. 
+> Als de oorspronkelijke primaire database wordt hersteld na een storing waardoor de failover, wordt er een nieuwe secundaire. Daarom het back-up maken wordt niet voortgezet en het bestaande LTR-beleid wordt pas van kracht totdat deze opnieuw de primaire verandert. 
 
 ## <a name="configure-long-term-backup-retention"></a>Langetermijnretentie van back-ups configureren
 
-Zie voor informatie over het configureren van met een langetermijnbewaarperiode met behulp van de Azure portal of met behulp van PowerShell, [langetermijnretentie van back-up configureren](sql-database-long-term-backup-retention-configure.md).
+Zie voor informatie over het configureren van de Azure portal of PowerShell met een langetermijnbewaarperiode, [langetermijnretentie voor Azure SQL Database beheren](sql-database-long-term-backup-retention-configure.md).
+
+## <a name="restore-database-from-ltr-backup"></a>Database herstellen vanuit back-up van links naar rechts
+
+Database herstellen vanuit de LTR-opslag, kunt u een specifieke back-up op basis van de tijdstempel. De database kan worden hersteld op een bestaande server onder hetzelfde abonnement als de oorspronkelijke database. Zie voor meer informatie over de database te herstellen vanaf een back-LTR up met behulp van de Azure portal of PowerShell, [langetermijnretentie voor Azure SQL Database beheren](sql-database-long-term-backup-retention-configure.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
