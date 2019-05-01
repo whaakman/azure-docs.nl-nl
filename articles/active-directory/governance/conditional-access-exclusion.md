@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4169b15304afe1ecc4af9c5354798b29ad9dba38
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351533"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571352"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Gebruik Azure AD-toegangsbeoordelingen voor het beheren van gebruikers die zijn uitgesloten van beleid voor voorwaardelijke toegang
 
@@ -38,7 +38,7 @@ Als een ander voorbeeld: u kunt [benoemde locaties](../conditional-access/locati
 
 ![Benoemde locaties](./media/conditional-access-exclusion/named-locations.png)
 
-Gebruikers kunnen echter in sommige gevallen hebben een legitieme reden aan te melden bij uit deze geblokkeerde landen. Gebruikers kunnen bijvoorbeeld op reis voor werk- of persoonlijke redenen. In dit voorbeeld hebt het beleid voor voorwaardelijke toegang moet worden geblokkeerd dat deze landen kan een toegewijde cloud-beveiligingsgroep voor gebruikers die zijn uitgesloten van het beleid. Gebruikers die toegang nodig hebben wanneer u onderweg bent, kunnen worden toegevoegd aan de groep met [groepsbeheer voor Azure AD-Self-servicegebruikers](../users-groups-roles/groups-self-service-management.md).
+Gebruikers kunnen echter in sommige gevallen hebben een legitieme reden aan te melden bij deze geblokkeerde landen/regio's. Gebruikers kunnen bijvoorbeeld op reis voor werk- of persoonlijke redenen. In dit voorbeeld hebt het beleid voor voorwaardelijke toegang moet worden geblokkeerd dat deze landen/regio's kan een toegewijde cloud-beveiligingsgroep voor gebruikers die zijn uitgesloten van het beleid. Gebruikers die toegang nodig hebben wanneer u onderweg bent, kunnen worden toegevoegd aan de groep met [groepsbeheer voor Azure AD-Self-servicegebruikers](../users-groups-roles/groups-self-service-management.md).
 
 Een ander voorbeeld is mogelijk dat u een beleid voor voorwaardelijke toegang hebt die [blokken verouderde verificatie voor de meeste gebruikers](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Microsoft raadt u aan het gebruik van verouderde protocollen te blokkeren in uw tenant om uw beveiliging te verbeteren. Echter als sommige gebruikers die absoluut verouderde verificatiemethoden gebruiken moeten voor toegang tot uw resources via Office 2010 of SMTP-IMAP-POP op basis van clients, klikt u vervolgens u kunt deze gebruikers uitsluiten van het beleid waarmee verouderde verificatiemethoden worden geblokkeerd.
 
@@ -97,9 +97,9 @@ U kunt nu een beleid voor voorwaardelijke toegang die gebruikmaakt van deze uits
 
 We hebben betrekking op twee voorbeelden waar u toegangsbeoordelingen gebruiken kunt voor het beheren van uitsluitingen in beleid voor voorwaardelijke toegang.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countries"></a>Voorbeeld 1: Toegangsbeoordeling voor gebruikers die uit geblokkeerde landen
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Voorbeeld 1: Toegangsbeoordeling voor gebruikers die uit landen/regio's geblokkeerd
 
-Stel dat u hebt een beleid voor voorwaardelijke toegang die blokkeert de toegang van bepaalde landen. Het bevat een groep die is uitgesloten van het beleid. Hier volgt een aanbevolen toegangsbeoordeling waar leden van de groep worden gecontroleerd.
+Stel dat u een beleid voor voorwaardelijke toegang hebt die toegang geblokkeerd in bepaalde landen/regio's. Het bevat een groep die is uitgesloten van het beleid. Hier volgt een aanbevolen toegangsbeoordeling waar leden van de groep worden gecontroleerd.
 
 > [!NOTE]
 > Een globale beheerder of de gebruiker administrator-rol is vereist voor het maken van toegangsbeoordelingen.
@@ -110,9 +110,9 @@ Stel dat u hebt een beleid voor voorwaardelijke toegang die blokkeert de toegang
 
 3. Alle leden van deze groep is binnen het bereik van de beoordeling.
 
-4. Elke gebruiker heeft dat ze nog steeds toegang hebben uit deze geblokkeerde landen nodig, dus ze nog steeds moeten lid zijn van de groep zelf te bevestigen.
+4. Elke gebruiker heeft dat ze nog steeds nodig om toegang vanaf deze geblokkeerde landen/regio's, dus ze nog steeds moeten lid zijn van de groep zelf te bevestigen.
 
-5. Als de gebruiker niet op de aanvraag beoordelen reageert, ze automatisch wordt verwijderd uit de groep, en daarom kunnen geen toegang meer tot de tenant wanneer u onderweg bent aan deze landen.
+5. Als de gebruiker niet op de aanvraag beoordelen reageert, ze automatisch wordt verwijderd uit de groep, en daarom kunnen geen toegang meer tot de tenant wanneer u onderweg bent aan deze landen/regio's.
 
 6. E-mailmeldingen inschakelen, zodat gebruikers worden gewaarschuwd over het begin en einde van de toegangsbeoordeling.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8793f6f4d135d6099541d24aa5f5cfc0b6c21b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec87bdadc0e7f77cdeebb16403758026fd956c30
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290059"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939860"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Over het bouwen van een filter facet in Azure Search 
 
@@ -35,7 +35,7 @@ Nieuw voor meervoudige navigatie en u meer informatie? Zie [facetnavigatie imple
 
 ## <a name="choose-fields"></a>Velden kiezen
 
-Facetten kunnen worden berekend voor één waardevelden, evenals de verzamelingen. Velden die het beste in facetnavigatie werken hebben lage kardinaliteit: een klein aantal afzonderlijke waarden die in de gehele documenten in uw zoekverzameling (bijvoorbeeld een lijst met kleuren, landen of merknamen) worden herhaald. 
+Facetten kunnen worden berekend voor één waardevelden, evenals de verzamelingen. Velden die het beste in facetnavigatie werken hebben lage kardinaliteit: een klein aantal afzonderlijke waarden die in de gehele documenten in uw zoekverzameling (bijvoorbeeld een lijst met kleuren, landen/regio's of merknamen) worden herhaald. 
 
 Op meerdere niveaus op basis van de door veld is ingeschakeld wanneer u de index maken met de volgende kenmerken instellen op TRUE: `filterable`, `facetable`. Alleen filterbare velden kunnen als facet worden gebruikt.
 

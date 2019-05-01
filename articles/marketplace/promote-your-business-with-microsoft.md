@@ -1,27 +1,22 @@
 ---
-title: Promoot uw bedrijf met Microsoft | Azure
+title: Promoot uw bedrijf met Microsoft | Azure Marketplace
 description: Promoot uw bedrijf met behulp van Azure Marketplace en AppSource voor uitgevers van app- en service
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3bd2361547a8210ae287eabaa67b60e8ba1f26e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f21c5f94c595fe3718a0a59a80deff8f1c53b9fc
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735881"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937653"
 ---
-# <a name="promote-your-business-with-microsoft"></a>Promoot uw bedrijf met Microsoft  
+# <a name="promote-your-business-with-microsoft"></a>Promoot uw bedrijf met Microsoft 
+
 Microsoft heeft het doel om ondersteuning voor partners (u) te vereenvoudigen de verkoop van uw app of in de storefronts op marketplace bieden. Door de aanbieding op marketplace, u toegang tot de programma's en bronnen op de marketplace. 
 
 Als u hebt niet al aangemeld op het Microsoft Partner Network (MPN), klikt u dit doen voordat u doorgaat.  

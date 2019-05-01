@@ -1,19 +1,19 @@
 ---
-title: Microsoft Azure Data Box bestellen | Microsoft Docs
+title: Zelfstudie om Azure Data Box | Microsoft Docs
 description: Ontdek wat de implementatievereisten zijn en hoe u een Azure Data Box kunt bestellen
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/05/2019
+ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 07ccd2aaec6b2325d6eef09a466a5d0707836b4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05d522550b96813c6b8326d83f09d7028466c835
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834265"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926218"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Zelfstudie: Azure Data Box bestellen
 
@@ -69,7 +69,7 @@ Voer de volgende stappen uit in de Azure-portal om een apparaat te bestellen.
     |Bronland     |   Selecteer het land/de regio waar uw gegevens momenteel worden bewaard.         |
     |Doel-Azure-regio     |     Selecteer de Azure-regio waarnaar u uw gegevens wilt overdragen.        |
 
-5. Selecteer **Data Box**. De maximale aan bruikbare capaciteit voor één order is 786 TB. U kunt meerdere bestellingen doen voor grotere gegevensgrootten.
+5. Selecteer **Data Box**. De maximale aan bruikbare capaciteit voor één order is 80 TB. U kunt meerdere bestellingen doen voor grotere gegevensgrootten.
 
       [![Selecteer Data Box optie 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 

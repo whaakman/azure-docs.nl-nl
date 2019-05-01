@@ -1,5 +1,5 @@
 ---
-title: De Azure Data Box instellen | Microsoft Docs
+title: Zelfstudie voor het instellen van Azure Data Box | Microsoft Docs
 description: Leer hoe u de Azure Data Box bekabelt en aansluit
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: alkohli
-ms.openlocfilehash: b601ad5936820e2c237b7b9d37d9af73aa468bbc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2da6bf971cc966e27fac46546bfd4e3dcac6d12f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123294"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926168"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Zelfstudie: De Azure Data Box bekabelen en aansluiten
 
@@ -40,7 +40,7 @@ Zorg voordat u begint voor het volgende:
     - Een verbinding bestaan met een netwerk met hoge snelheid. Het wordt aangeraden dat u beschikt over minstens één 10-GbE-verbinding. Als er geen 10-GbE-verbinding beschikbaar is, kan een 1-GbE-gegevensverbinding worden gebruikt. Dit heeft echter wel invloed op de kopieersnelheid. 
 6. U moet de beschikking hebben over een plat oppervlak waarop u de Data Box kunt plaatsen. Als u het apparaat op een plank van een standaardrek wilt plaatsen, moet het datacenterrek beschikken over een 7U-sleuf. U kunt het apparaat plat of rechtop in het rek plaatsen.
 7. U hebt de volgende kabels aangeschaft om de Data Box aan te sluiten op de hostcomputer.
-    - Een of meer koperen 10-GbE-kabels van het type SFP+ Twinax of glasvezelkabels van het type SFP+ (te gebruiken met de netwerkinterfaces DATA 1 en DATA 2). Data Box heeft de Mellanox ConnectX®-3 Pro EN Dual Port 10GBASE-T Adapters met PCI Express 3.0 netwerkinterface. Kabels die compatibel zijn met deze interface moeten dus werken. Voor inhouse testen is een CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M-kabel gebruikt. Zie voor meer informatie de [lijst met ondersteunde kabels en switches van Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
+    - Een of meer koperen 10-GbE-kabels van het type SFP+ Twinax of glasvezelkabels van het type SFP+ (te gebruiken met de netwerkinterfaces DATA 1 en DATA 2). Data Box heeft de Mellanox ConnectX®-3 Pro EN Dual Port 10GBASE-T Adapters met PCI Express 3.0 netwerkinterface. Kabels die compatibel zijn met deze interface moeten dus werken. Bijvoorbeeld, een CISCO SFP-H10GB-CU3M 10GBASE CU TWINMAX SFP + 3 M is kabel voor interne testdoeleinden gebruikt. Zie voor meer informatie de [lijst met ondersteunde kabels en switches van Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - Eén RJ-45-netwerkkabel van het type CAT 6 (gebruiken met de MGMT-netwerkinterface)
     - Eén RJ-45-netwerkkabel van het type CAT 6A OF CAT 6 (gebruiken met DATA 3-netwerkinterface die is geconfigureerd als respectievelijk 10 Gbps of 1 Gbps)
 

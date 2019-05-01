@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 6d1ce56ef66d224b89f49a00c2883ebbf22a5745
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e1f94b7b2ab71afaa40831446e5e5aede00db7b1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364929"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570846"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Peering voor een ExpressRoute-circuit maken en wijzigen
 
@@ -91,7 +91,7 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de c
 
 ### <a name="getmsft"></a>Details van Microsoft-peering weergeven
 
-U kunt de eigenschappen van openbare Azure-peering weergeven door de peering te selecteren.
+Hier vindt u de eigenschappen van Microsoft-peering door de peering te selecteren.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
 
@@ -159,6 +159,10 @@ U kunt de peeringconfiguratie verwijderen door het verwijderingspictogram te sel
 ## <a name="public"></a>Openbare Azure-peering
 
 In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de Azure openbare peering configuratie voor een ExpressRoute-circuit.
+
+> [!Note]
+> Openbare Azure-peering is afgeschaft voor nieuwe circuits. Zie voor meer informatie, [ExpressRoute-peering](expressroute-circuit-peerings.md).
+>
 
 ### <a name="to-create-azure-public-peering"></a>Openbare Azure-peering maken
 

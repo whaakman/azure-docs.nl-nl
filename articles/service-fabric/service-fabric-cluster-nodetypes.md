@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
-ms.openlocfilehash: 7f9397ee21f74fe6a776881940e5721264216b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a5f8735df2b230de2b0ddcdcccff09430bada9e3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386098"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684692"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric-knooppunttypen en VM-schaalsets
-[Virtuele-machineschaalsets](/azure/virtual-machine-scale-sets) worden een Azure compute-resource. U kunt schaalsets gebruiken om te implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype die u in een Azure Service Fabric-cluster definieert, stelt u een afzonderlijke schaal.  De Service Fabric-runtime geïnstalleerd op elke virtuele machine in de schaalset is ingesteld. U kunt onafhankelijk omhoog of omlaag schalen van elk knooppunttype, wijzigen van de SKU van het besturingssysteem die worden uitgevoerd op elk clusterknooppunt, verschillende open poorten bevatten en verschillende capaciteitsstatistieken gebruikt.
+[Virtuele-machineschaalsets](/azure/virtual-machine-scale-sets) worden een Azure compute-resource. U kunt schaalsets gebruiken om te implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype die u in een Azure Service Fabric-cluster definieert, stelt u een afzonderlijke schaal.  De Service Fabric-runtime is geïnstalleerd op elke virtuele machine in de schaalset met de extensie Microsoft.Azure.ServiceFabric virtuele Machine. U kunt onafhankelijk omhoog of omlaag schalen van elk knooppunttype, wijzigen van de SKU van het besturingssysteem die worden uitgevoerd op elk clusterknooppunt, verschillende open poorten bevatten en verschillende capaciteitsstatistieken gebruikt.
 
 De volgende afbeelding ziet u een cluster met twee typen van de knooppunten, met de naam FrontEnd en BackEnd. Elk knooppunttype heeft vijf knooppunten.
 
@@ -38,6 +38,56 @@ Als u uw cluster in Azure portal is geïmplementeerd of het voorbeeld van Azure 
 
 ![Resources][Resources]
 
+## <a name="service-fabric-virtual-machine-extension"></a>Service Fabric Virtual Machine-extensie
+Service Fabric Virtual Machine-uitbreiding wordt gebruikt om de bootstrap-Service Fabric op Azure Virtual Machines en de beveiliging van knooppunt configureren.
+
+Hier volgt een codefragment van de extensie Service Fabric-virtuele Machine:
+
+```json
+"extensions": [
+  {
+    "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
+    "properties": {
+      "type": "ServiceFabricLinuxNode",
+      "autoUpgradeMinorVersion": true,
+      "protectedSettings": {
+        "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+       },
+       "publisher": "Microsoft.Azure.ServiceFabric",
+       "settings": {
+         "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+         "nodeTypeRef": "[variables('vmNodeType0Name')]",
+         "durabilityLevel": "Silver",
+         "enableParallelJobs": true,
+         "nicPrefixOverride": "[variables('subnet0Prefix')]",
+         "certificate": {
+           "commonNames": [
+             "[parameters('certificateCommonName')]"
+           ],
+           "x509StoreName": "[parameters('certificateStoreValue')]"
+         }
+       },
+       "typeHandlerVersion": "1.1"
+     }
+   },
+```
+
+Hier volgen eigenschapbeschrijvingen van de:
+
+| **Naam** | **Toegestane waarden** | ** --- ** | **Richtlijnen of korte beschrijving** |
+| --- | --- | --- | --- |
+| naam | string | --- | unieke naam op voor de extensie |
+| type | "ServiceFabricLinuxNode" of "ServiceFabricWindowsNode | --- | Identificeert OS Service Fabric is voor opstarten |
+| autoUpgradeMinorVersion | waar of ONWAAR | --- | Automatische Upgrade van secundaire versies SF Runtime inschakelen |
+| Uitgever | Microsoft.Azure.ServiceFabric | --- | naam van de uitgever van de extensie Service Fabric |
+| clusterEndpont | string | --- | URI:Port met beheereindpunt |
+| nodeTypeRef | string | --- | naam van knooppunttype |
+| Duurzaamheidsniveau | brons, Zilver, gold, platinum | --- | tijd om te onderbreken onveranderbare infrastructuur van Azure |
+| enableParallelJobs | waar of ONWAAR | --- | Compute ParallelJobs als een VM verwijderen en opnieuw opstarten van virtuele machine in de dezelfde schaalset parallel inschakelen |
+| nicPrefixOverride | string | --- | Het subnetvoorvoegsel, zoals '10.0.0.0/24' |
+| commonNames | string[] | --- | Algemene namen van de geïnstalleerde clustercertificaten |
+| x509StoreName | string | --- | Naam van de Store waar geïnstalleerde clustercertificaat zich bevindt |
+| typeHandlerVersion | 1.1 | --- | De versie van de extensie. klassieke versie 1.0 van de uitbreiding worden aanbevolen om een upgrade uitvoert naar 1.1 |
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie de [overzicht van de functie 'Overal implementeren' en een vergelijking met Azure beheerde clusters](service-fabric-deploy-anywhere.md).

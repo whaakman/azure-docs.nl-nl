@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1fc4a4024893c29c35b4369d13227830cfbbca84
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578562"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943925"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Een Deep Learning virtuele Machine op Azure inrichten 
 
@@ -35,10 +35,11 @@ Hier volgen de stappen voor het maken van een exemplaar van de Deep Learning Vir
 ).
 2. Selecteer de **maken** onder in de wizard een moeten worden genomen.![ Maak dlvm](./media/dlvm-provision-wizard.PNG)
 3. De wizard die wordt gebruikt voor het maken van de DLVM vereist **invoer** voor elk van de **vier stappen** geïnventariseerd aan de rechterkant van de volgende afbeelding. Hier volgen de invoer die nodig zijn voor elk van deze stappen configureren:
-   
+
+   <a name="basics"></a>   
    1. **Basisinstellingen**
       
-      1. **Naam**: De naam van de data science-server die u maakt.
+      1. **Naam**: Naam van de data science-server die u maakt.
       2. **Type besturingssysteem selecteren voor de Deep Learning VM**: Kies Windows of Linux (voor Windows 2016 en base Ubuntu Linux-DSVM)
       2. **Gebruikersnaam**: Admin-account aanmeldings-id.
       3. **Wachtwoord**: Wachtwoord voor beheerdersaccount.
@@ -46,13 +47,14 @@ Hier volgen de stappen voor het maken van een exemplaar van de Deep Learning Vir
       5. **Resourcegroep**: U kunt een nieuwe groep maken of gebruik een **leeg** bestaande Azure-resourcegroep in uw abonnement.
       6. **Locatie**: Selecteer het datacenter die het meest geschikt is. Dit is meestal het datacenter dat de meeste van uw gegevens of zich het dichtst bij uw fysieke locatie voor de snelste toegang tot het netwerk. 
       
-> [!NOTE]
-> De DLVM biedt ondersteuning voor alle NC- en ND-serie GPU VM-exemplaren. Bij het inrichten van de DLVM, moet u een van de locaties in Azure met GPU's kiezen. Controleer de [Azure-producten per regio pagina](https://azure.microsoft.com/regions/services/) pagina voor de beschikbare locaties en zoek naar **NC-serie**, **NCv2-serie**, **uit de NCv3-serie** , of **ND-serie** onder **Compute**. 
+      > [!NOTE]
+      > De DLVM biedt ondersteuning voor alle NC- en ND-serie GPU VM-exemplaren. Bij het inrichten van de DLVM, moet u een van de locaties in Azure met GPU's kiezen. Controleer de [Azure-producten per regio pagina](https://azure.microsoft.com/regions/services/) pagina voor de beschikbare locaties en zoek naar **NC-serie**, **NCv2-serie**, **uit de NCv3-serie** , of **ND-serie** onder **Compute**. 
 
-1. **Instellingen voor**: Selecteer een van de NC-serie (NC, NCv2, NCv3) of de ND-serie GPU VM-grootten die voldoet aan de vereisten van het functionele en kostenbeperkingen. Maak een opslagaccount voor uw virtuele machine.  ![dlvm-instellingen](./media/dlvm-provision-step-2.PNG)
+   1. **Instellingen voor**: Selecteer een van de NC-serie (NC, NCv2, NCv3) of de ND-serie GPU VM-grootten die voldoet aan de vereisten van het functionele en kostenbeperkingen. Maak een opslagaccount voor uw virtuele machine.  ![dlvm-instellingen](./media/dlvm-provision-step-2.PNG)
    
-1. **Summary**: Controleer of alle informatie die u hebt ingevoerd juist is.
-1. **Kopen**: Klik op **kopen** om te beginnen met het inrichten. Er wordt een koppeling gegeven naar de voorwaarden van de transactie. De virtuele machine heeft geen eventuele extra kosten buiten de rekenkracht voor de servergrootte van de die u hebt gekozen in de **grootte** stap. 
+   1. **Summary**: Controleer of alle informatie die u hebt ingevoerd juist is.
+
+   1. **Kopen**: Klik op **kopen** om te beginnen met het inrichten. Er wordt een koppeling gegeven naar de voorwaarden van de transactie. De virtuele machine heeft geen eventuele extra kosten buiten de rekenkracht voor de servergrootte van de die u hebt gekozen in de **grootte** stap. 
 
 > [!NOTE]
 > De inrichting duurt ongeveer 10-20 minuten. De status van de inrichting wordt weergegeven op de Azure-portal.
@@ -66,7 +68,7 @@ Nadat de virtuele machine is gemaakt, kunt u extern bureaublad in met behulp van
 
 ### <a name="linux-edition"></a>Linux-editie
 
-Nadat de virtuele machine is gemaakt, kunt u zich aanmelden toe met behulp van SSH. Gebruik de accountreferenties op die u hebt gemaakt in de **basisbeginselen** sectie van stap 3 voor de tekst shell-interface. Op de client aWindows, kunt u een SSH-clienthulpprogramma, zoals downloaden [Putty](https://www.putty.org). Als u liever een grafische desktop (X Windows-systeem), kunt u X11 doorsturen op Putty gebruiken of de X2Go-client installeren.
+Nadat de virtuele machine is gemaakt, kunt u zich aanmelden toe met behulp van SSH. Gebruik de accountreferenties op die u hebt gemaakt in de [ **basisbeginselen** ](#basics) sectie van stap 3 voor de tekst shell-interface. Zie voor meer informatie over SSH-verbindingen met virtuele Azure-machines, [installeren en configureren van extern bureaublad verbinding maken met een Linux-VM in Azure](/azure/virtual-machines/linux/use-remote-desktop). Op een Windows-client, kunt u een SSH-clienthulpprogramma, zoals downloaden [Putty](http://www.putty.org). Als u liever een grafische desktop (X Windows-systeem), kunt u X11 doorsturen op Putty gebruiken of de X2Go-client installeren. 
 
 > [!NOTE]
 > De client X2Go beter dan X11 doorsturen bij onze tests uitgevoerd. Het is raadzaam om met behulp van de client X2Go voor een grafische interface voor het bureaublad.

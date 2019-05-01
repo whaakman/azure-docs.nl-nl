@@ -5,15 +5,15 @@ services: virtual-machines
 author: jpconnock
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/18/2018
+ms.date: 04/25/2019
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: ca4063d31d93aab3814abed202b6b91b7726185f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f60b5421f2bc66cf09ede4178ce18e2394030264
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542919"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64929373"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Platform ondersteunde migratie van IaaS-resources van klassiek naar Azure Resource Manager
 In dit artikel wordt beschreven hoe u voor het migreren van infrastructuur als een service (IaaS)-resources van het klassieke naar Resource Manager-implementatiemodel en details van hoe u resources van de twee implementatiemodellen die naast elkaar worden gebruikt in uw abonnement met behulp van virtueel netwerk verbinden site-naar-site gateways. U kunt meer lezen over [Azure Resource Manager-functies en voordelen](../articles/azure-resource-manager/resource-group-overview.md). 
@@ -74,7 +74,20 @@ Als uw storage-account beschikt niet over alle gekoppelde schijven of de gegeven
 
 > [!NOTE]
 > De Resource Manager-implementatiemodel beschikt niet over het concept van klassieke installatiekopieën en schijven. Wanneer het opslagaccount is gemigreerd, klassieke installatiekopieën en schijven, niet zichtbaar in de Resource Manager-stack, maar de back-ups VHD's blijven in de storage-account.
->
+
+De volgende schermafbeeldingen laten zien hoe u een klassiek opslagaccount een upgrade uitvoert naar een Azure Resource Manager-opslagaccount met behulp van Azure portal:
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Ga naar uw opslagaccount.
+3. In de **instellingen** sectie, klikt u op **migreren naar ARM**.
+4. Klik op **valideren** migratie haalbaarheid bepalen.
+5. Als de validatie is geslaagd, klikt u op **voorbereiden** om een gemigreerde opslagaccount te maken.
+6. Type **Ja** om te bevestigen van de migratie en klik op **doorvoeren** de migratie te voltooien.
+
+    ![Storage-Account valideren](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
+    
+    ![Voorbereiden van de Storage-Account](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
+    
+    ![Storage-Accountmigratie voltooien](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
 
 ### <a name="migration-of-unattached-resources"></a>Migratie van niet-gekoppelde resources
 Storage-Accounts met geen bijbehorende schijven of virtuele Machines gegevens kunnen onafhankelijk worden gemigreerd.

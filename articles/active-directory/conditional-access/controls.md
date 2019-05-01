@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a5c6f1064d2d73ab3d99ca341cffd9b296723e97
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411625"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571102"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Wat zijn besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang?
 
@@ -113,7 +113,7 @@ U kunt vereisen dat een gebruiker in uw tenant akkoord gaan met de gebruiksvoorw
 
 ### <a name="custom-controls-preview"></a>Aangepaste besturingselementen (preview-versie)
 
-U kunt aangepaste besturingselementen maken voor de voorwaardelijke toegang die uw gebruikers omleiden naar een compatibele service voor verdere buiten Azure Active Directory-vereisten. Hiermee kunt u bepaalde externe verificatie met meerdere factoren en verificatie providers gebruiken om af te dwingen van regels voor voorwaardelijke toegang of om uw eigen aangepaste service. Vereist verificatie of validatie-activiteiten wordt uitgevoerd en wordt vervolgens keert u terug naar Azure Active Directory om te voldoen aan dit besturingselement, de browser van een gebruiker wordt omgeleid naar de externe service. Als de gebruiker is geverifieerd of gevalideerd, wordt de gebruiker blijft in de stroom voor voorwaardelijke toegang. 
+U kunt aangepaste besturingselementen toevoegen voor de voorwaardelijke toegang die uw gebruikers omleiden naar een compatibele service voor verdere buiten Azure Active Directory-vereisten. Hiermee kunt u bepaalde externe verificatie met meerdere factoren en verificatie providers gebruiken om af te dwingen van vereisten voor voorwaardelijke toegang. Vereist verificatie of validatie-activiteiten wordt uitgevoerd en wordt vervolgens keert u terug naar Azure Active Directory om te voldoen aan dit besturingselement, de browser van een gebruiker wordt omgeleid naar de externe service. Als de gebruiker is geverifieerd of gevalideerd, wordt de gebruiker blijft in de stroom voor voorwaardelijke toegang. 
 
 ## <a name="custom-controls"></a>Aangepaste besturingselementen
 
@@ -137,6 +137,8 @@ Voor meer informatie over deze services rechtstreeks contact op met de providers
 ### <a name="creating-custom-controls"></a>Het maken van aangepaste besturingselementen
 
 Voor het maken van een aangepast besturingselement, moet u eerst contact op met de provider die u wilt gebruiken. Elke niet-Microsoft-provider heeft een eigen proces en de vereisten om te registreren, abonnement of anders wordt een onderdeel van de service, en om aan te geven dat u wilt integreren met voorwaardelijke toegang. Op dat moment geeft de provider u een blok van gegevens in JSON-indeling. Deze gegevens kunnen de provider en voorwaardelijke toegang om samen te werken voor uw tenant, wordt het nieuwe besturingselement gemaakt en wordt gedefinieerd hoe voorwaardelijke toegang kan zien als uw gebruikers verifiëren met de provider hebt uitgevoerd.
+
+Aangepaste besturingselementen kunnen niet worden gebruikt met Identity Protection van automation meervoudige verificatie vereisen of rollen in Privileged Identity Manager (PIM).
 
 Kopieer de JSON-gegevens en plak deze in het bijbehorende tekstvak. Geen eventuele wijzigingen aanbrengen in de JSON tenzij u expliciet op de hoogte zijn van de wijziging die u aanbrengt. Elke wijziging kan verbreekt de verbinding tussen de provider en de Microsoft en u en uw gebruikers geen toegang tot uw accounts mogelijk te vergrendelen.
 

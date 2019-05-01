@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 815be7400e0a0560ace7e07b317aeb25c2feacd5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f81aea22014a2c7d5b37c500a546f0b5350b6435
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817421"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925386"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Problemen met Azure Machine Learning-service AKS en ACI-implementaties oplossen
 
@@ -307,7 +307,7 @@ Er zijn twee dingen die kunnen helpen voorkomen dat 503 statuscodes:
     > [!NOTE]
     > Als u aanvraag pieken groter is ontvangt dan de nieuwe minimale replica's kunnen worden verwerkt, ontvangt u mogelijk 503s opnieuw. Als het verkeer naar uw service toeneemt moet u mogelijk bijvoorbeeld de minimale replica's vergroten.
 
-Voor meer informatie over het instellen `autoscale_target_utilization`, `autoscale_max_replicas`, en `autoscale_min_replicas` , Zie de [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) -Moduleverwijzing voorkomen.
+Voor meer informatie over het instellen `autoscale_target_utilization`, `autoscale_max_replicas`, en `autoscale_min_replicas` , Zie de [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) -Moduleverwijzing voorkomen.
 
 
 ## <a name="next-steps"></a>Volgende stappen

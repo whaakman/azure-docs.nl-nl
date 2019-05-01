@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a945316df27460fef48a8bb4d43e46d412d2ae81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 080a37a88e46117a9963f07c14d64f00c6bae6d5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359168"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570473"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
@@ -184,6 +184,8 @@ Tenzij u wilt dat het gebruik van uw eigen certificaten (in plaats van de zelfon
 
 Herhaal deze stappen uit op eventuele aanvullende NPS-servers die u instellen wilt voor de taakverdeling.
 
+Als uw vorige computercertificaat is verlopen, en een nieuw certificaat is gegenereerd, moet u een verlopen certificaten verwijderen. Met verlopen certificaten kunnen problemen veroorzaken met de NPS-extensie starten.
+
 > [!NOTE]
 > Als u uw eigen certificaten gebruikt in plaats van certificaten met de PowerShell-script genereren, zorg dat deze worden uitgelijnd op de NPS-naamconventie. Naam van de certificaathouder moet **CN =\<TenantID\>, OU = Microsoft NPS-extensie**. 
 
@@ -207,7 +209,7 @@ Als u MFA voor een RADIUS-client met behulp van de NPS-extensie inschakelen, wor
 
 Als u gebruikers die niet zijn geregistreerd voor MFA hebt, kunt u bepalen wat er gebeurt wanneer ze proberen te verifiëren. Gebruik de registerinstelling *REQUIRE_USER_MATCH* in het registerpad *HKLM\Software\Microsoft\AzureMFA* om te bepalen het gedrag van de functie. Deze instelling heeft een configuratieoptie voor één:
 
-| Sleutel | Waarde | Standaard |
+| Sleutel | Value | Standaard |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | WAAR/ONWAAR | Niet ingesteld (gelijk aan TRUE) |
 

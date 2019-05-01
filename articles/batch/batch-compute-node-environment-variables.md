@@ -1,6 +1,6 @@
 ---
-title: Omgevingsvariabelen - Azure Batch-rekenknooppunt | Microsoft Docs
-description: Verwijzing naar een knooppunt omgeving variabele berekenen voor Azure Batch-analyses.
+title: Variabelen voor de runtime-omgeving - Azure Batch | Microsoft Docs
+description: Taak-runtime-omgeving variabele richtlijnen en referentie voor Azure Batch-analyses.
 services: batch
 author: laurenhughes
 manager: jeconnoc
@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/07/2019
+ms.date: 04/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c46f75c447becc8b15d4a6b8f979330db7ab95c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782222"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575574"
 ---
-# <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch compute omgevingsvariabelen
+# <a name="azure-batch-runtime-environment-variables"></a>Variabelen voor Azure Batch-runtime-omgeving
 
 De [Azure Batch-service](https://azure.microsoft.com/services/batch/) Hiermee stelt u de volgende omgevingsvariabelen op rekenknooppunten. U kunt verwijzen naar deze omgevingsvariabelen in opdrachtregels en in de programma's en scripts uitvoeren met de opdrachtregel.
 
@@ -28,6 +28,12 @@ Zie voor meer informatie over het gebruik van omgevingsvariabelen met Batch [omg
 ## <a name="environment-variable-visibility"></a>Omgeving variabele zichtbaarheid
 
 Deze omgevingsvariabelen zijn alleen zichtbaar in de context van de **taakgebruiker**, het gebruikersaccount op het knooppunt waaronder een taak wordt uitgevoerd. U ziet deze *niet* als u [extern verbinding maakt](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) met een rekenknooppunt via Remote Desktop Protocol (RDP) of Secure Shell (SSH) en de omgevingsvariabelen weergeeft. Dit komt doordat het gebruikersaccount dat voor de externe verbinding wordt gebruikt, niet hetzelfde is als het account dat door de taak wordt gebruikt.
+
+Als u de huidige waarde van een omgevingsvariabele, start `cmd.exe` op een Windows rekenknooppunt of `/bin/sh` op een Linux-knooppunt:
+
+`cmd /c set <ENV_VARIABLE_NAME>`
+
+`/bin/sh printenv <ENV_VARIABLE_NAME>`
 
 ## <a name="command-line-expansion-of-environment-variables"></a>Opdrachtregel uitbreiding van omgevingsvariabelen
 

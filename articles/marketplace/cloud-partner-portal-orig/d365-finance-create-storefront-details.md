@@ -1,25 +1,18 @@
 ---
-title: Het invullen van het formulier Storefront-Details | Microsoft Docs
+title: Het invullen van het formulier Storefront-Details
 description: Verklaart de waarden voor het formulier Storefront Details voor een nieuwe Dynamics 365 Business Central-app.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: a22a2ebe870280ddcdf18c037141b92894742400
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397947"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935030"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Het invullen van het formulier Storefront-Details
 ===========================================
@@ -57,9 +50,9 @@ Er moet een actieve help-koppeling waarmee klanten online product Help met betre
 
 ### <a name="supported-countriesregions"></a>Ondersteunde landen/regio 's
 
-Bepaalt de landen/regio waarin uw aanbieding is beschikbaar voor evaluatie van dit veld. U kunt alleen de landen waar Microsoft Dynamics 365 Business Central al beschikbaar of in de Preview-versie is. Zie voor de huidige lijst [landen en vertalingen ondersteund](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
+Bepaalt de landen/regio waarin uw aanbieding is beschikbaar voor evaluatie van dit veld. U kunt alleen de landen/regio's waar Microsoft Dynamics 365 Business Central al beschikbaar of in de Preview-versie is. Zie voor de huidige lijst [landen/regio's en vertalingen ondersteund](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
 
-![Landen en vertalingen ondersteund selecteren](./media/d365-financials/image008.png)
+![Landen/regio's en vertalingen ondersteund selecteren](./media/d365-financials/image008.png)
 
 
 ### <a name="supported-languages"></a>Ondersteunde talen

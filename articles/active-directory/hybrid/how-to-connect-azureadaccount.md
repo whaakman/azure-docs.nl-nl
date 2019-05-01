@@ -1,34 +1,33 @@
 ---
-title: 'Azure AD Connect-synchronisatie: Over het beheren van de Azure AD-serviceaccount | Microsoft Docs'
-description: In dit onderwerp beschrijft het herstellen van de Azure AD-serviceaccount.
+title: Wijzig het wachtwoord voor het Azure AD-Connector | Microsoft Docs
+description: In dit onderwerp beschrijft het herstellen van de Azure AD-Connector-account.
 services: active-directory
-keywords: AADSTS70002, AADSTS50054, het opnieuw instellen van het wachtwoord voor de Connector-serviceaccount van de Azure AD Connect-synchronisatie
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 07/12/2017
-ms.date: 11/08/2018
-ms.component: hybrid
-ms.author: v-junlch
-ms.openlocfilehash: f88318c87e29567b40b5eacf10f3b6f259adee8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 04/25/2019
+ms.subservice: hybrid
+ms.author: billmath
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d68c190b51b9bbb5faf21e8ea75b07d1a82005e5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351002"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571412"
 ---
-# <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect-synchronisatie: Over het beheren van de Azure AD-serviceaccount
-Het serviceaccount dat wordt gebruikt door de Azure AD-Connector is mag service gratis. Als u de referenties opnieuw instellen wilt, klikt u vervolgens is in dit onderwerp voor u. Bijvoorbeeld, als een globale beheerder per ongeluk het wachtwoord opnieuw instellen op de serviceaccount met behulp van PowerShell.
+# <a name="change-the-azure-ad-connector-account-password"></a>Het wachtwoord voor het Azure AD-Connector wijzigen
+Het account van Azure AD-Connector is mag service gratis. Als u de referenties opnieuw instellen wilt, klikt u vervolgens is in dit onderwerp voor u. Bijvoorbeeld, als een globale beheerder per ongeluk het wachtwoord opnieuw instellen op het account met behulp van PowerShell.
 
 ## <a name="reset-the-credentials"></a>De referenties opnieuw instellen
-Als het serviceaccount dat is gedefinieerd in de Azure AD-Connector geen contact krijgt met Azure AD vanwege problemen met de verificatie, kan het wachtwoord opnieuw worden ingesteld.
+Als het account van Azure AD-Connector geen contact krijgt met Azure AD vanwege problemen met de verificatie, kan het wachtwoord opnieuw worden ingesteld.
 
 1. Aanmelden bij de Azure AD Connect-synchronisatieserver en start PowerShell.
 2. Voer `Add-ADSyncAADServiceAccount` uit.  
@@ -38,7 +37,7 @@ Als het serviceaccount dat is gedefinieerd in de Azure AD-Connector geen contact
 Deze cmdlet Hiermee stelt u het wachtwoord voor het serviceaccount en deze bijwerken in Azure AD en in de synchronisatie-engine.
 
 ## <a name="known-issues-these-steps-can-solve"></a>Bekende problemen in die deze stappen op te lossen
-In deze sectie wordt een lijst van fouten die zijn gerapporteerd door klanten die door een referenties opnieuw instellen op de Azure AD-serviceaccount zijn opgelost.
+In deze sectie wordt een lijst van fouten die zijn gerapporteerd door klanten die door een referenties opnieuw instellen van de Azure AD-Connector-account zijn opgelost.
 
 - - -
 Event 6900  
@@ -53,7 +52,6 @@ AADSTS70002: Fout bij het valideren van referenties. AADSTS50054: Er is een oud 
 ## <a name="next-steps"></a>Volgende stappen
 **Overzichtsonderwerpen**
 
-- [Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie](how-to-connect-sync-whatis.md)
-- [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
-
+* [Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie](how-to-connect-sync-whatis.md)
+* [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
 

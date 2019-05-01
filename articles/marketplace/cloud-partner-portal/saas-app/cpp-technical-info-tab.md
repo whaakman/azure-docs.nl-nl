@@ -1,25 +1,18 @@
 ---
-title: Azure SaaS-aanbieding technische Toepassingsconfiguratie | Microsoft Docs
+title: Azure SaaS-aanbieding technische Toepassingsconfiguratie | Azure Marketplace
 description: Configureer technische informatie voor SaaS-toepassing aanbieding op Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 891d9b7b34e3d30efb46b69ef1aa75566fe634c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 46dcf4aeb7ddb67028eb23dde9236f2b7709f86d
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594347"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941731"
 ---
 # <a name="saas-application-technical-info-tab"></a>Tabblad voor SaaS-toepassing technische gegevens
 
@@ -27,9 +20,11 @@ Het tabblad technische gegevens bevat het configuratieformulier voor technische.
 
 ![Technische configuratieformulier](./media/saas-techinfo-techconfig.png)
 
+
 ## <a name="technical-configuration-form"></a>Technische configuratieformulier
 
 Dit formulier heeft 2 velden: Product en aanbieding.
+
 
 ### <a name="product-field"></a>Productveld
 
@@ -37,6 +32,7 @@ U kunt een SaaS-app opgeven voor beide van de volgende storefronts:
 - Een zakelijke gebruiker door het selecteren van de **aanbieding** optie.
 - Voor een IT-beheerder, door te selecteren **verkopen via Microsoft**.
 Lezen om te bepalen welk type SaaS-app u bouwt, [begrijpen storefront selectie](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#understand-storefront-selection).
+
 
 #### <a name="sell-through-microsoft"></a>Verkopen via Microsoft
 Als u wilt maken van deze ervaring die u wilt configureren van de volgende onderdelen:
@@ -46,16 +42,17 @@ Als u wilt maken van deze ervaring die u wilt configureren van de volgende onder
 
   ![Verkopen via Microsoft-formulier](./media/saas-techinfo-sellthrough-ms.png)
 
-De volgende tabel beschrijft de vereiste velden voor verkopen via Microsoft.
+De volgende tabel beschrijft de vereiste velden voor **verkopen via Microsoft**.  Verplichte velden zijn indicted met een asterisk (*).
 
 |  **Veldnaam**   |  **Beschrijving**  |
 |  ---------------  |  ---------------  |
-|    Preview-versie abonnement-id 's               |    Alle de Azure-abonnement-id's gebruikt voor het testen van uw aanbieding in preview, voordat deze algemeen beschikbaar is.               |
-|     Aan de slag instructies              |   Aanwijzingen voor het delen met uw klanten zodat ze verbinding maken met uw SaaS-app. Eenvoudige HTML-codes zijn toegestaan, bijvoorbeeld: &lt;p&gt;, &lt;h1&gt;, &lt;li&gt;, enzovoort.                |
-|    URL landingspagina  |   De URL van de site die u worden zodat uw klanten land na het aanschaffen van Azure-portal. Deze URL worden ook het eindpunt dat de API's voor het vereenvoudigen van handel met Microsoft-verbinding wordt ontvangen.                |
-|  Verbinding Webhook    |  Voor alle asynchrone gebeurtenissen die door Microsoft nodig heeft om u te sturen namens de klant (voorbeeld: Azure-abonnement is geworden ongeldige), moet je voor ons een webhook verbinding. Als u nog een webhook-systeem voldaan hebt, wordt de eenvoudigste configuratie is dat de logische App van een HTTP-eindpunt die luisteren naar gebeurtenissen worden gepubliceerd naar deze en klik vervolgens op de juiste manier verwerken. Zie voor meer informatie, <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">aanroepen, trigger of nesten van werkstromen met HTTP-eindpunten in logische apps</a>                |
-|  Azure AD-Tenant-ID en App-ID      |   In Azure portal, vereist een Active Directory-App te maken, zodat de verbinding kan worden gevalideerd tussen de twee services zich achter een geverifieerde communicatie. Voor deze velden een AD-App maken en plak in de bijbehorende Tenant-Id en App-Id vereist. Houd er rekening mee dat de App-id gekoppeld aan uw publisherID is. Daarom, zorg ervoor dat dezelfde App-ID zoals in alle aanbiedingen.             |
-
+|  **Preview-versie abonnement-id 's\***   |  Alle de Azure-abonnement-id's gebruikt voor het testen van uw aanbieding in preview, voordat deze algemeen beschikbaar is.  |
+|  **Voorbeeld van de AAD/MSA-accounts\***   |  De Azure AD/MSA-accounts, gescheiden door komma's, die toegang tot de Preview-versie hebben. |
+|  **Aan de slag instructies** |  Aanwijzingen voor het delen met uw klanten zodat ze verbinding maken met uw SaaS-app. Eenvoudige HTML-codes zijn toegestaan, bijvoorbeeld: &lt;p&gt;, &lt;h1&gt;, &lt;li&gt;, enzovoort.    |
+|  **URL landingspagina\***           |  De URL van de site die u worden zodat uw klanten land na het aanschaffen van Azure-portal. Deze URL worden ook het eindpunt dat de API's voor het vereenvoudigen van handel met Microsoft-verbinding wordt ontvangen.   |
+| **Verbinding Webhook\***            |  Voor alle asynchrone gebeurtenissen die door Microsoft nodig heeft om u te sturen namens de klant (voorbeeld: Azure-abonnement is geworden ongeldige), moet je voor ons een webhook verbinding. Als u nog een webhook-systeem voldaan hebt, wordt de eenvoudigste configuratie is dat de logische App van een HTTP-eindpunt die luisteren naar gebeurtenissen worden gepubliceerd naar deze en klik vervolgens op de juiste manier verwerken. Zie voor meer informatie, <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">aanroepen, trigger of nesten van werkstromen met HTTP-eindpunten in logische apps</a>    |
+|  **Azure AD-Tenant-ID\***  en **App-ID\***      |   In Azure portal, vereist een Active Directory-App te maken, zodat de verbinding kan worden gevalideerd tussen de twee services zich achter een geverifieerde communicatie. Voor deze velden een AD-App maken en plak in de bijbehorende Tenant-Id en App-Id vereist. Houd er rekening mee dat de App-id gekoppeld aan uw publisherID is. Daarom, zorg ervoor dat dezelfde App-ID zoals in alle aanbiedingen.   |
+|   |   |
 
 Ten slotte, als u selecteert **verkopen via Microsoft**, er is een andere nieuwe aanbieding tabblad met de naam **plannen**. 
 

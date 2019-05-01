@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 96ff843ada9d9043d2c10f479d488617ae56da41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 20b8d7a6a7d6da639481045d9462c484b820a4df
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869007"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575827"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Wat is Azure Data Box Disk?
 
@@ -74,7 +74,7 @@ Ga naar [Azure Data Box Disk-beveiliging en -gegevensbescherming](data-box-disk-
 ## <a name="features-and-specifications"></a>Functies en specificaties
 
 
-| Specificaties                                          | Beschrijving              |
+| Specificaties                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Gewicht                                                  | < 2 lbs. per doos. Maximaal 5 schijven in de doos                |
 | Dimensies                                              | Schijf: 2,5-inch SSD |            
@@ -103,6 +103,8 @@ Op dit moment kan Data Box Disk gegevens overdragen naar de volgende Azure-regio
 |US - oost      |Australië - centraal |
 |US - oost 2     |Australië - centraal 2|
 |Japan - oost     |Korea - centraal |
+|Japan - west     |Korea - zuid |
+|Azië - zuidoost |
 
 
 ## <a name="pricing"></a>Prijzen

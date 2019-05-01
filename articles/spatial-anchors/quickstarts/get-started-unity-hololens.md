@@ -1,5 +1,5 @@
 ---
-title: Snelstartgids - een HoloLens Unity-app maken met Azure ruimtelijke ankers | Microsoft Docs
+title: 'Snelstart: maken van een Unity HoloLens-app met Azure ruimtelijke ankers | Microsoft Docs'
 description: In deze quickstart leert u een HoloLens-app maken met Unity en met behulp van Spatial Anchors.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ce9bca3f11911677a6009b4cfe0c3f6413b9f837
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 31c7af3edf6364ebca021f87240e73c74e64ebc4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240576"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704124"
 ---
-# <a name="quickstart-create-a-hololens-unity-app-that-uses-azure-spatial-anchors"></a>Quickstart: Maken van een HoloLens Unity-app die gebruikmaakt van Azure ruimtelijke ankers
+# <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Quickstart: Maken van een Unity HoloLens-app die gebruikmaakt van Azure ruimtelijke ankers
 
-In deze quickstart maakt u een HoloLens Unity-app die gebruikmaakt van [Azure ruimtelijke ankers](../overview.md). Ruimtelijke ankers is een platformoverschrijdende developer-service waarmee u het maken van gemengde realiteit ervaringen met objecten die hun locatie opslaan op apparaten na verloop van tijd. Als u klaar bent, hebt u een HoloLens-app met Unity gemaakt waarmee een ruimtelijk anker kan worden opgeslagen en teruggehaald.
+In deze quickstart maakt u een Unity HoloLens-app die gebruikmaakt van [Azure ruimtelijke ankers](../overview.md). Ruimtelijke ankers is een platformoverschrijdende developer-service waarmee u het maken van gemengde realiteit ervaringen met objecten die hun locatie opslaan op apparaten na verloop van tijd. Als u klaar bent, hebt u een HoloLens-app met Unity gemaakt waarmee een ruimtelijk anker kan worden opgeslagen en teruggehaald.
 
 U leert het volgende:
 

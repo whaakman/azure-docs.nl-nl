@@ -8,18 +8,18 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: 5d5398f4da7563c6f53c17d0305f54c4360f1c65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6e4bb7622fe51c0cab4fc45e945e5bb07b1d32f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342624"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925845"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Zelfstudie: Een Azure Database for MySQL-server inrichten met behulp van een Azure Resource Manager-sjabloon
 
 Met de [Azure Database for MySQL REST API](https://docs.microsoft.com/rest/api/mysql/) kunnen DevOps-technici de inrichting, configuratie en bewerkingen van beheerde MySQL-servers en -databases in Azure automatiseren en integreren.  Met de API kunnen MySQL-servers en -databases in de Azure Database for MySQL-service worden gemaakt, opgesomd, beheerd en verwijderd.
 
-Azure Resource Manager maakt gebruik van de onderliggende REST-API om de Azure-resources te declareren en te programmeren die nodig zijn voor grootschalige implementaties, in lijn met de infrastructuur als codeconcept. De sjabloon maakt een parameter van de Azure-resourcenaam, de SKU, het netwerk, de firewallconfiguratie en de instellingen, zodat deze eenmalig kan worden gemaakt en meerdere malen kan worden gebruikt.  Azure Resource Manager-sjablonen kunnen eenvoudig worden gemaakt met behulp van [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) of [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Ze zijn bedoeld voor het inpakken van toepassingen, standaardisatie en automatisering van de implementatie, geschikt voor integratie in de CI/CD-pijplijn van DevOps.  Als u bijvoorbeeld snel een web-app met Azure Database for MySQL-back-end wilt implementeren, kunt u de end-to-end-implementatie uitvoeren met behulp van deze [snelstartsjabloon](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) uit de GitHub-galerie.
+Azure Resource Manager maakt gebruik van de onderliggende REST-API om de Azure-resources te declareren en te programmeren die nodig zijn voor grootschalige implementaties, in lijn met de infrastructuur als codeconcept. De sjabloon maakt een parameter van de Azure-resourcenaam, de SKU, het netwerk, de firewallconfiguratie en de instellingen, zodat deze eenmalig kan worden gemaakt en meerdere malen kan worden gebruikt.  Azure Resource Manager-sjablonen kunnen eenvoudig worden gemaakt met behulp van [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) of [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Ze zijn bedoeld voor het inpakken van toepassingen, standaardisatie en automatisering van de implementatie, geschikt voor integratie in de CI/CD-pijplijn van DevOps.  Als u bijvoorbeeld snel een web-app met Azure Database for MySQL-back-end wilt implementeren, kunt u de end-to-end-implementatie uitvoeren met behulp van deze [snelstartsjabloon](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) uit de GitHub-galerie.
 
 In deze zelfstudie gebruikt u een sjabloon van Azure Resource Manager en andere hulpprogramma's om het volgende te leren:
 

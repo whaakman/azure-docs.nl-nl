@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 974062b06c58ee23a001066a70a08675e2e94e48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76008cdf0121ac3c9e4a2fc30d2e9fbcc561ff1d
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60638075"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939540"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Offline PlayReady Streaming voor Windows 10  
 
@@ -39,9 +39,9 @@ Azure Media Services ondersteunt offline downloaden/afspelen met DRM-beveiliging
 
 In deze sectie biedt enige ervaring in offlinemodus afspelen, met name waarom:
 
-* In sommige landen zijn de beschikbaarheid van Internet en/of bandbreedte is nog steeds beperkt. Gebruikers kunnen ervoor kiezen voor het eerst downloaden als u wilt bekijken van inhoud in hoog genoeg oplossing voor goede weergavemogelijkheden. In dit geval vaker, het probleem is niet beschikbaarheid van het netwerk, in plaats van het beperkte netwerkbandbreedte is. OTT/OVP providers vragen stellen voor ondersteuning van de offline modus.
+* Beschikbaarheid van Internet en/of bandbreedte is nog steeds beperkt in bepaalde landen/regio's. Gebruikers kunnen ervoor kiezen voor het eerst downloaden als u wilt bekijken van inhoud in hoog genoeg oplossing voor goede weergavemogelijkheden. In dit geval vaker, het probleem is niet beschikbaarheid van het netwerk, in plaats van het beperkte netwerkbandbreedte is. OTT/OVP providers vragen stellen voor ondersteuning van de offline modus.
 * Zoals vermeld in Netflix 2016 Q3 aandeelhouders conferentie, downloaden van inhoud is een 'zake aangevraagd functie"en"we zijn geopend voor het"gezegd door Reed Hastings, CEO van Netflix.
-* Sommige inhoudsproviders mogelijk niet toestaan van DRM-licentielevering buiten de rand van een land/regio. Als een gebruiker moet in het buitenland reizen en wil nog steeds de inhoud bekijken, offline downloaden nodig.
+* Sommige inhoud providers kunnen DRM-licentielevering buiten een land/regio rand weigeren. Als een gebruiker moet in het buitenland reizen en wil nog steeds de inhoud bekijken, offline downloaden nodig.
  
 We de uitdaging bij de uitvoering van de offlinemodus bevindt, is het volgende:
 

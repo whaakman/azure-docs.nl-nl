@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7c45b0581a03e280c7dbd6d998059f1e4bff5345
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: d88bf309d2afeb4e6fdd09ff1317bec3fec2fe75
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556047"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695854"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configuratie van de bewaartermijn in Time Series Insights
 In dit artikel wordt beschreven hoe u **gegevensretentietijd** en **-limiet voor opslag overschreden gedrag** in Azure Time Series Insights.
@@ -46,4 +46,5 @@ Raadpleeg voor gedetailleerde informatie voor meer informatie over deze instelli
 7. Selecteer **opslaan** het configureren van de wijzigingen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Raadpleeg voor meer informatie, [Understanding bewaren in Time Series Insights](time-series-insights-concepts-retention.md).
+
+- Raadpleeg voor meer informatie, [Understanding bewaren in Time Series Insights](time-series-insights-concepts-retention.md).

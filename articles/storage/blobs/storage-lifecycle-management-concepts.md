@@ -5,15 +5,15 @@ services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 4/29/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1fdd1b239301a5340716e1d5d098487afe27f9f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392463"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938572"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>De levenscyclus van de Azure Blob-opslag beheren
 
@@ -42,7 +42,7 @@ De levenscyclus van management-functie is beschikbaar in alle openbare Azure-reg
 
 ## <a name="add-or-remove-a-policy"></a>Toevoegen of verwijderen van een beleid 
 
-U kunt toevoegen, bewerken of verwijderen van een beleid met behulp van Azure portal, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), de Azure CLI, [REST-API's](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), of een clienthulpprogramma. In dit artikel laat zien hoe beleid beheren met behulp van de portal en PowerShell-methoden.  
+U kunt toevoegen, bewerken of verwijderen van een beleid met behulp van Azure portal, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), de Azure CLI, [REST-API's](https://docs.microsoft.com/rest/api/storagerp/managementpolicies), of een clienthulpprogramma. In dit artikel laat zien hoe beleid beheren met behulp van de portal en PowerShell-methoden.  
 
 > [!NOTE]
 > Als u firewallregels voor uw opslagaccount inschakelt, worden lifecycle management-aanvragen geblokkeerd. U kunt deze aanvragen blokkering opheffen door op te geven van uitzonderingen. De vereiste toegang zijn: `Logging,  Metrics,  AzureServices`. Zie voor meer informatie de sectie uitzonderingen in [firewalls en virtuele netwerken configureren](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
@@ -80,7 +80,47 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 
 ```
+## <a name="arm-template-with-lifecycle-management-policy"></a>ARM-sjabloon met lifecycle management-beleid
 
+U kunt definiëren en implementeren van beheer van de levenscyclus als onderdeel van de implementatie van uw Azure-oplossing met behulp van ARM-sjablonen. De volgende is een voorbeeldsjabloon voor het implementeren van een RA-GRS GPv2-opslagaccount met lifecycle management-beleid. 
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "storageAccountName": "[uniqueString(resourceGroup().id)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2019-04-01",
+      "sku": {
+        "name": "Standard_RAGRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "networkAcls": {}
+      }
+    },
+    {
+      "name": "[concat(variables('storageAccountName'), '/default')]",
+      "type": "Microsoft.Storage/storageAccounts/managementPolicies",
+      "apiVersion": "2019-04-01",
+      "dependsOn": [
+        "[variables('storageAccountName')]"
+      ],
+      "properties": {
+        "policy": {...}
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ## <a name="policy"></a>Beleid
 
@@ -305,8 +345,8 @@ Voor gegevens die is gewijzigd en gedurende hun levensduur regelmatig geopend, w
   ]
 }
 ```
-## <a name="faq---i-created-a-new-policy-why-are-the-actions-not-run-immediately"></a>Veelgestelde vragen - ik heb gemaakt voor een nieuw beleid, waarom worden de acties die niet direct uitvoeren? 
-
+## <a name="faq"></a>Veelgestelde vragen 
+**Ik heb een nieuw beleid, waarom worden de acties die niet direct uitvoeren gemaakt?**  
 Het platform wordt één keer per dag uitgevoerd de lifecycle-beleid. Wanneer u een beleid configureert, duurt het tot 24 uur voor sommige acties (zoals blobniveau en verwijdering) voor de eerste keer uit te voeren.  
 
 ## <a name="next-steps"></a>Volgende stappen

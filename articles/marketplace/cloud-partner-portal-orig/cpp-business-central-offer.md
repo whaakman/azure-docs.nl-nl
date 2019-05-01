@@ -1,25 +1,18 @@
 ---
-title: Dynamics 365 Business Central-aanbieding voor Azure Marketplace | Microsoft Docs
+title: Dynamics 365 Business Central-aanbieding voor Azure Marketplace
 description: Wordt uitgelegd hoe u een Dynamics 365 Business Central aanbieding maken in de Cloud Partner-Portal.
 services: Dynamics 365 Business Central, AppSource Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pbutlerm
-ms.openlocfilehash: b5fdcb3269a63e6f0d961bf2ab9f5f2a4a4005ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: e9581f2ca4322a247b2cd3e64483b8baac3a6a58
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60398316"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64934940"
 ---
 # <a name="dynamics-365-business-central-offer"></a>Dynamics 365 Business Central-aanbieding
 

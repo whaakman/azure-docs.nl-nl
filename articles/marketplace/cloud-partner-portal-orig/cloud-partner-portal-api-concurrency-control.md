@@ -1,28 +1,20 @@
 ---
-title: Gelijktijdigheidsbeheer | Microsoft Docs
+title: Gelijktijdigheidsbeheer | Azure Marketplace
 description: Gelijktijdigheid besturingselement strategieën voor het publiceren van API's van Cloud-Partner-Portal.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ecf0bb6ac7fc77e804c9fc8d62aba52810de5640
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 8cdcfd84a2f3bd4f920b97392255237db173cbf9
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625003"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935605"
 ---
-<a name="concurrency-control"></a>Gelijktijdigheid beheren
-===================
+# <a name="concurrency-control"></a>Gelijktijdigheid beheren
 
 Voor elke aanroep naar de Cloud Partner-Portal publiceren van API's moet expliciet opgeven welke gelijktijdigheid-strategie voor toegangsbeheer te gebruiken. Fout voor de **If-Match** header zal resulteren in reactie op een HTTP-fout 400-fout. We bieden twee strategieën voor het besturingselement voor gelijktijdigheid van taken.
 

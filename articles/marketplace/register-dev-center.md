@@ -2,24 +2,18 @@
 title: Registreren in-ontwikkelaarscentrum | Azure
 description: Klik hier voor meer informatie over het registreren in Developer Center (Dev Center).
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 559b5a519a48d4aa8022961a59f6f29cef28f948
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735736"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937573"
 ---
 # <a name="register-in-dev-center"></a>Registreren in Dev Center  
 Om te controleren of u bent niet aangemeld bij een account persoonlijke browser, open een nieuw InPrivate van Internet Explorer of Chrome Incognito browsersessie.  
@@ -34,7 +28,7 @@ Om te controleren of u bent niet aangemeld bij een account persoonlijke browser,
     ![Accountgegevens met box voor land/regio](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)  
    
     >[!WARNING]
-    >Om te mogen verkopen uw services op Azure Marketplace, controleert u of uw geregistreerde entiteit is van een van de goedgekeurde *waarvoor verkopen* landen. De beperking van de locatie is vereist voor betalings- en belasting redenen. 
+    >Om te mogen verkopen uw services op Azure Marketplace, controleert u of uw geregistreerde entiteit is van een van de goedgekeurde *waarvoor verkopen* landen/regio's. De beperking van de locatie is vereist voor betalings- en belasting redenen. 
     >*   Voor meer informatie gaat u naar de Azure Marketplace beleidsregels voor deelname aan pagina zich bevindt op [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
 
 4.  Voor *accounttype*, selecteer de `Company` keuzerondje.  

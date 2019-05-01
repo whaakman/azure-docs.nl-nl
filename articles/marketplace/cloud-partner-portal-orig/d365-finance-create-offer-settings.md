@@ -1,25 +1,18 @@
 ---
-title: Vul het formulier instellingen bieden het | Microsoft Docs
+title: Vul het formulier instellingen bieden het | Azure Marketplace
 description: Legt uit de verschillende velden waarvoor waarden in het formulier instellingen bieden voor een nieuwe Dynamics 365 Business Central-toepassing.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a050a8cfdd67f662786fc0b9b7ed5451c88dccb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: d29b17e1a109b37a51a0e6bd2af2a7bb02b977a9
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397818"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64934912"
 ---
 <a name="how-to-fill-out-the-offer-settings-form"></a>Het invullen van het formulier instellingen bieden
 =======================================

@@ -2,26 +2,23 @@
 title: Failover uitvoeren en opnieuw beveiligen van virtuele Azure-machines gerepliceerd naar een secundaire Azure-regio voor herstel na noodgeval met de Azure Site Recovery-service.
 description: Leer hoe u een failover en opnieuw beveiligen van virtuele Azure-machines gerepliceerd naar een secundaire Azure-regio voor herstel na noodgevallen, met de Azure Site Recovery-service.
 services: site-recovery
-author: rockboyfor
-manager: digimobile
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 04/08/2019
-ms.date: 04/22/2019
-ms.author: v-yeche
+ms.date: 04/29/2019
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 96e3c0b761a9ed4c5f84d8ece1ba504bd5aacf6f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bf2ded7a98d608780bc447c5944e7d1f4d9b698b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115955"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926408"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Failover en Azure VM's tussen regio's opnieuw beveiligen
 
-De [Azure Site Recovery](site-recovery-overview.md)-service draagt bij aan uw strategie voor herstel na noodgevallen door de replicatie, failover en failback van on-premises machines en virtuele Azure-machines te beheren en in te delen.
-
-Deze zelfstudie wordt beschreven hoe u een failover via een Azure-VM naar een secundaire Azure-regio. Nadat u een failover hebt, kunt u de virtuele machine beveiligen. In deze zelfstudie leert u het volgende:
+Deze zelfstudie wordt beschreven hoe u een failover uitgevoerd voor een Azure virtuele machine (VM) naar een secundaire Azure-regio met de [Azure Site Recovery](site-recovery-overview.md) service. Nadat u een failover hebt, kunt u de virtuele machine beveiligen. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een failover uitvoeren van de virtuele Azure-machine
@@ -35,18 +32,17 @@ Deze zelfstudie wordt beschreven hoe u een failover via een Azure-VM naar een se
 - Zorg dat u een [herstelanalyse](azure-to-azure-tutorial-dr-drill.md) hebt uitgevoerd om te controleren of alles werkt zoals verwacht.
 - Controleer de eigenschappen van de virtuele machine voordat u de testfailover uitvoert. De virtuele machine moet voldoen aan [Azure-vereisten](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
-<a name="run-a-failover"></a>
 ## <a name="run-a-failover-to-the-secondary-region"></a>Een failover uitvoeren naar de secundaire regio
 
 1. Selecteer in **Gerepliceerde items** de virtuele machine waarnaar u een failover wilt uitvoeren en selecteer **Failover**
 
-    ![Failover](./media/azure-to-azure-tutorial-failover-failback/failover.png)
+   ![Failover](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
 2. Selecteer in **Failover** een **Herstelpunt** waarnaar u de failover wilt uitvoeren. U kunt een van de volgende opties gebruiken:
 
-    * **Meest recent** (standaardwaarde): Verwerkt de gegevens in de Site Recovery-service en biedt de laagste Recovery Point Objective (RPO).
-    * **Laatst verwerkt**: Hiermee herstelt u de virtuele machine naar de meest recente herstelpunt dat is verwerkt door Site Recovery-service.
-    * **Aangepast**: Failover-schakeling naar een bepaald herstelpunt. Deze optie is handig voor het uitvoeren van een testfailover.
+   * **Meest recent** (standaardwaarde): Verwerkt de gegevens in de Site Recovery-service en biedt de laagste Recovery Point Objective (RPO).
+   * **Laatst verwerkt**: Hiermee herstelt u de virtuele machine naar de meest recente herstelpunt dat is verwerkt door Site Recovery-service.
+   * **Aangepast**: Failover-schakeling naar een bepaald herstelpunt. Deze optie is handig voor het uitvoeren van een testfailover.
 
 3. Selecteer **sluit de computer voordat u begint met failover** als u wilt dat Site Recovery probeert een afsluiten van de bron-VM's voordat de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt. Site Recovery heeft, verwijdert u niet de bron na een failover.
 
@@ -57,6 +53,11 @@ Deze zelfstudie wordt beschreven hoe u een failover via een Azure-VM naar een se
 6. Wanneer u tevreden bent met de virtuele machine waarvoor u de failover hebt uitgevoerd, kunt u de failover **Doorvoeren**.
    Als u de failover doorvoert, worden alle herstelpunten die beschikbaar zijn voor de service verwijderd. Niet nu mogelijk om te wijzigen van het herstelpunt.
 
+> [!NOTE]
+> Wanneer u een failover uitvoert voor een virtuele machine waaraan u een schijf toevoegen wanneer u replicatie voor de virtuele machine inschakelt, wordt de schijven die beschikbaar voor herstel zijn door replicatie punten worden weergegeven. Bijvoorbeeld, als een virtuele machine één schijf heeft en u een nieuwe toevoegen, wordt replicatie-punten die zijn gemaakt voordat u de schijf toegevoegd weergegeven dat de replicatie-punt uit '1 van 2 schijven bestaat'.
+
+![Failover met een toegevoegde schijf](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
+
 ## <a name="reprotect-the-secondary-vm"></a>De secundaire virtuele machine opnieuw beveiligen
 
 Na een failover van de virtuele machine moet u deze opnieuw beveiligen zodat deze terug naar de primaire regio wordt gerepliceerd.
@@ -64,14 +65,12 @@ Na een failover van de virtuele machine moet u deze opnieuw beveiligen zodat dez
 1. Zorg ervoor dat de virtuele machine de status **Failover is doorgevoerd** heeft en controleer of de primaire regio beschikbaar is, en of u er nieuwe resources op kunt maken en deze kunt openen.
 2. Klik in **Kluis** > **Gerepliceerde items** met de rechtermuisknop op de virtuele machine waarvoor de failover is uitgevoerd is en selecteer vervolgens **Opnieuw beveiligen**.
 
-    ![Klik met de rechtermuisknop om opnieuw te beveiligen](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
+   ![Klik met de rechtermuisknop om opnieuw te beveiligen](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
 
 2. Controleer of de richting van beveiliging, secundaire naar primaire regio, al is geselecteerd.
 3. Controleer de informatie over **resourcegroep, netwerk, opslag en beschikbaarheidssets**. Gemarkeerd als nieuwe resources worden gemaakt als onderdeel van de bewerking opnieuw beveiligen.
 4. Klik op **OK** om het opnieuw beveiligen te activeren. Met deze taak wordt de doelsite van de meest recente gegevens voorzien. Vervolgens worden de verschillen naar de primaire regio gerepliceerd. De virtuele machine heeft nu een beveiligde status.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Na het opnieuw beveiligen [informatie over hoe u](azure-to-azure-tutorial-failback.md) terug naar de primaire regio mislukken wanneer deze beschikbaar is.
+- Na het opnieuw beveiligen, [informatie over hoe u](azure-to-azure-tutorial-failback.md) terug naar de primaire regio mislukken wanneer deze beschikbaar is.
 - [Meer informatie](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) over de stroom opnieuw beveiligen.
-
-<!-- Update_Description: update meta properties, wording update -->

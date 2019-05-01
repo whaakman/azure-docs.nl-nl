@@ -1,25 +1,18 @@
 ---
-title: Dynamics 365 voor Customer Engagement bieden tabblad contactpersonen - Azure Marketplace | Microsoft Docs
+title: Dynamics 365 voor Customer Engagement bieden tabblad contactpersonen | Azure Marketplace
 description: Neem contact op met informatie voor Dynamics 365 voor Customer Engagement aanbieding configureren op de AppSource-Marketplace.
 services: Dynamics 365 for Customer Engagement, Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/27/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e15b20c4b874e68c09321e00604aed24b7970371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: cdd3d01c9295ef5ae8e7bc1936b5926fb38cfe77
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60873668"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942515"
 ---
 # <a name="azure-application-contacts-tab"></a>Tabblad Azure-toepassing-contactpersonen
 
@@ -30,22 +23,22 @@ Gebruik de **contactpersonen** tabblad voor engineering en klant ondersteuningsi
 
 ## <a name="specify-customer-and-engineering-contacts"></a>Klant- en -engineering contactpersonen opgeven
 
-Geef de volgende waarden voor het definiëren van de primaire **Engineering Contact** en voor uw aanbieding.
+Geef de volgende waarden voor het definiëren van de primaire **Engineering Contact** en voor uw aanbieding. Verplichte velden zijn indicted met een asterisk (*).
 
 |    Veld        |  Description                    |
 |    ---------    |  ---------------                |
-|  **Naam**       |  De naam van de technische contactpersoon voor uw app. Deze contactpersoon, ontvangen een technische bericht van Microsoft.   |
-|  **E-mail**      |  E-mailadres van de technische contactpersoon  |
-|  **Phone**      |  Telefoonnummer van de technische contactpersoon  |
+|  **Naam\***       |  De naam van de technische contactpersoon voor uw app. Deze contactpersoon, ontvangen een technische bericht van Microsoft.   |
+|  **E-mail\***      |  E-mailadres van de technische contactpersoon  |
+|  **Phone\***      |  Telefoonnummer van de technische contactpersoon  |
 |  |  |
 
 Geef de volgende waarden voor het definiëren van de primaire **Ondersteuningscontactpersoon** en voor uw aanbieding.
 
 |    Veld        |   Description                   |
 |    ---------    |  ---------------                |
-|  **Naam**       |  De naam van de contactpersoon van de klant ondersteuning voor uw app. Deze contactpersoon, ontvangen een bericht met betrekking tot ondersteuning van Microsoft.   |
-|  **E-mail**      |  E-mailadres van de contactpersoon voor ondersteuning van klant  |
-|  **Phone**      |  Het telefoonnummer van de contactpersoon voor ondersteuning van klant  |
+|  **Naam\***       |  De naam van de contactpersoon van de klant ondersteuning voor uw app. Deze contactpersoon, ontvangen een bericht met betrekking tot ondersteuning van Microsoft.   |
+|  **E-mail\***      |  E-mailadres van de contactpersoon voor ondersteuning van klant  |
+|  **Phone\***      |  Het telefoonnummer van de contactpersoon voor ondersteuning van klant  |
 |  |  |
 
 

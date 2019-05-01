@@ -1,30 +1,23 @@
 ---
-title: Beschrijving van de Marketplace voor een Azure IoT Edge-module | Microsoft Docs
+title: Beschrijving van de Marketplace voor een Azure IoT Edge-module | Azure Marketplace
 description: De beschrijving van de marketplace voor een IoT Edge-module maken.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 30f44e0e8bae4071403b5c28cd4133970fc4d468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: aa0c908e18233926965d8dc3cd1b474f876b8dda
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60913279"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942359"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Tabblad van IoT Edge module Marketplace
 
-
 De **Marketplace** tabblad van de **nieuwe aanbieding** pagina kunt u uw potentiële klanten voorzien van marketing, verkoop en juridische informatie en -overeenkomsten en beheer van leads die zijn gegenereerd op basis van de Marketplace. Dit lang formulier is onderverdeeld in vier secties: **Overzicht**, **Marketing artefacten**, **leiden Management**, en **juridische**.
+
 
 ## <a name="overview"></a>Overzicht
 
@@ -32,22 +25,25 @@ In deze sectie voert u de algemene informatie over uw Azure Marketplace bieden. 
 
 ![De sectie overzicht van het tabblad Marketplace in het formulier nieuwe aanbieding voor IoT Edge-modules](./media/iot-edge-module-marketplace-tab-overview.png)
 
-De volgende tabel beschrijft het doel en de inhoud van deze velden.
+De volgende tabel beschrijft het doel en de inhoud van deze velden. Verplichte velden zijn indicted met een asterisk (*).
 
 |  **Veld**                |     **Beschrijving**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Titel**                 | De titel van de aanbieding. Het wordt prominent weergegeven in de marketplace.  Maximale lengte van maximaal 50 tekens. <!--ADD PICTURE IN ACTION-->|
-| **Samenvatting**               | Korte samenvatting van de aanbieding. Maximale lengte van 100 tekens. <!--ADD PICTURE IN ACTION-->|
-| **Lange samenvatting**          | Meer samenvatting van de aanbieding (maar deze kan niet hetzelfde zijn als de **samenvatting**).  Mag maximaal 256 tekens bevatten. <!--ADD PICTURE IN ACTION-->|
-| **Beschrijving**           | Beschrijving van de aanbieding.  Maximale lengte van 3000 tekens ondersteunt eenvoudige HTML-opmaak.<br/> Het omvat een *minimale hardwarevereisten* lid aan de onderkant. Bijvoorbeeld: <br/> <p><u>Minimale hardwarevereisten:</u> Linux x64 en arm32 besturingssysteem, 1 GB aan RAM-geheugen, 500 Mb aan opslagruimte</p>
-| **Marketing-id**  | Een unieke URL om te koppelen aan deze aanbieding omvat gewoonlijk van uw organisatie en de naam van de oplossing, maximaal 50 tekens.  Bijvoorbeeld: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **Titel\***                 | De titel van de aanbieding. Het wordt prominent weergegeven in de marketplace.  Maximale lengte van maximaal 50 tekens. <!--ADD PICTURE IN ACTION-->|
+| **Samenvatting\***               | Korte samenvatting van de aanbieding. Maximale lengte van 100 tekens. <!--ADD PICTURE IN ACTION-->|
+| **Lange samenvatting\***          | Meer samenvatting van de aanbieding (maar deze kan niet hetzelfde zijn als de **samenvatting**).  Mag maximaal 256 tekens bevatten. <!--ADD PICTURE IN ACTION-->|
+| **Beschrijving\***           | Beschrijving van de aanbieding.  Maximale lengte van 3000 tekens ondersteunt eenvoudige HTML-opmaak.<br/> Het omvat een *minimale hardwarevereisten* lid aan de onderkant. Bijvoorbeeld: <br/> <p><u>Minimale hardwarevereisten:</u> Linux x64 en arm32 besturingssysteem, 1 GB aan RAM-geheugen, 500 Mb aan opslagruimte</p>
+| **Marketing-id\***  | Een unieke URL om te koppelen aan deze aanbieding omvat gewoonlijk van uw organisatie en de naam van de oplossing, maximaal 50 tekens.  Bijvoorbeeld: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **Preview-versie abonnement-id 's** | Toevoegen van 1 tot 100 abonnements-id's van viewers. Deze technische vermeld abonnementen hebben toegang tot de aanbieding zodra deze gepubliceerd, voordat u deze meteen live. |
 | **Nuttige koppelingen**          | Meervoudige selectie van zakelijke en technische categorieën die worden geboden door mag beste is gekoppeld.  Maximaal 10 toegestaan. Zorg ervoor dat u ten minste één koppeling met de documentatie en een koppeling toevoegen aan de compatibel IoT Edge-apparaten uit de [Azure IoT-apparaatcatalogus](https://catalog.azureiotsolutions.com/). |
-| **Aanbevolen categorieën** | Kies maximaal vijf categorieën. Deze wordt weergegeven op de pagina met details van uw product. Op de pagina's bladeren, alle IoT Edge-modules worden weergegeven onder de *Internet of Things \> IoT Edge-module* categorie.|
+| **Aanbevolen categorieën\*** | Kies maximaal vijf categorieën. Deze wordt weergegeven op de pagina met details van uw product. Op de pagina's bladeren, alle IoT Edge-modules worden weergegeven onder de *Internet of Things \> IoT Edge-module* categorie.|
+|  |  |
+
 
 ### <a name="offer-example"></a>Voorbeeld van de aanbieding
 
  De volgende voorbeelden ziet u hoe de aanbieding **titel**, **samenvatting**, **beschrijving**, **logo's**, en **schermafbeeldingen** velden worden weergegeven in andere weergaven.
+
  
 #### <a name="on-the-azure-marketplace-website"></a>Op de Azure Marketplace-website:
 
@@ -58,6 +54,7 @@ De volgende tabel beschrijft het doel en de inhoud van deze velden.
 - Bij het onderzoeken van details van aanbieding:
 
     ![Hoe IoT Edge-module wordt weergegeven bij het zoeken naar details van het product in de website](./media/iot-edge-module-ampdotcom-pdp.png)
+
 
 #### <a name="on-the-azure-portal-website"></a>Op de Azure portal-website:
 
@@ -88,18 +85,19 @@ Dit gedeelte bevat de volgende subgedeelten: **Logo's**, **schermafbeelding**, e
 |  **Veld**                |     **Beschrijving**                                                          |
 |  ---------                |     ---------------                                                          |
 | *Logos*  | Zie dat de vorige schermafbeeldingen worden gemaakt om te zien hoe en waar uw logo's wordt gebruikt.  |
-| **Small**                 | 40, 40 pixel PNG-indeling                                                     |
-| **Gemiddeld**                | 90 x 90 pixel PNG-indeling                                                     |
-| **Large**                 | 115 x 115 pixel PNG-indeling                                                  |
-| **Breed**                  | 255 x 115 pixel PNG-indeling                                                   |
+| **Kleine\***                 | 40, 40 pixel PNG-indeling                                                     |
+| **Gemiddeld\***                | 90 x 90 pixel PNG-indeling                                                     |
+| **Large\***                 | 115 x 115 pixel PNG-indeling                                                  |
+| **Breed\***                  | 255 x 115 pixel PNG-indeling                                                   |
 | **Hero**                  | 815 x 290 pixel PNG-indeling.  Optioneel, maar eenmaal geüploade de hero-pictogram kan niet worden verwijderd. |
 | *Schermafbeeldingen*  | Schermafbeeldingen worden weergegeven op de pagina met details van uw product. Ze zijn een goede manier om te communiceren visueel wat uw IoT Edge-module doet en hoe het werkt. U kunt architectuurdiagrammen weergeven of case illustraties bijvoorbeeld gebruiken. Optioneel, maar maximaal vijf schermafbeeldingen per SKU. |
 | **Naam**                  | De naam of de titel. Maximale lengte van 100 tekens.                             |
-| **Installatiekopie**                 | Afbeelding van schermopname, 533 x 324 pixel PNG-indeling                                         |
+| **Installatiekopie**                 | Afbeelding van schermopname, 533 x 324 pixel PNG-indeling                               |
 | *Video's*  | Video's worden weergegeven op de pagina met details van uw product. Ze zijn een goede manier om te communiceren visueel wat uw IoT Edge-module doet en hoe het werkt. |
-| **Naam**                  | De naam of de titel. Maximale lengte van 100 tekens.                              |
+| **Naam**                  | De naam of de titel. Maximale lengte van 100 tekens.                             |
 | **Link**                  | Video-URL, die worden gehost op YouTube of Vimeo                                        |
-| **Miniatuur**             | 533 x 324 pixel PNG-indeling                                                           |
+| **Miniatuur**             | 533 x 324 pixel PNG-indeling                                                     |
+|  |  |
 
 
 ### <a name="logo-guidelines"></a>Logorichtlijnen
@@ -114,6 +112,7 @@ Alle de logo's uploaden naar de Cloud Partner-Portal moeten de richtlijnen te vo
 *  Gebruik niet een kleurovergang achtergrond op uw logo.
 *  Plaats tekst — zelfs uw bedrijf of de naam, op het logo. Het uiterlijk van uw logo moet een "platte" en vermijd kleurovergangen.
 *  Niet uitrekken het logo.
+
 
 #### <a name="hero-logo"></a>Hero-logo
 
@@ -158,16 +157,18 @@ Nadat u uw aanbieding is gepubliceerd, wordt de verbinding lead wordt gecontrole
 3. amp.com the pricing tab
 4. amp.com the tile -->
 
+
 ## <a name="legal"></a>Juridische informatie
 
 In deze sectie beschikt u over de twee juridische documenten die vereist voor elke aanbieding zijn: Privacybeleid en de gebruiksvoorwaarden.
 
-|  **Veld**                |     **Beschrijving**                                                          |
-|  ---------                |     ---------------                                                          |
-| **URL privacybeleid**    | URL naar uw geboekte privacybeleid                                            |
-| **Gebruiksvoorwaarden**          | Gebruiksvoorwaarden als inline eenvoudige HTML of een koppeling naar uw geboekte gebruiksvoorwaarden       |
+|  **Veld**                    |     **Beschrijving**                                                          |
+|  ---------                    |     ---------------                                                          |
+| **URL privacybeleid\***      | URL naar uw geboekte privacybeleid                                            |
+| **Standard Constract gebruiken\***  | Of u wilt gebruiken van de standaardsjabloon voor Microsoft-contract.  Zie voor meer informatie, [Standard Contract](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
+| **Gebruiksvoorwaarden\***            | *Gebruiksvoorwaarden* als inline eenvoudige HTML of een koppeling naar de geboekte voorwaarden van de pagina     |
+|  |  |
 
-<br/>
 
 ## <a name="next-steps"></a>Volgende stappen
 

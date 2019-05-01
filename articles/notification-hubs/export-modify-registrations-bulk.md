@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
-ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d7e38e8eca58c06fc6896887522b320a797fc42e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60623983"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575294"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exporteren en importeren van Azure Notification Hubs-registraties in bulk
 Er zijn scenario's waarin deze is vereist om te maken of wijzigen van grote aantallen registraties in een notification hub. Sommige van deze scenario's zijn tag updates batch berekeningen te volgen of migreert van een bestaande push-implementatie voor het gebruik van Notification Hubs.
@@ -34,7 +34,7 @@ In deze sectie wordt ervan uitgegaan dat u hebt de volgende entiteiten:
 
 - Een ingerichte notification hub.
 - Een Azure Storage-blob-container.
-- Verwijzingen naar de [Azure Storage NuGet-pakket](https://www.nuget.org/packages/windowsazure.storage/) en [Notification Hubs NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.9).
+- Verwijzingen naar de [Azure Storage NuGet-pakket](https://www.nuget.org/packages/windowsazure.storage/) en [Notification Hubs NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 ### <a name="create-input-file-and-store-it-in-a-blob"></a>Invoerbestand maken en op te slaan in een blob
 Een bestand voor invoer bevat een lijst met rapporten die zijn geserialiseerd in XML, één per rij. Met de Azure SDK, ziet in het volgende voorbeeld u hoe de registraties serialiseren en te uploaden naar blob-container.

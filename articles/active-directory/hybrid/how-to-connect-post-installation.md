@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/12/2017
+ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 291b3d506993cfea89be072684835c0d4efe75f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60243075"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571299"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Volgende stappen en over het beheren van Azure AD Connect
 Gebruik de operationele procedures in dit artikel om aan te passen van Azure Active Directory (Azure AD) Connect om te voldoen aan de behoeften en vereisten van uw organisatie.  
@@ -47,20 +47,21 @@ De Azure portal gebruiken om de status van een synchronisatie te controleren.
 ### <a name="to-verify-the-scheduled-synchronization-task"></a>Om te controleren of de geplande synchronisatie-taak
 1. Aanmelden bij de Azure-portal als een beheerder.
 2. Selecteer aan de linkerkant **Active Directory**.
-3. Op de **Active Directory** pagina, dubbelklik op de map met de gebruikers die u wilt instellen.
-4. Aan de bovenkant van de directory-pagina, selecteer **Adreslijstintegratie**.
-5. Onder **integratie met lokale active directory**, houd er rekening mee de tijd van laatste synchronisatie.
+3. Selecteer aan de linkerkant **Azure AD Connect**
+4. Aan de bovenkant van de pagina, houd er rekening mee de laatste synchronisatie.
 
-<center>
-
-![Tijd van Directory-synchronisatie](./media/how-to-connect-post-installation/verify.png)</center>
+![Tijd van Directory-synchronisatie](./media/how-to-connect-post-installation/verify2.png)
 
 ## <a name="start-a-scheduled-synchronization-task"></a>Een taak geplande synchronisatie starten
-Als u een synchronisatietaak uitvoeren wilt, kunt u dit doen door met de Azure AD Connect-wizard nogmaals uit te voeren.  U moet uw Azure AD-referenties op te geven.  Selecteer in de wizard de **aanpassen Synchronisatieopties** taak en klik op **volgende** verplaatsen via de wizard. Zorg ervoor dat aan het einde de **Start het synchronisatieproces zodra de initiële configuratie is voltooid** is ingeschakeld.
+Als u een synchronisatietaak uitvoeren wilt, kunt u dit doen door:
 
-<center>
-
-![Synchronisatie starten](./media/how-to-connect-post-installation/startsynch.png)</center>
+1. Dubbelklik op het bureaublad een snelkoppeling Azure AD Connect om de wizard te starten.
+2. Klik op **Configureren**
+3. Selecteer op het scherm taken de **aanpassen Synchronisatieopties** en klikt u op **volgende**
+4. Voer uw Azure AD-referenties in
+5. Klik op **volgende**. Klik op **volgende**.  Klik op **volgende**.
+5.  Op de **klaar om te configureren** scherm, zorg ervoor dat de **Start het synchronisatieproces wanneer de configuratie is voltooid** is ingeschakeld.
+6.  Klik op **Configureren**
 
 Zie voor meer informatie over de Azure AD Connect sync Scheduler [Azure AD Connect Scheduler](how-to-connect-sync-feature-scheduler.md).
 
@@ -69,13 +70,19 @@ Na de initiële installatie van Azure AD Connect, kunt u altijd de wizard opnieu
 
 De volgende tabel bevat een overzicht van deze taken en een korte beschrijving van elke taak.
 
-![Lijst met extra taken](./media/how-to-connect-post-installation/addtasks.png)
+![Lijst met extra taken](./media/how-to-connect-post-installation/addtasks2.png)
 
 | Extra taken | Description |
 | --- | --- |
-| **Het geselecteerde scenario weergeven** |Bekijk uw huidige Azure AD Connect-oplossing.  Dit omvat algemene instellingen, gesynchroniseerd mappen en synchronisatie-instellingen. |
+|**Privacy-instellingen**|Bekijken welke telemetriegegevens wordt gedeeld met Microsoft.|
+|**De huidige configuratie weergeven**|Bekijk uw huidige Azure AD Connect-oplossing.  Dit omvat algemene instellingen, gesynchroniseerd mappen en synchronisatie-instellingen. |
 | **Synchronisatieopties aanpassen** |De huidige configuratie, zoals aanvullende Active Directory-forests toevoegen aan de configuratie of het inschakelen van synchronisatie-opties, zoals gebruikers, groepen, apparaat of terugschrijven van wachtwoord wijzigen. |
-| **De Faseringsmodus inschakelen** |Fase-informatie die niet direct is gesynchroniseerd en is niet geëxporteerd naar Azure AD of on-premises Active Directory.  Met deze functie kunt u de synchronisaties bekijken voordat ze optreden. |
+|**Apparaatopties configureren**|Apparaatopties die beschikbaar zijn voor synchronisatie|
+|**Directory-schema vernieuwen**|Hiermee kunt u nieuwe on-premises directory-objecten voor synchronisatie toevoegen|
+|**De Faseringsmodus configureren** |Fase-informatie die niet direct is gesynchroniseerd en is niet geëxporteerd naar Azure AD of on-premises Active Directory.  Met deze functie kunt u de synchronisaties bekijken voordat ze optreden. |
+|**Aanmelden van gebruikers wijzigen**|Wijzig de verificatiemethode die gebruikers gebruiken om aan te melden|
+|**Federation beheren**|Beheren van uw AD FS-infrastructuur, het vernieuwen van certificaten en het toevoegen van AD FS-servers|
+|**Problemen oplossen**|Help bij het oplossen van problemen met Azure AD Connect|
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over [uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md).

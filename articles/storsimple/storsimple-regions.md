@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: ff2ea89c257a4941c801f3056450e005a9b37039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e290feb278a1cddf1cfecfcb66458d8290ec122a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60628878"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943597"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Beschikbare regio's voor uw StorSimple
 
@@ -32,7 +32,7 @@ Het kiezen van een Azure-regio is erg belangrijk en de keuze van de regio wordt 
 De keuze van de regio is specifiek voor StorSimple-oplossing bepaald door de volgende factoren:
 
 - De regio's waar de StorSimple Device Manager-service beschikbaar is.
-- De landen waar de fysieke StorSimple, een cloud of een virtueel apparaat beschikbaar is.
+- De landen/regio's waar het fysieke StorSimple, een cloud of een virtueel apparaat beschikbaar is.
 - De regio's waar de opslagaccounts die opslaan van StorSimple-gegevens geplaatst voor optimale prestaties worden.
 
 Deze zelfstudie wordt de beschikbaarheid in regio voor de StorSimple Device Manager-service, de fysieke on-premises en de cloud-apparaten beschreven. De informatie in dit artikel is van toepassing op StorSimple 8000 en apparaten van 1200-serie.
@@ -61,36 +61,36 @@ Als u een StorSimple-Cloudapparaat gebruikt, klikt u vervolgens het beste dat de
 
 ## <a name="availability-of-storsimple-device"></a>Beschikbaarheid van StorSimple-apparaat
 
-Afhankelijk van het model, kunnen de StorSimple-apparaten beschikbaar zijn in verschillende fysieke locaties of landen.
+Afhankelijk van het model, kunnen de StorSimple-apparaten beschikbaar zijn in verschillende fysieke locaties of landen/regio's.
 
 ### <a name="storsimple-physical-device-models-81008600"></a>Fysieke StorSimple-apparaat (modellen 8100/8600)
 
-Als u een StorSimple 8100 of 8600 fysiek apparaat, is het apparaat is beschikbaar in de volgende landen.
+Als u een StorSimple 8100 of 8600 fysiek apparaat, wordt het apparaat is beschikbaar in de volgende landen/regio's.
 
-| #  | Land/regio        | #  | Land/regio     | #  | Land/regio      | #  | Land/regio              |
-|----|----------------|----|-------------|----|--------------|----|----------------------|
-| 1  | Australië      | 16 | Hongkong SAR| 31 | Nieuw-Zeeland  | 46 | Zuid-Afrika         |
-| 2  | Oostenrijk        | 17 | Hongarije     | 32 | Nigeria      | 47 | Zuid-Korea          |
-| 3  | Bahrein        | 18 | IJsland     | 33 | Noorwegen       | 48 | Spanje                |
-| 4  | België        | 19 | India       | 34 | Peru         | 49 | Sri Lanka            |
-| 5  | Brazilië         | 20 | Indonesië   | 35 | Filipijnen  | 50 | Zweden               |
-| 6  | Canada         | 21 | Ierland     | 36 | Polen       | 51 | Zwitserland          |
-| 7  | Chili          | 22 | Israël      | 37 | Portugal     | 52 | Taiwan               |
-| 8  | Colombia       | 23 | Italië       | 38 | Puerto Rico  | 53 | Thailand             |
-| 9  | Tsjechië | 24 | Japan       | 39 | Qatar        | 54 | Turkije               |
-| 10 | Denemarken        | 25 | Kenia       | 40 | Roemenië      | 55 | Oekraïne              |
-| 11 | Egypte          | 26 | Koeweit      | 41 | Rusland       | 56 | Verenigde Arabische Emiraten |
-| 12 | Finland        | 27 | Macau SAR   | 42 | Saoedi-Arabië | 57 | Verenigd Koninkrijk       |
-| 13 | Frankrijk         | 28 | Maleisië    | 43 | Singapore    | 58 | Verenigde Staten        |
-| 14 | Duitsland        | 29 | Mexico      | 44 | Slowakije     | 59 | Vietnam              |
-| 15 | Griekenland         | 30 | Nederland | 45 | Slovenië     | 60 | Kroatië              |
+| #  | Land/regio        | #  | Land/regio     | #  | Land/regio      | #  | Land/regio             |
+|----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
+| 1  | Australië             | 16 | Hongkong SAR      | 31 | Nieuw-Zeeland         | 46 | Zuid-Afrika               |
+| 2  | Oostenrijk               | 17 | Hongarije            | 32 | Nigeria             | 47 | Zuid-Korea                |
+| 3  | Bahrein               | 18 | IJsland            | 33 | Noorwegen              | 48 | Spanje                      |
+| 4  | België               | 19 | India              | 34 | Peru                | 49 | Sri Lanka                  |
+| 5  | Brazilië                | 20 | Indonesië          | 35 | Filipijnen         | 50 | Zweden                     |
+| 6  | Canada                | 21 | Ierland            | 36 | Polen              | 51 | Zwitserland                |
+| 7  | Chili                 | 22 | Israël             | 37 | Portugal            | 52 | Taiwan                     |
+| 8  | Colombia              | 23 | Italië              | 38 | Puerto Rico         | 53 | Thailand                   |
+| 9  | Tsjechië        | 24 | Japan              | 39 | Qatar               | 54 | Turkije                     |
+| 10 | Denemarken               | 25 | Kenia              | 40 | Roemenië             | 55 | Oekraïne                    |
+| 11 | Egypte                 | 26 | Koeweit             | 41 | Rusland              | 56 | Verenigde Arabische Emiraten       |
+| 12 | Finland               | 27 | Macau SAR          | 42 | Saoedi-Arabië        | 57 | Verenigd Koninkrijk             |
+| 13 | Frankrijk                | 28 | Maleisië           | 43 | Singapore           | 58 | Verenigde Staten              |
+| 14 | Duitsland               | 29 | Mexico             | 44 | Slowakije            | 59 | Vietnam                    |
+| 15 | Griekenland                | 30 | Nederland        | 45 | Slovenië            | 60 | Kroatië                    |
 
-Deze lijst wordt gewijzigd wanneer er meer landen worden toegevoegd. Voor een actuele lijst van de verschillende geografische gebieden, gaat u naar de bijlage Storage Array voorwaarden in de [productvoorwaarden](https://www.microsoft.com/en-us/licensing/product-licensing/products).
+Deze lijst wordt gewijzigd wanneer er meer landen/regio's worden toegevoegd. Voor een actuele lijst van de verschillende geografische gebieden, gaat u naar de bijlage Storage Array voorwaarden in de [productvoorwaarden](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
 Microsoft kunt verzenden fysieke hardware en hardware reserveonderdelen vervanging voor StorSimple om de locaties in de voorgaande lijst te bieden.
 
 > [!IMPORTANT]
-> Plaats een fysiek StorSimple-apparaat niet in een regio waar StorSimple wordt niet ondersteund. Microsoft is niet mogelijk zijn voor het verzenden van eventuele vervangende onderdelen naar landen waar StorSimple wordt niet ondersteund.
+> Plaats een fysiek StorSimple-apparaat niet in een regio waar StorSimple wordt niet ondersteund. Microsoft is niet mogelijk zijn voor het verzenden van eventuele vervangende onderdelen naar landen/regio's waar StorSimple wordt niet ondersteund.
 
 ### <a name="storsimple-cloud-appliance-models-80108020"></a>StorSimple-Cloudapparaat (8010/8020 modellen)
 

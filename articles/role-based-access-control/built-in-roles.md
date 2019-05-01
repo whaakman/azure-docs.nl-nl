@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 36a98ea52ea48c9828ca5857dc480742632056fb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749322"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689865"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 
@@ -87,6 +87,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 | [Inzender voor het DocumentDB-Account](#documentdb-account-contributor) | Kan Azure Cosmos DB-accounts beheren. Azure Cosmos DB is voorheen bekend als DocumentDB. |
 | [EventGrid EventSubscription Inzender](#eventgrid-eventsubscription-contributor) | Hiermee kunt u bewerkingen van abonnementen voor EventGrid-gebeurtenissen beheren. |
 | [EventGrid EventSubscription lezer](#eventgrid-eventsubscription-reader) | Hiermee kunt u abonnementen voor EventGrid-gebeurtenissen lezen. |
+| [HDInsight-Cluster-Operator](#hdinsight-cluster-operator) | Hiermee kunt u lezen en wijzigen van configuraties van clusters op HDInsight. |
 | [HDInsight Domain Services-Inzender](#hdinsight-domain-services-contributor) | Kan bewerkingen met betrekking tot domeinservices lezen, maken, wijzigen en verwijderen die nodig zijn voor HDInsight Enterprise-beveiligingspakket |
 | [Inzender voor het Account van de intelligente systemen](#intelligent-systems-account-contributor) | Hiermee beheert u Intelligent Systems-accounts, maar kunt u niet de toegang tot de accounts beheren. |
 | [Inzender voor Key Vault](#key-vault-contributor) | Hiermee kunt u sleutelkluizen beheren, maar niet de toegang hiertoe. |
@@ -121,6 +122,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 | [De accounteigenaar ruimtelijke ankers](#spatial-anchors-account-owner) | Hiermee kunt u ruimtelijke ankers in uw account beheren, waaronder de ankers verwijderen |
 | [Ruimtelijke ankers Account Reader](#spatial-anchors-account-reader) | Hiermee kunt u eigenschappen van ruimtelijke ankers in uw account zoeken en lezen |
 | [' SQL DB Contributor '](#sql-db-contributor) | Kunt u SQL-databases, maar niet de toegang tot beheren. U beheren niet ook hun beveiligingsbeleid of de bovenliggende SQL-servers. |
+| [SQL beheerd exemplaar Inzender](#sql-managed-instance-contributor) | Kunt u beheerde SQL-instanties beheren en de vereiste netwerkconfiguratie, maar kunnen geen toegang verlenen aan anderen. |
 | [SQL Security Manager](#sql-security-manager) | Hiermee kunt u beveiligingsbeleid van SQL-servers en -databases beheren, maar niet de toegang tot het beleid. |
 | [Inzender voor SQL Server](#sql-server-contributor) | Hiermee kunt u SQL-servers en -databases beheren, maar niet de toegang tot en het beveiligingsbeleid van de servers en databases. |
 | [Inzender voor opslagaccounts](#storage-account-contributor) | Hiermee kunt u opslagaccounts beheren, maar niet de toegang. |
@@ -327,7 +329,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | Lijst met gebruikerssleutels ophalen |
+> | Microsoft.ApiManagement/service/users/keys/read | Sleutels die zijn gekoppeld aan een gebruiker ophalen |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -349,7 +351,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | Lijst met gebruikerssleutels ophalen |
+> | Microsoft.ApiManagement/service/users/keys/read | Sleutels die zijn gekoppeld aan een gebruiker ophalen |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -1385,6 +1387,28 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotDataActions** |  |
 > | *none* |  |
 
+## <a name="hdinsight-cluster-operator"></a>HDInsight-Cluster-Operator
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Hiermee kunt u lezen en wijzigen van configuraties van clusters op HDInsight. |
+> | **Id** | 61ed4efc-fab3-44fd-b111-e24485cc132a |
+> | **Acties** |  |
+> | Microsoft.HDInsight/*/read |  |
+> | Microsoft.HDInsight/clusters/getGatewaySettings/action | Gatewayinstellingen voor HDInsight-Cluster ophalen |
+> | Microsoft.HDInsight/clusters/updateGatewaySettings/action | Gatewayinstellingen bijwerken voor HDInsight-Cluster |
+> | Microsoft.HDInsight/clusters/configurations/* |  |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
+> | Microsoft.Resources/deployments/operations/read | Hiermee kunt u implementatiebewerkingen ophalen of opnemen in een lijst. |
+> | Microsoft.Insights/alertRules/* | Maken en beheren van inzicht waarschuwingsregels |
+> | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
 ## <a name="hdinsight-domain-services-contributor"></a>Inzender HDInsight Domain Services
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1807,6 +1831,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **Id** | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | **Acties** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Hiermee retourneert u de toegangssleutels voor het opgegeven opslagaccount. |
+> | Microsoft.Storage/storageAccounts/ListAccountSas/action | Hiermee wordt het SAS-token van het account geretourneerd voor het opgegeven opslagaccount. |
 > | Microsoft.Storage/storageAccounts/read | Hiermee retourneert u een lijst met opslagaccounts of haalt u de eigenschappen op voor het opgegeven opslagaccount. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -2228,6 +2253,34 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## <a name="sql-managed-instance-contributor"></a>SQL beheerd exemplaar Inzender
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Kunt u beheerde SQL-instanties beheren en de vereiste netwerkconfiguratie, maar kunnen geen toegang verlenen aan anderen. |
+> | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
+> | **Acties** |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
+> | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
+> | Microsoft.Network/networkSecurityGroups/* |  |
+> | Microsoft.Network/routeTables/* |  |
+> | Microsoft.Sql/locations/*/read |  |
+> | Microsoft.Sql/managedInstances/* |  |
+> | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+> | Microsoft.Network/virtualNetworks/subnets/* |  |
+> | Microsoft.Network/virtualNetworks/* |  |
+> | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
+> | Microsoft.Insights/alertRules/* | Maken en beheren van inzicht waarschuwingsregels |
+> | Microsoft.Insights/metrics/read | De metrische gegevens lezen |
+> | Microsoft.Insights/metricDefinitions/read | Metrische definities lezen |
+> | **NotActions** |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |

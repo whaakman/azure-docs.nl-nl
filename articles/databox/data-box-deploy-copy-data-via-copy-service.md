@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: De gegevenskopieerservice gebruiken om gegevens direct op te nemen in Azure Data Box| Microsoft Docs'
+title: Zelfstudie voor het kopiëren van gegevens naar Azure Data Box-apparaat via de service voor het kopiëren van gegevens | Microsoft Docs
 description: In deze zelfstudie leert u hoe u de gegevenskopieerservice gebruikt om gegevens naar uw Azure Data Box-apparaat te kopiëren
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 3f76721129906b57a05e597aade9f2febb609968
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 412b554710c552bdfdf8bf94a59e822beed55b32
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60727796"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925308"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Zelfstudie: De gegevenskopieerservice gebruiken om gegevens direct op te nemen in Azure Data Box (preview)
 

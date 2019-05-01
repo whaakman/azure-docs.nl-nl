@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3843b5022aaf218bf91e25ecf6d9c36bb2db2dee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034736"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575421"
 ---
 # <a name="plan-virtual-networks"></a>Virtuele netwerken plannen
 
@@ -77,7 +77,7 @@ U kunt het netwerkverkeer naar en van resources in een virtueel netwerk met behu
 - Als verschillende virtuele machines binnen een subnet verschillende beveiligingsregels worden toegepast moeten, kunt u de netwerkinterface op de virtuele machine aan een of meer beveiligingsgroepen voor toepassing koppelen. Een beveiligingsregel kunt u een toepassingsbeveiligingsgroep opgeven in de bron of bestemming. Deze regel vervolgens geldt alleen voor de netwerkinterfaces die lid van de toepassingsbeveiligingsgroep zijn. Meer informatie over [netwerkbeveiligingsgroepen](security-overview.md) en [toepassingsbeveiligingsgroepen](security-overview.md#application-security-groups).
 - Azure maakt verschillende standaard beveiligingsregels binnen elke netwerkbeveiligingsgroep. Een standaardregel kunt alle verkeer toe tussen alle resources in een virtueel netwerk. Dit gedrag negeren, gebruikt u netwerkbeveiliging groepen, aangepaste routering om verkeer te routeren naar een NVA, of beide. Het wordt aanbevolen dat u vertrouwd met alle Azure raakt [standaard beveiligingsregels](security-overview.md#default-security-rules) en te begrijpen hoe regels voor netwerkbeveiligingsgroepen worden toegepast op een resource.
 
-Vindt u voorbeeld ontwerpen voor het implementeren van een DMZ tussen Azure en het internet via een [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) of [netwerkbeveiligingsgroepen](virtual-networks-dmz-nsg.md).
+Vindt u voorbeeld ontwerpen voor het implementeren van een perimeternetwerk (ook wel een DMZ genoemd) tussen Azure en het internet via een [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) of [netwerkbeveiligingsgroepen](virtual-networks-dmz-nsg.md).
 
 ### <a name="traffic-routing"></a>Routering van verkeer
 

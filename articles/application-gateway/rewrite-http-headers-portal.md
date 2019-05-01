@@ -8,47 +8,44 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 6afc07f98905469b06622e7829ec4a215b94845e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e144214a58f9fe383cf4edd878554792d9d6a6f9
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716144"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947169"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Herschrijf de HTTP-aanvraag- en reactieheaders met Azure Application Gateway - Azure portal
 
-Dit artikel leest u hoe de Azure-portal gebruiken om te configureren een [Application Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) te herschrijven van de HTTP-headers in de aanvragen en antwoorden.
-
-> [!IMPORTANT]
-> De SKU met automatisch schalen en zone-redundantie voor toepassingsgateways is momenteel in openbare preview. Deze preview wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. De reden hiervoor is dat bepaalde functies mogelijk niet worden ondersteund of beperkte mogelijkheden hebben. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+In dit artikel wordt beschreven hoe u de Azure portal gebruiken voor het configureren van een [Application Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) exemplaar te herschrijven van de HTTP-headers in aanvragen en antwoorden.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-U moet een Application Gateway-v2 SKU sinds de mogelijkheid tot herschrijven van de koptekst wordt niet ondersteund voor de v1-SKU. Als u de v2-SKU hebt, maakt u een [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) voordat u begint.
+U moet een Application Gateway v2 SKU-exemplaar om de stappen in dit artikel te voltooien. Headers herschrijven wordt niet in de v1-SKU ondersteund. Als u de v2-SKU hebt, maakt u een [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) exemplaar voordat u begint.
 
-## <a name="what-is-required-to-rewrite-a-header"></a>Wat is vereist voor het herschrijven van een koptekst
+## <a name="create-required-objects"></a>Vereiste objecten maken
 
-Voor het configureren van HTTP-header herschrijven, moet u naar:
+Voor het configureren van HTTP-header herschrijven, moet u deze stappen hebt voltooid.
 
-1. De nieuwe objecten die zijn vereist voor het herschrijven van de http-headers maken:
+1. Maak de objecten die vereist voor HTTP-header herschrijven zijn:
 
-   - **Actie schrijven**: Hiermee geeft u de aanvraag en aanvraagheader-velden die u van plan bent om te schrijven en de nieuwe waarde die de oorspronkelijke kopteksten worden herschreven moeten aan. U kunt een of meer herschrijven voorwaarde koppelen met een actie herschrijven.
+   - **Actie schrijven**: Hiermee geeft de aanvraag en aanvraagheader-velden die u van plan bent om te schrijven en de nieuwe waarde voor de headers. U kunt een koppelen of meer voorwaarden met een actie herschrijven herschrijven.
 
-   - **Herschrijf de voorwaarde**: Het is een optionele configuratie. Als een voorwaarde herschrijven wordt toegevoegd, wordt de inhoud van het HTTP (S) aanvragen en antwoorden geëvalueerd. De beslissing om uit te voeren van de herschrijven actie die is gekoppeld aan de voorwaarde herschrijven zijn gebaseerd of het HTTP (S)-aanvraag of antwoord met de voorwaarde herschrijven overeenkomt. 
+   - **Herschrijf de voorwaarde**: Een optionele configuratie. Herschrijven voorwaarden evalueren de inhoud van HTTP (S) aanvragen en antwoorden. De actie herschrijven treedt op als de HTTP (S)-aanvraag of antwoord komt overeen met de voorwaarde herschrijven.
 
-     Als meer dan één voorwaarden zijn gekoppeld aan een actie, en vervolgens de actie wordt uitgevoerd alleen als alle voorwaarden wordt voldaan, dat wil zeggen, een logische AND-bewerking wordt uitgevoerd.
+     Als u meer dan één voorwaarde aan een actie koppelen, wordt de actie optreedt, alleen wanneer alle voorwaarden wordt voldaan. De bewerking is met andere woorden, een logische AND-bewerking.
 
-   - **Regel herschrijven**: herschrijvingsregel bevat meerdere herschrijven actie - voorwaarde combinaties herschrijven.
+   - **Regel herschrijven**: Bevat meerdere herschrijven actie / Herschrijf de voorwaarde combinaties.
 
-   - **Reeks regel**: helpt u bepalen de volgorde waarin de verschillende herschrijven regels worden uitgevoerd. Dit is handig wanneer er meerdere herschrijvingsregels in een set herschrijven. De herschrijvingsregel met minder regel reekswaarde wordt eerst uitgevoerd. Als u de dezelfde volgorde van de regel aan twee herschrijvingsregels wordt de volgorde van de uitvoering van niet-deterministisch zijn.
+   - **Reeks regel**: Helpt u bepalen de volgorde waarin de herschrijvingsregels uitvoeren. Deze configuratie is handig wanneer u meerdere herschrijvingsregels in een set herschrijven hebt. Eerste een herschrijvingsregel voor met een lagere waarde van de regel-reeks wordt gestart. Als u dezelfde regel reekswaarde aan twee herschrijvingsregels toewijzen, is de volgorde van de uitvoering van niet-deterministisch.
 
-   - **Herschrijf de Set**: meerdere herschrijvingsregels die wordt gekoppeld aan een regel voor het doorsturen van aanvraag bevat.
+   - **Herschrijf de set**: Bevat meerdere herschrijvingsregels dat gekoppeld aan een regel voor het doorsturen van aanvragen is.
 
-2. U moet het opnieuw instellen met een regel voor doorsturen koppelen. Dit is omdat de configuratie opnieuw schrijven is gekoppeld aan de bron-listener via de regel voor doorsturen. Wanneer u een basisregel voor routering, wordt de configuratie van de herschrijven header is gekoppeld aan de listener van een bron en is een algemene header herschrijven. Wanneer een regel op pad gebaseerde routering wordt gebruikt, wordt de configuratie van de koptekst opnieuw schrijven is gedefinieerd in de URL-path-map. Dus dit alleen van toepassing op het padgebied van het specifieke van een site.
+2. Koppel het herschrijven ingesteld op een regel voor doorsturen. De configuratie opnieuw schrijven is gekoppeld aan de bron-listener via de regel voor doorsturen. Wanneer u een regel voor het doorsturen van basic gebruikt, wordt de configuratie van de herschrijven header is gekoppeld aan de listener van een bron en is een algemene header herschrijven. Wanneer u een pad gebaseerde routering regel gebruikt, wordt de configuratie van de koptekst opnieuw schrijven is gedefinieerd in de URL-path-map. In dat geval van de toepassing alleen op het padgebied van het specifieke van een site.
 
-U kunt meerdere sets van http-header herschrijven maken en elke set herschrijven kan worden toegepast op meerdere listeners. U kunt echter alleen een is ingesteld op een specifieke listener opnieuw toepassen.
+U kunt meerdere sets van HTTP-header herschrijven maken en toepassen van elke opnieuw ingesteld op meerdere listeners. Maar u kunt alleen een is ingesteld op een specifieke listener opnieuw toepassen.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
@@ -56,77 +53,82 @@ Meld u met uw Azure-account aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="configure-header-rewrite"></a>Koptekst herschrijven configureren
 
-In dit voorbeeld wijzigen we de omleidings-URL door het herschrijven van de location-header in het http-antwoord verzonden door de back endtoepassing. 
+In dit voorbeeld wijzigen we een Omleidings-URL door de location-header in het HTTP-antwoord verzonden door een back-endtoepassing herschrijven.
 
 1. Selecteer **alle resources**, en selecteer vervolgens uw application gateway.
 
-2. Selecteer **herschrijft** in het menu links.
+2. Selecteer **herschrijft** in het linkerdeelvenster.
 
-3. Klik op **+ herschrijven set**. 
+3. Selecteer **herschrijven set**:
 
    ![Herschrijven set toevoegen](media/rewrite-http-headers-portal/add-rewrite-set.png)
 
-4. Geef naam op voor het opnieuw instellen en deze koppelen aan een regel voor doorsturen:
+4. Geef een naam op voor de set herschrijven en koppel deze aan een regel voor doorsturen:
 
-   - Voer de naam van het opnieuw instellen in de **naam** tekstvak.
-   - Selecteer een of meer regels die worden vermeld in de **die zijn gekoppeld routeringsregels** lijst. U kunt alleen de regels die niet gekoppeld aan andere sets herschrijven zijn selecteren. De regels die al gekoppeld aan andere sets herschrijven zijn worden lichter gekleurd weergegeven.
-   - Klik op volgende.
+   - Voer de naam in voor het herschrijven instellen in de **naam** vak.
+   - Selecteer een of meer van de regels die worden vermeld in de **die zijn gekoppeld routeringsregels** lijst. U kunt alleen de regels die nog niet gekoppeld aan andere sets herschrijven is selecteren. De regels die al gekoppeld aan andere sets herschrijven zijn worden grijs weergegeven.
+   - Selecteer **Volgende**.
    
      ![Naam en koppeling toevoegen](media/rewrite-http-headers-portal/name-and-association.png)
 
 5. Maak een herschrijvingsregel voor:
 
-   - Klik op **+ toevoegen herschrijvingsregel**.![ Herschrijvingsregel voor het toevoegen](media/rewrite-http-headers-portal/add-rewrite-rule.png)
-   - Geef een naam op voor de herschrijvingsregel in het tekstvak voor de regel herschrijven en geef een regelreeks.![De naam van regel toevoegen](media/rewrite-http-headers-portal/rule-name.png)
+   - Selecteer **toevoegen herschrijvingsregel**.
 
-6. In dit voorbeeld zullen we de location-header herschrijven alleen wanneer deze een verwijzing naar 'azurewebsites.net bevat'. Om dit te doen, moet u een voorwaarde om te beoordelen of de location-header in het antwoord azurewebsites.net bevat toevoegen:
+     ![Herschrijvingsregel voor het toevoegen](media/rewrite-http-headers-portal/add-rewrite-rule.png)
 
-   - Klik op **+ voorwaarde toevoegen** en klik vervolgens op de sectie met de **als** instructies voor het uitbreiden van deze![ De naam van regel toevoegen](media/rewrite-http-headers-portal/add-condition.png)
+   - Voer een naam voor de herschrijvingsregel in de **naam voor de regel herschrijven** vak. Voer een getal in de **reeks regel** vak.
 
-   - Selecteer **HTTP-header** uit de **Type variabele om te controleren** vervolgkeuzelijst. 
+     ![De naam van de regel herschrijven toevoegen](media/rewrite-http-headers-portal/rule-name.png)
 
-   - Selecteer **Header-type** als **antwoord**.
+6. In dit voorbeeld hebt we de location-header herschrijven alleen wanneer deze een verwijzing naar azurewebsites.net bevat. Om dit te doen, moet u een voorwaarde om te beoordelen of de location-header in het antwoord azurewebsites.net bevat toevoegen:
 
-   - Omdat in dit voorbeeld zijn we de location-header die wordt uitgevoerd om te worden van een algemene header, selecteer evalueren **algemene header** keuzerondje als de **headernaam**.
+   - Selecteer **voorwaarde toevoegen** en selecteer vervolgens het vak waarin de **als** instructies uit te vouwen.
 
-   - Selecteer **locatie** uit de **algemene header** vervolgkeuzelijst.
+     ![Een voorwaarde toevoegen](media/rewrite-http-headers-portal/add-condition.png)
 
-   - Selecteer **Nee** als de **hoofdlettergevoelig** instelling.
+   - In de **Type variabele om te controleren op** in de lijst met **HTTP-header**.
 
-   - Selecteer **gelijkteken (=)** uit de **Operator** vervolgkeuzelijst.
+   - In de **Header-type** in de lijst met **antwoord**.
 
-   - Voer de reguliere-expressiepatroon. In dit voorbeeld gebruiken we het patroon `(https?):\/\/.*azurewebsites\.net(.*)$` .
+   - Omdat in dit voorbeeld wordt de location-header een algemene header is, evalueert selecteren **algemene header** onder **headernaam**.
 
-   - Klik op **OK**.
+   - In de **algemene header** in de lijst met **locatie**.
 
-     ![Location-header wijzigen](media/rewrite-http-headers-portal/condition.png)
+   - Onder **hoofdlettergevoelig**, selecteer **Nee**.
+
+   - In de **Operator** in de lijst met **gelijkteken (=)**.
+
+   - Voer een reguliere-expressiepatroon. In dit voorbeeld gebruiken we het patroon `(https?):\/\/.*azurewebsites\.net(.*)$`.
+
+   - Selecteer **OK**.
+
+     ![Configureren van een als voorwaarde](media/rewrite-http-headers-portal/condition.png)
 
 7. Voeg een actie voor het herschrijven van de location-header:
 
-   - Selecteer **ingesteld** als de **actietype**.
+   - In de **actietype** in de lijst met **ingesteld**.
 
-   - Selecteer **antwoord** als de **Header-type**.
+   - In de **Header-type** in de lijst met **antwoord**.
 
-   - Selecteer **algemene header** als de **headernaam**.
+   - Onder **headernaam**, selecteer **algemene header**.
 
-   - Selecteer **locatie** uit de **algemene header** vervolgkeuzelijst.
+   - In de **algemene header** in de lijst met **locatie**.
 
-   - Voer de headerwaarde. In dit voorbeeld gebruiken we `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` als waarde van de header. Dit wordt vervangen door *azurewebsites.net* met *contoso.com* in de location-header.
+   - Voer de headerwaarde. In dit voorbeeld gebruiken we `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` als waarde van de header. Deze waarde wordt vervangen door *azurewebsites.net* met *contoso.com* in de location-header.
 
-   - Klik op **OK**.
+   - Selecteer **OK**.
 
-     ![Location-header wijzigen](media/rewrite-http-headers-portal/action.png)
+     ![Een actie toevoegen](media/rewrite-http-headers-portal/action.png)
 
-8. Klik op **maken** om te maken van het herschrijven.
+8. Selecteer **maken** om te maken van het herschrijven:
 
-   ![Location-header wijzigen](media/rewrite-http-headers-portal/create.png)
+   ![Selecteer Maken](media/rewrite-http-headers-portal/create.png)
 
-9. U gaat naar de weergave van de set herschrijven. Controleer of de opnieuw ingesteld dat u hierboven hebt gemaakt is aanwezig in de lijst opnieuw ingesteld.
+9. De weergave van de set herschrijven wordt geopend. Controleer of de opnieuw ingesteld dat u hebt gemaakt in de lijst met herschrijven sets is:
 
-   ![Location-header wijzigen](media/rewrite-http-headers-portal/rewrite-set-list.png)
+   ![Herschrijf de set weergeven](media/rewrite-http-headers-portal/rewrite-set-list.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de configuratie is vereist om uit te voeren sommige van de algemene gebruiksvoorbeelden [algemene header scenario's herschrijven](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
-
-   
+Zie voor meer informatie over het instellen van enkele veelvoorkomende use cases, [algemene header scenario's herschrijven](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).

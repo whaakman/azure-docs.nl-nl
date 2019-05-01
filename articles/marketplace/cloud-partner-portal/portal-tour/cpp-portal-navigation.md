@@ -1,25 +1,18 @@
 ---
-title: Cloud Partner-Portal navigatie voor Azure Marketplace | Microsoft Docs
-description: .
+title: Cloud Partner-Portal navigatie voor Azure Marketplace
+description: Zie de uitleg van de navigatie in de Cloud Partner-Portal voor Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e963734af450a96ac08830769560a2b5e8eef9c6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: ef329bfef9dc4f98dfd975a33c190f0b1825df4e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128622"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942090"
 ---
 # <a name="cloud-partner-portal-navigation"></a>Cloud Partner-Portal navigatie
 

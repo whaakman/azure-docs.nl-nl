@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a887c79a51c7a239e7057171e51e67a53af2f84b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f83eb87d2eecb91aa18b1caceb42f9d8bd6c2a0e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60580224"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939592"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Gegevens synchroniseren tussen meerdere cloud en on-premises databases met SQL Data Sync
 
@@ -32,7 +32,7 @@ Gegevenssynchronisatie is handig in gevallen waarbij gegevens moeten worden up-t
 
 - **Synchronisatie van hybride gegevens:** Met het synchroniseren van gegevens, kunt u gegevens worden gesynchroniseerd tussen uw on-premises database en Azure SQL-databases om hybride toepassingen. Deze mogelijkheid kan beroep instellen op klanten die van plan bent te verplaatsen naar de cloud en wil graag enkele van de toepassing in Azure te plaatsen.
 - **Gedistribueerde toepassingen:** In veel gevallen is het nuttig zijn voor het scheiden van verschillende werkbelastingen voor verschillende databases. Bijvoorbeeld, als u een grote productiedatabase hebt, maar u moet ook een rapport of de analytics-workload wordt uitgevoerd op deze gegevens, is het handig om een tweede database voor deze extra belasting. Deze aanpak minimaliseert de prestatie-invloed op uw productie-werkbelasting. Data Sync kunt u deze twee databases gesynchroniseerd houden.
-- **Wereldwijd gedistribueerde toepassingen:** Veel bedrijven omvatten meerdere regio's en zelfs verschillende landen. Als u wilt de netwerklatentie beperken, is het raadzaam om uw gegevens in een regio dicht bij u. U kunt databases eenvoudig in regio's over de hele wereld gesynchroniseerd houden met het synchroniseren van gegevens.
+- **Wereldwijd gedistribueerde toepassingen:** Veel bedrijven omvatten meerdere regio's en zelfs verschillende landen/regio's. Als u wilt de netwerklatentie beperken, is het raadzaam om uw gegevens in een regio dicht bij u. U kunt databases eenvoudig in regio's over de hele wereld gesynchroniseerd houden met het synchroniseren van gegevens.
 
 Gegevenssynchronisatie is niet de beste oplossing voor de volgende scenario's:
 

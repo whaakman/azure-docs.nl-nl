@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/26/2019
 ms.author: saudas
-ms.openlocfilehash: aafc6c5a240a1dd3e3c75dd33da26bde918b2288
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d4287307ee3ed7f65b91f2865242113aa5b22bfd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031608"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684174"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Ondersteunde versies van Kubernetes in Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ AKS ondersteunt vier secundaire versies van Kubernetes:
 
 Bijvoorbeeld, als u AKS introduceert *1.12.x* vandaag de dag wordt ook ondersteund voor *1.11.a* + *1.11.b*, *1.10.c*  +  *1,10 d*, *1.9.e* + *1.9f* (waarbij de versies van de letters patch twee nieuwste stabiele builds zijn).
 
-Wanneer een nieuwe secundaire versie wordt geïntroduceerd, worden de oudste ondersteunde secundaire versie en patchreleases afgeschaft. 15 dagen vóór de release van de nieuwe secundaire versie en de komende versie buiten gebruik stellen, een aankondiging is gemaakt via de [Azure updatekanalen][azure-update-channel]. In het voorbeeld hierboven waar *1.12.x* is uitgebracht, de buiten gebruik gestelde versies zijn *1.8.g* + *1.8.h*.
+Wanneer een nieuwe secundaire versie wordt geïntroduceerd, worden de oudste ondersteunde secundaire versie en patchreleases afgeschaft. 30 dagen vóór de release van de nieuwe secundaire versie en de komende versie buiten gebruik stellen, een aankondiging is gemaakt via de [Azure updatekanalen][azure-update-channel]. In het voorbeeld hierboven waar *1.12.x* is uitgebracht, de buiten gebruik gestelde versies zijn *1.8.g* + *1.8.h*.
 
 Wanneer u een AKS-cluster implementeert in de portal of met Azure CLI, wordt het cluster altijd ingesteld op de n-1 secundaire versie en de nieuwste patch. Bijvoorbeeld, als biedt ondersteuning voor AKS *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c*  +   *1,10 d*, *1.9.e* + *1.9f*, is de standaardversie voor nieuwe clusters *1.11.b*.
 

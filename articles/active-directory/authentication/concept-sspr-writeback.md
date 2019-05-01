@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcf2ef10cbc8f6f54a65e596ea003a98f410a7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 78889cb3c04b9854a4cebb27c35488d5142ad3a7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415001"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694846"
 ---
 # <a name="what-is-password-writeback"></a>Wat is wachtwoord terugschrijven?
 
@@ -85,9 +85,6 @@ Wanneer een federatieve of wachtwoord-hash gesynchroniseerd pogingen van gebruik
    * De koppeling van de Active Directory-connector-object naar de MV ze beschikken over de synchronisatieregel `Microsoft.InfromADUserAccountEnabled.xxx` op de koppeling.
    
    De synchronisatie-engine wordt gebruikt als de oproep afkomstig van de cloud is, de **waarde voor cloudAnchor** kenmerk om te controleren of de Azure Active Directory-connector space-object. Het volgt de koppeling op naar het MV-object, en volgt de koppeling op naar het Active Directory-object. Omdat er meerdere Active Directory-objecten (meerdere forests) voor dezelfde gebruiker zijn, de synchronisatie-engine is afhankelijk van de `Microsoft.InfromADUserAccountEnabled.xxx` koppeling naar het juiste abonnement kiezen.
-
-   > [!Note]
-   > Als gevolg van deze logica voor wachtwoord moet terugschrijven in om te werken van Azure AD Connect kunnen communiceren met de primaire domeincontroller (PDC) emulator. Als u deze handmatig inschakelt moet, kunt u Azure AD Connect verbinding met de PDC-emulator. Met de rechtermuisknop op de **eigenschappen** van de Active Directory-synchronisatieconnector, selecteert u vervolgens **mappartities configureren**. Zoek daar de **verbindingsinstellingen** sectie en selecteer het vak met de titel **gebruik alleen domeincontrollers**. Zelfs als de gewenste domeincontroller niet een PDC-emulator is, probeert Azure AD Connect om verbinding met de PDC voor het terugschrijven van wachtwoorden te maken.
 
 1. Nadat de gebruiker is-account gevonden, wordt een poging tot opnieuw instellen van het wachtwoord rechtstreeks in de juiste Active Directory-forest wordt uitgevoerd.
 1. Als het wachtwoord set-bewerking geslaagd is, wordt de gebruiker gemeld dat hun wachtwoord is gewijzigd.

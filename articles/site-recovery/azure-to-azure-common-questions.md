@@ -1,22 +1,22 @@
 ---
-title: 'Veelgestelde vragen: Herstel na noodgevallen van Azure naar Azure met Azure Site Recovery | Microsoft Docs'
-description: In dit artikel bevat een overzicht van veelgestelde vragen bij het instellen van herstel na noodgevallen van virtuele Azure-machines naar een andere Azure-regio met behulp van Azure Site Recovery
+title: Veelgestelde vragen over Azure-naar-Azure-noodherstel met Azure Site Recovery
+description: In dit artikel vindt u antwoorden op veelgestelde vragen over herstel na noodgevallen van virtuele Azure-machines naar een andere Azure-regio met Azure Site Recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 03/29/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 52a5022b49bac990321c3cf8661aa2a04e93b39a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: asgan
+ms.openlocfilehash: 1a13bda37c5bfac4efe6bd6109cb1dfcd5f7d2a9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790853"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925674"
 ---
-# <a name="common-questions-azure-to-azure-replication"></a>Veelgestelde vragen: Replicatie van Azure naar Azure
+# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Veelgestelde vragen: Herstel na noodgevallen van Azure naar Azure
 
-In dit artikel vindt u antwoorden op veelgestelde vragen over het implementeren van herstel na noodgeval (DR) van Azure-VM's naar een andere Azure-regio met behulp van Azure Site Recovery. Als u vragen hebt na het lezen van dit artikel, plaatst u deze op de [Azure Recovery Services-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+In dit artikel vindt u antwoorden op veelgestelde vragen over herstel na noodgevallen van virtuele Azure-machines naar een andere Azure-regio met behulp van [siteherstel](site-recovery-overview.md). 
 
 
 ## <a name="general"></a>Algemeen
@@ -28,15 +28,15 @@ Elk exemplaar dat wordt beschermd met Azure Site Recovery, wordt de eerste 31 da
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Worden er gedurende de eerste 31 dagen andere Azure-kosten in rekening gebracht?
 Ja, hoewel Azure Site Recovery gratis is gedurende de eerste 31 dagen van een beschermd exemplaar, worden er mogelijk kosten in rekening gebracht voor Azure Storage, opslagtransacties en gegevensoverdracht. Voor een herstelde virtuele machine worden mogelijk ook Azure-rekenkosten in rekening gebracht. Meer informatie over prijzen ophalen [hier](https://azure.microsoft.com/pricing/details/site-recovery)
 
-### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>Wat zijn de aanbevolen procedures voor het configureren van Site Recovery op Azure Virtual machines?
+### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Waar vind ik Aanbevolen procedures voor noodherstel van de virtuele machine van Azure? 
 1. [Azure-naar-Azure-architectuur begrijpen](azure-to-azure-architecture.md)
 2. [Controleer de ondersteunde en niet-ondersteunde configuraties](azure-to-azure-support-matrix.md)
 3. [Herstel na noodgevallen instellen voor virtuele Azure-machines](azure-to-azure-how-to-enable-replication.md)
 4. [Een testfailover uitvoeren](azure-to-azure-tutorial-dr-drill.md)
 5. [Failover en failback uitvoeren naar de primaire regio](azure-to-azure-tutorial-failover-failback.md)
 
-### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>Hoe kan capaciteit gegarandeerd in de doelregio voor Azure VM's?
-Het team van Azure Site Recovery (ASR) werkt met Azure capaciteit management-team om te plannen voor voldoende infrastructuurcapaciteit, in een poging om ervoor te zorgen dat virtuele machines die zijn beveiligd met ASR voor disaster recovery met succes worden geïmplementeerd in de regio van het herstel na noodgevallen Wanneer de ASR-failoverbewerkingen worden geïnitieerd.
+### <a name="how-is-capacity-guaranteed-in-the-target-region"></a>Hoe wordt de capaciteit in de doelregio gegarandeerd?
+De Site Recovery-team werkt met het Azure-capaciteit management-team voldoende infrastructuurcapaciteit van een plannen en om ervoor te zorgen dat virtuele machines die zijn beveiligd door Site Recovery voor met succes is geïmplementeerde doelregio wanneer failover wordt gestart.
 
 ## <a name="replication"></a>Replicatie
 
@@ -54,6 +54,16 @@ Ja, u kunt [zone vastgemaakt VM's repliceren](https://azure.microsoft.com/blog/d
 
 Ja, kunt u schijven op het moment van beveiliging uitsluiten met behulp van PowerShell. Raadpleeg voor meer informatie, [artikel](azure-to-azure-exclude-disks.md)
 
+### <a name="can-i-add-new-disks-to-replicated-vms-and-enable-replication-for-them"></a>Kan ik toevoegen van nieuwe schijven aan de gerepliceerde virtuele machines en replicatie inschakelen voor deze?
+
+Dit is Ja, ondersteund voor virtuele Azure-machines met beheerde schijven. Wanneer u een nieuwe schijf aan een Azure-VM die ingeschakeld voor replicatie toevoegt, toont de status van de replicatie voor de virtuele machine een waarschuwing weergegeven, met een opmerking op te geven dat een of meer schijven op de virtuele machine beschikbaar voor beveiliging zijn. U kunt replicatie voor de toegevoegde schijven inschakelen.
+- Als u beveiliging voor de toegevoegde schijven inschakelt, wordt de waarschuwing verdwijnt na de initiële replicatie.
+- Als u ervoor kiest geen replicatie in te schakelen voor de schijf, kunt u de waarschuwing negeren.
+- Als u een virtuele machine waarop u een schijf toevoegen en replicatie inschakelen voor deze failover, ziet replicatie punten u de schijven die beschikbaar voor herstel zijn. Bijvoorbeeld, als een virtuele machine één schijf heeft en u een nieuwe toevoegen, wordt replicatie-punten die zijn gemaakt voordat u de schijf toegevoegd weergegeven dat de replicatie-punt uit '1 van 2 schijven bestaat'.
+
+Site Recovery biedt geen ondersteuning voor 'hot verwijdert"van een schijf van een gerepliceerde virtuele machine. Als u een VM-schijf verwijdert, moet u uitschakelen en vervolgens weer inschakelen replicatie voor de virtuele machine.
+
+
 ### <a name="how-often-can-i-replicate-to-azure"></a>Hoe vaak kan ik repliceren naar Azure?
 Replicatie is continue wanneer u virtuele Azure-machines naar een andere Azure-regio repliceert. Zie voor meer informatie de [Azure-naar-Azure-replicatiearchitectuur](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process).
 
@@ -69,7 +79,7 @@ Nee, Site Recovery is geen verbinding met internet vereist. Maar dit vereist toe
 
 ### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Kan ik afzonderlijke resourcegroep voor de afzonderlijke lagen te gebruiken of de toepassing repliceren?
 Ja, kunt u repliceert u de toepassing en de configuratie van het herstel na noodgevallen in afzonderlijke resourcegroep te houden.
-Bijvoorbeeld, hebt u een toepassing met elke app, db en web in afzonderlijke resourcegroep lagen, hebt u klikken op de [wizard replicatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) drie keer op alle lagen te beveiligen. ASR kan deze drie lagen in drie verschillende resourcegroep wordt gerepliceerd.
+Bijvoorbeeld, hebt u een toepassing met elke app, db en web in afzonderlijke resourcegroep lagen, hebt u klikken op de [wizard replicatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) drie keer op alle lagen te beveiligen. Site Recovery wordt deze drie lagen in drie verschillende resourcegroepen worden gerepliceerd.
 
 ## <a name="replication-policy"></a>Beleid voor replicatie
 
@@ -147,8 +157,8 @@ Omdat het CPU-intensieve, kan Multi-VM-consistentie inschakelen werkbelasting pr
 
 ## <a name="failover"></a>Failover
 
-### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>Hoe kan capaciteit gegarandeerd in de doelregio voor Azure VM's?
-Het team van Azure Site Recovery (ASR) werkt met Azure capaciteit management-team om te plannen voor voldoende infrastructuurcapaciteit, in een poging om ervoor te zorgen dat virtuele machines die zijn beveiligd met ASR voor disaster recovery met succes worden geïmplementeerd in de regio van het herstel na noodgevallen Wanneer de ASR-failoverbewerkingen worden geïnitieerd.
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Hoe wordt capaciteit kan worden gegarandeerd in de doelregio voor Azure VM's?
+De Site Recovery-team werkt met Azure capaciteit management-team om te plannen voor voldoende infrastructuurcapaciteit, om ervoor te zorgen dat de VM's zijn ingeschakeld voor herstel na noodgevallen wordt is geïmplementeerd in de doelregio wanneer failover wordt gestart.
 
 ### <a name="is-failover-automatic"></a>Vindt failover automatisch plaats?
 
@@ -156,15 +166,19 @@ Failover wordt niet automatisch uitgevoerd. U start failover met één klik in d
 
 ### <a name="can-i-retain-a-public-ip-address-after-failover"></a>Kan ik een openbaar IP-adres behouden na een failover?
 
-Het openbare IP-adres van de productietoepassing *kunnen niet worden behouden bij failover*. Workloads naar gebracht als onderdeel van het failoverproces moet een Azure openbare IP-resource die beschikbaar is in de doelregio worden toegewezen. U kunt deze stap handmatig doen of automatiseren via een plan voor herstel. Als u wilt een openbaar IP-adres toewijzen met behulp van een herstelplan, Zie [openbare IP-adressen instellen na een failover](https://docs.microsoft.com/azure/site-recovery/concepts-public-ip-address-with-site-recovery#public-ip-address-assignment-using-recovery-plan).  
+Het openbare IP-adres van de productietoepassing kan niet worden bewaard na een failover.
+- Workloads naar gebracht als onderdeel van het failoverproces moet een Azure openbare IP-resource die beschikbaar is in de doelregio worden toegewezen.
+- U kunt dit handmatig doen of automatiseren met een plan voor herstel.
+- Meer informatie over het [openbare IP-adressen instellen na een failover](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).  
 
 ### <a name="can-i-retain-a-private-ip-address-during-failover"></a>Kan ik een privé IP-adres behouden tijdens de failover?
-Ja, kunt u een privé IP-adres behouden. Bij het inschakelen van herstel na Noodgeval voor virtuele machines van Azure maakt Site Recovery standaard doelresources op basis van resource-instellingen voor gegevensbron. Voor Azure VM's geconfigureerd met statische IP-adressen, Site Recovery wordt geprobeerd om in te richten van hetzelfde IP-adres voor de doel-VM, als deze zich niet in gebruik. Als u wilt behouden privé-IP-adres onder verschillende omstandigheden, Zie [behouden IP-adressen tijdens de failover](site-recovery-retain-ip-azure-vm-failover.md).
+Ja, kunt u een privé IP-adres behouden. Wanneer u herstel na noodgevallen voor virtuele machines van Azure inschakelt maakt Site Recovery standaard doelresources op basis van resource-instellingen voor gegevensbron. -Voor Azure VM's geconfigureerd met statische IP-adressen, Site Recovery wordt geprobeerd om in te richten van hetzelfde IP-adres voor de doel-VM, als deze zich niet in gebruik.
+Meer informatie over [IP-adressen behouden tijdens de failover](site-recovery-retain-ip-azure-vm-failover.md).
 
-### <a name="after-failover-the-server-doesnt-have-the-same-ip-address-as-the-source-vm-why-is-it-assigned-a-new-ip-address"></a>Na een failover hebben niet de server hetzelfde IP-adres als de bron-VM. Waarom wordt er een nieuw IP-adres toegewezen?
+### <a name="after-failover-why-is-the-server-assigned-a-new-ip-address"></a>Na een failover, waarom is de server een nieuwe IP-adres toegewezen?
 
 Site Recovery probeert te bieden van het IP-adres op het moment van failover. Als een andere virtuele machine dit adres duurt, wordt de eerstvolgende beschikbare IP-adres in Site Recovery ingesteld als het doel.
-Zie voor een volledige uitleg over hoe Site Recovery omgaat met adressering [instellen van netwerktoewijzing en IP-adressen voor virtuele netwerken](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms).
+Meer informatie over [instellen van netwerktoewijzing en IP-adressering voor VNets](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>Wat zijn **nieuwste (laagste RPO)** herstelpunten?
 De **nieuwste (laagste RPO)** optie verwerkt eerst alle gegevens die is verzonden naar de Site Recovery-service te maken van een herstelpunt voor elke virtuele machine voordat de failover wordt uitgevoerd naar deze. Deze optie biedt het laagste beoogde herstelpunt (RPO), omdat de virtuele machine gemaakt nadat failover de gegevens die zijn gerepliceerd naar de Site Recovery is wanneer de failover werd geactiveerd.
@@ -175,10 +189,10 @@ Ja. Site Recovery verwerkt alle in behandeling gegevens voordat de failover-over
 ### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>Wat doet de **laatst verwerkte** optie bij het herstellen van gemiddelde verwijst?
 De **laatst verwerkt** optie mislukt op alle virtuele machines in het plan naar het laatste herstelpunt dat Site Recovery verwerkte verwijzen. Raadpleeg het meest recente herstelpunt voor een specifieke virtuele machine, **laatste herstelpunten** in de instellingen van de virtuele machine. Deze optie biedt een lage RTO, omdat er geen tijd besteed aan het verwerken van niet-verwerkte gegevens.
 
-### <a name="if-im-replicating-between-two-azure-regions-what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>Als ik repliceer tussen twee Azure-regio's, wat gebeurt er als mijn primaire regio een stroomstoring optreedt?
+### <a name="what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>Wat gebeurt er als mijn primaire regio een stroomstoring optreedt?
 U kunt een failover wordt geactiveerd nadat de onderbreking. Site Recovery hoeft niet de connectiviteit van de primaire regio om uit te voeren van de failover.
 
-### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Wat is een RTO van een virtuele machine failover?
+### <a name="what-is-a-rto-of-a-vm-failover-"></a>Wat is een RTO van een VM-failover?
 Site Recovery heeft een [RTO SLA van twee uur](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). De meeste van de tijd, mislukt Site Recovery echter failover van virtuele machines binnen enkele minuten. U kunt de RTO berekenen door te gaan naar de failover taken waarin de tijd die nodig was voor de virtuele machine openen. Plan voor herstel RTO, raadpleegt u onderstaande sectie.
 
 ## <a name="recovery-plans"></a>Herstelplannen
@@ -214,25 +228,27 @@ Nee. Wanneer u [failover](https://docs.microsoft.com/azure/site-recovery/azure-t
 Dat hangt ervan af op de situatie. Bijvoorbeeld, als de bronregio VM bestaat, zijn alleen de wijzigingen tussen de bronschijf en de doelschijf gesynchroniseerd. Site Recovery de verschillen worden berekend door het vergelijken van de schijven en vervolgens worden de gegevens worden overgebracht. Dit proces duurt normaal gesproken een paar uur. Zie voor meer informatie over wat er tijdens het opnieuw beveiligen gebeurt [Azure-VM's opnieuw beveiligen een failover naar de primaire regio]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Hoeveel tijd doet het allemaal voor failback van toets maken?
-Na het opnieuw beveiligen is de hoeveelheid tijd voor failback meestal vergelijkbaar met de tijd voor de failover van de primaire regio naar een secundaire regio.
+Na het opnieuw beveiligen is de hoeveelheid tijd voor failback in het algemeen vergelijkbaar met de tijd die nodig is voor failover van de primaire regio naar een secundaire regio.
 
 ## <a name="capacity"></a>Capaciteit
 
 ### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Hoe wordt capaciteit kan worden gegarandeerd in de doelregio voor Azure VM's?
-Het team van Azure Site Recovery (ASR) werkt met Azure capaciteit management-team om te plannen voor voldoende infrastructuurcapaciteit, in een poging om ervoor te zorgen dat virtuele machines die zijn beveiligd met ASR voor disaster recovery met succes worden geïmplementeerd in de regio van het herstel na noodgevallen Wanneer de ASR-failoverbewerkingen worden geïnitieerd.
+De Site Recovery-team werkt met Azure capaciteit management-team om te plannen voor voldoende infrastructuurcapaciteit, om ervoor te zorgen dat de VM's zijn ingeschakeld voor herstel na noodgevallen met succes worden geïmplementeerd in de doelregio wanneer failover wordt gestart.
 
 ### <a name="does-site-recovery-work-with-reserved-instances"></a>Werkt Site Recovery met gereserveerde instanties?
-Ja, u kunt kopen [exemplaren reserveren](https://azure.microsoft.com/pricing/reserved-vm-instances/) in de DR-regio en ASR failover-bewerkingen worden gebruikt. </br> Er is geen aanvullende configuratie vereist van de klanten.
+Ja, u kunt kopen [exemplaren reserveren](https://azure.microsoft.com/pricing/reserved-vm-instances/) in de Dr-regio en Site Recovery-failoverbewerkingen, ze worden gebruikt. </br> Er is geen aanvullende configuratie nodig.
 
 
 ## <a name="security"></a>Beveiliging
+
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Worden er replicatiegegevens verzonden naar de Site Recovery-service?
-Nee, Site Recovery biedt geen gerepliceerde gegevens worden onderschept en er geen informatie over wat wordt uitgevoerd op uw virtuele machines. Alleen de metagegevens die nodig zijn om replicatie en failover te organiseren, worden naar de Site Recovery-service verzonden.  
+Nee, Site Recovery gerepliceerde gegevens niet worden onderschept, en heeft geen informatie over wat wordt uitgevoerd op uw virtuele machines. Alleen de metagegevens die nodig zijn om replicatie en failover te organiseren, worden naar de Site Recovery-service verzonden.  
 Site Recovery is ISO 27001: 2013, 27018, HIPAA, DPA gecertificeerd en wordt momenteel SOC2 en FedRAMP JAB-beoordelingen.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Wordt replicatie met Site Recovery versleuteld?
-Ja, zowel versleuteling-in-transit en [versleuteling in Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) worden ondersteund.
+Ja, zowel versleuteling-in-transit en [versleuteling in rust in Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) worden ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Beoordeling](azure-to-azure-support-matrix.md) vereisten ondersteunen.
 * [Instellen van](azure-to-azure-tutorial-enable-replication.md) replicatie van Azure naar Azure.
+- Als u vragen hebt na het lezen van dit artikel, plaatst u deze op de [Azure Recovery Services-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).

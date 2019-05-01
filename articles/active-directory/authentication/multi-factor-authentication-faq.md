@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0277180f0d768bbcc83a0d8d05fbc4b8b25301e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bbebbeaad681618e8420ad842ec370ce62bc9eba
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357474"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570832"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Veelgestelde vragen over Azure multi-factor Authentication
 
@@ -59,7 +59,7 @@ In Canada Microsoft maakt gebruik van de volgende SMS korte codes:
    * 759731 
    * 673801
 
-Microsoft garandeert niet consistent, SMS of spraak op basis van multi-factor Authentication vragen levering met hetzelfde getal. Uit oogpunt van onze gebruikers, kan Microsoft toevoegen of verwijderen van korte-codes op elk gewenst moment wanneer we aanpassingen van de route voor het verbeteren van de SMS-mailbezorging. Microsoft biedt geen ondersteuning voor korte-codes voor de landen naast de Verenigde Staten en Canada
+Microsoft garandeert niet consistent, SMS of spraak op basis van multi-factor Authentication vragen levering met hetzelfde getal. Uit oogpunt van onze gebruikers, kan Microsoft toevoegen of verwijderen van korte-codes op elk gewenst moment wanneer we aanpassingen van de route voor het verbeteren van de SMS-mailbezorging. Microsoft biedt geen ondersteuning voor korte-codes voor landen/regio's behalve de Verenigde Staten en Canada.
 
 ## <a name="billing"></a>Billing
 
@@ -95,7 +95,7 @@ Multi-factor Authentication voor Office 365-gebruikers biedt een subset van func
 
 Als uw organisatie MFA als zelfstandige service met facturering op basis van verbruik koopt, kiest u een factureringsmodel bij het maken van een MFA-provider. U kunt het factureringsmodel niet wijzigen nadat een MFA-provider is gemaakt. U kunt echter de MFA-provider verwijderen en maak vervolgens een met een ander model voor facturering.
 
-Wanneer een MFA-provider is gemaakt, kan deze worden gekoppeld aan een Azure Active Directory (ook wel ' Azure AD-tenant'). Als de huidige MFA-Provider is gekoppeld aan een Azure AD-tenant, kunt u veilig verwijderen van de MFA-provider en er een maken die is gekoppeld aan dezelfde Azure AD-tenant. Als u voldoende licenties voor MFA, Azure AD Premium of EMS (Enterprise Mobility + Security) hebt voor alle gebruikers voor wie MFA is ingeschakeld, kunt u de MFA-provider ook helemaal verwijderen.
+Wanneer een MFA-provider is gemaakt, kan deze worden gekoppeld aan een Azure Active Directory, of "Azure AD-tenant." Als de huidige MFA-provider is gekoppeld aan een Azure AD-tenant, kunt u veilig verwijderen van de MFA-provider en er een maken die is gekoppeld aan dezelfde Azure AD-tenant. Als u voldoende licenties voor MFA, Azure AD Premium of EMS (Enterprise Mobility + Security) hebt voor alle gebruikers voor wie MFA is ingeschakeld, kunt u de MFA-provider ook helemaal verwijderen.
 
 Als de MFA-provider is *niet* is gekoppeld aan een Azure AD-tenant of u de nieuwe MFA-provider te koppelen aan een andere Azure AD-tenant, gebruikersinstellingen en configuratieopties niet overgedragen. Bestaande Azure MFA-servers moeten ook opnieuw worden geactiveerd met behulp van de activeringsreferenties die worden gegenereerd door de nieuwe MFA-provider. Als u de MFA-servers opnieuw activeert om ze te koppelen aan de nieuwe MFA-provider, is dit niet van invloed op telefonische verificatie en verificatie via een sms-bericht. Mobiele app-meldingen werken echter niet meer voor gebruikers totdat ze de mobiele app opnieuw activeren.
 
@@ -142,7 +142,7 @@ Als uw organisatie geen oudere clients, moet u uw gebruikers te maken van app-wa
 > [!NOTE]
 > Moderne verificatie voor Office 2013 clients
 >
-> App-wachtwoorden zijn alleen nodig is voor apps die moderne verificatie niet ondersteunen. Office 2013 clients ondersteunen moderne-verificatieprotocollen, maar moeten worden geconfigureerd. Moderne verificatie is nu beschikbaar voor elke klant met de update van maart 2015 of hoger voor Office 2013. Zie voor meer informatie de [Office 2013 modern authentication openbare preview aangekondigd](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> App-wachtwoorden zijn alleen nodig is voor apps die moderne verificatie niet ondersteunen. Office 2013 clients ondersteunen moderne-verificatieprotocollen, maar moeten worden geconfigureerd. Moderne verificatie is nu beschikbaar voor elke klant met de update van maart 2015 of hoger voor Office 2013. Zie voor meer informatie het blogbericht [moderne verificatie van Office 365 bijgewerkt](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
 **V: Mijn gebruikers zeggen dat ze niet soms de SMS-bericht ontvangen of ze tweerichtings-SMS-berichten beantwoorden maar de verificatie een optreedt time-out.**
 

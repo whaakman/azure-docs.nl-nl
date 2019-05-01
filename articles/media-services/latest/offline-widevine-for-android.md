@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 5d7dccfecc47b14be62a78600561a8ff0f7ca501
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 5102720242edd3ffc0a377bbddf0f7f3ade68b63
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111946"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937228"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine streaming voor Android
 
 Naast het beveiligen van inhoud voor het streamen van online inhoud media abonnement en verhuur services aanbieding downloadbare inhoud die werkt als u niet met internet verbonden bent. U moet mogelijk voor het downloaden van inhoud naar uw telefoon of tablet om te worden afgespeeld in vliegtuigmodus wanneer voor een paar dagen losgekoppeld van het netwerk. Aanvullende scenario's, waarin u wilt mogelijk om inhoud te downloaden:
 
-- Sommige inhoudsproviders mogelijk niet toestaan van DRM-licentielevering buiten de rand van een land/regio. Als een gebruiker wil inhoud bekijken in het buitenland onderweg, is offline downloaden die nodig zijn.
-- In sommige landen zijn de beschikbaarheid van Internet en/of bandbreedte is beperkt. Gebruikers kunnen ervoor kiezen om inhoud te kunnen zijn om deze te bekijken in hoog genoeg oplossing voor goede weergavemogelijkheden te downloaden.
+- Sommige inhoud providers kunnen DRM-licentielevering buiten een land/regio rand weigeren. Als een gebruiker wil inhoud bekijken in het buitenland onderweg, is offline downloaden die nodig zijn.
+- In sommige landen/regio, zijn de beschikbaarheid van Internet en/of bandbreedte is beperkt. Gebruikers kunnen ervoor kiezen om inhoud te kunnen zijn om deze te bekijken in hoog genoeg oplossing voor goede weergavemogelijkheden te downloaden.
 
 In dit artikel wordt beschreven hoe u offlinemodus afspelen voor DASH-inhoud beveiligd met Widevine op Android-apparaten implementeren. Offline DRM kunt u voor het abonnement, verhuur en aankoop modellen voor uw inhoud, zodat klanten van uw services kunnen eenvoudig worden inhoud met hen wanneer niet verbonden met internet.
 

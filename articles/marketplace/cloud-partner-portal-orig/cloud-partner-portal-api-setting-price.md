@@ -1,25 +1,18 @@
 ---
-title: Prijzen voor virtuele machine-aanbiedingen | Microsoft Docs
+title: Prijzen voor virtuele machine-aanbiedingen | Azure Marketplace
 description: Legt uit de drie methoden voor het opgeven van de prijzen van virtuele machine-aanbiedingen.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a029477dfd8046863ebfe34cd839562a0b1f3d87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: dde3e04dc8f30ea5657139d50dd4456e5dfb57c2
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61094451"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935739"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Prijzen voor virtuele machine-aanbiedingen
 ==================================

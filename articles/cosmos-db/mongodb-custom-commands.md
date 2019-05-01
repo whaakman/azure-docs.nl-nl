@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94b1048befc8716caf5f7f51adb1f95d047d4077
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446581"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925658"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB-extensie-opdrachten gebruiken voor het beheren van gegevens die zijn opgeslagen in Azure Cosmos DB-API voor MongoDB 
 
@@ -162,7 +162,7 @@ De volgende tabel beschrijft de parameters in de opdracht:
 
 |**Veld**|**Type** |**Beschrijving** |
 |---------|---------|---------|
-| CustomAction    | string | Naam van de aangepaste opdracht. 'CreateDatabase' moet zijn     |
+| CustomAction    | string | Naam van de aangepaste opdracht. Moet "CreateCollection"     |
 | verzameling      | string | Naam van de verzameling                                   |
 | offerThroughput | int    | Ingerichte doorvoer om in te stellen op de database. Er is een optionele parameter |
 | shardKey        | string | Shard-sleutelpad voor het maken van een shard-verzameling. Er is een optionele parameter |

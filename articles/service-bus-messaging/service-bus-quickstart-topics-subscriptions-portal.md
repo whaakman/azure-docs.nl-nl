@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: spelluru
 ms.openlocfilehash: e943dbff71fdbd98773587c8ac5a62dd081b49a2
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62739562"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698864"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Quickstart: De Azure portal gebruiken voor het maken van een Service Bus-onderwerp en -abonnementen naar het onderwerp
 In deze snelstartgids gebruikt u de Azure-portal te maken van een Service Bus-onderwerp en maak abonnementen op dat onderwerp. 

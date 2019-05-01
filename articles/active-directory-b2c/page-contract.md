@@ -1,5 +1,5 @@
 ---
-title: Selecteer een pagina-contract in Azure Active Directory B2C | Microsoft Docs
+title: Selecteer een pagina-contract - Azure Active Directory B2C | Microsoft Docs
 description: Meer informatie over het selecteren van een pagina-contract in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -7,24 +7,24 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 39198c0093f018b64a1292f023914651b51b4faf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4cd29df19179f07fd9b61a2f484b1d49cc05c4cf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361044"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570574"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Selecteer een pagina-contract in Azure Active Directory B2C met behulp van aangepaste beleidsregels
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Of u nu werkt met gebruikersstromen of aangepast beleid, kunt u de JavaScript-code voor client-side inschakelen in uw Azure Active Directory (Azure AD) B2C-beleid. In dit artikel wordt beschreven hoe u een pagina-contract in Azure AD B2C selecteren door te configureren in een [aangepast beleid](active-directory-b2c-overview-custom.md). Een pagina-contract is een samenwerkingsverband van elementen die Azure AD B2C biedt en de inhoud die u opgeeft. Als u van plan bent te gebruiken [Javascript](javascript-samples.md), moet u de versie van een contract voor al uw inhoudsdefinities in uw aangepast beleid te definiëren.
+Of u nu werkt met gebruikersstromen of aangepast beleid, kunt u de JavaScript-code voor client-side inschakelen in uw Azure Active Directory (Azure AD) B2C-beleid. JavaScript inschakelen voor uw toepassingen, moet u een element dat u wilt toevoegen de [aangepast beleid](active-directory-b2c-overview-custom.md), selecteert u een contract pagina en gebruik [b2clogin.com](b2clogin.md) in uw aanvragen. Een pagina-contract is een samenwerkingsverband van elementen die Azure AD B2C biedt en de inhoud die u opgeeft. In dit artikel wordt beschreven hoe u een pagina-contract in Azure AD B2C door deze te configureren in een aangepast beleid selecteren.
 
 > [!NOTE]
-> Als u wilt voor het inschakelen van JavaScript voor gebruikersstromen, Zie [over het gebruik van JavaScript en pagina contract versies in een gebruikersstroom](user-flow-javascript-overview.md).
+> Als u wilt voor het inschakelen van JavaScript voor gebruikersstromen, Zie [JavaScript en pagina ondersteuningscontract versies in Azure Active Directory B2C](user-flow-javascript-overview.md).
 
 ## <a name="replace-datauri-values"></a>Gegevens-URI die waarden vervangen
 

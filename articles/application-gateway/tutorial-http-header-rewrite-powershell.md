@@ -2,26 +2,23 @@
 title: Herschrijf de HTTP-headers in Azure Application Gateway
 description: Dit artikel bevat informatie over het maken van een Azure Application Gateway en Herschrijf de HTTP-headers met behulp van Azure PowerShell
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 4/30/2019
 ms.author: absha
-ms.openlocfilehash: 4747d824dcf531ed883d476a0daad182ea081c39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ba74bb8970949a15425a66f7cd4475749fd183df
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60715093"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947094"
 ---
-# <a name="tutorial-create-an-application-gateway-and-rewrite-http-headers"></a>Zelfstudie: Een toepassingsgateway maken en te herschrijven van HTTP-headers
+# <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Een toepassingsgateway maken en te herschrijven van HTTP-headers
 
 U kunt Azure PowerShell gebruiken om te configureren [regels voor het herschrijven van HTTP-aanvraag- en reactieheaders](rewrite-http-headers.md) bij het maken van de nieuwe [automatisch schalen en zone-redundante application gateway-SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
-> [!IMPORTANT] 
-> De SKU met automatisch schalen en zone-redundantie voor toepassingsgateways is momenteel in openbare preview. Deze preview wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. De reden hiervoor is dat bepaalde functies mogelijk niet worden ondersteund of beperkte mogelijkheden hebben. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-
-In deze zelfstudie leert u het volgende:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 >
@@ -37,7 +34,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie moet u Azure PowerShell lokaal uitvoeren. U moet Az moduleversie 1.0.0 of hoger is geïnstalleerd. Voer `Import-Module Az` en vervolgens`Get-Module Az` de versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-az-ps). Nadat u de versie van PowerShell hebt gecontroleerd, voert u `Login-AzAccount` uit om een verbinding op te zetten met Azure.
+In dit artikel is vereist dat u Azure PowerShell lokaal worden uitgevoerd. U moet Az moduleversie 1.0.0 of hoger is geïnstalleerd. Voer `Import-Module Az` en vervolgens`Get-Module Az` de versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-az-ps). Nadat u de versie van PowerShell hebt gecontroleerd, voert u `Login-AzAccount` uit om een verbinding op te zetten met Azure.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
@@ -178,5 +175,4 @@ Verken eerst de resources die samen met de toepassingsgateway zijn gemaakt. U ku
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Een toepassingsgateway maken met omleidingsregels op basis van een URL-pad](./tutorial-url-route-powershell.md)
+- [Een toepassingsgateway maken met omleidingsregels op basis van een URL-pad](./tutorial-url-route-powershell.md)

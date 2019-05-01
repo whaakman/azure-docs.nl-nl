@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38353ed68469ac35f04d68e19afd11ac4b47f2ae
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818480"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943955"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Aan de slag met Azure Stream Analytics: Fraudebewaking in realtime
 
@@ -30,7 +30,7 @@ In deze zelfstudie wordt het voorbeeld van op basis van gegevens van telefoonges
 
 ## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>Scenario: Telecommunicatie en SIM fraudebewaking in realtime
 
-Een telecombedrijf heeft een groot volume aan gegevens voor binnenkomende oproepen. Het bedrijf wil dat voor het detecteren van frauduleuze gesprekken in realtime, zodat ze kunnen klanten informeren of -service voor een specifiek getal afsluiten. Een type SIM fraude omvat meerdere aanroepen van de dezelfde identiteit rond dezelfde tijd, maar in geografisch verschillende locaties. Voor het detecteren van dit type fraude, het bedrijf kunt binnenkomende phone records bekijken en zoeken naar specifieke patronen: in dit geval voor aanroepen die rond dezelfde tijd worden gedaan in andere landen. Telefoon records die kunnen worden onderverdeeld in deze categorie worden geschreven naar de opslag voor analyse.
+Een telecombedrijf heeft een groot volume aan gegevens voor binnenkomende oproepen. Het bedrijf wil dat voor het detecteren van frauduleuze gesprekken in realtime, zodat ze kunnen klanten informeren of -service voor een specifiek getal afsluiten. Een type SIM fraude omvat meerdere aanroepen van de dezelfde identiteit rond dezelfde tijd, maar in geografisch verschillende locaties. Voor het detecteren van dit type fraude, het bedrijf kunt binnenkomende phone records bekijken en zoeken naar specifieke patronen: in dit geval voor aanroepen rond dezelfde tijd in verschillende landen/regio's. Telefoon records die kunnen worden onderverdeeld in deze categorie worden geschreven naar de opslag voor analyse.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -150,7 +150,7 @@ Enkele van de velden voor sleutels die u in deze realtime fraude detectie van to
 |**Record**|**Definitie**|
 |----------|--------------|
 |`CallrecTime`|Het tijdstempel voor de begintijd van de oproep. |
-|`SwitchNum`|Het schakelnummer van de oproep. In dit voorbeeld zijn de schakelnummers tekenreeksen die staan voor het land van herkomst (VS, China, UK, Duitsland of Australië). |
+|`SwitchNum`|Het schakelnummer van de oproep. In dit voorbeeld zijn de switches tekenreeksen die staan voor het land/de regio van herkomst (VS, China, UK, Duitsland of Australië). |
 |`CallingNum`|Het telefoonnummer van de beller. |
 |`CallingIMSI`|De International Mobile Subscriber Identity (IMSI). Dit is de unieke id van de oproepende functie. |
 |`CalledNum`|Het telefoonnummer van de ontvanger. |
@@ -276,7 +276,7 @@ In veel gevallen hoeft uw analyse niet alle kolommen uit de invoerstroom. U kunt
 
 Stel dat u wilt het aantal inkomende aanroepen per regio. Als u uitvoeren van statistische functies wilt, zoals tellen, in de streaming-gegevens, moet u de stroom segmenteren in tijdelijke eenheden (omdat de gegevensstroom zelf is van een effectief eindeloze). U doet dit met behulp van een stream Analytics [vensterfunctie](stream-analytics-window-functions.md). Vervolgens kunt u werken met de gegevens in dit venster als een eenheid.
 
-Voor deze transformatie die u wilt een opeenvolging van tijdelijke windows die elkaar niet overlappen, elk venster heeft een afzonderlijke set met gegevens die u kunt groeperen en statistische functie. Dit type venster wordt aangeduid als een *tumblingvenster*. Binnen de tumblingvenster, krijgt u een aantal van de binnenkomende oproepen gegroepeerd op `SwitchNum`, die staat voor het land waarvan de oproep afkomstig is. 
+Voor deze transformatie die u wilt een opeenvolging van tijdelijke windows die elkaar niet overlappen, elk venster heeft een afzonderlijke set met gegevens die u kunt groeperen en statistische functie. Dit type venster wordt aangeduid als een *tumblingvenster*. Binnen de tumblingvenster, krijgt u een aantal van de binnenkomende oproepen gegroepeerd op `SwitchNum`, die staat voor het land/de regio waarvan de oproep afkomstig is. 
 
 1. Wijzig de query in de code-editor in het volgende:
 
@@ -292,7 +292,7 @@ Voor deze transformatie die u wilt een opeenvolging van tijdelijke windows die e
 
     De projectie bevat `System.Timestamp`, die een tijdstempel voor het einde van elke venster geeft als resultaat. 
 
-    Als u wilt opgeven dat u wilt een tumblingvenster gebruiken, gebruikt u de [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) werken in de `GROUP BY` component. In de functie geeft u een tijdseenheid (een willekeurige plaats in een microseconde op een dag) en een venstergrootte (hoeveel eenheden). In dit voorbeeld bestaat de tumblingvenster van 5 seconden intervallen, zodat u een telling per land voor elke 5 seconden aan aanroepen krijgt.
+    Als u wilt opgeven dat u wilt een tumblingvenster gebruiken, gebruikt u de [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) werken in de `GROUP BY` component. In de functie geeft u een tijdseenheid (een willekeurige plaats in een microseconde op een dag) en een venstergrootte (hoeveel eenheden). In dit voorbeeld bestaat de tumblingvenster van 5 seconden intervallen, zodat u een telling per land/regio voor elke 5 seconden aan aanroepen krijgt.
 
 2. Klik op **Test** opnieuw. In de resultaten ziet u dat de tijdstempels onder **WindowEnd** in stappen van 5 seconden zijn.
 
@@ -302,7 +302,7 @@ Voor deze transformatie die u wilt een opeenvolging van tijdelijke windows die e
 
 Overweeg het gebruik van frauduleuze gesprekken die afkomstig uit dezelfde gebruiker, maar in verschillende locaties binnen 5 seconden van elkaar zijn worden voor dit voorbeeld. Zo kan dezelfde gebruiker niet op rechtmatige wijze op hetzelfde moment een telefoongesprek vanuit de Verenigde Staten en Australië initiëren. 
 
-Als u wilt controleren voor deze gevallen, kunt u een self-join van de streaminggegevens toevoegen aan de stroom op basis van de `CallRecTime` waarde. U kunt vervolgens zoeken naar records waarin de `CallingIMSI` waarde (het oorspronkelijke aantal) is hetzelfde, maar de `SwitchNum` waarde (land van oorsprong) is niet hetzelfde.
+Als u wilt controleren voor deze gevallen, kunt u een self-join van de streaminggegevens toevoegen aan de stroom op basis van de `CallRecTime` waarde. U kunt vervolgens zoeken naar records waarin de `CallingIMSI` waarde (het oorspronkelijke aantal) is hetzelfde, maar de `SwitchNum` waarde (land/regio van herkomst) is niet hetzelfde.
 
 Wanneer u een join gebruiken met het streamen van gegevens, dient de join dat enkele beperkingen met betrekking tot hoe ver de overeenkomende rijen in de tijd kunnen worden gescheiden. (Als u eerder hebt genoteerd, het streaming-gegevens is effectief eindeloos.) De tijdsgrenzen voor de relatie zijn opgegeven in de `ON` -component van de join, met behulp van de `DATEDIFF` functie. In dit geval is de join gebaseerd op een interval van 5 seconden van de van aanroepgegevens.
 

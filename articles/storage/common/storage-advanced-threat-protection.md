@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c42867ff7aea2210f20a2cd2adb5c067b8f36c80
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484151"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926510"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection voor Azure Storage
 
@@ -23,7 +23,7 @@ Beveiligingswaarschuwingen worden geactiveerd bij afwijkingen in de activiteit i
 
 > [!NOTE]
 > * Advanced Threat Protection voor Azure Storage is momenteel alleen beschikbaar voor de Blob-opslag.
-> * Zie voor meer informatie, inclusief een gratis 30-daagse proefversie aan, prijzen de [pagina met prijzen van Azure Security Center]( https://azure.microsoft.com/en-us/pricing/details/security-center/).
+> * Zie voor meer informatie, inclusief een gratis 30-daagse proefversie aan, prijzen de [pagina met prijzen van Azure Security Center]( https://azure.microsoft.com/pricing/details/security-center/).
 > * ATP voor Azure storage-functie is momenteel niet beschikbaar in Azure government en onafhankelijke cloud-regio's.
 
 Advanced Threat Protection voor Azure Storage neemt diagnostische logboeken van lees-, schrijf- en delete-aanvragen naar Blob-opslag voor detectie van bedreigingen. U kunt gerelateerde opslagactiviteit in Storage Analytics logboekregistratie weergeven voor het onderzoeken van de waarschuwingen van Advanced Threat Protection. Zie voor meer informatie over het [Opslaganalyse, logboekregistratie configureren](storage-monitor-storage-account.md#configure-logging).

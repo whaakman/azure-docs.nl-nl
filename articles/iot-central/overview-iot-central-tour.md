@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: edc75711d8f727d8b1c9359835c6d5ebd575ff71
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 654528ed6137ee62ea22d552d36fda5ac5331adc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678646"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688660"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Kennismaking met de gebruikersinterface van Azure IoT Central
 
@@ -51,7 +51,7 @@ Het bovenste menu wordt op elke pagina weergegeven:
 - Als u wilt zoeken naar apparaatsjablonen en apparaten, voer een **zoeken** waarde.
 - Kies de taal van de gebruikersinterface of thema wilt wijzigen, de **instellingen** pictogram.
 - Als u wilt afmelden bij de toepassing, kiest u de **Account** pictogram.
-- Als u hulp en ondersteuning nodig hebt, kiest u het keuzemenu **Help** voor een lijst met bronnen.
+- Als u hulp en ondersteuning nodig hebt, kiest u het keuzemenu **Help** voor een lijst met bronnen. In een proefversie, de bronnen voor ondersteuning hebben toegang tot [live chat](howto-show-hide-chat.md).
 
 Voor de gebruikersinterface kunt u kiezen tussen een licht thema of een donker thema:
 

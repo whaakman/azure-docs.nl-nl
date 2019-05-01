@@ -1,6 +1,6 @@
 ---
-title: Azure faciliteiten, lokale en fysieke beveiliging | Microsoft Docs
-description: Het artikel beschrijft de Azure-datacenters, met inbegrip van de fysieke infrastructuur, beveiliging en compliance-aanbiedingen.
+title: Fysieke beveiliging van Azure-datacenters - Microsoft Azure | Microsoft Docs
+description: Het artikel wordt beschreven wat Microsoft doet voor het beveiligen van de Azure-datacenters, met inbegrip van de fysieke infrastructuur, beveiliging en compliance-aanbiedingen.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 5f8378de18796fd679354c88880942df83399ad5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d1b95695de809668987ebb6ef6720a3751205171
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586783"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939837"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure faciliteiten, lokale en fysieke beveiliging
+Dit artikel wordt beschreven wat Microsoft doet voor het beveiligen van de Azure-infrastructuur.
+
+## <a name="datacenter-infrastructure"></a>Datacenter-infrastructuur
 Azure bestaat uit een [wereldwijd gedistribueerde datacenter-infrastructuur](https://azure.microsoft.com/global-infrastructure/), ondersteunen duizenden online services en spanning van meer dan 100 streng beveiligde faciliteiten over de hele wereld.
 
-De infrastructuur is ontworpen om toepassingen dichter bij gebruikers over de hele wereld, gegevenslocatie te behouden en biedt uitgebreide nalevings- en opslagopties voor klanten. Azure beschikt over 52 regio's over de hele wereld, en is beschikbaar in 140 landen.
+De infrastructuur is ontworpen om toepassingen dichter bij gebruikers over de hele wereld, gegevenslocatie te behouden en biedt uitgebreide nalevings- en opslagopties voor klanten. Azure beschikt over 52 regio's over de hele wereld, en is beschikbaar in 140 landen/regio's.
 
 Een regio is een set datacenters die is verbonden via een zeer grote en robuuste netwerk. Het netwerk bevat de distributie van inhoud, taakverdeling, redundantie en versleuteling standaard. Met meer wereldwijde regio's dan enige andere cloudprovider biedt Azure u de flexibiliteit om toepassingen te implementeren waar u ze nodig hebt.
 
@@ -67,9 +70,9 @@ Microsoft maakt gebruik van best practice-procedures en een om oplossing die is 
 Bij van een systeem einde van de levenscyclus Volg operationele medewerkers van Microsoft strenge gegevensverwerking en hardware verwijdering procedures om te bevestigen dat uw gegevens met hardware is niet beschikbaar gesteld voor niet-vertrouwde partijen. Gebruiken we een benadering veilig wissen voor harde schijven die dit ondersteunen. Voor harde schijven kunnen niet worden gewist, gebruiken we een vernietiging proces dat het station vernietigd en het herstel van gegevens wordt weergegeven. Dit proces vernietiging kan uiteenspringen bestaat, versnipperen, pulverize of verbranding zijn. We bepalen de middelen van verwijdering op basis van het assettype. We bewaren records van de vernietiging. Alle Azure-services gebruik goedgekeurde mediaservices voor opslag en verwijdering.
 
 ## <a name="compliance"></a>Naleving
-We ontwerpen en beheren van de Azure-infrastructuur om te voldoen aan een groot scala internationale en bedrijfsspecifieke nalevingsstandaarden, zoals ISO 27001, HIPAA, FedRAMP, SOC 1 en SOC 2. Er is ook te voldoen aan landspecifieke standaarden, waaronder IRAP voor Australië, Verenigd Koninkrijk G-Cloud en MTCS voor Singapore. Grondige externe audits, zoals die worden uitgevoerd door het British Standards Institute, controleert u of voldoet aan de strikte maatregelen voor die deze standaarden verplichten.
+We ontwerpen en beheren van de Azure-infrastructuur om te voldoen aan een groot scala internationale en bedrijfsspecifieke nalevingsstandaarden, zoals ISO 27001, HIPAA, FedRAMP, SOC 1 en SOC 2. We voldoen aan het ook land of regio specifieke standaarden, waaronder IRAP voor Australië, Verenigd Koninkrijk G-Cloud en MTCS voor Singapore. Grondige externe audits, zoals die worden uitgevoerd door het British Standards Institute, controleert u of voldoet aan de strikte maatregelen voor die deze standaarden verplichten.
 
-Zie voor een volledige lijst van standaarden voor compliance dat Azure voldoet aan de [Compliance-aanbiedingen](https://www.microsoft.com/trustcenter/compliance/complianceofferings). 
+Zie voor een volledige lijst van standaarden voor compliance dat Azure voldoet aan de [Compliance-aanbiedingen](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over wat Microsoft doet om te helpen beveiligen van de Azure-infrastructuur:

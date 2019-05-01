@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 360b822bc78d353e91612459a70334a0bf3a56e6
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 8bd0014518dc93abb952114a1728f8fc1d3fb4a5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189628"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708077"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>On-premises coderingsprogramma's configureren bij het gebruik van Azure Media Services om multi-bitrate streams te maken
 In dit onderwerp geeft een lijst van on-premises live encoders die u gebruiken kunt om te leggen van uw live-evenementen en verzenden van een single-bitrate live stream aan AMS-kanalen (die zijn live codering is ingeschakeld) voor verdere verwerking. Het onderwerp bevat ook koppelingen naar zelfstudies die laten zien hoe vermelde coderingsprogramma's configureren.
 
 > [!NOTE]
-> Bij het streamen via RTMP, Controleer de firewall en/of proxy-instellingen om te bevestigen dat uitgaande TCP-poorten 1935 en 1936 geopend zijn.
+> Bij het streamen via RTMP controleert u de instellingen voor de firewall en/of proxy om te zien of de uitgaande TCP-poorten 1935 en 1936 open zijn.
 
 ## <a name="flash-media-live-encoder"></a>Flash Media Live Encoder
 Voor meer informatie over het configureren van de [Flash Media Live Encoder](https://www.adobe.com/products/flash-media-encoder.html) encoder (FMLE) voor het verzenden van een single-bitrate live stream naar een AMS-kanaal, Zie [FMLE configureren](media-services-configure-fmle-live-encoder.md).
@@ -37,7 +37,7 @@ Voor meer informatie over het configureren van de [Haivision KB-coderingsprogram
 Voor meer informatie over het configureren van de [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) encoder voor het verzenden van een single-bitrate live stream naar een AMS-kanaal, Zie [Wirecast configureren](media-services-configure-wirecast-live-encoder.md).
 
 ## <a name="newtek-tricaster"></a>NewTek TriCaster
-Voor meer informatie over het configureren van de [Tricaster](http://newtek.com/products/tricaster-40.html) encoder voor het verzenden van een single-bitrate live stream naar een AMS-kanaal, Zie [Tricaster configureren](media-services-configure-tricaster-live-encoder.md).
+Voor meer informatie over het configureren van de [Tricaster](https://newtek.com/products/tricaster-40.html) encoder voor het verzenden van een single-bitrate live stream naar een AMS-kanaal, Zie [Tricaster configureren](media-services-configure-tricaster-live-encoder.md).
 
 ## <a name="elemental-live"></a>Elemental Live
 Zie voor meer informatie, [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live).

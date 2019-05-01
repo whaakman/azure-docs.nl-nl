@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: juliako
-ms.openlocfilehash: 6de626323c82689d0ead4f5aaad2a2e43187ebd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fd5bf9f7bca9c667191d0d3f83be6e29a96c8dbe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466619"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926518"
 ---
 # <a name="azure-media-player-overview"></a>Overzicht van Azure Media Player
 
@@ -24,7 +24,7 @@ Azure Media Player is een web-videospeler gebouwd om af te spelen media-inhoud v
 
 Microsoft Azure Media Services kan inhoud worden aangeboden met HLS, DASH, Smooth Streaming-indelingen voor het afspelen van inhoud. Azure Media Player houdt rekening met deze verschillende indelingen en automatisch de beste koppeling op basis van de platform-en browsermogelijkheden speelt. Media Services kan ook dynamische versleuteling van activa met PlayReady-versleuteling of AES-128-bits envelop codering. Azure Media Player profiteert u van de ontsleuteling van PlayReady en AES-128 bits versleutelde inhoud wanneer op de juiste wijze geconfigureerd. 
 
-[Start uw gratis proefversie](https://azure.microsoft.com/en-us/pricing/free-trial/)
+[Start uw gratis proefversie](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="use-azure-media-player-demo-page"></a>U kunt Azure Media Player-demo-pagina
 

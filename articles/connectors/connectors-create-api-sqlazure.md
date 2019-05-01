@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 29d53c7fbd26d3c8e2356ce82ff25c7e1b165728
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540986"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696405"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Verbinding maken met SQL Server of Azure SQL Database van Azure Logic Apps
 
@@ -116,23 +116,26 @@ In Azure Logic Apps, een [actie](../logic-apps/logic-apps-overview.md#logic-app-
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
-## <a name="process-data-in-bulk"></a>Gegevens bulksgewijs verwerken
+## <a name="handle-bulk-data"></a>De verwerking van grote hoeveelheden gegevens
 
-Wanneer u met resultatensets zo groot is werkt dat de connector niet alle resultaten op hetzelfde moment retourneren of u betere controle over de grootte en de structuur voor uw resultatensets wilt, kunt u *paginering*, waarmee u deze beheren resultaten als kleiner wordt. 
+Mogelijk moet u soms werken met resultatensets zo groot is dat de connector niet alle resultaten op hetzelfde moment retourneren of u betere controle over de grootte en de structuur wilt gebruiken voor uw resultatensets. Hier ziet u enkele manieren waarop u dat deze grote resultatensets kan worden verwerkt:
 
-[!INCLUDE [Set up pagination for results exceeding default page size](../../includes/connectors-pagination-bulk-data-transfer.md)]
+* Inschakelen voor hulp bij het beheren van resultaten als kleinere sets, *paginering*. Zie voor meer informatie, [bulksgewijs gegevens, records en -items ophalen met behulp van paginering](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
-### <a name="create-a-stored-procedure"></a>Een opgeslagen procedure maken
+* Een opgeslagen procedure die organiseert de resultaten van de manier waarop die u wilt maken.
 
-Bij het ophalen of meerdere rijen invoegen, uw logische app deze items kunt doorlopen met behulp van een [ *totdat-lus* ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) binnen deze [limieten](../logic-apps/logic-apps-limits-and-config.md). Maar soms de logische app is om te werken met recordsets zo groot is, zoals duizenden of miljoenen rijen, die u wilt minimaliseren, de kosten voor het aanroepen van de database. 
+  Bij het ophalen of meerdere rijen invoegen, uw logische app deze rijen kunt doorlopen met behulp van een [ *totdat-lus* ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) binnen deze [limieten](../logic-apps/logic-apps-limits-and-config.md). 
+  Wanneer uw logische app heeft echter werken, met recordsets zo groot is, bijvoorbeeld, duizenden of miljoenen rijen, dat u wilt minimaliseren, de kosten die voortvloeien uit aanroepen naar de database.
 
-In plaats daarvan kunt u een <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank"> *opgeslagen procedure* </a> die wordt uitgevoerd in uw SQL-exemplaar en maakt gebruik van de **selecteren - ORDER BY** instructie voor het organiseren van de resultaten zoals u dat wilt. Deze oplossing hebt u meer controle over de grootte en structuur van de resultaten. Uw logische app roept de opgeslagen procedure met behulp van de SQL Server-connector **opgeslagen procedure uitvoeren** actie. 
+  Als u wilt de resultaten in de manier waarop u wilt organiseren, kunt u een [ *opgeslagen procedure* ](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) die wordt uitgevoerd in uw SQL-exemplaar en maakt gebruik van de **selecteren - ORDER BY** instructie. 
+  Deze oplossing hebt u meer controle over de grootte en structuur van de resultaten. 
+  Uw logische app roept de opgeslagen procedure met behulp van de SQL Server-connector **opgeslagen procedure uitvoeren** actie.
 
-Zie de volgende artikelen voor informatie over de details van deze oplossing:
+  Zie de volgende artikelen voor informatie over de details van deze oplossing:
 
-* <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">SQL-paginering voor de overdracht van grote hoeveelheden met Logic Apps</a>
+  * [SQL-paginering voor de overdracht van grote hoeveelheden met Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
-* <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">Selecteer - ORDER BY-component</a>
+  * [Selecteer - ORDER BY-component](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
 ## <a name="connector-specific-details"></a>Connector-specifieke details
 

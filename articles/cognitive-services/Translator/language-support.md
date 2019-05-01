@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 3b938f07ef5b1feb9d5859f27423eaa79c2937cc
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 8de9d7e6aac052ca24f1eef5f99c3146029bddbb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577587"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690137"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Ondersteuning voor taal en regio voor de Translator Text-API
 
@@ -28,7 +28,7 @@ De Translator Text-API ondersteunt de volgende talen voor tekst naar tekst conve
 **V2-Translator API**
 
 > [!NOTE]
-> V2 op 30 April 2018 is afgeschaft en zal worden buiten gebruik gesteld op 30 April 2019.
+> V2 werd op 30 April 2018 afgeschaft. Migreer uw toepassingen om te profiteren van nieuwe functionaliteit die beschikbaar zijn in V3 uitsluitend V3.
 
 * Statistisch: Er is geen neurale system is beschikbaar voor deze taal.
 * Neurale beschikbaar: Er is een neurale systeem beschikbaar. Gebruik de parameter `category=generalnn` toegang tot het neurale systeem.
@@ -230,14 +230,17 @@ De volgende talen zijn beschikbaar voor aanpassing naar of van het gebruik van d
 | Indonesisch|   `id`    |
 | Italiaans      | `it`          |
 | Japans      | `ja`          |
+|Swahili| `sw`    |
 | Koreaans      | `ko`          |
 | Lets      | `lv`          |
 | Litouws      | `lt`          |
+|Malagassisch|  `mg`    |
 | Noors      | `nb`          |
 | Pools      | `pl`          |
 | Portugees      | `pt`          |
 | Roemeens      | `ro`          |
 | Russisch      | `ru`          |
+|Samoaans|    `sm`    |
 | Servisch (Latijns)      | `sr-Latn`          |
 | Slowaaks     | `sk`          |
 | Sloveens      | `sl`          |

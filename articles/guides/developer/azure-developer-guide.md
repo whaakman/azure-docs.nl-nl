@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: dc44cfbd24bd04caeede03dcbcfc60da06f61135
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921751"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570564"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Aan de slag-handleiding voor Azure-ontwikkelaars
 
@@ -199,7 +199,7 @@ Azure is een wereldwijde cloudplatform dat is algemeen beschikbaar in veel regio
 
 ### <a name="choose-the-best-region-for-your-application-and-data"></a>Kies de aanbevolen regio voor uw toepassing en gegevens
 
-Een van de voordelen van het gebruik van Azure is dat u uw toepassingen met verschillende datacenters over de hele wereld kunt implementeren. De regio die u kiest, kan invloed hebben op de prestaties van uw toepassing. Bijvoorbeeld, is het beter om te kiezen van een regio die zich dichter bij de meeste van uw klanten te verminderen latentie van netwerkaanvragen. U kunt ook om uw regio om te voldoen aan de wettelijke vereisten voor het distribueren van uw app in bepaalde landen te selecteren. Het is altijd een aanbevolen procedure voor het opslaan van toepassingsgegevens in hetzelfde datacenter of in een datacenter als in de buurt mogelijk naar het datacenter dat als host voor uw toepassing fungeert.
+Een van de voordelen van het gebruik van Azure is dat u uw toepassingen met verschillende datacenters over de hele wereld kunt implementeren. De regio die u kiest, kan invloed hebben op de prestaties van uw toepassing. Bijvoorbeeld, is het beter om te kiezen van een regio die zich dichter bij de meeste van uw klanten te verminderen latentie van netwerkaanvragen. U kunt ook om uw regio om te voldoen aan de wettelijke vereisten voor het distribueren van uw app in bepaalde landen/regio's te selecteren. Het is altijd een aanbevolen procedure voor het opslaan van toepassingsgegevens in hetzelfde datacenter of in een datacenter als in de buurt mogelijk naar het datacenter dat als host voor uw toepassing fungeert.
 
 ### <a name="multi-region-apps"></a>Apps voor meerdere regio 's
 

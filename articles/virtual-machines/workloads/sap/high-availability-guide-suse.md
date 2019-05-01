@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 90ec7cf4964440d39b3f69eb9ae9708eaafe3748
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 328aa4c80c830014de8ee8b573d13ae56af73efc
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710685"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925804"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server voor SAP-toepassingen
 
@@ -215,7 +215,7 @@ U moet eerst de virtuele machines voor dit cluster NFS maken. Daarna wordt u een
          * Herhaal de stappen hierboven voor poorten 33**02**, 5**02**13, 5**02**14, 5**02**16 en TCP-voor de ASCS ERS
 
 > [!IMPORTANT]
-> Schakel geen TCP-tijdstempels op Azure VM's achter Azure Load Balancer worden geplaatst. Inschakelen van TCP tijdstempels zorgt ervoor dat de statuscontroles mislukken. Stel de parameter **net.ipv4.tcp_timestamps** naar **0**. Zie voor meer informatie [Load Balancer statuscontroles](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+> Schakel geen TCP-tijdstempels op Azure VM's achter Azure Load Balancer worden geplaatst. Inschakelen van TCP tijdstempels zorgt ervoor dat de statuscontroles mislukken. Stel de parameter **net.ipv4.tcp_timestamps** naar **0**. Zie voor meer informatie [Load Balancer statuscontroles](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Pacemaker-cluster maken
 

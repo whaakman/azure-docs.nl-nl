@@ -2,24 +2,17 @@
 title: 'Go-To-Market-Services: hoe u via marketplace | Azure'
 description: Go-To-Market Services - in deze sectie wordt beschreven hoe u een aanbieding op Azure Marketplace aanbevolen ophalen
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: bda94e648891ad5c4de810195e874a5774d6b498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5194bdcd5b77b0527ccdefc1af85bf03bdac2cab
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736343"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938179"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Hoe u via AppSource en de Azure Marketplace
 

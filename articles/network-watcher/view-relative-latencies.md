@@ -3,8 +3,8 @@ title: Relatieve latentie aan Azure-regio's van specifieke locaties bekijken | M
 description: Informatie over het weergeven van relatieve latentie voor internetproviders aan Azure-regio's vanaf specifieke locaties.
 services: network-watcher
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 895e29d9855372e418ad5ebf2a3949dc01ddb8de
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b4a50657442422786f49c931aa6c2610d49846b1
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792415"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939881"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>De relatieve latentie weergeven op Azure-regio's op specifieke locaties
 
@@ -60,7 +60,7 @@ Get-AzNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> De regio die u in de vorige opdracht opgeeft hoeft niet dezelfde zijn als de regio die u hebt opgegeven toen u de netwerk-watcher opgehaald. De vorige opdracht is alleen vereist dat u een bestaande netwerk-watcher opgeeft. De netwerk-watcher kan zich in andere regio's. Als u waarden opgeven voor `-Country` en `-State`, deze moet geldig zijn. De waarden zijn hoofdlettergevoelig. Gegevens zijn beschikbaar voor een beperkt aantal landen, Staten en plaatsen. Voer de opdrachten [weer beschikbaar landen, provincies, steden en providers](#view-available) om een lijst met beschikbare landen en steden statussen voor gebruik met de vorige opdracht weer te geven. 
+> De regio die u in de vorige opdracht opgeeft hoeft niet dezelfde zijn als de regio die u hebt opgegeven toen u de netwerk-watcher opgehaald. De vorige opdracht is alleen vereist dat u een bestaande netwerk-watcher opgeeft. De netwerk-watcher kan zich in andere regio's. Als u waarden opgeven voor `-Country` en `-State`, deze moet geldig zijn. De waarden zijn hoofdlettergevoelig. Gegevens zijn beschikbaar voor een beperkt aantal landen/regio's, Staten en plaatsen. Voer de opdrachten [weer beschikbaar landen/regio's, provincies, steden en providers](#view-available) om een lijst van landen/regio's beschikbaar, plaatsen en Staten voor gebruik met de vorige opdracht weer te geven. 
 
 > [!WARNING]
 > Moet u een datum in de afgelopen 30 dagen voor `-StartTime` en `-EndTime`. Opgeven van een eerdere datum, leidt dit er zijn geen gegevens worden geretourneerd.
@@ -125,15 +125,15 @@ Get-AzNetworkWatcherReachabilityReport `
 > [!NOTE]
 > In tegenstelling tot moet wanneer u een enkele locatie opgeeft, als u niet een locatie opgeven, of meerdere locaties, zoals 'West vs2', 'VS-West, u een Internet-provider wanneer u de opdracht uitvoert. 
 
-## <a name="view-available"></a>Beschikbare landen, provincies, steden en providers weergeven
+## <a name="view-available"></a>Landen/regio's beschikbaar, provincies, steden en providers weergeven
 
-Gegevens zijn beschikbaar voor bepaalde internetproviders, landen, Staten en plaatsen. Voer de volgende opdracht om een lijst weergeven met alle beschikbare internetserviceproviders, landen, Staten en plaatsen, die u kunt gegevens bekijken:
+Gegevens zijn beschikbaar voor bepaalde internetproviders, landen/regio's, Staten en plaatsen. Voer de volgende opdracht om een lijst weergeven met alle beschikbare Internet serviceproviders, landen/regio's, Staten en steden, die u kunt gegevens bekijken:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-Gegevens is alleen beschikbaar voor de landen, Staten en plaatsen die zijn geretourneerd door de vorige opdracht. De vorige opdracht moet u om op te geven van een bestaande netwerk-watcher. Het opgegeven voorbeeld de *NetworkWatcher_eastus* network watcher in een resourcegroep met de naam *NetworkWatcherRG*, maar kunt u eventuele bestaande netwerk-watcher. Als u een bestaande netwerk-watcher niet hebt, maakt u er een door het uitvoeren van de taken in [maken van een network watcher](#create-a-network-watcher). 
+Gegevens is alleen beschikbaar voor de landen/regio's, Staten en plaatsen die zijn geretourneerd door de vorige opdracht. De vorige opdracht moet u om op te geven van een bestaande netwerk-watcher. Het opgegeven voorbeeld de *NetworkWatcher_eastus* network watcher in een resourcegroep met de naam *NetworkWatcherRG*, maar kunt u eventuele bestaande netwerk-watcher. Als u een bestaande netwerk-watcher niet hebt, maakt u er een door het uitvoeren van de taken in [maken van een network watcher](#create-a-network-watcher). 
 
 Nadat de vorige opdracht is uitgevoerd, kunt u de uitvoer die wordt geretourneerd door het opgeven van geldige waarden voor filteren **land**, **status**, en **plaats**, indien gewenst.  Bijvoorbeeld, als u wilt weergeven van de lijst met internetproviders in Seattle, Washington, beschikbaar in de Verenigde Staten, voer de volgende opdracht:
 

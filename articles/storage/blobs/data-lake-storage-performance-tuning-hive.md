@@ -2,18 +2,19 @@
 title: Azure Data Lake Storage Gen2 Hive-prestaties afstemmen richtlijnen | Microsoft Docs
 description: Azure Data Lake Storage Gen2 Hive-prestaties richtlijnen over het afstemmen
 services: storage
-author: swums
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: stewu
-ms.openlocfilehash: 9e5570b937fe97cc9b6ccd9ac804a35ff8e07d6f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: normesta
+ms.reviewer: stewu
+ms.openlocfilehash: b44c615396fbd526efb687977d303facd5d5d607
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60805539"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939435"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Richtlijnen voor Hive in HDInsight en Azure Data Lake Storage Gen2 afstemmen van prestaties
 

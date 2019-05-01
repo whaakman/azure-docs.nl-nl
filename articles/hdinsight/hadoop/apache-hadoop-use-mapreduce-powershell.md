@@ -1,34 +1,23 @@
 ---
 title: MapReduce en PowerShell gebruiken met Apache Hadoop - Azure HDInsight
 description: Informatie over het gebruik van PowerShell op afstand MapReduce-taken uitvoeren met Apache Hadoop op HDInsight.
-services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 21b56d32-1785-4d44-8ae8-94467c12cfba
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 05/09/2018
-ms.date: 04/15/2019
-ms.author: v-yiso
+ms.date: 05/09/2018
+ms.author: hrasheed
 ms.openlocfilehash: 29e23d5919a953566c803f2b7825a75a2993723c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129022"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721790"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>MapReduce-taken uitvoeren met Apache Hadoop op HDInsight met behulp van PowerShell
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
-
-
 
 Dit document bevat een voorbeeld van het gebruik van Azure PowerShell een MapReduce-taak uitvoeren in een Hadoop op HDInsight-cluster.
 
@@ -38,7 +27,7 @@ Dit document bevat een voorbeeld van het gebruik van Azure PowerShell een MapRed
 
 * **Een Azure HDInsight (Hadoop op HDInsight)-cluster**
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * **Een werkstation met Azure PowerShell**.
@@ -63,73 +52,7 @@ De volgende stappen laten zien hoe u deze cmdlets gebruikt voor het uitvoeren va
 
 1. Met behulp van een editor, slaat u de volgende code als **mapreducejob.ps1**.
 
-    ```powershell
-    # Login to your Azure subscription
-    # Is there an active Azure subscription?
-    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-    if(-not($sub))
-    {
-        Add-AzureRmAccount -EnvironmentName AzureChinaCloud
-    }
-
-    # Get cluster info
-    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-    $creds=Get-Credential -Message "Enter the login for the cluster"
-
-    #Get the cluster info so we can get the resource group, storage, etc.
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroup = $clusterInfo.ResourceGroup
-    $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-    $container=$clusterInfo.DefaultStorageContainer
-    #NOTE: This assumes that the storage account is in the same resource
-    #      group as the cluster. If it is not, change the
-    #      --ResourceGroupName parameter to the group that contains storage.
-    $storageAccountKey=(Get-AzureRmStorageAccountKey `
-        -Name $storageAccountName `
-    -ResourceGroupName $resourceGroup)[0].Value
-
-    #Create a storage context
-    $context = New-AzureStorageContext `
-        -StorageAccountName $storageAccountName `
-        -StorageAccountKey $storageAccountKey
-
-    #Define the MapReduce job
-    #NOTE: If using an HDInsight 2.0 cluster, use hadoop-examples.jar instead.
-    # -JarFile = the JAR containing the MapReduce application
-    # -ClassName = the class of the application
-    # -Arguments = The input file, and the output directory
-    $wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-        -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
-        -ClassName "wordcount" `
-        -Arguments `
-            "/example/data/gutenberg/davinci.txt", `
-            "/example/data/WordCountOutput"
-
-    #Submit the job to the cluster
-    Write-Host "Start the MapReduce job..." -ForegroundColor Green
-    $wordCountJob = Start-AzureRmHDInsightJob `
-        -ClusterName $clusterName `
-        -JobDefinition $wordCountJobDefinition `
-        -HttpCredential $creds
-
-    #Wait for the job to complete
-    Write-Host "Wait for the job to complete..." -ForegroundColor Green
-    Wait-AzureRmHDInsightJob `
-        -ClusterName $clusterName `
-        -JobId $wordCountJob.JobId `
-        -HttpCredential $creds
-    # Download the output
-    Get-AzureStorageBlobContent `
-        -Blob 'example/data/WordCountOutput/part-r-00000' `
-        -Container $container `
-        -Destination output.txt `
-        -Context $context
-    # Print the output of the job.
-    Get-AzureRmHDInsightJobOutput `
-        -Clustername $clusterName `
-        -JobId $wordCountJob.JobId `
-        -HttpCredential $creds
-    ```
+    [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
 2. Open een nieuw **Azure PowerShell** opdrachtprompt. Wijzig de mappen in de locatie van de **mapreducejob.ps1** bestand en gebruik vervolgens de volgende opdracht uit het script uit te voeren:
 
@@ -151,7 +74,7 @@ De volgende stappen laten zien hoe u deze cmdlets gebruikt voor het uitvoeren va
 
     Deze uitvoer geeft aan dat de taak is voltooid.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Als de **ExitCode** is een waarde dan 0, Zie [probleemoplossing](#troubleshooting).
 
     In dit voorbeeld slaat ook de gedownloade bestanden naar een **uitvoer.txt** bestand in de map met het script uit.
@@ -160,7 +83,7 @@ De volgende stappen laten zien hoe u deze cmdlets gebruikt voor het uitvoeren va
 
 Als u wilt zien van de woorden en aantallen die worden geproduceerd door de taak, opent u de **uitvoer.txt** bestand in een teksteditor.
 
-> [!NOTE]
+> [!NOTE]  
 > De uitvoerbestanden van een MapReduce-taak zijn onveranderd. Dus als u dit voorbeeld opnieuw uitvoeren, moet u de naam van het uitvoerbestand te wijzigen.
 
 ## <a id="troubleshooting"></a>Problemen oplossen

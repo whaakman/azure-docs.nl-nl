@@ -10,25 +10,30 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 8f1e2aebae88d34334200504915be4043f32013b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 319ea3eaac2fcaa3c8e29680e125b7e29018ecc3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107376"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926608"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Huidige versie](connector-azure-sql-data-warehouse.md)
 
-In dit artikel wordt uitgelegd hoe u gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren naar of van Azure SQL Data Warehouse. Dit is gebaseerd op de [overzicht van Kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de Kopieeractiviteit.
+In dit artikel bevat een overzicht over het kopiëren van gegevens naar en van Azure SQL Data Warehouse. Lees voor meer informatie over Azure Data Factory, de [inleidende artikel](introduction.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens uit Azure SQL Data Warehouse kopiëren naar een ondersteunde sink-gegevensopslag. En u kunt gegevens uit een ondersteund brongegevensarchief kopiëren naar Azure SQL Data Warehouse. Zie voor een lijst met gegevensarchieven die worden ondersteund als gegevensbronnen of PUT door Copy-activiteit, de [ondersteunde gegevensarchieven en indelingen](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+Deze Azure Blob-connector wordt ondersteund voor de volgende activiteiten:
+
+- [Kopieeractiviteit](copy-activity-overview.md) met [ondersteunde bron/sink-matrix](copy-activity-overview.md) tabel
+- [Toewijzing van de gegevensstroom](concepts-data-flow-overview.md)
+- [Activiteit Lookup](control-flow-lookup-activity.md)
+- [De activiteit GetMetadata](control-flow-get-metadata-activity.md)
 
 Specifiek, ondersteunt deze Azure SQL Data Warehouse-connector deze functies:
 
@@ -136,12 +141,12 @@ Volg deze stappen voor het gebruik van service-principal op basis van Azure AD-t
 2. **[Een Azure Active Directory-beheerder inrichten](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-server in Azure portal als u dat nog niet hebt gedaan. De Azure AD-beheerder kan een Azure AD-gebruiker of een Azure AD-groep zijn. Als u de groep met beheerde identiteit een beheerdersrol toewijst, moet u de stappen 3 en 4 overslaan. De beheerder heeft volledige toegang tot de database.
 
 3. **[Maak ingesloten databasegebruikers](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  voor de service-principal. Verbinding maken met het datawarehouse uit of die u kopiëren van gegevens wilt met behulp van hulpprogramma's zoals SSMS, met een Azure AD-identiteit ten minste heeft de machtiging ALTER elke gebruiker. Voer de volgende T-SQL:
-    
+  
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **De service-principal die nodig is machtigingen verlenen** zoals u gewend voor SQL-gebruikers of voor anderen bent. Voer de volgende code uit of ze raadplegen om meer opties [hier](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+4. **De service-principal die nodig is machtigingen verlenen** zoals u gewend voor SQL-gebruikers of voor anderen bent. Voer de volgende code uit of ze raadplegen om meer opties [hier](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
@@ -186,12 +191,12 @@ Volg deze stappen voor het gebruik van beheerde verificatie:
 1. **[Een Azure Active Directory-beheerder inrichten](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-server in Azure portal als u dat nog niet hebt gedaan. De Azure AD-beheerder kan een Azure AD-gebruiker of een Azure AD-groep zijn. Als u de groep met beheerde identiteit een beheerdersrol toewijst, moet u de stappen 3 en 4 overslaan. De beheerder heeft volledige toegang tot de database.
 
 2. **[Maak ingesloten databasegebruikers](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  voor de Data Factory beheerde identiteit. Verbinding maken met het datawarehouse uit of die u kopiëren van gegevens wilt met behulp van hulpprogramma's zoals SSMS, met een Azure AD-identiteit ten minste heeft de machtiging ALTER elke gebruiker. Voer de volgende T-SQL. 
-    
+  
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **De Data Factory beheerde identiteit vereist machtigingen verlenen** zoals u gewend voor de SQL-gebruikers en anderen bent. Voer de volgende code uit of ze raadplegen om meer opties [hier](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+3. **De Data Factory beheerde identiteit vereist machtigingen verlenen** zoals u gewend voor de SQL-gebruikers en anderen bent. Voer de volgende code uit of ze raadplegen om meer opties [hier](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your Data Factory name];
@@ -416,7 +421,7 @@ Als aan de vereisten zijn niet voldaan, wordt Azure Data Factory controleert of 
     | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Verificatie van service-principal |
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Verificatie van account-sleutel |
 
-2. De **gegevensset bronopmaak** is van het **ParquetFormat**, **OrcFormat**, of **TextFormat**, met de volgende configuraties:
+2. De **Brongegevensindeling** is van het **Parquet**, **ORC**, of **tekst met scheidingstekens**, met de volgende configuraties:
 
    1. `folderPath` en `fileName` niet filteren op jokerteken bevatten.
    2. `rowDelimiter` moet **\n**.
@@ -424,20 +429,6 @@ Als aan de vereisten zijn niet voldaan, wordt Azure Data Factory controleert of 
    4. `encodingName` is ingesteld op **utf-8**, dit is de standaardwaarde.
    5. `escapeChar`, `quoteChar` en `skipLineCount` zijn niet opgegeven. Ondersteuning voor PolyBase overslaan rij met koppen die kan worden geconfigureerd als `firstRowAsHeader` in ADF.
    6. `compression` kan **geen compressie**, **GZip**, of **Deflate**.
-
-      ```json
-      "typeProperties": {
-        "folderPath": "<path>",
-        "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "<any delimiter>",
-            "rowDelimiter": "\n",
-            "nullValue": "",
-            "encodingName": "utf-8",
-            "firstRowAsHeader": <any>
-        }
-      },
-      ```
 
 ```json
 "activities":[
@@ -556,6 +547,10 @@ All columns of the table must be specified in the INSERT BULK statement.
 ```
 
 De waarde NULL is een speciale vorm van de standaardwaarde. Als de kolom toegestaan is, is de ingevoerde gegevens in de blob voor die kolom kan niet leeg zijn. Maar deze niet meer worden ontbreekt in de invoergegevensset. PolyBase voegt NULL voor ontbrekende waarden in Azure SQL Data Warehouse.
+
+## <a name="mapping-data-flow-properties"></a>Eigenschappen van fouttoewijzing gegevensstroom
+
+Informatie over de details van [bron transformatie](data-flow-source.md) en [sink-transformatie](data-flow-sink.md) in de gegevensstroom toewijzen.
 
 ## <a name="data-type-mapping-for-azure-sql-data-warehouse"></a>De gegevenstypetoewijzing voor Azure SQL Data Warehouse
 

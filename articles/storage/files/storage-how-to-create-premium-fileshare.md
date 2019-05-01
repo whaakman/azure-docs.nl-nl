@@ -1,6 +1,6 @@
 ---
-title: Een premium Azure file storage-account maken
-description: In dit artikel leert u hoe u een premium Azure file storage-account en een premium-bestandsshare maakt.
+title: Een Azure filestorage storage-account maken
+description: In dit artikel leert u hoe u om een filestorage (preview) en een premium-bestandsshare te maken.
 services: storage
 author: roygara
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0eca706c9082b1fa60e13a0878fbb3061425c9bf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844546"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574423"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Over het maken van een premium Azure-bestandsshare
 
-Het type opslagaccount FileStorage (preview) is een nieuwe laag voor Azure Files, zodat u kunt bestandsshares maken met kenmerken voor premium-prestaties. Deze bestandsshares zijn ontworpen voor hoge prestaties en bedrijfstoepassingen van schaal, consistente lage latentie, hoge IOPS en hoge doorvoer shares te leveren.
+Het type opslagaccount filestorage (preview) is een nieuwe laag voor Azure Files, zodat u kunt bestandsshares maken met kenmerken voor premium-prestaties. Deze bestandsshares zijn ontworpen voor hoge prestaties en bedrijfstoepassingen van schaal, consistente lage latentie, hoge IOPS en hoge doorvoer shares te leveren.
 
 Dit artikel leest u over het maken van dit nieuwe account met behulp van [Azure-portal](https://portal.azure.com/), Azure PowerShell en Azure CLI.
 
@@ -31,7 +31,7 @@ U hebt een Azure-abonnement nodig voor toegang tot Azure Storage. Als u nog geen
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Maak een opslagaccount FileStorage (preview)
+### <a name="create-a-filestorage-preview-storage-account"></a>Maak een opslagaccount filestorage (preview)
 
 U bent nu klaar om uw opslagaccount te maken.
 
@@ -115,7 +115,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ### <a name="create-a-filestorage-preview-storage-account"></a>Maak een opslagaccount filestorage (preview)
 
-U kunt een FileStorage (preview) storage-account maken vanuit PowerShell met de [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) opdracht:
+U kunt een filestorage (preview) storage-account maken vanuit PowerShell met de [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) opdracht:
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -123,7 +123,7 @@ $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fil
 
 ### <a name="create-a-premium-file-share"></a>Een Premium-bestandsshare maken
 
-Nu dat u een FileStorage-account hebt, kunt u een premium-bestandsshare maken. Gebruik de [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet een te maken.
+Nu dat u een filestorage-account hebt, kunt u een premium-bestandsshare maken. Gebruik de [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet een te maken.
 
 > [!NOTE]
 > Share ingerichte grootte is opgegeven door het quotum voor de bestandsshare, bestandsshares worden in rekening gebracht voor de ingerichte grootte, raadpleegt u de [pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/files/) voor meer informatie.
@@ -168,9 +168,9 @@ az group create `
     --location westus2
 ```
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Maak een opslagaccount FileStorage (preview)
+### <a name="create-a-filestorage-preview-storage-account"></a>Maak een opslagaccount filestorage (preview)
 
-Gebruik voor het maken van een FileStorage (preview) storage-account van de Azure CLI de [az storage-account maken](/cli/azure/storage/account) opdracht.
+Gebruik voor het maken van een filestorage (preview) storage-account van de Azure CLI de [az storage-account maken](/cli/azure/storage/account) opdracht.
 
 ```azurecli-interactive
 az storage account create `
@@ -194,7 +194,7 @@ STORAGEKEY=$(az storage account keys list \
 
 ### <a name="create-a-premium-file-share"></a>Een Premium-bestandsshare maken
 
-Nu dat u een FileStorage-account hebt, kunt u een premium-bestandsshare maken. Gebruik de [az storage share maken](/cli/azure/storage/share) opdracht een te maken.
+Nu dat u een filestorage-account hebt, kunt u een premium-bestandsshare maken. Gebruik de [az storage share maken](/cli/azure/storage/share) opdracht een te maken.
 
 > [!NOTE]
 > Share ingerichte grootte is opgegeven door het quotum voor de bestandsshare, bestandsshares worden in rekening gebracht voor de ingerichte grootte, raadpleegt u de [pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/files/) voor meer informatie.

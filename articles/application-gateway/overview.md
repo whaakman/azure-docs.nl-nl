@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 4/18/2019
+ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 91e94c70444430725ffec836d1663aef99eb5496
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78dd4b31991a15d3d946c47c5394f64bb3afea95
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60715918"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947272"
 ---
 # <a name="what-is-azure-application-gateway"></a>Wat is Azure Application Gateway?
 
@@ -21,48 +21,29 @@ Azure Application Gateway is een load balancer voor webverkeer waarmee u het ver
 
 ![Application Gateway conceptual](media/overview/figure1-720.png)
 
-Maar met de Application Gateway kunt u nog specifieker zijn. U kunt bijvoorbeeld verkeer op basis van de binnenkomende URL routeren. Dus als `/images` de binnenkomende URL is, kunt u verkeer routeren naar een specifieke set servers (ook wel een pool genoemd) die is geconfigureerd voor installatiekopieën. Als `/video` zich in de URL bevindt, wordt dat verkeer gerouteerd naar een andere pool die geoptimaliseerd is voor video's.
+Met Application Gateway, kunt u Routeringsbeslissingen op basis van aanvullende kenmerken van een HTTP-aanvraag, zoals URI-pad of de host-headers. U kunt bijvoorbeeld verkeer op basis van de binnenkomende URL routeren. Dus als `/images` de binnenkomende URL is, kunt u verkeer routeren naar een specifieke set servers (ook wel een pool genoemd) die is geconfigureerd voor installatiekopieën. Als `/video` is in de URL, dat verkeer wordt doorgestuurd naar een andere groep die geoptimaliseerd voor video's.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
-Dit type routering staat bekend al taakverdeling op de toepassingslaag (OSI-laag 7). Azure Application Gateway kan URL-gebaseerde routering en meer uitvoeren. 
+Dit type routering staat bekend al taakverdeling op de toepassingslaag (OSI-laag 7). Azure Application Gateway kan URL-gebaseerde routering en meer uitvoeren.
 
 Azure Application Gateway bevat de volgende functies:
 
-## <a name="autoscaling-public-preview"></a>Openbare preview van Automatisch schalen
-
-Behalve de functies die in dit artikel worden beschreven, biedt Application Gateway ook een openbare preview van een nieuwe SKU [Standard_V2] die automatisch schalen en andere belangrijke prestatieverbeteringen levert.
-
-- **Automatisch schalen**: met Application Gateway- of WAF-implementaties van de SKU van Automatische schalen kunt u omhoog of omlaag schalen op basis van veranderende verkeerbelastingspatronen. Automatisch schalen heft ook de vereiste op om tijdens het inrichten een implementatiegrootte of het aantal instanties te kiezen. 
-
-- **Zoneredundantie**: een Application Gateway- of WAF-implementatie kan meerdere Azure-beschikbaarheidszones overbruggen, waardoor het niet nodig is om afzonderlijke Application Gateway-instanties in elke zone in te richten en te implementeren met een Traffic Manager.
-
-- **Statische VIP**: de Application Gateway-VIP biedt nu exclusief ondersteuning voor het VIP-type. Dit zorgt ervoor dat het VIP-adres dat aan Application Gateway is gekoppeld niet verandert, zelfs niet nadat het systeem opnieuw is opgestart.
-
-- **Snellere implementatie en update** in vergelijking met de algemeen beschikbare SKU. 
-
-- **5 keer betere prestaties voor SSL-offload** in vergelijking met de algemeen beschikbare SKU.
-
-Meer informatie over de preview-functies van de openbare preview van Application Gateway raadpleegt u [Automatisch schalen en zone-redundantie voor Application Gateway (openbare preview)](application-gateway-autoscaling-zone-redundant.md).
-
 ## <a name="secure-sockets-layer-ssl-termination"></a>SSL-beëindiging (Secure Sockets Layer)
 
-Application Gateway ondersteunt SSL-beëindiging op de gateway, waarna het verkeer normaal gesproken onversleuteld naar de back-endservers wordt doorgeleid. Met deze functie voorkomt u prijzige overhead voor het versleutelen en ontsleutelen voor uw webservers. Maar soms is onversleutelde communicatie met de server echter geen aanvaardbare optie. Dit kan komen door de beveiligings- of nalevingsvereisten, of misschien kan de toepassing alleen worden gebruikt via een beveiligde verbinding. Voor deze toepassingen ondersteunt Application Gateway end-to-end SSL-versleuteling.
+Application Gateway ondersteunt SSL-beëindiging op de gateway, waarna het verkeer normaal gesproken onversleuteld naar de back-endservers wordt doorgeleid. Met deze functie voorkomt u prijzige overhead voor het versleutelen en ontsleutelen voor uw webservers. Maar soms is onversleutelde communicatie met de server echter geen aanvaardbare optie. Dit kan zijn vanwege beveiligingsvereisten, nalevingsvereisten, of de toepassing kan alleen via een beveiligde verbinding. Voor deze toepassingen ondersteunt Application Gateway end-to-end SSL-versleuteling.
 
-## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Ingangscontroller van Azure Kubernetes Service (AKS) (preview) 
+## <a name="autoscaling"></a>Automatisch schalen
 
-De ingangscontroller van Application Gateway wordt uitgevoerd als een pod binnen het AKS-cluster en zorgt ervoor dat de Gateway-toepassing kan fungeren als ingang voor een AKS-cluster. Dit wordt ondersteund met Application Gateway alleen v2.
+Application Gateway of WAF-implementaties onder Standard_v2 of WAF_v2 SKU ondersteuning voor automatisch schalen en kunnen opschalen of omlaag op basis van veranderende verkeerspatronen load. Automatisch schalen heft ook de vereiste op om tijdens het inrichten een implementatiegrootte of het aantal instanties te kiezen. Zie voor meer informatie over de Application Gateway standard_v2 en WAF_v2 functies [automatisch schalen v2 SKU](application-gateway-autoscaling-zone-redundant.md).
 
-Zie [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/) voor meer informatie.
+## <a name="zone-redundancy"></a>Zoneredundantie
 
-## <a name="connection-draining"></a>Verwerkingsstop voor verbindingen
+Een Application Gateway of WAF-implementaties voor Standard_v2 of WAF_v2 SKU kunnen meerdere Beschikbaarheidszones, biedt betere tolerantie voor fouttolerantie en verwijderen van de noodzaak voor het inrichten van afzonderlijke Toepassingsgateways in elke zone omvatten.
 
-Verwerkingsstop voor verbindingen helpt u om back-endgroepsleden zonder problemen te verwijderen tijdens geplande service-updates. Deze instelling wordt ingeschakeld via de HTTP-instelling van de back-end en kan tijdens het maken van de regel worden toegepast op alle leden van een back-endgroep. Wanneer de instelling is ingeschakeld, zorgt Application Gateway ervoor dat alle exemplaren die worden uitgeschreven bij een back-endgroep geen nieuwe aanvraag ontvangen en dat bestaande aanvragen binnen een geconfigureerde tijdslimiet worden voltooid. Dit geldt voor zowel back-endexemplaren die door een API-aanroep expliciet uit de back-endgroep worden verwijderd als voor back-endexemplaren die door de statuscontroles worden gerapporteerd als beschadigd.
+## <a name="static-vip"></a>Statische VIP
 
-## <a name="custom-error-pages"></a>Aangepaste foutpagina's
-Met Application Gateway kunt u aangepaste foutpagina's maken in plaats van standaardfoutpagina's weer te geven. U kunt uw eigen huisstijl en lay-out hanteren door een aangepaste foutpagina te gebruiken.
-
-Zie voor meer informatie [Aangepaste foutpagina's maken voor Application Gateway](custom-error.md).
+De toepassingsgateway VIP op Standard_v2 of WAF_v2 SKU ondersteunt uitsluitend statische VIP-type. Dit zorgt ervoor dat het VIP-adres dat is gekoppeld aan application-gateway niet, zelfs tijdens de levensduur van de toepassingsgateway verandert.
 
 ## <a name="web-application-firewall"></a>Web Application Firewall
 
@@ -92,9 +73,9 @@ Zie voor meer informatie, [meerdere sites hosten met Application Gateway](https:
 
 ## <a name="redirection"></a>Omleiding
 
-Een veelvoorkomend scenario voor veel webtoepassingen is de ondersteuning van automatische HTTP-naar-HTTPS-omleiding zodat alle communicatie tussen een toepassing en gebruikers plaatsvindt via een versleuteld pad. 
+Een veelvoorkomend scenario voor veel webtoepassingen is de ondersteuning van automatische HTTP-naar-HTTPS-omleiding zodat alle communicatie tussen een toepassing en gebruikers plaatsvindt via een versleuteld pad.
 
-In het verleden hebt u mogelijk gebruikgemaakt van technieken zoals het maken van een specifieke pool met als enige doel het omleiden van aanvragen die worden ontvangen op een HTTP-naar-HTTPS. Application Gateway ondersteunt het omleiden van verkeer op de Application Gateway. Dit vereenvoudigt de configuratie van toepassingen, optimaliseert het resourcegebruik en biedt ondersteuning voor nieuwe omleidingsscenario's, waaronder de globale en op pad gebaseerde omleidingen. Ondersteuning voor Application Gateway-omleiding is niet beperkt tot uitsluitend HTTP-naar-HTTPS-omleiding. Dit is een algemeen omleidingsmechanisme, zodat u op basis van regels kunt omleiden van en naar elke poort die u gebruikt. Ook omleiding naar een externe site wordt ondersteund.
+In het verleden ligt en hebt u gebruikt, zoals de toegewezen groep maken met als enig doel is ontvangen van HTTP naar HTTPS aanvragen omleiden. Application Gateway ondersteunt het omleiden van verkeer op de Application Gateway. Dit vereenvoudigt de configuratie van toepassingen, optimaliseert het resourcegebruik en biedt ondersteuning voor nieuwe omleidingsscenario's, waaronder de globale en op pad gebaseerde omleidingen. Application Gateway-omleiding ondersteuning is niet beperkt tot HTTP naar HTTPS-omleiding alleen. Dit is een algemeen omleidingsmechanisme, zodat u op basis van regels kunt omleiden van en naar elke poort die u gebruikt. Ook omleiding naar een externe site wordt ondersteund.
 
 Ondersteuning voor Application Gateway-omleiding biedt de volgende mogelijkheden:
 
@@ -112,24 +93,43 @@ De functie Sessieaffiniteit op basis van cookies is handig als u een gebruikerss
 
 Application Gateway biedt systeemeigen ondersteuning voor de WebSocket- en HTTP-/2-protocollen. Er is geen door de gebruiker configureerbare instelling om selectief WebSocket-ondersteuning in of uit te schakelen.
 
-De WebSocket- en HTTP-/2-protocollen maken full-duplex-communicatie tussen een server en een client mogelijk via een langdurige TCP-verbinding. Dit maakt een meer interactieve communicatie mogelijk tussen de webserver en de client, die bidirectioneel kan zijn zonder dat hiervoor polling nodig is, zoals vereist in implementaties op basis van HTTP. Deze protocollen hebben weinig overhead, in tegenstelling tot HTTP, en kunnen dezelfde TCP-verbinding gebruiken voor meerdere aanvragen/reacties. Dit resulteert in een efficiënter gebruik van resources. Deze protocollen zijn ontworpen om te werken via de traditionele HTTP-poorten: 80 en 443.
+De WebSocket- en HTTP-/2-protocollen maken full-duplex-communicatie tussen een server en een client mogelijk via een langdurige TCP-verbinding. Dit maakt een meer interactieve communicatie mogelijk tussen de webserver en de client, die bidirectioneel kan zijn zonder dat hiervoor polling nodig is, zoals vereist in implementaties op basis van HTTP. Deze protocollen zijn lage overhead, in tegenstelling tot HTTP, en dezelfde TCP-verbinding voor meerdere aanvragen/antwoorden, wat resulteert in een efficiënter gebruik van resources kunnen hergebruiken. Deze protocollen zijn ontworpen om te werken via de traditionele HTTP-poorten: 80 en 443.
 
-Zie voor meer informatie, [WebSocket-ondersteuning](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) en [ondersteuning voor HTTP/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support). 
+Zie voor meer informatie, [WebSocket-ondersteuning](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) en [ondersteuning voor HTTP/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
 
-## <a name="rewrite-http-headers-public-preview"></a>HTTP-headers opnieuw genereren (openbare preview)
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Ingangscontroller van Azure Kubernetes Service (AKS) (preview) 
+
+De ingangscontroller van Application Gateway wordt uitgevoerd als een pod binnen het AKS-cluster en zorgt ervoor dat de Gateway-toepassing kan fungeren als ingang voor een AKS-cluster. Dit wordt ondersteund met Application Gateway alleen v2.
+
+Zie [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/) voor meer informatie.
+
+## <a name="connection-draining"></a>Verwerkingsstop voor verbindingen
+
+Verwerkingsstop voor verbindingen helpt u om back-endgroepsleden zonder problemen te verwijderen tijdens geplande service-updates. Deze instelling wordt ingeschakeld via de HTTP-instelling van de back-end en kan tijdens het maken van de regel worden toegepast op alle leden van een back-endgroep. Eenmaal is ingeschakeld, Application Gateway zorgt ervoor dat alle ongedaan maken registreren exemplaren van een back-endpool wordt een nieuwe aanvraag niet terwijl bestaande aanvragen om te voltooien binnen een geconfigureerde tijdslimiet. Dit geldt voor zowel back-end-exemplaren die expliciet zijn verwijderd uit de back-endpool door een API-aanroep als back-end-exemplaren die worden gerapporteerd als beschadigd zoals wordt bepaald door de statuscontroles.
+
+## <a name="custom-error-pages"></a>Aangepaste foutpagina's
+
+Met Application Gateway kunt u aangepaste foutpagina's maken in plaats van standaardfoutpagina's weer te geven. U kunt uw eigen huisstijl en lay-out hanteren door een aangepaste foutpagina te gebruiken.
+
+Zie voor meer informatie, [Herschrijf de HTTP-headers](rewrite-http-headers.md).
+
+## <a name="rewrite-http-headers"></a>HTTP-headers opnieuw genereren
 
 HTTP-headers kunnen de client en server om door te geven aanvullende informatie met de aanvraag of het antwoord. Voor het herschrijven van deze HTTP-headers, kunt u verschillende belangrijke scenario's, zoals uitvoeren:
+
 - Toe te voegen beveiligingsgerelateerde kopvelden, zoals HSTS / X-XSS-beveiliging.
 - Antwoord-headervelden kunnen gevoelige informatie onthullen verwijderd.
 - Informatie over de poort van de koptekst X doorgestuurd voor verwijdering.
 
 Application Gateway ondersteunt de mogelijkheid voor het toevoegen, verwijderen of bijwerken van HTTP-aanvraag- en reactieheaders, terwijl de aanvraag en respons pakketten tussen de client en de back-end-pools verplaatsen. Het biedt u ook de mogelijkheid om toe te voegen voorwaarden om te controleren of dat de opgegeven headers worden herschreven alleen als aan bepaalde voorwaarden wordt voldaan.
 
-Zie [HTTP-headers opnieuw genereren](rewrite-http-headers.md) voor meer informatie over deze openbare preview-functie.
+Zie voor meer informatie, [Herschrijf de HTTP-headers](rewrite-http-headers.md).
 
 ## <a name="sizing"></a>Grootte aanpassen
 
-Application Gateway wordt momenteel aangeboden in drie grootten: **Kleine**, **gemiddeld**, en **grote**. Kleine exemplaargrootten zijn bedoeld voor het ontwikkelen en testen van scenario's.
+Application Gateway Standard_v2 en WAF_v2 SKU kan worden geconfigureerd voor automatisch schalen of vaste grootte implementaties. Deze SKU's bieden verschillende instantiegrootten niet.
+
+De Application Gateway standaard en WAF-Voorraadeenheid wordt momenteel aangeboden in drie grootten: **Kleine**, **gemiddeld**, en **grote**. Kleine exemplaargrootten zijn bedoeld voor het ontwikkelen en testen van scenario's.
 
 Zie [Servicelimieten voor Application Gateway](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits) voor een volledige lijst van toepassingsgateway-limieten.
 
@@ -147,6 +147,6 @@ In de volgende tabel staan gemiddelde doorvoerprestaties voor elk toepassingsgat
 
 Afhankelijk van uw vereisten en omgeving, kunt u een Application Gateway voor testdoeleinden maken met behulp van de Azure Portal, Azure PowerShell of Azur CLI:
 
-- [Snelstart: Webverkeer omleiden met Azure Application Gateway - Azure Portal](quick-create-portal.md).
+- [Snelstart: Directe webverkeer met Azure Application Gateway - Azure portal](quick-create-portal.md)
 - [Snelstart: Webverkeer omleiden met Azure Application Gateway - Azure PowerShell](quick-create-powershell.md)
 - [Snelstart: Webverkeer omleiden met Azure Application Gateway - Azure CLI](quick-create-cli.md)

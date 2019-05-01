@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/22/2019
 ms.author: victorh
-ms.openlocfilehash: 7c31801156ee321fe93d73de41fc68179835261a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 06930171552843a5620d9a2bfb379a60e91a3915
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831109"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946750"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-using-azure-powershell"></a>Configureren van SSL-beëindiging met Key Vault-certificaten met behulp van Azure PowerShell
 
@@ -21,9 +21,6 @@ ms.locfileid: "60831109"
 Zie voor meer informatie, [SSL-beëindiging met Key Vault-certificaten](key-vault-certs.md).
 
 In dit artikel ziet u een Azure PowerShell-script om te integreren in Key Vault toepassingsgateway voor SSL-beëindiging-certificaten.
-
-> [!IMPORTANT]
-> De Application Gateway Key Vault-integratie is momenteel in openbare preview. Deze preview wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. De reden hiervoor is dat bepaalde functies mogelijk niet worden ondersteund of beperkte mogelijkheden hebben. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 

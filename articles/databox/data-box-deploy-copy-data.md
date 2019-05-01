@@ -1,5 +1,5 @@
 ---
-title: Gegevens kopiëren naar uw Microsoft Azure Data Box via SMB | Microsoft Docs
+title: Zelfstudie voor het kopiëren van gegevens via SMB op Azure Data Box | Microsoft Docs
 description: Leer hoe u gegevens kopieert naar uw Azure Data Box via SMB
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 04f7710d95f5ce7a2b6195383c2737ff3b1fbf04
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466178"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925556"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Zelfstudie: Gegevens naar Azure Data Box Disk kopiëren via SMB
 
@@ -41,8 +41,8 @@ Zorg voordat u begint voor het volgende:
 
 Data Box maakt op basis van het geselecteerde opslagaccount maximaal:
 - Drie shares voor elk gekoppeld opslagaccount voor GPv1 en GPv2.
-- Een share voor een premium-opslag. 
-- Een share voor blob storage-account. 
+- Een share voor een premium-opslag.
+- Een share voor blob storage-account.
 
 Onder blok-blob- en pagina-blob-shares zijn entiteiten op het eerste niveau containers en entiteiten op het tweede niveau blobs. Onder shares voor Azure Files zijn entiteiten op het eerste niveau shares en entiteiten op het tweede niveau bestanden.
 
@@ -91,7 +91,7 @@ Als u een hostcomputer met Windows Server gebruikt, voert u deze stappen uit om 
 
     **Maak altijd een map voor de bestanden die u van plan bent te kopiëren in de bestandsshare en kopieer de bestanden vervolgens naar die map**. De map gemaakt onder shares met blok-blobs en pagina-blobs vertegenwoordigt een container waarnaar gegevens als blobs worden geüpload. Het is niet mogelijk om bestanden rechtstreeks te kopiëren naar de *root*-map in het opslagaccount.
     
-Als u een Linux-client gebruikt, gebruikt u de volgende opdracht om de SMB-share koppelen. De parameter "vers" hieronder is de versie van SMB die ondersteuning biedt voor uw Linux-host. Geef de juiste versie op in de onderstaande opdracht. Zie [Ondersteunde bestandssystemen voor Linux-clients](https://docs.microsoft.com/en-us/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) voor versies van SMB die door Data Box worden ondersteund 
+Als u een Linux-client gebruikt, gebruikt u de volgende opdracht om de SMB-share koppelen. De parameter "vers" hieronder is de versie van SMB die ondersteuning biedt voor uw Linux-host. Geef de juiste versie op in de onderstaande opdracht. Zie [Ondersteunde bestandssystemen voor Linux-clients](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) voor versies van SMB die door Data Box worden ondersteund 
 
     `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
     
@@ -117,7 +117,7 @@ Begin met het kopiëren van gegevens nadat u verbinding met de SMB-share hebt ge
   
  De kenmerken worden in de volgende tabel beschreven.
     
-|Kenmerk  |Beschrijving  |
+|Kenmerk  |Description  |
 |---------|---------|
 |/e     |Hiermee kopieert u submappen, met inbegrip van lege mappen.         |
 |/r:     |Hiermee geeft u het aantal nieuwe pogingen bij mislukte kopieerbewerkingen op.         |
@@ -132,7 +132,7 @@ Begin met het kopiëren van gegevens nadat u verbinding met de SMB-share hebt ge
 |/z    | Kopieert bestanden in de modus voor opnieuw opstarten; gebruik deze optie als de omgeving instabiel is. Deze optie beperkt doorvoer vanwege de aanvullende logboekregistratie.      |
 | /zb     | Gebruikt de modus voor opnieuw opstarten. Deze optie gebruikt de back-upmodus als de toegang is geweigerd. Deze optie beperkt doorvoer vanwege controlepunten.         |
 |/efsraw     | Kopieert alle versleutelde bestanden in de onbewerkte EFS-modus. Alleen gebruiken met versleutelde bestanden.         |
-|log+:<LogFile>| Voegt de uitvoer toe aan het bestaande logboekbestand.|    
+|log+:\<LogFile>| Voegt de uitvoer toe aan het bestaande logboekbestand.|    
  
 In het volgende voorbeeld ziet u de uitvoer van de Robocopy-opdracht voor het kopiëren van bestanden naar de Data Box.
     

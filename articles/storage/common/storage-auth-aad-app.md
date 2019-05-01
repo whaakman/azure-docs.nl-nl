@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c4959d6abd1b33c81f731ad0479bd59d271c7797
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 979019da60c1129c6c6ef0bec42d9f9096735c1b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483982"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926041"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Verifiëren met Azure Active Directory vanaf een aanvraag voor toegang tot blobs en wachtrijen
 
@@ -37,7 +37,7 @@ De eerste stap bij het gebruik van Azure AD toegang verlenen aan de storage-reso
 
 Als u uw toepassing registreert, kunt u informatie opgeven over uw toepassing naar Azure AD. Vervolgens Azure AD biedt een client-ID (ook wel een *toepassings-ID*) waarmee u kunt uw toepassing koppelen aan Azure AD tijdens runtime. Zie voor meer informatie over de client-ID, [toepassing en service-principalobjecten in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-Voor het registreren van uw Azure Storage-toepassing, volg de stappen in de [toevoegen van een toepassing](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) in sectie [toepassingen integreren met Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Als u uw toepassing als een systeemeigen toepassing registreert, kunt u een geldige URI voor de **omleidings-URI**. De waarde hoeft niet te worden geen echt eindpunt.
+Voor het registreren van uw Azure Storage-toepassing, volg de stappen in de [toevoegen van een toepassing](../../active-directory/develop/quickstart-register-app.md) in sectie [toepassingen integreren met Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Als u uw toepassing als een systeemeigen toepassing registreert, kunt u een geldige URI voor de **omleidings-URI**. De waarde hoeft niet te worden geen echt eindpunt.
 
 ![Schermopname die laat zien hoe u uw storage-toepassing registreren bij Azure AD](./media/storage-auth-aad-app/app-registration.png)
 

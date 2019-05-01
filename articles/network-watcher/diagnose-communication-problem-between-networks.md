@@ -3,8 +3,8 @@ title: 'Zelfstudie: Communicatieproblemen tussen netwerken onderzoeken - Azure P
 description: Informatie over hoe u de VPN-diagnosefunctie van Network Watcher gebruikt om via een gateway van een virtueel Azure-netwerk een communicatieprobleem te onderzoeken tussen een virtueel Azure-netwerk dat is verbonden met een on-premises netwerk of ander virtueel netwerk.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network.
 ms.service: network-watcher
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 4f5fbbb9d06f9fcb8858625b57957fc18c5c1f1f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e4dc66a5ca6e18b12586b5b03742fba3d6c3d6c4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046902"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704220"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Zelfstudie: Communicatieproblemen tussen netwerken onderzoeken met de Azure-portal
 

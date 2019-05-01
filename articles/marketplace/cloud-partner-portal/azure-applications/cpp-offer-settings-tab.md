@@ -1,25 +1,18 @@
 ---
-title: Azure-aanbieding toepassingsinstellingen | Microsoft Docs
+title: Azure-aanbieding toepassingsinstellingen | Azure Marketplace
 description: Configureer de instellingen van de aanbieding voor een aanbieding van Azure-toepassing.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 85cdd05de3415637620500cde10adf717bb1e173
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 789b783629b3cc3528eba1883b21051604cf6e14
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744892"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942935"
 ---
 # <a name="azure-application-offer-settings-tab"></a>Tabblad van de instellingen bieden Azure-toepassing
 
@@ -33,11 +26,11 @@ De **Azure-toepassingen > nieuwe aanbieding** pagina wordt geopend met de focus 
 
 Onder **identiteit bieden**, moet u gegevens voor de velden die in de volgende tabel worden beschreven.  
 
-|  **Veld**       |     **Beschrijving**                                                          |
+|    Veld         |       Description                                                            |
 |  ---------       |     ---------------                                                          |
-| **Aanbiedings-ID**       | Een unieke id (binnen het uitgeverprofiel van een) voor de aanbieding. Deze id is zichtbaar in de URL's en inzichten Productrapporten. Het heeft een maximale lengte van 50 tekens en kleine letters, alfanumerieke tekens en streepjes (-) kunt gebruiken. (De id mag niet eindigen met een streepje.) **Opmerking:** Dit veld kan niet worden gewijzigd nadat een aanbieding live meteen. <br> Bijvoorbeeld, als Contoso een aanbieding met publiceert aanbiedings-ID **voorbeeldcontainer**, heeft deze de URL van de Azure Marketplace toegewezen `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-container?tab=Overview`. |
-| **Uitgevers-ID**     | De unieke id van uw organisatie in de Azure Marketplace. Alle uw aanbiedingen moeten worden gekoppeld aan uw uitgever-ID. Deze waarde kan niet worden gewijzigd nadat een van de aanbieding is opgeslagen. |
-| **Naam**          | De weergavenaam voor uw aanbieding. Deze naam wordt weergegeven in de Azure Marketplace en in de Cloud Partner-Portal. De naam mag maximaal 50 tekens bevatten. Wordt u aangeraden een herkenbare naam voor uw product. Neem de naam van uw organisatie niet, tenzij dat is hoe uw product wordt verkocht. Als u deze aanbieding in andere websites en publicaties worden marketing, zorgt u ervoor dat de naam precies hetzelfde voor alle publicaties is. |
+| **Aanbiedings-ID\***       | Een unieke id (binnen het uitgeverprofiel van een) voor de aanbieding. Deze id is zichtbaar in de URL's en inzichten Productrapporten. Het heeft een maximale lengte van 50 tekens en kleine letters, alfanumerieke tekens en streepjes (-) kunt gebruiken. (De id mag niet eindigen met een streepje.) **Opmerking:** Dit veld kan niet worden gewijzigd nadat een aanbieding live meteen. <br> Bijvoorbeeld, als Contoso een aanbieding met publiceert aanbiedings-ID **voorbeeldcontainer**, heeft deze de URL van de Azure Marketplace toegewezen `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-container?tab=Overview`. |
+| **Uitgevers-ID\***     | De unieke id van uw organisatie in de Azure Marketplace. Alle uw aanbiedingen moeten worden gekoppeld aan uw uitgever-ID. Deze waarde kan niet worden gewijzigd nadat een van de aanbieding is opgeslagen. |
+| **Naam\***          | De weergavenaam voor uw aanbieding. Deze naam wordt weergegeven in de Azure Marketplace en in de Cloud Partner-Portal. De naam mag maximaal 50 tekens bevatten. Wordt u aangeraden een herkenbare naam voor uw product. Neem de naam van uw organisatie niet, tenzij dat is hoe uw product wordt verkocht. Als u deze aanbieding in andere websites en publicaties worden marketing, zorgt u ervoor dat de naam precies hetzelfde voor alle publicaties is. |
 |  |  |
 
 Selecteer **opslaan** uw instellingen bieden op te slaan.

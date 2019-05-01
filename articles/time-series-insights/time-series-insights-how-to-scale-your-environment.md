@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: f6c2c8c49f34c707c7b0fb4d525337fbfa169a3e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: fcdfc78a62d901bdaf50c18e9286e6f2d30c5b13
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692422"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714124"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Het schalen van uw Time Series Insights-omgeving
 
@@ -60,5 +60,5 @@ Capaciteiten schalen lineair, dus een S1 SKU met capaciteit 2 biedt ondersteunin
 4. Selecteer **opslaan** voor het schalen van de omgeving. De voortgangsindicator wordt weergegeven nadat de wijziging doorgevoerd, tijdelijk wordt. 
 
 ## <a name="next-steps"></a>Volgende stappen
-> [!div class="nextstepaction"]
-> [Controleer of de nieuwe capaciteit is voldoende om te voorkomen dat beperking](time-series-insights-diagnose-and-solve-problems.md).
+
+- Controleer of de nieuwe capaciteit [voldoende zijn om te voorkomen dat beperking](time-series-insights-diagnose-and-solve-problems.md).

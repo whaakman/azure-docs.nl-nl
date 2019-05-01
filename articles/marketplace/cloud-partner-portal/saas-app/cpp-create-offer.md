@@ -1,25 +1,18 @@
 ---
-title: Aanbieding voor Azure SaaS-toepassing maken | Microsoft Docs
+title: Aanbieding voor Azure SaaS-toepassing maken | Azure Marketplace
 description: Het maken van een SaaS-toepassing-aanbieding op Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.author: pbutlerm
-ms.openlocfilehash: bcaf470fae34056fe932cf8b5fd3076899f895ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 246dd77c8e92a36e0601aba7d1b851efb7e7fb9a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594882"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943557"
 ---
 # <a name="create-a-new-saas-application-offer"></a>Een nieuwe aanbieding voor SaaS-toepassing maken
 

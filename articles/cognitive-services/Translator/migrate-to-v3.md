@@ -10,19 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: d3ffdcb79a56bf2f9f4a6eb192293bbc6bab7dab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fa1733ddd70de3f8ef93452a880094ccf8b9ef56
+ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916713"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951462"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text-API V2 naar V3-migratie
 
 > [!NOTE]
-> V2 op 30 April 2018 is afgeschaft en zal worden buiten gebruik gesteld op 30 April 2019.
+> V2 werd op 30 April 2018 afgeschaft. Migreer uw toepassingen om te profiteren van nieuwe functionaliteit die beschikbaar zijn in V3 uitsluitend V3.
 > 
-> De Microsoft Translator-Hub wordt buiten gebruik gesteld op 30 April 2019. [Migratie van belangrijke informatie en datums weergeven](https://www.microsoft.com/translator/business/hub/).  
+> De Microsoft Translator-Hub wordt beëindigd op 17 mei 2019. [Migratie van belangrijke informatie en datums weergeven](https://www.microsoft.com/translator/business/hub/).  
 
 Het team van Microsoft Translator is uitgebracht van versie 3 (V3) van de Translator Text-API. Deze versie bevat nieuwe functies, afgeschafte methoden en een nieuwe indeling voor het verzenden naar en ontvangen van gegevens uit de Microsoft Translator-Service. Dit document bevat informatie over het wijzigen van toepassingen kunnen gebruikmaken van V3. 
 
@@ -110,7 +110,7 @@ Wereldwijd
 
 > [!NOTE]
 > 
-> De Microsoft Translator-Hub wordt buiten gebruik gesteld op 30 April 2019. [Migratie van belangrijke informatie en datums weergeven](https://www.microsoft.com/translator/business/hub/).   
+> De Microsoft Translator-Hub wordt beëindigd op 17 mei 2019. [Migratie van belangrijke informatie en datums weergeven](https://www.microsoft.com/translator/business/hub/).   
 
 Microsoft Translator V3 maakt standaard gebruik van neurale machinevertalingen. Deze kunnen daarom niet worden gebruikt met de Microsoft Translator-Hub. De Translator-Hub biedt alleen ondersteuning voor verouderde statistische machinevertalingen. Aanpassing voor neurale vertalingen is nu beschikbaar met de aangepaste Translator. [Meer informatie over het aanpassen van neurale machinevertalingen](custom-translator/overview.md)
 
@@ -130,7 +130,6 @@ Neurale vertalingen met de tekst van V3 API biedt geen ondersteuning voor het ge
 U gebruikt versie 3 van de Translator Text-API als u het eindpunt api.cognitive.microsofttranslator.com.
 
 **Translator Text-API versie 2**
-* Is afgeschaft. Het wordt buiten gebruik gesteld op 30 April 2019. 
 * Voldoet niet aan alle 20001,20018 ISO en SOC 3-vereisten voor certificering. 
 * Kunt u geen om aan te roepen van het neurale netwerk automatische vertalingssystemen die u met de functie voor het aanpassen van Translator hebt aangepast.
 * Biedt toegang tot aangepaste vertaalsystemen gemaakt met behulp van de Microsoft Translator-Hub.

@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: celested
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b78897e2e03085a20f07ce8724226f0e0171861e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fa4eeb0a21525d636c7c1193c125d525774fa3fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291230"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707167"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Beperkingen voor tenants gebruiken voor het beheren van toegang tot SaaS-cloudtoepassingen
 
@@ -42,7 +42,7 @@ De algehele oplossing omvat de volgende onderdelen:
 
 3. **Clientsoftware**: Ter ondersteuning van beperkingen voor tenants, moet clientsoftware aanvragen tokens rechtstreeks vanuit Azure AD, zodat de infrastructuur van webtoepassingsproxy kan verkeer onderscheppen. Office 365-toepassingen op basis van een browser ondersteunen momenteel beperkingen voor tenants, evenals Office-clients die gebruikmaken van moderne verificatie (zoals OAuth 2.0).
 
-4. **Moderne verificatie**: Cloudservices moeten moderne verificatie wordt gebruikt om te gebruiken van beperkingen voor tenants en blokkeer de toegang tot alle niet-toegestane tenants. U kunt Office 365 cloud-services voor het gebruik van moderne-verificatieprotocollen standaard moet configureren. Lees voor de meest recente informatie over Office 365-ondersteuning voor moderne verificatie, [moderne verificatie van Office 365 bijgewerkt](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/).
+4. **Moderne verificatie**: Cloudservices moeten moderne verificatie wordt gebruikt om te gebruiken van beperkingen voor tenants en blokkeer de toegang tot alle niet-toegestane tenants. U kunt Office 365 cloud-services voor het gebruik van moderne-verificatieprotocollen standaard moet configureren. Lees voor de meest recente informatie over Office 365-ondersteuning voor moderne verificatie, [moderne verificatie van Office 365 bijgewerkt](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 Het volgende diagram illustreert de werkstroom op hoog niveau verkeer. Beperkingen voor tenants vereist SSL-inspectie alleen op het verkeer naar Azure AD, niet op de Office 365-cloudservices. Dit verschil is belangrijk, omdat het verkeersvolume voor verificatie met Azure AD doorgaans veel lager dan voor netwerkverkeer voor SaaS-toepassingen, zoals Exchange Online en SharePoint Online is.
 
@@ -128,7 +128,7 @@ Office 365-toepassingen moeten voldoen aan twee criteria op om aan te bieden vol
 1. Moderne verificatie biedt ondersteuning voor de client gebruikt.
 2. Moderne verificatie is ingeschakeld als het standaardverificatieprotocol voor de cloudservice.
 
-Raadpleeg [moderne verificatie van Office 365 bijgewerkt](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) voor de meest recente informatie over welke Office clients momenteel moderne verificatie ondersteunen. Deze pagina bevat ook koppelingen naar instructies voor het inschakelen van moderne verificatie op specifieke Exchange Online en Skype voor bedrijven Online tenants. SharePoint Online al moderne verificatie standaard ingeschakeld.
+Raadpleeg [moderne verificatie van Office 365 bijgewerkt](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) voor de meest recente informatie over welke Office clients momenteel moderne verificatie ondersteunen. Deze pagina bevat ook koppelingen naar instructies voor het inschakelen van moderne verificatie op specifieke Exchange Online en Skype voor bedrijven Online tenants. SharePoint Online al moderne verificatie standaard ingeschakeld.
 
 Browser gebaseerde toepassingen van Office 365 (de Office-Portal, Yammer, SharePoint-sites, Outlook op het Web en meer) momenteel ondersteuning voor beperkingen voor tenants. Dikke clients (Outlook, Skype voor bedrijven, Word, Excel, PowerPoint en meer) kunnen afdwingen tenantbeperkingen alleen die moderne authenticatie gebruiken.  
 
@@ -185,5 +185,5 @@ Raadpleeg de documentatie van uw proxy-server voor specifieke details.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [moderne verificatie van Office 365 bijgewerkt](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)
+- Meer informatie over [moderne verificatie van Office 365 bijgewerkt](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
 - Controleer de [Office 365-URL's en IP-adresbereiken](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

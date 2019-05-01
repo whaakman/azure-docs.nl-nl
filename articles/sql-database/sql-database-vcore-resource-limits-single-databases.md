@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/17/2019
-ms.openlocfilehash: d5ada9b992afe98241162749b1c45723b89a6b77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 03/19/2019
+ms.openlocfilehash: aa9217251965b35dd90e09c619607c9421a9f6f4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331108"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572647"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore gebaseerde model limieten voor één database aanschaffen
 
@@ -96,7 +96,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Opslagtype|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|
 |Doel-IOPS (van 64 KB)|500|1000|1500|2000|2500|3000|3500|
-|Meld u frequentielimieten (MBps)|2,5|5.6|7.5|10|12.5|15|17.5|
+|Meld u frequentielimieten (MBps)|2,5|56|7.5|10|12.5|15|17.5|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|1400|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|1|1|1|1|1|1|1|

@@ -1,28 +1,20 @@
 ---
-title: API-bewerking annuleren | Microsoft Docs
+title: API-bewerking annuleren | Azure Marketplace
 description: Bewerkingen worden geannuleerd.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 18f00391beded0744c80eab73bb1efe1c6ab8dbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 70ffd13be4ba934b423e3bb5344eea0a9c36886c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625037"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935553"
 ---
-<a name="cancel-operation"></a>Bewerking annuleren 
-=================
+# <a name="cancel-operation"></a>Bewerking annuleren 
 
 Deze API wordt geannuleerd voor een bewerking die momenteel wordt uitgevoerd op de aanbieding. Gebruik de [operations API ophalen](./cloud-partner-portal-api-retrieve-operations.md) om op te halen een `operationId` om door te geven tot deze API. Annulering is meestal een synchrone bewerking, maar in sommige complexe scenario's mogelijk een nieuwe bewerking worden gevraagd om u te annuleren van een bestaande. In dit geval bevat de HTTP-antwoordtekst locatie van de bewerking die moet worden gebruikt om de status opvragen.
 

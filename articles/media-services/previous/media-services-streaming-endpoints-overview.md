@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c5979fa7ff67c5acda9ab653bc4ee52d8b5129a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a45e2af6f2cb9c105c084585a03a6de615fa1397
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60544948"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573037"
 ---
 # <a name="streaming-endpoints-overview"></a>Overzicht van streaming eindpunten  
 
-## <a name="overview"></a>Overzicht
+> [!NOTE]
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
 
 In Microsoft Azure Media Services (AMS), een **Streaming-eindpunt** vertegenwoordigt een streamingservice waarmee inhoud kan worden geleverd rechtstreeks naar een clientafspeeltoepassing of aan een Content Delivery Network (CDN) voor verdere distributie. Media Services biedt ook een naadloze integratie van Azure CDN. De uitgaande stroom van een service streamingendpoint zo mag een live stream, een video op aanvraag of progressief downloaden van uw activa in Media Services-account. Elk Azure Media Services-account is inclusief een standaard streamingendpoint zo. Extra door kunnen worden gemaakt onder het account. Er zijn twee versies van door, 1.0 en 2.0. Beginnen met 10 januari-2017, bevatten nieuwe AMS-accounts versie 2.0 **standaard** streamingendpoint zo. Aanvullende streaming-eindpunten die u aan dit account toevoegt worden ook versie 2.0. Deze wijziging heeft geen gevolgen voor de bestaande accounts; bestaande door versie 1.0 zijn en kunnen worden bijgewerkt naar versie 2.0. Met deze wijziging zullen er wijzigingen in gedrag, facturering en -functie (Zie voor meer informatie de **Streaming typen en versies** sectie hieronder beschreven).
 
@@ -46,14 +47,17 @@ Voor elke extra eindpunten: `{EndpointName}-{AccountName}.streaming.mediaservice
 
 ### <a name="standardpremium-types-version-20"></a>Standard/Premium-typen (versie 2.0)
 
-Beginnen met de release van januari 2017 van Media Services, hebt u twee streaming typen: **Standard** en Premium. Deze typen zijn onderdeel van de Streaming-eindpunt versie '2.0'.
+Beginnen met de release van januari 2017 van Media Services, hebt u twee streaming typen: **Standard** (preview) en **Premium**. Deze typen zijn onderdeel van de Streaming-eindpunt versie '2.0'.
 
-Type|Description
----|---
-**Standard** |Dit is de standaardoptie die voor het merendeel van de scenario's werken.<br/>Met deze optie krijgt u vaste/beperkt SLA, eerste 15 dagen na het starten van het streaming-eindpunt is gratis.<br/>Als u meer dan één streaming-eindpunten, maakt alleen de eerste die gratis gedurende de eerste 15 dagen is, worden de andere in rekening gebracht zodra ze worden gestart. <br/>Houd er rekening mee dat gratis proefversie alleen van toepassing op nieuwe media services-accounts en standaardstreaming-eindpunt. Bestaand streaming-eindpunten en daarnaast gemaakte streaming-eindpunten niet gratis proefperiode is afgelopen bevat zelfs ze kunnen worden bijgewerkt naar versie 2.0 of ze worden gemaakt als versie 2.0.
-**Premium** |Deze optie is geschikt voor professionele scenario's waarvoor een hogere schaal of het besturingselement.<br/>Variabele SLA die is gebaseerd op premium streaming-eenheid (SU)-capaciteit hebt aangeschaft, toegewezen streaming-eindpunten bevinden zich in de geïsoleerde omgeving en niet van invloed voor resources.
 
-Zie voor meer informatie, de **vergelijken Streaming typen** volgende sectie.
+|Type|Description|
+|--------|--------|  
+|**Standard**|De Streaming-eindpunt wordt standaard een **Standard** typt, kan worden gewijzigd in het type Premium door aan te passen van streaming-eenheden.|
+|**Premium** |Deze optie is geschikt voor professionele scenario's waarvoor een hogere schaal of het besturingselement. U verplaatst naar een **Premium** type door aan te passen van streaming-eenheden.<br/>Toegewezen Streaming-eindpunten bevinden zich in de geïsoleerde omgeving en niet concurreren om bronnen.|
+
+Voor klanten die voor het leveren van inhoud naar grote doelgroepen van het internet, wordt u aangeraden dat u de CDN op het Streaming-eindpunt inschakelen.
+
+Zie voor meer informatie, de [vergelijken Streaming typen](#comparing-streaming-types) volgende sectie.
 
 ### <a name="classic-type-version-10"></a>Klassieke type (versie 1.0)
 
@@ -71,29 +75,32 @@ Als uw **versie "1.0"** streaming-eindpunt is > = 1 premium-streaming-eenheden (
 
 ### <a name="versions"></a>Versies
 
-|Type|StreamingEndpointVersion|ScaleUnits|CDN|Billing|SLA| 
-|--------------|----------|-----------------|-----------------|-----------------|-----------------|    
-|Klassiek|1.0|0|N.v.t.|Gratis|N.v.t.|
-|Standard streaming-eindpunt|2.0|0|Ja|Betaald|Ja|
-|Premium streamingeenheden|1.0|>0|Ja|Betaald|Ja|
-|Premium streamingeenheden|2.0|>0|Ja|Betaald|Ja|
+|Type|StreamingEndpointVersion|ScaleUnits|CDN|Billing|
+|--------------|----------|-----------------|-----------------|-----------------|
+|Klassiek|1.0|0|N.v.t.|Gratis|
+|Standard Streaming-eindpunt (preview)|2.0|0|Ja|Betaald|
+|Premium streamingeenheden|1.0|>0|Ja|Betaald|
+|Premium streamingeenheden|2.0|>0|Ja|Betaald|
 
 ### <a name="features"></a>Functies
 
 Functie|Standard|Premium
 ---|---|---
-Gratis voor de eerste 15 dagen| Ja |Nee
-Doorvoer |Maximaal 600 Mbps wanneer Azure CDN wordt niet gebruikt. Schalen met CDN.|200 Mbps per streaming-eenheid (SU). Schalen met CDN.
-SLA | 99.9|99,9 (200 Mbps per SU).
+Eerste 15 dagen gratis <sup>1</sup>| Ja |Nee
+Doorvoer |Maximaal 600 Mbps en krijgt een veel hogere effectieve doorvoer wanneer een CDN wordt gebruikt.|200 Mbps per streaming-eenheid (SU). Krijgt u een veel hogere effectieve doorvoer wanneer een CDN wordt gebruikt.
 CDN|Azure CDN, van derden CDN of er is geen CDN.|Azure CDN, van derden CDN of er is geen CDN.
 Facturering is Pro rata| Dagelijks|Dagelijks
 Dynamische versleuteling|Ja|Ja
 Dynamische verpakking|Ja|Ja
-Schalen|Automatisch omhoog kan worden opgeschaald naar de betreffende doorvoer.|Aanvullende streaming-eenheden
-IP-filtering/G20/aangepast host|Ja|Ja
+Schalen|Automatisch omhoog kan worden opgeschaald naar de betreffende doorvoer.|Aanvullende streaming-eenheden.
+IP-filtering/G20/aangepast host <sup>2</sup>|Ja|Ja
 Progressief downloaden|Ja|Ja
-Aanbevolen gebruik |Aanbevolen voor de meeste streaming-scenario's.|Professionele gebruik.<br/>Als u denkt dat wellicht u behoeften dan Standard. Contact met ons opnemen (amsstreaming@microsoft.com) als u verwacht de grootte van een gelijktijdige doelgroep groter zijn dan 50.000 viewers dat.
+Aanbevolen gebruik |Aanbevolen voor de meeste streaming-scenario's.|Professionele gebruik. 
 
+<sup>1</sup> de gratis proefversie alleen van toepassing op nieuwe media services-accounts en het standaard Streaming-eindpunt.<br/>
+<sup>2</sup> alleen rechtstreeks op het Streaming-eindpunt wordt gebruikt wanneer het CDN niet is ingeschakeld op het eindpunt.<br/>
+
+Voor SLA-informatie, Zie [prijzen en SLA](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="migration-between-types"></a>Migratie tussen verschillende typen
 

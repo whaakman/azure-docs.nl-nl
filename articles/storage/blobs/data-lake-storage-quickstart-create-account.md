@@ -1,21 +1,22 @@
 ---
 title: Een Azure Data Lake Storage Gen2-opslagaccount maken | Microsoft Docs
-description: Leer snel hoe u een nieuw opslagaccount met toegang tot Data Lake Storage Gen2 maakt met Azure Portal, Azure PowerShell of Azure CLI
+description: Leer snel hoe u een nieuw opslagaccount maken met toegang tot Data Lake Storage Gen2 met behulp van de Azure portal, Azure PowerShell of Azure CLI.
 services: storage
-author: jamesbak
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
-ms.author: jamesbak
-ms.openlocfilehash: 50cd039395b477a93d050458c2a014e768fc5f0a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.author: normesta
+ms.reviewer: jamesbak
+ms.openlocfilehash: 18132ac4c218c766efdc9a9afae2cc3508c4f732
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995673"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939411"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Snelstart: Een Azure Data Lake Storage Gen2-opslagaccount maken
+# <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Quickstart: Een Azure Data Lake Storage Gen2-opslagaccount maken
 
 Azure Data Lake Storage Gen2 [biedt ondersteuning voor een hiërarchische naamruimte](data-lake-storage-introduction.md) waarmee u een systeemeigen op basis van een directory die is ontworpen om te werken met het Hadoop Distributed File System (HDFS)-bestandssysteem. Toegang tot Data Lake Storage Gen2-gegevens uit HDFS is beschikbaar via het [ABFS-stuurprogramma](data-lake-storage-abfs-driver.md).
 

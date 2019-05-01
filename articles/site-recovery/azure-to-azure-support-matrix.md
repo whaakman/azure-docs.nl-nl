@@ -1,23 +1,22 @@
 ---
 title: Ondersteuningsmatrix voor herstel na noodgevallen van virtuele Azure-machines tussen Azure-regio's met Azure Site Recovery | Microsoft Docs
-description: Geeft een overzicht van de ondersteunde besturingssystemen en configuraties voor de Azure Site Recovery-replicatie van virtuele Azure-machines (VM's) van de ene regio naar een andere voor disaster recovery (DR) behoeften.
-services: site-recovery
+description: Geeft een overzicht van vereisten en ondersteuning voor herstel na noodgevallen van Azure-VM's van de ene regio naar de andere met Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: c64148fbc0432bd25c5b02fb20b3e44134c1d9d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9b905d532dfe71fea7c4ec0377eb53b9e3073907
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502085"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926594"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van virtuele Azure-machines van de ene regio naar een andere
 
-In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen wanneer u herstel na noodgeval met replicatie, failover en herstel van virtuele Azure-machines van de ene Azure-regio naar een andere, implementeert met behulp van de [Azure Site Recovery](site-recovery-overview.md) service.
+In dit artikel bevat een overzicht van ondersteuning en vereisten bij het instellen van herstel na noodgeval voor virtuele Azure-machines van de ene Azure-regio naar een andere, met de [Azure Site Recovery](site-recovery-overview.md) service.
 
 
 ## <a name="deployment-method-support"></a>Ondersteuning voor implementatie-methode
@@ -96,10 +95,10 @@ Windows Server 2008 R2 | Met SP1 of hoger
 Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6  
 CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6
 Ubuntu 14.04 LTS-Server | [Versies van de ondersteunde kernel](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-Ubuntu 16.04 LTS Server | [Ondersteunde kernelversie](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu-servers met behulp van verificatie op basis van wachtwoorden en aanmelding en de cloud-init-pakket voor het configureren van virtuele machines, cloud mogelijk op basis van wachtwoorden aanmelding is uitgeschakeld op failover (afhankelijk van de configuratie cloudinit). Aanmelding op basis van wachtwoorden kan opnieuw worden ingeschakeld op de virtuele machine door de fabrieksinstellingen van het wachtwoord van de ondersteuning voor > probleemoplossing > menu instellingen (van de failover VM in Azure portal.
+Ubuntu 16.04 LTS Server | [Ondersteunde kernelversie](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu-servers met behulp van verificatie op basis van wachtwoorden en meld u aan en het cloud-init-pakket voor het configureren van virtuele machines, cloud mogelijk aanmelding op basis van wachtwoorden in uitgeschakeld bij failover (afhankelijk van de configuratie cloudinit). Meld u op basis van wachtwoorden in kan opnieuw worden ingeschakeld op de virtuele machine door de fabrieksinstellingen van het wachtwoord van de ondersteuning voor > probleemoplossing > menu instellingen (van de failover VM in Azure portal.
 Debian 7 | [Versies van de ondersteunde kernel](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Versies van de ondersteunde kernel](#supported-debian-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 12 | SP1,SP2,SP3,SP4. [(Ondersteunde kernelversie versies)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [(Ondersteunde kernelversie versies)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> Upgrade van de machines repliceren van SP3 naar SP4 wordt niet ondersteund. Als een gerepliceerde virtuele machine is bijgewerkt, moet u replicatie uitschakelen en weer inschakelen replicatie na de upgrade.
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 <br/><br/> De Red Hat compatibele kernel- of Unbreakable Enterprise Kernel versie 3 (UEK3) uitgevoerd.
@@ -132,8 +131,8 @@ Debian 8 | 9.21, 9.22, 9.23, 9.24 | 3.16.0-4-amd64 to 3.16.0-7-amd64, 4.9.0-0.bp
 **Release** | **De versie van de Mobility-service** | **Kernelversie** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3 en SP4) | 9.24 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default naar 4.4.175-94.79-default</br></br>SP4 4.12.14-94.41-default naar 4.12.14-95.6-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3 en SP4) | 9.23 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.69-default</br></br>SP4 4.12.14-94.41-default naar 4.12.14-95.6-default |
-SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.22 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.72-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.23 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.69-default</br></br>SP4 4.12.14-94.41-default naar 4.12.14-95.6-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.22 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.21 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.72-default |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Gerepliceerde machines - Linux-systeem/Gast bestandsopslag
@@ -148,7 +147,7 @@ SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.21 | SP1 3.12.49-11-default n
 **Instelling** | **Ondersteuning** | **Details**
 --- | --- | ---
 Grootte | Elke Azure-VM-grootte met ten minste 2 CPU-kernen en 1 GB RAM-geheugen | Controleer of [Azure VM-groottes](../virtual-machines/windows/sizes.md).
-Beschikbaarheidssets | Ondersteund | Als u replicatie voor een Azure VM met de standaardopties inschakelt, wordt een beschikbaarheidsset op basis van de bron regio-instellingen automatisch gemaakt. U kunt deze instellingen wijzigen.
+Beschikbaarheidssets | Ondersteund | Als u replicatie voor een Azure VM met de standaardopties inschakelt, is een beschikbaarheidsset automatisch gemaakt, op basis van de regio-instellingen voor gegevensbron. U kunt deze instellingen wijzigen.
 Beschikbaarheidszones | Ondersteund |
 Hybrid Use Benefit (HUB) | Ondersteund | Als de bron-VM een HUB-licentie ingeschakeld, een testfailover heeft of failover gebruikt VM ook de HUB-licentie.
 Schaalsets van virtuele machines | Niet ondersteund |
@@ -191,7 +190,8 @@ Opslagruimten | Ondersteund |
 Versleuteling-at-rest (SSE) | Ondersteund | SSE is de standaardinstelling op storage-accounts.   
 Azure Disk Encryption (ADE) voor Windows-besturingssysteem | VM's zijn ingeschakeld voor [versleuteling met Azure AD-app](https://aka.ms/ade-aad-app) worden ondersteund |
 Azure Disk Encryption (ADE) voor Linux-besturingssysteem | Niet ondersteund |
-Hot toevoegen of verwijderen-schijf | Niet ondersteund | Als u toevoegen of verwijderen van de gegevensschijf op de virtuele machine, moet u replicatie uitschakelen en inschakelen van replicatie opnieuw voor de virtuele machine.
+Hot toevoegen | Ondersteund | Replicatie inschakelen voor een gegevensschijf die u aan een gerepliceerde virtuele machine van Azure toevoegt wordt ondersteund voor virtuele machines die gebruikmaken van beheerde schijven.
+Dynamische schijf verwijderen | Niet ondersteund | Als u een gegevensschijf op de virtuele machine verwijdert, moet u replicatie uitschakelen en inschakelen van replicatie opnieuw voor de virtuele machine.
 Schijf uitsluiten | Ondersteuning. U moet gebruiken [Powershell](azure-to-azure-exclude-disks.md) te configureren. |  Tijdelijke schijven niet standaard opgenomen.
 Storage Spaces Direct  | Ondersteund voor crash-consistente herstelpunten. Toepassing consistente herstelpunten worden niet ondersteund. |
 Scale-out bestandsserver  | Ondersteund voor crash-consistente herstelpunten. Toepassing consistente herstelpunten worden niet ondersteund. |
@@ -241,7 +241,7 @@ Azure DNS | Ondersteund |
 Aangepaste DNS  | Ondersteund |
 Niet-geverifieerde proxy | Ondersteund | [Meer informatie]. (site-recovery-azure-to-azure-networking-guidance.md)   
 Geverifieerde Proxy | Niet ondersteund | Als de virtuele machine van een geverifieerde proxyserver voor de uitgaande connectiviteit gebruikmaakt, kan niet worden gerepliceerd met behulp van Azure Site Recovery.    
-Site-naar-site-VPN-verbinding met on-premises<br/><br/>(met of zonder ExpressRoute)| Ondersteund | Zorg ervoor dat de Udr en nsg's zodanig dat het Site recovery-verkeer niet wordt doorgestuurd naar on-premises zijn geconfigureerd. [Meer informatie](site-recovery-azure-to-azure-networking-guidance.md)    
+Site-naar-site-VPN-verbinding met on-premises<br/><br/>(met of zonder ExpressRoute)| Ondersteund | Zorg ervoor dat de Udr en nsg's zodanig dat het Site Recovery-verkeer niet wordt doorgestuurd naar on-premises zijn geconfigureerd. [Meer informatie](site-recovery-azure-to-azure-networking-guidance.md)    
 VNET-naar-VNET-verbinding | Ondersteund | [Meer informatie](site-recovery-azure-to-azure-networking-guidance.md)  
 Service-eindpunten voor virtueel netwerk | Ondersteund | Zorg ervoor dat de vertrouwde Microsoft-services toegang hebben tot het opslagaccount als beperking van toegang tot het virtuele netwerk naar storage-accounts.
 Versneld netwerken | Ondersteund | Versneld netwerken moet zijn ingeschakeld op de bron-VM. [Meer informatie](azure-vm-disaster-recovery-with-accelerated-networking.md).

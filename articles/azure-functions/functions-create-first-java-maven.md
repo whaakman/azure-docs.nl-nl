@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d25fbfc058337c7a96414cf41f321e039ebc2258
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 287cab034079c54c027e0dc7b84564458d31fc31
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61341419"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696161"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Uw eerste functie maken met Java en Maven
 
@@ -29,10 +29,10 @@ In dit artikel wordt uitgelegd hoe u met behulp van het opdrachtregelprogramma M
 
 Als u functies wilt ontwikkelen met behulp van Java, moet het volgende zijn geïnstalleerd:
 
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/), versie 8.
-- [Apache Maven](https://maven.apache.org), versie 3.0 of hoger.
+- [Java Developer Kit](https://www.azul.com/downloads/zulu/), versie 8
+- [Apache Maven](https://maven.apache.org), versie 3.0 of hoger
 - [Azure-CLI](https://docs.microsoft.com/cli/azure)
-- [Azure Functions Core Tools](functions-run-local.md#v2) (hiervoor is de **.NET Core 2.x SDK** vereist)
+- [Azure Functions Core Tools](./functions-run-local.md#v2) versie 2.6.666 of hoger
 
 > [!IMPORTANT]
 > De omgevingsvariabele JAVA_HOME moet zijn ingesteld op de installatielocatie van de JDK om deze quickstart te kunnen voltooien.
@@ -107,6 +107,10 @@ public class Function {
 }
 
 ```
+
+## <a name="reference-bindings"></a>Referentie-bindingen
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ## <a name="run-the-function-locally"></a>De functie lokaal uitvoeren
 

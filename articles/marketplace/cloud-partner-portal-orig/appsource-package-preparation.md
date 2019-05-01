@@ -1,25 +1,19 @@
 ---
-title: AppSource-pakket voorbereiden | Microsoft Docs
+title: AppSource-pakket voorbereiden | Azure Marketplace
 description: Explanaion in hoe u voorbereidt en bouwen van AppSource-pakketten.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: ff822e87bfec5daa161172c0d47975eb06cc2808
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625430"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935633"
 ---
 # <a name="appsource-package-preparation"></a>AppSource-pakket voorbereiden
 
@@ -117,7 +111,7 @@ Hier volgt een voorbeeld van code voor is input.xml. Zie definities in de onders
 |SolutionAnchorName |De naam van het zip-bestand van de oplossing in package deployer die wordt gebruikt voor de weergavenaam en beschrijving van de activa van de oplossing.|
 | StartDate| Dit is de datum waarop het oplossingspakket beschikbaar. De indeling is MM/DD/JJJJ|
 |Einddatum|Dit is de datum dat het pakket wordt beëindigd beschikbaar worden gesteld. De indeling is MM/DD/JJJJ |
-|SupportedCountries |Dit is een door komma's gescheiden lijst van landen die dit pakket moeten zien. Neem contact op met online services voor een lijst van alle huidige landcodes. Op het moment van schrijven van dit de lijst is: AE, AL, AM, DOOR DE AO, AR, AT, AUSTRALIË, AZ, BA, BB, BD, WORDEN, BG, BH, BM, BN, BO, BRAZILIË, DOOR CA, CH, CI, CL, CM, CO, CR, CV, GEWICHT, CY, CZ, DE, DK, DOEN, DZ, EG, EE, BIJVOORBEELD, ES, FI, FR, GB, GE, GH, GR, GT, HK , HN, HR, HU, -ID, INTERNET EXPLORER, IL, INDIA, IQ, IS, HET, JM, JO, JP, KE, KG, KN, KOREA, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, MIJ, MK, MN, MAAND, MT, MU, MX, MIJN, NG, NI, NL, NEE, NZ, OPERATIONS MANAGER, PA, PE, PH , PK, PL, PULL-AANVRAAG, PS, PT, PY, QA, RO, RS, RU, RW, SA, SE, AG, SI, SK, SN, SV, E, TM, TN, TR, TT, TW, UA, VERENIGDE STATEN, UY, UZ, VE, VI, VN, ZA, ZW |
+|SupportedCountries |Dit is een door komma's gescheiden lijst van landen/regio's die u dit pakket ziet. Neem contact op met online services voor een lijst van alle huidige landcodes. Op het moment van schrijven van dit de lijst is: AE, AL, AM, DOOR DE AO, AR, AT, AUSTRALIË, AZ, BA, BB, BD, WORDEN, BG, BH, BM, BN, BO, BRAZILIË, DOOR CA, CH, CI, CL, CM, CO, CR, CV, GEWICHT, CY, CZ, DE, DK, DOEN, DZ, EG, EE, BIJVOORBEELD, ES, FI, FR, GB, GE, GH, GR, GT, HK , HN, HR, HU, -ID, INTERNET EXPLORER, IL, INDIA, IQ, IS, HET, JM, JO, JP, KE, KG, KN, KOREA, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, MIJ, MK, MN, MAAND, MT, MU, MX, MIJN, NG, NI, NL, NEE, NZ, OPERATIONS MANAGER, PA, PE, PH , PK, PL, PULL-AANVRAAG, PS, PT, PY, QA, RO, RS, RU, RW, SA, SE, AG, SI, SK, SN, SV, E, TM, TN, TR, TT, TW, UA, VERENIGDE STATEN, UY, UZ, VE, VI, VN, ZA, ZW |
 |LearnMoreLink | URL naar de pagina voor meer info voor dit pakket. |
 |Landinstellingen|Een exemplaar van dit knooppunt voor elke taal UX die u wilt ondersteunen in de oplossing Preferred UX. Dit knooppunt bevat onderliggende items die worden beschreven van de landinstellingen, logo en voorwaarden voor elke taal|
 |Landinstellingen: PackageLocale.Code|LCID van de voor dit knooppunt. Voorbeeld: Amerikaans-Engels is 1033|

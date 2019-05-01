@@ -1,25 +1,18 @@
 ---
-title: Azure en Dynamics 365 advies service-aanbieding - Voer storefront details | Microsoft Docs
-description: Handleiding voor het definiëren van storefront details in een Azure- of Dynamics 365 advies serviceaanbieding vallen in de Cloud Partner-Portal.
+title: Voer storefront details in voor de aanbieding consulting | Azure Marketplace
+description: Definieer storefront details in een Azure- of Dynamics 365 advies serviceaanbieding vallen in de Cloud Partner-Portal.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ac383c85938f5cb7dfe4f711714f5bacd0c96b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865359"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942717"
 ---
 # <a name="storefront-details-tab"></a>Tabblad Details van webwinkel
 
@@ -32,14 +25,16 @@ In dit artikel wordt uitgelegd hoe u de details voor uw webwinkel invoeren. De *
 
 ![Nieuwe advies service aanbieding - tabblad met Details van de winkel maken](media/consultingoffer-storefront-details.png)
 
+
 ## <a name="offer-details"></a>Gegevens van de aanbieding
 
 De **aanbiedingsdetails** sectie bevat de volgende vakken:
 
--   **Overzicht van aanbieding**
--   **Beschrijving van aanbieding**
+-   **Overzicht van aanbieding\***
+-   **Beschrijving van aanbieding\***
 
-### <a name="offer-summary"></a>Overzicht van aanbieding
+
+### <a name="offer-summary"></a>Overzicht van aanbieding\*
 
 De samenvatting van de aanbieding is een korte beschrijving van uw aanbieding die wordt weergegeven onder de aanbiedingsnaam van de. Tekst zonder opmaak gebruiken om in te voeren van de samenvatting van de aanbieding, zonder eventuele regeleinden. De volgende voorbeelden zijn goede aanbieding samenvattingen samen met de bijbehorende namen van de aanbieding.
 
@@ -68,7 +63,8 @@ De samenvatting van de aanbieding is een korte beschrijving van uw aanbieding di
 -   **Naam van aanbieding**: Dynamics en projecten: Evaluatie van 3 dagen
 -   **Overzicht bieden**: Vereisten voor het verzamelen en evaluatie voor een ERP-oplossing die is ontworpen voor professionele diensten ondernemingen en bedrijven project op basis van beschikbare resources.
 
-### <a name="offer-description"></a>Beschrijving van aanbieding
+
+### <a name="offer-description"></a>Beschrijving van aanbieding\*
 
 Voer een beschrijving van de advies service-aanbieding in de **Beschrijving aanbieding** vak. De beschrijving van een goede aanbieding bevat meer informatie over hoe de engagement uitziet en het einde product aan de klant. Het moet de klant te begrijpen wat ze downloaden duidelijk helpen. Opgenomen hoe uw aanbieding is gekoppeld aan het Microsoft-product waarvoor u consulting services aanbiedt.
 
@@ -144,6 +140,7 @@ Voer uw nieuwe Partner Center-ID, indien aanwezig.
 Voer een geheime sleutel voor het voorbeeld van uw aanbieding op AppSource voordat deze live meteen.
 Deze id is niet een wachtwoord.
 
+
 ## <a name="listing-details"></a>De details van aanbieding
 
 **Advies servicetype**
@@ -166,7 +163,7 @@ De volgende vijf typen aanbiedingen zijn opgenomen:
 Selecteer het land en regio waar deze advies service-aanbieding beschikbaar is. Één aanbieding kan niet worden gepubliceerd in meerdere landen of regio's. Een nieuwe aanbieding die moet worden gemaakt voor elk land of regio.
 
 >[!Note]
->AppSource-adviesservices zijn momenteel live in de Verenigde Staten, Verenigd Koninkrijk en Canada. U kunt een aanbieding voor een land/regio die nog niet live indienen, en wordt bekeken en bereid om live te gaan. Een minimum aantal aanbiedingen gereed om live te gaan nodig zijn om te openen, een nieuw land/regio, zodat aanbiedingen voor de landen die niet live aangemoedigd.
+>AppSource-adviesservices zijn momenteel live in de Verenigde Staten, Verenigd Koninkrijk en Canada. U kunt een aanbieding voor een land/de regio die nog niet live indienen, en wordt bekeken en bereid om live te gaan. Een minimum aantal aanbiedingen gereed om live te gaan nodig zijn om te openen, een nieuw land/regio, zodat aanbiedingen voor landen/regio's die niet live aangemoedigd.
 
 **Bedrijfstakken**
 
@@ -207,6 +204,7 @@ Upload de marketing brochure die uw advies service-aanbieding in detail beschrev
 **Schermafbeeldingen (beperkt tot vijf)**
 
 Uploaden van maximaal vijf afbeeldingen met meer informatie over uw aanbieding, de producten of uw bedrijf. Een fragment van uw marketing-brochure, een relevante dia van een presentatie, of een afbeelding die laat zien bedrijf momentum of expertise volgen enkele voorbeelden.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

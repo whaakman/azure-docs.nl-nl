@@ -1,25 +1,18 @@
 ---
-title: Azure en Dynamics 365 adviesservice bieden - vereisten | Microsoft Docs
-description: Handleiding voor de vereisten voor een Azure- of Dynamics 365 advies serviceaanbieding vallen in de Cloud Partner-Portal.
+title: Azure en Dynamics 365 adviesservice bieden vereisten | Azure Marketplace
+description: Vereisten voor een Azure- of Dynamics 365 adviesservice bieden in de Cloud Partner-Portal.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 7bd0f407424d7335094f1b4ad533281fc024d000
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: bd32f68037e29e38fffb0b716772040d22fdfff0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60565323"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942763"
 ---
 # <a name="consulting-service-prerequisites"></a>Advies service-vereisten
 

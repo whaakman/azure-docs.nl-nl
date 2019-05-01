@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0bf1558f81f2936b4556ee658a235cd09dddf905
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61cac49c34eb193d641a94c9a7839282289dd9c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60483876"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572580"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Door Azure beheerde toepassingen in Marketplace
 
@@ -29,7 +29,7 @@ Om dit artikel te kunnen voltooien, moet u over het ZIP-bestand beschikken met d
 
 Bovendien zijn er verschillende zakelijke vereisten. Dit zijn:
 
-* Uw bedrijf (of een dochteronderneming) moet zijn gevestigd in een land waar transacties via Marketplace worden ondersteund.
+* Uw bedrijf of een dochteronderneming moet zich bevinden in een land/de regio waar verkopen worden ondersteund door de marketplace.
 * Het product moet beschikken over een licentie die compatibel is met factureringsmodellen die worden ondersteund door Marketplace.
 * Klanten moeten op een commercieel redelijke wijze toegang hebben tot technische ondersteuning. Deze ondersteuning kan gratis zijn, betaald of worden aangeboden via een community.
 * Neem een licentie op uw software en op eventuele afhankelijke software van derden.
@@ -43,7 +43,7 @@ Voer de volgende stappen uit om een uitgever te worden in Azure Marketplace:
 
 1. Een Microsoft-id maken: maak een Microsoft-account met een e-mailadres dat deel uitmaakt van het domein van uw bedrijf, maar dat niet aan een bepaalde persoon is gekoppeld. Dit e-mailadres wordt gebruikt voor zowel het Microsoft Developer Center als de Cloud Partner-portal. Zie de [handleiding van Azure Marketplace voor uitgevers](https://aka.ms/sellerguide) voor meer informatie.
 1. [Azure Marketplace-aanvraagformulier](https://aka.ms/ampnomination) versturen: selecteer **Managed Application** voor **Solution that you intend to publish?**. Zodra het formulier is verzonden, wordt de aanvraag bekeken en gevalideerd door het Marketplace Onboarding Team. Het goedkeuringsproces kan één tot drie dagen duren. Wanneer uw aanvraag is goedgekeurd, ontvangt u een promotiecode waarmee u de registratiekosten voor het Developer Center kunt voldoen. Als u het Marketplace-aanvraagformulier **niet** invult, moet u een registratiebijdrage van $99 betalen.
-1. Registreren in [Developer Center](https://dev.windows.com/registration?accountprogram=azure): Microsoft controleert of uw organisatie een geldige rechtspersoon is met een geldig btw-nummer voor het land waar de organisatie is geregistreerd. Het goedkeuringsproces kan vijf tot tien dagen duren. U kunt de registratiekosten voldoen met behulp van de promotiecode die u in de e-mail over de aanvraag hebt ontvangen. Zie de [handleiding van Azure Marketplace voor uitgevers](https://aka.ms/sellerguide) voor meer informatie.
+1. Registreren in [Developer Center](https://dev.windows.com/registration?accountprogram=azure) -Microsoft wordt gecontroleerd of uw organisatie een geldige rechtspersoon met een geldig BTW-ID voor het land/de regio waarin deze geregistreerd. Het goedkeuringsproces kan vijf tot tien dagen duren. U kunt de registratiekosten voldoen met behulp van de promotiecode die u in de e-mail over de aanvraag hebt ontvangen. Zie de [handleiding van Azure Marketplace voor uitgevers](https://aka.ms/sellerguide) voor meer informatie.
 1. Aanmelden bij de [Cloud Partner-portal](https://cloudpartner.azure.com): koppel het Developer Center-account in uw uitgeversprofiel aan het uitgeversprofiel van Marketplace. Zie de [handleiding van Azure Marketplace voor uitgevers](https://aka.ms/sellerguide) voor meer informatie.
 
 ## <a name="create-a-new-azure-application-offer"></a>Een nieuwe aanbieding voor een Azure-toepassing maken
@@ -95,7 +95,7 @@ Een SKU wordt in Marketplace weergegeven onder de bovenliggende aanbieding. Een 
    * **Beschrijving**: Voer een gedetailleerde beschrijving van de SKU in.
    * **SKU Type**: De toegestane waarden zijn *Managed Application* en *Solution Templates*. Selecteer voor deze aanvraag *Managed Application*.
    * **Country/Region availability**: Selecteer de landen/regio's waar de beheerde toepassing beschikbaar is.
-   * **Pricing**: Geef een prijs op voor beheer van de toepassing. Selecteer de beschikbare landen voordat u de prijs instelt.
+   * **Pricing**: Geef een prijs op voor beheer van de toepassing. Selecteer de beschikbare landen/regio's voor het instellen van de prijs.
 
 1. Voeg een nieuw pakket toe. Vul de sectie **Package Details** in op het volgende formulier:
 

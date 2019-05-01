@@ -4,16 +4,16 @@ description: Gebruik van de IoT Central-connector in Microsoft Flow-trigger werk
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/26/2019
+ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 2c4ee6a2feb737bcafc64b1c8503c03757a53364
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5d1e9941244defbf84b20f95e9f2e0402bbe19f2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887612"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64693597"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Werkstromen bouwen met de IoT Central-connector in Microsoft Flow
 
@@ -101,9 +101,12 @@ Deze sectie leest u hoe u instellingen voor apparaten en de eigenschappen in IoT
 
 1. Voeg een nieuwe actie toe. Zoek de **Azure IoT Central - een-apparaat bijwerken** actie.
 
-1. Kies uw toepassing in de vervolgkeuzelijst. U moet nu een ID van het bestaande apparaat dat u wilt bijwerken. Krijgt u de ID van het apparaat IoT Central uit de **Device Explorer**.
+1. Kies uw toepassing in de vervolgkeuzelijst. U moet nu een ID van het bestaande apparaat dat u wilt bijwerken. 
 
-    ![Apparaat-ID van IoT Central device explorer](./media/howto-add-microsoft-flow/iotcdeviceid.png)
+    > [!NOTE] 
+    > **Moet u de ID is gevonden in de URL** op het apparaat de detailpagina van het apparaat dat u wilt bijwerken. De apparaat-ID gevonden in de apparatenverkenner lijst met apparaten is niet de juiste is voor gebruik in Microsoft Flow.
+
+    ![IoT Central-ID van de URL](./media/howto-add-microsoft-flow/iotcdeviceidurl.png)
 
 1. U kunt de naam van het apparaat bijwerken. Voor het bijwerken van een van de eigenschappen en instellingen van het apparaat, moet u de sjabloon van het apparaat van het apparaat dat u bijwerken wilt de **apparaat sjabloon** vervolgkeuzelijst. De actie-tegel wordt uitgebreid om weer te geven van alle eigenschappen en instellingen die u kunt bijwerken.
 
@@ -117,19 +120,32 @@ Deze sectie leest u hoe u instellingen voor apparaten en de eigenschappen in IoT
 
 ## <a name="get-device-information-in-a-workflow"></a>Apparaatgegevens in een werkstroom ophalen
 
-Krijgt u informatie over apparaten door de apparaat-ID gebruikt de **Azure IoT Central - een apparaat laten** actie. U krijgt informatie zoals de naam van apparaat, sjabloon de naam van apparaat, eigenschapswaarden en waarden voor de instellingen moeten worden doorgegeven aan latere acties in uw werkstroom. Hier volgt een voorbeeldwerkstroom die de waarde van de naam van de klant-eigenschap van een apparaat doorgeeft aan Microsoft Teams.
+Krijgt u informatie over de apparaten met behulp van de ID de **Azure IoT Central - een apparaat laten** actie. 
+> [!NOTE] 
+> **Moet u de ID is gevonden in de URL** op het apparaat de detailpagina van het apparaat dat u wilt bijwerken. De apparaat-ID gevonden in de apparatenverkenner lijst met apparaten is niet de juiste is voor gebruik in Microsoft Flow.
+
+U krijgt informatie zoals de naam van apparaat, sjabloon de naam van apparaat, eigenschapswaarden en waarden voor de instellingen moeten worden doorgegeven aan latere acties in uw werkstroom. Hier volgt een voorbeeldwerkstroom die de waarde van de naam van de klant-eigenschap van een apparaat doorgeeft aan Microsoft Teams.
 
    ![Werkstroom voor flow get-apparaten](./media/howto-add-microsoft-flow/flowgetdevice.png)
 
 
 ## <a name="run-a-command-on-a-device-in-a-workflow"></a>Een opdracht uitvoeren op een apparaat in een werkstroom
-U kunt een opdracht uitvoeren op een apparaat dat is opgegeven door de apparaat-ID gebruikt de **Azure IoT Central - voert u een opdracht** actie. U kunt de opdracht uit te voeren en de parameters van de opdracht doorgeven door deze actie kunt kiezen. Hier volgt een voorbeeldwerkstroom die de opdracht van een apparaat opnieuw opstarten op een knop in de mobiele Microsoft Flow-app wordt uitgevoerd.
+U kunt een opdracht uitvoeren op een apparaat dat is opgegeven door de ID met behulp van de **Azure IoT Central - voert u een opdracht** actie. 
+
+> [!NOTE] 
+> **Moet u de ID is gevonden in de URL** op het apparaat de detailpagina van het apparaat dat u wilt bijwerken. De apparaat-ID gevonden in de apparatenverkenner lijst met apparaten is niet de juiste is voor gebruik in Microsoft Flow.
+    
+U kunt de opdracht uit te voeren en de parameters van de opdracht doorgeven door deze actie kunt kiezen. Hier volgt een voorbeeldwerkstroom die de opdracht van een apparaat opnieuw opstarten op een knop in de mobiele Microsoft Flow-app wordt uitgevoerd.
 
    ![Werkstroom voor flow get-apparaten](./media/howto-add-microsoft-flow/flowrunacommand.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>Een apparaat in een werkstroom verwijderen
 
-U kunt een apparaat door de apparaat-ID gebruikt verwijderen de **Azure IoT Central - een apparaat verwijderen** actie. Hier volgt een voorbeeldwerkstroom die Hiermee verwijdert u een apparaat op de push-bewerking van een knop in de mobiele Microsoft Flow-app.
+U kunt een apparaat met behulp van de ID verwijderen de **Azure IoT Central - een apparaat verwijderen** actie. 
+> [!NOTE] 
+> **Moet u de ID is gevonden in de URL** op het apparaat de detailpagina van het apparaat dat u wilt bijwerken. De apparaat-ID gevonden in de apparatenverkenner lijst met apparaten is niet de juiste is voor gebruik in Microsoft Flow.
+
+Hier volgt een voorbeeldwerkstroom die Hiermee verwijdert u een apparaat op de push-bewerking van een knop in de mobiele Microsoft Flow-app.
 
    ![Werkstroom voor de apparaten van stroom verwijderen](./media/howto-add-microsoft-flow/flowdeletedevice.png)
 

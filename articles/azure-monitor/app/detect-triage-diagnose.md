@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 45824ba93e86622b1bbd92aae01f18f89bee6adf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 24523a7b244b6dee0e240291b7187e38d82a2e08
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795103"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572910"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Overzicht van Application Insights voor DevOps
 
@@ -182,7 +182,7 @@ Het diagnosticeren van problemen is niet hetzelfde als fouten opsporen. Voordat 
 
 ![Diagrammen van afhankelijkheidsfouten en de duur van het aanroepen van afhankelijkheden](./media/detect-triage-diagnose/11-dependencies.png)
 
-Bij een aantal problemen met trage afhankelijkheden gaat het om problemen met de geolocatie. Fabrikam Bank gebruikt virtuele Azure-machines en ontdekte dat ze hun webserver en accountserver per ongeluk in verschillende landen hadden geplaatst. Door een daarvan te migreren, trad er een dramatische verbetering op.
+Bij een aantal problemen met trage afhankelijkheden gaat het om problemen met de geolocatie. Fabrikam Bank gebruikt virtuele Azure-machines en ontdekte dat ze per ongeluk hun webserver en de server van de accountpartner in verschillende landen/regio's bevinden waren. Door een daarvan te migreren, trad er een dramatische verbetering op.
 
 **Wat hebben we gedaan?** Als blijkt dat het probleem niet aan een afhankelijkheid is toe te schrijven, en als het er voorheen niet was, wordt het waarschijnlijk door een recente wijziging veroorzaakt. Het historische perspectief dat door de diagrammen met de metrische gegevens en gebeurtenissen wordt geboden, maakt het gemakkelijk om een correlatie aan te tonen tussen eventuele plotselinge wijzigingen en implementaties. Zo beperkt u de zoekactie naar het probleem. Om de regels in de toepassingscode te vinden waardoor de prestaties werden vertraagd, moet u Application Insights Profiler inschakelen. Raadpleeg [Profiling live Azure-web-apps met Application Insights](./../../azure-monitor/app/profiler.md) (Live Azure-web-apps profileren met Application Insights). Nadat de Profiler is ingeschakeld, ziet u een tracering die er ongeveer als volgt uitziet. In dit voorbeeld is goed te zien dat de methode *GetStorageTableData* het probleem heeft veroorzaakt.  
 

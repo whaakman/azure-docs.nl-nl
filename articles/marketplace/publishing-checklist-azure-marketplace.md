@@ -2,24 +2,18 @@
 title: Publiceren controlelijst voor Azure Marketplace | Azure
 description: Controlelijst voor Azure Marketplace met behulp van Cloud Partner-Portal voor publiceren.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 26041bbf392f9b2afaaf5af38f758deb7708b651
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1bf77b7c04374ee81b730600658462a6283dedf
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734980"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937685"
 ---
 # <a name="publishing-checklist-for-azure-marketplace"></a>Publiceren controlelijst voor Azure Marketplace    
 Controleer de vereiste onderdelen voordat u start het publicatieproces.  

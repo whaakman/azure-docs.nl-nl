@@ -3,8 +3,8 @@ title: Veelgestelde vragen over Azure traffic analytics | Microsoft Docs
 description: Krijg antwoorden op enkele veelgestelde vragen over traffic analytics.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
-ms.author: jdial
-ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: kumud
+ms.openlocfilehash: 88acfebcc6dd8489703014d790f09313ab9302ec
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236606"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939912"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Veelgestelde vragen over Traffic Analytics
 
@@ -241,7 +241,7 @@ Bijvoorbeeld, volgens de [prijsplan](https://azure.microsoft.com/pricing/details
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>Hoe vaak worden gegevens verwerkt met Traffic Analytics?
 
-Raadpleeg de [aggregatie gegevenssectie](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) in Traffic Analytics Schema en gegevens aggregatie Document
+Raadpleeg de [aggregatie gegevenssectie](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) in Traffic Analytics Schema en gegevens aggregatie Document
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Hoe Traffic Analytics bepaalt dat een IP-adres schadelijk is? 
 
@@ -253,14 +253,14 @@ Traffic Analytics heeft geen ingebouwde ondersteuning voor waarschuwingen. Echte
 - Voor Log Analytics in Traffic Analytics kunt u de korte URL. 
 - Gebruik de [schema hier beschreven](traffic-analytics-schema.md) om uw query's schrijven 
 - Klik op 'Nieuwe waarschuwingsregel' om de waarschuwing te maken
-- Raadpleeg [log waarschuwingen documentatie](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) om de waarschuwing te maken
+- Raadpleeg [log waarschuwingen documentatie](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) om de waarschuwing te maken
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Hoe kan ik Navigeer met behulp van het toetsenbord in de geografische kaartweergave?
 
 De pagina van de kaart geo bevat twee hoofdsecties:
     
-- **Banner**: De banner aan de bovenkant van de geografische kaart voorziet in knoppen voor het verkeer Distributiefilters (bijvoorbeeld, implementatie, het verkeer uit landen en schadelijke) selecteren. Wanneer u een knop selecteert, wordt het betreffende filter wordt toegepast op de kaart. Als u de actieve knop selecteert, wordt de kaart de actieve datacenters in uw implementatie.
-- **Kaart**: Onder de banner bevat de sectie map distributie van verkeer tussen Azure-datacenters en landen.
+- **Banner**: De banner aan de bovenkant van de geografische kaart voorziet in knoppen voor het verkeer Distributiefilters (bijvoorbeeld, implementatie, verkeer uit landen/regio's en kwaadaardig) selecteren. Wanneer u een knop selecteert, wordt het betreffende filter wordt toegepast op de kaart. Als u de actieve knop selecteert, wordt de kaart de actieve datacenters in uw implementatie.
+- **Kaart**: Onder de banner bevat de sectie map distributie van verkeer tussen Azure-datacenters en landen/regio's.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Toetsenbordnavigatie op de koptekst
     

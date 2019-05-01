@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: 61d3256ca169952ab3dda76914293a06a044d6eb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: d1f2a2b24e6f1856d021911e6f2e9c107bd38b72
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62113150"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926102"
 ---
-# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Zelfstudie: Apache HBase-beleidsregels configureren in HDInsight met Enterprise Security Package - (preview)
+# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Zelfstudie: Apache HBase-beleid configureren in HDInsight met Enterprise-beveiligingspakket
 
 Leer hoe u Apache Ranger-beleidsregels configureert voor Apache HBase-clusters met ESP (Enterprise Security Package). ESP-clusters worden verbonden met een domein zodat gebruikers zich kunnen verifiëren met domeinreferenties. In deze zelfstudie maakt u twee Ranger-beleidsregels om de toegang tot verschillende kolomfamilies in een HBase-tabel te beperken.
 

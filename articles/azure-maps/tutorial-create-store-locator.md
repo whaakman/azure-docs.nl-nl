@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1d3099da3d449e29d378e2f350fdc87ce5166f2e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60692664"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574396"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Een winkelzoeker maken met behulp van Azure Maps
 
@@ -71,7 +71,7 @@ De draadmodellen tonen een redelijk eenvoudige toepassing. De toepassing heeft e
 
 ## <a name="create-the-store-location-dataset"></a>De gegevensset met winkellocaties maken
 
-Voordat we een winkelzoektoepassing ontwikkelen, moeten we een gegevensset maken van de winkels die we willen weergeven op de kaart. In deze zelfstudie gebruiken we een gegevensset voor een fictieve koffiebar met de naam Contoso Coffee. De gegevensset voor deze eenvoudige winkelzoeker wordt beheerd in een Excel-werkmap. De gegevensset bevat 10.213 locaties van Contoso Coffee-koffiebars, verdeeld over negen landen: de Verenigde Staten, Canada, het Verenigd Koninkrijk, Frankrijk, Duitsland, Italië, Nederland, Denemarken en Spanje. Hier volgt een schermopname van hoe de gegevens eruitzien:
+Voordat we een winkelzoektoepassing ontwikkelen, moeten we een gegevensset maken van de winkels die we willen weergeven op de kaart. In deze zelfstudie gebruiken we een gegevensset voor een fictieve koffiebar met de naam Contoso Coffee. De gegevensset voor deze eenvoudige winkelzoeker wordt beheerd in een Excel-werkmap. De gegevensset bevat 10,213 Contoso koffie restaurant locaties verdeeld over negen landen/regio's: de Verenigde Staten, Canada, het Verenigd Koninkrijk, Frankrijk, Duitsland, Italië, de Nederland, Denemarken, en Spanje. Hier volgt een schermopname van hoe de gegevens eruitzien:
 
 <br/>
 <center>
@@ -403,7 +403,7 @@ Op dit punt is alles ingesteld in de gebruikersinterface. Nu moeten we de JavaSc
 
 1. Voeg code toe aan *index.js*. De volgende code initialiseert de kaart, voegt een [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) toe die wacht totdat de pagina is geladen, gebeurtenissen aansluit om het laden van de kaart te controleren en de zoekknop en de knop Mijn locatie aandrijft.
 
-   Wanneer de gebruiker de zoekknop selecteert, of wanneer de gebruiker op Enter drukt nadat een locatie in het zoekvak is ingevoerd, wordt een fuzzy zoekopdracht gestart met de zoekopdracht van de gebruiker. Geef een matrix met ISO 2-landwaarden door aan de `countrySet`-optie om de zoekresultaten te beperken tot die landen. Het beperken van de te zoeken landen helpt de nauwkeurigheid van de geretourneerde zoekresultaten te verhogen. 
+   Wanneer de gebruiker de zoekknop selecteert, of wanneer de gebruiker op Enter drukt nadat een locatie in het zoekvak is ingevoerd, wordt een fuzzy zoekopdracht gestart met de zoekopdracht van de gebruiker. Doorgeven in een matrix van land ISO 2 waarden om de `countrySet` optie om de zoekresultaten op deze landen/regio's te beperken. De landen/regio's om te zoeken naar te beperken, verhoogt u de nauwkeurigheid van de resultaten die worden geretourneerd. 
   
    Wanneer de zoekopdracht is voltooid, wordt het eerste resultaat genomen en wordt de kaartcamera op dat gebied gezet. Wanneer de gebruiker de knop Mijn locatie selecteert, gebruikt u de HTML5 Geolocation-API die in de browser is ingebouwd om de locatie van de gebruiker op te halen en de kaart te centreren op die locatie.  
 

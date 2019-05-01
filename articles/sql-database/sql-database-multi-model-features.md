@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122656"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939521"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Multi-modeldatabase mogelijkheden van Azure SQL Database
 
@@ -90,7 +90,7 @@ Document-modellen kunnen worden gebruikt in plaats van de relationele modellen i
 
 ## <a name="spatial-features"></a>Ruimtelijke-functies
 
-Ruimtelijke gegevens Hiermee geeft u informatie over de fysieke locatie en de vorm van geometrische objecten. Deze objecten kunnen worden distributiepuntlocaties of meer complexe objecten zoals landen, wegen of meren.
+Ruimtelijke gegevens Hiermee geeft u informatie over de fysieke locatie en de vorm van geometrische objecten. Deze objecten kunnen worden distributiepuntlocaties of meer complexe objecten zoals landen/regio's, wegen of meren.
 
 Azure SQL Database ondersteunt twee typen voor ruimtelijke gegevens: het gegevenstype geometry en geography gegevens typt.
 - Het type geometry vertegenwoordigt gegevens in een Euclidean (vast) coördinatensysteem.

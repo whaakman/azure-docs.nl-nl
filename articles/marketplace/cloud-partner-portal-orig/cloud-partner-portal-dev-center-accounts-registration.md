@@ -1,25 +1,18 @@
 ---
-title: Een Microsoft Developer-account maken | Microsoft Docs
+title: Een Microsoft Developer-account maken | Azure Marketplace
 description: Vereisten en stappen voor het maken van een Microsoft Developer-account.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 4fde5d81fb97bec23fdb46ff53b05874c88d9d67
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326776"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935863"
 ---
 <a name="create-a-microsoft-developer-account"></a>Een Microsoft Developer-account maken
 ====================================
@@ -106,7 +99,7 @@ Het Microsoft Developer Center wordt gebruikt om de bedrijfsgegevens op één ke
    ![Land/regio selecteren](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >'Verkopen van'-landen: Als u wilt uw services op Azure Marketplace verkopen, moet uw geregistreerde entiteit uit een van de goedgekeurde 'verkoop-van'-landen die wordt weergegeven in de vervolgkeuzelijst. Deze beperking is omwille van de betalings- en belasting. Zie voor meer informatie het deelnamebeleid voor Marketplace.
+    >'Verkopen van' landen/regio's: Als u wilt uw services op Azure Marketplace verkopen, moet uw geregistreerde entiteit uit een van de goedgekeurde 'verkoop-van' landen/regio's wordt weergegeven in de vervolgkeuzelijst. Deze beperking is omwille van de betalings- en belasting. Zie voor meer informatie het deelnamebeleid voor Marketplace.
 
 5. Selecteer **bedrijf** als uw 'Accounttype' en selecteer vervolgens **volgende**.
 

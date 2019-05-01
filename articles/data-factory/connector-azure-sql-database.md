@@ -10,25 +10,30 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 749b5690f5814bb2f63f9f4451bba85990166acd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 543defc622942f4a0643aca275ad4ad2fa9e1ab2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306271"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926535"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
 > * [Versie 1:](v1/data-factory-azure-sql-connector.md)
 > * [Huidige versie](connector-azure-sql-database.md)
 
-In dit artikel wordt uitgelegd hoe u gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van of naar Azure SQL Database. Dit is gebaseerd op de [overzicht van Kopieeractiviteit](copy-activity-overview.md) artikel een algemeen overzicht van de Kopieeractiviteit geeft.
+In dit artikel bevat een overzicht van hoe u gegevens van en naar Azure SQL Database kopiëren. Lees voor meer informatie over Azure Data Factory, de [inleidende artikel](introduction.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens van of naar Azure SQL Database kopiëren naar een ondersteunde sink-gegevensopslag. En u kunt gegevens uit een ondersteund brongegevensarchief kopiëren naar Azure SQL Database. Zie voor een lijst met gegevensarchieven die worden ondersteund als gegevensbronnen of PUT door Copy-activiteit, de [ondersteunde gegevensarchieven en indelingen](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+Deze Azure SQL Database-connector wordt ondersteund voor de volgende activiteiten:
+
+- [Kopieeractiviteit](copy-activity-overview.md) met [ondersteunde bron/sink-matrix](copy-activity-overview.md) tabel
+- [Toewijzing van de gegevensstroom](concepts-data-flow-overview.md)
+- [Activiteit Lookup](control-flow-lookup-activity.md)
+- [De activiteit GetMetadata](control-flow-get-metadata-activity.md)
 
 Specifiek, ondersteunt deze Azure SQL Database-connector deze functies:
 
@@ -135,12 +140,12 @@ Volg deze stappen voor het gebruik van een tokenverificatie voor service-princip
 2. **[Een Azure Active Directory-beheerder inrichten](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-server in Azure portal als u dat nog niet hebt gedaan. De Azure AD-beheerder moet een Azure AD-gebruiker of de Azure AD-groep, maar mag niet een service-principal. Deze stap wordt uitgevoerd, zodat in de volgende stap u een Azure AD-identiteit gebruiken kunt een ingesloten databasegebruiker voor de service-principal maken.
 
 3. **[Maak ingesloten databasegebruikers](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  voor de service-principal. Verbinding maken met de database vanaf of waarnaar u wilt kopiëren van gegevens met behulp van hulpprogramma's zoals SSMS, met een Azure AD-identiteit ten minste heeft de machtiging ALTER elke gebruiker. Voer de volgende T-SQL: 
-    
+  
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **De service-principal die nodig is machtigingen verlenen** zoals u gewend voor SQL-gebruikers of voor anderen bent. Voer de volgende code uit of ze raadplegen om meer opties [hier](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+4. **De service-principal die nodig is machtigingen verlenen** zoals u gewend voor SQL-gebruikers of voor anderen bent. Voer de volgende code uit of ze raadplegen om meer opties [hier](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
@@ -185,12 +190,12 @@ Volg deze stappen voor het gebruik van beheerde verificatie:
 1. **[Een Azure Active Directory-beheerder inrichten](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-server in Azure portal als u dat nog niet hebt gedaan. De Azure AD-beheerder kan een Azure AD-gebruiker of een Azure AD-groep zijn. Als u de groep met beheerde identiteit een beheerdersrol toewijst, moet u de stappen 3 en 4 overslaan. De beheerder heeft volledige toegang tot de database.
 
 2. **[Maak ingesloten databasegebruikers](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  voor de Data Factory beheerde identiteit. Verbinding maken met de database vanaf of waarnaar u wilt kopiëren van gegevens met behulp van hulpprogramma's zoals SSMS, met een Azure AD-identiteit ten minste heeft de machtiging ALTER elke gebruiker. Voer de volgende T-SQL: 
-    
+  
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **De Data Factory beheerde identiteit vereist machtigingen verlenen** zoals u gewend voor de SQL-gebruikers en anderen bent. Voer de volgende code uit of ze raadplegen om meer opties [hier](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+3. **De Data Factory beheerde identiteit vereist machtigingen verlenen** zoals u gewend voor de SQL-gebruikers en anderen bent. Voer de volgende code uit of ze raadplegen om meer opties [hier](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your Data Factory name];
@@ -587,6 +592,10 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 De opgeslagen procedure-functie maakt gebruik van [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+
+## <a name="mapping-data-flow-properties"></a>Eigenschappen van fouttoewijzing gegevensstroom
+
+Informatie over de details van [bron transformatie](data-flow-source.md) en [sink-transformatie](data-flow-sink.md) in de gegevensstroom toewijzen.
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>De gegevenstypetoewijzing voor Azure SQL Database
 

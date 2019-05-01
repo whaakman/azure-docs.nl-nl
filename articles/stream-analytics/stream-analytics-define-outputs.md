@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03871c3f3627e85cc2af2f05a5fba38bd8069a15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61481107"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926066"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 Dit artikel wordt beschreven welke typen beschikbaar zijn voor een Azure Stream Analytics-taak uitvoer. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. U kunt doen met behulp van de uitvoergegevens, meer business analytics en datawarehousing van uw gegevens.
@@ -182,7 +182,7 @@ Power BI maakt gebruik van het eerste in, First out (FIFO) bewaarbeleid voor. Ge
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Stream Analytics een gegevenstype converteren naar Power BI
 Azure Stream Analytics bijgewerkt het gegevensmodel in runtime dynamisch als het uitvoerschema wordt gewijzigd. Alle worden wijzigingen in de kolom naam, de wijzigingen van het type kolom, en het toevoegen of verwijderen van kolommen bijgehouden.
 
-Deze tabel bevat informatie over de conversie van het gegevenstype van [Stream Analytics-gegevenstypen](https://msdn.microsoft.com/library/azure/dn835065.aspx) naar Power BI [Entity Data Model (EDP) typen](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/entity-data-model), als een Power BI-gegevensset en een tabel niet bestaat.
+Deze tabel bevat informatie over de conversie van het gegevenstype van [Stream Analytics-gegevenstypen](https://msdn.microsoft.com/library/azure/dn835065.aspx) naar Power BI [Entity Data Model (EDP) typen](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), als een Power BI-gegevensset en een tabel niet bestaat.
 
 Van Stream Analytics | Met Power BI
 -----|-----

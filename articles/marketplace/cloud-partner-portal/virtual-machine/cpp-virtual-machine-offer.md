@@ -1,25 +1,18 @@
 ---
-title: Virtuele machine-aanbieding in Azure Marketplace | Microsoft Docs
+title: Virtuele machine-aanbieding in Azure Marketplace
 description: Overzicht van het proces voor het publiceren van een VM-aanbieding op Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: pbutlerm
-ms.openlocfilehash: bbe757ccd1d6a37cbcf04f3ecd6dd088ef1ff211
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: fed0f47c963edf40883c432f5476bd7fe5720abb
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343106"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938062"
 ---
 # <a name="virtual-machine-offer"></a>Virtuele-machineaanbieding
 

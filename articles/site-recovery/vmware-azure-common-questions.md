@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/23/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: dffbb2c52b4e43eefe6b4f377bd7af529bae8cc5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 22d3bdf8c60e6682c360395b44fe6f1dcc1207b0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125556"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925521"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -93,8 +93,8 @@ U installeert op elke virtuele machine die u repliceren wilt, met behulp van een
 
 Site Recovery repliceert on-premises VMware-machines en fysieke servers naar beheerde schijven in Azure.
 - De processerver van Site Recovery schrijft de replicatielogboeken naar een cache-opslagaccount in de doelregio.
-- Deze logboeken worden gebruikt voor het maken van herstelpunten op de beheerde schijven.
-- Wanneer een failover optreedt, wordt het herstelpunt dat u selecteert om te maken van de beheerde schijf gebruikt.
+- Deze logboeken worden gebruikt om herstelpunten te maken op Azure beheerde schijven waarvoor het voorvoegsel van asrseeddisk.
+- Wanneer een failover optreedt, wordt het herstelpunt dat u gebruikt om een nieuwe doel beheerde schijf te maken. Deze beheerde schijf is gekoppeld aan de virtuele machine in Azure.
 - Virtuele machines die eerder zijn gerepliceerd naar een opslagaccount (vóór maart 2019) worden niet beïnvloed.
 
 
@@ -111,7 +111,7 @@ Replicatie van nieuwe virtuele machines naar een opslagaccount is alleen beschik
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>Kan ik het type beheerde schijf wijzigen nadat de machine is beveiligd?
 
-Ja, u kunt eenvoudig [wijzigen van het type beheerde schijf](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Voordat u het type wijzigt, zorg ervoor dat u de SAS-URL voor de schijf intrekken door te gaan naar de resource beheerde schijf op de Azure-portal. Annuleren van de overzichtsblade een continue export. Zodra de SAS-URL is ingetrokken, moet u het type van de schijf wijzigen binnen enkele minuten. Echter, als u het type beheerde schijf wijzigt, wachten op nieuwe herstelpunten moeten worden gegenereerd door Azure Site Recovery. Gebruik de nieuwe herstelpunten voor testfailover of failover voortaan.
+Ja, u kunt eenvoudig [wijzigen van het type beheerde schijf](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) voor lopende replicaties. Voordat u het type wijzigt, zorg ervoor dat er geen SAS-URL wordt gegenereerd op de beheerde schijf. Ga naar de resource van de beheerde schijf op de Azure-portal en controleert u of er een banner SAS-URL op de blade overzicht. Als deze aanwezig is, klikt u erop om de continue export annuleren. Zodra u klaar bent, kunt u het type van de schijf wijzigen binnen enkele minuten. Echter, als u het type beheerde schijf wijzigt, wachten op nieuwe herstelpunten moeten worden gegenereerd door Azure Site Recovery. Gebruik de nieuwe herstelpunten voor testfailover of failover voortaan.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Kan ik replicatie van beheerde schijven naar niet-beheerde schijven wisselen?
 
@@ -133,6 +133,10 @@ Uitgebreide of gekoppelde replicatie wordt niet ondersteund. Deze functie in aan
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Kan ik een offline initiële replicatie?
 Nee, dit wordt niet ondersteund. Aanvragen van deze functie in de [Feedbackforum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+
+
+### <a name="what-is-asrseeddisk"></a>Wat is asrseeddisk?
+Voor elke schijf die als bron, worden gegevens gerepliceerd naar een beheerde schijf in Azure. Deze schijf heeft het voorvoegsel van asrseeddisk. De kopie van de schijf die als bron en alle momentopnamen voor herstelpunt worden opgeslagen.
 
 ### <a name="can-i-exclude-disks-from-replication"></a>Kan ik schijven uitsluiten van replicatie?
 Ja, kunt u schijven uitsluiten.
@@ -249,7 +253,7 @@ Klik in de Recovery Services-kluis op **configuratieservers** in **Site Recovery
 
 ### <a name="unable-to-select-process-server-during-enable-replication"></a>Kan geen processerver selecteren tijdens replicatie inschakelen
 
-Van 9.24 versie verbeteringen zijn aangebracht voor [binnen het product richtlijnen](vmware-azure-manage-process-server.md#process-server-selection-guidance) op bij het instellen van een uitbreidbare processerver. Dit is om te voorkomen dat processen server beperken en te voorkomen dat het gebruik van de processerver niet in orde.
+Van 9.24 versie verbeteringen zijn aangebracht voor [verwerken van server-waarschuwingen](vmware-physical-azure-monitor-process-server.md#process-server-alerts) op bij het instellen van een uitbreidbare processerver. Dit is om te voorkomen dat processen server beperken en te voorkomen dat het gebruik van de processerver niet in orde.
 
 ### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>Wat moet ik doen om te verkrijgen van nauwkeurige status van de processerver
 

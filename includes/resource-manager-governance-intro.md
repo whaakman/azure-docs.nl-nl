@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 0b3af1bd7b3ab48074432d9e39552d72c6664b98
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d1e7fa1ed1649508f0d4923db8817d17ad556ca1
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124728"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951520"
 ---
 Bij het implementeren van resources naar Azure hebt u enorm veel flexibiliteit bij het bepalen welke typen resources u wilt implementeren, waar ze zich bevinden en hoe u ze instelt. Deze flexibiliteit biedt mogelijk echter meer opties dan u in uw organisatie wilt toestaan. Wanneer u de implementatie van resources naar Azure overweegt, vraagt u zich misschien het volgende af:
 
-* Hoe kan ik voldoen aan wettelijke vereisten voor de gegevenssoevereiniteit in bepaalde landen?
+* Hoe ik voldoen aan wettelijke vereisten voor de gegevensonafhankelijkheid in bepaalde landen/regio's?
 * Hoe kan ik de kosten in de hand houden?
 * Hoe kan ik voorkomen dat iemand per ongeluk een kritisch systeem verandert?
 * Hoe kan ik resourcekosten bijhouden en deze nauwkeurig factureren?

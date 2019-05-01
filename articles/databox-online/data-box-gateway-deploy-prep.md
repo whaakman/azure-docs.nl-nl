@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 34bc4d7cbdbb89cd9ff3f334ca32087c474735b7
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f9650cdb6935fb45f0c59e8a114a9ce1c8e2d809
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620084"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686520"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Zelfstudie: Voorbereidingen voor het implementeren van Azure Data Box-Gateway
 
@@ -51,6 +51,8 @@ Hier vindt u de configuratievereisten voor uw Data Box Gateway-resource, uw Data
 Zorg voordat u begint voor het volgende:
 
 - Uw Microsoft Azure-abonnement moet worden ondersteund voor gegevens in het Gateway-resource. Betalen per gebruik-abonnementen worden niet ondersteund.
+- Hebt u eigenaar of bijdrager toegang tot uw abonnement.
+- U hebt de beheerder of gebruiker toegang tot Azure Active Directory Graph API. Zie voor meer informatie, [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - U hebt een Microsoft Azure Storage-account met toegangsreferenties.
 
 ### <a name="for-the-data-box-gateway-device"></a>Voor het Data Box Gateway-apparaat
@@ -85,7 +87,7 @@ Voor het maken van een resource in het gegevensgateway, moet u de volgende stapp
 
 1. Gebruik uw Microsoft Azure-referenties aanmelden bij:
 
-    - De Azure-portal op de volgende URL: [ https://portal.azure.com ](http://portal.azure.com).
+    - De Azure-portal op de volgende URL: [ https://portal.azure.com ](https://portal.azure.com).
     - Of, in de Azure Government-portal op de volgende URL: [ https://portal.azure.us ](https://portal.azure.us). Voor meer informatie gaat u naar [verbinding maken met Azure Government met behulp van de portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. Selecteer in het linkerdeelvenster **+ een resource maken**. Zoeken naar **Data Box Edge / Data Box Gateway**. Data Box rand selecteren / Data Box-Gateway. Selecteer **Maken**.

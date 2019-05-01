@@ -9,28 +9,33 @@ manager: cshankar
 ms.reviewer: anshan
 ms.workload: big-data
 ms.topic: overview
-ms.date: 12/05/2018
+ms.date: 04/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: fbf347ceb3ccae4802c984a2737c2298a4e43e72
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: a742e9f235812cdbdafdcb0a39581e0779fcd040
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63760090"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572928"
 ---
-# <a name="azure-time-series-insights-preview-overview"></a>Overzicht van Azure Time Series Insights (preview)
+# <a name="the-azure-time-series-insights-preview"></a>De Azure Time Series Insights-Preview
 
-Azure Time Series Insights (preview) biedt een end-to-end-PaaS (Platform as a Service). Het platform wordt gebruikt om voor tijdreeksen geoptimaliseerde, in hoge mate gecontextualiseerde gegevens op IoT-schaal op te nemen, te verwerken, op te slaan en op te vragen. Time Series Insights is ideaal voor ad-hoc gegevens verkennen en operationele analyse. Time Series Insights is een uniek uitbreidbare en aangepaste service die voldoet aan de algemene vereisten voor industriële IoT-implementaties.
+Azure Time Series Insights (preview) biedt een end-to-end-PaaS (Platform as a Service). Het wordt gebruikt voor het verzamelen, verwerken, opslaan, analyseren en maximaal contextualized, time series geoptimaliseerd IoT-schaal gegevens op te vragen. Time Series Insights is ideaal voor ad-hoc gegevens verkennen en operationele analyse. Time Series Insights is een uniek uitbreidbare en aangepaste service die voldoet aan de algemene vereisten voor industriële IoT-implementaties.
+
+> [!TIP]
+> Voor functies in het algemeen beschikbaar is, leest de [overzicht van Azure Time Series Insights GA](time-series-insights-overview.md).
 
 ## <a name="video"></a>Video
 
-In deze video krijgt u een overzicht van Azure Time Series Insights (preview), een cloudgebaseerd IoT-analyseplatform.
+### <a name="learn-more-about-the-azure-time-series-insights-preview-br"></a>Meer informatie over de Preview Azure Time Series Insights. </br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player]
 
 ## <a name="define-iot-data"></a>IoT-gegevens definiëren
 
-IoT-gegevens zijn 'industriële' gegevens die beschikbaar zijn in organisaties die met veel assets werken. IoT-gegevens zijn vaak zeer ongestructureerd omdat deze vanuit assets worden verzonden die metingen verrichten met veel ruis. Deze metingen hebben betrekking op temperatuur, beweging en vochtigheid. Deze gegevensstromen worden vaak gekenmerkt door aanzienlijke hiaten, beschadigde berichten en verkeerde metingen. Gegevens van die stromen moeten worden opgeschoond voordat er een analyse kan worden uitgevoerd. IoT-gegevens zijn vaak alleen zinvol in de context van de invoer van aanvullende gegevens die afkomstig zijn van eigen bronnen, zoals CRM en ERP. Invoer kan ook afkomstig zijn van externe gegevensbronnen, zoals het weer en de locatie.
+IoT-gegevens zijn alle industriële gegevens die beschikbaar is in de asset-intensieve organisaties. IoT-gegevens zijn vaak zeer ongestructureerd omdat deze vanuit assets worden verzonden die metingen verrichten met veel ruis. Deze metingen hebben betrekking op temperatuur, beweging en vochtigheid. Deze gegevensstromen worden vaak gekenmerkt door aanzienlijke hiaten, beschadigde berichten en verkeerde metingen. Gegevens van die stromen moeten worden opgeschoond voordat er een analyse kan worden uitgevoerd.
+
+IoT-gegevens zijn vaak alleen zinvol in de context van de invoer van aanvullende gegevens die afkomstig zijn van eigen bronnen, zoals CRM en ERP. Invoer kan ook afkomstig zijn van externe gegevensbronnen, zoals het weer en de locatie.
 
 Daardoor wordt alleen een fractie van de gegevens gebruikt voor operationele en zakelijke doeleinden. Deze gegevens bieden consistente, uitgebreide, actuele en juiste informatie voor rapportage en analyse. Voor het omzetten van verzamelde IoT-gegevens in bruikbare inzichten zijn de volgende zaken nodig:
 
@@ -46,8 +51,8 @@ In de volgende afbeelding wordt een typische IoT-gegevensstroom weergegeven.
 
 Het huidige IoT-landschap is gevarieerd. Klanten komen uit vele branches: productie, automotive, energie, nutsvoorzieningen, slimme gebouwen en advies. Scenario's zijn ad-hoc gegevensverkenning waar de vorm van de gegevens onbekend is. Het kan ook zijn dat er operationele analyses worden uitgevoerd voor geschematiseerde of expliciet gemodelleerde gegevens om de operationele efficiëntie te vergroten. Deze scenario's bestaan doorgaans naast elkaar en bieden ondersteuning voor verschillende soorten toepassingen. Platformmogelijkheden die essentieel zijn voor het succes van industriële IoT-ondernemingen en hun digitale revolutie:
 
-- Meerlaagse opslag (semi-dynamisch en niet dynamisch). 
-- De mogelijkheid om tientallen jaren aan Time Series-gegevens op te slaan. 
+- Meerlaagse opslag (semi-dynamisch en niet dynamisch).
+- De mogelijkheid om tientallen jaren aan Time Series-gegevens op te slaan.
 - De mogelijkheid om expliciet query's voor op assets gebaseerde operationele intelligence te modelleren en optimaliseren.
 
 Time Series Insights is een uitgebreide end-to-end PaaS (Platform as a Service) voor zowel IoT-gegevensverkenning als operationele inzichten. Time Series Insights biedt een volledig beheerde cloudservice voor het analyseren van IoT-tijdreeksgegevens.

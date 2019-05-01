@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a7ddc6b9f4a8638d18262e458d61108c00b618d
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: e2729a47771f2c3073d91cb5b0de4684b51badbd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564550"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681880"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Zelfstudie: Azure Active Directory-integratie met drie Zscaler
 
@@ -38,7 +38,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 Voor het configureren van Azure AD-integratie met Zscaler drie, moet u de volgende items:
 
-* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, krijgt u een [gratis account](https://azure.microsoft.com/free/)
 * Drie Zscaler eenmalige aanmelding ingeschakeld abonnement
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -154,9 +154,17 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zscaler drie, moet u
 
 ### <a name="configure-zscaler-three-single-sign-on"></a>Configureer Zscaler drie Single Sign-On
 
-1. In een ander browservenster aanmelden bij uw Zscaler drie bedrijf site als beheerder.
+1. Voor het automatiseren van de configuratie binnen drie Zscaler, die u wilt installeren **mijn Apps beveiligde aanmelding browserextensie** door te klikken op **de extensie installeren**.
 
-2. Ga naar **Beheer > Verificatie > Verificatie-instellingen** en voer de volgende stappen uit:
+    ![Mijn apps-extensie](common/install-myappssecure-extension.png)
+
+2. Na het toevoegen van uitbreiding naar de browser, klikt u op **Setup Zscaler drie** wordt u doorgeleid naar de Zscaler drie toepassing. Geef de referenties van de beheerder zich aanmelden bij Zscaler drie daar. De browserextensie wordt automatisch configureren van de toepassing voor u en stap 3-6 automatiseren.
+
+    ![Eenmalige aanmelding instellen](common/setup-sso.png)
+
+3. Als u setup wilt Zscaler drie handmatig, open een nieuw browservenster en meld u in uw Zscaler drie bedrijf site als beheerder en voer de volgende stappen uit:
+
+4. Ga naar **Beheer > Verificatie > Verificatie-instellingen** en voer de volgende stappen uit:
    
     ![Beheer](./media/zscaler-three-tutorial/ic800206.png "Beheer")
 
@@ -164,7 +172,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zscaler drie, moet u
 
     b. Klik op **SAML configureren**.
 
-3. Voer in het venster **SAML bewerken** de volgende stappen uit en klik op Opslaan.  
+5. Voer in het venster **SAML bewerken** de volgende stappen uit en klik op Opslaan.  
             
     ![Manage Users & Authentication](./media/zscaler-three-tutorial/ic800208.png "Manage Users & Authentication")
     
@@ -184,7 +192,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zscaler drie, moet u
 
     h. Klik op **Opslaan**.
 
-4. Voer in het dialoogvenster **Configure User Authentication** de volgende stappen uit:
+6. Voer in het dialoogvenster **Configure User Authentication** de volgende stappen uit:
 
     ![Beheer](./media/zscaler-three-tutorial/ic800207.png)
 
@@ -241,7 +249,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** veldtype brittasimon@yourcompanydomain.extension. Bijvoorbeeld: BrittaSimon@contoso.com
+    b. In de **gebruikersnaam** veldtype `brittasimon@yourcompanydomain.extension`. Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 

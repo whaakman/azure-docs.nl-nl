@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: f34e32b9bda83ac1185d0c7b7dcaaaa7b47161a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: babe2ac55953940370daa0731463ed6ed8988502
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332801"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925927"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Bewaking in Azure Database voor MariaDB
 Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. Azure Database voor MariaDB biedt verschillende metrische gegevens inzicht in het gedrag van uw server geven.
@@ -41,7 +41,7 @@ Deze metrische gegevens zijn beschikbaar voor Azure Database voor MariaDB:
 |network_bytes_ingress|Netwerk in|Bytes|Netwerk In voor de actieve verbindingen.|
 
 ## <a name="server-logs"></a>Serverlogboeken
-U kunt langzame query's op uw server logboekregistratie inschakelen. Voor meer informatie over logboekregistratie, gaat u naar de [serverlogboeken](concepts-server-logs.md) pagina.
+U kunt langzame query's op uw server logboekregistratie inschakelen. Deze logboeken zijn ook beschikbaar via Azure diagnostische logboeken in Logboeken, Event Hubs en Storage-Account van Azure Monitor. Voor meer informatie over logboekregistratie, gaat u naar de [serverlogboeken](concepts-server-logs.md) pagina.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Zie voor meer informatie over het openen en exporteren van metrische gegevens met behulp van de Azure portal, de REST-API of de CLI de [overzicht van metrische gegevens van Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

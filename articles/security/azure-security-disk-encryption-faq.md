@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2a5fb822a84792cec059aa6c78b66b3a628f25af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3de444d509684f0b4227abe91ec3c967f2bf8f03
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611302"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926287"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption voor IaaS-VM's Veelgestelde vragen
 
@@ -162,7 +162,7 @@ XFS volumes worden ondersteund voor schijfversleuteling gegevens alleen met de E
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Kan ik back-up en herstellen van een versleutelde VM? 
 
-Azure Backup biedt een mechanisme voor back-up en herstel van versleutelde VM's binnen hetzelfde abonnement en regio.  Zie voor instructies, [Back-up en herstel van versleutelde virtuele machines met Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).  Een versleutelde VM herstellen naar een andere regio wordt momenteel niet ondersteund.  
+Azure Backup biedt een mechanisme voor back-up en herstel van versleutelde VM's binnen hetzelfde abonnement en regio.  Zie voor instructies, [Back-up en herstel van versleutelde virtuele machines met Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).  Een versleutelde VM herstellen naar een andere regio wordt momenteel niet ondersteund.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Waar vind ik vragen of feedback geven?
 

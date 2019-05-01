@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
-ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ef5c0a4e6694e9babcb3054831e88d9edceae85
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474943"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937278"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Tabelstatistieken voor de in Azure SQL Data Warehouse
 
@@ -71,7 +71,7 @@ De tabelnaam is de naam van de tabel bevat de statistische gegevens om weer te g
 
 ## <a name="updating-statistics"></a>Bijwerken van statistieken
 
-Een aanbevolen procedure is het bijwerken van statistieken op datumkolommen elke dag nieuwe datums worden toegevoegd. Elke keer nieuwe rijen worden geladen in het datawarehouse, worden nieuwe load datums of transactiedatums toegevoegd. Deze de verdeling van de gegevens wijzigen en de statistieken niet actueel te maken. Daarentegen statistieken op een land/regio-kolom in een tabel van de klant mogelijk nooit moeten worden bijgewerkt, omdat de verdeling van waarden in het algemeen niet wijzigen. Ervan uitgaande dat de distributie is constant tussen klanten, wordt nieuwe rijen toe te voegen aan de variant van de tabel niet de verdeling van de gegevens wijzigen. Echter, als uw datawarehouse alleen één land/regio bevat en u in de gegevens van een nieuw land/regio brengt, wat resulteert in gegevens uit meerdere landen worden opgeslagen, moet u bijwerken van statistieken voor de kolom land/regio.
+Een aanbevolen procedure is het bijwerken van statistieken op datumkolommen elke dag nieuwe datums worden toegevoegd. Elke keer nieuwe rijen worden geladen in het datawarehouse, worden nieuwe load datums of transactiedatums toegevoegd. Deze de verdeling van de gegevens wijzigen en de statistieken niet actueel te maken. Daarentegen statistieken op een land/regio-kolom in een tabel van de klant mogelijk nooit moeten worden bijgewerkt, omdat de verdeling van waarden in het algemeen niet wijzigen. Ervan uitgaande dat de distributie is constant tussen klanten, wordt nieuwe rijen toe te voegen aan de variant van de tabel niet de verdeling van de gegevens wijzigen. Echter, als uw datawarehouse alleen een land/regio bevat en u in de gegevens van een nieuw land/regio brengt, wat resulteert in gegevens uit meerdere landen/regio's worden opgeslagen, moet u bijwerken van statistieken voor de kolom land/regio.
 
 Hier volgen de aanbevelingen statistieken bij te werken:
 

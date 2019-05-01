@@ -8,26 +8,26 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 7ad6d4b3a1f465f3d15e00f0164da9f2778f7f1c
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: ed2611896f2c23a3cf1d2fec5d9e711f518a65c6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63760801"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926355"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Een HDInsight-cluster met Enterprise Security Package configureren met behulp van Azure Active Directory Domain Services
 
-Enterprise Security Package (ESP)-clusters bieden toegang door meerdere gebruikers in Azure HDInsight-clusters. HDInsight-clusters met ESP zijn verbonden met een domein, zodat gebruikers van een domein hun domeinreferenties gebruiken kunnen om te verifiëren met de clusters en het uitvoeren van taken met big data. 
+Enterprise Security Package (ESP)-clusters bieden toegang door meerdere gebruikers in Azure HDInsight-clusters. HDInsight-clusters met ESP zijn verbonden met een domein, zodat gebruikers van een domein hun domeinreferenties gebruiken kunnen om te verifiëren met de clusters en het uitvoeren van taken met big data.
 
 In dit artikel leert u hoe u een HDInsight-cluster met ESP configureren met behulp van Azure Active Directory Domain Services (Azure AD-DS).
 
 > [!NOTE]  
-> ESP is algemeen beschikbaar in HDI 3.6 voor Apache Spark, interactief en Apache Hadoop. ESP voor Apache HBase- en Apache Kafka-cluster is beschikbaar als preview.
+> ESP is algemeen beschikbaar in HDI 3.6 voor clustertypen: Apache Spark, interactieve, en Apache Hadoop. ESP voor Apache HBase- en Apache Kafka-cluster is beschikbaar als preview.
 
 ## <a name="enable-azure-ad-ds"></a>Inschakelen van Azure AD DS
 
 > [!NOTE]  
-> Alleen tenantbeheerders hebben de bevoegdheid om in te schakelen van Azure AD DS. Als de clusteropslag is het Azure Data Lake Storage (ADLS) Gen1 en Gen2 moet u multi-factor Authentication (MFA) alleen voor gebruikers die toegang tot het cluster met behulp van basisauthenticaties Kerberose moet uitschakelen. U kunt [vertrouwde IP-adressen](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) of [voorwaardelijke toegang](../../active-directory/conditional-access/overview.md) MFA uitschakelen voor specifieke gebruikers alleen wanneer ze toegang hebben tot het HDInsight-cluster VNET IP-adresbereik. Als u voorwaardelijke toegang gebruikt, zorg ervoor dat die AD-service-eindpunt in ingeschakeld op het HDInsight VNET.
+> Alleen tenantbeheerders hebben de bevoegdheid om in te schakelen van Azure AD DS. Als de clusteropslag is het Azure Data Lake Storage (ADLS) Gen1 en Gen2 moet u multi-factor Authentication (MFA) alleen voor gebruikers die toegang tot het cluster met behulp van eenvoudige Kerberos-verificatie moet uitschakelen. U kunt [vertrouwde IP-adressen](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) of [voorwaardelijke toegang](../../active-directory/conditional-access/overview.md) MFA uitschakelen voor specifieke gebruikers alleen wanneer ze toegang hebben tot het HDInsight-cluster VNET IP-adresbereik. Als u voorwaardelijke toegang Zorg ervoor dat AD-service-eindpunt in ingeschakeld op het HDInsight VNET.
 >
 > Als de clusteropslag is Azure Blob Storage (WASB), u MFA niet uitschakelen.
 
@@ -44,7 +44,7 @@ $lifetime=Get-Date
 New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
   -Type SSLServerAuthentication -DnsName *.contoso100.onmicrosoft.com, contoso100.onmicrosoft.com
-``` 
+```
 
 ## <a name="check-azure-ad-ds-health-status"></a>Azure AD DS-health-status controleren
 De status van uw Azure Active Directory Domain Services weergeven door te selecteren **Health** onder de **beheren** categorie. Zorg ervoor dat de status van Azure AD DS-groen (die wordt uitgevoerd) en de synchronisatie is voltooid.
@@ -68,7 +68,7 @@ Zodra de beheerde identiteit is gemaakt en de juiste rol toegewezen, kunt de AAD
 ## <a name="networking-considerations"></a>Aandachtspunten voor netwerken
 
 > [!NOTE]  
-> Azure AD DS moet worden geïmplementeerd in een Azure Resource Manager (ARM) op basis van vNET. Klassieke virtuele netwerken worden niet ondersteund voor Azure AD DS. Raadpleeg voor meer informatie, [inschakelen Azure Active Directory Domain Services met behulp van de Azure-portal](../../active-directory-domain-services/active-directory-ds-getting-started-network.md).
+> Azure AD DS moet worden geïmplementeerd in een Azure Resource Manager (ARM) op basis van vNET. Klassieke virtuele netwerken worden niet ondersteund voor Azure AD DS. Raadpleeg [inschakelen Azure Active Directory Domain Services met behulp van de Azure-portal](../../active-directory-domain-services/active-directory-ds-getting-started-network.md) voor meer informatie.
 
 Nadat u Azure AD DS-inschakelt, wordt een lokale Domain Name Service (DNS)-server wordt uitgevoerd op de AD-virtuele Machines (VM's). Configureer uw Azure AD DS Virtual Network (VNET) voor het gebruik van deze aangepaste DNS-servers. Als u wilt zoeken in de juiste IP-adressen, selecteer **eigenschappen** onder de **beheren** categorie en bekijk de IP-adressen die worden vermeld onder **IP-adres op Virtueelnetwerk**.
 
@@ -87,7 +87,7 @@ Nadat de VNETs zijn gekoppeld, configureert u het HDInsight VNET voor het gebrui
 Als u regels voor Netwerkbeveiligingsgroep groepen (NSG) in uw HDInsight-subnet gebruikt, moet u toestaan de [IP-adressen vereist](../hdinsight-extend-hadoop-virtual-network.md) voor zowel inkomend als uitgaand verkeer. 
 
 **Voor het testen van** als uw netwerk juist is ingesteld, lid worden van een windows-VM naar het HDInsight VNET/Subnet en de naam van het domein (dit moet worden omgezet naar een IP-adres) te pingen en voer vervolgens **ldp.exe** voor toegang tot Azure AD DS-domein. Vervolgens **deze windows-VM toevoegen aan het domein om te bevestigen** die alle vereiste RPC-aanroepen tussen de client en server mislukt. U kunt ook **nslookup** netwerken toegang tot uw storage-account of een externe database (voor bijvoorbeeld externe Hive-metastore of Ranger DB) kunt u te bevestigen.
-Zorg ervoor dat alle van de [poorten vereist](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) zijn opgenomen in de whitelist in het AAD-DS-subnet als AAD-DS wordt beveiligd door een NSG regels voor Network Security Group. Als de toevoegen aan het domein van de windows-VM geslaagd is, kunt u doorgaan met de volgende stap en maken van ESP-clusters.
+Moet u ervoor zorgen dat alle van de [poorten vereist](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) zijn opgenomen in de whitelist in het AAD-DS-subnet als AAD-DS wordt beveiligd door een NSG regels voor Network Security Group. Als de toevoegen aan het domein van de windows-VM geslaagd is, kunt u doorgaan met de volgende stap en maken van ESP-clusters.
 
 ## <a name="create-a-hdinsight-cluster-with-esp"></a>Een HDInsight-cluster maken met ESP
 
@@ -95,7 +95,6 @@ Na het instellen van de vorige stappen correct, is de volgende stap het maken va
 
 > [!NOTE]  
 > De eerste zes tekens van de namen van ESP-cluster moeten uniek zijn in uw omgeving. Bijvoorbeeld, als u meerdere ESP-clusters in verschillende VNETs hebt, moet u een naamgevingsconventie convension die ervoor zorgt dat de eerste zes tekens op de clusternamen uniek zijn.
-
 
 ![Azure HDInsight Enterprise security package-domeinvalidatie](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
 
@@ -119,7 +118,7 @@ De beheerde identiteit die u hebt gemaakt kan worden gekozen in de vervolgkeuzel
 
 ![Azure HDInsight ESP Active Directory Domain Services-configuratie](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
 
-
 ## <a name="next-steps"></a>Volgende stappen
+
 * Zie voor Hive-beleid configureren en uitvoeren van Hive-query's, [configureren Apache Hive-beleid voor HDInsight-clusters met ESP](apache-domain-joined-run-hive.md).
 * Zie voor het gebruik van SSH verbinding maken met HDInsight-clusters met ESP [SSH gebruiken met Apache Hadoop op basis van Linux in HDInsight via Linux, Unix of OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

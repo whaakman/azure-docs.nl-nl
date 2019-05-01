@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.openlocfilehash: e4c698dc5aa8a07d09835adeac39db6ee35f720c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 01430c40ec9fcf1af3a463f8f86d646d15b6dd49
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123175"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925944"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostische gegevens en prestatiecontrole voor betrouwbare Service voor externe toegang
 De runtime betrouwbare ServiceRemoting verzendt [prestatiemeteritems](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Deze bieden inzicht in hoe de ServiceRemoting wordt uitgevoerd en u helpen bij het oplossen en bewaking van toepassingsprestaties.
@@ -100,5 +100,5 @@ Wanneer een client een methode via een proxy-serviceobject roept, resulteert dit
 | Service Fabric Service |Gemiddeld aantal milliseconden voor de serialisatie van reacties |Gebruikte tijd (in milliseconden) voor het serialiseren van het antwoordbericht service op de service voordat de reactie wordt verzonden naar de client |
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Voorbeeldcode](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric&sort=0)
+* [Voorbeeldcode](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
 * [Gebeurtenisbron providers in het voorbeeld](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

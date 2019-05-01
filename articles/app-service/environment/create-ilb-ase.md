@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 01d982d91d772ccfd468ccdac6391f971be4f43b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7e4364a06a3d20edc7aafd54a4dcd86dfd039043
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765005"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573571"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Een interne load balancer maken en gebruiken met een App Service-omgeving #
 
@@ -56,7 +56,7 @@ Er is een aantal dingen dat u niet kunt doen wanneer u een ILB AS-omgeving gebru
 
 Ga als volgt te werk om een ILB AS-omgeving te maken:
 
-1. Selecteer in Azure Portal achtereenvolgens  **Een resource maken** > **Web** > **App Service Environment**.
+1. Selecteer in de Azure-portal achtereenvolgens **Een resource maken** > **Web** > **App Service Environment**.
 
 2. Selecteer uw abonnement.
 
@@ -66,7 +66,7 @@ Ga als volgt te werk om een ILB AS-omgeving te maken:
 
 5. Als u een bestaand VNet selecteert, moet u een subnet maken om de AS-omgeving in te plaatsen. Zorg ervoor dat u een subnetgrootte instelt die groot genoeg is voor een eventuele toekomstige groei van uw AS-omgeving. We raden een grootte aan van `/24`. Dit formaat bevat 256 adressen en kan de grootst mogelijke AS-omgeving verwerken en voldoen aan alle schaalbehoeften. 
 
-6. Selecteer  **Virtueel netwerk/locatie** > **Configuratie virtueel netwerk**. Stel het **VIP-type** in op **Intern**.
+6. Selecteer **Virtueel netwerk/locatie** > **Virtuele-netwerkconfiguratie**. Stel het **VIP-type** in op **Intern**.
 
 7. Voer een domeinnaam in. Dit is het domein dat wordt gebruikt voor apps die zijn gemaakt in deze AS-omgeving. Er zijn enkele beperkingen. Het domein kan niet zijn:
 
@@ -96,14 +96,14 @@ Op de blade **Virtueel netwerk** ziet u de optie **Virtuele-netwerkconfiguratie*
 
 Nadat u **Intern** hebt geselecteerd, wordt de mogelijkheid om meer IP-adressen toe te voegen aan de AS-omgeving verwijderd. In plaats hiervan moet u het domein van de AS-omgeving opgeven. In een AS-omgeving met een extern VIP-adres wordt de naam van de AS-omgeving gebruikt in het domein voor apps die zijn gemaakt in deze AS-omgeving.
 
-Als u het **VIP-type** instelt op **Intern**, wordt de naam van de AS-omgeving niet gebruikt in het domein van de AS-omgeving. U geeft het domein expliciet op. Als uw domein *contoso.corp.net*  is en u een app in die ASE maakt met de naam  *timereporting*, is de URL voor deze app timereporting.contoso.corp.net.
+Als u het **VIP-type** instelt op **Intern**, wordt de naam van de AS-omgeving niet gebruikt in het domein van de AS-omgeving. U geeft het domein expliciet op. Als uw domein *contoso.corp.net* is en u een app in deze AS-omgeving maakt met de naam *timereporting*, is de URL voor deze app timereporting.contoso.corp.net.
 
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>Een app maken in een ILB AS-omgeving ##
 
 Het maken van een app in een ILB AS-omgeving werkt hetzelfde als het maken van een app in een AS-omgeving.
 
-1. Selecteer in Azure Portal achtereenvolgens  **Een resource maken** > **Web en mobiel** > **Web-app**.
+1. Selecteer in Azure Portal achtereenvolgens **Een resource maken** > **Web en mobiel** > **Web-app**.
 
 1. Voer de naam van de app in.
 
@@ -117,7 +117,7 @@ Het maken van een app in een ILB AS-omgeving werkt hetzelfde als het maken van e
 
 1. Selecteer of maak een App Service-plan. Als u een nieuw App Service-plan wilt maken, selecteert u uw AS-omgeving als locatie. Selecteer de groep met werkrollen waarin u het App Service-plan wilt maken. Wanneer u het App Service-plan maakt, selecteert u uw AS-omgeving als de locatie en de groep met werkrollen. Wanneer u de naam van de app opgeeft, wordt het domein onder de app-naam vervangen door het domein van de AS-omgeving.
 
-1. Selecteer **Maken**. Als u wilt dat de app wordt weergeven op het dashboard, schakelt u het selectievakje  **Vastmaken aan dashboard**  in.
+1. Selecteer **Maken**. Als u de app wilt weergeven op het dashboard, vinkt u het selectievakje **Vastmaken aan dashboard** aan.
 
     ![Het maken van een App Service-plan][2]
 
@@ -127,7 +127,7 @@ Het maken van een app in een ILB AS-omgeving werkt hetzelfde als het maken van e
 
 Een ILB AS-omgeving verschilt iets van de niet-ILB AS-omgeving. Zoals al eerder is aangegeven, moet u uw eigen DNS beheren. U moet ook uw eigen certificaat voor HTTPS-verbindingen opgeven.
 
-Nadat u de AS-omgeving hebt gemaakt, wordt in de domeinnaam het domein weergegeven dat u hebt opgegeven. In het menu  **Instelling**  wordt een nieuw item weergegeven met de naam  **ILB-certificaat**. De AS-omgeving wordt gemaakt met een certificaat waarin het domein van de ILB AS-omgeving niet wordt opgegeven. Als u de AS-omgeving met dit certificaat gebruikt, verschijnt er een melding in de browser dat het certificaat ongeldig is. Met dit certificaat kunt u HTTPS eenvoudiger testen, maar u moet uw eigen certificaat uploaden dat is gekoppeld aan het domein van uw ILB AS-omgeving. Deze stap is nodig, ongeacht of het certificaat zelfondertekend is of is verkregen via een certificeringsinstantie.
+Nadat u de AS-omgeving hebt gemaakt, wordt in de domeinnaam het domein weergegeven dat u hebt opgegeven. In het menu **Instelling** wordt een nieuw item weergegeven genaamd **ILB-certificaat**. De AS-omgeving wordt gemaakt met een certificaat waarin het domein van de ILB AS-omgeving niet wordt opgegeven. Als u de AS-omgeving met dit certificaat gebruikt, verschijnt er een melding in de browser dat het certificaat ongeldig is. Met dit certificaat kunt u HTTPS eenvoudiger testen, maar u moet uw eigen certificaat uploaden dat is gekoppeld aan het domein van uw ILB AS-omgeving. Deze stap is nodig, ongeacht of het certificaat zelfondertekend is of is verkregen via een certificeringsinstantie.
 
 ![De domeinnaam van de ILB AS-omgeving][3]
 
@@ -154,7 +154,7 @@ Het certificaat dat met deze PowerShell-opdrachten is gegenereerd, wordt in brow
 
 Ga als volgt te werk om uw eigen certificaten te uploaden en de toegang te testen:
 
-1. Ga nadat de AS-omgeving is gemaakt naar de gebruikersinterface van de AS-omgeving. Selecteer **AS-omgeving** > **Instellingen** > **ILB-certificaat**.
+1. Ga nadat de AS-omgeving is gemaakt naar de gebruikersinterface van de AS-omgeving. Selecteer **AS-omgeving** > **Instellingen** > **ILB-certificaat**.
 
 1. Als u het ILB-certificaat wilt instellen, selecteert u het .pfx-bestand met het certificaat en voert u het wachtwoord in. Het duurt enige tijd voordat deze stap is verwerkt. Er wordt een bericht weergegeven waarin staat dat een uploadbewerking wordt uitgevoerd.
 

@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 5028a05fe74f1d19ed5e43ac797df87bbe3382e8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: a3087718a3eece1e19f05757ace64ba00aa0dc58
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680720"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682673"
 ---
 # <a name="install-and-run-face-containers"></a>Installeren en uitvoeren van de Face-containers
 
@@ -34,10 +34,9 @@ U moet voldoen aan de volgende vereisten voordat u met behulp van containers voo
 |Vertrouwd zijn met Docker | U hebt een basiskennis hebt van Docker-kernconcepten zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van basic `docker` opdrachten.| 
 |Azure `Cognitive Services` resource |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>Een _Cognitive Services_ Azure-resource en de bijbehorende facturering sleutel voor de facturering URI van het eindpunt. Beide waarden zijn beschikbaar op de pagina overzicht en sleutels voor de resource en zijn verplicht om de container te starten. U moet toevoegen de `face/v1.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende BILLING_ENDPOINT_URI-voorbeeld. <br><br>**{BILLING_KEY}** : bronsleutel<br><br>**{BILLING_ENDPOINT_URI}** : voorbeeld van de eindpunt-URI is: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
-
 ## <a name="request-access-to-the-private-container-registry"></a>Aanvraag voor toegang tot de privécontainerregister
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>De hostcomputer
 
@@ -162,5 +161,4 @@ In dit artikel hebt u geleerd concepten en werkstroom voor het downloaden, insta
 * Beoordeling [containers configureren](face-resource-container-config.md) voor configuratie-instellingen
 * Beoordeling [Face overzicht](Overview.md) voor meer informatie over het opsporen en identificeren van gezichten  
 * Raadpleeg de [Face-API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor meer informatie over de methoden die wordt ondersteund door de container.
-* Raadpleeg [Veelgestelde vragen (FAQ)](FAQ.md) het oplossen van problemen met betrekking tot Face-functionaliteit.
 * Meer [Cognitive Services-Containers](../cognitive-services-container-support.md)

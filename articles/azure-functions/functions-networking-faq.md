@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 3cf6a0d080e2d8cafcab8e69a614b59a470c7aba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b673e625e1a50c32e3d8580ec442792ed8611703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637043"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572599"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Veelgestelde vragen over netwerken in Azure Functions
 
@@ -28,11 +28,14 @@ Implementatie van een functie in een App Service Environment is momenteel de eni
 U kunt toegang tot internet op een aantal manieren beperken:
 
 * [IP-beperkingen](../app-service/app-service-ip-restrictions.md): Binnenkomend verkeer naar uw functie-app beperken door IP-bereik.
+    * IP-beperkingen gelden, bent u ook kunt u configureren [Service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md), die uw functie accepteert alleen inkomend verkeer van een bepaald virtueel netwerk beperken.
 * Het verwijderen van alle HTTP-triggers. Voor sommige toepassingen is voldoende om de HTTP-triggers te voorkomen dat een andere bron gebruiken om uw functie te activeren.
 
 Houd er rekening mee dat de Azure portal-editor is vereist voor directe toegang tot uw functie wordt uitgevoerd. Geen codewijzigingen via de Azure-portal moet het apparaat dat u de portal om de IP-endexemplaren bladeren. Maar u kunt op het tabblad van de functies platform nog steeds gebruiken met netwerkbeperkingen op locatie.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Hoe beperk ik mijn functie-app met een virtueel netwerk?
+
+U kunt beperken zijn **inkomende** verkeer voor een functie-app voor het gebruik van een virtueel netwerk [Service-eindpunten](./functions-networking-options.md#private-site-access). Deze configuratie kunt nog steeds de functie-app voor uitgaande-aanroepen met het internet.
 
 De enige manier om een functie volledig te beperken, zodat alle verkeer via een virtueel netwerk stroomt is het gebruik van een intern gelijke App Service Environment. Deze optie de site op een speciale infrastructuur binnen een virtueel netwerk implementeert en alle triggers en het verkeer via het virtuele netwerk worden verzonden. 
 
@@ -48,8 +51,11 @@ Met behulp van integratie van virtuele netwerken (momenteel in preview), kunt u 
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Hoe kan ik een functie van een resource in een virtueel netwerk activeren?
 
-U kunt een functie van een resource in een virtueel netwerk activeren alleen door uw functie-app implementeren in een App Service Environment. Zie voor meer informatie over het gebruik van een App Service Environment [maken en gebruiken van een interne load balancer met een App Service Environment](../app-service/environment/create-ilb-ase.md).
+U bent de mogelijkheid bieden om te worden aangeroepen vanuit een virtueel netwerk met HTTP-triggers [Service-eindpunten](./functions-networking-options.md#private-site-access). 
 
+U kunt ook een functie van een resource in een virtueel netwerk activeren door uw functie-app implementeren in een App Service Environment. Zie voor meer informatie over het gebruik van een App Service Environment [maken en gebruiken van een interne load balancer met een App Service Environment](../app-service/environment/create-ilb-ase.md).
+
+De Premium- en App Service-plan ondersteuning voor HTTP-triggers van een virtueel netwerk, maar alleen een App Service environment ondersteuning voor alle andere functie triggers van het type via een virtueel netwerk.
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Hoe kan ik mijn functie-app in een virtueel netwerk implementeren?
 

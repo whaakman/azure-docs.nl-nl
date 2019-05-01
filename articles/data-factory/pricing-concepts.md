@@ -3,19 +3,18 @@ title: Informatie over prijzen voor Azure Data Factory met behulp van voorbeelde
 description: In dit artikel wordt beschreven en ziet u het prijsmodel met gedetailleerde voorbeelden van Azure Data Factory
 documentationcenter: ''
 author: shlo
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: 80b1f90ee0d9f5003c39eb6a853a07d2d64ca482
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 454899cd7cc592b87f96233d73ca8c4ed6ac333f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787456"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935730"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Informatie over prijzen van Data Factory met behulp van voorbeelden
 
@@ -122,6 +121,45 @@ Om uit te voeren van het scenario, moet u een pijplijn maken met de volgende ite
   - Activiteiten voor gegevensverplaatsing = $0.166 (tijdens 10 minuten van de uitvoeringstijd. $0,25 per uur op Azure Integration Runtime)
   - Pipeline-activiteit = $0,00003 (tijdens voor 1 minuut van de uitvoeringstijd. $ 0,002/uur op Azure Integration Runtime)
   - Externe Pipeline-activiteit = $0.000041 (tijdens 10 minuten van de uitvoeringstijd. $0.00025/uur op Azure Integration Runtime)
+
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Toewijzing van gegevens voor foutopsporing op stroom gebruiken voor een normale werkdag
+
+Als een technicus van gegevens bent u verantwoordelijk voor het ontwerpen, bouwen en testen van toewijzing gegevens stromen elke dag. U Meld u aan bij de ADF UI in de ochtend en schakelt de foutopsporingsmodus voor gegevens stromen. De standaard-TTL voor foutopsporing sessies is 60 minuten. U werken gedurende de dag, gedurende 10 uur, zodat uw foutopsporingssessie nooit verloopt. Daarom zijn uw kosten in rekening gebracht voor de dag:
+
+**10 (uren) x 8 (kernen) x $0.112 $8.96 =**
+
+## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transformeer gegevens in blob-archief met het toewijzen van gegevensstromen
+
+In dit scenario wilt u het transformeren van gegevens in Blob Store visueel in ADF toewijzing gegevens stromen op een planning per uur.
+
+Om uit te voeren van het scenario, moet u een pijplijn maken met de volgende items:
+
+1. Een activiteit gegevensstroom met de logica van de transformatie.
+
+2. Een invoergegevensset voor de gegevens in Azure Storage.
+
+3. Een uitvoergegevensset voor de gegevens in Azure Storage.
+
+4. Een schematrigger het uitvoeren van de pijplijn elk uur.
+
+| **Bewerkingen** | **Typen en eenheden** |
+| --- | --- |
+| Gekoppelde Service maken | 2 voor lezen/schrijven-entiteit  |
+| Gegevenssets maken | 4 lezen/schrijven-entiteiten (2 voor het maken van de gegevensset, 2 voor de gekoppelde service verwijst naar) |
+| Pijplijn maken | 3 voor lezen/schrijven-entiteiten (1 voor het maken van de pijplijn, 2 voor gegevensset verwijzingen) |
+| Pijplijn ophalen | 1 lezen/schrijven-entiteit |
+| Pijplijn uitvoeren | 2 uitvoeringen van activiteit (1 voor de trigger uitvoeren, 1 voor uitvoeringen van activiteit) |
+| Uitvoeringstijd gegevensstroom veronderstellingen: = 10 minuten + 10 minuten TTL | 10 \* 8 kernen van algemene Computing met TTL van 10 |
+| Monitor pijplijn veronderstelling: Alleen 1 uitvoeren opgetreden | 2 bewaking uitvoeren records opnieuw geprobeerd (1 voor pijplijn-run, 1 voor de activiteit die wordt uitgevoerd) |
+
+**Totaal aantal Scenario prijzen: $0.3011**
+
+- Data Factory Operations = **$0,0001**
+  - Lezen/schrijven = 10\*00001 $0,0001 = [1 R/W = $ 0,50/50000 0,00001 =]
+  - Bewaking = 2\*000005 $0,00001 = [1 bewaking = $ 0,25/50000 = 0.000005]
+- Pipeline-Orchestration &amp; uitvoering = **$0.301**
+  - Uitvoeringen van activiteit = 001\*2 = 0,002 [1 uitvoeren = $1/1000 0,001 =]
+  - Gegevens stromen werkzaamheden $0.299 tijdens = 20 minuten (10 minuten uitvoeringstijd + 10 minuten TTL). $0.112/ uur op Azure Integration Runtime met 8 kernen algemene compute
 
 ## <a name="next-steps"></a>Volgende stappen
 

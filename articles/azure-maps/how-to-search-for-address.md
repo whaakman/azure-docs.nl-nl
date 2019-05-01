@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 497ffb5acf6262dfb42f490efe68e1ea26c777cb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60904085"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572383"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Zoeken naar een adres met behulp van de search-service van Azure Maps
 
@@ -68,7 +68,7 @@ De meeste zoekopdrachten standaard `maxFuzzyLevel=1` om prestaties en onvoorspel
 
     De niet-eenduidige queryreeks van 'pizza' geretourneerd 10 [punt van belang resultaat](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (pijl) resultaten met categorieën vallen in "pizza" en 'restaurant'. Elk resultaat retourneert een Straatadres, breedtegraad / lengtegraadwaarden, poort en toegangspunten voor de locatie weergeven.
   
-    De resultaten zijn verschillend voor deze query is niet gekoppeld aan een bepaalde referentielocatie. U kunt de **countrySet** parameter om op te geven alleen de landen waarvoor de toepassing nodig dekking heeft, zoals het standaardgedrag is om te zoeken naar de hele wereld, mogelijk onnodige resultaten retourneren.
+    De resultaten zijn verschillend voor deze query is niet gekoppeld aan een bepaalde referentielocatie. U kunt de **countrySet** parameter om op te geven alleen de landen/regio waarvoor uw toepassing nodig dekking, zoals het standaardgedrag is om te zoeken naar de hele wereld, mogelijk onnodige resultaten retourneren.
 
 5. Voeg de volgende sleutel / waarde-paar aan de **Params** sectie en klikt u op **verzenden**:
 

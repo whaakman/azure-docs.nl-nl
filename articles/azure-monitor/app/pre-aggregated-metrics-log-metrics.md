@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0b544bfcb59bf4c2b44e6b666fcd33e9fb493692
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96d4c2c8d6c2dd7722b7377dd7a0ffd42acd3126
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60256638"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572513"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Op basis van een logboek en vooraf samengevoegde metrische gegevens in Application Insights
 
@@ -63,7 +63,7 @@ De verzameling van aangepaste metrische gegevens dimensies is standaard uitgesch
 
 ## <a name="creating-charts-and-exploring-log-based-and-standard-pre-aggregated-metrics"></a>Diagrammen wilt maken en op basis van een logboek en standard vooraf samengevoegde metrische gegevens verkennen
 
-Azure Monitor Metrics Explorer gebruiken om te grafieken van metrische gegevens over vooraf samengevoegde en op basis van een logboek en aan de auteur van dashboards met grafieken te tekenen. Na het selecteren van de gewenste Application Insights-resource, de kiezer naamruimte gebruiken om over te schakelen tussen standard (preview) en logboekbestanden op basis van metrische gegevens of Selecteer een aangepaste metrische naamruimte:
+Gebruik [Azure Monitor Metrics Explorer](../platform/metrics-getting-started.md) om te grafieken van metrische gegevens over vooraf samengevoegde en op basis van een logboek en aan de auteur van dashboards met grafieken te tekenen. Na het selecteren van de gewenste Application Insights-resource, de kiezer naamruimte gebruiken om over te schakelen tussen standard (preview) en logboekbestanden op basis van metrische gegevens of Selecteer een aangepaste metrische naamruimte:
 
 ![Metrische naamruimte](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 

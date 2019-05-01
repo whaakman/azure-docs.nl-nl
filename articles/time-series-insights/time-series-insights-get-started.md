@@ -11,32 +11,34 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: b18ae44a140d77c24d8b5741bc09740767d1344f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a5e2bbbbadfcf23d30c230c30ed66f6bbe931a76
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075949"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688846"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Een nieuwe Time Series Insights-omgeving maken in Azure Portal
+
 In dit artikel wordt beschreven hoe u een nieuwe Time Series Insights-omgeving maken met de Azure-portal.
 
 Time Series Insights kunt u aan de slag te visualiseren en opvragen van gegevens die binnenkomen via Azure IoT Hubs en Event Hubs in minuten, zodat u grote volumes van de query van time series-gegevens in een paar seconden.  Het is ontworpen voor de schaal van internet of things (IoT) en terabytes aan gegevens kunt verwerken.
 
 ## <a name="steps-to-create-the-environment"></a>Stappen voor het maken van de omgeving
+
 Volg deze stappen voor het maken van een omgeving:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Selecteer de **+ nieuw** knop.
+1. Selecteer de **+ nieuw** knop.
 
-3. Selecteer de **Internet of Things** categorie en selecteer **Time Series Insights**.
+1. Selecteer de **Internet of Things** categorie en selecteer **Time Series Insights**.
 
    ![De Time Series Insights-omgeving maken](media/time-series-insights-get-started/1-new-tsi.png)
 
-4. Op de **Time Series Insights** weergeeft, schakelt **maken**.
+1. Op de **Time Series Insights** weergeeft, schakelt **maken**.
 
-5. Vul de vereiste parameters. De volgende tabel beschrijft elke parameter:
+1. Vul de vereiste parameters. De volgende tabel beschrijft elke parameter:
    
    ![De Time Series Insights-resourcegroep maken](media/time-series-insights-get-started/2-create-tsi.png)
    
@@ -49,20 +51,24 @@ Volg deze stappen voor het maken van een omgeving:
    Prijscategorie | S1 | Kies de benodigde doorvoer. Selecteer voor de laagste kosten en starter capaciteit, S1.
    Capaciteit | 1 | Capaciteit is dat de vermenigvuldiger is van toepassing op de gegevens, capaciteit en kosten die gepaard gaan met de geselecteerde SKU.  U kunt de capaciteit van een omgeving wijzigen nadat deze is gemaakt. Voor de laagste kosten, selecteert u een capaciteit van 1. 
   
-6. Controleer **vastmaken aan dashboard** meest eenvoudige toegang tot uw Time Series-omgeving in de toekomst.
+1. Controleer **vastmaken aan dashboard** meest eenvoudige toegang tot uw Time Series-omgeving in de toekomst.
 
    ![Time Series Insights vastmaken aan het dashboard](media/time-series-insights-get-started/3-pin-create.png)
 
-7. Selecteer **maken** om te beginnen met het inrichtingsproces. Het kan enkele minuten duren.
+1. Selecteer **maken** om te beginnen met het inrichtingsproces. Het kan enkele minuten duren.
 
-8. Voor het controleren van het implementatieproces, selecteer de **meldingen** symbool (belpictogram).
+1. Voor het controleren van het implementatieproces, selecteer de **meldingen** symbool (belpictogram).
 
    ![De meldingen bekijken](media/time-series-insights-get-started/4-notifications.png)
 
 Wanneer de implementatie is gelukt, kunt u selecteren **naar de resource gaan** voor het configureren van andere eigenschappen, instellen van beveiliging met beleid voor gegevenstoegang, bronnen van gebeurtenissen en andere acties toevoegen.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * [Gegevenstoegangsbeleid definiëren](time-series-insights-data-access.md) voor het beveiligen van uw omgeving.
-* [Toevoegen van een Event Hub-gebeurtenisbron](time-series-insights-how-to-add-an-event-source-eventhub.md) aan uw Azure Time Series Insights-omgeving. 
+
+* [Toevoegen van een Event Hub-gebeurtenisbron](time-series-insights-how-to-add-an-event-source-eventhub.md) aan uw Azure Time Series Insights-omgeving.
+
 * [Gebeurtenissen verzenden](time-series-insights-send-events.md) naar de gebeurtenisbron.
+
 * Uw omgeving bekijken in [Verkenner van Time Series Insights](https://insights.timeseries.azure.com).

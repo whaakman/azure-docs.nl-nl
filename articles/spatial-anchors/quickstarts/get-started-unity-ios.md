@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: iOS Unity-app maken met Azure Spatial Anchors | Microsoft Docs'
+title: Snelstartgids - een Unity iOS-app maken met Azure ruimtelijke ankers | Microsoft Docs
 description: In deze quickstart leert u een iOS-app maken met Unity en met behulp van Spatial Anchors.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e3320cd6131497d0b2c794646bae7fae578488cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 41189d4945ef22f8a587a51717b7dd6f40ac39ce
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60235237"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690554"
 ---
-# <a name="quickstart-create-an-ios-unity-app-with-azure-spatial-anchors"></a>Quickstart: Een iOS Unity-app maken met Azure Spatial Anchors
+# <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Quickstart: Een Unity iOS-app maken met Azure ruimtelijke ankers
 
-Deze quickstart behandelt hoe u een iOS Unity-app maakt met behulp van [Azure Spatial Anchors](../overview.md). Azure Spatial Anchors is een platformoverstijgende ontwikkelaarsservice waarmee u mixed reality-ervaringen kunt maken met behulp van objecten die hun locatie in de loop van de tijd op meerdere apparaten behouden. Als u klaar bent, hebt u een ARKit iOS-app met Unity gemaakt waarmee een ruimtelijk anker kan worden opgeslagen en teruggehaald.
+Deze quickstart bevat informatie over het maken van een Unity iOS-app via [Azure ruimtelijke ankers](../overview.md). Azure Spatial Anchors is een platformoverstijgende ontwikkelaarsservice waarmee u mixed reality-ervaringen kunt maken met behulp van objecten die hun locatie in de loop van de tijd op meerdere apparaten behouden. Als u klaar bent, hebt u een ARKit iOS-app met Unity gemaakt waarmee een ruimtelijk anker kan worden opgeslagen en teruggehaald.
 
 U leert het volgende:
 

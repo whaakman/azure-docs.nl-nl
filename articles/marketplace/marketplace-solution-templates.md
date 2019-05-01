@@ -1,25 +1,19 @@
 ---
-title: Azure-toepassingen oplossing sjabloon aanbieding Publicatiehandleiding voor
+title: Azure-toepassingen oplossingssjabloon bieden Publicatiehandleiding voor | Azure Marketplace
 description: Dit artikel beschrijft de vereisten voor het publiceren van een oplossingssjabloon in de Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: ellacroi
 manager: nunoc
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
-ms.openlocfilehash: bbf9ab56bd7e070e40e2454a69f0a5e313597f14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c2393b6ea9f1a2c2b35be63272743e081f4ae240
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765496"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937755"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Azure-toepassingen: Oplossing sjabloon aanbieding Publicatiehandleiding voor
 

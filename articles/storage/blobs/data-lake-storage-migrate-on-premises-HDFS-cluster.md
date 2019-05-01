@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: d0908e9edce8efb7a378ee04b6076b61cae2d2bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1eac7ecce88dc817b9bd7bd5330d10b019cc7dd2
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708660"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939269"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Azure Data Box gebruiken om gegevens te migreren vanuit een on-premises HDFS gegevensopslag naar Azure Storage
 
@@ -70,14 +70,32 @@ Volg deze stappen voor het kopiëren van gegevens via de REST API's van de Blob/
     ```
     Als u van een ander mechanisme voor DNS gebruikmaakt, u moet ervoor zorgen dat de Data Box-eindpunt kan worden omgezet.
     
-3. Instellen van een shell-variabele `azjars` om te verwijzen naar de `hadoop-azure` en de `microsoft-windowsazure-storage-sdk` jar-bestanden. Deze bestanden zijn in de Hadoop-installatiemap (u kunt controleren als deze bestanden aanwezig zijn met deze opdracht `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` waar `<hadoop_install_dir>` is de map waar u Hadoop hebt geïnstalleerd) gebruikt u de volledige paden. 
+4. Instellen van een shell-variabele `azjars` om te verwijzen naar de `hadoop-azure` en de `microsoft-windowsazure-storage-sdk` jar-bestanden. Deze bestanden zijn in de Hadoop-installatiemap (u kunt controleren als deze bestanden aanwezig zijn met deze opdracht `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` waar `<hadoop_install_dir>` is de map waar u Hadoop hebt geïnstalleerd) gebruikt u de volledige paden. 
     
     ```
     # azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar
     # azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar
     ```
 
-4. Gegevens kopiëren van het Hadoop HDFS naar gegevens in Blob-opslag.
+5. De storage-container die u wilt gebruiken voor het kopiëren van gegevens maken. Als onderdeel van deze opdracht moet u ook een doelmap opgeven. Dit kan een dummy doelmap op dit moment zijn.
+
+    ```
+    # hadoop fs -libjars $azjars \
+    -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
+    -D fs.azure.account.key.[blob_service_endpoint]=[account_key] \
+    -mkdir -p  wasb://[container_name]@[blob_service_endpoint]/[destination_folder]
+    ```
+
+6. Voer een lijst met opdracht uit om ervoor te zorgen dat uw container en map zijn gemaakt.
+
+    ```
+    # hadoop fs -libjars $azjars \
+    -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
+    -D fs.azure.account.key.[blob_service_endpoint]=[account_key] \
+    -ls -R  wasb://[container_name]@[blob_service_endpoint]/
+    ```
+
+7. Gegevens kopiëren van het Hadoop HDFS naar gegevens in Blob-opslag, naar de container die u eerder hebt gemaakt. Als de map die u naar kopiëren wilt niet wordt gevonden, de opdracht wordt deze automatisch aangemaakt.
 
     ```
     # hadoop distcp \

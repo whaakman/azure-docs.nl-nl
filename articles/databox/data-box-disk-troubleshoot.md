@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 04/2/2019
 ms.author: alkohli
-ms.openlocfilehash: ed6d567be255fe9b72be564c31d734541a1ffa73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9d01b56da2650be395878ce07e4aae73495061f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564908"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939641"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Oplossen van problemen in Azure Data Box-schijf
 
@@ -54,12 +54,12 @@ Als u naar het pad met een kopie van het logboek wilt navigeren, gaat u naar het
 Gebruik de activiteitenlogboeken om fouten te vinden bij foutoplossing of om te controleren hoe een gebruiker in uw organisatie een resource heeft gewijzigd. Met activiteitenlogboeken kunt u het volgende bepalen:
 
 - Welke bewerkingen zijn uitgevoerd voor de resources in uw abonnement.
-- Wie de bewerking heeft gestart. 
+- Wie de bewerking heeft gestart.
 - Wanneer de bewerking is uitgevoerd.
 - De status van de bewerking.
 - De waarden van andere eigenschappen die u kunnen helpen bij het onderzoeken van het probleem.
 
-In het activiteitenlogboek staan alle schrijfbewerkingen (zoals PUT, POST, DELETE) die op uw resources zijn uitgevoerd, maar er staan geen leesbewerkingen (zoals GET) in. 
+In het activiteitenlogboek staan alle schrijfbewerkingen (zoals PUT, POST, DELETE) die op uw resources zijn uitgevoerd, maar er staan geen leesbewerkingen (zoals GET) in.
 
 Activiteitenlogboeken worden 90 dagen bewaard. U kunt een query uitvoeren voor een willekeurig bereik van datums, zolang de begindatum niet verder dan 90 dagen in het verleden is. U kunt ook filteren op een van de ingebouwde query's in Insights. Klik bijvoorbeeld op een fout en selecteer vervolgens specifieke problemen om de hoofdoorzaak te begrijpen.
 
@@ -79,7 +79,7 @@ Activiteitenlogboeken worden 90 dagen bewaard. U kunt een query uitvoeren voor e
 
 |Foutbericht/waarschuwingen  |Aanbevelingen |
 |---------|---------|
-|[Info] Bitlocker-wachtwoord ophalen voor volume: m <br>[Fout] Uitzondering opgetreden tijdens het ophalen van bitlocker-sleutel voor volume m:<br> Reeks bevat geen elementen.|Deze fout wordt gegenereerd als de doel-Data Box Disk offline is. <br> Gebruik hulpprogramma `diskmgmt.msc` voor online schijven.|
+|[Info] Bij het ophalen van BitLocker-wachtwoord voor volume: min. <br>[Fout] Uitzondering opgetreden tijdens het ophalen van BitLocker-sleutel voor volume m:<br> Reeks bevat geen elementen.|Deze fout wordt gegenereerd als de doel-Data Box Disk offline is. <br> Gebruik hulpprogramma `diskmgmt.msc` voor online schijven.|
 |[Fout] Uitzondering geretourneerd: WMI-bewerking is mislukt:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=De indeling van het verstrekte herstelwachtwoord is ongeldig. <br>BitLocker-herstelwachtwoorden bestaan uit 48 cijfers. <br>Controleer of het herstelwachtwoord de juiste indeling heeft en probeer het opnieuw.|Gebruik eerst het ontgrendelingsprogramma van Data Box Disk om de schijven te ontgrendelen en voer dan de opdracht opnieuw uit. Voor meer informatie gaat u naar <li> [Data Box Disk ontgrendelen voor Windows-clients](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Data Box Disk ontgrendelen voor Linux-clients](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
 |[Fout] Uitzondering geretourneerd: Er bestaat een DriveManifest.xml-bestand op de doel-station. <br> Dit betekent dat het doelstation mogelijk is voorbereid met een ander logboekbestand. <br>Als u meer gegevens aan hetzelfde station wilt toevoegen, gebruik dan het vorige logboekbestand. Als u bestaande gegevens wilt verwijderen en het doelstation wilt hergebruiken voor een nieuwe importtaak, verwijdert u het bestand DriveManifest.xml van de schijf. Voer deze opdracht opnieuw uit met een nieuw logboekbestand.| Deze fout wordt gegenereerd wanneer u dezelfde reeks stations probeert te gebruiken voor meerdere importsessies. <br> Gebruik één set schijven maar voor één splits- en kopieersessie.|
 |[Fout] Uitzondering geretourneerd: CopySessionId importgegevens-september-test-1 verwijst naar een eerdere sessie. kopiëren en niet opnieuw kan worden gebruikt voor een nieuwe kopieersessie.|Deze fout wordt gerapporteerd wanneer wordt geprobeerd om dezelfde taaknaam voor een nieuwe taak te gebruiken als een eerder met succes voltooide taak.<br> Geef een unieke naam op voor de nieuwe taak.|
@@ -96,7 +96,7 @@ In deze sectie worden enkele van de meest voorkomende problemen tijdens de imple
 
 Dit kan zijn vanwege een niet schoon bestandssysteem. 
 
-Een station als lezen / schrijven stationseigendom werkt niet met de Data Box-schijven. In dit scenario wordt niet ondersteund met schijven die door dislocker ontsleuteld. U kunt het apparaat met de volgende opdracht met succes hebt gekoppeld: 
+Een station als lezen / schrijven stationseigendom werkt niet met de Data Box-schijven. In dit scenario wordt niet ondersteund met schijven die door dislocker ontsleuteld. U kunt het apparaat met de volgende opdracht met succes hebt gekoppeld:
 
     `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
 
@@ -104,15 +104,37 @@ Hoewel de stationseigendom voltooid is, blijft de gegevens niet actief.
 
 **Resolutie**
 
-Als u de bovenstaande fout ziet, kunt u een van de volgende oplossingen proberen:
+Voer de volgende stappen uit op uw Linux-systeem:
 
-- Installeer [ `ntfsfix` ](https://linux.die.net/man/8/ntfsfix) (beschikbaar in `ntfsprogs` pakket) en deze uitvoeren op de betreffende partitie.
+1. Installeer de `ntfsprogs` -pakket voor het hulpprogramma ntfsfix.
+2. Ontkoppel de koppelpunten van het station wordt geleverd door het hulpprogramma ontgrendelen. Het aantal koppelpunten varieert voor stations.
 
-- Als u toegang tot een Windows-systeem hebt
+    ```
+    unmount /mnt/DataBoxDisk/mountVol1
+    ```
 
-    - Het laden van het station in het Windows-systeem.
-    - Open een opdrachtprompt met beheerdersbevoegdheden. Voer `chkdsk` op het volume.
-    - Veilig verwijderen van het volume en probeer het opnieuw.
+3. Voer `ntfsfix` op het bijbehorende pad. De gemarkeerde waarde moet gelijk zijn aan stap 2.
+
+    ```
+    ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
+    ```
+
+4. Voer de volgende opdracht om te verwijderen van de metagegevens van de slaapstand en leiden het probleem koppelen tot kan.
+
+    ```
+    ntfs-3g -o remove_hiberfile /mnt/DataBoxDisk/bitlockerVol1/dislocker-file /mnt/DataBoxDisk/mountVol1
+    ```
+
+5. Voer een schone ontkoppelen.
+
+    ```
+    ./DataBoxDiskUnlock_x86_64 /unmount
+    ```
+
+6. Voer een schone ontgrendelen en koppelen.
+7. Test het koppelpunt van het schrijven van een bestand.
+8. Ontkoppel en voor het valideren van de bestandspersistentie koppelen.
+9. Ga door met het kopiëren van gegevens.
  
 ### <a name="issue-error-with-data-not-persisting-after-copy"></a>Probleem: Fout met de gegevens niet permanent worden gemaakt na het kopiëren
  

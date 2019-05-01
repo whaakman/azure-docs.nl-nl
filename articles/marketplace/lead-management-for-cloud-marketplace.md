@@ -2,24 +2,17 @@
 title: Beheer voor cloud-marketplace leiden | Azure Marketplace en AppSource
 description: Een overzicht van de verschillende onderwerpen met betrekking tot het publiceren van aanbiedingen en technische artefacten naar de Azure Marketplace en AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
-manager: nunoc
-editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 810298fc45becf132da6f082df7ad33e7af828aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4055b1a30c1868f701de281b5de8d648d576219e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769886"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937910"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Beheer voor cloud-marketplace leiden
 
@@ -138,7 +131,7 @@ Voornaam = MSFT_TEST_636573304831318844
 
 Achternaam = MSFT_TEST_636573304831318844 
 
-lead_source = MSFT_TEST_636573304831318844 MSFT_TEST_636573304831318844 |<Offer Name> 
+lead_source = MSFT_TEST_636573304831318844 MSFT_TEST_636573304831318844 | \<Aanbiedings-naam > 
 
 OID 00Do0000000ZHog = 
 

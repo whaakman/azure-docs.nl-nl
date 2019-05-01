@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4c3ecdd01106cc8d305764206bc75535fa4dac3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d75544a30a441b5178a1e9dd368f1ce41cd4d321
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691901"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574258"
 ---
 # <a name="analytics-in-application-insights"></a>Analyses in Application Insights
 Analytics is het krachtig hulpprogramma voor zoekopdrachten en query's van [Application Insights](app-insights-overview.md). Analytics is een web-hulpprogramma, zodat er geen installatie vereist is.
@@ -38,7 +38,7 @@ U niet rechtstreeks toegang tot gegevens in een Log Analytics-werkruimte van App
 
 ## <a name="query-data-in-analytics"></a>Query uitvoeren op gegevens in Analytics
 Een typische query begint met een tabelnaam wordt opgegeven gevolgd door een reeks *operators* gescheiden door `|`.
-Bijvoorbeeld, we willen weten hoeveel aanvragen onze app tijdens de afgelopen 3 uur uit verschillende landen, ontvangen:
+Bijvoorbeeld, we willen weten hoeveel onze app heeft ontvangen van andere landen/regio's tijdens de afgelopen 3 uur aanvragen:
 ```AIQL
 requests
 | where timestamp > ago(3h)

@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 05/17/2017
-ms.openlocfilehash: 4d9d1ef6b7906ecebc399948a1ca0dcd590d5910
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: 5045c48a00c51a16d37dcf4b7f72f25633f23b3f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765828"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926035"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Werken in het Apache Hadoop-ecosysteem in HDInsight vanuit een Windows-PC
 
@@ -29,11 +29,11 @@ Voorbeelden van taken die u met PowerShell uitvoeren kunt:
 * [Apache Hive-query's uitvoeren met behulp van PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Clusters beheren met PowerShell](hdinsight-administer-use-powershell.md).
 
-Volg de stappen voor het [Azure Powershell installeren en configureren](https://docs.microsoft.com/powershell/azure/install-az-ps) naar de meest recente versie. Als u scripts die worden gewijzigd hebt moeten voor gebruik van de nieuwe cmdlets voor Azure Resource Manager, [migreren naar Azure Resource Manager gebaseerde ontwikkelingsprogramma's voor HDInsight-clusters](hdinsight-hadoop-development-using-azure-resource-manager.md).
+Volg de stappen voor het [Azure Powershell installeren en configureren](https://docs.microsoft.com/powershell/azure/install-az-ps) naar de meest recente versie.
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Hulpprogramma's die u kunt uitvoeren in een browser
 De volgende hulpprogramma's hebben een webinterface die wordt uitgevoerd in een browser:
-* **[Azure Cloud Shell (preview)](https://docs.microsoft.com/azure/cloud-shell/quickstart)**  is een interactieve, opdrachtregel-shell die wordt uitgevoerd in uw browser en vanuit Azure portal.
+* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)**  is een interactieve, opdrachtregel-shell die wordt uitgevoerd in uw browser en vanuit Azure portal.
 * **[Apache Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md)**  is een beheer en controle hulpprogramma is beschikbaar in de Azure portal die kan worden gebruikt voor het beheren van verschillende soorten taken, zoals:
     * [Gebruik Apache Ambari met de REST-API](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Apache Hive-weergave in Apache Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
@@ -57,9 +57,6 @@ Voorbeelden van taken die u met de .NET SDK in Visual Studio kunt doen:
 * [Apache Hive-query's uitvoeren met de .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 * [Gebruik C# door de gebruiker gedefinieerde functies met Apache Hive en Apache Pig streaming op Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-> [!TIP]
-> Als u .NET-oplossingen met HDInsight op basis van een Windows-clusters uitvoert, is een goed moment om het plannen van een migratie naar op basis van Linux-clusters. Zie voor meer informatie, [migreren .NET-oplossing voor HDInsight op Linux gebaseerde HDInsight op basis van Windows](hdinsight-hadoop-migrate-dotnet-to-linux.md).
-
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>Intellij IDEA en Eclipse IDE voor Spark-clusters
 Beide [Intellij IDEA](https://www.jetbrains.com/idea/download) en de [Eclipse IDE](https://www.eclipse.org/downloads/) kunnen worden gebruikt voor:
 * Ontwikkelen en het verzenden van een Scala Spark-toepassing in een HDInsight Spark-cluster.
@@ -77,14 +74,17 @@ Apache Spark-clusters in HDInsight omvat Apache Zeppelin-notebooks en kernels di
 * [Meer informatie over het kernels op Apache Spark-clusters met Jupyter-notebooks gebruiken om Spark-toepassingen te testen](spark/apache-spark-zeppelin-notebook.md)
 * [Informatie over het gebruik van Apache Zeppelin-notebooks op Apache Spark-clusters op Spark-taken uitvoeren](spark/apache-spark-jupyter-notebook-kernels.md) 
 
-
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Linux-gebaseerde hulpprogramma's en technologieën uitgevoerd op Windows
 
 Als er een situatie waarbij moet u een hulpprogramma of -technologie die is alleen beschikbaar in Linux gebruiken, houd rekening met de volgende opties:
 
-* **Bash (bèta) in Windows 10** een subsysteem voor Linux biedt op Windows. Bash kunt u rechtstreeks uitvoeren van Linux-hulpprogramma's zonder te onderhouden van een specifieke Linux-installatie. [Installeren en uitvoeren van de bètaversie van Bash op Windows 10](https://msdn.microsoft.com/commandline/wsl/install_guide)
+* **Bash in Ubuntu in Windows 10** een subsysteem voor Linux biedt op Windows. Bash kunt u rechtstreeks uitvoeren van Linux-hulpprogramma's zonder te onderhouden van een specifieke Linux-installatie. Zie [Windows-subsysteem voor Linux-installatie handleiding voor Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) voor de installatiestappen.  Andere [Unix shells](https://www.gnu.org/software/bash/) ook werkt.
 * **Docker voor Windows** biedt toegang tot veel Linux-gebaseerde hulpprogramma's en rechtstreeks vanuit Windows kan worden uitgevoerd. U kunt bijvoorbeeld Docker gebruiken om uit te voeren van de client Beeline voor Hive rechtstreeks vanuit Windows. U kunt ook Docker gebruiken om uit te voeren van een lokaal Jupyter-notitieblok en op afstand verbinding maken met Spark in HDInsight. [Aan de slag met Docker voor Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)**  kunt u grafisch bladeren naar het bestandssysteem van het cluster via een SSH-verbinding.
+
+## <a name="cross-platform-tools"></a>Platformonafhankelijke hulpprogramma 's
+
+De Azure-opdrachtregelinterface (CLI) is de platformoverschrijdende opdrachtregelervaring voor het beheren van Azure-resources.  Zie voor meer informatie, [Azure-opdrachtregelinterface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u geen ervaring hebt met werken in op basis van Linux-clusters, ziet u de volgende artikelen:

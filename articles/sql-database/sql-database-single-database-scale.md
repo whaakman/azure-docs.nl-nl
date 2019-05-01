@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/18/2019
-ms.openlocfilehash: 471ded9cd94623929630155f1a3c613bf00576a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: 4288eb7d051c44149a6f1970430dc8c409ca957d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331815"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572879"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Schalen van één database-resources in Azure SQL Database
 
-In dit artikel wordt beschreven hoe u de reken- en opslagresources die beschikbaar zijn voor een individuele database schalen in Azure SQL Database.
+In dit artikel wordt beschreven hoe u de reken- en opslagresources die beschikbaar zijn voor een individuele database schalen in de ingerichte Computing-laag. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]

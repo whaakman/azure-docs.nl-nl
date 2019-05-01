@@ -11,20 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/26/2019
+ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357944"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572678"
 ---
-# <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore-servicelaag, Azure Hybrid Benefit en migratie
+# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Kies een van de vCore-servicelaag en het migreren van DTU-Servicelagen
 
 Het op vCore gebaseerde aankoopmodel kunt u onafhankelijk van elkaar schalen reken- en opslagresources, overeenkomen met de on-premises prestaties en prijs te optimaliseren. Ook kunt u generatie van de hardware kiezen:
 
 - Gen4 - maximaal 24 logische CPU's, gebaseerd op Intel E5-2673 v3 (Haswell) processors van 2,4 GHz, vCore = 1 PP (fysieke kernen), 7 GB per kern, SSD aangesloten
 - Gen5 - maximaal 80 logische CPU's, gebaseerd op Intel E5-2673 v4 (Broadwell) processors van 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1 GB per kern, snelle eNVM SSD
+
 
 Gen4 hardware biedt aanzienlijk meer geheugen per vCore. Gen5 hardware kunt u echter veel hoger rekenresources kan worden uitgebreid.
 
@@ -40,9 +41,9 @@ De volgende tabel kunt u weten wat de verschillen tussen de drie lagen:
 ||**Algemeen gebruik**|**Bedrijfskritiek**|**Zeer grootschalige (preview)**|
 |---|---|---|---|
 |Ideaal voor|Meeste zakelijke workloads. Aanbiedingen budget documentgeoriënteerde uitgebalanceerde en schaalbare Computing- en opslagopties.|Zakelijke toepassingen die snelle I/O vereisen. Maakt gebruik van verschillende geïsoleerde replica's voor de hoogste mate van flexibiliteit wat storingen betreft.|De meeste zakelijke workloads met uiterst schaalbare opslag en leesschaal vereisten|
-|Compute|Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore|
-|Geheugen|Gen4: 7 GB per kern<br>Gen5: 5.1 GB per kern | Gen4: 7 GB per kern<br>Gen5: 5.1 GB per kern |Gen4: 7 GB per kern<br>Gen5: 5.1 GB per kern|
-|Storage|Maakt gebruik van externe opslag:<br/>Individuele database: 5 GB – 4 TB<br/>Beheerd exemplaar: 32 GB - 8 TB |Maakt gebruik van lokale SSD-opslag:<br/>Individuele database: 5 GB – 4 TB<br/>Beheerd exemplaar: 32 GB - 4 TB |Flexibele, automatische groei van de opslag naar behoefte. Ondersteunt maximaal 100 TB aan opslag en daarbuiten. Lokale SSD-opslag voor het lokale cachegeheugen van toepassingen en opslag van lokale gegevens. Externe opslag in Azure als laatste gegevensopslag op lange termijn. |
+|CPU|**Compute ingericht**:<br/>Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore<br/>**Serverless Computing**<br/>Gen5: 0,5 - 4 vCore|**Compute ingericht**:<br/>Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore|**Compute ingericht**:<br/>Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore|
+|Geheugen|**Compute ingericht**:<br/>Gen4: 7 GB per kern<br/>Gen5: 5.1 GB per kern<br/>**Serverless Computing**<br/>Gen5: 3 GB per kern|**Compute ingericht**:<br/>Gen4: 7 GB per kern<br/>Gen5: 5.1 GB per kern |**Compute ingericht**:<br/>Gen4: 7 GB per kern<br/>Gen5: 5.1 GB per kern|
+|Storage|Maakt gebruik van externe opslag:<br/>**Individuele database ingericht compute**:<br/>5 GB – 4 TB<br/>**Individuele database serverless Computing**:<br/>5 GB - 1 TB<br/>**Beheerd exemplaar**: 32 GB - 8 TB |Maakt gebruik van lokale SSD-opslag:<br/>**Individuele database ingericht compute**:<br/>5 GB – 4 TB<br/>**Beheerd exemplaar**:<br/>32 GB - 4 TB |Flexibele, automatische groei van de opslag naar behoefte. Ondersteunt maximaal 100 TB aan opslag en daarbuiten. Lokale SSD-opslag voor het lokale cachegeheugen van toepassingen en opslag van lokale gegevens. Externe opslag in Azure als laatste gegevensopslag op lange termijn. |
 |I/o-doorvoer (bij benadering)|Individuele database: 500 IOP's per vCore met 7000 maximale IOPS</br>Beheerd exemplaar: Afhankelijk van [bestandsgrootte](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOP's per kern met 200.000 maximale IOPS|NOG TE BEPALEN|
 |Beschikbaarheid|1 replica, geen lees-schaal|3 replica's, 1 [leesschaal replica](sql-database-read-scale-out.md),<br/>zone-redundante HA|?|
 |Back-ups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 en 35 dagen (7 dagen standaard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 en 35 dagen (7 dagen standaard)|back-up op basis van een momentopname in Azure, externe opslag en herstelt u deze momentopnamen gebruiken voor snel herstel. Back-ups zijn onmiddellijk en niet van invloed op de i/o-prestaties van de rekencapaciteit. Herstelbewerkingen zijn zeer snel en niet een grootte van gegevensbewerking (waarbij minuten in plaats van uren of dagen).|
@@ -56,16 +57,18 @@ De volgende tabel kunt u weten wat de verschillen tussen de drie lagen:
 - Zie voor meer informatie over de Servicelagen voor algemeen gebruik en bedrijfskritiek [Servicelagen voor algemeen gebruik en bedrijfskritiek](sql-database-service-tiers-general-purpose-business-critical.md).
 - Zie voor meer informatie over de servicelaag grootschalige in het op vCore gebaseerde aankoopmodel [grootschalige servicelaag](sql-database-service-tier-hyperscale.md).  
 
-> [!IMPORTANT]
-> Als u minder dan één vCore rekencapaciteit nodig hebt, gebruikt u het op DTU gebaseerde aankoopmodel.
+
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-In het op vCore gebaseerde aankoopmodel, kunt u uw bestaande licenties voor gereduceerde tarieven voor SQL-Database met behulp van exchange de [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Dit voordeel van Azure kunt u uw on-premises SQL Server-licenties gebruiken tot 30% besparen op Azure SQL Database met behulp van uw on-premises SQL Server-licenties met Software Assurance.
+In de computerlaag ingerichte van de vCore gebaseerde aankoopmodel kunt u uw bestaande licenties voor gereduceerde tarieven voor SQL-Database met behulp van exchange de [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Dit voordeel van Azure kunt u uw on-premises SQL Server-licenties gebruiken tot 30% besparen op Azure SQL Database met behulp van uw on-premises SQL Server-licenties met Software Assurance.
 
 ![prijzen](./media/sql-database-service-tiers/pricing.png)
 
-Met de Azure Hybrid Benefit kunt u alleen betaalt voor de onderliggende Azure-infrastructuur met behulp van uw bestaande SQL Server-licentie voor de SQL database-engine zelf (**BasePrice**) of te betalen voor de onderliggende infrastructuur en de SQL Server-licentie (**LicenseIncluded**). U kunt kiezen of wijzig uw licentiemodel met behulp van de Azure-portal of een van de volgende API's.
+Met de Azure Hybrid Benefit kunt u alleen betaalt voor de onderliggende Azure-infrastructuur met behulp van uw bestaande SQL Server-licentie voor de SQL database-engine zelf (**BasePrice**) of te betalen voor de onderliggende infrastructuur en de SQL Server-licentie (**LicenseIncluded**).
+
+
+U kunt kiezen of wijzig uw licentiemodel met behulp van de Azure-portal of een van de volgende API's.
 
 - Instellen of bijwerken van het licentietype met behulp van PowerShell:
 
@@ -130,5 +133,5 @@ U kunt een database met een grootte op basis van DTU compute kopiëren naar een 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over specifieke-grootten en opties voor opslag beschikbaar voor individuele database Reken, [SQL Database vCore gebaseerde resourcelimieten voor individuele databases](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- Zie voor meer informatie over specifieke-grootten en opties voor opslag beschikbaar voor individuele database Reken, [SQL Database vCore gebaseerde resourcelimieten voor individuele databases](sql-database-vcore-resource-limits-single-databases.md)
 - Zie voor meer informatie over specifieke-grootten en opties voor opslag beschikbaar voor elastische pools Reken, [SQL Database vCore gebaseerde resourcelimieten voor elastische pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

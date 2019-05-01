@@ -2,23 +2,19 @@
 title: Toegang tot Key Vault achter een firewall - Azure Key Vault | Microsoft Docs
 description: Meer informatie over toegang tot Azure Key Vault vanuit een toepassing achter een firewall
 services: key-vault
-documentationcenter: ''
 author: amitbapat
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 50d21774-2ee1-4212-8995-570c9de603c5
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 36b431d07ad517d495316963fd6710dafab6c297
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc6315f5ab264108369410b73a667fa1e07e1e44
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60305421"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689943"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Toegang tot Azure Key Vault achter een firewall
 
@@ -36,7 +32,7 @@ Er zijn enkele verschillen, afhankelijk van uw configuratie en omgeving.
 
 Al het verkeer naar de key vault voor de drie functies (verificatie, beheer en toegang tot gegevenslaag) gaat via HTTPS: poort 443. Voor CRL gaat het verkeer soms echter via HTTP (poort 80). Clients die ondersteuning bieden voor OCSP, mogen CRL niet bereiken, maar kunnen soms [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl) bereiken.  
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 
 Key vault-clienttoepassingen moet toegang hebben tot Azure Active Directory-eindpunten voor verificatie. Welk eindpunt wordt gebruikt, hangt af van de configuratie van de Azure AD-tenant en het type principal (gebruikers-principal of service-principal) en het type account, bijvoorbeeld een Microsoft-account of een werk- of schoolaccount.  
 

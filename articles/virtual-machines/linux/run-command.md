@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fe0547c1ddb89b8d9ab3e876e83bbdea17a58743
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772051"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570594"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Shell-scripts uitvoeren in uw Linux-VM met de opdracht uitvoeren
 
@@ -78,9 +78,9 @@ Deze tabel bevat de lijst met opdrachten die beschikbaar zijn voor virtuele Linu
 
 ## <a name="limiting-access-to-run-command"></a>Beperken van toegang tot de opdracht uitvoeren
 
-Lijst van de uitvoering van de opdrachten of worden de details van een opdracht moet de `Microsoft.Compute/locations/runCommands/read` machtiging, waarmee de ingebouwde [lezer](../../role-based-access-control/built-in-roles.md#reader) rol en hoger.
+Lijst van de uitvoering van de opdrachten of worden de details van een opdracht moet de `Microsoft.Compute/locations/runCommands/read` machtiging op abonnementsniveau, die de ingebouwde [lezer](../../role-based-access-control/built-in-roles.md#reader) rol en hoger.
 
-Het uitvoeren van een opdracht moet de `Microsoft.Compute/virtualMachines/runCommand/action` machtiging, die de [Inzender](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rol en hoger.
+Het uitvoeren van een opdracht moet de `Microsoft.Compute/virtualMachines/runCommand/action` machtiging op abonnementsniveau, die de [Inzender voor virtuele machines](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rol en hoger.
 
 U kunt een van de [ingebouwde](../../role-based-access-control/built-in-roles.md) rollen of maak een [aangepaste](../../role-based-access-control/custom-roles.md) rol opdracht uitvoeren te gebruiken.
 

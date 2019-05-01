@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26f3fe9c2483dda3b9350c110b2e8adf60dcd21e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e2e783a7c34216624126946eef84f56977d4c049
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387210"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572406"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Releasegeschiedenis van versie
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -43,12 +43,12 @@ Downloaden | [Azure AD Connect downloaden](https://go.microsoft.com/fwlink/?Link
 Terwijl we dit proces doorloopt, wordt het versienummer van de release worden weergegeven met een 'X' in de secundaire versie nummer positie, zoals in '1.3.X.0' - Dit geeft aan dat de opmerkingen bij de release in dit document zijn geldig voor alle versies, beginnend met '1.3.'. Het releaseversienummer wordt bijgewerkt naar de meest recent uitgebrachte versie en de status van de release wordt bijgewerkt naar 'Vrijgegeven voor downloaden en automatisch upgraden' zodra we het uitgifteproces hebt voltooid.
 Niet alle versies van Azure AD Connect wordt beschikbaar gesteld voor automatische upgrade. De status van de release wordt aangegeven of een release voor automatische upgrade of voor download beschikbaar is gemaakt. Als u automatisch bijwerken is ingeschakeld op uw Azure AD Connect-server bijwerken die server automatisch naar de nieuwste versie van Azure AD Connect die voor automatische upgrade wordt vrijgegeven. Houd er rekening mee dat niet alle Azure AD Connect-configuraties die in aanmerking komen voor automatische upgrade zijn. Volg deze koppeling voor meer informatie over [Automatische upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="13x0"></a>1.3.X.0 
+## <a name="13200"></a>1.3.20.0 
 
 ### <a name="release-status"></a>Releasestatus 
 
-3/25/2019: In behandeling
- 
+04/24/2019: Die zijn uitgebracht voor downloaden
+
 ### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen 
 
 - Voeg ondersteuning toe voor het domein vernieuwen 
@@ -64,7 +64,7 @@ Niet alle versies van Azure AD Connect wordt beschikbaar gesteld voor automatisc
 - Een upgrade uitvoert naar ADAL 3.19.8 een WS-Trust-oplossing voor Ping ophalen en toevoegen van ondersteuning voor nieuwe Azure-exemplaren 
 - Groep wijzigen-synchronisatieregels samAccountName, DomainNetbios en DomainFQDN naar de cloud - stromen die nodig zijn voor claims 
 - Standaard synchronisatie regel verwerking: meer informatie gewijzigd [hier](how-to-connect-fix-default-rules.md).
-- Een nieuwe agent die wordt uitgevoerd als een windows-service toegevoegd. Deze agent, met de naam 'Admin Agent', kunt meer gedetailleerde externe diagnostische gegevens van de Azure AD Connect-server voor het Microsoft-Engineers oplossen wanneer u een ondersteuningsaanvraag openen. Meer informatie over de Admin Agent [hier](whatis-aadc-admin-agent.md). 
+- Een nieuwe agent die wordt uitgevoerd als een windows-service toegevoegd. Deze agent, met de naam 'Admin Agent', kunt meer gedetailleerde externe diagnostische gegevens van de Azure AD Connect-server voor het Microsoft-Engineers oplossen wanneer u een ondersteuningsaanvraag openen. Deze agent is niet geïnstalleerd en is standaard ingeschakeld.  Zie voor meer informatie over het installeren en inschakelen van de agent [wat is de Azure AD Connect-beheerder-Agent?](whatis-aadc-admin-agent.md). 
 - De gebruiksrechtovereenkomst (EULA) bijgewerkt 
 - Automatische upgrade ondersteuning toegevoegd voor implementaties die gebruikmaken van AD FS als hun aanmeldingstype.  Dit ook verwijderd de vereiste van het bijwerken van de AD FS Azure AD Relying Party Trust als onderdeel van het upgradeproces. 
 - Een beheertaak voor Azure AD-vertrouwensrelatie met twee opties toegevoegd: vertrouwensrelatie analyseren/bijwerken en opnieuw instellen van vertrouwen. 

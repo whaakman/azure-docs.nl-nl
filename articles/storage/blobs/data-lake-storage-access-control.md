@@ -2,42 +2,46 @@
 title: Overzicht van toegangsbeheer in Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Begrijpen hoe toegangsbeheer werkt in Azure Data Lake Storage Gen2
 services: storage
-author: jamesbak
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: jamesbak
-ms.openlocfilehash: e8d7d77128acd4bdb81a99ac6756a5e28b4a408f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: normesta
+ms.reviewer: jamesbak
+ms.openlocfilehash: 8fd73b1e0fcde6bcd69c7ce76b888d1adda37de4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001589"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939551"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Toegangsbeheer in Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 implementeert een model voor toegangsbeheer die ondersteuning biedt voor zowel Azure rollen gebaseerd toegangsbeheer (RBAC) en POSIX-achtige toegangsbeheerlijsten (ACL's). In dit artikel bevat een overzicht van de basisbeginselen van het model voor toegangsbeheer voor Data Lake Storage Gen2. 
+Azure Data Lake Storage Gen2 implementeert een model voor toegangsbeheer die ondersteuning biedt voor zowel Azure op rollen gebaseerd toegangsbeheer (RBAC) en POSIX-achtige toegangsbeheerlijsten (ACL's). In dit artikel bevat een overzicht van de basisbeginselen van het model voor toegangsbeheer voor Data Lake Storage Gen2.
 
-## <a name="azure-role-based-access-control-rbac"></a>Azure Role-based Access Control (RBAC)
+<a id="azure-role-based-access-control-rbac" />
 
-Azure Role-based Access Control (RBAC) maakt gebruik van roltoewijzingen effectief sets machtigingen toepassen op gebruikers, groepen en service-principals voor Azure-resources. Normaal gesproken deze Azure-resources worden beperkt tot bronnen op het hoogste niveau (*bijvoorbeeld*, Azure Storage-accounts). In het geval van Azure Storage, en als gevolg hiervan in Azure Data Lake Storage Gen2, dit mechanisme uitgebreid naar de bron van het systeem bestand.
+## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 
-Tijdens het gebruik van RBAC-roltoewijzingen een krachtig mechanisme voor het besturingselement gebruikersmachtigingen, is dit een zeer coarsely korrelig mechanisme ten opzichte van ACL's. De kleinste granulariteit voor RBAC is op het niveau van het bestandssysteem en dit wordt eerst geëvalueerd op een hogere prioriteit dan de ACL's. Dus als u RBAC-machtigingen op een bestandssysteem toewijst, hebt die gebruiker of service-principal die autorisatie voor alle mappen en bestanden in die bestandssysteem, ongeacht de ACL-toewijzingen.
+RBAC gebruik roltoewijzingen voor het effectief sets van machtigingen aan *beveiligings-principals*. Een *beveiligings-principal* is een object dat staat voor een gebruiker, groep, service-principal of beheerde identiteit die is gedefinieerd in Azure Active Directory (AD) die toegang tot Azure-resources aanvraagt.
 
-Azure Storage biedt drie ingebouwde RBAC-rollen voor Blob-opslag: 
+Normaal gesproken deze Azure-resources worden beperkt tot bronnen op het hoogste niveau (bijvoorbeeld: Azure Storage-accounts). In het geval van Azure Storage, en als gevolg hiervan in Azure Data Lake Storage Gen2, dit mechanisme uitgebreid naar de bron van het systeem bestand.
 
-- [De eigenaar van een opslag-Blob-gegevens](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
-- [Gegevensbijdrager voor Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
-- [Gegevenslezer voor Opslagblob](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
+Zie voor meer informatie over het toewijzen van rollen aan beveiligings-principals in het bereik van uw opslagaccount, [verifiëren van toegang tot Azure-blobs en wachtrijen met behulp van Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Als gegevens RBAC-machtigingen via een van deze ingebouwde rollen, of via een aangepaste rol is verleend door een gebruiker of service-principal, worden deze machtigingen eerst bij de autorisatie van een aanvraag geëvalueerd. Als de aangevraagde bewerking is geautoriseerd door de aanroeper RBAC-toewijzingen en autorisatie onmiddellijk afgesloten en er geen aanvullende wordt worden ACL-controles uitgevoerd. U kunt ook als de oproepende functie heeft geen een toewijzing RBAC of bewerking van de aanvraag komt niet overeen met de toegewezen machtiging, klikt u vervolgens ACL controles uitgevoerd om te bepalen of de aanroeper is gemachtigd om uit te voeren van de aangevraagde bewerking.
+### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>De impact van roltoewijzingen op bestands- en niveau toegangsbeheerlijsten
 
-Een speciale opmerking moet worden gemaakt van de ingebouwde rol van de eigenaar van een opslag-Blob-gegevens. Als de aanroeper deze RBAC-toewijzing heeft, wordt de gebruiker wordt beschouwd als een *supergebruiker* en is verleend volledige toegang tot alle mutating bewerkingen, inclusief het instellen van de eigenaar van een map of bestand, evenals ACL's voor mappen en bestanden waarvoor ze zijn niet de eigenaar. Supergebruiker toegang is de enige geautoriseerde manier om te wijzigen van de eigenaar van een resource.
+Tijdens het gebruik van RBAC-roltoewijzingen een krachtig mechanisme voor het beheren van machtigingen voor toegang, is dit een zeer coarsely korrelig mechanisme ten opzichte van ACL's. De kleinste granulariteit voor RBAC is op het niveau van het bestandssysteem en dit wordt eerst geëvalueerd op een hogere prioriteit dan de ACL's. Als u een rol aan een beveiligings-principal in het bereik van een bestandssysteem toewijzen, heeft deze beveiligings-principal daarom het autorisatieniveau die zijn gekoppeld aan die rol voor alle mappen en bestanden in die bestandssysteem, ongeacht de ACL-toewijzingen.
 
-## <a name="shared-key-and-shared-access-signature-authentication"></a>Gedeelde sleutels en Shared Access Signature-verificatie
+Wanneer een beveiligings-principal machtigingen worden toegekend RBAC gegevens via een [ingebouwde rol](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), of via een aangepaste rol deze machtigingen worden eerst geëvalueerd bij verificatie van een aanvraag. Als de aangevraagde bewerking is geautoriseerd door de beveiligings-principal RBAC-toewijzingen en autorisatie onmiddellijk afgesloten en er geen aanvullende wordt worden ACL-controles uitgevoerd. U kunt ook als de beveiligings-principal heeft geen een RBAC-toewijzing, of de bewerking van de aanvraag komt niet overeen met de toegewezen machtiging, klikt u vervolgens ACL controles uitgevoerd om te bepalen of de beveiligings-principal is gemachtigd om uit te voeren van de aangevraagde bewerking.
 
-Azure Data Lake Storage Gen2 ondersteunt gedeelde sleutel en Shared Access Signature-methoden voor verificatie. Een kenmerk van deze verificatiemethoden is dat er geen identiteit gekoppeld aan de oproepende functie is en daarom gebruikersautorisatie op basis van een machtiging kan niet worden uitgevoerd.
+> [!NOTE]
+> Als de beveiligings-principal is toegewezen de [Storage Blob-gegevens]() eigenaar ingebouwde rol toewijzen en vervolgens de beveiligings-principal wordt beschouwd als een *supergebruiker* en volledige toegang hebben tot alle mutating bewerkingen, inclusief het instellen van de eigenaar van een map of bestand, evenals ACL's voor mappen en bestanden waarvoor ze niet de eigenaar zijn. Supergebruiker toegang is de enige geautoriseerde manier om te wijzigen van de eigenaar van een resource.
+
+## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Gedeelde sleutel en Shared Access Signature (SAS)-verificatie
+
+Azure Data Lake Storage Gen2 ondersteunt gedeelde sleutel- en SAS-methoden voor verificatie. Een kenmerk van deze verificatiemethoden is dat er geen identiteit gekoppeld aan de oproepende functie is en daarom security principal machtiging gebaseerde verificatie kan niet worden uitgevoerd.
 
 In het geval van een gedeelde sleutel, de oproepende functie effectief 'supergebruiker' om toegang te krijgen, wat betekent dat volledige toegang tot alle bewerkingen op alle resources, met inbegrip van de eigenaar instellen en wijzigen van ACL's.
 
@@ -45,18 +49,40 @@ Toegestane machtigingen opnemen SAS-tokens als onderdeel van het token. De macht
 
 ## <a name="access-control-lists-on-files-and-directories"></a>Toegangsbeheerlijsten voor bestanden en mappen
 
-Er zijn twee soorten toegangsbeheerlijsten (ACL's): toegang tot ACL's en standaard-ACL's.
+U kunt een beveiligings-principal koppelen aan een toegangsniveau voor bestanden en mappen. Deze koppelingen zijn vastgelegd in een *toegangsbeheerlijst (ACL)*. Elk bestand en map in uw storage-account heeft een toegangsbeheerlijst.
 
-* **Toegangs-ACL's**: Met toegangs-ACL's beheert u de toegang tot een object. Bestanden en mappen hebben beide Toegangs-ACL's.
+Als u een rol aan een beveiligings-principal op het storage-account-niveau toegewezen, kunt u toegangsbeheerlijsten te verlenen dat die beveiligings-principal met verhoogde bevoegdheden voor toegang tot specifieke bestanden en mappen.
 
-* **Standaard-ACL's**: Een sjabloon van ACL's die zijn gekoppeld aan een map die de toegang tot een ACL's voor alle onderliggende items die zijn gemaakt onder die map. Bestanden hebben geen Standaard-ACL's.
+U kunt toegangsbeheerlijsten niet gebruiken voor een bepaald niveau van toegang die lager is dan een niveau dat is verleend door een roltoewijzing. Als u bijvoorbeeld de [Gegevensbijdrager voor Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview) rol die u wilt een beveiligings-principal, kunt u toegangsbeheer gebruiken om te voorkomen dat deze beveiligings-principal schrijven naar een map bevat.
+
+### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>Bestands- en niveau machtigingen instellen met behulp van toegangsbeheerlijsten
+
+Zie voor het instellen van machtigingen voor bestanden en mappen op het niveau, een van de volgende artikelen:
+
+|Als u dit hulpprogramma gebruiken wilt:    |Raadpleeg dit artikel:    |
+|--------|-----------|
+|Azure Opslagverkenner    |[Bestands- en machtigingen op het niveau met behulp van Azure Storage Explorer met de Azure Data Lake Storage Gen2 instellen](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
+|REST-API    |[Pad - Update](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+
+> [!IMPORTANT]
+> Als de beveiligings-principal is een *service* principal, is het belangrijk om de object-ID van de service-principal en niet de object-ID van de bijbehorende app-registratie te gebruiken. Object-ID van de service-principal open de Azure CLI en gebruik vervolgens deze opdracht: `az ad sp show --id <Your App ID> --query objectId`. Vervang de `<Your App ID>` tijdelijke aanduiding door de App-ID van uw app-registratie.
+
+### <a name="types-of-access-control-lists"></a>Typen toegangsbeheerlijsten
+
+Er zijn twee soorten toegangsbeheerlijsten: *toegangs-ACL's* en *standaard-ACL's*.
+
+Met toegangs-ACL's beheert u de toegang tot een object. Bestanden en mappen hebben beide Toegangs-ACL's.
+
+Standaard-ACL's zijn sjablonen van ACL's die zijn gekoppeld aan een map die de toegang tot een ACL's voor alle onderliggende items die zijn gemaakt onder die map. Bestanden hebben geen Standaard-ACL's.
+
+Beide toegangs-ACL's en standaard-ACL's hebben dezelfde structuur.
 
 Beide toegangs-ACL's en standaard-ACL's hebben dezelfde structuur.
 
 > [!NOTE]
 > Wijzigen van de standaard-ACL voor een bovenliggend item is niet van invloed zijn op de toegang tot de ACL of standaard-ACL van onderliggende items die al bestaan.
 
-## <a name="permissions"></a>Machtigingen
+### <a name="levels-of-permission"></a>Machtigingsniveaus
 
 De machtigingen voor een bestandssysteemobject zijn **lezen**, **schrijven**, en **Execute**, en ze kunnen worden gebruikt voor bestanden en mappen zoals weergegeven in de volgende tabel:
 
@@ -66,7 +92,7 @@ De machtigingen voor een bestandssysteemobject zijn **lezen**, **schrijven**, en
 | **Schrijven (S)** | Kan schrijven of toevoegen aan een bestand | Vereist **schrijven** en **Execute** onderliggende items in een map maken |
 | **Uitvoeren (U)** | Betekent niet dat alles in de context van Data Lake Storage Gen2 | Vereist om de onderliggende items van een map te gaan |
 
-### <a name="short-forms-for-permissions"></a>Korte formulieren voor machtigingen
+#### <a name="short-forms-for-permissions"></a>Korte formulieren voor machtigingen
 
 **LSU** wordt gebruikt om **Lezen + Schrijven + Uitvoeren** aan te geven. Er bestaat een verkorte numerieke vorm. Hierbij is **Lezen = 4**, **Schrijven = 2** en **Uitvoeren = 1**. De som van deze getallen vertegenwoordigt de machtigingen. Hier volgen enkele voorbeelden.
 
@@ -77,13 +103,13 @@ De machtigingen voor een bestandssysteemobject zijn **lezen**, **schrijven**, en
 | 4            | `R--`        | Lezen                   |
 | 0            | `---`        | Geen machtigingen         |
 
-### <a name="permissions-inheritance"></a>Overname van machtigingen
+#### <a name="permissions-inheritance"></a>Overname van machtigingen
 
 In het POSIX model dat wordt gebruikt door Data Lake Storage Gen2, worden machtigingen voor een item opgeslagen op het item zelf. Met andere woorden, is dat de machtigingen voor een item kunnen niet worden overgenomen van de bovenliggende items als de machtigingen zijn ingesteld nadat het onderliggende item is al gemaakt. Machtigingen worden alleen overgenomen als standaardmachtigingen zijn ingesteld op de bovenliggende items voordat u de onderliggende items zijn gemaakt.
 
-## <a name="common-scenarios-related-to-permissions"></a>Algemene scenario's met machtigingen
+### <a name="common-scenarios-related-to-permissions"></a>Algemene scenario's met machtigingen
 
-De volgende tabel bevat enkele algemene scenario's om u te helpen u te begrijpen welke machtigingen zijn vereist om uit te voeren van bepaalde bewerkingen op een Data Lake Storage Gen2-account.
+De volgende tabel bevat enkele algemene scenario's om u te helpen u te begrijpen welke machtigingen zijn vereist om uit te voeren van bepaalde bewerkingen op een storage-account.
 
 |    Bewerking             |    /    | Oregon/ | Portland / | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -95,13 +121,10 @@ De volgende tabel bevat enkele algemene scenario's om u te helpen u te begrijpen
 | Lijst met /Oregon/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | Lijst met /Oregon/Portland /  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
-
 > [!NOTE]
 > Schrijven machtigingen op het bestand hoeven niet te verwijderen, zolang de vorige twee voorwaarden voldaan wordt.
->
->
 
-## <a name="users-and-identities"></a>Gebruikers en identiteiten
+### <a name="users-and-identities"></a>Gebruikers en identiteiten
 
 Alle bestanden en mappen beschikken over verschillende machtigingen voor de volgende identiteiten:
 
@@ -110,11 +133,12 @@ Alle bestanden en mappen beschikken over verschillende machtigingen voor de volg
 - Benoemde gebruikers
 - Benoemde groepen
 - Benoemde service-principals
+- Met de naam van beheerde identiteiten
 - Alle andere gebruikers
 
-De identiteiten van gebruikers en groepen zijn Azure Active Directory-identiteiten (Azure AD). Dit het geval is, tenzij anders vermeld, een *gebruiker*, in de context van Data Lake Storage Gen2, kunnen verwijzen naar een Azure AD-gebruiker, service-principal of beveiligingsgroep.
+De identiteiten van gebruikers en groepen zijn Azure Active Directory-identiteiten (Azure AD). Dit het geval is, tenzij anders vermeld, een *gebruiker*, in de context van Data Lake Storage Gen2, kunnen verwijzen naar een Azure AD-gebruiker, service-principal, beheerde identiteit of beveiligingsgroep.
 
-### <a name="the-owning-user"></a>De gebruiker die eigenaar is
+#### <a name="the-owning-user"></a>De gebruiker die eigenaar is
 
 De gebruiker die het item heeft gemaakt, wordt automatisch de gebruiker die eigenaar is van het item. Een gebruiker die eigenaar is kan:
 
@@ -124,16 +148,16 @@ De gebruiker die het item heeft gemaakt, wordt automatisch de gebruiker die eige
 > [!NOTE]
 > De gebruiker die eigenaar is *kan geen* wijzigen van de gebruiker die eigenaar is van een bestand of map. Alleen supergebruikers kunnen de gebruiker die eigenaar is van een bestand of map wijzigen.
 
-### <a name="the-owning-group"></a>De groep die eigenaar is
+#### <a name="the-owning-group"></a>De groep die eigenaar is
 
 In de POSIX ACL's is elke gebruiker is gekoppeld aan een *hoofdgroep*. Gebruiker 'Els' kan bijvoorbeeld behoren tot de groep 'Financiën'. Els kan behoren tot meerdere groepen, maar één groep is altijd ingesteld als haar hoofdgroep. Wanneer Els in POSIX een bestand maakt, wordt de groep die eigenaar van het bestand is als haar hoofdgroep ingesteld. In dit geval is dit 'Financiën'. De groep die eigenaar is, gedraagt zich op dezelfde manier als toegewezen machtigingen voor andere gebruikers/groepen.
 
-#### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>De groep die eigenaar is van een nieuw bestand of map toewijzen
+##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>De groep die eigenaar is van een nieuw bestand of map toewijzen
 
 * **Geval 1**: De hoofdmap '/'. Deze map wordt gemaakt wanneer een bestandssysteem voor Data Lake Storage Gen2 wordt gemaakt. In dit geval de groep die eigenaar is ingesteld op de gebruiker die het bestandssysteem gemaakt als deze is uitgevoerd met behulp van OAuth. Als het bestandssysteem wordt gemaakt met behulp van de gedeelde sleutel, een Account-SAS of een SAS-Service, wordt de eigenaar en de groep die eigenaar is, zijn ingesteld op **$superuser**.
 * **Geval 2** (alle andere gevallen): Wanneer een nieuw item wordt gemaakt, wordt de groep die eigenaar is van de bovenliggende map gekopieerd.
 
-#### <a name="changing-the-owning-group"></a>De groep die eigenaar is wijzigen
+##### <a name="changing-the-owning-group"></a>De groep die eigenaar is wijzigen
 
 De groep die eigenaar is kan worden gewijzigd door:
 * Alle supergebruikers.
@@ -142,9 +166,9 @@ De groep die eigenaar is kan worden gewijzigd door:
 > [!NOTE]
 > De groep die eigenaar is kan de ACL's van een bestand of map niet wijzigen.  Terwijl de groep die eigenaar is ingesteld op de gebruiker die heeft gemaakt van het account in het geval van de hoofdmap **voorbeeld1** hierboven een gebruikersaccount is niet geldig voor het verstrekken van machtigingen via de groep die eigenaar is. U kunt deze machtiging toewijzen aan een geldige gebruikersgroep, indien van toepassing.
 
-## <a name="access-check-algorithm"></a>Algoritme voor toegangscontrole
+### <a name="access-check-algorithm"></a>Algoritme voor toegangscontrole
 
-De volgende pseudocode vertegenwoordigt het algoritme voor toegangscontrole voor Data Lake Storage Gen2 accounts.
+De volgende pseudocode vertegenwoordigt het algoritme voor toegangscontrole voor storage-accounts.
 
 ```
 def access_check( user, desired_perms, path ) : 
@@ -152,13 +176,13 @@ def access_check( user, desired_perms, path ) :
   # user is the identity that wants to perform an operation on path
   # desired_perms is a simple integer with values from 0 to 7 ( R=4, W=2, X=1). User desires these permissions
   # path is the file or directory
-  # Note: the "sticky bit" is not illustrated in this algorithm
+  # Note: the "sticky bit" isn't illustrated in this algorithm
   
 # Handle super users.
   if (is_superuser(user)) :
     return True
 
-# Handle the owning user. Note that mask IS NOT used.
+# Handle the owning user. Note that mask isn't used.
 entry = get_acl_entry( path, OWNER )
 if (user == entry.identity)
     return ( (desired_perms & entry.permissions) == desired_perms )
@@ -187,7 +211,7 @@ mask = get_mask( path )
 return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
-### <a name="the-mask"></a>Het masker
+#### <a name="the-mask"></a>Het masker
 
 Zoals wordt geïllustreerd in de algoritme voor het controleren van toegang, wordt in het masker hebben voor benoemde gebruikers, de groep die eigenaar is en de benoemde groepen beperkt.  
 
@@ -196,20 +220,20 @@ Zoals wordt geïllustreerd in de algoritme voor het controleren van toegang, wor
 >
 > Het masker kan worden opgegeven op basis van per aanroep. Hiermee kunt verschillende systemen in beslag nemen, zoals clusters hebben verschillende effectieve maskers voor hun bestandsbewerkingen. Als een masker voor een bepaalde aanvraag is opgegeven, wordt volledig het masker standaard overschreven.
 
-### <a name="the-sticky-bit"></a>De vergrendelde bit
+#### <a name="the-sticky-bit"></a>De vergrendelde bit
 
 De vergrendelde bit is een geavanceerdere functie van een POSIX-bestandssysteem. In de context van Data Lake Storage Gen2 is het onwaarschijnlijk dat de vergrendelde bit nodig is. Kortom, als de vergrendelde bit is ingeschakeld op een map, kan een onderliggend item alleen worden verwijderd of gewijzigd door de gebruiker die eigenaar is van het onderliggende item.
 
-De vergrendelde bit wordt niet weergegeven in Azure Portal.
+De vergrendelde bit wordt niet weergegeven in de Azure-portal.
 
-## <a name="default-permissions-on-new-files-and-directories"></a>Standaardmachtigingen voor nieuwe bestanden en mappen
+### <a name="default-permissions-on-new-files-and-directories"></a>Standaardmachtigingen voor nieuwe bestanden en mappen
 
 Wanneer een nieuw bestand of map wordt gemaakt onder een bestaande map, de standaard-ACL voor de bovenliggende map bepaalt:
 
 - Standaard-ACL en toegang ACL van een onderliggende map.
 - Een onderliggend bestand toegang krijgen tot ACL (bestanden beschikken niet over een standaard-ACL).
 
-### <a name="umask"></a>umask
+#### <a name="umask"></a>umask
 
 Bij het maken van een bestand of map, wordt umask wordt gebruikt om te wijzigen hoe de standaard-ACL's zijn ingesteld op het onderliggende item. umask is een 9-bits waarde van de bovenliggende mappen waarin een LSU-waarde voor **gebruiker die eigenaar is**, **groep die eigenaar is**, en **andere**.
 
@@ -245,7 +269,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>Moet ik ondersteuning voor ACL's inschakelen?
 
-Nee. Toegangsbeheer via de ACL's is ingeschakeld voor een Data Lake Storage Gen2-account, zolang de hiërarchische Namespace (HNS) functie is ingeschakeld.
+Nee. Toegangsbeheer via de ACL's is ingeschakeld voor een storage-account, zolang de hiërarchische Namespace (HNS) functie is ingeschakeld.
 
 Als HNS is uitgeschakeld, de Azure RBAC-autorisatieregels nog steeds van toepassing.
 

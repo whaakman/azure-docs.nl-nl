@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d1ed16465efb6c70b4426f22e8b9983112142c79
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162642"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690271"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Veelgestelde vragen over Eventhubs
 
@@ -50,6 +50,47 @@ Event Hubs Standard-laag biedt momenteel ondersteuning voor een maximale bewaarp
 
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Hoe bewaak ik mijn Event Hubs?
 Eventhubs verzendt uitgebreide metrische gegevens die de status van uw resources te bieden [Azure Monitor](../azure-monitor/overview.md). Ook kunt u bij het bepalen van de algemene status van de Event Hubs-service niet alleen op het niveau van de naamruimte, maar ook op het entiteitsniveau van de. Meer informatie over welke bewaking wordt aangeboden voor [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Welke poorten moet ik gebruiken om te openen op de firewall? 
+U kunt de volgende protocollen gebruiken met Azure Service Bus berichten te verzenden en ontvangen:
+
+- Advanced Message Queuing Protocol (AMQP)
+- HTTP
+- Apache Kafka
+
+Zie de volgende tabel voor de uitgaande poorten die u wilt openen om deze protocollen gebruiken om te communiceren met Azure Event Hubs te maken. 
+
+| Protocol | Poorten | Details | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 en 5672 | Zie [AMQP-protocolhandleiding](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| HTTP, HTTPS | 80, 443 |  |
+| Kafka | 9092 | Zie [Event Hubs gebruiken vanuit toepassingen van Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Welke IP-adressen moet ik aan lijst met geaccepteerde?
+Als u wilt zoeken witte lijst de juiste IP-adressen voor uw verbindingen, de volgende stappen uit:
+
+1. Voer de volgende opdracht uit vanaf een opdrachtprompt: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Noteer de IP-adres dat is geretourneerd `Non-authoritative answer`. Dit IP-adres is statisch. Het enige punt in tijd gewijzigd zou is als u de naamruimte die u aan bij een ander cluster herstellen.
+
+Als u de zoneredundantie voor uw naamruimte gebruikt, moet u een paar extra stappen uitvoeren: 
+
+1. Eerst, voert u nslookup op de naamruimte.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Noteer de naam in de **niet-bindend antwoord** sectie, die zich in een van de volgende indelingen: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Nslookup uitvoeren voor elke opdracht met de achtervoegsels s1, s2 en s3 om op te halen van de IP-adressen van alle drie exemplaren die worden uitgevoerd in drie beschikbaarheidszones, 
 
 ## <a name="apache-kafka-integration"></a>Integratie van Apache Kafka
 

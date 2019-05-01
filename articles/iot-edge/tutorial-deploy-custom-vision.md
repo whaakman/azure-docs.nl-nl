@@ -9,12 +9,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7a5a92635114be87e59fe8f779c36d4c401a1427
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 194ebcc1f1779c927503e09e9c42a96afddb12c9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612957"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575819"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Zelfstudie: Custom Vision Service gebruiken om afbeeldingsclassificatie uit te voeren aan de rand
 
@@ -25,7 +25,6 @@ Zo kunt u met Custom Vision op een IoT Edge-apparaat bepalen of er op een snelwe
 In deze zelfstudie leert u het volgende: 
 
 > [!div class="checklist"]
->
 > * Een afbeeldingsclassificatie bouwen met Custom Vision.
 > * Een IoT Edge-module ontwikkelen die gegevens opvraagt van de Custom Vision-webserver op uw apparaat.
 > * De resultaten van de afbeeldingsclassificatie verzenden naar IoT Hub.
@@ -39,25 +38,19 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Een Azure IoT Edge-apparaat:
+Voordat u deze zelfstudie begint, moet u zijn gebleven door middel van de vorige zelfstudie over het instellen van uw ontwikkelomgeving voor ontwikkeling van Linux-containers: [Ontwikkelen van IoT Edge-modules voor Linux-apparaten](tutorial-develop-for-linux.md). Door deze zelfstudie is voltooid, hebt u de volgende vereisten voldaan: 
 
-* U kunt uw ontwikkelcomputer of een virtuele machine gebruiken als een Edge-apparaat door de stappen te volgen in de [snelstart voor Linux](quickstart-linux.md).
-* Op dit moment is de Custom Vision-module alleen beschikbaar als een Linux-container voor x64 architecturen. 
+* Een gratis of standaard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure.
+* Een [Linux-apparaat met Azure IoT Edge](quickstart-linux.md)
+* Een containerregister, bijvoorbeeld [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio Code](https://code.visualstudio.com/) geconfigureerd met de [hulpprogramma's voor Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Docker CE](https://docs.docker.com/install/) geconfigureerd voor het uitvoeren van Linux-containers.
 
-Cloudresources:
-
-* Een standaard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure. 
-* Een containerregister. In deze zelfstudie wordt [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) gebruikt. 
-* Zorg dat u de referenties kent voor het [beheerdersaccount](../container-registry/container-registry-authentication.md#admin-account) van uw containerregister.
-
-Ontwikkelingsresources:
+Voor het ontwikkelen van een IoT Edge-module met de Custom Vision service, installeert u de volgende aanvullende vereisten op uw ontwikkelcomputer: 
 
 * [Python](https://www.python.org/downloads/)
 * [Git](https://git-scm.com/downloads)
-* [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)-extensie voor Visual Studio Code
 * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)-extensie voor Visual Studio Code
-* [Docker CE](https://docs.docker.com/install/)
 
 ## <a name="build-an-image-classifier-with-custom-vision"></a>Een afbeeldingsclassificatie bouwen met Custom Vision
 
@@ -169,6 +162,22 @@ Een oplossing is een logische manier om meerdere modules voor één IoT Edge-imp
    ![Opslagplaats voor Docker-installatiekopieën opgeven](./media/tutorial-deploy-custom-vision/repository.png)
 
 De werkruimte van de IoT Edge-oplossing wordt geladen in het Visual Studio Code-venster.
+
+### <a name="add-your-registry-credentials"></a>Uw registerreferenties toevoegen
+
+In het omgevingsbestand worden de referenties voor het containerregister opgeslagen. Deze referenties worden gedeeld met de IoT Edge-runtime. De runtime heeft deze referenties nodig om uw persoonlijke installatiekopieën naar het IoT Edge-apparaat te halen.
+
+1. Open in VS Code Explorer het .env-bestand.
+2. Werk de velden **gebruikersnaam** en **wachtwoord** bij met de waarden die u hebt gekopieerd uit het Azure-containerregister.
+3. Sla dit bestand op.
+
+### <a name="select-your-target-architecture"></a>Selecteer uw doel-architectuur
+
+Op dit moment kunt modules voor Linux AMD64- en Linux ARM32v7 apparaten ontwikkelen met Visual Studio Code. U moet selecteren welke architectuur die u hebt geconfigureerd met elke oplossing, omdat de container is gemaakt en uitgevoerd anders voor elk architectuurtype. De standaardwaarde is Linux AMD64. 
+
+1. Open het opdrachtenpalet en zoek **Azure IoT Edge: Doelplatform standaard ingesteld voor Edge-oplossing**, of Selecteer het pictogram van de snelkoppeling in de zijbalk aan de onderkant van het venster. 
+
+2. Selecteer de doel-architectuur in de lijst met opties in het opdrachtenpalet. Voor deze zelfstudie gebruiken we een virtuele Ubuntu-machine als de IoT Edge-apparaat, zodat de standaardwaarde wordt **amd64**. 
 
 ### <a name="add-your-image-classifier"></a>Een afbeeldingsclassificatie toevoegen
 
@@ -392,28 +401,6 @@ De IoT Edge-extensie voor Visual Studio Code bevat een sjabloon in elke IoT Edge
 
 7. Sla het bestand **deployment.template.json** op.
 
-### <a name="add-your-registry-credentials"></a>Uw registerreferenties toevoegen
-
-In de vereisten voor deze zelfstudie werd ook een containerregister vermeld. Deze is nodig om containerafbeeldingen op te slaan voor de modules die u hebt gemaakt. U moet op twee plaatsen toegangsreferenties voor uw register opgeven: in Visual Studio Code, zodat u uw afbeeldingen kunt bouwen en naar het register kunt pushen, en in het implementatiemanifest, zodat uw IoT Edge-apparaat de afbeeldingen kan ophalen en implementeren. 
-
-Als u Azure Container Registry gebruikt, zorg er dan voor dat u uw gebruikersnaam, aanmeldingsserver en het wachtwoord voor het [beheerdersaccount](../container-registry/container-registry-authentication.md#admin-account) kent. 
-
-1. Open de in Visual Studio Code geïntegreerde terminal door **View** > **Terminal** te selecteren. 
-
-2. Voer de volgende opdracht in de geïntegreerde terminal in: 
-
-    ```csh/sh
-    docker login -u <registry username> <registry login server>
-    ```
-
-3. Geef uw registerwachtwoord op wanneer dit wordt gevraagd en druk op **Enter**.
-
-4. Open het **.env**-bestand in de oplossingsmap. In dit door git genegeerde bestand worden uw registerreferenties opgeslagen, zodat u deze niet hoeft te coderen in het implementatiesjabloonbestand. 
-
-5. Geef de gebruikersnaam en het wachtwoord voor uw containerregister op, zonder aanhalingstekens rond de waarden te plaatsen. 
-
-6. Sla het **.env**-bestand op.
-
 ## <a name="build-and-deploy-your-iot-edge-solution"></a>Uw IoT Edge-oplossing maken en implementeren
 
 Nu beide modules zijn gemaakt en de implementatiemanifestsjabloon is geconfigureerd, kunt u de containerafbeeldingen gaan bouwen en naar uw containerregister pushen. 
@@ -426,13 +413,7 @@ Eerst gaat u de oplossing bouwen en naar het containerregister pushen.
 2. U ziet dat er een nieuwe map, **config**, is toegevoegd aan uw oplossing. Vouw deze map uit en open het bestand **deployment.json** in de map.
 3. Lees de informatie in het bestand deployment.json. Het bestand deployment.json wordt automatisch gemaakt (of bijgewerkt) op basis van het implementatiesjabloonbestand dat u hebt geconfigureerd en op basis van informatie uit de oplossing, zoals het .env-bestand en de module.json-bestanden. 
 
-Daarna stelt u de toegang tot uw IoT Hub in vanuit Visual Studio Code. 
-
-1. Selecteer in het opdrachtenpalet van VS Code **Azure IoT Hub: Select IoT Hub**.
-2. Volg de aanwijzingen om u aan te melden bij uw Azure-account. 
-3. Selecteer in het opdrachtenpalet uw Azure-abonnement en selecteer vervolgens uw IoT Hub. 
-
-Ten slotte selecteert u uw apparaat en implementeert u uw oplossing.
+Vervolgens selecteert u uw apparaat en uw oplossing implementeren.
 
 1. Vouw in VS Code Explorer de sectie **Azure IoT Hub Devices** uit. 
 2. Klik met de rechtermuisknop op het doelapparaat van uw implementatie en selecteer **Implementatie maken voor één apparaat**. 
@@ -465,12 +446,9 @@ De resultaten van de Custom Vision-module, die als berichten vanuit de module ca
 
 Als u van plan bent door te gaan met het volgende aanbevolen artikel, kunt u de resources en configuraties die u hebt gemaakt behouden en opnieuw gebruiken. U kunt ook hetzelfde IoT Edge-apparaat blijven gebruiken als een testapparaat. 
 
-Anders kunt u de lokale configuraties en Azure-resources die u in dit artikel hebt gemaakt, verwijderen om kosten te voorkomen. 
+Anders kunt u de lokale configuraties en de Azure-resources dat u in dit artikel gebruikt om kosten te vermijden verwijderen. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
-
 
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -482,4 +460,4 @@ Als u een uitgebreidere versie van dit scenario wilt proberen met een live camer
 Ga verder met de volgende zelfstudies om te leren hoe Azure IoT Edge u verder kan helpen bij het omzetten van uw gegevens in bedrijfsinzichten.
 
 > [!div class="nextstepaction"]
-> [Gemiddelden zoeken met een zwevend venster in Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [Gegevens opslaan met SQL Server-databases](tutorial-store-data-sql-server.md)

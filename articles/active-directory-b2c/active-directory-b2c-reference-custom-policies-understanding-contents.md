@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: dbd57e53fbaec4368e3c8ce9600bce1d37bcab8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d128875611c8f7a6c0b65ef46d8f127e3b79efee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317323"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703489"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Inzicht krijgen in het aangepaste beleid van de Azure AD B2C aangepast beleid beginnerspakket
 
@@ -47,7 +47,7 @@ De beschikbare claimtypen worden hieronder vermeld.
 
 De volgende claims zijn vereist voor de gebruiker reizen goed te laten werken:
 
-| Claims type | Beschrijving |
+| Claims type | Description |
 |-------------|-------------|
 | *UserId* | Gebruikersnaam |
 | *signInName* | Meld u aan de naam |
@@ -78,7 +78,7 @@ De volgende claims zijn vereist voor de gebruiker reizen goed te laten werken:
 
 De volgende claims zijn vereist om door te geven op speciale parameters (met inbegrip van sommige queryreeksparameters) voor andere claims-providers:
 
-| Claims type | Beschrijving |
+| Claims type | Description |
 |-------------|-------------|
 | *nux* | Speciale parameter voor de verificatie van lokale account wordt doorgegeven aan login.microsoftonline.com |
 | *nca* | Speciale parameter voor de verificatie van lokale account wordt doorgegeven aan login.microsoftonline.com |
@@ -95,7 +95,7 @@ De volgende claims zijn vereist om door te geven op speciale parameters (met inb
 
 De volgende claims zijn extra claims die kunnen worden verzameld van de gebruikers, opgeslagen in de map en in het token verzonden. Zoals wordt beschreven voordat, kunnen aanvullende claims worden toegevoegd aan deze lijst.
 
-| Claims type | Beschrijving |
+| Claims type | Description |
 |-------------|-------------|
 | *givenName* | De opgegeven naam van gebruiker (ook wel bekend als voornaam) |
 | *Achternaam* | De achternaam van de gebruiker (ook wel bekend als familienaam of achternaam) |
@@ -137,7 +137,7 @@ In deze sectie ziet u de technische profielen is al gedeclareerd per claimprovid
 
 ### <a name="technical-profiles-for-facebook"></a>Technische profielen voor Facebook
 
-| Technisch profiel | Beschrijving |
+| Technisch profiel | Description |
 |-------------------|-------------|
 | *Facebook-OAUTH* | |
 
@@ -149,7 +149,7 @@ In deze sectie ziet u de technische profielen is al gedeclareerd per claimprovid
 
 ### <a name="technical-profiles-for-phone-factor"></a>Technische profielen voor Phone Factor
 
-| Technisch profiel | Beschrijving |
+| Technisch profiel | Description |
 |-------------------|-------------|
 | *PhoneFactor-Input* | |
 | *PhoneFactor-InputOrVerify* | |
@@ -179,7 +179,7 @@ In deze sectie ziet u de technische profielen is al gedeclareerd per claimprovid
 
 ### <a name="technical-profiles-for-local-account"></a>Technische profielen voor lokaal Account
 
-| Technisch profiel | Beschrijving |
+| Technisch profiel | Description |
 |-------------------|-------------|
 | *LocalAccountSignUpWithLogonEmail* | |
 
@@ -199,7 +199,7 @@ Op dit moment geen technische profielen zijn gedefinieerd voor de **Trustframewo
 
 ### <a name="technical-profiles-for-token-issuer"></a>Technische profielen voor de uitgever van het Token
 
-| Technisch profiel | Beschrijving |
+| Technisch profiel | Description |
 |-------------------|-------------|
 | *JwtIssuer* | |
 

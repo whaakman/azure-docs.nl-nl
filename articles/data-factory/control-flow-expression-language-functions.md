@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 8a2a080ee87d48d25d7d793ca0aca463f25e52eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4c51974498539a0305312d6501bcfa9ebc3b2e88
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60808841"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573548"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressies en functies in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ Expressies kunnen overal voorkomen in een JSON-tekenreekswaarde en altijd gelijk
 ### <a name="examples"></a>Voorbeelden
 
 #### <a name="a-dataset-with-a-parameter"></a>Een gegevensset met een parameter
-In het volgende voorbeeld wordt de BlobDataset een parameter met de naam **pad**. De waarde wordt gebruikt om een waarde instellen voor de **folderPath** eigenschap met behulp van de volgende expressies: `@{dataset().path}`. 
+In het volgende voorbeeld wordt de BlobDataset een parameter met de naam **pad**. De waarde wordt gebruikt om een waarde instellen voor de **folderPath** eigenschap met behulp van de expressie: `dataset().path`. 
 
 ```json
 {

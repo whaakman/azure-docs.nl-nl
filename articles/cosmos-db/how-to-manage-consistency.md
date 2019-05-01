@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/17/2019
 ms.author: rimman
-ms.openlocfilehash: a93bf9a9f43a0929aeb5f3d3121092739396c6a8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 4a444631de4bc26881ab195333b1b798a7ee6719
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678442"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925339"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Consistentieniveaus in Azure Cosmos DB beheren
 
@@ -211,7 +211,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Metrische gegevens van aan waarschijnlijkheid gebonden veroudering (PBS) controleren
 
-Hoe uiteindelijke is uiteindelijke consistentie? Voor de gemiddelde aanvraag kunt bieden wij veroudering grenzen met betrekking tot versiegeschiedenis en tijd. De [ **Probabilistically gebonden veroudering (PBS)** ](http://pbs.cs.berkeley.edu/) metrische gegevens probeert te kwantificeren de kans op veroudering en wordt deze weergegeven als een metrische waarde. Als u wilt de PBS metrische gegevens weergeven, gaat u naar uw Azure Cosmos-account in Azure portal. Open het deelvenster **Metrische gegevens** en selecteer het tabblad **Consistentie**. Bekijk de grafiek met de naam '**Kans op sterk consistente leesbewerkingen op basis van uw werkbelasting (zie PBS)**'.
+Hoe uiteindelijke is uiteindelijke consistentie? Voor de gemiddelde aanvraag kunt bieden wij veroudering grenzen met betrekking tot versiegeschiedenis en tijd. De [ **Probabilistically gebonden veroudering (PBS)** ](https://pbs.cs.berkeley.edu/) metrische gegevens probeert te kwantificeren de kans op veroudering en wordt deze weergegeven als een metrische waarde. Als u wilt de PBS metrische gegevens weergeven, gaat u naar uw Azure Cosmos-account in Azure portal. Open het deelvenster **Metrische gegevens** en selecteer het tabblad **Consistentie**. Bekijk de grafiek met de naam '**Kans op sterk consistente leesbewerkingen op basis van uw werkbelasting (zie PBS)**'.
 
 ![PBS-grafiek in de Azure-portal](./media/how-to-manage-consistency/pbs-metric.png)
 

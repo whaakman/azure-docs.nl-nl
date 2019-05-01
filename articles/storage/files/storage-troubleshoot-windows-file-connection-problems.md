@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9849b8209db0a4aa73a80d461b67bda9b0b3656a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3e40e72a4cbb154a7ccef153959e81f7054ea003
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049724"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926385"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Problemen met Azure Files oplossen in Windows
 
@@ -96,7 +96,7 @@ Als de verbinding is geslaagd, hoort u de volgende uitvoer te zien:
 ### <a name="solution-for-cause-1"></a>Oplossing voor oorzaak 1
 
 #### <a name="solution-1---use-azure-file-sync"></a>Oplossing 1: gebruik Azure File Sync
-Azure File Sync kunt uw on-premises Windows Server worden getransformeerd in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. Azure File Sync werkt via poort 443 en dus kan worden gebruikt als tijdelijke oplossing voor toegang tot Azure Files van clients waarvoor poort 445 is geblokkeerd. [Informatie over het instellen van Azure File Sync](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-extend-servers).
+Azure File Sync kunt uw on-premises Windows Server worden getransformeerd in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. Azure File Sync werkt via poort 443 en dus kan worden gebruikt als tijdelijke oplossing voor toegang tot Azure Files van clients waarvoor poort 445 is geblokkeerd. [Informatie over het instellen van Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
 #### <a name="solution-2---use-vpn"></a>Oplossing 2: gebruik VPN
 Door het instellen van een VPN-verbinding aan uw specifieke Storage-Account, gaat het verkeer via een beveiligde tunnel plaats via internet. Ga als volgt de [instructies voor het instellen van VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
@@ -106,7 +106,7 @@ Door het instellen van een VPN-verbinding aan uw specifieke Storage-Account, gaa
 Werken met uw IT-afdeling of ISP-poort 445 uitgaand naar openen [IP-adresbereiken Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Oplossing 4 - hulpprogramma's, zoals Storage Explorer/Powershell op basis van REST-API gebruiken
-Azure Files ondersteunt ook REST naast SMB. REST-toegang werkt via poort 443 (standaard tcp). Er zijn verschillende hulpprogramma's die zijn geschreven met behulp van REST-API, waarmee een rijke UI-ervaring. [Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) is een van beide. [Download en installeer Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) en maak verbinding met de bestandsshare die wordt ondersteund door de Azure-bestanden. U kunt ook [PowerShell](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-powershell) die ook gebruiker REST-API.
+Azure Files ondersteunt ook REST naast SMB. REST-toegang werkt via poort 443 (standaard tcp). Er zijn verschillende hulpprogramma's die zijn geschreven met behulp van REST-API, waarmee een rijke UI-ervaring. [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) is een van beide. [Download en installeer Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) en maak verbinding met de bestandsshare die wordt ondersteund door de Azure-bestanden. U kunt ook [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) die ook gebruiker REST-API.
 
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>2 oorzaak: NTLMv1 is ingeschakeld

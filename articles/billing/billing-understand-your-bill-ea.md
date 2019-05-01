@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2019
 ms.author: banders
-ms.openlocfilehash: 810d0795bd005cc313ec3567811ad55ba1d9d522
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370039"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571205"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Meer informatie over uw Enterprise Agreement voor Azure-factuur
 
@@ -29,7 +29,7 @@ Tegoed van uw organisatie bevat uw monetaire toezegging. De monetaire toezegging
 
 ## <a name="invoices-for-most-customers"></a>Facturen voor de meeste klanten
 
-In deze sectie niet van toepassing op Azure-klanten in Australië, Japan en Singapore. Als u zich in een van deze landen, Zie [facturen voor andere klanten](#invoices-for-other-customers).
+In deze sectie niet van toepassing op Azure-klanten in Australië, Japan en Singapore. Als u zich in een van deze landen/regio's, Zie [facturen voor andere klanten](#invoices-for-other-customers).
 
 U ontvangt een factuur voor Azure als een van de volgende tijdens uw factureringscyclus optreedt:
 

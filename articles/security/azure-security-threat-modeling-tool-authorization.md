@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c922556417ac92cc3667927fc8f846ace960a14a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121518"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935886"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Beveiliging-Frame: Autorisatie | Oplossingen 
 | Product/Service | Artikel |
@@ -280,7 +280,7 @@ Houd er rekening mee dat beveiliging op Rijniveau als een out-of-the-box databas
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | StorageType - tabel |
 | **Verwijzingen**              | [Hoe u toegang tot objecten in uw Azure storage-account via SAS delegeren](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
-| **Stappen** | In bepaalde zakelijke scenario's mogelijk Azure Table Storage worden vereist voor het opslaan van gevoelige gegevens die aan de verschillende partijen caters. Bijvoorbeeld, gevoelige gegevens die betrekking hebben op andere landen. In dergelijke gevallen kan SAS handtekeningen worden samengesteld door te geven van de partitie- en recordsleutels sleutelbereiken, zodat een gebruiker toegang heeft tot gegevens die specifiek zijn voor een bepaald land.| 
+| **Stappen** | In bepaalde zakelijke scenario's mogelijk Azure Table Storage worden vereist voor het opslaan van gevoelige gegevens die aan de verschillende partijen caters. Bijvoorbeeld, gevoelige gegevens die betrekking hebben op andere landen/regio's. In dergelijke gevallen kan SAS handtekeningen worden samengesteld door te geven van de partitie- en recordsleutels sleutelbereiken, zodat een gebruiker toegang heeft tot gegevens die specifiek zijn voor een bepaald land/regio.| 
 
 ## <a id="rbac-azure-manager"></a>Rollen gebaseerd toegangsbeheer (RBAC) naar Azure storage-account met Azure Resource Manager inschakelen
 

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/20/2019
+ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 3c8a2fe9f4486fe4d33754b58f4e7ebec1b3252d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682947"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947072"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Veelgestelde vragen over Application Gateway
 
@@ -119,7 +119,7 @@ Traffic Manager gebruiken voor het verkeer verdelen over meerdere Toepassingsgat
 
 ### <a name="does-application-gateway-support-autoscaling"></a>Application Gateway biedt ondersteuning voor automatisch schalen?
 
-Ja, de v2-SKU van Application Gateway biedt ondersteuning voor automatisch schalen. Zie voor meer informatie, [automatisch schalen en zone-redundante Application Gateway (openbare preview)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+Ja, de v2-SKU van Application Gateway biedt ondersteuning voor automatisch schalen. Zie voor meer informatie, [automatisch schalen en zoneredundante toepassingsgateway](application-gateway-autoscaling-zone-redundant.md).
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>Handmatig schalen wordt omhoog of omlaag oorzaak downtime schalen?
 
@@ -267,7 +267,7 @@ Application Gateway ondersteunt maximaal 10 verificatiecertificaten. De standaar
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>Werkt de Application Gateway systeemeigen integratie met Azure Key Vault?
 
-Nee.
+Ja, de v2-SKU van Application Gateway biedt ondersteuning voor Key Vault. Zie voor meer informatie, [SSL-beëindiging met Key Vault-certificaten](key-vault-certs.md).
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>Hoe configureer ik HTTP-luisteraars voor .com en .net sites? 
 

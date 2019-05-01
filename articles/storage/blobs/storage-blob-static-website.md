@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/29/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 67d3dcad4ec73ee09ec40282b2fbdea945daefe4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 21944c62f09518e20619313cd6ac28fb2ad600c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122673"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925285"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Statische website hosting in Azure Storage
 Azure Storage GPv2-accounts kunt u statische inhoud (HTML, CSS, JavaScript en afbeeldingsbestanden) rechtstreeks vanuit een storage-container met de naam *$web*. U profiteert van hosten in Azure Storage kunt u gebruikmaken van serverloze architecturen, met inbegrip van [Azure Functions](/azure/azure-functions/functions-overview) en andere PaaS-services.
@@ -52,16 +52,21 @@ De geselecteerde standaard-bestandsnaam wordt gebruikt in de hoofdmap en alle su
 
 ## <a name="cdn-and-ssl-support"></a>CDN- en SSL-ondersteuning
 
-Om uw statische website bestanden die beschikbaar zijn via HTTPS, Zie [de Azure CDN gebruiken voor toegang tot blobs met aangepaste domeinen via HTTPS](storage-https-custom-domain-cdn.md). Als een onderdeel van dit proces, moet u *uw CDN verwijzen naar het eindpunt op het web* in plaats van de blob-eindpunt. Mogelijk moet u over een paar minuten voordat de inhoud weergegeven wordt als de CDN-configuratie niet onmiddellijk wordt uitgevoerd.
+Als u uw bestanden statische website beschikbaar maken via uw aangepaste domein- en HTTPS, Zie [de Azure CDN gebruiken voor toegang tot blobs met aangepaste domeinen via HTTPS](storage-https-custom-domain-cdn.md). Als een onderdeel van dit proces, moet u *uw CDN verwijzen naar het eindpunt op het web* in plaats van de blob-eindpunt. Mogelijk moet u over een paar minuten voordat de inhoud weergegeven wordt als de CDN-configuratie niet onmiddellijk wordt uitgevoerd.
 
 Wanneer u uw statische website bijwerken, moet u de inhoud op het CDN edge-servers in cache wissen door het opschonen van het CDN-eindpunt. Zie voor meer informatie [Een Azure CDN-eindpunt leegmaken](../../cdn/cdn-purge-endpoint.md).
+
+> [!NOTE]
+> HTTPS wordt ondersteund door het eindpunt van de web-account. Het gebruik van aangepaste domeinen via HTTPS is vereist voor het gebruik van Azure CDN op dit moment. 
+>
+> Openbare account webeindpunt via HTTPS: `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
 
 ## <a name="custom-domain-names"></a>Aangepaste domeinnamen
 
 U kunt [een aangepaste domeinnaam voor uw Azure Storage-account configureren](storage-custom-domain-name.md) om uw statische website beschikbaar maken via een aangepast domein. Voor een diepgaande blik op het hosten van uw domein op [Azure, Zie uw domein in Azure DNS hosten](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## <a name="pricing"></a>Prijzen
-Statische website hosting wordt geleverd zonder extra kosten. Bekijk voor meer informatie over prijzen voor Azure Blob Storage, de [Azure Blob Storage pagina met prijzen van](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Het inschakelen van statische website hosting is gratis. Klanten betalen voor de kosten voor de gebruikte blob storage en bewerkingen. Bekijk voor meer informatie over prijzen voor Azure Blob Storage, de [Azure Blob Storage pagina met prijzen van](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="quickstart"></a>Snelstartgids
 
@@ -159,7 +164,10 @@ Nee, hosting van statische website is alleen beschikbaar in standard GPv2-opslag
 Ja, is het nieuwe eindpunt op het web gehoorzaamt aan de VNET- en firewall-regels die zijn geconfigureerd voor het opslagaccount.
 
 **Is het eindpunt op het web hoofdlettergevoelig?**  
-Ja, is het eindpunt op het web hoofdlettergevoelig net als de blob-eindpunt. 
+Ja, is het eindpunt op het web hoofdlettergevoelig net als de blob-eindpunt.
+
+**Het eindpunt van de website toegankelijk via HTTP en HTTPS is?**
+Ja, de webeindpunt is toegankelijk via HTTP en HTTPS. Echter, als het opslagaccount dat is geconfigureerd voor veilige overdracht vereisen via HTTPS, klikt u vervolgens gebruikers mogen gebruiken het HTTPS-eindpunt. Zie voor meer informatie, [veilige overdracht in Azure Storage vereisen](../common/storage-require-secure-transfer.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Azure-CDN gebruiken voor toegang tot blobs met aangepaste domeinen via HTTPS](storage-https-custom-domain-cdn.md)

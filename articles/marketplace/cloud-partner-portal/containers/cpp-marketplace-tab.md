@@ -1,25 +1,18 @@
 ---
-title: Marketplace-instellingen voor de installatiekopie van een Azure-Containers | Microsoft Docs
+title: Marketplace-instellingen voor de installatiekopie van een Azure-Containers | Azure Marketplace
 description: Marketplace-instellingen voor een Azure-container configureren.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/01/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 220084dd0a3c61205a2cf53c29cf49291000efdb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: f2d735662fcd177f64d1ebc71a25b7d7629db3ce
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472959"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942671"
 ---
 # <a name="container-marketplace-tab"></a>Container Marketplace tabblad
 
@@ -31,16 +24,18 @@ In deze sectie voert u de algemene informatie over uw Azure Marketplace bieden. 
 
 ![De Marketplace-gegevens](./media/containers-marketplace-tab.png)
 
-De volgende tabel beschrijft het doel en de inhoud van deze velden.
+De volgende tabel beschrijft het doel en de inhoud van deze velden. Verplichte velden zijn indicted met een asterisk (*).
 
-|  **Veld**                |     **Beschrijving**                                                          |
+|    Veld                  |       Description                                                            |
 |  ---------                |     ---------------                                                          |
-| **Titel**                 | De titel van de aanbieding. Het wordt prominent weergegeven in de marketplace.  Maximale lengte is 50 tekens. |
-| **Samenvatting**               | Korte samenvatting van de aanbieding. Maximale lengte is 100 tekens. |
-| **Lange samenvatting**          | Meer samenvatting van de aanbieding (maar deze kan niet hetzelfde zijn als de **samenvatting**).  Maximale lengte is 256 tekens. |
-| **Beschrijving**           | Beschrijving van de aanbieding.  Maximale lengte is 3000 tekens, ondersteunt eenvoudige HTML-opmaak.
+| **Titel\***                 | De titel van de aanbieding. Het wordt prominent weergegeven in de marketplace.  Maximale lengte is 50 tekens. |
+| **Samenvatting\***               | Korte samenvatting van de aanbieding. Maximale lengte is 100 tekens. |
+| **Lange samenvatting\***          | Meer samenvatting van de aanbieding (maar deze kan niet hetzelfde zijn als de **samenvatting**).  Maximale lengte is 256 tekens. |
+| **Beschrijving\***           | Beschrijving van de aanbieding.  Maximale lengte is 3000 tekens, ondersteunt eenvoudige HTML-opmaak.
 | **Marketing-id**  | Een unieke URL om te koppelen aan deze aanbieding, waaronder doorgaans de naam van uw organisatie en de oplossing. Maximale lengte is 50 tekens.   |
-| **Preview-versie abonnement-id 's** | Toevoegen van 1 tot 100 abonnements-id's van viewers. Deze technische vermeld abonnementen hebben toegang tot de aanbieding zodra deze gepubliceerd, voordat u deze meteen live. |
+| **Preview-versie abonnement-id 's\*** | Toevoegen van 1 tot 100 abonnements-id's van viewers. Deze technische vermeld abonnementen hebben toegang tot de aanbieding zodra deze gepubliceerd, voordat u deze meteen live. |
+|  |  |
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

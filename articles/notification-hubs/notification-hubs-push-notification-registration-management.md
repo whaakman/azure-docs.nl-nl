@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 64c2cd0ed1572fdaaa42f4731519ba6d5c320f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5a70eec15003a1f75a80740f269f6df3523012a8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457709"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685398"
 ---
 # <a name="registration-management"></a>Registratiebeheer
 
@@ -40,7 +40,7 @@ Een registratie wordt gekoppeld aan de ingang Platform Notification Service (PNS
 
 ### <a name="installations"></a>Installaties
 
-Een installatie is een uitgebreide eigenschappen met betrekking tot inschrijving met een eigenschappenverzameling van pushmeldingen. Het is de meest recente en beste aanpak voor het registreren van uw apparaten. Echter niet ondersteund door de SDK voor .NET-clientzijde ([Notification Hub SDK voor back-end-bewerkingen](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) nog.  Dit betekent dat als u vanaf het clientapparaat zelf registreert, moet u zou gebruiken de [Notification Hubs REST API](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) benadering voor de ondersteuning van installaties. Als u een back-endservice gebruikt, moet u kunnen gebruiken [Notification Hub SDK voor back-end-bewerkingen](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Een installatie is een uitgebreide eigenschappen met betrekking tot inschrijving met een eigenschappenverzameling van pushmeldingen. Het is de meest recente en beste aanpak voor het registreren van uw apparaten. Echter niet ondersteund door de SDK voor .NET-clientzijde ([Notification Hub SDK voor back-end-bewerkingen](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) nog.  Dit betekent dat als u vanaf het clientapparaat zelf registreert, moet u zou gebruiken de [Notification Hubs REST API](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) benadering voor de ondersteuning van installaties. Als u een back-endservice gebruikt, moet u kunnen gebruiken [Notification Hub SDK voor back-end-bewerkingen](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Hier volgen enkele belangrijke voordelen voor het gebruik van installaties:
 
@@ -48,7 +48,7 @@ Hier volgen enkele belangrijke voordelen voor het gebruik van installaties:
 - De installatiemodel biedt ondersteuning voor een speciale tag-indeling (`$InstallationId:{INSTALLATION_ID}`) waarmee wordt een melding rechtstreeks naar het apparaat verzonden. Bijvoorbeeld, als de app code stelt u een installatie-ID van `joe93developer` voor dit specifieke apparaat, een ontwikkelaar kunt zich richten op dit apparaat bij het verzenden van een melding naar de `$InstallationId:{joe93developer}` tag. Hiermee kunt u op een specifiek apparaat zonder dat u hoeft te doen extra coderen.
 - Met behulp van installaties kunt u een gedeeltelijke registratie-updates. De gedeeltelijke update van een installatie wordt aangevraagd met een PATCH-methode met de [JSON-Patch standard](https://tools.ietf.org/html/rfc6902). Dit is handig als u wilt bijwerken van tags op de registratie. U hoeft niet te opgehaald van de registratie van de gehele en verzend de vorige labels opnieuw.
 
-Een installatie, kan de volgende eigenschappen bevatten. Zie voor een volledige lijst met de installatie-eigenschappen, [maken of overschrijven van een installatie met REST-API](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) of [installatie-eigenschappen](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+Een installatie, kan de volgende eigenschappen bevatten. Zie voor een volledige lijst met de installatie-eigenschappen, [maken of overschrijven van een installatie met REST-API](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) of [installatie-eigenschappen](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation).
 
 ```json
 // Example installation format to show some supported properties
@@ -95,7 +95,7 @@ Registraties en installaties moeten een geldige PNS-ingang voor elk apparaat/kan
 
 Als u wilt gebruiken [sjablonen](notification-hubs-templates-cross-platform-push-messages.md), installatie van het apparaat bevat ook alle sjablonen die zijn gekoppeld aan het apparaat in een JSON-indeling (Zie het bovenstaande voorbeeld). De sjabloonnamen helpen bij het doel verschillende sjablonen voor hetzelfde apparaat.
 
-De sjabloonnaam van elke wordt toegewezen aan de hoofdtekst van een sjabloon en een optionele set van labels. Elk platform kan bovendien extra eigenschappen hebben. Voor Windows Store (met WNS) en Windows Phone 8 (met behulp van MPNS), kan een extra set headers deel uitmaken van de sjabloon. In het geval van APNs, kunt u de eigenschap van een verlopen instelt, moet een constante of een sjabloonexpressie. Voor een volledige lijst met de installatie-eigenschappen zien, [maken of overschrijven van een installatie met REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) onderwerp.
+De sjabloonnaam van elke wordt toegewezen aan de hoofdtekst van een sjabloon en een optionele set van labels. Elk platform kan bovendien extra eigenschappen hebben. Voor Windows Store (met WNS) en Windows Phone 8 (met behulp van MPNS), kan een extra set headers deel uitmaken van de sjabloon. In het geval van APNs, kunt u de eigenschap van een verlopen instelt, moet een constante of een sjabloonexpressie. Voor een volledige lijst met de installatie-eigenschappen zien, [maken of overschrijven van een installatie met REST](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) onderwerp.
 
 ### <a name="secondary-tiles-for-windows-store-apps"></a>Secundaire tegels voor Windows Store-Apps
 
@@ -120,7 +120,7 @@ Registreren van het apparaat is de eenvoudigste methode, maar er enkele nadelen:
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Voorbeeldcode om te registreren bij een meldingshub die vanaf een apparaat met een installatie
 
-Op dit moment, dit wordt alleen ondersteund met behulp van de [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx).
+Op dit moment, dit wordt alleen ondersteund met behulp van de [Notification Hubs REST API](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation).
 
 U kunt ook gebruiken voor het gebruik van de PATCH methode de [JSON-Patch standard](https://tools.ietf.org/html/rfc6902) voor het bijwerken van de installatie.
 

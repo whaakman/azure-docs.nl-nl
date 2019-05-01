@@ -2,24 +2,17 @@
 title: Azure Marketplace en AppSource adviesservices
 description: In dit artikel beschrijft de criteria voor in aanmerking te komen en publiceren van de vereisten voor nieuwe consulting-service-aanbiedingen op Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
-manager: nuno costa
-editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e13111eb241c7734e25a28fcaeea55b1c70bc267
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121128"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938311"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Adviesdiensten voor Azure Marketplace en AppSource
 Adviesservices in Azure Marketplace en AppSource biedt Microsoft-partners het doel van de verbindende klanten met services te ondersteunen en uitbreiden van hun gebruik van Azure en zakelijke doelstellingen. 
@@ -48,7 +41,7 @@ Service-aanbiedingen die zijn gebaseerd op Microsoft Dynamics 365, Office 365 en
 > [!TIP]
 > Als u wilt publiceren naar de Azure Marketplace-webwinkel, brengt u deze selectie door te kiezen 'Azure' in de vervolgkeuzelijst "Primaire Product" in de Cloud Partner-Portal. Als u wilt publiceren naar AppSource, brengt u deze selectie door te kiezen 'Dynamics 365,' 'Power BI' of 'Power Apps' in het menu van de vervolgkeuzelijst "Primaire Product" in de Cloud Partner-Portal.
 
-## <a name="eligible-partners-and-supported-countries"></a>In aanmerking komende Partners en ondersteunde landen
+## <a name="eligible-partners-and-supported-countriesregions"></a>In aanmerking komende Partners en ondersteunde landen/regio 's
 
 Partners zijn vereist om een **silver- of gold-competentie** in het desbetreffende gebied voor hun service. 
 
@@ -74,9 +67,9 @@ Partners zijn vereist om een **silver- of gold-competentie** in het desbetreffen
 <b> Zie voor meer informatie, [vaardigheden via Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  
 
-**SI-partners kunnen consulting-service-aanbiedingen voor de volgende 18 landen/regio's indienen**
+**SI-partners kunnen indienen consulting-service-aanbiedingen voor de volgende 18 landen/regio 's**
 
-|In aanmerking komende landen |   |   |   |
+|In aanmerking komende landen/regio 's |   |   |   |
 |---------|----------|----------|----------|
 |Australië |Frankrijk  |     Mexico          |Spanje       |
 |België   |Duitsland |     Nederland     |Zweden       |
@@ -84,7 +77,7 @@ Partners zijn vereist om een **silver- of gold-competentie** in het desbetreffen
 |Denemarken   |Italië   |     Noorwegen          |Verenigde Staten |
 |Finland   |Japan   |     Polen          
 
-De lancering van consulting services gaat live in specifieke geografische regio. Eerste keer opstarten zijn: Verenigde Staten, Canada, het Verenigd Koninkrijk en Australië. De catalogi voor andere landen wordt na enkele nuttige live gaan en boeiende selectie van service-aanbiedingen zijn ingediend door partners en goedgekeurd door Microsoft.
+De lancering van consulting services gaat live in specifieke geografische regio. Eerste keer opstarten zijn: Verenigde Staten, Canada, het Verenigd Koninkrijk en Australië. De catalogi voor andere landen/regio's wordt na enkele nuttige live gaan en boeiende selectie van service-aanbiedingen zijn ingediend door partners en goedgekeurd door Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Hoe u zich registreren voor Consulting Services in Azure Marketplace en AppSource
 Begin met [registreren](https://azuremarketplace.microsoft.com/sell/signup) de gegevens van uw bedrijf in de marketplace. Uitgevers kunnen verwijzen naar [geworden van een uitgever op Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), voor een volledige lijst van vereisten voor apparaatregistratie. 
@@ -124,7 +117,7 @@ Uw aanbieding consulting-service op de Azure Marketplace en AppSource aanbieding
 3. **Indienen**: Geef de vereiste gegevens op die wordt vermeld in de volgende instructies. Alle inhoud en ondersteunende materiaal moeten in het Engels worden ingediend. 
 4. **Beoordeling**: Ons team marketing- en redactionele controleert uw inzending en optimaliseert voor leesbaarheid, grammatica en effectiviteit. 
 5. **Staging-**: Uw inzending tijdelijk worden opgeslagen voor uw beoordeling. 
-6. **Publiceren van**: Wanneer u en Microsoft met de tijdelijk opgeslagen inhoud wordt voldaan, wordt uw aanbieding is gereed om live te gaan op de marketplace. De startdatum van uw aanbieding, is afhankelijk van het land dat opgegeven in uw aanbieding. Als de catalogus voor uw geselecteerde land/regio in de Azure Marketplace of AppSource al live is, wordt uw aanbieding binnen een paar uur weergegeven. De aanbieding wordt anders weergegeven zodra de catalogus live meteen.
+6. **Publiceren van**: Wanneer u en Microsoft met de tijdelijk opgeslagen inhoud wordt voldaan, wordt uw aanbieding is gereed om live te gaan op de marketplace. De startdatum van uw aanbieding, is afhankelijk van het land/de regio die opgegeven in uw aanbieding. Als de catalogus voor het geselecteerde land/regio in de Azure Marketplace of AppSource al live is, wordt uw aanbieding binnen een paar uur weergegeven. De aanbieding wordt anders weergegeven zodra de catalogus live meteen.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Vermeldingen voor aanbiedingen en inhoud controleren Criteria
 Aanbiedingen moeten zijn van een van de volgende vijf servicetypen (u kunt een lijst meer dan één): 

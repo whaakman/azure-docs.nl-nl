@@ -2,17 +2,17 @@
 title: Overzicht van Azure Application Gateway-configuratie
 description: In dit artikel wordt beschreven hoe u de onderdelen van Azure Application Gateway configureren
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 4/30/2019
 ms.author: absha
-ms.openlocfilehash: 4b8e04babfffaf49d3719d8a7e90af16598814f4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998903"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946813"
 ---
 # <a name="application-gateway-configuration-overview"></a>Overzicht van de configuratie van de Application Gateway
 
@@ -71,7 +71,7 @@ Voor dit scenario gebruikt u nsg's op de Application Gateway-subnet. Plaats de v
 
 Gebruiker gedefinieerde routes (udr's) worden ondersteund op de Application Gateway-subnet voor de v1-SKU, zolang ze end-to-end verzoek/reactie-communicatie niet wijzigen. U kunt bijvoorbeeld een UDR in het subnet voor Application Gateway instellen om te verwijzen naar een firewallapparaat voor inspecties van pakketten. Maar u moet ervoor zorgen dat het pakket de beoogde bestemming na controle kan bereiken. Dit niet doet, kan leiden tot onjuiste statustest of gedrag routering van verkeer. Dit omvat geleerde routes of 0.0.0.0/0 standaardroutes die zijn doorgegeven door de Azure ExpressRoute of VPN-gateways in het virtuele netwerk.
 
-Voor de v2-SKU, worden niet udr's ondersteund op de Application Gateway-subnet. Zie voor meer informatie, [automatisch schalen en zoneredundantie voor Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+Voor de v2-SKU, worden niet udr's ondersteund op de Application Gateway-subnet. Zie voor meer informatie, [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
 > Met behulp van udr's op het subnet voor Application Gateway zorgt ervoor dat de status in de [back-endstatus weergave](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) wordt weergegeven als 'Onbekend'. Het is ook ervoor zorgt dat het genereren van Application Gateway-logboeken en metrische gegevens mislukken. U wordt aangeraden dat u udr's niet in de Application Gateway-subnet gebruikt zodat u de back-endstatus, logboeken en metrische gegevens kunt weergeven.
@@ -84,7 +84,7 @@ Een openbaar IP-adres is niet vereist voor een intern eindpunt dat niet wordt bl
 
 Slechts 1 openbaar IP-adres of 1 privé-IP-adres wordt ondersteund. U kunt het front-end-IP-adres kiezen wanneer u de toepassingsgateway maakt.
 
-- U kunt voor een openbaar IP-adres, maak een nieuwe openbare IP-adres of een bestaande openbare IP-adres gebruiken op dezelfde locatie als de toepassingsgateway. Als u een nieuwe openbare IP-adres, het type van de IP-adres dat u maakt (statische of dynamische) kunnen niet later worden gewijzigd. Zie voor meer informatie, [statische versus dynamische openbare IP-adres](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
+- U kunt voor een openbaar IP-adres, maak een nieuwe openbare IP-adres of een bestaande openbare IP-adres gebruiken op dezelfde locatie als de toepassingsgateway. Als u een nieuwe openbare IP-adres, het type van de IP-adres dat u maakt (statische of dynamische) kunnen niet later worden gewijzigd. Zie voor meer informatie, [statische versus dynamische openbare IP-adres](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
 
 - Voor een privé IP-adres, kunt u een privé IP-adres van het subnet waarin de application gateway wordt gemaakt. Als u er geen opgeeft, wordt automatisch een willekeurige IP-adres geselecteerd uit het subnet. Zie voor meer informatie, [een toepassingsgateway maken met een interne load balancer](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 

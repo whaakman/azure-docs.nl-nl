@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 99175f79e030a55991947313e4a7e32a738d6adb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c8504c6bf25b186a4bc87c4e7565444dd3e57209
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097386"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570498"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API gebruiken voor het verzenden van externe taken naar een HDInsight Spark-cluster
 
@@ -164,16 +164,6 @@ HDInsight 3.5-clusters en uitschakelen hierboven standaard gebruik van lokale pa
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Indienen van Livy-taken voor een cluster in een Azure-netwerk
 
 Als u verbinding met een HDInsight Spark-cluster op basis van binnen een virtueel Azure-netwerk maakt, kunt u rechtstreeks verbinding met Livy op het cluster. In dat geval moet de URL voor het eindpunt van Livy is `http://<IP address of the headnode>:8998/batches`. Hier **8998** is de poort waarop Livy op het hoofdknooppunt van het cluster wordt uitgevoerd. Zie voor meer informatie over het verkrijgen van toegang tot services op niet-openbare poorten [poorten die worden gebruikt door de services van Apache Hadoop op HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
-
-## <a name="troubleshooting"></a>Problemen oplossen
-
-Hier volgen enkele problemen beschreven die u kunt tegenkomen tijdens het gebruik van Livy externe taak verzenden naar de Spark-clusters.
-
-### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>Gebruik een externe jar van de extra opslagruimte wordt niet ondersteund
-
-**Probleem:** Als uw Livy Spark-taak verwijst naar een externe jar van de extra opslagaccount dat is gekoppeld aan het cluster, de taak is mislukt.
-
-**Oplossing:** Zorg ervoor dat de jar die u wilt gebruiken beschikbaar in de standaardopslag die is gekoppeld aan het HDInsight-cluster is.
 
 
 

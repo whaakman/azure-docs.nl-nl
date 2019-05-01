@@ -11,30 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: 89ff11246c7cd36732df1332da94ec5318d7f1d7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360185"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574088"
 ---
-# <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database aanschaffen van modellen
+# <a name="choose-between-the-vcore-and-the-dtu-purchasing-model"></a>Kiezen tussen het vCore- en de DTU-aankoopmodel
 
 Azure SQL Database kunt u gemakkelijk volledig beheerde PaaS-database-engine die past bij de behoeften van uw prestaties en kosten kunt kopen. Afhankelijk van het implementatiemodel van Azure SQL Database, kunt u de aankopen model dat aansluit bij uw behoeften:
-
-- [op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) (aanbevolen) waarmee u de exacte hoeveelheid opslagcapaciteit kiezen en compute die u nodig hebt voor uw workload.
-- [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) kunt u de reken- en pakketten met gelijke taakverdeling voor veelvoorkomende workloads gebundeld.
 
 Verschillende aankopen modellen zijn beschikbaar in Azure SQL Database-implementatiemodellen:
 
 - De [individuele database](sql-database-single-databases-manage.md) en [elastische pool](sql-database-elastic-pool.md) opties voor implementatie in [Azure SQL Database](sql-database-technical-overview.md) bieden zowel de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
 - De [beheerd exemplaar](sql-database-managed-instance.md) Implementatieoptie in Azure SQL Database biedt alleen de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
 
-> [!IMPORTANT]
-> De [grootschalige servicelaag (preview)](sql-database-service-tier-hyperscale.md) is in openbare preview, alleen voor individuele databases met behulp van de vCore model kopen.
 
-De volgende tabel en de grafiek vergelijken en deze twee aankopen modellen contrast.
+De volgende tabel en de grafiek vergelijken en het vCore- en het aanschaffen van modellen DTU contrast.
 
 |**Aankopen model**|**Beschrijving**|**Het meest geschikt voor**|
 |---|---|---|
@@ -46,7 +41,10 @@ De volgende tabel en de grafiek vergelijken en deze twee aankopen modellen contr
 
 ## <a name="compute-costs"></a>De kosten voor rekenuren
 
-De kosten zijn de totale compute-capaciteit die is ingericht voor de toepassing. Automatisch toewijzen we in de bedrijfslaag kritieke-ten minste 3 replica's. Om te weerspiegelen deze extra toewijzing van compute-resources, is de prijs in het op vCore gebaseerde aankoopmodel ongeveer 2.7 x hoger in de kritieke-bedrijfslaag dan in de categorie Algemeen gebruik-service. De hogere opslag prijs per GB in de bedrijfslaag kritieke-is om dezelfde reden inclusief de hoge i/o- en lage latentie van de SSD-opslag. Op hetzelfde moment is niet de kosten voor back-upopslag verschil is tussen deze twee Servicelagen, omdat in beide gevallen we een klasse standard-opslag gebruiken.
+### <a name="provisioned-compute-costs"></a>Kosten van de ingerichte Computing
+
+In de laag van de ingerichte Computing weerspiegelen de compute-kosten zijn de totale compute-capaciteit die is ingericht voor de toepassing.  Automatisch toewijzen we in de bedrijfslaag kritieke-ten minste 3 replica's. Om te weerspiegelen deze extra toewijzing van compute-resources, is de prijs in het op vCore gebaseerde aankoopmodel ongeveer 2.7 x hoger in de kritieke-bedrijfslaag dan in de categorie Algemeen gebruik-service. De hogere opslag prijs per GB in de bedrijfslaag kritieke-is om dezelfde reden inclusief de hoge i/o- en lage latentie van de SSD-opslag. Op hetzelfde moment is niet de kosten voor back-upopslag verschil is tussen deze twee Servicelagen, omdat in beide gevallen we een klasse standard-opslag gebruiken.
+
 
 ## <a name="storage-costs"></a>Opslagkosten
 
@@ -110,7 +108,7 @@ Als u wilt migreren als u een bestaande on-premises of virtuele machine-werkbela
 
 Pools zijn geschikt voor een groot aantal databases met specifieke gebruikspatronen. Voor een bepaalde database, wordt dit patroon gekenmerkt door een gemiddelde laag gebruik met relatief incidentele gebruikspieken. SQL Database evalueert automatisch het historisch resourcegebruik van databases in een bestaande SQL Database-server en op basis daarvan wordt de juiste poolconfiguratie in de Azure-portal aanbevolen. Zie [Wanneer moet een elastische pool worden gebruikt?](sql-database-elastic-pool.md) voor meer informatie.
 
-## <a name="purchase-model-frequently-asked-questions-faq"></a>Aankoopmodel Veelgestelde vragen (FAQ)
+## <a name="purchase-models-frequently-asked-questions-faq"></a>Kopen van modellen: veelgestelde vragen (FAQ)
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>Moet ik mijn toepassing offline te converteren van een database op basis van DTU naar een vCore-servicelaag
 

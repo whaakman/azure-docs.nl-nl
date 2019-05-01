@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ae097cb1c778c0ad60512753ae6ef28da04e8004
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 899bf4bbf201ae785a4f49c7f278de75fb48945e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764370"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926260"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Een Azure-bestandsshare gebruiken met Windows
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen probleemloos worden gebruikt in Windows en Windows Server. In dit artikel worden de overwegingen besproken voor het gebruik van een Azure-bestandsshare met Windows en Windows Server.
@@ -48,7 +48,7 @@ U kunt Azure-bestandsshares gebruiken in een Windows-installatie die wordt uitge
 
 * **Sleutel van het opslagaccount**: Voor het koppelen van een Azure-bestandsshare hebt u de primaire (of secundaire) opslagsleutel nodig. SAS-sleutels worden momenteel niet ondersteund voor koppelen.
 
-* **Zorg ervoor dat poort 445 open is**: Het SMB-protocol vereist dat TCP-poort 445 open is. Verbindingen mislukken als poort 445 is geblokkeerd. Met de cmdlet `Test-NetConnection` kunt u controleren of uw firewall poort 445 blokkeert. U kunt meer informatie over [kunt op verschillende manieren tijdelijke oplossing geblokkeerd poort 445 hier](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+* **Zorg ervoor dat poort 445 open is**: Het SMB-protocol vereist dat TCP-poort 445 open is. Verbindingen mislukken als poort 445 is geblokkeerd. Met de cmdlet `Test-NetConnection` kunt u controleren of uw firewall poort 445 blokkeert. U kunt meer informatie over [kunt op verschillende manieren tijdelijke oplossing geblokkeerd poort 445 hier](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
     Zie de volgende PowerShell code wordt ervan uitgegaan dat u hebt de Azure PowerShell-module is geïnstalleerd, [Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-az-ps) voor meer informatie. Vergeet niet om `<your-storage-account-name>` en `<your-resource-group-name>` te vervangen door de betreffende namen van uw opslagaccount.
 

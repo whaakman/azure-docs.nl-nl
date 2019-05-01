@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;kumud
-ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a4ae997398c85dc99af8711f1c6ce4e743592d73
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60429863"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939898"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -270,13 +270,13 @@ Sommige van de inzichten te krijgen nadat Traffic Analytics is volledig geconfig
 
     ![Dashboard weergeven distributie van verkeer](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- De geografische gebieden toegewezen bevat de bovenste lint voor de selectie van parameters zoals datacenters (geen/geïmplementeerd-implementatie/niet-actief/actief/Traffic Analytics ingeschakeld/Traffic Analytics niet ingeschakeld) en die bijdragen aan Benign/schadelijk verkeer naar de actieve landen implementatie:
+- De geografische gebieden toegewezen bevat de bovenste lint voor de selectie van parameters zoals datacenters (geen/geïmplementeerd-implementatie/niet-actief/actief/Traffic Analytics ingeschakeld/Traffic Analytics niet ingeschakeld) en landen/regio's die bijdragen aan Benign/schadelijk verkeer naar de actieve implementatie:
 
     ![Geografische kaartweergave actieve implementatie weergeven](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
-- De geo-kaart toont de distributie van verkeer naar een datacenter uit andere landen en continenten communicatie met deze in het blauw (goedaardig verkeer) en rode (schadelijk verkeer) gekleurd regels:
+- De geo-kaart toont de distributie van verkeer naar een datacenter van landen/regio's en continenten communicatie met deze in het blauw (goedaardig verkeer) en rode (schadelijk verkeer) gekleurd regels:
 
-    ![Geografische kaartweergave distributie van verkeer in landen en continenten weergeven](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
+    ![Geografische kaartweergave distributie van verkeer voor landen/regio's en continenten weergeven](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![Stroomgegevens voor de distributie van verkeer in zoeken in Logboeken](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 

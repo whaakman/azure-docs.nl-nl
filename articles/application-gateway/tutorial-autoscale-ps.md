@@ -8,19 +8,16 @@ ms.topic: tutorial
 ms.date: 2/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 616a710237c31ef2b4a19c3e1e61838164a78530
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 8ee43a54df019b862d1f8698363d8b0a022bdcb4
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308564"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947146"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Zelfstudie: een toepassingsgateway maken die de toegang tot de webtoepassing verbetert
 
 Als u als IT-beheerder betrokken bent bij het verbeteren van de toegang tot webtoepassingen, kunt u de toepassingsgateway zodanig optimaliseren dat de schaal ervan wordt aangepast aan de vraag van de klant en dat er meerdere beschikbaarheidszones worden bereikt. In deze zelfstudie wordt uitgelegd hoe u Azure Application Gateway-functies kunt configureren voor automatisch schalen, zone-redundantie en gereserveerde VIP's (statische IP). U maakt gebruik van Azure PowerShell-cmdlets en het Azure Resource Manager-implementatiemodel om het probleem op te lossen.
-
-> [!IMPORTANT] 
-> De SKU met automatisch schalen en zone-redundantie voor toepassingsgateways is momenteel in openbare preview. Deze preview wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. De reden hiervoor is dat bepaalde functies mogelijk niet worden ondersteund of beperkte mogelijkheden hebben. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 In deze zelfstudie leert u het volgende:
 

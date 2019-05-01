@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 491f19abfd87c28ede45e98a24f31fe7e599b18b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799319"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691421"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema en voor gegevensaggregatie in Traffic Analytics
 
@@ -35,7 +35,7 @@ Traffic Analytics is een cloud-gebaseerde oplossing waarmee u inzicht in gebruik
 1. Alle logboeken van de stroom op een NSG tussen "FlowIntervalStartTime_t" en "FlowIntervalEndTime_t" worden vastgelegd met tussenpozen van één minuut in de storage-account als blobs voordat deze wordt verwerkt door Traffic Analytics. 
 2. Verwerking van standaardintervaltijd van Traffic Analytics is 60 minuten. Dit betekent dat elke 60 minuten die Traffic Analytics blobs uit de opslag voor aggregatie kiest.
 3. Stromen met de dezelfde bron-IP, doel-IP, doelpoort, naam van NSG, NSG-regel, Flow richting en Transport layer-protocol (TCP of UDP) (Opmerking: Bronpoort is uitgesloten voor aggregatie) in één stroom worden geregeld door Traffic Analytics
-4. Deze één record is voorzien van (Details in de sectie hieronder) en die zijn opgenomen in Log Analytics door Traffic Analytics.
+4. Deze één record is versierde (Details in de sectie hieronder) en opgenomen in Log Analytics door verkeer Analytics.This proces kan maximaal een uur duren max.
 5. FlowStartTime_t veld geeft aan dat het eerste exemplaar van dergelijke een samengevoegde stroom (dezelfde 4-tuple) in de stroom van interval tussen "FlowIntervalStartTime_t" en "FlowIntervalEndTime_t" de logboekverwerking. 
 6. Voor elke resource in TA, de stromen die zijn aangegeven in de gebruikersinterface voor het totaal aantal stromen gezien door de Netwerkbeveiligingsgroep zijn, maar in logboek Anlaytics gebruiker alleen de record één, verlaagde ziet. Als alle stromen weergeven, gebruikt u het veld blob_id, die uit de opslag kan worden verwezen. De totale stroom telt voor die record komt overeen met de eigen stromen weergegeven in de blob.
 
@@ -60,7 +60,7 @@ Hieronder ziet u de velden in het schema en wat ze geven
 | SrcIP_s | IP-adres van bron | In het geval van AzurePublic leeg en ExternalPublic stromen |
 | DestIP_s | IP-adres van doel | In het geval van AzurePublic leeg en ExternalPublic stromen |
 | VMIP_s | IP-adres van de virtuele machine | Gebruikt voor AzurePublic en ExternalPublic stromen |
-| PublicIP_S | Openbare IP-adressen | Gebruikt voor AzurePublic en ExternalPublic stromen |
+| PublicIP_s | Openbare IP-adressen | Gebruikt voor AzurePublic en ExternalPublic stromen |
 | DestPort_d | Doelpoort | Poort waarmee verkeer inkomend is | 
 | L4Protocol_s  | * T <br> * U  | Transport Protocol. T = TCP <br> U = UDP | 
 | L7Protocol_s  | Protocolnaam | Afgeleid van doelpoort |
@@ -121,6 +121,7 @@ Hieronder ziet u de velden in het schema en wat ze geven
 1. MaliciousFlow - een van de IP-adressen deel uitmaken van azure-netwerk terwijl de andere IP-adres is een openbare IP-adres dat zich niet in Azure en wordt gerapporteerd als in de ASC-feeds die Traffic Analytics voor het verwerkingsinterval voor tussen verbruikt schadelijke" FlowIntervalStartTime_t' en 'FlowIntervalEndTime_t'. 
 1. UnknownPrivate - een van de IP-adressen deel uitmaken van Azure Virtual Network terwijl de andere IP-adres behoort tot de privé IP-adresbereik, zoals gedefinieerd in RFC 1918 en kan niet door Traffic Analytics worden toegewezen aan een site of Azure Virtual Network van klanten.
 1. Onbekend: kan geen om toe te wijzen op een van de IP-adressen in de stromen met de klant-topologie in Azure, evenals on-premises (site).
+1. De namen van sommige velden worden toegevoegd met _K of _d. Deze niet geven aan bron- en doelserver.
 
 ### <a name="next-steps"></a>Volgende stappen
 Vindt u antwoorden op veelgestelde vragen, [Traffic analytics Veelgestelde vragen over](traffic-analytics-faq.md) Zie voor meer informatie over de functionaliteit van [Traffic analytics-documentatie](traffic-analytics.md)

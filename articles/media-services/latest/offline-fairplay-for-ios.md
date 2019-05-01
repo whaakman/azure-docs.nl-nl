@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 25bc7798853d350139a7802eaad68d52a1d7d99f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58315e639a54b67bdef6751004b7a768e4f92224
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60996610"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937503"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming voor iOS 
 
@@ -36,8 +36,8 @@ Beheer van digitale rechten (DRM) / Advanced Encryption Standard (AES)-codering 
 Naast het beveiligen van inhoud voor het streamen van online via verschillende protocollen voor streaming is offline modus voor beveiligde inhoud ook een functie vaak aangevraagd. Offline-modus-ondersteuning nodig is voor de volgende scenario's:
 
 * Afspelen wanneer de internetverbinding niet beschikbaar is, zoals tijdens reizen.
-* Sommige inhoudsproviders mogelijk niet toestaan van DRM-licentielevering buiten de rand van een land/regio. Als gebruikers inhoud bekijken onderweg buiten het land, wordt offline downloaden die nodig zijn.
-* In sommige landen zijn de beschikbaarheid van internet en/of bandbreedte is nog steeds beperkt. Gebruikers kunnen kiezen voor het eerst downloaden als u wilt bekijken van inhoud in een oplossing die hoog genoeg is voor een goede weergavemogelijkheden. In dit geval niet het probleem meestal netwerkbeschikbaarheid maar beperkte netwerkbandbreedte. Over-the-top (OTT) / onlinevideoplatform (OVP) providers vraag ondersteuning voor offline-modus.
+* Sommige inhoud providers mogelijk DRM-licentielevering buiten een land/regio rand weigeren. Als gebruikers inhoud bekijken onderweg buiten het land/regio, wordt offline downloaden die nodig zijn.
+* Beschikbaarheid van internet en/of bandbreedte is nog steeds beperkt in bepaalde landen/regio's. Gebruikers kunnen kiezen voor het eerst downloaden als u wilt bekijken van inhoud in een oplossing die hoog genoeg is voor een goede weergavemogelijkheden. In dit geval niet het probleem meestal netwerkbeschikbaarheid maar beperkte netwerkbandbreedte. Over-the-top (OTT) / onlinevideoplatform (OVP) providers vraag ondersteuning voor offline-modus.
 
 In dit artikel bevat informatie over ondersteuning voor FairPlay Streaming (FPS) offline-modus die gericht is op apparaten met iOS 10 of hoger. Deze functie wordt niet ondersteund voor andere Apple-platforms, zoals watchOS, tvOS of Safari op macOS.
 

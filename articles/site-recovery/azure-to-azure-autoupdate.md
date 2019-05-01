@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/29/2098
 ms.author: rajanaki
-ms.openlocfilehash: 67eb01ad596393c9095d72670e61b8c09776c588
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792925"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925701"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatische update van de Mobility-service in de Azure-naar-Azure-replicatie
 
@@ -31,9 +31,10 @@ Wanneer u Site Recovery gebruiken om updates te beheren, implementeert u een glo
 De standaardplanning van de runbook wordt herhaald voor elke dag om 12:00 uur in de tijdzone van de gerepliceerde VM geografische gebied. U kunt ook de planning voor runbook via het automation-account wijzigen.
 
 > [!NOTE]
+> Beginnen met Update Rollup 35, kunt u een bestaand automation-account moet worden gebruikt voor updates kiezen. Voorafgaand aan deze update wordt met Site Recovery dit account standaard gemaakt. Deze optie is alleen beschikbaar wanneer u replicatie voor een virtuele machine inschakelt. Als u de instelling wijzigt, wordt deze van toepassing voor alle Azure-VM's in dezelfde kluis worden beveiligd.
+ 
 > Inschakelen van automatische updates niet moet uw Azure VM's opnieuw worden opgestart of invloed hebben op de doorlopende replicatie.
 
-> [!NOTE]
 > Taak facturering in het automation-account is gebaseerd op het aantal minuten voor taak-runtime die wordt gebruikt in een maand. 500 minuten zijn standaard opgenomen gratis eenheden voor een automation-account. Uitvoeren van taak duurt een paar seconden aan ongeveer een minuut elke dag en wordt behandeld als gratis eenheden.
 
 | Inbegrepen gratis eenheden (per maand) | Prijs |
@@ -63,7 +64,7 @@ Wanneer u replicatie inschakelt voor een virtuele machine te beginnen [uit de VM
 
 
 > [!Note]
-> Een van beide opties hoogte gebracht van het automation-account gebruikt voor het beheren van updates. Als u deze functie in een kluis voor de eerste keer gebruikt, wordt een nieuw automation-account gemaakt. Alle volgende inschakelen replicaties in dezelfde kluis gebruikt u de eerder gemaakte.
+> Een van beide opties hoogte gebracht van het automation-account gebruikt voor het beheren van updates. Als u deze functie in een kluis voor de eerste keer gebruikt, wordt standaard een nieuw automation-account gemaakt. U kunt ook de instelling aanpassen, en kies een bestaand automation-account. Alle volgende inschakelen replicaties in dezelfde kluis gebruikt u de eerder gemaakte.
 
 Voor een aangepaste automation-account, moet u het volgende script gebruiken:
 

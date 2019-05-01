@@ -1,25 +1,19 @@
 ---
-title: Code upgraden naar de meest recente platform | Microsoft Docs
+title: Code upgraden naar de meest recente platform | Azure Marketplace
 description: In dit onderwerp wordt uitgelegd hoe u uw Microsoft Dynamics 365 voor bewerkingen platformversie upgraden naar de meest recente versie van de platform
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 787d9ef509bcafeb6a21d4b0ec952ea1eb4fd52b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: aedc2c7474de0fe068a329eb2205e9bb08e62c3a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776808"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935287"
 ---
 # <a name="upgrading-code-to-the-latest-platform"></a>Code upgraden naar de meest recente platform
 

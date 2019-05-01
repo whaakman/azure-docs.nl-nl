@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1f8972c89ecb0fc7d8cc7ceb9bfdeab9e905e862
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537991"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570604"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Aan de slag voor Azure IT-operators
 
@@ -145,7 +145,7 @@ Zie voor gedetailleerde informatie over Azure-services, [documentatie voor Azure
 
 Azure is een wereldwijde cloudplatform dat is algemeen beschikbaar in veel regio's over de hele wereld. Als u een service, toepassing of virtuele machine in Azure inricht, kunt u wordt gevraagd om een regio te selecteren. De geselecteerde regio vertegenwoordigt een speciﬁc datacenter waarin uw toepassing wordt uitgevoerd. Zie voor meer informatie, [Azure-regio's](https://azure.microsoft.com/regions/).
 
-Een van de beneﬁts van het gebruik van Azure is dat u uw toepassingen in verschillende datacenters over de hele wereld kunt implementeren. De regio die u kunt de prestaties van uw toepassing aﬀect. Het is kiezen van een regio die zich dichter bij de meeste uw klanten te verminderen latentie van netwerkaanvragen optimale. U kunt ook een regio om te voldoen aan de wettelijke vereisten voor het distribueren van uw app in bepaalde landen selecteren.
+Een van de beneﬁts van het gebruik van Azure is dat u uw toepassingen in verschillende datacenters over de hele wereld kunt implementeren. De regio die u kunt de prestaties van uw toepassing aﬀect. Het is kiezen van een regio die zich dichter bij de meeste uw klanten te verminderen latentie van netwerkaanvragen optimale. U kunt ook een regio om te voldoen aan de wettelijke vereisten voor het distribueren van uw app in bepaalde landen/regio selecteren.
 
 ### <a name="azure-portal"></a>Azure Portal
 

@@ -1,25 +1,18 @@
 ---
-title: Azure en Dynamics 365 advies service-aanbieding - definiëren aanbiedingsinstellingen | Microsoft Docs
-description: Handleiding voor het definiëren van instellingen in een Azure- of Dynamics 365 advies serviceaanbieding vallen in de Cloud Partner-Portal bieden.
+title: Instellingen van de aanbieding voor een advies service-aanbieding definiëren | Azure Marketplace
+description: Aanbieding instellingen definiëren in een Azure- of Dynamics 365 advies serviceaanbieding vallen in de Cloud Partner-Portal voor Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 601ad62bddd1373742b0cab5a388a55cfd52f4bc
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749638"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942777"
 ---
 # <a name="offer-settings-tab"></a>Tabblad voor aanbiedingsinstellingen
 
@@ -27,7 +20,8 @@ Op de **nieuwe aanbieding** scherm, de eerste stap is het maken van de identitei
 
 ![Maken van een nieuwe service-aanbieding advies - tabblad instellingen bieden](media/consultingoffer-settings-tab.png)
 
-### <a name="offer-id"></a>Aanbiedings-id
+
+### <a name="offer-id"></a>Aanbieding -ID *
 
 Deze id is een unieke naam die u maakt wanneer u de aanbieding voor het eerst verzendt. Deze moet bestaan alleen uit kleine letters, alfanumerieke tekens, streepjes of onderstrepingstekens bevatten. De **aanbiedings-ID** zichtbaar is in de URL en de invloed van zoekmachineresultaten. Een voorbeeld is *yourcompanyname_exampleservice*.
 
@@ -36,11 +30,13 @@ Zoals wordt weergegeven in het voorbeeld wordt de **aanbiedings-ID** wordt toege
 >[!Note]
 >Nadat een aanbieding gepubliceerd is, kan de id kan niet worden bijgewerkt.
 
-### <a name="publisher-id"></a>Uitgevers-ID
+
+### <a name="publisher-id"></a>Uitgever -ID *
 
 Deze id is gerelateerd aan uw account. Nadat u zich aanmelden met uw organisatieaccount, uw **uitgevers-ID** wordt weergegeven in de vervolgkeuzelijst.
 
-### <a name="name"></a>Name
+
+### <a name="name"></a>Naam*
 
 Deze tekenreeks wordt weergegeven als de aanbiedingsnaam van de op AppSource of in de Azure Marketplace. De **naam** vak is beperkt tot 50 tekens. De revisor mogelijk om de titel voor het toevoegen van de duur en bieden dat u wilt de aanbiedingsnaam van uw te bewerken.
 

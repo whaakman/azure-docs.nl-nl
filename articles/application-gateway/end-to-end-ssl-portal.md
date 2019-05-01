@@ -2,25 +2,25 @@
 title: Snelstartgids - end-to-end SSL-versleuteling configureren met Azure Application Gateway - Azure portal | Microsoft Docs
 description: Informatie over het gebruik van de Azure-portal een Azure Application Gateway maken met end-to-end SSL-versleuteling.
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/19/2019
+ms.date: 4/30/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: e47a3e1231701f3339057e25ee4388aff0c9fbd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd165f81b45e3ae0c121fb8876ed88e68d493195
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831947"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946802"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>End-to-end SSL configureren met behulp van Application Gateway met de portal
 
 In dit artikel leest u hoe de Azure-portal gebruiken om te configureren van end-to-end SSL-versleuteling met een toepassingsgateway v1-SKU.  
 
 > [!NOTE]
-> Application Gateway v2-SKU vereist vertrouwde basiscertificaten voor inschakelen end-to-end-configuratie. Portal ondersteuning voor het toevoegen van vertrouwde basiscertificaten is nog niet beschikbaar. Daarom in het geval van V2 SKU ziet [end-to-end SSL met behulp van PowerShell configureren](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+> Application Gateway v2-SKU vereist vertrouwde basiscertificaten voor inschakelen end-to-end-configuratie. Portal ondersteuning voor het toevoegen van vertrouwde basiscertificaten is nog niet beschikbaar. Daarom in het geval van v2 SKU ziet [end-to-end SSL met behulp van PowerShell configureren](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -32,7 +32,7 @@ Zie voor meer informatie, [SSL-beëindiging en end-to-end SSL](https://docs.micr
 
 ## <a name="create-a-new-application-gateway-with-end-to-end-ssl"></a>Een nieuwe toepassingsgateway maken met end-to-end SSL
 
-Als u wilt een nieuwe toepassingsgateway maken met end-to-end SSL-versleuteling, moet u SSL-beëindiging tijdens het maken van een nieuwe toepassingsgateway voor het eerst inschakelt. Hiermee schakelt u SSL-versleuteling voor de communicatie tussen de gateway van de client en de toepassing. U wordt vervolgens goedgekeurde certificaten voor back-endservers in de HTTP-instellingen wilt SSL-versleuteling voor de communicatie tussen de gateway en back-end-toepassingsservers, waardoor het uitvoeren van end-to-end SSL-versleuteling inschakelen.
+Als u wilt een nieuwe toepassingsgateway maken met end-to-end SSL-versleuteling, moet u SSL-beëindiging tijdens het maken van een nieuwe toepassingsgateway voor het eerst inschakelt. Hiermee schakelt u SSL-versleuteling voor de communicatie tussen de gateway van de client en de toepassing. Vervolgens kunt moet u goedgekeurde certificaten voor back-endservers in de HTTP-instellingen om in te schakelen SSL-versleuteling voor de communicatie tussen de gateway en back-end-toepassingsservers, uitvoeren van end-to-end SSL-versleuteling.
 
 ### <a name="enable-ssl-termination-while-creating-a-new-application-gateway"></a>SSL-beëindiging tijdens het maken van een nieuwe toepassingsgateway inschakelen
 
@@ -61,9 +61,9 @@ Raadpleeg dit artikel om te begrijpen hoe u [inschakelen van SSL-beëindiging ti
 
 ## <a name="enable-end-to-end-ssl-for-existing-application-gateway"></a>End-to-end SSL voor bestaande toepassingsgateway inschakelen
 
-Als u wilt een bestaande toepassingsgateway configureren met end-to-end SSL-versleuteling, moet u eerst inschakelen SSL-beëindiging in de listener. Hiermee schakelt u SSL-versleuteling voor de communicatie tussen de gateway van de client en de toepassing. U wordt vervolgens goedgekeurde certificaten voor back-endservers in de HTTP-instellingen wilt SSL-versleuteling voor de communicatie tussen de gateway en back-end-toepassingsservers, waardoor het uitvoeren van end-to-end SSL-versleuteling inschakelen.
+Als u wilt een bestaande toepassingsgateway configureren met end-to-end SSL-versleuteling, moet u eerste SSL-beëindiging met inschakelen in de listener. Hiermee schakelt u SSL-versleuteling voor de communicatie tussen de gateway van de client en de toepassing. Vervolgens kunt moet u goedgekeurde certificaten voor back-endservers in de HTTP-instellingen om in te schakelen SSL-versleuteling voor de communicatie tussen de gateway en back-end-toepassingsservers, uitvoeren van end-to-end SSL-versleuteling.
 
-U moet het gebruik van een listener met HTTPS-protocol en certificaat voor het inschakelen van SSL-beëindiging. U kunt het protocol van een bestaande listener niet wijzigen. Daarom kunt u ofwel een listener met HTTPS-protocol en het certificaat gebruikt of maak een nieuwe listener. Wanneer u de vorige kiest, kunt u negeren de hieronder vermelde stappen voor het **inschakelen SSL-beëindiging in bestaande toepassingsgateway** en verplaatst u rechtstreeks naar **goedgekeurde certificaten voor back-endservers** de sectie. Als u de laatste kiest, moet u deze stappen uitvoeren. 
+U moet een listener met HTTPS-protocol en het certificaat gebruiken voor het inschakelen van SSL-beëindiging. U kunt het protocol van een bestaande listener niet wijzigen. U kunt dus ofwel een listener met HTTPS-protocol en het certificaat gebruikt of maak een nieuwe listener. Wanneer u de vorige kiest, kunt u negeren de hieronder vermelde stappen voor het **inschakelen SSL-beëindiging in bestaande toepassingsgateway** en verplaatst u rechtstreeks naar **goedgekeurde certificaten voor back-endservers** de sectie. Als u de laatste, gebruikt u deze stappen.
 
 ### <a name="enable-ssl-termination-in-existing-application-gateway"></a>SSL-beëindiging in bestaande toepassingsgateway inschakelen
 

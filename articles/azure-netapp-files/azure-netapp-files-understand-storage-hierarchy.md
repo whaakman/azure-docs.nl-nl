@@ -1,5 +1,5 @@
 ---
-title: Informatie over de opslaghiërarchie van Azure NetApp Files | Microsoft Docs
+title: Wat is de hiërarchie van de opslag van Azure NetApp Files | Microsoft Docs
 description: In dit artikel wordt de opslaghiërarchie beschreven, waaronder Azure NetApp Files-accounts, capaciteitspools en volumes.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 04/16/2019
 ms.author: b-juche
-ms.openlocfilehash: 357bd5eac41b0da50a1d7035e8e8045a9f21144c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fec9e22b15eca3f95be606776066cf573046b5fd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691028"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687483"
 ---
-# <a name="understand-the-storage-hierarchy-of-azure-netapp-files"></a>Informatie over de opslaghiërarchie van Azure NetApp Files
+# <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Wat is de hiërarchie van de opslag van Azure NetApp Files
 
 Voordat u een volume maakt in Azure NetApp Files, moet u een pool kopen en instellen voor de ingerichte capaciteit.  U heeft een NetApp-account nodig om een capaciteitspool in te stellen. Door inzicht te krijgen in de opslaghiërarchie kunt u uw Azure NetApp Files-resources beter instellen en beheren.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: eaf2d4a5a34a42867debcff4163f692431c8e0ab
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61052387"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573864"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies schrijven in Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Na te zijn geschreven moet de opgeslagen procedure worden geregistreerd bij een 
 
 ### <a id="create-an-item"></a>Een item maken met behulp van opgeslagen procedure
 
-Wanneer u een item maakt met behulp van een opgeslagen procedure, wordt het item in de Azure Cosmos DB-container ingevoegd en wordt een id voor het zojuist gemaakte item geretourneerd. Het maken van een item is een asynchrone bewerking en is afhankelijk van de callback-functies van JavaScript. De callback-functie heeft twee parameters: een voor het foutobject in geval dat de bewerking mislukt en een voor een retourwaarde; in dit geval het gemaakte object. Binnen de callback kunt u de uitzondering verwerken of een fout genereren. Indien er geen callback is opgegeven en er een fout is opgetreden, genereert de Azure Cosmos DB-runtime een fout. 
+Wanneer u een item maakt met behulp van opgeslagen procedure, het item wordt ingevoegd in de Azure Cosmos DB-container en een id voor het nieuwe item wordt geretourneerd. Het maken van een item is een asynchrone bewerking en is afhankelijk van de callback-functies van JavaScript. De callback-functie heeft twee parameters: een voor het foutobject in geval dat de bewerking mislukt en een voor een retourwaarde; in dit geval het gemaakte object. Binnen de callback kunt u de uitzondering verwerken of een fout genereren. Indien er geen callback is opgegeven en er een fout is opgetreden, genereert de Azure Cosmos DB-runtime een fout. 
 
 De opgeslagen procedure bevat ook een parameter voor het instellen van de beschrijving, het is een Booleaanse waarde. Als de parameter is ingesteld op true en de beschrijving ontbreekt, genereert de opgeslagen procedure een uitzondering. Anders gaat de uitvoering van de rest van de opgeslagen procedure verder.
 

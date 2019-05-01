@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 04/01/2018
+ms.date: 04/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 951cf377c7e33dd3dd5e13a7b42fa05bec06245d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 00c2efacab72c08d33b0004650bece2c369c757b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012383"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64936001"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Zelfstudie: Een Azure Database for MySQL ontwerpen met Azure CLI
 
@@ -53,7 +53,7 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-mysql-server"></a>Een Azure-database voor MySQL-server maken
 Maak een Azure Database for MySQL-server met de opdracht az mysql server create. Een server kan meerdere databases beheren. Een aparte database wordt doorgaans gebruikt voor elk project of voor elke gebruiker.
 
-In het volgende voorbeeld wordt een Azure-database voor MySQL-server gemaakt die zich in `westus` bevindt in de resourcegroep `myresourcegroup` met de naam `mydemoserver`. De server heeft aanmeldgegevens voor de beheerder met de naam `myadmin`. Dit is een Gen 5-server voor Algemeen gebruik met twee vCores. Vervang het `<server_admin_password>` door uw eigen waarde.
+In het volgende voorbeeld wordt een Azure-database voor MySQL-server gemaakt die zich in `westus` bevindt in de resourcegroep `myresourcegroup` met de naam `mydemoserver`. De server heeft een beheerder met de naam `myadmin`. Dit is een Gen 5-server voor Algemeen gebruik met twee vCores. Vervang het `<server_admin_password>` door uw eigen waarde.
 
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
@@ -118,7 +118,7 @@ Het resultaat wordt in JSON-indeling weergegeven. Noteer de **fullyQualifiedDoma
 ## <a name="connect-to-the-server-using-mysql"></a>Verbinding maken met de server met behulp van mysql
 Gebruik het [opdrachtregelprogramma mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) om een verbinding tot stand te brengen met uw Azure Database voor MySQL-server. In dit voorbeeld is dit de opdracht:
 ```cmd
-mysql -h mydemoserver.database.windows.net -u myadmin@mydemoserver -p
+mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 ```
 
 ## <a name="create-a-blank-database"></a>Een lege database maken

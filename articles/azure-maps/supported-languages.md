@@ -1,22 +1,28 @@
 ---
-title: Ondersteunde talen in Azure Maps | Microsoft Docs
+title: Lokalisatieondersteuning van Azure Maps | Microsoft Docs
 description: Meer informatie over ondersteunde talen voor de services van Azure Maps
-author: juliekohler
-ms.author: julieko
-ms.date: 04/08/2019
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ad5913224724dcb9cb9033d89010cefb4d9e1f89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1928185521419006a487a933e2ecba79894a09d3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769189"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686787"
 ---
-# <a name="azure-maps-supported-languages"></a>Azure Maps ondersteunde talen
-Azure Maps zijn voor services in verschillende talen gelokaliseerd.  De volgende tabel bevat de ondersteunde taalcodes voor elke service.  
+# <a name="localization-support-in-azure-maps"></a>Lokalisatieondersteuning in Azure-kaarten
+
+Azure kaarten biedt ondersteuning voor verschillende talen en weergaven op basis van land/regio. Dit artikel bevat de ondersteunde talen en weergaven om te helpen uw Azure Maps-implementatie.
+
+
+## <a name="azure-maps-supported-languages"></a>Azure Maps ondersteunde talen
+
+Azure Maps zijn voor services in verschillende talen gelokaliseerd. De volgende tabel bevat de ondersteunde taalcodes voor elke service.  
   
 
 | Id         | Name                   |  Kaarten | Search | Routering | Verkeer incidenten | Kaartbesturingselement JS | Tijdzone |
@@ -75,3 +81,30 @@ Azure Maps zijn voor services in verschillende talen gelokaliseerd.  De volgend
 | tr-TR      | Turks                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | uk-UA      | Oekraïens               |       |    ✓   |         |                   |                |     ✓     |
 | vi-VN      | Vietnamees             |       |    ✓   |         |                   |                |     ✓     |
+
+
+## <a name="azure-maps-supported-views"></a>Azure Maps ondersteunde weergaven
+
+Azure kaarten weergeven-parameter (ook wel 'gebruiker regio parameter' genoemd) is een 2-letter uitvoeren voor ISO-3166 landcode die wordt weergegeven de juiste toewijzingen van dat land/de regio op te geven welke geopolitieke set betwist randen en labels worden weergegeven op de kaart.  Weergave-parameter is standaard ingesteld op **"Unified"**.  Land/regio's die niet in de weergavelijst wordt teruggezet naar de weergave 'Unified'. Het is uw verantwoordelijkheid om te bepalen van de locatie van uw gebruikers en stel vervolgens de weergave-parameter correct voor die locatie. De parameter weergeven in Azure kaarten-moet worden gebruikt in overeenstemming met van toepassing zijnde wetten, met inbegrip van de betreffende toewijzing van het land waar kaarten, afbeeldingen en andere gegevens en van derden inhoud die u bent gemachtigd om via Azure kaarten-beschikbaar wordt gesteld.
+
+De volgende tabel bevat de ondersteunde weergaven.
+
+| Weergave         | Description                            |  Kaarten | Search | Kaartbesturingselement JS |
+|--------------|----------------------------------------|:-----:|:------:|:--------------:|
+| AE           | Verenigde Arabische Emiraten (Arabisch weergeven)    |   ✓   |        |     ✓          |
+| AR           | Argentinië (Argentijnse weergeven)           |   ✓   |    ✓   |     ✓          |
+| BH           | Bahrein (Arabisch weergeven)                 |   ✓   |        |     ✓          |
+| IN           | India (Indiase weergeven)                    |   ✓   |   ✓     |     ✓          |
+| IQ           | Irak (Arabisch weergeven)                    |   ✓   |        |     ✓          |
+| JO           | Jordanië (Arabisch weergeven)                  |   ✓   |        |     ✓          |
+| KW           | Koeweit (Arabisch weergeven)                  |   ✓   |        |     ✓          |
+| LB           | Libanon (Arabisch weergeven)                 |   ✓   |        |     ✓          |
+| MA           | Marokko (Marokkaanse weergeven)                |   ✓   |   ✓     |     ✓          |
+| OM           | Oman (Arabisch weergeven)                    |   ✓   |        |     ✓          |
+| PK           | Pakistan (Pakistaanse weergeven)              |   ✓   |    ✓    |     ✓          |
+| PS           | Palestijnse autoriteit (Arabisch weergeven)    |   ✓   |        |     ✓          |
+| QA           | Qatar (Arabisch weergeven)                   |   ✓   |        |     ✓          |
+| SA           | Saoedi-Arabië (Arabisch weergeven)            |   ✓   |        |     ✓          |
+| SY           | Syrië (Arabisch weergeven)                   |   ✓   |        |     ✓          |
+| YE           | Jemen (Arabisch weergeven)                   |   ✓   |        |     ✓          |
+| Unified      | Geïntegreerde weergave (andere)                  |   ✓   |   ✓     |     ✓          |

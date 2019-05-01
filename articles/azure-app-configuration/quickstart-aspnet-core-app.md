@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b527199fd7b61609f292b13c73bfc1d6e0a6b896
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 90a39693778e01da76baf19765be8801f55813b7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203764"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683059"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Een ASP.NET Core-app maken met Azure-app-configuratie
 
@@ -28,6 +28,8 @@ Azure-appconfiguratie is een beheerde configuratieservice in Azure. U kunt deze 
 Een object één sleutel-waarde-configuratie op basis van bouwt ASP.NET Core met behulp van de instellingen van een of meer gegevensbronnen die zijn opgegeven door een toepassing. Deze gegevensbronnen worden aangeduid als *configuratieproviders*. Omdat App-configuratie .NET Core-client is geïmplementeerd als zodanig een provider, is de service wordt weergegeven, zoals een andere gegevensbron.
 
 Een code-editor kunt u de stappen in deze Quick Start. [Visual Studio Code](https://code.visualstudio.com/) is een uitstekende optie beschikbaar is op Windows, macOS en Linux-platforms.
+
+![Quickstart voor het lokaal starten van een app](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -118,15 +120,12 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(options => {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .SetOfflineCache(new OfflineFileCache());
-                });
+                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
             })
             .UseStartup<Startup>();
     ```
 
-6. Index.cshtml in de weergaven openen > Home-directory en vervang de inhoud ervan door de volgende code:
+6. Open *Index.cshtml* in de weergaven > Home-directory en vervang de inhoud ervan door de volgende code:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -152,7 +151,7 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
     </html>
     ```
 
-7. _Layout.cshtml openen in de weergaven > gedeelde map en vervang de inhoud ervan door de volgende code:
+7. Open *_Layout.cshtml* in de weergaven > gedeelde map en vervang de inhoud ervan door de volgende code:
 
     ```html
     <!DOCTYPE html>
@@ -190,8 +189,6 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
         dotnet run
 
 3. Open een browservenster en Ga naar `http://localhost:5000`, dit is de standaard-URL voor de web-app die lokaal wordt gehost.
-
-    ![Quickstart voor het lokaal starten van een app](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

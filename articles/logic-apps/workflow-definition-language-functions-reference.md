@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.openlocfilehash: d7ea62c51065cbe85a905b4ff78743fdc11c1e10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e69d43b8bec7945c5aa1b394ce7402338f6fbbfb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502253"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64693250"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Functiereferentie voor Definitietaal van werkstroom in Azure Logic Apps en Microsoft Flow
 
@@ -318,7 +318,7 @@ action().outputs.body.<property>
 | <*De eigenschap*> | Nee | String | De naam op voor het actie-object eigenschap waarvan u wilt dat de waarde: **naam**, **startTime**, **endTime**, **invoer**,  **uitvoer**, **status**, **code**, **trackingId**, en **clientTrackingId**. U kunt deze eigenschappen aan de hand van een specifieke uitvoeringsgeschiedenis details vinden in de Azure-portal. Zie voor meer informatie, [REST-API - uitvoeren werkstroomacties](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | -----| ----------- |
 | <*action-output*> | String | De uitvoer van de huidige actie of de eigenschap |
 ||||
@@ -452,13 +452,13 @@ actions('<actionName>')
 actions('<actionName>').outputs.body.<property>
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Ja | String | De naam voor de actie voor het object waarvan de gewenste uitvoer  |
 | <*De eigenschap*> | Nee | String | De naam op voor het actie-object eigenschap waarvan u wilt dat de waarde: **naam**, **startTime**, **endTime**, **invoer**,  **uitvoer**, **status**, **code**, **trackingId**, en **clientTrackingId**. U kunt deze eigenschappen aan de hand van een specifieke uitvoeringsgeschiedenis details vinden in de Azure-portal. Zie voor meer informatie, [REST-API - uitvoeren werkstroomacties](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | -----| ----------- |
 | <*action-output*> | String | De uitvoer van de opgegeven actie of de eigenschap |
 ||||
@@ -483,7 +483,7 @@ Retourneert het resultaat van het toevoegen van twee getallen.
 add(<summand_1>, <summand_2>)
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*summand_1*>, <*summand_2*> | Ja | Geheel getal, drijvende komma, of | De getallen om toe te voegen |
 |||||
@@ -562,7 +562,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*bijgewerkt timestamp*> | String | De tijdstempel plus het opgegeven aantal uren  |
 ||||
@@ -604,7 +604,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*bijgewerkt timestamp*> | String | De tijdstempel plus het opgegeven aantal minuten |
 ||||
@@ -670,7 +670,7 @@ Voeg een aantal seconden een tijdstempel.
 addSeconds('<timestamp>', <seconds>, '<format>'?)
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
 | <*seconds*> | Ja | Geheel getal | Het positieve of negatieve aantal seconden dat wordt toegevoegd |
@@ -721,7 +721,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*bijgewerkt timestamp*> | String | De tijdstempel plus het opgegeven aantal tijdseenheden  |
 ||||
@@ -810,7 +810,7 @@ Zie voor meerdere invoergegevens [createArray()](#createArray).
 array('<value>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Waarde*> | Ja | String | De tekenreeks voor het maken van een matrix |
 |||||
@@ -840,7 +840,7 @@ Retourneert de met base64 gecodeerde versie voor een tekenreeks.
 base64('<value>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Waarde*> | Ja | String | De ingevoerde tekenreeks |
 |||||
@@ -870,7 +870,7 @@ Retourneert de binaire versie voor een base64-gecodeerde tekenreeks.
 base64ToBinary('<value>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Waarde*> | Ja | String | De met base64 gecodeerde tekenreeks converteren |
 |||||
@@ -904,12 +904,12 @@ Hoewel beide functies werken op dezelfde manier, `base64ToString()` verdient de 
 base64ToString('<value>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Waarde*> | Ja | String | De met base64 gecodeerde tekenreeks die moet worden gedecodeerd |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*decoded-base64-string*> | String | De tekenreeksversie voor een base64-gecodeerde tekenreeks |
 ||||
@@ -1048,7 +1048,7 @@ Lege tekenreeksen, lege matrices en lege objecten zijn niet null zijn.
 coalesce(<object_1>, <object_2>, ...)
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*object_1*>, <*object_2*>, ... | Ja | Eventuele kunt typen combineren | Een of meer items om te controleren op null-waarden |
 |||||
@@ -1084,12 +1084,12 @@ Twee of meer tekenreeksen combineren en retourneert de gecombineerde tekenreeks.
 concat('<text1>', '<text2>', ...)
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*text1*>, <*text2*>, ... | Ja | String | Ten minste twee tekenreeksen combineren |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*text1text2...*> | String | De tekenreeks die is gemaakt op basis van de gecombineerde invoer tekenreeksen |
 ||||
@@ -1123,7 +1123,7 @@ Deze functie werkt met name op dergelijke verzameling:
 * Een *matrix* vinden een *waarde*
 * Een *woordenlijst* vinden een *sleutel*
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Verzameling*> | Ja | Tekenreeks of matrix woordenlijst | De verzameling om te controleren |
 | <*Waarde*> | Ja | Tekenreeks of matrix woordenlijst, respectievelijk | Het item om te zoeken |
@@ -1160,7 +1160,7 @@ Een tijdstempel van Coordinated van Universal Time (UTC) naar de doeltijdzone co
 convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
 | <*destinationTimeZone*> | Ja | String | De naam voor de doel-tijdzone. Zie voor meer informatie, [tijdzone-id's](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
@@ -1288,7 +1288,7 @@ Zie voor één invoer matrices [array](#array).
 createArray('<object1>', '<object2>', ...)
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Object1*>, <*object2*>,... | Ja | , Maar niet in de gemengde modus | Ten minste twee items voor het maken van de matrix |
 |||||
@@ -1323,7 +1323,7 @@ dataUri('<value>')
 | <*Waarde*> | Ja | String | De tekenreeks die moet worden geconverteerd |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*data-uri*> | String | De gegevens-URI voor de ingevoerde tekenreeks |
 ||||
@@ -1344,7 +1344,7 @@ En dit resultaat wordt weergegeven: `"data:text/plain;charset=utf-8;base64,aGVsb
 
 Retourneert de binaire versie voor een data uniform resource identifier (URI).
 Deze functie wilt gebruiken in plaats van [decodeDataUri()](#decodeDataUri).
-Hoewel beide functies werken op dezelfde manier, `decodeDataUri()` verdient de voorkeur.
+Hoewel beide functies werken op dezelfde manier, `dataUriBinary()` verdient de voorkeur.
 
 ```
 dataUriToBinary('<value>')
@@ -1355,7 +1355,7 @@ dataUriToBinary('<value>')
 | <*Waarde*> | Ja | String | De gegevens-URI moet worden geconverteerd |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*binary-for-data-uri*> | String | De binaire versie van de gegevens-URI |
 ||||
@@ -1385,7 +1385,7 @@ De tekenreeksversie voor een data uniform resource identifier (URI) retourneren.
 dataUriToString('<value>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Waarde*> | Ja | String | De gegevens-URI moet worden geconverteerd |
 |||||
@@ -1420,7 +1420,7 @@ dayOfMonth('<timestamp>')
 | <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*day-of-month*> | Geheel getal | De dag van de maand van de opgegeven timestamp |
 ||||
@@ -1450,7 +1450,7 @@ dayOfWeek('<timestamp>')
 | <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*day-of-week*> | Geheel getal | De dag van de week van de opgegeven timestamp waar zondag is ingesteld op 0 maandag is 1, enzovoort |
 ||||
@@ -1475,7 +1475,7 @@ Retourneert de dag van het jaar van een tijdstempel.
 dayOfYear('<timestamp>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
 |||||
@@ -1507,12 +1507,12 @@ Hoewel beide functies werken op dezelfde manier, `base64ToString()` verdient de 
 decodeBase64('<value>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Waarde*> | Ja | String | De met base64 gecodeerde tekenreeks die moet worden gedecodeerd |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*decoded-base64-string*> | String | De tekenreeksversie voor een base64-gecodeerde tekenreeks |
 ||||
@@ -1539,12 +1539,12 @@ Hoewel beide functies werken op dezelfde manier, `dataUriToBinary()` verdient de
 decodeDataUri('<value>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Waarde*> | Ja | String | De gegevens-URI-tekenreeks moet worden gedecodeerd |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*binary-for-data-uri*> | String | De binaire versie van een gegevens-URI-tekenreeks |
 ||||
@@ -1644,7 +1644,7 @@ encodeUriComponent('<value>')
 | <*Waarde*> | Ja | String | De tekenreeks die moet worden geconverteerd naar de URI-notatie |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*encoded-uri*> | String | De URI-gecodeerde tekenreeks met escape-tekens |
 ||||
@@ -1789,7 +1789,7 @@ first([<collection>])
 | <*Verzameling*> | Ja | Tekenreeks of matrix | De verzameling waar vind ik het eerste item |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*first-collection-item*> | Alle | Het eerste item in de verzameling |
 ||||
@@ -1819,12 +1819,12 @@ U kunt deze functie alleen als aangepaste parameters wordt doorgegeven aan een a
 float('<value>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Waarde*> | Ja | String | De tekenreeks met een geldige drijvend-kommagetal converteren |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*float-value*> | Float | Het getal met drijvende komma voor de opgegeven tekenreeks |
 ||||
@@ -1855,7 +1855,7 @@ formatDateTime('<timestamp>', '<format>'?)
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*reformatted-timestamp*> | String | De bijgewerkte tijdstempel in de opgegeven indeling |
 ||||
@@ -1880,13 +1880,13 @@ Retourneert een matrix met waarden die overeenkomen met een naam in van een acti
 formDataMultiValues('<actionName>', '<key>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Ja | String | De actie waarvan de uitvoer heeft de waarde van de sleutel die u wilt |
 | <*Sleutel*> | Ja | String | De naam voor de sleutel waarvan u wilt dat de waarde |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | [<*matrix met sleutel waarden*>] | Matrix | Een matrix met de waarden die overeenkomen met de opgegeven sleutel |
 ||||
@@ -2039,7 +2039,7 @@ greater('<value>', '<compareTo>')
 | <*compareTo*> | Ja | Geheel getal, drijvende komma of tekenreeks, respectievelijk | De vergelijkingswaarde |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | waar of ONWAAR | Boolean | Retourneert waar als de eerste waarde hoger is dan de tweede waarde. Retourneert onwaar als de eerste waarde gelijk aan of kleiner is dan de tweede waarde is. |
 ||||
@@ -2070,13 +2070,13 @@ greaterOrEquals(<value>, <compareTo>)
 greaterOrEquals('<value>', '<compareTo>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Waarde*> | Ja | Geheel getal, drijvende komma of tekenreeks | De eerste waarde om te controleren of groter zijn dan of gelijk zijn aan de tweede waarde |
 | <*compareTo*> | Ja | Geheel getal, drijvende komma of tekenreeks, respectievelijk | De vergelijkingswaarde |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | waar of ONWAAR | Boolean | Retourneert waar als de eerste waarde groter dan of gelijk zijn aan de tweede waarde is. Retourneert onwaar als de eerste waarde kleiner is dan de tweede waarde. |
 ||||
@@ -2210,7 +2210,7 @@ int('<value>')
 | <*Waarde*> | Ja | String | De tekenreeks die moet worden geconverteerd |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*integer-result*> | Geheel getal | De versie van het geheel getal voor de opgegeven tekenreeks |
 ||||
@@ -2293,7 +2293,7 @@ json('<value>')
 | <*Waarde*> | Ja | Tekenreeks of XML | De tekenreeks of XML converteren |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*JSON-result*> | Systeemeigen JSON-type of het object | De systeemeigen waardetype JSON of het object voor de opgegeven tekenreeks of XML. Als de tekenreeks leeg is, retourneert de functie een leeg object. |
 ||||
@@ -2422,7 +2422,7 @@ last('<collection>')
 last([<collection>])
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Verzameling*> | Ja | Tekenreeks of matrix | De verzameling waar vind ik het laatste item |
 |||||
@@ -2559,7 +2559,7 @@ lessOrEquals(<value>, <compareTo>)
 lessOrEquals('<value>', '<compareTo>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Waarde*> | Ja | Geheel getal, drijvende komma of tekenreeks | De eerste waarde om te controleren of minder dan of gelijk zijn aan de tweede waarde |
 | <*compareTo*> | Ja | Geheel getal, drijvende komma of tekenreeks, respectievelijk | Het item vergelijking |
@@ -2595,7 +2595,7 @@ Deze functie werkt alleen met triggers en acties voor de **HttpWebhook** en **Ap
 listCallbackUrl()
 ```
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*callback-URL*> | String | De callback-URL voor een trigger of actie |
 ||||
@@ -2650,7 +2650,7 @@ min(<number1>, <number2>, ...)
 min([<number1>, <number2>, ...])
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Getal1*>, <*getal2*>,... | Ja | Geheel getal, drijvende komma of beide | Het instellen van de getallen waarvan u wilt dat de laagste waarde |
 | [<*number1*>, <*number2*>, ...] | Ja | Matrix - geheel getal, drijvende komma of beide | De matrix met getallen van waaruit u wilt dat de laagste waarde |
@@ -2683,13 +2683,13 @@ Als u het resultaat geheel getal zijn, raadpleegt u [div()](#div).
 mod(<dividend>, <divisor>)
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Ja | Geheel getal of een gegevenstype met drijvende komma | Het getal waardoor moet worden de *deler* |
 | <*divisor*> | Ja | Geheel getal of een gegevenstype met drijvende komma | Het getal dat wordt gedeeld de *deeltal*, maar mag niet 0 zijn. |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*modulo-result*> | Geheel getal of een gegevenstype met drijvende komma | De rest van het delen van het eerste getal door het tweede getal |
 ||||
@@ -2714,13 +2714,13 @@ Retourneert het product van twee getallen vermenigvuldigen.
 mul(<multiplicand1>, <multiplicand2>)
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*multiplicand1*> | Ja | Geheel getal of een gegevenstype met drijvende komma | Het aantal om te vermenigvuldigen met *multiplicand2* |
 | <*multiplicand2*> | Ja | Geheel getal of een gegevenstype met drijvende komma | Het getal dat veelvouden *multiplicand1* |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*product-result*> | Geheel getal of een gegevenstype met drijvende komma | Het product van het vermenigvuldigen van het eerste getal door het tweede getal |
 ||||
@@ -2906,7 +2906,7 @@ Retourneert een willekeurig geheel getal van een opgegeven bereik, ook meegereke
 rand(<minValue>, <maxValue>)
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*minValue*> | Ja | Geheel getal | Het laagste gehele getal in het bereik |
 | <*maxValue*> | Ja | Geheel getal | Het gehele getal dat volgt op het hoogste gehele getal in het bereik dat de functie kan retourneren |
@@ -2943,7 +2943,7 @@ range(<startIndex>, <count>)
 | <*count*> | Ja | Geheel getal | Het aantal gehele getallen in de matrix |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | [<*range-result*>] | Matrix | De matrix met gehele getallen vanaf de opgegeven index |
 ||||
@@ -3006,7 +3006,7 @@ removeProperty(<object>, '<property>')
 | <*De eigenschap*> | Ja | String | De naam op voor de eigenschap te verwijderen |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*updated-object*> | Object | Het bijgewerkte JSON-object zonder dat de opgegeven eigenschap |
 ||||
@@ -3030,7 +3030,7 @@ U kunt deze functie gebruiken om toe te voegen een nieuwe eigenschap, of de [add
 setProperty(<object>, '<property>', <value>)
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*object*> | Ja | Object | Het JSON-object waarvan de eigenschap u wilt instellen |
 | <*De eigenschap*> | Ja | String | De naam op voor de bestaande of nieuwe eigenschap instellen |
@@ -3092,13 +3092,13 @@ Retourneert een matrix met subtekenreeksen, gescheiden door komma's, op basis va
 split('<text>', '<delimiter>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Ja | String | De tekenreeks te splitsen in subtekenreeksen op basis van het opgegeven scheidingsteken in de oorspronkelijke reeks |
 | <*delimiter*> | Ja | String | Het teken in de oorspronkelijke tekenreeks die moet worden gebruikt als het scheidingsteken |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | [<*substring1*>, <*substring2*>,...] | Matrix | Een matrix met subtekenreeksen uit de oorspronkelijke reeks, gescheiden door komma 's |
 ||||
@@ -3129,7 +3129,7 @@ startOfDay('<timestamp>', '<format>'?)
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*bijgewerkt timestamp*> | String | De opgegeven timestamp, maar vanaf het hele uur uitgevoerd voor de dag |
 ||||
@@ -3154,13 +3154,13 @@ Retourneert het begin van het uur voor een tijdstempel.
 startOfHour('<timestamp>', '<format>'?)
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*bijgewerkt timestamp*> | String | De opgegeven timestamp, maar vanaf de nul minuten durende is ingeschakeld voor het uur |
 ||||
@@ -3191,7 +3191,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*bijgewerkt timestamp*> | String | Vanaf de eerste dag van de maand op het hele uur uitgevoerd, maar de opgegeven timestamp |
 ||||
@@ -3218,7 +3218,7 @@ Deze functie is niet hoofdlettergevoelig.
 startsWith('<text>', '<searchText>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Ja | String | De tekenreeks om te controleren |
 | <*searchText*> | Ja | String | De eerste tekenreeks om te zoeken |
@@ -3259,7 +3259,7 @@ De tekenreeksversie voor een waarde retourneren.
 string(<value>)
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Waarde*> | Ja | Alle | De waarde te converteren |
 |||||
@@ -3305,7 +3305,7 @@ sub(<minuend>, <subtrahend>)
 | <*aftrekker*> | Ja | Geheel getal of een gegevenstype met drijvende komma | Het getal moet worden afgetrokken van de *aftrektal* |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*Resultaat*> | Geheel getal of een gegevenstype met drijvende komma | Het resultaat van het tweede nummer van het eerste getal af te trekken |
 ||||
@@ -3364,7 +3364,7 @@ Zie ook [getPastTime](#getPastTime).
 subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
 | <*interval*> | Ja | Geheel getal | Het aantal eenheden van de opgegeven tijd om af te trekken |
@@ -3372,7 +3372,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*bijgewerkt timestamp*> | String | De tijdstempel minus het opgegeven aantal tijdseenheden |
 ||||
@@ -3414,7 +3414,7 @@ take([<collection>], <count>)
 | <*count*> | Ja | Geheel getal | Een positief geheel getal voor het aantal items die u wilt dat uit het voorste deel |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*subset*> of [<*subset*>] | Tekenreeks of matrix, respectievelijk | Een tekenreeks of een matrix met het opgegeven aantal items die zijn overgenomen uit het begin van de oorspronkelijke verzameling |
 ||||
@@ -3494,7 +3494,7 @@ Retourneert een tekenreeks in hoofdletters. Als een teken in de tekenreeks geen 
 toUpper('<text>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Ja | String | De tekenreeks die moet worden geretourneerd in hoofdletters |
 |||||
@@ -3594,12 +3594,12 @@ Als de functie vindt meer dan één overeenkomst, is de functie genereert een fo
 triggerFormDataValue('<key>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Sleutel*> | Ja | String | De naam voor de sleutel waarvan u wilt dat de waarde |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*key-value*> | String | De waarde in de opgegeven sleutel |
 ||||
@@ -3646,7 +3646,7 @@ See [trigger()](#trigger).
 triggerOutputs()
 ```
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*trigger-output*> | String | De uitvoer van een trigger tijdens runtime  |
 ||||
@@ -3725,12 +3725,12 @@ Hoewel beide functies werken op dezelfde manier, `uriComponent()` verdient de vo
 uriComponent('<value>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Waarde*> | Ja | String | De tekenreeks die moet worden geconverteerd naar de URI-notatie |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*encoded-uri*> | String | De URI-gecodeerde tekenreeks met escape-tekens |
 ||||
@@ -3760,7 +3760,7 @@ uriComponentToBinary('<value>')
 | <*Waarde*> | Ja | String | De URI-gecodeerde tekenreeks converteren |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*binary-for-encoded-uri*> | String | De binaire versie voor de URI-gecodeerde tekenreeks. De binaire inhoud wordt base64-gecodeerd en wordt vertegenwoordigd door `$content`. |
 ||||
@@ -3790,7 +3790,7 @@ Retourneert dat de tekenreeksversie voor een uniform resource identifier (URI) g
 uriComponentToString('<value>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Waarde*> | Ja | String | De URI-gecodeerde tekenreeks moet worden gedecodeerd |
 |||||
@@ -3825,7 +3825,7 @@ uriHost('<uri>')
 | <*uri*> | Ja | String | De URI waarvan `host` waarde die u wilt |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*host-value*> | String | De `host` waarde voor de opgegeven URI |
 ||||
@@ -3880,12 +3880,12 @@ Retourneert de `path` en `query` waarden voor een uniform resource identifier (U
 uriPathAndQuery('<uri>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*uri*> | Ja | String | De URI waarvan `path` en `query` waarden die u wilt |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*path-query-value*> | String | De `path` en `query` waarden voor de opgegeven URI. Als `path` niet een waarde opgeeft, retourneert het teken '/'. |
 ||||
@@ -3910,7 +3910,7 @@ Retourneert de `port` waarde voor een uniform resource identifier (URI).
 uriPort('<uri>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*uri*> | Ja | String | De URI waarvan `port` waarde die u wilt |
 |||||
@@ -3940,12 +3940,12 @@ Retourneert de `query` waarde voor een uniform resource identifier (URI).
 uriQuery('<uri>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*uri*> | Ja | String | De URI waarvan `query` waarde die u wilt |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*query-value*> | String | De `query` waarde voor de opgegeven URI |
 ||||
@@ -3970,12 +3970,12 @@ Retourneert de `scheme` waarde voor een uniform resource identifier (URI).
 uriScheme('<uri>')
 ```
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*uri*> | Ja | String | De URI waarvan `scheme` waarde die u wilt |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*scheme-value*> | String | De `scheme` waarde voor de opgegeven URI |
 ||||
@@ -4003,7 +4003,7 @@ utcNow('<format>')
 Desgewenst kunt u een andere indeling met de <*indeling*> parameter.
 
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
@@ -4050,7 +4050,7 @@ variables('<variableName>')
 | <*variableName*> | Ja | String | De naam van de variabele waarvan u wilt dat de waarde |
 |||||
 
-| Retourwaarde | Type | Beschrijving |
+| Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
 | <*waarde van variabele*> | Alle | De waarde voor de opgegeven variabele |
 ||||

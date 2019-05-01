@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: 6f14b3184cabd1dfd84f04260f6b8c831037cbcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60718152"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926134"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Netwerkmodi voor service Fabric-containers
 
@@ -30,7 +30,7 @@ Als u een containerservice met een statisch eindpunt in het servicemanifest hebt
 Wanneer een containerservice opnieuw wordt opgestart of naar een ander knooppunt in het cluster verplaatst, wordt het IP-adres verandert. Om deze reden wordt niet aanbevolen met dynamisch toegewezen IP-adres voor het detecteren van containerservices. Alleen de Service Fabric Naming-Service of de DNS-Service moet worden gebruikt voor de servicedetectie. 
 
 >[!WARNING]
->Met Azure kunt een totaal van 65,356 IP-adressen per virtueel netwerk. De som van het aantal knooppunten en het aantal exemplaren van de container service (die gebruikmaakt van Open-modus) kan niet groter zijn dan 65,356 IP-adressen binnen een virtueel netwerk. Voor scenario's met hoge dichtheid raden wij netwerken nat-modus. Bovendien andere afhankelijkheden, zoals de load balancer hebben andere [beperkingen](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) om te overwegen. Op dit moment maximaal 50 IP-adressen per knooppunt zijn getest en bewezen stabiel. 
+>Met Azure kunt een totaal van 65,356 IP-adressen per virtueel netwerk. De som van het aantal knooppunten en het aantal exemplaren van de container service (die gebruikmaakt van Open-modus) kan niet groter zijn dan 65,356 IP-adressen binnen een virtueel netwerk. Voor scenario's met hoge dichtheid raden wij netwerken nat-modus. Bovendien andere afhankelijkheden, zoals de load balancer hebben andere [beperkingen](https://docs.microsoft.com/azure/azure-subscription-service-limits) om te overwegen. Op dit moment maximaal 50 IP-adressen per knooppunt zijn getest en bewezen stabiel. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Open netwerken modus instellen

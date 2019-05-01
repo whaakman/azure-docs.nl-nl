@@ -1,25 +1,18 @@
 ---
-title: Azure-aanbieding instellingen van de SaaS-toepassing | Microsoft Docs
+title: Azure-aanbieding instellingen van de SaaS-toepassing | Azure Marketplace
 description: Bieden instellingen configureren voor SaaS-toepassing aanbieding op Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 8b8810d3dc899a87b99422c093b6901ed9683325
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 6903226ecfe1478b340e390c783c4e57af778f3e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101129"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943525"
 ---
 # <a name="saas-application-offer-settings-tab"></a>Tabblad voor SaaS-toepassing-instellingen bieden
 
@@ -33,14 +26,14 @@ Gebruik het tabblad instellingen bieden om te configureren de **identiteit biede
 
 ## <a name="offer-identity-settings"></a>Instellingen voor de identiteiten bieden
 
-Onder de identiteit bieden, moet u de gegevens voor de velden die worden beschreven in de volgende tabel opgeven. 
+Onder de identiteit bieden, moet u de gegevens voor de velden die worden beschreven in de volgende tabel opgeven. Verplichte velden zijn indicted met een asterisk (*).
 
-
-|  **Veldnaam**   |  **Beschrijving**  |
+|    Veldnaam      |    Description    |
 |  ---------------   |  ---------------  |
-|    Aanbiedings-id  |  Een unieke id voor de aanbieding binnen een publisher-profiel. Deze ID zijn in URL's voor product en facturering rapporten zichtbaar. De id kan alleen bestaan uit alfanumerieke tekens in kleine letters en streepjes (-). De ID mag niet eindigen met een streepje en is beperkt tot een maximum van 50 tekens. Houd er rekening mee dat dit veld is vergrendeld zodra een aanbieding live meteen. Bijvoorbeeld, als een uitgever, Contoso, publiceert een aanbieding met aanbieding-ID voorbeeld-vm, deze wordt weergegeven in Azure marketplace als: https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-vm?tab=Overview.                 |
-|  Uitgevers-ID    |  De uitgevers-ID is de unieke id in de Marketplace. Al uw aanbiedingen moeten worden gekoppeld met uw uitgever-ID. De uitgevers-ID kan niet worden gewijzigd nadat een van de aanbieding wordt opgeslagen...                |
-|  Name      |   Dit is de weergavenaam voor uw aanbieding. Dit is de naam die wordt weergegeven in Azure Marketplace en in Azure Portal. De naam mag maximaal 50 tekens bevatten. Gebruik een merknaam voor het product die makkelijk te herkennen is. Neem hier de naam van uw bedrijf niet, tenzij dat is hoe deze wordt gebracht. Als u bent deze aanbieding op uw eigen website marketing, controleert u of de naam precies hoe deze wordt weergegeven in uw website.               |
+|  **Aanbiedings-ID\***    |  Een unieke id voor de aanbieding binnen een publisher-profiel. Deze ID zijn in URL's voor product en facturering rapporten zichtbaar. De id kan alleen bestaan uit alfanumerieke tekens in kleine letters en streepjes (-). De ID mag niet eindigen met een streepje en is beperkt tot een maximum van 50 tekens. Houd er rekening mee dat dit veld is vergrendeld zodra een aanbieding live meteen. Bijvoorbeeld, als een uitgever, Contoso, publiceert een aanbieding met aanbieding-ID voorbeeld-vm, deze wordt weergegeven in Azure marketplace als: https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-vm?tab=Overview.                 |
+|  **Uitgevers-ID\***    |  De uitgevers-ID is de unieke id in de Marketplace. Al uw aanbiedingen moeten worden gekoppeld met uw uitgever-ID. De uitgevers-ID kan niet worden gewijzigd nadat een van de aanbieding wordt opgeslagen...                |
+|  **Naam\***      |   Dit is de weergavenaam voor uw aanbieding. Dit is de naam die wordt weergegeven in Azure Marketplace en in Azure Portal. De naam mag maximaal 50 tekens bevatten. Gebruik een merknaam voor het product die makkelijk te herkennen is. Neem hier de naam van uw bedrijf niet, tenzij dat is hoe deze wordt gebracht. Als u bent deze aanbieding op uw eigen website marketing, controleert u of de naam precies hoe deze wordt weergegeven in uw website.               |
+|  |  |
 
 Selecteer **opslaan** uw voortgang opslaan.
 

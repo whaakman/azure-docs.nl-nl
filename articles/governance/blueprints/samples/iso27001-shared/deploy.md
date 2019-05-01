@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 19ed39fac66a7abe4c65cf37ff616ba10fd8d96b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88d5cfbbcb29cacc2e8c1c6a226367c5f23e8231
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60875174"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926305"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Het voorbeeld van de blauwdruk ISO 27001 gedeelde Services implementeren
 
@@ -99,7 +99,7 @@ Nadat de kopie van het voorbeeld van de blauwdruk is **gepubliceerd**, deze kan 
 1. Zodra alle parameters hebt ingevoerd, selecteert u **toewijzen** aan de onderkant van de pagina. De blauwdruktoewijzing is gemaakt en artefact-implementatie begint. De implementatie duurt ongeveer een uur. Als u wilt controleren op de status van implementatie, de blauwdruktoewijzing te openen.
 
 > [!WARNING]
-> De blauwdrukken voor Azure-service en de ingebouwde blauwdruk voorbeelden zijn **gratis**. Azure-resources zijn [prijs per product](https://azure.microsoft.com/en-us/pricing/). Gebruik de [prijscalculator](https://azure.microsoft.com/pricing/calculator/) om in te schatten van de kosten van het uitvoeren van de resources die zijn geïmplementeerd door deze blauwdruk-voorbeeld.
+> De blauwdrukken voor Azure-service en de ingebouwde blauwdruk voorbeelden zijn **gratis**. Azure-resources zijn [prijs per product](https://azure.microsoft.com/pricing/). Gebruik de [prijscalculator](https://azure.microsoft.com/pricing/calculator/) om in te schatten van de kosten van het uitvoeren van de resources die zijn geïmplementeerd door deze blauwdruk-voorbeeld.
 
 ## <a name="artifact-parameters-table"></a>Tabel artefact-parameters
 

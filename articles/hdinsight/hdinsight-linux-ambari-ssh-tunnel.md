@@ -1,21 +1,19 @@
 ---
 title: SSH-tunneling voor toegang tot Azure HDInsight gebruiken
 description: Informatie over het gebruik van een SSH-tunnel om te bladeren veilig webresources die worden gehost op uw HDInsight op basis van Linux-knooppunten.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 04/30/2018
-ms.date: 02/04/2019
+ms.date: 12/15/2018
 ms.author: hrasheed
 ms.openlocfilehash: 0361539cefbacb8fc0473a1f863cf2ae4638b444
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766753"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682543"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>SSH-Tunneling gebruiken voor toegang tot de Apache Ambari-Webgebruikersinterface, JobHistory, NameNode, Apache Oozie en andere webgebruikersinterfaces
 
@@ -35,7 +33,7 @@ De volgende Web-UI's vereisen een SSH-tunnel:
 
 Als u uw cluster aanpassen met scriptacties, moeten de services en hulpprogramma's die u installeert die beschikbaar maken van een webservice een SSH-tunnel. Bijvoorbeeld, als u Hue met behulp van een scriptactie installeren, moet u een SSH-tunnel gebruiken voor toegang tot de Hue-Webgebruikersinterface.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Als u directe toegang tot HDInsight via een virtueel netwerk hebt, hoeft u geen gebruik van SSH-tunnels. Zie voor een voorbeeld van HDInsight rechtstreeks te benaderen via een virtueel netwerk, de [HDInsight verbinden met uw on-premises netwerk](connect-on-premises-network.md) document.
 
 ## <a name="what-is-an-ssh-tunnel"></a>Wat is een SSH-tunnel
@@ -48,7 +46,7 @@ Als u uw cluster aanpassen met scriptacties, moeten de services en hulpprogramma
 
 * Een webbrowser die kan worden geconfigureerd voor het gebruik van een proxy SOCKS5.
 
-    > [!WARNING]
+    > [!WARNING]  
     > De ondersteuning van de SOCKS-proxy die is ingebouwd in de instellingen voor Windows Internet biedt geen ondersteuning voor SOCKS5 en werkt niet met de stappen in dit document. De volgende browsers zijn afhankelijk van de proxy-instellingen voor Windows en momenteel niet werkt met de stappen in dit document:
     >
     > * Microsoft Edge
@@ -111,14 +109,14 @@ Als de opdracht is voltooid, wordt verkeer dat wordt verzonden naar poort 9876 o
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Gebruik de tunnel vanuit uw browser
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De stappen in deze sectie gebruiken de Mozilla FireFox-browser, zoals het biedt de dezelfde proxy-instellingen voor alle platforms. Andere moderne browsers, zoals Google Chrome, is mogelijk een extensie zoals FoxyProxy om te werken met de tunnel.
 
 1. Configureren van de browser gebruikmaakt **localhost** en de poort die u hebt gebruikt tijdens het maken van de tunnel als een **SOCKS v5** proxy. Hier ziet u hoe de instellingen van Firefox eruit zien. Als u een andere poort dan 9876 gebruikt, moet u de poort wijzigen in de versie die u gebruikt:
    
     ![afbeelding van de instellingen van Firefox](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > Selecteren **externe DNS** wordt omgezet Domain Name System (DNS)-aanvragen met behulp van het HDInsight-cluster. Deze instelling wordt omgezet DNS met behulp van het hoofdknooppunt van het cluster.
 
 2. Controleer of de tunnel werkt via een site, zoals [ https://www.whatismyip.com/ ](https://www.whatismyip.com/). Het geretourneerde IP-adres moet worden gebruikt door de Microsoft Azure-datacenter.
@@ -140,7 +138,7 @@ Zodra het cluster eenmaal is ingesteld, gebruikt u de volgende stappen uit om te
 
     ![Afbeelding met het menu QuickLinks uitgevouwen](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Wanneer u selecteert __snelkoppelingen__, krijgt u mogelijk een indicator wachten. Dit probleem kan zich voordoen als er een langzame internetverbinding. Wacht een minuut of twee voor de gegevens worden ontvangen van de server en probeer het opnieuw de lijst.
    >
    > Sommige gegevens in de **snelkoppelingen** menu kan worden afgekapt door aan de rechterkant van het scherm. Als dit het geval is, vouw het menu met de muis en gebruik de toets pijl-rechts aan het scherm naar rechts om te zien van de rest van het menu bladeren.

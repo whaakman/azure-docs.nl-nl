@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60789857"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699081"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Problemen met Azure-naar-Azure-VM-replicatie oplossen
 
@@ -221,7 +221,17 @@ Zorg ervoor dat de gegevensschijven zijn geïnitialiseerd en voer de bewerking v
 
 Als het probleem zich blijft voordoen, neem dan contact op met ondersteuning.
 
+## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>Een of meer schijven zijn beschikbaar voor beveiliging (foutcode 153039)
+- **Mogelijke oorzaak** </br>
+  - Als een of meer schijven zijn recentelijk toegevoegd aan de virtuele machine nadat de beveiliging. 
+  - Als een of meer schijven zijn geïnitialiseerd nadat de beveiliging van de virtuele machine.
 
+### <a name="fix-the-problem"></a>Het probleem wordt opgelost
+U kunt kiezen om te beveiligen van de schijven of negeer de waarschuwing aan dat de replicatiestatus van de virtuele machine opnieuw in orde.</br>
+1. Ter bescherming van de schijven. Navigeer naar gerepliceerde Items > virtuele machine > schijven > Klik op niet-beveiligde schijf > Replicatie inschakelen.
+ ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
+2. Aan de waarschuwing negeren. Ga naar gerepliceerde items > virtuele machine > Klik op de waarschuwing sluiten onder de overzichtssectie.
+![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Kan niet zien van de Azure-VM voor selectie in 'replicatie inschakelen'
 
  **1 oorzaak:  Resourcegroep en de virtuele bronmachine zich in andere locatie** <br>

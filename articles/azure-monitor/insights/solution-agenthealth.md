@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 568ff99364923c43b7199bed1dacd32cf0d18ab9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596072"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571150"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Oplossing status van agent in Azure Monitor
 De oplossing status van Agent in Azure kunt u meer informatie over voor alle agents rapporteren rechtstreeks aan de Log Analytics-werkruimte in Azure Monitor of een System Center Operations Manager-beheergroep verbonden met Azure Monitor, die zich niet meer reageert en het indienen van operationele gegevens.  U kunt ook bijhouden hoeveel agents er zijn geïmplementeerd en waar deze zich geografisch gezien bevinden. Bovendien kunt u query's uitvoeren om op de hoogte te blijven van de verdeling van agents over Azure, andere cloudomgevingen of on-premises.    
@@ -63,7 +63,7 @@ Klik op de tegel **Status van agent** om het **gelijknamige** dashboard te opene
 | Distribution by Agent Version | Een visualisatie van de verschillende agentversies die zijn geïnstalleerd in uw omgeving en het aantal van elke versie.|
 | Distribution by Agent Category | Een visualisatie van de verschillende categorieën agents die heartbeat-gebeurtenissen verzenden: directe agents, OpsMgr-agents of OpsMgr Management Server.|
 | Verdeling naar beheergroep | Een visualisatie van de verschillende groepen van de Operations Manager-beheerservers in uw omgeving.|
-| Geo-location of Agents | Een visualisatie van de verschillende landen waarin zich agents bevinden en het totale aantal agents dat in elk land is geïnstalleerd.|
+| Geo-location of Agents | Een visualisatie van de verschillende landen/regio waarin zich agents bevinden en een telling van het aantal agents die zijn geïnstalleerd in elk land/regio.|
 | Count of Gateways Installed | Het aantal servers die de Log Analytics gateway is geïnstalleerd, en een lijst van deze servers.|
 
 ![Voorbeeld van het dashboard van de oplossing Status van agent](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  

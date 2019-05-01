@@ -10,16 +10,16 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9e01ba8ae53dbcca686a9844600a5df416a685ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 33c6f9e06439ebeb17608aa374532ac4f7a020cf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317357"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701362"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Wat is Azure Active Directory B2C?
 
-Azure Active Directory (Azure AD) B2C is een beheerservice voor identiteiten. Met deze service kunt u aanpassen en beheren hoe gebruikers veilig kunnen omgaan met uw web-, bureaublad- en mobiele toepassingen of toepassingen met één pagina. Met Azure AD B2C kunnen gebruikers zich registreren, aanmelden, kunnen ze wachtwoorden herstellen en profielen bewerken. In Azure AD B2C is een formulier geïmplementeerd van de OpenID Connect- en OAuth 2.0-protocollen. De belangrijke sleutel in de implementatie van deze protocollen wordt gevormd door de beveiligingstokens en de bijbehorende claims waarmee u veilige toegang hebt tot resources.
+Azure Active Directory (Azure AD) B2C is een business-to-consumer identity management-service. Met deze service kunt u aanpassen en beheren hoe gebruikers veilig kunnen omgaan met uw web-, bureaublad- en mobiele toepassingen of toepassingen met één pagina. Met Azure AD B2C kunnen gebruikers zich registreren, aanmelden, kunnen ze wachtwoorden herstellen en profielen bewerken. In Azure AD B2C is een formulier geïmplementeerd van de OpenID Connect- en OAuth 2.0-protocollen. De belangrijke sleutel in de implementatie van deze protocollen wordt gevormd door de beveiligingstokens en de bijbehorende claims waarmee u veilige toegang hebt tot resources.
 
 Een *gebruikersbeleving* is een aanvraag waarmee een beleid wordt opgegeven dat het gedrag controleert van de wijze waarop de gebruiker en uw toepassing met Azure AD B2C omgaan. Er zijn twee paden beschikbaar voor het definiëren van gebruikersbelevingen in Azure AD B2C. 
 

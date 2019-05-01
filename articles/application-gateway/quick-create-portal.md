@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 42d3bd2285574b4416ec06af13006353880a7ca5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6f91b424398df7839c251d994fd3d484422d5e2c
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903519"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947304"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Snelstart: Webverkeer omleiden met Azure Application Gateway - Azure Portal
 
@@ -65,7 +65,9 @@ Er is een virtueel netwerk nodig voor communicatie tussen de resources die u maa
 
 3. Selecteer **OK** om terug te gaan naar de pagina **Instellingen**.
 
-4. Kies de **Frontend-IP-configuratie**. Controleer onder **Frontend-IP-configuratie** of **Type IP-adres** is ingesteld op **Openbaar**. Controleer onder **Openbaar IP-adres** of **Nieuw** is geselecteerd. <br>U kunt configureren dat de Frontend-IP om openbare of particuliere aan de hand van uw situatie. In dit voorbeeld kiezen we een openbare front-end-IP-adres. 
+4. Kies de **Frontend-IP-configuratie**. Controleer onder **Frontend-IP-configuratie** of **Type IP-adres** is ingesteld op **Openbaar**. Controleer onder **Openbaar IP-adres** of **Nieuw** is geselecteerd. <br>U kunt configureren dat de Frontend-IP om openbare of particuliere aan de hand van uw situatie. In dit voorbeeld kiezen we een openbare front-end-IP-adres.
+   > [!NOTE]
+   > Voor de SKU van Application Gateway v2, kunt u alleen kiezen **openbare** IP-configuratie. Privé-IP-configuratie is momenteel niet ingeschakeld voor de v2-SKU.
 
 5. Typ *myAGPublicIPAddress* als naam voor het openbare IP-adres. 
 

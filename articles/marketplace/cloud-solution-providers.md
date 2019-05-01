@@ -1,20 +1,18 @@
 ---
-title: In de cloud Solution Providers | Azure
+title: In de cloud Solution Providers | Azure Marketplace
 description: Uitgevers kunnen nu hun aanbiedingen via Microsoft CSP partner kanaal verkopen
 services: Azure, Marketplace, Compute, Storage, Networking
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: 516cb10fe368334d8fe30d998857d0688dcae972
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d39ebf993498cea3ede11e07c5e71628287b81ac
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726895"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938555"
 ---
 # <a name="cloud-solution-providers"></a>Providers van cloudoplossingen
 

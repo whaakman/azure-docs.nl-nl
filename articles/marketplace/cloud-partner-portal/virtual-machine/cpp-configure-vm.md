@@ -1,25 +1,18 @@
 ---
-title: De Microsoft Azure gehoste virtuele machine configureren voor Azure Marketplace | Microsoft Docs
+title: De Microsoft Azure gehoste virtuele machine configureren voor Azure Marketplace
 description: Wordt uitgelegd hoe u het formaat van, bijwerken en een virtuele machine die wordt gehost op Azure te generaliseren.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 3d38efadfb8ad13d072056ef851be99d9540ad4b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744343"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938434"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configureer de VM wordt gehost op Azure
 

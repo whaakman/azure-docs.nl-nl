@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 6ad4cf251ad09adb7e1f11ebd42d7eab0d6a9183
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3a29c6b4d0308b41e29f38fc29d79634727d593
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330965"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926005"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption met de klant beheerde sleutels in Azure Key Vault: Bring Your Own Key-ondersteuning
 
@@ -61,6 +61,7 @@ Wanneer TDE is eerst geconfigureerd voor gebruik van een TDE-beveiliging uit Key
 - Bepaal welke abonnementen zijn die moet worden gebruikt voor de vereiste resources: het verplaatsen van dat de server voor abonnementen later een nieuwe installatie van TDE met BYOKs vereist. Meer informatie over [verplaatsen van resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - Bij het configureren van TDE met Azure Key Vault, is het belangrijk om te overwegen de belasting die door operations herhaalde verpakken/uitpakken van de key vault geplaatst. Bijvoorbeeld, omdat alle databases die zijn gekoppeld aan een SQL Database-server de dezelfde TDE-beveiliging, wordt een failover van die server geactiveerd als er veel belangrijke bewerkingen op de kluis omdat er databases op de server zijn. Op basis van onze ervaring en gedocumenteerd [key vault-Servicelimieten](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits), het is raadzaam het koppelen van maximaal 500 Standard / algemeen gebruik of 200 Premium / bedrijfskritieke databases met een Azure Key Vault in één abonnement om ervoor te zorgen consistent hoge beschikbaarheid bij toegang tot de TDE-beveiliging in de kluis.
 - Aanbevolen: Bewaar een kopie van de TDE-beveiliging on-premises.  Hiervoor hebt u een HSM-apparaat om te maken van lokaal een TDE-beveiliging en een systeem sleutelbewaring door derden voor het opslaan van een lokale kopie van de TDE-beveiliging.  Informatie over [over te dragen van een sleutel uit een lokale HSM naar Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
+- Voor problemen met bestaande configuraties, Zie [TDE oplossen](https://docs.microsoft.com/sql/relational-databases/security/encryption/troubleshoot-tde)
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Richtlijnen voor het configureren van Azure Key Vault
 
@@ -72,7 +73,7 @@ Wanneer TDE is eerst geconfigureerd voor gebruik van een TDE-beveiliging uit Key
 - De SQL-Database-servertoegang verlenen tot de key vault met behulp van de identiteit van de Azure Active Directory (Azure AD).  Wanneer u de Portal-gebruikersinterface, de Azure AD-identiteit automatisch wordt gemaakt en de key vault-machtigingen zijn verleend aan de server.  Met behulp van PowerShell TDE met BYOK te configureren, de Azure AD-identiteit moet worden gemaakt en voltooiing moet worden gecontroleerd. Zie [TDE configureren met BYOK](transparent-data-encryption-byok-azure-sql-configure.md) en [TDE configureren met BYOK voor beheerd exemplaar](https://aka.ms/sqlmibyoktdepowershell) voor gedetailleerde stapsgewijze instructies bij het gebruik van PowerShell.
 
   > [!NOTE]
-  > Als de Azure AD Identity **per ongeluk is verwijderd of de machtigingen van de server worden ingetrokken** met behulp van de key vault-toegangsbeleid, de server verliest de toegang tot de key vault en TDE versleuteld databases binnen 24 uur niet toegankelijk zijn.
+  > Als de Azure AD Identity **per ongeluk is verwijderd of de machtigingen van de server worden ingetrokken** met behulp van de key vault-toegangsbeleid of per ongeluk door de server verplaatsen naar een ander abonnement, de server toegang tot de key vault, verliest en TDE versleuteld databases binnen 24 uur niet toegankelijk zijn.  
 
 - Als u firewalls en virtuele netwerken voor Azure Key Vault, moet u het volgende configureren: 
   - Vertrouwde Microsoft-services om over te slaan van de firewall toestaan: Ja gekozen

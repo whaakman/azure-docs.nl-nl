@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 0887f58ca455dfec0474c8d6a1acba584224f0d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1838dbb627a6dec46f817101fc1d0cca0961ef77
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929447"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574197"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Veelgestelde vragen voor ClearDB MySql-databases met Azure App Service
 Deze Veelgestelde vragen vindt u antwoorden op veelgestelde vragen over het gebruik en het kopen van de ClearDB MySQL databases voor Azure Web Apps.
@@ -49,7 +49,7 @@ De standaardoptie voor de database is Titan, wat $3,50. We niet de kosten weerge
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Ik ben MySQL op mijn eigen Azure-machine uitgevoerd. Kan ik mijn Azure-web-app verbinden met mijn database?
 Ja. U kunt uw web-app verbinden met uw database, zolang uw Azure-VM heeft gegeven van het externe toegang in uw web-app. Zie voor meer informatie, [MySQL installeren op een virtuele machine](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="in-which-countries-are-cleardb-premium-mysql-clusters-supported"></a>In welke landen/regio's worden ClearDB Premium MySQL-clusters ondersteund?
+## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>Landen/regio's waarin ClearDB Premium MySQL-clusters ondersteund?
 ClearDB Premium MySQL-clusters zijn beschikbaar in alle Azure-regio's over de hele wereld met uitzondering van India, Australië, Brazilië-Zuid en China.
 
 ## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>Kan ik een nieuw cluster vóór het maken van een database met ClearDB premium clusteroplossing maken?
@@ -68,7 +68,7 @@ Basic of een hogere prijscategorie voor Web-Apps gebruiken. Voor ClearDB raden w
 In de [Azure-portal](https://portal.azure.com), kunt u een ClearDB gedeelde hostdatabase opschalen. Lees dit [artikel](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) voor meer informatie. Op dit moment ondersteund niet upgrade voor ClearDB-Premium-clusters in Azure portal.
 
 ## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>Ik zie niet dat mijn ClearDB-database in Azure portal?
-Als u een ClearDB-database in de klassieke versie gemaakt, kunt u zich niet ziet u uw database in de [Azure Portal](https://portal.azure.com). Er is geen tijdelijke oplossing voor dit scenario.
+Als u een ClearDB-database in de klassieke versie gemaakt, kunt u zich niet ziet u uw database in de [Azure-portal](https://portal.azure.com). Er is geen tijdelijke oplossing voor dit scenario.
 
 ## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>Wie moet ik contact opnemen voor ondersteuning als mijn database niet beschikbaar is?
 Neem contact op met [ClearDB-ondersteuning](https://www.cleardb.com/developers/help/support) voor elke database gerelateerde problemen. Zodat ze beschikken over de gegevens van uw Azure-abonnement worden voorbereid.

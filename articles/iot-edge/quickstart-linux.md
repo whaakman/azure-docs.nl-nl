@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1913cf8d5fa367cc97dfac0a1ecfdf1edf06e298
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 5c790d39ea471a599e8a6b46004b3e350834c318
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758662"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573953"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Quickstart: Uw eerste IoT Edge-module implementeren in een Linux-apparaat
 
@@ -119,7 +119,7 @@ Start de Azure IoT Edge-runtime op uw IoT Edge-apparaat.
 
 ![Diagram - De runtime op apparaat starten](./media/quickstart-linux/start-runtime.png)
 
-De IoT Edge-runtime wordt op alle IoT Edge-apparaten geïmplementeerd. Deze bevat drie onderdelen. De **IoT Edge-beveiligingsdaemon** wordt telkens gestart wanneer een Edge-apparaat wordt opgestart en start het apparaat op door de IoT Edge-agent te starten. De **IoT Edge-agent** faciliteert de implementatie en bewaking van modules op het IoT Edge-apparaat, inclusief de IoT Edge-hub. Met de **IoT Edge-hub** wordt de communicatie tussen modules op het IoT Edge-apparaat en tussen het apparaat en IoT Hub beheerd.
+De IoT Edge-runtime wordt op alle IoT Edge-apparaten geïmplementeerd. Deze bevat drie onderdelen. De **IoT Edge-beveiligingsdaemon** wordt telkens gestart wanneer een IoT Edge-apparaat wordt opgestart en start het apparaat op door de IoT Edge-agent te starten. De **IoT Edge-agent** faciliteert de implementatie en bewaking van modules op het IoT Edge-apparaat, inclusief de IoT Edge-hub. Met de **IoT Edge-hub** wordt de communicatie tussen modules op het IoT Edge-apparaat en tussen het apparaat en IoT Hub beheerd.
 
 Tijdens de installatie van de runtime geeft u een apparaatverbindingsreeks op. Gebruik de tekenreeks die u hebt opgehaald via de Azure CLI. Deze tekenreeks koppelt uw fysieke apparaat aan de IoT Edge-apparaat-id in Azure.
 
@@ -146,13 +146,13 @@ Controleer of de runtime goed is geïnstalleerd en geconfigureerd op uw IoT Edge
 >[!TIP]
 >U hebt verhoogde bevoegdheden nodig om `iotedge`-opdrachten uit te voeren. Nadat u zich de eerste keer na de installatie van de IoT Edge-runtime hebt afgemeld en opnieuw hebt aangemeld, worden uw machtigingen automatisch bijgewerkt. Gebruik tot die tijd **sudo** voorafgaand aan de opdrachten.
 
-1. Controleer of de Edge-beveiligingsdaemon wordt uitgevoerd als een systeemservice.
+1. Controleer of de IoT Edge security-daemon wordt uitgevoerd als een systeemservice.
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-   ![Zie hoe de Edge-beveiligingsdeamon wordt uitgevoerd als een systeemservice](./media/quickstart-linux/iotedged-running.png)
+   ![Zie de IoT Edge-daemon die wordt uitgevoerd als een systeemservice](./media/quickstart-linux/iotedged-running.png)
 
 2. Als u problemen met de service moet oplossen, haalt u de servicelogboeken op.
 
@@ -206,38 +206,22 @@ U kunt de berichten ook zien binnenkomen bij uw IoT Hub door de [Azure IoT Hub T
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u wilt doorgaan met de IoT Edge-zelfstudies, kunt u het apparaat gebruiken dat u hebt geregistreerd en ingesteld in deze snelstart. Anders kunt u de Azure-resources die u hebt gemaakt en de IoT Edge-runtime van uw apparaat verwijderen.
-
-### <a name="delete-azure-resources"></a>Azure-resources verwijderen
+Als u wilt doorgaan met de IoT Edge-zelfstudies, kunt u het apparaat gebruiken dat u hebt geregistreerd en ingesteld in deze snelstart. Anders kunt u de Azure-resources die u hebt gemaakt om kosten te voorkomen verwijderen.
 
 Als u uw virtuele machine en IoT-hub in een nieuwe resourcegroep hebt gemaakt, kunt u die groep en alle bijbehorende resources verwijderen. Controleer de inhoud van de resourcegroep zorgvuldig om te na te gaan of er niets is dat u wilt behouden. Als u niet de hele groep wilt verwijderen, kunt u in plaats daarvan afzonderlijke resources verwijderen.
 
 Verwijder de groep **IoTEdgeResources**.
 
-   ```azurecli-interactive
-   az group delete --name IoTEdgeResources
-   ```
-
-### <a name="remove-the-iot-edge-runtime"></a>De IoT Edge-runtime verwijderen
-
-Als u de installaties van uw apparaat wilt verwijderen, gebruikt u de volgende opdrachten.  
-
-Verwijder de IoT Edge-runtime.
-
-   ```bash
-   sudo apt-get remove --purge iotedge
-   ```
-
-Verwijder de container-runtime.
-
-   ```bash
-   sudo apt-get remove --purge moby-cli
-   sudo apt-get remove --purge moby-engine
-   ```
+```azurecli-interactive
+az group delete --name IoTEdgeResources
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Deze snelstart is vereist voor alle IoT Edge-zelfstudies. U kunt doorgaan met elke andere zelfstudie om te leren hoe Azure IoT Edge u verder kan helpen bij het omzetten van uw gegevens in bedrijfsinzichten.
+
+In deze snelstart hebt u een IoT Edge-apparaat gemaakt en de Azure IoT Edge-cloudinterface gebruikt om code te implementeren op het apparaat. U hebt nu een testapparaat waarmee ruwe gegevens over de omgeving worden gegenereerd.
+
+De volgende stap is het instellen van uw lokale ontwikkelomgeving, zodat u kunt beginnen met het maken van IoT Edge-modules die uw bedrijfslogica worden uitgevoerd. 
 
 > [!div class="nextstepaction"]
-> [Sensorgegevens filteren met behulp van een Azure-functie](tutorial-deploy-function.md)
+> [Beginnen met het ontwikkelen van IoT Edge-modules voor Linux-apparaten](tutorial-develop-for-linux.md)

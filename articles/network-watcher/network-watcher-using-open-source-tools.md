@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 7c239bbf577645ddb8ab12c525d1b3a8832421df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60680486"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64936012"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Netwerkverkeerspatronen naar en van uw virtuele machines met behulp van open-source hulpprogramma's visualiseren
 
@@ -76,7 +76,7 @@ CapAnalysis biedt verschillende opties voor het visualiseren van uw pakketopname
 
 1. Geomap
 
-    Dit deelvenster geeft u een weergave van uw netwerkverkeer met kleuren aan het volume van netwerkverkeer van elk land te schalen. Gemarkeerde landen om extra stroom statistische gegevens zoals het deel van de gegevens verzonden en ontvangen van IP-adressen in dat land weer te geven, kunt u selecteren.
+    Dit deelvenster geeft u een weergave van uw netwerkverkeer met kleuren aan het volume van netwerkverkeer van elk land/regio te schalen. U kunt geselecteerde landen/regio's om weer te geven aanvullende stroom statistische gegevens zoals het deel van de gegevens verzonden en ontvangen van IP-adressen in dat land/regio selecteren.
 
     ![geomap][8]
 

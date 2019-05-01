@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7885473d029556e10663675a9886c7ea3b9c709c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 0b1c43cb82d6dc2b7f0708dee8471f077befe349
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555418"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722157"
 ---
 # <a name="data-querying"></a>Query's uitvoeren op gegevens
 
@@ -75,11 +75,11 @@ De volgende keer reeks Query-API's zijn beschikbaar:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over:
+- Meer informatie over [opslag- en uitgangsclaims](./time-series-insights-update-storage-ingress.md) in Azure Time Series Insights Preview.
 
-- [Azure Time Series Insights Preview-opslag en -opname](./time-series-insights-update-storage-ingress.md)
-- [Gegevens modelleren](./time-series-insights-update-tsm.md)
-- [Aanbevolen procedures bij het kiezen van een Time Series-ID](./time-series-insights-update-how-to-id.md)
+- Lezen van de Preview van Time Series Insights [gegevensmodellering](./time-series-insights-update-tsm.md) artikel.
+
+- Ontdek [aanbevolen procedures bij het kiezen van een Time Series-ID](./time-series-insights-update-how-to-id.md).
 
 <!-- Images -->
 [1]: media/v2-update-tsq/tsq.png

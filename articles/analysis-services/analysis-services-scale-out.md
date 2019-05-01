@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c226608f6c1c776463aa05c02b1d3cc04b699ec
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 42cdf230379665c596761f9846e52454a3d99680
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766823"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939675"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-uitschalen
 
@@ -39,13 +39,13 @@ Tijdens een automatische synchronisatie wordt uitgevoerd alleen wanneer u scale-
 
 Wanneer u de volgende scale-out-bewerking uitvoert, bijvoorbeeld zijn het aantal replica's in de querypool van twee tot vijf, verhoogt de nieuwe replica's gehydrateerd met gegevens uit de tweede set met bestanden in blob storage. Er is geen synchronisatie. Als u vervolgens uitvoeren wordt een synchronisatie na het uitschalen, de nieuwe replica's in de groep query gehydrateerd tweemaal - een redundante hydration. Wanneer u de volgende scale-out-bewerking uitvoert, is het belangrijk rekening moet houden:
 
-* Voer een synchronisatie uit *voordat de bewerking scale-out* om te voorkomen dat redundante hydration van de toegevoegde replica's.
+* Voer een synchronisatie uit *voordat de bewerking scale-out* om te voorkomen dat redundante hydration van de toegevoegde replica's. Gelijktijdige synchronisatie en scale-out-bewerkingen uitvoeren op hetzelfde moment zijn niet toegestaan.
 
 * Bij het automatiseren van beide verwerking *en* scale-out-bewerkingen, het is belangrijk dat de gegevens op de primaire server eerst te verwerken en vervolgens een synchronisatie uitvoeren en vervolgens voert u de scale-out-bewerking. Deze volgorde zorgt ervoor dat minimale gevolgen voor de QPU-en geheugenresources.
 
 * Synchronisatie is toegestaan, zelfs wanneer er zich geen replica's in de query-groep. Als u horizontaal van nul tot een of meer replica's met nieuwe gegevens uit een verwerking op de primaire server schalen worden, eerst de synchronisatie wordt uitgevoerd met geen replica's in de query-groep, en vervolgens scale-out. Synchroniseren voordat horizontaal schalen, voorkomt u redundante hydration van de zojuist toegevoegde replica's.
 
-* Bij het verwijderen van een modeldatabase van de primaire server, deze wordt niet automatisch worden verwijderd uit replica's in de query-groep. U moet een synchronisatiebewerking uitvoeren met behulp van de [synchronisatie AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell-opdracht die Hiermee verwijdert u het bestand/s voor die database van de gedeelde blob-opslaglocatie van de replica en het model wordt verwijderd de database op de replica's in de query-groep.
+* Bij het verwijderen van een modeldatabase van de primaire server, deze wordt niet automatisch worden verwijderd uit replica's in de query-groep. U moet een synchronisatiebewerking uitvoeren met behulp van de [synchronisatie AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell-opdracht die Hiermee verwijdert u het bestand/s voor die database van de gedeelde blob-opslaglocatie van de replica en het model wordt verwijderd de database op de replica's in de query-groep. Om te bepalen of de database van een model op replica's in de query-groep, maar niet op de primaire server bestaat, zorg ervoor dat de **de verwerkingsserver scheiden van query's op groep** -instelling is **Ja**. Gebruik vervolgens SSMS verbinding maken met de primaire server met de `:rw` kwalificatie van de database bestaat. Maak verbinding met de replica's in de groep query door verbinding te maken zonder de `:rw` kwalificatie dezelfde database ook bestaat. Als de database op de replica's in de query-groep, maar niet op de primaire server bestaat, voert u een synchronisatiebewerking.   
 
 * Wanneer de naam van een database op de primaire server, is er een extra stap die nodig zijn om te controleren of dat de database correct wordt gesynchroniseerd met alle replica's. Na het wijzigen van de naam, kunt u een synchronisatie uitvoeren met behulp van de [synchronisatie AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) opdracht op te geven de `-Database` parameter met de naam van de oude database. Deze synchronisatie Hiermee verwijdert u de database en de bestanden met de oude naam van een replica's. Voer een andere synchronisatie op te geven de `-Database` parameter met de naam van de nieuwe database. De tweede synchronisatie de nieuwe naam database worden gekopieerd naar de tweede set van bestanden en hydrates alle replica's. Deze synchronisatie kunnen niet worden uitgevoerd met behulp van de opdracht Synchronize-model in de portal.
 
@@ -58,6 +58,8 @@ Voor maximale prestaties voor verwerking en querybewerkingen, kunt u kiezen voor
 Om te bepalen als scale-out voor de server nodig is, moet u de server in Azure portal controleren met behulp van metrische gegevens. Als uw QPU regelmatig loadniveau, betekent dit dat het aantal query's op uw modellen overschrijdt de limiet QPU voor uw abonnement. De Query pool taak wachtrij lengte metriek verhoogt ook wanneer het aantal query's in de querywachtrij van de thread-pool overschrijdt de beschikbare QPU. 
 
 Een andere goede meetwaarde om te kijken is de gemiddelde QPU door ServerResourceType. Met deze metriek wordt de gemiddelde QPU voor de primaire server met die van de querypool vergeleken. 
+
+![Query scale-out metrische gegevens](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
 ### <a name="to-configure-qpu-by-serverresourcetype"></a>QPU door ServerResourceType configureren
 1. Klik in een lijndiagram metrische gegevens op **metrische waarde toevoegen**. 
@@ -146,6 +148,8 @@ Voor SSMS, SSDT en verbindingsreeksen in PowerShell, Azure-functie-apps en AMO, 
 **Probleem:** Gebruikers krijgen fout **kan geen server vinden '\<naam van de server >' exemplaar in de verbindingsmodus 'Alleen-lezen'.**
 
 **Oplossing:** Bij het selecteren van de **scheiden van de verwerkingsserver van de querypool** optie, client-verbindingen met behulp van de standaard-verbindingsreeks (zonder `:rw`) worden omgeleid naar de pool queryreplica's. Als de replica's in de groep van de query nog niet zijn nog online omdat synchronisatie niet is voltooid, wordt omgeleid clientverbindingen kunnen mislukken. Om te voorkomen dat een mislukte verbindingen, moet er ten minste twee servers in de query-groep bij het uitvoeren van een synchronisatie. Elke server afzonderlijk gesynchroniseerd terwijl anderen online blijven. Als u niet beschikt over de verwerkingsserver in de query van toepassingen tijdens de verwerking, kunt u de te verwijderen uit de groep voor verwerking en nadat de verwerking is voltooid, maar voordat de synchronisatie toevoegen terug naar de pool. Metrische gegevens over geheugen en QPU gebruiken voor het bewaken van de synchronisatiestatus.
+
+
 
 ## <a name="related-information"></a>Gerelateerde informatie
 

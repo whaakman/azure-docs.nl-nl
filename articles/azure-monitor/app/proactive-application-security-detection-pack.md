@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 16dd381301bdc650022ba5580f96a1733aeb32b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90d58d1b22e893e922aa0f3770198fc95f539419
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60199949"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572882"
 ---
 # <a name="application-security-detection-pack-preview"></a>Application security detectie pack (preview)
 
@@ -29,7 +29,7 @@ Deze functie is vereist geen speciale configuratie dan [configureren van uw app 
 Er zijn drie typen beveiligingsproblemen die worden gedetecteerd:
 1. Onbeveiligde toegang tot de URL's: een URL in de toepassing wordt geopend via HTTP en HTTPS. Normaal gesproken moet een URL die HTTPS-aanvragen accepteert geen HTTP-aanvragen accepteren. Dit kan duiden op een bug of beveiliging oplossen in uw toepassing.
 2. Onveilige vorm: een formulier (of een andere aanvraag "POST") in de toepassing maakt gebruik van HTTP in plaats van HTTPS. Met behulp van HTTP, kan de gegevens die door het formulier wordt verzonden in gevaar brengen.
-3. Verdachte gebruikersactiviteiten: de toepassing wordt geopend meerdere landen door dezelfde gebruiker op ongeveer hetzelfde moment. Bijvoorbeeld, vanuit dezelfde gebruiker de toepassing Spanje en de Verenigde Staten in datzelfde uur. Deze detectie geeft aan dat een poging kwaadwillende gebruikers toegang krijgen tot uw toepassing.
+3. Verdachte gebruikersactiviteiten: de toepassing wordt geopend meerdere landen/regio's door dezelfde gebruiker op ongeveer hetzelfde moment. Bijvoorbeeld, vanuit dezelfde gebruiker de toepassing Spanje en de Verenigde Staten in datzelfde uur. Deze detectie geeft aan dat een poging kwaadwillende gebruikers toegang krijgen tot uw toepassing.
 
 ## <a name="does-my-app-definitely-have-a-security-issue"></a>Beschikt over mijn app absoluut een beveiligingsprobleem?
 Nee, een melding betekent niet dat uw app beslist een beveiligingsprobleem heeft. Een detectie van een van de bovenstaande scenario's kunt, in veel gevallen een beveiligingsprobleem aangeven. Echter, de detectie mogelijk een natuurlijke zakelijke rechtvaardiging en kan worden genegeerd.
@@ -46,5 +46,5 @@ Nee, een melding betekent niet dat uw app beslist een beveiligingsprobleem heeft
 
 ## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>Hoe kan ik de detectie 'verdachte gebruikersactiviteiten' oplossen?
 1. **Sorteren.** De melding geeft het aantal verschillende gebruikers die het verdachte gedrag werd gehost. Hiermee kunt u een prioriteit toewijzen aan het probleem.
-2. **De scope.** In welke landen de verdachte aanvragen afkomstig zijn? Welke gebruiker is het meest verdacht? Deze gegevens kan worden opgehaald van de melding.
-3. **Diagnose.** De detectie bevat de lijst met verdachte gebruikers en de lijst met landen voor elke gebruiker, kunt u het probleem nader onderzoek.
+2. **De scope.** In welke landen/regio's de verdachte aanvragen afkomstig zijn? Welke gebruiker is het meest verdacht? Deze gegevens kan worden opgehaald van de melding.
+3. **Diagnose.** De detectie bevat de lijst met verdachte gebruikers en de lijst met landen/regio's voor elke gebruiker, kunt u het probleem nader onderzoek.

@@ -11,27 +11,29 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d40330f257694e81704bf6fffa1fd2df8ed86c06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a908185f2d8475afb642250d1499cffa539aca4d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61376079"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573492"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Chit chat toevoegen aan een kennisdatabase
 
 Chit chat toe te voegen aan uw bot kunt u meer beschrijvende en aantrekkelijke. De functie chit chat in QnA maker kunt u eenvoudig een vooraf gevulde set van de bovenste chit-chat, toevoegen aan uw knowledge base (KB). Dit kan een startpunt voor de persoonlijkheid van uw bot, en u bespaart de tijd en kosten van het schrijven van deze helemaal.  
 
-Deze gegevensset heeft ongeveer 100 scenario's van chit chat in de stem van drie personen - de Professional, de vriend de Comic. Kies de persona die van uw bot stem het beste past. De aanvraag voor een gebruiker worden gegeven, probeert QnA Maker moet deze overeenkomen met de meest bekende chit-chat QnA. 
+Deze gegevensset heeft ongeveer 100 scenario's van chit chat in de stem van meerdere personen, zoals Professional, gebruiksvriendelijke en Witty. Kies de persona die van uw bot stem het beste past. De aanvraag voor een gebruiker worden gegeven, probeert QnA Maker moet deze overeenkomen met de meest bekende chit-chat QnA.  
 
-Enkele voorbeelden van de verschillende wensen:
+Enkele voorbeelden van de verschillende persoonlijkheden staan hieronder. U ziet de persoonlijkheid gegevenssets, samen met details van de persoonlijkheden [hier](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets).
+
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|Gebruikersquery|De medewerker|De vriend|De Comic|
+|Gebruikersquery|Professioneel|Beschrijvende|Witty|
 |--|--|--|--|
-|`You are awesome`|`I aim to serve.`|`That's so nice of you!`|`Flattery. I like it.`|
+|`You are awesome`|`I aim to serve.`|`Aw, I'm blushing.`|`Flattery. I like it.`|
 |`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
-|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`You can't handle my dulcet tones.`|
-|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Aw, that's sweet.`|`Sure. Take me to city hall. See what happens.`|
+|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`Those who can, do. Those who can't, don't sing.`|
+|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Definitely didn't see that coming!`|`Sure. Take me to city hall. See what happens.`|
+
 
 
 > [!NOTE]

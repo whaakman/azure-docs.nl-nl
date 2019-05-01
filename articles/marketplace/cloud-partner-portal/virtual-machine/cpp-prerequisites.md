@@ -1,25 +1,18 @@
 ---
-title: Vereisten voor virtuele machines voor Microsoft Azure | Microsoft Docs
+title: Vereisten voor virtuele machines voor Microsoft Azure | Azure Marketplace
 description: Lijst met vereisten voor het publiceren van een VM-aanbieding op Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 5c26fd3d6c2593217aef8588e2a58377a86412ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 65ff96ba3aea889ff5b2e2431578f9344f6d840b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844037"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938067"
 ---
 # <a name="virtual-machine-prerequisites"></a>Vereisten voor virtuele machines
 
@@ -49,7 +42,7 @@ De zakelijke vereisten zijn onder andere procedurele, contractuele en wettelijke
     > U moet hetzelfde account van de registratie van Microsoft Developer Center gebruiken om zich op de [Cloud Partner-Portal](https://cloudpartner.azure.com).
     > U hebt slechts één Microsoft-account voor uw aanbiedingen op Azure Marketplace. Deze mag niet zijn specifiek voor afzonderlijke services of aanbiedingen.
     
-- Uw bedrijf (of een dochteronderneming) moet zich bevinden in een verkoop--land/regio via de Azure Marketplace wordt ondersteund.  Zie voor een huidige lijst van deze landen, [Deelnamebeleid voor Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+- Uw bedrijf (of een dochteronderneming) moet zich bevinden in een verkoop-van-land/regio via de Azure Marketplace wordt ondersteund.  Zie voor een huidige lijst van deze landen/regio's, [Deelnamebeleid voor Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 - Uw product moet op een manier die compatibel is met de factureringsmodellen ondersteund door de Azure Marketplace in licentie worden gegeven.  Zie voor meer informatie, [opties voor facturering in Azure Marketplace](https://docs.microsoft.com/azure/marketplace/billing-options-azure-marketplace). 
 - U bent verantwoordelijk voor het maken van technische ondersteuning beschikbaar voor klanten in een commercieel redelijke manier. Deze ondersteuning is gratis, betaald, of via de community-benaderingen.
 - U bent verantwoordelijk voor licentieverlening van uw software en eventuele afhankelijkheden voor software van derden.

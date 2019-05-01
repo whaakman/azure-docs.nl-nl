@@ -1,25 +1,18 @@
 ---
-title: Technische activa van Azure-toepassing maken | Microsoft Docs
+title: Technische activa van Azure-toepassing maken | Azure Marketplace
 description: De technische activa voor de aanbieding van een Azure-toepassing maken.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a498fb2bc3efcc3a081a0ab854df107135a4e008
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: cbe1b8c8f1159d90fbf97eeae272c1c50ec9b9bb
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744955"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942989"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Voorbereiden van uw Azure-toepassing technische activa
 

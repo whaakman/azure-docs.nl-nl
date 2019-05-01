@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: ea5495867d5f453db014e000e01d533d049dc628
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f5ec5a64f1de39cd0d196242fb1a93669dbab15d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60849295"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681851"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Beheren en bewaken back-ups van SQL Server-databases
 
@@ -31,7 +31,7 @@ Azure Backup worden alle handmatig geactiveerde taken in de **back-uptaken** por
 > De **back-uptaken** portal geplande back-uptaken wordt niet weergegeven. Geplande back-uptaken kunt u bewaken met SQL Server Management Studio, zoals wordt beschreven in het volgende gedeelte.
 >
 
-Voor meer informatie over scenario's voor bewaking, gaat u naar [bewaken in Azure Portal](backup-azure-monitoring-built-in-monitor.md) en [bewaken met behulp van Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
+Voor meer informatie over scenario's voor bewaking, gaat u naar [bewaken in Azure portal](backup-azure-monitoring-built-in-monitor.md) en [bewaken met behulp van Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
 
 ## <a name="view-backup-alerts"></a>Waarschuwingen voor back-ups weergeven
@@ -129,9 +129,9 @@ Registratie van een exemplaar van SQL Server nadat u de beveiliging uitschakelen
 
 3. In **beschermde Servers**, de server om de registratie te selecteren. Als u de kluis wilt verwijderen, moet u de registratie van alle servers ongedaan maken.
 
-4. Met de rechtermuisknop op de beveiligde server en selecteer **verwijderen**.
+4. Met de rechtermuisknop op de beveiligde server en selecteer **registratie**.
 
-   ![Verwijderen selecteren](./media/backup-azure-sql-database/delete-protected-server.png)
+   ![Verwijderen selecteren](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Extensie opnieuw te registreren op de SQL Server-VM
 

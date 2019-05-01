@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 678f9aa60d4970540ded8ba0bb1a4ddaa6281a49
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101894"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925478"
 ---
 # <a name="scale-with-additional-process-servers"></a>Schaal aanpassen met extra processervers
 
@@ -24,7 +24,7 @@ Wanneer u repliceert virtuele VMware-machines of fysieke servers naar Azure met 
 
 Zorg ervoor dat u hebt uitgevoerd [capaciteitsplanning](site-recovery-plan-capacity-vmware.md) voor VMware-replicatie. Dit helpt u om te bepalen hoe en wanneer u aanvullende processenservers te implementeren.
 
-Van 9.24 versie richtlijnen toegevoegd tijdens de selectie van de processerver voor nieuwe replicaties. Processerver gemarkeerd in orde, waarschuwingen en kritieke op basis van bepaalde criteria. Voor meer informatie over verschillende scenario's die kunnen van invloed zijn op de status van de processerver, gaat u naar [server selectie richtlijnen verwerken](vmware-azure-manage-process-server.md#process-server-selection-guidance).
+Van 9.24 versie richtlijnen toegevoegd tijdens de selectie van de processerver voor nieuwe replicaties. Processerver gemarkeerd in orde, waarschuwing en kritiek op basis van bepaalde criteria. Voor informatie over de verschillende scenario's die kunnen van invloed zijn op de status van de processerver, raadpleegt de [verwerken van server-waarschuwingen](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
 
 > [!NOTE]
 > Gebruik van een gekloonde onderdeel van de processerver wordt niet ondersteund. Volg de stappen in dit artikel voor elke PS scale-out.

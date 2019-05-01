@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0ab129d7b215f0f10841b13fc2835af59227198
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 6b03dfa5a33850dfedf23375536278c4e08bed68
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565238"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687154"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alibaba-cloud-service-role-based-sso"></a>Zelfstudie: Azure Active Directory-integratie met Alibaba Cloud Service (Role-based SSO)
 
@@ -120,7 +120,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Alibaba Cloud Servic
     | `https://signin.aliyun.com/saml-role/SSO` |
     | `https://signin.alibabacloud.com/saml-role/SSO` |
 
-5. Alibaba Cloud Service (Role-based SSO)-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram  **Bewerken**  om het dialoogvenster  **Gebruikerskenmerken**  te openen.
+5. Alibaba Cloud Service (Role-based SSO)-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op **bewerken** pictogram openen **gebruikerskenmerken** dialoogvenster.
 
     ![image](common/edit-attribute.png)
 
@@ -220,7 +220,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 ### <a name="create-alibaba-cloud-service-role-based-sso-test-user"></a>Testgebruiker Alibaba Cloud Service (Role-based SSO) maken
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Alibaba Cloud Service (Role-based SSO). Werken met [Alibaba Cloud Service (Role-based SSO) ondersteuning voor team](https://www.aliyun.com/service/) om toe te voegen de gebruikers in het Alibaba Cloud Service (Role-based SSO)-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in Alibaba Cloud Service (Role-based SSO). Werken met [Alibaba Cloud Service (Role-based SSO) ondersteuning voor team](https://www.aliyun.com/service/) om toe te voegen de gebruikers in het Alibaba Cloud Service (Role-based SSO)-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 

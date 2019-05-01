@@ -9,14 +9,16 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a83b8a56a8108f86d868e3420d8368c74fba308a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 86aab19eb0203e75fb8586adbdeb3f6fff9d14bd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612317"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575445"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Zelfstudie: Gegevens aan de rand opslaan met SQL Server-databases
+
+Implementeer een SQL Server-module voor het opslaan van gegevens op een Linux-apparaat met Azure IoT Edge.
 
 Gebruik Azure IoT Edge en SQL Server voor het opslaan en opvragen van gegevens aan de rand. Azure IoT Edge heeft basisopslagmogelijkheden waarmee berichten in cache worden geplaatst als een apparaat offline is, en worden doorgestuurd wanneer de verbinding weer tot stand is gebracht. Mogelijk wilt u echter meer geavanceerde opslagmogelijkheden, zoals het lokaal kunnen opvragen van gegevens. Uw IoT Edge-apparaten kunnen lokale databases gebruiken om uit te voeren complexere computing zonder te onderhouden van een verbinding met IoT Hub. 
 
@@ -34,54 +36,24 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Een Azure IoT Edge-apparaat:
+Voordat u deze zelfstudie begint, moet u zijn gebleven door middel van de vorige zelfstudie over het instellen van uw ontwikkelomgeving voor ontwikkeling van Linux-containers: [Ontwikkelen van IoT Edge-modules voor Linux-apparaten](tutorial-develop-for-linux.md). Door deze zelfstudie is voltooid, hebt u de volgende vereisten voldaan: 
 
-* U kunt een virtuele machine van Azure gebruiken als een IoT Edge-apparaat met de volgende stappen in de Quick Start voor [Linux](quickstart-linux.md).
-* SQL Server biedt alleen ondersteuning voor Linux-containers. Als u testen van deze zelfstudie wilt met behulp van een Windows-apparaat als uw IoT Edge-apparaat, moet u deze configureren dat gebruikmaakt van Linux-containers. Zie [De Azure IoT Edge-runtime installeren in Windows](how-to-install-iot-edge-windows.md) voor de vereisten en installatiestappen om de IoT Edge-runtime te configureren voor Linux-containers in Windows.
+* Een gratis of standaard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure.
+* Een [Linux-apparaat met Azure IoT Edge](quickstart-linux.md)
+* Een containerregister, bijvoorbeeld [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio Code](https://code.visualstudio.com/) geconfigureerd met de [hulpprogramma's voor Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Docker CE](https://docs.docker.com/install/) geconfigureerd voor het uitvoeren van Linux-containers.
 
-Cloudresources:
+In deze zelfstudie wordt een Azure Functions-module voor het verzenden van gegevens met de SQL Server. Voor het ontwikkelen van een IoT Edge-module met Azure Functions, installeert u de volgende aanvullende vereisten op uw ontwikkelcomputer: 
 
-* Een gratis of standaard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure. 
-
-Ontwikkelingsresources:
-
-* [Visual Studio Code](https://code.visualstudio.com/). 
 * [C#-extensie voor Visual Studio Code (van OmniSharp) voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
-* [Azure IoT-hulpprogramma's voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download). 
-* [Docker CE](https://docs.docker.com/install/). 
-  * Als u op een Windows-machine ontwikkelt, controleert u of Docker is [geconfigureerd voor het gebruik van Linux-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
-
-## <a name="create-a-container-registry"></a>Een containerregister maken
-
-In deze zelfstudie gebruikt u de Azure IoT-hulpprogramma's voor Visual Studio Code om een module te bouwen en maakt u een **containerinstallatiekopie** van de bestanden. Vervolgens pusht u deze installatiekopie naar een **register** waarin uw installatiekopieën worden opgeslagen en beheerd. Tot slot implementeert u de installatiekopie uit het register voor uitvoering op uw IoT Edge-apparaat.  
-
-U kunt een Docker-register gebruiken om de containerinstallatiekopieën op te slaan. Twee populaire Docker-registerservices zijn [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) en [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). In deze zelfstudie wordt Azure Container Registry gebruikt. 
-
-Als u nog geen containerregister hebt, volgt u deze stappen om een nieuw containerregister te maken in Azure:
-
-1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Een resource maken** > **Containers** > **Container Registry**.
-
-2. Geef de volgende waarden op om uw containerregister te maken:
-
-   | Veld | Value | 
-   | ----- | ----- |
-   | Registernaam | Geef hier een unieke naam op. |
-   | Abonnement | Selecteer een abonnement in de vervolgkeuzelijst. |
-   | Resourcegroep | Het wordt aangeraden om dezelfde resourcegroep te gebruiken voor alle test-resources die u maakt met de snelstartgidsen en zelfstudies voor IoT Edge, zoals **IoTEdgeResources**. |
-   | Locatie | Kies een locatie dicht bij u in de buurt. |
-   | Beheerder | Stel deze optie in op **Inschakelen**. |
-   | SKU | Selecteer **Basic**. | 
-
-5. Selecteer **Maken**.
-
-6. Nadat het containerregister is gemaakt, bladert u ernaartoe en selecteert u vervolgens **Toegangssleutels**. 
-
-7. Kopieer de waarden voor **Aanmeldingsserver**, **Gebruikersnaam** en **wachtwoord**. U gebruikt deze waarden later in de zelfstudie om toegang te verlenen tot het containerregister.  
 
 ## <a name="create-a-function-project"></a>Een functieproject maken
 
 Om gegevens naar een database te verzenden hebt u een module nodig die de gegevens correct kan structureren en vervolgens in een tabel opslaat. 
+
+### <a name="create-a-new-project"></a>Een nieuw project maken
 
 De volgende stappen laten zien hoe u een IoT-Edge-functie maakt met behulp van Visual Studio Code en de Azure IoT Edge-hulpprogramma's.
 
@@ -101,24 +73,27 @@ De volgende stappen laten zien hoe u een IoT-Edge-functie maakt met behulp van V
 
    In het VS Code-venster wordt de werkruimte van de IoT Edge-oplossing geladen. 
    
-4. Open het \.ENV-bestand in de werkruimte van uw IoT Edge-oplossing. 
+### <a name="add-your-registry-credentials"></a>Uw registerreferenties toevoegen
 
-   Als u een nieuwe IoT Edge-oplossing maakt, wordt u via VS Code gevraagd om uw registerreferenties op te geven in het \.env-bestand. Het bestand wordt genegeerd in Git, en wordt later met de IoT Edge-extensie gebruikt voor registertoegang tot uw IoT Edge-apparaat. 
+In het omgevingsbestand worden de referenties voor het containerregister opgeslagen. Deze referenties worden gedeeld met de IoT Edge-runtime. De runtime heeft deze referenties nodig om uw persoonlijke installatiekopieën naar het IoT Edge-apparaat te halen.
 
-   Als u in de vorige stap niet uw containerregister hebt opgeven, maar de standaardinstelling localhost:5000 hebt geaccepteerd, hebt u geen \.ENV-bestand.
+1. Open in VS Code Explorer het .env-bestand.
+2. Werk de velden **gebruikersnaam** en **wachtwoord** bij met de waarden die u hebt gekopieerd uit het Azure-containerregister.
+3. Sla dit bestand op.
 
-5. Geef in het bestand deployment.template.json de IoT Edge runtime uw registerreferenties, zodat deze toegang heeft tot uw module-installatiekopieën. Zoek de secties **CONTAINER_REGISTRY_USERNAME** en **CONTAINER_REGISTRY_PASSWORD** op en voeg uw referenties toe na het gelijkteken: 
+### <a name="select-your-target-architecture"></a>Selecteer uw doel-architectuur
 
-   ```env
-   CONTAINER_REGISTRY_USERNAME_yourregistry=<username>
-   CONTAINER_REGISTRY_PASSWORD_yourregistry=<password>
-   ```
+Op dit moment kunt C-modules voor Linux AMD64- en Linux ARM32v7 apparaten ontwikkelen met Visual Studio Code. U moet selecteren welke architectuur die u hebt geconfigureerd met elke oplossing, omdat de container is gemaakt en uitgevoerd anders voor elk architectuurtype. De standaardwaarde is Linux AMD64. 
 
-6. Sla het .env-bestand op.
+1. Open het opdrachtenpalet en zoek **Azure IoT Edge: Doelplatform standaard ingesteld voor Edge-oplossing**, of Selecteer het pictogram van de snelkoppeling in de zijbalk aan de onderkant van het venster. 
 
-7. Open in VS Code Explorer **modules** > **sqlFunction** > **sqlFunction.cs**.
+2. Selecteer de doel-architectuur in de lijst met opties in het opdrachtenpalet. Voor deze zelfstudie gebruiken we een virtuele Ubuntu-machine als de IoT Edge-apparaat, zodat de standaardwaarde wordt **amd64**. 
 
-8. Vervang de volledige inhoud van het bestand door de volgende code:
+### <a name="update-the-module-with-custom-code"></a>De module bijwerken met aangepaste code
+
+1. Open in VS Code Explorer **modules** > **sqlFunction** > **sqlFunction.cs**.
+
+2. Vervang de volledige inhoud van het bestand door de volgende code:
 
    ```csharp
    using System;
@@ -205,23 +180,23 @@ De volgende stappen laten zien hoe u een IoT-Edge-functie maakt met behulp van V
    }
    ```
 
-6. Vervang in regel 35 de tekenreeks **\<sql-verbindingsreeks\>** door de volgende tekenreeks. De **gegevensbron** eigenschap verwijst naar de SQL Server-container, zodat nog niet bestaat, maar u deze maken met de naam van de **SQL** in de volgende sectie. 
+3. Vervang in regel 35 de tekenreeks **\<sql-verbindingsreeks\>** door de volgende tekenreeks. De **gegevensbron** eigenschap verwijst naar de SQL Server-container, zodat nog niet bestaat, maar u deze maken met de naam van de **SQL** in de volgende sectie. 
 
    ```csharp
    Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=Strong!Passw0rd;TrustServerCertificate=False;Connection Timeout=30;
    ```
 
-7. Sla het bestand **sqlFunction.cs** op. 
+4. Sla het bestand **sqlFunction.cs** op. 
 
-8. Open het bestand **sqlFunction.csproj**.
+5. Open het bestand **sqlFunction.csproj**.
 
-9. De groep van pakket met verwijzingen zoeken en toevoegen van een nieuw account om op te nemen SqlClient. 
+6. De groep van pakket met verwijzingen zoeken en toevoegen van een nieuw account om op te nemen SqlClient. 
 
    ```csproj
    <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
    ```
 
-10. Sla het bestand **sqlFunction.csproj** op.
+7. Sla het bestand **sqlFunction.csproj** op.
 
 ## <a name="add-the-sql-server-container"></a>De SQL Server-container toevoegen
 
@@ -275,19 +250,11 @@ U kunt controleren dat de module sqlFunction met succes is gepusht naar uw conta
 
 U kunt modules op een apparaat instellen via de IoT Hub, maar u hebt ook toegang tot uw IoT Hub en apparaten via Visual Studio Code. In dit gedeelte stelt u de toegang tot uw IoT Hub in en gebruikt u VS Code om uw oplossing op uw IoT Edge-apparaat te implementeren. 
 
-1. Selecteer in het opdrachtenpalet van VS Code **Azure IoT Hub: Select IoT Hub**.
+1. Vouw in VS Code Explorer de sectie **Azure IoT Hub Devices** uit. 
 
-2. Volg de aanwijzingen om u aan te melden bij uw Azure-account. 
+2. Klik met de rechtermuisknop op het doelapparaat van uw implementatie en selecteer **Implementatie maken voor één apparaat**. 
 
-3. Selecteer in het opdrachtenpalet uw Azure-abonnement en selecteer vervolgens uw IoT Hub. 
-
-4. Vouw in VS Code Explorer de sectie **Azure IoT Hub Devices** uit. 
-
-5. Klik met de rechtermuisknop op het doelapparaat van uw implementatie en selecteer **Implementatie maken voor één apparaat**. 
-
-   ![Implementatie voor één apparaat maken](./media/tutorial-store-data-sql-server/create-deployment.png)
-
-6. Ga in de bestandsverkenner naar de map **config** in uw oplossing en kies **deployment.amd64**. Klik op **Edge-distributiemanifest selecteren**. 
+3. Ga in de bestandsverkenner naar de map **config** in uw oplossing en kies **deployment.amd64**. Klik op **Edge-distributiemanifest selecteren**. 
 
    Gebruik het bestand deployment.template.json niet als een implementatie-manifest.
 
@@ -360,7 +327,7 @@ Anders kunt u de lokale configuraties en Azure-resources die u in dit artikel he
 
 In deze zelfstudie hebt u een Azure Functions-module gemaakt die code bevat voor het filteren van onbewerkte gegevens die worden gegenereerd door uw IoT Edge-apparaat. Wanneer u klaar bent om uw eigen modules te bouwen, kunt u meer informatie krijgen over het [ontwikkelen van Azure Functions met Azure IoT Edge voor Visual Studio Code](how-to-develop-csharp-function.md). 
 
-Ga verder met de volgende zelfstudies om te leren hoe Azure IoT Edge u verder kan helpen bij het omzetten van uw gegevens in bedrijfsinzichten.
+Als u proberen een andere opslagmethode aan de rand wilt, kunt u lezen over het gebruik van Azure Blob-opslag op IoT Edge. 
 
 > [!div class="nextstepaction"]
-> [Sensorgegevens filteren met behulp van C#-code](tutorial-csharp-module.md)
+> [Gegevens aan de rand met Azure Blob Storage Store op IoT Edge](how-to-store-data-blob.md)

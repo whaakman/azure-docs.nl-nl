@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: c959ee3bea24955e3281feb9db66e4e0cadc8bf9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034134"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575577"
 ---
 # <a name="virtual-appliance-scenario"></a>Virtueel apparaat scenario
 Een veelvoorkomend scenario tussen grotere Azure-klant is de hoeft op te geven van een toepassing met twee lagen die toegang heeft tot het Internet, terwijl toegang tot de back-laag van een on-premises datacenter. Dit document begeleidt u stapsgewijs door van een scenario voor het gebruik van de gebruiker gedefinieerde Routes (UDR), een VPN-Gateway en virtuele netwerkapparaten voor het implementeren van een omgeving met twee lagen die voldoet aan de volgende vereisten:
@@ -30,14 +30,14 @@ Een veelvoorkomend scenario tussen grotere Azure-klant is de hoeft op te geven v
 * Al het verkeer naar de toepassingsserver moet gaan via een firewall virtueel apparaat. Deze virtueel apparaat wordt gebruikt voor toegang tot de back-end-server, en die afkomstig zijn van de on-premises netwerk via een VPN-Gateway.
 * Beheerders moeten kunnen de firewall virtuele apparaten van hun on-premises computers te beheren, met behulp van een derde firewall virtueel apparaat gebruikt uitsluitend bedoeld voor beheerdoeleinden.
 
-Dit is een standaard DMZ-scenario met een DMZ en een beveiligd netwerk. Dit scenario kan worden gemaakt in Azure met behulp van nsg's, virtuele firewallapparaten of een combinatie van beide. De onderstaande tabel ziet u enkele van de voor- en nadelen tussen nsg's en firewall virtuele apparaten.
+Dit is een standaard perimeter network (ook knowns als DMZ)-scenario met een DMZ en een beveiligd netwerk. Dit scenario kan worden gemaakt in Azure met behulp van nsg's, virtuele firewallapparaten of een combinatie van beide. De onderstaande tabel ziet u enkele van de voor- en nadelen tussen nsg's en firewall virtuele apparaten.
 
 |  | Professionals | Nadelen |
 | --- | --- | --- |
-| NSG |Er zijn geen kosten. <br/>Geïntegreerd in Azure RBAC. <br/>Regels kunnen worden gemaakt in de ARM-sjablonen. |Complexiteit kan variëren in grotere omgevingen. |
+| NSG |Er zijn geen kosten. <br/>Geïntegreerd in Azure RBAC. <br/>Regels kunnen worden gemaakt in Azure Resource Manager-sjablonen. |Complexiteit kan variëren in grotere omgevingen. |
 | Firewall |Volledige controle over de gegevenslaag. <br/>Centraal beheer via de firewall-console. |Kosten van firewall-apparaat. <br/>Niet geïntegreerd met Azure RBAC. |
 
-De onderstaande oplossing maakt gebruik van virtuele firewallapparaten voor het implementeren van een scenario voor het netwerk DMZ/beveiligd.
+De onderstaande oplossing maakt gebruik van virtuele firewallapparaten voor het implementeren van een perimeternetwerk (DMZ) / scenario voor het netwerk beveiligd.
 
 ## <a name="considerations"></a>Overwegingen
 U kunt de omgeving die hierboven is uitgelegd in Azure met behulp van verschillende functies die beschikbaar vandaag, als volgt implementeren.
@@ -167,5 +167,5 @@ Volg de onderstaande stappen op hoog niveau voor het implementeren van dit scena
 2. Als u een VNet wilt volgens de on-premises netwerk implementeert, richt u de resources die deel van uitmaken **ONPREMRG**.
 3. Richt u de resources die deel van uitmaken **AZURERG**.
 4. Inrichten van de tunnel van **onpremvnet** naar **azurevnet**.
-5. Nadat alle resources zijn ingericht, meld u aan bij **onpremvm2** en 10.0.3.101 als u wilt testen van verbinding tussen een ping **onpremsn2** en **azsn3**.
+5. Nadat alle resources zijn ingericht, zich aanmelden bij **onpremvm2** en 10.0.3.101 als u wilt testen van verbinding tussen een ping **onpremsn2** en **azsn3**.
 

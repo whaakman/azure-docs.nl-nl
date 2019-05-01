@@ -1,64 +1,60 @@
 ---
-title: Tabblad van de virtuele machine Marketplace in de Cloud Partner-Portal voor Azure | Microsoft Docs
+title: Tabblad van de virtuele machine Marketplace in de Cloud Partner-Portal voor Azure Marketplace
 description: Hierin wordt beschreven in de Marketplace-tabblad gebruikt bij het maken van een virtuele machine in Azure Marketplace-aanbieding.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
-ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: b1b62c68ef4e18f4d4d36a78078ad7431717b754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/25/2019
+ms.author: pabutler
+ms.openlocfilehash: d9b259ba93be369658638d034f109a3a6ba4c4a4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332761"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938189"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Virtuele machine Marketplace tabblad
 
-De **Marketplace** tabblad van de **nieuwe aanbieding** pagina kunt u uw potentiële klanten voorzien van marketing, verkoop en juridische informatie en -overeenkomsten en beheer van leads die zijn gegenereerd op basis van de Marketplace. Dit lang formulier is onderverdeeld in vier secties: **Overzicht**, **Marketing artefacten**, **leiden Management**, en **juridische**. 
+De **Marketplace** tabblad van de **nieuwe aanbieding** pagina kunt u uw potentiële klanten voorzien van marketing, verkoop en juridische informatie en -overeenkomsten en beheer van leads die zijn gegenereerd op basis van de Marketplace. Dit lang formulier is onderverdeeld in vier secties: **Overzicht**, **Marketing artefacten**, **leiden Management**, en **juridische**.
+
 
 ## <a name="overview-section"></a>Overzichtssectie
 In deze sectie voert u de algemene informatie over uw Azure Marketplace bieden.  Een toegevoegde sterretje (*) op de veldnaam van het geeft aan dat dit vereist is.
 
-![De sectie overzicht van het tabblad Marketplace in het formulier nieuwe aanbieding voor virtuele machines](./media/publishvm_008.png)
+![De sectie overzicht van het tabblad Marketplace voor virtuele machines](./media/publishvm_008.png)
 
-De volgende tabel beschrijft het doel en de inhoud van deze velden.
+De volgende tabel beschrijft het doel en de inhoud van deze velden. Verplichte velden zijn indicted met een asterisk (*).
 
 |  **Veld**                |     **Beschrijving**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Titel**                 | De titel van de aanbieding, vaak de lang, formele naam. Deze titel wordt prominent weergegeven in de marketplace.  Maximale lengte van maximaal 50 tekens. |
-| **Samenvatting**               | Korte doel of de functie van de oplossing.  Maximale lengte van 100 tekens. |
-| **Lange samenvatting**          | Doel of de functie van de oplossing.  Mag maximaal 256 tekens bevatten. |
-| **Beschrijving**           | Beschrijving van de oplossing.  Maximale lengte van 3000 tekens ondersteunt eenvoudige HTML-opmaak. |
-| **Microsoft CSP-Reseller kanaal** | Cloud Solution Providers (CSP) partner kanaal aanmelden is nu beschikbaar.  Raadpleeg [Cloud Solution Providers](../../cloud-solution-providers.md) voor meer informatie over marketingcontactpersonen van uw aanbieding via de Microsoft CSP partner kanalen. |
-| **Marketing-id**  | Een unieke URL om te koppelen aan deze aanbieding omvat gewoonlijk van uw organisatie en de naam van de oplossing, maximaal 50 tekens.  Bijvoorbeeld: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
-| **Preview-versie abonnement-id 's** | Toevoegen van 1 tot 100 abonnements-id's van viewers. Deze technische vermeld abonnementen hebben toegang tot de aanbieding zodra deze gepubliceerd, voordat u deze meteen live. |
+| **Titel\***                 | De titel van de aanbieding, vaak de lang, formele naam. Deze titel wordt prominent weergegeven in de marketplace.  Maximale lengte van maximaal 50 tekens. |
+| **Samenvatting\***               | Korte doel of de functie van de oplossing.  Maximale lengte van 100 tekens. |
+| **Lange samenvatting\***          | Doel of de functie van de oplossing.  Mag maximaal 256 tekens bevatten. |
+| **Beschrijving\***           | Beschrijving van de oplossing.  Maximale lengte van 3000 tekens ondersteunt eenvoudige HTML-opmaak. |
+| **Microsoft CSP-Reseller kanaal\*** | Cloud Solution Providers (CSP) partner kanaal aanmelden is nu beschikbaar.  Raadpleeg [Cloud Solution Providers](../../cloud-solution-providers.md) voor meer informatie over marketingcontactpersonen van uw aanbieding via de Microsoft CSP partner kanalen. |
+| **Marketing-id\***  | Een unieke URL om te koppelen aan deze aanbieding omvat gewoonlijk van uw organisatie en de naam van de oplossing, maximaal 50 tekens.  Bijvoorbeeld: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **Preview-versie abonnement-id 's\*** | Toevoegen van 1 tot 100 abonnements-id's van viewers. Deze technische vermeld abonnementen hebben toegang tot de aanbieding zodra deze gepubliceerd, voordat u deze meteen live. |
 | **Nuttige koppelingen**          | URL's toevoegen aan de documentatie, opmerkingen bij de release, veelgestelde vragen over, enzovoort. |
-| **Aanbevolen categorieën (maximaal 5)** | Meervoudige selectie van zakelijke en technische categorieën die worden geboden door mag beste is gekoppeld.  Maximaal vijf toegestaan.  |
+| **Aanbevolen categorieën (maximaal 5)\*** | Meervoudige selectie van zakelijke en technische categorieën die worden geboden door mag beste is gekoppeld.  Maximaal vijf toegestaan.  |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>Gedeelte van de artefacten Marketing
 
-Deze tweede sectie is onderverdeeld in drie subsecties: **Logo's**, **schermafbeelding**, en **video's**. Logo's zijn de enige vereiste marketing-artefacten, maar alle sterk voor de beste beroep van de klant aanbevolen wordt.
+Deze tweede sectie is onderverdeeld in drie subsecties: **Logo's**, **schermafbeelding**, en **video's**. Logo's zijn de enige vereiste marketing-artefacten, maar alle sterk voor de beste beroep van de klant aanbevolen wordt. 
 
 ![Marketing artefacten gedeelte van de Marketplace-tabblad in het formulier nieuwe aanbieding voor virtuele machines](./media/publishvm_009.png)
+
+De volgende tabel beschrijft het doel en de inhoud van deze velden. Verplichte velden zijn indicted met een asterisk (*).
 
 |  **Veld**                |     **Beschrijving**                                                          |
 |  ---------                |     ---------------                                                          |
 | *Logos*  |  |
-| **Small**                 | 40, 40 pixel .ico bitmap                                                      |
-| **Gemiddeld**                | 90 x 90 pixel .ico bitmap                                                      |
-| **Large**                 | 115 x 115 pixel .ico bitmap                                                   |
-| **Breed**                  | 255 x 115 pixel .ico bitmap                                                    |
+| **Kleine\***                 | 40, 40 pixel .ico bitmap                                                      |
+| **Gemiddeld\***                | 90 x 90 pixel .ico bitmap                                                      |
+| **Large\***                 | 115 x 115 pixel .ico bitmap                                                   |
+| **Breed\***                  | 255 x 115 pixel .ico bitmap                                                    |
 | **Hero**                  | 815 x 290 bitmap.  Optioneel, maar eenmaal geüploade de hero-pictogram kan niet worden verwijderd. |
 | *Schermafbeeldingen*  | Optioneel, maar maximaal vijf schermafbeeldingen per SKU. |
 | **Naam**                  | Naam of titel <!-- TODO - max char length? none specified in UI -->                               |
@@ -67,8 +63,7 @@ Deze tweede sectie is onderverdeeld in drie subsecties: **Logo's**, **schermafbe
 | **Naam**                  | Naam of titel  <!-- TODO - max char length? -->                              |
 | **Link**                  | Video-URL, die worden gehost op YouTube of Vimeo                                        |
 | **Miniatuur**             | 533 x 324 bitmap                                                               |
-|  |  |
-
+|   |   |
 
 ### <a name="logo-guidelines"></a>Logorichtlijnen
 
@@ -105,7 +100,6 @@ De volgende afbeelding ziet u hoe marketing informatie wordt weergegeven op de p
 
 
 ## <a name="lead-management-section"></a>De sectie over potentiële klanten beheren
-<!-- this all should be referenced in a common location for lead management, not in this file. nothing unique for a vm specifically. -->
 
 De derde sectie kunt u voor het verzamelen van klanten leads die zijn gegenereerd op basis van uw Azure Marketplace-aanbiedingen. Het biedt de volgende opties voor opslag (in een vervolgkeuzelijst) voor deze gegevens over leads.
 
@@ -122,15 +116,16 @@ Nadat u uw aanbieding is gepubliceerd, wordt de lead-verbinding is gevalideerd e
 
 ## <a name="legal-section"></a>Juridische sectie
 
-Deze laatste sectie kunt u voor de twee juridische documenten die zijn vereist voor elke aanbieding: Privacybeleid en de gebruiksvoorwaarden.
+Deze laatste sectie kunt u voor de vereiste juridische documenten die zijn vereist voor elke aanbieding.  
 
-|  **Veld**                |     **Beschrijving**                                                          |
-|  ---------                |     ---------------                                                          |
-| **URL privacybeleid**    | URL naar uw geboekte privacybeleid                                            |
-| **Gebruiksvoorwaarden**          | het beleid als tekst zonder opmaak of een eenvoudige HTML.  <!-- TODO - max char length? -->       |
+|  **Veld**                    |     **Beschrijving**                                        |
+|  ---------                    |     ---------------                                        |
+| **URL privacybeleid\***      | URL naar uw geboekte privacybeleid                          |
+| **Standard Contract gebruiken?\***  |   |
+| **Gebruiksvoorwaarden\***            | het beleid als tekst zonder opmaak of een eenvoudige HTML.                       |
 |  |  |
 
-<br/>
+
+## <a name="next-steps"></a>Volgende stappen
 
 In de volgende [ondersteunen](./cpp-support-tab.md) tabblad, biedt u technische en gebruiker bronnen voor ondersteuning van uw aanbieding.
-

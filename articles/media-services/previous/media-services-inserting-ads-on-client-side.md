@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8b0f5cdcf5a24513b89a2523be71dd74a1a2859b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 8f5cdc33e48d647dba8caeb09b57e233d64712f6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484828"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687729"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Advertenties invoeren op de client
 In dit artikel bevat informatie over het invoegen van verschillende typen advertenties op de client.
@@ -170,7 +170,7 @@ Application/x-shockwave-flash: de resource wordt weergegeven in een Flash player
 
 **IFrameResource** beschrijft een HTML-bron die kan worden weergegeven in een IFrame. **HTMLResource** beschrijft een stukje HTML-code die in een webpagina kan worden ingevoegd. **TrackingEvents** traceringsgebeurtenissen en de URI om aan te vragen bij de gebeurtenis opgeven. In dit voorbeeld worden de gebeurtenissen acceptInvitation en samenvouwen bijgehouden. Voor meer informatie over de **NonLinearAds** -element en alle onderliggende items, Zie IAB.NET/VAST. Houd er rekening mee dat de **TrackingEvents** element bevindt zich in de **NonLinearAds** element in plaats van de **NonLinear** element.
 
-Companion-advertenties worden gedefinieerd in een `<CompanionAds>` element. De `<CompanionAds>` element kan bevatten een of meer `<Companion>` elementen. Elke `<Companion>` element beschrijft een aanvullende Active Directory en mag een `<StaticResource>`, `<IFrameResource>`, of `<HTMLResource>` die zijn opgegeven in de dezelfde manier als in een niet-lineaire ad. Een groot bestand kan meerdere companion-advertenties bevatten en de spelertoepassing kunt de meest geschikte ad om weer te geven. Zie voor meer informatie over VAST [ENORME 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
+Companion-advertenties worden gedefinieerd in een `<CompanionAds>` element. De `<CompanionAds>` element kan bevatten een of meer `<Companion>` elementen. Elke `<Companion>` element beschrijft een aanvullende Active Directory en mag een `<StaticResource>`, `<IFrameResource>`, of `<HTMLResource>` die zijn opgegeven in de dezelfde manier als in een niet-lineaire ad. Een groot bestand kan meerdere companion-advertenties bevatten en de spelertoepassing kunt de meest geschikte ad om weer te geven. Zie voor meer informatie over VAST [ENORME 3.0](https://www.iab.net/media/file/VASTv3.0.pdf).
 
 ### <a name="using-a-digital-video-multiple-ad-playlist-vmap-file"></a>Met behulp van een digitale Video meerdere Ad afspeellijst (VMAP)-bestand
 Een bestand VMAP kunt u opgeven wanneer ad onderbrekingen optreden, hoe lang elk einde is, hoeveel advertenties kunnen worden weergegeven in een einde en welke typen advertenties kunnen worden weergegeven tijdens een onderbreking. De volgende handelingen uit in een voorbeeldbestand VMAP die een pauze van één ad definieert:
@@ -243,7 +243,7 @@ De <**AdSource**>-element heeft de speler een inline-ad-antwoord of een verwijzi
 * `<AdTagURI>` een URI die verwijst naar een ad-antwoord van een ander systeem
 * `<CustomAdData>` -een willekeurige tekenreeks die staat voor een niet-VAST antwoord
 
-In dit voorbeeld wordt een inline-ad-antwoord wordt opgegeven met een `<VASTAdData>` -element dat een ENORME ad-antwoord bevat. Zie voor meer informatie over de andere elementen, [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
+In dit voorbeeld wordt een inline-ad-antwoord wordt opgegeven met een `<VASTAdData>` -element dat een ENORME ad-antwoord bevat. Zie voor meer informatie over de andere elementen, [VMAP](https://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
 De <**AdBreak**> element mag ook een <**TrackingEvents**> element. De <**TrackingEvents**>-element kunt u voor het bijhouden van het begin of einde van een ad-einde of of een fout opgetreden tijdens het ad-einde. De <**TrackingEvents**> element bevat een of meer <**bijhouden**>-elementen, die elk Hiermee geeft u een traceringsgebeurtenis voor de en een tracering URI. De mogelijke traceringsgebeurtenissen zijn:
 
@@ -363,7 +363,7 @@ Een uitvoerbaar bestand AD-tenant wordt gemaakt in de code die moet worden uitge
     </MediaFiles>
 ```
 
-Een uitvoerbaar bestand ad kan worden geïnitialiseerd met behulp van de `<AdParameters>` element in de `<Linear>` of `<NonLinear>` elementen in een uitgebreid antwoord. Voor meer informatie over de `<AdParameters>` -element, Zie [ENORME 3.0](http://www.iab.net/media/file/VASTv3.0.pdf). Zie voor meer informatie over de API VPAID [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
+Een uitvoerbaar bestand ad kan worden geïnitialiseerd met behulp van de `<AdParameters>` element in de `<Linear>` of `<NonLinear>` elementen in een uitgebreid antwoord. Voor meer informatie over de `<AdParameters>` -element, Zie [ENORME 3.0](https://www.iab.net/media/file/VASTv3.0.pdf). Zie voor meer informatie over de API VPAID [VPAID 2.0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
 
 ## <a name="implementing-a-windows-or-windows-phone-8-player-with-ad-support"></a>Implementatie van een Windows- of Windows Phone 8-speler met Ad-ondersteuning
 Het Microsoft Media Platform: Player Framework voor Windows 8 en Windows Phone 8 bevat een verzameling van voorbeeldtoepassingen die laten u hoe u zien voor het implementeren van een videospeler-toepassing met behulp van het framework. U kunt downloaden de Player Framework en de voorbeelden van [Player Framework voor Windows 8 en Windows Phone 8](https://playerframework.codeplex.com).

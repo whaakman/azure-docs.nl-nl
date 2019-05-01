@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44f0c99a66088aeb54ba061308fefb111610d4dc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 45c9268495ed42ca67f815615b441986cf03332f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501226"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Zelfstudie: Azure Active Directory-integratie met Confluence SAML SSO by Microsoft
 
@@ -37,7 +37,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="description"></a>Beschrijving:
 
-Gebruik uw Microsoft Azure Active Directory-account met Confluence Server van Atlassian om eenmalige aanmelding mogelijk te maken. Op deze manier alle gebruikers in uw organisatie kunnen de Azure AD-referenties voor aanmelding bij de toepassing samenloop gebruiken. Deze invoegtoepassing gebruikt SAML 2.0 voor federatie.
+Gebruik uw Microsoft Azure Active Directory-account met Confluence Server van Atlassian om eenmalige aanmelding mogelijk te maken. Op deze manier alle gebruikers in uw organisatie kunnen de Azure AD-referenties aan te melden bij de toepassing samenloop gebruiken. Deze invoegtoepassing gebruikt SAML 2.0 voor federatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -80,7 +80,7 @@ Vanaf dit moment worden de volgende versies van Confluence ondersteund:
 - Confluence: 6.12.0
 
 > [!NOTE]
-> Houd er rekening mee dat samenloop biedt ook ondersteuning voor Linux Ubuntu 16.04 versie
+> Houd er rekening mee dat onze samenloop-invoegtoepassing ook kan worden gebruikt op Ubuntu-16.04-versie
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 

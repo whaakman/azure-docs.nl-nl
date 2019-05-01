@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 02/05/2019
+ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a6aa75f3d25cd88cd1edb9b2cdcfabc3b4ec8f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ece32754ae51bde5db52d20ab44f0d748bf46533
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818542"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943941"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>SSL gebruiken voor het beveiligen van webservices met Azure Machine Learning-service
 
 In dit artikel leert u over het beveiligen van een webservice die is geïmplementeerd met de Azure Machine Learning-service. U kunt de toegang beperken tot webservices en beveiligen van de gegevens die zijn ingediend door clients met behulp van [Hypertext Transfer Protocol Secure (HTTPS)](https://en.wikipedia.org/wiki/HTTPS).
 
-HTTPS wordt gebruikt voor het beveiligen van communicatie tussen een client en de webservice door het versleutelen van communicatie tussen de twee. Versleuteling wordt verwerkt met behulp van [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Dit is nog steeds aangeduid als SSL Secure Sockets Layer (), dat de voorloper van TLS is.
+HTTPS wordt gebruikt voor het beveiligen van communicatie tussen een client en de webservice door het versleutelen van communicatie tussen de twee. Versleuteling wordt verwerkt met behulp van [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is nog steeds aangeduid als SSL Secure Sockets Layer (), dat de voorloper van TLS is.
 
 > [!TIP]
 > De SDK van Azure Machine Learning wordt de term 'SSL' voor eigenschappen die betrekking hebben op het inschakelen van beveiligde communicatie. Dit betekent niet dat TLS wordt niet gebruikt door de webservice, alleen dat SSL is het beter herkenbaar term voor veel lezers.
@@ -34,7 +34,7 @@ TLS en SSL beide zijn afhankelijk van __digitale certificaten__, die worden gebr
 >
 > HTTPS kan ook de client om te controleren of de authenticiteit van de server waarmee deze verbinding met maakt. Dit beschermt clients op basis van [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) aanvallen.
 
-Het proces van het beveiligen van een nieuwe webservice of een bestaand is als volgt:
+Het algemene proces van het beveiligen van een nieuwe webservice of een bestaand is als volgt:
 
 1. Een domeinnaam krijgen.
 
@@ -43,6 +43,9 @@ Het proces van het beveiligen van een nieuwe webservice of een bestaand is als v
 3. Implementeren of bijwerken van de web-service met de SSL-instelling ingeschakeld.
 
 4. Werkt u uw DNS om te verwijzen naar de webservice.
+
+> [!IMPORTANT]
+> Als u naar Azure Kubernetes Service (AKS) implementeert, kunt u uw eigen certificaat of gebruik een certificaat dat is geleverd door Microsoft. Als u het certificaat van Microsoft gebruikt, hoeft u niet om een domeinnaam of het SSL-certificaat te krijgen. Zie voor meer informatie de [SSL inschakelt en implementeert](#enable) sectie.
 
 Er zijn kleine verschillen bij het beveiligen van webservices tussen de [implementatiedoelen](how-to-deploy-and-where.md).
 
@@ -65,19 +68,49 @@ Wanneer u een certificaat aanvraagt, moet u de volledig gekwalificeerde domeinna
 > [!WARNING]
 > Zelfondertekende certificaten moeten worden gebruikt alleen voor ontwikkeling. Ze moeten niet worden gebruikt in de productieomgeving. Zelfondertekende certificaten kunnen leiden tot problemen in uw client toepassingen. Zie voor meer informatie de documentatie voor de netwerkbibliotheken die wordt gebruikt in uw clienttoepassing.
 
-## <a name="enable-ssl-and-deploy"></a>SSL inschakelen en implementeren
+## <a id="enable"></a> SSL inschakelen en implementeren
 
 Als u wilt implementeren (of opnieuw implementeren) op de service met SSL is ingeschakeld, stel de `ssl_enabled` parameter `True`, gebruikt u waar van toepassing. Stelt de `ssl_certificate` parameter met de waarde van de __certificaat__ bestand en de `ssl_key` aan de waarde van de __sleutel__ bestand.
 
 + **Implementeren op Azure Kubernetes Service (AKS)**
 
-  Tijdens het inrichten van het AKS-cluster, geef waarden op voor parameters met betrekking tot SSL zoals wordt weergegeven in het volgende codefragment:
+  Bij het implementeren naar AKS, kunt u een nieuw AKS-cluster maken of koppelen van een bestaande resourcegroep. Het maken van een nieuw cluster maakt gebruik van [AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-) tijdens het koppelen van een bestaand cluster wordt gebruikt [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-). Retourneren beide een configuratieobject dat heeft een `enable_ssl` methode.
+
+  De `enable_ssl` methode kunt ofwel een certificaat dat is geleverd door Microsoft of een die u opgeeft.
+
+  * Wanneer u een certificaat __geleverd door Microsoft__, moet u de `leaf_domain_label` parameter. Met deze parameter wordt de service maken met behulp van een certificaat dat is geleverd door Microsoft. De `leaf_domain_label` wordt gebruikt voor het genereren van de DNS-naam voor de service. Bijvoorbeeld: een waarde van `myservice` maakt u een domeinnaam van `myservice<6-random-characters>.<azureregion>.cloudapp.azure.com`, waarbij `<azureregion>` is de regio waarin de service. Desgewenst kunt u de `overwrite_existing_domain` parameter voor het overschrijven van de bestaande naam van de leaf-domein.
+
+    Als u wilt implementeren (of opnieuw implementeren) op de service met SSL is ingeschakeld, stel de `ssl_enabled` parameter `True`, gebruikt u waar van toepassing. Stelt de `ssl_certificate` parameter met de waarde van de __certificaat__ bestand en de `ssl_key` aan de waarde van de __sleutel__ bestand.
+
+    > [!IMPORTANT]
+    > Wanneer u een certificaat dat is geleverd door Microsoft, hoeft u niet de naam van uw eigen certificaat of het domein kopen.
+
+    Het volgende voorbeeld ziet u hoe u configuraties die een SSL-certificaat dat is gemaakt door Microsoft in staat stellen maken:
 
     ```python
     from azureml.core.compute import AksCompute
-
-    provisioning_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    # Config used to create a new AKS cluster and enable SSL
+    provisioning_config = AksCompute.provisioning_configuration().enable_ssl(leaf_domain_label = "myservice")
+    # Config used to attach an existing AKS cluster to your workspace and enable SSL
+    attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+                                          cluster_name = cluster_name).enable_ssl(leaf_domain_label = "myservice")
     ```
+
+  * Bij het gebruik van __een certificaat dat u hebt aangeschaft__, gebruikt u de `ssl_cert_pem_file`, `ssl_key_pem_file`, en `ssl_cname` parameters.  Het volgende voorbeeld ziet u hoe u het maken van de configuraties die gebruikmaken van een SSL-certificaat dat u opgeeft met behulp van `.pem` bestanden:
+
+    ```python
+    from azureml.core.compute import AksCompute
+    # Config used to create a new AKS cluster and enable SSL
+    provisioning_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    provisioning_config = AksCompute.provisioning_configuration().enable_ssl(ssl_cert_pem_file="cert.pem",
+                                        ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    # Config used to attach an existing AKS cluster to your workspace and enable SSL
+    attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+                                         cluster_name = cluster_name).enable_ssl(ssl_cert_pem_file="cert.pem",
+                                        ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    ```
+
+  Voor meer informatie over `enable_ssl`, Zie [AksProvisioningConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) en [AksAttachConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
 
 + **Op Azure Container Instances (ACI) implementeren**
 
@@ -89,15 +122,7 @@ Als u wilt implementeren (of opnieuw implementeren) op de service met SSL is ing
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-+ **Implementeren op veld Programmable Gate Arrays (FPGA)**
-
-  Tijdens het implementeren op FPGA, geef waarden op voor de parameters met betrekking tot SSL zoals wordt weergegeven in het volgende codefragment:
-
-    ```python
-    from azureml.contrib.brainwave import BrainwaveWebservice
-
-    deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
-    ```
+  Zie voor meer informatie, [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none-).
 
 ## <a name="update-your-dns"></a>Werkt u uw DNS
 
@@ -111,6 +136,9 @@ Vervolgens moet u uw DNS om te verwijzen naar de webservice bijwerken.
 
 + **Voor AKS**:
 
+  > [!WARNING]
+  > Als u gebruikt de `leaf_domain_label` voor het maken van de service met een certificaat dat is geleverd door Microsoft, niet handmatig bijwerken DNS-waarde voor het cluster. De waarde moet automatisch worden ingesteld.
+
   Werk de DNS-server op het tabblad "Configuratie" van het 'openbare IP-adres' van het AKS-cluster, zoals weergegeven in de afbeelding. U vindt het openbare IP-adres als een van de resourcetypen die is gemaakt op basis van de resourcegroep met de AKS-knooppunten van de agent en andere netwerkresources.
 
   ![Azure Machine Learning-service: Beveiligen met SSL-webservices](./media/how-to-secure-web-service/aks-public-ip-address.png)
@@ -119,3 +147,4 @@ Vervolgens moet u uw DNS om te verwijzen naar de webservice bijwerken.
 Leer hoe u het volgende doet:
 + [Een machine learning-model is geïmplementeerd als een webservice gebruiken](how-to-consume-web-service.md)
 + [Experimenten en inferentietaken in een Azure-netwerk veilig uitvoeren](how-to-enable-virtual-network.md)
+

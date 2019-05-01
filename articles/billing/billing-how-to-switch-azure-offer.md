@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: bbdcbdc7ef288eeeb279c7e5e59baee492e1f292
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 11d3deb029ef0d8478844b64c54db7982ed1091e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60918575"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570976"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Uw abonnement op Azure betalen naar gebruik wijzigen naar een andere aanbieding
 
@@ -86,7 +86,7 @@ U ziet mogelijk niet de **overstappen naar een andere aanbieding** knop als:
 ### <a name="why-do-i-see-there-are-no-offers-available-in-your-region-or-country-at-this-time"></a>Waarom zie ik "Er zijn geen aanbiedingen beschikbaar in uw regio of land/regio op dit moment"?
 
 * U is mogelijk niet in aanmerking voor een aanbieding-switches. Controleer de [lijst met beschikbare aanbiedingen die u naar overschakelen kunt](#whats-supported) en zorg ervoor dat u de juiste voordelen met Visual Studio of Bizspark hebt geactiveerd.
-* Sommige aanbiedingen zijn mogelijk niet in alle landen beschikbaar.
+* Sommige aanbiedingen is mogelijk niet beschikbaar in alle landen/regio's.
 
 ### <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>Wat kost Azure biedt wilt overschakelen naar Mijn service en facturering?
 

@@ -1,25 +1,18 @@
 ---
-title: Virtuele Machine-aanbieding maken in Azure Marketplace | Microsoft Docs
+title: Virtuele Machine-aanbieding maken in Azure Marketplace
 description: Een lijst met de stappen die nodig zijn om te maken van een nieuwe virtuele machine (VM) bieden voor Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a3124ca2f163291d266fba77255d2ee98d30fd23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 4cd635c6f664a5260b79e62ea72bbb86fc4e1e4f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744149"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938360"
 ---
 # <a name="create-virtual-machine-offer"></a>Virtuele Machine-aanbieding maken
 

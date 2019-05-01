@@ -2,24 +2,18 @@
 title: Bepalen van uw publicatie optie in Azure Marketplace | Azure
 description: In dit artikel beschrijft de criteria voor in aanmerking te komen en publiceren vereisten partners probeert te begrijpen hoe u apps publiceren naar de Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2755232ea81f1551477431f4eb1f0aeab8b8bfe8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb306a32a9388113a9c81fa363a6e1ee2c3b30ad
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726640"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938100"
 ---
 # <a name="determine-your-publishing-option"></a>Uw publicatieoptie bepalen
 De publicatieoptie die u voor uw aanbieding kiest is gekoppeld aan rechtstreeks aan de vereisten voor geschiktheid en de marketplace GTM-voordelen. De selectie van de optie en aanbiedingtype publiceren in de Cloud Partner-Portal definieert nog belangrijker, hoe gebruikers in uw aanbieding van marketplace zullen werken.

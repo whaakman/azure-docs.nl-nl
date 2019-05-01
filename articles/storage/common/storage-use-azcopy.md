@@ -8,29 +8,35 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6ae3ec566c05d2460747439d61c87c995a90b19c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a91910d474b13fe8cc5306c53109575d2883224e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728981"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572944"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Gegevens overdragen met het AzCopy voor Windows
+
 AzCopy is een opdrachtregelprogramma voor het kopiëren van gegevens naar/van Microsoft Azure Blob-, bestands- en Table-opslag met behulp van eenvoudige opdrachten die zijn ontworpen voor optimale prestaties. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren.  
 
-Er zijn twee versies van AzCopy die u kunt downloaden. AzCopy in Windows biedt Windows stijl opdrachtregelopties. [AzCopy in Linux](storage-use-azcopy-linux.md) is gericht op Linux-platforms bieden POSIX-stijl opdrachtregelopties. In dit artikel bevat informatie over AzCopy in Windows.
+> [!IMPORTANT]
+> Dit artikel beschrijft een oudere versie van AzCopy.
+>Zie voor het installeren van de meest recente versie van AzCopy [AzCopy v10](storage-use-azcopy-v10.md).
 
-## <a name="download-and-install-azcopy-on-windows"></a>Download en installeer AzCopy op Windows
+Als u kiest voor het installeren van de oudere versie van AzCopy (AzCopy v8.1), klik zijn er meerdere versies die u kunt downloaden. AzCopy in Windows biedt Windows stijl opdrachtregelopties. [AzCopy in Linux](storage-use-azcopy-linux.md) is gericht op Linux-platforms bieden POSIX-stijl opdrachtregelopties. In dit artikel bevat informatie over AzCopy in Windows.
 
-### <a name="latest-version-v81"></a>Meest recente versie (v8.1)
-Download de [meest recente versie van AzCopy in Windows](https://aka.ms/downloadazcopy).
+## <a name="download-and-install-azcopy-v81-on-windows"></a>Download en installeer AzCopy (v8.1) op Windows
+
+Download de [AzCopy (v8.1) in Windows](https://aka.ms/downloadazcopy).
 
 #### <a name="azcopy-on-windows-81-release-notes"></a>AzCopy in Windows 8.1 opmerkingen bij de Release
+
 - Table-service wordt niet meer ondersteund in de meest recente versie. Als u de exportfunctie tabel, download u AzCopy 7.3-versie.
 - Gebouwd met .NET Core 2.1 en alle afhankelijkheden van .NET Core worden nu geleverd bij de installatie.
 - Toegevoegde ondersteuning voor OAuth-verificatie. Gebruik ```azcopy login``` om aan te melden met behulp van Azure Active Directory.
 
 ### <a name="azcopy-with-table-support-v73"></a>Azcopy met ondersteuning voor tabel (v7.3)
+
 Download de [AzCopy 7.3 met ondersteuning voor tabel](https://aka.ms/downloadazcopynet).
 
 ### <a name="post-installation-step"></a>Stap na de installatie

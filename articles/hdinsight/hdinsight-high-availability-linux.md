@@ -7,22 +7,20 @@ keywords: hoge beschikbaarheid voor hadoop
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 04/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 596b53d468a7dfc719c16dc6e6339492381d7f41
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 6cb72730ef3dbef81e2b2c9bc1c5cfd3bbd88b65
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763813"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704939"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Beschikbaarheid en betrouwbaarheid van Apache Hadoop-clusters in HDInsight
 
 HDInsight-clusters bieden twee hoofdknooppunten voor het verhogen van de beschikbaarheid en betrouwbaarheid van Apache Hadoop-services en taken die worden uitgevoerd.
 
 Hadoop realiseert hoge betrouwbaarheid en beschikbaarheid door te repliceren van services en gegevens op verschillende knooppunten in een cluster. Standard distributies van Hadoop hebben echter meestal alleen een enkel hoofdknooppunt. Een onderbreking van de één hoofdknooppunt kan leiden tot het cluster niet meer werken. HDInsight biedt twee hoofdknooppunten ter verbetering van de beschikbaarheid en betrouwbaarheid van Hadoop.
-
-[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="availability-and-reliability-of-nodes"></a>Beschikbaarheid en betrouwbaarheid van knooppunten
 
@@ -104,7 +102,7 @@ Om te controleren of de status van services die worden uitgevoerd op de hoofdkno
 
 ### <a name="ambari-web-ui"></a>Ambari Web UI
 
-De Ambari-Webinterface is zichtbaar op https://CLUSTERNAME.azurehdinsight.net. Vervang **CLUSTERNAME** door de naam van uw cluster. Als u hierom wordt gevraagd, voert u de referenties van de HTTP-gebruiker voor uw cluster. De standaardnaam van de HTTP-gebruiker is **admin** en het wachtwoord is het wachtwoord die u hebt ingevoerd bij het maken van het cluster.
+De Ambari-Webinterface is zichtbaar op `https://CLUSTERNAME.azurehdinsight.net`. Vervang **CLUSTERNAME** door de naam van uw cluster. Als u hierom wordt gevraagd, voert u de referenties van de HTTP-gebruiker voor uw cluster. De standaardnaam van de HTTP-gebruiker is **admin** en het wachtwoord is het wachtwoord die u hebt ingevoerd bij het maken van het cluster.
 
 Wanneer u op de pagina Ambari binnenkomen, worden de geïnstalleerde services aan de linkerkant van de pagina weergegeven.
 
@@ -247,27 +245,25 @@ Selecteer de service die u wilt weergeven van Logboeken voor (bijvoorbeeld, YARN
 
 ## <a name="how-to-configure-the-node-size"></a>Grootte van het knooppunt configureren
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 De grootte van een knooppunt kan alleen worden geselecteerd tijdens het maken van clusters. U vindt een lijst van de verschillende VM-grootten beschikbaar voor HDInsight op de [HDInsight pagina met prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Wanneer u een cluster maakt, kunt u de grootte van de knooppunten opgeven. De volgende informatie bevat richtlijnen voor het opgeven van de grootte met behulp van de [Azure-portal][preview-portal], [Azure PowerShell][azure-powershell], en de [Azure klassieke CLI][azure-cli]:
+Wanneer u een cluster maakt, kunt u de grootte van de knooppunten opgeven. De volgende informatie bevat richtlijnen voor het opgeven van de grootte met behulp van de [Azure-portal][preview-portal], [Azure PowerShell-module Az][azure-powershell], en de [Azure CLI][azure-cli]:
 
 * **Azure-portal**: Bij het maken van een cluster, kunt u de grootte van de knooppunten die worden gebruikt door het cluster kunt instellen:
 
     ![Afbeelding van de wizard cluster maken met de selectie van clusterknooppunt grootte](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure CLI voor klassieke**: Wanneer u de `azure hdinsight cluster create` opdracht, kunt u de grootte van de hoofd-, werknemer- en ZooKeeper-knooppunten instellen met behulp van de `--headNodeSize`, `--workerNodeSize`, en `--zookeeperNodeSize` parameters.
+* **Azure CLI**: Wanneer u de [az hdinsight maken](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) opdracht, kunt u de grootte van de hoofd-, werknemer- en ZooKeeper-knooppunten instellen met behulp van de `--headnode-size`, `--workernode-size`, en `--zookeepernode-size` parameters.
 
-* **Azure PowerShell**: Wanneer u de `New-AzHDInsightCluster` cmdlet, u kunt de grootte van de hoofd-, werknemer- en ZooKeeper-knooppunten kunt instellen met behulp van de `-HeadNodeVMSize`, `-WorkerNodeSize`, en `-ZookeeperNodeSize` parameters.
+* **Azure PowerShell**: Wanneer u de [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet, u kunt de grootte van de hoofd-, werknemer- en ZooKeeper-knooppunten kunt instellen met behulp van de `-HeadNodeSize`, `-WorkerNodeSize`, en `-ZookeeperNodeSize` parameters.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Gebruik de volgende koppelingen voor meer informatie over zaken die worden vermeld in dit document.
 
 * [Naslaginformatie over de REST van de Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [De klassieke Azure-CLI installeren en configureren](../cli-install-nodejs.md)
-* [installeren en configureren van Azure PowerShell](/powershell/azure/overview)
+* [De Azure CLI installeren en configureren](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure PowerShell-module Az installeren en configureren](/powershell/azure/overview)
 * [HDInsight met Apache Ambari beheren](hdinsight-hadoop-manage-ambari.md)
 * [HDInsight op basis van Linux-clusters inrichten](hdinsight-hadoop-provision-linux-clusters.md)
 
