@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6c3accdd74ce3277181f6cdfc890de0d8c55bf07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 13db0406681f676f47a3764cf2a59c4dbf251715
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344628"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729199"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
@@ -31,13 +31,16 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.AAD/domainServices/delete | Delete Domain Service |
 > | Bewerking | Microsoft.AAD/domainServices/oucontainer/delete | Organisatie-eenheid Container verwijderen |
 > | Bewerking | Microsoft.AAD/domainServices/oucontainer/read | Organisatie-eenheid-Containers gelezen |
 > | Bewerking | Microsoft.AAD/domainServices/oucontainer/write | Organisatie-eenheid Container schrijven |
 > | Bewerking | Microsoft.AAD/domainServices/read | Read Domain Services |
+> | Bewerking | Microsoft.AAD/domainServices/ReplicaSets/delete | Cluster-Site verwijderen |
+> | Bewerking | Microsoft.AAD/domainServices/ReplicaSets/read | Cluster-Site lezen |
+> | Bewerking | Microsoft.AAD/domainServices/ReplicaSets/write | Cluster-Site te schrijven |
 > | Bewerking | Microsoft.AAD/domainServices/write | Write-domeinservice |
 > | Bewerking | Microsoft.AAD/locations/operationresults/read |  |
 > | Bewerking | Microsoft.AAD/Operations/read |  |
@@ -47,7 +50,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | microsoft.aadiam/diagnosticsettings/delete | Een diagnostische instelling verwijderen |
 > | Bewerking | microsoft.aadiam/diagnosticsettings/read | Een diagnostische instelling lezen |
@@ -69,7 +72,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ADHybridHealthService/addsservices/action | Een nieuw forest maken voor de tenant. |
 > | Bewerking | Microsoft.ADHybridHealthService/addsservices/addomainservicemembers/read | Hiermee haalt alle servers voor de opgegeven naam. |
@@ -100,9 +103,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ADHybridHealthService/reports/availabledeployments/read | Lijst met beschikbare regio's, gebruikt door DevOps ter ondersteuning van de klant incidenten ophalen. |
 > | Bewerking | Microsoft.ADHybridHealthService/reports/badpassword/read | Hiermee haalt de lijst met mislukte wachtwoordpogingen voor alle gebruikers in Active Directory Federation Service. |
 > | Bewerking | Microsoft.ADHybridHealthService/reports/badpassworduseridipfrequency/read | Haalt Blob SAS-URI die de status en uiteindelijke resultaat van het zojuist in de wachtrij geplaatste rapporttaak voor de frequentie van onjuiste gebruikersnaam en wachtwoord probeert per gebruikers per IP-adres per dag voor een bepaalde Tenant-id. |
-> | Bewerking | Microsoft.ADHybridHealthService/reports/blobUris/read | Hiermee haalt alle riskant IP-adres rapport URI's voor de afgelopen 7 dagen. |
 > | Bewerking | Microsoft.ADHybridHealthService/reports/consentedtodevopstenants/read | Hiermee haalt u de lijst van DevOps ingestemd tenants. Doorgaans gebruikt voor klantondersteuning. |
-> | Bewerking | Microsoft.ADHybridHealthService/reports/generateBlobUri/action | Rapport riskant IP-adres wordt gegenereerd en retourneert een URI die verwijst naar deze. |
 > | Bewerking | Microsoft.ADHybridHealthService/reports/isdevops/read | Hiermee haalt u een waarde die aangeeft of de tenant DevOps ingestemd of niet is. |
 > | Bewerking | Microsoft.ADHybridHealthService/reports/selectdevopstenant/read | Updates userid(objectid) voor de geselecteerde dev ops-tenant. |
 > | Bewerking | Microsoft.ADHybridHealthService/reports/selecteddeployment/read | Haalt de geselecteerde implementatie voor de opgegeven tenant. |
@@ -125,7 +126,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ADHybridHealthService/services/monitoringconfigurations/write | Toevoegen of bewaken van configuraties voor een service-updates. |
 > | Bewerking | Microsoft.ADHybridHealthService/services/premiumcheck/read | Deze API haalt de lijst met alle onboarding services voor een premium-tenant. |
 > | Bewerking | Microsoft.ADHybridHealthService/services/read | Hiermee leest u de service-exemplaren in de tenant. |
+> | Bewerking | Microsoft.ADHybridHealthService/services/reports/blobUris/read | Hiermee haalt alle riskant IP-adres rapport URI's voor de afgelopen 7 dagen. |
 > | Bewerking | Microsoft.ADHybridHealthService/services/reports/details/read | Rapport van 50 belangrijkste gebruikers met mislukte wachtwoordpogingen in de afgelopen 7 dagen opgehaald |
+> | Bewerking | Microsoft.ADHybridHealthService/services/reports/generateBlobUri/action | Rapport riskant IP-adres wordt gegenereerd en retourneert een URI die verwijst naar deze. |
 > | Bewerking | Microsoft.ADHybridHealthService/services/servicemembers/action | Hiermee maakt u een server-exemplaar in de service. |
 > | Bewerking | Microsoft.ADHybridHealthService/services/servicemembers/alerts/read | Leest de waarschuwingen voor een server. |
 > | Bewerking | Microsoft.ADHybridHealthService/services/servicemembers/credentials/read | Deze api wordt aangeroepen tijdens de serverregistratie, als u de referenties voor de voorbereiding op nieuwe servers. |
@@ -143,7 +146,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Advisor/configurations/read | Configuraties ophalen |
 > | Bewerking | Microsoft.Advisor/configurations/write | Bijgewerkte configuratie |
@@ -213,163 +216,169 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ApiManagement/operations/read | Alle API-bewerkingen beschikbaar voor Microsoft.ApiManagement resource lezen |
 > | Bewerking | Microsoft.ApiManagement/register/action | Abonnement voor Microsoft.ApiManagement resourceprovider registreren |
 > | Bewerking | Microsoft.ApiManagement/reports/read | Rapporten die worden samengevoegd door perioden, geografische regio, ontwikkelaars, producten, API's, bewerkingen, abonnement en byRequest ophalen. |
-> | Bewerking | Microsoft.ApiManagement/service/apis/delete | Verwijderen van bestaande API |
-> | Bewerking | Microsoft.ApiManagement/service/apis/diagnostics/delete | Bestaande diagnostische gegevens verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/diagnostics/read | Lijst met diagnostische gegevens of Get-details van diagnose |
-> | Bewerking | Microsoft.ApiManagement/service/apis/diagnostics/write | Nieuwe diagnostische toevoegen of bijwerken van bestaande diagnostische gegevens |
-> | Bewerking | Microsoft.ApiManagement/service/apis/issues/attachments/delete | Hiermee verwijdert u het bestaande bijlage |
-> | Bewerking | Microsoft.ApiManagement/service/apis/issues/attachments/read | Probleem bijlagen of opgehaald API Management-probleem details van de bijlage ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/issues/attachments/write | Api probleem bijlage toevoegen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/issues/comments/delete | Hiermee verwijdert u het bestaande opmerking |
-> | Bewerking | Microsoft.ApiManagement/service/apis/issues/comments/read | Hiermee haalt API Management-probleem of Opmerkingen Opmerking informatie over het probleem |
-> | Bewerking | Microsoft.ApiManagement/service/apis/issues/comments/write | Api-Probleemopmerking toevoegen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/issues/delete | Hiermee verwijdert u het bestaande probleem |
-> | Bewerking | Microsoft.ApiManagement/service/apis/issues/read | Problemen die zijn gekoppeld aan de API of de API Management wordt informatie over het probleem ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/issues/write | Api-probleem toevoegen of bijwerken van api-probleem |
-> | Bewerking | Microsoft.ApiManagement/service/apis/operations/delete | Verwijderen van bestaande API-bewerking |
-> | Bewerking | Microsoft.ApiManagement/service/apis/operations/policies/delete | Configuratie van beleid van API-bewerking voor verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/operations/policies/read | Beleid voor API-bewerking of de configuratiedetails van Get-beleid voor API-bewerking ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/operations/policies/write | Informatie over de configuratie van beleid voor API-bewerking instellen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/operations/policy/delete | Configuratie van beleid van de bewerking verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/operations/policy/read | Ophalen van informatie over de configuratie van beleid voor een bewerking |
-> | Bewerking | Microsoft.ApiManagement/service/apis/operations/policy/write | Configuratiedetails van beleid voor opnieuw instellen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/operations/read | Lijst met bestaande API-bewerkingen of details van de API-bewerking ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/operations/tags/delete | Koppeling van bestaande Tag met de bestaande bewerking verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/operations/tags/read | Ophalen van tags die zijn gekoppeld aan de details van de bewerking of Tag ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/operations/tags/write | Koppelen van bestaande Tag met de bestaande bewerking |
-> | Bewerking | Microsoft.ApiManagement/service/apis/operations/write | Nieuwe API-bewerking maken of bijwerken van bestaande API-bewerking |
-> | Bewerking | Microsoft.ApiManagement/service/apis/operationsByTags/read | Lijst met koppelingen bewerking/Tag ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/policies/delete | Configuratie van beleid van API-beleid verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/policies/read | Ophalen van beleid voor API of Get configuratiedetails van het beleid voor API |
-> | Bewerking | Microsoft.ApiManagement/service/apis/policies/write | Informatie over de configuratie van beleid voor API instellen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/policy/delete | Verwijderen van configuratie van beleid van API |
-> | Bewerking | Microsoft.ApiManagement/service/apis/policy/read | Informatie over de configuratie van beleid voor API ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/policy/write | Informatie over de configuratie van beleid voor API instellen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/products/read | Alle producten die de API deel uit van maakt ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/read | Lijst met alle geregistreerde API's of Get details van API |
-> | Bewerking | Microsoft.ApiManagement/service/apis/releases/delete | Hiermee verwijdert u alle versies van de API of verwijderen-API-versie |
-> | Bewerking | Microsoft.ApiManagement/service/apis/releases/read | Get-versies voor een API of ophalen over het gebruik van API-versie |
-> | Bewerking | Microsoft.ApiManagement/service/apis/releases/write | Nieuwe API-versie maken of bijwerken van bestaande API-versie |
+> | Bewerking | Microsoft.ApiManagement/service/apis/delete | Hiermee verwijdert u de opgegeven API van het exemplaar van API Management-service. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/diagnostics/delete | Hiermee verwijdert u de opgegeven diagnose van een API. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/diagnostics/read | Geeft een lijst van alle diagnostische gegevens van een API. of haalt de details van de diagnose voor een API die is opgegeven door de id. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/diagnostics/write | Hiermee maakt u een nieuwe diagnose voor een API of een bestaande bijgewerkt. of de details van de diagnose voor een API die is opgegeven door de id-Updates. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/issues/attachments/delete | Hiermee verwijdert de opgegeven opmerking uit een probleem. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/issues/attachments/read | Een lijst met alle bijlagen voor het probleem dat is gekoppeld aan de opgegeven API. of haalt de details van de bijlage voor een API die is opgegeven door de id van het probleem. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/issues/attachments/write | Hiermee maakt u een nieuwe bijlage voor het probleem in een API of een bestaande bijgewerkt. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/issues/comments/delete | Hiermee verwijdert de opgegeven opmerking uit een probleem. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/issues/comments/read | Een lijst met alle opmerkingen voor het probleem dat is gekoppeld met de opgegeven API. of haalt de details van het probleem Opmerking voor een API die is opgegeven door de id. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/issues/comments/write | Hiermee maakt u een nieuwe opmerking voor het probleem in een API of een bestaande bijgewerkt. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/issues/delete | Hiermee verwijdert u het opgegeven probleem van een API. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/issues/read | Geeft een lijst van alle problemen die zijn gekoppeld aan de opgegeven API. of haalt de details van het probleem voor een API die is opgegeven door de id. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/issues/write | Hiermee maakt u een nieuw probleem voor een API of een bestaande bijgewerkt. of een bestaande uitgeven voor een API-Updates. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/operations/delete | Hiermee verwijdert u de opgegeven bewerking in de API. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/operations/policies/delete | Hiermee verwijdert u de configuratie van het beleid op de Api-bewerking. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/operations/policies/read | Haal de lijst beleidsconfiguratie op het niveau van de API-bewerking. of u de configuratie van het beleid op het niveau van de API-bewerking. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/operations/policies/write | Hiermee of bijwerken van de configuratie van beleid voor het niveau van de API-bewerking. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/operations/policy/delete | De configuratie van het beleid op het niveau van de bewerking verwijderen |
+> | Bewerking | Microsoft.ApiManagement/service/apis/operations/policy/read | Configuratie van het beleid op het niveau van de bewerking ophalen |
+> | Bewerking | Microsoft.ApiManagement/service/apis/operations/policy/write | Configuratie van beleid voor de bewerking niveau maken |
+> | Bewerking | Microsoft.ApiManagement/service/apis/operations/read | Geeft een lijst van een verzameling van de bewerkingen voor de opgegeven API. of haalt de details van de API-bewerking die is opgegeven door de id. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/operations/tags/delete | Loskoppelen van de code van de bewerking. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/operations/tags/read | Geeft een lijst van alle Tags die zijn gekoppeld aan de bewerking. of tag die is gekoppeld aan de bewerking ophalen. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/operations/tags/write | Label toewijzen aan de bewerking. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/operations/write | Hiermee maakt u een nieuwe bewerking in de API of een bestaande bijgewerkt. of de details van de bewerking in de API die is opgegeven door de id-Updates. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/operationsByTags/read | Bevat een reeks bewerkingen die zijn gekoppeld met tags. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/policies/delete | Hiermee verwijdert u de configuratie van het beleid op de Api. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/policies/read | Configuratie van het beleid op het niveau van de API ophalen. of de configuratie van een vraag op de API-niveau. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/policies/write | Hiermee of bijwerken van de configuratie van beleid voor de API. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/policy/delete | Verwijderen van de configuratie van het beleid op API-niveau |
+> | Bewerking | Microsoft.ApiManagement/service/apis/policy/read | Ophalen van de configuratie van een op API-niveau |
+> | Bewerking | Microsoft.ApiManagement/service/apis/policy/write | Configuratie van beleid op API niveau maken |
+> | Bewerking | Microsoft.ApiManagement/service/apis/products/read | Geeft een lijst van alle producten die de API deel uit van maakt. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/read | Geeft een lijst van alle API's van het exemplaar van API Management-service. of haalt de details van de API die is opgegeven door de id. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/releases/delete | Hiermee verwijdert u alle versies van de API of verwijdert u de opgegeven versie in de API. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/releases/read | Geeft een lijst van alle versies van een API.<br>Een API-versie is gemaakt bij het maken van een API-revisie huidige.<br>Releases worden ook gebruikt voor terugdraaien naar eerdere versies.<br>De resultaten zullen worden weggeschreven en kunnen worden beperkt door de parameters $top en $skip.<br>of geeft de details van een API-versie. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/releases/write | Hiermee maakt u een nieuwe versie voor de API. of de details van de release van de API die is opgegeven door de id-Updates. |
 > | Bewerking | Microsoft.ApiManagement/service/apis/revisions/delete | Hiermee verwijdert u alle wijzigingen van een API |
-> | Bewerking | Microsoft.ApiManagement/service/apis/revisions/read | Ophalen van revisies die behoren tot een API |
-> | Bewerking | Microsoft.ApiManagement/service/apis/schemas/delete | Hiermee verwijdert u het bestaande Schema |
-> | Bewerking | Microsoft.ApiManagement/service/apis/schemas/document/read | Het document met een beschrijving van het Schema ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/schemas/document/write | Het document met een beschrijving van het Schema bijwerken |
-> | Bewerking | Microsoft.ApiManagement/service/apis/schemas/read | Hiermee haalt u alle schema's voor een bepaalde API of de schema's die worden gebruikt door de API opgehaald |
-> | Bewerking | Microsoft.ApiManagement/service/apis/schemas/write | Hiermee stelt u de schema's die worden gebruikt door de API |
-> | Bewerking | Microsoft.ApiManagement/service/apis/tagDescriptions/delete | Label beschrijving van de API verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/tagDescriptions/read | Ophalen van Tags, beschrijvingen binnen het bereik van de API of Tag ophalen beschrijving van binnen het bereik van API |
-> | Bewerking | Microsoft.ApiManagement/service/apis/tagDescriptions/write | Beschrijving van de Tag maken/wijzigen in het bereik van API |
-> | Bewerking | Microsoft.ApiManagement/service/apis/tags/delete | Verwijder bestaande API/label koppeling |
-> | Bewerking | Microsoft.ApiManagement/service/apis/tags/read | Alle API/Tag-koppeling voor de API of Get-details van de API/Tag koppeling ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/tags/write | Nieuwe API/Tag koppeling toevoegen |
-> | Bewerking | Microsoft.ApiManagement/service/apis/write | Nieuwe API maken of bijwerken van bestaande API-details |
-> | Bewerking | Microsoft.ApiManagement/service/apisByTags/read | Lijst met API/Tag koppelingen ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/apiVersionSets/delete | Bestaande VersionSet verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/apiVersionSets/read | Lijst met versie groepsentiteiten of haalt de details van een VersionSet ophalen |
+> | Bewerking | Microsoft.ApiManagement/service/apis/revisions/read | Geeft een lijst van alle versies van een API. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/schemas/delete | Hiermee verwijdert u de schemaconfiguratie op de Api. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/schemas/read | De schemaconfiguratie ophalen op de API-niveau. of de schemaconfiguratie op de API-niveau. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/schemas/write | Hiermee of schemaconfiguratie voor de API bijgewerkt. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/tagDescriptions/delete | Verwijder de beschrijving van de tag voor de Api. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/tagDescriptions/read | Geeft een lijst van alle Tags beschrijvingen binnen het bereik van de API. Model die vergelijkbaar is met het swagger - tagDescription is gedefinieerd in API-niveau maar tag kan worden toegewezen aan de bewerkingen of beschrijving van de Tag binnen het bereik van de API ophalen |
+> | Bewerking | Microsoft.ApiManagement/service/apis/tagDescriptions/write | Beschrijving van de tag binnen het bereik van de Api maken/bijwerken. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/tags/delete | De code van de Api loskoppelen. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/tags/read | Geeft een lijst van alle Tags die zijn gekoppeld aan de API. of tag die is gekoppeld aan de API ophalen. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/tags/write | Label toewijzen aan de Api. |
+> | Bewerking | Microsoft.ApiManagement/service/apis/write | Hiermee maakt u nieuwe of bestaande opgegeven API van het exemplaar van API Management-service-updates. of de opgegeven API-Updates van het exemplaar van API Management-service. |
+> | Bewerking | Microsoft.ApiManagement/service/apisByTags/read | Geeft een lijst van een verzameling API's die zijn gekoppeld aan tags. |
+> | Bewerking | Microsoft.ApiManagement/service/apiVersionSets/delete | Hiermee verwijdert u specifieke Api-versie instellen. |
+> | Bewerking | Microsoft.ApiManagement/service/apiVersionSets/read | Geeft een lijst van een verzameling van Sets van API-versie in het opgegeven service-exemplaar. of haalt de details van de Api-versie is ingesteld door de id opgegeven. |
 > | Bewerking | Microsoft.ApiManagement/service/apiVersionSets/versions/read | Lijst met entiteiten van versie |
-> | Bewerking | Microsoft.ApiManagement/service/apiVersionSets/write | Nieuwe VersionSet maken of bijwerken van bestaande VersionSet details |
+> | Bewerking | Microsoft.ApiManagement/service/apiVersionSets/write | Hiermee of een Set Api-versie bijwerken. of de details van de Api-VersionSet opgegeven door de id-Updates. |
 > | Bewerking | Microsoft.ApiManagement/service/applynetworkconfigurationupdates/action | Werkt de Microsoft.ApiManagement resources die worden uitgevoerd in een Virtueelnetwerk kiezen bijgewerkte netwerkinstellingen. |
-> | Bewerking | Microsoft.ApiManagement/service/authorizationServers/delete | Bestaande autorisatie-server verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/authorizationServers/read | Lijst met autorisatieservers of details van autorisatie-server ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/authorizationServers/write | Een nieuwe autorisatieserver of de details van de Update van een bestaande autorisatieserver maken |
-> | Bewerking | Microsoft.ApiManagement/service/backends/delete | Verwijder de bestaande back-end |
-> | Bewerking | Microsoft.ApiManagement/service/backends/read | Lijst met back-ends of details van back-end ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/backends/reconnect/action | Een aanvraag opnieuw verbinding maken |
-> | Bewerking | Microsoft.ApiManagement/service/backends/write | Een nieuwe back-end toevoegen of bijwerken van bestaande back-end-details |
+> | Bewerking | Microsoft.ApiManagement/service/authorizationServers/delete | Hiermee verwijdert u specifieke autorisatie-server-exemplaar. |
+> | Bewerking | Microsoft.ApiManagement/service/authorizationServers/read | Geeft een lijst van een verzameling van autorisatieservers die zijn gedefinieerd in een service-exemplaar. of haalt de details van de autorisatie-server die is opgegeven door de id. |
+> | Bewerking | Microsoft.ApiManagement/service/authorizationServers/write | Hiermee maakt u nieuwe autorisatie-server of een bestaande autorisatieserver worden bijgewerkt. of de details van de autorisatie-server die is opgegeven door de id-Updates. |
+> | Bewerking | Microsoft.ApiManagement/service/backends/delete | Hiermee verwijdert u de opgegeven back-end. |
+> | Bewerking | Microsoft.ApiManagement/service/backends/read | Geeft een lijst van een verzameling van back-ends in de opgegeven service-exemplaar. of haalt de details van de back-end die is opgegeven door de id. |
+> | Bewerking | Microsoft.ApiManagement/service/backends/reconnect/action | Meldt de APIM-proxy voor het maken van een nieuwe verbinding met de back-end na de opgegeven time-out. Als er geen time-out is opgegeven, wordt de time-out van twee minuten gebruikt. |
+> | Bewerking | Microsoft.ApiManagement/service/backends/write | Hiermee of bijwerken van een back-end. of een bestaande back-end-Updates. |
 > | Bewerking | Microsoft.ApiManagement/service/backup/action | Back-API Management-Service voor de opgegeven container in een gebruiker opgegeven opslagaccount |
-> | Bewerking | Microsoft.ApiManagement/service/certificates/delete | Bestaand certificaat verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/certificates/read | Ophalen van lijst met certificaten of details van een certificaat ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/certificates/write | Nieuw certificaat toevoegen |
+> | Bewerking | Microsoft.ApiManagement/service/caches/delete | Hiermee verwijdert u specifieke Cache. |
+> | Bewerking | Microsoft.ApiManagement/service/caches/read | Geeft een lijst van een verzameling van alle externe Caches in de opgegeven service-exemplaar. of haalt de details van de Cache die is opgegeven door de id. |
+> | Bewerking | Microsoft.ApiManagement/service/caches/write | Hiermee of een externe Cache moet worden gebruikt in Api Management-instantie bijgewerkt. of de details van de cache die is opgegeven door de id-Updates. |
+> | Bewerking | Microsoft.ApiManagement/service/certificates/delete | Hiermee verwijdert u een specifiek certificaat. |
+> | Bewerking | Microsoft.ApiManagement/service/certificates/read | Geeft een lijst van een verzameling van alle certificaten in het opgegeven service-exemplaar. of haalt de details van het certificaat dat is opgegeven door de id. |
+> | Bewerking | Microsoft.ApiManagement/service/certificates/write | Hiermee of bijwerken van het certificaat dat wordt gebruikt voor verificatie bij de back-end. |
 > | Bewerking | Microsoft.ApiManagement/service/contentTypes/contentItems/delete | Hiermee verwijdert u opgegeven item inhoud. |
 > | Bewerking | Microsoft.ApiManagement/service/contentTypes/contentItems/read | Retourneert de lijst met items van webinhoud of retourneert inhoudsitem details |
 > | Bewerking | Microsoft.ApiManagement/service/contentTypes/contentItems/write | Hiermee maakt u nieuwe inhoud item gemaakt of bijgewerkt opgegeven inhoudsitem |
 > | Bewerking | Microsoft.ApiManagement/service/contentTypes/read | Retourneert lijst met inhoudstypen |
 > | Bewerking | Microsoft.ApiManagement/service/delete | API Management-Service-exemplaar verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/diagnostics/delete | Bestaande diagnostische gegevens verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/diagnostics/read | Lijst met diagnostische gegevens of Get-details van diagnose |
-> | Bewerking | Microsoft.ApiManagement/service/diagnostics/write | Nieuwe diagnostische toevoegen of bijwerken van bestaande diagnostische gegevens |
+> | Bewerking | Microsoft.ApiManagement/service/diagnostics/delete | Hiermee verwijdert u de opgegeven diagnose. |
+> | Bewerking | Microsoft.ApiManagement/service/diagnostics/read | Geeft een lijst van alle diagnostische gegevens van het exemplaar van API Management-service. of haalt de details van de diagnose is opgegeven door de id. |
+> | Bewerking | Microsoft.ApiManagement/service/diagnostics/write | Hiermee maakt u een nieuwe diagnostische of een bestaande bijgewerkt. of de details van de diagnose is opgegeven door de id-Updates. |
 > | Bewerking | Microsoft.ApiManagement/service/getssotoken/action | Haalt het SSO-token die kan worden gebruikt om aan te melden in API Management-Service Legacy-portal aan als beheerder |
-> | Bewerking | Microsoft.ApiManagement/service/groups/delete | Bestaande groep verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/groups/read | Lijst met groepen of haalt de details van een groep |
-> | Bewerking | Microsoft.ApiManagement/service/groups/users/delete | Bestaande gebruiker verwijderen uit bestaande groep |
-> | Bewerking | Microsoft.ApiManagement/service/groups/users/read | Lijst met groepsgebruikers |
+> | Bewerking | Microsoft.ApiManagement/service/groups/delete | Hiermee verwijdert u een specifieke groep van het exemplaar van API Management-service. |
+> | Bewerking | Microsoft.ApiManagement/service/groups/read | Geeft een lijst van een verzameling van groepen die zijn gedefinieerd in een service-exemplaar. of haalt de details van de groep die is opgegeven door de id. |
+> | Bewerking | Microsoft.ApiManagement/service/groups/users/delete | Bestaande gebruiker verwijderen uit bestaande groep. |
+> | Bewerking | Microsoft.ApiManagement/service/groups/users/read | Geeft een lijst van een verzameling gebruikersentiteiten die zijn gekoppeld aan de groep. |
 > | Bewerking | Microsoft.ApiManagement/service/groups/users/write | Bestaande gebruiker toevoegen aan bestaande groep |
-> | Bewerking | Microsoft.ApiManagement/service/groups/write | Nieuwe groep maken of bijwerken van bestaande Groepsdetails |
-> | Bewerking | Microsoft.ApiManagement/service/identityProviders/delete | Bestaande id-Provider verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/identityProviders/read | Lijst met id-providers of details van id-Provider opvragen |
-> | Bewerking | Microsoft.ApiManagement/service/identityProviders/write | Een nieuwe id-Provider of Update-details van een bestaande id-Provider maken |
+> | Bewerking | Microsoft.ApiManagement/service/groups/write | Hiermee of een groep bijgewerkt. of de details van de groep die is opgegeven door de id-Updates. |
+> | Bewerking | Microsoft.ApiManagement/service/identityProviders/delete | Hiermee verwijdert u de configuratie van de opgegeven id-provider. |
+> | Bewerking | Microsoft.ApiManagement/service/identityProviders/read | Geeft een lijst van een verzameling van id-Provider is geconfigureerd in het opgegeven service-exemplaar. of haalt de configuratiedetails van de identiteit van de Provider geconfigureerd in de opgegeven service-exemplaar. |
+> | Bewerking | Microsoft.ApiManagement/service/identityProviders/write | Hiermee of bijwerken van de configuratie van de id-provider. of een bestaande configuratie van de id-provider-Updates. |
+> | Bewerking | Microsoft.ApiManagement/service/issues/read | Geeft een lijst van een verzameling van problemen in het opgegeven service-exemplaar. of informatie over API Management wordt het probleem |
 > | Bewerking | Microsoft.ApiManagement/service/locations/networkstatus/read | Hiermee haalt de netwerk-toegangsstatus van resources waarop de service is afhankelijk in de locatie. |
-> | Bewerking | Microsoft.ApiManagement/service/loggers/delete | Bestaande logger verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/loggers/read | Lijst met kunt ophalen of details van logger ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/loggers/write | Nieuwe logger toevoegen of bijwerken van bestaande logger-details |
+> | Bewerking | Microsoft.ApiManagement/service/loggers/delete | Hiermee verwijdert u het opgegeven logboek. |
+> | Bewerking | Microsoft.ApiManagement/service/loggers/read | Geeft een lijst van een verzameling die u kunt in de opgegeven service-exemplaar. of haalt de details van het logboek opgegeven door de id. |
+> | Bewerking | Microsoft.ApiManagement/service/loggers/write | Hiermee of een logger bijgewerkt. of een bestaande logger bijgewerkt. |
 > | Bewerking | Microsoft.ApiManagement/service/managedeployments/action | Wijzigen van SKU /-eenheden, regionale implementaties van API Management-Service toevoegen/verwijderen |
 > | Bewerking | Microsoft.ApiManagement/service/networkstatus/read | Hiermee haalt u de netwerk-toegangsstatus van resources waarop de service is afhankelijk. |
 > | Bewerking | Microsoft.ApiManagement/service/notifications/action | Melding verzendt naar een opgegeven gebruiker |
-> | Bewerking | Microsoft.ApiManagement/service/notifications/read | Alle meldingen van API Management-uitgever of ophalen van API Management-uitgever opgehaald details van melding |
-> | Bewerking | Microsoft.ApiManagement/service/notifications/recipientEmails/delete | Hiermee verwijdert u het bestaande e-mailadres die zijn gekoppeld aan een melding |
-> | Bewerking | Microsoft.ApiManagement/service/notifications/recipientEmails/read | E-mailontvangers die zijn gekoppeld aan API Management-uitgever melding ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/notifications/recipientEmails/write | Nieuwe e-mailontvanger van de melding maken |
-> | Bewerking | Microsoft.ApiManagement/service/notifications/recipientUsers/delete | Hiermee verwijdert u de gebruiker die is gekoppeld aan de geadresseerden voor meldingen |
-> | Bewerking | Microsoft.ApiManagement/service/notifications/recipientUsers/read | Ontvanger van gebruikers die zijn gekoppeld aan de melding ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/notifications/recipientUsers/write | Gebruiker toevoegen aan de geadresseerden voor meldingen |
-> | Bewerking | Microsoft.ApiManagement/service/notifications/write | Maak of beheer van API-updates publisher-meldingen |
-> | Bewerking | Microsoft.ApiManagement/service/openidConnectProviders/delete | Bestaande OpenID Connect-Provider verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/openidConnectProviders/read | Lijst met OpenID Connect-provider of de details van de OpenID Connect-Provider opvragen |
-> | Bewerking | Microsoft.ApiManagement/service/openidConnectProviders/write | Een nieuwe details voor de OpenID Connect-Provider of de Update van een bestaande OpenID Connect-Provider maken |
+> | Bewerking | Microsoft.ApiManagement/service/notifications/read | Geeft een lijst van een verzameling eigenschappen die zijn gedefinieerd in een service-exemplaar. of haalt de details van de melding dat is opgegeven door de id. |
+> | Bewerking | Microsoft.ApiManagement/service/notifications/recipientEmails/delete | Hiermee verwijdert u het e-mailbericht in de lijst van de melding. |
+> | Bewerking | Microsoft.ApiManagement/service/notifications/recipientEmails/read | Haalt de lijst van de ontvanger van e-mailmeldingen geabonneerd op een melding. |
+> | Bewerking | Microsoft.ApiManagement/service/notifications/recipientEmails/write | Het e-mailadres toegevoegd aan de lijst met ontvangers voor de melding. |
+> | Bewerking | Microsoft.ApiManagement/service/notifications/recipientUsers/delete | Hiermee verwijdert u de API Management-gebruiker in de lijst van de melding. |
+> | Bewerking | Microsoft.ApiManagement/service/notifications/recipientUsers/read | Haalt de lijst van de gebruiker van de ontvanger melding geabonneerd op de melding. |
+> | Bewerking | Microsoft.ApiManagement/service/notifications/recipientUsers/write | De API Management-gebruiker toevoegen aan de lijst met geadresseerden voor de melding. |
+> | Bewerking | Microsoft.ApiManagement/service/notifications/write | Maak of beheer van API-updates publisher-meldingen. |
+> | Bewerking | Microsoft.ApiManagement/service/openidConnectProviders/delete | Hiermee verwijdert u specifieke OpenID Connect-Provider van de API Management service-exemplaar. |
+> | Bewerking | Microsoft.ApiManagement/service/openidConnectProviders/read | Lijsten van alle de OpenId Connect-provider. of haalt specifieke OpenID Connect-Provider. |
+> | Bewerking | Microsoft.ApiManagement/service/openidConnectProviders/write | Hiermee of bijwerken van de OpenID Connect-Provider. of de specifieke OpenID Connect-Provider-Updates. |
 > | Bewerking | Microsoft.ApiManagement/service/operationresults/read | Huidige status van een langdurige bewerking opgehaald |
-> | Bewerking | Microsoft.ApiManagement/service/policies/delete | Configuratie van beleid verwijderen uit het tenantbeleid |
-> | Bewerking | Microsoft.ApiManagement/service/policies/read | Ophalen van beleid voor Tenant of Get configuratiedetails van het beleid voor de Tenant |
-> | Bewerking | Microsoft.ApiManagement/service/policies/write | Informatie over de configuratie van beleid voor Tenant instellen |
-> | Bewerking | Microsoft.ApiManagement/service/policySnippets/read | Alle beleidsfragmenten ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/portalsettings/read | Meld u aan instellingen ophalen voor de Portal of de Get-instellingen voor de Portal aanmelden of delegatie-instellingen voor de Portal ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/portalsettings/write | Instellingen voor registreren of Update registreren instellingen of Update aanmelden instellingen of Update aanmelden instellingen of Update de delegatie-instellingen of Update delegatie-instellingen bijwerken |
-> | Bewerking | Microsoft.ApiManagement/service/products/apis/delete | Bestaande API uit bestaande product verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/products/apis/read | Lijst met API's aan bestaande product toegevoegd |
-> | Bewerking | Microsoft.ApiManagement/service/products/apis/write | Bestaande API toevoegen aan bestaande product |
-> | Bewerking | Microsoft.ApiManagement/service/products/delete | Bestaande product verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/products/groups/delete | Koppeling van bestaande ontwikkelaar-groep met bestaande product verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/products/groups/read | Lijst met groepen van ontwikkelaars die zijn gekoppeld aan een product |
-> | Bewerking | Microsoft.ApiManagement/service/products/groups/write | Bestaande ontwikkelaar-groep te koppelen aan bestaande product |
-> | Bewerking | Microsoft.ApiManagement/service/products/policies/delete | Configuratie van beleid uit Product beleid verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/products/policies/read | Ophalen van beleid voor Product of Get policy-configuratiegegevens voor Product |
-> | Bewerking | Microsoft.ApiManagement/service/products/policies/write | Informatie over de configuratie van beleid instellen voor het Product |
-> | Bewerking | Microsoft.ApiManagement/service/products/policy/delete | Configuratie van beleid uit bestaande product verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/products/policy/read | Voor beleidsconfiguratie van bestaande product ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/products/policy/write | Configuratie van beleid voor bestaande product |
-> | Bewerking | Microsoft.ApiManagement/service/products/read | Lijst met producten of details van het product ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/products/subscriptions/read | Overzicht van de product-abonnementen ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/products/tags/delete | Koppeling van bestaande Tag met bestaande Product verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/products/tags/read | Ophalen van tags die zijn gekoppeld aan de details van het Product of de code ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/products/tags/write | Bestaande code te koppelen aan bestaande Product |
-> | Bewerking | Microsoft.ApiManagement/service/products/write | Nieuw product maken of bijwerken van bestaande productdetails |
-> | Bewerking | Microsoft.ApiManagement/service/productsByTags/read | Lijst met koppelingen Product/Tag ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/properties/delete | Hiermee verwijdert u het bestaande eigenschap |
-> | Bewerking | Microsoft.ApiManagement/service/properties/read | Lijst met alle eigenschappen opgehaald of krijgt u informatie van de opgegeven eigenschap |
-> | Bewerking | Microsoft.ApiManagement/service/properties/write | Hiermee maakt u een nieuwe eigenschap of werkt de waarde voor de opgegeven eigenschap |
+> | Bewerking | Microsoft.ApiManagement/service/policies/delete | Hiermee verwijdert u de configuratie van het globale beleid van de Api Management-Service. |
+> | Bewerking | Microsoft.ApiManagement/service/policies/read | Geeft een lijst van alle globaal beleid-definities van de Api Management-service. of de definitie van het globale beleid van de Api Management-service. |
+> | Bewerking | Microsoft.ApiManagement/service/policies/write | Hiermee of bijwerken van de configuratie van het globale beleid van de Api Management-service. |
+> | Bewerking | Microsoft.ApiManagement/service/policy/delete | De configuratie van het beleid op het niveau van de Tenant verwijderen |
+> | Bewerking | Microsoft.ApiManagement/service/policy/read | Configuratie van het beleid op het niveau van de Tenant ophalen |
+> | Bewerking | Microsoft.ApiManagement/service/policy/write | Configuratie van beleid op Tenant niveau maken |
+> | Bewerking | Microsoft.ApiManagement/service/policySnippets/read | Geeft een lijst van alle beleidsfragmenten. |
+> | Bewerking | Microsoft.ApiManagement/service/portalsettings/read | Meld u In instellingen ophalen voor de Portal of de aanmelding van de Get-Up van de instellingen voor de Portal of ophalen van de delegatie-instellingen voor de Portal. |
+> | Bewerking | Microsoft.ApiManagement/service/portalsettings/write | Aanmelden-instellingen bijwerken. of maken of meld u In de Update-instellingen. of Update registreren instellingen of instellingen voor Update registreren of Update de delegatie-instellingen. of maken of bijwerken delegatie-instellingen. |
+> | Bewerking | Microsoft.ApiManagement/service/products/apis/delete | Hiermee verwijdert de opgegeven API uit het opgegeven product. |
+> | Bewerking | Microsoft.ApiManagement/service/products/apis/read | Een lijst met een verzameling van de API's die zijn gekoppeld aan een product. |
+> | Bewerking | Microsoft.ApiManagement/service/products/apis/write | Een API toevoegen aan het opgegeven product. |
+> | Bewerking | Microsoft.ApiManagement/service/products/delete | Product verwijderen. |
+> | Bewerking | Microsoft.ApiManagement/service/products/groups/delete | Hiermee verwijdert u de koppeling tussen de opgegeven groep en het product. |
+> | Bewerking | Microsoft.ApiManagement/service/products/groups/read | Geeft een lijst van de verzameling van de developer-groepen die zijn gekoppeld aan het opgegeven product. |
+> | Bewerking | Microsoft.ApiManagement/service/products/groups/write | Hiermee wordt de koppeling tussen de ontwikkelaar van de opgegeven groep met het opgegeven product toegevoegd. |
+> | Bewerking | Microsoft.ApiManagement/service/products/policies/delete | Hiermee verwijdert u de configuratie van het beleid op het Product. |
+> | Bewerking | Microsoft.ApiManagement/service/products/policies/read | Configuratie van het beleid op productniveau ophalen. of de configuratie van het beleid op het niveau van het Product. |
+> | Bewerking | Microsoft.ApiManagement/service/products/policies/write | Hiermee of bijwerken van de configuratie van beleid voor het Product. |
+> | Bewerking | Microsoft.ApiManagement/service/products/policy/delete | De configuratie van het beleid op het niveau van Product verwijderen |
+> | Bewerking | Microsoft.ApiManagement/service/products/policy/read | Configuratie van het beleid op productniveau ophalen |
+> | Bewerking | Microsoft.ApiManagement/service/products/policy/write | Configuratie van beleid op Product niveau maken |
+> | Bewerking | Microsoft.ApiManagement/service/products/read | Geeft een lijst van een verzameling van producten in de opgegeven service-exemplaar. of haalt de details van het product dat door de id is opgegeven. |
+> | Bewerking | Microsoft.ApiManagement/service/products/subscriptions/read | Geeft een lijst van de verzameling van de abonnementen voor het opgegeven product. |
+> | Bewerking | Microsoft.ApiManagement/service/products/tags/delete | Loskoppelen van de tag van het Product. |
+> | Bewerking | Microsoft.ApiManagement/service/products/tags/read | Geeft een lijst van alle Tags die zijn gekoppeld aan het Product. of code die is gekoppeld aan het Product. |
+> | Bewerking | Microsoft.ApiManagement/service/products/tags/write | Label toewijzen aan het Product. |
+> | Bewerking | Microsoft.ApiManagement/service/products/write | Hiermee of bijwerken van een product. of bestaande productdetails bijwerken. |
+> | Bewerking | Microsoft.ApiManagement/service/productsByTags/read | Geeft een lijst van een verzameling van producten die zijn gekoppeld aan tags. |
+> | Bewerking | Microsoft.ApiManagement/service/properties/delete | Hiermee verwijdert specifieke eigenschap uit de service-exemplaar van API Management. |
+> | Bewerking | Microsoft.ApiManagement/service/properties/read | Geeft een lijst van een verzameling eigenschappen die zijn gedefinieerd in een service-exemplaar. of haalt de details van de eigenschap die is opgegeven door de id. |
+> | Bewerking | Microsoft.ApiManagement/service/properties/write | Hiermee maakt of een eigenschap updates. of Updates van de specifieke eigenschap. |
 > | Bewerking | Microsoft.ApiManagement/service/quotas/periods/read | Itemwaarde quotum voor de periode ophalen |
 > | Bewerking | Microsoft.ApiManagement/service/quotas/periods/write | Huidige waarde van het prestatiemeteritem quotum instellen |
 > | Bewerking | Microsoft.ApiManagement/service/quotas/read | Waarden ophalen voor quotum |
 > | Bewerking | Microsoft.ApiManagement/service/quotas/write | Huidige waarde van het prestatiemeteritem quotum instellen |
 > | Bewerking | Microsoft.ApiManagement/service/read | Metagegevens voor een exemplaar van API Management-Service lezen |
+> | Bewerking | Microsoft.ApiManagement/service/regions/read | Geeft een lijst van alle azure-regio's waarin de service bestaat. |
 > | Bewerking | Microsoft.ApiManagement/service/reports/read | Get-rapport samengevoegd door perioden of Get-rapport samengevoegd per geografische regio of Get-rapport samengevoegd door ontwikkelaars.<br>of rapport samengevoegd door producten ophalen.<br>of rapport samengevoegd door API's of Get rapport samengevoegd door handelingen of Get-rapport samengevoegd per abonnement ophalen.<br>of rapportagegegevens aanvragen ophalen |
 > | Bewerking | Microsoft.ApiManagement/service/restore/action | API Management-Service van de opgegeven container in een door de gebruiker opgegeven storage-account herstellen |
-> | Bewerking | Microsoft.ApiManagement/service/subscriptions/delete | Abonnement verwijderen. Met deze bewerking kan worden gebruikt voor het abonnement verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/subscriptions/read | Ophalen van een overzicht van de product-abonnementen of details van het product abonnement ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/subscriptions/regeneratePrimaryKey/action | Abonnement primaire sleutel opnieuw genereren |
-> | Bewerking | Microsoft.ApiManagement/service/subscriptions/regenerateSecondaryKey/action | Abonnement secundaire sleutel opnieuw genereren |
-> | Bewerking | Microsoft.ApiManagement/service/subscriptions/write | Een bestaande gebruiker aan een bestaand product abonneren of bijwerken van bestaande abonnementsgegevens. Met deze bewerking kan worden gebruikt voor het abonnement te verlengen |
-> | Bewerking | Microsoft.ApiManagement/service/tagResources/read | Lijst met labels met gekoppelde Resources |
-> | Bewerking | Microsoft.ApiManagement/service/tags/delete | Bestaande code verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/tags/read | Lijst met Tags ophalen of details van code ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/tags/write | Nieuw label toevoegen of bijwerken van bestaande label details |
+> | Bewerking | Microsoft.ApiManagement/service/subscriptions/delete | Hiermee verwijdert u het opgegeven abonnement. |
+> | Bewerking | Microsoft.ApiManagement/service/subscriptions/read | Geeft een lijst van alle abonnementen van de API Management service-exemplaar. het opgegeven abonnemententiteit wordt opgehaald of ingesteld. |
+> | Bewerking | Microsoft.ApiManagement/service/subscriptions/regeneratePrimaryKey/action | Genereert opnieuw de primaire sleutel van het bestaande abonnement van de API Management service-exemplaar. |
+> | Bewerking | Microsoft.ApiManagement/service/subscriptions/regenerateSecondaryKey/action | Genereert opnieuw de secundaire sleutel van het bestaande abonnement van de API Management service-exemplaar. |
+> | Bewerking | Microsoft.ApiManagement/service/subscriptions/write | Hiermee maakt of updates van het abonnement van de opgegeven gebruiker voor het opgegeven product. of de details van een abonnement dat is opgegeven door de id-Updates. |
+> | Bewerking | Microsoft.ApiManagement/service/tagResources/read | Geeft een lijst van een verzameling resources die zijn gekoppeld met tags. |
+> | Bewerking | Microsoft.ApiManagement/service/tags/delete | Hiermee verwijdert u een specifieke tag van het exemplaar van API Management-service. |
+> | Bewerking | Microsoft.ApiManagement/service/tags/read | Geeft een lijst van een verzameling tags die zijn gedefinieerd in een service-exemplaar. of haalt de details van de opgegeven door de id-tag. |
+> | Bewerking | Microsoft.ApiManagement/service/tags/write | Hiermee maakt u een tag. of de details van het label dat is opgegeven door de id-Updates. |
 > | Bewerking | Microsoft.ApiManagement/service/templates/delete | Opnieuw instellen van e-mailsjabloon voor standaard-API Management |
 > | Bewerking | Microsoft.ApiManagement/service/templates/read | Krijgt u alle e-mailsjablonen of e-mailadres van API Management wordt informatie van de sjabloon |
 > | Bewerking | Microsoft.ApiManagement/service/templates/write | Maken of bijwerken van API Management-e-mailsjabloon of API Management Updates-e-mailsjabloon |
 > | Bewerking | Microsoft.ApiManagement/service/tenant/delete | Configuratie van beleid voor de tenant verwijderen |
 > | Bewerking | Microsoft.ApiManagement/service/tenant/deploy/action | De Implementatietaak van een om toe te passen van wijzigingen van de opgegeven git-vertakking in de configuratie in de database wordt uitgevoerd. |
 > | Bewerking | Microsoft.ApiManagement/service/tenant/operationResults/read | Lijst met resultaten van de bewerking of het resultaat van een bepaalde bewerking |
-> | Bewerking | Microsoft.ApiManagement/service/tenant/read | Configuratie van beleid voor of de Get-tenant toegangsgegevens informatie ophalen |
+> | Bewerking | Microsoft.ApiManagement/service/tenant/read | De definitie van het globale beleid van de Api Management-service ophalen. of Get tenant toegangsgegevens informatie |
 > | Bewerking | Microsoft.ApiManagement/service/tenant/regeneratePrimaryKey/action | Primaire toegangssleutel opnieuw genereren |
 > | Bewerking | Microsoft.ApiManagement/service/tenant/regenerateSecondaryKey/action | Secundaire toegangssleutel opnieuw genereren |
 > | Bewerking | Microsoft.ApiManagement/service/tenant/save/action | Hiermee maakt u doorvoeren met momentopname van de op de opgegeven vertakking in de opslagplaats |
@@ -379,21 +388,16 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ApiManagement/service/updatecertificate/action | SSL-certificaat uploaden voor een API Management-Service |
 > | Bewerking | Microsoft.ApiManagement/service/updatehostname/action | Installeren, bijwerken of verwijderen van aangepaste domeinnamen voor een API Management-Service |
 > | Bewerking | Microsoft.ApiManagement/service/users/action | Een nieuwe gebruiker registreren |
-> | Bewerking | Microsoft.ApiManagement/service/users/applications/attachments/delete | Een bijlage wordt verwijderd |
-> | Bewerking | Microsoft.ApiManagement/service/users/applications/attachments/read | Toepassing bijlagen of haalt bijlage opgehaald |
-> | Bewerking | Microsoft.ApiManagement/service/users/applications/attachments/write | Bijlage toevoegen aan toepassing |
-> | Bewerking | Microsoft.ApiManagement/service/users/applications/delete | Hiermee verwijdert u de bestaande toepassing |
-> | Bewerking | Microsoft.ApiManagement/service/users/applications/read | Lijst met alle toepassingen of details van de toepassing wordt API Management |
-> | Bewerking | Microsoft.ApiManagement/service/users/applications/write | Registreert details van API Management of Updates van een toepassing |
 > | Bewerking | Microsoft.ApiManagement/service/users/confirmations/send/action | Stuurt de bevestiging |
-> | Bewerking | Microsoft.ApiManagement/service/users/delete | Gebruikersaccount verwijderen |
-> | Bewerking | Microsoft.ApiManagement/service/users/generateSsoUrl/action | Genereren van SSO-URL. De URL kan worden gebruikt voor toegang tot de beheerportal |
-> | Bewerking | Microsoft.ApiManagement/service/users/groups/read | Lijst met gebruikersgroepen |
-> | Bewerking | Microsoft.ApiManagement/service/users/keys/read | Lijst met gebruikerssleutels ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/users/read | Een lijst met geregistreerde gebruikers of accountdetails van de van een gebruiker ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/users/subscriptions/read | Overzicht van de gebruikersabonnementen ophalen |
-> | Bewerking | Microsoft.ApiManagement/service/users/token/action | Token toegangstoken verkrijgen voor een gebruiker |
-> | Bewerking | Microsoft.ApiManagement/service/users/write | Een nieuwe gebruiker of de accountdetails van de Update van een bestaande gebruiker niet registreren. |
+> | Bewerking | Microsoft.ApiManagement/service/users/delete | Hiermee verwijdert u een specifieke gebruiker. |
+> | Bewerking | Microsoft.ApiManagement/service/users/generateSsoUrl/action | Hiermee haalt een Omleidings-URL met een verificatietoken voor een bepaalde gebruiker aanmelden bij de portal voor ontwikkelaars. |
+> | Bewerking | Microsoft.ApiManagement/service/users/groups/read | Geeft een lijst van alle gebruikersgroepen. |
+> | Bewerking | Microsoft.ApiManagement/service/users/identities/read | Lijst met alle gebruikers-id's. |
+> | Bewerking | Microsoft.ApiManagement/service/users/keys/read | Sleutels die zijn gekoppeld aan een gebruiker ophalen |
+> | Bewerking | Microsoft.ApiManagement/service/users/read | Geeft een lijst van een verzameling van geregistreerde gebruikers in de opgegeven service-exemplaar. of haalt de details van de gebruiker die is opgegeven door de id. |
+> | Bewerking | Microsoft.ApiManagement/service/users/subscriptions/read | Geeft een lijst van de verzameling van abonnementen van de opgegeven gebruiker. |
+> | Bewerking | Microsoft.ApiManagement/service/users/token/action | Hiermee haalt de autorisatie Shared Access Token voor de gebruiker. |
+> | Bewerking | Microsoft.ApiManagement/service/users/write | Hiermee of een gebruiker bijgewerkt. of de details van de gebruiker die is opgegeven door de id-Updates. |
 > | Bewerking | Microsoft.ApiManagement/service/write | Maak een nieuw exemplaar van API Management-Service |
 > | Bewerking | Microsoft.ApiManagement/unregister/action | Opheffen van de registratie-abonnement voor de resourceprovider Microsoft.ApiManagement |
 
@@ -618,7 +622,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Billing/billingAccounts/departments/read | Lijst van alle afdelingen onder een facturering accountbereik |
 > | Bewerking | Microsoft.Billing/billingAccounts/enrollmentAccounts/read | Lijst van alle inschrijvingsaccounts onder een facturering accountbereik |
@@ -644,7 +648,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Blueprint/blueprintAssignments/assignmentOperations/read | Alle blauwdrukartefacten lezen |
 > | Bewerking | Microsoft.Blueprint/blueprintAssignments/delete | Alle blauwdrukartefacten verwijderen |
@@ -718,11 +722,13 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Capacity/appliedreservations/read | Alle reserveringen lezen |
+> | Bewerking | Microsoft.Capacity/calculateexchange/action | Berekent het bedrag van exchange en de prijs van nieuwe inkoop en beleid fouten retourneert. |
 > | Bewerking | Microsoft.Capacity/calculateprice/action | De prijs van een reservering berekenen |
 > | Bewerking | Microsoft.Capacity/catalogs/read | Catalogus van de reservering lezen |
 > | Bewerking | Microsoft.Capacity/checkoffers/action | Geen Abonnementaanbiedingen controleren |
 > | Bewerking | Microsoft.Capacity/checkscopes/action | Elk abonnement controleren |
 > | Bewerking | Microsoft.Capacity/commercialreservationorders/read | Reserveringsorders gemaakt in een Tenant ophalen |
+> | Bewerking | Microsoft.Capacity/exchange/action | Een reservering uitwisselen |
 > | Bewerking | Microsoft.Capacity/operations/read | Elke leesbewerking |
 > | Bewerking | Microsoft.Capacity/register/action | Hiermee wordt de capaciteit-resourceprovider geregistreerd en wordt het maken van resources van de capaciteit. |
 > | Bewerking | Microsoft.Capacity/reservationorders/action | Een reservering bijwerken |
@@ -810,7 +816,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.CertificateRegistration/certificateOrders/certificates/Delete | Een bestaand certificaat verwijderen |
 > | Bewerking | Microsoft.CertificateRegistration/certificateOrders/certificates/Read | De lijst met certificaten ophalen |
@@ -834,7 +840,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ClassicCompute/capabilities/read | Hiermee worden de mogelijkheden weergegeven |
 > | Bewerking | Microsoft.ClassicCompute/checkDomainNameAvailability/action | Hiermee wordt gecontroleerd of een bepaald domeinnaam beschikbaar is. |
@@ -1074,7 +1080,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/analyze/action | Deze bewerking wordt een grote verscheidenheid aan visuele kenmerken op basis van de inhoud van de uitgepakt.  |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/areaofinterest/action | Deze bewerking wordt een vak rond het belangrijkste gedeelte van de afbeelding geretourneerd. |
@@ -1283,7 +1289,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Consumption/balances/read | Lijst met het gebruik van de samenvatting voor een factureringsperiode van een beheergroep. |
 > | Bewerking | Microsoft.Consumption/budgets/delete | Verwijder de budgetten door een abonnement of een beheergroep. |
@@ -1313,7 +1319,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ContainerInstance/containerGroups/containers/exec/action | Uitvoeren in een specifieke container. |
 > | Bewerking | Microsoft.ContainerInstance/containerGroups/containers/logs/read | Logbestanden voor een specifieke container ophalen. |
@@ -1335,7 +1341,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ContainerRegistry/checkNameAvailability/read | Controleert of de naam van het containerregister beschikbaar voor gebruik is. |
 > | Bewerking | Microsoft.ContainerRegistry/locations/deleteVirtualNetworkOrSubnets/action | Microsoft.ContainerRegistry meldt dat virtuele netwerk of subnet wordt verwijderd |
@@ -1431,7 +1437,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ContentModerator/applications/delete | Verwijderbewerking |
 > | Bewerking | Microsoft.ContentModerator/applications/listSecrets/action | Geheimen vermelden |
@@ -1448,15 +1454,24 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
+> | Bewerking | Microsoft.CostManagement/cloudConnectors/delete | De opgegeven cloudConnector verwijderen. |
+> | Bewerking | Microsoft.CostManagement/cloudConnectors/read | Lijst met de cloudConnectors voor de geverifieerde gebruiker. |
+> | Bewerking | Microsoft.CostManagement/cloudConnectors/write | Maken of bijwerken van de opgegeven cloudConnector. |
 > | Bewerking | Microsoft.CostManagement/dimensions/read | Lijst met alle ondersteunde dimensies door een bereik. |
 > | Bewerking | Microsoft.CostManagement/exports/action | De opgegeven uitvoer worden uitgevoerd. |
 > | Bewerking | Microsoft.CostManagement/exports/delete | De opgegeven export verwijderen. |
 > | Bewerking | Microsoft.CostManagement/exports/read | Een lijst van de uitvoer door een bereik. |
+> | Bewerking | Microsoft.CostManagement/exports/run/action | Uitvoer worden uitgevoerd. |
 > | Bewerking | Microsoft.CostManagement/exports/write | Maken of bijwerken van de opgegeven uitvoer. |
+> | Bewerking | Microsoft.CostManagement/externalBillingAccounts/externalSubscriptions/read | Lijst met de externalSubscriptions binnen een externalBillingAccount voor de geverifieerde gebruiker. |
+> | Bewerking | Microsoft.CostManagement/externalBillingAccounts/read | Lijst met de externalBillingAccounts voor de geverifieerde gebruiker. |
+> | Bewerking | Microsoft.CostManagement/externalSubscriptions/read | Lijst met de externalSubscriptions voor de geverifieerde gebruiker. |
+> | Bewerking | Microsoft.CostManagement/externalSubscriptions/write | Verbonden beheergroep van externalSubscription bijwerken |
 > | Bewerking | Microsoft.CostManagement/query/action | Gebruiksgegevens door een bereik op te vragen. |
 > | Bewerking | Microsoft.CostManagement/query/read | Gebruiksgegevens door een bereik op te vragen. |
 > | Bewerking | Microsoft.CostManagement/reports/action | Planning rapporteert over de gegevens over het gebruik door een bereik. |
 > | Bewerking | Microsoft.CostManagement/reports/read | Planning rapporteert over de gegevens over het gebruik door een bereik. |
+> | Bewerking | Microsoft.CostManagement/tenants/register/action | Actie voor een bereik van Microsoft.CostManagement door een tenant te registreren. |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
@@ -1566,7 +1581,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DataBox/jobs/bookShipmentPickUp/action | Hiermee kan het ophalen van retourzendingen worden geboekt. |
 > | Bewerking | Microsoft.DataBox/jobs/cancel/action | Hiermee wordt een order in uitvoering geannuleerd. |
@@ -1582,11 +1597,12 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataboxEdge
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | Geeft een lijst of opgehaald van de waarschuwingen |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | Geeft een lijst of opgehaald van de waarschuwingen |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/delete | Hiermee verwijdert u de bandbreedte-planningen |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/operationResults/read | Geeft een lijst of het bewerkingsresultaat opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/read | Geeft een lijst of opgehaald van de bandbreedte-planningen |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/read | Geeft een lijst of opgehaald van de bandbreedte-planningen |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/write | Hiermee maken of bijwerken van de bandbreedte-planningen |
@@ -1597,8 +1613,10 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Updates installeren op het apparaat |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | Geeft een lijst of de taken opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | Geeft een lijst of de netwerkinstellingen van het apparaat opgehaald |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/operationResults/read | Geeft een lijst of het bewerkingsresultaat opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/operationsStatus/read | Geeft een lijst of de status van de bewerking opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/delete | Hiermee verwijdert u de orders |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/operationResults/read | Geeft een lijst of het bewerkingsresultaat opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Geeft een lijst of de orders opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Geeft een lijst of de orders opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/write | Hiermee maakt of werkt de orders |
@@ -1606,27 +1624,33 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Geeft een lijst of opgehaald van de gegevens in het Edge-apparaten |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Geeft een lijst of opgehaald van de gegevens in het Edge-apparaten |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/delete | Hiermee verwijdert u de rollen |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/operationResults/read | Geeft een lijst of het bewerkingsresultaat opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Geeft een lijst of de rollen opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Geeft een lijst of de rollen opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | Hiermee maken of bijwerken van de rollen |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/scanForUpdates/action | Scannen naar updates |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/securitySettings/operationResults/read | Geeft een lijst of het bewerkingsresultaat opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/securitySettings/update/action | Beveiligingsinstellingen bijwerken |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/delete | Hiermee verwijdert u de shares |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/operationResults/read | Geeft een lijst of het bewerkingsresultaat opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | Geeft een lijst of de shares opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | Geeft een lijst of de shares opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/refresh/action | De metagegevens van de share vernieuwen met de gegevens uit de cloud |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/write | Hiermee maakt of werkt de shares |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/delete | Hiermee verwijdert u de referenties van het storage-account |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/operationResults/read | Geeft een lijst of het bewerkingsresultaat opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Geeft een lijst of de referenties van het storage-account opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Geeft een lijst of de referenties van het storage-account opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/write | Hiermee maakt of werkt de opslagaccountreferenties |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/delete | Hiermee verwijdert u de triggers |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/operationResults/read | Geeft een lijst of het bewerkingsresultaat opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | Geeft een lijst of opgehaald van de triggers |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | Geeft een lijst of opgehaald van de triggers |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/write | Hiermee maken of bijwerken van de triggers |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/updateSummary/read | Geeft een lijst of de update samenvatting opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/action | Certificaat uploaden voor registratie van het apparaat |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/delete | Hiermee verwijdert u de share-gebruikers |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/operationResults/read | Geeft een lijst of het bewerkingsresultaat opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/read | Geeft een lijst of de gebruikers opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/read | Geeft een lijst of de gebruikers opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/write | Hiermee maken of bijwerken van de gebruikers |
@@ -1649,15 +1673,14 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.DataCatalog/catalogs/delete | Hiermee verwijdert u de catalogus. |
-> | Bewerking | Microsoft.DataCatalog/catalogs/read | Hiermee worden eigenschappen voor catalogi onder het abonnement of resourcegroep. |
-> | Bewerking | Microsoft.DataCatalog/catalogs/write | Hiermee catalogus of bijwerken van de labels en eigenschappen voor de catalogus. |
-> | Bewerking | Microsoft.DataCatalog/checkNameAvailability/action | Controleert de beschikbaarheid van de catalogus naam voor de tenant. |
-> | Bewerking | Microsoft.DataCatalog/operations/read | Een lijst met bewerkingen weergegeven die beschikbaar zijn op de Microsoft.DataCatalog-resourceprovider. |
-> | Bewerking | Microsoft.DataCatalog/register/action | Hiermee wordt een abonnement geregistreerd bij de resourceprovider Microsoft.DataCatalog. |
-> | Bewerking | Microsoft.DataCatalog/unregister/action | De registratie van het abonnement van de resourceprovider Microsoft.DataCatalog. |
+> | Bewerking | Microsoft.DataCatalog/datacatalogs/delete | DataCatalog resource verwijderen voor Data Catalog-Resourceprovider. |
+> | Bewerking | Microsoft.DataCatalog/datacatalogs/read | DataCatalog resource lezen voor Data Catalog-Resourceprovider. |
+> | Bewerking | Microsoft.DataCatalog/datacatalogs/write | Schrijven DataCatalog resource voor Data Catalog Resource Provider. |
+> | Bewerking | Microsoft.DataCatalog/operations/read | Leest alle beschikbare bewerkingen in Data Catalog Resource Provider. |
+> | Bewerking | Microsoft.DataCatalog/register/action | Het abonnement voor Data Catalog-Resourceprovider registreren |
+> | Bewerking | Microsoft.DataCatalog/unregister/action | Registratie van het abonnement voor Data Catalog-Resourceprovider |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -1871,28 +1894,42 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
+> | Bewerking | Microsoft.DBforMariaDB/locations/azureAsyncOperation/read | Retourneren van resultaten van de bewerking voor de MariaDB |
+> | Bewerking | Microsoft.DBforMariaDB/locations/operationResults/read | Geretourneerde ResourceGroup op basis van de resultaten van de bewerking Server MariaDB |
+> | Bewerking | Microsoft.DBforMariaDB/locations/operationResults/read | Retourneren van resultaten van de bewerking voor de MariaDB |
 > | Bewerking | Microsoft.DBforMariaDB/locations/performanceTiers/read | Retourneert de lijst met beschikbare Prestatielagen. |
+> | Bewerking | Microsoft.DBforMariaDB/locations/securityAlertPoliciesAzureAsyncOperation/read | De lijst met Server threat detection bewerkingsresultaat retourneren. |
+> | Bewerking | Microsoft.DBforMariaDB/locations/securityAlertPoliciesOperationResults/read | De lijst met Server threat detection bewerkingsresultaat retourneren. |
+> | Bewerking | Microsoft.DBforMariaDB/operations/read | Retourneert de lijst met MariaDB-bewerkingen. |
 > | Bewerking | Microsoft.DBforMariaDB/performanceTiers/read | Retourneert de lijst met beschikbare Prestatielagen. |
+> | Bewerking | Microsoft.DBforMariaDB/register/action | MariaDB-Resourceprovider registreren |
 > | Bewerking | Microsoft.DBforMariaDB/servers/configurations/read | Retourneert de lijst met configuraties voor een server of haalt de eigenschappen voor de opgegeven configuratie. |
 > | Bewerking | Microsoft.DBforMariaDB/servers/configurations/write | De waarde voor de opgegeven configuratie bijwerken |
+> | Bewerking | Microsoft.DBforMariaDB/servers/databases/delete | Hiermee verwijdert u een bestaande Database voor MariaDB. |
+> | Bewerking | Microsoft.DBforMariaDB/servers/databases/read | Retourneert de lijst met MariaDB Databases of haalt de eigenschappen voor de opgegeven Database. |
+> | Bewerking | Microsoft.DBforMariaDB/servers/databases/write | Hiermee maakt u een Database voor MariaDB met de opgegeven parameters of de eigenschappen voor de opgegeven Database niet bijwerken. |
 > | Bewerking | Microsoft.DBforMariaDB/servers/delete | Hiermee verwijdert u een bestaande server. |
 > | Bewerking | Microsoft.DBforMariaDB/servers/firewallRules/delete | Hiermee verwijdert u een bestaande firewallregel. |
 > | Bewerking | Microsoft.DBforMariaDB/servers/firewallRules/read | Retourneert de lijst met firewall-regels voor een server of haalt u de eigenschappen voor de opgegeven firewallregel. |
 > | Bewerking | Microsoft.DBforMariaDB/servers/firewallRules/write | Maakt een firewall-regel met de opgegeven parameters of de update een bestaande regel. |
+> | Bewerking | Microsoft.DBforMariaDB/servers/logFiles/read | Retourneert de lijst met MariaDB LogFiles. |
 > | Bewerking | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee wordt de disagnostic instelling voor de resource opgehaald |
 > | Bewerking | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt |
 > | Bewerking | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/logDefinitions/read | De beschikbare logboeken opgehaald voor MariaDB-servers |
 > | Bewerking | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/metricDefinitions/read | Resultaattypen van metrische gegevens die beschikbaar voor databases zijn |
+> | Bewerking | Microsoft.DBforMariaDB/servers/queryTexts/action | De tekst voor een lijst met query's retourneren |
 > | Bewerking | Microsoft.DBforMariaDB/servers/read | Retourneert de lijst met servers of haalt de eigenschappen voor de opgegeven server. |
 > | Bewerking | Microsoft.DBforMariaDB/servers/recoverableServers/read | Retourneert de gegevens van de herstelbare MariaDB-Server |
 > | Bewerking | Microsoft.DBforMariaDB/servers/securityAlertPolicies/read | Gegevens van de server threat detection dat is geconfigureerd op een bepaalde server niet ophalen |
 > | Bewerking | Microsoft.DBforMariaDB/servers/securityAlertPolicies/write | Het beleid voor detectie van bedreigingen server voor een bepaalde server wijzigen |
+> | Bewerking | Microsoft.DBforMariaDB/servers/topQueryStatistics/read | Retourneert de lijst met Query-statistieken voor de populairste query's. |
 > | Bewerking | Microsoft.DBforMariaDB/servers/updateConfigurations/action | Configuraties voor de opgegeven server bijwerken |
 > | Bewerking | Microsoft.DBforMariaDB/servers/virtualNetworkRules/delete | Hiermee verwijdert u een bestaande regel voor het virtuele netwerk |
 > | Bewerking | Microsoft.DBforMariaDB/servers/virtualNetworkRules/read | Retourneert de lijst van het virtuele netwerk regels of haalt u de eigenschappen voor de regel van de opgegeven virtuele netwerk. |
 > | Bewerking | Microsoft.DBforMariaDB/servers/virtualNetworkRules/write | Hiermee maakt u een regel voor virtuele netwerken met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de regel van de opgegeven virtuele netwerk. |
+> | Bewerking | Microsoft.DBforMariaDB/servers/waitStatistics/read | Wacht statistieken voor een exemplaar retourneren |
 > | Bewerking | Microsoft.DBforMariaDB/servers/write | Hiermee maakt u een server met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de opgegeven server. |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
@@ -1900,14 +1937,25 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
+> | Bewerking | Microsoft.DBforMySQL/locations/azureAsyncOperation/read | Retourneren van resultaten van de bewerking MySQL-Server |
+> | Bewerking | Microsoft.DBforMySQL/locations/operationResults/read | Geretourneerde ResourceGroup op basis van resultaten van de bewerking MySQL-Server |
+> | Bewerking | Microsoft.DBforMySQL/locations/operationResults/read | Retourneren van resultaten van de bewerking MySQL-Server |
 > | Bewerking | Microsoft.DBforMySQL/locations/performanceTiers/read | Retourneert de lijst met beschikbare Prestatielagen. |
+> | Bewerking | Microsoft.DBforMySQL/locations/securityAlertPoliciesAzureAsyncOperation/read | De lijst met Server threat detection bewerkingsresultaat retourneren. |
+> | Bewerking | Microsoft.DBforMySQL/locations/securityAlertPoliciesOperationResults/read | De lijst met Server threat detection bewerkingsresultaat retourneren. |
+> | Bewerking | Microsoft.DBforMySQL/operations/read | Retourneert de lijst met bewerkingen voor MySQL. |
 > | Bewerking | Microsoft.DBforMySQL/performanceTiers/read | Retourneert de lijst met beschikbare Prestatielagen. |
+> | Bewerking | Microsoft.DBforMySQL/register/action | MySQL-Resourceprovider registreren |
 > | Bewerking | Microsoft.DBforMySQL/servers/configurations/read | Retourneert de lijst met configuraties voor een server of haalt de eigenschappen voor de opgegeven configuratie. |
 > | Bewerking | Microsoft.DBforMySQL/servers/configurations/write | De waarde voor de opgegeven configuratie bijwerken |
+> | Bewerking | Microsoft.DBforMySQL/servers/databases/delete | Hiermee verwijdert u een bestaande Database voor MySQL. |
+> | Bewerking | Microsoft.DBforMySQL/servers/databases/read | Retourneert de lijst met MySQL-Databases of haalt de eigenschappen voor de opgegeven Database. |
+> | Bewerking | Microsoft.DBforMySQL/servers/databases/write | Hiermee maakt u een MySQL-Database met de opgegeven parameters of de eigenschappen voor de opgegeven Database niet bijwerken. |
 > | Bewerking | Microsoft.DBforMySQL/servers/delete | Hiermee verwijdert u een bestaande server. |
 > | Bewerking | Microsoft.DBforMySQL/servers/firewallRules/delete | Hiermee verwijdert u een bestaande firewallregel. |
 > | Bewerking | Microsoft.DBforMySQL/servers/firewallRules/read | Retourneert de lijst met firewall-regels voor een server of haalt u de eigenschappen voor de opgegeven firewallregel. |
 > | Bewerking | Microsoft.DBforMySQL/servers/firewallRules/write | Maakt een firewall-regel met de opgegeven parameters of de update een bestaande regel. |
+> | Bewerking | Microsoft.DBforMySQL/servers/logFiles/read | Retourneert de lijst met PostgreSQL LogFiles. |
 > | Bewerking | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee wordt de disagnostic instelling voor de resource opgehaald |
 > | Bewerking | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt |
 > | Bewerking | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/logDefinitions/read | De beschikbare logboeken opgehaald voor MySQL-servers |
@@ -1922,24 +1970,36 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DBforMySQL/servers/virtualNetworkRules/delete | Hiermee verwijdert u een bestaande regel voor het virtuele netwerk |
 > | Bewerking | Microsoft.DBforMySQL/servers/virtualNetworkRules/read | Retourneert de lijst van het virtuele netwerk regels of haalt u de eigenschappen voor de regel van de opgegeven virtuele netwerk. |
 > | Bewerking | Microsoft.DBforMySQL/servers/virtualNetworkRules/write | Hiermee maakt u een regel voor virtuele netwerken met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de regel van de opgegeven virtuele netwerk. |
+> | Bewerking | Microsoft.DBforMySQL/servers/waitStatistics/read | Wacht statistieken voor een exemplaar retourneren |
 > | Bewerking | Microsoft.DBforMySQL/servers/write | Hiermee maakt u een server met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de opgegeven server. |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
+> | Bewerking | Microsoft.DBforPostgreSQL/locations/azureAsyncOperation/read | Retourneren van resultaten van de bewerking PostgreSQL-Server |
+> | Bewerking | Microsoft.DBforPostgreSQL/locations/operationResults/read | Geretourneerde ResourceGroup op basis van resultaten van de bewerking PostgreSQL-Server |
+> | Bewerking | Microsoft.DBforPostgreSQL/locations/operationResults/read | Retourneren van resultaten van de bewerking PostgreSQL-Server |
 > | Bewerking | Microsoft.DBforPostgreSQL/locations/performanceTiers/read | Retourneert de lijst met beschikbare Prestatielagen. |
+> | Bewerking | Microsoft.DBforPostgreSQL/locations/securityAlertPoliciesAzureAsyncOperation/read | De lijst met Server threat detection bewerkingsresultaat retourneren. |
+> | Bewerking | Microsoft.DBforPostgreSQL/locations/securityAlertPoliciesOperationResults/read | De lijst met Server threat detection bewerkingsresultaat retourneren. |
+> | Bewerking | Microsoft.DBforPostgreSQL/operations/read | Retourneert de lijst met bewerkingen voor PostgreSQL. |
 > | Bewerking | Microsoft.DBforPostgreSQL/performanceTiers/read | Retourneert de lijst met beschikbare Prestatielagen. |
+> | Bewerking | Microsoft.DBforPostgreSQL/register/action | PostgreSQL-Resourceprovider registreren |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/advisors/read | Retourneert de lijst met adviseurs |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActions/read | Retourneert de lijst met aanbevolen acties |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActionSessions/action | Aanbevelingen |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/configurations/read | Retourneert de lijst met configuraties voor een server of haalt de eigenschappen voor de opgegeven configuratie. |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/configurations/write | De waarde voor de opgegeven configuratie bijwerken |
+> | Bewerking | Microsoft.DBforPostgreSQL/servers/databases/delete | Hiermee verwijdert u een bestaande Database voor PostgreSQL. |
+> | Bewerking | Microsoft.DBforPostgreSQL/servers/databases/read | Retourneert de lijst met PostgreSQL-Databases of haalt de eigenschappen voor de opgegeven Database. |
+> | Bewerking | Microsoft.DBforPostgreSQL/servers/databases/write | Hiermee maakt u een PostgreSQL-Database met de opgegeven parameters of de eigenschappen voor de opgegeven Database niet bijwerken. |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/delete | Hiermee verwijdert u een bestaande server. |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/firewallRules/delete | Hiermee verwijdert u een bestaande firewallregel. |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/firewallRules/read | Retourneert de lijst met firewall-regels voor een server of haalt u de eigenschappen voor de opgegeven firewallregel. |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/firewallRules/write | Maakt een firewall-regel met de opgegeven parameters of de update een bestaande regel. |
+> | Bewerking | Microsoft.DBforPostgreSQL/servers/logFiles/read | Retourneert de lijst met PostgreSQL LogFiles. |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee wordt de disagnostic instelling voor de resource opgehaald |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/logDefinitions/read | De beschikbare logboeken opgehaald voor Postgres-servers |
@@ -1957,11 +2017,15 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/write | Hiermee maakt u een regel voor virtuele netwerken met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de regel van de opgegeven virtuele netwerk. |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/waitStatistics/read | Wacht statistieken voor een exemplaar retourneren |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/write | Hiermee maakt u een server met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de opgegeven server. |
+> | Bewerking | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee wordt de disagnostic instelling voor de resource opgehaald |
+> | Bewerking | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt |
+> | Bewerking | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/logDefinitions/read | De beschikbare logboeken opgehaald voor Postgres-servers |
+> | Bewerking | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/metricDefinitions/read | Resultaattypen van metrische gegevens die beschikbaar voor databases zijn |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Devices/checkNameAvailability/Action | Controleer als IotHub-naam beschikbaar is |
 > | Bewerking | Microsoft.Devices/checkProvisioningServiceNameAvailability/Action | Controleer de servicenaam als inrichting is beschikbaar |
@@ -2049,18 +2113,19 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DevSpaces/controllers/delete | Azure Dev spaties Controller en dataplane-services verwijderen |
 > | Bewerking | Microsoft.DevSpaces/controllers/listConnectionDetails/action | Lijst met verbindingsgegevens voor de Azure Dev spaties Controller-infrastructuur |
 > | Bewerking | Microsoft.DevSpaces/controllers/read | Eigenschappen lezen Azure Dev spaties netwerkcontroller |
 > | Bewerking | Microsoft.DevSpaces/controllers/write | Maken of de eigenschappen van de Update Azure Dev spaties Controller |
+> | Bewerking | Microsoft.DevSpaces/locations/operationresults/read | Status voor een asynchrone bewerking lezen |
 > | Bewerking | Microsoft.DevSpaces/register/action | Microsoft Dev spaties resourceprovider registreren met een abonnement |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DevTestLab/labCenters/delete | Lab centers verwijderen. |
 > | Bewerking | Microsoft.DevTestLab/labCenters/read | Lab-datacenters worden gelezen. |
@@ -2105,6 +2170,12 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DevTestLab/labs/serviceRunners/delete | Service runners-up verwijderen. |
 > | Bewerking | Microsoft.DevTestLab/labs/serviceRunners/read | Service runners-up lezen. |
 > | Bewerking | Microsoft.DevTestLab/labs/serviceRunners/write | Toevoegen of wijzigen van de service runners-up. |
+> | Bewerking | Microsoft.DevTestLab/labs/sharedGalleries/delete | Gedeelde galerieën verwijderen. |
+> | Bewerking | Microsoft.DevTestLab/labs/sharedGalleries/read | Gedeelde galerieën lezen. |
+> | Bewerking | Microsoft.DevTestLab/labs/sharedGalleries/sharedImages/delete | Gedeelde afbeeldingen verwijderen. |
+> | Bewerking | Microsoft.DevTestLab/labs/sharedGalleries/sharedImages/read | Gedeelde afbeeldingen lezen. |
+> | Bewerking | Microsoft.DevTestLab/labs/sharedGalleries/sharedImages/write | Toevoegen of wijzigen van de gedeelde-installatiekopieën. |
+> | Bewerking | Microsoft.DevTestLab/labs/sharedGalleries/write | Toevoegen of wijzigen van de gedeelde galerieën. |
 > | Bewerking | Microsoft.DevTestLab/labs/users/delete | Gebruikersprofielen verwijdert. |
 > | Bewerking | Microsoft.DevTestLab/labs/users/disks/Attach/action | Koppelen en maken van de lease van de schijf naar de virtuele machine. |
 > | Bewerking | Microsoft.DevTestLab/labs/users/disks/delete | Schijven verwijderen. |
@@ -2170,6 +2241,41 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DocumentDB/databaseAccountNames/read | Controleert op beschikbaarheid van de naam. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/delete | Een verzameling verwijderen. Alleen van toepassing op API-typen: 'mongodb'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/read | Lezen van een verzameling of lijst met alle verzamelingen. Alleen van toepassing op API-typen: 'mongodb'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/throughput/read | Lees de verzamelingsdoorvoer van een. Alleen van toepassing op API-typen: 'mongodb'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/throughput/write | De verzamelingsdoorvoer van een bijwerken. Alleen van toepassing op API-typen: 'mongodb'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/write | Maken of bijwerken van een verzameling. Alleen van toepassing op API-typen: 'mongodb'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/delete | Verwijderen van een container. Alleen van toepassing op API-typen: 'sql'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/read | Lezen van een container of lijst met alle containers. Alleen van toepassing op API-typen: 'sql'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/throughput/read | De doorvoer van een container worden gelezen. Alleen van toepassing op API-typen: 'sql'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/throughput/write | Werk de doorvoer van een container. Alleen van toepassing op API-typen: 'sql'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/write | Maken of bijwerken van een container. Alleen van toepassing op API-typen: 'sql'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/delete | Een database verwijderen. Alleen van toepassing op API-typen: 'sql', 'mongodb', 'gremlin'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/delete | Een grafiek verwijderen. Alleen van toepassing op API-typen: 'gremlin'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/read | Lezen van een grafiek of lijst met alle grafieken. Alleen van toepassing op API-typen: 'gremlin'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/throughput/read | Lees de doorvoer van een grafiek. Alleen van toepassing op API-typen: 'gremlin'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/throughput/write | Werk de doorvoer van een grafiek. Alleen van toepassing op API-typen: 'gremlin'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/write | Maken of bijwerken van een grafiek. Alleen van toepassing op API-typen: 'gremlin'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/read | Lezen van een database of lijst met alle databases. Alleen van toepassing op API-typen: 'sql', 'mongodb', 'gremlin'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/throughput/read | Lees de doorvoer van een database. Alleen van toepassing op API-typen: 'sql', 'mongodb', 'gremlin'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/throughput/write | De doorvoer van een database bijwerken. Alleen van toepassing op API-typen: 'sql', 'mongodb', 'gremlin'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/databases/write | Een database maken. Alleen van toepassing op API-typen: 'sql', 'mongodb', 'gremlin'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/delete | Een keyspace verwijderen. Alleen van toepassing op API-typen: 'cassandra'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/read | Een keyspace lezen of lijst met alle keyspaces. Alleen van toepassing op API-typen: 'cassandra'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/throughput/read | Lees een keyspace-doorvoer. Alleen van toepassing op API-typen: 'cassandra'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/throughput/write | Een keyspace-doorvoer bijwerken. Alleen van toepassing op API-typen: 'cassandra'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/delete | Een tabel verwijderen. Alleen van toepassing op API-typen: 'cassandra'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/read | Lezen van een tabel of lijst met alle tabellen. Alleen van toepassing op API-typen: 'cassandra'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/throughput/read | Lees de doorvoer van een tabel. Alleen van toepassing op API-typen: 'cassandra'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/throughput/write | De doorvoer van een tabel bijwerken. Alleen van toepassing op API-typen: 'cassandra'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/write | Maken of bijwerken van een tabel. Alleen van toepassing op API-typen: 'cassandra'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/write | Maak een keyspace. Alleen van toepassing op API-typen: 'cassandra'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/tables/delete | Een tabel verwijderen. Alleen van toepassing op API-typen: 'tabel'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/tables/read | Lezen van een tabel of lijst met alle tabellen. Alleen van toepassing op API-typen: 'tabel'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/throughput/read | Lees de doorvoer van een tabel. Alleen van toepassing op API-typen: 'tabel'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/throughput/write | De doorvoer van een tabel bijwerken. Alleen van toepassing op API-typen: 'tabel'. |
+> | Bewerking | Microsoft.DocumentDB/databaseAccounts/apis/tables/write | Maken of bijwerken van een tabel. Alleen van toepassing op API-typen: 'tabel'. |
 > | Bewerking | Microsoft.DocumentDB/databaseAccounts/backup/action | Een aanvraag indient bij de back-up configureren |
 > | Bewerking | Microsoft.DocumentDB/databaseAccounts/changeResourceGroup/action | Resourcegroep wijzigen van een databaseaccount |
 > | Bewerking | Microsoft.DocumentDB/databaseAccounts/databases/collections/metricDefinitions/read | Hiermee wordt de verzameling gelezen metrische definities. |
@@ -2241,7 +2347,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.EventGrid/domains/delete | Een domein verwijderen |
 > | Bewerking | Microsoft.EventGrid/domains/listKeys/action | Een lijst met sleutels voor een domein |
@@ -2357,7 +2463,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | Get Gast configuration toewijzing. |
 > | Bewerking | Microsoft.GuestConfiguration/guestConfigurationAssignments/reports/read | Get Gast configuratierapport toewijzing. |
@@ -2402,7 +2508,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftinsights"></a>Microsoft.Insights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Insights/ActionGroups/Delete | Een actiegroep verwijderen |
 > | Bewerking | Microsoft.Insights/ActionGroups/Read | Een actiegroep lezen |
@@ -2653,6 +2759,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Insights/MetricDefinitions/Microsoft.Insights/Read | Metrische definities lezen |
 > | Bewerking | Microsoft.Insights/MetricDefinitions/providers/Microsoft.Insights/Read | Metrische definities lezen |
 > | Bewerking | Microsoft.Insights/MetricDefinitions/Read | Metrische definities lezen |
+> | Bewerking | Microsoft.Insights/Metricnamespaces/Read | Metrische gegevens lezen-naamruimten |
 > | Bewerking | Microsoft.Insights/Metrics/Action | Metrische actie |
 > | Bewerking | Microsoft.Insights/Metrics/Microsoft.Insights/Read | De metrische gegevens lezen |
 > | Bewerking | Microsoft.Insights/Metrics/providers/Metrics/Read | De metrische gegevens lezen |
@@ -2677,7 +2784,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Intune/diagnosticsettings/delete | Een diagnostische instelling verwijderen |
 > | Bewerking | Microsoft.Intune/diagnosticsettings/read | Een diagnostische instelling lezen |
@@ -2689,6 +2796,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
+> | Bewerking | Microsoft.IoTCentral/appTemplates/action | Haalt u alle beschikbare sjablonen op Azure IoT Central |
 > | Bewerking | Microsoft.IoTCentral/checkNameAvailability/action | Controleert of de naam van een IoT Central-toepassing beschikbaar is |
 > | Bewerking | Microsoft.IoTCentral/checkSubdomainAvailability/action | Controleert of een subdomein IoT Central-toepassing beschikbaar is |
 > | Bewerking | Microsoft.IoTCentral/IoTApps/delete | Hiermee verwijdert u een IoT Central-toepassingen |
@@ -2739,7 +2847,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Kusto/Clusters/Activate/action | Start het cluster. |
 > | Bewerking | Microsoft.Kusto/Clusters/CheckNameAvailability/action | Controleert de beschikbaarheid van de naam van het cluster. |
@@ -2775,7 +2883,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.LabServices/labAccounts/CreateLab/action | Een lab maken in een lab-account. |
 > | Bewerking | Microsoft.LabServices/labAccounts/delete | Lab-accounts verwijderen. |
@@ -2835,7 +2943,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.LocationBasedServices/accounts/delete | (Afgeschaft: Gebruik /providers/Microsoft.Maps) verwijderen van een Location Based Services-Account. |
 > | Bewerking | Microsoft.LocationBasedServices/accounts/listKeys/action | (Afgeschaft: Gebruik /providers/Microsoft.Maps)List Location Based Services-Account sleutels |
@@ -3146,7 +3254,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MachineLearningCompute/operationalizationClusters/checkUpdate/action | Controleer of er updates beschikbaar voor systeemservices voor het cluster uitoefening zijn |
 > | Bewerking | Microsoft.MachineLearningCompute/operationalizationClusters/delete | Hosting-account verwijderen |
@@ -3189,7 +3297,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ManagedIdentity/register/action | Hiermee wordt het abonnement voor de beheerde identiteit-resourceprovider geregistreerd |
 > | Bewerking | Microsoft.ManagedIdentity/userAssignedIdentities/assign/action | RBAC-actie voor het toewijzen van een bestaande gebruiker toegewezen identiteit aan een resource |
@@ -3385,7 +3493,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MixedReality/register/action | Hiermee wordt een abonnement geregistreerd voor de resourceprovider voor Mixed Reality. |
 > | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Ruimtelijke ankers maken |
@@ -3402,7 +3510,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.NetApp/locations/operationresults/read | Hiermee wordt een bewerking resultaat resource gelezen. |
 > | Bewerking | Microsoft.NetApp/locations/read | Leest een beschikbaarheid van controleren resources |
@@ -3602,6 +3710,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/locations/checkDnsNameAvailability/read | Controleert of de dns-label, op de opgegeven locatie beschikbaar is |
 > | Bewerking | Microsoft.Network/locations/operationResults/read | Het resultaat van een asynchrone POST of DELETE-bewerking opgehaald |
 > | Bewerking | Microsoft.Network/locations/operations/read | Bewerkingsresource met de status van een asynchrone bewerking opgehaald |
+> | Bewerking | Microsoft.Network/locations/serviceTags/read | Servicetags ophalen |
 > | Bewerking | Microsoft.Network/locations/supportedVirtualMachineSizes/read | Haalt de grootte van virtuele machines ondersteund |
 > | Bewerking | Microsoft.Network/locations/usages/read | Metrische gegevens over gebruik voor de resources opgehaald |
 > | Bewerking | Microsoft.Network/locations/virtualNetworkAvailableEndpointServices/read | Een lijst met beschikbare Services voor virtueel netwerk-eindpunt ophalen |
@@ -3842,7 +3951,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.OffAzure/HyperVSites/clusters/read | Haalt u de eigenschappen van een Hyper-V-cluster |
 > | Bewerking | Microsoft.OffAzure/HyperVSites/clusters/read | Haalt u de eigenschappen van een Hyper-V-cluster |
@@ -3911,7 +4020,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | --- | --- | --- |
 > | Bewerking | Microsoft.OperationalInsights/linkTargets/read | Een lijst met bestaande accounts die niet gekoppeld aan een Azure-abonnement zijn. Als u wilt dit Azure-abonnement koppelen aan een werkruimte, gebruikt u een klant-id die is geretourneerd door deze bewerking in de eigenschap van de klant-id van de bewerking werkruimte maken. |
 > | Bewerking | microsoft.operationalinsights/operations/read | Een lijst met alle van de beschikbare OperationalInsights Rest-API-bewerkingen. |
+> | Bewerking | microsoft.operationalinsights/register/action | Rergisters het abonnement. |
 > | Bewerking | Microsoft.OperationalInsights/register/action | Een abonnement bij een resourceprovider registreren. |
+> | Bewerking | microsoft.operationalinsights/unregister/action | De registratie van het abonnement. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/analytics/query/action | Zoeken met de nieuwe engine. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/analytics/query/schema/read | Zoekschema V2 ophalen. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/api/query/action | Zoeken met de nieuwe engine. |
@@ -3963,6 +4074,16 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/ContainerLog/read | Gegevens lezen uit de tabel ContainerLog |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/ContainerNodeInventory/read | Gegevens lezen uit de tabel ContainerNodeInventory |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/ContainerServiceLog/read | Gegevens lezen uit de tabel ContainerServiceLog |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DatabricksAccounts/read | Gegevens lezen uit de tabel DatabricksAccounts |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DatabricksClusters/read | Gegevens lezen uit de tabel DatabricksClusters |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DatabricksDBFS/read | Gegevens lezen uit de tabel DatabricksDBFS |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DatabricksJobs/read | Gegevens lezen uit de tabel DatabricksJobs |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DatabricksNotebook/read | Gegevens lezen uit de tabel DatabricksNotebook |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DatabricksSecrets/read | Gegevens lezen uit de tabel DatabricksSecrets |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DatabricksSQLPermissions/read | Gegevens lezen uit de tabel DatabricksSQLPermissions |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DatabricksSSH/read | Gegevens lezen uit de tabel DatabricksSSH |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DatabricksTables/read | Gegevens lezen uit de tabel DatabricksTables |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DatabricksWorkspace/read | Gegevens lezen uit de tabel DatabricksWorkspace |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceAppCrash/read | Gegevens lezen uit de tabel DeviceAppCrash |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceAppLaunch/read | Gegevens lezen uit de tabel DeviceAppLaunch |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceCalendar/read | Gegevens lezen uit de tabel DeviceCalendar |
@@ -3993,6 +4114,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/HuntingBookmark/read | Gegevens lezen uit de tabel HuntingBookmark |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | Gegevens lezen uit de tabel IISAssessmentRecommendation |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/InboundConnection/read | Gegevens lezen uit de tabel InboundConnection |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/InsightsMetrics/read | Gegevens lezen uit de tabel InsightsMetrics |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/IntuneAuditLogs/read | Gegevens lezen uit de tabel IntuneAuditLogs |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/IntuneOperationalLogs/read | Gegevens lezen uit de tabel IntuneOperationalLogs |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/KubeEvents/read | Gegevens lezen uit de tabel KubeEvents |
@@ -4010,6 +4132,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MADeploymentPlan/read | Gegevens lezen uit de tabel MADeploymentPlan |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MADevice/read | Gegevens lezen uit de tabel MADevice |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MADeviceNotEnrolled/read | Gegevens lezen uit de tabel MADeviceNotEnrolled |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MADeviceNRT/read | Gegevens lezen uit de tabel MADeviceNRT |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealth/read | Gegevens lezen uit de tabel MADevicePnPHealth |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthAlternativeVersions/read | Gegevens lezen uit de tabel MADevicePnPHealthAlternativeVersions |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthIssues/read | Gegevens lezen uit de tabel MADevicePnPHealthIssues |
@@ -4035,7 +4158,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessment/read | Gegevens lezen uit de tabel MAOfficeCurrencyAssessment |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessmentDailyCounts/read | Gegevens lezen uit de tabel MAOfficeCurrencyAssessmentDailyCounts |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatus/read | Gegevens lezen uit de tabel MAOfficeDeploymentStatus |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatusNRT/read | Gegevens lezen uit de tabel MAOfficeDeploymentStatusNRT |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroErrorNRT/read | Gegevens lezen uit de tabel MAOfficeMacroErrorNRT |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroGlobalHealth/read | Gegevens lezen uit de tabel MAOfficeMacroGlobalHealth |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealth/read | Gegevens lezen uit de tabel MAOfficeMacroHealth |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealthIssues/read | Gegevens lezen uit de tabel MAOfficeMacroHealthIssues |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueInstanceReadiness/read | Gegevens lezen uit de tabel MAOfficeMacroIssueInstanceReadiness |
@@ -4048,6 +4173,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessment/read | Gegevens lezen uit de tabel MAWindowsCurrencyAssessment |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessmentDailyCounts/read | Gegevens lezen uit de tabel MAWindowsCurrencyAssessmentDailyCounts |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatus/read | Gegevens lezen uit de tabel MAWindowsDeploymentStatus |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatusNRT/read | Gegevens lezen uit de tabel MAWindowsDeploymentStatusNRT |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAWindowsSysReqInstanceReadiness/read | Gegevens lezen uit de tabel MAWindowsSysReqInstanceReadiness |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/NetworkMonitoring/read | Gegevens lezen uit de tabel NetworkMonitoring |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/OfficeActivity/read | Gegevens lezen uit de tabel OfficeActivity |
@@ -4143,7 +4269,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.OperationsManagement/managementAssociations/delete | Bestaande beheerkoppeling verwijderen |
 > | Bewerking | Microsoft.OperationsManagement/managementAssociations/read | Bestaande beheerkoppeling ophalen |
@@ -4159,9 +4285,10 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.PolicyInsights/asyncOperationResults/read | Hiermee wordt het resultaat van de asynchrone bewerking opgehaald. |
+> | Bewerking | Microsoft.PolicyInsights/operations/read | Haalt ondersteunde bewerkingen op Microsoft.PolicyInsights naamruimte |
 > | Bewerking | Microsoft.PolicyInsights/policyEvents/queryResults/action | Informatie over beleidsgebeurtenissen opvragen. |
 > | Bewerking | Microsoft.PolicyInsights/policyEvents/queryResults/read | Informatie over beleidsgebeurtenissen opvragen. |
 > | Bewerking | Microsoft.PolicyInsights/policyStates/queryResults/action | Informatie over beleidsstatussen opvragen. |
@@ -4387,7 +4514,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Relay/checkNameAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. |
 > | Bewerking | Microsoft.Relay/checkNamespaceAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. Deze API is gedeprecieerd in plaats daarvan gebruik CheckNameAvailability. |
@@ -4438,7 +4565,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ResourceHealth/AvailabilityStatuses/current/read | De beschikbaarheidsstatus ophalen voor de opgegeven resource |
 > | Bewerking | Microsoft.ResourceHealth/AvailabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
@@ -4457,7 +4584,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Resources/checkPolicyCompliance/action | Controleer de nalevingsstatus van een bepaalde resource aan de hand van het beleid voor resources. |
 > | Bewerking | Microsoft.Resources/checkResourceName/action | Controleer of de resourcenaam geldig is. |
@@ -4466,6 +4593,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Resources/deployments/operations/read | Hiermee kunt u implementatiebewerkingen ophalen of opnemen in een lijst. |
 > | Bewerking | Microsoft.Resources/deployments/read | Hiermee kunt u implementaties ophalen of opnemen in een lijst. |
 > | Bewerking | Microsoft.Resources/deployments/validate/action | Hiermee kunt u een implementatie valideren. |
+> | Bewerking | Microsoft.Resources/deployments/whatIf/action | Hiermee worden sjabloonimplementatiewijzigingen voorspeld. |
 > | Bewerking | Microsoft.Resources/deployments/write | Hiermee kunt u een implementatie maken of bijwerken. |
 > | Bewerking | Microsoft.Resources/links/delete | Hiermee kunt u een resourcekoppeling verwijderen. |
 > | Bewerking | Microsoft.Resources/links/read | Hiermee kunt u resourcekoppelingen ophalen of opnemen in een lijst. |
@@ -5060,6 +5188,8 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Sql/servers/keys/read | Retourneert de lijst met server sleutels of haalt u de eigenschappen voor de sleutel van de opgegeven server. |
 > | Bewerking | Microsoft.Sql/servers/keys/write | Hiermee maakt u een sleutel met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de sleutel van de opgegeven server. |
 > | Bewerking | Microsoft.Sql/servers/operationResults/read | Haalt onderhanden serverbewerkingen |
+> | Bewerking | Microsoft.Sql/servers/privateEndpointConnections/delete | Hiermee verwijdert u een bestaande persoonlijke eindpunt-verbinding |
+> | Bewerking | Microsoft.Sql/servers/privateEndpointConnections/read | Retourneert de lijst met verbindingen van de persoonlijke eindpunt of haalt u de eigenschappen voor de opgegeven persoonlijke eindpunt-verbinding. |
 > | Bewerking | Microsoft.Sql/servers/providers/Microsoft.Insights/metricDefinitions/read | Resultaattypen van metrische gegevens die beschikbaar voor servers zijn |
 > | Bewerking | Microsoft.Sql/servers/read | Retourneert de lijst met servers of haalt de eigenschappen voor de opgegeven server. |
 > | Bewerking | Microsoft.Sql/servers/recommendedElasticPools/databases/read | Metrische gegevens over aanbevolen pools voor elastische databases voor een bepaalde server ophalen |
@@ -5106,7 +5236,6 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteAutomaticSnapshot/action | Hiermee wordt het resultaat geretourneerd van het verwijderen van een automatische momentopname |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action | Hiermee wordt een op overeenkomende tags gefilterde lijst met blobs in een account geretourneerd |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Hiermee wordt een blob of een lijst met blobs geretourneerd |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action | Hiermee wordt het resultaat van de blobopdracht geretourneerd |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | Hiermee wordt het resultaat van het lezen van blobtags geretourneerd |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | Hiermee wordt het resultaat van het schrijven van blobtags geretourneerd. |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Hiermee wordt het resultaat van het schrijven van een blob geretourneerd |
@@ -5197,7 +5326,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.StorSimple/managers/accessControlRecords/delete | Hiermee verwijdert u de Access Control Records |
 > | Bewerking | Microsoft.StorSimple/managers/accessControlRecords/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
@@ -5431,7 +5560,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.TimeSeriesInsights/environments/accesspolicies/delete | Hiermee verwijdert u het toegangsbeleid. |
 > | Bewerking | Microsoft.TimeSeriesInsights/environments/accesspolicies/read | Hiermee worden de eigenschappen van een toegangsbeleid. |
@@ -5451,7 +5580,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftvisualstudio"></a>Microsoft.VisualStudio
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.VisualStudio/Account/Delete | Account verwijderen |
 > | Bewerking | Microsoft.VisualStudio/Account/Extension/Read | Lees-/ Accountextensie |
@@ -5873,7 +6002,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.WorkloadMonitor/components/read | Hiermee haalt u onderdelen voor de resource |
 > | Bewerking | Microsoft.WorkloadMonitor/componentsSummary/read | Overzicht van onderdelen opgehaald |

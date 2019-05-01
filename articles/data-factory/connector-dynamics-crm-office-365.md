@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 04/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a52749c78cd0f090e66220fe51e3d04985f96e7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535317"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869536"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Dynamics 365 (Common Data Service) of Dynamics CRM met behulp van Azure Data Factory
 
@@ -69,9 +69,6 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde service van Dyna
 | password | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Als niet is opgegeven, wordt de standaard Azure Integration Runtime. | Niet voor bron, Ja voor sink als de bron gekoppelde service beschikt niet over een integratieruntime |
 
->[!IMPORTANT]
->Wanneer u gegevens naar Dynamics kopiëren, kan de standaard Azure Integration Runtime kan niet worden gebruikt voor het uitvoeren van de kopie. Met andere woorden, als uw bron gekoppelde service beschikt niet over een opgegeven integration-runtime expliciet [maken van een Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) met een locatie in de buurt van uw Dynamics-exemplaar. Vinden waar uw Dynamics-exemplaar bevindt zich door te verwijzen naar de [regiolijst met voor Dynamics 365](https://docs.microsoft.com/dynamics365/customer-engagement/admin/datacenter/new-datacenter-regions). Koppel deze in de gekoppelde service Dynamics zoals in het volgende voorbeeld.
-
 >[!NOTE]
 >De Dynamics-connector gebruikt voor het optionele "organisatienaam" eigenschap gebruiken om uw Dynamics CRM/365 Online exemplaar te identificeren. Terwijl deze werken blijft, is het worden voorgesteld om op te geven van de eigenschap voor de nieuwe 'serviceUri' in plaats daarvan te krijgen van betere prestaties voor detectie.
 
@@ -117,9 +114,6 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde service van Dyna
 | password | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord opslaan in Azure Key Vault en laat de copy-activiteit ophalen van daaruit bij het uitvoeren van het kopiëren van gegevens: meer informatie [referenties Store in Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Als niet is opgegeven, wordt de standaard Azure Integration Runtime. | Nee voor bron, Ja voor sink |
 
->[!IMPORTANT]
->Gegevens te kopiëren naar Dynamics, expliciet [maken van een Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) door de locatie in de buurt van uw Dynamics-exemplaar. Koppel deze in de gekoppelde service zoals in het volgende voorbeeld.
-
 **Voorbeeld: Dynamics on-premises met IFD IFD-verificatie**
 
 ```json
@@ -160,8 +154,8 @@ Als u wilt kopiëren van gegevens van en naar Dynamics, stel de eigenschap type 
 | entityName | De logische naam van de entiteit om op te halen. | Nee voor bron (als 'query' in de bron van de activiteit is opgegeven), Ja voor sink |
 
 > [!IMPORTANT]
->- Wanneer u gegevens van Dynamics kopieert, wordt de sectie "structuur" is optioneel, maar werd in de Dynamics-gegevensset om te controleren of het resultaat van een deterministische kopiëren wordt aanbevolen. Hiermee wordt de kolom naam en het gegevenstype voor de Dynamics-gegevens die u kopiëren wilt via gedefinieerd. Zie voor meer informatie, [gegevenssetstructuur](concepts-datasets-linked-services.md#dataset-structure) en [gegevenstypetoewijzing voor Dynamics](#data-type-mapping-for-dynamics).
->- Bij het importeren van schema in het ontwerpen van de gebruikersinterface, afleiden ADF het schema van de bovenste rijen van het queryresultaat Dynamics initialiseren van de constructie structuur, waarbij de aanvraag kolommen met geen waarden worden weggelaten steekproeven. U kunt bekijken en toevoegen van meer kolommen in de Dynamics schema/gegevenssetstructuur indien nodig, die wordt gebruikt tijdens runtime kopiëren.
+>- Wanneer u gegevens van Dynamics kopieert, wordt de sectie "structuur" is optioneel, maar werd ten zeerste aanbevolen in de Dynamics-gegevensset om te controleren of het resultaat van een deterministische kopiëren. Hiermee wordt de kolom naam en het gegevenstype voor de Dynamics-gegevens die u kopiëren wilt via gedefinieerd. Zie voor meer informatie, [gegevenssetstructuur](concepts-datasets-linked-services.md#dataset-structure-or-schema) en [gegevenstypetoewijzing voor Dynamics](#data-type-mapping-for-dynamics).
+>- Bij het importeren van schema in het ontwerpen van de gebruikersinterface, afleiden ADF het schema van de bovenste rijen van het queryresultaat Dynamics initialiseren van de constructie structuur, waarbij de aanvraag kolommen met geen waarden worden weggelaten steekproeven. Hetzelfde gedrag is van toepassing als u wilt kopiëren van uitvoeringen als er geen expliciete structuurdefinitie. U kunt bekijken en toevoegen van meer kolommen in de Dynamics schema/gegevenssetstructuur indien nodig, die wordt gebruikt tijdens runtime kopiëren.
 >- Wanneer u gegevens naar Dynamics kopiëren, is de sectie "structuur" optioneel in de Dynamics-gegevensset. Welke kolommen u wilt kopiëren naar wordt bepaald door het schema van de bron. Als de bron is een CSV-bestand zonder header voor de 'structuur"in de invoergegevensset opgeven met de kolom naam en het gegevenstype. Deze worden toegewezen aan de velden in het CSV-bestand één voor één in volgorde.
 
 **Voorbeeld:**
@@ -330,7 +324,7 @@ Configureer het bijbehorende gegevenstype voor de Data Factory in de gegevensset
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Lang | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
-| AttributeType.Customer | Guid | ✓ | | 
+| AttributeType.Customer | Guid | ✓ | |
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |

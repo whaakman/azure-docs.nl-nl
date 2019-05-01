@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 172e6f53b25a1aeef67afea0c1769e6fcaf497cd
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 3b6c4b8cebdff772ea1bd4ac95e4c8c06043f5d5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487869"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728156"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Een aangepaste weergave delen via een geparameteriseerde URL
 
@@ -63,13 +63,13 @@ Geaccepteerde waarden komen overeen met het menu **quick time** in de Time Serie
 
 Met de parameter `timeSeriesDefinitions=<collection of term objects>` geeft u de onderdelen van een Time Series Insights-weergave op waarbij:
 
-- "name":"<string>"
+- "naam": "\<string >"
   - De naam van het *onderdeel*.
-- "splitBy":"<string>"
+- "splitBy": "\<string >"
   - De naam van de kolom waarop moet worden *gesplitst*.
-- "measureName":"<string>"
+- "%{measurename/": "\<string >"
   - De kolomnaam van de *meting*.
-- "predicate":"<string>"
+- "predicate":"\<string>"
   - De *where*-component voor filteren aan de serverzijde.
 - "useSum":"true"
   - Dit is een optionele parameter waarin het gebruik van een som voor uw meting wordt aangegeven.  Houd er rekening mee dat als "Events" de geselecteerde meting is, standaard "count" wordt geselecteerd.  Als "Events" niet is geselecteerd, wordt standaard "average" geselecteerd.  
@@ -121,4 +121,5 @@ De volledige weergave (inclusief het diagram) zou er als volgt uitzien:
 ![Diagramweergave](media/parameterized-url/url2.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-[Gegevens opvragen met C#](time-series-insights-query-data-csharp.md)
+
+- Meer informatie over het [query gegevens met C# ](time-series-insights-query-data-csharp.md).

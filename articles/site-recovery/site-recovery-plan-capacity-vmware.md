@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 7b10db06ab4ade1b23985b1a259d82d4818941b1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 9a77b3982d8aed6ae694c32baecd7ae194c51724
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124963"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924835"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Plannen van capaciteit en schaalbaarheid voor noodherstel van VMware naar Azure
 
@@ -120,7 +120,7 @@ Voordat u de Site Recovery-infrastructuur hebt ingesteld, toegang krijgen tot de
 
 ## <a name="deploy-additional-process-servers"></a>Extra processervers implementeren
 
-Als u de schaal van uw implementatie meer dan 200 bronmachines of als u een totaal dagelijks verloop snelheid van meer dan 2 TB hebt, moet u processervers voor het afhandelen van het verkeersvolume toevoegen. We hebben het product 9.24 versie voor een verbeterde [binnen het product richtlijnen](vmware-azure-manage-process-server.md#process-server-selection-guidance) op bij het instellen van een uitbreidbare processerver. [Instellen van de processerver](vmware-azure-set-up-process-server-scale.md) om nieuwe bronmachines te beveiligen of [verdelen](vmware-azure-manage-process-server.md#balance-the-load-on-process-server).
+Als u de schaal van uw implementatie meer dan 200 bronmachines of als u een totaal dagelijks verloop snelheid van meer dan 2 TB hebt, moet u processervers voor het afhandelen van het verkeersvolume toevoegen. We hebben het product 9.24 versie voor een verbeterde [verwerken van server-waarschuwingen](vmware-physical-azure-monitor-process-server.md#process-server-alerts) op bij het instellen van een uitbreidbare processerver. [Instellen van de processerver](vmware-azure-set-up-process-server-scale.md) om nieuwe bronmachines te beveiligen of [verdelen](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migreren van machines voor het gebruik van de nieuwe processerver
 

@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 56b846ae-a1e7-45ae-a79d-992a87f075ba
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b09e14bfee700750192c5a007cbb3140fd49d137
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c7770cd5b12a14e69c00d93b1b518e5007afd9c3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885484"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64693718"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Zelfstudie: Integratie van Azure Active Directory met Zscaler Beta
 
@@ -38,7 +39,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 Als u integratie tussen Azure AD met Zscaler Beta wilt configureren, hebt u het volgende nodig:
 
-* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, krijgt u een [gratis account](https://azure.microsoft.com/free/)
 * Een abonnement op Zscaler Beta waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -111,11 +112,11 @@ Als u integratie tussen eenmalige aanmelding van Azure AD met Zscaler Beta wilt 
     > [!NOTE]
     > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met het [Ondersteuningsteam van Zscaler Beta](https://www.zscaler.com/company/contact) om de waarde op te vragen.
 
-5. De Zscaler Beta-toepassing verwacht dat de SAML-beweringen in een bepaalde indeling staan. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
+5. Zscaler bèta-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram  **Bewerken**  om het dialoogvenster  **Gebruikerskenmerken**  te openen.
 
     ![image](common/edit-attribute.png)
 
-6. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit:
+6. Bovendien met bovenstaande Zscaler bèta-toepassing wordt verwacht dat enkele meer kenmerken moeten worden doorgegeven in SAML-antwoord. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
     
     | Name | Bronkenmerk | 
     | ---------------| --------------- |
@@ -158,9 +159,17 @@ Als u integratie tussen eenmalige aanmelding van Azure AD met Zscaler Beta wilt 
 
 ### <a name="configure-zscaler-beta-single-sign-on"></a>Eenmalige aanmelding van Zscaler Beta configureren
 
-1. Meld u in een andere webbrowser als administrator aan bij de bedrijfssite van Zscaler Beta.
+1. Voor het automatiseren van de configuratie in Zscaler Bèta, moet u installeren **mijn Apps beveiligde aanmelding browserextensie** door te klikken op **de extensie installeren**.
 
-2. Ga naar **Beheer > Verificatie > Verificatie-instellingen** en voer de volgende stappen uit:
+    ![Mijn apps-extensie](common/install-myappssecure-extension.png)
+
+2. Na het toevoegen van uitbreiding naar de browser, klikt u op **Setup Zscaler Bèta** wordt u doorgeleid naar de bètaversie van de Zscaler-toepassing. Geef de beheerdersreferenties aan te melden bij Zscaler bèta van daaruit. De browserextensie wordt automatisch configureren van de toepassing voor u en stap 3-6 automatiseren.
+
+    ![Configuratie voor de installatie](common/setup-sso.png)
+
+3. Als u Zscaler bèta handmatig instellen wilt, opent u een nieuw browservenster en meld u in uw site van het bedrijf Zscaler bèta als beheerder en voer de volgende stappen uit:
+
+4. Ga naar **Beheer > Verificatie > Verificatie-instellingen** en voer de volgende stappen uit:
    
     ![Beheer](./media/zscaler-beta-tutorial/ic800206.png "Beheer")
 
@@ -168,7 +177,7 @@ Als u integratie tussen eenmalige aanmelding van Azure AD met Zscaler Beta wilt 
 
     b. Klik op **SAML configureren**.
 
-3. Voer in het venster **SAML bewerken** de volgende stappen uit en klik op Opslaan.  
+5. Voer in het venster **SAML bewerken** de volgende stappen uit en klik op Opslaan.  
             
     ![Manage Users & Authentication](./media/zscaler-beta-tutorial/ic800208.png "Manage Users & Authentication")
     
@@ -188,7 +197,7 @@ Als u integratie tussen eenmalige aanmelding van Azure AD met Zscaler Beta wilt 
 
     h. Klik op **Opslaan**.
 
-4. Voer in het dialoogvenster **Configure User Authentication** de volgende stappen uit:
+6. Voer in het dialoogvenster **Configure User Authentication** de volgende stappen uit:
 
     ![Beheer](./media/zscaler-beta-tutorial/ic800207.png)
 
@@ -245,8 +254,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
-    Bijvoorbeeld: BrittaSimon@contoso.com
+    b. In de **gebruikersnaam** veldtype `brittasimon@yourcompanydomain.extension`. Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 

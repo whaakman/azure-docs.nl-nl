@@ -1,6 +1,6 @@
 ---
-title: Concepten van Azure Media Services - Azure | Microsoft Docs
-description: In dit onderwerp biedt een kort overzicht van Azure Media Services-concepten en koppelingen voor meer informatie.
+title: Azure Media Services-termen en begrippen - Azure | Microsoft Docs
+description: In dit onderwerp biedt een kort overzicht van Azure Media Services-termen en begrippen en koppelingen voor meer informatie.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,20 +12,38 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 74a4ee03562963c8a50159f085e4b76b6d461ed9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: feba7d53f196f6675aca965218046df67bbef81d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103834"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867066"
 ---
 # <a name="media-services-concepts"></a>Media Services-concepten
 
-Dit onderwerp biedt een kort overzicht van Azure Media Services-concepten en bevat koppelingen naar artikelen met gedetailleerde uitleg van Media Services v3-concepten en functies. Bekijk de basisconcepten die worden beschreven in de volgende onderwerpen voordat u start met de ontwikkeling.
+Dit onderwerp bevat een kort overzicht van Azure Media Services-termen en begrippen. Dit artikel bevat ook koppelingen naar artikelen met gedetailleerde uitleg van Media Services v3-concepten en functies. 
+
+Bekijk de basisconcepten die worden beschreven in de volgende onderwerpen voordat u start met de ontwikkeling.
 
 > [!NOTE]
 > U kunt momenteel geen gebruik maken van de Azure-portal om v3-resources te beheren. Gebruik de [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) of een van de ondersteunde [SDK's](developers-guide.md).
 
+## <a name="terminology"></a>Terminologie
+
+Deze sectie wordt beschreven hoe sommige algemene termen in de branche toegewezen aan de API van Media Services v3.
+
+### <a name="live-event"></a>Livegebeurtenis
+
+Een **Live gebeurtenis** vertegenwoordigt een pijplijn voor het opnemen, transcodering (optioneel) en live streams van metagegevens van video, audio en realtime verpakking.
+
+Voor klanten die migreren van Media Services v2 API's, de **Live gebeurtenis** vervangt de **kanaal** entiteit in v2. Zie voor meer informatie, [migreren van v2 naar v3](migrate-from-v2-to-v3.md).
+
+### <a name="streaming-endpoint-packaging-and-origin"></a>Streaming-eindpunt (verpakking en oorsprong)
+
+Een **Streaming-eindpunt** vertegenwoordigt een dynamische (just-in-time)-verpakking en oorsprong service die uw live en on-demand inhoud rechtstreeks aan een client-afspeeltoepassing, met een van de algemene mediaprotocollen voor streaming (HLS kunt leveren (of streepje). Bovendien de **Streaming-eindpunt** biedt dynamische (just-in-time)-versleuteling voor de bedrijfstak toonaangevende DRM's.
+
+In de branche streaming media, deze service wordt vaak aangeduid als een **Packager** of **oorsprong**.  Andere algemene voorwaarden in de branche voor deze mogelijkheid bevatten JITP (Just-in-time-packager) of JITE (Just-in-time-versleuteling). 
+ 
 ## <a name="cloud-upload-and-storage"></a>Uploaden naar en opslaan in de cloud
 
 Als u wilt beheren, coderen, codering, analyseren en streaming van media-inhoud in Azure starten, moet u een Media Services-account maken en uploaden van uw digitale bestanden naar **activa**.
@@ -52,7 +70,7 @@ Voor het analyseren van uw video en audio-bestanden, moet u ook maken **transfor
 
 ## <a name="packaging-delivery-protection"></a>Verpakking, levering, beveiliging
 
-Zodra uw inhoud wordt gecodeerd, kunt u profiteren van **dynamische verpakking**. **Streaming-eindpunt** is de service voor dynamische pakketten in Media Services gebruikt voor het leveren van media-inhoud naar client spelers. Video's in de uitvoer als beschikbaar wilt maken voor clients om te worden afgespeeld, u moet maken een **Streaming-Locator gemaakt** en bouw vervolgens de streaming-URL's. 
+Zodra uw inhoud wordt gecodeerd, kunt u profiteren van **dynamische verpakking**. In Media Services, een **Streaming-eindpunt**  /oorsprong wordt de dynamische verpakking-service gebruikt voor het leveren van media-inhoud naar client spelers. Video's in de uitvoer als beschikbaar wilt maken voor clients om te worden afgespeeld, u moet maken een **Streaming-Locator gemaakt** en bouw vervolgens de streaming-URL's. 
 
 Bij het maken van de **Streaming-Locator gemaakt**, naast de assetnaam, moet u om op te geven **Streaming beleid**. **Beleid voor streaming** kunt u voor het definiëren van protocollen voor streaming en versleuteling opties (indien aanwezig) voor uw **Streaming-Locators**.
 

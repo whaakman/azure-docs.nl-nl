@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 04/29/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9b63fb963408b8f22453c7ea78e36a49402273a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906044"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875612"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Aanpassen van de SQL information protection-beleid in Azure Security Center (Preview)
  
@@ -41,12 +41,11 @@ Information Protection wordt geleverd met een ingebouwde groep labels en gegeven
 ## <a name="customize-the-information-protection-policy"></a>Het informatiebeschermingsbeleid aanpassen
 Voor het aanpassen van de information protection-beleid voor uw Azure-tenant, moet u beschikken over [administratorbevoegdheden voor de beheergroep van de tenant-hoofdmap](security-center-management-groups.md). 
  
-1. Selecteer in het hoofdmenu van Security Center **beveiligingsbeleid**.
-2. Kies **hiërarchische weergave (preview)**, en klik vervolgens onder **Tenant hoofdgroep**, klikt u op **instellingen bewerken**.
- 
+1. In de Security Center in het hoofdmenu onder **RESOURCE beveiliging hygiëne** Ga naar **gegevens en storage** en klik op de **SQL Information Protection** knop.
+
    ![Information protection-beleid configureren](./media/security-center-info-protection-policy/security-policy.png) 
  
-3. Onder **beleidsonderdelen**, klikt u op **Information protection**. In de **instellingen van Information protection** pagina vindt u de huidige reeks labels. Dit zijn de belangrijkste classificatie-kenmerken die worden gebruikt voor het categoriseren van het vertrouwelijkheidsniveau van uw gegevens. Hier kunt u de **Information protection-labels** en **informatietypen** voor de tenant. 
+2. In de **SQL Information Protection** pagina vindt u de huidige reeks labels. Dit zijn de belangrijkste classificatie-kenmerken die worden gebruikt voor het categoriseren van het vertrouwelijkheidsniveau van uw gegevens. Hier kunt u de **Information protection-labels** en **informatietypen** voor de tenant. 
  
 ### <a name="customizing-labels"></a>Labels aanpassen
  

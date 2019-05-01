@@ -1,21 +1,19 @@
 ---
 title: Instellen van SSL-versleuteling en verificatie voor Apache Kafka in Azure HDInsight
 description: SSL-codering voor communicatie tussen Kafka-clients en Kafka-brokers ook tussen Kafka-brokers instellen. SSL-verificatie voor clients instellen.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 01/15/2019
-ms.date: 04/15/2019
-ms.author: v-yiso
+ms.date: 01/15/2019
+ms.author: hrasheed
 ms.openlocfilehash: 9d8d5e57d0dd7d7022e65a061360c8450848fb4b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62114954"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682921"
 ---
 # <a name="setup-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Setup van Secure Sockets Layer (SSL)-codering en -verificatie voor Apache Kafka in Azure HDInsight
 

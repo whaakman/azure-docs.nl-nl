@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: bc6cc7b07d3dce43a666b3e5b0a958b41cdd3131
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 65b64563bf00bb519a65b6d2e0418b4f755dea2d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60313814"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710832"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -35,7 +35,7 @@ Zodanig dat de lijst met claims transformatiefuncties die kunnen worden gebruikt
 
 De **ClaimsTransformation** element bevat de volgende kenmerken:
 
-| Kenmerk |Vereist | Beschrijving |
+| Kenmerk |Vereist | Description |
 | --------- |-------- | ----------- |
 | Id |Ja | Een id die wordt gebruikt voor het aanduiden van de claimtransformatie. De id wordt naar verwezen vanuit andere XML-elementen in het beleid. |
 | TransformationMethod | Ja | De transformatie te gebruiken in de claimtransformatie-methode. Elke claimtransformatie heeft een eigen waarden. Zie de [claims transformatie verwijzing](#claims-transformations-reference) voor een volledige lijst van de beschikbare waarden. |
@@ -92,7 +92,7 @@ De **invoerparameters** element bevat het volgende element:
 
 #### <a name="inputparameter"></a>InputParameter
 
-| Kenmerk | Vereist |Beschrijving |
+| Kenmerk | Vereist |Description |
 | --------- | ----------- |----------- |
 | Id | Ja | Een id die is een verwijzing naar een parameter van de claims transformatie-methode. Elke claims transformatie-methode heeft zijn eigen waarden. Zie de tabel van de transformatie claims voor een volledige lijst van de beschikbare waarden. |
 | Gegevenstype | Ja | Het type gegevens van de parameter, zoals tekenreeks, Boole-waarde, Int of datum/tijd aan de hand van de opsomming gegevenstype in het beleid voor aangepaste XML-schema. Dit type wordt gebruikt om de rekenkundige bewerkingen correct wordt uitgevoerd. Elke claimtransformatie heeft een eigen waarden. Zie de [claims transformatie verwijzing](#claims-transformations-reference) voor een volledige lijst van de beschikbare waarden. |

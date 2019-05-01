@@ -1,10 +1,10 @@
 ---
-title: Beheer van Azure-beveiliging en controle-overzicht | Microsoft Docs
+title: Beheer en controle van beveiligingsfuncties - Microsoft Azure | Microsoft Docs
 description: Dit artikel bevat een overzicht van de beveiligingsfuncties en -services die Azure biedt om te helpen bij het beheer en bewaking van Azure-cloudservices en virtuele machines.
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: StevenPo
+manager: barbkess
 editor: TomSh
 ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
 ms.service: security
@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: f79f94c277b02a9f377b90bf74763ac617f65c16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9f741f578ea44e27814ddfcde2fadc44a0e90536
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597922"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872073"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Beheer van Azure-beveiliging en controle-overzicht
+Dit artikel bevat een overzicht van de beveiligingsfuncties en -services die Azure biedt om te helpen bij het beheer en bewaking van Azure-cloudservices en virtuele machines.
 
-Azure biedt beveiligingsmethoden om u te helpen bij het beheer en controle van Azure-cloudservices en virtuele machines (VM's). Dit artikel bevat een overzicht van deze core beveiligingsfuncties en -services. Vindt u koppelingen naar artikelen met details van elk geven, zodat u kunt meer informatie.
+## <a name="shared-responsibility"></a>Gedeelde verantwoordelijkheid
 
 De beveiliging van uw Microsoft-cloudservices is een partnerschap en een gedeelde verantwoordelijkheid tussen u en Microsoft. Microsoft is verantwoordelijk voor het Azure-platform en de fysieke beveiliging van de datacenters (met behulp van beveiligingsmaatregelen zoals vergrendelde badge-vermelding deuren fences en beveiligingen). Azure biedt sterke niveaus van cloudbeveiliging op het niveau van de software die voldoet aan de behoeften voor beveiliging, privacy en naleving van zijn klanten.
 
@@ -64,7 +65,7 @@ Meer informatie:
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Azure multi-factor Authentication is een verificatiemethode waarvoor het gebruik van meer dan één verificatiemethode. Een essentiële tweede beveiligingslaag wordt toegevoegd aan gebruikersaanmeldingen en transacties. 
+Azure multi-factor Authentication is een verificatiemethode waarvoor het gebruik van meer dan één verificatiemethode. Een essentiële tweede beveiligingslaag wordt toegevoegd aan gebruikersaanmeldingen en transacties.
 
 Multi-factor Authentication helpt beschermen toegang tot gegevens en toepassingen aan de wensen van gebruikers voor een eenvoudige aanmeldprocedure. Het biedt een robuuste verificatie met een scala van verificatieopties (telefoonoproep, SMS-bericht of mobiele app-melding of verifiëren code) en het OATH-tokens van derden.
 
@@ -80,7 +81,7 @@ Azure ExpressRoute kunt u uw on-premises netwerken in de Microsoft Cloud uitbrei
 
 * Een any-to-any (IP VPN) netwerk.
 * Een point-to-point Ethernet-netwerk.
-* Een virtuele overlappende verbinding via een connectiviteitsprovider in een CO-locatiefaciliteit. 
+* Een virtuele overlappende verbinding via een connectiviteitsprovider in een CO-locatiefaciliteit.
 
 ExpressRoute-verbindingen lopen niet via het openbare internet. Bieden meer betrouwbaarheid, hogere snelheden, kortere wachttijden en hogere beveiliging dan gebruikelijke verbindingen via internet.
 
@@ -99,7 +100,7 @@ Meer informatie:
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-Soms moeten gebruikers bevoorrechte bewerkingen in de Azure-resources of andere SaaS-toepassingen uitvoeren. Dit betekent vaak dat organisaties zodat ze permanente bevoorrechte toegang in Azure Active Directory (Azure AD). 
+Soms moeten gebruikers bevoorrechte bewerkingen in de Azure-resources of andere SaaS-toepassingen uitvoeren. Dit betekent vaak dat organisaties zodat ze permanente bevoorrechte toegang in Azure Active Directory (Azure AD).
 
 Dit is een groeiende beveiligingsrisico voor de cloud gehoste bronnen omdat organisaties voldoende kunnen niet controleren wat gebruikers doen met hun bevoegde toegang. Als een gebruikersaccount met bevoegde toegang is geknoeid, kan dat een schending bovendien de algehele cloud-beveiliging van een organisatie beïnvloeden. Azure AD Privileged Identity Management helpt bij het oplossen van dit risico door te verlagen van de blootstellingstijd van bevoegdheden en inzicht in gebruik te verhogen.  
 
@@ -150,4 +151,3 @@ Intelligent Security Graph biedt realtime threat protection in Microsoft-product
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
-

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 11e49d362508e9720cf65fc20e020930b5f5c3ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769835"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575349"
 ---
 # <a name="glossary"></a>Woordenlijst
 
@@ -63,7 +63,7 @@ Hier volgt een lijst met veelvoorkomende woorden die worden gebruikt in combinat
 
 <a name="bearing"></a> **Met inachtneming van**: De horizontale richting van een punt ten opzichte van een ander punt. Dit wordt uitgedrukt als een hoek ten opzichte van Noord van 0-graden tot en met 360-graden met de klok mee. 
 
-<a name="boundary"></a> **Grens**: Een regel of een veelhoek aangrenzende politieke entiteiten, zoals landen, gemeenten en eigenschappen te scheiden. Een grens is een regel die al dan niet gaat u als volgt fysieke kenmerken, zoals rivieren, bergen of wanden.
+<a name="boundary"></a> **Grens**: Een regel of een veelhoek aangrenzende politieke entiteiten, zoals landen/regio's, gemeenten en eigenschappen te scheiden. Een grens is een regel die al dan niet gaat u als volgt fysieke kenmerken, zoals rivieren, bergen of wanden.
 
 <a name="bounds"></a> **Grenzen**: Zie [Bounding vak](#bounding-box).
 
@@ -91,7 +91,7 @@ Hier volgt een lijst met veelvoorkomende woorden die worden gebruikt in combinat
 
 <a name="coordinate-system"></a> **Coördinatensysteem**: Een referentie-framework gebruikt voor het definiëren van de posities van punten in de ruimte in twee of drie dimensies.
 
-<a name="country-code"></a> **Landcode**: Een unieke id voor een land/regio op basis van de ISO-norm. ISO-2-is een code van twee tekens voor een land/regio (bijvoorbeeld US), welke ISO3 vertegenwoordigt een drieletterige (bijvoorbeeld Verenigde Staten code).
+<a name="country-code"></a> **Landcode**: Een unieke id voor een land/de regio op basis van de ISO-norm. ISO-2-is een code van twee tekens voor een land/regio (bijvoorbeeld US), welke ISO3 vertegenwoordigt een drieletterige (bijvoorbeeld Verenigde Staten code).
 
 <a name="country-subdivision"></a> **Land/regio onderverdeling**: Een onderverdeling eerste niveau van een land/regio, bekend als een staat of provincie.
 
@@ -351,11 +351,11 @@ Hier volgt een lijst met veelvoorkomende woorden die worden gebruikt in combinat
 
 <a name="terrain"></a> **Terrein**: Een gedeelte van een bepaald kenmerk, zoals zandvlakten terrein of bergen terrein dat land.
 
-<a name="thematic-maps"></a> **Thematische kaarten**: Een thematische kaart is een eenvoudige toewijzing gemaakt om weer te geven van een thema over een geografisch gebied. Een veelvoorkomend scenario voor dit type kaart is op de kleur van de administratieve regio's, zoals landen op basis van bepaalde meetwaarde van gegevens.
+<a name="thematic-maps"></a> **Thematische kaarten**: Een thematische kaart is een eenvoudige toewijzing gemaakt om weer te geven van een thema over een geografisch gebied. Een veelvoorkomend scenario voor dit type kaart is op de kleur van de administratieve regio's, zoals landen/regio's op basis van bepaalde meetwaarde van gegevens.
 
 <a name="tile-layer"></a> **Tegellaag**: Een laag door aan elkaar te koppelen kaart tegels (rechthoekige secties) in een continue laag weergegeven. De tegels zijn beide tegels installatiekopie of vector tegels. Raster tegellagen worden doorgaans weergegeven vooraf en opgeslagen als afbeeldingen op een server. Dit kan een groot aantal opslagruimte duren. Tegellagen Vector worden weergegeven op elk gewenst moment binnen de clienttoepassing, dus de opslagvereisten voor server-side kleiner zijn.
 
-<a name="time-zone"></a> **Tijdzone**: Een gedeelte van de hele wereld die een uniform standaardtijd voor juridische, commerciële en sociale doeleinden toetsenbordinvoer. Tijdzones vaak volgt u de grenzen van de landen en hun onderverdelingen.
+<a name="time-zone"></a> **Tijdzone**: Een gedeelte van de hele wereld die een uniform standaardtijd voor juridische, commerciële en sociale doeleinden toetsenbordinvoer. Tijdzones vaak volgt u de grenzen van de landen/regio's en hun onderverdelingen.
 
 <a name="transaction"></a> **Transactie**: Azure kaarten maakt gebruik van een transactionele licentiemodel waar;
 
@@ -398,5 +398,5 @@ Hier volgt een lijst met veelvoorkomende woorden die worden gebruikt in combinat
 
 <a name="zip-code"></a> **Postcode**: Zie [postcode](#postal-code).
 
-<a name="Zoom level"></a> **Zoomniveau**: Hiermee geeft u de mate van detail en welk deel van de kaart wordt weergegeven. Wanneer ingezoomd helemaal uit een niveau 0, wordt de volledige wereldkaart worden vaak in de weergave maar beperkte informatie zoals de landnamen van en randen en de namen in de Indische Oceaan wordt weergegeven. Wanneer ingezoomd dichter naar niveau 17, wordt de kaart een gebied van enkele plaats blokken met gedetailleerde weg informatie weergegeven. Zie voor meer informatie de [zoomniveaus en tegelraster](zoom-levels-and-tile-grid.md) documentatie.
+<a name="Zoom level"></a> **Zoomniveau**: Hiermee geeft u de mate van detail en welk deel van de kaart wordt weergegeven. Wanneer ingezoomd helemaal uit een niveau 0, wordt de volledige wereldkaart worden vaak in de weergave maar beperkte informatie zoals de namen van land/regio randen en de namen in de Indische Oceaan wordt weergegeven. Wanneer ingezoomd dichter naar niveau 17, wordt de kaart een gebied van enkele plaats blokken met gedetailleerde weg informatie weergegeven. Zie voor meer informatie de [zoomniveaus en tegelraster](zoom-levels-and-tile-grid.md) documentatie.
 

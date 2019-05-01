@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006128"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686295"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architectuur van de verbinding voor een beheerd exemplaar in Azure SQL Database
 
@@ -80,7 +80,7 @@ Microsoft beheert het beheerde exemplaar met behulp van een eindpunt. Dit eindpu
 Wanneer verbindingen start in het beheerde exemplaar (net als bij back-ups en logboeken voor controle), verkeer wordt weergegeven om te starten vanaf het openbare IP-adres van het eindpunt. U kunt toegang beperken tot openbare services van een beheerd exemplaar door in te stellen van firewallregels om toe te staan alleen IP-adres van het beheerde exemplaar. Zie voor meer informatie, [controleren of de ingebouwde firewall van het beheerde exemplaar](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Traffice naar de Azure-services die binnen het gebied van het beheerde exemplaar is geoptimaliseerd en voor reden dan ook niet gestaan naar beheerde exemplaar management eindpunt openbare IP-adres. Om die reden als u wilt gebruiken op basis van IP-firewallregels, meestal voor opslag, service moet zich in een andere regio uit beheerde exemplaar.
+> Verkeer dat wordt gerouteerd naar Azure-services die binnen het gebied van het beheerde exemplaar is geoptimaliseerd en om die reden niet gestaan naar beheerd exemplaar management eindpunt openbare IP-adres. Om die reden als u wilt gebruiken op basis van IP-firewallregels, meestal voor opslag, service moet zich in een andere regio uit beheerde exemplaar.
 
 ## <a name="network-requirements"></a>Netwerkvereisten
 

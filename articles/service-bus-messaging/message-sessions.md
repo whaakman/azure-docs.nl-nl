@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c767406ceec703b5c14680ec96fdf703c2316044
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c206d42e220534225cfef0415a65c1f9494f761
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403677"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569791"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessies bericht: eerste, eerst out (FIFO) 
 
@@ -79,8 +79,7 @@ De sessiestatus ondergebracht in een wachtrij of in dat een abonnement wordt get
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een volledig voorbeeld](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) verzenden en ontvangen van berichten op basis van een sessie van Service Bus-wachtrijen met behulp van de standaard .NET-bibliotheek.
-- [Een voorbeeld van een](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) die gebruikmaakt van de .NET Framework-client om sessie gerichte berichten te verwerken. 
+- Zie de [Microsoft.Azure.ServiceBus voorbeelden](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) of [Microsoft.ServiceBus.Messaging voorbeelden](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) voor een voorbeeld waarin de .NET Framework-client gebruikt voor het afhandelen van sessie-bewuste berichten. 
 
 Zie voor meer informatie over Service Bus-berichten, de volgende onderwerpen:
 

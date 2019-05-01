@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f0fcdcdf781c86179b67eeef0223d46da0fc65b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388307"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916989"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Project akoestische Unity Bake zelfstudie
 Deze zelfstudie beschrijft akoestische bakken met akoestische in Unity-Project.
 
 Softwarevereisten:
-* [Unity 2018.2 +](http://unity3d.com) voor Windows
+* [Unity 2018.2 +](https://unity3d.com) voor Windows
 * [Project akoestische invoegtoepassing geïntegreerd in uw Unity-project](unity-integration.md) of de [Project akoestische Unity voorbeelden voor inhoud](unity-quickstart.md)
 * Optioneel: Een [Azure Batch-account](create-azure-account.md) te versnellen gebouwd met behulp van cloud computing
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3d2b22fc507b209a96870daa8bf12ea9ab60a466
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: d2de871176917dcc24d910b3742bdb2700c4f25d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617410"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691759"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Azure-resources voorbereiden op herstel na noodgevallen van on-premises machines
 
@@ -35,7 +35,7 @@ In deze zelfstudie leert u het volgende:
 ## <a name="before-you-start"></a>Voordat u begint
 
 - Architectuur voor [VMware](vmware-azure-architecture.md), [Hyper-V](hyper-v-azure-architecture.md), en [fysieke server](physical-azure-architecture.md) herstel na noodgevallen.
-- Lees de veelgestelde vragen voor [VMware](vmware-azure-common-questions.md) en Hyper-V(hyper-v-azure-common-questions.md)
+- Lees de veelgestelde vragen voor [VMware](vmware-azure-common-questions.md) en [Hyper-V](hyper-v-azure-common-questions.md)
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/pricing/free-trial/) aan voordat u begint. Meld u aan de [Azure-portal](https://portal.azure.com).
 

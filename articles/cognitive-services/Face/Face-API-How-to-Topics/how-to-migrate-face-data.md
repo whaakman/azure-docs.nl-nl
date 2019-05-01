@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 02e9b64c89eda1471d644e0116bbf8c1c061ccc3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548401"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682522"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Uw gegevens face migreren naar een ander Face-abonnement
 
 Deze handleiding wordt beschreven hoe face gegevens verplaatsen (zoals een opgeslagen **PersonGroup** van gezichten wordt uitgevoerd) naar een ander Face-API-abonnement met behulp van de momentopname-functie. Hiermee kunt u om te voorkomen dat herhaaldelijk maken en trainen een **PersonGroup** of **FaceList** bij het verplaatsen of uitbreiden van uw activiteiten. Bijvoorbeeld, u hebt gemaakt een **PersonGroup** met behulp van een gratis proefabonnement en nu wilt migreren naar uw betaalde abonnement, of moet u de face-gegevens synchroniseren tussen regio's voor een grote onderneming-bewerking.
 
-Deze dezelfde migratiestrategie geldt ook voor **LargePersonGroup** en **LargeFaceList** objecten. Als u niet bekend met de concepten in deze handleiding bent, raadpleegt u de definities in de [verklarende woordenlijst](../Glossary.md). Deze handleiding gebruikt de Face-API .NET-clientbibliotheek met C#.
+Deze dezelfde migratiestrategie geldt ook voor **LargePersonGroup** en **LargeFaceList** objecten. Als u niet bekend met de concepten in deze handleiding bent, raadpleegt u de definities in de [geconfronteerd erkenning concepten](../concepts/face-recognition.md) handleiding. Deze handleiding gebruikt de Face-API .NET-clientbibliotheek met C#.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -29,15 +29,13 @@ Deze dezelfde migratiestrategie geldt ook voor **LargePersonGroup** en **LargeFa
 - De Face-API-abonnement-id die overeenkomt met het doelabonnement (gevonden in de **overzicht** blade in de Azure portal). 
 - Een versie van [Visual Studio 2015 of 2017](https://www.visualstudio.com/downloads/).
 
-
 ## <a name="create-the-visual-studio-project"></a>Het Visual Studio-project maken
 
 Deze handleiding wordt een eenvoudige consoletoepassing voor het uitvoeren van de gegevensmigratie face gebruiken. Zie voor een volledige implementatie, de [Face-API-momentopname voorbeeld](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) op GitHub.
 
-1. In Visual Studio, maak een nieuwe **Console-app (.NET Framework)** project en geef deze de naam **FaceApiSnapshotSample**. 
+1. In Visual Studio, maak een nieuwe **Console-app (.NET Framework)** project en geef deze de naam **FaceApiSnapshotSample**.
 1. Download de vereiste NuGet-pakketten. Klik met de rechtermuisknop op het project in Solution Explorer en selecteer **NuGet-pakketten beheren**. Klik op het tabblad **Bladeren** en selecteer **voorlopige release opnemen**. Zoek en installeer vervolgens het volgende pakket:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-
 
 ## <a name="create-face-clients"></a>Face-clients maken
 
@@ -226,7 +224,9 @@ Zodra u klaar bent met face gegevens migreert, wordt u aangeraden dat u het snap
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 ```
 
-## <a name="related-topics"></a>Verwante onderwerpen
+## <a name="next-steps"></a>Volgende stappen
+
+Vervolgens ziet u de relevante API-referentiedocumentatie, bekijk een voorbeeld-app die gebruikmaakt van de momentopname-functie of een handleiding aan de slag met de andere API-bewerkingen die worden vermeld hier volgen.
 
 - [Referentiedocumentatie voor momentopname (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Face-API-momentopname voorbeeld](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)

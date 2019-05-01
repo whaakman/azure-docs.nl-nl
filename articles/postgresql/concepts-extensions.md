@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.openlocfilehash: 7d052ee2d3d3bdf6cca99dd6a91b88176983113f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: 8bbb638190928e0478053843264fde585ae17222
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559723"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720586"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>PostgreSQL-extensies in Azure Database for PostgreSQL
 PostgreSQL biedt de mogelijkheid om uit te breiden de functionaliteit van uw database met behulp van extensies. Extensies bieden samen bundeling van meerdere verwante SQL-objecten in één pakket die kan worden geladen of verwijderd uit de database met slechts één opdracht. Extensies kunnen na worden geladen in de database, functioneren als ingebouwde functies. Zie voor meer informatie over de PostgreSQL-extensies, [verpakking verwante objecten in een extensie](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -49,6 +49,7 @@ De volgende tabellen worden de standaard PostgreSQL-extensies die momenteel word
 > | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Biedt de functies en operatoren voor het bepalen van de overeenkomsten van alfanumerieke tekst op basis van trigram overeenkomst. |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Biedt functies die hele tabellen, inclusief een kruistabel bewerken. |
 > | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genereert universele, unieke id (UUID's). |
+> | [orafce](https://github.com/orafce/orafce) | Biedt een subset van functies en pakketten die zijn geëmuleerd van commerciële databases. |
 
 ### <a name="full-text-search-extensions"></a>Extensies zoeken in volledige tekst
 
@@ -94,7 +95,7 @@ De volgende tabellen worden de standaard PostgreSQL-extensies die momenteel word
 > [!div class="mx-tableFixed"]
 > | **Extensie** | **Beschrijving** |
 > |---|---|
-> | [PostGIS](http://www.postgis.net/), postgis\_topologie, postgis\_tiger\_geocoder, postgis\_sfcgal | Ruimtelijke en geografische objecten voor PostgreSQL. |
+> | [PostGIS](https://www.postgis.net/), postgis\_topologie, postgis\_tiger\_geocoder, postgis\_sfcgal | Ruimtelijke en geografische objecten voor PostgreSQL. |
 > | adres\_standardizer, adres\_standardizer\_gegevens\_ons | Gebruikt voor het parseren van een adres naar de bijbehorende elementen. Gebruikt ter ondersteuning van geocodering adres normalisering stap. |
 > | [pgrouting](https://pgrouting.org/) | Breidt de PostGIS / PostgreSQL georuimtelijke database voor georuimtelijke functies routering. |
 

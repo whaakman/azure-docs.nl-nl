@@ -12,16 +12,16 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: sethm
 ms.custom: ''
-ms.openlocfilehash: 3c50502a8b873503ee937914fac5f2d92cb23a2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b0b5a74a6ca0085f945075a8896c05a724ff062c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733436"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717962"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>Experimentele voorinstelling voor encoding op inhoud-bewuste
 
-Als u wilt voorbereiden van inhoud voor de levering van [streaming met adaptieve bitrates](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video moet worden gecodeerd in meerdere bitsnelheden (hoog naar laag). Om ervoor te zorgen correcte vermindering van de kwaliteit, zoals de bitrate worden verlaagd en is dus de resolutie van de video. Dit resulteert in een zogenaamde codering ladder: een tabel met oplossingen en bitrates, zoals u in sommige standaardcoderingsinstellingen vaste, zoals ziet [H264MultipleBitrate1080p](../previous/media-services-mes-preset-h264-multiple-bitrate-1080p.md).
+Als u wilt voorbereiden van inhoud voor de levering van [streaming met adaptieve bitrates](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video moet worden gecodeerd in meerdere bitsnelheden (hoog naar laag). Om ervoor te zorgen correcte vermindering van de kwaliteit, zoals de bitrate worden verlaagd en is dus de resolutie van de video. Dit resulteert in een zogenaamde codering ladder: een tabel met oplossingen en bitrates; Zie de Media Services [ingebouwde coderingsstandaarden](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
 ## <a name="overview"></a>Overzicht
 

@@ -3,16 +3,16 @@ title: Oorzaken van niet-naleving bepalen
 description: Wanneer een resource niet-compatibele is, zijn er veel mogelijke oorzaken. Leer hoe u meer informatie over de oorzaak van de niet-naleving.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/30/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0af3fd8596bf558f9d5cc97c95be773aa40954cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f856e9c42b26d4e286493e2eb5d019a8cff6c23
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499331"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868734"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Oorzaken van niet-naleving bepalen
 
@@ -105,9 +105,107 @@ De volgende matrix wijst elke mogelijke _reden_ naar de verantwoordelijk [voorwa
 |Huidige waarde mag niet overeenkomen met de doelwaarde (niet hoofdlettergevoelig). |notMatchInsensitively of **niet** matchInsensitively |
 |Er zijn geen verwante resources die overeenkomen met de effectdetails in de beleidsdefinitie. |Een resource van het type dat is gedefinieerd in **then.details.type** en gerelateerd zijn aan de resource die is gedefinieerd in de **als** gedeelte van de beleidsregel bestaat niet. |
 
-## <a name="change-history-preview"></a>Wijzigingsoverzicht (Preview)
+## <a name="compliance-details-for-guest-configuration"></a>Compatibiliteitsdetails voor de configuratie van de Gast
 
-Als onderdeel van een nieuwe **openbare preview**, de afgelopen 14 dagen van de wijziging geschiedenis is beschikbaar voor alle Azure-resources die ondersteuning bieden voor [modus verwijdering voltooien](../../../azure-resource-manager/complete-mode-deletion.md). Wijzigingsoverzicht biedt meer informatie over wanneer een wijziging is gedetecteerd en een _visual diff_ voor elke wijziging. De detectie van een wijziging wordt geactiveerd wanneer de Resource Manager-eigenschappen zijn toegevoegd, verwijderd of gewijzigd.
+Voor _controleren_ -beleid in de _Gast configuratie_ categorie, kunnen er meerdere instellingen geëvalueerd binnen de virtuele machine en moet u om details per instelling weer te geven. Bijvoorbeeld, als u een controle voor een lijst met geïnstalleerde toepassingen en de status van de toewijzing is _niet-compatibele_, moet u weten welke specifieke toepassingen ontbreken.
+
+Ook kan er geen toegang tot het rechtstreeks aanmelden bij de virtuele machine, maar u wilt rapporteren over waarom de virtuele machine is _niet-compatibele_. U kunt bijvoorbeeld dat virtuele machines zijn gekoppeld aan het juiste domein en het lidmaatschap van het huidige domein in de details van de reporting opnemen controleren.
+
+### <a name="azure-portal"></a>Azure Portal
+
+1. Start de Azure Policy-service in Azure Portal door **Alle services** te selecteren en dan **Beleid** te zoeken en te selecteren.
+
+1. Op de **overzicht** of **naleving** pagina, selecteert u een beleidstoewijzing van een initiatief een definitie van de configuratie van de Gast-beleid bevat dat _niet-compatibele_.
+
+1. Selecteer een _controleren_ beleid in het initiatief dat _niet-compatibele_.
+
+   ![Details van de definitie van audit weergeven](../media/determine-non-compliance/guestconfig-audit-compliance.png)
+
+1. Op de **resourcenaleving** tabblad en de volgende informatie wordt verstrekt:
+
+   - **Naam** -de naam van de Gast-configuratie-toewijzingen.
+   - **Bovenliggende Resource** -de virtuele machine in een _niet-compatibele_ staat voor de geselecteerde configuratie van de Gast-toewijzing.
+   - **Resourcetype** : de _guestConfigurationAssignments_ volledige naam.
+   - **Laatst geëvalueerd** : de laatste keer dat de Gast Configuration-service op de hoogte gesteld Azure Policy over de status van de virtuele doelmachine.
+
+   ![Nalevingsdetails weergeven.](../media/determine-non-compliance/guestconfig-assignment-view.png)
+
+1. Selecteer de naam van de toewijzing van Gast-configuratie in de **naam** kolom openen de **Resourcenaleving** pagina.
+
+1. Selecteer de **Resource weergeven** knop aan de bovenkant van de pagina te openen de **Gast toewijzing** pagina.
+
+De **Gast toewijzing** compatibiliteitsdetails voor alle beschikbare pagina worden weergegeven. Elke rij in de weergave vertegenwoordigt een evaluatieversie die binnen de virtuele machine is uitgevoerd. In de **reden** kolom, een wachtwoordzin met een beschrijving van waarom de Gast-toewijzing is _niet-compatibele_ wordt weergegeven. Bijvoorbeeld, als u wilt controleren, dat virtuele machines moeten worden toegevoegd aan een domein, de **reden** kolom weergegeven tekst met inbegrip van het lidmaatschap van het huidige domein.
+
+![Nalevingsdetails weergeven.](../media/determine-non-compliance/guestconfig-compliance-details.png)
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+U kunt ook de details van de naleving van Azure PowerShell weergeven. Controleer eerst of dat u de configuratie van de Gast-module is geïnstalleerd.
+
+```azurepowershell-interactive
+Install-Module Az.GuestConfiguration
+```
+
+U kunt de huidige status van alle toewijzingen van de gast bekijken voor een virtuele machine met de volgende opdracht:
+
+```azurepowershell-interactive
+Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname>
+```
+
+```output
+PolicyDisplayName                                                         ComplianceReasons
+-----------------                                                         -----------------
+Audit that an application is installed inside Windows VMs                 {[InstalledApplication]bwhitelistedapp}
+Audit that an application is not installed inside Windows VMs.            {[InstalledApplication]NotInstalledApplica...
+```
+
+Om weer te geven alleen de _reden_ woordgroep die wordt beschreven waarom de virtuele machine is _niet-compatibele_, alleen de reden onderliggende eigenschap geretourneerd.
+
+```azurepowershell-interactive
+Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
+```
+
+```output
+The following applications are not installed: '<name>'.
+```
+
+U kunt ook een geschiedenis van naleving van Gast-toewijzingen binnen het bereik van de virtuele machine uitvoeren. De uitvoer van deze opdracht bevat de details van elk rapport voor de virtuele machine.
+
+> [!NOTE]
+> De uitvoer kan een grote hoeveelheid gegevens retourneren. Het is raadzaam om op te slaan van de uitvoer in een variabele.
+
+```azurepowershell-interactive
+$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname>
+$guestHistory
+```
+
+```output
+PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
+                                                                                                                                                                  tId
+-----------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
+[Preview]: Audit that an application is installed inside Windows VMs      NonCompliant                       02/10/2019 12:00:38 PM 02/10/2019 12:00:41 PM VM01  ../17fg0...
+<truncated>
+```
+
+Gebruik ter vereenvoudiging van deze weergave de **ShowChanged** parameter. De uitvoer van deze opdracht bevat alleen de rapporten die een wijziging in de status van naleving gevolgd.
+
+```azurepowershell-interactive
+$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname> -ShowChanged
+$guestHistory
+```
+
+```output
+PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
+                                                                                                                                                                  tId
+-----------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
+Audit that an application is installed inside Windows VMs                 NonCompliant                       02/10/2019 10:00:38 PM 02/10/2019 10:00:41 PM VM01  ../12ab0...
+Audit that an application is installed inside Windows VMs.                Compliant                          02/09/2019 11:00:38 AM 02/09/2019 11:00:39 AM VM01  ../e3665...
+Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
+```
+
+## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>Wijzigingsoverzicht (Preview)
+
+Als onderdeel van een nieuwe **openbare preview**, de afgelopen 14 dagen van de wijzigingsgeschiedenis zijn beschikbaar voor alle Azure-resources die ondersteuning bieden voor [modus verwijdering voltooien](../../../azure-resource-manager/complete-mode-deletion.md). Wijzigingsoverzicht biedt meer informatie over wanneer een wijziging is gedetecteerd en een _visual diff_ voor elke wijziging. De detectie van een wijziging wordt geactiveerd wanneer de Resource Manager-eigenschappen zijn toegevoegd, verwijderd of gewijzigd.
 
 1. Start de Azure Policy-service in Azure Portal door **Alle services** te selecteren en dan **Beleid** te zoeken en te selecteren.
 
@@ -129,10 +227,10 @@ Gegevens van de wijzigingsgeschiedenis wordt geleverd door [Azure Resource Graph
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Bekijk voorbeelden op [Azure Policy-voorbeelden](../samples/index.md)
-- Controleer de [structuur van beleidsdefinities](../concepts/definition-structure.md)
-- Beoordeling [effecten beleid begrijpen](../concepts/effects.md)
-- Begrijpen hoe u [programmatisch beleid maken](programmatically-create.md)
-- Meer informatie over het [Nalevingsgegevens ophalen](getting-compliance-data.md)
-- Meer informatie over het [herstellen van niet-compatibele resources](remediate-resources.md)
-- Bekijk wat een beheergroep is met [Resources organiseren met Azure-beheergroepen](../../management-groups/overview.md)
+- Bekijk voorbeelden op [voorbeelden voor Azure Policy](../samples/index.md).
+- Bekijk de [structuur van Azure Policy-definities](../concepts/definition-structure.md).
+- Lees [Informatie over de effecten van het beleid](../concepts/effects.md).
+- Begrijpen hoe u [programmatisch beleid maken](programmatically-create.md).
+- Meer informatie over het [ophalen compatibiliteitsgegevens](getting-compliance-data.md).
+- Meer informatie over het [herstellen van niet-compatibele resources](remediate-resources.md).
+- Lees wat een beheergroep met is [organiseren van uw resources met Azure-beheergroepen](../../management-groups/overview.md).

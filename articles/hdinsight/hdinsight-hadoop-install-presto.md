@@ -1,7 +1,6 @@
 ---
 title: Presto installeren op Azure HDInsight Linux-clusters
 description: Informatie over het installeren van Presto en Airpal op Linux gebaseerde HDInsight Hadoop-clusters met behulp van scriptacties.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 435c041bb5fb0a398f92914f943166108cc20080
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 2bd5e1ae02ffbb62b9a5a95846aabeeab2b448b5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258340"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704819"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Installeren en gebruiken Presto op Hadoop-gebaseerde HDInsight-clusters
 
@@ -26,7 +25,7 @@ HDInsight biedt ook de toepassing stervorm Presto voor Apache Hadoop-clusters. Z
 > De stappen in dit artikel moet een HDInsight 3.5 Hadoop-cluster dat gebruik maakt van Linux. Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie voor meer informatie, [HDInsight-versies](hdinsight-component-versioning.md).
 
 ## <a name="what-is-presto"></a>Wat is Presto?
-[Presto](https://prestodb.io/overview.html) is een snelle gedistribueerde SQL query-engine voor big data. Presto is geschikt voor interactieve query's uitvoeren met petabytes aan gegevens. Zie voor meer informatie over de onderdelen van Presto en hoe ze samenwerken, [Presto concepten](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst).
+[Presto](https://prestosql.io) is een snelle gedistribueerde SQL query-engine voor big data. Presto is geschikt voor interactieve query's uitvoeren met petabytes aan gegevens. Zie voor meer informatie over de onderdelen van Presto en hoe ze samenwerken, [Presto concepten](https://prestosql.io/docs/current/overview/concepts.html).
 
 > [!WARNING]  
 > Onderdelen van het HDInsight-cluster worden volledig ondersteund. Microsoft Support kunnen opsporen en oplossen van problemen met betrekking tot deze onderdelen.
@@ -86,9 +85,9 @@ Als u wilt werken met, Presto in een HDInsight-cluster, moet u de volgende stapp
    
     `select count (*) from hivesampletable;`
    
-    Standaard [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) en [TPCH](https://prestodb.io/docs/current/connector/tpch.html) connectors voor Presto al zijn geconfigureerd. De Hive-connector is geconfigureerd voor het gebruik van de standaardinstallatie van Hive. Zodat alle tabellen uit Hive worden automatisch weergegeven in Presto.
+    Standaard [Apache Hive](https://prestosql.io/docs/current/connector/hive.html) en [TPCH](https://prestosql.io/docs/current/connector/tpch.html) connectors voor Presto al zijn geconfigureerd. De Hive-connector is geconfigureerd voor het gebruik van de standaardinstallatie van Hive. Zodat alle tabellen uit Hive worden automatisch weergegeven in Presto.
 
-    Zie voor meer informatie, [Presto documentatie](https://prestodb.io/docs/current/index.html).
+    Zie voor meer informatie, [Presto documentatie](https://prestosql.io/docs/current/index.html).
 
 ## <a name="use-airpal-with-presto"></a>Gebruik Airpal met Presto
 
@@ -151,7 +150,7 @@ Voor het aanpassen van de installatie, moet u de volgende stappen uitvoeren:
    
     Zie voor meer informatie, [verbinding maken met HDInsight (Apache Hadoop) met behulp van SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Uw configuratiewijzigingen aanbrengen in het bestand `/var/lib/presto/presto-hdinsight-master/appConfig-default.json`. Zie voor meer informatie over de configuratie van de Presto [Presto configuratieopties voor clusters op basis van YARN](https://prestodb.io/presto-yarn/installation-yarn-configuration-options.html).
+2. Uw configuratiewijzigingen aanbrengen in het bestand `/var/lib/presto/presto-hdinsight-master/appConfig-default.json`. Zie voor meer informatie over de configuratie van de Presto [Presto configuratieopties voor clusters op basis van YARN](https://prestosql.github.io/presto-yarn/installation-yarn-configuration-options.html).
 
 3. Stoppen en de actieve sessie van Presto kill:
 

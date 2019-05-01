@@ -5,57 +5,118 @@ services: data-factory
 documentationcenter: ''
 author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9108f83e854b51720c64c5a74a828543cc5e7688
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615610"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875800"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schematoewijzing in kopieeractiviteit
+
 Dit artikel wordt beschreven hoe copy activity in Azure Data Factory biedt schematoewijzing en gegevenstypetoewijzing van de brongegevens met sink-gegevens wanneer het kopiëren van gegevens uitvoert.
 
-## <a name="column-mapping"></a>Toewijzen van kolommen
+## <a name="schema-mapping"></a>Schematoewijzing
 
-In de kolomtoewijzing is van toepassing bij het kopiëren van gegevens tussen gegevens in tabelvorm vormgegeven. Standaard kopieeractiviteit **brongegevens opvangen door de namen van kolommen toewijzen**, tenzij [expliciete kolomtoewijzing](#explicit-column-mapping) is geconfigureerd. Meer specifiek, kopieeractiviteit:
+In de kolomtoewijzing is van toepassing bij het kopiëren van gegevens van bron naar een sink. Standaard kopieeractiviteit **brongegevens opvangen door de namen van kolommen toewijzen**. U kunt opgeven [expliciete toewijzing](#explicit-mapping) om aan te passen de kolomtoewijzing op basis van uw behoeften. Meer specifiek, kopieeractiviteit:
 
 1. De gegevens niet lezen vanuit de bron en het schema van de gegevensbron bepalen
-
-    * Voor gegevensbronnen met vooraf gedefinieerd schema in de data store/bestandsindeling, bijvoorbeeld databases/bestanden met metagegevens (Avro/ORC/Parquet/tekst met kop), die schema van de gegevensbron zijn geëxtraheerd uit de metagegevens van de query resultaat of het bestand.
-    * Voor gegevensbronnen met een flexibel schema, bijvoorbeeld Azure tabel/Cosmos DB, is schema van de gegevensbron afgeleid van het queryresultaat. U kunt deze vervangen door het configureren van de 'structuur"in de gegevensset.
-    * Voor bestanden met tekst zonder header, zijn standaardkolomnamen gegenereerd met patroon "Prop_0", 'Prop_1'... U kunt deze vervangen door het configureren van de 'structuur"in de gegevensset.
-    * Voor Dynamics-bron moet u opgeven van de schema-informatie in de gegevensset "structuur" sectie.
-
-2. Expliciete kolomtoewijzing van toepassing als u opgeeft.
-
+2. Gebruik standaard kolomtoewijzing om toe te wijzen kolommen met de naam, of expliciete kolomtoewijzing van toepassing als u opgeeft.
 3. Schrijven van de gegevens om op te vangen
 
-    * Voor data-archieven met vooraf gedefinieerd schema, worden de gegevens geschreven naar de kolommen met dezelfde naam.
-    * Voor gegevensarchieven zonder vaste schema en voor bestandsindelingen, worden namen/metagegevens van de kolom wordt gegenereerd op basis van het schema van de gegevensbron.
+### <a name="explicit-mapping"></a>Expliciete toewijzing
 
-### <a name="explicit-column-mapping"></a>Expliciete kolomtoewijzing
+U kunt opgeven met de kolommen om toe te wijzen in de kopieeractiviteit -> `translator`  ->  `mappings` eigenschap. Het volgende voorbeeld definieert een kopieeractiviteit in een pijplijn om gegevens te kopiëren uit een door tekens gescheiden tekst naar Azure SQL Database.
 
-U kunt opgeven **columnMappings** in de **typeProperties** sectie van de kopieeractiviteit expliciete kolomtoewijzing doen. In dit scenario is de sectie "structuur" vereist voor zowel invoer- en uitvoergegevenssets. Kolom toewijzing ondersteunt **toewijzing van alle of een subset van kolommen in de brongegevensset "structuur" voor alle kolommen in de sink-gegevensset "structuur"**. Hier volgen foutcondities die leiden tot een uitzondering:
+```json
+{
+    "name": "CopyActivity",
+    "type": "Copy",
+    "inputs": [{
+        "referenceName": "DelimitedTextInput",
+        "type": "DatasetReference"
+    }],
+    "outputs": [{
+        "referenceName": "AzureSqlOutput",
+        "type": "DatasetReference"
+    }],
+    "typeProperties": {
+        "source": { "type": "DelimitedTextSource" },
+        "sink": { "type": "SqlSink" },
+        "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+                {
+                    "source": {
+                        "name": "UserId",
+                        "type": "Guid"
+                    },
+                    "sink": {
+                        "name": "MyUserId"
+                    }
+                }, 
+                {
+                    "source": {
+                        "name": "Name",
+                        "type": "String"
+                    },
+                    "sink": {
+                        "name": "MyName"
+                    }
+                }, 
+                {
+                    "source": {
+                        "name": "Group",
+                        "type": "String"
+                    },
+                    "sink": {
+                        "name": "MyGroup"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+
+De volgende eigenschappen worden ondersteund onder `translator`  ->  `mappings` object met -> `source` en `sink`:
+
+| Eigenschap | Description                                                  | Vereist |
+| -------- | ------------------------------------------------------------ | -------- |
+| naam     | Naam van de bron- of -sink-kolom.                           | Ja      |
+| Volgnummer  | De kolomindex. Beginnen met 1. <br>Toepassen en vereist wanneer met behulp van tekst zonder kopregel gescheiden. | Nee       |
+| pad     | JSON-padexpressie voor elk veld op te halen of toewijzen. Van toepassing op hiërarchische gegevens bijvoorbeeld MongoDB/REST.<br>Voor velden onder het hoofdobject begint JSON-pad met root $; voor velden binnen de matrix die is gekozen door `collectionReference` eigenschap, JSON-pad begint met het matrixelement. | Nee       |
+| type     | Data Factory tussentijdse gegevenstype van de bron- of -sink-kolom. | Nee       |
+| cultuur  | De cultuur van de bron- of -sink-kolom. <br>Van toepassing wanneer het type is `Datetime` of `Datetimeoffset`. De standaardwaarde is `en-us`. | Nee       |
+| Indeling   | Indeling van tekenreeks die moet worden gebruikt als type `Datetime` of `Datetimeoffset`. Raadpleeg [aangepaste datum en tijd opmaaktekenreeksen](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) op datum/tijd opmaken. | Nee       |
+
+De volgende eigenschappen worden ondersteund onder `translator`  ->  `mappings` naast het object met `source` en `sink`:
+
+| Eigenschap            | Description                                                  | Vereist |
+| ------------------- | ------------------------------------------------------------ | -------- |
+| collectionReference | Ondersteund alleen als hiërarchische gegevens bijvoorbeeld MongoDB/REST bron is.<br>Als u wilt herhalen en gegevens ophalen uit de objecten **in een matrixveld** met hetzelfde patroon en converteren naar per rij per object geeft u het JSON-pad van die matrix voor cross-pas. | Nee       |
+
+### <a name="alternative-column-mapping"></a>Alternatieve kolomtoewijzing
+
+Kunt u copy activity -> `translator`  ->  `columnMappings` om toe te wijzen tussen gegevens in tabelvorm vormgegeven. In dit geval is "structuur" sectie vereist voor zowel invoer- en uitvoergegevenssets. Kolom toewijzing ondersteunt **toewijzing van alle of een subset van kolommen in de brongegevensset "structuur" voor alle kolommen in de sink-gegevensset "structuur"**. Hier volgen foutcondities die leiden tot een uitzondering:
 
 * Brongegevens opgeslagen resultaat heeft geen naam van een kolom die is opgegeven in de invoergegevensset "structuur" sectie query.
 * Sink-gegevensopslag (als met vooraf gedefinieerd schema) heeft geen naam van een kolom die is opgegeven in de sectie uitvoer gegevensset "structuur".
 * Minder kolommen of meer kolommen in de 'structuur"van de sink-gegevensset dan opgegeven in de toewijzing.
 * Dubbele toewijzing.
 
-#### <a name="explicit-column-mapping-example"></a>Expliciete kolomtoewijzing voorbeeld
-
-In dit voorbeeld heeft een structuur van de invoertabel en of deze verwijst naar een tabel in een on-premises SQL-database.
+In het volgende voorbeeld wordt de invoergegevensset is een structuur en of deze verwijst naar een tabel in een on-premises Oracle-database.
 
 ```json
 {
-    "name": "SqlServerInput",
+    "name": "OracleDataset",
     "properties": {
         "structure":
          [
@@ -63,9 +124,9 @@ In dit voorbeeld heeft een structuur van de invoertabel en of deze verwijst naar
             { "name": "Name"},
             { "name": "Group"}
          ],
-        "type": "SqlServerTable",
+        "type": "OracleTable",
         "linkedServiceName": {
-            "referenceName": "SqlServerLinkedService",
+            "referenceName": "OracleLinkedService",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -75,11 +136,11 @@ In dit voorbeeld heeft een structuur van de invoertabel en of deze verwijst naar
 }
 ```
 
-In dit voorbeeld wordt de uitvoertabel heeft een structuur en of deze verwijst naar een tabel in een Azure SQL Database.
+In dit voorbeeld heeft een structuur van de uitvoergegevensset en of deze verwijst naar een tabel in Salesfoce.
 
 ```json
 {
-    "name": "AzureSqlOutput",
+    "name": "SalesforceDataset",
     "properties": {
         "structure":
         [
@@ -87,9 +148,9 @@ In dit voorbeeld wordt de uitvoertabel heeft een structuur en of deze verwijst n
             { "name": "MyName" },
             { "name": "MyGroup"}
         ],
-        "type": "AzureSqlTable",
+        "type": "SalesforceObject",
         "linkedServiceName": {
-            "referenceName": "AzureSqlLinkedService",
+            "referenceName": "SalesforceLinkedService",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -99,7 +160,7 @@ In dit voorbeeld wordt de uitvoertabel heeft een structuur en of deze verwijst n
 }
 ```
 
-De volgende JSON definieert een kopieeractiviteit in een pijplijn. De kolommen uit de bron die zijn toegewezen aan kolommen in sink (**columnMappings**) met behulp van de **translator** eigenschap.
+De volgende JSON definieert een kopieeractiviteit in een pijplijn. De kolommen uit de bron die zijn toegewezen aan kolommen in sink met behulp van de **translator** -> **columnMappings** eigenschap.
 
 ```json
 {
@@ -107,23 +168,23 @@ De volgende JSON definieert een kopieeractiviteit in een pijplijn. De kolommen u
     "type": "Copy",
     "inputs": [
         {
-            "referenceName": "SqlServerInput",
+            "referenceName": "OracleDataset",
             "type": "DatasetReference"
         }
     ],
     "outputs": [
         {
-            "referenceName": "AzureSqlOutput",
+            "referenceName": "SalesforceDataset",
             "type": "DatasetReference"
         }
     ],
     "typeProperties":    {
-        "source": { "type": "SqlSource" },
-        "sink": { "type": "SqlSink" },
+        "source": { "type": "OracleSource" },
+        "sink": { "type": "SalesforceSink" },
         "translator":
         {
             "type": "TabularTranslator",
-            "columnMappings": 
+            "columnMappings":
             {
                 "UserId": "MyUserId",
                 "Group": "MyGroup",
@@ -136,23 +197,19 @@ De volgende JSON definieert een kopieeractiviteit in een pijplijn. De kolommen u
 
 Als u de syntaxis van `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` om op te geven in de kolomtoewijzing, wordt nog steeds ondersteund als-is.
 
-**Kolomtoewijzing stroom:**
+### <a name="alternative-schema-mapping"></a>Alternatieve schematoewijzing
 
-![Kolom toewijzing stroom](./media/copy-activity-schema-and-type-mapping/column-mapping-sample.png)
-
-## <a name="schema-mapping"></a>Schematoewijzing
-
-Schematoewijzing is van toepassing bij het kopiëren van gegevens tussen de hiërarchische gevormde gegevens en in tabelvorm vormgegeven gegevens, bijvoorbeeld kopiëren van MongoDB/REST naar een tekstbestand en het exemplaar van SQL tot Azure Cosmos DB-API voor MongoDB. De volgende eigenschappen worden ondersteund in de kopieeractiviteit `translator` sectie:
+Kunt u copy activity -> `translator`  ->  `schemaMapping` om toe te wijzen tussen hiërarchische gevormde gegevens en gegevens in tabelvorm vorm, bijvoorbeeld kopiëren van MongoDB/REST-bestand te kopiëren van Oracle naar Azure Cosmos DB-API voor MongoDB. De volgende eigenschappen worden ondersteund in de kopieeractiviteit `translator` sectie:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de activiteit kopiëren translator moet worden ingesteld op: **TabularTranslator** | Ja |
-| schemaMapping | Een verzameling van sleutel / waarde-paren, die staat voor de relatie toewijzing **van de bronkant naar het sink-zijde**.<br/>- **Sleutel:** bron vertegenwoordigt. Voor **in tabelvorm bron**, geef de naam van de kolom zoals gedefinieerd in de gegevenssetstructuur; voor **hiërarchische bron**, geef de JSON-padexpressie voor elk veld om te worden toegewezen.<br/>- **Waarde:** vertegenwoordigt sink. Voor **in tabelvorm sink**, geef de naam van de kolom zoals gedefinieerd in de gegevenssetstructuur; voor **hiërarchische sink**, geef de JSON-padexpressie voor elk veld om te worden toegewezen. <br/> In het geval van hiërarchische gegevens, voor velden onder het hoofdobject, begint JSON-pad met root $; voor velden binnen de matrix die is gekozen door `collectionReference` eigenschap, JSON-pad begint met het matrixelement.  | Ja |
+| schemaMapping | Een verzameling van sleutel / waarde-paren, die staat voor de relatie toewijzing **van de bronkant naar het sink-zijde**.<br/>- **Sleutel:** bron vertegenwoordigt. Voor **in tabelvorm bron**, geef de naam van de kolom zoals gedefinieerd in de gegevenssetstructuur; voor **hiërarchische bron**, geef de JSON-padexpressie voor elk veld om te worden toegewezen.<br>- **Waarde:** vertegenwoordigt sink. Voor **in tabelvorm sink**, geef de naam van de kolom zoals gedefinieerd in de gegevenssetstructuur; voor **hiërarchische sink**, geef de JSON-padexpressie voor elk veld om te worden toegewezen. <br>In het geval van hiërarchische gegevens, voor velden onder het hoofdobject, begint JSON-pad met root $; voor velden binnen de matrix die is gekozen door `collectionReference` eigenschap, JSON-pad begint met het matrixelement.  | Ja |
 | collectionReference | Als u wilt herhalen en gegevens ophalen uit de objecten **in een matrixveld** met hetzelfde patroon en converteren naar per rij per object geeft u het JSON-pad van die matrix voor cross-pas. Deze eigenschap wordt alleen ondersteund als hiërarchische gegevens bron is. | Nee |
 
-**Voorbeeld: van MongoDB naar SQL kopiëren:**
+**Voorbeeld: kopieer van MongoDB naar Oracle:**
 
-Bijvoorbeeld, hebt u MongoDB-document met de volgende inhoud: 
+Bijvoorbeeld, hebt u MongoDB-document met de volgende inhoud:
 
 ```json
 {
@@ -191,21 +248,21 @@ De schema-toewijzingsregel configureren als de volgende kopie activiteit JSON-vo
 
 ```json
 {
-    "name": "CopyFromMongoDBToSqlAzure",
+    "name": "CopyFromMongoDBToOracle",
     "type": "Copy",
     "typeProperties": {
         "source": {
             "type": "MongoDbV2Source"
         },
         "sink": {
-            "type": "SqlSink"
+            "type": "OracleSink"
         },
         "translator": {
             "type": "TabularTranslator",
             "schemaMapping": {
-                "orderNumber": "$.number", 
-                "orderDate": "$.date", 
-                "order_pd": "prod", 
+                "orderNumber": "$.number",
+                "orderDate": "$.date",
+                "order_pd": "prod",
                 "order_price": "price",
                 "city": " $.city[0].name"
             },
@@ -226,7 +283,7 @@ Hier vindt u de toewijzing tussen de systeemeigen naar tussentijdse type in de s
 
 ### <a name="supported-data-types"></a>Ondersteunde gegevenstypen
 
-Data Factory ondersteunt de volgende tijdelijke gegevenstypen: U kunt onderstaande waarden opgeven bij het configureren van type informatie in [gegevenssetstructuur](concepts-datasets-linked-services.md#dataset-structure) configuratie:
+Data Factory ondersteunt de volgende tijdelijke gegevenstypen: U kunt onderstaande waarden opgeven bij het configureren van type informatie in [gegevenssetstructuur](concepts-datasets-linked-services.md#dataset-structure-or-schema) configuratie:
 
 * Byte[]
 * Boolean
@@ -242,31 +299,7 @@ Data Factory ondersteunt de volgende tijdelijke gegevenstypen: U kunt onderstaan
 * String
 * Periode
 
-### <a name="explicit-data-type-conversion"></a>Expliciete conversie van gegevenstype
-
-Bij het kopiëren van gegevens in de gegevens opslaat met vaste schema, bijvoorbeeld SQL Server/Oracle, wanneer de bron- en sinkblobpaden heeft een ander type op dezelfde kolom, kan de expliciete conversie moet worden gedeclareerd in de bron-zijde:
-
-* Voor bestandsbron, bijvoorbeeld CSV/Avro, de typeconversie moet worden gedeclareerd via de structuur van de gegevensbron met volledige kolomlijst (side kolom naam- en sinkblobpaden kant brontype)
-* Voor relationele bron (bijvoorbeeld SQL/Oracle), moet de typeconversie worden bereikt door expliciete type casten in de query-instructie.
-
-## <a name="when-to-specify-dataset-structure"></a>"Gegevenssetstructuur" opgeven
-
-In onderstaande scenario's is "structuur" in de gegevensset vereist:
-
-* Toepassen van [expliciete conversie van gegevenstype](#explicit-data-type-conversion) voor bestandsbronnen tijdens het kopiëren (invoergegevensset)
-* Toepassen van [expliciete kolomtoewijzing](#explicit-column-mapping) tijdens het kopiëren (zowel invoer en uitvoer gegevensset)
-* Kopiëren van Dynamics 365-/CRM-bron (invoergegevensset)
-* Kopiëren naar Cosmos DB als genest object wanneer de gegevensbron geen JSON-bestand is (uitvoergegevensset)
-
-In onderstaande scenario's, wordt "structuur" in de gegevensset aangeraden:
-
-* Kopiëren uit een tekstbestand zonder header (invoergegevensset). U kunt de namen van de kolommen voor tekstbestand overeenkomt met de bijbehorende sink-kolommen van het configureren van expliciete kolomtoewijzing op te slaan.
-* Kopiëren van gegevens worden opgeslagen met een flexibel schema, bijvoorbeeld Azure-tabel/Cosmos-DB (invoergegevensset), om te garanderen van de verwachte gegevens (kolommen) wordt gekopieerd in plaats van laten kopiëren afleiden activiteit schema op basis van de bovenste rij of rijen tijdens elke activiteit die wordt uitgevoerd.
-
-
 ## <a name="next-steps"></a>Volgende stappen
 Zie de andere artikelen van de Kopieeractiviteit:
 
 - [Overzicht kopieeractiviteit](copy-activity-overview.md)
-- [Fouttolerantie van activiteit kopiëren](copy-activity-fault-tolerance.md)
-- [Prestaties van de kopieeractiviteit](copy-activity-performance.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b952763378de562f35c2e1ecaf49c56f0145c559
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626460"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951517"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Beveiliging van Internet of Things (IoT) vanaf de grond
 
@@ -33,7 +33,7 @@ Gezien de beveiliging, privacy, transparantie en naleving opmerkingen, blijft de
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>Veilige infrastructuur implementeren vanaf het begin te beginnen
 
-De [Microsoft Cloud](https://azure.microsoft.com) infrastructuur ondersteunt meer dan een miljard klanten verspreid over 127 landen. Tekenen van Microsofts tientallen jaren ervaring bij het bouwen van zakelijke software en uitvoering van een van de grootste online services in de hele wereld, biedt de Microsoft-Cloud hogere niveaus van verbeterde beveiliging, privacy, naleving en bedreigingen Risicobeperking voor dan de meeste klanten op hun eigen kunnen realiseren.
+De [Microsoft Cloud](https://azure.microsoft.com) infrastructuur ondersteunt meer dan een miljard klanten in 127 landen/regio's. Tekenen van Microsofts tientallen jaren ervaring bij het bouwen van zakelijke software en uitvoering van een van de grootste online services in de hele wereld, biedt de Microsoft-Cloud hogere niveaus van verbeterde beveiliging, privacy, naleving en bedreigingen Risicobeperking voor dan de meeste klanten op hun eigen kunnen realiseren.
 
 De [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/) biedt een verplichte bedrijfsbrede ontwikkelingsproces waarbij beveiligingsvereisten in de gehele levenscyclus van software integreert. Om ervoor te zorgen dat operationele activiteiten dezelfde mate van beveiligingsprocedures volgen, maakt gebruik van SDL krachtige beveiligingsrichtlijnen lay-out van Microsoft Operational Security Assurance (OSA) verwerkt. Microsoft werkt ook met de derde partij auditbedrijven om voortdurend te verifiëren dat het voldoet aan de verplichtingen en praat met Microsoft in breed beveiligingsinspanningen via het maken van de datacenters van hoogwaardige zakelijke prestaties, met inbegrip van de Microsoft Digital Crimes Unit Microsoft Security Response Center en Microsoft Malware Protection Center.
 

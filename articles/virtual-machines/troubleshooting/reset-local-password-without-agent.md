@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/31/2018
+ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 6b77ceb2ab9abe232cec75254b30ce37c3dbbf60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c0152726aba115e1b370838308a7bf0af08cab7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307619"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708124"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Lokale Windows-wachtwoord offline voor Azure-VM herstellen
 U kunt opnieuw instellen van het lokale Windows-wachtwoord van een virtuele machine in Azure met de [Azure portal of Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voorwaarde dat de Azure-gastagent is geïnstalleerd. Deze methode is de belangrijkste manier om een wachtwoord opnieuw instellen voor een Azure-VM. Als u problemen ondervindt met de Azure-gastagent niet reageert of niet worden geïnstalleerd na het uploaden van een aangepaste installatiekopie, u handmatig kunt moet u een Windows-wachtwoord opnieuw instellen. Dit artikel wordt uitgelegd hoe u een lokaal account-wachtwoord opnieuw instellen door de virtuele bron-OS-schijf koppelen aan een andere virtuele machine. De stappen in dit artikel niet van toepassing op Windows-domeincontrollers. 
@@ -106,7 +106,7 @@ Altijd probeer het opnieuw instellen van een wachtwoord met de [Azure portal of 
      ```
      
      ![Gpt.ini maken](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. Maak `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts\Startup`. Zorg ervoor dat verborgen mappen worden weergegeven. Maak indien nodig de `Machine` of `Scripts` mappen.
+5. Maak `scripts.ini` in `\Windows\System32\GroupPolicy\Machines\Scripts\`. Zorg ervoor dat verborgen mappen worden weergegeven. Maak indien nodig de `Machine` of `Scripts` mappen.
    
    * Voeg de volgende regels toe de `scripts.ini` bestand dat u hebt gemaakt:
      
@@ -156,7 +156,7 @@ Altijd probeer het opnieuw instellen van een wachtwoord met de [Azure portal of 
     
     * From %windir%\System32
       * remove FixAzureVM.cmd
-    * From %windir%\System32\GroupPolicy\Machine\
+    * Van %windir%\System32\GroupPolicy\Machine\Scripts
       * remove scripts.ini
     * From %windir%\System32\GroupPolicy
       * gpt.ini verwijderen (als gpt.ini bestond, en u deze hebt gewijzigd in gpt.ini.bak, het bestand .bak terug naar gpt.ini wijzigen)

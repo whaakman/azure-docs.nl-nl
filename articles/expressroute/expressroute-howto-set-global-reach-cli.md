@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 28df8f59944ccac9d731e15a558d864beed2f3ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89ada41c5f3c9cf1ca7a2ac707363f57080c361d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364211"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869967"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Globaal bereik ExpressRoute configureren met behulp van de Azure CLI
 
@@ -48,7 +48,7 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>Identificeren van uw ExpressRoute-circuits voor configuratie
 
-U kunt ExpressRoute globaal bereik inschakelen tussen elke twee ExpressRoute-circuits, zolang ze bevinden zich in de ondersteunde landen en op verschillende locaties voor peering zijn gemaakt. Als uw abonnement is eigenaar van beide circuits, kunt u een van beide circuit om uit te voeren van de configuratie, zoals verderop in dit artikel wordt beschreven. Als de twee circuits zich in verschillende Azure-abonnementen, moet u toestemming van een Azure-abonnement moet hebben en in de autorisatiesleutel moet slagen, wanneer u de configuratieopdracht in andere Azure-abonnement uitvoert.
+U kunt ExpressRoute globaal bereik inschakelen tussen elke twee ExpressRoute-circuits, zolang ze bevinden zich in de ondersteunde landen/regio's en op verschillende locaties voor peering zijn gemaakt. Als uw abonnement is eigenaar van beide circuits, kunt u een van beide circuit om uit te voeren van de configuratie, zoals verderop in dit artikel wordt beschreven. Als de twee circuits zich in verschillende Azure-abonnementen, moet u toestemming van een Azure-abonnement moet hebben en in de autorisatiesleutel moet slagen, wanneer u de configuratieopdracht in andere Azure-abonnement uitvoert.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Connectiviteit tussen uw on-premises netwerken
 

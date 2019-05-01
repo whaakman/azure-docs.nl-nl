@@ -2,23 +2,19 @@
 title: Verificatie, vragen en antwoorden
 description: Verifiëren met AD voor het gebruik van Key Vault
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7ca486768cf56059328801b1b4b1036bb8aeece8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4160d6ce324cf419cd4b9a61b68bb39b0443321c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201332"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694724"
 ---
 # <a name="authentication-requests-and-responses"></a>Verificatie, vragen en antwoorden
 
@@ -91,7 +87,7 @@ In dit onderwerp bevat informatie over specificaties voor de Azure Key Vault-ser
 
 ```  
 
-## <a name="authentication"></a>Authentication  
+## <a name="authentication"></a>Verificatie  
  Alle aanvragen naar de Azure Key Vault moet worden geverifieerd. Azure Key Vault ondersteunt Azure Active Directory-toegangstokens die kunnen worden verkregen met behulp van OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
  Zie voor meer informatie over het registreren van uw toepassing en verifiëren voor het gebruik van Azure Key Vault, [uw clienttoepassing registreren bij Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).

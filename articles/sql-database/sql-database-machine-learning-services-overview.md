@@ -11,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 172bf201e2327f5ae8db0ac3c82f2f07e3f0ffc9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: b33561ad80207a5d649ac1fd497c9d6c7add78c6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997475"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723986"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Azure SQL Database Machine Learning-Services met R (preview)
 
@@ -43,7 +43,7 @@ Machine Learning-services bevatten een basisdistributie van R, overlapt met zake
 
 Meest voorkomende open-source R-pakketten zijn vooraf geïnstalleerd in Machine Learning-Services. De volgende R-pakketten van Microsoft zijn ook opgenomen:
 
-| R-pakket | Beschrijving|
+| R-pakket | Description|
 |-|-|
 | [Microsoft R Open](https://mran.microsoft.com/rro) | Microsoft R Open is de verbeterde distributie van R van Microsoft. Het is een volledige open source-platform voor statistische analyse en datatechnologie. Het is gebaseerd op en 100% compatibel met R en meer mogelijkheden voor verbeterde prestaties en reproduceerbaarheid bevat. |
 | [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | RevoScaleR is de primaire tapewisselaar voor schaalbare r-functies in deze bibliotheek een van de meest gebruikte zijn. Gegevenstransformaties en manipuleren, statistische overzichten, visualisatie en vele vormen van modellen en analyses zijn gevonden in deze bibliotheken. Functies in deze bibliotheken worden ook automatisch de workloads verdelen over beschikbare cores voor parallelle verwerking, met de mogelijkheid om te werken op segmenten van de gegevens die worden gecoördineerd en worden beheerd door de berekenings-engine. |
@@ -69,6 +69,6 @@ Machine Learning-Services met R wordt niet aanbevolen voor productie-werkbelasti
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie de [belangrijke verschillen van SQL Server Machine Learning-Services](sql-database-machine-learning-services-differences.md)
-- Zie voor meer informatie over het gebruik van Machine Learning-Services (met R) in Azure SQL Database, [snelstartgids](sql-database-connect-query-r.md).
-- Leer meer met [zelfstudies voor SQL Server R-taal](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sql-server-r-tutorials)
+- Zie de [belangrijke verschillen van SQL Server Machine Learning Services](sql-database-machine-learning-services-differences.md).
+- Zie voor meer informatie over het gebruik van R op Machine Learning Services (preview) voor Azure SQL Database-query, de [snelstartgids](sql-database-connect-query-r.md).
+- Als u wilt beginnen met enkele eenvoudige R-scripts, Zie [maken en uitvoeren eenvoudige R-scripts in Azure SQL Database Machine Learning-Services (preview)](sql-database-quickstart-r-create-script.md).

@@ -12,22 +12,22 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7db796b33bab941f038afab1b80127aded50b54a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: a8b77cea34344062c981d8f452094cffabe1e568
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000010"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572492"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integreren met een CI/CD-pijplijn
 
-U kunt de flexibiliteit van uw toepassing meer veiligheid tegen de externe kans niet meer kunnen bereiken van Azure App-configuratie kunt verbeteren. Om dit te doen, de huidige configuratiegegevens voor het pakket naar een bestand dat lokaal geïmplementeerd met de toepassing en geladen tijdens het opstarten. Deze aanpak zorgt ervoor dat uw toepassing standaardwaarden voor de instelling ten minste heeft. Deze waarden worden overschreven door nieuwe wijzigingen in een configuratie van apps wanneer deze beschikbaar is.
+Uw toepassing kan niet worden uitgevoerd als deze is afhankelijk van Azure App-configuratie en niet meer bereikbaar is. U kunt de tolerantie van uw toepassing te maken met een dergelijke gebeurtenis, maar onwaarschijnlijk is dat er zou gebeuren verbeteren. Om dit te doen, de huidige configuratiegegevens voor het pakket naar een bestand dat lokaal geïmplementeerd met de toepassing en geladen tijdens het opstarten. Deze aanpak zorgt ervoor dat uw toepassing standaardwaarden voor de instelling ten minste heeft. Deze waarden worden overschreven door nieuwe wijzigingen in een configuratie van apps wanneer deze beschikbaar is.
 
 Met behulp van de [exporteren](./howto-import-export-data.md#export-data) functie van Azure App-configuratie, kunt u het proces van het ophalen van de huidige van configuratiegegevens als een enkel bestand automatiseren. Dit bestand vervolgens insluiten in een stap build of implementatie in uw continue integratie en continue implementatie (CI/CD)-pijplijn.
 
 Het volgende voorbeeld ziet u hoe u met de configuratie van de App gegevens als een build-stap voor de web-app die is geïntroduceerd in de QuickStart. Voordat u doorgaat, voltooien [maken van een ASP.NET Core-app met App-configuratie](./quickstart-aspnet-core-app.md) eerste.
 
-Een code-editor kunt u de stappen in deze Quick Start. [Visual Studio Code](https://code.visualstudio.com/) is een uitstekende optie beschikbaar is op Windows, macOS en Linux-platforms.
+Een code-editor kunt u de stappen in deze zelfstudie doet. [Visual Studio Code](https://code.visualstudio.com/) is een uitstekende optie beschikbaar is op Windows, macOS en Linux-platforms.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -48,7 +48,7 @@ Hiervoor een build cloud met Azure DevOps bijvoorbeeld, zorg ervoor dat de [Azur
 
     Voeg de *ConnectionString* die zijn gekoppeld aan het opslaan van de app-configuratie als een omgevingsvariabele.
 
-2. Open Program.cs en werk de `CreateWebHostBuilder` methode voor het gebruik van het geëxporteerde bestand met JSON door het aanroepen van de `config.AddJsonFile()` methode.
+2. Open *Program.cs*, en werk de `CreateWebHostBuilder` methode voor het gebruik van het geëxporteerde bestand met JSON door het aanroepen van de `config.AddJsonFile()` methode.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

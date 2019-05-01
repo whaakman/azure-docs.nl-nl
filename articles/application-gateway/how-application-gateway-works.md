@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 2f27105aed940f0411abaa534cb09adf0be34bfe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a16421182f533f5aa2ad4bcc2e58e910cc7e8ca6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830315"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702413"
 ---
 # <a name="how-an-application-gateway-works"></a>De werking van een application gateway
 
@@ -26,7 +26,7 @@ In dit artikel wordt uitgelegd hoe een application gateway inkomende aanvragen w
 
 2. De Azure DNS-server retourneert het IP-adres aan de client, die de front-end-IP-adres van de toepassingsgateway.
 
-3. De toepassingsgateway accepteert verkeer dat binnenkomt op een of meer listeners. Een listener is een logische eenheid die wordt gecontroleerd voor verbindingsaanvragen. Het geconfigureerd met een fronted IP-adres, het protocol en het poortnummer voor verbindingen van clients naar de application gateway.
+3. De toepassingsgateway accepteert verkeer dat binnenkomt op een of meer listeners. Een listener is een logische eenheid die wordt gecontroleerd voor verbindingsaanvragen. Het geconfigureerd met een front-end-IP-adres, het protocol en het poortnummer voor verbindingen van clients naar de application gateway.
 
 4. Als een web application firewall (WAF) gebruikt wordt, controleert de application gateway de aanvraagheaders en de hoofdtekst, indien aanwezig, met de WAF-regels. Deze actie wordt gecontroleerd of de aanvraag geldige aanvraag of een beveiligingsrisico. Als de aanvraag geldig is, wordt dat doorgestuurd naar de back-end. Als de aanvraag is niet geldig, wordt het geblokkeerd als een beveiligingsrisico.
 

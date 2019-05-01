@@ -1,25 +1,18 @@
 ---
-title: Vereisten voor Azure Application aanbieding | Microsoft Docs
+title: Vereisten voor Azure Application aanbieding | Azure Marketplace
 description: De vereisten voor het publiceren van een Azure-toepassing aanbieden op Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: df127eec662f8598246f276ef9b1608ae3021512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 296f843f9d09b57e12e867700f456126eca128b3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744921"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942885"
 ---
 # <a name="azure-application-prerequisites"></a>Vereisten voor Azure-toepassing
 
@@ -36,7 +29,7 @@ De technische vereisten zijn onder andere de volgende items:
 * Azure Quickstart-sjablonen.<br> Zie voor meer informatie:
 
   * [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/). Implementeer Azure-bronnen via Azure Resource Manager met sjablonen die zijn aangeleverd door de community, zodat u meer gedaan krijgt. Met Azure Resource Manager kunt u uw toepassingen inrichten aan de hand van een declaratieve sjabloon. U kunt in één enkele sjabloon meerdere services plus de bijbehorende afhankelijkheden implementeren. U gebruikt dezelfde sjabloon om uw toepassing herhaaldelijk te implementeren in elke fase van de levenscyclus van de toepassing.
-  * [GitHub: Azure Resource Manager Quickstart-sjablonen](https://github.com/azure/azure-quickstart-templates). Deze opslagplaats bevat alle beschikbare Azure Resource Manager-sjablonen door de community bijgedragen. Een sjabloon voor doorzoekbare index wordt onderhouden op https://azure.microsoft.com/en-us/documentation/templates/.
+  * [GitHub: Azure Resource Manager Quickstart-sjablonen](https://github.com/azure/azure-quickstart-templates). Deze opslagplaats bevat alle beschikbare Azure Resource Manager-sjablonen door de community bijgedragen. Een sjabloon voor doorzoekbare index wordt onderhouden op https://azure.microsoft.com/documentation/templates/.
 * UI-definitie maken<br>
 Zie voor meer informatie, [maken-Azure portal gebruikersinterface voor uw beheerde toepassing](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). Dit artikel worden de belangrijkste concepten van het bestand createUiDefinition.json geïntroduceerd. Dit bestand in de Azure-portal wordt gebruikt voor het genereren van de gebruikersinterface voor het maken van een beheerde toepassing.
 
@@ -50,7 +43,7 @@ De zakelijke vereisten zijn onder andere de volgende procedure, contractuele en 
 >[!NOTE]
 >Het account voor registratie van dezelfde Microsoft Developer Center moet u zich aanmeldt bij de Cloud Partner-Portal. U hebt slechts één Microsoft-account voor uw aanbiedingen op Azure Marketplace. Dit account mag niet zijn specifiek voor afzonderlijke services of aanbiedingen.
 
-* Uw bedrijf (of een dochteronderneming) moet zich in een verkoop--land/regio via de Azure Marketplace wordt ondersteund. Zie voor een huidige lijst van deze landen, [Deelnamebeleid voor Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+* Uw bedrijf (of een dochteronderneming) moet zich in een verkoop-van-land/regio via de Azure Marketplace wordt ondersteund. Zie voor een huidige lijst van deze landen/regio's, [Deelnamebeleid voor Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 * Uw product moet op een manier die compatibel is met de factureringsmodellen ondersteund door de Azure Marketplace in licentie worden gegeven. Zie voor meer informatie, [opties voor facturering](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations) in de Azure Marketplace.
 * U bent verantwoordelijk voor het maken van technische ondersteuning beschikbaar voor klanten in een commercieel redelijke manier. Deze ondersteuning is gratis, betaald, of via de community-benaderingen.
 * U bent zelf verantwoordelijk voor licentiëring van uw software en eventuele afhankelijkheden voor software van derden.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: aschhab
-ms.openlocfilehash: d2aa018566695b5b94cd8a7e64931a8b776b151d
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 65f89e234317c5a17e4443e767528fb9be9a8b72
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766295"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687071"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migreren van bestaande Azure Service Bus standard-naamruimten naar de premium-laag
 Azure Service Bus aangeboden eerder, naamruimten alleen op de standard-laag. Naamruimten worden instellingen voor meerdere tenants die zijn geoptimaliseerd voor lage doorvoer en ontwikkelaarsomgevingen. De premium-laag biedt toegewezen bronnen per naamruimte voor voorspelbare latentie en verbeterde doorvoer tegen een vaste prijs. De premium-laag is geoptimaliseerd voor hoge doorvoer en productieomgevingen waarvoor extra enterprise-functies.
@@ -62,7 +62,7 @@ Als u wilt uw standard Service Bus-naamruimte migreren naar premium met behulp v
    ```
 
     >[!IMPORTANT]
-    > De naam van de na de migratie (post_migration_dns_name) wordt gebruikt voor toegang tot de oude standard-naamruimte nadat de migratie. Gebruik deze verwijderen uit de wachtrijen en abonnementen, en verwijder vervolgens de naamruimte.
+    > Na de migratie/naam van de alias (post_migration_dns_name) wordt gebruikt voor toegang tot de oude standard-naamruimte nadat de migratie. Gebruik deze verwijderen uit de wachtrijen en abonnementen, en verwijder vervolgens de naamruimte.
 
 1. De standard en premium-naamruimten worden gekoppeld en de synchronisatie te starten met behulp van de volgende opdracht uit:
 

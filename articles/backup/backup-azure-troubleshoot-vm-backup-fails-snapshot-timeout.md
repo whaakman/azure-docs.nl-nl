@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: ae89ab811015fca9bcb50fcc149534754533c25f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 826a38dd80db7cd0e6e500949d2c259c3808c0a9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337709"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914956"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: Problemen met de agent of de extensie
 
@@ -121,9 +121,9 @@ Uw recente back-uptaak is mislukt omdat er een bestaande back-uptaak uitgevoerd 
 3. Klik op het menu kluis dashboard **back-uptaken** de back-uptaken wordt weergegeven.
 
     * Als een back-uptaak uitgevoerd wordt, wacht het voltooid of annuleer de back-uptaak.
-        * De back-uptaak Klik met de rechtermuisknop op de back-uptaak annuleren en klikt u op **annuleren** of gebruik [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+        * De back-uptaak Klik met de rechtermuisknop op de back-uptaak annuleren en klikt u op **annuleren** of gebruik [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
     * Als u de back-up in een andere kluis hebt geconfigureerd, klikt u vervolgens controleert u of er zijn geen back-taken die worden uitgevoerd in de oude kluis. Als deze bestaat, annuleert u de back-uptaak.
-        * De back-uptaak Klik met de rechtermuisknop op de back-uptaak annuleren en klikt u op **annuleren** of gebruik [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
+        * De back-uptaak Klik met de rechtermuisknop op de back-uptaak annuleren en klikt u op **annuleren** of gebruik [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Voer back-up opnieuw uit.
 
 Als de geplande back-upbewerking langer conflicteert met de volgende back-upconfiguratie duurt Bekijk vervolgens de [Best Practices](backup-azure-vms-introduction.md#best-practices), [back-upprestaties](backup-azure-vms-introduction.md#backup-performance) en [overweging herstellen ](backup-azure-vms-introduction.md#backup-and-restore-considerations).

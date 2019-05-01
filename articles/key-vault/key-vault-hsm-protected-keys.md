@@ -2,23 +2,19 @@
 title: Het genereren en overdragen van met HSM beveiligde sleutels voor Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Gebruik dit artikel om te plannen, te genereren en vervolgens over te dragen van uw eigen HSM beveiligde sleutels gebruiken met Azure Key Vault. Ook wel BYOK of uw eigen sleutel.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 70a33b0ec55705c6fb00671cc801415cd7459558
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a013e0091e1a955672c1f16a4ac6300281d277b3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522725"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573009"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Het genereren en overdragen met HSM beveiligde sleutels voor Azure Key Vault
 
@@ -45,7 +41,7 @@ Meer informatie over het genereren en overdragen van een met HSM beveiligde sleu
 
 ## <a name="more-information-about-thales-hsms-and-microsoft-services"></a>Meer informatie over Thales HSM's en Microsoft-services
 
-Thales e-Security is een toonaangevende wereldwijde leverancier van gegevensversleuteling en cyberbeveiliging beveiligingsoplossingen voor de financiële, hightech, productie, overheid en technologiesector. Met een 40 jaar bijhouden record van de bescherming van zakelijke en overheidsgegevens worden oplossingen van Thales gebruikt door vier van de vijf grootste energie- en ruimtevaart bedrijven. Hun oplossingen worden ook gebruikt door 22 NAVO-landen, en meer dan 80 procent van de betalingstransacties wereldwijd beveiligen.
+Thales e-Security is een toonaangevende wereldwijde leverancier van gegevensversleuteling en cyberbeveiliging beveiligingsoplossingen voor de financiële, hightech, productie, overheid en technologiesector. Met een 40 jaar bijhouden record van de bescherming van zakelijke en overheidsgegevens worden oplossingen van Thales gebruikt door vier van de vijf grootste energie- en ruimtevaart bedrijven. Hun oplossingen worden ook gebruikt door 22 NAVO landen/regio's en meer dan 80 procent van de betalingstransacties wereldwijd beveiligen.
 
 Microsoft heeft samengewerkt met Thales om de status van illustraties voor HSM's. Deze verbeteringen kunnen u profiteren van de gebruikelijke voordelen van gehoste services, zonder verliest controle over uw sleutels. Om precies kan deze uitbreidingen Microsoft de HSM's zodat u niet te hoeft beheren. Als een cloudservice schaalt Azure Key Vault op korte termijn opschaalbaar om te voldoen aan de gebruikspieken van uw organisatie. Op hetzelfde moment, uw sleutel beschermd binnen de HSM's van Microsoft: U behoudt de controle over de levenscyclus van de omdat u de sleutel genereren en naar HSM's van Microsoft overdragen.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Verbindingsproblemen oplossen | Microsoft Docs'
+title: 'Azure AD Connect: Azure AD oplossen van problemen met de netwerkverbinding | Microsoft Docs'
 description: Wordt uitgelegd hoe u verbindingsproblemen met Azure AD Connect oplossen.
 services: active-directory
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0afc31bf08a5037d91885bc6a85c6aeaf858825
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386540"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572780"
 ---
-# <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Verbindingsproblemen met Azure AD Connect oplossen
+# <a name="troubleshoot-azure-ad-connectivity"></a>Problemen met Azure AD-verbinding oplossen
 In dit artikel wordt uitgelegd hoe connectiviteit tussen Azure AD Connect en Azure AD werkt en het oplossen van problemen met de netwerkverbinding. Deze problemen zijn ondergebracht in een omgeving met een proxyserver worden weergegeven.
 
 ## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Problemen met verbindingen in de installatiewizard
@@ -43,7 +43,7 @@ De proxy-server moet ook de vereiste URL's die wordt geopend. De officiële lijs
 
 URL's is de volgende tabel het absolute minimum dat bare kunnen verbinding maken met Azure AD helemaal. Deze lijst bevat geen eventuele optionele functies, zoals het terugschrijven van wachtwoorden of Azure AD Connect Health. Dit wordt hier beschreven om te helpen bij het oplossen van problemen voor de eerste configuratie.
 
-| URL | Poort | Beschrijving |
+| URL | Poort | Description |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Voor het downloaden van de CRL-lijsten. |
 | \*.verisign.com |HTTP/80 |Voor het downloaden van de CRL-lijsten. |

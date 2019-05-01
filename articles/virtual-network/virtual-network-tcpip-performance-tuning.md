@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61032448"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924794"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP-prestaties afstemmen voor virtuele Azure-machines
 
@@ -304,7 +304,7 @@ Versneld netwerken is ontworpen voor het verbeteren van de prestaties van het ne
 
 Azure virtuele machines hebben ten minste één netwerkinterface die is gekoppeld aan deze. Hebben ze mogelijk meerdere. De bandbreedte die is toegewezen aan een virtuele machine is de som van al het uitgaande verkeer voor alle netwerkinterfaces die zijn gekoppeld aan de machine. Met andere woorden, is de bandbreedte die toegewezen op basis van per virtuele machine, ongeacht het aantal netwerkinterfaces zijn gekoppeld aan de machine.
 
-Verwachte uitgaande doorvoer en het aantal netwerkinterfaces dat wordt ondersteund door elke VM-grootte worden beschreven in [grootten voor Windows virtuele machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Als u wilt zien van maximale doorvoer, selecteer een type, zoals **algemeen**, en gaat u naar de sectie over de reeks grootte op de resulterende pagina (bijvoorbeeld ' Dv2-serie'). Voor elke reeks, wordt een tabel die voorziet in netwerken specificaties in de laatste kolom heet ' max. aantal NIC's / netwerkbandbreedte (Mbps) verwacht. "
+Verwachte uitgaande doorvoer en het aantal netwerkinterfaces dat wordt ondersteund door elke VM-grootte worden beschreven in [grootten voor Windows virtuele machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Als u wilt zien van maximale doorvoer, selecteer een type, zoals **algemeen**, en gaat u naar de sectie over de reeks grootte op de resulterende pagina (bijvoorbeeld ' Dv2-serie'). Voor elke reeks, wordt een tabel die voorziet in netwerken specificaties in de laatste kolom heet ' max. aantal NIC's / netwerkbandbreedte (Mbps) verwacht. "
 
 De maximale doorvoer is van toepassing op de virtuele machine. Doorvoer wordt niet beïnvloed door deze factoren:
 
@@ -388,4 +388,4 @@ Deze typen pakketten zijn nog steeds, aanwijzingen dat TCP-doorvoer wordt niet w
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt geleerd over TCP/IP-prestaties afstemmen voor Azure VM's, wilt u mogelijk meer informatie over andere overwegingen voor [virtuele netwerken plannen](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) of [meer informatie over de verbinding te maken en configureren van virtuele netwerken ](https://docs.microsoft.com/en-us/azure/virtual-network/).
+Nu dat u hebt geleerd over TCP/IP-prestaties afstemmen voor Azure VM's, wilt u mogelijk meer informatie over andere overwegingen voor [virtuele netwerken plannen](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) of [meer informatie over de verbinding te maken en configureren van virtuele netwerken ](https://docs.microsoft.com/azure/virtual-network/).

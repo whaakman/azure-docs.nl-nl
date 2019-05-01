@@ -8,18 +8,18 @@ ms.service: batch
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 233b26b330fabe7da8664114ba1857f74feea4bc
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764277"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706322"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Een aangepaste installatiekopie gebruiken om een pool van virtuele machines te maken 
 
 Wanneer u een Azure Batch-pool met behulp van de configuratie van de virtuele Machine maakt, geeft u een VM-installatiekopie met het besturingssysteem voor elk knooppunt in de groep. U kunt een pool van virtuele machines maken met een ondersteunde Azure Marketplace-installatiekopie, of met een aangepaste installatiekopie (een VM-installatiekopie u hebt gemaakt en geconfigureerd zelf). De aangepaste afbeelding moet een *beheerde installatiekopie* resource in hetzelfde Azure-abonnement en regio als het Batch-account.
 
-## <a name="why-use-a-custom-image"></a>Waarom een aangepaste installatiekopie gebruiken?
+## <a name="benefits-of-custom-images"></a>Voordelen van aangepaste installatiekopieën
 
 Wanneer u een aangepaste installatiekopie opgeeft, hebt u controle over de configuratie van het besturingssysteem en het type besturingssysteem en gegevensschijven moeten worden gebruikt. Uw aangepaste installatiekopie kunt opnemen, toepassingen en gegevens die beschikbaar op alle knooppunten van de Batch pool zodra deze zijn ingericht.
 
@@ -32,12 +32,11 @@ Met behulp van een aangepaste installatiekopie die is geconfigureerd voor uw sce
 - **Opnieuw opstarten tijd besparen op virtuele machines.** De installatie van toepassing is doorgaans nodig voor het opnieuw opstarten van de virtuele machine, die is tijdrovend. U kunt opnieuw opstarten tijd besparen door vooraf installeren van toepassingen. 
 - **Zeer grote hoeveelheden gegevens eenmaal kopiëren.** Statische gegevensonderdeel van de beheerde aangepaste installatiekopie maken door deze te kopiëren naar een beheerde installatiekopie gegevensschijven. Dit alleen moet één keer worden uitgevoerd en maakt gegevens beschikbaar zijn voor elk knooppunt van de groep.
 - **Keuze voor schijftypen.** U hebt de keuze van het gebruik van premium-opslag voor de besturingssysteemschijf en de gegevensschijf.
-- **Breid pools te grote grootten.** Wanneer u een beheerde aangepaste installatiekopie gebruiken om een pool te maken, worden de toepassingen kan meegroeien zonder dat u kopieën van blob VHD's van de installatiekopie te maken. 
-
+- **Breid pools te grote grootten.** Wanneer u een beheerde aangepaste installatiekopie gebruiken om een pool te maken, worden de toepassingen kan meegroeien zonder dat u kopieën van blob VHD's van de installatiekopie te maken.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **De resource van een beheerde installatiekopie**. Als u wilt een pool van virtuele machines met een aangepaste installatiekopie maakt, moet u zijn of een resource beheerde installatiekopie maken in hetzelfde Azure-abonnement en regio als het Batch-account. De afbeelding moet worden gemaakt van momentopnamen van de besturingssysteemschijf van de virtuele machine en (optioneel) de gekoppelde gegevensschijven. Zie de volgende sectie voor meer informatie en stappen voor het voorbereiden van een beheerde installatiekopie. 
+- **De resource van een beheerde installatiekopie**. Als u wilt een pool van virtuele machines met een aangepaste installatiekopie maakt, moet u zijn of een resource beheerde installatiekopie maken in hetzelfde Azure-abonnement en regio als het Batch-account. De afbeelding moet worden gemaakt van momentopnamen van de besturingssysteemschijf van de virtuele machine en (optioneel) de gekoppelde gegevensschijven. Zie de volgende sectie voor meer informatie en stappen voor het voorbereiden van een beheerde installatiekopie.
   - Een unieke aangepaste installatiekopie gebruiken voor elke groep die u maakt.
   - Als u wilt een pool maken met de installatiekopie met behulp van de Batch-API's, geef de **resource-ID** van de installatiekopie, die van het formulier `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. Voor het gebruik van de portal, gebruikt u de **naam** van de installatiekopie.  
   - De resource beheerde installatiekopie moet bestaan voor de levensduur van de pool omhoog zodat en kan worden verwijderd nadat de groep is verwijderd.
@@ -46,7 +45,7 @@ Met behulp van een aangepaste installatiekopie die is geconfigureerd voor uw sce
 
 ## <a name="prepare-a-custom-image"></a>Een aangepaste installatiekopie voorbereiden
 
-U kunt een beheerde installatiekopie van momentopnamen van een Azure-VM-besturingssysteem en gegevensschijven, van een gegeneraliseerde Azure-VM met beheerde schijven of vanaf een gegeneraliseerde on-premises VHD die u uploadt voorbereiden in Azure. Als u wilt schalen Batch-pools op betrouwbare wijze met een aangepaste installatiekopie, wordt aangeraden het maken van een beheerde installatiekopie met *alleen* de eerste methode: met momentopnamen van de VM schijven. Zie de volgende stappen voor het voorbereiden van een virtuele machine, maakt u een momentopname en een installatiekopie maken van de momentopname. 
+U kunt een beheerde installatiekopie van momentopnamen van een Azure-VM-besturingssysteem en gegevensschijven, van een gegeneraliseerde Azure-VM met beheerde schijven of vanaf een gegeneraliseerde on-premises VHD die u uploadt voorbereiden in Azure. Als u wilt schalen Batch-pools op betrouwbare wijze met een aangepaste installatiekopie, wordt aangeraden het maken van een beheerde installatiekopie met *alleen* de eerste methode: met momentopnamen van de VM schijven. Zie de volgende stappen voor het voorbereiden van een virtuele machine, maakt u een momentopname en een installatiekopie maken van de momentopname.
 
 ### <a name="prepare-a-vm"></a>Een virtuele machine voorbereiden
 
@@ -60,6 +59,7 @@ Als u een nieuwe virtuele machine voor de installatiekopie maakt, gebruikt u een
 
 * Zorg ervoor dat de virtuele machine wordt gemaakt met een beheerde schijf. Dit is de standaardinstelling voor de opslag bij het maken van een virtuele machine.
 * Moet de Azure-extensies, zoals de Custom Script-extensie niet installeren op de virtuele machine. Als de installatiekopie een vooraf geïnstalleerde extensie bevat, kan Azure problemen optreden bij het implementeren van de Batch-pool.
+* Wanneer met behulp van gegevensschijven gekoppelde, die u wilt koppelen en formatteren van de schijven van binnen een VM om ze te gebruiken.
 * Zorg ervoor dat de OS-basisinstallatiekopie u het reguliere tijdelijke station gebruikt. De Batch-knooppuntagent verwacht momenteel het reguliere tijdelijke station.
 * Zodra de virtuele machine wordt uitgevoerd, verbinding te maken via RDP (voor Windows) of SSH (voor Linux). Alle benodigde software installeren of de gewenste gegevens te kopiëren.  
 

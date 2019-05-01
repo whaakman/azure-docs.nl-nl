@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: df987d1e13cb5330842fbab41dae96b24b581ddb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b9706241bd65ee75869d8b1fe58c6922d9e246a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765568"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951519"
 ---
 ## <a name="prepare-your-repository"></a>Voorbereiden van uw opslagplaats
 
@@ -29,7 +29,7 @@ Als u automatische builds van de Azure App Service Kudu maken server, zorg ervoo
 | Python (alleen Windows) | _\*.PY_, _requirements.txt_, of _runtime.txt_ |
 | HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_, of  _iisstart.htm_ |
 | Webtaken | _\<job_name > / run. \<extensie >_ onder _App\_Data/jobs/continuous_ (voor doorlopende webtaken) of _App\_Data/jobs/triggered_ (voor geactiveerd WebJobs). Zie voor meer informatie, [Kudu WebJobs documentatie](https://github.com/projectkudu/kudu/wiki/WebJobs). |
-| Functions | Zie [continue implementatie voor Azure Functions](../articles/azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements). |
+| Functions | Zie [continue implementatie voor Azure Functions](../articles/azure-functions/functions-continuous-deployment.md#requirements-for-continuous-deployment). |
 
 Voor het aanpassen van uw implementatie, omvatten een _.deployment_ bestand in de hoofdmap van de opslagplaats. Zie voor meer informatie, [aanpassen implementaties](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) en [aangepaste implementatiescript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 

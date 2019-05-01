@@ -9,12 +9,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b25400f21e24b18a0a21b9d849bdd505f6d47aac
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: f12d11cecbf682ae82f9c432804b1d611ee3e39f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765753"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719397"
 ---
 # <a name="common-security-attributes-for-azure-service-fabric"></a>Algemene beveiligingskenmerken voor Azure Service Fabric
 
@@ -27,7 +27,7 @@ Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
 | Versleuteling-at-rest:<ul><li>Versleuteling aan de serverzijde</li><li>Versleuteling op de server met de klant beheerde sleutels</li><li>Andere versleutelingsfuncties (zoals client-side altijd versleuteld, enz.)</ul>| Ja | De klant is eigenaar van het cluster en de virtuele-machineschaalset op dat het cluster is gebaseerd. Azure disk encryption kan worden ingeschakeld op de virtuele-machineschaalset. |
-| Versleuteling tijdens overdracht:<ul><li>Express route-versleuteling</li><li>Vnet-versleuteling</li><li>VNet-VNet-versleuteling</ul>| Ja |  |
+| Versleuteling tijdens overdracht:<ul><li>Express route-versleuteling</li><li>VNet-versleuteling</li><li>VNet-VNet-versleuteling</ul>| Ja |  |
 | Versleuteling verwerking (CMK, BYOK, enz.)| Ja | De klant is eigenaar van het cluster en de virtuele-machineschaalset op dat het cluster is gebaseerd. Azure disk encryption kan worden ingeschakeld op de virtuele-machineschaalset. |
 | Versleuteling op kolom (Azure Data Services)| N/A |  |
 | API-aanroepen die zijn versleuteld| Ja | Service Fabric-API-aanroepen worden gemaakt via Azure Resource Manager. Een geldig JSON webtoken (JWT) is vereist. |
@@ -37,7 +37,7 @@ Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
 | Ondersteuning voor service-eindpunt| Ja |  |
-| ondersteuning voor vNET-injectie| Ja |  |
+| Ondersteuning voor VNet-injectie| Ja |  |
 | Netwerkisolatie en ondersteuning netwerkfunctie| Ja | Met behulp van netwerken netwerkbeveiligingsgroepen (nsg's). |
 | Geforceerde tunneling ondersteuning| Ja | Azure-netwerk bieden geforceerde tunneling. |
 

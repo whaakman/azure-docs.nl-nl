@@ -2,18 +2,17 @@
 title: Aanbevolen procedures operator - geavanceerde functies van scheduler in Azure Kubernetes Services (AKS)
 description: Meer over de best practices uit de cluster-operator voor het gebruik van scheduler geavanceerde functies zoals taints en tolerations, knooppunt selectoren en affiniteit, of tussen pod-affiniteit en anti-affiniteit in Azure Kubernetes Service (AKS)
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 11/26/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 11/26/2018
+ms.author: iainfou
+ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464965"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690471"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor geavanceerde scheduler-functies in Azure Kubernetes Service (AKS)
 
@@ -37,7 +36,7 @@ De scheduler Kubernetes kunt taints en tolerations gebruiken om te beperken welk
 * Een **taint** wordt toegepast op een knooppunt dat geeft aan dat alleen bepaalde schillen op deze kunnen worden gepland.
 * Een **toleration** wordt vervolgens toegepast op een schil waarmee ze *tolereren* beïnvloeding van een knooppunt.
 
-Wanneer u een schil op een AKS-cluster implementeert, plant Kubernetes alleen schillen op knooppunten waar een toleration wordt uitgelijnd met de beïnvloeding. Als voorbeeld wordt ervan uitgegaan dat u hebt een nodepool in uw AKS-cluster voor knooppunten met GPU ondersteunt. Definieert u de naam, zoals *gpu*, klikt u vervolgens een waarde voor de planning. Als u deze waarde instelt op *NoSchedule*, de Kubernetes-scheduler schillen op het knooppunt kan niet worden gepland als de schil bevat geen definitie van de juiste toleration.
+Wanneer u een schil op een AKS-cluster implementeert, plant Kubernetes alleen schillen op knooppunten waar een toleration wordt uitgelijnd met de beïnvloeding. Als voorbeeld wordt ervan uitgegaan dat u hebt een knooppunt van toepassingen in uw AKS-cluster voor knooppunten met GPU ondersteunt. Definieert u de naam, zoals *gpu*, klikt u vervolgens een waarde voor de planning. Als u deze waarde instelt op *NoSchedule*, de Kubernetes-scheduler schillen op het knooppunt kan niet worden gepland als de schil bevat geen definitie van de juiste toleration.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -53,7 +52,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
   resources:
     requests:
       cpu: 0.5
@@ -73,6 +72,23 @@ Wanneer deze pod wordt geïmplementeerd, zoals het gebruik van `kubectl apply -f
 Wanneer u taints toepast, kunt u werken met uw ontwikkelaars van toepassingen en eigenaren zodat ze voor het definiëren van de vereiste tolerations in hun implementaties.
 
 Zie voor meer informatie over taints en tolerations [toe te passen taints en tolerations][k8s-taints-tolerations].
+
+### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Gedrag van taints en tolerations in AKS
+
+Wanneer u een knooppuntgroep in AKS bijwerkt, taints en tolerations worden als volgt instellen terwijl deze worden toegepast op nieuwe knooppunten:
+
+- **Standaard-clusters zonder ondersteuning voor het schalen van virtuele machines**
+  - Stel, u hebt een cluster met twee knooppunten - *knooppunt1* en *Knooppunt2*. Wanneer u een upgrade uitvoert, een extra knooppunt (*Knooppunt3*) wordt gemaakt.
+  - De taints van *knooppunt1* worden toegepast op *Knooppunt3*, klikt u vervolgens *knooppunt1* wordt vervolgens verwijderd.
+  - Een ander nieuw knooppunt wordt gemaakt (met de naam *knooppunt1*, sinds de vorige *knooppunt1* is verwijderd), en de *Knooppunt2* taints worden toegepast op de nieuwe *knooppunt1*. Vervolgens *Knooppunt2* wordt verwijderd.
+  - In wezen *knooppunt1* wordt *Knooppunt3*, en *Knooppunt2* wordt *knooppunt1*.
+
+- **Clusters waarvoor wordt gebruikgemaakt van de virtuele machine-schaalsets** (momenteel in preview in AKS)
+  - Nogmaals, Stel, u hebt een cluster met twee knooppunten - *knooppunt1* en *Knooppunt2*. U kunt de knooppuntgroep upgraden.
+  - Er zijn twee extra knooppunten gemaakt, *Knooppunt3* en *Knooppunt4*, en de taints respectievelijk worden doorgegeven.
+  - De oorspronkelijke *knooppunt1* en *Knooppunt2* worden verwijderd.
+
+Wanneer u een knooppuntgroep in AKS schaalt, worden taints en tolerations niet uitvoeren van de tabtoets ontwerp.
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>Besturingselement pod plannen met behulp van knooppunt selectoren en affiniteit
 
@@ -96,7 +112,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -126,7 +142,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5

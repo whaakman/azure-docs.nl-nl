@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: 7746d7256add185be0c67123edf63ea09b6b05a4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 679de1d5accbd0f4f955bf5af95bc8dcc97e3b78
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111829"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574290"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Veelgestelde vragen over zeer grootschalige Azure-SQL-databases
 
@@ -132,7 +132,7 @@ Nee.
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>Ik kan een Computing met extra RAM-geheugen voor mijn werkbelasting geheugenintensieve inrichten
 
-Nee. Als u meer RAM-geheugen, moet u een upgrade uitvoert naar een hogere compute-grootte. Gen4 hardware biedt meer RAM-geheugen in vergelijking met Gen5 hardware. Zie voor meer informatie, [grootschalige opslag- en rekencapaciteit grootten](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview-for-provisioned-compute-tier).
+Nee. Als u meer RAM-geheugen, moet u een upgrade uitvoert naar een hogere compute-grootte. Gen4 hardware biedt meer RAM-geheugen in vergelijking met Gen5 hardware. Zie voor meer informatie, [grootschalige opslag- en rekencapaciteit grootten](sql-database-vcore-resource-limits-single-databases.md).
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>Ik kan meerdere compute-knooppunten van verschillende grootten inrichten
 

@@ -2,23 +2,19 @@
 title: Azure Key Vault-Logboeken | Microsoft Docs
 description: Deze zelfstudie helpt u op weg met de logboekregistratie van Azure Sleutelkluis.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 25ebd72c512eb92c5d9a464a4b4d74f9e41ae389
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 89f9ef37ed7c53817854442b3a32b32b7d11ae27
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484104"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706021"
 ---
 # <a name="azure-key-vault-logging"></a>Logboekregistratie voor Azure Key Vault
 
@@ -217,7 +213,7 @@ We gaan zo kijken wat er precies in de logboeken staat. Maar voordat we verderga
 * De status van diagnostische instellingen voor uw sleutelkluisresource opvragen: `Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
 * Logboekregistratie voor uw sleutelkluisresource uitschakelen: `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
 
-## <a id="interpret"></a>De Sleutelkluis-logboekgegevens interpreteren
+## <a id="interpret"></a>De Key Vault-logboeken interpreteren
 
 Afzonderlijke blobs worden opgeslagen als tekst, die is opgemaakt als een JSON-blob. We bekijken een voorbeeld van invoer voor logboekbestanden. Voer deze opdracht uit:
 

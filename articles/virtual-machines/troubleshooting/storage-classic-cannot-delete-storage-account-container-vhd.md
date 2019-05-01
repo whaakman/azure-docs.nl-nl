@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60864285"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926233"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Oplossen van fouten bij het verwijderen van het klassieke opslag-resource
 Dit artikel bevat richtlijnen voor probleemoplossing bij een van de volgende fouten optreedt bij het verwijderen van Azure klassieke storage-account, container of *.vhd pagina-blob-bestand. 
@@ -37,7 +37,7 @@ Een resource 'Disk' wordt gebruikt om een bestand met *.vhd pagina blob aan een 
 3. Zodra de lease of meer schijven verbroken wordt, kan de pagina BLOB (s) zelf worden verwijderd. Een opslagaccount of container kan worden verwijderd zodra alle 'Disk' resource aanwezig zijn in deze zijn verwijderd.
 
 >[!NOTE] 
->Als gebruiker Hiermee verwijdert u de virtuele machine, maar niet de VHD, blijft kosten voor opslag op het wisselbestand van de blob-*.vhd doorlopen. De kosten worden in overeenstemming met het type opslagaccount, Controleer de [pagina met prijzen](https://azure.microsoft.com/en-us/pricing/details/storage/) voor meer informatie. Als de gebruiker wil niet langer de virtuele harde schijven kunt gebruiken, verwijder it/ze om toekomstige kosten te voorkomen. 
+>Als gebruiker Hiermee verwijdert u de virtuele machine, maar niet de VHD, blijft kosten voor opslag op het wisselbestand van de blob-*.vhd doorlopen. De kosten worden in overeenstemming met het type opslagaccount, Controleer de [pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/) voor meer informatie. Als de gebruiker wil niet langer de virtuele harde schijven kunt gebruiken, verwijder it/ze om toekomstige kosten te voorkomen. 
 
 ## <a name="unable-to-delete-storage-account"></a>Kan niet worden verwijderd van de storage-account 
 

@@ -1,7 +1,6 @@
 ---
-title: Apache Storm met de serveronderdelen van de Python - Azure HDInsight
+title: Apache Storm met onderdelen van de Python - Azure HDInsight
 description: Informatie over het maken van een Apache Storm-topologie die gebruikmaakt van Python-onderdelen.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: Apache storm-python
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 87d13f8b0df4d9a357218b34035993663dfda8b3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a5cbd54dd07143688b676c063133bb1a73bed01a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634589"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694392"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Apache Storm-topologieën met behulp van Python op HDInsight ontwikkelen
 
@@ -148,5 +147,4 @@ Als u wilt de topologie stoppen, gebruikt u __Ctrl + C__.
 
 Zie de volgende documenten voor andere manieren om Python gebruiken met HDInsight:
 
-* [Hoe u Python gebruikt voor het streamen van MapReduce-taken](../hadoop/apache-hadoop-streaming-python.md)
 * [Het gebruik van Python gebruiker gedefinieerde functies (UDF's) in Apache Pig- en Apache Hive](../hadoop/python-udf-hdinsight.md)

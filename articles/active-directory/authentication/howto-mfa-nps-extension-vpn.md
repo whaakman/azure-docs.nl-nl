@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2674e5ca12269d44e111f140fce77bd8bc0c9ae7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361658"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570639"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Uw VPN-infrastructuur integreren met Azure MFA met behulp van de Network Policy Server-extensie voor Azure
 
@@ -76,7 +76,7 @@ Wanneer de NPS-extensie voor Azure is geïntegreerd met de NPS, gevolg een stroo
 
 ## <a name="prerequisites"></a>Vereisten
 
-In deze sectie worden de vereisten die moeten worden voltooid voordat u MFA met extern bureaublad-Gateway integreren kunt. Voordat u begint, moet u de volgende vereisten hebt voldaan:
+In deze sectie worden de vereisten die moeten worden voltooid voordat u MFA met de VPN-verbinding integreren kunt. Voordat u begint, moet u de volgende vereisten hebt voldaan:
 
 * VPN-infrastructuur
 * Network Policy and Access Services-rol
@@ -338,7 +338,7 @@ Als onderdeel van de configuratie van de NPS-extensie dient u beheerdersreferent
 
 ### <a name="install-the-nps-extension"></a>De NPS-extensie installeren
 
-De NPS-extensie moet worden geïnstalleerd op een server waarop de Network Policy and Access Services-rol geïnstalleerd en die functies als de RADIUS-server in uw ontwerp. Voer *niet* de NPS-extensie installeren op uw extern bureaublad-server.
+De NPS-extensie moet worden geïnstalleerd op een server waarop de Network Policy and Access Services-rol geïnstalleerd en die functies als de RADIUS-server in uw ontwerp. Voer *niet* de NPS-extensie installeren op uw VPN-server.
 
 1. Download de NPS-extensie van [Microsoft Download Center](https://aka.ms/npsmfa).
 

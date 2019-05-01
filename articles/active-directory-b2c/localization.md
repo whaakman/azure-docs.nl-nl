@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 8f252b536c80ad997f3c0eb10b10d5cb8c330fc6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2291bdd270a15c4932d79b124616400d2667c891
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401745"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705842"
 ---
 # <a name="localization"></a>Lokalisatie
 
@@ -39,7 +39,7 @@ De **lokalisatie** element kunt u ter ondersteuning van meerdere landinstellinge
 
 De **lokalisatie** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Enabled | Nee | Mogelijke waarden: `true` of `false`. |
 
@@ -71,13 +71,13 @@ De **SupportedLanguages** element bevat de volgende elementen:
 
 De **LocalizedResources** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id die wordt gebruikt voor het aanduiden van gelokaliseerde bronnen. |
 
 De **LocalizedResources** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | LocalizedCollections | 0: n | Definieert de hele verzamelingen in verschillende culturen. Een verzameling kan verschillende aantal items en andere tekenreeksen voor verschillende culturen hebben. Voorbeelden van verzamelingen zijn de inventarisaties die worden weergegeven in de claimtypen. Bijvoorbeeld, wordt een land/regio-lijst weergegeven voor de gebruiker in een vervolgkeuzelijst. |
 | LocalizedStrings | 0: n | Hiermee definieert u alle van de tekenreeksen die, met uitzondering van de tekenreeksen die worden weergegeven in verzamelingen, in verschillende culturen. |
@@ -94,7 +94,7 @@ De **LocalizedCollections** element bevat de volgende elementen:
 
 De **LocalizedCollection** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | ElementType | Ja | Verwijst naar een ClaimType-element of een element van de gebruikersinterface in het beleid-bestand. |
 | ElementId | Ja | Een tekenreeks met een verwijzing naar een claimtype al gedefinieerd in de sectie ClaimsSchema dat wordt gebruikt als **ElementType** is ingesteld op een ClaimType. |
@@ -102,7 +102,7 @@ De **LocalizedCollection** element bevat de volgende kenmerken:
 
 De **LocalizedCollection** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | Item | 0: n | Hiermee definieert u een beschikbare optie voor de gebruiker selecteert voor een claim in de gebruikersinterface, zoals een waarde in een vervolgkeuzelijst. |
 
@@ -111,7 +111,7 @@ De **Item** element bevat de volgende kenmerken:
 | Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Text | Ja | De gebruiksvriendelijke weergavereeks die de gebruiker in de gebruikersinterface voor deze optie moet worden weergegeven. |
-| Waarde | Ja | De tekenreeks claim waarde die is gekoppeld met deze optie selecteert. |
+| Value | Ja | De tekenreeks claim waarde die is gekoppeld met deze optie selecteert. |
 
 Het volgende voorbeeld ziet u het gebruik van de **LocalizedCollections** element. Deze bevat twee **LocalizedCollection** elementen, één voor Engels en een andere naam voor het Spaans. Beide ingesteld de **beperking** verzameling van de claim `Gender` met een lijst met items voor het Engels en Spaans.
 

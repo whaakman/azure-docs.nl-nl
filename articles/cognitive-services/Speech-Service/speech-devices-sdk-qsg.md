@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0d520a9dc8d60a386d25694d441931fbc3ed38e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dec40f7ec21a4a059c6e4a7c75f6378f9757a479
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457533"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916852"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Aan de slag met de SDK van de apparaten spraak
 
@@ -28,7 +28,7 @@ De broncode voor de voorbeeldtoepassing is opgenomen in de SDK van de apparaten 
 
 Voordat u begint met ontwikkelen met de SDK van de apparaten spraak, verzamel de informatie en de software die u nodig hebt:
 
-* Krijgen een [development kit van ROOBO](http://ddk.roobo.com/). Kits zijn beschikbaar met lineaire of ronde microfoon matrix configuraties. Kies de juiste configuratie voor uw behoeften.
+* Krijgen een [development kit van ROOBO](https://ddk.roobo.com/). Kits zijn beschikbaar met lineaire of ronde microfoon matrix configuraties. Kies de juiste configuratie voor uw behoeften.
 
     |Development kit configuratie|Locatie van de spreker|
     |-----------------------------|------------|
@@ -199,4 +199,4 @@ Als er certificaatfouten bij het gebruik van de spraakservices, zorg ervoor dat 
 
 ### <a name="audio"></a>Audio
 
-ROOBO voorziet in een hulpprogramma waarmee alle audio Flash-geheugen wordt vastgelegd. Het kan helpen bij het oplossen van problemen met audio. Een versie van het hulpprogramma is opgegeven voor de configuratie van elke development kit. Op de [ROOBO site](http://ddk.roobo.com/), selecteer uw apparaat en selecteer vervolgens de **ROOBO extra** koppelen aan de onderkant van de pagina.
+ROOBO voorziet in een hulpprogramma waarmee alle audio Flash-geheugen wordt vastgelegd. Het kan helpen bij het oplossen van problemen met audio. Een versie van het hulpprogramma is opgegeven voor de configuratie van elke development kit. Op de [ROOBO site](https://ddk.roobo.com/), selecteer uw apparaat en selecteer vervolgens de **ROOBO extra** koppelen aan de onderkant van de pagina.

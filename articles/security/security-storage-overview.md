@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: ec0e8ae1bf657cda59f3d133db23106436e184e3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 262ccc311b2b7ec634183eb4f914902048ba2c3b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120889"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872044"
 ---
 # <a name="azure-storage-security-overview"></a>Overzicht van beveiliging van Azure Storage
 
-Azure Storage is de oplossing voor opslag in de cloud voor moderne toepassingen die afhankelijk zijn van duurzaamheid, beschikbaarheid en schaalbaarheid om te voldoen aan de behoeften van klanten. Azure Storage biedt een uitgebreide set met mogelijkheden voor beveiliging. U kunt:
+Dit artikel bevat een overzicht van Azure-beveiliging-functies die u met Azure Storage gebruiken kunt. Azure Storage is de oplossing voor opslag in de cloud voor moderne toepassingen die afhankelijk zijn van duurzaamheid, beschikbaarheid en schaalbaarheid om te voldoen aan de behoeften van klanten. Azure Storage biedt een uitgebreide set met mogelijkheden voor beveiliging. U kunt:
 
 * Het storage-account beveiligen met behulp van Role-Based Access Control (RBAC) en Azure Active Directory.
 * Gegevens in transit tussen een toepassing en Azure beveiligen met behulp van versleuteling van de client-side-, HTTPS- of SMB 3.0.
@@ -33,9 +33,6 @@ Azure Storage is de oplossing voor opslag in de cloud voor moderne toepassingen 
 * Analytics gebruiken voor het bijhouden van de verificatiemethode die wordt gebruikt wanneer ze toegang hebben tot opslag.
 
 Zie voor een meer gedetailleerde Kijk op beveiliging in Azure Storage, de [Azure Storage-beveiligingshandleiding](../storage/common/storage-security-guide.md). Deze handleiding biedt een dieper ingaan op de beveiligingsfuncties van Azure Storage. Deze functies omvatten opslagaccountsleutels gegevensversleuteling in-transit en at-rest en opslaganalyse.
-
-
-Dit artikel bevat een overzicht van Azure-beveiliging-functies die u met Azure Storage gebruiken kunt. Koppelingen naar artikelen Geef details van elke functie zodat u kunt meer informatie.
 
 ## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 

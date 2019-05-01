@@ -1,25 +1,18 @@
 ---
-title: StoreFront informatie voor een Power BI-App biedt - Azure Marketplace | Microsoft Docs
+title: StoreFront informatie voor een Power BI-App biedt | Azure Marketplace
 description: Details van de winkel velden voor een aanbieding van Power BI-App configureren voor de Microsoft AppSource-Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 2c99b20e554d92dbe63594d63525dd8e1d765423
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 0816e7a7add430a65af9b3948aa8626f9567053a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726179"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942626"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Tabblad van Power BI-app-winkel Details
 
@@ -32,13 +25,13 @@ In de **aanbiedingsdetails** sectie, Geef algemene informatie over uw aanbieding
 
 ![De sectie Details van het tabblad met Details van de winkel bieden](./media/offer-details-section.png)
 
-Gebruik de volgende tabel voor het voltooien van de velden in deze sectie:
+De volgende tabel vindt u meer informatie over deze velden. Verplichte velden zijn indicted met een asterisk (*).  
 
 |   Veld               |   Description                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Overzicht van aanbieding**     | Een korte doel van de app, met maximaal 100 tekens.                             |
-| **Beschrijving van aanbieding** | Een beschrijving van de app, met maximaal 3.000 tekens bevatten. Dit veld biedt ondersteuning voor eenvoudige HTML-opmaak. |
-|                       |                                                                                         |
+| **Overzicht van aanbieding\***     | Een korte doel van de app, met maximaal 100 tekens.                             |
+| **Beschrijving van aanbieding\*** | Een beschrijving van de app, met maximaal 3.000 tekens bevatten. Dit veld biedt ondersteuning voor eenvoudige HTML-opmaak. |
+|   |    |
 
 
 ## <a name="listing-details-section"></a>Sectie voor informatie over de aanbieding
@@ -47,13 +40,13 @@ De **Details van aanbieding** sectie vindt u informatie over de context van uw a
 
 ![Gedeelte van de aanbieding Details van het tabblad met Details van de winkel](./media/listing-details-section.png)
 
-Gebruik de volgende tabel voor het voltooien van de velden in deze sectie:
+Gebruik de volgende tabel voor het voltooien van de velden in deze sectie.  Verplichte velden zijn indicted met een asterisk (*).
  
 |   Veld                                  |   Description                                                        |
 | --------------                           | ---------------------                                                |
 | **Bedrijfstakken**                           | Selecteer de branche waarin uw app best past. Als uw app is gekoppeld aan meerdere branches, laat u dit veld leeg.      |
-| **Categorieën**                           | Selecteer maximaal drie categorieën die gerelateerd aan uw app zijn.     |
-| **Help-koppeling voor uw app**               | Geef een URL naar een pagina met online-help voor uw app biedt.           |
+| **Categorieën\***                           | Selecteer maximaal drie categorieën die gerelateerd aan uw app zijn.     |
+| **Help-koppeling voor uw app\***               | Geef een URL naar een pagina met online-help voor uw app biedt.           |
 | **Producten die uw app met (Max. 3 werkt)** | Selecteer de **nieuw** plusteken (+) om te maken van een tekstveld. Voer de naam van een product dat uw app met werkt in het veld. Maximaal drie producten worden vermeld.       |
 | **Trefwoorden (Max. 3)**              | Voer maximaal drie trefwoorden die gebruikers waarschijnlijk gebruiken zullen om te zoeken naar voor uw toepassing in AppSource. Bijvoorbeeld, als de toepassing heet 'Mijn app voor het bericht' uw zoekwoorden mogelijk **e-mailberichten**, **postadres**, en **e-mailapp**. |
 |  |  |
@@ -65,13 +58,13 @@ In de **Marketing artefacten** sectie, uploaden huisstijl en marketingmateriaal 
 
 ![Marketing artefacten sectie van het tabblad met Details van de winkel](./media/marketing-artifacts-section.png)
 
-Gebruik de volgende tabel voor het voltooien van de velden in deze sectie:
+Gebruik de volgende tabel voor het voltooien van de velden in deze sectie. Verplichte velden zijn indicted met een asterisk (*).
  
 |    Veld                             |    Description                                                    |
 |   -----------                        |    -------------                                                  |
 | *Logos*                              |                                                                   |
-| **Logo van de aanbieding (png-indeling, 48 x 48)**   | Upload een logo om weer te geven in het overzicht van de app of in de zoekresultaten van de app. AppSource ondersteunt alleen PNG-indeling, met een resolutie van 48 x 48 px.  |
-| **Logo van de aanbieding (png-indeling, 216 x 216)** | Upload een logo om weer te geven op de detailpagina van uw app.  AppSource ondersteunt alleen PNG-indeling, met een resolutie van 216 x 216 px.  |
+| **Logo van de aanbieding (png-indeling, 48 x 48)\***   | Upload een logo om weer te geven in het overzicht van de app of in de zoekresultaten van de app. AppSource ondersteunt alleen PNG-indeling, met een resolutie van 48 x 48 px.  |
+| **Logo van de aanbieding (png-indeling, 216 x 216)\*** | Upload een logo om weer te geven op de detailpagina van uw app.  AppSource ondersteunt alleen PNG-indeling, met een resolutie van 216 x 216 px.  |
 | *Video's*                             |                                                                   |
 | **Naam**                             | Voer de naam van uw app of de titel.                                          |
 | **URL**                              | Voer de URL van een video die wordt gehost op YouTube of Vimeo.                              |
@@ -79,7 +72,7 @@ Gebruik de volgende tabel voor het voltooien van de velden in deze sectie:
 | *Documenten*                          | Toevoegen van maximaal drie documenten om weer te geven op AppSource, onder de **meer** kop.  |
 | **Naam**                             | Voer de naam of de titel van een ondersteunende document.                              |
 | **File**                             | Een PDF-bestand uploaden.                             |
-| *Schermafbeeldingen*                        | Maximaal vijf schermafbeeldingen toevoegen.                        |
+| *Schermafbeeldingen\**                      | Maximaal vijf schermafbeeldingen toevoegen.                        |
 | **Naam**                             | Voer een naam of de titel van een schermopname.                                       |
 | **Installatiekopie**                            | Upload een PNG-schermopname. De resolutie moet 1280 x 720 px.  | 
 |   |   |
@@ -100,8 +93,8 @@ Gebruik de volgende tabel voor het voltooien van de velden in deze sectie:
 
 |   Veld                |   Description                           |
 |------------------------|--------------------------------------   |
-| **URL privacybeleid** | URL voor uw geboekte privacybeleid       |
-| **Gebruiksvoorwaarden**       | Uw beleid, opgemaakt als tekst zonder opmaak of een eenvoudige HTML     |
+| **URL privacybeleid\*** | URL voor uw geboekte privacybeleid       |
+| **Gebruiksvoorwaarden\***       | Uw beleid, opgemaakt als tekst zonder opmaak of een eenvoudige HTML     |
 |  |  |
 
 

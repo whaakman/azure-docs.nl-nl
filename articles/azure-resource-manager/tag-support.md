@@ -4,14 +4,14 @@ description: Laat zien welke typen Azure-resource bieden ondersteuning voor tags
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 04/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32156f39d36d8485c76dada5fd00f9ea0918598c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388060"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575448"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tag-ondersteuning voor Azure-resources
 Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-group-using-tags.md).
@@ -862,7 +862,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | dnszones/SOA | Nee | 
 | dnszones/SRV | Nee | 
 | dnszones/TXT | Nee | 
-| expressRouteCircuits | Ja | 
+| expressRouteCircuits | Ja (tagwaarde niet op dit moment wordt weergegeven in het rapport) | 
 | expressRouteServiceProviders | Nee | 
 | ingangen | Ja | 
 | frontdoorWebApplicationFirewallPolicies | Ja | 
@@ -876,7 +876,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | networkInterfaces | Ja | 
 | networkProfiles | Ja | 
 | networkSecurityGroups | Ja | 
-| networkWatchers | Ja | 
+| networkWatchers | Ja (tagwaarde niet op dit moment wordt weergegeven in het rapport) | 
 | networkWatchers/connectionMonitors | Ja | 
 | networkWatchers/lenses | Ja | 
 | networkWatchers/pingMeshes | Ja | 
@@ -892,9 +892,10 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | virtualHubs | Ja | 
 | virtualNetworkGateways | Ja | 
 | virtualNetworks | Ja | 
+| virtualNetworks/subnetten | Nee | 
 | virtualNetworkTaps | Ja | 
 | virtualWans | Ja | 
-| vpnGateways | Ja | 
+| vpnGateways | Ja (tagwaarde niet op dit moment wordt weergegeven in het rapport) | 
 | vpnSites | Ja | 
 | webApplicationFirewallPolicies | Ja | 
 

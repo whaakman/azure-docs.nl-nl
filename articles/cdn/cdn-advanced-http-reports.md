@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: c8cb4713e38ca0da610c687325f3810f57da2b26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 67bab857e66edd8e9fae7d45c6157f018da81ccf
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61216090"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867038"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Statistieken voor Poortgebruik analyseren met Azure CDN geavanceerde HTTP-rapporten
 ## <a name="overview"></a>Overzicht
@@ -42,29 +42,29 @@ Dit document wordt uitgelegd geavanceerde HTTP-rapporten in Microsoft Azure CDN.
 ## <a name="geography-reports-map-based"></a>Geografie-rapporten (op een kaart gebaseerd)
 Er zijn vijf rapporten die gebruikmaken van een kaart om aan te geven van de regio's waaruit uw inhoud wordt aangevraagd. Deze rapporten zijn wereldkaart, toewijzing van de Verenigde Staten, Canada-kaart, Europa-kaart en Azië en Stille Oceaan-kaart.
 
-Elk rapport op basis van een kaart worden gerangschikt op geografische entiteiten (dat wil zeggen, landen, Staten en de provincies) op basis van het percentage treffers die afkomstig zijn van die regio. Bovendien wordt een kaart die bij het visualiseren van de locaties van waaruit de inhoud wordt aangevraagd. Wordt uitgevoerd om dit te doen door de kleurcodering elke regio op basis van het bedrag van de vraag ervaren in die regio. Lichter gekleurd wordt weergegeven regio's geven lagere vraag voor uw inhoud, terwijl donkerder regio's hogere niveaus van de vraag naar uw inhoud geven.
+Elk rapport op basis van een kaart worden gerangschikt op geografische entiteiten (dat wil zeggen, landen/regio's, een kaart is opgegeven bij het visualiseren van de locaties van waaruit de inhoud wordt aangevraagd. Wordt uitgevoerd om dit te doen door de kleurcodering elke regio op basis van het bedrag van de vraag ervaren in die regio. Lichter gekleurd wordt weergegeven regio's geven lagere vraag voor uw inhoud, terwijl donkerder regio's hogere niveaus van de vraag naar uw inhoud geven.
 
-Direct hieronder de kaart vindt u gedetailleerde informatie over de verkeer en bandbreedte voor elke regio. Hiermee kunt u weergeven van het totale aantal hits, het percentage treffers, de totale hoeveelheid gegevens verzonden (in gigabytes) en het percentage van de gegevens overgedragen voor elke regio. Een beschrijving van elk van deze metrische gegevens weergeven. Ten slotte, als u de muisaanwijzer over een regio (dat wil zeggen, land, staat of provincie), de naam en het percentage treffers en dat is opgetreden in de regio worden weergegeven als knopinfo.
+Direct hieronder de kaart vindt u gedetailleerde informatie over de verkeer en bandbreedte voor elke regio. Hiermee kunt u weergeven van het totale aantal hits, het percentage treffers, de totale hoeveelheid gegevens verzonden (in gigabytes) en het percentage van de gegevens overgedragen voor elke regio. Een beschrijving van elk van deze metrische gegevens weergeven. Ten slotte, als u de muisaanwijzer over een regio (dat wil zeggen, land/regio, staat of provincie), de naam en het percentage treffers en dat is opgetreden in de regio wordt weergegeven als knopinfo.
 
 Hieronder vindt u een korte beschrijving voor elk type toewijzing op basis van Geografie rapport.
 
 | De naam van rapport | Description |
 | --- | --- |
-| Wereldkaart |Dit rapport kunt u om de wereldwijde vraag naar uw CDN-inhoud weer te geven. Elk land is kleurgecodeerde op de wereldkaart om aan te geven van het percentage treffers die afkomstig van die regio zijn. |
+| Wereldkaart |Dit rapport kunt u om de wereldwijde vraag naar uw CDN-inhoud weer te geven. Elk land/regio is kleurgecodeerde op de wereldkaart om aan te geven van het percentage treffers die afkomstig van die regio zijn. |
 | Verenigde Staten-kaart |Dit rapport kunt u de vraag naar uw CDN-inhoud weergeven in de Verenigde Staten. Elke status is voorzien van een kleurcode op deze kaart om aan te geven van het percentage treffers die afkomstig van die regio zijn. |
 | Canada Map |Dit rapport kunt u de vraag naar uw CDN-inhoud weergeven in Canada. Elke provincie is voorzien van een kleurcode op deze kaart om aan te geven van het percentage treffers die afkomstig van die regio zijn. |
-| Europa-kaart |Dit rapport kunt u de vraag naar uw CDN-inhoud weergeven in Europa. Elk land is voorzien van een kleurcode op deze kaart om aan te geven van het percentage treffers die afkomstig van die regio zijn. |
-| Azië en Stille Oceaan-kaart |Dit rapport kunt u de vraag naar uw CDN-inhoud weergeven in Azië. Elk land is voorzien van een kleurcode op deze kaart om aan te geven van het percentage treffers die afkomstig van die regio zijn. |
+| Europa-kaart |Dit rapport kunt u de vraag naar uw CDN-inhoud weergeven in Europa. Elk land/regio is voorzien van een kleurcode op deze kaart om aan te geven van het percentage treffers die afkomstig van die regio zijn. |
+| Azië en Stille Oceaan-kaart |Dit rapport kunt u de vraag naar uw CDN-inhoud weergeven in Azië. Elk land/regio is voorzien van een kleurcode op deze kaart om aan te geven van het percentage treffers die afkomstig van die regio zijn. |
 
 ## <a name="geography-reports-bar-charts"></a>Geografie rapporten (staafdiagrammen)
-Er zijn twee aanvullende rapporten met statistische informatie op basis van Geografie, boven steden en boven-landen. Deze rapporten rangschikking steden en landen, respectievelijk op basis van het aantal treffers die afkomstig van die regio's zijn. Bij het genereren van dit type rapport wordt geven een staafdiagram de top 10 van steden of landen die inhoud op een specifiek platform heeft aangevraagd. In dit staafdiagram kunt u snel inzicht in de regio's die het hoogste aantal aanvragen voor uw inhoud te genereren.
+Er zijn twee aanvullende rapporten met statistische informatie op basis van Geografie, boven steden en boven-landen. Deze rapporten rangschikking steden en landen/regio's, respectievelijk op basis van het aantal treffers die afkomstig van deze landen/regio's zijn. Bij het genereren van dit type rapport wordt geven een staafdiagram de top 10 van steden of landen/regio's die inhoud op een specifiek platform heeft aangevraagd. In dit staafdiagram kunt u snel inzicht in de regio's die het hoogste aantal aanvragen voor uw inhoud te genereren.
 
 De linkerkant van de grafiek (y-as) geeft aan hoeveel treffers is opgetreden in de opgegeven regio. Direct onder de grafiek (x-as) vindt u een label voor elk van de bovenste 10 regio's.
 
 ### <a name="using-the-bar-charts"></a>Met behulp van de staafdiagrammen
 * Als u de muisaanwijzer boven een balk, wordt de naam en het totale aantal hits dat is opgetreden in de regio worden weergegeven als knopinfo.
-* De knopinfo voor de Top steden-rapport geeft een plaats op de naam, staat/provincie en Landafkorting.
-* Als de stad of regio (dat wil zeggen, staat/provincie) waaruit een aanvraag afkomstig is kan niet worden vastgesteld, wordt deze vervolgens aangegeven dat ze onbekend zijn. Als het land is onbekend en klik vervolgens twee vraagtekens (dat wil zeggen?), worden weergegeven.
+* De knopinfo voor de Top steden-rapport geeft een plaats op de naam, staat/provincie en land/regio afkorting.
+* Als de stad of regio (dat wil zeggen, staat/provincie) waaruit een aanvraag afkomstig is kan niet worden vastgesteld, wordt deze vervolgens aangegeven dat ze onbekend zijn. Als het land/de regio is onbekend en klik vervolgens twee vraagtekens (dat wil zeggen?), worden weergegeven.
 * Een rapport kan metrische gegevens voor "Europa" of het "Azië/Stille Oceaan.' bevatten Deze items zijn niet bedoeld voor statistische gegevens op alle IP-adressen in die regio's. In plaats daarvan ze alleen van toepassing op aanvragen die afkomstig zijn van IP-adressen die zijn verdeeld over de Europa of Azië/Stille in plaats van aan een specifieke stad of land/regio.
 
 De gegevens die is gebruikt voor het genereren van het staafdiagram kunnen hieronder worden weergegeven. U vindt het totale aantal hits, het percentage treffers, de hoeveelheid gegevens verzonden (in gigabytes) en het percentage van de gegevens overgedragen voor de top 250 regio's. Een beschrijving van elk van deze metrische gegevens weergeven.
@@ -74,7 +74,7 @@ Een korte beschrijving is opgegeven voor beide typen rapporten die hieronder.
 | De naam van rapport | Description |
 | --- | --- |
 | Bovenaan plaatsen |Dit rapport worden gerangschikt op steden op basis van het aantal treffers die afkomstig zijn van die regio. |
-| Belangrijkste landen |Dit rapport worden gerangschikt op landen op basis van het aantal treffers die afkomstig zijn van die regio. |
+| Belangrijkste landen |Dit rapport worden gerangschikt op landen/regio's op basis van het aantal treffers die afkomstig van dat land/regio zijn. |
 
 ## <a name="daily-summary"></a>Dagelijks overzicht
 Het rapport dagelijks overzicht kunt u het totale aantal treffers en gegevens die worden overgedragen via een bepaald platform dagelijks weergeven. Deze informatie kan worden gebruikt te onderscheiden zijn snel patronen voor CDN-activiteit. Bijvoorbeeld: in dit rapport kunt u detecteren welke dagen ervaren hoger of lager is dan het verwachte verkeer.

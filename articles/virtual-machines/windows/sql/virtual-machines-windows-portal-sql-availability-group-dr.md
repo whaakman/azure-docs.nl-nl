@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 8f5b470cb3f75f434033a245f4aaa185aeb665c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9e31ac7685d597c741033bc165c6a51280e3d72
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325941"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571724"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Een AlwaysOn-beschikbaarheidsgroep configureren op Azure virtual machines in verschillende regio 's
 
@@ -145,7 +145,7 @@ De replica in het externe Datacenter maakt deel uit van de beschikbaarheidsgroep
 
 Bij voorkeur, werk de client-verbindingsreeksen om in te stellen `MultiSubnetFailover=Yes`. Zie [verbinding te maken met MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
 
-Als u de verbindingsreeksen niet wijzigen, configureert u de naam van het probleem zou moeten opslaan in cache. Zie [verbindingstime-outs in meerdere subnetten beschikbaarheidsgroep](https://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
+Als u de verbindingsreeksen niet wijzigen, configureert u de naam van het probleem zou moeten opslaan in cache. Zie [time-outfout optreedt en u geen verbinding maken met een SQL Server 2012 AlwaysOn-listener voor beschikbaarheidsgroep in een omgeving met meerdere subnetten](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
 ## <a name="fail-over-to-remote-region"></a>Failover naar een externe regio
 
@@ -165,7 +165,7 @@ Als u wilt testen listener de verbinding met de externe regio, kunt u voor de re
 
 Nadat het testen van de connectiviteit, de primaire replica terug verplaatsen naar uw primaire datacenter en stel de beschikbaarheidsmodus terug naar de normale operationele instellingen. De volgende tabel ziet u de normale operationele instellingen voor de architectuur die worden beschreven in dit document:
 
-| Location | Server-exemplaar | Rol | Modus voor beschikbaarheid | Failover-modus
+| Locatie | Server-exemplaar | Rol | Modus voor beschikbaarheid | Failover-modus
 | ----- | ----- | ----- | ----- | -----
 | Primaire Datacenter | SQL-1 | Primair | Synchrone | Automatisch
 | Primaire Datacenter | SQL-2 | Secundair | Synchrone | Automatisch

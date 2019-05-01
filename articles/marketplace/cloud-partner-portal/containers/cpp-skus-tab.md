@@ -1,25 +1,18 @@
 ---
-title: SKU's voor een Azure Containers-installatiekopie | Microsoft Docs
+title: SKU's voor een Azure Containers-installatiekopie | Azure Marketplace
 description: SKU's voor een Azure-container configureren.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 81f7e46e626bb061881be53e8cace36e1478e0e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 6953329bfabe99fc4bb28f2494cb412ba9cbbba0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472816"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942910"
 ---
 # <a name="container-skus-tab"></a>Container-SKU's tabblad
 
@@ -38,11 +31,13 @@ Wanneer u het maken van een nieuwe aanbieding start, er zijn niet alle SKU's die
     -   SKU-metagegevens
     -   Metagegevenscontainer
 
+
 ### <a name="sku-metadata"></a>SKU-metagegevens
 
 De SKU-metagegevens bevat storefront weergave-informatie voor de container-aanbieding.
 
 ![SKU-metagegevens](./media/containers-sku-details.png)
+
 
 ### <a name="container-metadata"></a>Metagegevenscontainer
 
@@ -50,29 +45,31 @@ De containermetagegevens van de heeft de referentie-informatie van de gegevens v
 
 ![Metagegevenscontainer](./media/containers-image-repository.png)
     
-De **installatiekopie opslagplaats Details** in het vorige scherm vastleggen van de volgende velden bevat:
+De **installatiekopie opslagplaats Details** in het vorige scherm vastleggen van de volgende velden bevat.  Verplichte velden zijn indicted met een asterisk (*).
 
--   **Abonnements-ID** -de Azure abonnements-ID waarin de ACR zich bevindt.
--   **De naam van resourcegroep** -naam van de resourcegroep van de ACR.
--   **Naam van het containerregister** -de ACR-naam.
--   **Naam van de opslagplaats** -naam van de opslagplaats. Nadat deze naam is ingesteld, kan deze waarde kan niet worden gewijzigd. Gebruik een unieke naam om te voorkomen dat een conflict met andere aanbiedingen in uw account.
--   **Gebruikersnaam** -de gebruikersnaam (admin-username) de ACR-installatiekopie.
--   **Wachtwoord** -het wachtwoord dat is gekoppeld aan de ACR-installatiekopie.
+-   **Abonnements-ID\***  -de Azure abonnements-ID waarin de ACR zich bevindt.
+-   **De naam van resourcegroep\***  -naam van de resourcegroep van de ACR.
+-   **Naam van het containerregister\***  -de ACR-naam.
+-   **Naam van de opslagplaats\***  -naam van de opslagplaats. Nadat deze naam is ingesteld, kan deze waarde kan niet worden gewijzigd. Gebruik een unieke naam om te voorkomen dat een conflict met andere aanbiedingen in uw account.
+-   **Gebruikersnaam\***  -de gebruikersnaam (admin-username) de ACR-installatiekopie.
+-   **Wachtwoord\***  -het wachtwoord dat is gekoppeld aan de ACR-installatiekopie.
 
     >[!NOTE]
     >De gebruikersnaam en wachtwoord zijn vereist om ervoor te zorgen dat partners toegang tot de ACR vermeld in het publicatieproces hebben.
+
 
 ### <a name="image-version"></a>Installatiekopieversie
 
 Bij het publiceren van een containerinstallatiekopie, kunt u een of meer installatiekopielabels opgeven en SHA verwerkingen.
 
-**Tag Image- of Samenvattingsupdates**
+**Tag Image\* of Digest**
  
 - Deze tag- of samenvattingsupdates moet bevatten een `latest` tag en een versietag (bijvoorbeeld beginnen met `xx.xx.xx-` waarbij xx is een getal). Ze moeten [manifest tags](https://github.com/estesp/manifest-tool) om u te richten op meerdere platforms. Alle tags waarnaar wordt verwezen door een manifest tag moeten ook worden toegevoegd, zodat we kunnen het uploaden. 
 - U kunt verschillende versies van de container met behulp van labels toevoegen. Alle tags manifest (met uitzondering van `latest`) moet beginnen met een `X.Y-` of `X.Y.Z-` waarbij X, Y, Z gehele getallen zijn. <br/> Bijvoorbeeld, als een `latest` label verwijst naar `1.0.1-linux-x64`, `1.0.1-linux-arm32`, en `1.0.1-windows-arm32`, deze tags moeten hier niet worden toegevoegd.
 
 >[!NOTE]
 >Houd er rekening mee om toe te voegen een **tag testen** aan de installatiekopie, zodat u de installatiekopie tijdens het testen identificeren kunt.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

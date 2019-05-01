@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60812811"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867707"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Gegevens ophalen uit utterance tekst met intenties en entiteiten
 LUIS biedt u de mogelijkheid informatie ophalen van natuurlijke taal-uitingen van een gebruiker. De informatie wordt opgehaald op een manier dat deze kan worden gebruikt door een programma, toepassing of bot chatten om actie te ondernemen. In de volgende secties meer informatie over welke gegevens worden geretourneerd door intenties en entiteiten met voorbeelden van JSON.
@@ -441,7 +441,7 @@ Als u de eenvoudige entiteit gebruikt, zorg ervoor dat u voorbeelden gegeven die
 
 ### <a name="names-of-places"></a>Namen van plaatsen
 
-Locatienamen zijn ingesteld en bekend zijn, zoals steden, regio's, Staten, provincies en landen. De vooraf gedefinieerde entiteit **[geographyV2](luis-reference-prebuilt-geographyv2.md)** om locatie-informatie te extraheren.
+Locatienamen zijn ingesteld en bekend zijn, zoals steden, regio's, Staten, provincies en landen/regio's. De vooraf gedefinieerde entiteit **[geographyV2](luis-reference-prebuilt-geographyv2.md)** om locatie-informatie te extraheren.
 
 ### <a name="new-and-emerging-names"></a>Nieuwe en opkomende namen
 

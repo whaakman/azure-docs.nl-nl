@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb426eb15d20a4bbd628897ed1c3b29c37f32afd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412129"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723301"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedure: Configureren van de rol claim uitgegeven in het SAML-token voor bedrijfstoepassingen
 
@@ -152,7 +152,7 @@ Als uw toepassing wordt verwacht dat de aangepaste rollen in een SAML-antwoord w
 
 8. Update de **kenmerken** tabel voor het definiëren van een aangepaste toewijzing van de rol-claim.
 
-9. In de **gebruikerskenmerken en Claims** sectie van de **eenmalige aanmelding** dialoogvenster vak, configureren van het kenmerk van SAML-token, zoals weergegeven in de afbeelding en voer de volgende stappen uit.
+9. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
 
     | De naam van kenmerk | De waarde van kenmerk |
     | -------------- | ----------------|
@@ -161,11 +161,11 @@ Als uw toepassing wordt verwacht dat de aangepaste rollen in een SAML-antwoord w
     >[!NOTE]
     >Als de claimwaarde rol null is, klikt u vervolgens Azure AD ontvangt deze waarde in het token en dit is standaard aan de hand van ontwerp.
 
-    a. Klik op **bewerken** te openen **gebruikerskenmerken** dialoogvenster.
+    a. Klik op **bewerken** pictogram openen **gebruikerskenmerken en Claims** dialoogvenster.
 
       ![Knop 'Kenmerk toevoegen'](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Selecteer **kenmerk toevoegen** openen de **gebruikersclaims beheren** deelvenster.
+    b. In de **beheren gebruikersclaims** dialoogvenster het kenmerk van SAML-token toevoegen door te klikken op **toevoegen nieuwe claim**.
 
       ![Knop 'Kenmerk toevoegen'](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 

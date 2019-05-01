@@ -1,24 +1,22 @@
 ---
 title: API's voor het automatiseren van Azure-reservering | Microsoft Docs
 description: Meer informatie over de Azure API's die u gebruiken kunt via een programma om reserveringsinformatie te verkrijgen.
-documentationcenter: ''
 author: yashesvi
 manager: yashesvi
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 04/25/2019
 ms.author: banders
-ms.openlocfilehash: 246278df61d4f13e2634a1cdfc5ff6b635cecbbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d63f9a393dbb40c3b0952eba9ab9449fd7b558d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371203"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702621"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API's voor het automatiseren van Azure-reservering
 
@@ -32,7 +30,38 @@ U kunt ook uw Resourcegebruik analyseren met behulp van de Gebruiksdetails van h
 
 ## <a name="buy-a-reservation"></a>Een reservering kopen
 
-U kan niet via een programma op dat moment een reservering kopen. Als u wilt een reservering kopen, Zie de volgende artikelen:
+U kunt Azure-reserveringen en software-abonnement via een programma aanschaffen met behulp van REST-API's. Zie voor meer informatie, [Reserveringsorder - aankoop API](/rest/api/reserved-vm-instances/reservationorder/purchase).
+
+Hier volgt een voorbeeld van een aanvraag om aan te schaffen met behulp van de REST-API:
+
+```
+PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
+```
+
+Aanvraagtekst:
+
+```
+{
+ "sku": {
+    "name": "standard_D1"
+  },
+ "location": "westus",
+ "properties": {
+    "reservedResourceType": "VirtualMachines",
+    "billingScopeId": "/subscriptions/ed3a1871-612d-abcd-a849-c2542a68be83",
+    "term": "P1Y",
+    "quantity": "1",
+    "displayName": "TestReservationOrder",
+    "appliedScopes": null,
+    "appliedScopeType": "Shared",
+    "reservedResourceProperties": {
+      "instanceFlexibility": "On"
+    }
+  }
+}
+```
+
+U kunt ook een reservering in de portal voor Azure kopen. Raadpleeg voor meer informatie de volgende artikelen:
 
 Service-plannen:
 - [Virtuele machine](../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)

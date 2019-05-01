@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 981ffce34c56f4becee2ed0c72da72baa220e395
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fbc5a149e59bff1897d3949185272e9ca664f989
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020250"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717823"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# referentie voor ontwikkelaars
 
@@ -54,7 +54,7 @@ FunctionsProject
 
 Er is een gedeelde [host.json](functions-host-json.md) -bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een eigen codebestand (.fsx) en de binding-configuratiebestand (function.json).
 
-De binding-extensies vereist in [versie 2.x](functions-versions.md) van de functies runtime zijn gedefinieerd in de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](./functions-bindings-register.md#local-development-azure-functions-core-tools). Bij het ontwikkelen van functies in Azure portal, geldt deze registratie voor u.
+De binding-extensies vereist in [versie 2.x](functions-versions.md) van de functies runtime zijn gedefinieerd in de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Bij het ontwikkelen van functies in Azure portal, geldt deze registratie voor u.
 
 ## <a name="binding-to-arguments"></a>Binding met argumenten
 Elke binding ondersteunt een enkele set argumenten, zoals beschreven in de [Azure Functions-triggers en bindingen naslaginformatie](functions-triggers-bindings.md). Een van de bindingen van het argument biedt ondersteuning voor een blobtrigger is bijvoorbeeld een POCO, die kan worden uitgedrukt met behulp van een F# record. Bijvoorbeeld:

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 28f2b395c7f9be1b194b500ef20456be8ff405b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 039b0951484a6bf57703d9a91d604c9c5e5c9a66
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021265"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571170"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-Python
 
@@ -28,7 +28,7 @@ In dit artikel bevat een inleiding tot het ontwikkelen van Azure Functions met b
 
 ## <a name="programming-model"></a>Programmeermodel
 
-Een Azure-functie moet een stateless methode in uw Python-script waarmee invoer worden verwerkt en geeft een resultaat. Standaard de runtime wordt verwacht dat deze optie om te worden geïmplementeerd als een algemene methode met de naam `main()` in de `__init__.py` bestand.
+Een Azure-functie moet een stateless methode in uw Python-script waarmee invoer worden verwerkt en geeft een resultaat. Standaard de runtime wordt verwacht dat de methode om te worden geïmplementeerd als een algemene methode met de naam `main()` in de `__init__.py` bestand.
 
 U kunt de standaard-configuratie wijzigen door op te geven de `scriptFile` en `entryPoint` eigenschappen in de `function.json` bestand. Bijvoorbeeld, de _function.json_ hieronder vertelt de runtime te gebruiken de _customentry()_ methode in de _main.py_ bestand, als het toegangspunt voor uw Azure-functie.
 
@@ -109,15 +109,16 @@ Gedeelde code moet worden opgeslagen in een afzonderlijke map. Als u wilt verwij
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Bindinguitbreidingen die worden gebruikt door de Functions-runtime worden gedefinieerd de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](./functions-bindings-register.md#local-development-azure-functions-core-tools) met behulp van Azure Functions Core Tools. 
+Bindinguitbreidingen die worden gebruikt door de Functions-runtime worden gedefinieerd de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles) met behulp van Azure Functions Core Tools. 
 
 Wanneer een Functions-project naar uw functie-app in Azure implementeert, moet de volledige inhoud van de map FunctionApp worden opgenomen in het pakket, maar niet de map zelf.
 
-## <a name="inputs"></a>Invoer
+## <a name="triggers-and-inputs"></a>Triggers en -invoer
 
-Invoer zijn onderverdeeld in twee categorieën in Azure Functions: invoer voor de werkstroomtrigger en aanvullende invoer. Hoewel ze in verschillende zijn `function.json`, de syntaxis is vrijwel identiek in Python-code. We houden het volgende codefragment als voorbeeld:
+Invoer zijn onderverdeeld in twee categorieën in Azure Functions: invoer voor de werkstroomtrigger en aanvullende invoer. Hoewel ze in verschillende zijn `function.json`, de syntaxis is vrijwel identiek in Python-code.  Verbindingsreeksen voor trigger en invoer bronnen moeten worden toegewezen aan de waarden in de `local.settings.json` lokaal bestand en de toepassingsinstellingen bij uitvoering in Azure. We houden het volgende codefragment als voorbeeld:
 
 ```json
+// function.json
 {
   "scriptFile": "__init__.py",
   "bindings": [
@@ -139,7 +140,19 @@ Invoer zijn onderverdeeld in twee categorieën in Azure Functions: invoer voor d
 }
 ```
 
+```json
+// local.settings.json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "<azure-storage-connection-string>"
+  }
+}
+```
+
 ```python
+# __init__.py
 import azure.functions as func
 import logging
 
@@ -149,7 +162,8 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Wanneer de functie is aangeroepen, de HTTP-aanvraag wordt doorgegeven aan de functie als `req`. Een vermelding wordt opgehaald uit de Azure Blob-opslag op basis van de _id_ in de URL van de route en beschikbaar gesteld als `obj` in de hoofdtekst van de functie.
+Wanneer de functie is aangeroepen, de HTTP-aanvraag wordt doorgegeven aan de functie als `req`. Een vermelding wordt opgehaald uit de Azure Blob-opslag op basis van de _ID_ in de URL van de route en beschikbaar gesteld als `obj` in de hoofdtekst van de functie.  Hier het opslagaccount dat is opgegeven wordt de verbindingsreeks gevonden `AzureWebJobsStorage` die hetzelfde opslagaccount die worden gebruikt door de functie-app is.
+
 
 ## <a name="outputs"></a>Uitvoer
 

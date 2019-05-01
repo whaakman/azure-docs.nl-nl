@@ -1,42 +1,46 @@
 ---
-title: JavaScript en pagina ondersteuningscontract versies voor gebruikersstromen in Azure Active Directory B2C | Microsoft Docs
-description: Informatie over het inschakelen van JavaScript en pagina contract versies gebruiken om aan te passen van de gebruikersstroom van een in Azure Active Directory B2C.
+title: JavaScript en pagina ondersteuningscontract versies - Azure Active Directory B2C | Microsoft Docs
+description: Leer hoe u JavaScript inschakelen en gebruiken van pagina contract versies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 04/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5102755c9e830f43fa92e8546e5125960e0a2f9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 91b4b621fc3dcedb52f88372fbfac222a744dbd1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360221"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570627"
 ---
-# <a name="about-using-javascript-and-page-contract-versions-in-a-user-flow"></a>Over het gebruik van JavaScript en pagina contract versies in een gebruikersstroom
+# <a name="javascript-and-page-contract-versions-in-azure-active-directory-b2c"></a>JavaScript en pagina ondersteuningscontract versies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD B2C biedt een set verpakte inhoud met HTML, CSS en JavaScript voor de gebruikersinterface-elementen in uw gebruikersstromen. Als u van plan bent om in te schakelen [JavaScript](javascript-samples.md) client-side-code in uw stromen, moet u zorgen dat de elementen die u baseert uw JavaScript op onveranderbare zijn. Anders kunnen wijzigingen onverwacht gedrag veroorzaken voor uw gebruiker stroom pagina's. U kunt om te voorkomen dat deze problemen, het gebruik van een pagina-contract voor een beleid afdwingen en de versie van een contract opgeven. Dit zorgt ervoor dat de inhoud definities die u hebt uw JavaScript op basis van onveranderbare zijn. Zelfs als u niet van plan bent JavaScript inschakelen voor een beleid, kunt u de versie van een contract voor uw stroom gebruiker's.
+Azure AD B2C biedt een set verpakte inhoud met HTML, CSS en JavaScript voor de gebruikersinterface-elementen in uw gebruikersstromen en een aangepast beleid. JavaScript inschakelen voor uw toepassingen, moet u een element dat u wilt toevoegen de [aangepast beleid](active-directory-b2c-overview-custom.md) of inschakelen in de portal voor gebruikersstromen, selecteer een pagina-contract en gebruik [b2clogin.com](b2clogin.md) in uw aanvragen.
 
-> [!NOTE]
-> Dit artikel wordt JavaScript voor gebruikersstromen, maar u kunt ook JavaScript gebruiken en pagina contract versies selecteren wanneer u [aangepast beleid](page-contract.md).
+Als u van plan bent om in te schakelen [JavaScript](javascript-samples.md) client-side-code, moet u zorgen dat de elementen die u baseert uw JavaScript op onveranderbare zijn. Anders kunnen wijzigingen onverwacht gedrag veroorzaken op de pagina's van gebruiker. U kunt om te voorkomen dat deze problemen, het gebruik van een pagina-contract afdwingen en de versie van een contract opgeven. Dit zorgt ervoor dat de inhoud definities die u hebt uw JavaScript op basis van onveranderbare zijn. Zelfs als u niet van plan bent JavaScript inschakelen, kunt u de versie van een contract voor de pagina's.
 
-## <a name="enable-javascript"></a>JavaScript inschakelen
+## <a name="user-flows"></a>Gebruikersstromen
 
 In de eigenschappen van de gebruikersstroom schakelt u JavaScript, die zorgt er tevens voor het gebruik van een pagina-contract. Vervolgens kunt u de versie van de overeenkomst pagina zoals beschreven in de volgende sectie instellen.
 
-![JavaScript is ingeschakeld](media/user-flow-javascript-overview/javascript-settings.PNG)
-
-## <a name="specify-a-page-contract-version"></a>De versie van een contract opgeven
+![JavaScript is ingeschakeld](media/user-flow-javascript-overview/javascript-settings.png)
 
 Al dan niet u JavaScript in de eigenschappen van de gebruikersstroom inschakelt, kunt u de versie van een contract voor uw stroom gebruiker's. Open de gebruikersstroom en selecteer **pagina-indelingen**. Onder **naam van de indeling**, selecteert u een stroom op de gebruikerspagina en kies de **pagina Contract versie**.
 
-![JavaScript is ingeschakeld](media/user-flow-javascript-overview/page-contract-version.PNG)
+![JavaScript is ingeschakeld](media/user-flow-javascript-overview/page-contract-version.png)
+
+## <a name="custom-policies"></a>Aangepast beleid
+
+JavaScript inschakelen in het aangepaste beleid, die u toevoegt de **ScriptExecution** element op de **RelyingParty** -element in het aangepaste beleidsbestand. Zie voor meer informatie, [JavaScript-voorbeelden voor gebruik in Azure Active Directory B2C](javascript-samples.md).
+
+Al dan niet u JavaScript in uw aangepast beleid inschakelt, kunt u de versie van een contract voor de pagina's. Zie voor meer informatie over het opgeven van een contract pagina [selecteert u een pagina-contract in Azure Active Directory B2C met behulp van aangepaste beleidsregels](page-contract.md).
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Zie de [JavaScript-voorbeelden voor gebruik in Azure Active Directory B2C](javascript-samples.md).

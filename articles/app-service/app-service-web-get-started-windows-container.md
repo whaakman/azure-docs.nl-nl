@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 04/12/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c1b3282417cd95f1aaff472890ec655e4c5a983f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 089334d32ca54035abfbf59446366ecbe3378c15
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852848"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919744"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Een aangepaste Windows-container uitvoeren in Azure (Preview)
 
@@ -178,7 +178,7 @@ Als u wilt dat App Service de nieuwe installatiekopie ophaalt uit Docker Hub, mo
 
 U mag ook een andere aangepaste Docker-installatiekopie gebruiken om de app uit te voeren. Kies echter wel de juiste [bovenliggende installatiekopie](https://docs.docker.com/develop/develop-images/baseimages/) voor het gewenste framework: 
 
-- Voor het implementeren van .NET Framework-apps, gebruikt u een bovenliggende installatiekopie op basis van de Windows Server Core-2019 [Long-Term Servicing-kanaal (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) release. 
+- Voor het implementeren van .NET Framework-apps, gebruikt u een bovenliggende installatiekopie op basis van de Windows Server Core-2019 [Long-Term Servicing-kanaal (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) release. 
 - Voor het implementeren van .NET Core-apps, gebruikt u een bovenliggende installatiekopie op basis van de Windows Server Nano 1809 [semi-Annual Servicing-kanaal (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) release. 
 
 Het duurt enige tijd om een bovenliggende installatiekopie te downloaden tijdens het opstarten van de app. U kunt deze opstarttijd echter verminderen door een van de volgende bovenliggende installatiekopieën te gebruiken die al in cache zijn opgeslagen in Azure App Service:

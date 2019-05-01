@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: dc2e2f010de3dfe265cddbbaa6c050d081bd05dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a1fe8929b5ae39c82850aa08899c7b3e6bb98c7e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464919"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725303"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Service-principals met AKS (Azure Kubernetes Service)
 
@@ -126,7 +126,7 @@ Houd rekening met het volgende wanneer u werkt met AKS en Azure AD-service-princ
 - Standaard zijn de referenties voor de service-principal geldig voor één jaar. U kunt [bijwerken of de referenties voor de service-principal draaien] [ update-credentials] op elk gewenst moment.
 - Elke service-principal is gekoppeld aan een Azure AD-toepassing. De service-principal voor een Kubernetes-cluster kan zijn gekoppeld aan elke geldige Azure AD-toepassingsnaam (bijvoorbeeld *https://www.contoso.org/example*). De URL van de toepassing hoeft geen echt eindpunt te zijn.
 - Gebruik bij het opgeven van de **client-id** van de service-principal de waarde van de `appId`.
-- Op de hoofd- en knooppunt-VM's in het Kubernetes-cluster worden de referenties voor de service-principal opgeslagen in het bestand `/etc/kubernetes/azure.json`
+- Op de agent knooppunt VM's in het Kubernetes-cluster, de referenties voor de service-principal opgeslagen in het bestand `/etc/kubernetes/azure.json`
 - Wanneer u de opdracht [az aks create][az-aks-create] gebruikt om de service-principal automatisch te genereren, worden de referenties voor de service-principal naar het bestand `~/.azure/aksServicePrincipal.json` geschreven op de computer die wordt gebruikt om de opdracht uit te voeren.
 - Wanneer u een AKS-cluster verwijdert dat is gemaakt met [az aks create][az-aks-create], wordt de automatisch gemaakte service-principal niet verwijderd.
     - Als u de service-principal wilt verwijderen, zoekt u *servicePrincipalProfile.clientId* op met een query. Vervolgens verwijdert u de service-principal met [az ad app delete][az-ad-app-delete]. Vervang de volgende brongroeps- en clusternamen door uw eigen waarden:

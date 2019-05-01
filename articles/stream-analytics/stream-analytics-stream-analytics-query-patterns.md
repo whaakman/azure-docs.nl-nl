@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 9c9a5f219af0d474e1608f98595abe027b894117
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ef302ecaa6defc6ac0dc1dd58d4f8acc0f2fd263
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001738"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711444"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Voorbeelden van algemene patronen voor het gebruik van Stream Analytics query
 
@@ -493,7 +493,7 @@ Bijvoorbeeld, Genereer een gebeurtenis om de vijf seconden die het meest recent 
 
 **Invoer**:
 
-| t | waarde |
+| t | value |
 | --- | --- |
 | "2014-01-01T06:01:00" |1 |
 | "2014-01-01T06:01:05" |2 |
@@ -537,7 +537,7 @@ Bijvoorbeeld in een IoT-scenario voor thuis weerstaan, een waarschuwing moet wor
 
 **Invoer**:
 
-| time | deviceId | sensorName | waarde |
+| time | deviceId | sensorName | value |
 | --- | --- | --- | --- |
 | "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
 | "2018-01-01T16:01:00" | "Oven1" | "power" |15 |
@@ -605,7 +605,7 @@ WHERE
 **Uitleg bij**: De eerste query `max_power_during_last_3_mins`, maakt gebruik van de [schuifregelaar venster](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) gezocht naar de maximale waarde van de sensor power voor elk apparaat tijdens de laatste 3 minuten. De tweede query is gekoppeld aan de eerste query gezocht naar de power waarde in het venster van de meest recente relevant zijn voor de huidige gebeurtenis. En vervolgens, mits de voorwaarden wordt voldaan, wordt een waarschuwing gegenereerd voor het apparaat.
 
 ## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Voorbeeld: Gebeurtenissen verwerken onafhankelijk van het apparaat klok scheeftrekken (substreams)
-**Beschrijving**: Gebeurtenissen kunnen worden gemeld of niet-geordende gevolg van tijdsverschillen tussen gebeurtenisproducers, klok Hiermee laat u overhellen tussen partities of netwerklatentie. In het volgende voorbeeld wordt de apparaatklok van uw voor TollID 2 is tien seconden achter TollID 1 en de apparaatklok van uw voor TollID 3 is vijf seconden na TollID 1. 
+**Beschrijving**: Gebeurtenissen kunnen worden gemeld of niet-geordende gevolg van tijdsverschillen tussen gebeurtenisproducers, klok Hiermee laat u overhellen tussen partities of netwerklatentie. In het volgende voorbeeld wordt de apparaatklok van uw voor TollID 2 is vijf seconden na TollID 1 en de apparaatklok van uw voor TollID 3 is tien seconden achter TollID 1. 
 
 
 **Invoer**:

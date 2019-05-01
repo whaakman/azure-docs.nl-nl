@@ -12,53 +12,41 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21f82dc0a1eb8edf571da13e0d34fecae5f401b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93ac5ef5f03f800a8f90259db3e382b3bc5c5e2c
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249717"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875645"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identiteit gegevensopslag voor Europese klanten in Azure Active Directory
-Azure Active Directory (Azure AD) helpt u bij het beheren van gebruikers-id's en informatie gebaseerd toegangsbeleid die helpen bij het beveiligen van resources van uw organisatie maken. Identiteitsgegevens worden opgeslagen op een locatie die uw bedrijf heeft opgegeven toen u zich hebt aangemeld bij de service. Bijvoorbeeld bij het abonneren op Office 365 of Azure. Voor specifieke informatie over waar uw identiteitsgegevens worden opgeslagen, kunt u het gedeelte [Waar bevinden uw gegevens zich?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) van het Microsoft Trust Center gebruiken.
+Id-gegevens wordt opgeslagen door Azure AD in een geografische locatie gebaseerd op het adres dat is geleverd door uw organisatie bij het abonneren op een Microsoft Online service, zoals Office 365 en Azure. Voor informatie over waar de identiteitsgegevens van uw worden opgeslagen, kunt u de [waar zijn uw gegevens zich?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) gedeelte van het Microsoft Trust Center.
 
-De meeste Azure AD-gerelateerde Europese identiteitsgegevens blijft in Europese datacenters, maar er zijn enkele operationele, servicespecifieke gegevens die zijn voor normale vereist Azure AD-bewerking, die worden opgeslagen in de Verenigde Staten en bevat geen persoonlijke gegevens.
+Voor klanten die voorzien van een adres in Europa, houdt de Azure AD de meeste van de identiteitsgegevens in Europese datacenters. Dit document bevat informatie over alle gegevens die zijn opgeslagen buiten Europa door Azure AD-services.
 
-## <a name="data-stored-outside-of-european-datacenters-for-european-customers"></a>Gegevens die zijn opgeslagen buiten de Europese datacenters voor Europese klanten
-
-De meeste Azure Active Directory-gerelateerde Europese identiteitsgegevens, voor organisaties met adressen in Europa, blijven in Europese datacenters. Azure AD-gegevens die worden opgeslagen in Europese datacenters, en tevens worden gerepliceerd naar de datacenters in de Verenigde Staten, omvat:
-
-- **Microsoft Azure Multi-Factor Authentication (MFA) en Azure AD Self-Service Password Reset (SSPR)**
+## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure multi-factor authentication (MFA)
     
-    MFA slaat alle gebruikersgegevens in rust op in Europese datacenters. Bepaalde gegevens die specifiek zijn voor MFA worden echter opgeslagen in de Verenigde Staten, met inbegrip van:
+- Alle tweeledige verificatie met behulp van telefoongesprekken of SMS-afkomstig zijn uit de Amerikaanse datacentra en ook door leveranciers worden gerouteerd.
+- Pushmeldingen verzenden met behulp van de Microsoft Authenticator app afkomstig zijn van ons datacenters. Apparaat de leverancier van specifieke services kunnen bovendien ook afkomstig zijn in de play en deze services mogelijk buiten Europa.
+- OATH-codes worden altijd gevalideerd in de Verenigde Staten. 
+
+## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
+
+Azure AD B2C-beleid-configuratiegegevens en -sleutelcontainers worden opgeslagen in Amerikaanse datacentra. Deze bevatten geen persoonlijke gegevens van elke gebruiker. Zie voor meer informatie over configuraties voor beleid voor de [Azure Active Directory B2C: Ingebouwd beleid](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) artikel.
+
+## <a name="microsoft-azure-active-directory-b2b-azure-ad-b2b"></a>Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
-    - Tweeledige verificatie en de bijbehorende persoonlijke gegevens worden mogelijk opgeslagen in de VS als u MFA of SSPR gebruikt.
+Azure AD B2B-winkels uitnodigingen met verzilveren koppelen en Omleidings-URL-gegevens in Amerikaanse datacentra. Bovendien worden de e-mailadres van gebruikers die af voor B2B uitnodigingen ontvangen ook opgeslagen in Amerikaanse datacentra.
 
-        - Alle tweeledige verificatie met behulp van telefoongesprekken of SMS kan worden uitgevoerd door Amerikaanse providers.
-    
-        - Pushmeldingen verzenden met behulp van de Microsoft Authenticator-app vereist meldingen van een notificatieservice van de fabrikant (Apple of Google), die zich mogelijk buiten Europa bevindt.
-    
-        - OATH-codes worden altijd gevalideerd in de Verenigde Staten. 
-    
-    - Sommige MFA- en SSPR-logboeken worden voor 30 dagen opgeslagen in de Verenigde Staten, ongeacht het verificatietype.
+## <a name="microsoft-azure-active-directory-domain-services-azure-ad-ds"></a>Microsoft Azure Active Directory Domain Services (Azure AD DS)
 
-- **Microsoft Azure Active Directory B2C (Azure AD B2C)**
+Azure Active Directory Domain Services slaat gebruikersgegevens op dezelfde locatie op als het door de klant geselecteerde Azure Virtual Network. Dus als het netwerk zich buiten Europa bevindt, worden de gegevens gerepliceerd en opgeslagen buiten Europa.
 
-    Azure AD B2C slaat alle gebruikersgegevens in rust op in Europese datacenters. Operationele logboeken (zonder persoonlijke gegevens) blijven echter op de locatie vanwaar de persoon toegang heeft tot de services. Bijvoorbeeld, als een B2C-gebruiker toegang heeft tot de service in de Verenigde Staten, blijven de operationele logboeken in de Verenigde Staten. Bovendien worden alle beleidsgegevens voor de configuratie zonder persoonsgegevens alleen in de Verenigde Staten opgeslagen. Zie voor meer informatie over configuraties voor beleid voor de [Azure Active Directory B2C: Ingebouwd beleid](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) artikel.
+## <a name="other-considerations"></a>Andere overwegingen
 
-- **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
-    
-    Azure Active Directory B2B slaat alle gebruikersgegevens in rust op in Europese datacenters. B2B slaat echter de niet-persoonlijke metagegevens op in tabellen in Amerikaanse datacentra. Deze tabel bevat velden als redeemUrl, invitationTicket, resource tenant Id, InviteRedirectUrl en InviterAppId.
+Services en toepassingen die kunnen worden geïntegreerd met Azure AD hebt toegang tot identiteitsgegevens. Elke service en toepassing die u gebruikt om te bepalen hoe identiteitsgegevens worden verwerkt door die specifieke service en de toepassing en of ze voldoen aan vereisten voor gegevensopslag van uw bedrijf evalueren.
 
-- **Microsoft Azure Active Directory Domain Services (Azure AD DS)**
-
-    Azure Active Directory Domain Services slaat gebruikersgegevens op dezelfde locatie op als het door de klant geselecteerde Azure Virtual Network. Dus als het netwerk zich buiten Europa bevindt, worden de gegevens gerepliceerd en opgeslagen buiten Europa.
-
-- **Services en toepassingen die zijn geïntegreerd met Azure Active Directory**
-
-    Alle services en apps die met Azure Active Directory zijn geïntegreerd, hebben toegang tot identiteitsgegevens. Evalueer elke service en app om te bepalen hoe identiteitsgegevens worden verwerkt door die specifieke service en app en of ze voldoen aan de vereisten voor gegevensopslag van uw bedrijf.
-
-    Zie de sectie [Waar bevinden uw gegevens zich?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) van het Microsoft Trust Center voor meer informatie over de gegevenslocatie van Microsoft-services.
+Zie de sectie [Waar bevinden uw gegevens zich?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) van het Microsoft Trust Center voor meer informatie over de gegevenslocatie van Microsoft-services.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen voor meer informatie over een van de functies en functionaliteit die hierboven worden beschreven:

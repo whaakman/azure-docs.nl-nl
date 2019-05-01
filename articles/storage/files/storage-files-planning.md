@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61095576"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574469"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 
@@ -77,26 +77,16 @@ Als u Azure File Sync gebruikt voor toegang tot uw Azure-bestandsshare, zullen w
 Azure Files biedt twee prestatielagen: standard en premium.
 
 * **Standard-bestandsshares** worden ondersteund door roterende harde schijven (HDD's) waarmee u betrouwbare prestaties voor i/o-werkbelastingen die minder gevoelig zijn voor variaties in prestaties, zoals voor algemeen gebruik-bestandsshares en dev/test-omgevingen. Standard-bestandsshares zijn alleen beschikbaar in een betalen per gebruik factureringsmodel.
-* **Premium-bestandsshares (preview)** worden ondersteund door SSD-schijven (SSD's) die consistent hoge prestaties en lage latentie en binnen enkele milliseconden voor de meeste i/o-bewerkingen voor de meeste i/o-intensieve workloads. Hierdoor kunt u ze geschikt zijn voor een groot aantal workloads, zoals databases, website hosting, ontwikkelomgevingen, enzovoort. Premium-bestandsshares zijn alleen beschikbaar in een ingerichte factureringsmodel. Premium-bestandsshares gebruiken een implementatiemodel gescheiden van de standard-bestandsshares. Als u wilt meer informatie over het maken van een premium-bestandsshare, raadpleegt u ons artikel over dit onderwerp: [Over het maken van een premium Azure file storage-account](storage-how-to-create-premium-fileshare.md).
+* **Premium-bestandsshares (preview)** worden ondersteund door SSD-schijven (SSD's) die consistent hoge prestaties en lage latentie en binnen enkele milliseconden voor de meeste i/o-bewerkingen voor de meeste i/o-intensieve workloads. Hierdoor kunt u ze geschikt zijn voor een groot aantal workloads, zoals databases, website hosting, ontwikkelomgevingen, enzovoort. Premium-bestandsshares zijn alleen beschikbaar in een ingerichte factureringsmodel. Premium-bestandsshares gebruiken een implementatiemodel gescheiden van de standard-bestandsshares.
+
+Azure Backup is beschikbaar voor premium-bestandsshares en Azure Kubernetes Service biedt ondersteuning voor premium-bestandsshares in versie 1.13 en hoger.
+
+Als u wilt meer informatie over het maken van een premium-bestandsshare, raadpleegt u ons artikel over dit onderwerp: [Over het maken van een premium Azure file storage-account](storage-how-to-create-premium-fileshare.md).
+
+U kunt geen op dit moment rechtstreeks converteren tussen een standard-bestandsshare en een premium-bestandsshare. Als u wilt overschakelen naar een laag, moet u een nieuwe bestandsshare maken in die laag en de gegevens van uw oorspronkelijke share handmatig kopiëren naar de nieuwe share die u hebt gemaakt. U kunt dit doen met behulp van een van de ondersteunde Azure-bestanden kopiëren's, zoals AzCopy.
 
 > [!IMPORTANT]
-> Premium-bestand shares zijn nog in preview, alleen beschikbaar met LRS, en zijn alleen beschikbaar in een subset van de regio's met Azure Backup-ondersteuning beschikbaar worden gesteld in regio's selecteren:
-
-|Beschikbare regio  |Ondersteuning van Azure back-up  |
-|---------|---------|
-|US - oost 2      | Ja|
-|US - oost       | Ja|
-|US - west       | Nee |
-|US - west 2      | Nee |
-|US - centraal    | Nee |
-|Europa - noord  | Nee |
-|Europa -west   | Ja|
-|Zuidoost-Azië       | Ja|
-|Azië - oost     | Nee |
-|Japan - oost    | Nee |
-|Japan - west    | Nee |
-|Korea - centraal | Nee |
-|Australië - oost| Nee |
+> Premium-bestandsshares zijn nog in opbouw, zijn alleen beschikbaar met LRS en zijn beschikbaar in de meeste regio's die worden geboden door storage-accounts. Als u wilt weten als premium-bestandsshares op dit moment beschikbaar in uw regio zijn, Zie de [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pagina voor Azure.
 
 ### <a name="provisioned-shares"></a>Ingerichte shares
 
@@ -115,7 +105,9 @@ Bestandsshares moeten worden ingericht in stappen van 1 GiB. Minimale grootte is
 >
 > inkomend verkeer snelheid = 40 MiB/s + 0,04 * ingericht GiB
 
-Grootte van de bestandsshare op elk gewenst moment kan worden vergroot, maar alleen na 24 uur sinds de laatste toename kan worden verlaagd. Na een wachttijd van 24 uur zonder een toename van de grootte, kunt u de grootte van de bestandsshare zo vaak verkleinen tot u het opnieuw verhoogt. IOPS/doorvoer wijzigingen worden van kracht binnen een paar minuten na het wijzigen van grootte.
+Grootte van de bestandsshare op elk gewenst moment kan worden vergroot, maar alleen na 24 uur sinds de laatste toename kan worden verlaagd. Na een wachttijd van 24 uur zonder een toename van de grootte, kunt u de grootte van de bestandsshare zo vaak als u wilt, totdat u deze opnieuw verhogen verminderen. IOPS/doorvoer wijzigingen worden van kracht binnen een paar minuten na het wijzigen van grootte.
+
+Het is mogelijk te verminderen van de grootte van uw ingerichte share hieronder uw gebruikte GiB. Als u dit doet, verliest u geen gegevens maar u wordt nog steeds gefactureerd voor de gebruikte grootte en de prestaties van de ingerichte share, niet de gebruikte grootte (basislijn IOPS, doorvoer en burst IOP's) te ontvangen.
 
 De volgende tabel ziet u enkele voorbeelden van deze formules voor de ingerichte share-grootten:
 
@@ -141,7 +133,7 @@ Premium-bestandsshares kunnen hun IOPS tot een factor van drie burst. Bursting i
 Tegoeden worden verzameld in een bucket burst wanneer verkeer voor de bestandsshare onder basislijn IOPS is. Een 100 GiB-share heeft bijvoorbeeld 100 basislijn IOPS. Als de werkelijke hoeveelheid verkeer op de share is 40 IOP's voor een bepaald interval van 1 seconde, worden de 60 ongebruikte IOPS gecrediteerd aan de bucket van een ' burst '. Dit tegoed wordt vervolgens later worden gebruikt wanneer bewerkingen wordt de basislijn IOPs overschreden.
 
 > [!TIP]
-> Grootte van de bucket burst Baseline_IOPS = * 2 * 3600.
+> Grootte van de bucket burst basislijn IOPS = * 2 * 3600.
 
 Wanneer een share is groter dan de basislijn IOPS en tegoed in een bucket burst heeft, wordt de stap over. Shares kunnen blijven om uit te breiden, zolang tegoed resterend, maar kleiner is dan 50 TiB shares alleen op de burst-limiet voor maximaal één uur blijft. Shares die groter is dan 50 TiB kunt technisch groter zijn dan deze limiet van één uur, van twee uur, maar dit is gebaseerd op het aantal burst tegoed productiewebservice. Elke i/o buiten basislijn IOPS een tegoed verbruikt en zodra alle tegoeden worden verbruikt, wordt de share terugkeert naar basislijn IOPS.
 

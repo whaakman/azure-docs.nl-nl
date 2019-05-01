@@ -2,17 +2,17 @@
 title: Azure HDInsight 3.6 Hive-workloads migreren naar HDInsight 4.0
 description: Leer hoe u Apache Hive-workloads in HDInsight 3.6 migreren naar HDInsight 4.0.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
+author: msft-tacox
+ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 04/15/2019
-ms.openlocfilehash: 144e0ada0ce3a15a5dcd13b31f46f50162750a74
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: b181edc08c51a5afa8682858b330acc84da7d73d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126559"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707011"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Azure HDInsight 3.6 Hive-workloads migreren naar HDInsight 4.0
 
@@ -98,6 +98,8 @@ In HDInsight 4.0, is met Beeline HiveCLI vervangen. HiveCLI is een thrift-client
 In HDInsight 3.6 is de GUI-client voor interactie met Hive-server de Ambari Hive-weergave. HDInsight 4.0 wordt vervangen door de Hive-weergave met Hortonworks Data Analytics Studio (DAS). DAS niet geleverd met HDInsight-clusters out-of-box en is niet een officieel ondersteund-pakket. Echter, DAS kan worden geïnstalleerd op het cluster als volgt:
 
 Start een scriptactie op basis van uw cluster, met 'Hoofdknooppunten' als het knooppunttype voor de uitvoering. Plak de volgende URI in het tekstvak gemarkeerd als 'Bash-Script URI': https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+
+Data Analytics Studio kan worden gestart met de URL: https://<clustername>.azurehdinsight.net/das/
 
 
 

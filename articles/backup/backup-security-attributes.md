@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cf012a452d1e43134d955e03ccf34e153b1282ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7bc4fd42f64bba09fd20fedf5e06dc30c3b2cc49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60253834"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64680805"
 ---
 # <a name="common-security-attributes-for-azure-backup"></a>Algemene beveiligingskenmerken voor Azure Backup
 
@@ -27,7 +27,7 @@ Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
 | Versleuteling-at-rest:<ul><li>Versleuteling aan de serverzijde</li><li>Versleuteling op de server met de klant beheerde sleutels</li><li>Andere versleutelingsfuncties (zoals client-side altijd versleuteld, enz.)</ul>| Ja | Met behulp van storage service-versleuteling voor opslagaccounts. |
-| Versleuteling tijdens overdracht:<ul><li>Express route-versleuteling</li><li>Vnet-versleuteling</li><li>VNet-VNet-versleuteling</ul>| Nee | Met behulp van HTTPS. |
+| Versleuteling tijdens overdracht:<ul><li>Express route-versleuteling</li><li>VNet-versleuteling</li><li>VNet-VNet-versleuteling</ul>| Nee | Met behulp van HTTPS. |
 | Versleuteling verwerking (CMK, BYOK, enz.)| Nee |  |
 | Versleuteling op kolom (Azure Data Services)| Nee |  |
 | API-aanroepen die zijn versleuteld| Ja |  |
@@ -37,7 +37,7 @@ Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
 | Ondersteuning voor service-eindpunt| Nee |  |
-| ondersteuning voor vNET-injectie| Nee |  |
+| Ondersteuning voor VNet-injectie| Nee |  |
 | Netwerkisolatie en ondersteuning netwerkfunctie| Ja | Geforceerde tunnels wordt ondersteund voor VM-back-up. Geforceerde tunneling wordt niet ondersteund voor workloads die worden uitgevoerd in virtuele machines. |
 | Geforceerde tunneling ondersteuning| Nee |  |
 
@@ -51,7 +51,7 @@ Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel
 
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Authentication| Ja | Verificatie is via Azure Active Directory. |
+| Verificatie| Ja | Verificatie is via Azure Active Directory. |
 | Autorisatie| Ja | Klanten die zijn gemaakt en ingebouwde RBAC-rollen worden gebruikt. Zie [Use Role-Based toegangsbeheer voor het beheren van Azure Backup-herstelpunten](/azure/backup/backup-rbac-rs-vault) voor meer informatie. |
 
 

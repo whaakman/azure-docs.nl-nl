@@ -9,12 +9,12 @@ ms.date: 12/05/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 306d0fb49cd9eca0f24e95088dfdb8403e66311c
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: c974e011e6f101eab617a370b24306f80c249b90
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63761566"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718415"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Zelfstudie: Een Azure Time Series Insights-omgeving maken
 
@@ -29,7 +29,7 @@ Deze zelfstudie begeleidt u bij het maken van een TSI-omgeving (Time Series Insi
 
 ## <a name="video"></a>Video
 
-In deze video laten we zien u hoe u een Azure IoT-oplossingsversneller kunt gebruiken om gegevens te genereren om aan de slag te gaan met Time Series Insights.
+### <a name="in-this-video-we-show-you-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-that-can-be-used-to-get-started-with-time-series-insights-br"></a>In deze video laten we zien u hoe u een Azure IoT-oplossingsversneller kunt gebruiken om gegevens te genereren om aan de slag te gaan met Time Series Insights. </br>
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 

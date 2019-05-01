@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d69ddbd38798d0667ce69fb7696597a972b5098
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16d20e9ea2203c788a2b7b5eb0507b357350407d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455612"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918506"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plan voor de levenscyclus van hybride identiteit
 Identiteit is een van de fundamenten van uw strategie voor enterprise mobility en de toepassing. Of u zich op uw mobiele apparaat of de SaaS-app, is uw identiteit de sleutel tot het verkrijgen van toegang tot alles. Op het hoogste niveau omvat een oplossing voor identiteitsbeheer werking en synchronisatie tussen uw opslagplaatsen voor identiteit, waaronder automatiseren en het proces van inrichting van resources te centraliseren. De oplossing voor identiteit moet de identiteit van een gecentraliseerde via on-premises en cloud en een vorm van identiteitsfederatie ook gebruiken om te onderhouden centrale verificatie en veilig delen en samenwerken met externe gebruikers en bedrijven. Bronnen variëren van besturingssystemen en toepassingen naar mensen in of gekoppeld aan een organisatie. Organisatiestructuur kan worden gewijzigd om te voldoen aan de inrichting beleidsregels en procedures.
@@ -32,7 +32,7 @@ Het is ook belangrijk dat u hebt een oplossing voor identiteit die is afgestemd 
 ## <a name="determine-hybrid-identity-management-tasks"></a>Beheertaken voor hybride identiteit bepalen
 Administratieve taken in uw organisatie distribueren verbetert de nauwkeurigheid en de effectiviteit van beheer en verbetert het saldo van de werkbelasting van een organisatie. Hieronder vindt u het gebruik van draaitabellen die een robuuste identiteitsbeheersysteem definiëren.
 
- ![](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
+ ![overwegingen voor het beheer van identiteit](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
 
 Voor het definiëren van beheertaken voor hybride identiteit, moet u enkele belangrijke kenmerken van de organisatie die vast te voor hybride identiteit stellen begrijpen. Het is belangrijk om te begrijpen van de huidige opslagplaatsen wordt gebruikt voor identiteit-bronnen. Door de wetenschap dat deze elementen core, wordt de fundamentele vereisten en op basis van dat u meer gedetailleerde vragen die u tot een betere ontwerpbeslissing voor uw oplossing voor identiteit leiden zal.  
 
@@ -61,7 +61,7 @@ Tijdens het definiëren van deze vereisten, zorg ervoor dat ten minste de volgen
 ## <a name="synchronization-management"></a>Synchronisatie Management
 Een van de doelstellingen van een id-beheer, kunnen alle id-providers en houdt deze gesynchroniseerd. Behouden van de gegevens worden gesynchroniseerd op basis van een gezaghebbende master id-provider. In een hybride identiteitsscenario, met een model gesynchroniseerde management alle gebruiker en apparaat-id's in een on-premises server beheren en synchroniseren van de accounts en, optioneel, wachtwoorden naar de cloud. De gebruiker voert de dezelfde on-premises wachtwoord als ze in de cloud doen, en bij het aanmelden, het wachtwoord wordt geverifieerd door de oplossing voor identiteit. Dit model maakt gebruik van een hulpprogramma voor directory-synchronisatie.
 
-![](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) Juiste ontwerp de synchronisatie van uw oplossing voor hybride identiteiten ervoor te zorgen dat de volgende vragen worden beantwoord: • wat zijn de synchronisatie-oplossingen beschikbaar zijn voor de oplossing voor hybride identiteit?
+![Directory-synchronisatie](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) om juiste ontwerp de synchronisatie van uw oplossing voor hybride identiteit te controleren dat de volgende vragen worden beantwoord: • wat zijn de synchronisatie-oplossingen beschikbaar zijn voor de oplossing voor hybride identiteit?
 • Wat zijn de mogelijkheden die beschikbaar zijn voor eenmalige aanmelding?
 • Wat zijn de opties voor identiteitsfederatie tussen B2B en B2C?
 

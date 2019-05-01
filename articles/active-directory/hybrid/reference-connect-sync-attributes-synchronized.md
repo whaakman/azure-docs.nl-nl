@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/24/2019
+ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7010ec16592fea2f530329916e00056ca03a70
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 4d32564808151c4895d2b3802fb48d2bd2d8f753
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096116"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729527"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synchronisatie: Kenmerken gesynchroniseerd naar Azure Active Directory
 In dit onderwerp worden de kenmerken die door Azure AD Connect-synchronisatie worden gesynchroniseerd.  
@@ -158,7 +158,6 @@ In dit geval beginnen met de lijst van kenmerken in dit onderwerp en identificer
 | pwdLastSet |X | | |mechanische eigenschap. Gebruikt om te weten wanneer u al uitgegeven tokens ongeldig te maken. Gebruikt door zowel Wachtwoordsynchronisatie en Federatie. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityEnabled | | |X |Afgeleid van groupType |
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | St |X |X | | |
@@ -241,7 +240,6 @@ In dit geval beginnen met de lijst van kenmerken in dit onderwerp en identificer
 | pwdLastSet |X | | |mechanische eigenschap. Gebruikt om te weten wanneer u al uitgegeven tokens ongeldig te maken. Gebruikt door de synchronisatie van wachtwoordhashes, pass-through-verificatie en Federatie. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityEnabled | | |X |Afgeleid van groupType |
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | St |X |X | | |
@@ -294,7 +292,6 @@ In dit geval beginnen met de lijst van kenmerken in dit onderwerp en identificer
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mechanische eigenschap. Gebruikt om te weten wanneer u al uitgegeven tokens ongeldig te maken. Gebruikt door de synchronisatie van wachtwoordhashes, pass-through-verificatie en Federatie. |
-| securityEnabled | | |X |Afgeleid van groupType |
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | St |X |X | | |
@@ -317,7 +314,6 @@ In dit geval beginnen met de lijst van kenmerken in dit onderwerp en identificer
 | objectSID |X | |X |mechanische eigenschap. AD gebruikers-id gebruikt voor het onderhouden van de synchronisatie tussen Azure AD en AD. |
 | proxyAddresses |X |X |X |mechanische eigenschap. Gebruikt door Azure AD. Bevat alle secundaire e-mailadressen van de gebruiker. |
 | pwdLastSet |X | | |mechanische eigenschap. Gebruikt om te weten wanneer u al uitgegeven tokens ongeldig te maken. |
-| securityEnabled | | |X |GroupType hiervan is afgeleid. |
 | sourceAnchor |X |X |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | usageLocation |X | | |mechanische eigenschap. Land van de gebruiker. Gebruikt voor het toewijzen van licenties. |
 | userPrincipalName |X | | |De UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
@@ -336,7 +332,6 @@ In dit geval beginnen met de lijst van kenmerken in dit onderwerp en identificer
 | objectSID |X | |X |mechanische eigenschap. AD gebruikers-id gebruikt voor het onderhouden van de synchronisatie tussen Azure AD en AD. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mechanische eigenschap. Gebruikt om te weten wanneer u al uitgegeven tokens ongeldig te maken. Gebruikt door de synchronisatie van wachtwoordhashes, pass-through-verificatie en Federatie. |
-| securityEnabled | | |X |Afgeleid van groupType |
 | sourceAnchor |X |X |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | usageLocation |X | | |mechanische eigenschap. Land van de gebruiker. Gebruikt voor het toewijzen van licenties. |
 | userPrincipalName |X | | |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
@@ -364,7 +359,6 @@ In dit geval beginnen met de lijst van kenmerken in dit onderwerp en identificer
 | Postcode |X |X | | |
 | preferredLanguage |X | | | |
 | pwdLastSet |X | | |mechanische eigenschap. Gebruikt om te weten wanneer u al uitgegeven tokens ongeldig te maken. Gebruikt door de synchronisatie van wachtwoordhashes, pass-through-verificatie en Federatie. |
-| securityEnabled | | |X |Afgeleid van groupType |
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | St |X |X | | |

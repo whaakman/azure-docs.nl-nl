@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f851fd2857650dd00e365abf71ec5f0199db6d57
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738133"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711581"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
 
@@ -78,6 +78,9 @@ else
 ### <a name="time-dependant-scripts"></a>Tijd afhankelijke scripts
 
 Met een zorgvuldige afweging moet worden gemaakt bij het ontwerpen van runbooks. Zoals eerder vermeld, wordt runbooks moet worden gemaakt op een manier die ze robuuste en tijdelijke fouten die kunnen ertoe leiden dat het runbook op te starten of het mislukken kan verwerken. Als een runbook is mislukt, wordt de opnieuw uitgevoerd. Als een runbook wordt normaal uitgevoerd binnen een tijdsbeperking van de, worden alleen tijdens bepaalde uren logica voor het controleren de uitvoeringstijd weer die moeten worden geïmplementeerd in het runbook om te controleren of bewerkingen, zoals starten, afsluiten of uitschalen uitgevoerd.
+
+> [!NOTE]
+> De lokale tijd op het Azure sandbox-proces is ingesteld op UTC-tijd. Berekeningen voor datum en tijd in uw runbooks moeten dit rekening mee te houden.
 
 ### <a name="tracking-progress"></a>De voortgang volgen
 

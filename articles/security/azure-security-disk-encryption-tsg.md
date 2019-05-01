@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4715ec92c4ee45733cc0eb2839c533f9ee8968fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490032"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694116"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Disk Encryption
 
@@ -52,7 +52,7 @@ uname -a
 
 ## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Azure Virtual Machineagent en -extensies met versie bijwerken
 
-Azure Disk Encryption-bewerkingen mislukken mogelijk bij de installatiekopieën van virtuele machines met een niet-ondersteunde versie van de Azure VM-Agent. Raadpleeg voor meer informatie, [minimaal versie-ondersteuning voor agents van de virtuele machine in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).  
+Azure Disk Encryption-bewerkingen mislukken mogelijk bij de installatiekopieën van virtuele machines met een niet-ondersteunde versie van de Azure VM-Agent. Linux-installatiekopieën met agent-versies ouder dan 2.2.38 moeten worden bijgewerkt voordat versleuteling werd ingeschakeld. Zie voor meer informatie, [het bijwerken van de Azure Linux Agent op een virtuele machine](../virtual-machines/extensions/update-linux-agent.md) en [minimaal versie-ondersteuning voor agents van de virtuele machine in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 De juiste versie van de Microsoft.Azure.Security.AzureDiskEncryption of Microsoft.Azure.Security.AzureDiskEncryptionForLinux guest agent-extensie is ook vereist. Extensie-versies worden onderhouden en automatisch wordt bijgewerkt door het platform als Azure virtuele Machine agent vereisten is voldaan en er een ondersteunde versie van de virtuele machine-agent wordt gebruikt.
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: eb398ad621167ad9f9b245fb8aa98c6942b87668
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 344f3a8b1bdfb789251479baffeb4df15bbf2842
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557424"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718357"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Shapegebeurtenissen met de Azure Time Series Insights Preview
 
@@ -129,6 +129,6 @@ In het voorgaande voorbeeld, houd rekening met de volgende punten:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Om deze richtlijnen in de praktijk, Zie [Azure Time Series Insights Preview querysyntaxis](./time-series-insights-query-data-csharp.md). Leert u dat meer informatie over de query-syntaxis voor de gegevens van de Time Series Insights Preview REST-API toegang.
+- Om deze richtlijnen in de praktijk, Zie [Azure Time Series Insights Preview querysyntaxis](./time-series-insights-query-data-csharp.md). Leert u dat meer informatie over de query-syntaxis voor de gegevens van de Time Series Insights Preview REST-API toegang.
 
-Zie voor meer informatie over ondersteunde JSON-vormen, [ondersteund JSON-vormen](./time-series-insights-send-events.md#json).
+- Zie voor meer informatie over ondersteunde JSON-vormen, [ondersteund JSON-vormen](./time-series-insights-send-events.md#json).

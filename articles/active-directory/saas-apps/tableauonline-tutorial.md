@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 563668780c42ca23a1904757f886581f3ad0c5e8
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 352ad9473a1c1a9360ddceb720ff968f4e97e012
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617300"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Zelfstudie: Azure Active Directory-integratie met Tableau Online
 
@@ -188,7 +188,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld, BrittaSimon\@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -229,7 +229,7 @@ In deze sectie maakt u een gebruiker met de naam van Britta Simon in Tableau Onl
   
     ![Het maken van een Azure AD-testgebruiker](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
 
-2. Selecteer **toevoegen van gebruikers voor verificatie (SAML)**. In de **Enter e-mailadressen** tekstvak toevoegen britta.simon@contoso.com
+2. Selecteer **toevoegen van gebruikers voor verificatie (SAML)**. In de **Enter e-mailadressen** tekstvak toevoegen britta.simon\@contoso.com
   
     ![Het maken van een Azure AD-testgebruiker](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
 

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a8812e8a24082bd8c3a2e9bd489e12a12c80c76d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559850"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574124"
 ---
 # <a name="what-is-video-indexer"></a>Wat is Video Indexer?
 
@@ -37,7 +37,7 @@ Azure Video Indexer is een cloudtoepassing die is gebouwd met behulp van Azure M
 
 ## <a name="audio-insights"></a>Audio insights
 
-- **Automatische taaldetectie**: Identificeert automatisch de dominante gesproken taal. De volgende talen worden ondersteund: Engels, Spaans, Frans, Duits, Italiaans, Chinees (vereenvoudigd), Japans, Russisch en Portugees (Brazilië). De taal wordt standaard ingesteld op het Engels als de taal niet kan worden gedetecteerd.
+- **Automatische taaldetectie**: Identificeert automatisch de dominante gesproken taal. Ondersteunde talen zijn Engels, Spaans, Frans, Duits, Italiaans, Chinees (Vereenvoudigd), Japans, Russisch en Braziliaans Portugees wordt fallback naar Engels als de taal kan niet worden gedetecteerd.
 - **Audiotranscriptie**: Converteert van spraak naar tekst in 12 talen waardoor nu extensies. Ondersteunde talen zijn Engels, Spaans, Frans, Duits, Italiaans, Chinees (Vereenvoudigd), Japans, Arabisch, Russisch, Portugees (Brazilië), Hindi en Koreaans.
 - **Ondertiteling**: Hiermee maakt u ondertiteling in drie indelingen hebben: VTT, TTML, SRT.
 - **Twee verwerking channel**: Automatisch detecteert, afzonderlijke transcript- en samengevoegd in één tijdlijn.
@@ -47,7 +47,7 @@ Azure Video Indexer is een cloudtoepassing die is gebouwd met behulp van Azure M
 - **Statistieken van de spreker**: Voorziet in statistieken voor sprekers spraak ratio's.
 - **Tekstuele inhoudstoezicht**: Expliciete tekst in de audiotranscript gedetecteerd.
 - **Audio-effecten**: Hiermee geeft u audio-effecten, zoals hand hiep, spraak en stilte.
-- **Detectie van emoties in**: Identificeert willekeurige emoties op basis van de spraak- en audio-hints. De emotie kan vreugde, verdriet, boosheid of angst zijn.
+- **Detectie van emoties in**: Identificeert willekeurige emoties op basis van spraak (wat wordt genoemd) en stem tonen (hoe deze wordt genoemd).  De emotie kan vreugde, verdriet, boosheid of angst zijn.
 - **Vertaling**: Hiermee maakt u vertalingen van de audiotranscript aan 54 verschillende talen.
 
 ## <a name="audio-and-video-insights-multi-channels"></a>Audio en video insights (meerdere kanalen)

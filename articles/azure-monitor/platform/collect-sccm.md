@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.openlocfilehash: e5cf89b7fe01946de9944a7026ec448cd55dd6dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 26ddb0cdd2728f9dff5d45494a14841cdc1a20cd
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741668"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922886"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Configuration Manager verbinden met Azure Monitor
 U kunt verbinding maken met uw System Center Configuration Manager-omgeving naar Azure Monitor apparaat verzameling om gegevens te synchroniseren en verwijzen naar deze verzamelingen in Azure Monitor en Azure Automation.  
@@ -67,7 +67,7 @@ Als u wilt toevoegen van Log Analytics-verbinding, uw Configuration Manager-omge
    
 2. Op de **algemene** scherm, bevestigt u dat u de volgende acties hebt uitgevoerd en dat u details voor elk item hebben, en selecteer vervolgens **volgende**.
 
-   1. In Azure portal kunt u Configuration Manager als een webtoepassing en/of Web-API-app hebt geregistreerd, en dat u hebt de [client-ID van de registratie](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md).
+   1. In Azure portal kunt u Configuration Manager als een webtoepassing en/of Web-API-app hebt geregistreerd, en dat u hebt de [client-ID van de registratie](../../active-directory/develop/quickstart-register-app.md).
    2. U kunt een geheime sleutel van de app voor de geregistreerde app in Azure Active Directory hebt gemaakt in de Azure-portal.  
    3. In de Azure-portal, kunt u de geregistreerde web-app hebt opgegeven met een machtiging voor toegang tot de Log Analytics-werkruimte in Azure Monitor.  
       ![Verbinding met Log Analytics Wizard algemene pagina](./media/collect-sccm/sccm-console-general01.png)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 12598f3866cd1041cdf3cb89dac985b8d2caafce
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 2a632ef79c0e9bb925689456d682e7f22504806b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60148803"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707844"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Verifiëren van toegang tot Azure-blobs en wachtrijen met behulp van Azure Active Directory
 
@@ -21,15 +21,15 @@ Azure Storage biedt ondersteuning voor verificatie en autorisatie met Azure Acti
 
 Verifiëren van gebruikers of toepassingen die gebruikmaken van Azure AD-referenties biedt uitstekende beveiliging en gebruiksgemak ten opzichte van andere middelen van autorisatie. Terwijl u kunt echter ook doorgaan met de gedeelde sleutel autorisatie met uw toepassingen, heeft met behulp van Azure AD de noodzaak voor het opslaan van uw toegangssleutel voor uw code. U kunt ook blijven gebruiken van handtekeningen voor gedeelde toegang (SAS) om te voorzien in specifieke toegang tot resources in uw opslagaccount verlenen, maar Azure AD biedt vergelijkbare mogelijkheden zonder de noodzaak om te beheren van SAS-tokens of zorgen over het intrekken van een SAS waarmee is geknoeid. Microsoft raadt u aan met behulp van Azure AD-verificatie voor uw Azure Storage-toepassingen indien mogelijk.
 
-Verificatie en autorisatie met Azure AD-referenties is beschikbaar voor alle voor algemeen gebruik en Blob storage-accounts in alle openbare regio's. Alleen opslagaccounts die zijn gemaakt met de ondersteuning van Azure Resource Manager deployment model autorisatie van Azure AD.
+Verificatie en autorisatie met Azure AD-referenties is beschikbaar voor alle voor algemeen gebruik en Blob storage-accounts in alle openbare regio's en nationale clouds. Alleen opslagaccounts die zijn gemaakt met de ondersteuning van Azure Resource Manager deployment model autorisatie van Azure AD.
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Overzicht van Azure AD voor blobs en wachtrijen
 
 Wanneer een beveiligings-principal (een gebruiker, groep of toepassing) probeert te krijgen tot een bron-blob of een wachtrij, moet de aanvraag worden geautoriseerd, tenzij het een blob beschikbaar voor anonieme toegang. Met Azure AD is toegang tot een resource een proces in twee stappen. Ten eerste de beveiligings-principal-id is geverifieerd en een OAuth 2.0-token wordt geretourneerd. Het token wordt vervolgens doorgegeven als onderdeel van een aanvraag naar de Blob of Queue-service en gebruikt door de service toegang verlenen aan de opgegeven resource.
 
-De stap van de verificatie is vereist dat een of meer RBAC-rollen om te worden toegewezen aan de beveiligings-principal. Azure Storage biedt RBAC-rollen die algemene sets machtigingen voor blob- en wachtrijservices gegevens omvatten. De rollen die zijn toegewezen aan een beveiligings-principal bepalen de toegang van die principal heeft. Zie voor meer informatie over het toewijzen van RBAC-rollen voor Azure Storage, [beheren-toegangsrechten aan opslag van gegevens met RBAC](storage-auth-aad-rbac.md).
+De stap van de verificatie is vereist dat een toepassing een OAuth 2.0-toegangstoken tijdens runtime aanvragen. Als een toepassing wordt uitgevoerd op binnen een Azure-entiteit, zoals een Azure-VM, een virtuele-machineschaalset of een Azure Functions-app, kan gebruiken een [beheerde identiteit](../../active-directory/managed-identities-azure-resources/overview.md) aan toegang tot blobs of wachtrijen. Zie voor informatie over het toestaan van aanvragen door een beheerde identiteit voor de service Azure Blob of een wachtrij, [verifiëren van toegang tot blobs en wachtrijen met Azure Active Directory en beheerde identiteiten voor Azure-Resources](storage-auth-aad-msi.md).
 
-De autorisatie-stap is vereist dat een toepassing een OAuth 2.0-toegangstoken tijdens runtime worden aangevraagd. Als een toepassing wordt uitgevoerd op binnen een Azure-entiteit, zoals een Azure-VM, een virtuele-machineschaalset of een Azure Functions-app, kan gebruiken een [beheerde identiteit](../../active-directory/managed-identities-azure-resources/overview.md) aan toegang tot blobs of wachtrijen. Zie voor informatie over het toestaan van aanvragen door een beheerde identiteit voor de service Azure Blob of een wachtrij, [verifiëren van toegang tot blobs en wachtrijen met Azure Active Directory en beheerde identiteiten voor Azure-Resources](storage-auth-aad-msi.md).
+De stap van de autorisatie is vereist dat een of meer RBAC-rollen worden toegewezen aan de beveiligings-principal. Azure Storage biedt RBAC-rollen die algemene sets machtigingen voor blob- en wachtrijservices gegevens omvatten. De rollen die zijn toegewezen aan een beveiligingsprincipal bepalen de machtigingen die de principal heeft. Zie voor meer informatie over het toewijzen van RBAC-rollen voor Azure Storage, [beheren-toegangsrechten aan opslag van gegevens met RBAC](storage-auth-aad-rbac.md).
 
 Systeemeigen toepassingen en webtoepassingen die aanvragen naar de service Azure Blob of een wachtrij versturen kunnen ook worden geverifieerd bij Azure AD. Zie voor meer informatie over het aanvragen van een toegangstoken en deze gebruiken om aanvragen voor gegevens voor blob of een wachtrij te autoriseren, [verifiëren met Azure AD vanuit een Azure Storage-toepassing](storage-auth-aad-app.md).
 
@@ -69,14 +69,9 @@ De Azure-portal kunt gebruiken op uw Azure AD-account of de toegangssleutels van
 
 Wanneer u probeert te krijgen tot gegevens voor blob of een wachtrij, de Azure-portal controleert eerst of u een RBAC-rol met toegewezen bent **Microsoft.Storage/storageAccounts/listkeys/action**. Als u een rol met deze actie is toegewezen, gebruikt de Azure-portal de accountsleutel voor toegang tot blob- en wachtrijservices gegevens via gedeelde sleutel autorisatie. Als u niet een rol met deze actie toegewezen bent, klikt u vervolgens wil de Azure-portal toegang tot gegevens via uw Azure AD-account.
 
-Voor toegang tot blob of een wachtrij gegevens vanuit de Azure-portal met behulp van uw Azure AD-account, moeten beide van de volgende instructies geldt voor u zijn:
+Gegevens uit Azure portal met uw Azure AD-account, moet u machtigingen voor toegang tot blobopslag-en wachtrij voor toegang tot blob of een wachtrij en u moet ook machtigingen om te navigeren door de resources van het opslagaccount in Azure portal. De ingebouwde rollen die is geleverd door Azure Storage verlenen toegang tot blob- en wachtrijservices resources, maar ze niet verlenen aan machtigingen voor de resources van opslagaccount. Om deze reden toegang tot de portal ook moet de toewijzing van een Azure Resource Manager-rol, zoals de [lezer](../../role-based-access-control/built-in-roles.md#reader) rol binnen het bereik van het niveau van het storage-account of hoger. De **lezer** rol, de meest beperkte machtigingen hebben, maar ook een andere Azure Resource Manager-rol die toegang tot beheer van de resources van opslagaccount verleent acceptabel is. Zie voor meer informatie over hoe u machtigingen toewijzen aan gebruikers voor toegang tot gegevens in Azure portal met een Azure AD-account, [toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC in Azure portal](storage-auth-aad-rbac-portal.md).
 
-- U bent de Azure Resource Manager toegewezen [lezer](../../role-based-access-control/built-in-roles.md#reader) rol, ten minste binnen het bereik op het niveau van het storage-account of hoger. De **lezer** rol, de meest beperkte machtigingen hebben, maar ook een andere Azure Resource Manager-rol die toegang tot beheer van de resources van opslagaccount verleent acceptabel is.
-- U bent toegewezen ofwel een ingebouwde of aangepaste RBAC-rol waarmee toegang tot gegevens voor blob of een wachtrij.
-
-De Azure-portal geeft aan welk schema wordt gebruikt wanneer u gaat u naar een container of een wachtrij. Zie voor meer informatie over toegang tot gegevens in de portal, [gebruik van Azure portal voor toegang tot blob of een wachtrij gegevens](storage-access-blobs-queues-portal.md).
-
-Zie voor meer informatie over hoe u machtigingen toewijzen aan gebruikers voor toegang tot gegevens in Azure portal met een Azure AD-account, [toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC in Azure portal](storage-auth-aad-rbac-portal.md).
+De Azure portal wordt aangegeven welke autorisatieschema is in gebruik wanneer u gaat u naar een container of een wachtrij. Zie voor meer informatie over toegang tot gegevens in de portal, [gebruik van Azure portal voor toegang tot blob of een wachtrij gegevens](storage-access-blobs-queues-portal.md).
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>Gegevenstoegang vanuit PowerShell of Azure CLI
 

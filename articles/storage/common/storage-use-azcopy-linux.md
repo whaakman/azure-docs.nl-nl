@@ -8,18 +8,22 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0f87645537576f49ee04b823341acf8853798f88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ad6d7a60700727b73b87a78e364fde3fa1caa8c3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730052"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572562"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Gegevens overdragen met AzCopy voor Linux
 
 AzCopy is een opdrachtregelprogramma voor het kopiëren van gegevens naar/van Microsoft Azure BLOB Storage en File-opslag met behulp van eenvoudige opdrachten die zijn ontworpen voor optimale prestaties. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren.  
 
-Er zijn twee versies van AzCopy die u kunt downloaden. AzCopy in Linux is bedoeld voor Linux-platforms bieden POSIX-stijl opdrachtregelopties. [AzCopy in Windows](../storage-use-azcopy.md) biedt Windows stijl opdrachtregelopties. In dit artikel bevat informatie over AzCopy in Linux. 
+> [!IMPORTANT]
+> Dit artikel beschrijft een oudere versie van AzCopy.
+>Zie voor het installeren van de meest recente versie van AzCopy [AzCopy v10](storage-use-azcopy-v10.md).
+
+Als u kiest voor het installeren van de oudere versie van AzCopy (AzCopy v8.1), klik zijn er meerdere versies van AzCopy v8.1 die u kunt downloaden. AzCopy in Linux is bedoeld voor Linux-platforms bieden POSIX-stijl opdrachtregelopties. [AzCopy in Windows](../storage-use-azcopy.md) biedt Windows stijl opdrachtregelopties. In dit artikel bevat informatie over AzCopy in Linux. 
 
 > [!NOTE]  
 > Vanaf versie van AzCopy 7.2, zijn de .NET Core-afhankelijkheden verpakt met het AzCopy-pakket. Als u gebruikmaakt van 7,2 versie of hoger, niet meer u .NET Core installeren als een vereiste moet.

@@ -1,25 +1,18 @@
 ---
-title: Ondersteuning voor Azure-toepassing configureren | Microsoft Docs
+title: Ondersteuning voor Azure-toepassing configureren | Azure Marketplace
 description: Configureren van ondersteuning voor Azure-toepassing voor een aanbieding op Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/05/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a42253baa1ed6dcfb8ad20d416c492cc7a677e43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 37c6a36afaad1e10d5075a207b35920531d6ace2
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744671"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943265"
 ---
 # <a name="azure-application-support-tab"></a>Tabblad voor ondersteuning van Azure-toepassing
 
@@ -33,15 +26,15 @@ Gebruik de volgende schermopname als richtlijn om de vereiste informatie te geve
 
 1. Onder **Engineering Contact**, informatie te verstrekken voor de volgende velden:
 
-   - **Naam** -Geef de naam van de technische contactpersoon voor uw app. Deze contactpersoon, ontvangen een technische bericht van Microsoft.
-   - **E-mailbericht** -Geef het e-mailadres van de technische contactpersoon.
-   - **specificeren** -Geef het telefoonnummer van de technische contactpersoon.
+   - **Naam\***  -Geef de naam van de technische contactpersoon voor uw app. Deze contactpersoon, ontvangen een technische bericht van Microsoft.
+   - **E-mailbericht\***  -Geef het e-mailadres van de technische contactpersoon.
+   - **Telefoon\***  -Geef het telefoonnummer van de technische contactpersoon.
   
 2. Onder **Ondersteuningscontactpersoon**, informatie te verstrekken voor de volgende velden:
 
-   - **Naam** -Geef de naam van de contactpersoon voor ondersteuning voor uw app. Deze contactpersoon, ontvangen een bericht met betrekking tot ondersteuning van Microsoft.
-   - **E-mailbericht** -Geef het e-mailadres van de contactpersoon voor ondersteuning voor uw app.
-   - **Telefoon** -Geef het telefoonnummer van de contactpersoon voor ondersteuning.
+   - **Naam\***  -Geef de naam van de contactpersoon voor ondersteuning voor uw app. Deze contactpersoon, ontvangen een bericht met betrekking tot ondersteuning van Microsoft.
+   - **E-mailbericht\***  -Geef het e-mailadres van de contactpersoon voor ondersteuning voor uw app.
+   - **Telefoon\***  -Geef het telefoonnummer van de contactpersoon voor ondersteuning.
  
 3. Onder **ondersteuning voor URL's**, bieden de juiste ondersteuning-URL's die Microsoft gebruikt wanneer uw klanten ondersteuningstickets openen. Deze URL's worden voor openbare Azure of de Azure Government-Cloud.
 4. Selecteer **opslaan** wanneer u klaar bent.
@@ -49,4 +42,3 @@ Gebruik de volgende schermopname als richtlijn om de vereiste informatie te geve
 ## <a name="next-steps"></a>Volgende stappen
 
 [Aanbieding voor Azure-toepassing maken publiceren](./cpp-publish-offer.md)
-

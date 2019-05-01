@@ -4,24 +4,24 @@ titlesuffix: Azure Virtual Network
 description: Leer hoe u een openbaar IP-adres aan een virtuele machine koppelen.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
-ms.author: jdial
-ms.openlocfilehash: ce573ff8fe61f2e1d4c88963e0f21fc9402776e9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: kumud
+ms.openlocfilehash: 69460a111e6fd879807b4025d6832b3ac515a9b4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083212"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691982"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Een openbaar IP-adres aan een virtuele machine koppelen
 
-In dit artikel leert u hoe u een openbaar IP-adres aan een bestaande virtuele machine (VM) koppelen. Als u wilt verbinding maken met een virtuele machine vanaf het internet, moet de virtuele machine die is gekoppeld aan een openbaar IP-adres hebben. Als u maken van een nieuwe virtuele machine met een openbaar IP-adres wilt, kunt u doen met behulp van de [Azure-portal](virtual-network-deploy-static-pip-arm-portal.md), wordt de [Azure-opdrachtregelinterface (CLI)](virtual-network-deploy-static-pip-arm-cli.md), of [PowerShell](virtual-network-deploy-static-pip-arm-ps.md). Openbare IP-adressen hebben nominale kosten in rekening. Zie voor meer informatie, [prijzen](https://azure.microsoft.com/pricing/details/ip-addresses/). Er is een limiet aan het aantal openbare IP-adressen die u per abonnement kunt. Zie voor meer informatie, [limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits-1).
+In dit artikel leert u hoe u een openbaar IP-adres aan een bestaande virtuele machine (VM) koppelen. Als u wilt verbinding maken met een virtuele machine vanaf het internet, moet de virtuele machine die is gekoppeld aan een openbaar IP-adres hebben. Als u maken van een nieuwe virtuele machine met een openbaar IP-adres wilt, kunt u doen met behulp van de [Azure-portal](virtual-network-deploy-static-pip-arm-portal.md), wordt de [Azure-opdrachtregelinterface (CLI)](virtual-network-deploy-static-pip-arm-cli.md), of [PowerShell](virtual-network-deploy-static-pip-arm-ps.md). Openbare IP-adressen hebben nominale kosten in rekening. Zie voor meer informatie, [prijzen](https://azure.microsoft.com/pricing/details/ip-addresses/). Er is een limiet aan het aantal openbare IP-adressen die u per abonnement kunt. Zie voor meer informatie, [limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address).
 
 U kunt de [Azure-portal](#azure-portal), de Azure [opdrachtregelinterface](#azure-cli) (CLI), of [PowerShell](#powershell) om te koppelen van een openbaar IP-adres aan een virtuele machine.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 6c83298b102d6782647f3baebf6f98e43cb3ad7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 17806abe60236a9c9face1ee16e1d9982975fff6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778220"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64734691"
 ---
 Opslag geoptimaliseerde VM-grootten bieden een snelle doorvoer van schijfgegevens en IO- en zijn ideaal voor Big Data, SQL, NoSQL-databases, gegevensopslag en grote transactionele databases.  Voorbeelden zijn onder meer Cassandra, MongoDB, Cloudera en Redis. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals lokale opslag en doorvoer netwerkbandbreedte voor elke grootte geoptimaliseerde.
 
@@ -33,7 +33,7 @@ ACU: 150-175
 
 Premium-opslag: Ondersteund
 
-Premium Storage Caching: Niet ondersteund
+Premium Storage opslaan in cache: Niet ondersteund
 
 | Grootte          | vCPU | Geheugen (GiB) | Tijdelijke schijf<sup>1</sup> (GiB) | NVMe-schijven<sup>2</sup> | NVMe schijfdoorvoer<sup>3</sup> (IOPS voor lezen / MBps) | Maximum aantal schijfbewerkingen zonder gegevens schijfdoorvoer (IOPs/MBps)<sup>4</sup> | Maximum aantal gegevensschijven | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 

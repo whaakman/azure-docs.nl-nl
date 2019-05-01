@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: ada09959391c551a9eff4d96b186be29c1e3b7a8
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: cfc70b3d8e364c25ccf9fd221699695641a66ef0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013258"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708584"
 ---
 # <a name="create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Maken en eenvoudige R-scripts uitvoeren in Azure SQL Database Machine Learning-Services (preview)
 
@@ -102,9 +102,9 @@ Invoer voor deze opgeslagen procedure zijn onder andere:
 
 | | |
 |-|-|
-|*@language* | definieert de uitbreiding van de taal om aan te roepen, in dit geval R |
-|*@script* | Hiermee definieert u de opdrachten die is doorgegeven aan de R-runtime. Dit argument moet u uw hele R-script tussen als Unicode-tekst. U kunt ook de tekst toevoegen aan een variabele van het type **nvarchar** en roep vervolgens de variabele |
-|*@input_data_1* | gegevens die zijn geretourneerd door de query doorgegeven aan de R-runtime, die als resultaat de gegevens naar SQL Server als een gegevensframe |
+| @language | definieert de uitbreiding van de taal om aan te roepen, in dit geval R |
+| @script | Hiermee definieert u de opdrachten die is doorgegeven aan de R-runtime. Dit argument moet u uw hele R-script tussen als Unicode-tekst. U kunt ook de tekst toevoegen aan een variabele van het type **nvarchar** en roep vervolgens de variabele |
+| @input_data_1 | gegevens die zijn geretourneerd door de query doorgegeven aan de R-runtime, die als resultaat de gegevens naar SQL Server als een gegevensframe |
 |MET RESULTAATSETS | component definieert het schema van de geretourneerde tabel voor SQL Server, "Hallo wereld" Als de naam van de kolom toe te voegen **int** voor het gegevenstype |
 
 De opdracht levert de volgende tekst:
@@ -146,7 +146,7 @@ Nu gaan we gebruiken de standaard-invoer en uitvoer variabelen van [sp_execute_e
 
     **Results**
 
-    ![Inhoud van de RTestData-tabel](./media/sql-database-connect-query-r/select-rtestdata.png)
+    ![Inhoud van de RTestData-tabel](./media/sql-database-quickstart-r-create-script/select-rtestdata.png)
 
 1. Voer het volgende R-script. Het ophalen van de gegevens uit de tabel met de `SELECT` -instructie wordt doorgegeven via de R-runtime en de gegevens retourneert als een gegevensframe. De `WITH RESULT SETS` component definieert het schema van de geretourneerde tabel voor SQL Database, de naam van de kolom toegevoegd *NewColName*.
 
@@ -159,7 +159,7 @@ Nu gaan we gebruiken de standaard-invoer en uitvoer variabelen van [sp_execute_e
 
     **Results**
 
-    ![Uitvoer van R-script waarmee gegevens uit een tabel worden geretourneerd](./media/sql-database-connect-query-r/r-output-rtestdata.png)
+    ![Uitvoer van R-script waarmee gegevens uit een tabel worden geretourneerd](./media/sql-database-quickstart-r-create-script/r-output-rtestdata.png)
 
 1. Nu gaan we wijzigen de namen van de variabelen voor de invoer en uitvoer. De standaard invoer en uitvoernamen zijn **InputDataSet** en **OutputDataSet**, dit script wijzigt de namen **SQL_in** en **SQL_out**:
 
@@ -193,7 +193,7 @@ Nu gaan we gebruiken de standaard-invoer en uitvoer variabelen van [sp_execute_e
 
     **Results**
 
-    ![Resultaten doorzoeken met @script als invoer](./media/sql-database-connect-query-r/r-data-generated-output.png)
+    ![Resultaten doorzoeken met @script als invoer](./media/sql-database-quickstart-r-create-script/r-data-generated-output.png)
 
 ## <a name="check-r-version"></a>R-versie controleren
 
@@ -251,7 +251,7 @@ De uitvoer is van `installed.packages()` in R en wordt geretourneerd als gevolg 
 
 **Results**
 
-![Geïnstalleerde pakketten in R](./media/sql-database-connect-query-r/r-installed-packages.png)
+![Geïnstalleerde pakketten in R](./media/sql-database-quickstart-r-create-script/r-installed-packages.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -260,10 +260,8 @@ Voor het maken van een model voor machine learning met R in SQL-Database, moet u
 > [!div class="nextstepaction"]
 > [Maken en train een Voorspellend model in R met Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-train-score-model.md)
 
-Zie de onderstaande artikelen over Machine Learning Services voor meer informatie. Sommige van deze artikelen zijn bestemd voor SQL Server, maar de meeste informatie is ook van toepassing op Machine Learning Services (met R) in Azure SQL Database.
+Zie de volgende artikelen voor meer informatie over Azure SQL Database Machine Learning-Services met R (preview).
 
-- [Azure SQL Database Machine Learning Services (met R)](sql-database-machine-learning-services-overview.md)
-- [SQL Server Machine Learning-services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Zelfstudie: Informatie over in-database analyse met behulp van R in SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [End-to-end data science walkthrough for R and SQL Server (Overzicht van end-to-end-informatiewetenschap voor R en SQL Server)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Zelfstudie: RevoScaleR R-functies gebruiken met SQL Server-gegevens](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Azure SQL Database Machine Learning-Services met R (preview)](sql-database-machine-learning-services-overview.md)
+- [Schrijven van geavanceerde R-functies in Azure SQL Database met behulp van Machine Learning-Services (preview)](sql-database-machine-learning-services-functions.md)
+- [Werken met R- en SQL-gegevens in Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-data-issues.md)

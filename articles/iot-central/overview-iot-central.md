@@ -3,18 +3,18 @@ title: Wat is Azure IoT Central? | Microsoft Docs
 description: Azure IoT Central is een end-to-end SaaS-oplossing die u gebruiken kunt om te bouwen en beheren van uw aangepaste IoT-oplossing. In dit artikel vindt u een overzicht van de functies van Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/30/2017
+ms.date: 04/24/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 9fc565996797c90a6d2ac9b3851ac3408f1842c7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 84fa7aa006a6bc5365527dbf8043797617543590
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183268"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704542"
 ---
 <!---
 Purpose of an Overview article: 
@@ -25,16 +25,16 @@ Purpose of an Overview article:
 
 # <a name="what-is-azure-iot-central"></a>Wat is Azure IoT Central?
 
-Azure IoT Central is een volledig beheerde software-als-een-dienst-oplossing voor IoT-software, waarmee u gemakkelijk producten kunt maken die de echte wereld en de digitale wereld met elkaar verbinden. U kunt uw productvisie voor verbonden apparaten als volgt tot leven wekken door:
+Azure IoT Central is een volledig beheerde IoT-software-as-a-service-oplossing, waarmee u eenvoudig te maken van producten die verbinding maken met de fysieke en digitale werelden. U kunt uw productvisie voor verbonden apparaten als volgt tot leven wekken door:
 
 - Nieuwe inzichten af te leiden uit verbonden apparaten, om uw klanten betere producten en ervaringen te kunnen bieden.
 - Nieuwe zakelijke kansen voor uw organisatie te creëren.
 
-In vergelijking met een typisch IoT-project, maakt Azure IoT Central het beheer van een IoT-oplossing eenvoudiger door:
+Azure IoT Central, in vergelijking met een typisch IoT-project:
 
-- De beheerlast te verminderen.
-- De operationele kosten en overheadkosten te verminderen.
-- Het u makkelijk te maken om uw toepassing aan te passen en gebruik te maken van:
+- Vermindert het werk te verrichten.
+- Operationele kosten en overhead vermindert.
+- Kunt u eenvoudig uw toepassing, tijdens het werken met aanpassen:
   - Toonaangevende technologieën zoals [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) en [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/).
   - Beveiligingsfuncties op bedrijfsniveau, zoals end-to-endversleuteling.
 
@@ -42,7 +42,7 @@ De volgende video biedt een overzicht van Azure IoT Central:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Microsoft-IoT-Central-intro-walkthrough/Player]
 
-De rest van dit artikel biedt een overzicht van de volgende aspecten van Azure IoT Central:
+In dit artikel geeft een overzicht, voor Azure IoT Central:
 
 - De typische persona's die aan een project zijn gekoppeld.
 - Het maken van uw toepassing.
@@ -51,7 +51,7 @@ De rest van dit artikel biedt een overzicht van de volgende aspecten van Azure I
 
 ## <a name="personas"></a>Persona's
 
-In de documentatie over Azure IoT Central wordt verwezen naar vier typische persona's die interactie hebben met een Azure IoT Central-toepassing:
+De Azure IoT Central documentatie verwijst naar vier personen die met een Azure IoT Central-toepassing werken:
 
 - Een _maker_ is verantwoordelijk voor het definiëren van de typen apparaten die verbinding maken met de toepassing en voor het aanpassen van de toepassing voor de operator.
 - Een _operator_ beheert de apparaten die met de toepassing zijn verbonden.
@@ -65,12 +65,12 @@ Als maker gebruikt u Azure IoT Central om een aangepaste, in de cloud gehoste Io
 - Een cloudtoepassing die telemetriegegevens van uw apparaten ontvangt en die u in staat stelt om deze apparaten te beheren.
 - Meerdere apparaten waarop aangepaste code wordt uitgevoerd en die met uw cloudtoepassing zijn verbonden.
 
-U kunt een nieuwe Azure IoT Central-toepassing snel implementeren en deze vervolgens rechtstreeks in uw browser aanpassen aan uw specifieke vereisten. Als maker in Azure IoT Central kunt u de webgebaseerde hulpprogramma's gebruiken om een _apparaatsjabloon_ te maken voor de apparaten die verbinding maken met uw toepassing. Een apparaatsjabloon is de blauwdruk van een apparaatmodel. Alle apparaten die van dezelfde apparaatsjabloon zijn gemaakt, delen dezelfde sjabloon. Een apparaatsjabloon definieert de eigenschappen en het gedrag van een bepaald type apparaat, zoals:
+U kunt snel een nieuwe Azure IoT Central-toepassing implementeren en vervolgens aan te passen aan uw specifieke vereisten in uw browser. Als een opbouwfunctie voor expressies, u de web-hulpprogramma's gebruiken om te maken van een _apparaat sjabloon_ voor de apparaten die verbinding met uw toepassing maken. Een apparaat-sjabloon is de blauwdruk die de kenmerken en het gedrag van een type apparaat, zoals definieert de:
 
-- De telemetriegegevens die het verstuurt.
+- Telemetrie die wordt verzonden.
 - Bedrijfseigenschappen die kunnen worden gewijzigd door een operator.
 - Apparaateigenschappen die zijn ingesteld door een apparaat en die het kenmerk alleen-lezen hebben in de toepassing.
-- De drempelwaarden waar de toepassing op reageert.
+- Drempelwaarden voor de toepassing reageert op.
 - Instellingen die het gedrag van het apparaat bepalen.
 
 U kunt uw apparaatsjablonen en uw toepassing direct testen met gesimuleerde gegevens die Azure IoT Central voor u genereert.
@@ -83,7 +83,7 @@ Als maker kunt u de gebruikersinterface van de Azure IoT Central-toepassing ook 
 
 ## <a name="connect-your-devices"></a>Uw apparaten verbinden
 
-Nadat de maker heeft gedefinieerd welke typen apparaten verbinding kunnen maken met de toepassing, maakt een apparaatontwikkelaar de code die op de apparaten moet worden uitgevoerd. Als apparaatontwikkelaar gebruikt u de [Azure IoT SDK's](https://github.com/Azure/azure-iot-sdks) van Microsoft, die open-source zijn, om de code voor uw apparaat te maken. Deze SDK's hebben uitgebreide taal-, platform- en protocolondersteuning, zodat ze kunnen voldoen aan uw behoeften bij het verbinden van uw apparaten met uw Azure IoT Central-toepassing. De SDK's helpen u met het uitvoeren van de volgende taken op het apparaat dat is verbonden met Azure IoT Central:
+Nadat de maker heeft gedefinieerd welke typen apparaten verbinding kunnen maken met de toepassing, maakt een apparaatontwikkelaar de code die op de apparaten moet worden uitgevoerd. Als apparaatontwikkelaar gebruikt u de [Azure IoT SDK's](https://github.com/Azure/azure-iot-sdks) van Microsoft, die open-source zijn, om de code voor uw apparaat te maken. Deze SDK's hebben uitgebreide taal-, platform- en protocolondersteuning, zodat ze kunnen voldoen aan uw behoeften bij het verbinden van uw apparaten met uw Azure IoT Central-toepassing. De SDK's kunnen u de volgende mogelijkheden voor apparaten implementeren:
 
 - Een beveiligde verbinding maken.
 - Telemetrie verzenden.
@@ -96,15 +96,15 @@ Lees de blogpost [Benefits of using the Azure IoT SDKs, and pitfalls to avoid if
 
 Azure IoT Central-toepassingen worden volledig gehost door Microsoft, waardoor de overheadkosten voor het beheer van uw toepassingen worden verlaagd.
 
-Als operator gebruikt u de Azure IoT Central-toepassing om de apparaten in uw Azure IoT Central-oplossing te beheren. Operators kunnen taken uitvoeren zoals:
+Als operator gebruikt u de Azure IoT Central-toepassing om de apparaten in uw Azure IoT Central-oplossing te beheren. Operatoren uitvoeren zoals taken:
 
 - Het controleren van de apparaten die met de toepassing zijn verbonden.
 - Het oplossen en verhelpen van problemen met apparaten.
 - Het inrichten van nieuwe apparaten.
 
-Een maker kan aangepaste regels en acties definiëren die werken via streaminggegevens op het niveau van de apparaatsjabloon. Een operator kan deze regels op apparaatniveau in- of uitschakelen om taken binnen de toepassing te beheren en automatiseren.
+Als een opbouwfunctie voor expressies, kunt u aangepaste regels en acties die worden uitgevoerd via het streamen van verbonden apparaten van gegevens definiëren. Een operator kan deze regels op apparaatniveau in- of uitschakelen om taken binnen de toepassing te beheren en automatiseren.
 
-Beheerders kunnen de toegang tot uw toepassing beheren met [gebruikersrollen en -machtigingen](howto-administer.md).
+Beheerders beheren de toegang tot uw toepassing met [gebruikersrollen en machtigingen](howto-administer.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

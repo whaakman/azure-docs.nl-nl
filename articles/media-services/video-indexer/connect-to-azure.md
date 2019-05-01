@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: affa6f9a808543401b7d57812c7d2bef4324a83c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 08f2dac6317f294c3c7360cc00cf9aaa60c9a7ca
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796542"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64715100"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Maken van een Video Indexer-account dat is verbonden met Azure
 
@@ -103,7 +103,7 @@ Als de verbinding met Azure is mislukt, kunt u proberen het probleem oplossen do
 
 1. Gebruik de [Azure](https://portal.azure.com/) portal om te maken van een Azure Media Services-account, zoals beschreven in [maken van een account](../previous/media-services-portal-create-account.md).
 
-    Bij het maken van een opslagaccount voor uw Media Services-account, selecteert u **StorageV2** voor soort account en **Geo-redundant (RGS)** voor replicatie velden.
+    Bij het maken van een opslagaccount voor uw Media Services-account, selecteert u **StorageV2** voor soort account en **Geo-redundant (GRS)** voor replicatie velden.
 
     ![nieuwe AMS-account](./media/create-account/create-ams-account1.png)
 

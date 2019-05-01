@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3b31e796b07bea8c11bccb3f2bb306a4279f2ca3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 21c75c0f377f55614e2c7fa0bb27628cf598e3e7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61291610"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924575"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Facetnavigatie implementeren in Azure Search
 Facetnavigatie is een filteren mechanisme waarmee Self-directed drilldown navigatie in zoektoepassingen. De term 'meervoudige navigatie' kan niet bekend zijn, maar u hebt waarschijnlijk eerder gebruikt. Zoals in het volgende voorbeeld wordt weergegeven, is meervoudige navigatie niets meer dan de categorieën die worden gebruikt om resultaten te filteren.
@@ -34,7 +34,7 @@ In de ontwikkeling van toepassingen vormt schrijven van code die wordt gemaakt v
 ## <a name="sample-code-and-demo"></a>Voorbeeldcode en demo
 In dit artikel wordt een taak search-portal als voorbeeld gebruikt. Het voorbeeld wordt geïmplementeerd als een ASP.NET MVC-toepassing.
 
--   Bekijken en testen van de demo werkt online op [Azure Search taak Portal-Demo](http://azjobsdemo.azurewebsites.net/).
+-   Bekijken en testen van de demo werkt online op [Azure Search taak Portal-Demo](https://azjobsdemo.azurewebsites.net/).
 
 -   Download de code uit de [opslagplaats voor Azure-voorbeelden op GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 

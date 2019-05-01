@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fbb855db1ff5a2cf79826294365733614259e4b0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799374"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575747"
 ---
 # <a name="what-is-azure-maps"></a>Wat is Azure Maps?
 
@@ -123,7 +123,7 @@ Azure Maps maakt gebruik van een verificatieschema op basis van sleutels. Uw acc
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
-De Azure kaarten-API is momenteel beschikbaar in alle landen, met uitzondering van de volgende regio's:
+De Azure kaarten-API is momenteel beschikbaar in alle landen/regio's, met uitzondering van de volgende regio's:
 
 * Argentinië
 * China
@@ -132,7 +132,7 @@ De Azure kaarten-API is momenteel beschikbaar in alle landen, met uitzondering v
 * Pakistan
 * Zuid-Korea
 
-Controleer of dat de locatie van uw huidige IP-adres niet in een van de niet-ondersteunde landen bovengenoemde.
+Controleer of dat de locatie van uw huidige IP-adres niet in een van de niet-ondersteunde landen/regio's hierboven.
 
 ## <a name="next-steps"></a>Volgende stappen
 

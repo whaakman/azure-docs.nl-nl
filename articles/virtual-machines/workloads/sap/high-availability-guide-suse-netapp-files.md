@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 18bbeef833e1c82999e87451d279c0d3464af509
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cd2479aed1e348a27c5cba56c6d809ffb24e4fc0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711127"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925775"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server met Azure NetApp-bestanden voor SAP-toepassingen
 
@@ -29,9 +29,9 @@ ms.locfileid: "60711127"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/en-gb/azure/azure-netapp-files/
-[anf-avail-matrix]:https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage&regions=all
-[anf-register]:https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-register
+[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
+[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -58,7 +58,7 @@ ms.locfileid: "60711127"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-In dit artikel wordt beschreven hoe u de virtuele machines implementeren, configureren van de virtuele machines, installeer het framework van het cluster en installeren van een maximaal beschikbare 7,50 van SAP NetWeaver-systeem, met behulp van [Azure NetApp-bestanden (in openbare preview-versie)](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/).
+In dit artikel wordt beschreven hoe u de virtuele machines implementeren, configureren van de virtuele machines, installeer het framework van het cluster en installeren van een maximaal beschikbare 7,50 van SAP NetWeaver-systeem, met behulp van [Azure NetApp-bestanden (in openbare preview-versie)](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).
 In de voorbeeldconfiguraties, enzovoort-opdrachten voor installatie, de ASCS-instantie is getal 00, het exemplaarnummer INGEN 01, het exemplaar van de primaire toepassing (Pa's) is 02 en het exemplaar van de toepassing (AAS) is 03. SAP-systeem-ID QAS wordt gebruikt. 
 
 In dit artikel wordt uitgelegd hoe voor hoge beschikbaarheid voor SAP NetWeaver-toepassing met Azure NetApp-bestanden. De databaselaag wordt niet gedekt in dit artikel.
@@ -92,12 +92,12 @@ Lees eerst de volgende SAP-opmerkingen en documenten:
 Hoge availability(HA) voor SAP Netweaver centrale services vereist gedeelde opslag.
 Om dit te bereiken in SUSE Linux was tot nu toe die nodig zijn voor het bouwen van afzonderlijke maximaal beschikbare NFS-cluster. 
 
-Het is nu mogelijk om te bereiken SAP Netweaver hoge beschikbaarheid met behulp van gedeelde opslag, die zijn geïmplementeerd op Azure NetApp bestanden. Met behulp van Azure NetApp bestanden voor de gedeelde opslag elimineert de noodzaak voor extra [NFS cluster](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs). Pacemaker is nog steeds nodig voor hoge beschikbaarheid van de SAP Netweaver centrale services(ASCS/SCS).
+Het is nu mogelijk om te bereiken SAP Netweaver hoge beschikbaarheid met behulp van gedeelde opslag, die zijn geïmplementeerd op Azure NetApp bestanden. Met behulp van Azure NetApp bestanden voor de gedeelde opslag elimineert de noodzaak voor extra [NFS cluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs). Pacemaker is nog steeds nodig voor hoge beschikbaarheid van de SAP Netweaver centrale services(ASCS/SCS).
 
 
 ![Overzicht van SAP NetWeaver hoge beschikbaarheid](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.PNG)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS INGEN voor SAP NetWeaver en SAP HANA-database gebruiken virtuele hostnaam en virtuele IP-adressen. In Azure, een [netwerktaakverdeler](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview) is vereist voor het gebruik van een virtueel IP-adres. De volgende lijst bevat de configuratie van de (A) SCS en INGEN load balancer.
+SAP NetWeaver ASCS, SAP NetWeaver SCS INGEN voor SAP NetWeaver en SAP HANA-database gebruiken virtuele hostnaam en virtuele IP-adressen. In Azure, een [netwerktaakverdeler](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) is vereist voor het gebruik van een virtueel IP-adres. De volgende lijst bevat de configuratie van de (A) SCS en INGEN load balancer.
 
 ### <a name="ascs"></a>(A)SCS
 
@@ -138,17 +138,17 @@ De functie Azure NetApp bestanden is in openbare preview in verschillende Azure-
 
 ### <a name="deploy-azure-netapp-files-resources"></a>NetApp-bestanden van Azure-resources implementeren  
 
-De stappen wordt ervan uitgegaan dat u al hebt geïmplementeerd [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview). Houd er rekening mee dat de NetApp-bestanden van Azure-resources en de virtuele machines, waar de resources Azure NetApp bestanden wordt gekoppeld in dezelfde Azure-netwerk moeten worden geïmplementeerd.  
+De stappen wordt ervan uitgegaan dat u al hebt geïmplementeerd [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Houd er rekening mee dat de NetApp-bestanden van Azure-resources en de virtuele machines, waar de resources Azure NetApp bestanden wordt gekoppeld in dezelfde Azure-netwerk moeten worden geïmplementeerd.  
 
-1. Als u dit nog niet hebt die al klaar, aanvragen om te [registreren in het voorbeeld van Azure NetApp](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-register).  
+1. Als u dit nog niet hebt die al klaar, aanvragen om te [registreren in het voorbeeld van Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).  
 
-2. De NetApp-account maken in de geselecteerde Azure-regio na de [instructies voor het maken van de NetApp Account](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
-3. Instellen van Azure NetApp Files capaciteit van toepassingen, na de [instructies over het instellen van Azure NetApp Files capaciteit pool](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
+2. De NetApp-account maken in de geselecteerde Azure-regio na de [instructies voor het maken van de NetApp Account](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
+3. Instellen van Azure NetApp Files capaciteit van toepassingen, na de [instructies over het instellen van Azure NetApp Files capaciteit pool](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
 De architectuur van SAP Netweaver die zijn gepresenteerd in dit artikel maakt gebruik van één Azure NetApp Files capaciteit groep, Premium-SKU. Aangeraden wordt Azure NetApp bestanden Premium SKU voor de werkbelasting van SAP Netweaver-toepassing in Azure.  
 
-4. Een subnet aan Azure NetApp bestanden overdragen zoals beschreven in de [instructies een subnet aan Azure NetApp bestanden overdragen](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
+4. Een subnet aan Azure NetApp bestanden overdragen zoals beschreven in de [instructies een subnet aan Azure NetApp bestanden overdragen](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
-5. Volumes kunnen implementeren Azure NetApp bestanden, na de [instructies voor het maken van een volume voor Azure NetApp Files](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-create-volumes). Implementeren van de volumes in de aangewezen Azure NetApp bestanden [subnet](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/subnets). Houd er rekening mee dat de NetApp-bestanden van Azure-resources en de Azure VM's moeten zich in hetzelfde Azure-netwerk. Bijvoorbeeld sapmnt<b>QAS</b>, usrsap<b>QAS</b>, enzovoort worden de namen van de doelvolumes en sapmnt<b>qas</b>, usrsap<b>qas</b>, enzovoort zijn de filepaths voor Azure NetApp-bestanden volumes.  
+5. Volumes kunnen implementeren Azure NetApp bestanden, na de [instructies voor het maken van een volume voor Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Implementeren van de volumes in de aangewezen Azure NetApp bestanden [subnet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). Houd er rekening mee dat de NetApp-bestanden van Azure-resources en de Azure VM's moeten zich in hetzelfde Azure-netwerk. Bijvoorbeeld sapmnt<b>QAS</b>, usrsap<b>QAS</b>, enzovoort worden de namen van de doelvolumes en sapmnt<b>qas</b>, usrsap<b>qas</b>, enzovoort zijn de filepaths voor Azure NetApp-bestanden volumes.  
 
    1. volume sapmnt<b>QAS</b> (nfs://10.1.0.4/sapmnt<b>qas</b>)
    2. volume usrsap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>)
@@ -158,7 +158,7 @@ De architectuur van SAP Netweaver die zijn gepresenteerd in dit artikel maakt ge
    6. volume usrsap<b>QAS</b>Pa's (nfs://10.1.0.5/usrsap<b>qas</b>Pa's)
    7. volume usrsap<b>QAS</b>aas (nfs://10.1.0.4/usrsap<b>qas</b>aas)
    
-In dit voorbeeld gebruikt we Azure NetApp bestanden voor alle SAP Netweaver-bestandssystemen om te demonstreren hoe Azure NetApp bestanden kunnen worden gebruikt. De SAP-bestandssystemen die niet hoeven te worden gekoppeld via NFS kunnen ook worden geïmplementeerd als [Azure disk-opslag](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#premium-ssd) . In dit voorbeeld <b>a e</b> moeten zich op Azure NetApp bestanden en <b>f-g</b> (dat wil zeggen, / usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS </b>/D<b>03</b>) als Azure disk-opslag kan worden geïmplementeerd. 
+In dit voorbeeld gebruikt we Azure NetApp bestanden voor alle SAP Netweaver-bestandssystemen om te demonstreren hoe Azure NetApp bestanden kunnen worden gebruikt. De SAP-bestandssystemen die niet hoeven te worden gekoppeld via NFS kunnen ook worden geïmplementeerd als [Azure disk-opslag](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) . In dit voorbeeld <b>a e</b> moeten zich op Azure NetApp bestanden en <b>f-g</b> (dat wil zeggen, / usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS </b>/D<b>03</b>) als Azure disk-opslag kan worden geïmplementeerd. 
 
 ### <a name="important-considerations"></a>Belangrijke overwegingen
 
@@ -166,10 +166,10 @@ Wanneer u overweegt Azure NetApp bestanden voor de SAP Netweaver op architectuur
 
 - De minimale capaciteit van toepassingen is 4 TiB. De grootte van de capaciteit van toepassingen moet worden gefactureerd in veelvouden van 4 TiB.
 - De minimale hoeveelheid is 100 GiB
-- Azure Files van NetApp en alle virtuele machines, waar Azure NetApp Files volumes wordt gekoppeld, moeten zich in hetzelfde Azure-netwerk of in [via peering gekoppelde virtuele netwerken](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) in dezelfde regio. Azure NetApp bestanden toegang via VNET-peering in dezelfde regio wordt nu ondersteund. Azure NetApp toegang via het wereldwijde peering wordt nog niet ondersteund.
+- Azure Files van NetApp en alle virtuele machines, waar Azure NetApp Files volumes wordt gekoppeld, moeten zich in hetzelfde Azure-netwerk of in [via peering gekoppelde virtuele netwerken](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) in dezelfde regio. Azure NetApp bestanden toegang via VNET-peering in dezelfde regio wordt nu ondersteund. Azure NetApp toegang via het wereldwijde peering wordt nog niet ondersteund.
 - Het geselecteerde virtuele netwerk moet een subnet, gedelegeerd naar Azure NetApp bestanden hebben.
 - Azure NetApp Files ondersteunt momenteel alleen NFSv3 
-- Azure Files met NetApp biedt [beleid exporteren](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): u kunt de toegestane clients te bepalen welk toegangstype (lezen en schrijven, alleen-lezen, enz.). 
+- Azure Files met NetApp biedt [beleid exporteren](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): u kunt de toegestane clients te bepalen welk toegangstype (lezen en schrijven, alleen-lezen, enz.). 
 - Functie van Azure NetApp bestanden is nog niet van de zone op de hoogte. NetApp-bestanden van Azure-functie is niet geïmplementeerd in alle beschikbaarheidszones in een Azure-regio. Houd rekening met de mogelijke gevolgen van de latentie in bepaalde Azure-regio's. 
 
 ## <a name="deploy-linux-vms-manually-via-azure-portal"></a>Linux-VM's handmatig te implementeren via Azure portal
@@ -243,7 +243,7 @@ U moet eerst de volumes Azure NetApp bestanden maken. Implementeer de virtuele m
          * Herhaal de stappen hierboven onder "d" voor poorten 33**01**, 5**01**13, 5**01**14, 5**01**16 en TCP-voor de ASCS ERS
 
 > [!IMPORTANT]
-> Schakel geen TCP-tijdstempels op Azure VM's achter Azure Load Balancer worden geplaatst. Inschakelen van TCP tijdstempels zorgt ervoor dat de statuscontroles mislukken. Stel de parameter **net.ipv4.tcp_timestamps** naar **0**. Zie voor meer informatie [Load Balancer statuscontroles](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+> Schakel geen TCP-tijdstempels op Azure VM's achter Azure Load Balancer worden geplaatst. Inschakelen van TCP tijdstempels zorgt ervoor dat de statuscontroles mislukken. Stel de parameter **net.ipv4.tcp_timestamps** naar **0**. Zie voor meer informatie [Load Balancer statuscontroles](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Pacemaker-cluster maken
 

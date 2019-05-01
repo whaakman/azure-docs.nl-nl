@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 0ea34fe4862941bde882b3ea8ed5dbaa111ac742
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9b86df3d08ec6dfcb3100cff333c4dc5653ee1c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731508"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688347"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks voor waarschuwingen voor activiteitenlogboeken van Azure
 U kunt webhook-eindpunten voor het ontvangen van waarschuwingsmeldingen voor activiteit log configureren als onderdeel van de definitie van een actiegroep. Met webhooks, kunt u deze meldingen doorsturen naar andere systemen voor na verwerking of aangepaste acties. Dit artikel leest hoe de nettolading voor de HTTP POST naar een webhook eruitziet.
@@ -21,6 +21,10 @@ U kunt webhook-eindpunten voor het ontvangen van waarschuwingsmeldingen voor act
 Zie voor meer informatie over waarschuwingen voor activiteitenlogboeken, hoe u [waarschuwingen voor Azure-activiteitenlogboek maken](activity-log-alerts.md).
 
 Zie voor informatie over actiegroepen, hoe u [Actiegroepen maken](../../azure-monitor/platform/action-groups.md).
+
+> [!NOTE]
+> U kunt ook de [algemene waarschuwing schema](https://aka.ms/commonAlertSchemaDocs), waarmee u het voordeel dat een enkele, uitbreidbare en geïntegreerde alert payload voor alle van de waarschuwing van services in Azure Monitor voor de webhook-integraties. [Meer informatie over de algemene waarschuwing schemadefinities.](https://aka.ms/commonAlertSchemaDefinitions)
+
 
 ## <a name="authenticate-the-webhook"></a>Verifiëren van de webhook
 De webhook kunt u eventueel autorisatie op basis van tokens gebruiken voor verificatie. De URI wordt opgeslagen met een token-ID, bijvoorbeeld webhook `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
@@ -175,7 +179,7 @@ Zie voor meer informatie voor een specifieke schema op ander activiteitenlogboek
 | id |Resource-ID van de waarschuwing. |
 | description |Beschrijving van de waarschuwing instellen wanneer de waarschuwing is gemaakt. |
 | subscriptionId |Azure-abonnement-ID. |
-| tijdstempel |Tijd waarop de gebeurtenis is gegenereerd door de Azure-service die het verzoek heeft verwerkt. |
+| timestamp |Tijd waarop de gebeurtenis is gegenereerd door de Azure-service die het verzoek heeft verwerkt. |
 | resourceId |Resource-ID van de betrokken resource. |
 | resourceGroupName |De naam van de resourcegroep voor de betrokken resource. |
 | properties |Instellen van `<Key, Value>` paren (dat wil zeggen, `Dictionary<String, String>`) die vindt u informatie over de gebeurtenis. |

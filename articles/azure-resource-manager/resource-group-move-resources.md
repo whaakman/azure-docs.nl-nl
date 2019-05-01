@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 04/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239148"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698490"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -222,6 +222,22 @@ Wanneer u een Web-App verplaatst _voor abonnementen_, gelden de volgende beperki
 - Alle App Service-resources in de resourcegroep, moeten tegelijk worden verplaatst.
 - App Service-resources kunnen alleen worden verplaatst uit de resourcegroep waarin ze oorspronkelijk zijn gemaakt. Als een resource App Service niet langer in de oorspronkelijke resourcegroep is, het moet worden teruggezet naar die oorspronkelijke resourcegroep eerst en vervolgens kunnen worden verplaatst tussen abonnementen.
 
+Als u niet de oorspronkelijke resourcegroep niet meer weet, kunt u deze kunt vinden via diagnostische gegevens. Voor uw web-app, selecteer **vaststellen en oplossen van problemen met**. Selecteer **configuratie en beheer**.
+
+![Schakel diagnostische gegevens](./media/resource-group-move-resources/select-diagnostics.png)
+
+Selecteer **migratieopties**.
+
+![Selecteer opties voor de migratie](./media/resource-group-move-resources/select-migration.png)
+
+Selecteer de optie voor de aanbevolen stappen voor het verplaatsen van de web-app.
+
+![Selecteer de aanbevolen stappen](./media/resource-group-move-resources/recommended-steps.png)
+
+Ziet u de aanbevolen acties moet uitvoeren voordat het verplaatsen van de resources. De informatie bevat de oorspronkelijke resourcegroep voor de web-app.
+
+![Aanbevelingen](./media/resource-group-move-resources/recommendations.png)
+
 ### <a name="app-service-certificate-limitations"></a>Beperkingen van App Service-certificaat
 
 U kunt uw App Service Certificate verplaatsen naar een nieuwe resourcegroep of abonnement. Als uw App Service Certificate is gebonden aan een web-app, moet u enkele stappen uitvoeren voordat u de resources verplaatst naar een nieuw abonnement. De SSL-binding en persoonlijk certificaat van de web-app verwijderen voordat u de resources. Het App Service Certificate niet hoeft te worden verwijderd, alleen de persoonlijke certificaat in de web-app.
@@ -251,7 +267,7 @@ Wanneer u resources verplaatst naar een nieuw abonnement, gelden de volgende bep
 * Het doelabonnement moet geen andere klassieke resources.
 * De overstap kan alleen worden aangevraagd door een afzonderlijke REST-API voor klassieke verplaatst. De standaardopdrachten verplaatsen van Resource Manager werken niet bij het klassieke resources verplaatsen naar een nieuw abonnement.
 
-Om klassieke resources verplaatsen naar een nieuw abonnement, de REST-bewerkingen die specifiek voor klassieke resources zijn te gebruiken. Voor het gebruik van REST, moet u de volgende stappen uitvoeren:
+Om klassieke resources verplaatsen naar een nieuw abonnement, de REST-bewerkingen die specifiek voor klassieke resources zijn te gebruiken. Voor het gebruik van REST, voer de volgende stappen uit:
 
 1. Controleer als van het bronabonnement deel uitmaken van een verplaatsing van kruislings abonnement. Gebruik de volgende bewerking:
 

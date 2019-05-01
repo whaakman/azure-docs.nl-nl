@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: c4f94dd2730dd302951b4476a292b006041b7ee8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d79154a8792b9017b98f9d21a2ab0360b7304d1c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820037"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697862"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisch-trein een prognose time series-model
 
@@ -67,7 +67,7 @@ y_test = X_test.pop("sales_quantity").values
 > [!NOTE]
 > Bij het trainen van een model voor het voorspellen van toekomstige waarden, zorg ervoor dat alle de onderdelen van training kunnen worden gebruikt bij het uitvoeren van voorspellingen voor uw gewenste periode. Bijvoorbeeld bij het maken van een prognose van vraag, met inbegrip van een functie voor de huidige aandelenkoersen kan zeer training nauwkeurigheid vergroten. Als u van plan bent om te voorspellen met een lange periode, kunt u mogelijk niet nauwkeurig voorspellen van toekomstige aandelen waarden die overeenkomen met toekomstige time series-punten, en de nauwkeurigheid van model kan ten koste gaan.
 
-## <a name="configure-experiment"></a>Configureren van experiment
+## <a name="configure-and-run-experiment"></a>Configureren en het experiment uit te voeren
 
 Geautomatiseerde machine learning gebruikt voor het voorspellen van taken, het vooraf verwerken en een schatting van de stappen die specifiek voor time series-gegevens zijn. De volgende stappen voor het vooraf verwerken wordt uitgevoerd:
 
@@ -126,6 +126,20 @@ best_run, fitted_model = local_run.get_output()
 > [!NOTE]
 > Voor de procedure kruisvalidatie (CV), time series-gegevens kunt strijdig zijn met de elementaire statistische veronderstellingen van de canonieke K-Vouw kruisvalidatie strategie, zodat de geautomatiseerde machine learning implementeert een rolling oorsprong validatie-procedure voor het maken kruisvalidatie vouwen voor time series-gegevens. U kunt deze procedure gebruiken de `n_cross_validations` parameter in de `AutoMLConfig` object. U kunt overslaan validatie en gebruik uw eigen validatie wordt ingesteld met de `X_valid` en `y_valid` parameters.
 
+### <a name="view-feature-engineering-summary"></a>Technisch overzicht van de functies weergeven
+
+Voor time series taaktypen in geautomatiseerde machine learning, kunt u de details van de functie engineering-proces weergeven. De volgende code toont elke onbewerkte functie samen met de volgende kenmerken:
+
+* Onbewerkte functienaam
+* Aantal Social engineering functies gevormd buiten deze onbewerkte functie
+* Gedetecteerd type
+* Of de functie is verwijderd
+* Lijst met functie transformaties voor de raw-functie
+
+```python
+fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+```
+
 ## <a name="forecasting-with-best-model"></a>Prognose maken met het beste model
 
 Gebruik het beste model iteratie prognose van de waarden voor de testgegevensset.
@@ -133,6 +147,16 @@ Gebruik het beste model iteratie prognose van de waarden voor de testgegevensset
 ```python
 y_predict = fitted_model.predict(X_test)
 y_actual = y_test.flatten()
+```
+
+U kunt ook kunt u de `forecast()` werken in plaats van `predict()`, zodat de specificaties van wanneer voorspellingen moeten starten. In het volgende voorbeeld vervangt u eerst alle waarden in `y_pred` met `NaN`. De prognose oorsprong wordt worden aan het einde van het trainen van gegevens in dit geval, omdat het normaal zijn zou bij het gebruik van `predict()`. Echter, als u alleen de tweede helft van de vervangen `y_pred` met `NaN`, de functie ervoor zorgt dat de numerieke waarden in de eerste helft ongewijzigd, maar prognose de `NaN` waarden in de tweede helft. De functie retourneert zowel de voorspelde waarden als de uitgelijnde functies.
+
+U kunt ook de `forecast_destination` parameter in de `forecast()` functie om te voorspellen waarden tot een opgegeven datum.
+
+```python
+y_query = y_test.copy().astype(np.float)
+y_query.fill(np.nan)
+y_fcst, X_trans = fitted_pipeline.forecast(X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
 RMSE berekenen (root mean squared fout) tussen de `y_test` werkelijke waarden en de voorspelde waarden in `y_pred`.

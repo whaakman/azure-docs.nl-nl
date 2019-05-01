@@ -1,7 +1,6 @@
 ---
 title: MapReduce met Apache Hadoop op HDInsight
 description: Leer hoe u MapReduce-taken worden uitgevoerd op Apache Hadoop in HDInsight-clusters.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: f2baaf598be8ede69fd6e1fa49a5f5a6b64c24ff
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9da6b6ba3ab697887e55f9077b44cf6fa100a981
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521192"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707967"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>MapReduce gebruiken in een Apache Hadoop op HDInsight
 
@@ -49,15 +48,13 @@ Hadoop-streaming communiceert met de toewijzing en reducer via STDIN en STDOUT. 
 
 Zie voor meer informatie, [Hadoop-Streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
-Zie de volgende documenten voor meer voorbeelden van het gebruik van Hadoop-streaming met HDInsight:
+Zie het volgende document voor meer voorbeelden van het gebruik van Hadoop-streaming met HDInsight:
 
 * [C# MapReduce-taken ontwikkelen](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Python MapReduce-taken ontwikkelen](apache-hadoop-streaming-python.md)
-
 ## <a id="data"></a>Voorbeeldgegevens
 
-HDInsight biedt verschillende voorbeeld gegevenssets die zijn opgeslagen in de `/example/data` en `/HdiSamples` directory. Deze mappen zijn in de standaardopslag voor uw cluster. In dit document, gebruiken we de `/example/data/gutenberg/davinci.txt` bestand. Dit bestand bevat de laptops van Leonardo Da Vinci.
+HDInsight biedt verschillende voorbeeld gegevenssets die zijn opgeslagen in de `/example/data` en `/HdiSamples` directory. Deze mappen zijn in de standaardopslag voor uw cluster. In dit document, gebruiken we de `/example/data/gutenberg/davinci.txt` bestand. Dit bestand bevat de laptops van Leonardo da Vinci.
 
 ## <a id="job"></a>Voorbeeld van MapReduce
 
@@ -137,11 +134,9 @@ public class WordCount {
 }
 ```
 
-Zie de volgende documenten voor instructies om uw eigen MapReduce-toepassingen te schrijven:
+Zie het volgende document voor instructies om uw eigen MapReduce-toepassingen te schrijven:
 
 * [Ontwikkel Java MapReduce-toepassingen voor HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [Ontwikkel Python MapReduce-toepassingen voor HDInsight](apache-hadoop-streaming-python.md)
 
 ## <a id="run"></a>De MapReduce uitvoeren
 
@@ -158,8 +153,6 @@ HDInsight uitvoeren HiveQL taken met behulp van verschillende methoden. Gebruik 
 Zie de volgende documenten voor meer informatie over het werken met gegevens in HDInsight:
 
 * [Java MapReduce-programma's ontwikkelen voor HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [Python MapReduce-programma's voor HDInsight streaming ontwikkelen](apache-hadoop-streaming-python.md)
 
 * [Apache Hive gebruiken met HDInsight][hdinsight-use-hive]
 

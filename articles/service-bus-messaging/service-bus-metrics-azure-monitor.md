@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: 175d5d5d4495986c29b75427a325088c14279e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d5f5c1d9b1884c6e9975ceb0ce28ecd5f25e89b2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308594"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716109"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Metrische gegevens van Azure Service Bus in Azure Monitor (preview)
 
@@ -83,14 +83,14 @@ De volgende twee typen fouten zijn geclassificeerd als gebruikersfouten:
 |Uitgaande berichten (preview)|Het aantal gebeurtenissen of berichten ontvangen van Service Bus gedurende een bepaalde periode.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
 | Berichten (preview) | Het aantal berichten in een wachtrij/onderwerp. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Dimensie: EntityName |
 | ActiveMessages (preview) | Het aantal actieve berichten in een wachtrij/onderwerp. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Dimensie: EntityName |
+| Dead lettered berichten (preview) | Het aantal dead lettered berichten in een wachtrij/onderwerp. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/>Dimensie: EntityName |
+| Geplande berichten (preview) | Het aantal geplande berichten in een wachtrij/onderwerp. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld  <br/> Dimensie: EntityName |
 
 ## <a name="connection-metrics"></a>Metrische verbindingsgegevens
 
 | Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
 |ActiveConnections (preview)|Het aantal actieve verbindingen voor een naamruimte, maar ook op een entiteit.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
-|Verbindingen geopend (preview)|Het aantal open verbindingen.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
-|Gesloten verbindingen (preview)|Het aantal gesloten verbindingen.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Metrische gegevens voor het gebruik van resources
 
@@ -106,7 +106,7 @@ De volgende twee typen fouten zijn geclassificeerd als gebruikersfouten:
 
 Azure Service Bus ondersteunt de volgende dimensies voor metrische gegevens in Azure Monitor. Dimensies toevoegen aan uw metrische gegevens is optioneel. Als u dimensies niet toevoegt, worden de metrische gegevens opgegeven op het niveau van de naamruimte. 
 
-|Dimensienaam|Beschrijving|
+|Dimensienaam|Description|
 | ------------------- | ----------------- |
 |EntityName| Service Bus ondersteunt berichtentiteiten onder de naamruimte.|
 
@@ -115,7 +115,7 @@ Azure Service Bus ondersteunt de volgende dimensies voor metrische gegevens in A
 1. Op de **metrische gegevens** tabblad van de **Service Bus Namespace** weergeeft, schakelt **waarschuwingen configureren**. 
 
     ![Metrische gegevens over pagina - waarschuwingenmenu configureren](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
-2. Selecteer **doel selecteren**, en de volgende acties uitvoeren op de **selecteert u een resource** pagina: 
+2. Selecteer de **doel selecteren** optie en voer de volgende acties op de **selecteert u een resource** pagina: 
     1. Selecteer **Service Bus-naamruimten** voor de **filteren op resourcetype** veld. 
     2. Selecteer uw abonnement voor de **filteren op abonnement** veld.
     3. Selecteer de **service bus-naamruimte** in de lijst. 

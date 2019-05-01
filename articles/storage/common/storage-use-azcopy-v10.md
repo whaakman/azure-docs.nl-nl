@@ -1,23 +1,23 @@
 ---
-title: Gegevens kopiëren of verplaatsen naar Azure Storage met behulp van AzCopy v10 (Preview) | Microsoft Docs
-description: Gebruik van de v10 AzCopy-opdrachtregelprogramma (Preview) te verplaatsen of kopiëren van gegevens naar of van blob-, data lake- en bestandsinhoud. Gegevens kopiëren naar Azure Storage van lokale bestanden en gegevens binnen of tussen opslagaccounts kopiëren. Migreer uw gegevens eenvoudig naar Azure Storage.
+title: Gegevens kopiëren of verplaatsen naar Azure Storage met behulp van AzCopy v10 | Microsoft Docs
+description: Gebruik het opdrachtregelhulpprogramma AzCopy verplaatsen of kopiëren van gegevens naar of van blob-, data lake- en bestandsinhoud. Gegevens kopiëren naar Azure Storage van lokale bestanden en gegevens binnen of tussen opslagaccounts kopiëren. Migreer uw gegevens eenvoudig naar Azure Storage.
 services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/23/2019
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: ffd448db86c8658619da5339cd34eb9dba7e05ce
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c1de40b6bf3bb4dc6854a11eca92902203d492c3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278425"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723180"
 ---
-# <a name="transfer-data-with-azcopy-v10-preview"></a>Gegevens overdragen met AzCopy v10 (Preview)
+# <a name="transfer-data-with-azcopy-v10"></a>Gegevens overdragen met AzCopy v10
 
-AzCopy v10 (Preview) is het opdrachtregelprogramma voor het kopiëren van gegevens naar of van Microsoft Azure BLOB Storage en File storage. AzCopy v10 biedt een opdrachtregelinterface die vernieuwde en nieuwe architectuur voor betrouwbare gegevens brengt. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren met behulp van AzCopy.
+AzCopy is het opdrachtregelprogramma voor het kopiëren van gegevens naar of van Microsoft Azure BLOB Storage en File storage. AzCopy biedt een opdrachtregelinterface die vernieuwde en nieuwe architectuur voor betrouwbare gegevens brengt. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren met behulp van AzCopy.
 
 ## <a name="whats-new-in-azcopy-v10"></a>Wat is er nieuw in AzCopy v10
 
@@ -33,28 +33,24 @@ AzCopy v10 (Preview) is het opdrachtregelprogramma voor het kopiëren van gegeve
 
 ## <a name="download-and-install-azcopy"></a>Download en installeer AzCopy
 
-### <a name="latest-preview-version-v10"></a>Meest recente preview-versie (v10)
+### <a name="latest-production-version-v10"></a>Nieuwste productieversie (v10)
 
-De meest recente preview-versie van AzCopy downloaden:
+De nieuwste versie van AzCopy downloaden:
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-### <a name="latest-production-version-v81"></a>Nieuwste productieversie (v8.1)
-
-Download de [nieuwste productieversie van AzCopy voor Windows](https://aka.ms/downloadazcopy).
-
-### <a name="azcopy-supporting-table-storage-service-v73"></a>AzCopy Table storage-service (v7.3) ondersteunen
+### <a name="latest-azcopy-supporting-table-storage-service-v73"></a>Meest recente AzCopy Table storage-service (v7.3) ondersteunen
 
 Download de [AzCopy v7.3 kopiëren van gegevens naar/van Microsoft Azure Table storage-service ondersteunt](https://aka.ms/downloadazcopynet).
 
 ## <a name="post-installation-steps"></a>Stappen na de installatie
 
-AzCopy v10 zijn vereist om een installatie. Open uw favoriete opdrachtregelprogramma en blader naar de map waar `azcopy.exe` zich bevindt. Indien nodig, kunt u de locatie van de AzCopy-map toevoegen aan het systeempad voor gebruiksgemak.
+AzCopy zijn vereist om een installatie. Open uw favoriete opdrachtregelprogramma en blader naar de map waar `azcopy.exe` zich bevindt. Indien nodig, kunt u de locatie van de AzCopy-map toevoegen aan het systeempad voor gebruiksgemak.
 
 ## <a name="authentication-options"></a>Verificatieopties
 
-AzCopy v10 ondersteunt de volgende opties bij het verifiëren met Azure Storage:
+AzCopy ondersteunt de volgende opties bij het verifiëren met Azure Storage:
 - **Azure Active Directory** (ondersteund voor **Blob-en Data Lake Storage Gen2**). Gebruik ```.\azcopy login``` zich aanmelden met Azure Active Directory.  De gebruiker moet beschikken over ['Blob Gegevensbijdrager voor' rol](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) te schrijven naar Blob storage met Azure Active Directory-verificatie. Voor verificatie via beheerde identiteiten voor Azure-resources, gebruikt u `azcopy login --identity`.
 - **Gedeelde SAS-tokens [ondersteunde voor Blob- en Bestandsservices]**. Het token shared access signature (SAS) toegevoegd aan de blobpad op de opdrachtregel om het te gebruiken. U kunt met de Azure portal, SAS-tokens genereren [Opslagverkenner](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), of andere hulpprogramma's van uw keuze. Zie voor meer informatie, [voorbeelden](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
@@ -198,7 +194,7 @@ U kunt ook een blob-container naar een lokaal bestandssysteem synchroniseren:
 .\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
 ```
 
-Met deze opdracht synchroniseert stapsgewijs de bron naar de bestemming op basis van de laatst gewijzigde tijdstempels. Als u toevoegen of verwijderen van een bestand in de bron, doet AzCopy v10 hetzelfde als in de bestemming. Voordat u deze verwijdert vraagt AzCopy u om te bevestigen.
+Met deze opdracht synchroniseert stapsgewijs de bron naar de bestemming op basis van de laatst gewijzigde tijdstempels. Als u toevoegen of verwijderen van een bestand in de bron, doet AzCopy hetzelfde als in de bestemming. Voordat u deze verwijdert vraagt AzCopy u om te bevestigen.
 
 ## <a name="copy-data-from-amazon-web-services-aws-s3"></a>Gegevens kopiëren van Amazon Web Services (AWS) S3
 
@@ -283,7 +279,7 @@ cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-AzCopy v10 logboekbestanden en plan bestanden voor elke taak gemaakt. U kunt de logboeken kunt gebruiken om te onderzoeken en oplossen van mogelijke problemen. De logboeken van de status van de fout (UPLOADFAILED, COPYFAILED en DOWNLOADFAILED), bevat het volledige pad en de reden van de fout. De taaklogboeken van de en plan-bestanden bevinden zich in de map % USERPROFILE\\.azcopy map op Windows of $HOME\\.azcopy map op Mac en Linux.
+AzCopy logboekbestanden en plan bestanden voor elke taak gemaakt. U kunt de logboeken kunt gebruiken om te onderzoeken en oplossen van mogelijke problemen. De logboeken van de status van de fout (UPLOADFAILED, COPYFAILED en DOWNLOADFAILED), bevat het volledige pad en de reden van de fout. De taaklogboeken van de en plan-bestanden bevinden zich in de map % USERPROFILE\\.azcopy map op Windows of $HOME\\.azcopy map op Mac en Linux.
 
 > [!IMPORTANT]
 > Bij het indienen van een aanvraag voor het Microsoft Support (of het probleem met betrekking tot een derde partij op te lossen), delen de geredigeerde versie van de opdracht die u wilt uitvoeren. Dit zorgt ervoor dat de SAS niet per ongeluk worden gedeeld met iedereen. U vindt de geredigeerde versie aan het begin van het logboekbestand.

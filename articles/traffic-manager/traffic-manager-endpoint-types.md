@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: 3f41edef56b238d8789264d00d73998794fec7eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b609a0ace0b428e1af81634c6a25485e3a5e89bb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188710"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916665"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager-eindpunten
 Microsoft Azure Traffic Manager kunt u bepalen hoe netwerkverkeer wordt gedistribueerd naar implementaties van toepassingen die worden uitgevoerd in verschillende datacenters. U configureren elke implementatie van toepassing als een 'eindpunt' in Traffic Manager. Bij het Traffic Manager een DNS-aanvraag ontvangt, kiest deze een eindpunt beschikbaar om te retourneren in de DNS-antwoord. Traffic manager wordt de basis van de keuze van de huidige status van endpoint en de verkeersrouteringsmethode. Zie voor meer informatie, [hoe Traffic Manager werkt](traffic-manager-how-it-works.md).
@@ -63,7 +63,7 @@ Geneste eindpunten combineren meerdere Traffic Manager-profielen voor het maken 
 
 Enkele aanvullende overwegingen zijn van toepassing bij het configureren van Web-Apps als eindpunten in Traffic Manager:
 
-1. Alleen Web-Apps op de 'Standaard'-SKU of hoger komen in aanmerking voor gebruik met Traffic Manager. Pogingen om toe te voegen een Web-App van een lagere SKU mislukken. Het downgraden van de SKU van een bestaande Web-App, resulteert in Traffic Manager, niet meer verkeer verzenden naar die Web-App. Zie voor meer informatie over ondersteunde plannen voor de [App Service-plannen](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
+1. Alleen Web-Apps op de 'Standaard'-SKU of hoger komen in aanmerking voor gebruik met Traffic Manager. Pogingen om toe te voegen een Web-App van een lagere SKU mislukken. Het downgraden van de SKU van een bestaande Web-App, resulteert in Traffic Manager, niet meer verkeer verzenden naar die Web-App. Zie voor meer informatie over ondersteunde plannen voor de [App Service-plannen](https://azure.microsoft.com/pricing/details/app-service/plans/)
 2. Wanneer een eindpunt een HTTP-aanvraag ontvangt, gebruikt de header 'host' in de aanvraag om te bepalen welke Web-App moet de aanvraag-service. De host-header bevat de DNS-naam gebruikt voor het starten van de aanvraag, bijvoorbeeld contosoapp.azurewebsites.net. Voor het gebruik van een andere DNS-naam met uw Web-App, moet de DNS-naam als een aangepaste domeinnaam voor de App worden geregistreerd. Bij het toevoegen van een Web-App-eindpunt als een Azure-eindpunt, wordt de DNS-naam van het Traffic Manager-profiel wordt automatisch geregistreerd voor de App. Deze registratie automatisch verwijderd wanneer het eindpunt wordt verwijderd.
 3. Elke Traffic Manager-profiel kan maximaal één Web-App-eindpunt hebben van elke Azure-regio. Als tijdelijke oplossing voor deze beperking, kunt u een Web-App configureren als een extern eindpunt. Zie voor meer informatie de [Veelgestelde vragen over](traffic-manager-faqs.md#traffic-manager-endpoints).
 

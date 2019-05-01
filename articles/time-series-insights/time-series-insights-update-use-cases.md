@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: f4e14435c2ccab98619bec57fef0e121e2df4403
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 677d0458acb9fa29f91a7fb849da56cb3cd67678
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431603"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707080"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights Preview use-cases
 
@@ -93,7 +93,9 @@ Time Series Insights een brug tussen IoT-gegevens en geavanceerde analyses in tw
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over de [Verkenner van Time Series Insights Preview](./time-series-insights-update-explorer.md).
+
 - Als u van plan bent om uw omgeving, wilt lezen [Time Series Insights Preview planning](./time-series-insights-update-plan.md).
+
 - Lees de [Time Series Insights client](https://github.com/Microsoft/tsiclient) documentatie.
 
 <!-- Images -->

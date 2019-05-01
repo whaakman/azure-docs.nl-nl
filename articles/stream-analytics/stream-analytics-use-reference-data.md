@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 4ddbec6b163a939c1663630e39e89140ac6f7efe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2400f80c67527027aee3a98baaa869c5c66d46ee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761485"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573634"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Met behulp van referentiegegevens voor zoekacties in Stream Analytics
 Referentiegegevens (ook wel bekend als een opzoektabel) is een eindige gegevensset die is statische of langzaam veranderende aard is, gebruikt om uit te voeren een zoekopdracht of om te correleren met de stroom van uw gegevens. U kunt in een IoT-scenario, bijvoorbeeld slaan metagegevens over sensoren (die niet vaak wijzigen) in de referentiegegevens en ontmoet realtime IoT-gegevensstromen. Azure Stream Analytics wordt geladen referentiegegevens in het geheugen te controleren van de verwerking van gegevensstromen met lage latentie. Om het gebruik van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u in het algemeen een [verwijzing gegevens Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in uw query. 
@@ -49,7 +49,7 @@ Als uw referentiegegevens niet verwacht wordt te wijzigen, klikt u vervolgens on
 
 Als uw referentiegegevens een langzaam veranderende gegevensset is, wordt ondersteund voor het vernieuwen van verwijzing gegevens is ingeschakeld door een padpatroon op te geven in de invoer-configuratie met behulp van de {date} en {time} vervanging tokens. Stream Analytics, neemt de bijgewerkte referentiegegevens-gegevens-definities op basis van dit padpatroon. Bijvoorbeeld, een patroon van `sample/{date}/{time}/products.csv` met datumnotatie **'Jjjj-MM-DD'** en een tijd-indeling van **'HH: mm'** Hiermee geeft u Stream Analytics om op te halen de bijgewerkte blob `sample/2015-04-16/17-30/products.csv` om 17:30 uur op 16 April , 2015 UTC-tijdzone.
 
-Azure Stream Analytics scant automatisch voor vernieuwd referentiegegevens-blobs op basis van een interval van één minuut.
+Azure Stream Analytics scant automatisch voor vernieuwd referentiegegevens-blobs op basis van een interval van één minuut. Als een blob met tijdstempel 10:30:00 is geüpload met een kleine vertraging (bijvoorbeeld, 10:30:30), ziet u een kleine vertraging in de Stream Analytics-taak die verwijst naar deze blob. Om te voorkomen dat dergelijke scenario's, verdient het de blob ouder is dan de doeltijd effectieve uploaden (10: 30:00 in dit voorbeeld) om toe te staan van de Stream Analytics-taak voldoende tijd om te detecteren en deze in het geheugen laden en bewerkingen uitvoeren. 
 
 > [!NOTE]
 > Stream Analytics-taken bekijken die momenteel voor het vernieuwen van de blob alleen wanneer de tijd op de computer wordt verplaatst naar de tijd die is gecodeerd in de blob-naam. Bijvoorbeeld, de taak wordt gezocht naar `sample/2015-04-16/17-30/products.csv` zo snel mogelijk maar het is niet eerder dan 17:30 uur op 16 April 2015 UTC tijdzone. Het wordt *nooit* zoeken naar een blob met een gecodeerde tijd ouder is dan het laatste item dat is gedetecteerd.

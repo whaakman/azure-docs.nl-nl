@@ -11,12 +11,12 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: b98d20a1f96a6ab4a0dc72330e85fdc98ba04eae
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576375"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727057"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure functie-activiteit in Azure Data Factory
 
@@ -28,7 +28,7 @@ Bekijk de volgende video voor een inleiding van acht minuten en demonstratie van
 
 ## <a name="azure-function-linked-service"></a>Azure-functie gekoppelde service
 
-Het retourtype van de Azure-functie is alleen een geldig `JObject`. (Houd er rekening mee dat [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) is *niet* een `JObject`.) Een retourtype dan `JObject` mislukt en de algemene gebruikersfout genereert *fout aanvragende eindpunt*.
+Het retourtype van de Azure-functie is alleen een geldig `JObject`. (Houd er rekening mee dat [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) is *niet* een `JObject`.) Een retourtype dan `JObject` mislukt en de gebruikersfout genereert *antwoord inhoud is niet een geldig JObject*.
 
 | **Eigenschap** | **Beschrijving** | **Vereist** |
 | --- | --- | --- |
@@ -52,11 +52,18 @@ Het retourtype van de Azure-functie is alleen een geldig `JObject`. (Houd er rek
 
 Het schema van de nettolading van de aanvraag in [verzoek nettolading schema](control-flow-web-activity.md#request-payload-schema) sectie.
 
-## <a name="more-info"></a>Meer informatie
+## <a name="routing-and-queries"></a>Routering en query 's
 
-De activiteit Azure-functie ondersteunt **routering**. Bijvoorbeeld, als uw app gebruikmaakt van de volgende routering - `https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>` - de `functionName` is `functionName/{value}`, die u kunt parameters voor de gewenste `functionName` tijdens runtime.
+De activiteit Azure-functie ondersteunt **routering**. Bijvoorbeeld, als uw Azure-functie is het eindpunt `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>`, dan zal de `functionName` te gebruiken in de activiteit Azure-functie is `<functionName>/<value>`. U kunt deze functie om de gewenste parameteriseren `functionName` tijdens runtime.
 
-De activiteit Azure-functie biedt ook ondersteuning voor **query's**. Een query moet deel uitmaken van de `functionName` - bijvoorbeeld `HttpTriggerCSharp2?name=hello` - waar de `function name` is `HttpTriggerCSharp2`.
+De activiteit Azure-functie biedt ook ondersteuning voor **query's**. Een query moet worden opgenomen als onderdeel van de `functionName`. Bijvoorbeeld, als naam van de functie is `HttpTriggerCSharp` en de query die u wilt opnemen, is `name=hello`, en vervolgens kunt u maken de `functionName` in de activiteit Azure-functie als `HttpTriggerCSharp?name=hello`. De parameters van deze functie kan worden gebruikt, zodat de waarde kan worden bepaald tijdens uitvoering.
+
+## <a name="timeout-and-long-running-functions"></a>Time-out en langlopende functies
+
+Azure Functions time-out na 230 seconden, ongeacht de `functionTimeout` instelling die u hebt geconfigureerd in de instellingen. Raadpleeg [dit artikel](../azure-functions/functions-versions.md#timeout) voor meer informatie. Als tijdelijke oplossing voor dit gedrag, gaat u als volgt een asynchrone patroon of duurzame functies gebruiken. Het voordeel van duurzame functies is dat deze verbindingen bieden een mechanisme voor hun eigen status bij te houden, zodat u hoeft voor het implementeren van uw eigen.
+
+Meer informatie over duurzame functies in [in dit artikel](../azure-functions/durable/durable-functions-overview.md). U kunt een activiteit van de functie Azure instellen voor het aanroepen van de functie duurzame, die wordt een antwoord met een andere URI, zoals [in dit voorbeeld](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery). Omdat `statusQueryGetUri` retourneert HTTP-Status 202 terwijl de functie wordt uitgevoerd, kunt u de status van de functie opvragen met behulp van een Web-activiteit. Eenvoudig instellen van een Web-activiteit met de `url` veld ingesteld op `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. Wanneer de functie duurzame is voltooid, is de uitvoer van de functie is de uitvoer van de Web-activiteit.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

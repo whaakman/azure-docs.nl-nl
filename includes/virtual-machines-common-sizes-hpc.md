@@ -5,21 +5,47 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 04/26/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: a8f0e61a953a2e2471e49d571063f6202b7ab76d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4b7cda593bd4dd39a7220aa282529535c6a63bea
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540477"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64914538"
 ---
-Azure virtual machines van de H-serie zijn de nieuwste high performance computing-VM's die zijn gericht op het verwerken van workloads, zoals batchverwerking, analyses, molecuulmodellen en vloeistofdynamica. Deze 8 en 16 worden vCPU-VM's zijn gebouwd op de Intel Haswell E5 2667 V3 processor-technologie met DDR4-geheugen en tijdelijke opslag op basis van SSD. 
+Azure H-serie virtuele machines (VM's) zijn ontworpen voor leidinggevenden hoogwaardige prestaties, schaalbaarheid van de MPI, leveren en kostenbesparing voor tal van echte HPC-workloads.
 
-Naast een zeer hoge CPU-kracht biedt de H-serie ook verschillende opties voor RDMA-netwerken met lage latentie met gebruik van FDR InfiniBand, evenals verschillende geheugenconfiguraties om geheugenintensieve rekenvereisten te ondersteunen.
+Virtuele machines uit de HB-serie zijn geoptimaliseerd voor toepassingen die geheugenbandbreedte gebruiken, zoals vloeiende dynamics, expliciete beperkte elementanalyse en weermodellen. HB-VM’s zijn voorzien van 60 AMD EPYC 7551-processorkernen en 4 GB RAM-geheugen per CPU-kern, zonder hyperthreading. Het AMD EPYC-platform biedt meer dan 260 GB/s aan geheugenbandbreedte.
+
+CH-serie VM's zijn geoptimaliseerd voor toepassingen die worden aangestuurd door compacte berekening, zoals impliciete eindige-elementenmethode, moleculaire dynamics en rekenkundige chemie. HC-VM’s zijn voorzien van 44 Intel Xeon Platinum 8168-processorkernen en 8 GB aan RAM-geheugen per CPU-kern, zonder hyperthreading. De Intel Xeon Platinum-platform biedt ondersteuning voor Intel uitgebreid ecosysteem van hulpprogramma's zoals de Intel Math Kernel-bibliotheek.
+
+Zowel HB en HC VM's voorzien van 100 Gb per seconde Mellanox EDR InfiniBand in een niet-blokkerende fat-configuratie voor consistente prestaties voor RDMA structuur. HB en HC virtuele machines ondersteunen standard Mellanox/OFED-stuurprogramma's zodanig dat alle MPI-typen en versies, evenals RDMA-termen, worden ook ondersteund.
+
+H-serie VM's zijn geoptimaliseerd voor toepassingen die worden aangestuurd door hoog CPU-frequenties of grote geheugen per kern-vereisten. H-serie VM's functie 8 of 16 Intel Xeon E5-2667 v3 processor-kernen, 7 of 14 GB aan RAM-geheugen per CPU-kern, en dat er geen hyperthreading is. H-serie biedt 56 Gb/sec Mellanox FDR InfiniBand in een niet-blokkerende fat-configuratie voor consistente prestaties voor RDMA structuur. H-serie VM's ondersteunen Intel MPI 5.x en MS-MPI.
+
+## <a name="hb-series"></a>HB-serie
+
+Premium-opslag: Premium-opslag ondersteund opslaan in cache: Ondersteund
+
+| Grootte | vCPU | Processor | Geheugen (GB) | Geheugenbandbreedte GB/s | Basis CPU-frequentie (GHz) | Alle-cores frequentie (GHz, piek) | Single-core frequentie (GHz, piek) | RDMA-prestaties (GB/s) | MPI-ondersteuning | Tijdelijke opslag (GB) | Max. aantal gegevensschijven | Maximum aantal Ethernet-NIC 's |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_HB60rs | 60 | AMD EPYC 7551 | 240 | 263 | 2.0 | 2.55 | 2.55 | 100 | Alle | 700 | 4 | 1 |
+
+<br>
+
+## <a name="hc-series"></a>CH-serie
+
+Premium-opslag: Premium-opslag ondersteund opslaan in cache: Ondersteund
 
 
+| Grootte | vCPU | Processor | Geheugen (GB) | Geheugenbandbreedte GB/s | Basis CPU-frequentie (GHz) | Alle-cores frequentie (GHz, piek) | Single-core frequentie (GHz, piek) | RDMA-prestaties (GB/s) | MPI-ondersteuning | Tijdelijke opslag (GB) | Max. aantal gegevensschijven | Maximum aantal Ethernet-NIC 's |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | Alle | 700 | 4 | 1 |
+
+
+<br>
 
 ## <a name="h-series"></a>H-serie
 
@@ -29,21 +55,15 @@ Premium-opslag:  Niet ondersteund
 
 Premium Storage Caching:  Niet ondersteund
 
-| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Max. doorvoer voor schijf: IOPS | Max. aantal NIC's |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 |8 |56 |1000 |32 |32 x 500 |2  |
-| Standard_H16 |16 |112 |2000 |64 |64 x 500 |4 |
-| Standard_H8m |8 |112 |1000 |32 |32 x 500 |2  |
-| Standard_H16m |16 |224 |2000 |64 |64 x 500 |4  |
-| Standard_H16r <sup>1</sup> |16 |112 |2000 |64 |64 x 500 |4  |
-| Standard_H16mr <sup>1</sup> |16 |224 |2000 |64 |64 x 500 |4 |
+| Grootte | vCPU | Processor | Geheugen (GB) | Geheugenbandbreedte GB/s | Basis CPU-frequentie (GHz) | Alle-cores frequentie (GHz, piek) | Single-core frequentie (GHz, piek) | RDMA-prestaties (GB/s) | MPI-ondersteuning | Tijdelijke opslag (GB) | Max. aantal gegevensschijven | Maximum aantal Ethernet-NIC 's |
+| --- | --- |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_H8 | 8 | Intel Xeon E5 2667 v3 | 56 | 40 | 3.2 | 3,3 | 3.6 | 56 | Intel 5.x, MS-MPI | 1000 | 32 | 2 |
+| Standard_H16 | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3,3 | 3.6 |  56 | Intel 5.x, MS-MPI | 2000 | 64 | 4 |
+| Standard_H8m | 8 | Intel Xeon E5 2667 v3 | 112 | 40 | 3.2 | 3,3 | 3.6 | 56 | Intel 5.x, MS-MPI | 1000 | 32 | 2 |
+| Standard_H16m | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3.2 | 3,3 | 3.6 | 56 | Intel 5.x, MS-MPI | 2000 | 64 | 4 |
+| Standard_H16r <sup>1</sup> | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3,3 | 3.6 | 56 | 2000 | Intel 5.x, MS-MPI | 64 | 4 |
+| Standard_H16mr <sup>1</sup> | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3.2 | 3,3 | 3.6 | 56 | 2000 | Intel 5.x, MS-MPI | 64 | 4 |
 
 <sup>1</sup> voor MPI-toepassingen, toegewezen RDMA-back-endnetwerk is ingeschakeld door FDR InfiniBand-netwerk, die voorziet in een zeer lage latentie en hoge bandbreedte.
 
 <br>
-
-
-
-
-
-

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75fe965a04bd02a1086551053c28d2072eae6468
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323821"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869517"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Voldoen aan de Azure CDN-regelengine 
 Dit artikel vindt u gedetailleerde beschrijvingen van de criteria voor het Azure Content Delivery Network (CDN) voor de beschikbare overeenkomst [regels-engine](cdn-rules-engine.md).
@@ -54,7 +54,7 @@ De locatie-criteria voor overeenkomst identificeren aanvragen op basis van de lo
 Name | Doel
 -----|--------
 [AS-nummer](#as-number) | Aanvragen die afkomstig van een bepaald netwerk zijn identificeert.
-[Land](#country) | Hiermee geeft u aanvragen die afkomstig uit de opgegeven landen zijn.
+[Land](#country) | Hiermee geeft u aanvragen die afkomstig uit de opgegeven landen/regio's zijn.
 
 ## <a name="origin-match-conditions"></a>Criteria voor overeenkomst van oorsprong
 
@@ -260,9 +260,9 @@ Deze voorwaarde voor overeenkomst kunt u uitvoeren van een groot aantal aanpassi
 - Jokerteken van URL-pad: Stel de [URL-pad jokertekens overeenkomen met de voorwaarde](#url-path-wildcard) naar de map die wordt beveiligd. 
     Een sterretje aan het einde van het relatieve pad om ervoor te zorgen dat toegang tot alle onderliggende items worden beperkt door deze regel toevoegen.
 
-- Land/regio overeenkomst: De land-voorwaarde voor overeenkomst ingesteld op de gewenste set landen.
-   - Toestaan: De land-voorwaarde voor overeenkomst ingesteld op **komt niet overeen met** om toe te staan alleen de opgegeven landen toegang tot inhoud die is opgeslagen op de locatie die is gedefinieerd door de voorwaarde voor overeenkomst van jokertekens voor URL-pad.
-   - Blokkeren: De land-voorwaarde voor overeenkomst ingesteld op **komt overeen met** moet worden geblokkeerd dat de opgegeven landen toegang krijgen tot inhoud die is opgeslagen op de locatie die is gedefinieerd door de voorwaarde voor overeenkomst van jokertekens voor URL-pad.
+- Land/regio overeenkomst: De land-voorwaarde voor overeenkomst ingesteld op de gewenste set landen/regio's.
+   - Toestaan: De land-voorwaarde voor overeenkomst ingesteld op **komt niet overeen met** om toe te staan alleen de vermelde landen/regio's toegang tot inhoud die is opgeslagen op de locatie die is gedefinieerd door de voorwaarde voor overeenkomst van jokertekens voor URL-pad.
+   - Blokkeren: De land-voorwaarde voor overeenkomst ingesteld op **komt overeen met** moet worden geblokkeerd dat de opgegeven landen/regio's toegang hebben tot inhoud die is opgeslagen op de locatie die is gedefinieerd door de voorwaarde voor overeenkomst van jokertekens voor URL-pad.
 
 - Functie-toegang (403) weigeren: Schakel de [toegang weigeren (403) functie](cdn-rules-engine-reference-features.md#deny-access-403) voor het repliceren van het gedeelte toestaan of blokkeren van de functie landen filteren.
 

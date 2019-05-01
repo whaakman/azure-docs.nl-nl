@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 83fe8d17699c19d442fd734d71d828eb9fd9d6ed
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 46719d3f72c57a44fb48489891e2348bb418da1e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258357"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918956"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Back-up en herstellen van Azure Files met PowerShell
 
@@ -317,7 +317,7 @@ Nadat u de relevante herstelpunt is geselecteerd, terugzetten u de bestandsshare
 
 ### <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Een Azure-bestandsshare naar een alternatieve locatie herstellen
 
-Gebruik de [terugzetten AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) om naar het geselecteerde herstelpunt te herstellen. Deze parameters voor het identificeren van de alternatieve locatie opgeven: 
+Gebruik de [terugzetten AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) om naar het geselecteerde herstelpunt te herstellen. Deze parameters voor het identificeren van de alternatieve locatie opgeven: 
 
 - **TargetStorageAccountName**: Het opslagaccount waarnaar de inhoud van een back-up is hersteld. De doel-opslagaccount moet zich op dezelfde locatie als de kluis.
 - **TargetFileShareName**: De bestandsshares in de doel-opslagaccount-account aan dat de inhoud van een back-up is hersteld.
@@ -340,7 +340,7 @@ testAzureFS        Restore              InProgress           12/10/2018 9:56:38 
 
 ### <a name="restore-an-azure-file-to-an-alternate-location"></a>Een Azure-bestand naar een alternatieve locatie herstellen
 
-Gebruik de [terugzetten AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) om naar het geselecteerde herstelpunt te herstellen. Deze parameters voor het identificeren van de alternatieve locatie opgeven en als unieke identificatie van het bestand dat u wilt herstellen.
+Gebruik de [terugzetten AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) om naar het geselecteerde herstelpunt te herstellen. Deze parameters voor het identificeren van de alternatieve locatie opgeven en als unieke identificatie van het bestand dat u wilt herstellen.
 
 * **TargetStorageAccountName**: Het opslagaccount waarnaar de inhoud van een back-up is hersteld. De doel-opslagaccount moet zich op dezelfde locatie als de kluis.
 * **TargetFileShareName**: De bestandsshares in de doel-opslagaccount-account aan dat de inhoud van een back-up is hersteld.

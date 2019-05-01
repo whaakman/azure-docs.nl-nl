@@ -7,29 +7,28 @@ ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: mimart
-author: msmimart
+author: v-miegge
 manager: daveba
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af106650f6e1d139ec7af2c8d243dc50f2e963fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c2a0eaf75debf694421ac9e5f2f7eb13891a20cf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412393"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917353"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Oplossen van problemen met Azure Active Directory B2B-samenwerking
 
 Hier volgen enkele oplossingen voor veelvoorkomende problemen met Azure Active Directory (Azure AD) B2B-samenwerking.
 
-
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Kan ik een externe gebruiker hebt toegevoegd, maar ze niet zien in mijn algemene adresboek of in de personen selecteren
 
 In gevallen waarbij externe gebruikers niet worden ingevuld in de lijst, kan het object repliceren in een paar minuten duren.
 
-## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Een gastgebruiker B2B wordt niet weergegeven in SharePoint Online/OneDrive personen selecteren 
- 
+## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Een gastgebruiker B2B wordt niet weergegeven in SharePoint Online/OneDrive personen selecteren
+
 De mogelijkheid om te zoeken naar bestaande gastgebruikers ook kunnen in de SharePoint Online (SPO) personen selecteren is uitgeschakeld zodat deze overeenkomen met de verouderde gedrag standaard.
 
 U kunt deze functie inschakelen met behulp van de instelling 'ShowPeoplePickerSuggestionsForGuestUsers' op het niveau van de verzameling tenant en de site. U kunt de functie met de cmdlets Set-SPOTenant en Set-SPOSite waarmee leden om te zoeken naar alle bestaande gastgebruikers ook kunnen in de map instellen. Wijzigingen in het tenantbereik is niet van invloed op al ingerichte SPO-sites.
@@ -79,10 +78,20 @@ Om te voldoen aan de privacywetgeving, onze API's omvatten geen aangepaste beric
 
 Als dit scenario voor u belangrijk is, kunt u onze API uitnodigingse-mail onderdrukken en verzenden via het mechanisme voor e-mailadres van uw keuze. Raadpleeg uw juridische afdeling om te controleren of alle e-mails verzenden dat op deze manier ook voldoet aan de privacywetgeving.
 
+## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>U ontvangt een foutbericht "AADSTS65005" wanneer u probeert te melden bij een Azure-resource
+
+Een gebruiker met een Gast-account kan worden aangemeld en ontvangt de volgende strekking weergegeven:
+
+    AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
+
+De gebruiker heeft een Azure-account en een virale tenant die is afgebroken of niet-beheerd. Bovendien zijn er geen globale of beheerders in de tenant van de bedrijfsportal.
+
+U lost dit probleem, moet u de verlaten tenant overnemen. Raadpleeg [een niet-beheerde directory overnemen als in Azure Active Directory-beheerder](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). U moet ook toegang tot de DNS-internetgerichte server voor het betreffende domeinachtervoegsel om direct bewijzen dat u de controle van de naamruimte hebt. Nadat de tenant wordt geretourneerd naar de status van een beheerde, neem bespreken met de klant of de gebruikers verlaten en geverifieerde domeinnaam is de beste optie voor hun organisatie.
+
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Een gastgebruiker met een just-in-time- of 'viraal'-tenant is kan niet hun wachtwoord opnieuw instellen
 
 Als de tenant-identiteit een just-in-time (JIT) of een virale tenant is (wat betekent dat het een afzonderlijke, niet-beheerde Azure-tenant), alleen de gastgebruiker kan hun wachtwoord opnieuw instellen. Soms een organisatie wordt [neemt het beheer van virale tenants](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) die worden gemaakt wanneer werknemers hun werk-e-mailadressen gebruiken om u te registreren voor services. Nadat de organisatie ten opzichte van een virale tenant heeft, kunt alleen een beheerder in die organisatie van de gebruiker-wachtwoord opnieuw instellen of SSPR inschakelen. Indien nodig, als de organisatie, kunt u het gastgebruikersaccount verwijderen uit uw directory en een uitnodiging opnieuw verzenden.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Ondersteuning krijgen voor B2B-samenwerking](get-support.md)
+[Ondersteuning krijgen voor B2B-samenwerking](get-support.md)

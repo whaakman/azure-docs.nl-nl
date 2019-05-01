@@ -12,14 +12,15 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 3a42570b51811cfbdd4329f196b98d75c8cd53f7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 6b5cdf8aebdf584216afef9f1d1421eea8c4ba4e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556744"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685154"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Controleren en om te verminderen latentie in Azure Time Series Insights Aanvraagbeperkingen minimaliseren
+
 Wanneer de hoeveelheid inkomende gegevens groter is dan de configuratie van uw omgeving, kunt u latentie of beperkingen in Azure Time Series Insights kan optreden.
 
 U kunt voorkomen dat latentie en beperkingen door het correct configureren van uw omgeving voor de hoeveelheid gegevens die u wilt analyseren.
@@ -31,7 +32,7 @@ U bent waarschijnlijk om latentie en beperkingen wanneer u:
 - Grote hoeveelheden historische gebeurtenissen verzenden naar een gebeurtenisbron, wat resulteert in een vertraging (Time Series Insights moet voor meer informatie).
 - Neem deel aan referentiegegevens met telemetrie, wat resulteert in de gebeurtenis groter.  Een gegevenspakket ingressed met een pakketgrootte van 32 KB wordt beschouwd als 32-gebeurtenissen van een beperking perspectief, elke grootte van 1 KB. De toegestane maximale gebeurtenisgrootte is 32 KB; gegevenspakketten die groter zijn dan 32 KB worden afgebroken.
 
-## <a name="video"></a>Video: 
+## <a name="video"></a>Video
 
 ### <a name="in-this-video-we-cover-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>In deze video behandelen we gedrag voor inkomend verkeer van Time Series Insights-gegevens en het plannen voor deze.</br>
 
@@ -45,7 +46,7 @@ Waarschuwingen kunnen u helpen te helpen opsporen en corrigeren van latentieprob
 
    ![Metrische gegevens](media/environment-mitigate-latency/add-metrics.png)
 
-2. Klik op **metrische waarschuwing toevoegen**.  
+2. Klik op **Waarschuwing voor metrische gegevens toevoegen**.  
 
     ![Metrische waarschuwing toevoegen](media/environment-mitigate-latency/add-metric-alert.png)
 
@@ -61,7 +62,6 @@ Van daaruit kunt u waarschuwingen met behulp van de volgende metrische gegevens 
 |**Inkomend verkeer ontvangen bericht tijdsinterval**    |  Het verschil in seconden tussen het moment dat het bericht in de gebeurtenis in de wachtrij is bron- en de tijd die in inkomend verkeer wordt verwerkt.      |
 |**Inkomend verkeer ontvangen vertraging van het aantal berichten**    |  Verschil tussen het volgnummer van bericht van de laatste in de wachtrij geplaatste gegevensbron in de gebeurtenis partitie en volgorde aantal bericht in de inkomende gegevens dat wordt verwerkt.      |
 
-
 ![Latentie](media/environment-mitigate-latency/latency.png)
 
 Als u wordt beperkt, ziet u een waarde voor de *tijdsinterval inkomend verkeer ontvangen bericht*, melding van het aantal seconden achter TSI afkomstig van de werkelijke tijd het bericht is komt binnen via de bron van de gebeurtenis (met uitzondering van indexering tijd van appx. 30 tot 60 seconden).  *Inkomend verkeer ontvangen aantal berichten Lag* moet ook een waarde, zodat u kunt om te bepalen hoeveel berichten achter u zijn.  De eenvoudigste manier om het weer op de hoogte is om de capaciteit van uw omgeving in een grootte die u kunt strijden tegen het verschil te vergroten.  
@@ -74,11 +74,14 @@ Bijvoorbeeld, als u hebt drie S1-eenheden ingericht (of 2100 gebeurtenissen per 
 
 Ook als u vermoedt u wordt beperkt dat, u kunt vergelijken met uw **inkomend verkeer ontvangen berichten** met uw gebeurtenis bron berichten de egressed.  Als u inkomend verkeer naar uw Event Hub is groter dan uw **inkomend verkeer ontvangen berichten**, uw Time Series Insights zijn waarschijnlijk wordt beperkt.
 
-## <a name="improving-performance"></a>Prestaties verbeteren 
+## <a name="improving-performance"></a>Prestaties verbeteren
+
 Als u wilt beperken of ondervindt latentie verminderen, is de beste manier om deze te corrigeren om de capaciteit van uw omgeving te vergroten. 
 
 U kunt voorkomen dat latentie en beperkingen door het correct configureren van uw omgeving voor de hoeveelheid gegevens die u wilt analyseren. Zie voor meer informatie over het toevoegen van capaciteit voor uw omgeving [schalen van uw omgeving](time-series-insights-how-to-scale-your-environment.md).
 
 ## <a name="next-steps"></a>Volgende stappen
+
 - Voor extra stappen voor probleemoplossing [vaststellen en oplossen van problemen in uw Time Series Insights-omgeving](time-series-insights-diagnose-and-solve-problems.md).
+
 - Voor verdere ondersteuning, een gesprek starten op de [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) of [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). U kunt ook contact opnemen met [ondersteuning van Azure](https://azure.microsoft.com/support/options/) voor ondersteuning.

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 20ebcb502e03f2d817fe18624d8c790e920c667f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea2381287729579e10d457912c4147f59716bcc4
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61371869"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875701"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Test uw knowledge base interactief in QnA Maker
 
@@ -24,8 +24,8 @@ Testen van uw kennisdatabase QnA Maker is een belangrijk onderdeel van een itera
 
 ## <a name="test-answer-matching"></a>Test antwoorden vergelijken
 
-1.  Toegang tot uw knowledge base door het selecteren van de naam ervan op de **mijn knowledge bases** pagina.
-2.  Voor toegang tot het deelvenster van de dia-out Test, selecteer **Test** in het bovenste gedeelte van uw toepassing.
+1.  Toegang tot uw knowledge base door het selecteren van de naam ervan op de **mijn knowledge bases** pagina.
+2.  Voor toegang tot het deelvenster van de dia-out Test, selecteer **Test** in het bovenste gedeelte van uw toepassing.
 
     ![Test-Toegangsvenster](../media/qnamaker-how-to-test-kb/access-test.png)
 
@@ -35,17 +35,17 @@ Testen van uw kennisdatabase QnA Maker is een belangrijk onderdeel van een itera
 
 ## <a name="clear-test-panel"></a>Deelvenster wissen testen
 
-Schakel alle ingevoerde test-query's en de resultaten van de testconsole, selecteert u **beginnen** in de linkerbovenhoek van het paneel Test.
+Schakel alle ingevoerde test-query's en de resultaten van de testconsole, selecteert u **beginnen** in de linkerbovenhoek van het paneel Test.
 
 ## <a name="close-test-panel"></a>Deelvenster sluiten testen
 
-Als u wilt het Test-deelvenster sluiten, selecteert u de **Test** knop opnieuw. Tijdens de Test-deelvenster geopend is, kunt u de Knowledge Base-inhoud niet bewerken.
+Als u wilt het Test-deelvenster sluiten, selecteert u de **Test** knop opnieuw. Tijdens de Test-deelvenster geopend is, kunt u de Knowledge Base-inhoud niet bewerken.
 
 ## <a name="inspect-score"></a>Controleren van score
 
 U inspecteren details van de testresultaten in het deelvenster inspecteren.
 
-1.  Met behulp van de Test dia-out deelvenster geopend, selecteert u **inspecteren** voor meer informatie over de respons.
+1.  Met behulp van de Test dia-out deelvenster geopend, selecteert u **inspecteren** voor meer informatie over de respons.
 
     ![Antwoorden controleren](../media/qnamaker-how-to-test-kb/inspect.png)
 

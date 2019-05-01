@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: bd588eeec8b560411e3fb4b6f84ec8a4a45f08d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 76783ffd91a8ad17fca912ac9c3a66a5f0f15821
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844174"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691934"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referentie voor de trigger en actie typen Werkstroomdefinitietaal voor Azure Logic Apps
 
@@ -85,7 +85,7 @@ Elk triggertype heeft een andere interface- en invoer die van de trigger-gedrag 
 
 ### <a name="managed-api-triggers"></a>Beheerde API-triggers
 
-| Triggertype | Beschrijving | 
+| Triggertype | Description | 
 |--------------|-------------| 
 | [**ApiConnection**](#apiconnection-trigger) | Controleert of *polls* een eindpunt met behulp van [Microsoft beheerde API's](../connectors/apis-list.md). | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Hiermee maakt u een aanroepbare eindpunt voor uw logische app door het aanroepen van [Microsoft beheerde API's](../connectors/apis-list.md) abonneren en afmelden. | 
@@ -224,7 +224,7 @@ Deze trigger een aanvraag verzendt naar een eindpunt met behulp van een [Microso
 
 *Vereist*
 
-| Value | Type | Beschrijving | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*naam van de verbinding*> | String | De naam voor de verbinding met de beheerde API die gebruikmaakt van de werkstroom | 
 | <*body-content*> | JSON-Object | Alle inhoud van het bericht te verzenden als de nettolading van de beheerde API | 
@@ -303,7 +303,7 @@ Deze trigger wordt gecontroleerd of het opgegeven eindpunt op basis van de opgeg
 
 *Vereist*
 
-| Value | Type | Beschrijving | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*type methode*> | String | De HTTP-methode moet worden gebruikt voor het opvragen van configuratiegegevens bij het opgegeven eindpunt: 'OPHALEN', 'PLAATS', 'POST', "PATCH", "VERWIJDEREN" | 
 | <*endpoint-URL*> | String | De HTTP of HTTPS-URL voor het eindpunt te peilen <p>Maximale grootte van tekenreeks: 2 KB | 
@@ -313,7 +313,7 @@ Deze trigger wordt gecontroleerd of het opgegeven eindpunt op basis van de opgeg
 
 *Optioneel*
 
-| Value | Type | Beschrijving | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*header-content*> | JSON-Object | De headers met de aanvraag verzenden <p>Als u bijvoorbeeld het instellen van de taal en het type voor een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | String | De inhoud van het bericht te verzenden als de aanvraag-nettolading | 
@@ -338,7 +338,7 @@ Deze trigger wordt gecontroleerd of het opgegeven eindpunt op basis van de opgeg
 
 Als u wilt werken ook met uw logische app, moet het eindpunt in overeenstemming zijn met een specifieke triggerpatroon of het contract en herkent deze eigenschappen:  
   
-| Antwoord | Vereist | Beschrijving | 
+| Antwoord | Vereist | Description | 
 |----------|----------|-------------| 
 | Statuscode | Ja | De ' 200 OK ' statuscode wordt een uitvoering gestart. Een uitvoering elke andere statuscode niet wordt gestart. | 
 | De koptekst opnieuw proberen na | Nee | Het aantal seconden totdat de logische app het eindpunt opnieuw peilt | 
@@ -400,7 +400,7 @@ Sommige waarden, zoals <*type methode*>, zijn beschikbaar voor zowel de `"subscr
 
 *Vereist*
 
-| Value | Type | Beschrijving | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*type methode*> | String | De HTTP-methode moet worden gebruikt voor de Abonnementaanvraag: 'Ophalen', 'PUT","POST","PATCH"of"Verwijderen" | 
 | <*endpoint-subscribe-URL*> | String | De eindpunt-URL waar de Abonnementaanvraag verzenden | 
@@ -502,7 +502,7 @@ Deze trigger wordt uitgevoerd op basis van het opgegeven terugkeerschema en bied
 
 *Optioneel*
 
-| Value | Type | Beschrijving | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | De begindatum en -tijd in deze indeling: <p>JJJJ-MM-ddTUU als u een tijdzone opgeeft <p>-of- <p>JJJJ-MM-ddTHH als u geen dat een tijdzone opgeeft <p>Bijvoorbeeld als u wilt dat 18 September 2017 om 14:00 uur, geeft ' 2017-09-18T14:00:00 "en geef een tijdzone, zoals 'Pacific Standard Time', of geef ' 2017-09-18T14:00:00Z ' zonder een tijdzone. <p>**Opmerking:** De begintijd moet volgen de [ISO 8601 datum tijdsspecificatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC-datum-tijdnotatie](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), maar zonder een [UTC-offset](https://en.wikipedia.org/wiki/UTC_offset). Als u geen een tijdzone opgeeft, moet u de letter 'Z' toevoegen aan het einde zonder spaties. Deze "Z" verwijst naar het equivalent [nautische tijd](https://en.wikipedia.org/wiki/Nautical_time). <p>Voor eenvoudige schema's van de begintijd is de eerste keer voorkomt, terwijl voor complexe schema's, de trigger alle eerder dan de begintijd wordt niet gestart. Zie voor meer informatie over start datums en tijden [maken en plannen die regelmatig actieve taken](../connectors/connectors-native-recurrence.md). | 
 | <*time-zone*> | String | Geldt alleen wanneer u een begintijd opgeeft omdat deze trigger niet accepteren [UTC-offset](https://en.wikipedia.org/wiki/UTC_offset). Geef de tijdzone die u wilt toepassen. | 
@@ -776,7 +776,7 @@ Acties hebben deze elementen op hoog niveau, hoewel sommige optioneel zijn:
 
 *Vereist*
 
-| Value | Type | Beschrijving | 
+| Value | Type | Description | 
 |-------|------|-------------|
 | <*naam van de actie*> | String | De naam voor de actie | 
 | <*action-type*> | String | Het actietype, bijvoorbeeld 'Http' of "ApiConnection"| 
@@ -889,7 +889,7 @@ Met deze actie verzendt een HTTP-aanvraag naar een [Microsoft beheerde API](../c
 
 *Vereist*
 
-| Value | Type | Beschrijving | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*naam van de actie*> | String | De naam van de actie die is opgegeven door de connector | 
 | <*api-name*> | String | De naam van de Microsoft beheerde API die wordt gebruikt voor de verbinding | 
@@ -899,7 +899,7 @@ Met deze actie verzendt een HTTP-aanvraag naar een [Microsoft beheerde API](../c
 
 *Optioneel*
 
-| Value | Type | Beschrijving | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*other-action-specific-input-properties*> | JSON-Object | Andere invoer eigenschappen die betrekking hebben op deze specifieke actie | 
 | <*gedrag voor opnieuw proberen*> | JSON-Object | Hiermee past u het gedrag voor opnieuw proberen voor onregelmatige fouten, waarvoor de 408, 429, en 5XX-statuscode en eventuele verbindingsuitzonderingen. Zie voor meer informatie, [beleid voor opnieuw proberen](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
@@ -978,7 +978,7 @@ Sommige waarden, zoals <*type methode*>, zijn beschikbaar voor zowel de `"subscr
 
 *Optioneel*
 
-| Value | Type | Beschrijving | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*api-unsubscribe-URL*> | String | De URI moet worden gebruikt voor het abonnement opzegt op de API | 
 | <*header-content*> | JSON-Object | Kopteksten in de aanvraag verzenden <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
@@ -1238,7 +1238,7 @@ Deze actie wordt gemaakt van gebruiksvriendelijke velden of *tokens* vanuit de e
 
 *Vereist*
 
-| Value | Type | Beschrijving | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*JSON-source*> | JSON-Object | De JSON-inhoud die u wilt parseren | 
 | <*JSON-schema*> | JSON-Object | De JSON-schema dat de onderliggende de JSON-inhoud, waardoor de actie wordt gebruikt beschrijft voor het parseren van de bron-JSON-inhoud. <p>**Tip**: In Logic Apps Designer kunt u het schema opgeven of geven een voorbeeld van payload zodat het schema kan worden gegenereerd door de actie. | 
@@ -1643,7 +1643,7 @@ Deze definitie actie maakt een HTML-tabel van de variabele 'myItemArray'. Echter
 
 Dit is de HTML-tabel die deze actie wordt gemaakt: 
 
-<table><thead><tr><th>Stock_ID</th><th>Beschrijving</th></tr></thead><tbody><tr><td>0</td><td>Organische appels</td></tr><tr><td>1</td><td>Organische sinaasappels</td></tr></tbody></table>
+<table><thead><tr><th>Stock_ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Organische appels</td></tr><tr><td>1</td><td>Organische sinaasappels</td></tr></tbody></table>
 
 <a name="terminate-action"></a>
 
@@ -1810,7 +1810,7 @@ De Logic Apps-engine controleert de toegang tot de trigger die u wilt aanroepen,
 
 *Vereist*
 
-| Value | Type | Beschrijving | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*nested-logic-app-name*> | String | De naam van de logische app die u wilt aanroepen | 
 | <*trigger-name*> | String | De naam van de trigger in de geneste logische app die u wilt aanroepen | 
@@ -1896,7 +1896,7 @@ Deze herhaling actie doorloopt een matrix en voert acties uit voor elk matrixite
 
 *Optioneel*
 
-| Value | Type | Beschrijving | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*count*> | Geheel getal | Standaard wordt de 'voor elke'-lus iteraties op hetzelfde moment of parallel tot uitvoeren de [standaardlimiet](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Deze limiet wijzigen door in te stellen een nieuwe <*aantal*> waarde, Zie [wijzigen van de lus 'voor elke' gelijktijdigheid](#change-for-each-concurrency). | 
 | <*operation-option*> | String | Om uit te voeren een lus 'voor elke' sequentieel worden verwerkt, in plaats van parallel, stel <*bewerkingsoptie*> naar `Sequential` of <*aantal*> naar `1`, maar niet beide. Zie voor meer informatie, [uitvoeren 'voor elke' wordt uitgevoerd na elkaar](#sequential-for-each). | 
@@ -2091,7 +2091,7 @@ Deze actie, ook wel bekend als een *instructie switch*, organiseert van andere a
 
 *Vereist*
 
-| Value | Type | Beschrijving | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*expression-object-or-token*> | Varieert | De expressie, een JSON-object of een token dat u wilt evalueren | 
 | <*naam van de actie*> | String | De naam van de actie om uit te voeren voor de overeenkomende aanvraag | 
@@ -2296,11 +2296,12 @@ Voor triggers en acties, kunt u de duur van het asynchrone patroon om een bepaal
 
 U kunt het standaardgedrag van de runtime voor triggers en acties met deze wijzigen `runtimeConfiguration` eigenschappen in het definitie van de trigger of actie.
 
-| Eigenschap | Type | Beschrijving | Trigger of actie | 
+| Eigenschap | Type | Description | Trigger of actie | 
 |----------|------|-------------|-------------------| 
 | `runtimeConfiguration.concurrency.runs` | Geheel getal | Wijzig de [ *standaardlimiet* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) op het aantal werkstroomexemplaren die op hetzelfde moment of parallel kunnen worden uitgevoerd. Deze waarde kan helpen bij het beperken van het aantal aanvragen dat back-endsystemen ontvangt. <p>Instellen van de `runs` eigenschap `1` werkt op dezelfde manier als de instelling de `operationOptions` eigenschap `SingleInstance`. U kunt de eigenschap, maar niet beide instellen. <p>De standaardlimiet Zie [wijziging trigger gelijktijdigheid](#change-trigger-concurrency) of [exemplaren sequentieel activeren](#sequential-trigger). | Alle triggers | 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Geheel getal | Wijzig de [ *standaardlimiet* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) op het aantal werkstroomexemplaren die worden uitgevoerd wanneer de werkstroom wordt al uitgevoerd voor het maximum aantal gelijktijdige exemplaren kan wachten. U kunt de limiet voor gelijktijdigheid van taken in de `concurrency.runs` eigenschap. <p>De standaardlimiet Zie [wijziging wachten uitvoeringen beperken](#change-waiting-runs). | Alle triggers | 
 | `runtimeConfiguration.concurrency.repetitions` | Geheel getal | Wijziging de [ *standaardlimiet* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) op 'voor elke' het aantal iteraties die kunnen worden uitgevoerd op hetzelfde moment of parallel in een lus. <p>Instellen van de `repetitions` eigenschap `1` werkt op dezelfde manier als de instelling de `operationOptions` eigenschap `SingleInstance`. U kunt de eigenschap, maar niet beide instellen. <p>De standaardlimiet Zie [wijzigen 'voor elke' gelijktijdigheid](#change-for-each-concurrency) of [uitvoeren 'voor elke' wordt uitgevoerd na elkaar](#sequential-for-each). | Actie: <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.paginationPolicy.minimumItemCount` | Geheel getal | Voor specifieke acties die ondersteuning bieden en hebt de paginering ingeschakeld, deze waarde bepaalt de *minimale* aantal resultaten dat moet worden opgehaald. <p>Als u wilt inschakelen paginering, Zie [grote hoeveelheden gegevens, items of resultaten ophalen met behulp van paginering](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Actie: Gevarieerd |
 ||||| 
 
 <a name="operation-options"></a>
@@ -2309,7 +2310,7 @@ U kunt het standaardgedrag van de runtime voor triggers en acties met deze wijzi
 
 U kunt het standaardgedrag voor triggers en acties met de `operationOptions` eigenschap in definitie van de trigger of actie.
 
-| Bewerkingsoptie | Type | Beschrijving | Trigger of actie | 
+| Bewerkingsoptie | Type | Description | Trigger of actie | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | String | HTTP-gebaseerde acties uitvoeren synchroon plaats asynchroon. <p><p>Als u wilt deze optie instelt, Zie [acties synchroon uitgevoerd](#asynchronous-patterns). | Acties: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Antwoord](#response-action) | 
 | `OptimizedForHighThroughput` | String | Wijziging de [standaardlimiet](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) op het aantal actie-uitvoeringen per vijf minuten aan de [maximumlimiet](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Als u wilt deze optie instelt, Zie [uitvoeren in de modus voor hoge doorvoer](#run-high-throughput-mode). | Alle acties | 

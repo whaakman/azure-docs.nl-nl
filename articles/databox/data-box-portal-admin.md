@@ -1,23 +1,23 @@
 ---
-title: Beheerhandleiding voor de Azure Data Box-portal | Microsoft Docs
+title: Beheren van Azure Data Box via Azure portal | Microsoft Docs
 description: Beschrijft hoe u de Azure-portal gebruikt om uw Azure Data Box te beheren.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 483e1e0f6a472132446b20a161d012e69d83c4ac
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bf1d810733df4eaae17d092caba42888a63cc59f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128733"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919263"
 ---
-# <a name="use-the-azure-portal-to-administer-your-data-box"></a>De Azure-portal gebruiken om uw Data Box te beheren
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box"></a>De Azure portal gebruiken voor het beheren van uw Azure Data Box
 
-In dit artikel worden enkele van de complexe werkstromen en beheertaken beschreven die kunnen worden uitgevoerd voor de Data Box. U kunt de Data Box beheren via de Azure-portal of via de lokale webinterface. 
+In dit artikel worden enkele van de complexe werkstromen en beheertaken uitvoeren die kunnen worden uitgevoerd op de Azure Data Box beschreven. U kunt de Data Box beheren via de Azure-portal of via de lokale webinterface.
 
 Dit artikel richt zich op de taken die u kunt uitvoeren met behulp van de Azure-portal. Gebruik de Azure-portal voor het beheren van orders, het beheren van Data Box en het bijhouden van de status van de order totdat deze is voltooid.
 

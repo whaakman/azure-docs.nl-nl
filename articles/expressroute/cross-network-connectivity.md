@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
-ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bc189cf269084fdb26f141a36755c96554cad7b
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368745"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866006"
 ---
 # <a name="cross-network-connectivity"></a>Onderlinge netwerkconnectiviteit
 
@@ -119,7 +119,7 @@ De volgende tabel ziet u de routetabel van de persoonlijke peering van het Expre
 
 Zie [Veelgestelde vragen over virtuele netwerken][VNet-FAQ]voor verdere vragen over VNet-peering en VNet-peering. Zie [Veelgestelde vragen over ExpressRoute] [ ER-FAQ] voor verdere vragen over ExpressRoute en virtuele netwerkverbinding.
 
-Wereldwijd bereik wordt geïmplementeerd op basis van per land. Als u wilt zien als globaal bereik is beschikbaar in de landen die u wilt, Zie [ExpressRoute globaal bereik][Global Reach].
+Wereldwijd bereik wordt geïmplementeerd op basis van land/regio door land/regio. Als u wilt zien als globaal bereik is beschikbaar in de landen/regio's die u wilt, Zie [ExpressRoute globaal bereik][Global Reach].
 
 <!--Image References-->
 [1]: ./media/cross-network-connectivity/premergerscenario.png "scenario van de toepassing"

@@ -3,19 +3,19 @@ title: 'Zelfstudie: Verificatie inschakelen in een webtoepassing met één pagin
 description: Zelfstudie over het gebruik van Azure Active Directory B2C voor het opgeven van gebruikersaanmeldingsreferenties voor een toepassing met één pagina (JavaScript).
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 813c7131ff0a56e843e728cd78fff969b1d90fcc
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 9541d635ff69444459470cf1e486568a58af0a1e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756322"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730156"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>Zelfstudie: Verificatie inschakelen in een webtoepassing met één pagina met behulp van Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-* [Gebruikersstromen maken](tutorial-create-user-flows.md) om gebruikerservaringen in uw toepassing in te schakelen. 
+* [Maak gebruikersstromen](tutorial-create-user-flows.md) om gebruikerservaringen in uw toepassing in te schakelen. 
 * U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de **ASP.NET- en webontwikkelworkload** installeren.
 * Installeer de [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) of hoger
 * [Node.js](https://nodejs.org/en/download/) installeren
@@ -42,13 +42,13 @@ In deze zelfstudie leert u het volgende:
 In de zelfstudie die u als onderdeel van de vereisten hebt voltooid, hebt u een webtoepassing in Azure AD B2C toegevoegd. Om te communiceren met het voorbeeld in deze zelfstudie, moet u een omleidings-URI toevoegen aan de toepassing in Azure AD B2C.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zorg ervoor dat u de map gebruikt die uw Azure AD B2C-tenant bevat door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
-3. Kies **Alle services** linksboven in het Azure Portal, zoek **Azure AD B2C** en selecteer deze.
+2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
+3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **Toepassingen** en selecteer vervolgens de toepassing *webapp1*.
-5. Voeg onder **antwoord-URL** `http://localhost:6420` toe.
+5. Voeg onder **Antwoord-URL** `http://localhost:6420` toe.
 6. Selecteer **Opslaan**.
-7. Noteer op de eigenschappenpagina de toepassings-ID die u gebruikt wanneer u de web-app configureert.
-8. Selecteer **Sleutels**, selecteer **Sleutel genereren** en selecteer **Opslaan**. Noteer de sleutel die u gaat gebruiken wanneer u de web-app configureert.
+7. Noteer op de eigenschappenpagina de toepassings-ID die u gebruikt wanneer u de webtoepassing configureert.
+8. Selecteer **Sleutels**, selecteer **Sleutel genereren** en selecteer **Opslaan**. Noteer de sleutel die u gebruikt wanneer u de webtoepassing configureert.
 
 ## <a name="configure-the-sample"></a>Configureren van het voorbeeld
 

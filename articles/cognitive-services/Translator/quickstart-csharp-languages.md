@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: dea66cfe63f566afc1f0186f0386525f90564708
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: efa8399d20f6bacb41720d77e14336833f085323
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60512406"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916574"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>Quickstart: De Translator Text-API gebruiken om een lijst met ondersteunde talen op te halen met C#
 
@@ -142,7 +142,7 @@ dotnet run
 
 ## <a name="sample-response"></a>Voorbeeldantwoord
 
-De afkorting van land/regio niet vinden in dit [lijst met talen](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+De afkorting van land/regio niet vinden in dit [lijst met talen](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 {

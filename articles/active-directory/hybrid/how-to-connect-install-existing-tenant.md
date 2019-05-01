@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6775f6e37a5b282afcfcdce7f93751e852923366
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60349553"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571374"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Wanneer u een bestaande tenant hebt
 De meeste van de onderwerpen over het gebruik van Azure AD Connect wordt ervan uitgegaan dat u begint met een nieuwe Azure AD-tenant en dat er geen gebruikers of er andere objecten zijn. Maar als u hebt gestart met een Azure AD-tenant, gevuld zijn met gebruikers en andere objecten en wilt u nu verbinding maken met de, en in dit onderwerp is voor u.
@@ -58,6 +58,15 @@ Er is geen praktische verschil tussen een voorlopig- en een vaste-overeenkomst v
 
 ### <a name="other-objects-than-users"></a>Andere objecten dan gebruikers
 Voor groepen met e-mail en contactpersonen, u kunt zachte match op basis van proxyAddresses. Harde-match is niet van toepassing omdat u alleen de sourceAnchor/immutableID (met behulp van PowerShell) voor de gebruikers alleen kunt bijwerken. Voor groepen die niet e-mail zijn, is er momenteel geen ondersteuning voor zachte match of harde-overeenkomst.
+
+### <a name="admin-role-considerations"></a>Overwegingen voor rol van beheerder
+Om te voorkomen dat niet-vertrouwde on-premises gebruikers die overeenkomt met een cloud-gebruiker die een beheerdersrol heeft, wordt Azure AD Connect niet overeen met on-premises gebruikersobjecten met objecten die een beheerdersrol hebben. Dit is standaard. Tijdelijke oplossing dit gedrag kunt u het volgende doen:
+
+1.  De maprollen van de gebruikersdirectory die alleen-object verwijderen
+2.  Een synchronisatie activeren
+3.  (Optioneel) de maprollen toevoegen terug naar het gebruikersobject in de cloud, zodra het overeenkomende is opgetreden.
+
+
 
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Maken van een nieuwe on-premises Active Directory van gegevens in Azure AD
 Sommige klanten beginnen met een cloud-only-oplossing met Azure AD en ze hebben niet een on-premises AD. Later ze willen gebruiken, on-premises bronnen en wilt maken van een on-premises AD op basis van Azure AD-gegevens. Azure AD Connect helpen u niet voor dit scenario. Maakt geen gebruikers on-premises en heeft geen een mogelijkheid om in te stellen van de on-premises wachtwoord naar hetzelfde als in Azure AD.

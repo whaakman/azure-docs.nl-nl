@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: c00f703c5cfa606eaeb6ea0dea5fe5d754d3de5d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 319def9072dbf38eff44ca4459428f1ef99a2b54
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108081"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867968"
 ---
 # <a name="metrics-in-azure-monitor"></a>Metrische gegevens in Azure Monitor
 
 > [!NOTE]
-> Het gegevensplatform van Azure Monitor is gebaseerd op twee fundamentele gegevenstypen: Metrische gegevens en Logboeken. Dit artikel beschrijft de metrische gegevens. Raadpleeg [registreert in Azure Monitor](data-platform-logs.md) voor een gedetailleerde beschrijving van Logboeken en zo [Azure Monitor gegevens platforn](data-platform.md) voor een vergelijking van de twee.
+> Het gegevensplatform van Azure Monitor is gebaseerd op twee fundamentele gegevenstypen: Metrische gegevens en Logboeken. Dit artikel beschrijft de metrische gegevens. Raadpleeg [registreert in Azure Monitor](data-platform-logs.md) voor een gedetailleerde beschrijving van Logboeken en zo [gegevensplatform in de Azure Monitor](data-platform.md) voor een vergelijking van de twee.
 
 Metrische gegevens in Azure Monitor zijn lichtgewicht en kan ondersteunen bijna realtime scenario's, waardoor ze met name handig voor meldingen en snelle detectie van problemen. In dit artikel wordt beschreven hoe metrische gegevens zijn gestructureerd, wat u ermee kunt doen, en identificeert verschillende gegevensbronnen die gegevens opslaan in metrische gegevens.
 

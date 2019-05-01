@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: b81dccf3c71fbaff7b0cbb9ba00f13b458156e73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f9f15c558e507742a641239ed25ba136dca0671a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61074534"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919998"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding van machines voor beheer met Azure Automation State Configuration
 
@@ -62,8 +62,8 @@ Onder **registratie**, voer de [PowerShell DSC Local Configuration Manager-waard
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen
 
-Virtuele machines van Azure kan worden geïmplementeerd en vrijgegeven aan een Azure Automation State Configuration via Azure Resource Manager-sjablonen. Zie [Server beheerd door Desired State Configuration-service](https://azure.microsoft.com/en-us/resources/templates/101-automation-configuration/) voor een voorbeeldsjabloon uitvoeren van Onboarding van een bestaande virtuele machine voor Azure Automation State Configuration.
-Als u een virtuele-Machineschaalset beheert, raadpleegt u de voorbeeldsjabloon [VM Scale instellen-configuratie wordt beheerd door Azure Automation](https://azure.microsoft.com/en-us/resources/templates/201-vmss-automation-dsc/).
+Virtuele machines van Azure kan worden geïmplementeerd en vrijgegeven aan een Azure Automation State Configuration via Azure Resource Manager-sjablonen. Zie [Server beheerd door Desired State Configuration-service](https://azure.microsoft.com/resources/templates/101-automation-configuration/) voor een voorbeeldsjabloon uitvoeren van Onboarding van een bestaande virtuele machine voor Azure Automation State Configuration.
+Als u een virtuele-Machineschaalset beheert, raadpleegt u de voorbeeldsjabloon [VM Scale instellen-configuratie wordt beheerd door Azure Automation](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -72,7 +72,7 @@ De [registreren AzureRmAutomationDscNode](/powershell/module/azurerm.automation/
 ### <a name="registering-virtual-machines-across-azure-subscriptions"></a>Registreren van virtuele machines voor Azure-abonnementen
 
 De beste manier om het registreren van virtuele machines vanuit andere Azure-abonnementen is de DSC-extensie gebruiken in een Azure Resource Manager-implementatiesjabloon.
-Voorbeelden zijn beschikbaar in de [Desired State Configuration-extensie met Azure Resource Manager-sjablonen](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-template).
+Voorbeelden zijn beschikbaar in de [Desired State Configuration-extensie met Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template).
 De registratiesleutel en de registratie-URL als parameters in de sjabloon wilt gebruiken, Zie de volgende [ **beveiligde registratie** ](#secure-registration) sectie.
 
 ## <a name="azure-virtual-machines-classic"></a>Virtuele Azure-machines (klassiek)

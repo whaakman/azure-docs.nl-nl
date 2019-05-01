@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 6a4ad827c39ec106acdc7b52a5b769ab6e7febf8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 362df8cee163bcd2d1dac73c650e42ee4f0f7751
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710753"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920105"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Over het beheren van gebruikersaccounts in Azure API Management
 
-Ontwikkelaars zijn in API Management, de gebruikers van de API's die u beschikbaar maakt met behulp van API Management. Deze handleiding wordt beschreven hoe om te maken en ontwikkelaars uitnodigen met de API's en producten die u hen ter beschikking met uw exemplaar van API Management. Zie voor meer informatie over het programmatisch beheren van gebruikersaccounts, het [gebruikersentiteit](https://docs.microsoft.com/en-us/rest/api/apimanagement/user) documentatie in de [API Management REST](/rest/api/apimanagement/) verwijzing.
+Ontwikkelaars zijn in API Management, de gebruikers van de API's die u beschikbaar maakt met behulp van API Management. Deze handleiding wordt beschreven hoe om te maken en ontwikkelaars uitnodigen met de API's en producten die u hen ter beschikking met uw exemplaar van API Management. Zie voor meer informatie over het programmatisch beheren van gebruikersaccounts, het [gebruikersentiteit](https://docs.microsoft.com/rest/api/apimanagement/user) documentatie in de [API Management REST](/rest/api/apimanagement/) verwijzing.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -69,7 +69,7 @@ Volg de volgende stappen uit voor het blokkeren van een gebruiker.
 
 ## <a name="reset-a-user-password"></a>Een gebruikerswachtwoord opnieuw instellen
 
-Als u wilt werken via een programma met behulp van gebruikersaccounts, Zie de [gebruikersentiteit](https://docs.microsoft.com/en-us/rest/api/apimanagement/user) documentatie in de [API Management REST](/rest/api/apimanagement/) verwijzing. Als u wilt opnieuw instellen van wachtwoord voor een gebruikersaccount op een specifieke waarde, kunt u de [bijwerken van een gebruiker](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) bewerking en geef het gewenste wachtwoord.
+Als u wilt werken via een programma met behulp van gebruikersaccounts, Zie de [gebruikersentiteit](https://docs.microsoft.com/rest/api/apimanagement/user) documentatie in de [API Management REST](/rest/api/apimanagement/) verwijzing. Als u wilt opnieuw instellen van wachtwoord voor een gebruikersaccount op een specifieke waarde, kunt u de [bijwerken van een gebruiker](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) bewerking en geef het gewenste wachtwoord.
 
 ## <a name="next-steps"> </a>Volgende stappen
 Zodra een developer-account is gemaakt, kunt u deze koppelen aan rollen en het abonneren op producten en API's. Zie voor meer informatie, [hoe u groepen maken en gebruiken][How to create and use groups].

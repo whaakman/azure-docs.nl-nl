@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: a8dbb2c06d3622dcde19f298ee12fa49afb4cd4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4109679c03b13303c16cef8edd92ecddb6ca5e5f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559838"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712362"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database voor PostgreSQL Prijscategorieën
 
@@ -41,31 +41,25 @@ Nadat u een server maakt, het aantal vCores, hardware genereren en prijzen laag 
 
 COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU van de onderliggende hardware. Op dit moment, kunt u kiezen uit twee bewerkingen voor compute, Gen 4 en Gen 5. Gen 4 logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell)-processors voor 2,4 GHz. Gen 5 logische CPU's zijn gebaseerd op Intel E5-2673 v4 (Broadwell) 2,3 GHz-processors. Gen 4 en Gen 5 zijn beschikbaar in de volgende regio's ('X' geeft aan beschikbaar). 
 
-> [!IMPORTANT]
-> Vanaf 12 December 2018, is nieuwe klanten niet mogelijk om in te richten compute generatie 4 servers in Brazilië-Zuid, Canada-centraal, Canada-Oost, Zuidoost-Azië, VS-Oost 2, centraal-India, West-India, Japan-West, Noord-centraal VS, VS-West. Bewerking voor compute 4 servers worden gemigreerd om de bewerking 5 vanaf 1 februari 2019 in deze regio's voor compute eerder hebt gemaakt.
->
-> [!IMPORTANT]
-> Vanaf 19 februari 2019, is nieuwe klanten niet mogelijk om in te richten compute generatie 4 servers in VS-midden, VS-Oost, Japan-Oost, Noord-Europa, Zuid-centraal VS, Zuidoost-Azië, West-Europa. Bewerking voor compute 4 servers worden gemigreerd om de bewerking 5 vanaf 1 April 2019 in deze regio's voor compute eerder hebt gemaakt.
-
 | **Azure-regio** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
 | US - centraal |  | X |
 | US - oost |  | X |
 | US - oost 2 |  | X |
 | US - noord-centraal |  | X |
-| US - zuid-centraal | X | X |
+| US - zuid-centraal |  | X |
 | US - west |  | X |
 | US - west 2 |  | X |
 | Brazilië - zuid |  | X |
 | Canada - midden |  | X |
 | Canada - oost |  | X |
-| Europa - noord | X | X |
+| Europa - noord |  | X |
 | Europa -west |  | X |
 | Frankrijk - centraal |  | X |
 | Verenigd Koninkrijk Zuid |  | X |
 | Verenigd Koninkrijk West |  | X |
 | Azië - oost |  | X |
-| Azië - zuidoost | X | X |
+| Azië - zuidoost |  | X |
 | Australië - oost |  | X |
 | Australië - centraal |  | X |
 | Australië - centraal 2 |  | X |
@@ -73,7 +67,7 @@ COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU va
 | India - centraal |  | X |
 | India - zuid |  | X |
 | India - west |  | X |
-| Japan - oost | X | X |
+| Japan - oost |  | X |
 | Japan - west |  | X |
 | Korea - centraal |  | X |
 | Korea - zuid |  | X |

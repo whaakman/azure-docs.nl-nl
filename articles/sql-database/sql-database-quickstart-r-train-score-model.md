@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 97309a24c0ab12720f968409856a16cab4ff7ac7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: c1719064de53b79a127146d0ab034f461657cc64
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013249"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714891"
 ---
 # <a name="create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Maken en train een Voorspellend model in R met Azure SQL Database Machine Learning Services (preview)
 
@@ -171,7 +171,7 @@ VALUES (
 
 **Results**
 
-![Getraind model met extra uitvoer](./media/sql-database-connect-query-r/r-train-model-with-additional-output.png)
+![Getraind model met extra uitvoer](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
 ## <a name="score-new-data-using-the-trained-model"></a>Nieuwe gegevens met behulp van het getrainde model beoordelen
 
@@ -239,7 +239,7 @@ Hebt u opgemerkt dat de oorspronkelijke trainingsgegevens stoppen bij een snelhe
 
    **Results**
 
-   ![Resultatenset voor het voorspellen van de remafstand](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+   ![Resultatenset voor het voorspellen van de remafstand](./media/sql-database-quickstart-r-train-score-model/r-predict-stopping-distance-resultset.png)
 
 > [!NOTE]
 > In dit voorbeeldscript wordt de `str` functie is toegevoegd tijdens de testfase om te controleren of het schema van de gegevens worden geretourneerd van R. U kunt de instructie later verwijderen.
@@ -248,10 +248,9 @@ Hebt u opgemerkt dat de oorspronkelijke trainingsgegevens stoppen bij een snelhe
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de onderstaande artikelen over Machine Learning Services voor meer informatie. Sommige van deze artikelen zijn bestemd voor SQL Server, maar de meeste informatie is ook van toepassing op Machine Learning Services (met R) in Azure SQL Database.
+Zie de volgende artikelen voor meer informatie over Azure SQL Database Machine Learning-Services met R (preview).
 
-- [Azure SQL Database Machine Learning Services (met R)](sql-database-machine-learning-services-overview.md)
-- [SQL Server Machine Learning-services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Zelfstudie: Informatie over in-database analyse met behulp van R in SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [End-to-end data science walkthrough for R and SQL Server (Overzicht van end-to-end-informatiewetenschap voor R en SQL Server)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Zelfstudie: RevoScaleR R-functies gebruiken met SQL Server-gegevens](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Azure SQL Database Machine Learning-Services met R (preview)](sql-database-machine-learning-services-overview.md)
+- [Maken en eenvoudige R-scripts uitvoeren in Azure SQL Database Machine Learning-Services (preview)](sql-database-quickstart-r-create-script.md)
+- [Schrijven van geavanceerde R-functies in Azure SQL Database met behulp van Machine Learning-Services (preview)](sql-database-machine-learning-services-functions.md)
+- [Werken met R- en SQL-gegevens in Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-data-issues.md)

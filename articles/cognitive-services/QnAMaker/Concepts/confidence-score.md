@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 97c44c9285ec7a29827361111599db37bc6a86f3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0612770c823e30578e7f4675878fc4ce2aee2bd9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282573"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702986"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Betrouwbaarheidsscore van een kennisdatabase QnA Maker
 Wanneer de aanvraag voor een gebruiker wordt vergeleken met een knowledge base, retourneert de QnA Maker relevante antwoorden, samen met een betrouwbaarheidsscore. Deze score geeft aan dat het vertrouwen dat het antwoord de juiste overeenkomst voor de opgegeven gebruiker-query is. 
@@ -46,13 +46,13 @@ De volgende tabel staan de typische vertrouwen die voor een bepaald scorebereik 
 |0|Er is geen overeenkomst, zodat het antwoord niet wordt geretourneerd.|"Wat de service kost"|
 
 ## <a name="choose-a-score-threshold"></a>Kies een score drempelwaarde
-De bovenstaande tabel bevat de scores dat wordt verwacht dat op de meeste kB's. Echter omdat elke KB anders is en verschillende typen woorden heeft, intents en doelstellingen-aangeraden u testen en de drempelwaarde kiezen die het meest werkt voor u. De standaard- en aanbevolen drempelwaarde die voor de meeste kB's werken moet, is **50**.
+De bovenstaande tabel bevat de scores dat wordt verwacht dat op de meeste kB's. Echter omdat elke KB anders is en verschillende typen woorden heeft, intents en doelstellingen-aangeraden u testen en de drempelwaarde kiezen die het meest werkt voor u. De drempelwaarde is standaard ingesteld op 0, zodat alle mogelijke antwoorden worden geretourneerd. De aanbevolen drempelwaarde die moet werken voor de meeste kB's, is **50**.
 
 Bij het kiezen van de drempelwaarde, houd rekening met de balans tussen nauwkeurigheid en dekking en de drempelwaarde op basis van uw behoeften aanpassen.
 
 - Als **nauwkeurigheid** (of precisie) is belangrijker voor uw scenario en vervolgens uw drempelwaarde verhogen. Op deze manier telkens wanneer u een antwoord retourneren, worden een nog veel meer CONFIDENT case en nog veel meer waarschijnlijk dat de antwoord-gebruikers op zoek bent. In dit geval als u uiteindelijk meer vragen met openstaande verlaten. *Bijvoorbeeld:* als u de drempelwaarde **70**, mogelijk ontbreken bepaalde niet-eenduidige voorbeelden likes 'wat wordt opgeslagen en trainen?'.
 
-- Als **dekking** (of intrekken) is meer belangrijke - en u wilt beantwoorden als veel vragen mogelijk, zelfs als er slechts een gedeeltelijke relatie van de gebruiker vragen-vervolgens VERLAAGT de drempel. Dit betekent dat er mogelijk meer situaties waarbij het antwoord niet de werkelijke query van de gebruiker beantwoordt, maar sommige andere enigszins gerelateerde antwoord krijgt. *Bijvoorbeeld:* als u de drempelwaarde **30**, u mogelijk niet erg gerelateerde antwoorden zoals beantwoorden met het bovenstaande voorbeeld geven, voor query's, zoals "waar kan ik bewerken mijn KB?'
+- Als **dekking** (of intrekken) is meer belangrijke - en u wilt beantwoorden als veel vragen mogelijk, zelfs als er slechts een gedeeltelijke relatie van de gebruiker vragen-vervolgens VERLAAGT de drempel. Dit betekent dat er mogelijk meer situaties waarbij het antwoord niet de werkelijke query van de gebruiker beantwoordt, maar sommige andere enigszins gerelateerde antwoord krijgt. *Bijvoorbeeld:* als u de drempelwaarde **30**, geeft u mogelijk antwoorden voor query's, zoals 'Waar kan ik mijn KB bewerken?'
 
 > [!NOTE]
 > Nieuwere versies van QnA Maker zijn verbeteringen aangebracht aan scoring logica en invloed kunnen zijn op de drempelwaarde. Elk gewenst moment bijwerken van de service, zorg ervoor dat voor het testen en aanpassen van de drempelwaarde, indien nodig. U kunt uw versie van de QnA-Service controleren [hier](https://www.qnamaker.ai/UserSettings), en zien hoe u de meest recente updates [hier](../How-To/troubleshooting-runtime.md).

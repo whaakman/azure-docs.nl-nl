@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: c6ac3d9dbbb16caed51243fea852adea541b9f04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a71a0cd5888cec5c3af0e2853edf5a7f014939b4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505385"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919942"
 ---
 # <a name="azure-iot-edge-security-module"></a>Azure IoT Edge-module voor beveiliging
 
@@ -27,7 +27,7 @@ ms.locfileid: "60505385"
 > Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productie worklo§1ads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-[Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) biedt krachtige mogelijkheden om te beheren en zakelijke werkstromen aan de rand uitvoeren.
+[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) biedt krachtige mogelijkheden om te beheren en zakelijke werkstromen aan de rand uitvoeren.
 Het belangrijkste onderdeel dat IoT Edge speelt in IoT-omgevingen maken het met name geschikt voor kwaadwillende actoren.
 
 Azure Security Center (ASC) voor IoT-beveiliging-module biedt een uitgebreide oplossing voor uw IoT-Edge apparaten.
@@ -44,7 +44,7 @@ ASC voor IoT-beveiliging-module voor IoT Edge biedt de volgende functies:
 
 - Analyse van de manifesten voor IoT Edge-implementatie.
 
-- Onbewerkte beveiligingsgebeurtenissen samen tot berichten die worden verzonden via [IoT Edge Hub](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
+- Onbewerkte beveiligingsgebeurtenissen samen tot berichten die worden verzonden via [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
 
 - Configuratie door gebruik te maken van de moduledubbel beveiliging verwijderen.
 

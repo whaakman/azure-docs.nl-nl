@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 0b8349c6c59ac64be15c75b28c083a4483f2f68a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1f9ee5cf28de8fdb824bebf222e5e8d80e22c34f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57896259"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712431"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Een Windows Data Science Virtual Machine op Azure inrichten
 
@@ -116,7 +116,7 @@ U kunt Microsoft Enterprise Library voor schaalbare R of Python voor uw analyses
 
 Machine Learning-Server biedt ondersteuning voor verschillende big data-statistieken, voorspellende modellen en machine learning-taken. Deze biedt ondersteuning voor het volledige aanbod van analytics: verkenning, analyse, visualisatie en modellering. Door en uitbreiden van open-source R en Python, is de Machine Learning Server compatibel met R en Python-scripts en functies. Het is ook compatibel met CRAN, pip en Conda-pakketten voor het analyseren van gegevens op de grote schaal.
 
-Machine Learning Server lost de geheugenbeperkingen van open-source R door het toevoegen van parallelle en bloksgewijze verwerking van gegevens. Dit betekent dat u analyses kan uitvoeren op de hoeveelheid gegevens groter zijn dan wat in het hoofdgeheugen past. Visual Studio Community is opgenomen op de virtuele machine. Heeft de R-hulpprogramma's voor Visual Studio en Python Tools voor Visual Studio (PTVS)-uitbreidingen die een IDE met volledige leveren voor het werken met R of Python. We bieden ook andere IDE's zoals [RStudio](http://www.rstudio.com) en [PyCharm Community edition](https://www.jetbrains.com/pycharm/) op de virtuele machine.
+Machine Learning Server lost de geheugenbeperkingen van open-source R door het toevoegen van parallelle en bloksgewijze verwerking van gegevens. Dit betekent dat u analyses kan uitvoeren op de hoeveelheid gegevens groter zijn dan wat in het hoofdgeheugen past. Visual Studio Community is opgenomen op de virtuele machine. Heeft de R-hulpprogramma's voor Visual Studio en Python Tools voor Visual Studio (PTVS)-uitbreidingen die een IDE met volledige leveren voor het werken met R of Python. We bieden ook andere IDE's zoals [RStudio](https://www.rstudio.com) en [PyCharm Community edition](https://www.jetbrains.com/pycharm/) op de virtuele machine.
 
 ### <a name="python"></a>Python
 

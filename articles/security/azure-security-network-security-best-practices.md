@@ -1,9 +1,8 @@
 ---
-title: Aanbevolen beveiligingsprocedures voor Azure-netwerk | Microsoft Docs
+title: Aanbevolen procedures voor netwerkbeveiliging - Microsoft Azure
 description: Dit artikel bevat een set van aanbevolen procedures voor het gebruik van netwerk-security ingebouwde mogelijkheden van Azure.
 services: security
-documentationcenter: na
-author: TomShinder
+author: TerryLanfear
 manager: barbkess
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
@@ -12,18 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 04/28/2019
 ms.author: TomSh
-ms.openlocfilehash: b644a175814fb28563a2524e27f52d0285415d66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5bec7db1c4409165242416df16e437b121381b49
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610967"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872563"
 ---
 # <a name="azure-network-security-best-practices"></a>Aanbevolen beveiligingsprocedures voor Azure-netwerk
-U kunt verbinding maken [virtuele Azure-machines (VM's)](https://azure.microsoft.com/services/virtual-machines/) en apparaten op andere apparaten in het netwerk door ze te plaatsen op [virtuele netwerken van Azure](https://azure.microsoft.com/documentation/services/virtual-network/). Dat wil zeggen, kunt u virtuele netwerkinterfacekaarten verbinding maken met een virtueel netwerk om een TCP/IP-gebaseerde communicatie tussen apparaten met een netwerk. Virtuele machines die zijn verbonden met een Azure-netwerk kan verbinding maken met apparaten in hetzelfde virtuele netwerk, verschillende virtuele netwerken, het internet of uw eigen on-premises netwerken.
-
 Dit artikel wordt een verzameling van aanbevolen beveiligingsprocedures voor Azure-netwerk. Deze aanbevolen procedures zijn afgeleid van onze ervaring met Azure-netwerken en de ervaringen van klanten zoals zelf.
 
 Voor elke aanbevolen procedure in dit artikel wordt uitgelegd:
@@ -35,8 +32,6 @@ Voor elke aanbevolen procedure in dit artikel wordt uitgelegd:
 * Hoe u meer informatie kunt krijgen om in te schakelen van de aanbevolen procedure
 
 In dit artikel aanbevolen procedures voor beveiliging op Azure-netwerk is gebaseerd op een advies consensus en mogelijkheden van Azure-platform en functiesets, zoals ze bestaan op het moment dat dit artikel is geschreven. Adviezen en -technologieën na verloop van tijd worden gewijzigd en regelmatig op basis van deze wijzigingen in dit artikel wordt bijgewerkt.
-
-De volgende secties worden aanbevolen procedures voor netwerkbeveiliging.
 
 ## <a name="logically-segment-subnets"></a>Logisch segment subnetten
 Virtuele Azure-netwerken zijn vergelijkbaar met een LAN op uw on-premises netwerk. Het idee achter een Azure-netwerk is één privé IP-adres op basis van ruimte netwerk waarop u uw Azure virtual machines kunt plaatsen te maken. De persoonlijke IP-adresruimten beschikbaar zijn in de klasse A (10.0.0.0/8), klasse B (172.16.0.0/12), en -bereiken van klasse C (192.168.0.0/16).

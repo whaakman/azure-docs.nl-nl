@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ccc1f94b9411a158b5c60509e09bd3edc0a61640
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e09435b09811ef31057f4dc257fc55fa72909d83
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359871"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714917"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -29,7 +29,7 @@ Voor het definiëren van de gebruiker reizen ondersteund door het beleid, een **
 
 De **UserJourneys** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | UserJourney | 1: n | Een gebruikersbeleving waarmee alle van de concepten die nodig zijn voor een volledige gebruikersstroom wordt gedefinieerd. | 
 
@@ -41,7 +41,7 @@ De **UserJourney** element bevat het volgende kenmerk:
 
 De **UserJourney** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | OrchestrationSteps | 1: n | De volgorde van een indeling die moet worden gevolgd door voor een geslaagde transactie. Elke gebruikersbeleving bestaat uit een geordende lijst met de orchestration-stappen die worden uitgevoerd in de reeks. Als er een stap mislukt, wordt de transactie mislukt. |
 
@@ -61,7 +61,7 @@ De **OrchestrationSteps** element bevat het volgende element:
 
 De **OrchestrationStep** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | `Order` | Ja | De volgorde van de orchestration-stappen. | 
 | `Type` | Ja | Het type van de orchestration-stap. Mogelijke waarden: <ul><li>**ClaimsProviderSelection** -geeft aan dat de indelingsstap verschillende claimproviders vormt voor de gebruiker er een selecteren.</li><li>**CombinedSignInAndSignUp** -geeft aan dat de indelingsstap een gecombineerde sociale provider pagina voor het registreren van aanmelding en lokale account biedt.</li><li>**ClaimsExchange** -geeft aan dat de indelingsstap claims met een claimprovider uitwisselt.</li><li>**SendClaims** -geeft aan dat de indelingsstap de claims voor de relying party met een token dat is uitgegeven door een verlener van claims verzendt.</li></ul> | 
@@ -71,7 +71,7 @@ De **OrchestrationStep** element bevat de volgende kenmerken:
 
 De **OrchestrationStep** element mag de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- | 
 | Voorwaarden | 0: n | Een lijst met voorwaarden waaraan moet worden voldaan voor de orchestration-stap om uit te voeren. | 
 | ClaimsProviderSelections | 0: n | Een lijst van de claims provider selecties voor de orchestration-stap. | 
@@ -97,9 +97,9 @@ De **voorwaarde** element bevat het volgende kenmerk:
 
 De **voorwaarde** elementen bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
-| Waarde | 1: n | Een ClaimTypeReferenceId moet worden gezocht voor. Een andere waarde-element bevat de waarde moet worden gecontroleerd.</li></ul>|
+| Value | 1: n | Een ClaimTypeReferenceId moet worden gezocht voor. Een andere waarde-element bevat de waarde moet worden gecontroleerd.</li></ul>|
 | Bewerking | 1:1 | De actie die moet worden uitgevoerd als de controle van de voorwaarde in een orchestration-stap ingesteld op true is. Als de waarde van de `Action` is ingesteld op `SkipThisOrchestrationStep`, de bijbehorende `OrchestrationStep` moet niet worden uitgevoerd. | 
 
 #### <a name="preconditions-examples"></a>Voorbeelden van voorwaarden

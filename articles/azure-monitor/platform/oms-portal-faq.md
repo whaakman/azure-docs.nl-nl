@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b353e3c0ed14c7ae42e6b1f2c8a92904bf0befd7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453112"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916280"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Veelgestelde vragen voor overgang van OMS-portal naar Azure-portal voor Log Analytics-gebruikers
 Log Analytics gebruikt een eigen portal met de OMS-portal de naam in eerste instantie de configuratie ervan beheren en analyseren van verzamelde gegevens.  Alle functionaliteit van deze portal is verplaatst naar de Azure-portal waar deze blijft op worden ontwikkeld.
@@ -97,9 +97,9 @@ Instellingen voor de meeste gegevens beheren de in de **geavanceerde instellinge
 | Aangepaste logboeken                  | **Geavanceerde instellingen** menu voor de werkruimte. |
 | Syslog                       | **Geavanceerde instellingen** menu voor de werkruimte. |
 | Application Insights         | Deze oplossing is afgeschaft nu dat Log Analytics en Application Insights dezelfde gegevensengine delen.  |
-| Windows-bestandstracering        | **Wijzigingen bijhouden** in het menu in Azure Automation. Zie [bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden](../../automation/automation-change-tracking.md) voor meer informatie. |
-| Windows-register traceren        | **Wijzigingen bijhouden** in het menu in Azure Automation. Zie [bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden](../../automation/automation-change-tracking.md) voor meer informatie. |
-| Bijhouden van Linux-bestanden          | **Wijzigingen bijhouden** in het menu in Azure Automation. Zie [bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden](../../automation/automation-change-tracking.md) voor meer informatie. |
+| Windows-bestandstracering        | **Wijzigingen bijhouden** in het menu in Azure Automation. Zie [bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden](../../automation/change-tracking.md) voor meer informatie. |
+| Windows-register traceren        | **Wijzigingen bijhouden** in het menu in Azure Automation. Zie [bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden](../../automation/change-tracking.md) voor meer informatie. |
+| Bijhouden van Linux-bestanden          | **Wijzigingen bijhouden** in het menu in Azure Automation. Zie [bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden](../../automation/change-tracking.md) voor meer informatie. |
 
 ### <a name="solutions"></a>Oplossingen
 Beheren van oplossingen in de **oplossingen** menu voor de werkruimte. 

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 41a5f08be833d1235146d6e748580751af2c9d73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311026"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707150"
 ---
 # <a name="service-bus-faq"></a>Veelgestelde vragen over Service Bus
 
@@ -41,6 +41,48 @@ Een conventionele wachtrij of onderwerp is afgehandeld door een enkel bericht-br
 Volgorde wordt niet gegarandeerd wanneer met behulp van entiteiten gepartitioneerde. In het geval dat een partitie niet beschikbaar is, kunt u nog steeds verzenden en ontvangen van berichten van de andere partities.
 
  Gepartitioneerde entiteiten worden niet meer ondersteund de [Premium-SKU](service-bus-premium-messaging.md). 
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Welke poorten moet ik gebruiken om te openen op de firewall? 
+U kunt de volgende protocollen gebruiken met Azure Service Bus berichten te verzenden en ontvangen:
+
+- Advanced Message Queuing Protocol (AMQP)
+- Service Bus Messaging Protocol (SBMP)
+- HTTP
+
+Zie de volgende tabel voor de uitgaande poorten die u wilt openen om deze protocollen gebruiken om te communiceren met Azure Event Hubs te maken. 
+
+| Protocol | Poorten | Details | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 en 5672 | Zie [AMQP-protocolhandleiding](service-bus-amqp-protocol-guide.md) | 
+| SBMP | 9350-9354 | Zie [-verbindingsmodus](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| HTTP, HTTPS | 80, 443 | 
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Welke IP-adressen moet ik aan lijst met geaccepteerde?
+Als u wilt zoeken witte lijst de juiste IP-adressen voor uw verbindingen, de volgende stappen uit:
+
+1. Voer de volgende opdracht uit vanaf een opdrachtprompt: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Noteer de IP-adres dat is geretourneerd `Non-authoritative answer`. Dit IP-adres is statisch. Het enige punt in tijd gewijzigd zou is als u de naamruimte die u aan bij een ander cluster herstellen.
+
+Als u de zoneredundantie voor uw naamruimte gebruikt, moet u een paar extra stappen uitvoeren: 
+
+1. Eerst, voert u nslookup op de naamruimte.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Noteer de naam in de **niet-bindend antwoord** sectie, die zich in een van de volgende indelingen: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Nslookup uitvoeren voor elke opdracht met de achtervoegsels s1, s2 en s3 om op te halen van de IP-adressen van alle drie exemplaren die worden uitgevoerd in drie beschikbaarheidszones, 
+
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Wat zijn enkele aanbevolen procedures voor Azure Service Bus?

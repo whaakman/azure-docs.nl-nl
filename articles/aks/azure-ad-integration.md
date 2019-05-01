@@ -5,20 +5,20 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: db92526bd02ba55be5df7ce6999e3099e72b8fa5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c23c13969fd4e2814fdc1894a98a3f876da7315b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62116771"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574307"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Active Directory integreren met Azure Kubernetes Service
 
 Azure Kubernetes Service (AKS) kunnen worden geconfigureerd voor het gebruik van Azure Active Directory (AD) voor verificatie van de gebruiker. In deze configuratie kunt u zich aanmelden bij een AKS-cluster met behulp van uw Azure Active Directory-verificatietoken. Bovendien, clusterbeheerders kunnen Kubernetes op rollen gebaseerd toegangsbeheer (RBAC) op basis van lidmaatschap van een gebruiker identiteit of directory configureren.
 
-Dit artikel leest u hoe u implementeert de vereisten voor AKS en Azure AD en over het implementeren van een Azure AD-functionaliteit-cluster en een eenvoudige RBAC-rol in het AKS-cluster maken.
+Dit artikel leest u over het implementeren van de vereisten voor AKS en Azure AD en over het implementeren van een Azure AD-functionaliteit-cluster en het maken van een eenvoudige RBAC-rol in de AKS-cluster met behulp van de Azure portal. U kunt ook [deze stappen met behulp van de Azure CLI][azure-ad-cli].
 
 Er gelden de volgende beperkingen:
 
@@ -46,7 +46,7 @@ De eerste Azure AD-toepassing wordt gebruikt om op te halen van een groepslidmaa
 
 2. Selecteer **Manifest** en bewerk de `groupMembershipClaims` waarde die moet worden `"All"`.
 
-   Opslaan van de updates als u klaar bent.
+   **Sla** de updates als u klaar bent.
 
    ![Groepslidmaatschap op Alles bijwerken](media/aad-integration/edit-manifest.png)
 
@@ -64,11 +64,11 @@ De eerste Azure AD-toepassing wordt gebruikt om op te halen van een groepslidmaa
 
    ![Graph-machtigingen van de toepassing instellen](media/aad-integration/read-directory.png)
 
-6. Onder **GEDELEGEERDE MACHTIGINGEN**, schakel het selectievakje naast **aanmelden en gebruikersprofiel lezen** en **mapgegevens lezen**. Sla de updates die één keer uitgevoerd.
+6. Onder **GEDELEGEERDE MACHTIGINGEN**, schakel het selectievakje naast **aanmelden en gebruikersprofiel lezen** en **mapgegevens lezen**. Kies **Selecteer** om op te slaan van de updates.
 
    ![Graph-machtigingen van de toepassing instellen](media/aad-integration/delegated-permissions.png)
 
-   Selecteer **Done**.
+   Selecteer **gedaan**.
 
 7. Kies *Microsoft Graph* uit de lijst met API's, selecteert u vervolgens **machtigingen verlenen**. Deze stap mislukt als het huidige account niet een tenantbeheerder is.
 
@@ -96,11 +96,13 @@ De tweede Azure AD-toepassing wordt gebruikt wanneer u zich aan met de Kubernete
 
    ![Machtigingen van de toepassing configureren](media/aad-integration/select-api.png)
 
-3. Schakel het selectievakje naast de toepassing en klik op **Selecteer**.
+    Selecteer uw servertoepassing, en kies vervolgens **Selecteer**.
+
+3. Terug op de *API-toegang toevoegen* venster, kiest u **machtigingen selecteren**. Geef een vinkje onder de *overgedragen machtigingen* voor toegang tot uw toepassing, kiest u vervolgens **Selecteer**.
 
    ![AKS AAD-servereindpunt toepassing selecteren](media/aad-integration/select-server-app.png)
 
-   Selecteer **gedaan**
+   Terug op de *API-toegang toevoegen* venster **gedaan**.
 
 4. Selecteer uw API-server in de lijst en kies vervolgens **machtigingen verlenen**:
 
@@ -259,3 +261,4 @@ Zie voor best practices voor identiteits- en resource-besturingselement [aanbevo
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
+[azure-ad-cli]: azure-ad-integration-cli.md

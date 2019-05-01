@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 81602f1a30fb753d7a8fcfccace581cd8c7b2f0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880326"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574119"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integratie van broncodebeheer in Azure Automation
 
@@ -52,14 +52,16 @@ Op de **samenvatting van de bron-besturingselement** pagina, vult u uw gegevens 
 |Opslagplaats     | De naam van de opslagplaats of het project. De eerste 200 opslagplaatsen worden geretourneerd. Als u wilt zoeken naar een opslagplaats, typ de naam in het veld en klikt u op **zoeken op GitHub**.|
 |Branch     | De vertakking voor het ophalen van de bronbestanden op uit. Vertakking die gericht is op is niet beschikbaar voor het type TFVC broncodebeheer.          |
 |Mappad     | De map met de runbooks om te synchroniseren. Voorbeeld: /Runbooks </br>*Alleen runbooks in de map die is opgegeven, worden gesynchroniseerd. Recursie wordt niet ondersteund.*        |
-|Automatisch synchroniseren     | Hiermee schakelt u in- of uitschakelen van automatische synchronisatie wanneer een wijziging wordt aangebracht in de opslagplaats voor bronbeheer         |
+|Automatische synchronisatie<sup>1</sup>     | Hiermee schakelt u in- of uitschakelen van automatische synchronisatie wanneer een wijziging wordt aangebracht in de opslagplaats voor bronbeheer         |
 |Runbook publiceren     | Indien ingesteld op **op**nadat runbooks zijn gesynchroniseerd vanuit broncodebeheer ze automatisch moeten worden gepubliceerd.         |
 |Description     | Een tekstveld om meer duidelijkheid te geven        |
+
+<sup>1</sup> om in te schakelen automatisch synchroniseren bij het configureren van integratie van broncodebeheer met Azure-opslagplaatsen, moet u een beheerder van het Project.
 
 ![Overzicht van de bron-besturingselement](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> Zorg ervoor dat u bent aangemeld met het juiste account bij het configureren van broncodebeheer. Als er een waarover twijfel bestaat, een nieuw tabblad geopend in uw browser en meld u af bij visualstudio.com of github.com en probeer het opnieuw verbinden broncodebeheer.
+> Uw aanmeldingsgegevens voor uw resourcebeheerbibliotheek mogelijk anders dan uw aanmelding voor de Azure-portal. Zorg ervoor dat u bent aangemeld met het juiste account voor uw resourcebeheerbibliotheek bij het configureren van broncodebeheer. Als er een waarover twijfel bestaat, een nieuw tabblad geopend in uw browser en meld u af bij visualstudio.com of github.com en probeer het opnieuw verbinden broncodebeheer.
 
 ## <a name="configure-source-control---powershell"></a>Configureren van broncodebeheer - PowerShell
 

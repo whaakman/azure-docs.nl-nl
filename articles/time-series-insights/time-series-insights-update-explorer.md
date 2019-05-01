@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: ed8a829bd73a53dc94bf8b08648b3d6684f718f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d348592589f448dab9b8b4f3a1a3eb286d464417
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109760"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723446"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Gegevens visualiseren in de Preview-versie van de Verkenner
 
@@ -216,10 +216,11 @@ U kunt weergeven en verbergen van elementen in het deelvenster van de grafiek he
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende artikelen:
-* [Azure Time Series Insights Preview opslag en inkomend](./time-series-insights-update-storage-ingress.md)
-* [Gegevens modelleren](./time-series-insights-update-tsm.md)
-* [Vaststellen en oplossen van problemen](./time-series-insights-update-how-to-troubleshoot.md)
+- Meer informatie over [opslag- en uitgangsclaims](./time-series-insights-update-storage-ingress.md) in Azure Time Series Insights Preview.
+
+- Lees het document Time Series Insights Preview op [gegevensmodellering](./time-series-insights-update-tsm.md).
+
+- Informatie over [hoe u problemen vaststellen en oplossen](./time-series-insights-update-how-to-troubleshoot.md) uw Time Series Insights-exemplaar.
 
 <!-- Images -->
 [1]: media/v2-update-explorer/explorer-one.png

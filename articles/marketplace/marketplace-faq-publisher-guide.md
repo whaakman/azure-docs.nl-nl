@@ -1,25 +1,18 @@
 ---
-title: Veelgestelde vragen over Marketplace | Azure
+title: Veelgestelde vragen over Azure Marketplace
 description: Antwoorden op algemene vragen over de Microsoft Azure Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: 34b9fadc976d3f37612f59a7fc8520c48b178f5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3e1bad5902bb35ce0c037835359c267582cc8bc7
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709357"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938633"
 ---
 # <a name="marketplace-faqs"></a>Veelgestelde vragen over Marketplace
 
@@ -92,9 +85,9 @@ Afhankelijkheden voor Azure Marketplace-aankopen worden niet automatisch beheerd
 
 Als de uitgever heeft geconfigureerd hun aanbieding kan worden gebruikt door de CSP-kanalen, zijn deze beschikbaar zijn via uw reseller.
 
-**Welke landen worden ondersteund voor het aanschaffen van toepassingen en services die worden verkocht/ingericht via de Azure Marketplace?**
+**Welke landen/regio's worden ondersteund voor het aanschaffen van toepassingen en services die worden verkocht/ingericht via de Azure Marketplace?**
 
-Azure Marketplace is beschikbaar voor Microsoft Azure-klanten in de landen vermeld in de [beleidsregels voor deelname aan](https://docs.microsoft.com/legal/marketplace/participation-policy).
+Azure Marketplace is beschikbaar voor Microsoft Azure-klanten in de landen/regio's die worden vermeld in de [beleidsregels voor deelname aan](https://docs.microsoft.com/legal/marketplace/participation-policy).
 
 **Welke valuta's worden ondersteund door Azure Marketplace?**
 
@@ -134,7 +127,7 @@ Azure-abonnement is opgenomen in van de uitgever Independent Software Vendors (I
 
 *Maandelijkse kosten:* Tarieven in rekening worden gebracht of een vast maandbedrag voor een abonnement op de aanbieding (vanaf de begindatum van het abonnement voor dat abonnement) in rekening gebracht. Het maandelijkse bedrag wordt mogelijk pro rato verrekend voor annuleringen halverwege de maand of niet-gebruikte services.
 
-Specifieke prijsinformatie voor aanbiedingen kunt vinden op de pagina met details van de oplossing op [ https://azure.microsoft.com/en-us/pricing/ ](https://azure.microsoft.com/pricing/) of binnen de [Microsoft Azure Management portal](https://portal.azure.com/).
+Specifieke prijsinformatie voor aanbiedingen kunt vinden op de pagina met details van de oplossing op [ https://azure.microsoft.com/pricing/ ](https://azure.microsoft.com/pricing/) of binnen de [Microsoft Azure Management portal](https://portal.azure.com/).
 
 >[!Note]
 > Azure-gebruikskosten zijn, met uitzondering van maandelijkse kosten van toepassing voor alle prijsmodellen, tenzij anders vermeld.
@@ -381,7 +374,7 @@ Na het voltooien van de aanbieding en het instellen van een lead bestemming, kan
 
 **Welke landen/regio's kunnen uitgevers verkopen via Azure Marketplace?**
 
-Uitgevers in de volgende landen kunnen momenteel verkopen op Azure Marketplace: Afghanistan, Albanië, Algerije, Angola, Antigua en Barbuda, Argentinië, Armenië, Australië, Oostenrijk, Azerbeidzjan, Bahrein, Bangladesh, Belarus, België, Benin, Bolivia, Bosnië en Herzegovina, Botswaanse, Brazilië, Bulgarije, Burkina Faso, Burundi, Cambodja, Kameroen, Canada, Centraal-Afrikaanse Republiek, Tsjaad, Chili, Colombia, Comoren, Congo, Congo-Kinshasa, Costa Rica, Ivoorkust, Kroatië, Cyprus, Tsjechië, Denemarken, Dominica, Dominicaanse Republiek, Ecuador, Egypte, El Salvador, Eritrea, Estland, Ethiopië, Fiji -Eilanden, Finland, Frankrijk, Georgië, Duitsland, Ghana, Griekenland, Guatemala, Guinee, Haïti, Honduras, Hongkong SAR, Hongarije, IJsland, India, Indonesië, Irak, Ierland, Israël, Italië, Jamaica, Japan, Jordanië, Kazachstan, Kenia, Korea (Zuid), Koeweit, Laos, Letland, Libanon, Libérie, Liechtenstein, Litouwen, Luxemburg, Madagaskar, Malawi, Maleisië, Mali, Malta, Mauritius, Mexico, Monaco, Mongolië, Montenegro, Marokko, Mozambique, Nepal, de Nederland, Nieuw-Zeeland, Nicaragua, Niger, Nigeria, Noorwegen, Oman, Pakistan, Panama, Paraguay, Peru, Filippijnen, Polen, Portugal, Qatar, Roemenië, Rusland, Rwanda, Saoedi-Arabië, Senegal, Servië, Sierra Leone, Singapore, Slowakije, Slovenië, Somalië, Zuid-Afrika, Spanje, Sri Lanka, Zweden, Zwitserland, Tadzjikistan, Tanzania, Thailand, Oost-Timor, Togo, Tonga, Trinidad en Tobago, Tunesië, Turkije, Turkmenistan, Oeganda, Oekraïne, Verenigde Arabische Emiraten, Verenigd Koninkrijk, Verenigde Staten, Uruguay, Oezbekistan, Venezuela, Vietnam, Zambia, en Zimbabwe.
+Uitgevers in de volgende landen/regio's kunnen momenteel verkopen op Azure Marketplace: Afghanistan, Albanië, Algerije, Angola, Antigua en Barbuda, Argentinië, Armenië, Australië, Oostenrijk, Azerbeidzjan, Bahrein, Bangladesh, Belarus, België, Benin, Bolivia, Bosnië en Herzegovina, Botswaanse, Brazilië, Bulgarije, Burkina Faso, Burundi, Cambodja, Kameroen, Canada, Centraal-Afrikaanse Republiek, Tsjaad, Chili, Colombia, Comoren, Congo, Congo-Kinshasa, Costa Rica, Ivoorkust, Kroatië, Cyprus, Tsjechië, Denemarken, Dominica, Dominicaanse Republiek, Ecuador, Egypte, El Salvador, Eritrea, Estland, Ethiopië, Fiji -Eilanden, Finland, Frankrijk, Georgië, Duitsland, Ghana, Griekenland, Guatemala, Guinee, Haïti, Honduras, Hongkong SAR, Hongarije, IJsland, India, Indonesië, Irak, Ierland, Israël, Italië, Jamaica, Japan, Jordanië, Kazachstan, Kenia, Korea (Zuid), Koeweit, Laos, Letland, Libanon, Libérie, Liechtenstein, Litouwen, Luxemburg, Madagaskar, Malawi, Maleisië, Mali, Malta, Mauritius, Mexico, Monaco, Mongolië, Montenegro, Marokko, Mozambique, Nepal, de Nederland, Nieuw-Zeeland, Nicaragua, Niger, Nigeria, Noorwegen, Oman, Pakistan, Panama, Paraguay, Peru, Filippijnen, Polen, Portugal, Qatar, Roemenië, Rusland, Rwanda, Saoedi-Arabië, Senegal, Servië, Sierra Leone, Singapore, Slowakije, Slovenië, Somalië, Zuid-Afrika, Spanje, Sri Lanka, Zweden, Zwitserland, Tadzjikistan, Tanzania, Thailand, Oost-Timor, Togo, Tonga, Trinidad en Tobago, Tunesië, Turkije, Turkmenistan, Oeganda, Oekraïne, Verenigde Arabische Emiraten, Verenigd Koninkrijk, Verenigde Staten, Uruguay, Oezbekistan, Venezuela, Vietnam, Zambia, en Zimbabwe.
 
 **Hoe verwijder ik een aanbieding op Azure Marketplace?**
 
@@ -486,17 +479,17 @@ Afhankelijkheden voor Azure Marketplace-aankopen worden niet automatisch beheerd
 
 **Wie kan toepassingen en services die worden verkocht/ingericht via de Azure Marketplace kopen?**
 
-Azure Marketplace is beschikbaar voor klanten van Microsoft Azure in de volgende landen:
+De Azure Marketplace is beschikbaar voor Microsoft Azure-klanten in de volgende landen/regio's:
 
 Algerije, Argentinië, Australië, Oostenrijk, Bahrein, Belarus, België, Brazilië, Bulgarije, Canada, Chili, Colombia, Costa Rica, Kroatië, Cyprus, Tsjechië, Denemarken, Dominicaanse Republiek, Ecuador, Egypte, El Salvador, Estland, Finland, Frankrijk, Duitsland, Griekenland , Guatemala, Hongkong, Hongarije, IJsland, India, Indonesië, Ierland, Israël, Italië, Japan, Jordanië, Kazachstan, Kenia, Koeweit, Letland, Liechtenstein, Litouwen, Luxemburg, Noord Macedonië, Maleisië, Malta, Mexico, Montenegro, Marokko, Nederland, nieuw -Zeeland, Nigeria, Noorwegen, Oman, Pakistan, Panama, Paraguay, Peru, Filippijnen, Polen, Portugal, Porto Rico, Qatar, Roemenië, Rusland, Saoedi-Arabië, Servië, Singapore, Slowakije, Slovenië, Zuid-Afrika, Zuid-Korea, Spanje, Sri Lanka, Zweden, Zwitserland, Taiwan, Thailand, Trinidad en Tobago, Tunesië, Turkije, Oekraïne, Verenigde Arabische Emiraten, Verenigd Koninkrijk, Verenigde Staten, Uruguay, Venezuela.
 
-**Hoe definieer ik mijn geografische beschikbaarheid om in te schakelen in verschillende landen verkopen?**
+**Hoe definieer ik mijn geografische beschikbaarheid om in te schakelen verkopen in verschillende landen/regio's?**
 
-1.  Navigeer in de Cloud Partner-Portal naar de SKU die u wilt toevoegen van nieuwe landen.  Binnen de 'SKU-Details' naar ' Land/regio beschikbaarheid' en klikt u op "Bepaalde regio's."
+1.  Navigeer in de Cloud Partner-Portal naar de SKU die u wilt toevoegen van nieuwe landen/regio's.  Binnen de 'SKU-Details' naar ' Land/regio beschikbaarheid' en klikt u op "Bepaalde regio's."
 
     ![Regio’s selecteren](media/marketplace-publishers-guide/FAQ-choose-geo.png)
 
-1.  Een lijst weergegeven met alle beschikbare landen aan te verkopen.  Klik op het selectievakje in naast elk land die u beschikbaar wilt stellen deze SKU. Klik op 'OK'.
+1.  Een lijst weergegeven met alle beschikbare landen/regio's om aan te verkopen.  Klik op het selectievakje in naast elk land/de regio die u beschikbaar wilt stellen deze SKU. Klik op 'OK'.
 
     ![Lijst van de land/regio selecteren](media/marketplace-publishers-guide/FAQ-select-countries.png)
 
@@ -509,11 +502,11 @@ Algerije, Argentinië, Australië, Oostenrijk, Bahrein, Belarus, België, Brazil
 
 **Hoe kan een uitgever de geografische beschikbaarheid voor een bestaande aanbieding wijzigen?**
 
-De uitgever kan een bestaande aanbieding bewerken, selecteert u de nieuwe landen en gebruikt u de functie downloaden/uploaden om in te stellen prijzen.
+De uitgever kan een bestaande aanbieding bewerken, selecteert u de nieuwe landen/regio's en gebruikt u de functie downloaden/uploaden om in te stellen prijzen.
 
-**In welke landen kunnen klanten aanbiedingen op Azure Marketplace kopen?**
+**In welke landen/regio's kunnen klanten aanbiedingen op Azure Marketplace kopen?**
 
-Azure Marketplace ondersteunt 141 kopen van verschillende geografische gebieden, zoals gedefinieerd door het factuuradres van de klant. Zie [beleidsregels voor deelname aan](https://docs.microsoft.com/legal/marketplace/participation-policy) voor een lijst van landen.
+Azure Marketplace ondersteunt 141 kopen van verschillende geografische gebieden, zoals gedefinieerd door het factuuradres van de klant. Zie [beleidsregels voor deelname aan](https://docs.microsoft.com/legal/marketplace/participation-policy) voor een lijst van landen/regio's.
 
 **Welke valuta's worden ondersteund door Azure Marketplace?**
 
@@ -545,7 +538,7 @@ Prijzen zijn afhankelijk van het producttype en de specificaties van de uitgever
 
 * **Maandelijkse kosten**: U wordt in rekening gebracht of een vast maandbedrag voor een abonnement op de aanbieding in rekening gebracht vanaf het begin van het specifieke abonnement. Het maandelijkse bedrag wordt mogelijk pro rato verrekend voor annuleringen halverwege de maand of niet-gebruikte services.
 
-Prijsinformatie kunt vinden op de pagina met details van de oplossing op [ https://azure.microsoft.com/en-us/pricing/ ](https://azure.microsoft.com/pricing/), of binnen de Microsoft Azure Management portal.
+Prijsinformatie kunt vinden op de pagina met details van de oplossing op [ https://azure.microsoft.com/pricing/ ](https://azure.microsoft.com/pricing/), of binnen de Microsoft Azure Management portal.
 
 >[!Note]
 >Azure-gebruikskosten zijn, met uitzondering van maandelijkse kosten van toepassing voor alle prijsmodellen, tenzij anders vermeld.

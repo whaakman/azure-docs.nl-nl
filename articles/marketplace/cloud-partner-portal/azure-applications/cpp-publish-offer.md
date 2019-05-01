@@ -1,25 +1,18 @@
 ---
-title: Aanbieding voor Azure-toepassing - Azure Marketplace publiceren | Microsoft Docs
+title: Aanbieding voor Azure-toepassing publiceren | Azure Marketplace
 description: Beschrijft het proces en de stappen voor het publiceren van een Azure-toepassing-aanbieding op Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.author: pbutlerm
-ms.openlocfilehash: fdca47877d4cb2192eef0a26448cd21e8afe4b77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 2326ce1a591d1276dbaf9c7f3238f7214e5134ab
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60740223"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942892"
 ---
 # <a name="publish-azure-application-offer"></a>Aanbieding voor Azure-toepassing maken publiceren
 

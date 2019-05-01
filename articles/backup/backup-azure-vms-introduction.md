@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 1e80b2083a2fce90259ac0634d9e7f796f459fcd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 93be913182db56941c346ef0cad47f70c0d614c9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880946"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706833"
 ---
 # <a name="about-azure-vm-backup"></a>Over Azure VM Backup
 
@@ -31,10 +31,14 @@ Dit is hoe Azure Backup aangeeft dat een back-up is voltooid voor Azure VM's:
     - Back-up wordt standaard volledige VSS-back-ups.
     - Als back-up kan niet een app-consistente momentopname te maken, klikt u vervolgens duurt het een bestand-consistente momentopname van de onderliggende opslag (omdat er geen schrijfbewerkingen van toepassingen worden uitgevoerd terwijl de virtuele machine is gestopt).
 1. Voor Linux-VM's wordt back-up een bestandsconsistente back-up. Voor app-consistente momentopnamen moet u handmatig aanpassen voor/na-scripts.
-1. Nadat de momentopname back-up is, wordt de gegevens overgedragen naar de kluis. 
+1. Nadat de momentopname back-up is, wordt de gegevens overgedragen naar de kluis.
     - De back-up is geoptimaliseerd door de back-ups van elke VM-schijf parallel.
     - Voor elke schijf die back-up, Azure Backup de blokken op de schijf leest en identificeert en brengt alleen de gegevensblokken die zijn gewijzigd (delta) sinds de vorige back-up.
     - Momentopname van de gegevens mogelijk niet direct worden gekopieerd naar de kluis. Het duurt enkele uren tijdens pieken. Totaal aantal back-uptijd voor een virtuele machine is minder dan 24 uur voor dagelijkse back-upbeleid.
+ 1. Er zijn wijzigingen aangebracht in een Windows-VM nadat Azure Backup is ingeschakeld op het:
+    -   Microsoft Visual C++ 2013 Redistributable(x64) - 12.0.40660 is geïnstalleerd in de virtuele machine
+    -   Opstarttype van de Volume Shadow Copy service (VSS) op automatisch gewijzigd van de handleiding
+    -   IaaSVmProvider Windows-service is toegevoegd
 
 1. Wanneer de overdracht van gegevens voltooid is, wordt de momentopname is verwijderd en een herstelpunt wordt gemaakt.
 
@@ -57,7 +61,7 @@ BEKs ook back-ups. Dus als de BEKs verloren gaan, geautoriseerde gebruikers kunn
 
 ## <a name="snapshot-creation"></a>Momentopname maken
 
-Azure Backup wordt momentopnamen op basis van de back-upschema. 
+Azure Backup wordt momentopnamen op basis van de back-upschema.
 
 - **Windows-VM's:** Voor Windows-VM's coördineert de Backup-service met VSS op een app-consistente momentopname te maken van de VM-schijven.
 
@@ -82,7 +86,7 @@ De volgende tabel beschrijft de verschillende typen momentopname consistentie:
 **Bestandssysteemconsistent** | Consistentie van bieden bestandssysteem toepassingsconsistente back-ups door het maken van een momentopname van alle bestanden op hetzelfde moment.<br/><br/> | Wanneer u een virtuele machine met een bestandssysteem consistente momentopname herstelt, wordt de virtuele machine opgestart. Er is geen beschadigde gegevens of gegevensverlies. Apps moeten voor het implementeren van hun eigen mechanisme 'bijwerken' om ervoor te zorgen dat de herstelde gegevens consistent is. | Windows: Bepaalde VSS-schrijvers is mislukt <br/><br/> Linux: Standaard (als pre/post-scripts zijn niet geconfigureerd of mislukt)
 **Crash-consistente** | Crash-consistente momentopnamen wordt doorgaans uitgevoerd als een Azure-VM uitgeschakeld op het moment van back-up wordt. Alleen de gegevens die al op de schijf op het moment van back-up bestaat is vastgelegd en een back-up.<br/><br/> Een crash-consistente herstelpunt biedt geen garantie voor de consistentie van gegevens voor het besturingssysteem of de app. | Hoewel er geen garanties zijn, meestal door de virtuele machine wordt opgestart en start het een Schijfcontrole om Beschadigingsfouten te herstellen. Een in-memory-gegevens- of schrijfbewerkingen die niet zijn overgebracht naar de schijf voordat de crash gaan verloren. Apps implementeren voor de controle van hun eigen gegevens. Bijvoorbeeld, kunt een database-app met het transactielogboek gebruiken voor verificatie. Als het transactielogboek vermeldingen die zich niet in de database heeft, wordt de databasesoftware transacties terug tot de gegevens consistent is. | Virtuele machine zich in afsluitingsstaat
 
-## <a name="backup-and-restore-considerations"></a>Overwegingen voor back-up en herstel 
+## <a name="backup-and-restore-considerations"></a>Overwegingen voor back-up en herstel
 
 **Overweging** | **Details**
 --- | ---
@@ -99,8 +103,8 @@ De volgende tabel beschrijft de verschillende typen momentopname consistentie:
 Deze algemene scenario's kunnen invloed hebben op de totale uitvoeringstijd van de back-up:
 
 - **Een nieuwe schijf toevoegen aan een beveiligde Azure-VM:** Als u een VM ondergaat incrementele back-up en een nieuwe schijf wordt toegevoegd, wordt de back-uptijd vergroten. De totale back-uptijd mogelijk meer dan 24 uur laatste vanwege de initiële replicatie van de nieuwe schijf, samen met de replicatie van verschillen van bestaande schijven.
-- **Gefragmenteerde schijven:** Back-upbewerkingen zijn sneller wanneer schijfwijzigingen aaneengesloten zijn. Als wijzigingen worden verdeeld en gefragmenteerd over een schijf, worden back-up van binnenkomst. 
-- **Verloop van de schijf:** Als beveiligde schijven die momenteel worden uitgevoerd van incrementele back-up hebben van een dagelijkse verloop van meer dan 200 GB, back-up kan lang duren (meer dan acht uur) om te voltooien. 
+- **Gefragmenteerde schijven:** Back-upbewerkingen zijn sneller wanneer schijfwijzigingen aaneengesloten zijn. Als wijzigingen worden verdeeld en gefragmenteerd over een schijf, worden back-up van binnenkomst.
+- **Verloop van de schijf:** Als beveiligde schijven die momenteel worden uitgevoerd van incrementele back-up hebben van een dagelijkse verloop van meer dan 200 GB, back-up kan lang duren (meer dan acht uur) om te voltooien.
 - **Back-versies:** De nieuwste versie van de back-up (bekend als de versie direct herstellen) maakt gebruik van een meer geoptimaliseerde proces dan vergelijking van de controlesom voor het identificeren van wijzigingen. Maar als u direct herstellen en een momentopname van een back-up hebt verwijderd, de back-up schakelt over naar de vergelijking van de controlesom. In dit geval wordt wordt de back-upbewerking meer dan 24 uur (of mislukken).
 
 ## <a name="best-practices"></a>Aanbevolen procedures

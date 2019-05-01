@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122588"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702523"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hoe u Logboeken voor query's van Azure Monitor voor virtuele machines (preview)
 Azure Monitor voor virtuele machines verzamelt prestaties en metrische verbindingsgegevens, computer- en inventarisgegevens proces en informatie over de status en stuurt deze door naar de Log Analytics-werkruimte in Azure Monitor.  Deze gegevens zijn beschikbaar voor [query](../../azure-monitor/log-query/log-query-overview.md) in Azure Monitor. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.
@@ -202,7 +202,7 @@ Records met een type *ServiceMapProcess_CL* beschikken over inventarisgegevens v
 | ProductVersion_s | De versie van het product |
 | FileVersion_s | Versie van het bestand |
 | CommandLine_s | Vanaf de opdrachtregel |
-| ExecutablePath _s | Het pad naar het uitvoerbare bestand |
+| ExecutablePath_s | Het pad naar het uitvoerbare bestand |
 | WorkingDirectory_s | De werkmap |
 | Gebruikersnaam | Het account waaronder het proces wordt uitgevoerd |
 | UserDomain | Het domein waarin het proces wordt uitgevoerd |

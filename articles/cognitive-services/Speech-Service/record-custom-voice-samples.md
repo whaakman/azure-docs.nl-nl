@@ -8,16 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
+ms.date: 12/06/2018
+ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4360150064d2f42cc2dc2cc3ef9f7783a5cb175
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60481954"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866552"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Record stem voorbeelden voor het maken van een aangepaste spraak
 
@@ -110,7 +109,7 @@ Gelukkig is het mogelijk om volledig te voorkomen dat deze problemen. Er zijn ve
 |-|-|
 |[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|Over 1100 zinnen hebt geselecteerd in out-van-copyright werkt specifiek voor gebruik in spraak synthese projecten. Een uitstekend uitgangspunt.|
 |Werkt niet meer<br>onder het auteursrecht|Doorgaans werkt gepubliceerd voordat 1923. Voor Engels, [Project Gutenberg](https://www.gutenberg.org/) biedt tienduizenden dergelijke werken. Kunt u zich kunt richten op nieuwere werkt als de taal die dichter bij moderne Engels.|
-|Government&nbsp;werkt|Werkt die zijn gemaakt door de Amerikaanse overheid zijn niet onder het auteursrecht vallen in de Verenigde Staten, hoewel de overheid kan claim copyright in andere landen.|
+|Government&nbsp;werkt|Werkt die zijn gemaakt door de Amerikaanse overheid zijn niet onder het auteursrecht vallen in de Verenigde Staten, hoewel de overheid kan claim copyright in andere landen/regio's.|
 |Openbare domein|Werkt voor welke copyright expliciet is afgewezen of die is toegewezen aan het openbare domein. Het niet mogelijk om af te wijken copyright volledig in sommige rechtsgebieden.|
 |Permissively licentie werkt|Werkt onder een licentie is gedistribueerd, zoals Creative Commons of de GNU gratis documentatie-licentie (GFDL). Wikipedia maakt gebruik van de GFDL. Aantal licenties echter kunnen leggen beperkingen op de prestaties van de gelicentieerde inhoud die mogelijk van invloed op het maken van een model voor aangepaste spraak, dus Lees de licentie zorgvuldig.|
 

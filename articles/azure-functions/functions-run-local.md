@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 9db84ee23a2b2b19d05e458ff38854076a530e38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 380cd84cc5ec56fe54c12201b9c1db810ac457bf
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61022079"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875924"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -41,6 +41,9 @@ Tenzij anders vermeld, de voorbeelden in dit artikel zijn voor versie 2.x.
 ### <a name="v2"></a>Versie 2.x
 
 Versie 2.x van de hulpprogramma's maakt gebruik van de Azure Functions-runtime 2.x die is gebaseerd op .NET Core. Deze versie wordt ondersteund op alle platforms .NET Core 2.x ondersteunt, met inbegrip van [Windows](#windows-npm), [macOS](#brew), en [Linux](#linux). Installeer eerst de .NET Core SDK 2.x.
+
+> [!IMPORTANT]
+> Wanneer u een extensie bundels in het projectbestand host.json inschakelt, hoeft u niet voor het installeren van de .NET Core SDK 2.x. Zie voor meer informatie, [lokale ontwikkeling met Azure Functions Core Tools en extensie bundels ](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Extensie-bundels versie 2.6.1071 van de essentiële hulpprogramma of een latere versie vereist.
 
 #### <a name="windows-npm"></a>Windows
 
@@ -310,6 +313,7 @@ De `host` opdracht is alleen vereist in versie 1.x.
 | **`--script-root --prefix`** | Hiermee geeft het pad naar de hoofdmap van de functie-app die moet worden uitgevoerd of geïmplementeerd. Dit wordt gebruikt voor compilatie projecten die projectbestanden te in een submap genereren. Bijvoorbeeld, wanneer u een C#-klassenbibliotheek project, de host.json local.settings.json en function.json bestanden bouwen worden gegenereerd een *hoofdmap* submap met een pad, zoals `MyProject/bin/Debug/netstandard2.0`. In dit geval stelt het voorvoegsel als `--script-root MyProject/bin/Debug/netstandard2.0`. Dit is de hoofdmap van de functie-app wanneer die wordt uitgevoerd in Azure. |
 | **`--timeout -t`** | De time-out voor de host functies om te starten, in seconden. Standaard: 20 seconden.|
 | **`--useHttps`** | Verbinding maken met `https://localhost:{port}` in plaats van naar `http://localhost:{port}`. Deze optie maakt standaard een vertrouwd certificaat op uw computer.|
+| **`--enableAuth`** | Volledige verwerking van de pijplijn-verificatie inschakelen.|
 
 Voor een C#-klassebibliotheekproject (.csproj), moet u opnemen de `--build` optie voor het genereren van het DLL-bestand voor de bibliotheek.
 

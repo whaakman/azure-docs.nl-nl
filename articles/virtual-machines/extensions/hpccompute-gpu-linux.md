@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
 ms.openlocfilehash: 5a184c72da8af0d451902a164c8b71a94a01883f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129073"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683176"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-stuurprogramma-extensie voor Linux
 
@@ -82,7 +82,7 @@ De volgende JSON ziet u het schema voor de extensie.
 
 Alle instellingen zijn optioneel. Het standaardgedrag is het niet bijwerken de kernel als dit niet vereist voor het installeren van stuurprogramma's, installeert u de nieuwste ondersteunde stuurprogramma en de CUDA-toolkit (indien van toepassing).
 
-| Name | Beschrijving | Standaardwaarde | Geldige waarden | Gegevenstype |
+| Name | Description | Standaardwaarde | Geldige waarden | Gegevenstype |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Bijwerken van de kernel, zelfs als niet vereist voor de installatie van stuurprogramma | false | waar of ONWAAR | booleaans |
 | driverVersion | NV: De versie van de GRID-stuurprogramma<br> NC/ND: CUDA toolkit versie. De meest recente stuurprogramma's voor de gekozen CUDA worden automatisch geïnstalleerd. | meest recente | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |

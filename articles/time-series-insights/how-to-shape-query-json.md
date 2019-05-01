@@ -10,11 +10,11 @@ ms.date: 05/24/2018
 ms.author: anshan
 ms.custom: seodec18
 ms.openlocfilehash: 2d42b7ebdee291e7c71351fa2c3a5583a121b79e
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63760673"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712773"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>Hoe u kunt vormgeven JSON naar het maximaliseren van de prestaties van query 's 
 
@@ -200,4 +200,4 @@ Als u een eigenschap met een groot aantal mogelijke waarden hebt, is het raadzaa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Om deze richtlijnen in de praktijk, Zie [Azure Time Series Insights-querysyntaxis](/rest/api/time-series-insights/ga-query-syntax) voor meer informatie over de query-syntaxis voor de TSI-data access-REST-API.
+- Om deze richtlijnen in de praktijk, Zie [Azure Time Series Insights-querysyntaxis](/rest/api/time-series-insights/ga-query-syntax) voor meer informatie over de query-syntaxis voor de TSI-data access-REST-API.

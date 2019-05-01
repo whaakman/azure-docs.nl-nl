@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 6bec12893591fb36298e9c2f1664646a4d598073
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8baff356e1a4916bcc21b28f422a6e98342c0d34
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61222249"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869452"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Live streamen met on-premises coderingsprogramma's met behulp van .NET
 > [!div class="op_single_selector"]
@@ -28,13 +28,17 @@ ms.locfileid: "61222249"
 > 
 > 
 
+> [!NOTE]
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
+
 In deze zelfstudie leidt u door de stappen voor het gebruik van de Azure Media Services .NET SDK te maken van een **kanaal** die is geconfigureerd voor een doorvoerlevering. 
 
 ## <a name="prerequisites"></a>Vereisten
 Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
 
 * Een Azure-account.
-* Een Media Services-account.    Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
+* Een Media Services-account. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
+* Controleer of het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** heeft. 
 * Uw ontwikkelaarsomgeving instellen. Zie voor meer informatie, [instellen van uw omgeving](media-services-set-up-computer.md).
 * Een webcam. Bijvoorbeeld [Telestream Wirecast-coderingsprogramma](https://www.telestream.net/wirecast/overview.htm).
 
@@ -48,6 +52,7 @@ Aanbevolen om te controleren van de volgende artikelen:
 Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinformatie in, zoals beschreven in [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="example"></a>Voorbeeld
+
 Het volgende codevoorbeeld ziet u het bereiken van de volgende taken:
 
 * Verbinding met Media Services maken
@@ -60,9 +65,6 @@ Het volgende codevoorbeeld ziet u het bereiken van de volgende taken:
 * Maak en start een streamingendpoint zo
 * Het streaming-eindpunt bijwerken
 * Resources afsluiten
-
->[!IMPORTANT]
->Controleer of het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** heeft. 
     
 >[!NOTE]
 >Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Raadpleeg [dit artikel](media-services-dotnet-manage-entities.md#limit-access-policies) voor meer informatie.

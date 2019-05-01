@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 786ace2ef88fc4b94372041cbdd5bc16586b5193
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 064c3e5fb7a65a7495c393db893e784548075daf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298880"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708214"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snelstart: Aanmelding met Microsoft toevoegen aan een ASP.NET-web-app
 
@@ -75,6 +75,7 @@ Selecteer **Verificatie**, stel **ID-tokens** in onder **Impliciete toekenning**
 1. Pak het zip-bestand uit in een lokale map dichter bij de hoofdmap (bijvoorbeeld **C:\Azure-Samples**)
 1. Open de oplossing in Visual Studio (AppModelv2-Web-App-OpenIDConnect-DotNet.sln)
 1. Afhankelijk van de versie van Visual Studio moet u mogelijk Klik met de rechtermuisknop op het project `AppModelv2-WebApp-OpenIDConnect-DotNet` en **herstellen NuGet-pakketten**
+1. Open de Package Manager Console (andere Windows-weergave > Package Manager Console ->) en uit te voeren `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 1. Bewerk **Web.config** en vervang de parameters `ClientId` en `Tenant` door:
 
     ```xml

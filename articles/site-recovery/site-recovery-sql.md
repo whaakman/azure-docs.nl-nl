@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7725563a80182be8f8c02d94ef1e6cfa382c04d3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471672"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924857"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Herstel na noodgevallen voor SQL Server instellen
 
@@ -170,7 +170,7 @@ Voor toepassingen die gebruikmaken van gedistribueerde transacties, raden we u b
 
 In dit scenario raden we u Site Recovery-replicatie gebruiken om de SQL Server-machine te beveiligen. De exacte stappen, hangt af van of SQL Server een virtuele machine of een fysieke server is, en of u wilt repliceren naar Azure of een secundaire on-premises site. Meer informatie over [scenario's voor Site Recovery](site-recovery-overview.md).
 
-## <a name="protect-a-sql-server-cluster-standard-editionwindows-server-2008-r2"></a>Beveiligen van een SQL Server-cluster (standard edition/Windows Server 2008 R2)
+## <a name="protect-a-sql-server-cluster-standard-editionsql-server-2008-r2"></a>Beveiligen van een SQL Server-cluster (standard edition/SQL Server 2008 R2)
 
 Voor een cluster met SQL Server Standard edition of SQL Server 2008 R2, wordt u aangeraden dat u Site Recovery-replicatie gebruiken om SQL Server te beveiligen.
 

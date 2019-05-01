@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 466ed4c2bd353e4a5ec3bec5535b70a90446ee0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 11efd1fa3431d8200545cf1327e98cec6ed1f59e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418271"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683157"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een profiel van de technische definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -70,9 +70,9 @@ De **voorwaarde** element bevat het volgende kenmerk:
 
 De **voorwaarde** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
-| Waarde | 1: n | De gegevens die wordt gebruikt door de controle. Als het type van deze controle is `ClaimsExist`, dit veld geeft aan dat een ClaimTypeReferenceId om op te vragen. Als het type van controle is `ClaimEquals`, dit veld geeft aan dat een ClaimTypeReferenceId om op te vragen. Terwijl een andere waarde-element de waarde bevat moet worden gecontroleerd.|
+| Value | 1: n | De gegevens die wordt gebruikt door de controle. Als het type van deze controle is `ClaimsExist`, dit veld geeft aan dat een ClaimTypeReferenceId om op te vragen. Als het type van controle is `ClaimEquals`, dit veld geeft aan dat een ClaimTypeReferenceId om op te vragen. Terwijl een andere waarde-element de waarde bevat moet worden gecontroleerd.|
 | Bewerking | 1:1 | De actie die moet worden uitgevoerd als de controle van de voorwaarde in een orchestration-stap ingesteld op true is. De waarde van de **actie** is ingesteld op `SkipThisValidationTechnicalProfile`. Hiermee geeft u de gekoppelde validatieregels technisch profiel moet niet worden uitgevoerd. |
 
 ### <a name="example"></a>Voorbeeld

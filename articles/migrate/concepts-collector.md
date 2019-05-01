@@ -4,15 +4,15 @@ description: Bevat informatie over het Collector-apparaat in Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/26/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 224511b9748c540f2cd48a3d8393a9c74f76ce32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d00899e0ca358b4e2970caa8c63c98e375ea970c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679252"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728021"
 ---
 # <a name="about-the-collector-appliance"></a>Over het Collector-apparaat
 
@@ -238,7 +238,7 @@ U wordt aangeraden de volgende stappen uit voor het beveiligen van het Collector
 
 ## <a name="os-license-in-the-collector-vm"></a>OS-licentie in de collector-VM
 
-De collector wordt geleverd met een licentie voor de evaluatie van Windows Server 2012 R2 die 180 dagen geldig is. Als de evaluatieperiode is verlopen voor de collector-VM, is het aanbevolen om een nieuwe OVA downloaden en een nieuwe toepassing maken.
+De collector wordt geleverd met een licentie voor de evaluatie van Windows Server 2016 die 180 dagen geldig is. Als de evaluatieperiode is verlopen voor de collector-VM, is het aanbevolen om een nieuwe OVA downloaden en een nieuwe toepassing maken.
 
 ## <a name="updating-the-os-of-the-collector-vm"></a>Bijwerken van het besturingssysteem van de Collector-VM
 

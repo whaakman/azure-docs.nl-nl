@@ -1,24 +1,24 @@
 ---
-title: Android map control gebruiken in Azure Maps | Microsoft Docs
+title: Aan de slag met Android kaartbesturingselement in Azure Maps | Microsoft Docs
 description: Android map control van Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15706addbe6b7f6310223978130158c792a47c89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e655b442ba9290d4b4525108521f2d1a0c766b48
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60770328"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869798"
 ---
-# <a name="how-to-use-the-azure-maps-android-sdk"></a>Het gebruik van de Android SDK van Azure Maps
+# <a name="getting-started-with-azure-maps-android-sdk"></a>Aan de slag met Azure Maps Android SDK
 
-De Android SDK van Azure kaarten is een bibliotheek van de kaart vector voor Android. In dit artikel begeleidt u door de processen van de installatie van de Android SDK van Azure Maps, het laden van een kaart en een pincode op de kaart te brengen.
+De Android SDK van Azure kaarten is een bibliotheek van de kaart vector voor Android. In dit artikel leidt u door de processen van de installatie van de Android SDK van Azure Maps en het laden van een kaart.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -28,7 +28,7 @@ Als u wilt de procedures in dit artikel hebt voltooid, moet u eerst [maken van e
 
 ### <a name="download-android-studio"></a>Android Studio downloaden
 
-U moet de Android Studio downloaden en een project maakt met een lege activiteit voordat u de Android SDK van Azure Maps kunt installeren. U kunt [Android Studio downloaden](https://developer.android.com/studio/) gratis van Google. 
+U moet de Android Studio downloaden en een project maakt met een lege activiteit voordat u de Azure Maps Android SDK installeert. U kunt [Android Studio downloaden](https://developer.android.com/studio/) gratis van Google. 
 
 ## <a name="create-a-project-in-android-studio"></a>Maak een project in Android Studio
 
@@ -55,7 +55,7 @@ U kunt meer informatie over het instellen van een AVD in de [Android Studio-docu
 
 De volgende stap in het bouwen van uw toepassing is het installeren van de Android SDK van Azure Maps. Deze stappen voor het installeren van de SDK:
 
-1. Voeg de volgende code aan de **alle projecten**, **opslagplaatsen** blokkeren uw **build.gradle** bestand.
+1. Open het hoogste niveau **build.gradle** -bestand en voeg de volgende code aan de **alle projecten**, **opslagplaatsen** sectie blokkeren:
 
     ```
     maven {
@@ -64,8 +64,10 @@ De volgende stap in het bouwen van uw toepassing is het installeren van de Andro
     ```
 
 2. Update uw **App/build.gradle** en voeg de volgende code toe:
+    
+    1. Zorg ervoor dat van uw project **minSdkVersion** op API 21 of hoger.
 
-    1. Voeg de volgende code aan het blok Android:
+    2. Voeg de volgende code naar de sectie Android:
 
         ```
         compileOptions {
@@ -73,24 +75,16 @@ De volgende stap in het bouwen van uw toepassing is het installeren van de Andro
             targetCompatibility JavaVersion.VERSION_1_8
         }
         ```
-    2. Werk uw blok met afhankelijkheden en voeg de volgende code toe:
+    3. Werk uw blok met afhankelijkheden en een nieuwe regel van de implementatie-afhankelijkheid toevoegen voor de meest recente Azure Maps Android SDK:
 
         ```
-        implementation "com.microsoft.azure.maps:mapcontrol:0.1"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.2"
         ```
 
-3. Instellen van machtigingen door toe te voegen van de volgende XML-code naar uw **AndroidManifest.xml** bestand:
+    > [!Note]
+    > De Android SDK van Azure Maps wordt regelmatig bijgewerkt en verbeterd. U ziet de [aan de slag met Android kaartbesturingselement](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) documentatie, om op te halen van het hoogste versienummer van de Azure Maps-implementatie. U kunt ook het versienummer van '0,2' instellen op '0 +"zodat deze altijd verwijzen naar de nieuwste versie.
 
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <manifest>
-        ...
-        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-        ...
-    </manifest>
-    ```
-
-4. Bewerken **res** > **lay-out** > **activity_main.xml** , zodat het ziet als deze XML eruit:
+3. Bewerken **res** > **lay-out** > **activity_main.xml** en vervang deze door het volgende:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -105,16 +99,20 @@ De volgende stap in het bouwen van uw toepassing is het installeren van de Andro
             android:id="@+id/mapcontrol"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:mapcontrol_cameraTargetLat="47.64"
-            app:mapcontrol_cameraTargetLng="-122.33"
-            app:mapcontrol_cameraZoom="12"
             />
-
     </FrameLayout>
     ```
 
-5. Bewerken **MainActivity.java** om een kaart weergeven activiteitenklasse te maken. Nadat u deze hebt bewerkt, ziet deze er als deze klasse:
+4. In de **MainActivity.java** u moet bestand:
+    
+    * invoer voor de Azure Maps-SDK toevoegen
+    * Stel de verificatiegegevens van uw Azure-kaarten
+    * de map control-instantie ophalen de **onCreate** methode
 
+    Instellen van de verificatie-informatie over de AzureMaps klasse wereldwijd met behulp van de methoden setSubscriptionKey of setAadProperties maakt het u uw verificatiegegevens toevoegen op elke weergave hoeft dus niet. Map control bevat een eigen lifecycle-methoden voor het beheren van Android OpenGL levenscyclus, die rechtstreeks vanuit de betreffende activiteit moet worden aangeroepen. In de volgorde voor uw app juist van het kaartbesturingselement lifecycle methoden aanroepen, moet u overschrijven van de volgende levenscyclus methoden in de activiteit die het kaartbesturingselement bevat en de bijbehorende kaart besturingselement-methode aanroept. 
+
+    Bewerk de **MainActivity.java** bestand als volgt:
+    
     ```java
     package com.example.myapplication;
 
@@ -129,7 +127,7 @@ De volgende stap in het bouwen van uw toepassing is het installeren van de Andro
     public class MainActivity extends AppCompatActivity {
         
         static {
-            AzureMaps.setSubscriptionKey("{subscription-key}");
+            AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
         }
 
         MapControl mapControl;
@@ -197,97 +195,21 @@ Selecteer de knop uitvoeren, zoals weergegeven in de volgende afbeelding (of dru
 
 Android Studio duurt een paar seconden om de toepassing te bouwen. Nadat de bewerking voltooid is, kunt u uw toepassing testen in de geëmuleerde Android-apparaat. Hier ziet u een kaart zoals deze:
 
-![Android-kaart](./media/how-to-use-android-map-control-library/android-map.png)
+<center>
 
-## <a name="add-a-marker-to-the-map"></a>Een markering toevoegen aan de kaart
+![Android-kaart](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
-Als u wilt een markering toevoegen aan uw kaart, de `mapView.getMapAsync()` functie `MainActivity.java`. De laatste `MainActivity.java` code dient er als volgt:
+## <a name="next-steps"></a>Volgende stappen
 
-```java
-package com.example.myapplication;
+Items toevoegen aan uw kaart, Zie:
 
-import android.app.Activity;
-import android.os.Bundle;
-import com.mapbox.geojson.Feature;
-import com.mapbox.geojson.Point;
-import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-import com.microsoft.azure.maps.mapcontrol.MapControl;
-import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
-import com.microsoft.azure.maps.mapcontrol.source.DataSource;
-import static com.microsoft.azure.maps.mapcontrol.options.SymbolLayerOptions.iconImage;
-public class MainActivity extends AppCompatActivity {
-    
-    static{
-            AzureMaps.setSubscriptionKey("{subscription-key}");
-        }
+> [!div class="nextstepaction"]
+> [Een symbool laag toevoegen aan een Android-kaart](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
 
-    MapControl mapControl;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+> [!div class="nextstepaction"]
+> [Vormen toevoegen aan een Android-kaart](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
 
-        mapControl = findViewById(R.id.mapcontrol);
+> [!div class="nextstepaction"]
+> [Stijl van kaart wijzigen in Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
 
-        mapControl.onCreate(savedInstanceState);
 
-        mapControl.getMapAsync(map -> {
-            DataSource dataSource = new DataSource();
-            dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
-
-            SymbolLayer symbolLayer = new SymbolLayer(dataSource);
-            symbolLayer.setOptions(iconImage("my-icon"));
-
-            map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
-            map.sources.add(dataSource);
-            map.layers.add(symbolLayer);
-        });
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mapControl.onStart();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mapControl.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        mapControl.onPause();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        mapControl.onStop();
-    }
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        mapControl.onLowMemory();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mapControl.onDestroy();
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        mapControl.onSaveInstanceState(outState);
-    }
-}
-```
-
-Voer uw toepassing opnieuw uit. U ziet een markering op de kaart, zoals hier wordt weergegeven:
-
-![Android kaart pincode](./media/how-to-use-android-map-control-library/android-map-pin.png)

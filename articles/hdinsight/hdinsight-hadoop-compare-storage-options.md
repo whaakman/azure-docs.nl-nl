@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921944"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720465"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Opties voor opslag voor gebruik met Azure HDInsight-clusters vergelijken
 
@@ -31,8 +31,12 @@ De volgende tabel geeft een overzicht van de Azure Storage-services die worden o
 |Azure Data Lake Storage Gen2| Algemeen gebruik V2 | Hiërarchisch (bestandssysteem) | Blob | Standard | Hot, Cool en Archive | 3.6 + | Alle |
 |Azure Storage| Algemeen gebruik V2 | Object | Blob | Standard | Hot, Cool en Archive | 3.6 + | Alle |
 |Azure Storage| Algemeen gebruik V1 | Object | Blob | Standard | N/A | Alle | Alle |
-|Azure Storage| Blob Storage | Object | Blob | Standard | Hot, Cool en Archive | Alle | Alle |
+|Azure Storage| BLOB Storage ** | Object | Blok-blob | Standard | Hot, Cool en Archive | Alle | Alle |
 |Azure Data Lake Storage Gen1| N/A | Hiërarchisch (bestandssysteem) | N/A | N/A | N/A | Alleen 3.6 | Overal behalve HBase |
+
+** Raadpleeg voor HDInsight-clusters kunnen van type het BlobStorage alleen secundaire storage-accounts zijn.
+
+Zie voor meer informatie over Azure Storage-accounttypen [overzicht van Azure storage-account](../storage/common/storage-account-overview.md)
 
 Zie voor meer informatie over Azure Storage-toegangslagen [Azure Blob-opslag: Premium (preview), Hot, Cool en Archive storage-lagen](../storage/blobs/storage-blob-storage-tiers.md)
 
@@ -40,14 +44,14 @@ U kunt een cluster met behulp van verschillende combinaties van services voor he
 
 | HDInsight-versie | Primaire opslag | Secundaire opslag | Ondersteund |
 |---|---|---|---|
-| 3.6 & 4.0 | Standaard-Blob | Standaard-Blob | Ja |
-| 3.6 & 4.0 | Standaard-Blob | Data Lake Storage Gen2 | Nee |
-| 3.6 & 4.0 | Standaard-Blob | Data Lake Storage Gen1 | Ja |
+| 3.6 & 4.0 | Algemeen gebruik V1, algemeen gebruik V2 | Algemeen gebruik V1, V2, algemeen gebruik, het BlobStorage (blok-Blobs) | Ja |
+| 3.6 & 4.0 | Algemeen gebruik V1, algemeen gebruik V2 | Data Lake Storage Gen2 | Nee |
+| 3.6 & 4.0 | Algemeen gebruik V1, algemeen gebruik V2 | Data Lake Storage Gen1 | Ja |
 | 3.6 & 4.0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Ja |
-| 3.6 & 4.0 | Data Lake Storage Gen2 * | Standaard-Blob | Ja |
+| 3.6 & 4.0 | Data Lake Storage Gen2 * | Algemeen gebruik V1, V2, algemeen gebruik, het BlobStorage (blok-Blobs) | Ja |
 | 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Nee |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Ja |
-| 3.6 | Data Lake Storage Gen1 | Standaard-Blob | Ja |
+| 3.6 | Data Lake Storage Gen1 | Algemeen gebruik V1, V2, algemeen gebruik, het BlobStorage (blok-Blobs) | Ja |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Nee |
 | 4.0 | Data Lake Storage Gen1 | Alle | Nee |
 

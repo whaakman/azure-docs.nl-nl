@@ -1,5 +1,5 @@
 ---
-title: Toegang tot Microsoft Azure Data Box Edge-apparaat, kracht en verbindingsmodus | Microsoft Docs
+title: Toegang van Azure Data Box-Edge-apparaat, kracht en verbindingsmodus | Microsoft Docs
 description: Hierin wordt beschreven hoe u voor het beheren van toegang, kracht en verbindingsmodus voor de Azure Data Box-Edge-apparaat dat helpt gegevens naar Azure overbrengen
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 813563b500b9365289285a89536f2724fb87acad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5fbe8f3eb05ac60918e488c68869c3fe44051a3f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60757292"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924368"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Beheren van toegang, kracht en verbindingsmodus voor uw Azure Data Box-Edge
 

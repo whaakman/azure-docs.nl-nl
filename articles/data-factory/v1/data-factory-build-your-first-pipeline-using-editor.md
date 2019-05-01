@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 11e92b4c6b8799cde489369a202f8f7c8c05ca6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 964e6235923402814879fe59a204985b8aaac2b4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60568259"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573817"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Zelfstudie: uw eerste data factory bouwen met behulp van de Azure-portal
 > [!div class="op_single_selector"]
@@ -209,16 +209,16 @@ In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-ve
     ```
     De volgende tabel bevat beschrijvingen van de JSON-eigenschappen die in het codefragment worden gebruikt.
 
-   | Eigenschap | Description |
-   |:--- |:--- |
-   | type |De eigenschap type wordt ingesteld op **AzureBlob**, omdat de gegevens zich in de blobopslag bevinden. |
-   | linkedServiceName |Deze eigenschap verwijst naar AzureStorageLinkedService, die u eerder hebt gemaakt. |
-   | folderPath | Deze eigenschap verwijst naar de blobcontainer en de map die de blobs voor invoer bevat. | 
-   | fileName |Deze eigenschap is optioneel. Als u deze eigenschap niet opgeeft, worden alle bestanden uit folderPath gekozen. In deze zelfstudie wordt alleen het input.log-bestand verwerkt. |
-   | type |Omdat de logboekbestanden tekstbestanden zijn, gebruikt u **TextFormat**. |
-   | columnDelimiter |De kolommen in de logboekbestanden worden gescheiden door een komma (`,`). |
-   | frequency/interval |Als frequency wordt ingesteld op **Month** en de interval **1** is, betekent dit dat de invoersegmenten één keer per maand beschikbaar worden gemaakt. |
-   | external | Deze eigenschap wordt ingesteld op **true** als de invoergegevens niet worden gegenereerd door deze pijplijn. In deze zelfstudie wordt het bestand input.log niet gegenereerd door deze pijplijn. Daarom is de eigenschap ingesteld op **true**. |
+   | Eigenschap | Genest onder | Description |
+   |:--- |:--- |:--- |
+   | type | properties |De eigenschap type wordt ingesteld op **AzureBlob**, omdat de gegevens zich in de blobopslag bevinden. |
+   | linkedServiceName | Indeling |Deze eigenschap verwijst naar AzureStorageLinkedService, die u eerder hebt gemaakt. |
+   | folderPath | typeProperties | Deze eigenschap verwijst naar de blobcontainer en de map die de blobs voor invoer bevat. | 
+   | fileName | typeProperties |Deze eigenschap is optioneel. Als u deze eigenschap niet opgeeft, worden alle bestanden uit folderPath gekozen. In deze zelfstudie wordt alleen het input.log-bestand verwerkt. |
+   | type | Indeling |Omdat de logboekbestanden tekstbestanden zijn, gebruikt u **TextFormat**. |
+   | columnDelimiter | Indeling |De kolommen in de logboekbestanden worden gescheiden door een komma (`,`). |
+   | frequency/interval | availability |Als frequency wordt ingesteld op **Month** en de interval **1** is, betekent dit dat de invoersegmenten één keer per maand beschikbaar worden gemaakt. |
+   | external | properties | Deze eigenschap wordt ingesteld op **true** als de invoergegevens niet worden gegenereerd door deze pijplijn. In deze zelfstudie wordt het bestand input.log niet gegenereerd door deze pijplijn. Daarom is de eigenschap ingesteld op **true**. |
 
     Zie [Azure Blob-connectoren](data-factory-azure-blob-connector.md#dataset-properties) voor meer informatie over deze JSON-eigenschappen.
 
