@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Managed Instance-tijdzone | Microsoft-Docs'
+title: Azure SQL Database Managed Instance-tijdzones | Microsoft-Docs'
 description: Meer informatie over de tijdzone-details van Azure SQL Database Managed Instance
 services: sql-database
 ms.service: sql-database
@@ -10,42 +10,42 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/10/2019
-ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/25/2019
+ms.openlocfilehash: 6d7d065f45bca38cedd2c276bdd9b98dfd9675df
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487394"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866949"
 ---
-# <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Tijdzone in beheerd exemplaar voor Azure SQL Database (Preview)
+# <a name="time-zones-in-azure-sql-database-managed-instance-preview"></a>Tijdzones in Azure SQL Database Managed Instance (preview)
 
-Met behulp van Coordinated Universal Time (UTC) is een aanbevolen procedure voor de gegevenslaag van oplossingen voor cloudopslag, Azure SQL Database Managed Instance biedt een keuze uit tijdzone om te voldoen aan de behoeften van de bestaande toepassingen die opslaan van waarden voor datum en tijd en datum gesprek en de tijdfuncties bij een impliciete context van een bepaalde tijdzone.
+Coordinated Universal Time (UTC) is de aanbevolen tijdzone voor de gegevenslaag van cloudoplossingen. Azure SQL Database Managed Instance biedt ook een keuze uit tijdzones om te voldoen aan de behoeften van bestaande toepassingen die opslaan van waarden voor datum en tijd en datum en tijd functies met een impliciete context van een bepaalde tijdzone aanroepen.
 
-T-SQL-functies, zoals [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) of bekijk de tijdzone instellen op het exemplaar, CLR-code. SQL Agent-taken ook volgen plannen op basis van de tijdzone van het exemplaar.
+T-SQL-functies, zoals [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) of bekijk de tijdzone instellen op het exemplaar, CLR-code. SQL Server Agent-taken Volg ook schema's op basis van de tijdzone van het exemplaar.
 
   >[!NOTE]
   > Managed Instance is de enige Implementatieoptie van Azure SQL Database die ondersteuning biedt voor tijdzone-instelling. Andere implementatie-opties Volg altijd UTC.
-Gebruik [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) in één en gegroepeerde SQL databases als u nodig hebt met het interpreteren van de datum en tijd waarop gegevens in niet-UTC-tijdzone.
+Gebruik [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) in één en gegroepeerde SQL databases als u nodig hebt met het interpreteren van de datum en tijd waarop gegevens in een niet-UTC-tijdzone.
 
 ## <a name="supported-time-zones"></a>Ondersteunde tijdzones
 
-Een set ondersteunde tijdzones is overgenomen van het onderliggende besturingssysteem van het beheerde exemplaar en het regelmatig wordt bijgewerkt om nieuwe definities van de tijdzone en wijzigingen in de bestaande.
+Een set ondersteunde tijdzones is overgenomen van het onderliggende besturingssysteem van het beheerde exemplaar. Er wordt regelmatig bijgewerkt om nieuwe definities van de tijdzone en wijzigingen in de bestaande bestanden worden weergegeven. 
 
 Een lijst met namen van de ondersteunde tijdzones is toegankelijk via de [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) door het systeemweergave.
 
-## <a name="setting-time-zone"></a>Tijdzone instellen
+## <a name="set-a-time-zone"></a>Een tijdzone instellen
 
-Een tijdzone van de beheerde instantie kan tijdens het maken van exemplaar alleen worden ingesteld. De standaardtijdzone is Coordinated Universal Time (UTC).
+Een tijdzone van een beheerd exemplaar kan worden ingesteld tijdens het maken van exemplaar alleen. De standaardtijdzone is UTC.
 
   >[!NOTE]
   > De tijdzone van een bestaande beheerde exemplaar kan niet worden gewijzigd.
 
-### <a name="setting-the-time-zone-through-azure-portal"></a>De tijdzone via Azure-portal instellen
+### <a name="set-the-time-zone-through-the-azure-portal"></a>Stel de tijdzone via Azure portal
 
-Bij het invoeren van parameters voor het nieuwe exemplaar, selecteer een tijdzone in de lijst van ondersteunde tijdzones:
+Wanneer u parameters voor een nieuw exemplaar invoeren, selecteert u een tijdzone in de lijst van ondersteunde tijdzones. 
   
-![Tijdzone instellen tijdens het maken van exemplaar](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
+![Een tijdzone instellen tijdens het maken van exemplaar](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-sjabloon
 
@@ -66,36 +66,35 @@ Geef de eigenschap timezoneId in uw [Resource Manager-sjabloon](https://aka.ms/s
 
 ```
 
-Lijst met ondersteunde waarden voor de eigenschap timezoneId vindt aan het einde van dit artikel.
+Er is een lijst met ondersteunde waarden voor de eigenschap timezoneId aan het einde van dit artikel.
 
-Indien niet opgegeven, wordt de tijdzone worden ingesteld op UTC.
+Indien niet opgegeven, wordt de tijdzone is ingesteld op UTC.
 
-## <a name="checking-the-time-zone-of-instance"></a>Controle van de tijdzone van exemplaar
+## <a name="check-the-time-zone-of-an-instance"></a>Controleer de tijdzone van een exemplaar
 
-[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) functie geeft als resultaat een weergavenaam van de tijdzone van het exemplaar.
+De [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) functie geeft als resultaat een weergavenaam van de tijdzone van het exemplaar.
 
 ## <a name="cross-feature-considerations"></a>Overwegingen voor cross-functie
 
 ### <a name="restore-and-import"></a>Terugzetten en importeren
 
-U kunt herstellen van back-upbestand of gegevens importeren naar beheerd exemplaar van een exemplaar of een server met een andere tijdzone-instellingen. Echter, zorg ervoor dat u dit doen met de waarschuwing en voor het analyseren van de werking van de toepassing en de resultaten van de query's en rapporten, net als bij de overdracht van gegevens tussen twee SQL Server-exemplaren met andere tijdzone-instellingen.
+U kunt een back-upbestand herstellen of gegevens importeren in een beheerd exemplaar van een exemplaar of een server met een andere tijdzone-instellingen. Zorg ervoor dat u dit doen met de waarschuwing. Analyseer de werking van de toepassing en de resultaten van de query's en rapporten, net zoals wanneer u bij het overbrengen van gegevens tussen twee SQL Server-exemplaren met andere tijdzone-instellingen.
 
 ### <a name="point-in-time-restore"></a>Terugzetten naar eerder tijdstip
 
-Bij het uitvoeren van point-in-time-restore, wordt de tijd om naar te herstellen wordt geïnterpreteerd als UTC-tijd om te voorkomen dat elke ambiguïteit vanwege wintertijd en de mogelijke wijzigingen.
+Als u een point-in-time-herstelbewerking uitvoert, wordt de tijd om naar te herstellen wordt geïnterpreteerd als UTC-tijd. Deze instelling voorkomt u elke ambiguïteit vanwege wintertijd en de mogelijke wijzigingen.
 
 ### <a name="auto-failover-groups"></a>Automatische failover-groepen
 
-Met behulp van dezelfde tijdzone voor de primaire en secundaire exemplaar in failover-groep wordt niet afgedwongen, maar het wordt sterk aanbevolen.
-  >[!IMPORTANT]
-  > Er zijn geldige scenario's voor een andere tijdzone uit bij geo-secundaire exemplaar gebruikt voor alleen leesbewerkingen, houd er rekening mee dat in het geval van handmatige of automatische failover naar de secundaire exemplaar het, behouden de oorspronkelijke tijdzone.
+Met behulp van dezelfde tijdzone voor de instantie van een primaire en secundaire in een failovergroep wordt niet afgedwongen, maar het wordt aangeraden deze.
+
+  >[!WARNING]
+  > Het is raadzaam dat u dezelfde tijdzone voor de primaire en secundaire instantie in een failovergroep gebruiken. Omdat sommige zeldzame gevallen kan wordt niet dezelfde tijdzone houden over de primaire en secundaire instanties afgedwongen. Het is belangrijk om te begrijpen dat in het geval van handmatige of automatische failover, het secundaire exemplaar de oorspronkelijke tijdzone behouden.
 
 ## <a name="limitations"></a>Beperkingen
 
-- Tijdzone van de bestaande beheerde instantie kan niet worden gewijzigd.
-- Tijdzone van het exemplaar naleven niet, externe processen gestart vanuit de SQL Agent-taken.
-- Beheerd exemplaar van de systeemeigen [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance) PowerShell-cmdlet biedt geen ondersteuning voor doorgeven tijdzone parameter nog. Gebruik PowerShell-wrapper met [Resource Manager-sjabloon](https://aka.ms/sql-mi-create-arm-posh) in plaats daarvan.
-- CLI-opdracht [az sql mi maken](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-create) biedt geen ondersteuning voor de tijdzoneparameter nog.
+- De tijdzone van de bestaande beheerde instantie kan niet worden gewijzigd.
+- Externe processen gestart vanuit de SQL Server Agent-taken zien niet de tijdzone van het exemplaar.
 
 ## <a name="list-of-supported-time-zones"></a>Lijst met ondersteunde tijdzones
 
@@ -240,7 +239,7 @@ Met behulp van dezelfde tijdzone voor de primaire en secundaire exemplaar in fai
 | Samoa (standaardtijd) | (UTC+13:00) Samoa |
 | Line-eilanden (standaardtijd) | (UTC+14:00) Kiritimati |
 
-## <a name="see-also"></a>Zie ook
+## <a name="see-also"></a>Zie ook 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)

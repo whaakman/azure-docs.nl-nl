@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a2c68d607e7afc2e3eac675511734c8d054c427
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3a4d4293eeea06e30189e0bccce488a8f44b199
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299529"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918818"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application-preview"></a>Quickstart: De accounts wijzigen die worden ondersteund in een toepassing (preview)
+# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Quickstart: Wijzigen van de accounts die wordt ondersteund door een toepassing
 
 Bij het registreren van een toepassing op het Microsoft Identity Platform, wilt u mogelijk dat uw toepassing alleen kan worden geopend door gebruikers in uw organisatie. Ook kan het zijn dat u wilt dat uw toepassing toegankelijk is voor gebruikers in externe organisaties, of gebruikers in externe organisaties evenals de gebruikers die niet noodzakelijkerwijs deel uitmaken van een organisatie (persoonlijke accounts).
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dad05221376fa5871aadf6d89dcb15dff55a6dfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7471bb82aece2b4c11f5071b6b3746f1a55a4a60
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300174"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917329"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft identity-platform-protocollen
 
@@ -51,7 +51,7 @@ Elke app die wil accepteren zowel persoonlijke en werk-of schoolaccounts moet zi
 * Een **omleidings-URI** of **-pakket-id** die kunnen worden gebruikt om te leiden antwoorden naar uw app terug
 * Enkele andere scenariospecifieke waarden.
 
-Zie [Een app registreren](quickstart-v2-register-an-app.md) voor meer informatie.
+Zie [Een app registreren](quickstart-register-app.md) voor meer informatie.
 
 ## <a name="endpoints"></a>Eindpunten
 

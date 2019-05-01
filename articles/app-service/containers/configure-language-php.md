@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 11d0648ee5090f02cb96c2d42a8d90cc3ea0ed28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: dc6d3fd2239624e6fccecfbd565eb815b372ed3d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853300"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920436"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Een Linux-PHP-app configureren voor Azure App Service
 
@@ -141,7 +141,7 @@ Populaire webframeworks bieden toegang tot de `X-Forwarded-*`-informatie in het 
 
 ## <a name="customize-phpini-settings"></a>Php.ini-instellingen aanpassen
 
-Als u wijzigingen aanbrengen in uw PHP-installatie moet, kunt u een van de [php.ini richtlijnen](http://www.php.net/manual/ini.list.php) door deze stappen te volgen.
+Als u wijzigingen aanbrengen in uw PHP-installatie moet, kunt u een van de [php.ini richtlijnen](https://www.php.net/manual/ini.list.php) door deze stappen te volgen.
 
 > [!NOTE]
 > De beste manier om te zien van de PHP-versie en de huidige *php.ini* configuratie is om aan te roepen [phpinfo()](https://php.net/manual/function.phpinfo.php) in uw app.
@@ -149,7 +149,7 @@ Als u wijzigingen aanbrengen in uw PHP-installatie moet, kunt u een van de [php.
 
 ### <a name="customize-non-phpinisystem-directives"></a>Niet-PHP_INI_SYSTEM richtlijnen aanpassen
 
-Om aan te passen PHP_INI_USER PHP_INI_PERDIR en PHP_INI_ALL richtlijnen (Zie [php.ini richtlijnen](http://www.php.net/manual/ini.list.php)), Voeg een *.htaccess* bestand naar de hoofdmap van uw app.
+Om aan te passen PHP_INI_USER PHP_INI_PERDIR en PHP_INI_ALL richtlijnen (Zie [php.ini richtlijnen](https://www.php.net/manual/ini.list.php)), Voeg een *.htaccess* bestand naar de hoofdmap van uw app.
 
 In de *.htaccess* bestand, voeg de instructies toe met behulp van de `php_value <directive-name> <value>` syntaxis. Bijvoorbeeld:
 
@@ -165,11 +165,11 @@ php_value upload_max_filesize 10M
 
 Implementeer uw app met de wijzigingen opnieuw en start deze opnieuw. Als u deze met Kudu implementeren (bijvoorbeeld met behulp van [Git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)), het automatisch opnieuw opgestart na de implementatie.
 
-Als alternatief voor het gebruik van *.htaccess*, kunt u [ini_set()](http://www.php.net/manual/function.ini-set.php) in uw app om aan te passen die niet-PHP_INI_SYSTEM-richtlijnen.
+Als alternatief voor het gebruik van *.htaccess*, kunt u [ini_set()](https://www.php.net/manual/function.ini-set.php) in uw app om aan te passen die niet-PHP_INI_SYSTEM-richtlijnen.
 
 ### <a name="customize-phpinisystem-directives"></a>Richtlijnen voor PHP_INI_SYSTEM aanpassen
 
-Om aan te passen PHP_INI_SYSTEM richtlijnen (Zie [php.ini richtlijnen](http://www.php.net/manual/ini.list.php)), u kunt geen gebruiken de *.htaccess* benadering. App Service biedt een mechanisme voor afzonderlijke met de `PHP_INI_SCAN_DIR` app-instelling.
+Om aan te passen PHP_INI_SYSTEM richtlijnen (Zie [php.ini richtlijnen](https://www.php.net/manual/ini.list.php)), u kunt geen gebruiken de *.htaccess* benadering. App Service biedt een mechanisme voor afzonderlijke met de `PHP_INI_SCAN_DIR` app-instelling.
 
 Voer eerst de volgende opdracht uit de [Cloud Shell](https://shell.azure.com) om toe te voegen een app-instelling met de naam `PHP_INI_SCAN_DIR`:
 
@@ -237,7 +237,7 @@ Wanneer een werkende PHP-app zich anders in App Service gedraagt of fouten heeft
     - Afhankelijk van uw *composer.json*, verschillende pakketten kunnen worden geïnstalleerd voor de productiemodus (`require` versus `require-dev`).
     - Bepaalde web-frameworks kunnen statische bestanden in productiemodus anders implementeren.
     - Bepaalde web-frameworks kunnen aangepaste opstartscripts gebruiken bij het uitvoeren in productiemodus.
-- Het uitvoeren van uw app in App Service in de foutopsporingsmodus. Bijvoorbeeld, in [Laravel](http://meanjs.org/), kunt u uw app zo foutopsporingsberichten in productie door [instelling de `APP_DEBUG` app-instelling op `true` ](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Het uitvoeren van uw app in App Service in de foutopsporingsmodus. Bijvoorbeeld, in [Laravel](https://meanjs.org/), kunt u uw app zo foutopsporingsberichten in productie door [instelling de `APP_DEBUG` app-instelling op `true` ](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ### <a name="robots933456"></a>robots933456
 

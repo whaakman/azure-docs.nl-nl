@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 21fbfe22901de677209b55639cd8871ab408375b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406414"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719035"
 ---
 # <a name="sizes-for-cloud-services"></a>Groottes voor Cloudservices
 Dit onderwerp beschrijft de beschikbare grootten en opties voor rolinstanties van Cloud Services (webrollen en werkrollen). Het biedt ook overwegingen voor de implementatie moet letten bij het plannen van deze resources te gebruiken. Is een ID die u in plaats van elke grootte uw [servicedefinitiebestand](cloud-services-model-and-package.md#csdef). Prijzen voor elke grootte zijn beschikbaar op de [prijzen voor Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/) pagina.

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c211d479efe086bb739b91034c6d9e349358b2d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f371376a7c801eecb6231d551546b13dbc68dd26
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303669"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916815"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
 
@@ -179,45 +179,18 @@ Hier zijn de limieten voor aangepaste connectors die u van web-API's maken kunt.
 
 Hier zijn de limieten voor het aantal artefacten voor elke integratie-account. Zie voor meer informatie, [prijzen voor Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-*Gratis laag*
+> [!NOTE] 
+> Gebruik de gratis laag alleen voor experimentele scenario's, niet-productie scenario's. Deze laag beperkt doorvoer en het gebruik, en heeft geen service level agreement (SLA).
 
-Gebruik de gratis laag alleen voor experimentele scenario's, niet-productie scenario's. Deze laag beperkt doorvoer en het gebruik, en heeft geen service level agreement (SLA).
-
-| Artefact | Limiet | Opmerkingen |
-|----------|-------|-------|
-| Assembly's | 10 | |
-| Batchconfiguraties | 5 |
-| Certificaten | 25 | |
-| EDI-handelspartners overeenkomsten | 10 | |
-| EDI-handelspartners | 25 | |
-| Kaarten | 25 | |
-| Schema 's | 25 |
-||||
-
-*Basic-laag*
-
-| Artefact | Limiet | Opmerkingen |
-|----------|-------|-------|
-| Assembly's | 25 | |
-| Batchconfiguraties | 1 | |
-| Certificaten | 2 | |
-| EDI-handelspartners overeenkomsten | 1 | |
-| EDI-handelspartners | 2 | |
-| Kaarten | 500 | |
-| Schema 's | 500 |
-||||
-
-*Standaardlaag*
-
-| Artefact | Limiet | Opmerkingen |
-|----------|-------|-------|
-| Assembly's | 50 | |
-| Batchconfiguraties | 50 |
-| Certificaten | 500 | |
-| EDI-handelspartners overeenkomsten | 500 | |
-| EDI-handelspartners | 500 | |
-| Kaarten | 1000 | |
-| Schema 's | 1000 |
+| Artefact | Gratis | Basic | Standard |
+|----------|------|-------|----------|
+| EDI-handelspartners overeenkomsten | 10 | 1 | 500 |
+| EDI-handelspartners | 25 | 2 | 500 |
+| Kaarten | 25 | 500 | 1000 |
+| Schema 's | 25 | 500 | 1000 |
+| Assembly's | 10 | 25 | 50 |
+| Certificaten | 25 | 2 | 500 |
+| Batchconfiguraties | 5 | 1 | 50 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
@@ -304,7 +277,7 @@ Logic Apps biedt geen ondersteuning voor rechtstreeks verbinding te maken naar A
 | India - zuid | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Azië - zuidoost | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
 | US - west-centraal | 13.78.137.247, 52.161.8.128, 52.161.19.82, 52.161.26.172 |
-| Europa -west | 13.95.155.53, 52.174.49.6, 52.174.49.6, 52.174.54.218 |
+| Europa -west | 13.95.155.53, 51.144.176.185, 52.174.49.6, 52.174.54.218 |
 | India - west | 104.211.157.237, 104.211.164.25, 104.211.164.112, 104.211.165.81 |
 | US - west | 13.91.252.184, 52.160.90.237, 138.91.188.137, 157.56.160.212 |
 | US - west 2 | 13.66.128.68, 13.66.224.169, 52.183.30.10, 52.183.39.67 |

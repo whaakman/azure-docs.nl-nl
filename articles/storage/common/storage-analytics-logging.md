@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 09a5a6d823240b724e6ec88de38df068a58982d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3daea17a491af8950b38f1e3183583fef63751e2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483499"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926492"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage analytics-Logboeken
 
@@ -76,7 +76,7 @@ De meeste opslag bladeren's kunt u de metagegevens van de blobs; weergeven u kun
  }  
  ```  
 
-Zie voor meer informatie over het aanbieden van blobs programmatisch [Blobbronnen inventariseren](http://msdn.microsoft.com/library/azure/hh452233.aspx) en [instelling en het ophalen van eigenschappen en metagegevens voor Blobbronnen](http://msdn.microsoft.com/library/azure/dd179404.aspx).  
+Zie voor meer informatie over het aanbieden van blobs programmatisch [Blobbronnen inventariseren](https://msdn.microsoft.com/library/azure/hh452233.aspx) en [instelling en het ophalen van eigenschappen en metagegevens voor Blobbronnen](https://msdn.microsoft.com/library/azure/dd179404.aspx).  
 
 ### <a name="log-naming-conventions"></a>Meld u naamgevingsregels
 

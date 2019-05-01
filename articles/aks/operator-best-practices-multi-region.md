@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 926f470b8a4dbdb6d6cbfe09ee61349a819600e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5cac42505cd015cb018664b765e88f40667b1759
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464551"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920467"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor zakelijke continuïteit en herstel na noodgevallen in Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ Deze aanbevolen procedures voor artikel richt zich op overwegingen waarmee u van
 
 Een AKS-cluster wordt geïmplementeerd in een enkele regio. Om uzelf te beschermen tegen storingen van de regio, implementeert u uw toepassing in meerdere AKS-clusters in verschillende regio's. Wanneer u van plan in welke regio bent naar uw AKS-cluster implementeren, de volgende overwegingen zijn van toepassing:
 
-* [Beschikbaarheid in regio's AKS](https://docs.microsoft.com/azure/aks/container-service-quotas#region-availability)
+* [Beschikbaarheid in regio's AKS](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability)
   * Kiest u regioparen dicht bij uw gebruikers. AKS is voortdurend uitbreiden naar nieuwe regio's.
 * [Azure gekoppelde regio 's](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * Kies voor uw geografische gebied twee regio's die zijn gekoppeld aan elkaar worden verbonden. Deze regio's platform updates coördineren en herstel richten waar nodig.
@@ -62,7 +62,7 @@ Voor instructies over het instellen van deze eindpunten en routering, Zie [confi
 
 ### <a name="layer-7-application-routing-with-azure-front-door"></a>Laag 7 voordeur met Azure-toepassingsroutering
 
-Met Azure Traffic Manager gebruikt DNS (laag 3) voor verkeer van de vorm. [Azure voordeur (momenteel in Preview-versie)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) biedt een optie voor het routeren van HTTP/HTTPS (layer 7). Extra functies van de voordeur zijn SSL-beëindiging, aangepaste domein, Web Application Firewall, herschrijven van URL's en sessie-affiniteit.
+Met Azure Traffic Manager gebruikt DNS (laag 3) voor verkeer van de vorm. [Azure voordeur](https://docs.microsoft.com/azure/frontdoor/front-door-overview) biedt een optie voor het routeren van HTTP/HTTPS (layer 7). Extra functies van de voordeur zijn SSL-beëindiging, aangepaste domein, Web Application Firewall, herschrijven van URL's en sessie-affiniteit.
 
 Bekijk de behoeften van uw toepassingsverkeer om te begrijpen welke oplossing het meest geschikt is.
 

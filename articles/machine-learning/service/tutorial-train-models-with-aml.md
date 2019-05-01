@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 01/28/2019
+ms.date: 04/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7617aec2739daa4f84bcecab060ae0f8e28fabe
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 76567db7362298b5cd35b544bf7952ebc54a2b66
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361588"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723203"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Zelfstudie: een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service
 
@@ -315,18 +315,16 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 U ziet hoe met het script gegevens worden opgehaald en modellen worden opgeslagen:
 
-+ Met het trainingsscript leest u een argument om de map met de gegevens te vinden. Als u de taak later verzendt, wijst u naar het gegevensarchief voor dit argument: `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`.
++ Met het trainingsscript leest u een argument om de map met de gegevens te vinden. Als u de taak later verstuurt, wijst u naar het gegevensarchief voor dit argument: ```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```
 
-+ Met het trainingsscript slaat u uw model op in een map met de naam **outputs**: <br/>
-`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`.<br/>
-Alles gegevens die naar deze map worden geschreven, worden automatisch geüpload naar uw werkruimte. Verderop in de zelfstudie gaat u dit model openen vanuit deze map.
-Vanuit het trainingsscript wordt verwezen naar het bestand `utils.py` om de gegevensset juist te laden. Kopieer dit script naar de scriptmap, zodat het samen met het trainingsscript vanaf de externe resource kan worden geopend.
++ Het trainingsscript slaat uw model in een map met de naam **levert**. Alles gegevens die naar deze map worden geschreven, worden automatisch geüpload naar uw werkruimte. Verderop in de zelfstudie gaat u dit model openen vanuit deze map. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
 
++ Het bestand is nodig om het trainingsscript `utils.py` correct laden van de gegevensset. De volgende code kopieën `utils.py` in `script_folder` zodanig dat het bestand samen met het trainingsscript op de externe bron kan worden geopend.
 
-```python
-import shutil
-shutil.copy('utils.py', script_folder)
-```
+  ```python
+  import shutil
+  shutil.copy('utils.py', script_folder)
+  ```
 
 
 ### <a name="create-an-estimator"></a>Een estimator maken

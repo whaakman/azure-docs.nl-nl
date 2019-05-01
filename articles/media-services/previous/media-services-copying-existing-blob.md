@@ -13,25 +13,27 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 36bfd1787e9f35ac4eaa8b8418df1e592386e8f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 15d2f16b2c4133e40c7f77390e83504397c47980
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61243321"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868162"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Bestaande blobs kopiëren naar een Media Services-Asset
+
+> [!NOTE]
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
+
 Dit artikel wordt beschreven hoe u blobs kopiëren vanuit een storage-account in een nieuwe Azure Media Services (AMS) asset met [Azure Media Services .NET SDK Extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
+
+U moet niet proberen om de inhoud van de blob-containers die zijn gegenereerd door Media Services zonder gebruik van Media Service-API's te wijzigen.
 
 De extensie-methoden werken met:
 
 - Gewone activa.
 - Livearchief activa (FragBlob-indeling).
 - Bron- en activa die behoren tot verschillende Media Services-accounts (zelfs in verschillende datacenters). Er kunnen wel kosten in rekening gebracht op deze manier. Zie voor meer informatie over prijzen [gegevensoverdracht](https://azure.microsoft.com/pricing/#header-11).
-
-> [!NOTE]
-> U moet niet proberen om de inhoud van de blob-containers die zijn gegenereerd door Media Services zonder gebruik van Media Service-API's te wijzigen.
-> 
 
 Het artikel ziet u twee voorbeelden van code:
 

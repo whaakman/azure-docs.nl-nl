@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/17/2019
+ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e23b5ff9917eda7272e378aa70d6e2dd79f4b9f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616705"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918971"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Zakelijke continuïteit en herstel na noodgevallen (BCDR): Gekoppelde Azure-regio 's
 
@@ -38,7 +38,6 @@ Afbeelding 1: Azure regioparen
 | Europa |Europa - noord |Europa -west |
 | Frankrijk |Frankrijk - centraal|Frankrijk - zuid|
 | Duitsland |Duitsland - centraal |Duitsland - noordoost |
-| Duitsland |Duitsland - noord | Duitsland - west-centraal
 | India |India - centraal |India - zuid |
 | India |India - west |India - zuid |
 | Japan |Japan - oost |Japan - west |
@@ -47,13 +46,8 @@ Afbeelding 1: Azure regioparen
 | Noord-Amerika |US - oost 2 |US - centraal |
 | Noord-Amerika |US - noord-centraal |US - zuid-centraal |
 | Noord-Amerika |US - west 2 |US - west-centraal 
-| Noord-Amerika |VS-West 3 |US - oost
-| Noorwegen |Noorwegen - oost |Noorwegen - west
 | Zuid-Afrika | Zuid-Afrika (noord) | Zuid-Afrika (west)
-| Zweden |Zweden-centraal |Zweden-Zuid
-| Zwitserland | Zwitserland - noord | Zwitserland - west
 | VK |Verenigd Koninkrijk West |Verenigd Koninkrijk Zuid |
-| VK |VK, noord |VK, zuid 2
 | Verenigde Arabische Emiraten | VAE - noord | UAE Center
 | het Ministerie van Defensie in de VS |US DoD - oost |US DoD - centraal |
 | Amerikaanse overheid |VS (overheid) - Arizona |VS (overheid) - Texas |

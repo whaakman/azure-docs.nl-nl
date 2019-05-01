@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 4ecee0e4f01da329e44c0f65b2c204520f2da87f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0ca22cfe99e77cd2ed3c5a966fb2412444103d71
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60722365"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922448"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Verificatie van oplossingen van Batch-service met Active Directory
 
@@ -68,7 +68,7 @@ De eerste stap bij het gebruik van Azure AD om te verifiëren, is uw toepassing 
 
 Als u uw toepassing registreert, kunt u informatie opgeven over uw toepassing naar Azure AD. Vervolgens Azure AD biedt een toepassings-ID (ook wel een *client-ID*) waarmee u kunt uw toepassing koppelen aan Azure AD tijdens runtime. Zie voor meer informatie over de toepassings-ID, [toepassing en service-principalobjecten in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Voor het registreren van uw Batch-toepassing, volg de stappen in de [toevoegen van een toepassing](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) in sectie [toepassingen integreren met Azure Active Directory][aad_integrate]. Als u uw toepassing als een systeemeigen toepassing registreert, kunt u een geldige URI voor de **omleidings-URI**. Het hoeft niet te worden geen echt eindpunt.
+Voor het registreren van uw Batch-toepassing, volg de stappen in de [toevoegen van een toepassing](../active-directory/develop/quickstart-register-app.md) in sectie [toepassingen integreren met Azure Active Directory][aad_integrate]. Als u uw toepassing als een systeemeigen toepassing registreert, kunt u een geldige URI voor de **omleidings-URI**. Het hoeft niet te worden geen echt eindpunt.
 
 Nadat u uw toepassing hebt geregistreerd, ziet u de toepassings-ID:
 

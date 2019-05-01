@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 6337477b55addefb7579d6f328473428ba72ba24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: aacb4521f4c6e8699be357cf396a01b7eb54b552
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799265"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924380"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Geplande gebeurtenissen voor virtuele Linux-machines
 
@@ -49,7 +49,7 @@ Geplande gebeurtenissen biedt gebeurtenissen in de volgende gevallen gebruik:
 - Platform gestart onderhoud (bijvoorbeeld een host met update)
 - Gedegradeerde hardware
 - Gebruiker gestart onderhoud (bijvoorbeeld, als gebruiker opnieuw wordt opgestart of implementeert een virtuele machine opnieuw)
-- [Verwijdering van de VM met lage prioriteit](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) in schaal ingesteld
+- [Verwijdering van de VM met lage prioriteit](https://azure.microsoft.com/blog/low-priority-scale-sets) in schaal ingesteld
 
 ## <a name="the-basics"></a>De basisbeginselen  
 

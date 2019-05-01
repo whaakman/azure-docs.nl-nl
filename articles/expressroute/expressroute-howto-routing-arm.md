@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 04/24/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 288264b5386b670e90c3545ffcc1e697a0f67e38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d59a26184cac8df31fd16637d538c1eb45d947df
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60366280"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716133"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Peering voor een ExpressRoute-circuit met behulp van PowerShell maken en wijzigen
 
@@ -301,6 +301,10 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ## <a name="public"></a>Openbare Azure-peering
 
 In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de Azure openbare peering configuratie voor een ExpressRoute-circuit.
+
+> [!Note]
+> Openbare Azure-peering is afgeschaft voor nieuwe circuits. Zie voor meer informatie, [ExpressRoute-peering](expressroute-circuit-peerings.md).
+>
 
 ### <a name="to-create-azure-public-peering"></a>Openbare Azure-peering maken
 

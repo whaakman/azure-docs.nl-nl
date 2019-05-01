@@ -11,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 57ea52c179376e8378680f436d396ffaf9357f68
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 92785015a1ce122b8301b56fa62d122c8d95180c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771847"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725053"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Belangrijke verschillen tussen Machine Learning-Services in Azure SQL Database (preview) en SQL Server
 
@@ -61,6 +61,6 @@ Gebruik is afhankelijk van hoeveel geheugen wordt gebruikt in uw R-scripts en he
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie de [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics) documentatie voor algemene informatie
-- Zie voor meer informatie over het gebruik van Machine Learning-Services (met R) in Azure SQL Database, [snelstartgids](sql-database-connect-query-r.md).
-- Leer meer met [zelfstudies voor SQL Server R-taal](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sql-server-r-tutorials)
+- Zie het overzicht van de [Azure SQL Database Machine Learning-Services met R (preview)](sql-database-machine-learning-services-overview.md).
+- Zie voor meer informatie over het gebruik van R op Machine Learning Services (preview) voor Azure SQL Database-query, de [snelstartgids](sql-database-connect-query-r.md).
+- Als u wilt beginnen met enkele eenvoudige R-scripts, Zie [maken en uitvoeren eenvoudige R-scripts in Azure SQL Database Machine Learning-Services (preview)](sql-database-quickstart-r-create-script.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: fe63b76589c841706ae335c61e56a57c3c33fb3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 763fc2952d7a1e2eac209cc9df53713c58ad83c9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60640438"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925240"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Naamomzetting voor resources in Azure-netwerken
 
@@ -96,7 +96,7 @@ Er zijn een aantal verschillende DNS-caching pakketten beschikbaar zijn (zoals d
   * Start de service dnsmasq met `systemctl start dnsmasq.service`. 
   * Bewerken **/etc/sysconfig/network/config**, en wijzig *NETCONFIG_DNS_FORWARDER = ""* naar *dnsmasq*.
   * Bijwerken van resolv.conf met `netconfig update`om in te stellen de cache als de lokale DNS-resolver.
-* **OpenLogic (uses NetworkManager)**:
+* **CentOS (uses NetworkManager)**:
   * Installeer het pakket dnsmasq met `sudo yum install dnsmasq`.
   * Schakel de service dnsmasq met `systemctl enable dnsmasq.service`.
   * Start de service dnsmasq met `systemctl start dnsmasq.service`.
@@ -129,7 +129,7 @@ Het bestand resolv.conf wordt doorgaans automatisch gegenereerd en mag niet word
 * **SUSE** (maakt gebruik van netconf):
   1. Toevoegen *timeout:1 pogingen: 5* naar de **NETCONFIG_DNS_RESOLVER_OPTIONS = ""** parameter in **/etc/sysconfig/network/config**.
   2. Voer `netconfig update` om bij te werken.
-* **OpenLogic** (uses NetworkManager):
+* **CentOS** (maakt gebruik van NetworkManager):
   1. Voeg *echo "opties timeout:1 pogingen: 5'* naar **/etc/NetworkManager/dispatcher.d/11-dhclient**.
   2. Werken met `service network restart`.
 

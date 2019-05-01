@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3e26365c4273611c81682a760695522575f3875d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483344"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710862"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Storage Explorer
 
@@ -96,10 +96,10 @@ Als u geen zelfondertekende certificaten met behulp van de voorgaande stappen ni
 
 Lege aanmelden dialoogvensters worden meestal veroorzaakt door AD FS Storage Explorer waarin wordt gevraagd om uit te voeren een omleiding, wordt niet ondersteund door Electron. U kunt proberen om dit probleem te omzeilen apparaat Code Flow gebruiken voor aanmelding bij. Volg de volgende stappen om dit te doen:
 
-1. 'Ga naar Preview'-"Apparaat Code-aanmelding gebruiken" >.
+1. Menu: Preview -> 'Apparaat Code-aanmelding gebruiken'.
 2. Open het dialoogvenster voor verbinding maken (ofwel via de plug-pictogram in de linkerbenedenhoek verticale balk of 'Account toevoegen' in het venster account).
 3. Kies welke omgeving u aanmelden wilt bij.
-4. Klik op de 'aanmelden' knop.
+4. Klik op de knop 'Aanmelden'.
 5. Volg de instructies in het volgende deelvenster.
 
 Als u zelf hebt u problemen bij het aanmelden bij het account dat u gebruiken wilt, omdat de standaardbrowser is al aangemeld bij een ander account, kunt u ofwel:

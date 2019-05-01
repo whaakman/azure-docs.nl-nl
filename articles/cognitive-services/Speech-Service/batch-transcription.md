@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: b389d86fe4d23e3f4ee1c66e4270a74351098129
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1a2d24be00b0e1224b5f8d52105e2969d64e5f64
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61059602"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922482"
 ---
 # <a name="why-use-batch-transcription"></a>Waarom Batch transcriptie gebruiken?
 
@@ -29,7 +29,7 @@ Batch transcriptie is ideaal als u wilt dat een grote hoeveelheid audio in opsla
 Als met alle functies van de spraak-service die u een abonnementssleutel van maakt de [Azure-portal](https://portal.azure.com) door onze [introductiehandleiding](get-started.md). Als u van plan bent om op te halen transcripties van onze basislijn-modellen, is het maken van een sleutel alles die wat u nodig om te doen.
 
 >[!NOTE]
-> Een standard-abonnement (S0) voor Speech Services is vereist voor het gebruik van batch transcriptie. Gratis abonnementssleutels (F0) werkt niet. Zie voor meer informatie, [prijzen en beperkingen](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
+> Een standard-abonnement (S0) voor Speech Services is vereist voor het gebruik van batch transcriptie. Gratis abonnementssleutels (F0) werkt niet. Zie voor meer informatie, [prijzen en beperkingen](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="custom-models"></a>Aangepaste modellen
 
@@ -72,7 +72,8 @@ Parameters voor de configuratie worden gegeven als JSON:
   "properties": {
     "ProfanityFilterMode": "Masked",
     "PunctuationMode": "DictatedAndAutomatic",
-    "AddWordLevelTimestamps" : "True"
+    "AddWordLevelTimestamps" : "True",
+    "AddSentiment" : "True"
   }
 }
 ```
@@ -87,6 +88,7 @@ Parameters voor de configuratie worden gegeven als JSON:
 | `ProfanityFilterMode` | Geeft aan hoe grof taalgebruik in herkenningsresultaten worden verwerkt. Geaccepteerde waarden zijn `none` die wordt uitgeschakeld grof taalgebruik filteren, `masked` die grof taalgebruik vervangen door sterretjes, `removed` waarbij alle scheldwoorden worden verwijderd uit het resultaat, of `tags` zodat 'grof taalgebruik' tags aan wordt toegevoegd. De standaardinstelling is `masked`. | Optioneel |
 | `PunctuationMode` | Geeft aan hoe interpunctie in herkenningsresultaten worden verwerkt. Geaccepteerde waarden zijn `none` die wordt uitgeschakeld interpunctie, `dictated` dit expliciete interpunctie houdt `automatic` waarmee de decoder interpunctie, behandelt of `dictatedandautomatic` dit houdt bepaald leestekens of automatisch. | Optioneel |
  | `AddWordLevelTimestamps` | Hiermee geeft u als word niveau tijdstempels moet worden toegevoegd aan de uitvoer. Geaccepteerde waarden zijn `true` waarmee word niveau tijdstempels en `false` (de standaardwaarde) uitschakelen. | Optioneel |
+ | `AddSentiment` | Hiermee geeft u op gevoel moet worden toegevoegd aan de utterance. Geaccepteerde waarden zijn `true` waarmee sentiment per utterance en `false` (de standaardwaarde) uitschakelen. | Optioneel |
 
 ### <a name="storage"></a>Storage
 
@@ -97,6 +99,57 @@ Batch ondersteunt transcriptie [Azure Blob-opslag](https://docs.microsoft.com/az
 Polling voor de status van transcriptie mogelijk niet de meeste prestaties of de beste gebruikerservaring te bieden. Als u wilt laten pollen van status, kunt u zich registreren callbacks, die de client ontvangt wanneer langlopende transcriptie taken zijn voltooid.
 
 Zie voor meer informatie, [Webhooks](webhooks.md).
+
+## <a name="sentiment"></a>Sentiment
+
+Sentiment is een nieuwe functie in Batch transcriptie API en is een belangrijk onderdeel in het call center-domein. Klanten kunnen gebruikmaken van de `AddSentiment` parameters op hun aanvragen aan 
+
+1.  Verkrijg inzicht in de tevredenheid van klanten
+2.  Krijg inzicht in de prestaties van de agents (team de gesprekken)
+3.  Met deze functie het exacte punt in tijd wanneer een aanroep van een inschakelen vond in een negatieve richting
+4.  Wat is een fout als negatief aanroepen naar positieve inschakelen met deze functie
+5.  Wat klanten en wat ze niet bevalt over een product of een service identificeren
+
+Gevoel wordt berekend per audio segment waarbij een audio-segment is gedefinieerd als het verstrijken van de tijd tussen het begin van de utterance (offset) en de detectie van stilte van einde van de bytestroom. De volledige tekst in dat segment wordt gebruikt om het gevoel te berekenen. We niet berekenen alle cumulatieve sentiment-waarden voor de volledige aanroep of de hele spraak van elk kanaal. Deze worden van links naar de domeineigenaar verder toepassen.
+
+Gevoel wordt toegepast op het lexicale formulier.
+
+Een voorbeeld van de JSON-uitvoer ziet eruit zoals hieronder:
+
+```json
+{
+  "AudioFileResults": [
+    {
+      "AudioFileName": "Channel.0.wav",
+      "AudioFileUrl": null,
+      "SegmentResults": [
+        {
+          "RecognitionStatus": "Success",
+          "ChannelNumber": null,
+          "Offset": 400000,
+          "Duration": 13300000,
+          "NBest": [
+            {
+              "Confidence": 0.976174,
+              "Lexical": "what's the weather like",
+              "ITN": "what's the weather like",
+              "MaskedITN": "what's the weather like",
+              "Display": "What's the weather like?",
+              "Words": null,
+              "Sentiment": {
+                "Negative": 0.206194,
+                "Neutral": 0.793785,
+                "Positive": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+De functies maakt gebruik van een Sentiment-model dat zich momenteel in de bètaversie.
 
 ## <a name="sample-code"></a>Voorbeeldcode
 

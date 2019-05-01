@@ -11,26 +11,28 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447553"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713811"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Aanroepen van HTTP of HTTPS-eindpunten met Azure Logic Apps
 
-Met Azure Logic Apps en de connector Hypertext Transfer Protocol (HTTP), kunt u met elke HTTP of HTTPS-eindpunt communiceren met het bouwen van logic apps-werkstromen automatiseren. Bijvoorbeeld, kunt u het service-eindpunt voor uw website controleren. Wanneer een gebeurtenis plaatsvindt op dat eindpunt, zoals uw website uitvalt, wordt de gebeurtenis wordt de werkstroom van uw logische app geactiveerd en de opgegeven acties worden uitgevoerd. 
+Met Azure Logic Apps en de connector Hypertext Transfer Protocol (HTTP), kunt u met elke HTTP of HTTPS-eindpunt communiceren met het bouwen van logic apps-werkstromen automatiseren. Bijvoorbeeld, kunt u het service-eindpunt voor uw website controleren. Wanneer een gebeurtenis plaatsvindt op dat eindpunt, zoals uw website uitvalt, wordt de gebeurtenis wordt de werkstroom van uw logische app geactiveerd en de opgegeven acties worden uitgevoerd.
 
 U kunt de HTTP-trigger als de eerste stap in uw werkstroom bevindt gebruiken om te controleren of *polling* een eindpunt op een regelmatige. Op elke check-, verzendt de trigger een oproep of *aanvraag* naar het eindpunt. Reactie van het eindpunt wordt bepaald of de werkstroom van uw logische app wordt uitgevoerd. De trigger wordt doorgegeven aan de inhoud uit het antwoord op de acties in uw logische app. 
 
-U kunt de HTTP-actie als een andere stap in uw werkstroom voor het aanroepen van het eindpunt als u wilt gebruiken. Reactie van het eindpunt bepaalt hoe uw resterende werkstroomacties worden uitgevoerd.
+U kunt de HTTP-actie als een andere stap in uw werkstroom voor het aanroepen van het eindpunt als u wilt gebruiken. Reactie van het eindpunt bepaalt hoe uw resterende werkstroomacties worden uitgevoerd. 
+
+Op basis van het eindpunt van de doel-functionaliteit, die deze connector biedt ondersteuning voor Transport Layer Security (TLS) versie 1.0, 1.1 en 1.2. Logic Apps onderhandelt met het eindpunt van de vergelijking met de hoogste ondersteunde versie mogelijk. Dus als het eindpunt 1.2 ondersteunt, de connector gebruikt bijvoorbeeld 1.2 eerst. Anders wordt de connector maakt gebruik van de volgende hoogste ondersteunde versie.
 
 Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>. 
+* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, [registreer u dan nu voor een gratis Azure-account](https://azure.microsoft.com/free/). 
 
 * De URL voor de doel-eindpunt dat u wilt aanroepen 
 

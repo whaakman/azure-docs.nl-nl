@@ -12,17 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 04/29/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 04f08965d161e35a9ae4423ad5d3cf80cb407b8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b704e9074c8ef88d8fefd97f466884af952c46f8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396688"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919614"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Een Python-app maken in Azure App Service op Linux (preview)
+# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Een Python-app maken in Azure App Service onder Linux
 
 In deze quickstart maakt u een eenvoudige Python-app te implementeren [App Service on Linux](app-service-linux-intro.md), dat biedt een uiterst schaalbare webhostingservice met Self-patchfunctie. U gebruikt de Azure-opdrachtregelinterface (de [Azure CLI](/cli/azure/install-azure-cli)) via de interactieve, browser gebaseerde Azure Cloud Shell, zodat u kunt volgen de stappen gebruikgemaakt van een Mac, Linux of Windows-computer.
 
@@ -198,8 +197,6 @@ Het linkermenu bevat een aantal pagina's voor het configureren van uw app.
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-
-De Python-installatiekopie die in App Service onder Linux is ingebouwd, is momenteel in preview. U kunt de opdracht voor het opstarten van uw app aanpassen. U kunt ook in plaats daarvan productie-Python-apps maken met behulp van een aangepaste container.
 
 > [!div class="nextstepaction"]
 > [Zelfstudie: Python-app met PostgreSQL](tutorial-python-postgresql-app.md)

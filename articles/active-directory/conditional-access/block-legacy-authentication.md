@@ -18,12 +18,12 @@ ms.date: 03/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d2841d3be584cae45ef49ad9ff20da8a232c366
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9fa7bc84558d2b794a569261ce3dd2db5d54493f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355117"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917410"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedure: Verouderde verificatie met Azure AD met voorwaardelijke toegang blokkeren   
 
@@ -142,4 +142,4 @@ Als u verouderde verificatie met behulp van de andere clients condition blokkeer
 
 - Als u niet bekend bent met het configureren van beleid voor voorwaardelijke toegang nog, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md) voor een voorbeeld.
 
-- Zie voor meer informatie over de ondersteuning van moderne verificatie [hoe moderne verificatie werkt voor Office 2013 en Office 2016 client-apps](https://docs.microsoft.com/en-us/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- Zie voor meer informatie over de ondersteuning van moderne verificatie [hoe moderne verificatie werkt voor Office 2013 en Office 2016 client-apps](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 

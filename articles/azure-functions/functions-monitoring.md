@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406637"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922970"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions controleren
 
 [Azure Functions](functions-overview.md) biedt ingebouwde integratie met [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) voor het bewaken van functies. In dit artikel leest u hoe het configureren van Azure Functions voor het verzenden van het systeem gegenereerde logboekbestanden naar Application Insights.
 
-Het is raadzaam om met behulp van Application Insights, omdat het logboek, prestaties en foutgegevens verzamelt. Automatisch detecteert afwijkende prestaties en bevat krachtige analysehulpmiddelen om u te helpen u problemen identificeren en om te begrijpen hoe uw functies worden gebruikt. Het is bedoeld om u te helpen de prestaties en bruikbaarheid continu te verbeteren. U kunt zelfs Application Insights gebruiken tijdens het ontwikkelen van lokale functie-app-project. Zie voor meer informatie, [wat is Application Insights?](../azure-monitor/app/app-insights-overview.md)
+Het is raadzaam om met behulp van Application Insights, omdat het logboek, prestaties en foutgegevens verzamelt. Automatisch detecteert afwijkende prestaties en bevat krachtige analysehulpmiddelen om u te helpen u problemen identificeren en om te begrijpen hoe uw functies worden gebruikt. Het is bedoeld om u te helpen de prestaties en bruikbaarheid continu te verbeteren. U kunt zelfs Application Insights gebruiken tijdens het ontwikkelen van lokale functie-app-project. Zie voor meer informatie, [wat is Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
 Als de vereiste instrumentatie van Application Insights is gratis ingebouwd in Azure Functions, hoeft u een geldige instrumentatiesleutel uw functie-app verbinden met een Application Insights-resource is.
 
@@ -124,7 +124,7 @@ requests
 
 De tabellen die beschikbaar zijn worden weergegeven in de **Schema** tabblad aan de linkerkant. Hier vindt u gegevens die zijn gegenereerd door de functieaanroepen in de volgende tabellen:
 
-| Tabel | Beschrijving |
+| Tabel | Description |
 | ----- | ----------- |
 | **traceringen** | Logboeken die zijn gemaakt door de runtime en functiecode aan te geven. |
 | **Aanvragen** | Een aanvraag voor elke functieaanroep. |
@@ -626,7 +626,7 @@ Hierdoor wordt uw app verbonden met het logboek voor de service en toepassingslo
 
 ### <a name="azure-cli"></a>Azure-CLI
 
-U kunt streaminglogboeken inschakelen met behulp van de [Azure Command Line Interface (CLI)](/cli/azure/install-azure-cli). Gebruik de volgende opdrachten op zich aanmelden, kiest u uw abonnement en de stream-logboekbestanden voor de Azure CLI:
+U kunt streaminglogboeken inschakelen met behulp van de [Azure CLI](/cli/azure/install-azure-cli). Gebruik de volgende opdrachten als u zich aanmeldt, kiest u uw abonnement en de stream-logboekbestanden:
 
 ```azurecli
 az login

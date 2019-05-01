@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 43dc76e6d1e1ec2a6167f1d3e3cc7b8780f843db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3074048dd4426a10e706e37e6d375ea4995fcbbb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850235"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919788"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Een Linux-Node.js-app configureren voor Azure App Service
 
@@ -55,7 +55,7 @@ Deze instelling geeft u de Node.js-versie moet worden gebruikt, zowel tijdens ru
 
 ## <a name="configure-nodejs-server"></a>Node.js-server configureren
 
-De Node.js-containers worden geleverd met [PM2](http://pm2.keymetrics.io/), de manager van een productie-proces. U kunt uw app om te beginnen met PM2, of met NPM, of met een aangepaste opdracht configureren.
+De Node.js-containers worden geleverd met [PM2](https://pm2.keymetrics.io/), de manager van een productie-proces. U kunt uw app om te beginnen met PM2, of met NPM, of met een aangepaste opdracht configureren.
 
 - [Aangepaste opdracht uitvoeren](#run-custom-command)
 - [Uitvoering starten npm](#run-npm-start)
@@ -99,12 +99,12 @@ Uw app in de container automatisch gestart met PM2 wanneer een van de algemene N
 - *app.js*
 - *index.js*
 - *hostingstart.js*
-- Een van de volgende [PM2 bestanden](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* en *ecosystem.config.js*
+- Een van de volgende [PM2 bestanden](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* en *ecosystem.config.js*
 
 U kunt ook een aangepaste opstartbestand configureren met de volgende extensies:
 
 - Een *.js* bestand
-- Een [PM2 bestand](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) met de extensie *.json*, *. config.js*, *yaml*, of *.yml*
+- Een [PM2 bestand](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) met de extensie *.json*, *. config.js*, *yaml*, of *.yml*
 
 Als u wilt toevoegen van een aangepaste start-bestand, kunt u de volgende opdracht uitvoeren de [Cloud Shell](https://shell.azure.com):
 
@@ -226,7 +226,7 @@ fi
 
 In App Service vindt [SSL-beëindiging](https://wikipedia.org/wiki/TLS_termination_proxy) plaats in de load balancers voor het netwerk, zodat alle HTTPS-aanvragen uw app bereiken als niet-versleutelde HTTP-aanvragen. Inspecteer de header `X-Forwarded-Proto` als de app-logica moet controleren of de aanvragen van gebruikers al dan niet zijn versleuteld.
 
-Populaire webframeworks bieden toegang tot de `X-Forwarded-*`-informatie in het patroon van de standaard-app. In [Express](https://expressjs.com/), kunt u [proxy's vertrouwen](http://expressjs.com/guide/behind-proxies.html). Bijvoorbeeld:
+Populaire webframeworks bieden toegang tot de `X-Forwarded-*`-informatie in het patroon van de standaard-app. In [Express](https://expressjs.com/), kunt u [proxy's vertrouwen](https://expressjs.com/guide/behind-proxies.html). Bijvoorbeeld:
 
 ```javascript
 app.set('trust proxy', 1)
@@ -253,7 +253,7 @@ Wanneer een werkende Node.js-app zich anders in App Service gedraagt of fouten h
     - Afhankelijk van uw *package.json*, verschillende pakketten kunnen worden geïnstalleerd voor de productiemodus (`dependencies` versus `devDependencies`).
     - Bepaalde web-frameworks kunnen statische bestanden in productiemodus anders implementeren.
     - Bepaalde web-frameworks kunnen aangepaste opstartscripts gebruiken bij het uitvoeren in productiemodus.
-- Het uitvoeren van uw app in App Service in de Ontwikkelingsmodus. Bijvoorbeeld, in [MEAN.js](http://meanjs.org/), kunt u uw app instellen op Ontwikkelingsmodus in runtime door [instelling de `NODE_ENV` app-instelling](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Het uitvoeren van uw app in App Service in de Ontwikkelingsmodus. Bijvoorbeeld, in [MEAN.js](https://meanjs.org/), kunt u uw app instellen op Ontwikkelingsmodus in runtime door [instelling de `NODE_ENV` app-instelling](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
-ms.openlocfilehash: 29826f7f842f8dfbd7cd2a754c919f06542a161c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5d5a9e07c28ab3059872f4d187c96586456a200
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401855"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916762"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -263,8 +263,8 @@ Als u een NPM-gebruiker die het maken van een waarschuwing via Azure portal:
 3. Als u ervoor actiegroepen gebruiken kiest, moet u een eerder gemaakte actiegroep selecteren. U kunt informatie over het maken van een actiegroep [hier.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Als de waarschuwing is gemaakt, kunt u waarschuwingen beheren koppeling gebruiken om uw waarschuwingen te beheren. 
 
-Telkens wanneer die u een waarschuwing maakt maakt NPM een query op basis van waarschuwingsregel in Azure Monitor. Deze query wordt geactiveerd om de standaard 5 minuten. Met Azure monitor niet in rekening voor de eerste 250 waarschuwingsregels die zijn gemaakt aanmelden en geen waarschuwingsregels bovenstaande beperken van de 250 logboekwaarschuwingsregels wordt gefactureerd volgens [waarschuwingen in Azure Monitor-pagina met prijzen prijzen](https://azure.microsoft.com/en-us/pricing/details/monitor/).
-Meldingen worden afzonderlijk in rekening gebracht volgens [meldingen prijzen in Azure Monitor-pagina met prijzen](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Telkens wanneer die u een waarschuwing maakt maakt NPM een query op basis van waarschuwingsregel in Azure Monitor. Deze query wordt geactiveerd om de standaard 5 minuten. Met Azure monitor niet in rekening voor de eerste 250 waarschuwingsregels die zijn gemaakt aanmelden en geen waarschuwingsregels bovenstaande beperken van de 250 logboekwaarschuwingsregels wordt gefactureerd volgens [waarschuwingen in Azure Monitor-pagina met prijzen prijzen](https://azure.microsoft.com/pricing/details/monitor/).
+Meldingen worden afzonderlijk in rekening gebracht volgens [meldingen prijzen in Azure Monitor-pagina met prijzen](https://azure.microsoft.com/pricing/details/monitor/).
 
 
 ## <a name="pricing"></a>Prijzen

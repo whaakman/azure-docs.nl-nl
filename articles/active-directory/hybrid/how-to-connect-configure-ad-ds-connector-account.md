@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6911b19c680c2fdb8c372347c4dd0fca60bb0e0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60245537"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918505"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Accountmachtigingen voor AD DS-Connector configureren 
 
@@ -25,7 +25,7 @@ De PowerShell-Module met de naam [ADSyncConfig.psm1](reference-connect-adsynccon
 ## <a name="overview"></a>Overzicht 
 De volgende PowerShell-cmdlets kan worden gebruikt voor installatie van Active Directory-machtigingen van de AD DS-Connector-account voor elke functie die u selecteert om in te schakelen in Azure AD Connect. Om te voorkomen dat problemen ondervindt, moet u bereid Active Directory-machtigingen op voorhand voor wanneer u wilt installeren, Azure AD Connect met behulp van een aangepast domein-account verbinding maken met uw forest. Deze module ADSyncConfig kan ook worden gebruikt om machtigingen te configureren na de implementatie van Azure AD Connect.
 
-![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
+![overzicht van ad ds-account](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
 Voor installatie van de Azure AD verbinding maken met Express, is een automatisch gegenereerde (MSOL_nnnnnnnnnn)-account gemaakt in Active Directory met de vereiste machtigingen, dus u hoeft niet op deze module ADSyncConfig, tenzij u machtigingen hebt geblokkeerd overname op organisatie-eenheden of specifieke Active Directory-objecten die u wilt synchroniseren met Azure AD. 
  

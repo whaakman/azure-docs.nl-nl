@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 89e73a4578134493a25ec3cbd2385433a2b36156
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 58abe3a3973986ab489456be7958361ad8ab06f4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775877"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922832"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Overzicht van de Azure monitoring-agents 
 Microsoft Azure biedt verschillende manieren voor het verzamelen van verschillende typen gegevens van virtuele machines met Microsoft Windows en Linux die worden gehost in Azure en uw datacenter of andere cloudproviders. De drie typen van de agents is beschikbaar voor het bewaken van een virtuele machine zijn:
@@ -66,7 +66,7 @@ Voorheen verschillende Azure-services zijn gebundeld in de *Operations Managemen
 
 * [Azure Automation-updatebeheer](../../automation/automation-update-management.md) van besturingssysteemupdates.
 * [Azure Automation Desired State Configuration](../../automation/automation-dsc-overview.md) consistente configuratie toestand te handhaven.
-* Bijhouden van wijzigingen in de configuratie met [Azure Automation wijzigingen bijhouden en inventaris](../../automation/automation-change-tracking.md).
+* Bijhouden van wijzigingen in de configuratie met [Azure Automation wijzigingen bijhouden en inventaris](../../automation/change-tracking.md).
 * Azure-services zoals [Application Insights](https://docs.microsoft.com/azure/application-insights/) en [Azure Security Center](https://docs.microsoft.com/azure/security-center/), welke systeemeigen slaan hun gegevens rechtstreeks in Log Analytics.  
 
 ## <a name="dependency-agent"></a>Agent voor afhankelijkheden

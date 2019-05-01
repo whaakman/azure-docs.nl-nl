@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 7a2cb110d5be74e23e8e782fc02873786e8813e9
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 2f86b74299b5d47a87ed0b8e89a992f0f91a84be
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149713"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924635"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>IoT DevKit AZ3166 verbinden met Azure IoT Hub
 
@@ -79,7 +79,9 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
-
+   > [!NOTE]
+   > Als er een fout optreedt bij het uitvoeren van `device-identity`, installeert de [Azure IOT-extensie voor Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md) voor meer informatie.
+  
 1. Voer de volgende opdrachten uit in Azure Cloud Shell om de _apparaatverbindingsreeks_ op te halen voor het apparaat dat u zojuist hebt geregistreerd:
 
    **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
@@ -291,7 +293,7 @@ De voorbeeldtoepassing wordt uitgevoerd wanneer u de volgende resultaten ziet:
 U kunt [hulpprogramma's voor Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) voor het bewaken van apparaat-naar-cloud (D2C) berichten in IoT Hub.
 
 1. Meld u aan [Azure-portal](https://portal.azure.com/), vinden de IoT-Hub die u hebt gemaakt.
-    ![Azure-portal](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
+    ![Azure Portal](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
 
 1. In de **beleid voor gedeelde toegang** deelvenster, klikt u op de **iothubowner beleid**, en noteer de verbindingsreeks van uw IoT-hub.
     ![Azure IoT Hub-verbindingsreeks](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-portal-conn-string.png)

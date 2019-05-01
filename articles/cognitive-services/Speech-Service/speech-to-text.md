@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b144f126e097a8db9fbbf29e47162fd6a1c2fbe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461252"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916822"
 ---
 # <a name="what-is-speech-to-text"></a>Wat is de spraak-naar-tekst?
 
-Spraak-naar-tekst van Azure Speech Services, ook wel bekend als spraak naar tekst, kunnen realtime transcriptie van audiostreams naar tekst die uw toepassingen, hulpprogramma's of apparaten gebruiken kunnen, weergeven en actie ondernemen als opdrachtinvoer. Deze service wordt mogelijk gemaakt door de dezelfde opname-technologie die door Microsoft gebruikt voor Cortana en Office-producten en werkt naadloos samen met de vertaling en tekst naar spraak.  Zie voor een volledige lijst van beschikbare talen voor spraak-naar-tekst, [ondersteunde talen](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text).
+Spraak-naar-tekst van Azure Speech Services, ook wel bekend als spraak naar tekst, kunnen realtime transcriptie van audiostreams naar tekst die uw toepassingen, hulpprogramma's of apparaten gebruiken kunnen, weergeven en actie ondernemen als opdrachtinvoer. Deze service wordt mogelijk gemaakt door de dezelfde opname-technologie die door Microsoft gebruikt voor Cortana en Office-producten en werkt naadloos samen met de vertaling en tekst naar spraak.  Zie voor een volledige lijst van beschikbare talen voor spraak-naar-tekst, [ondersteunde talen](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
 De spraak-naar-tekst-service gebruikt standaard het universele taalmodel. Dit model is getraind met gegevens die eigendom zijn van Microsoft en is de cloud geïmplementeerd. Dit is geoptimaliseerd voor conversatie en dicteren scenario's. Als u van spraak-naar-tekst voor de opname- en schrijffouten in een unieke omgeving gebruikmaakt, kunt u maken en trainen aangepaste akoestische, taal en de uitspraak modellen adres omgevingsgeluid of branchespecifieke vocabulaire. 
 
@@ -80,7 +80,7 @@ Voorbeeldcode voor de spraak-SDK is beschikbaar op GitHub. Deze voorbeelden voor
 
 Naast het universele model door de Speech Services gebruikt, kunt u aangepaste akoestische, taal en de uitspraak modellen specifieke tot uw ervaring. Hier volgt een lijst met opties voor het aanpassen:
 
-| Model | Beschrijving |
+| Model | Description |
 |-------|-------------|
 | [Akoestisch model](how-to-customize-acoustic-models.md) | Het maken van een aangepast akoestisch model is handig als uw toepassing, hulpprogramma's of apparaten worden gebruikt in een bepaalde omgeving, zoals in een auto of een gegevensfactory met de voorwaarden van de specifieke opnemen. Voorbeelden zijn spraak met een accent, specifieke achtergrondgeluiden of het gebruik van een specifieke microfoon voor opname. |
 | [Taalmodel](how-to-customize-language-model.md) | Maak een aangepast taalmodel ter verbetering van transcriptie van branchespecifieke vocabulaire en grammatica, zoals medische terminologie of IT-jargon. |

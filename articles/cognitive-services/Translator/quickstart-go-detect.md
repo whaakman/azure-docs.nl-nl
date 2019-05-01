@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: cb5676b2609ffb16dd1ef5454ee443bc69fab782
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 60f677c994eb3a30f9dcfb4c341a242b46960c94
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60879818"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916613"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-go"></a>Snelstartgids: de Translator Text-API gebruiken om de teksttaal te detecteren met Go
 
@@ -164,7 +164,7 @@ Als u uw code graag wilt vergelijken met de onze, kunt u het volledige voorbeeld
 
 ## <a name="sample-response"></a>Voorbeeldantwoord
 
-De afkorting van land/regio niet vinden in dit [lijst met talen](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+De afkorting van land/regio niet vinden in dit [lijst met talen](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

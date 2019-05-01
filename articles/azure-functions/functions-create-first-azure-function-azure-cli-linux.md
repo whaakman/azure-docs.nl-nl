@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc, fasttrack-edit
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: 78c2f599ba7d22e6de070f5867398e111a396d45
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: f79fbc46104eb886a758802aff79a46feb4f5a3b
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125632"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866635"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Uw eerste Linux-functie maken met Azure Functions Core Tools en de Azure CLI (preview)
 
@@ -30,7 +30,7 @@ De volgende stappen worden ondersteund op een Mac-, Windows- of Linux-computer. 
 
 Voordat u dit voorbeeld kunt uitvoeren moet u ervoor zorgen dat u het volgende hebt:
 
-+ Installeer [Azure Core Tools versie 2.x](functions-run-local.md#v2).
+- Installeer [Azure Functions Core Tools](./functions-run-local.md#v2) versie 2.6.666 of hoger.
 
 + Installeer de [Azure CLI]( /cli/azure/install-azure-cli). In dit artikel is Azure CLI versie 2.0 of hoger vereist. Voer `az --version` uit om te zien welke versie u hebt. U kunt ook de [Azure Cloud Shell](https://shell.azure.com/bash) gebruiken.
 
@@ -67,9 +67,11 @@ Gebruik de volgende opdracht om naar de nieuwe projectmap `MyFunctionProj` te na
 cd MyFunctionProj
 ```
 
-[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
+## <a name="reference-bindings"></a>Referentie-bindingen
 
-[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 
 [!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 

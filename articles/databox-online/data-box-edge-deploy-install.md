@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie over installeren van een fysiek Azure Data Box Edge-apparaat | Microsoft Docs
+title: Zelfstudie voor het installeren van - uitpakken, rek, kabel fysieke Azure Data Box Edge-apparaat | Microsoft Docs
 description: De tweede zelfstudie over het installeren van Azure Data Box Edge gaat over het uitpakken, het in een rek monteren en het bekabelen van het fysieke apparaat.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7062e9d829242a62dfa4f661c21ce6c56b0db69c
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60758327"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924525"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Zelfstudie: Azure Data Box Edge installeren
 
@@ -145,7 +145,8 @@ Zoek de onderdelen voor het installeren van de trein kit assembly:
 
 ### <a name="engage-and-release-the-slam-latch"></a>Neem contact op en de vergrendeling slam vrijgeven
 
-OPMERKING: Voor systemen die niet zijn uitgerust met slam vergrendelingen, het systeem met schroeven, worden beveiligd zoals beschreven in stap 3 van deze procedure.
+> [!NOTE]
+> Voor systemen die niet zijn uitgerust met slam vergrendelingen, het systeem met schroeven, worden beveiligd zoals beschreven in stap 3 van deze procedure.
 
 1. De front-end gerichte, de vergrendeling slam Zoek aan beide zijden van het systeem.
 2. De vergrendelingen betrekken automatisch als het systeem in het rack is gepusht en door te halen van op de vergrendelingen zijn vrijgegeven.

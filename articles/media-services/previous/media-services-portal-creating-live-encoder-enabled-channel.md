@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 88a66cae00bcd1256f6c3ad76a04d1333d1db9db
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: daab3c3b2a5b756686a4867350478faaa1142279
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917087"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726851"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Live streamen met Media Services naar multi-bitrate streams te maken met Azure portal  
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Hieronder volgen de algemene stappen voor het maken van veelvoorkomende toepassi
 
 1. Sluit een videocamera aan op een computer. <br/>Bekijk voor setup ideeën [video versnelling met eenvoudige en draagbare gebeurtenisinstelling]( https://link.medium.com/KNTtiN6IeT).
 
-    Als u geen toegang tot een camera, hulpprogramma's zoals [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) kan worden gebruikt voor het genereren van een live feed uit een videobestand.
+    Als u geen toegang tot een camera, hulpprogramma's zoals [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) kan worden gebruikt voor het genereren van een live feed uit een videobestand.
 1. Start en configureer een on-premises live-encoder dat een single-bitrate stream in een van de volgende protocollen kan uitvoeren: RTMP of Smooth Streaming. Zie [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](https://go.microsoft.com/fwlink/?LinkId=532824) voor meer informatie. <br/>Controleer ook of deze blog bekijken: [Live streaming productie met IB](https://link.medium.com/ttuwHpaJeT).
 
     Deze stap kan ook worden uitgevoerd nadat u uw kanaal hebt gemaakt.

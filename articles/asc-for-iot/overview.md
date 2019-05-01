@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2019
+ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: 49decb2d67c8ff16f9912fea8e8ece1a3bd9feb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 253585d71ab2704efa0b3e4a06456e1d505b46ad
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60232830"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919656"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Maak kennis met Azure Security Center voor IoT
 
@@ -33,7 +33,7 @@ Beveiligingsbeheer uniformeren en end-to-bedreigingsanalyse en beveiliging insch
 
 ## <a name="protect-iot-and-hybrid-cloud-workloads-against-evolving-cyber-attacks"></a>IoT en hybride cloudworkloads tegen de zich ontwikkelende cyberaanvallen beveiligen
 
-Het Internet of Things transformeert snel onze wereld. Met de mogelijkheid om om inzicht te krijgen van uw verbonden apparaten en back-endsystemen, kunt u nu deze inzichten om in krachtige toepassingen en services om u te helpen uw organisatie een ongekende hoogte van de operationele en zakelijke transformeren prestaties. Echter, zoals miljarden nieuwe apparaten zijn verbonden met internet, en geïntegreerd in onze dagelijkse leven en onze bedrijven; de operations-teams van uw beveiliging nodig hebt om ervoor te zorgen dat hun beveiligingsstrategieën snel genoeg om deze nieuwe oppervlakteaanvallen veranderen. Net als elk ander systeem moet beveiligen van uw IoT-oplossing beveiliging in elke fase van uw implementatie. 
+Het Internet of Things transformeert snel onze wereld. Met de mogelijkheid om inzichten uit uw verbonden apparaten en back-endsystemen, kunt u nu deze inzichten om in krachtige toepassingen en services om uw organisatie een ongekende hoogte van de operationele en zakelijke prestaties bereiken te transformeren. Echter, zoals miljarden nieuwe apparaten zijn verbonden met internet, en geïntegreerd in onze dagelijkse leven en onze bedrijven; de operations-teams van uw beveiliging nodig hebt om ervoor te zorgen dat hun beveiligingsstrategieën snel genoeg om deze nieuwe oppervlakteaanvallen veranderen. Net als elk ander systeem moet beveiligen van uw IoT-oplossing beveiliging in elke fase van uw implementatie. 
 
 Vereenvoudigt het hybride-werkbelastingsbescherming door het leveren van geïntegreerde zichtbaarheid en controle, geavanceerde bedreigingen te voorkomen, en intelligente detectie van bedreigingen en antwoord verschillende workloads die worden uitgevoerd in Microsoft edge, on-premises, in Azure, en in Azure Security Center (ASC) voor IoT andere clouds. 
 

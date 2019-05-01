@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.openlocfilehash: 0c466840c3de9337d7bb8d22f00da0ba52227770
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121928"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697800"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Snelstart: Aan de slag met Apache Hadoop en Apache Hive in Azure HDInsight met behulp van Azure Portal
 
@@ -59,7 +59,7 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van Azure Port
 
     Selecteer de volgende waarden:
     
-    |Eigenschap  |Beschrijving  |
+    |Eigenschap  |Description  |
     |---------|---------|
     |**Clustertype**     | Selecteer **Hadoop**. |
     |**Besturingssysteem**     | Selecteer **Linux** |
@@ -73,7 +73,7 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van Azure Port
 
     Selecteer de volgende waarden:
     
-    |Eigenschap  |Beschrijving  |
+    |Eigenschap  |Description  |
     |---------|---------|
     |**Type van primaire opslag**     | Selecteer voor dit artikel **Azure Storage** om Azure Storage Blob te gebruiken als het standaardopslagaccount. U kunt ook Azure Data Lake Storage gebruiken als standaardopslag. |
     |**Selectiemethode**     |  Selecteer voor dit artikel **Mijn abonnementen** om een opslagaccount uit uw Azure-abonnement te gebruiken. Als u een opslagaccount uit andere abonnementen wilt gebruiken, selecteert u **Toegangssleutel** en geeft u vervolgens de toegangssleutel voor dat account op. |

@@ -14,17 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a9d0daaacb046df7943202775adc77bc912cce11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c5dd0146fe59e7dc85787f146b10cfde7d6addb4
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61217551"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867895"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Overzicht van Live streamen met Media Services
 
 > [!NOTE]
-> Vanaf 12 mei 2018 livekanalen wordt niet langer ondersteuning voor het RTP/MPEG-2-transportstroom-opnameprotocol. Voer een migratie uit van RTP/MPEG-2 naar RTMP- of gefragmenteerde MP4 (Smooth Streaming) opnameprotocollen.
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Overzicht
 
@@ -44,7 +44,12 @@ Bij het leveren van live streaming-gebeurtenissen met Azure Media Services wordt
 
 Met **Microsoft Azure Media Services** (AMS) kunt u de inhoud van uw live-streaming opnemen, coderen, een voorbeeld bekijken, opslaan en leveren.
 
-Als u uw inhoud levert aan klanten, is het uw doel een video van hoge kwaliteit te leveren aan verschillende apparaten met verschillende netwerkomstandigheden. Om dit te bereiken, live coderingsprogramma's te gebruiken voor uw stream coderen naar een multi-bitrate (adaptieve bitrate) videostream.  Als u op verschillende apparaten wilt streamen, gebruikt u de [dynamische pakketten](media-services-dynamic-packaging-overview.md) van Media Services om uw stream met verschillende protocollen op dynamische wijze opnieuw toe te voegen aan een pakket. Media Services ondersteunt de levering van de volgende adaptive bitrate streaming-technologieën: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
+Met Media Services, kunt u profiteren van [dynamische verpakking](media-services-dynamic-packaging-overview.md)en waarmee u voor het uitzenden van uw live streams in MPEG-DASH, HLS, Smooth Streaming-indelingen uit de feed bijdrage die worden verzonden naar de service. De doelgroep kunnen de live stream met een compatibele spelers HLS, DASH of Smooth Streaming worden afgespeeld. U kunt Azure Media Player in uw web- of mobiele toepassingen gebruiken voor het leveren van uw stroom in een van deze protocollen.
+
+> [!NOTE]
+> Vanaf 12 mei 2018 livekanalen wordt niet langer ondersteuning voor het RTP/MPEG-2-transportstroom-opnameprotocol. Voer een migratie uit van RTP/MPEG-2 naar RTMP- of gefragmenteerde MP4 (Smooth Streaming) opnameprotocollen.
+
+## <a name="streaming-endpoints-channels-programs"></a>Streaming-eindpunten, kanalen en programma 's
 
 In Azure Media Services wordt alle functionaliteiten voor live streamen afgehandeld door **kanalen**, **programma's** en **streaming-eindpunten**, waaronder opnemen, opmaken, DVR, beveiliging, schaalbaarheid en redundantie.
 

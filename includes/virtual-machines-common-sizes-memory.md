@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 7984172c2b66f2b09e31c646b111e4b9d04fce2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 39c64b9fe4e03bb0b7216a8d1ba607bec10b4708
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344247"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744055"
 ---
 Geoptimaliseerd voor geheugen VM-grootten aanbieding een hoge geheugen-naar-CPU-snelheid voor relationele-databaseservers, middelgrote tot grote caches en analysefuncties in het geheugen die. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals de doorvoer en netwerkbandbreedte opslag voor elke grootte in deze groepering. 
 
@@ -33,7 +33,7 @@ ACU: 160-190 <sup>1</sup>
 
 Premium-opslag:  Ondersteund
 
-Premium Storage Caching:  Ondersteund
+Premium Storage opslaan in cache:  Ondersteund
 
 Exemplaren uit de ESv3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processors van 2,3 GHz (Broadwell) en kunnen maar liefst 3,5 GHz bereiken door de Intel Turbo Boost Technology 2.0 en maken gebruik van Premium Storage. Ev3-exemplaren zijn ideaal voor geheugenintensieve bedrijfstoepassingen.
 
@@ -63,7 +63,7 @@ ACU: 160 - 190 <sup>1</sup>
 
 Premium-opslag:  Niet ondersteund
 
-Premium Storage Caching:  Niet ondersteund
+Premium Storage opslaan in cache:  Niet ondersteund
 
 Exemplaren uit de Ev3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processors van 2,3 GHz (Broadwell) en kunnen maar liefst 3,5 GHz bereiken door de Intel Turbo Boost Technology 2.0. Ev3-exemplaren zijn ideaal voor geheugenintensieve bedrijfstoepassingen.
 
@@ -94,7 +94,7 @@ ACU: 160-180 <sup>1</sup>
 
 Premium-opslag:  Ondersteund
 
-Premium Storage Caching:  Ondersteund
+Premium Storage opslaan in cache:  Ondersteund
 
 Write Accelerator:  [Ondersteund](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
@@ -132,7 +132,7 @@ ACU: 180 - 240 <sup>1</sup>
 
 Premium-opslag:  Ondersteund
 
-Premium Storage Caching:  Ondersteund
+Premium Storage opslaan in cache:  Ondersteund
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor opslag in cache en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -156,7 +156,7 @@ ACU: 180 - 240
 
 Premium-opslag:  Niet ondersteund
 
-Premium Storage Caching:  Niet ondersteund
+Premium Storage opslaan in cache:  Niet ondersteund
 
 | Grootte         | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Max. aantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -175,7 +175,7 @@ ACU: 210 - 250 <sup>1</sup>
 
 Premium-opslag:  Ondersteund
 
-Premium Storage Caching:  Ondersteund
+Premium Storage opslaan in cache:  Ondersteund
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor opslag in cache en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -198,7 +198,7 @@ ACU: 210 - 250
 
 Premium-opslag:  Niet ondersteund
 
-Premium Storage Caching:  Niet ondersteund
+Premium Storage opslaan in cache:  Niet ondersteund
 
 | Grootte              | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Max. aantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

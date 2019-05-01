@@ -1,5 +1,5 @@
 ---
-title: Een toepassing configureren voor toegang tot web-API's (preview) | Azure
+title: Een toepassing voor toegang tot web-API's - Microsoft identity-platform configureren
 description: Informatie over het configureren van een toepassing die is geregistreerd bij het Microsoft Identity Platform zodat deze omleidings-URI('s), referenties of machtigingen bevat voor toegang tot web-API's.
 services: active-directory
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93e88cedfd098f450e8faeea894f7fdfc796cf17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5e5adafc251735fd25b819921514bf6d1d3c3955
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443563"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918867"
 ---
-# <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Quickstart: Een clienttoepassing configureren voor toegang tot web-API's (preview)
+# <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Quickstart: Een clienttoepassing configureren voor toegang tot web-API's
 
 Voordat een web-/vertrouwelijke clienttoepassing kan deelnemen aan een werkstroom voor autorisatieverlening die verificatie (en het verkrijgen van een toegangstoken) vereist, moeten beveiligde referenties worden vastgesteld. De standaardmethode voor verificatie die wordt ondersteund door Azure Portal is de client-ID + geheime sleutel.
 
@@ -61,7 +61,7 @@ Voordat u de app kunt configureren, volgt u deze stappen:
 1. Zoek en selecteer de toepassing die u wilt configureren. Wanneer u de app hebt geselecteerd, ziet u het **Overzicht** of de hoofdregistratiepagina van de toepassing.
 1. Volg de stappen om uw toepassing te configureren voor toegang tot web-API's: 
     * [Omleidings-URI's toevoegen aan uw toepassing](#add-redirect-uris-to-your-application)
-    * [Referenties toevoegen aan uw webtoepassing](#add-credentials-to-your-web-application)
+    * [Referenties toevoegen aan uw web-App](#add-credentials-to-your-web-application)
     * [Machtigingen toevoegen voor toegang tot web-API's](#add-permissions-to-access-web-apis)
 
 ## <a name="add-redirect-uris-to-your-application"></a>Omleidings-URI('s) toevoegen aan uw toepassing

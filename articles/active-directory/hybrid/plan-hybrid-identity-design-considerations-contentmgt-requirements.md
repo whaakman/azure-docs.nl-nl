@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81a1ab0ee411f05b353317b0d781e0cb292c7d6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d970fd133f8c43319e7f1fdb6b3a50c3c05f687
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455841"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918445"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Bepaal de vereisten voor inhoudsbeheer voor uw oplossing voor hybride identiteit
 Informatie over de vereisten voor inhoud voor uw bedrijf kan direct van invloed op uw beslissing over welke oplossing voor hybride identiteiten te gebruiken. Met de komst van meerdere apparaten en de mogelijkheid van gebruikers op hun eigen apparaten meebrengen ([BYOD](https://aka.ms/byodcg)), het bedrijf een eigen gegevens moet beveiligen, maar deze ook bewaart de privacy van de gebruiker intact. Wat meestal gebeurt wanneer een gebruiker een eigen apparaat heeft, kunnen ze ook meerdere referenties die op basis van de toepassing die ze gebruiken zal worden afwisselende hebben. Het is belangrijk om te onderscheiden welke inhoud is gemaakt met behulp van persoonlijke referenties ten opzichte van die zijn gemaakt met behulp van zakelijke referenties. Uw oplossing voor identiteit moet kunnen communiceren met cloud services voor een naadloze ervaring voor de eindgebruiker tijdens hun privacy te waarborgen en verhoogt de beveiliging tegen gegevenslekken. 
 
 Uw oplossing voor identiteit zal worden gebruikt door verschillende technische besturingselementen om te voorzien van content management, zoals wordt weergegeven in de afbeelding hieronder:
 
-![](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
+![Besturingselementen voor beveiliging](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
 
 **Beveiligingsmaatregelen die zal worden gebruik te maken van uw identiteitsbeheersysteem**
 

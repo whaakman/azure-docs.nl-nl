@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 1e5faa8d356b891d825586414c0a1a1b9fa47090
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: feeb9ae4472fb3439ecc5d6505860cc407f9e4d3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853317"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919714"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Een aangepaste Linux-container configureren voor Azure App Service
 
@@ -109,7 +109,6 @@ SSH maakt veilige communicatie tussen een container en een client mogelijk. In d
 - [Permanente opslag in Docker Compose gebruiken](#use-persistent-storage-in-docker-compose)
 - [Beperkingen voor Preview](#preview-limitations)
 - [Docker Compose-opties](#docker-compose-options)
-- [Configuratieopties voor Kubernetes](#kubernetes-configuration-options)
 
 ### <a name="use-persistent-storage-in-docker-compose"></a>Permanente opslag in Docker Compose gebruiken
 
@@ -132,19 +131,6 @@ wordpress:
   - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
   - ${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin
   - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
-```
-
-### <a name="use-custom-storage-in-docker-compose"></a>Aangepaste storage gebruiken in het Docker Compose
-
-Azure Storage (Azure Files of Azure Blob) kan worden gekoppeld met meerdere containers apps met behulp van de aangepaste-id. Uitvoeren als u de naam van de aangepaste-id, [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
-
-In uw *docker-compose.yml* bestand, wijs de `volumes` optie naar `custom-id`. Bijvoorbeeld:
-
-```yaml
-wordpress:
-  image: wordpress:latest
-  volumes:
-  - <custom-id>:<path_in_container>
 ```
 
 ### <a name="preview-limitations"></a>Preview-beperkingen
@@ -179,22 +165,6 @@ De volgende lijsten ziet u ondersteunde en niet-ondersteunde Docker Compose conf
 
 > [!NOTE]
 > Andere opties niet expliciet worden beschreven worden in de openbare Preview genegeerd.
-
-### <a name="kubernetes-configuration-options"></a>Configuratieopties voor Kubernetes
-
-De volgende configuratieopties worden ondersteund voor Kubernetes:
-
-- argumenten
-- command
-- containers
-- image
-- name
-- ports
-- spec
-
-> [!NOTE]
-> Andere opties niet expliciet worden beschreven worden niet in de openbare Preview ondersteund.
->
 
 ## <a name="next-steps"></a>Volgende stappen
 

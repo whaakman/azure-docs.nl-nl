@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
 ms.openlocfilehash: 0bef586540635ee1bada3475f6316c84dea4308c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123158"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722684"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>Apache Phoenix gebruiken met Apache HBase op basis van Linux-clusters in HDInsight
 Meer informatie over het gebruik van [Apache Phoenix](https://phoenix.apache.org/) in Azure HDInsight en SQLLine gebruiken. Zie voor meer informatie over Phoenix [Apache Phoenix in 15 minuten of minder](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Zie voor de grammatica Phoenix [Apache Phoenix grammatica](https://phoenix.apache.org/language/index.html).

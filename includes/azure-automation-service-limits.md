@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 04929de241ff36e4d67f24907747d89a16a73898
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012494"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733812"
 ---
 #### <a name="process-automation"></a>Procesautomatisering
 
@@ -31,6 +31,7 @@ ms.locfileid: "60012494"
 | Maximum aantal netwerk sockets toegestaan per sandbox<sup>1</sup> |1000 |Van toepassing op Azure sandboxes geladen.|
 | Maximale runtime toegestaan per runbook<sup>1</sup> |3 uur |Van toepassing op Azure sandboxes geladen.|
 | Maximum aantal Automation-accounts in een abonnement |Geen limiet ||
+| Maximum aantal Hybrid Worker-groepen per Automation-Account|4,000||
 |Maximum aantal gelijktijdige taken die kunnen worden uitgevoerd op een enkele Hybrid Runbook Worker|50 ||
 | De parameter taakgrootte maximale runbook   | 512 kilobits||
 | Maximale runbook-parameters   | 50|Als u de limiet van 50-parameter is bereikt, kunt u een JSON of XML-tekenreeks doorgeven aan een parameter en aan het runbook parseren.|

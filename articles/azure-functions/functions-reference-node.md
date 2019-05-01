@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 9ef7dd7603b93f6b15988cc4cca089f0486eb3b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 37d00abbbf726dc1b92bdcc5f39b16301de9b93d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61032422"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697846"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
@@ -52,7 +52,7 @@ FunctionsProject
 
 In de hoofdmap van het project, er is een gedeelde [host.json](functions-host-json.md) -bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een map met een eigen codebestand (.js) en de binding-configuratiebestand (function.json). De naam van `function.json`van bovenliggende map is altijd de naam van uw functie.
 
-De binding-extensies vereist in [versie 2.x](functions-versions.md) van de functies runtime zijn gedefinieerd in de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](./functions-bindings-register.md#local-development-azure-functions-core-tools). Bij het ontwikkelen van functies in Azure portal, geldt deze registratie voor u.
+De binding-extensies vereist in [versie 2.x](functions-versions.md) van de functies runtime zijn gedefinieerd in de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Bij het ontwikkelen van functies in Azure portal, geldt deze registratie voor u.
 
 ## <a name="exporting-a-function"></a>Exporteren van een functie
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d48977c60fb4a13e1fc0dbd294fa4e7708f1cd5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a7462536443b2be23eef0f8b4c6f6b6412fb7032
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60277474"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724876"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Zelfstudie: Azure Active Directory-integratie met G Suite
 
@@ -239,11 +239,11 @@ Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren en testen, voe
 
     a. Selecteer **Installatie van eenmalige aanmelding met id-provider van derden**.
 
-    b. Plak in het veld **URL van aanmeldingspagina** in G Suite de waarde van  **Aanmeldings-URL**  die u hebt gekopieerd in de Azure-portal.
+    b. In de **aanmelden pagina-URL** veld in G Suite, plak de waarde van **aanmeldings-URL** die u hebt gekopieerd vanuit Azure portal.
 
-    c. Plak in het veld **URL van afmeldingspagina** in G Suite de waarde van  **Afmeldings-URL**  die u hebt gekopieerd in de Azure-portal.
+    c. In de **URL voor afmelden pagina** veld in G Suite, plak de waarde van **afmeldings-URL van** die u hebt gekopieerd vanuit Azure portal.
 
-    d. Plak in het veld **URL voor wachtwoord wijzigen** in G Suite de waarde van  **URL voor wachtwoord wijzigen**  die u hebt gekopieerd in de Azure-portal.
+    d. In de **de URL van het wachtwoord wijzigen** veld in G Suite, plak de waarde van **de URL van het wachtwoord wijzigen** die u hebt gekopieerd vanuit Azure portal.
 
     e. Upload in G Suite voor **Verificatiecertificaat** het certificaat dat u hebt gedownload in de Azure-portal.
 

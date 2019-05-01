@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9c3bd2480853f5c4134cd560c20a6007b044e138
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709482"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924655"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Beheerders van de klassieke Azure-abonnement
 
@@ -30,7 +30,7 @@ Dit artikel wordt beschreven hoe u wilt toevoegen of wijzigen van de rollen Mede
 ## <a name="add-a-co-administrator"></a>Toevoegen van een CO-beheerder
 
 > [!TIP]
-> U hoeft alleen het toevoegen van een CO-beheerder als de gebruiker nodig heeft voor het klassieke Azure-implementaties beheren met behulp van [PowerShell-Module voor Azure Service Management](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure). Als de gebruiker wordt alleen de Azure portal gebruikt om de klassieke resources te beheren, hoeft u niet om toe te voegen van de klassieke administrator voor de gebruiker.
+> U hoeft alleen het toevoegen van een CO-beheerder als de gebruiker nodig heeft voor het klassieke Azure-implementaties beheren met behulp van [PowerShell-Module voor Azure Service Management](https://docs.microsoft.com/powershell/module/servicemanagement/azure). Als de gebruiker wordt alleen de Azure portal gebruikt om de klassieke resources te beheren, hoeft u niet om toe te voegen van de klassieke administrator voor de gebruiker.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als een Service-beheerder.
 

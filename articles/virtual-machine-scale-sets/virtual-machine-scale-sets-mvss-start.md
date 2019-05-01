@@ -1,10 +1,10 @@
 ---
 title: Meer informatie over de virtuele machine schaalsetsjablonen | Microsoft Docs
-description: Meer informatie over het maken van een sjabloon voor minimaal levensvatbare schaalsets voor virtuele-machineschaalsets
+description: Meer informatie over het maken van een eenvoudige sjabloon voor schaalsets voor virtuele-machineschaalsets
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,27 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: d4a3dd6ae390fd48a8085cca33063a6bb74bd96c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8b6a6b78dc74572b22d397b5536efa1394401bbc
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60805578"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868906"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Meer informatie over schaalsetsjablonen virtuele machine
-[Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) zijn bijzonder handig om groepen gerelateerde resources te implementeren. In deze reeks zelfstudies ziet over het maken van een sjabloon voor minimaal levensvatbare schaalsets en hoe u deze sjabloon aan de behoeften van verschillende scenario's te wijzigen. Alle voorbeelden afkomstig zijn van dit [GitHub-opslagplaats](https://github.com/gatneil/mvss). 
+[Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) zijn bijzonder handig om groepen gerelateerde resources te implementeren. In deze reeks zelfstudies ziet over het maken van een eenvoudige schaalsetsjabloon en hoe u deze sjabloon aan de behoeften van verschillende scenario's te wijzigen. Alle voorbeelden afkomstig zijn van dit [GitHub-opslagplaats](https://github.com/gatneil/mvss).
 
 Deze sjabloon is bedoeld om eenvoudig zijn. Voor meer voorbeelden van de schaal sjablonen, raadpleegt u de [Azure Quickstart-sjablonen GitHub-opslagplaats](https://github.com/Azure/azure-quickstart-templates) en zoek naar de mappen met de tekenreeks `vmss`.
 
 Als u al bekend bent met het maken van sjablonen, kunt u overslaan naar de sectie 'Volgende stappen' voor informatie over het wijzigen van deze sjabloon.
-
-## <a name="review-the-template"></a>Controleer de sjabloon
-
-GitHub gebruiken om te controleren van de minimale levensvatbare schaalsetsjabloon, [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json).
-
-In deze zelfstudie gaan we bekijken de diff (`git diff master minimum-viable-scale-set`) instellen om te maken van de schaal voor minimaal levensvatbare sjabloon stuk per stuk.
 
 ## <a name="define-schema-and-contentversion"></a>$Schema en sjablooneigenschap definiëren
 Eerst definieert u `$schema` en `contentVersion` in de sjabloon. De `$schema` -element de versie van de taal van de sjabloon definieert en wordt gebruikt voor Visual Studio syntaxismarkering en soortgelijke validatie-functies. De `contentVersion` element wordt niet gebruikt door Azure. In plaats daarvan kunt u de versie van het bijhouden van.
@@ -43,6 +37,7 @@ Eerst definieert u `$schema` en `contentVersion` in de sjabloon. De `$schema` -e
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
 ```
+
 ## <a name="define-parameters"></a>De parameters definiëren
 Vervolgens definieert u twee parameters `adminUsername` en `adminPassword`. Parameters zijn waarden die u op het moment van implementatie opgeeft. De `adminUsername` parameter is gewoon een `string` type, maar omdat `adminPassword` is een geheim, geef het type `securestring`. Later, worden deze parameters doorgegeven in de configuratie van de schaalset.
 
@@ -70,13 +65,13 @@ Vervolgens wordt de sectie met resources van de sjabloon. Hier kunt definiëren 
    "resources": [
 ```
 
-Alle resources vereisen `type`, `name`, `apiVersion`, en `location` eigenschappen. De eerste resource van dit voorbeeld heeft een type [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)en de naam `myVnet`, en apiVersion `2016-03-30`. (De meest recente versie van de API voor een resourcetype, Zie de [verwijzing naar de Azure Resource Manager-sjabloon](/azure/templates/).)
+Alle resources vereisen `type`, `name`, `apiVersion`, en `location` eigenschappen. De eerste resource van dit voorbeeld heeft een type [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)en de naam `myVnet`, en apiVersion `2018-11-01`. (De meest recente versie van de API voor een resourcetype, Zie de [verwijzing naar de Azure Resource Manager-sjabloon](/azure/templates/).)
 
 ```json
      {
        "type": "Microsoft.Network/virtualNetworks",
        "name": "myVnet",
-       "apiVersion": "2016-12-01",
+       "apiVersion": "2018-11-01",
 ```
 
 ## <a name="specify-location"></a>Locatie opgeven
@@ -117,7 +112,7 @@ Er is in dit geval slechts één element in de lijst, het virtuele netwerk van h
      {
        "type": "Microsoft.Compute/virtualMachineScaleSets",
        "name": "myScaleSet",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01",
        "location": "[resourceGroup().location]",
        "dependsOn": [
          "Microsoft.Network/virtualNetworks/myVnet"
@@ -136,7 +131,7 @@ De schaalset moet weten welke grootte van virtuele machine te maken ('sku-naam')
 ```
 
 ### <a name="choose-type-of-updates"></a>Kies het type updates
-De schaalset ook moet weten over het verwerken van updates op de schaalset. Er zijn momenteel twee opties `Manual` en `Automatic`. Zie de documentatie voor meer informatie over de verschillen tussen de twee op [upgrade uitvoeren van een schaalset](./virtual-machine-scale-sets-upgrade-scale-set.md).
+De schaalset ook moet weten over het verwerken van updates op de schaalset. Er zijn momenteel drie opties `Manual`, `Rolling` en `Automatic`. Zie de documentatie voor meer informatie over de verschillen tussen de twee op [upgrade uitvoeren van een schaalset](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ```json
        "properties": {

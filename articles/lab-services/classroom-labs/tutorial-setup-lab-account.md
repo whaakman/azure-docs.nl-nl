@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/29/2019
+ms.date: 04/24/2019
 ms.author: spelluru
-ms.openlocfilehash: 962b69a97b8116b82878a0a82960c9159091a9a7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 704ad915616e4f860204783462269ec68a6e4e28
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652617"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730637"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Zelfstudie: Een lab-account instellen met Azure Lab Services
 In Azure Lab Services fungeert een lab-account als het centrale account waarin alle labs in uw organisatie worden beheerd. In uw lab-account machtigt u anderen om labs te maken en stelt u beleidsregels in die van toepassing zijn op alle labs in het lab-account. In deze zelfstudie leert u hoe u een lab-account maakt als lab-beheerder. 
@@ -48,9 +48,10 @@ In de volgende stappen ziet u hoe u Azure Portal kunt gebruiken om een lab te ma
     2. Selecteer het **Azure-abonnement** waarin u het lab-account wilt maken.
     3. Selecteer voor **Resourcegroep** de optie **Nieuwe maken** en voer een naam in voor de resourcegroep.
     4. Selecteer voor **Locatie** een locatie/regio waarin het lab-account moet worden gemaakt. 
-    5. Voor **virtuele peernetwerk**, selecteert u een peer-netwerk (VNet voor het testlabnetwerk). Labs gemaakt in dit account zijn verbonden met het geselecteerde VNet en hebben toegang tot de resources in het geselecteerde VNet. 
-    6. Voor het veld **Labmaker toestaan om lablocatie te kiezen** geeft u op of u wilt dat labmakers een locatie voor het lab kunnen selecteren. De optie is standaard uitgeschakeld. Wanneer deze is uitgeschakeld, kunnen labmakers geen locatie opgeven voor het lab dat ze maken. De labs worden gemaakt in de dichtstbijzijnde geografische locatie in het labaccount. Wanneer deze is ingeschakeld, kan de labmaker een locatie selecteren wanneer hij een lab maakt. 
-    7. Selecteer **Maken**. 
+    5. Selecteer een bestaande **gedeelde afbeeldingengalerie** of er een maken. U kunt de VM-sjabloon opslaan in de galerie met installatiekopieën van de gedeelde voor het opnieuw door anderen worden gebruikt. Zie voor gedetailleerde informatie over gedeelde afbeeldingsgalerieën [een galerie met gedeelde installatiekopieën in Azure Lab Services gebruikt](how-to-use-shared-image-gallery.md). 
+    6. Voor **virtuele peernetwerk**, selecteert u een peer-netwerk (VNet voor het testlabnetwerk). Labs gemaakt in dit account zijn verbonden met het geselecteerde VNet en hebben toegang tot de resources in het geselecteerde VNet. 
+    7. Voor het veld **Labmaker toestaan om lablocatie te kiezen** geeft u op of u wilt dat labmakers een locatie voor het lab kunnen selecteren. De optie is standaard uitgeschakeld. Wanneer deze is uitgeschakeld, kunnen labmakers geen locatie opgeven voor het lab dat ze maken. De labs worden gemaakt in de dichtstbijzijnde geografische locatie in het labaccount. Wanneer deze is ingeschakeld, kan de labmaker een locatie selecteren wanneer hij een lab maakt. 
+    8. Selecteer **Maken**. 
 
         ![Venster Een lab-account maken](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Selecteer het **Klokpictogram** op de werkbalk (**Meldingen**), controleer of de implementatie is voltooid en selecteer vervolgens **Naar de resource gaan**. 

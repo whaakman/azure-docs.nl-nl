@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e734b932976896b2fb4d86e2627b7827d40a2545
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454864"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918776"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Plan voor het verbeteren van de beveiliging van gegevens via een goede oplossing voor identiteitsbeheer
 De eerste stap bij het beveiligen van gegevens is om te bepalen wie toegang heeft tot die gegevens. U moet ook een identiteitsoplossing die kan worden geïntegreerd met uw systeem zodat de mogelijkheden van verificatie en autorisatie hebt. Verificatie en autorisatie worden vaak verward met elkaar en hun rollen verkeerd begrepen. In werkelijkheid zijn deze verschillend, zoals wordt weergegeven in de afbeelding hieronder:
 
-![](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
+![levenscyclus van mobiele apparaten](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **Fasen van levenscyclus van mobiele apparaten**
 
@@ -44,7 +44,7 @@ In het tijdperk van mobiliteit, de meeste bedrijven hebben een gemeenschappelijk
 Er zijn echter enkele beveiligingsaspecten die moeten worden verkend en gevalideerd, ongeacht de branche.
 
 ## <a name="data-protection-paths"></a>Gegevenspaden voor beveiliging
-![](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
+![Gegevenspaden voor beveiliging](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
 
 **Gegevenspaden voor beveiliging**
 

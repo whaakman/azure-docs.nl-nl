@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c81b0926b88ad2f1dbb3af7c1a2c51e8a79430f9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ee721558e0e643a4b5fdcfa4cf0fe9c2195fa479
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59737053"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64736980"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium storage: ontwerp voor hoge prestaties
 
@@ -114,7 +114,7 @@ De beste manier om te meten van de prestatievereisten van uw toepassing, is met 
 
 De prestatiemeteritems zijn beschikbaar voor processor, geheugen, en elke logische schijf en de fysieke schijf van uw server. Als u premium storage-schijven met een virtuele machine, de fysieke schijf-prestatiemeteritems maken voor elke premium-opslagschijf en prestatiemeteritems voor logische schijf zijn voor elk volume dat is gemaakt op de premium-opslagschijven. U kunt de waarden voor de schijven die als host de workload van uw toepassing fungeren moet vastleggen. Als er een één-op-een-toewijzing tussen logische en fysieke schijven, kunt u verwijzen naar prestatiemeteritems voor fysieke schijf; Raadpleeg anders de prestatiemeteritems voor logische schijf. Op Linux genereert de opdracht iostat een CPU en het disk utilization-rapport. Het disk utilization-rapport voorziet in statistieken per fysieke apparaat of de partitie. Als u een database-server met de gegevens en logboekbestanden op afzonderlijke schijven hebt, verzamelen van deze gegevens voor beide schijven. Onderstaande tabel worden beschreven tellers voor schijven, processors en geheugen:
 
-| Teller | Beschrijving | PerfMon | Iostat |
+| Teller | Description | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOP's of transacties per seconde** |Het aantal i/o-aanvragen die zijn verleend aan de schijf voor opslag per seconde. |Schijf lezen per seconde <br> Schijf schrijven per seconde |tps <br> r/s <br> w/s |
 | **Schijf lees- en schrijfbewerkingen** |% van leesbewerkingen en bewerkingen die worden uitgevoerd op de schijf te schrijven. |Percentage schijftijd voor lezen <br> Percentage schijftijd voor schrijven |r/s <br> w/s |
@@ -299,7 +299,7 @@ U kunt bijvoorbeeld deze richtlijnen toepassen op SQL Server op Premium Storage 
 1. Configureren 'None' in de cache op premium storage-schijven die als host fungeert voor de logboekbestanden.  
    a.  Logboekbestanden hebben voornamelijk schrijfintensief bewerkingen. Ze kunnen daarom niet gebruikmaken van de alleen-lezen-cache.
 
-### <a name="optimize-performance-on-linux-vms"></a>Prestaties op virtuele Linux-machines te optimaliseren
+## <a name="optimize-performance-on-linux-vms"></a>Prestaties op virtuele Linux-machines te optimaliseren
 
 Voor alle premium SSD's of ultra schijven met cache ingesteld op **ReadOnly** of **geen**, moet u "barrières" uitschakelen wanneer u het bestandssysteem koppelen. U hoeft geen barrières in dit scenario omdat de schrijfbewerkingen naar premium storage-schijven duurzame voor deze cache-instellingen zijn. Wanneer de schrijfaanvraag met succes is voltooid, heeft de gegevens zijn geschreven voor het permanente archief. Als wilt uitschakelen 'barrières', een van de volgende methoden te gebruiken. Kies de koppeling voor het bestandssysteem:
   
@@ -328,7 +328,7 @@ Voor sommige van de versies van moet de meest recente Linux Integration Services
 | Oracle | 7.0-7.1 | &nbsp; | UEK4 of RHCK met[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 | Oracle | 6.4-6.7 | &nbsp; | UEK4 of RHCK met[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
-## <a name="lis-drivers-for-openlogic-centos"></a>LIS-stuurprogramma's voor OpenLogic CentOS
+### <a name="lis-drivers-for-openlogic-centos"></a>LIS-stuurprogramma's voor OpenLogic CentOS
 
 Als u nu OpenLogic CentOS-VM's worden uitgevoerd, voert u de volgende opdracht om de meest recente stuurprogramma's installeren:
 

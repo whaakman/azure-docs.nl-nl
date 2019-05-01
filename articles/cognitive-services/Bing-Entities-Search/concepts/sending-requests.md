@@ -10,16 +10,16 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 8eab941f9589e84d7193cc32f91d080d7cda7c08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fd0ccff9875086f46ca001660b0ee954d3e539b
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803290"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869963"
 ---
 # <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Verzenden van zoekaanvragen naar de Bing Entiteiten zoeken-API
 
-De Bing Entiteiten zoeken-API verzendt een zoekquery naar Bing en haalt resultaten op die zowel entiteiten als plaatsen bevatten. Plaatsresultaten kunnen restaurants, hotels of andere lokale bedrijven zijn. In het geval van plaatsen kan de query de naam van het lokale bedrijf opgeven of vragen om een lijst (bijvoorbeeld 'restaurants near me'). Entiteitsresultaten zijn personen, plaatsen of dingen. Voorbeelden van plaatsen in deze context zijns toeristische bezienswaardigheden, staten, landen, enzovoort. 
+De Bing Entiteiten zoeken-API verzendt een zoekquery naar Bing en haalt resultaten op die zowel entiteiten als plaatsen bevatten. Plaatsresultaten kunnen restaurants, hotels of andere lokale bedrijven zijn. In het geval van plaatsen kan de query de naam van het lokale bedrijf opgeven of vragen om een lijst (bijvoorbeeld 'restaurants near me'). Entiteitsresultaten zijn personen, plaatsen of dingen. Plaats in deze context is toeristische bezienswaardigheden, Staten, landen/regio's, enzovoort. 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 

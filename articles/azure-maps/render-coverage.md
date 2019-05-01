@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5b6efce033efe99ed4463d6b04b24503de57407c
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 7feea92d48a826000fd8aa878b95658b79d6d908
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63762776"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869998"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps dekking voor weergave
 
@@ -45,7 +45,6 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 | Centraal-Afrikaanse Republiek         | ✓ | Ø |
 | Tsjaad                             | ✓ | Ø |
 | Comoren                          | ✓ | Ø |
-| Congo-Brazzaville                            | ✓ | ✓ |
 | Congo (DRC) | ✓ | ✓ |
 | Ivoorkust                    | ✓ | Ø |
 | Djibouti                         | ✓ | Ø |
@@ -109,7 +108,6 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 | Canada                    | ✓ | ✓ |
 | Kaaimaneilanden            | ✓ | ✓ |
 | Chili                     | ✓ | ✓ |
-| Clipperton-eiland         | ✓ | ✓ |
 | Colombia                  | ✓ | ✓ |
 | Costa Rica                | ✓ | ✓ |
 | Cuba                      | ✓ | ✓ |

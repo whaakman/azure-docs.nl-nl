@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b477171be0f306431b0f7c5965ebede4f4680c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f344a4f928030c07f59c2f7aba201d153da123f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249935"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918722"
 ---
 # <a name="web-api"></a>Web-API
 
@@ -69,7 +69,7 @@ Zie de codevoorbeelden voor Web-App naar Web-API-scenario's. En kom regelmatig t
 
 ## <a name="app-registration"></a>App-registratie
 
-Zie voor het registreren van een toepassing met de Azure AD v1.0-eindpunt, [een app registreren bij de Azure AD-eindpunt v1.0](quickstart-v1-add-azure-ad-app.md).
+Zie voor het registreren van een toepassing met de Azure AD v1.0-eindpunt, [een app registreren](quickstart-register-app.md).
 
 * Één tenant - voor de toepassings-id en gemachtigde gebruiker identiteit gevallen, de web-App en de web-API moet worden geregistreerd in dezelfde map in Azure AD. De web-API kan worden geconfigureerd als een reeks machtigingen die worden gebruikt voor het beperken van toegang tot de bronnen van de web-App beschikbaar wilt maken. Als een gemachtigde gebruiker-ID-type wordt gebruikt, de web-App dient te selecteren van de gewenste machtigingen van de **machtigingen voor andere toepassingen** vervolgkeuzelijst in de Azure-portal. Deze stap is niet vereist als het toepassingstype identiteit wordt gebruikt.
 * Multitenant-eerst de webtoepassing is geconfigureerd om aan te geven van de machtigingen die nodig is voor functioneel. Deze lijst met vereiste machtigingen in een dialoogvenster weergegeven wanneer een gebruiker of beheerder in de doelmap toestemming geeft voor de toepassing, waardoor het beschikbaar is voor hun organisatie. Sommige toepassingen vereisen alleen machtigingen op gebruikersniveau, waar een gebruiker in de organisatie toestemming kunt geven. Andere toepassingen vereist beheerdersrechten, die een gebruiker in de organisatie kan niet met instemmen zijn. Alleen een directory-beheerder kan toestemming geven voor toepassingen waarvoor dit niveau van machtigingen. Wanneer de gebruiker of beheerder hiermee akkoord gaat, de web-App en de web-API zijn beide geregistreerd in de directory.

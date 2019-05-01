@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d009022d4ec03990d3ed0321ebcb13c72c674ed8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e988d03b60469940d8750cc07188a61fc7ab8b3a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294205"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709612"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Azure Active Directory Identity Protection risicogebeurtenissen verwijzen naar
 
@@ -80,10 +80,16 @@ Dit type risicogebeurtenis geeft aanmeldingen vanaf IP-adressen die zijn geïnfe
 
 ## <a name="unfamiliar-sign-in-properties"></a>Onbekende aanmeldingseigenschappen
 
-**Detectietype:** Realtime  
-**Oude naam:** Aanmeldingen vanaf onbekende locaties
+**Detectietype:** Realtime **oude naam:** Aanmeldingen vanaf onbekende locaties
 
 Dit type risicogebeurtenis rekening gehouden met na aanmelding geschiedenis (IP, breedtegraad / lengtegraad en ASN) om te zoeken naar afwijkende aanmeldingen. Het systeem wordt informatie opgeslagen over de voorgaande locaties die worden gebruikt door een gebruiker en deze 'vertrouwde' locaties overweegt. De risicogebeurtenis wordt geactiveerd wanneer de aanmelding plaatsvindt vanaf een locatie die nog niet in de lijst met vertrouwde sites. Nieuwe gebruikers bevindt zich in 'learning modus' voor een bepaalde periode in welke eigenschappen voor onbekende aanmelden risicogebeurtenissen wordt uitgeschakeld terwijl het gedrag van de gebruiker door onze algoritmen voor meer informatie. De learning dynamisch is de duur van de modus en is afhankelijk van de op hoe lang het duurt voordat het algoritme voor het verzamelen van voldoende gegevens over van de gebruiker aanmelden patronen. De minimale duur is vijf dagen. Een gebruiker kunt teruggaan naar het learning-modus na een lange periode van inactiviteit. Aanmeldingen vanaf bekende apparaten en de locaties die geografisch dicht bij een vertrouwde locatie wordt ook negeert door het systeem. 
 
 We ook uitvoeren deze detectie voor basisverificatie (of verouderde protocollen). Omdat deze protocollen geen moderne eigenschappen zoals client-ID hebt, is er beperkte prestatietelemetrie waarmee u fout-positieven. We raden onze klanten om te verplaatsen naar moderne verificatie.
 
+
+## <a name="azure-ad-threat-intelligence"></a>Azure AD-bedreigingsinformatie
+
+**Detectietype:** Offline <br>
+**Oude naam:** Deze detectie worden weergegeven in de verouderde Azure AD Identity Protection-rapporten (gebruikers gemarkeerd voor risico, risico's) als 'Gebruikers met de referenties zijn gelekt'
+
+Dit type risicogebeurtenis wijst op een gebruikersactiviteit die is ongebruikelijk voor de opgegeven gebruiker of is consistent met bekende aanvalspatronen op basis van Microsofts interne en externe threat intelligence bronnen.

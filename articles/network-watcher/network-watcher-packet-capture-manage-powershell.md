@@ -3,8 +3,8 @@ title: Pakketopname beheren met Azure Network Watcher - PowerShell | Microsoft D
 description: Deze pagina wordt uitgelegd hoe u voor het beheren van de functie voor het vastleggen van pakketten van Network Watcher met behulp van PowerShell
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 04d82085-c9ea-4ea1-b050-a3dd4960f3aa
 ms.service: network-watcher
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 267b2c375ef9672c8e5bd7cb8280b4dd40dbcd0d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: kumud
+ms.openlocfilehash: 81b02cc7c7683bcd9abac2ad1b554644035991c6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045540"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710099"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Pakketopname beheren met Azure Network Watcher met behulp van PowerShell
 
 > [!div class="op_single_selector"]
-> - [Azure-portal](network-watcher-packet-capture-manage-portal.md)
+> - [Azure Portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [Azure-CLI](network-watcher-packet-capture-manage-cli.md)
 > - [Azure REST API](network-watcher-packet-capture-manage-rest.md)

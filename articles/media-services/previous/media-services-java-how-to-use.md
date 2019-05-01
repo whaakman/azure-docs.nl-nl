@@ -14,16 +14,17 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a12d0e7d4382d1f8feac721c103d9231e54ad249
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fedec6ea764394d36f5b4d7c883f7cb9f9520a29
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61463855"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869023"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Aan de slag met de SDK voor Java-clients voor Azure Media Services  
 
-[!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
+> [!NOTE]
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
 
 In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van video-inhoud met Azure Media Services via de SDK voor Java-clients.
 

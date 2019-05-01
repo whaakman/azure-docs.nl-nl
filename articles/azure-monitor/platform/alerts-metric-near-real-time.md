@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 0dd8d7c1e004472d230337b72d55ac7ced905b41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 965d1ace2afdad21a069193b508fc2b10fdf4700
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490925"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697231"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ondersteunde resources voor metrische waarschuwingen in Azure Monitor
 
@@ -68,6 +68,10 @@ Dit is de volledige lijst met Azure monitor metrische bronnen die worden onderst
 
 
 ## <a name="payload-schema"></a>De nettolading van schema
+
+> [!NOTE]
+> U kunt ook de [algemene waarschuwing schema](https://aka.ms/commonAlertSchemaDocs), waarmee u het voordeel dat een enkele, uitbreidbare en geïntegreerde alert payload voor alle van de waarschuwing van services in Azure Monitor voor de webhook-integraties. [Meer informatie over de algemene waarschuwing schemadefinities.](https://aka.ms/commonAlertSchemaDefinitions)
+
 
 De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle in de buurt van nieuwere metrische waarschuwingen wanneer een op de juiste wijze geconfigureerde [actiegroep](../../azure-monitor/platform/action-groups.md) wordt gebruikt:
 

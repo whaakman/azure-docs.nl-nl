@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 520aeb8e47b5e94e6346e682f21f46cb0814f8f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a3c6eca548eb61d6b7b239b4292b9c77ca2dec6f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389650"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702709"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure resourceproviders en typen
 
@@ -31,6 +31,8 @@ Bij het implementeren van resources, moet u vaak informatie ophalen over de reso
 * Ongeldig API-versies voor een resourcetype weergeven
 
 U kunt deze stappen via de Azure portal, Azure PowerShell of Azure CLI kunt doen.
+
+Zie voor een lijst die is toegewezen resourceproviders aan Azure-services, [resourceproviders voor Azure-services](azure-services-resource-providers.md).
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -291,5 +293,5 @@ West US
 
 * Zie voor meer informatie over het maken van Resource Manager-sjablonen, [Authoring Azure Resource Manager-sjablonen](resource-group-authoring-templates.md). 
 * Het sjabloonschema resource provider, Zie [sjabloonverwijzing](/azure/templates/).
-* Zie voor meer informatie over het implementeren van resources, [een toepassing implementeren met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
+* Zie voor een lijst die is toegewezen resourceproviders aan Azure-services, [resourceproviders voor Azure-services](azure-services-resource-providers.md).
 * Als u de bewerkingen voor een resourceprovider, Zie [REST API van Azure](/rest/api/).

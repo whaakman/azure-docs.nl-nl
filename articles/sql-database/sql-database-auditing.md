@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: add3521a3961f230188e04ff23dda5aac537571a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61418400"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924745"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
@@ -90,7 +90,7 @@ Het volgende gedeelte bevat de configuratie van de controle met Azure portal.
 5. **Nieuwe** -u hebt nu meerdere opties voor het configureren van waarnaar de auditlogboeken worden geschreven. U kunt Logboeken schrijven naar een Azure storage-account, een Log Analytics-werkruimte voor gebruik door Azure Monitor-Logboeken of naar event hub voor gebruik met behulp van event hub. U kunt een willekeurige combinatie van deze opties configureren en auditlogboeken worden geschreven naar elk.
 
    > [!WARNING]
-   > Inschakelen van controle met Log Analytics wordt in rekening gebracht op basis van de tarieven voor gegevensopname kosten. Houd rekening met de bijbehorende kosten bij het gebruik van dit [optie](https://azure.microsoft.com/en-us/pricing/details/monitor/), of houd rekening met het opslaan van de audit-Logboeken in Azure storage-account.
+   > Inschakelen van controle met Log Analytics wordt in rekening gebracht op basis van de tarieven voor gegevensopname kosten. Houd rekening met de bijbehorende kosten bij het gebruik van dit [optie](https://azure.microsoft.com/pricing/details/monitor/), of houd rekening met het opslaan van de audit-Logboeken in Azure storage-account.
 
     ![Opties voor opslag](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 

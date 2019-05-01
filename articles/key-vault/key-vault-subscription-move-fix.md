@@ -2,29 +2,25 @@
 title: De tenant-ID voor key vault wijzigen na de verplaatsing van een abonnement - Azure Key Vault | Microsoft Docs
 description: Meer informatie over het overschakelen op een ander tenant-ID voor een Key Vault nadat een abonnement is verplaatst naar een andere tenant
 services: key-vault
-documentationcenter: ''
 author: amitbapat
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 46d7bc21-fa79-49e4-8c84-032eef1d813e
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: a83bff5a494ce338f43b6e967df5fe67cacfab01
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f32146697be234a8a288ff991b1f7adf6e76dc7e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112186"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724490"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>De tenant-ID van de Key Vault wijzigen na een verplaatsing van een abonnement
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>VRAAG: Mijn abonnement is van tenant A verplaatst naar tenant B. Hoe wijzig ik de tenant-id voor mijn bestaande sleutelkluis en stel ik de juiste ACL's in voor principals in tenant B?
+## <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>V: Mijn abonnement is van tenant A verplaatst naar tenant B. Hoe wijzig ik de tenant-id voor mijn bestaande sleutelkluis en stel ik de juiste ACL's in voor principals in tenant B?
 
 Wanneer u een nieuwe Key Vault maakt in een abonnement, is het automatisch gekoppeld aan de tenant-ID van Azure Active Directory voor dit abonnement. Alle vermeldingen van het toegangsbeleid zijn ook gekoppeld aan deze tenant-ID. Wanneer u uw Azure-abonnement van tenant A naar tenant B verplaatst, hebben de principals (gebruikers en toepassingen) geen toegang tot de bestaande Key Vaults in tenant B. U kunt dit probleem oplossen door:
 

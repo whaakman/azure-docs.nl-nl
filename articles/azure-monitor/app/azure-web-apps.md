@@ -7,14 +7,14 @@ author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489619"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922450"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service-prestaties bewaken
 
@@ -40,6 +40,10 @@ Er zijn twee manieren om in te schakelen toepassingsbewaking voor toepassingen i
 > Als de controle van de agent op basis van zowel handmatige SDK op basis van instrumentation wordt gedetecteerd dat alleen de instellingen voor handmatige instrumentation zal worden herkend. Zo wordt voorkomen dat dubbele gegevens verzonden. Voor meer informatie over deze controle uit de [sectie troubleshooting](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) hieronder.
 
 ## <a name="enable-agent-based-monitoring-net"></a>Schakel bewaking .NET op basis van een agent
+
+> [!NOTE]
+> de combinatie van APPINSIGHTS_JAVASCRIPT_ENABLED en urlCompression wordt niet ondersteund. Zie voor meer informatie de uitleg in de [sectie troubleshooting](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
+
 
 1. **Selecteer Application Insights** in de Azure-Configuratiescherm voor uw appservice.
 
@@ -352,6 +356,15 @@ De onderstaande tabel bevat een meer gedetailleerde uitleg van de betekenis van 
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Deze waarde geeft aan dat extensie verwijzingen naar gedetecteerd `Microsoft.AspNet.TelemetryCorrelation` in de toepassing, en wordt uitstel. | Verwijder de verwijzing.
 |`AppContainsDiagnosticSourceAssembly**:true`|Deze waarde geeft aan dat extensie verwijzingen naar gedetecteerd `System.Diagnostics.DiagnosticSource` in de toepassing, en wordt uitstel.| Verwijder de verwijzing.
 |`IKeyExists:false`|Deze waarde geeft aan dat de instrumentatiesleutel is niet aanwezig in de instelling `APPINSIGHTS_INSTRUMENTATIONKEY`. Mogelijke oorzaken: De waarden mogelijk per ongeluk verwijderd, bent u vergeten om in te stellen van de waarden in het automation-script, enzovoort. | Zorg ervoor dat de instelling is aanwezig in de instellingen van de App Service-toepassing.
+
+### <a name="appinsightsjavascriptenabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED en urlCompression wordt niet ondersteund
+
+Als u APPINSIGHTS_JAVASCRIPT_ENABLED = true in gevallen waar de inhoud is gecodeerd, krijgt u mogelijk fouten, zoals: 
+
+- 500 URL rewrite-fout
+- 500.53 fout bij de module URL herschrijven met bericht uitgaand herschrijven regels kan niet worden toegepast wanneer de inhoud van het HTTP-antwoord gecodeerde ('gzip'). 
+
+Dit is vanwege de toepassingsinstelling APPINSIGHTS_JAVASCRIPT_ENABLED wordt ingesteld op true en inhoud-encoding aanwezigheid op hetzelfde moment. In dit scenario wordt nog niet ondersteund. De tijdelijke oplossing is APPINSIGHTS_JAVASCRIPT_ENABLED verwijderen uit de toepassingsinstellingen. Helaas betekent dit dat als de browser-client-side JavaScript instrumentatie is nog steeds vereist, handmatige SDK-verwijzingen nodig zijn voor uw webpagina's. Volg de [instructies](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) voor handmatige instrumentatie met de JavaScript-SDK.
 
 Voor de meest recente informatie over de Application Insights/agentextensie, bekijkt u de [opmerkingen bij de release](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 

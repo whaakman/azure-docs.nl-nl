@@ -4,14 +4,14 @@ description: Laat zien hoe de verwijdering van de modus voor volledig in Azure R
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 04/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: fded37fee844a01f4d51518f2ca56dcf575704b2
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 21b3972a96c1601b15c403275474d58873753b08
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150146"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712990"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Verwijderen van de Azure-resources voor volledige-implementaties
 Dit artikel wordt beschreven hoe resourcetypen verwijderen als deze niet in een sjabloon die is geïmplementeerd in de modus voor volledig verwerken.
@@ -633,7 +633,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | Resourcetype | Modus voor volledige verwijdering |
 | ------------- | ----------- |
-| Clusters | Nee | 
+| Clusters | Ja | 
 | clusters/toepassingen | Nee | 
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport

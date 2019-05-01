@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c3395345093ae9a3d35deb27a08f12d331c9f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358154"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917666"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD wachtwoordbeveiliging on-premises - Veelgestelde vragen over
 
@@ -42,7 +42,7 @@ Een wachtwoordwijziging is wanneer een gebruiker ervoor een nieuw wachtwoord kie
 
 Een wachtwoord instellen (ook wel een wachtwoord opnieuw instellen) is als een beheerder wordt vervangen door het wachtwoord voor een account met een nieuw wachtwoord, bijvoorbeeld met behulp van het hulpprogramma Active Directory: gebruikers en Computers. Voor deze bewerking moet een hoge mate van bevoegdheden (meestal Domain Admin) en de persoon die meestal uitvoeren van de bewerking heeft geen kennis van het oude wachtwoord. Helpdesk scenario's dit vaak doen, bijvoorbeeld wanneer een gebruiker die is het wachtwoord vergeten te assisteren. U ziet ook wachtwoord ingesteld gebeurtenissen wanneer een nieuwe gebruikersaccount wordt gemaakt voor het eerst met een wachtwoord.
 
-Het wachtwoordbeleid voor validatie gedraagt zich hetzelfde, ongeacht of een wachtwoord wijzigen of een set is dat wordt uitgevoerd. De Azure AD-wachtwoord DC Protection Agent-service verschillende gebeurtenissen, zodat u op de hoogte of een wachtwoordwijziging aanmelden of set-bewerking is uitgevoerd.  Zie [Azure AD-wachtwoord beveiliging, controle en logboekregistratie](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+Het wachtwoordbeleid voor validatie gedraagt zich hetzelfde, ongeacht of een wachtwoord wijzigen of een set is dat wordt uitgevoerd. De Azure AD-wachtwoord DC Protection Agent-service verschillende gebeurtenissen, zodat u op de hoogte of een wachtwoordwijziging aanmelden of set-bewerking is uitgevoerd.  Zie [Azure AD-wachtwoord beveiliging, controle en logboekregistratie](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **V: Is dit dan ondersteund voor het installeren van Azure AD-wachtwoord bescherming naast andere producten op basis van wachtwoord-filter?**
 

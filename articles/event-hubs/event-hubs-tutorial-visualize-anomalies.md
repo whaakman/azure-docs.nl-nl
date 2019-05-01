@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 02/26/2019
-ms.openlocfilehash: 4ade1b05b1ec5c81774b5340cfdceb97e41218f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6786e4e3382c7c4d7a6a6a28c3cd3621df221c1
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60369341"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867141"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Zelfstudie: gegevensanomalieën binnen in realtime naar Azure Event Hubs verzonden gebeurtenissen visualiseren
 
-Met Azure Event Hubs kunt u Azure Stream Analytics gebruiken om de binnenkomende gegevens te controleren en de anomalieën te vinden, die u vervolgens kunt visualiseren in Power BI. Stel dat u duizenden apparaten hebt die constant realtimegegevens naar een Event Hub versturen, wat neerkomt op miljoenen gebeurtenissen per seconde. Hoe controleert u zoveel gegevens op afwijkingen, of fouten, in de gegevens? Wat bijvoorbeeld als de apparaten creditcardtransacties verzenden en u wilt registreren waar u meerdere transacties in meerdere landen hebt in een interval van 5 seconden? Dit kan gebeuren als iemand creditcards steelt en deze dan gebruikt om tegelijkertijd op verschillende plaatsen ter wereld artikelen te kopen. 
+Met Azure Event Hubs kunt u Azure Stream Analytics gebruiken om de binnenkomende gegevens te controleren en de anomalieën te vinden, die u vervolgens kunt visualiseren in Power BI. Stel dat u duizenden apparaten hebt die constant realtimegegevens naar een Event Hub versturen, wat neerkomt op miljoenen gebeurtenissen per seconde. Hoe controleert u zoveel gegevens op afwijkingen, of fouten, in de gegevens? Bijvoorbeeld, wat als de apparaten verzenden creditcardtransacties en u moet elke locatie die u hebt meerdere transacties in meerdere landen/regio's binnen een periode van 5 seconden vastleggen? Dit kan gebeuren als iemand creditcards steelt en deze dan gebruikt om tegelijkertijd op verschillende plaatsen ter wereld artikelen te kopen. 
 
 In deze zelfstudie simuleert u dit voorbeeld. U voert een toepassing uit die creditcardtransacties maakt en verzendt naar een Event Hub. Vervolgens leest u de gegevensstroom in realtime met Azure Stream Analytics, dat de geldige transacties van de ongeldige transacties scheidt, en vervolgens gebruikt u Power BI om de transacties die als ongeldig zijn gelabeld, visueel te identificeren.
 

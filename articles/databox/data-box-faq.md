@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9e4308eea3384b20f21ffcf378f711a705f9f9e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9cef479c1d4af55ae58c61a07ff1d5348ed7183
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405457"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868261"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Veelgestelde vragen
 
@@ -50,7 +50,7 @@ A. Data Box is verkrijgbaar tegen een nominaal bedrag voor 10 dagen. Als u het p
 A. Data Box heeft een onbewerkte capaciteit van 100 TB en een bruikbare capaciteit van 80 TB. U kunt met Data Box maximaal 80 TB aan gegevens overdragen. Als u meer gegevens wilt overdragen, moet u meer apparaten bestellen.
 
 ### <a name="q-how-can-i-check-if-data-box-is-available-in-my-region"></a>V. Hoe kan ik controleren of Data Box in mijn regio beschikbaar is? 
-A.  Ga voor meer informatie over de landen waarin de Data Box beschikbaar is naar [regionale beschikbaarheid](data-box-overview.md#region-availability).  
+A.  Voor informatie over welke landen/regio's in Data Box beschikbaar is, gaat u naar [beschikbaarheid in regio](data-box-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>V. In welke regio's kan ik gegevens opslaan met Data Box?
 A. Data Box wordt ondersteund in alle regio's binnen de VS, West- en Noord-Europa, Frankrijk en het Verenigd Koninkrijk. Alleen de Azure-regio's met een openbare cloud worden ondersteund. Azure Government of andere onafhankelijke clouds worden niet ondersteund. Ga naar [Beschikbaarheid in de regio](data-box-overview.md#region-availability) voor meer informatie.

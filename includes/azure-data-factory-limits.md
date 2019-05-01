@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 42c1856f30484532e1ace2e84187bcaaacdf4c72
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6d06ac6efd08c14f77fd963ddf2c67de54260959
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553357"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733739"
 ---
 Azure Data Factory is een multitenant service met de volgende standaardlimieten in plaats om te controleren of abonnementen van de gebruiker zijn beveiligd tegen elkaars werkbelastingen. Als u wilt de limieten tot het maximum voor uw abonnement verhogen, contact op met ondersteuning.
 
@@ -26,7 +26,7 @@ Azure Data Factory is een multitenant service met de volgende standaardlimieten 
 | Totale CPU-kernen voor Azure-SSIS-Integratieruntimes in één abonnement | 256 | [Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Gelijktijdige pijplijnuitvoeringen per gegevensfactory die wordt gedeeld door alle pijplijnen in de fabriek | 10.000  | [Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Maximum aantal activiteiten per pijplijn, waaronder interne activiteiten voor containers | 40 | 40 |
-| Maximum aantal gekoppelde integratieruntimes die kunnen worden gemaakt op basis van een enkele zelf-hostende integratieruntime | 20 | [Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Maximum aantal gekoppelde integratieruntimes die kunnen worden gemaakt op basis van een enkele zelf-hostende integratieruntime | 100 | [Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Maximum aantal parameters per pijplijn | 50 | 50 |
 | ForEach-items | 100.000 | 100.000 |
 | Parallelle uitvoering ForEach | 20 | 50 |

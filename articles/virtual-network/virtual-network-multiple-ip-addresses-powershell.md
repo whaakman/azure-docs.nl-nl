@@ -3,7 +3,7 @@ title: Meerdere IP-adressen voor virtuele machines van Azure - PowerShell | Micr
 description: Leer hoe u meerdere IP-adressen toewijzen aan een virtuele machine met behulp van PowerShell. | Resource Manager
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 manager: twooley
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
-ms.author: jdial;annahar
-ms.openlocfilehash: 70dac62e3e19ad0e9b33ea7b376a8fe479bf3131
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.author: kumud;annahar
+ms.openlocfilehash: ee6a2d36d88d9a80ba7e64819344f6cca56e47cd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522981"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730422"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Meerdere IP-adressen toewijzen aan virtuele machines met behulp van PowerShell
 

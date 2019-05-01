@@ -13,25 +13,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/27/2017
-ms.date: 11/30/2018
-ms.author: v-junlch
-ms.openlocfilehash: 1dcb97a94bd5790edc2e40acf890bb47baec7a4b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.author: manayar
+ms.openlocfilehash: 8b75b9898eb767866c0843594a82570cfb65d122
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108024"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868958"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Verwijzing naar een bestaand virtueel netwerk toevoegen in een sjabloon van de Azure-schaal
 
-Dit artikel wordt beschreven hoe u wijzigt de [minimaal levensvatbare schaalsets sjabloon](./virtual-machine-scale-sets-mvss-start.md) om te implementeren in een bestaand virtueel netwerk in plaats van een nieuwe maken.
+Dit artikel wordt beschreven hoe u wijzigt de [eenvoudige sjabloon voor schaalsets](virtual-machine-scale-sets-mvss-start.md) om te implementeren in een bestaand virtueel netwerk in plaats van een nieuwe maken.
 
 ## <a name="change-the-template-definition"></a>De sjabloondefinitie van de wijzigen
 
-De minimale levensvatbare schaalsetsjabloon kan worden gezien [hier](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), en de sjabloon voor het implementeren van de schaalset in een bestaand virtueel netwerk kan worden bekeken [hier](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). We bekijken de diff gebruikt voor het maken van deze sjabloon (`git diff minimum-viable-scale-set existing-vnet`) stuk door stuk:
+In een [vorige artikel](virtual-machine-scale-sets-mvss-start.md) we een eenvoudige schaalsetsjabloon hebt gemaakt. We nu deze oudere sjabloon gebruiken en wijzigen voor het maken van een sjabloon die een schaalset in een bestaand virtueel netwerk implementeert. 
 
-Voeg eerst toe een `subnetId` parameter. Deze tekenreeks wordt doorgegeven in de configuratie van de schaalset, zodat de schaalset te identificeren van de vooraf gemaakte subnet voor het implementeren van virtuele machines in. Deze tekenreeks moet van het formulier: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Bijvoorbeeld, om te implementeren, de schaal instellen in een bestaand virtueel netwerk met de naam `myvnet`, subnet `mysubnet`, resourcegroep `myrg`, en een abonnement `00000000-0000-0000-0000-000000000000`, de subnetId zou zijn: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
+Voeg eerst toe een `subnetId` parameter. Deze tekenreeks wordt doorgegeven in de configuratie van de schaalset, zodat de schaalset te identificeren van de vooraf gemaakte subnet voor het implementeren van virtuele machines in. Deze tekenreeks moet van het formulier: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
+
+Bijvoorbeeld, om te implementeren, de schaal instellen in een bestaand virtueel netwerk met de naam `myvnet`, subnet `mysubnet`, resourcegroep `myrg`, en een abonnement `00000000-0000-0000-0000-000000000000`, de subnetId zou zijn: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
 
 ```diff
      },
@@ -53,7 +54,7 @@ Verwijder vervolgens de VM-resource van de `resources` matrix, als u een bestaan
 -      "type": "Microsoft.Network/virtualNetworks",
 -      "name": "myVnet",
 -      "location": "[resourceGroup().location]",
--      "apiVersion": "2016-12-01",
+-      "apiVersion": "2018-11-01",
 -      "properties": {
 -        "addressSpace": {
 -          "addressPrefixes": [
@@ -79,7 +80,7 @@ Het virtuele netwerk bestaat al voordat de sjabloon wordt geïmplementeerd, zoda
        "type": "Microsoft.Compute/virtualMachineScaleSets",
        "name": "myScaleSet",
        "location": "[resourceGroup().location]",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01",
 -      "dependsOn": [
 -        "Microsoft.Network/virtualNetworks/myVnet"
 -      ],
@@ -88,7 +89,7 @@ Het virtuele netwerk bestaat al voordat de sjabloon wordt geïmplementeerd, zoda
          "capacity": 2
 ```
 
-Ten slotte doorgeven de `subnetId` parameter ingesteld door de gebruiker (in plaats van `resourceId` voor de ID van een vnet in dezelfde implementatie, dit is wat de minimaal levensvatbare schaalsets sjabloon heeft).
+Ten slotte doorgeven de `subnetId` parameter ingesteld door de gebruiker (in plaats van `resourceId` voor de ID van een vnet in dezelfde implementatie, dit is wat de eenvoudige sjabloon levensvatbare schaalsets heeft).
 
 ```diff
                        "name": "myIpConfig",
@@ -107,5 +108,3 @@ Ten slotte doorgeven de `subnetId` parameter ingesteld door de gebruiker (in pla
 ## <a name="next-steps"></a>Volgende stappen
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-
-<!-- Update_Description: update metedata properties -->

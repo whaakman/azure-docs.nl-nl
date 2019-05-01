@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 7e37d8e732408e70dbcdc86d3e21556f553506cd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 26306489b11e24ab50f0ae893f11137d279c6127
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768481"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719796"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows wordt een blauw scherm fout weergegeven wanneer een Azure-VM wordt opgestart
 Dit artikel wordt beschreven blauw scherm fouten die optreden kunnen tijdens het opstarten van een Windows virtuele Machine (VM) in Microsoft Azure. Het bevat stappen voor het verzamelen van gegevens voor een ondersteuningsticket. 
@@ -56,7 +56,7 @@ U lost dit probleem, moet u eerst om te verzamelen dumpbestand voor de crash en 
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Zoek dumpbestand en verzend een ondersteuningsticket
 
 1. Op de virtuele machine voor herstel, gaat u naar de map windows in de gekoppelde besturingssysteemschijf. Als de stationsletter die is toegewezen aan de gekoppelde besturingssysteemschijf F is, moet u gaat u naar F:\Windows.
-2. Zoek het dumpbestand th, en vervolgens [verzend een ondersteuningsticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) met het dumpbestand. 
+2. Zoek het dumpbestand en vervolgens [verzend een ondersteuningsticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) met het dumpbestand. 
 
 Als u het bestand niet vinden, verplaatst u de volgende stap om in te schakelen dump logboek- en seriële Console.
 

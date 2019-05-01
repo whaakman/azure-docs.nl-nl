@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2017
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05c1575781f280b3be1843abee0469af52baeb2d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381610"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918432"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Strategie voor gegevensbescherming voor uw oplossing voor hybride identiteit definiëren
 In deze taak definieert u de strategie voor gegevensbescherming voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die u hebt gedefinieerd in:
@@ -89,7 +89,7 @@ Een essentieel onderdeel van inhoudsbeheer is om te begrijpen wie welke resource
 ## <a name="define-access-control-options"></a>Opties voor toegangsbeheer definiëren
 Door gebruik te maken van de verificatie, autorisatie en mogelijkheden voor toegangsbeheer toegang beschikbaar in Azure AD kunt u uw bedrijf gebruik van een centrale identiteitsopslagplaats terwijl u gebruikers en partners gebruik van eenmalige aanmelding (SSO) zoals weergegeven in de volgende afbeelding:
 
-![](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
+![gecentraliseerd beheer](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
 
 Gecentraliseerd beheer en volledig integratie met andere directory 's
 
@@ -115,7 +115,7 @@ Met behulp van de Azure AD-ondersteuning, mobiele, zakelijke toepassingen dezelf
 
 Zodra de gebruiker is geverifieerd met behulp van Azure AD, is het belangrijk om te bepalen het niveau van toegang dat de gebruiker heeft. Het niveau van toegang dat de gebruiker over een bron heeft kan variëren. Azure AD kunt u een extra beveiligingslaag toevoegen door het beheren van toegang tot bepaalde bronnen, houd er rekening mee dat de resource zelf ook een eigen toegangsbeheerlijst afzonderlijk, zoals het toegangsbeheer voor bestanden in een bestandsserver hebben kan. De volgende afbeelding bevat een overzicht van het niveau van toegangsbeheer dat u kunt in een hybride scenario:
 
-![](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
+![Toegangsbeheer](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
 
 Elke interactie in het diagram weergegeven zoals in afbeelding X vertegenwoordigt een scenario van de access control die kan worden volstaan met Azure AD. Hieronder bevat een beschrijving van elk scenario:
 

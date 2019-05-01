@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 5c9f70650f518c72a75d9a7826e7cbc30a95a00c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f19d193bef718bd4ad3d98f2112a7e705051b729
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852701"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920065"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
@@ -112,7 +112,7 @@ Ontwikkelaars van één toepassing uitvoert met een implementatiesite in hun App
 
 Wanneer de instellingen voor de heap afstemmen, bekijk de details van uw App Service-plan en rekening gehouden met meerdere toepassingen en implementatiesite moeten vinden van de optimale toewijzing van geheugen.
 
-Als u een JAR-toepassing implementeert, wordt de naam van `app.jar` zodat uw app correct kan de ingebouwde installatiekopie kan worden geïdentificeerd. (De Maven-invoegtoepassing wordt automatisch deze naam.) Als u niet wilt wijzigen van de JAR naar `app.jar`, kunt u een shell-script met de opdracht om uit te voeren van de JAR uploaden. Plak het volledige pad naar dit script in de [opstartbestand](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) tekstvak in de sectie configuratie van de portal.
+Als u een JAR-toepassing implementeert, wordt de naam van `app.jar` zodat uw app correct kan de ingebouwde installatiekopie kan worden geïdentificeerd. (De Maven-invoegtoepassing wordt automatisch deze naam.) Als u niet wilt wijzigen van de JAR naar `app.jar`, kunt u een shell-script met de opdracht om uit te voeren van de JAR uploaden. Plak het volledige pad naar dit script in de [opstartbestand](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) tekstvak in de sectie configuratie van de portal.
 
 ### <a name="turn-on-web-sockets"></a>Websockets inschakelen
 

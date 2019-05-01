@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 9a4d5acfe16a2fdbb3b631cb8baf6cb8e90a7d58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 183c6aea5aaf84c9d0ed635cac55074a5256851e
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60935701"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872544"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Systeemvariabelen ondersteund door Azure Data Factory
 Dit artikel beschrijft de systeemvariabelen ondersteund door Azure Data Factory. U kunt deze variabelen gebruiken in expressies voor bij het definiëren van Data Factory-entiteiten.
@@ -41,7 +41,7 @@ Deze systeemvariabelen kunnen overal worden verwezen in de trigger JSON als de t
 | De naam van variabele | Description |
 | --- | --- |
 | @trigger().scheduledTime |Tijd wanneer de trigger is gepland voor het aanroepen van de pijplijn-run. Bijvoorbeeld, voor een trigger die elke 5 minuten wordt geactiveerd, deze variabele retourneerde `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:29:00Z` respectievelijk.|
-| @trigger().startTime |Tijdstip waarop de trigger **daadwerkelijk** geactiveerd voor het aanroepen van de pijplijn-run. Bijvoorbeeld voor een trigger die elke 5 minuten wordt geactiveerd, deze variabele kan retourneren er ongeveer als volgt `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z` respectievelijk.|
+| @trigger().startTime |Tijdstip waarop de trigger **daadwerkelijk** geactiveerd voor het aanroepen van de pijplijn-run. Bijvoorbeeld voor een trigger die elke 5 minuten wordt geactiveerd, deze variabele kan retourneren er ongeveer als volgt `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z` respectievelijk. (Opmerking: De tijdstempel is standaard ingeschakeld in ISO 8601-notatie)|
 
 ## <a name="tumbling-window-trigger-scope"></a>Tumblingvenstertrigger venster Trigger bereik
 Deze systeemvariabelen kunnen overal worden verwezen in de trigger JSON als de trigger van het type is: "TumblingWindowTrigger."

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fd109a72b092e963bc4fda7894bf67f998b7d0c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73fa9c4433a2af780798f0439c0a119bc32a678f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511588"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916688"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(AFGESCHAFT) DC/OS-containerbeheer via de Marathon REST API
 
@@ -32,7 +32,7 @@ Voer het uitvoeren van deze voorbeelden hebt u een DC/OS-cluster nodig dat is ge
 ## <a name="access-the-dcos-apis"></a>Toegang tot de DC/OS-API 's
 Nadat u met het Azure Container Service-cluster verbonden bent, kunt u de DC/OS en gerelateerde REST-API's openen via http:\//localhost:local-poort. In de voorbeelden in dit document wordt ervan uitgegaan dat u poort 80 gebruikt. Bijvoorbeeld, de Marathon-eindpunten kunnen worden bereikt op URI's beginnen met http: \/ /localhost/marathon/v2 /. 
 
-Zie voor meer informatie over de verschillende API's de Mesosphere-documentatie voor de [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) en de [Chronos API](https://mesos.github.io/chronos/docs/api.html), en de Apache-documentatie voor de [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+Zie voor meer informatie over de verschillende API's de Mesosphere-documentatie voor de [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) en de [Chronos API](https://mesos.github.io/chronos/docs/api.html), en de Apache-documentatie voor de [Mesos Scheduler API](https://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>Informatie verzamelen van DC/OS en Marathon
 Voordat u containers op het DC/OS-cluster implementeert, verzamelt u wat informatie over het DC/OS-cluster, zoals de namen en de status van de DC/OS-agents. U doet dit door een query uit te voeren op het `master/slaves`-eindpunt van de DC/OS REST API. Als alles goed gaat, wordt met de query een lijst geretourneerd van DC/OS-agents en de verschillende eigenschappen voor elke agent.

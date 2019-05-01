@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1686b52c9dacf5c78335f76bd19b41c4c7d15cee
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: df94290c5e62b898b6490c78ef0ae1ee79437240
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555401"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716948"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Gegevens modelleren in Azure Time Series Insights-Preview
 
@@ -132,7 +132,9 @@ Selecteer het exemplaar en selecteer **verwijderen**. Als er geen gebeurtenissen
 ## <a name="next-steps"></a>Volgende stappen
 
 - Lees voor meer informatie over Time Series modellen [gegevensmodellering](./time-series-insights-update-tsm.md).
+
 - Lees voor meer informatie over de Preview-versie [visualiseren van gegevens in de Verkenner van Azure Time Series Insights Preview](./time-series-insights-update-explorer.md).
+
 - Lees voor meer informatie over ondersteunde JSON-vormen, [ondersteund JSON-vormen](./time-series-insights-send-events.md#json).
 
 <!-- Images -->

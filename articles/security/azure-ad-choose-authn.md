@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 1f950841946b65d618c7335ea3d8d42993a89481
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 773d4dd28da3165261d75e4f800750c1f54377d0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805258"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702292"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Selecteer de juiste verificatiemethode voor uw Azure Active Directory-oplossing voor hybride identiteit 
 
@@ -49,7 +49,7 @@ Azure AD ondersteunt de volgende verificatiemethoden voor hybride identiteitsopl
 ### <a name="cloud-authentication"></a>Cloud-verificatie
 Als u ervoor deze verificatiemethode kiest, zorgt Azure AD aanmeldingsproces voor gebruikers. Gebruikers kunnen in combinatie met naadloze eenmalige aanmelding (SSO), zich aanmelden bij cloud-apps zonder hun referenties opnieuw in te voeren. Met cloud-verificatie, kunt u kiezen uit twee opties: 
 
-**Azure AD wachtwoord-hashsynchronisatie**. De eenvoudigste manier om in te schakelen in Azure AD-verificatie voor on-premises directory-objecten. Gebruikers kunnen gebruiken dezelfde gebruikersnaam en wachtwoord dat ze on-premises gebruiken zonder dat u hoeft geen aanvullende infrastructuur te implementeren. Wachtwoord-hashsynchronisatie voor sommige premiumfuncties van Azure AD, zoals Identity Protection, vereist voor ongeacht welke verificatiemethode die u kiest.
+**Azure AD wachtwoord-hashsynchronisatie**. De eenvoudigste manier om in te schakelen in Azure AD-verificatie voor on-premises directory-objecten. Gebruikers kunnen gebruiken dezelfde gebruikersnaam en wachtwoord dat ze on-premises gebruiken zonder dat u hoeft geen aanvullende infrastructuur te implementeren. Sommige premiumfuncties van Azure AD Identity Protection zoals en [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync), vereisen dat de wachtwoord-hashsynchronisatie, ongeacht welke verificatiemethode die u kiest.
 
 > [!NOTE] 
 > Wachtwoorden worden nooit opgeslagen in ongecodeerde tekst of versleuteld met een algoritme voor omkeerbare in Azure AD. Zie voor meer informatie over het proces van synchronisatie van wachtwoordhashes, [implementeren u wachtwoord-hashsynchronisatie met Azure AD Connect-synchronisatie](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization). 
@@ -92,7 +92,7 @@ Als u meer informatie over de beslissing vragen:
 
 * **Gebruikerservaring**. Ter verbetering van de aanmeldingservaring voor gebruikers implementeren naadloze eenmalige aanmelding met wachtwoord-hashsynchronisatie. Naadloze eenmalige aanmelding wordt voorkomen dat onnodige prompts wanneer gebruikers zijn aangemeld.
 
-* **Geavanceerde scenario's**. Als organisaties, is het mogelijk het gebruik van inzichten op basis van identiteiten met Azure AD Identity Protection rapporten met Azure AD Premium P2. Een voorbeeld is het rapport de referenties zijn gelekt. Windows Hello voor bedrijven heeft [specifieke vereisten als u wachtwoord-hashsynchronisatie](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). 
+* **Geavanceerde scenario's**. Als organisaties, is het mogelijk het gebruik van inzichten op basis van identiteiten met Azure AD Identity Protection rapporten met Azure AD Premium P2. Een voorbeeld is het rapport de referenties zijn gelekt. Windows Hello voor bedrijven heeft [specifieke vereisten als u wachtwoord-hashsynchronisatie](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) vereist synchronisatie van wachtwoordhashes met gebruikers inrichten met hun zakelijke referenties in het beheerde domein.
 
     Organisaties waarvoor multi-factor authentication met wachtwoord-hashsynchronisatie moeten multi-factor authentication van Azure AD gebruiken. Organisaties van derden of on-premises meervoudige verificatie-methoden niet gebruiken.
 

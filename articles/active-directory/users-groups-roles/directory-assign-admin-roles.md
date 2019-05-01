@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82afadef58310f46046c8c3168ed93a34769b316
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0811ce1509b7886bf0061cba955ca5e18990cd1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472393"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920497"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
@@ -58,6 +58,18 @@ De volgende beheerdersrollen zijn beschikbaar:
   * Beveiligingsgroepen en Office 365-groep eigenaren, die het lidmaatschap kunnen beheren. Deze groepen kunnen toegang verlenen tot gevoelige of persoonlijke gegevens of essentiële configuratie in Azure AD en elders.
   * Beheerders in de andere services buiten Azure AD, zoals Exchange Online, Office-beveiliging en Compliancecentrum en HR-systemen.
   * Niet-beheerders, zoals leidinggevenden, juridische afdeling en werknemers van human resources die mogelijk toegang heeft tot gevoelige of persoonlijke informatie.
+
+* **[B2C-Gebruikerbeheerder stroom](#b2c-user-flow-administrator)**: Gebruikers met deze rol kunnen maken en beheren van B2C Gebruikersstromen (ook wel 'ingebouwde' beleidsregels) in Azure Portal. Door het maken of bewerken van de gebruikersstromen, kunnen deze gebruikers wijzigen de CSS-html/javascript-inhoud van de gebruikerservaring, MFA-vereisten per gebruikersstroom wijzigen, claims in het token wijzigen en aanpassen van de sessie-instellingen voor alle beleidsregels in de tenant. Aan de andere kant, deze rol niet de mogelijkheid om gebruikersgegevens te bekijken, of wijzigingen aanbrengen in de kenmerken die zijn opgenomen in de tenantschema. Wijzigingen in Identity-Ervaringsframework (ook wel aangepast) beleid ook is buiten het bereik van deze rol.
+
+* **[Stroom B2C-kenmerk Gebruikerbeheerder](#b2c-user-flow-attribute-administrator)**: Gebruikers met deze rol toevoegen of verwijderen van aangepaste kenmerken die beschikbaar zijn voor alle gebruikersstromen in de tenant. Als zodanig kunnen gebruikers met deze rol wijzigen of nieuwe elementen toevoegen aan het schema van de eindgebruiker en van invloed zijn op het gedrag van alle gebruikersstromen en wijzigingen indirect leiden naar welke gegevens kan worden gevraagd van eindgebruikers en uiteindelijk worden verzonden als claims voor toepassingen. Deze rol kan gebruikersstromen niet bewerken.
+
+* **[B2C IEF sleutelset beheerder](#b2c-ief-keyset-administrator)**:    Gebruiker maken en beheren van voor beleidssleutels en geheimen voor tokenversleuteling, token handtekening en versleuteling/ontsleuteling claim. Nieuwe sleutels toevoegt aan bestaande sleutelcontainers, kan deze beperkte beheerder rollover geheimen behoefte zonder gevolgen voor bestaande toepassingen. Deze gebruiker ziet de volledige inhoud van deze geheimen en hun verloopdatum zelfs nadat het is gemaakt.
+    
+  <b>Belangrijk:</b> dit is een gevoelige rol. De beheerdersrol sleutelset moet zorgvuldig worden gecontroleerd en toegewezen zorgvuldig tijdens de testfase vóór productie- en productie.
+
+* **[B2C IEF beleid beheerder](#b2c-ief-policy-administrator)**: Gebruikers in deze rol hebben de mogelijkheid om te maken, lezen, bijwerken, en verwijderen van alle aangepaste beleidsregels in Azure AD B2C en daarom hebt volledige controle over de Identiteitservaring-Framework in de relevante Azure AD B2C-tenant. Door het bewerken van beleid, kan deze gebruiker tot stand brengen direct Federatie met externe id-providers, wijzigen van het directory-schema, alle gebruikersgerichte inhoud (HTML, CSS, JavaScript) wijzigt, wijzigen van de vereisten voor het voltooien van verificatie, maken van nieuwe gebruikers, verzenden gebruikersgegevens met externe systemen, met inbegrip van volledige migraties en bewerken van alle gebruikersgegevens, met inbegrip van tijdgevoelige velden, zoals wachtwoorden en telefoonnummers. Deze rol kan echter wijzigen van de versleutelingssleutels of bewerken van de geheimen die worden gebruikt voor Federatie in de tenant.
+
+  <b>Belangrijk:</b> De beheerder van B2 IEF beleid is een uiterst gevoelige rol die moet worden toegewezen in een zeer beperkte mate voor tenants in de productieomgeving. Activiteiten op basis van deze gebruikers moeten worden nauw gecontroleerd, met name voor tenants in de productieomgeving.
 
 * **[Factureringsbeheerder](#billing-administrator)**: Doet aankopen, beheert abonnementen, beheert ondersteuningstickets en controleert de status van de service.
 
@@ -110,6 +122,9 @@ De volgende beheerdersrollen zijn beschikbaar:
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, wordt deze rol aangeduid als "Exchange Service Administrator". Het 'Exchange-beheerder' is in de [Azure-portal](https://portal.azure.com). Het 'Exchange Online-beheerder' is in de [Exchange-beheercentrum](https://go.microsoft.com/fwlink/p/?LinkID=529144). 
 
+* **[Externe id-Provider beheerder](#external-identity-provider-administrator)**: Deze beheerder beheert federatie tussen tenants van Azure Active Directory en externe id-providers. Met deze rol kunnen gebruikers nieuwe id-providers toevoegen en configureren van alle beschikbare instellingen (bijvoorbeeld verificatiepad, service-id,-sleutelcontainers toegewezen). Deze gebruiker kan de tenant te vertrouwen verificaties van externe id-providers kunt inschakelen. De resulterende impact op de ervaringen van eindgebruikers, is afhankelijk van het type tenant:
+  * Azure Active Directory-tenants voor werknemers en partners: Het toevoegen van een federatieve (bijvoorbeeld met Gmail) is direct van invloed op alle Gast uitnodigingen nog niet ingewisseld. Zie [Google toe te voegen als een id-provider voor B2B-gastgebruikers](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
+  * Azure Active Directory B2C-tenants: Het toevoegen van een federatieve (bijvoorbeeld met Facebook of met een andere Azure Active Directory) is niet onmiddellijk invloed op het stromen van de eindgebruiker totdat de id-provider is toegevoegd als een optie in een gebruikersstroom (ook wel het ingebouwde beleid). Zie [configureren van een Microsoft-account als id-provider](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) voor een voorbeeld. Als u wilt wijzigen gebruikersstromen, zijn de beperkte rol van 'B2C gebruiker Flow beheerder' is vereist.
 
 * **[Globale beheerder / Company Administrator](#company-administrator)**: Gebruikers met deze rol hebben toegang tot alle beheerfuncties in Azure Active Directory, evenals de services die gebruikmaken van Azure Active Directory-identiteiten, zoals Microsoft 365 security center, Microsoft 365 compliancecentrum, Exchange Online, SharePoint Online, en Skype voor bedrijven Online. De persoon die zich aanmeldt voor de Azure Active Directory-tenant wordt globale beheerder. Alleen globale beheerders kunnen andere beheerdersrollen toewijzen. Er is meer dan één globale beheerder in uw bedrijf. Globale beheerders kunnen het wachtwoord voor elke gebruiker en alle andere beheerders opnieuw instellen.
 
@@ -314,6 +329,34 @@ Toegestaan wilt weergeven, instellen en opnieuw instellen van verificatie method
 | microsoft.office365.webPortal/allEntities/basic/read | De basiseigenschappen van alle resources lezen in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
+
+### <a name="b2c-user-flow-administrator"></a>B2C-Gebruikerbeheerder stroom
+Maken en beheren van alle aspecten van de gebruikersstromen.
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.aad.b2c/userFlows/allTasks | Lees en gebruikersstromen configureren in Azure Active Directory B2C. |
+
+### <a name="b2c-user-flow-attribute-administrator"></a>Stroom B2C-kenmerk Gebruikerbeheerder
+Maken en beheren van het kenmerkschema beschikbaar voor alle gebruikersstromen.
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.aad.b2c/userAttributes/allTasks | Lees en gebruikerskenmerken configureren in Azure Active Directory B2C. |
+
+### <a name="b2c-ief-keyset-administrator"></a>B2C IEF sleutelset beheerder
+Geheimen voor Federatie en versleuteling in de Identity-Ervaringsframework beheren.
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/keySets/allTasks | Lees en configureren van sleutel sets in Azure Active Directory B2C. |
+
+### <a name="b2c-ief-policy-administrator"></a>B2C IEF beleid beheerder
+Maken en beheren van framework vertrouwensbeleid in de Identiteitservaring-Framework.
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/policies/allTasks | Lees en aangepaste beleidsregels configureren in Azure Active Directory B2C. |
 
 ### <a name="billing-administrator"></a>Factureringsbeheerder
 Kan algemene taken met betrekking tot facturering uitvoeren, zoals betalingsgegevens bijwerken.
@@ -675,6 +718,13 @@ Kan alle aspecten van het product Exchange beheren.
 | microsoft.office365.exchange/allEntities/allTasks | Beheer alle aspecten van Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
+
+### <a name="external-identity-provider-administrator"></a>Externe id-Provider beheerder
+Id-providers voor gebruik in directe federatie configureren.
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.aad.b2c/identityProviders/allTasks | Lees en id-providers configureren in Azure Active Directory B2C. |
 
 ### <a name="guest-inviter"></a>Afzender van gastuitnodigingen
 Kan onafhankelijk van de instelling 'leden kunnen gasten uitnodigen' gastgebruikers uitnodigen.

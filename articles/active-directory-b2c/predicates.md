@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0dfe6553778092c33f9e1bd55ac7a7ae65137a6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: eff8e2cedd6f9388d811002a622dbcdcd0e7ed6c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419108"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714166"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikaten en PredicateValidations
 
@@ -33,7 +33,7 @@ De **predicaat** element definieert een basisvalidatie om te controleren of de w
 
 De **predikaten** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | Predicaat | 1: n | Een lijst met predicaten. | 
 
@@ -138,7 +138,7 @@ De **PredicateValidations** element bevat het volgende element:
 
 De **PredicateValidation** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id die wordt gebruikt voor de validatie van het predicaat. De **ClaimType** element gebruikt deze id in het beleid. |
 
@@ -162,7 +162,7 @@ De **PredicateGroup** element bevat het volgende kenmerk:
 
 De **PredicateGroup** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 |  Een beschrijving van het predikaat die kan nuttig zijn voor gebruikers om te weten welke waarde ze moeten typen. | 
 | PredicateReferences | 1: n | Een lijst met predicaatverwijzingen. | 
@@ -175,13 +175,13 @@ De **PredicateReferences** element bevat de volgende kenmerken:
 
 De **PredicateReferences** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | PredicateReference | 1: n | Een verwijzing naar een predicaat. | 
 
 De **PredicateReference** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id die wordt gebruikt voor de validatie van het predicaat.  |
 

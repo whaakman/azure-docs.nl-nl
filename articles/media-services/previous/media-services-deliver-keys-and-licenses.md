@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: dbdfac143cb3254e558622fc1eecfdf95876240e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 73a76162efaf7317c5e2f1668b76325da6f018ce
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465764"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868135"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Media Services gebruiken voor het leveren van DRM-licenties of AES-sleutels 
+
+> [!NOTE]
+> U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.   > Er zijn geen nieuwe functies of functionaliteit worden toegevoegd aan Media Services v2. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
+>
 
 Azure Media Services kunt u opnemen, coderen, beveiliging van inhoud toevoegen en de inhoud streamen. Zie voor meer informatie, [met PlayReady en/of Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md). Sommige klanten wilt maken van Media Services alleen voor het leveren van licenties en/of sleutels en het coderen, versleutelen en streamen met behulp van hun on-premises servers. Dit artikel wordt beschreven hoe u kunt Media Services PlayReady en/of Widevine-licenties leveren, maar de rest doen met uw on-premises servers. 
 

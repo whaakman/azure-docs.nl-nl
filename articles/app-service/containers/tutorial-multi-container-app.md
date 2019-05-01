@@ -1,7 +1,7 @@
 ---
 title: Een app met meerdere containers maken in Web App for Containers - Azure App Service
-description: Lees hoe u meerdere containers in Azure met configuratiebestanden van Docker Compose en Kubernetes kunt gebruiken met een WordPress- en MySQL-app.
-keywords: azure-appservice, web-app, linux, docker, compose, multicontainer, meerdere containers, web-app voor containers, meerdere containers, container, kubernetes, wordpress, azure db voor mysql, productiedatabase met containers
+description: Informatie over het gebruik van meerdere containers op Azure met Docker Compose, WordPress en MySQL.
+keywords: Azure appservice, web-app, linux, docker compose, multicontainer, meerdere containers, web-app voor containers, meerdere containers, container, wordpress, azure db voor mysql, productiedatabase met containers
 services: app-service
 documentationcenter: ''
 author: msangapu
@@ -12,15 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 04/29/2019
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: cd7edb576264ac8bb8a076bbb4b2970579056f13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b3dc019b8d5a31986f4145d9dd2f7bd86bbb467
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60767861"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920060"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Zelfstudie: Een app met meerdere containers (preview) maken in Web App for Containers
 
@@ -30,7 +29,6 @@ In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een Docker Compose-configuratie converteren die kan worden gebruikt voor Web App for Containers
-> * Een Kubernetes-configuratie converteren die kan worden gebruikt voor Web App for Containers
 > * Een app met meerdere containers implementeren in Azure
 > * Toepassingsinstellingen toevoegen
 > * Permanente opslag voor uw containers gebruiken
@@ -41,7 +39,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie, moet u ervaring met [Docker Compose](https://docs.docker.com/compose/) of [Kubernetes](https://kubernetes.io/) hebben.
+Voor deze zelfstudie, moet u ervaring met [Docker Compose](https://docs.docker.com/compose/).
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
@@ -255,7 +253,7 @@ Zie voor meer informatie over omgevingsvariabelen [omgevingsvariabelen configure
 
 ### <a name="use-a-custom-image-for-mysql-ssl-and-other-configurations"></a>Een aangepaste installatiekopie gebruiken voor MySQL SSL en andere configuraties
 
-Standaard wordt SSL gebruikt in Azure Database for MySQL. Voor WordPress is aanvullende configuratie vereist voor het gebruik van SSL met MySQL. De aanvullende configuratie is niet beschikbaar op de 'officiële installatiekopie' van WordPress, maar er is een [aangepaste installatiekopie](https://hub.docker.com/r/microsoft/multicontainerwordpress/builds/) gemaakt voor uw gemak. In de praktijk voegt u de gewenste wijzigingen toe aan uw eigen installatiekopie.
+Standaard wordt SSL gebruikt in Azure Database for MySQL. Voor WordPress is aanvullende configuratie vereist voor het gebruik van SSL met MySQL. De WordPress-officiële installatiekopie' biedt geen de aanvullende configuratie, maar een [aangepaste installatiekopie](https://github.com/Azure-Samples/multicontainerwordpress) is voorbereid voor uw gemak. In de praktijk voegt u de gewenste wijzigingen toe aan uw eigen installatiekopie.
 
 De aangepaste installatiekopie is gebaseerd op de 'officiële installatiekopie' van [WordPress van Docker-Hub](https://hub.docker.com/_/wordpress/). De volgende wijzigingen zijn aangebracht in deze aangepaste installatiekopie voor de Azure Database for MySQL:
 
@@ -270,7 +268,7 @@ De volgende wijzigingen zijn aangebracht voor Redis (die worden gebruikt in een 
 * [Hiermee wordt de WordPress-invoegtoepassing Redis Object Cache 1.3.8 toegevoegd.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
 * [Hiermee wordt de app-instelling voor de Redis-hostnaam gebruikt in wp-config.php van WordPress.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
-Als u de aangepaste installatiekopie wilt gebruiken, werkt u het bestand docker-compose-wordpress.yml bij. Typ `nano docker-compose-wordpress.yml` in Cloud Shell om de nano-teksteditor te openen. Wijzig de `image: wordpress` om `image: microsoft/multicontainerwordpress` te gebruiken. U hebt de databasecontainer niet meer nodig. Verwijder de sectie `db`, `environment`, `depends_on`, en `volumes` uit het configuratiebestand. Uw bestand moet eruitzien als de volgende code:
+Als u de aangepaste installatiekopie wilt gebruiken, werkt u het bestand docker-compose-wordpress.yml bij. Typ `nano docker-compose-wordpress.yml` in Cloud Shell om de nano-teksteditor te openen. Wijzig de `image: wordpress` om `image: mcr.microsoft.com/azuredocs/multicontainerwordpress` te gebruiken. U hebt de databasecontainer niet meer nodig. Verwijder de sectie `db`, `environment`, `depends_on`, en `volumes` uit het configuratiebestand. Uw bestand moet eruitzien als de volgende code:
 
 ```yaml
 version: '3.3'
@@ -404,7 +402,20 @@ De aangepaste installatiekopie is gebaseerd op de 'officiële installatiekopie' 
 
 Voeg de Redis-container toe onderaan het configuratiebestand, zoals in het volgende voorbeeld:
 
-[!code-yml[Main](../../../azure-app-service-multi-container/compose-wordpress.yml)]
+```yaml
+version: '3.3'
+
+services:
+   wordpress:
+     image: microsoft/multicontainerwordpress
+     ports:
+       - "8000:80"
+     restart: always
+
+   redis:
+     image: redis:3-alpine
+     restart: always
+```
 
 ### <a name="configure-environment-variables"></a>Omgevingsvariabelen configureren
 
@@ -459,7 +470,7 @@ Voer de stappen uit en installeer WordPress.
 
 ### <a name="connect-wordpress-to-redis"></a>WordPress verbinden met Redis
 
-Meld u aan bij WordPress-beheer. Selecteer **Invoegtoepassingen** in het linkernavigatievenster en selecteer vervolgens **Geïnstalleerde invoegtoepassingen**.
+Aanmelden bij de WordPress-beheerder. Selecteer **Invoegtoepassingen** in het linkernavigatievenster en selecteer vervolgens **Geïnstalleerde invoegtoepassingen**.
 
 ![WordPress-invoegtoepassingen selecteren][2]
 
@@ -482,172 +493,6 @@ WordPress wordt verbonden met de Redis-server. De **status** van de verbinding w
 ![WordPress wordt verbonden met de Redis-server. De **status** van de verbinding wordt weergegeven op dezelfde pagina.][6]
 
 **Gefeliciteerd**, u hebt WordPress verbonden met Redis. De app die klaar is voor productie, maakt nu gebruik van **Azure Database for MySQL, permanente opslag en Redis**. U kunt uw App Service-plan nu uitbreiden naar meerdere exemplaren.
-
-## <a name="use-a-kubernetes-configuration-optional"></a>Een Kubernetes-configuratie gebruiken (optioneel)
-
-In deze sectie leert u hoe u een Kubernetes-configuratie gebruikt om meerdere containers te implementeren. Zorg ervoor dat u de eerdere stappen voor het maken van een [resourcegroep](#create-a-resource-group) en een [App Service-plan](#create-an-azure-app-service-plan) hebt uitgevoerd. Aangezien het merendeel van de stappen vergelijkbaar is met de stappen van de Compose-sectie, is het configuratiebestand voor u gecombineerd.
-
-### <a name="kubernetes-configuration-file"></a>Configuratie-instellingen voor Kubernetes
-
-U gaat *kubernetes-wordpress.yml* gebruiken voor dit gedeelte van de zelfstudie. Deze wordt hier weergegeven ter referentie:
-
-[!code-yml[Main](../../../azure-app-service-multi-container/kubernetes-wordpress.yml)]
-
-Zie voor ondersteunde configuratie-opties, [Kubernetes configuratie-opties](configure-custom-container.md#kubernetes-configuration-options)
-
-### <a name="create-an-azure-database-for-mysql-server"></a>Een Azure-database voor MySQL-server maken
-
-Maak een server in Azure Database for MySQL met de opdracht [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
-
-Vervang in de volgende opdracht, de naam van uw MySQL-server waarin u ziet de  _&lt;mysql-server-naam >_ tijdelijke aanduiding (geldige tekens zijn `a-z`, `0-9`, en `-`). Deze naam maakt deel uit van de hostnaam van de MySQL-server (`<mysql-server-name>.database.windows.net`) en moet globaal uniek zijn.
-
-```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
-```
-
-Wanneer de MySQL-server is gemaakt, toont Cloud Shell informatie die lijkt op de informatie in het volgende voorbeeld:
-
-```json
-{
-  "administratorLogin": "adminuser",
-  "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql-server-name>.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>",
-  "location": "southcentralus",
-  "name": "<mysql-server-name>",
-  "resourceGroup": "myResourceGroup",
-  ...
-}
-```
-
-### <a name="configure-server-firewall"></a>Een serverfirewall configureren
-
-Maak een firewallregel voor uw MySQL-server om clientverbindingen toe te staan met behulp van de opdracht [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create). Als zowel het IP-beginadres als het IP-eindadres zijn ingesteld op 0.0.0.0, wordt de firewall alleen geopend voor andere Azure-resources.
-
-```azurecli-interactive
-az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
-```
-
-> [!TIP]
-> U kunt uw firewallregel nog beperkender maken door [alleen de uitgaande IP-adressen te gebruiken die in uw app worden gebruikt](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
->
-
-### <a name="create-the-wordpress-database"></a>De WordPress-database maken
-
-Maak een [Azure Database for MySQL-server](#create-an-azure-database-for-mysql-server) als u dit nog niet hebt gedaan.
-
-```azurecli-interactive
-az mysql db create --resource-group myResourceGroup --server-name <mysql-server-name> --name wordpress
-```
-
-Wanneer de database is gemaakt, wordt in Cloud Shell informatie weergegeven die vergelijkbaar is met de informatie in het volgende voorbeeld:
-
-```json
-{
-  "additionalProperties": {},
-  "charset": "latin1",
-  "collation": "latin1_swedish_ci",
-  "id": "/subscriptions/12db1644-4b12-4cab-ba54-8ba2f2822c1f/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>/databases/wordpress",
-  "name": "wordpress",
-  "resourceGroup": "myResourceGroup",
-  "type": "Microsoft.DBforMySQL/servers/databases"
-}
-```
-
-### <a name="create-a-multi-container-app-kubernetes"></a>Een app met meerdere containers maken (Kubernetes)
-
-Maak in Cloud Shell een [web-app](app-service-linux-intro.md) met meerdere containers in de resourcegroep `myResourceGroup` en in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Vergeet niet om te vervangen  _\<app-naam >_ door een unieke naam.
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
-```
-
-Wanneer de web-app is gemaakt, toont Cloud Shell soortgelijke uitvoer als in het volgende voorbeeld:
-
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
-```
-
-### <a name="configure-database-variables-in-wordpress"></a>Databasevariabelen in WordPress configureren
-
-Als u de WordPress-app wilt verbinden met deze nieuwe MySQL-server, configureert u een aantal specifieke WordPress-omgevingsvariabelen. Als u deze wijziging wilt aanbrengen, gebruikt u de opdracht [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell. App-instellingen zijn hoofdlettergevoelig en door spaties gescheiden.
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WORDPRESS_DB_HOST="<mysql-server-name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql-server-name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
-```
-
-Wanneer de app-instelling is gemaakt, toont Cloud Shell soortgelijke informatie als in het volgende voorbeeld:
-
-```json
-[
-  {
-    "name": "WORDPRESS_DB_HOST",
-    "slotSetting": false,
-    "value": "<mysql-server-name>.mysql.database.azure.com"
-  },
-  {
-    "name": "WORDPRESS_DB_USER",
-    "slotSetting": false,
-    "value": "adminuser@<mysql-server-name>"
-  },
-  {
-    "name": "WORDPRESS_DB_NAME",
-    "slotSetting": false,
-    "value": "wordpress"
-  },
-  {
-    "name": "WORDPRESS_DB_PASSWORD",
-    "slotSetting": false,
-    "value": "My5up3rStr0ngPaSw0rd!"
-  }
-]
-```
-
-### <a name="add-persistent-storage"></a>Permanente opslag toevoegen
-
-Uw app met meerdere containers wordt nu uitgevoerd in Web App for Containers. De gegevens worden gewist bij het opnieuw starten omdat de bestanden niet blijven behouden. In deze sectie gaat u [permanente opslag toevoegen](configure-custom-container.md#use-persistent-shared-storage) naar uw WordPress-container.
-
-### <a name="configure-environment-variables"></a>Omgevingsvariabelen configureren
-
-Schakel deze instelling in App Service in als u permanente opslag wilt gebruiken. Als u deze wijziging wilt aanbrengen, gebruikt u de opdracht [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell. App-instellingen zijn hoofdlettergevoelig en door spaties gescheiden.
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
-```
-
-Wanneer de app-instelling is gemaakt, toont Cloud Shell soortgelijke informatie als in het volgende voorbeeld:
-
-```json
-[
-  {
-    "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
-    "slotSetting": false,
-    "value": "TRUE"
-  }
-]
-```
-
-### <a name="browse-to-the-app"></a>Bladeren naar de app
-
-Blader naar de geïmplementeerde app in (`http://<app-name>.azurewebsites.net`).
-
-De app wordt nu uitgevoerd met meerdere containers in Web App for Containers.
-
-![Voorbeeld van app met meerdere containers in Web App for Containers][1]
-
-**Gefeliciteerd**, u hebt een app met meerdere containers gemaakt in Web App for Containers.
-
-Als u Redis wilt gebruiken, voert u de stappen in [WordPress verbinden met Redis](#connect-wordpress-to-redis) uit.
 
 ## <a name="find-docker-container-logs"></a>Logboeken voor Docker-containers zoeken
 
@@ -676,7 +521,6 @@ U ziet een logboek voor elke container en een extra logboek voor het bovenliggen
 In deze zelfstudie heeft u het volgende geleerd:
 > [!div class="checklist"]
 > * Een Docker Compose-configuratie converteren die kan worden gebruikt voor Web App for Containers
-> * Een Kubernetes-configuratie converteren die kan worden gebruikt voor Web App for Containers
 > * Een app met meerdere containers implementeren in Azure
 > * Toepassingsinstellingen toevoegen
 > * Permanente opslag voor uw containers gebruiken

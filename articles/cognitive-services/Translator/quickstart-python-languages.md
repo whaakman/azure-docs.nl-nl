@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: e455b0167810c6e08853f3bce665cb6f314eec52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0b006f3860c1b00dc8ef0b0fa4d77e1fd9034a17
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61467323"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922260"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>Snelstartgids: De Translator Text-API gebruiken om een lijst met ondersteunde talen op te halen met Python
 
@@ -96,7 +96,7 @@ Als u uw code graag wilt vergelijken met de onze, kunt u het volledige voorbeeld
 
 ## <a name="sample-response"></a>Voorbeeldantwoord
 
-De afkorting van land/regio niet vinden in dit [lijst met talen](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+De afkorting van land/regio niet vinden in dit [lijst met talen](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 Dit voorbeeld is ingekort en u ziet een fragment van het resultaat:
 

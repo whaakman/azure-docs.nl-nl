@@ -1,6 +1,6 @@
 ---
-title: De naam of het logo van een enterprise-app in Azure Active Directory wijzigen | Microsoft Docs
-description: Het wijzigen van de naam of het logo voor een aangepaste enterprise-app in Azure Active Directory
+title: De naam of het logo van een zakelijke toepassing in Azure Active Directory wijzigen | Microsoft Docs
+description: Het wijzigen van de naam of het logo voor een aangepaste zakelijke toepassing in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -11,39 +11,43 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2017
+ms.date: 04/05/2019
 ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62578fe037dc1c9672bd0a4cf28500c658344c53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: dbebc528227ebb06bd66e31b802dd4fd618d6a99
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440359"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718753"
 ---
-# <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>De naam of het logo van een enterprise-app in Azure Active Directory wijzigen
-Het is gemakkelijk om te wijzigen van de naam of het logo voor een aangepaste zakelijke toepassing in Azure Active Directory (Azure AD). Hebt u de juiste machtigingen voor deze wijzigingen aanbrengt en u moet de maker van de aangepaste app.
+# <a name="change-the-name-or-logo-of-an-enterprise-application-in-azure-active-directory"></a>De naam of het logo van een zakelijke toepassing in Azure Active Directory wijzigen
 
-## <a name="how-do-i-change-an-enterprise-apps-name-or-logo"></a>Hoe wijzig ik de naam of het logo van een enterprise-app?
-1. Meld u aan bij [Azure Portal](https://portal.azure.com) met een account van een globale beheerder voor de directory.
-2. Selecteer **alle services**, voer **Azure Active Directory** in het tekstvak in en selecteer vervolgens **Enter**.
-3. Op de **Azure Active Directory - *directoryname***  deelvenster (dat wil zeggen, de Azure AD voor de map die u beheert), selecteer **bedrijfstoepassingen**.
+Het is gemakkelijk om te wijzigen van de naam of het logo voor een aangepaste zakelijke toepassing in Azure Active Directory (Azure AD). Hebt u de juiste machtigingen voor deze wijzigingen aanbrengt en u moet de maker van de aangepaste toepassing.
 
-    ![Bedrijfsapps openen](./media/change-name-or-logo-portal/open-enterprise-apps.png)
-4. Op de **bedrijfstoepassingen** venster **alle toepassingen**. U ziet een lijst van de apps die u kunt beheren.
-5. Op de **bedrijfstoepassingen - alle toepassingen** deelvenster, selecteert u een app.
-6. Op de ***appname*** deelvenster (dat wil zeggen, het deelvenster met de naam van de geselecteerde app in de titel), selecteer **eigenschappen**.
+## <a name="how-do-i-change-an-enterprise-applications-name-or-logo"></a>Hoe wijzig ik de naam of het logo van een enterprise-toepassing?
 
-    ![De opdracht Eigenschappen selecteren](./media/change-name-or-logo-portal/select-app.png)
-7. Op de ***appname*** **-eigenschappen** deelvenster, bladert naar een bestand te gebruiken als een nieuw logo of bewerken van de naam van de app, of beide.
+1. Aanmelden bij de [Azure Active Directory-portal](https://aad.portal.azure.com/) met een account dat een globale beheerder voor de map. De **Azure Active Directory-beheercentrum** pagina wordt weergegeven.
+2. Selecteer in het linkerdeelvenster **Enterprise-toepassingen**. De lijst met uw zakelijke toepassingen wordt weergegeven.
+3. Selecteer een toepassing. De overzichtspagina van de toepassing wordt weergegeven.
+4. In het overzichtsvenster van de van toepassing onder de **beheren** kop, selecteer **eigenschappen**. De **eigenschappen** pagina wordt weergegeven.
+5. Als u de naam wijzigen wilt, selecteert u de **naam** vak, typ de nieuwe naam en druk op **Enter**.
+6. Als u wijzigen van het logo wilt, vinden de **Logo** veld en selecteer het mappictogram naast de **selecteert u een bestand** vak is lager dan de huidige logoafbeelding van de toepassing.
 
-    ![Wijzigen van de app-logo of nameproperties-opdracht](./media/change-name-or-logo-portal/change-logo.png)
-8. Selecteer de **opslaan** opdracht.
+   ![De opdracht Eigenschappen selecteren](./media/change-name-or-logo-portal/change-logo.png)
+
+   Anders als u het logo worden niet wijzigen, gaat u naar stap 8.
+7. Selecteer het gewenste bestand als het nieuwe logo in de bestandenkiezer. De naam van het bestand weergegeven in het vak onder de huidige logoafbeelding.
+
+   > [!NOTE]
+   > Azure vereist dat de installatiekopie van het logo moet een PNG-bestand en dit limieten van toepassing is in breedte, hoogte en bestandsgrootte.
+8. Selecteer **Opslaan**. Als u ervoor een nieuw logo kiest, de **Logo** van veld-installatiekopie wordt gewijzigd in overeenstemming met het nieuwe logobestand.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Zie alle Mijn groepen](../fundamentals/active-directory-groups-view-azure-portal.md)
+
+* [Snelstart: De groepen en leden van uw organisatie weergeven in Azure Active Directory](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Een gebruiker of groep toewijzen aan een enterprise-app](assign-user-or-group-access-portal.md)
 * [De toewijzing van een gebruiker of groep verwijderen uit een enterprise-app](remove-user-or-group-access-portal.md)
 * [Gebruikersaanmeldingen voor een zakelijke app uitschakelen](disable-user-sign-in-portal.md)

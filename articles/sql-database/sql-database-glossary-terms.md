@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: cae806953721f3cedead023f013c7d1d585efeb6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341639"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573384"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL-Database verklarende woordenlijst
 
@@ -39,6 +39,7 @@ Databaseobjecten|Azure SQL-database|Elke database in Azure SQL Database|
 ||Algemeen gebruik-database|Een database gemaakt binnen of verplaatst naar de categorie Algemeen gebruik-service van het op vCore gebaseerde aankoopmodel|
 ||Zeer grootschalige database|Een database gemaakt binnen of verplaatst naar de grootschalige servicelaag van de vCore-aanschafmodel|
 ||Essentiële Business-database|Een database gemaakt binnen of verplaatst naar de kritieke zakelijke-servicelaag van de vCore-aanschafmodel|
+||Ingerichte database|Een database die is geconfigureerd in de ingerichte Computing-laag|
 |[Aanschafmodellen en resources](sql-database-purchase-models.md)|DTU gebaseerde aankoopmodel|[DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md)|
 ||Aankoopmodel op basis van vCore|[op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md)|
 ||vCore|Een kern die het gastbesturingssysteem van de hypervisor.|

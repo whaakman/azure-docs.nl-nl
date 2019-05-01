@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 3d06024b7fa4356d4ad0e8b52c45c2ead62ef784
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1c772756a90c3eee4e2b3fb4fd4a0ec9e98fa0da
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778334"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919064"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actiegroepen in Azure portal maken en beheren
 ## <a name="overview"></a>Overzicht ##
@@ -78,7 +78,7 @@ Nadat u een actiegroep die u hebt gemaakt, wordt het weergegeven in de **actiegr
 
 U mogelijk een beperkt aantal e-mailacties in een actiegroep. Zie de [snelheidsbeperking informatie](./../../azure-monitor/platform/alerts-rate-limiting.md) artikel
 
-**ITSM** -u mogelijk een beperkt aantal beperkt aantal ITSM-acties in een actiegroep. ITSM-actie vereist een ITSM-verbinding. Meer informatie over het maken van een [ITSM-verbinding](../../azure-monitor/platform/itsmc-overview.md).
+**ITSM** -u mogelijk een beperkt aantal ITSM-acties in een actiegroep. ITSM-actie vereist een ITSM-verbinding. Meer informatie over het maken van een [ITSM-verbinding](../../azure-monitor/platform/itsmc-overview.md).
 
 **Logische App** -u mogelijk een beperkt aantal acties van logische apps in een actiegroep.
 
@@ -105,15 +105,12 @@ Bron-IP-adresbereiken
  - 51.5.148.86
  - 51.5.149.19
 
-Voor het ontvangen van updates over wijzigingen in deze IP-adressen we u raden een [servicestatus waarschuwing configureren, waarmee wordt gecontroleerd voor informatieve meldingen over de actiegroepen-service.
-
+U wordt aangeraden dat u een waarschuwing status van de Service, waarmee wordt gecontroleerd voor informatieve meldingen over de service actiegroepen configureren voor het ontvangen van updates over wijzigingen in deze IP-adressen.
 
 ## <a name="next-steps"></a>Volgende stappen ##
-
 * Meer informatie over [SMS waarschuwen gedrag](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Krijg een [begrip van de activiteit log waarschuwing webhook-schema](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Meer informatie over [ITSM-Connector](../../azure-monitor/platform/itsmc-overview.md)
 * Meer informatie over [gelden enkele beperkingen](../../azure-monitor/platform/alerts-rate-limiting.md) op waarschuwingen.
 * Krijgen een [overzicht van waarschuwingen voor activiteitenlogboeken](../../azure-monitor/platform/alerts-overview.md), en leer hoe u waarschuwingen ontvangt.  
 * Meer informatie over het [waarschuwingen configureren wanneer er een melding van de health service wordt geplaatst](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-

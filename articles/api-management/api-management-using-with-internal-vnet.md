@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 738dd451ca44801c799d793e6501c547655bd0e0
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 7db40de921c0eb8826a2fee832c1a51c57796f6d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524140"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919840"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Met behulp van Azure API Management-service met een intern virtueel netwerk
 Met virtuele netwerken van Azure beheren Azure API Management API's die niet toegankelijk is via internet. Een aantal VPN-technologieën zijn beschikbaar voor het maken van de verbinding. API Management kan worden geïmplementeerd in twee belangrijke modi binnen een virtueel netwerk:
@@ -48,7 +48,7 @@ Als u de stappen in dit artikel, moet u het volgende hebben:
 + Wanneer een API Management-service is geïmplementeerd in een virtueel netwerk, een [lijst met poorten](./api-management-using-with-vnet.md#required-ports) worden gebruikt en moet worden geopend. 
 
 ## <a name="enable-vpn"> </a>Het maken van een API Management in een intern virtueel netwerk
-De API Management-service in een intern virtueel netwerk wordt gehost achter een [interne load balancer (klassiek)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Dit is de enige beschikbare optie en kan niet worden gewijzigd.
+De API Management-service in een intern virtueel netwerk wordt gehost achter een [interne load balancer (klassiek)](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Dit is de enige beschikbare optie en kan niet worden gewijzigd.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>De verbinding van een virtueel netwerk met behulp van de Azure-portal inschakelen
 

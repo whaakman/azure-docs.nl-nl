@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, sstein
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 857b1059df2edf34e58d38d335725e27159977a0
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.openlocfilehash: 3fe6eae5f9f7d1ff318aa96bee7e1ab9a96a6870
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62738802"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867940"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Vergelijking van functies: Azure SQL Database versus SQL Server
 
@@ -48,14 +48,14 @@ De volgende tabel staan de belangrijkste functies van SQL Server en bevat inform
 | [BACPAC-bestand (exporteren)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Ja, Zie [SQL-Database exporteren](sql-database-export.md) | Ja |
 | [BACPAC-bestand (importeren)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Ja, Zie [SQL-Database importeren](sql-database-import.md) | Ja |
 | [Back-opdracht](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Nee, alleen systeem gestarte automatische back-ups - Zie [geautomatiseerde back-ups](sql-database-automated-backups.md) | Systeem gestarte automatische back-ups en de gebruiker geïnitieerd kopie-alleen back-ups - Zie [back-up van verschillen](sql-database-managed-instance-transact-sql-information.md#backup) |
-| [Ingebouwde functies](https://docs.microsoft.com/sql/t-sql/functions/functions) | De meeste - Zie afzonderlijke functies | Ja, Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
+| [Ingebouwde functies](https://docs.microsoft.com/sql/t-sql/functions/functions) | De meeste - Zie afzonderlijke functies | Ja, Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Gegevensregistratie wijzigen](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Nee | Ja |
 | [Wijzigingen bijhouden](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Ja |Ja |
 | [Sortering - database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | Ja | Ja |
 | [Sortering - server /-exemplaar](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Nee, standaard `SQL_Latin1_General_CP1_CI_AS` wordt altijd gebruikt. | Ja, kunnen worden ingesteld wanneer de [exemplaar gemaakt](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) en kan niet worden bijgewerkt. |
 | [Columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Ja, [Premium-laag, Standard-laag - S3 en hoger wordt de categorie Algemeen gebruik en bedrijfskritiek lagen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Ja |
 | [Common language runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Nee | Ja, maar geen toegang tot bestandssysteem - Zie [CLR-verschillen](sql-database-managed-instance-transact-sql-information.md#clr) |
-| [Ingesloten databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Ja | Geen [vanwege een fout in de HERSTELOPDRACHT met inbegrip van punt-in-time RESTORE](sql-database-managed-instance-transact-sql-information.md#cannot-restore-contained-database) |
+| [Ingesloten databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Ja | Geen [vanwege een fout in de HERSTELOPDRACHT met inbegrip van punt-in-time RESTORE](sql-database-managed-instance-transact-sql-information.md#cant-restore-contained-database) |
 | [Ingesloten gebruikers](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Ja | Ja |
 | [Beheer van flow taaltrefwoorden](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Ja | Ja |
 | [Query's tussen databases](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Nee, Zie [elastische query's](sql-database-elastic-query-overview.md) | Ja, plus [elastische query's](sql-database-elastic-query-overview.md) |
@@ -86,7 +86,7 @@ De volgende tabel staan de belangrijkste functies van SQL Server en bevat inform
 [Bestanden en bestandsgroepen](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Alleen primaire bestandsgroep | Ja |
 | [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Nee | Nee |
 | [Zoeken in volledige tekst](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Woordafbrekingen van derden worden niet ondersteund. |Woordafbrekingen van derden worden niet ondersteund. |
-| [Functies](https://docs.microsoft.com/sql/t-sql/functions/functions) | De meeste - Zie afzonderlijke functies | Ja, Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
+| [Functies](https://docs.microsoft.com/sql/t-sql/functions/functions) | De meeste - Zie afzonderlijke functies | Ja, Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Geo-restore](sql-database-recovery-using-backups.md#geo-restore) | Ja, alle lagen dan grootschalige service | Ja - met behulp van [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
 | [Grafische verwerking](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Ja | Ja |
 | [Optimalisatie in het geheugen](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja, [Premium en bedrijfskritiek-lagen](sql-database-in-memory.md) | Ja, [alleen de bedrijfskritieke laag Business](sql-database-managed-instance.md) |
@@ -137,8 +137,8 @@ De volgende tabel staan de belangrijkste functies van SQL Server en bevat inform
 | [SQL Server-replicatie](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Alleen voor transactionele abonnees en abonnees met momentopnamereplicatie](sql-database-single-database-migrate.md) | Ja, in [openbare preview](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Niet - [Zie Power BI](https://docs.microsoft.com/power-bi/) | Niet - [Zie Power BI](https://docs.microsoft.com/power-bi/) |
 | [Opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Ja | Ja |
-| [Het systeem opgeslagen functies](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | De meeste - Zie afzonderlijke functies | Ja, Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
-| [In het systeem opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Sommige - Zie afzonderlijke opgeslagen procedures | Ja, Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
+| [Het systeem opgeslagen functies](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | De meeste - Zie afzonderlijke functies | Ja, Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
+| [In het systeem opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Sommige - Zie afzonderlijke opgeslagen procedures | Ja, Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Systeemtabellen](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | Sommige - Zie afzonderlijke tabellen | Ja, Zie [T-SQL-verschillen](sql-database-managed-instance-transact-sql-information.md) |
 | [Systeemcatalogusweergaven](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Sommige - Zie afzonderlijke weergaven | Ja, Zie [T-SQL-verschillen](sql-database-managed-instance-transact-sql-information.md) |
 | [Tijdelijke tabellen](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | Lokale en database-scoped globale tijdelijke tabellen | Lokale en exemplaar scoped globale tijdelijke tabellen |

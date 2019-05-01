@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 35b6a55a3f5cad27045694231fc5ce79ed7aeadf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afd6192969243572134b7a7bb965ad80ff9eb39e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60879611"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922204"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Quickstart: De Translator Text-API gebruiken om teksttaal te detecteren met Node.js
 
@@ -119,7 +119,7 @@ Als u uw code graag wilt vergelijken met de onze, kunt u het volledige voorbeeld
 
 ## <a name="sample-response"></a>Voorbeeldantwoord
 
-De afkorting van land/regio niet vinden in dit [lijst met talen](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+De afkorting van land/regio niet vinden in dit [lijst met talen](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: d89a9c4c4498e249dbfbd453ef9772d18ffd213f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7196a2ea794c1d17a2c55c05accb447d83929972
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541598"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744079"
 ---
 In deze sectie bevat informatie over oudere generaties groottes van virtuele machines. Deze grootten worden nog steeds ondersteund, maar ontvangt geen extra capaciteit. Er zijn nieuwere of een alternatieve grootten die algemeen beschikbaar. Raadpleeg [grootten voor Windows virtuele machines in Azure](../articles/virtual-machines/windows/sizes.md) of [grootten voor virtuele Linux-machines in Azure](../articles/virtual-machines/linux/sizes.md) kiezen van de virtuele machine groottes die het beste aanpassen aan uw behoeften.  
 
@@ -27,7 +27,7 @@ Zie voor meer informatie over het vergroten of verkleinen van een Linux-VM [verg
 
 Premium-opslag:  Niet ondersteund
 
-Premium Storage Caching:  Niet ondersteund
+Premium Storage opslaan in cache:  Niet ondersteund
 
 De basislaaggrootten zijn met name bedoeld voor ontwikkelworkloads en andere toepassingen waarvoor geen taakverdeling, automatische schaling of geheugenintensieve virtuele machines zijn vereist.
 
@@ -49,7 +49,7 @@ ACU: 50-100
 
 Premium-opslag:  Niet ondersteund
 
-Premium Storage Caching:  Niet ondersteund
+Premium Storage opslaan in cache:  Niet ondersteund
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (HDD): GiB | Max. aantal gegevensschijven | Max. doorvoer gegevensschijf: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -74,7 +74,7 @@ ACU: 225
 
 Premium-opslag:  Niet ondersteund
 
-Premium Storage Caching:  Niet ondersteund
+Premium Storage opslaan in cache:  Niet ondersteund
 
 Grootten uit de A8-A11- en H-serie worden ook wel *rekenintensieve exemplaren* genoemd. De hardware waarop deze grootten worden uitgevoerd, is ontworpen en geoptimaliseerd voor rekenintensieve en netwerkintensieve toepassingen, waaronder HPC-clustertoepassingen (high-performance computing), modellerings- en simulatietoepassingen. De A8-A11-serie gebruikt Intel Xeon E5-2670 @ 2,6 GHZ en de H-serie gebruikt Intel Xeon E5-2667 v3 @ 3,2 GHz.  
 
@@ -97,7 +97,7 @@ ACU: 160-250 <sup>1</sup>
 
 Premium-opslag:  Niet ondersteund
 
-Premium Storage Caching:  Niet ondersteund
+Premium Storage opslaan in cache:  Niet ondersteund
 
 | Grootte         | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Max. aantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -118,7 +118,7 @@ ACU: 160-250 <sup>1</sup>
 
 Premium-opslag:  Niet ondersteund
 
-Premium Storage Caching:  Niet ondersteund
+Premium Storage opslaan in cache:  Niet ondersteund
 
 | Grootte         | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Max. aantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -139,7 +139,7 @@ ACU: 160-250 <sup>1</sup>
 
 Premium-opslag:  Ondersteund
 
-Premium Storage Caching:  Ondersteund
+Premium Storage opslaan in cache:  Ondersteund
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor opslag in cache en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -160,7 +160,7 @@ ACU: 160-250 <sup>1,2</sup>
 
 Premium-opslag:  Ondersteund
 
-Premium Storage Caching:  Ondersteund
+Premium Storage opslaan in cache:  Ondersteund
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor opslag in cache en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

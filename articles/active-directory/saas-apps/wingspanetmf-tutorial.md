@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a41bdda303c9e636929fba00a2fe4279002e42b3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6c3a7a8644e0e391f8817a7ae3a4cb9b8af5dab7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280754"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Zelfstudie: Azure Active Directory-integratie met Wingspan eTMF
 
@@ -112,7 +112,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Wingspan eTMF, moet 
     c. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<customer name>.<instance name>.mywingspan.com/`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id, de antwoord-URL en de aanmeldings-URL. Neem contact op met [Wingspan eTMF Client-ondersteuningsteam](http://www.wingspan.com/contact-us/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id, de antwoord-URL en de aanmeldings-URL. Neem contact op met [Wingspan eTMF Client-ondersteuningsteam](https://www.wingspan.com/contact-us/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
@@ -130,7 +130,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Wingspan eTMF, moet 
 
 ### <a name="configure-wingspan-etmf-single-sign-on"></a>Wingspan eTMF eenmalige aanmelding configureren
 
-Het configureren van eenmalige aanmelding op **Wingspan eTMF** zijde, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** en toepassing van de gekopieerde URL's van Azure portal om te [Wingspan eTMF-ondersteuningsteam ](http://www.wingspan.com/contact-us/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Het configureren van eenmalige aanmelding op **Wingspan eTMF** zijde, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** en toepassing van de gekopieerde URL's van Azure portal om te [Wingspan eTMF-ondersteuningsteam ](https://www.wingspan.com/contact-us/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
@@ -184,7 +184,7 @@ In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebru
 
 ### <a name="create-wingspan-etmf-test-user"></a>Wingspan eTMF testgebruiker maken
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Wingspan eTMF. Werken met [Wingspan eTMF ondersteuningsteam](http://www.wingspan.com/contact-us/) om toe te voegen de gebruikers in het Wingspan eTMF-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in Wingspan eTMF. Werken met [Wingspan eTMF ondersteuningsteam](https://www.wingspan.com/contact-us/) om toe te voegen de gebruikers in het Wingspan eTMF-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 04/26/2019
 ms.author: jeedes
-ms.openlocfilehash: d16aa8442f71845e7b46377c6c290212f9c400a3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 494284d32b48b810143f8c483278b2efbfb0dbc2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280499"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922307"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>Zelfstudie: Azure Active Directory-integratie met MyWorkDrive
 
@@ -37,7 +37,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 Voor het configureren van Azure AD-integratie met MyWorkDrive, moet u de volgende items:
 
-* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, krijgt u een [gratis account](https://azure.microsoft.com/free/)
 * MyWorkDrive eenmalige aanmelding ingeschakeld abonnement
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -66,7 +66,7 @@ Voor het configureren van de integratie van MyWorkDrive met Azure AD, moet u MyW
 
 4. Typ in het zoekvak **MyWorkDrive**, selecteer **MyWorkDrive** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-     ![MyWorkDrive in de lijst met resultaten](common/search-new-app.png)
+    ![MyWorkDrive in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
@@ -123,11 +123,11 @@ Voor het configureren van Azure AD eenmalige aanmelding met MyWorkDrive, moet u 
 
 6. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en sla deze op uw computer.
 
-    ![De link om het certificaat te downloaden](common/certificatebase64.png)
+    ![De link om het certificaat te downloaden](common/copy-metadataurl.png)
 
 ### <a name="configure-myworkdrive-single-sign-on"></a>MyWorkDrive voor eenmalige aanmelding configureren
 
-1. In een ander browservenster, meld u aan bij MyWorkDrive als een beveiligingsbeheerder.
+1. In een ander browservenster aanmelden bij MyWorkDrive als een beveiligingsbeheerder.
 
 2. Klik op de MyWorkDrive Server in het deelvenster Beheer op **ENTERPRISE** en voer de volgende stappen uit:
 
@@ -141,10 +141,10 @@ Voor het configureren van Azure AD eenmalige aanmelding met MyWorkDrive, moet u 
 
     d. Klik op **Opslaan**.
 
-    >[!NOTE]
-    >Voor meer informatie raadpleegt de [MyWorkDrive Azure AD-ondersteuningsartikel](https://www.myworkdrive.com/support/saml-single-sign-on-azure-ad/).
+    > [!NOTE]
+    > Voor meer informatie raadpleegt de [MyWorkDrive Azure AD-ondersteuningsartikel](https://www.myworkdrive.com/support/saml-single-sign-on-azure-ad/).
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -162,8 +162,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
-    Bijvoorbeeld: BrittaSimon@contoso.com
+    b. In de **gebruikersnaam** veldtype `brittasimon\@yourcompanydomain.extension`. Bijvoorbeeld BrittaSimon@contoso.com.
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
@@ -199,7 +198,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 In deze sectie maakt u een gebruiker met de naam van Britta Simon in MyWorkDrive. Werken met [MyWorkDrive ondersteuningsteam](mailto:support@myworkdrive.com) om toe te voegen de gebruikers in het MyWorkDrive-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
@@ -212,4 +211,3 @@ Wanneer u op de tegel MyWorkDrive in het toegangsvenster, moet u worden automati
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

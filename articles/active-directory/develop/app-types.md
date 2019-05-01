@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef180fb444e32e8b055837fd418e21162ff58339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa4b68d48ec3f4fbb61c7144a133d9c42938c723
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411183"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917287"
 ---
 # <a name="application-types-in-v10"></a>Toepassingstypen in v1.0
 
@@ -63,7 +63,7 @@ Alle toepassingen die Azure AD-verificatie heeft, moet zijn geregistreerd in een
   * **Sleutel** -de sleutel die wordt verzonden, samen met een toepassings-ID bij het verifiëren met Azure AD naar een web-API aanroepen.
 * Vereist voor Azure AD om te controleren of dat de toepassing heeft de vereiste machtigingen om toegang te krijgen tot de directorygegevens van uw, andere toepassingen in uw organisatie, enzovoort.
 
-Informatie voor meer informatie over hoe u [een app registreren bij de Azure AD-eindpunt v1.0](quickstart-v1-add-azure-ad-app.md).
+Informatie voor meer informatie over hoe u [een app registreren](quickstart-register-app.md).
 
 ## <a name="single-tenant-and-multi-tenant-apps"></a>Apps met één tenant en meerdere tenants
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: c403d809aa1fc6cdbb0555eef414f79b02ab5a8a
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 0216a8c7d4e52e89098979223e9b792398e25038
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764120"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920171"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Azure Active Directory integreren met Azure Kubernetes Service met behulp van de Azure CLI
 
@@ -80,7 +80,6 @@ De Azure AD moet toegangsmachtigingen voor de volgende acties uitvoeren:
 
 * Adreslijstgegevens lezen
 * Aanmelden en gebruikersprofiel lezen
-* Adreslijstgegevens lezen
 
 Deze machtigingen met behulp van de [az ad app-machtiging toevoegen] [ az-ad-app-permission-add] opdracht:
 

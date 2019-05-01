@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2019
+ms.date: 04/26/2019
 ms.author: pareshmu
-ms.openlocfilehash: 95b06800b29d021290776025f9693eec8a43e74a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 61a6608a4b498cf47ece194e8cee4ea19a0333fd
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129465"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869090"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
@@ -50,7 +50,7 @@ In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-l
 | **India** | 2 |India - west, India - centraal, India - zuid |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japan** | 2 |Japan - west, Japan - oost |Osaka, Tokio |
 | **Zuid-Korea** | 2 |Korea Centraal, Korea Zuid |Busan, Seoul|
-| **VAE** | 2 | VAE-centraal, VAE-Noord | Dubai |
+| **VAE** | 3 | VAE-centraal, VAE-Noord | Dubai |
 | **Zuid-Afrika** | 3 |Zuid-Afrika West, Zuid-Afrika (Noord) |Kaapstad, Johannesburg |
 | **Zuid-Amerika** | 3 |Brazilië - zuid |Sao Paulo |
 

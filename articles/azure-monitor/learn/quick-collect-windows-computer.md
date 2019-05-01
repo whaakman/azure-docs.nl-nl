@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics-agent configureren voor hybride Windows-computer | Microsoft Docs
-description: Informatie over het implementeren van de Log Analytics-agent voor Windows, die wordt uitgevoerd op computers buiten Azure, en het inschakelen van gegevensverzameling met Log Analytics.
+title: De Azure Log Analytics-agent voor hybride Windows-computers configureren | Microsoft Docs
+description: In deze snelstartgids leert u over het implementeren van de Log Analytics-agent voor Windows-computers die buiten Azure worden uitgevoerd en het inschakelen van verzamelen van gegevens met Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -14,125 +14,125 @@ ms.topic: quickstart
 ms.date: 04/09/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: d1403b35319df6ef9ec45c07dc56d6f2ca38fa60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 99be0cee9c939ed200bd74c94e88c3fcd989e25b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539930"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722892"
 ---
-# <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Log Analytics-agent configureren voor Windows-computers in een hybride omgeving
-[Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) kan gegevens rechtstreeks vanuit uw fysieke of virtuele Windows-computer in uw datacentrum of andere cloudomgeving verzamelen en onderbrengen in één opslagplaats voor uitvoerige analyse en correlatie.  In deze quickstart wordt beschreven hoe u met een paar eenvoudige stappen gegevens van uw Windows-computer configureert en verzamelt.  Zie het volgende onderwerp, [Gegevens over Azure Virtual Machines verzamelen](../../azure-monitor/learn/quick-collect-azurevm.md), voor informatie over virtuele Windows-machines in Azure.  
+# <a name="configure-the-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>De Log Analytics-agent voor Windows-computers in een hybride omgeving configureren
+[Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) kan gegevens rechtstreeks vanuit uw fysieke of virtuele Windows-computers verzamelen in één opslagplaats voor uitvoerige analyse en correlatie. Log Analytics kan gegevens verzamelen vanuit een datacenter of andere cloudomgeving. In deze quickstart wordt beschreven hoe u met een paar eenvoudige stappen gegevens van uw Windows-computer configureert en verzamelt.  Zie voor meer informatie over Azure Windows VM's [verzamelen van gegevens over Azure virtual machines](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
-Als u meer wilt weten over de ondersteunde configuratie, kunt u de informatie over [ondersteunde Windows-besturingssystemen](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) en de [ netwerkconfiguratie voor de firewall](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) raadplegen.
+Zie voor meer informatie over de ondersteunde configuratie, [ondersteund Windows-besturingssystemen](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) en [firewall netwerkconfiguratie](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
  
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a name="sign-in-to-azure-portal"></a>Meld u aan bij Azure Portal
-Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-workspace"></a>Een werkruimte maken
-1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
+1. Selecteer in de Azure-portal de optie **Alle services**. Voer in het zoekvak **Log Analytics**. Terwijl u typt, de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**:
 
     ![Azure Portal](media/quick-collect-windows-computer/azure-portal-01.png)
   
-2. Klik op **Maken** en geef uw keuze aan voor de volgende items:
+2. Selecteer **maken**, en geef vervolgens de volgende gegevens:
 
-   * Geef een naam op voor de nieuwe **Log Analytics-werkruimte**, bijvoorbeeld *StandaardLAWerkruimte*. 
-   * Selecteer een **abonnement** om te koppelen door een selectie in de vervolgkeuzelijst te maken als de geselecteerde standaardwaarde niet juist is.
-   * Selecteer bij **Resourcegroep** een bestaande resourcegroep die een of meer virtuele Azure-machines bevat.  
-   * Selecteer de **Locatie** waarop uw virtuele machines zijn geïmplementeerd.  Bekijk [in welke regio's Log Analytics beschikbaar is](https://azure.microsoft.com/regions/services/) voor aanvullende informatie.  
-   * Als u een werkruimte maakt in een nieuw abonnement dat na 2 april 2018 is gemaakt, gebruikt deze automatisch de prijscategorie *Per GB*. De optie voor het selecteren van een prijscategorie is dan niet beschikbaar.  Als u een werkruimte maakt voor een bestaand abonnement dat is gemaakt vóór 2 april, of voor een abonnement dat is gekoppeld aan een bestaande EA-inschrijving, kunt u hier uw gewenste prijscategorie selecteren.  Zie [Prijzen voor Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) voor aanvullende informatie over de afzonderlijke lagen.
+   * Voer een naam voor de nieuwe **Log Analytics-werkruimte**. Ongeveer als **Standaardlawerkruimte**.
+   * Selecteer een **abonnement** om aan te koppelen. Als de standaardwaarde niet die u wilt gebruiken, selecteert u een andere naam in de lijst.
+   * Voor de **resourcegroep**, selecteer een bestaande resourcegroep met een of meer virtuele machines van Azure.  
+   * Selecteer de **Locatie** waarop uw virtuele machines zijn geïmplementeerd. Hier volgt een lijst van [regio's waarin Log Analytics beschikbaar is](https://azure.microsoft.com/regions/services/).  
+   * Als u een werkruimte maakt in een abonnement dat is gemaakt na 2 April 2018, wordt de werkruimte wordt automatisch gebruikt de **Per GB** prijsplan. Kunt u zich niet aan een prijscategorie selecteren. Als u een werkruimte maakt in een abonnement dat u hebt gemaakt vóór 2 April 2018, of in een abonnement dat is gekoppeld aan een bestaande EA-inschrijving, selecteert u de prijscategorie die u wilt gebruiken. Zie de [Log Analytics prijsinformatie](https://azure.microsoft.com/pricing/details/log-analytics/) voor informatie over Prijscategorieën.
 
-        ![Log Analytics-resource-blade maken](media/quick-collect-windows-computer/create-loganalytics-workspace-02.png)<br>  
+        ![Log Analytics-resource maken](media/quick-collect-windows-computer/create-loganalytics-workspace-02.png)<br>  
 
-3. Nadat u de vereiste gegevens hebt opgegeven in het deelvenster **Log Analytics-werkruimte**, klikt u op **OK**.  
+3. Na het opgeven van de vereiste gegevens in de **Log Analytics-werkruimte** venster **OK**.  
 
-Terwijl de gegevens worden geverifieerd en de werkruimte wordt gemaakt, kunt u de voortgang bijhouden onder **Meldingen** in het menu. 
+Hoewel de informatie wordt gecontroleerd en de werkruimte wordt gemaakt, u kunt de voortgang volgen onder **meldingen** in het menu.
 
-## <a name="obtain-workspace-id-and-key"></a>Werkruimte-ID en -sleutel ophalen
-Voordat u de MMA (Microsoft Monitoring Agent) voor Windows installeert, hebt u eerst de werkruimte-id en -sleutel voor uw Log Analytics-werkruimte nodig.  Het script voor de wizard Setup heeft deze informatie nodig om de agent correct te configureren en ervoor te zorgen dat deze kan communiceren met Log Analytics.  
+## <a name="get-the-workspace-id-and-key"></a>De werkruimte-ID en sleutel ophalen
+Voordat u Microsoft Monitoring Agent voor Windows hebt geïnstalleerd, moet u de werkruimte-ID en sleutel voor uw Log Analytics-werkruimte. De wizard setup moet u deze informatie om correct te configureren van de agent en zorg ervoor dat deze kan communiceren met Log Analytics.  
 
-1. Klik in Azure Portal in de linkerbovenhoek op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
-2. Selecteer in de lijst met Log Analytics-werkruimten de *StandaardLAWerkruimte* die u eerder hebt gemaakt.
-3. Selecteer **Geavanceerde instellingen**.
+1. Selecteer in de linkerbovenhoek van Azure portal **alle services**. Voer in het zoekvak **Log Analytics**. Terwijl u typt, de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
+2. Selecteer de werkruimte die u eerder hebt gemaakt in uw lijst met Log Analytics-werkruimten. (U mogelijk hebt met de naam het **Standaardlawerkruimte**.)
+3. Selecteer **geavanceerde instellingen**:
 
-    ![Geavanceerde instellingen van Log Analytics](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)
+    ![Geavanceerde instellingen van log Analytics](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)
   
-4. Selecteer **Verbonden bronnen** en selecteer vervolgens **Windows-servers**.   
-5. De waarde rechts van **Werkruimte-id** en **Primaire sleutel**. Kopieer en plak beide in uw favoriete editor.   
+4. Selecteer **Verbonden bronnen** en selecteer vervolgens **Windows-servers**.
+5. Kopieer de waarden aan de rechterkant van **werkruimte-ID** en **primaire sleutel**. Plak deze in uw favoriete editor.
 
 ## <a name="install-the-agent-for-windows"></a>De agent voor Windows installeren
-Met de volgende stappen wordt de agent voor Log Analytics in Azure en een Azure Government-cloud op uw computer geïnstalleerd en geconfigureerd met behulp van de setup voor de MMA.  
+De volgende stappen uit installeren en configureren van de agent voor Log Analytics in Azure en Azure Government. De Setup van Microsoft Monitoring Agent-programma gebruikt u de agent installeren op uw computer.
 
-1. Verder te gaan van de voorgaande reeks stappen, de **Windows Servers** pagina, selecteert u de juiste **Windows-Agent downloaden** versie te downloaden, afhankelijk van de processorarchitectuur van uw Windows Besturingssysteem.
+1. Verder te gaan van de voorgaande reeks stappen, de **Windows Servers** weergeeft, schakelt de **Windows-Agent downloaden** versie die u wilt downloaden. Selecteer de juiste versie van de processorarchitectuur van uw Windows-besturingssysteem.
 2. Voer Setup uit om de agent op de computer te installeren.
-2. Klik op de pagina **Welkom** op **Volgende**.
-3. Lees de licentie op de pagina **Licentievoorwaarden** en klik op **Akkoord**.
-4. Op de pagina **Doelmap** wijzigt u desgewenst de standaardinstallatiemap en klikt u op **Volgende**.
-5. Op de pagina **Installatieopties voor agent** kiest u ervoor de agent verbinding te laten maken met Azure Log Analytics en klikt u op **Volgende**.   
-6. Ga op de pagina **Azure Log Analytics** als volgt te werk:
-   1. Plak de **Werkruimte-id** en **Werkruimtesleutel (primaire sleutel)** die u eerder hebt gekopieerd.  Als u de computer wilt laten rapporteren bij een Log Analytics-werkruimte in de Azure Government-cloud, selecteert u **Azure US Government** in de vervolgkeuzelijst **Azure Cloud**.  
-   2. Als de computer met de Log Analytics-service moet communiceren via een proxyserver, klikt u op **Geavanceerd** en geeft u de URL en het poortnummer van de proxyserver op.  Als er voor uw proxyserver verificatie is vereist, voert u de gebruikersnaam en het wachtwoord in voor verificatie met de proxyserver. Klik vervolgens op **Volgende**.  
-7. Klik op **Volgende** als u de vereiste configuratie-instellingen hebt voltooid.
+2. Op de pagina **Welkom** selecteert u **Volgende**.
+3. Lees de licentie op de pagina **Licentievoorwaarden** en selecteer **Akkoord**.
+4. Op de pagina **Doelmap** wijzigt u desgewenst de standaardinstallatiemap en selecteert u **Volgende**.
+5. Op de **installatieopties voor Agent** pagina, de agent verbinden met Azure Log Analytics en selecteer vervolgens **volgende**.
+6. Op de **Azure Log Analytics** pagina, voert u deze stappen uit:
+   1. Plak het **werkruimte-ID** en **Werkruimtesleutel (primaire sleutel)** die u eerder hebt gekopieerd. Als de computer laten bij een Log Analytics-werkruimte in Azure Government rapporteren wilt, selecteert u **Azure US Government** in de **Azure-Cloud** lijst.  
+   2. Als de computer met de Log Analytics-service moet communiceren via een proxyserver, selecteert u **Geavanceerd** en geeft u de URL en het poortnummer van de proxyserver op. Als uw proxyserver verificatie is vereist, de gebruikersnaam en wachtwoord invoeren voor verificatie met de proxyserver en selecteer vervolgens **volgende**.  
+7. Selecteer **volgende** nadat u de configuratie-instellingen hebt toegevoegd:
 
-    ![Werkruimte-ID en primaire sleutel plakken](media/quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)
+    ![Setup van Microsoft Monitoring Agent](media/quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)
 
-8. Controleer op de pagina **Gereed om te installeren** uw keuzes en klik op **Installeren**.
-9. Klik op de pagina **Configuratie voltooid** op **Voltooien**.
+8. Controleer op de pagina **Gereed om te installeren** uw keuzes en selecteer **Installeren**.
+9. Op de **configuratie voltooid** weergeeft, schakelt **voltooien**.
 
-Als u klaar bent wordt de **MMA** in het **Configuratiescherm** weergegeven. U kunt de configuratie controleren en verifiëren of de agent is verbonden met Log Analytics. Wanneer de verbinding is gemaakt, geeft de agent op het tabblad **Azure Log Analytics** een bericht weer met de tekst: **De Microsoft Monitoring Agent heeft verbinding gemaakt met de service Microsoft Log Analytics.**<br><br> ![Verbindingsstatus van MMA met Log Analytics](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+Wanneer de installatie en configuratie is voltooid, wordt Microsoft Monitoring Agent wordt weergegeven in het Configuratiescherm. U kunt de configuratie controleren en verifiëren of de agent is verbonden met Log Analytics. Wanneer de verbinding is gemaakt, op de **Azure Log Analytics** tabblad en de agent wordt dit bericht weergegeven: **De Microsoft Monitoring Agent heeft verbinding gemaakt met de service Microsoft Log Analytics.**<br><br> ![Verbindingsstatus van MMA](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 ## <a name="collect-event-and-performance-data"></a>Gebeurtenis- en prestatiegegevens verzamelen
-Log Analytics kan gebeurtenissen uit de Windows-gebeurtenislogboeken en prestatiemeteritems verzamelen die u opgeeft voor langetermijnanalyses en -rapportages en kan actie ondernemen wanneer een bepaalde voorwaarde wordt gedetecteerd.  Volg deze stappen om eerst het verzamelen van gebeurtenissen uit de Windows-gebeurtenislogboeken en diverse algemene prestatiemeters te configureren.  
+Log Analytics kunt verzamelen van gebeurtenissen die u opgeeft in de Windows-gebeurtenislogboek en prestatiemeteritems voor langere termijn analyse en rapportage. Het kan ook een actie ondernemen wanneer er een bepaalde voorwaarde wordt gedetecteerd. Volg deze stappen om eerst het verzamelen van gebeurtenissen uit de Windows-gebeurtenislogboeken en diverse algemene prestatiemeters te configureren.  
 
-1. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
-2. Selecteer **Geavanceerde instellingen**.
+1. Selecteer in de linkerbenedenhoek van de Azure-portal **meer services**. Voer in het zoekvak **Log Analytics**. Terwijl u typt, de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
+2. Selecteer **geavanceerde instellingen**:
 
-    ![Geavanceerde instellingen van Log Analytics](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)
+    ![Geavanceerde instellingen van log Analytics](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)
  
 3. Selecteer **Gegevens** en selecteer vervolgens **Windows-gebeurtenislogboeken**.  
-4. U kunt een gebeurtenislogboek toevoegen door de naam van het logboek te typen.  Typ **System** en klik op het plusteken **+**.  
-5. Schakel in de tabel de ernstcategorieën **Fout** en **Waarschuwing** in.   
-6. Klik op **Opslaan** bovenaan de pagina om de configuratie op te slaan.
-7. Selecteer **Windows-prestatiemeteritems** om het verzamelen van prestatiemeteritems op een Windows-computer in te schakelen. 
-8. Wanneer u voor het eerst Windows-prestatiemeteritems voor een nieuwe Log Analytics-werkruimte configureert, krijgt u de optie om snel verschillende algemene prestatiemeteritems te maken. Ze worden weergegeven met een selectievakje ernaast.
+4. U kunt een gebeurtenislogboek toevoegen door de naam van het logboek te voeren. Voer **System**, en selecteer vervolgens het plusteken (**+**).  
+5. Selecteer in de tabel de **fout** en **waarschuwing** dagen per week.
+6. Selecteer **opslaan** aan de bovenkant van de pagina.
+7. Selecteer **Windows-prestatiemeteritems** om het verzamelen van prestatiemeteritems op een Windows-computer in te schakelen.
+8. Wanneer u Windows-prestatiemeteritems voor een nieuwe werkruimte voor logboekanalyse voor het eerst configureert, krijgt u de optie voor het snel verschillende algemene prestatiemeteritems te maken. Elke optie wordt weergegeven, met een selectievakje ernaast:
 
-    ![Standaard Windows-prestatiemeteritems geselecteerd](media/quick-collect-windows-computer/windows-perfcounters-default.png).
+    ![Windows-prestatiemeteritems](media/quick-collect-windows-computer/windows-perfcounters-default.png).
     
-    Klik op **De geselecteerde prestatiemeteritems toevoegen**.  Ze worden toegevoegd en vooraf ingesteld met een sample-interval van tien seconden. 
+    Selecteer **de geselecteerde prestatiemeteritems toevoegen**. De items die zijn toegevoegd en vooraf ingesteld met een controle-interval van tien seconden.
 
-9. Klik op **Opslaan** bovenaan de pagina om de configuratie op te slaan.
+9. Selecteer **opslaan** aan de bovenkant van de pagina.
 
-## <a name="view-data-collected"></a>Verzamelde gegevens weergeven
-Nu u gegevensverzameling hebt ingeschakeld, geven we een voorbeeld van een eenvoudige zoekopdracht in logboeken om enkele gegevens afkomstig van de doelcomputer weer te geven.  
+## <a name="view-collected-data"></a>Verzamelde gegevens weergeven
+Nu dat u gegevensverzameling hebt ingeschakeld, gaan we een eenvoudige logboekzoekopdracht om te zien van bepaalde gegevens van de doelcomputer te worden uitgevoerd.  
 
-1. Klik in Azure Portal, onder de geselecteerde werkruimte, op de tegel **Zoeken in logboeken**.  
-2. In het deelvenster Zoeken in logboeken typt u `Perf` in het queryveld en drukt u op Enter of klikt u op de zoekknop rechts van het queryveld.
+1. Selecteer in de Azure portal, in de geselecteerde werkruimte, de **zoeken in logboeken** tegel.  
+2. Op de **zoeken in logboeken** invoeren in het deelvenster in het queryvak **Perf** en selecteer Enter of Selecteer de zoekknop rechts van de query in:
  
-    ![Voorbeeld van zoeken in logboeken in Log Analytics](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
+    ![Log Analytics zoeken in Logboeken](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
 
-    Zo geeft de query in de volgende afbeelding 735 prestatierecords als resultaat.
+    Bijvoorbeeld: de query in deze afbeelding 735 prestatierecords geretourneerd:
 
     ![Zoekresultaat uit Log Analytics-logboeken](media/quick-collect-windows-computer/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer deze niet langer nodig is, kunt u de agent verwijderen van de Windows-computer en de Log Analytics-werkruimte verwijderen.  
+U kunt de agent verwijderen van uw computer en de Log Analytics-werkruimte verwijderen als u deze niet meer nodig hebt.  
 
-Voer de volgende stappen uit om de agent te verwijderen.
+Als u wilt verwijderen van de agent, de volgende stappen uit:
 
-1. Open het **Configuratiescherm**.
+1. Open het Configuratiescherm.
 2. Open **Programma's en onderdelen**.
-3. Selecteer in **Programma's en onderdelen** de optie **MMA** en klik op **Verwijderen**.
+3. In **programma's en onderdelen**, selecteer **Microsoft Monitoring Agent** en selecteer vervolgens **verwijderen**.
 
-U verwijdert de werkruimte door de eerder gemaakte Log Analytics-werkruimte te selecteren en op de resourcepagina op **Verwijderen** te klikken.
+Als u wilt verwijderen van de Log Analytics-werkruimte die u eerder hebt gemaakt, selecteert u deze, en selecteer op de pagina voor de resource **verwijderen**:
 
-![Log Analytics-resource verwijderen](media/quick-collect-windows-computer/log-analytics-portal-delete-resource.png)
+![De werkruimte voor Logboekanalyse verwijderen](media/quick-collect-windows-computer/log-analytics-portal-delete-resource.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u bezig bent met het verzamelen van operationele gegevens en prestatiegegevens van uw on-premises Windows-computer, kunt u beginnen met het verkennen, analyseren en het ondernemen van actie op gegevens die u *gratis* verzamelt.  
+Nu dat u operationele verzamelt en prestatiegegevens van uw Windows-computer, kunt u gemakkelijk beginnen met verkennen, analyseren en uitvoeren van de gegevens u verzamelt, voor *gratis*.  
 
-Voor informatie over het weergeven en analyseren van de gegevens gaat u verder met de zelfstudie.   
+Voor informatie over het weergeven en analyseren van de gegevens gaat u verder met de zelfstudie:
 
 > [!div class="nextstepaction"]
 > [Gegevens weergeven of analyseren in Log Analytics](tutorial-viewdata.md)

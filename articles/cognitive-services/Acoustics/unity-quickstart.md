@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 468c5584d21c226d6ffce55ff3981e629d872c56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c790e0fa726c719d5b888d42b5f59739777566b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388036"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917124"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Quick Start Project akoestische Unity
 Gebruik Project akoestische voorbeeld inhoud voor Unity om te experimenteren met besturingselementen voor ontwerp simulatie van garantie.
 
 Softwarevereisten:
-* [Unity 2018.2 +](http://unity3d.com) voor Windows
+* [Unity 2018.2 +](https://unity3d.com) voor Windows
 * [Project akoestische voorbeeld-inhoudspakket](https://www.microsoft.com/download/details.aspx?id=57346)
 
 Wat inbegrepen in het Voorbeeldpakket?

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2019
+ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0236050ffcf7ad1d18ff3a8a763d0469d91eeeb5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505424"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919891"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Quickstart: In IoT Hub-service inschakelen
 
@@ -39,6 +39,7 @@ In dit artikel bevat een uitleg over het inschakelen van de Azure Security Cente
   - Twee typen gegevens worden opgeslagen in uw Log Analytics-werkruimte door ASC standaard voor IoT; **beveiligingswaarschuwingen** en **aanbevelingen**. 
   - U kunt opslag van een type aanvullende informatie toevoegen **ruwe gebeurtenissen**. Houd er rekening mee dat opslaan **ruwe gebeurtenissen** in Log Analytics voert u de kosten voor extra opslag. 
 - IoT Hub (standard-laag of hoger)
+- Voldoen aan alle [prerequities-service](service-prerequisites.md) 
 
 ## <a name="enable-asc-for-iot-on-your-iot-hub"></a>ASC inschakelen voor IoT op uw IoT-Hub 
 
@@ -50,8 +51,7 @@ Schakel beveiliging van uw IoT-Hub door het volgende doen:
 4. Geef de details van uw Log Analytics-werkruimte. 
    - Er ook voor kiezen om op te slaan **ruwe gebeurtenissen** naast de standaard-gegevenstypen van opslag door te laten de **onbewerkte gebeurtenis** in-/ uitschakelen **op**. 
    - Er ook voor kiezen om in te schakelen **twin verzameling** door over te laten de **twin verzameling** in-/ uitschakelen **op**. 
-5. Klik op **OK**. 
-6. Klik op **Opslaan**. 
+5. Klik op **Opslaan**. 
 
 Gefeliciteerd! U hebt voltooid ASC inschakelen voor IoT op uw IoT-Hub. 
 

@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 7ff57519cfbb99fa705aff6c970951730c501f3e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 7be055588b58d20464639169ac8012c378900ff1
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104413"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866606"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>Uw eerste functie maken vanaf de opdrachtregel
 
@@ -29,7 +29,7 @@ U kunt de onderstaande stappen volgen op een Mac-, Windows- of Linux-computer.
 
 Voordat u dit voorbeeld kunt uitvoeren moet u ervoor zorgen dat u het volgende hebt:
 
-+ Installeer [Azure Core Tools versie 2.x](functions-run-local.md#v2).
++ Installeer [Azure Functions Core Tools](./functions-run-local.md#v2) versie 2.6.666 of hoger.
 
 + Installeer de [Azure CLI]( /cli/azure/install-azure-cli). In dit artikel is Azure CLI versie 2.0 of hoger vereist. Voer `az --version` uit om te zien welke versie u hebt. U kunt ook de [Azure Cloud Shell](https://shell.azure.com/bash) gebruiken.
 
@@ -65,9 +65,11 @@ Gebruik de volgende opdracht om naar de nieuwe projectmap `MyFunctionProj` te na
 cd MyFunctionProj
 ```
 
-[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
+## <a name="reference-bindings"></a>Referentie-bindingen
 
-[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 
 [!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
@@ -79,11 +81,11 @@ cd MyFunctionProj
 
 U moet een functie-app hebben die als host fungeert voor de uitvoering van uw functies. De functie-app biedt een omgeving waarin uw functiecode zonder server kan worden uitgevoerd. U kunt er functies mee groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren en delen. Een functie-app maken met behulp van de opdracht [az functionapp create](/cli/azure/functionapp#az-functionapp-create). 
 
-Vervang in de volgende opdracht de plaatsaanduiding `<app_name>` door een unieke functie-appnaam en gebruik de naam van het opslagaccount voor `<storage_name>`. De `<app_name>` wordt gebruikt als het standaard DNS-domein voor de functie-app. Om die reden moet de naam uniek zijn in alle apps in Azure. U moet ook de `<language>`-runtime voor uw functie-app instellen, vanuit `dotnet` (C#) of `node` (JavaScript).
+Vervang in de volgende opdracht de plaatsaanduiding `<APP_NAME>` door een unieke functie-appnaam en gebruik de naam van het opslagaccount voor `<STORAGE_NAME>`. De `<APP_NAME>` wordt gebruikt als het standaard DNS-domein voor de functie-app. Om die reden moet de naam uniek zijn in alle apps in Azure. U moet ook de `<language>`-runtime voor uw functie-app instellen, vanuit `dotnet` (C#) of `node` (JavaScript).
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --consumption-plan-location westeurope \
---name <app_name> --storage-account  <storage_name> --runtime <language> 
+--name <APP_NAME> --storage-account  <STORAGE_NAME> --runtime <language>
 ```
 
 Als u de parameter _consumption-plan-location_ instelt, betekent dat dat de function-app wordt gehost in een hostingabonnement van het type Consumption. In dit serverloze abonnement worden resources naar behoefte dynamisch door uw functies toegevoegd, en betaalt u alleen wanneer functies worden uitgevoerd. Zie [Het juiste hostingabonnement kiezen](functions-scale.md) voor meer informatie.

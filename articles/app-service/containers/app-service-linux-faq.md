@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: e3b6eed6f70eb2803ef4fa4e6b5d32fb0a4d843a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7cc3a4d98901e618369c98ceee8125d2abbe94e3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60851150"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919946"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service on Linux Veelgestelde vragen
 
@@ -136,7 +136,7 @@ De naam van de volledige installatiekopie, met inbegrip van het persoonlijke reg
 
 **Kan ik meer dan één poort weergeven op mijn aangepaste containerinstallatiekopie?**
 
-We ondersteunen momenteel geen meer dan één poort.
+We bieden geen ondersteuning meer dan één poort.
 
 **Kan ik mijn eigen opslag overbrengen?**
 
@@ -154,11 +154,11 @@ We hebben poort automatisch detecteren. U kunt ook een app-instelling met de naa
 
 Nee, het platform verwerkt voor HTTPS-beëindiging op de gedeelde front-ends.
 
-## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Meerdere containers met Docker Compose en Kubernetes
+## <a name="multi-container-with-docker-compose"></a>Meerdere containers met Docker Compose
 
 **Hoe configureer ik Azure Container Registry (ACR) om met meerdere containers te gebruiken?**
 
-Als u wilt ACR gebruiken met meerdere containers **alle containerinstallatiekopieën** moet worden gehost op dezelfde server voor de ACR-register. Zodra ze zich op dezelfde Registerserver bevinden, moet u toepassingsinstellingen maken en werk vervolgens de Docker Compose- of Kubernetes-configuratiebestand om op te nemen van de naam van de ACR-installatiekopie.
+Als u wilt ACR gebruiken met meerdere containers **alle containerinstallatiekopieën** moet worden gehost op dezelfde server voor de ACR-register. Zodra ze zich op dezelfde Registerserver bevinden, moet u toepassingsinstellingen maken en vervolgens het configuratiebestand Docker Compose zodanig dat de naam van de ACR-installatiekopie bijwerken.
 
 Maak de volgende instellingen:
 

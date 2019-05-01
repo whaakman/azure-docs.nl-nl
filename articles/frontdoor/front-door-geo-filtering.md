@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 1d6343705e8d27fb2d22827cf792de332861456e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: da56c9664ce533709676ded677add4a2391dce03
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736595"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64865871"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Wat is een geo-filteren op een domein voordeur voor Azure?
 
-Standaard reageert AFD op gebruikersaanvragen, ongeacht de locatie van deze gebruiker. In sommige gevallen kunt u echter de toegang tot uw webtoepassingen per land beperken. Web application firewall (WAF)-service aan voordeur kunt u een beleid met behulp van aangepaste toegangsregels voor het specifieke pad op uw eindpunt wilt toestaan of blokkeren van toegang van de opgegeven landen definiëren. 
+Standaard reageert AFD op gebruikersaanvragen, ongeacht de locatie van deze gebruiker. In sommige gevallen kunt u echter toegang tot uw web-apps beperken per land/regio. Web application firewall (WAF)-service aan voordeur kunt u een beleid met behulp van regels voor aangepaste toegang wilt toestaan of blokkeren van toegang van de opgegeven landen/regio's voor een specifiek pad op uw eindpunt definiëren. 
 
 Een WAF-beleid bevat meestal een set met aangepaste regels. Een regel bestaat uit voorwaarden voor overeenkomsten, een actie en een prioriteit. In de voorwaarde voor overeenkomst definieert u een overeenkomende variabele, een operator en een overeenkomende waarde.  Voor de ge-filterregel is REMOTE_ADDR de overeenkomende variabele, GeoMatch de operator, en de waarde is het landnummer van twee letters. U kunt een GeoMatch-voorwaarde combineren met een REQUEST_URI-tekenreeks-voorwaarde voor overeenkomst om een op een pad gebaseerde geo-filterregel te maken.
 
@@ -62,7 +62,7 @@ U kunt een beleid voor geo-filtering configureren voor uw voordeur met behulp va
 | BY | Belarus|
 | BZ | Belize|
 | CA | Canada|
-| CD | Democratische Republiek Congo|
+| CD | Congo (DRC)|
 | CF | Centraal-Afrikaanse Republiek|
 | CH | Zwitserland|
 | CI | Cote d'Ivoire|

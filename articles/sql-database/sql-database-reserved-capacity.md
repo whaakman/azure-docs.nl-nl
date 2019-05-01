@@ -9,19 +9,20 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: sstein
+ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: ec9bd3ee106571484c513c2d005a374a90c1d17e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/26/2019
+ms.openlocfilehash: 74a52df4eab8a3e471e541889cde74846af00fb8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359710"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574183"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Betaal vooruit voor SQL Database-compute-resources met Azure SQL Database gereserveerde capaciteit
 
 Bespaar geld met Azure SQL Database door vooruitbetaalt voor compute-resources in vergelijking met betalen per gebruik. Met Azure SQL Database gereserveerde capaciteit maken u een toezegging op SQL-Database voor een periode van één of drie jaar om op te halen van een aanzienlijke korting op de rekenkosten. Om aan te schaffen SQL-Database gereserveerde capaciteit, moet u de Azure-regio, het implementatietype, de prestatielaag en de term opgeven.
+
 
 U hoeft niet de reservering toewijzen aan specifieke SQL-Database-exemplaren (individuele databases, elastische pools of beheerde exemplaren). Die overeenkomen met SQL Database-exemplaren die al worden uitgevoerd of die onlangs zijn geïmplementeerd, krijgen automatisch het voordeel. Door een reservering koopt, betaalt u vooraf voor de compute-kosten voor een periode van één of drie jaar. Als u een reservering koopt, gaat u de SQL-Database rekenkosten in rekening gebracht die overeenkomen met de kenmerken van de reservering niet meer in rekening gebracht tegen de betalen waarbij u tarieven. Kosten voor software, netwerk of opslag is gekoppeld aan de SQL-Database-exemplaar heeft geen betrekking op een reservering. De facturering benefit verloopt aan het einde van de reserveringstermijn, en de SQL-Databases in rekening gebracht volgens de betaalt u Ga-prijs. Reserveringen kunnen niet automatisch verlengen. Zie voor informatie over de prijzen, de [SQL-Database gereserveerde capaciteit aanbieding](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
@@ -51,7 +52,7 @@ Bijvoorbeeld: Stel dat u een algemene, Gen5 – 16 vCore elastische pool en twee
     | Veld      | Description|
     |:------------|:--------------|
     |Name        |De naam van deze reservering.|
-    |Abonnement|Het abonnement dat wordt gebruikt om te betalen voor de reservering van SQL-Database gereserveerde capaciteit. De betalingswijze voor het abonnement wordt in rekening gebracht de kosten vooraf voor de reservering van SQL-Database gereserveerde capaciteit. Het abonnementstype moet een enterprise agreement (getallen bieden: MS-AZR-0017P of MS-AZR - 0148 P) en betalen per gebruik (getallen bieden: MS-AZR-0003P of MS-AZR - 0023 P). Voor een Enterprise-abonnement worden de kosten in mindering gebracht op het toezeggingsbedrag of ze worden in rekening gebracht als overschrijding. Voor een Betalen per gebruik-abonnement worden de kosten in rekening gebracht op de creditcard of de factuurbetalingswijze van het abonnement.|
+    |Abonnement|Het abonnement dat wordt gebruikt om te betalen voor de reservering van SQL-Database gereserveerde capaciteit. De betalingswijze voor het abonnement wordt in rekening gebracht de kosten vooraf voor de reservering van SQL-Database gereserveerde capaciteit. Het abonnementstype moet een enterprise agreement (getallen bieden: MS-AZR-0017P of MS-AZR - 0148 P) en betalen per gebruik (getallen bieden: MS-AZR-0003P of MS-AZR-0023P). Voor een Enterprise-abonnement worden de kosten in mindering gebracht op het toezeggingsbedrag of ze worden in rekening gebracht als overschrijding. Voor een Betalen per gebruik-abonnement worden de kosten in rekening gebracht op de creditcard of de factuurbetalingswijze van het abonnement.|
     |Bereik       |Bereik van de vCore-reservering kan betrekking hebben op één abonnement of meerdere abonnementen (gedeeld bereik). Als u selecteert: <br/><br/>**Enkel abonnement** -de reserveringskorting vCore wordt toegepast op SQL Database-exemplaren in dit abonnement. <br/><br/>**Gedeeld abonnement** -de reserveringskorting vCore wordt toegepast op SQL Database-exemplaren die worden uitgevoerd in alle abonnementen binnen de context van de facturering. Voor zakelijke klanten, gedeeld bereik is van de inschrijving en bevat alle abonnementen binnen de inschrijving. Voor klanten van betalen per gebruik is het gedeelde bereik alle betalen per gebruik-abonnementen die zijn gemaakt door de accountbeheerder.|
     |Regio      |De Azure-regio die wordt gedekt door de SQL-Database gereserveerde capaciteit.|
     |Implementatietype|Het type van de SQL-resource die u wilt kopen, de reservering voor.|

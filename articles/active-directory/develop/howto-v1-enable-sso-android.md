@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 46537ac1ca0ee8b1a163656d14f325a93f3a8717
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410362"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917238"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procedure: SSO voor cross-app op Android met behulp van ADAL inschakelen
 
@@ -39,7 +39,7 @@ In deze procedures leert u over het configureren van de SDK in uw toepassing voo
 
 Deze instructies wordt ervan uitgegaan dat u weet hoe u:
 
-- Uw app met behulp van de oude portal voor Azure Active Directory (Azure AD) inrichten. Zie voor meer informatie, [een app registreren bij de Azure AD v1.0-eindpunt](quickstart-v1-add-azure-ad-app.md)
+- Uw app met behulp van de oude portal voor Azure Active Directory (Azure AD) inrichten. Zie voor meer informatie, [een app registreren](quickstart-register-app.md)
 - Integreer uw toepassing met de [Azure AD Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## <a name="single-sign-on-concepts"></a>Concepten voor eenmalige aanmelding

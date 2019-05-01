@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e79e610638b5ff271607da2e8855003707ea5932
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cdd639f690d98651661226fbd340964dfdc7861f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821297"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914929"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -69,7 +69,7 @@ Opmerking: Data Prep Python SDK wordt niet meer geïnstalleerd `numpy` en `panda
 + **Nieuwe functies**
   + De SDK van Azure Machine Learning biedt nu ondersteuning voor Python 3.7.
   + Azure Machine Learning DNN loopt nu opgeven ingebouwde ondersteuning voor meerdere versie. Bijvoorbeeld, `TensorFlow`  estimator accepteert nu een `framework_version` parameter en gebruikers kunnen versie '1.10' of '1.12' opgeven. Voor een lijst van de versies die worden ondersteund door de huidige release van SDK, belt u `get_supported_versions()` op de gewenste framework-klasse (bijvoorbeeld `TensorFlow.get_supported_versions()`).
-  Zie voor een lijst van de versies die worden ondersteund door de meest recente release van SDK, de [DNN Estimator documentatie](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
+  Zie voor een lijst van de versies die worden ondersteund door de meest recente release van SDK, de [DNN Estimator documentatie](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Azure Machine Learning Data Prep SDK v1.1.1
 
@@ -143,13 +143,13 @@ Opmerking: Data Prep Python SDK wordt niet meer geïnstalleerd `numpy` en `panda
 
 + **Nieuwe functies**
 
-  + Azure Machine Learning biedt nu eersteklas ondersteuning voor populaire DNN framework Chainer. Met behulp van [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) klasse gebruikers kunnen eenvoudig trainen en Chainer modellen te implementeren.
+  + Azure Machine Learning biedt nu eersteklas ondersteuning voor populaire DNN framework Chainer. Met behulp van [ `Chainer` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) klasse gebruikers kunnen eenvoudig trainen en Chainer modellen te implementeren.
     + Meer informatie over het [gedistribueerde training met ChainerMN uitvoeren](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
     + Meer informatie over het [hyperparameter afstemmen met Chainer met behulp van HyperDrive uitvoeren](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + Azure Machine Learning-pijplijnen toegevoegd mogelijkheid trigger een Pijplijnuitvoering op basis van wijzigingen van de gegevensopslag. De pijplijn [planning notebook](https://aka.ms/pl-schedule) ter promotie van deze functie wordt bijgewerkt.
 
 + **Fouten opgelost en verbeteringen**
-  + We hebben ondersteuning voor Azure Machine Learning-pijplijnen toegevoegd voor het instellen van de eigenschap source_directory_data_store met een gewenste gegevensarchief (zoals een blob-opslag) op [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) die worden geleverd aan de [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Standaard stappen Azure File-opslag gebruikt als de back-ups gegevensopslag die kan worden uitgevoerd in de beperking van problemen wanneer een groot aantal stappen gelijktijdig worden uitgevoerd.
+  + We hebben ondersteuning voor Azure Machine Learning-pijplijnen toegevoegd voor het instellen van de eigenschap source_directory_data_store met een gewenste gegevensarchief (zoals een blob-opslag) op [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) die worden geleverd aan de [ PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Standaard stappen Azure File-opslag gebruikt als de back-ups gegevensopslag die kan worden uitgevoerd in de beperking van problemen wanneer een groot aantal stappen gelijktijdig worden uitgevoerd.
 
 ### <a name="azure-portal"></a>Azure Portal
 

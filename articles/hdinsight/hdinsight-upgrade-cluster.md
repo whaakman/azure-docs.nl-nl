@@ -1,28 +1,24 @@
 ---
 title: HDInsight-cluster upgraden naar een nieuwere versie-Azure
 description: Meer informatie over het upgraden van HDInsight-cluster naar een nieuwere versie.
-services: hdinsight
 ms.service: hdinsight
 author: omidm1
-ms.author: v-yiso
+ms.author: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 04/04/2017
-ms.date: 02/04/2019
+ms.date: 04/04/2017
 ms.openlocfilehash: b5048266fe17bc16fba8228f7cc17d0ee9f3bc0b
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763987"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714776"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>HDInsight-cluster upgraden naar een nieuwere versie
 Als u wilt profiteren van de nieuwste functies voor HDInsight, is het raadzaam dat HDInsight-clusters worden bijgewerkt naar de meest recente versie. Volg de onderstaande richtlijnen om te upgraden van uw HDInsight-cluster versies.
 
-> [!NOTE]
+> [!NOTE]  
 > Zie voor meer informatie over de ondersteunde versies van HDInsight [HDInsight onderdeel versies](hdinsight-component-versioning.md#supported-hdinsight-versions).
->
->
 
 ## <a name="upgrade-tasks"></a>Upgrade uitvoeren van taken
 De werkstroom om HDInsight-Cluster te upgraden is als volgt.

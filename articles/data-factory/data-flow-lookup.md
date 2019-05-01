@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: ef473ea5f88b9108894787785fe1e9083fab1b0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 197f5ba9d6921f4a9921b7074b9e05162d3e37b8
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61348014"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868128"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory gegevenstransformatie stroom Lookup toewijzen
 
@@ -25,6 +25,10 @@ Gebruik Lookup om toe te voegen referentiegegevens vanaf een andere bron voor uw
 Selecteer de velden voor sleutels die u wilt tussen de velden van de referentie-bron en de binnenkomende stream velden overeenkomen. U moet eerst hebt gemaakt een nieuwe bron op het canvas ontwerp gegevensstroom gebruiken als de rechterkant voor de zoekopdracht.
 
 Wanneer overeenkomsten worden gevonden, wordt de resulterende rijen en kolommen uit de Verwijzingsbron worden toegevoegd aan de gegevensstroom. U kunt kiezen welke velden van belang dat u wilt opnemen in uw Sink aan het einde van de gegevensstroom.
+
+## <a name="match--no-match"></a>Overeenkomen met / geen overeenkomst
+
+Na uw transformatie opzoeken, kunt u volgende transformaties gebruiken om te controleren van de resultaten van elke rij van de overeenkomst met de functie expressie `isMatch()` meer keuzes in de logica op basis van het al dan niet de zoekopdracht heeft geresulteerd in een rij-overeenkomst of niet maken.
 
 ## <a name="optimizations"></a>Optimalisaties
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: dc5bfe6b431659b7b99140eb29a0e64922a42275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fddea12d4c6b7d09d87174d29c645ef6da54af6f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61364503"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917425"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Gebruik IoT Hub-berichtroutering apparaat-naar-cloud-berichten te verzenden naar verschillende eindpunten
 
@@ -119,7 +119,7 @@ In de meeste gevallen is de gemiddelde toename in latentie van minder dan 500 ms
 
 IoT Hub biedt verschillende Routering en eindpunt verwante metrische gegevens waarin u een overzicht van de status van uw hub en de berichten die worden verzonden. U kunt gegevens uit meerdere metrische gegevens om de hoofdoorzaak van problemen vast te combineren. Gebruik bijvoorbeeld de statistiek voor **routering: telemetrieberichten verwijderd** of **d2c.telemetry.egress.dropped** voor het identificeren van het aantal berichten dat is verwijderd als ze niet overeenkomen met de query's op een van de routes en alternatieve route is uitgeschakeld. [Metrische gegevens van IoT-Hub](iot-hub-metrics.md) geeft een lijst van alle metrische gegevens die zijn standaard ingeschakeld voor uw IoT-Hub.
 
-U kunt de REST-API gebruiken [Endpoint-status ophalen](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) om op te halen [de integriteitsstatus van de](iot-hub-devguide-endpoints.md#custom-endpoints) van de eindpunten. Wordt u aangeraden de [metrische gegevens van IoT-Hub](iot-hub-metrics.md) met betrekking tot routering bericht latentie om te bepalen en fouten opsporen, wanneer de status van het eindpunt dode of niet in orde is. Bijvoorbeeld, voor het eindpunt van het type Event Hubs, kunt u controleren **d2c.endpoints.latency.eventHubs**. De status van een eindpunt niet in orde wordt bijgewerkt op in orde wanneer IoT Hub heeft een uiteindelijke consistente status van de gezondheid van tot stand worden gebracht.
+U kunt de REST-API gebruiken [Endpoint-status ophalen](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) om op te halen [de integriteitsstatus van de](iot-hub-devguide-endpoints.md#custom-endpoints) van de eindpunten. Wordt u aangeraden de [metrische gegevens van IoT-Hub](iot-hub-metrics.md) met betrekking tot routering bericht latentie om te bepalen en fouten opsporen, wanneer de status van het eindpunt dode of niet in orde is. Bijvoorbeeld, voor het eindpunt van het type Event Hubs, kunt u controleren **d2c.endpoints.latency.eventHubs**. De status van een eindpunt niet in orde wordt bijgewerkt op in orde wanneer IoT Hub heeft een uiteindelijke consistente status van de gezondheid van tot stand worden gebracht.
 
 Met behulp van de **routes** diagnostische logboeken in Azure Monitor [diagnostische instellingen](../iot-hub/iot-hub-monitor-resource-health.md), kunt u de nummers fouten die tijdens de evaluatie van een routering query- en eindpunt status optreden zoals waargenomen door de IoT-Hub, bijvoorbeeld een eindpunt is als inactief. Deze logboeken met diagnostische gegevens kunnen worden verzonden naar Azure Monitor-Logboeken, Event Hubs of Azure Storage voor aangepaste verwerking.
 

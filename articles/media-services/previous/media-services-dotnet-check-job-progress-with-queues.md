@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 811ed6dde4ed98222bdd2589d8d6fdd8e0f64ce8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2a7f15eb7e90ba4dec9bc614a45d2de46c07bdfd
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465623"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868106"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Azure Queue storage gebruiken voor het bewaken van taakmeldingen Media Services met .NET 
+
+> [!NOTE]
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
 
 Wanneer u coderingstaken uitvoert, moet u vaak een manier om bij te houden van de taak wordt uitgevoerd. U kunt Media Services voor het leveren van meldingen configureren [Azure Queue storage](../../storage/storage-dotnet-how-to-use-queues.md). U kunt taakvoortgang controleren met het ophalen van meldingen vanuit de Queue-opslag. 
 

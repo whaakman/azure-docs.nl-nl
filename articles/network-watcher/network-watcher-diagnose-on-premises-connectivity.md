@@ -3,8 +3,8 @@ title: Diagnose On-Premises connectiviteit via VPN-gateway met Azure Network Wat
 description: Dit artikel wordt beschreven hoe u on-premises connectiviteit via VPN-gateway bij het oplossen van Azure Network Watcher-resource vaststelt.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 323e5d63b5f8566d570dfd47323fcf12f7c6b28b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: kumud
+ms.openlocfilehash: 95c6e1f015e519bd1e753fce9a2c6f064a854456
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051577"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713780"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnose van on-premises connectiviteit via VPN-gateways
 
@@ -107,7 +107,7 @@ Azure Network Watcher oplossen functie kunt u problemen vaststellen en oplossen 
 | ConnectionIsMarkedDisconnected | De verbinding is gemarkeerd als "niet-verbonden." |Nee|
 | ConnectionNotConfiguredOnGateway | De onderliggende service beschikt niet over de verbinding is geconfigureerd. | Ja |
 | ConnectionMarkedStandby | De onderliggende service is gemarkeerd als stand-by.| Ja|
-| Authentication | Vooraf gedeelde sleutel komt niet overeen. | Ja|
+| Verificatie | Vooraf gedeelde sleutel komt niet overeen. | Ja|
 | PeerReachability | De peer-gateway is niet bereikbaar. | Ja|
 | IkePolicyMismatch | De peer-gateway heeft IKE-beleid die niet worden ondersteund door Azure. | Ja|
 | WfpParse Error | Er is een fout opgetreden bij het parseren van het logboek WPF. |Ja|

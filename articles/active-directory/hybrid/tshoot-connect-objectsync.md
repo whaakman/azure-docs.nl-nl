@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82139178d4c1db4774d539180e41e49699d8ee12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e56d4d94e38e5095ef2223d0cc2875cbf1dcd46
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60382373"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919126"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Objectsynchronisatie met Azure AD Connect-synchronisatie oplossen
 Dit artikel bevat stappen voor het oplossen van problemen met objectsynchronisatie met behulp van de taak voor het oplossen van problemen. Als u wilt zien hoe u problemen oplossen in Azure Active Directory (Azure AD) Connect werkt, Bekijk [in deze korte video](https://aka.ms/AADCTSVideo).
@@ -37,13 +37,13 @@ Als u wilt de taak voor het oplossen van problemen in de wizard uitvoert, moet u
 4.  Navigeer naar de pagina extra taken, selecteert u problemen oplossen en klik op volgende.
 5.  Klik op starten voor het oplossen van problemen met het menu start in PowerShell op de pagina voor problemen oplossen.
 6.  Selecteer in het hoofdmenu van Objectsynchronisatie oplossen.
-![](media/tshoot-connect-objectsync/objsynch11.png)
+![Objectsynchronisatie oplossen](media/tshoot-connect-objectsync/objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Invoerparameters voor het oplossen van problemen
 De volgende invoerparameters nodig zijn voor de taak voor het oplossen van problemen:
 1.  **Object-DN-naam** : dit is de DN-naam van het object dat problemen oplossen moet
 2.  **Naam voor AD Connector** : dit is de naam van de AD-forest waarin de bovenstaande object zich bevindt.
-3.  Azure AD-tenant hoofdbeheerdersreferenties ![](media/tshoot-connect-objectsync/objsynch1.png)
+3.  Azure AD-tenant hoofdbeheerdersreferenties ![hoofdbeheerdersreferenties](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>Inzicht in de resultaten van de taak voor het oplossen van problemen
 Het oplossen van problemen met taak voert de volgende controles uit:
@@ -60,27 +60,27 @@ De rest van deze sectie wordt beschreven specifieke resultaten die worden gereto
 ### <a name="upn-suffix-is-not-verified-with-azure-ad-tenant"></a>UPN-achtervoegsel is niet geverifieerd met Azure AD-Tenant
 Wanneer UserPrincipalName (UPN) / achtervoegsel van de alternatieve aanmeldings-ID is niet geverifieerd met de Azure AD-Tenant en Azure Active Directory de UPN-achtervoegsels vervangt door de standaard domein naam 'onmicrosoft.com'.
 
-![](media/tshoot-connect-objectsync/objsynch2.png)
+![Azure AD wordt vervangen door UPN](media/tshoot-connect-objectsync/objsynch2.png)
 
 ### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>Het wijzigen van UPN-achtervoegsel van een federatief domein naar een ander federatief domein
 Azure Active Directory is niet toegestaan voor de synchronisatie van UserPrincipalName (UPN) / Alternate Login ID achtervoegsel wijziging ten opzichte van een federatief domein naar een ander federatief domein. Dit geldt voor domeinen die worden geverifieerd met de Azure AD-Tenant en het verificatietype dat wordt als federatieve hebben.
 
-![](media/tshoot-connect-objectsync/objsynch3.png) 
+![Er is geen synchronisatie UPN van een federatief domein naar een andere](media/tshoot-connect-objectsync/objsynch3.png) 
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>Azure AD-Tenant DirSync-functie 'SynchronizeUpnForManagedUsers' is uitgeschakeld
 Wanneer de DirSync-functie van Azure AD-Tenant 'SynchronizeUpnForManagedUsers' is uitgeschakeld, is Azure Active Directory kan geen updates van de synchronisatie voor UserPrincipalName/alternatieve aanmeldings-ID voor de gelicentieerde gebruikersaccounts met beheerde verificatie.
 
-![](media/tshoot-connect-objectsync/objsynch4.png)
+![SynchronizeUpnForManagedUsers](media/tshoot-connect-objectsync/objsynch4.png)
 
 ## <a name="object-is-filtered-due-to-domain-filtering"></a>Object is gefilterd door het domein filteren
 ### <a name="domain-is-not-configured-to-sync"></a>Domein is niet geconfigureerd om te synchroniseren
 Er is een object buiten het bereik vanwege domein niet is geconfigureerd. In het volgende voorbeeld wordt het object is niet gesynchroniseerd bereik als het domein dat hoort bij is gefilterd van synchronisatie.
 
-![](media/tshoot-connect-objectsync/objsynch5.png)
+![Domein is niet geconfigureerd om te synchroniseren](media/tshoot-connect-objectsync/objsynch5.png)
 
 ### <a name="domain-is-configured-to-sync-but-is-missing-run-profilesrun-steps"></a>Domein is geconfigureerd voor synchroniseren, maar ontbreekt stappen uitvoeren profielen/uitvoeren
 Object is buiten het bereik als het domein, ontbreekt uitgevoerd werk profielen/uitvoeren. Het object is niet gesynchroniseerd bereik in het onderstaande voorbeeld als het domein dat hoort bij stappen uitvoeren voor de volledige Import profiel uitvoert ontbreekt.
-![](media/tshoot-connect-objectsync/objsynch6.png)
+![ontbrekende uitgevoerde profielen](media/tshoot-connect-objectsync/objsynch6.png)
 
 ## <a name="object-is-filtered-due-to-ou-filtering"></a>Object wordt vervaldatum gefilterd op OE filteren
 Het object is niet gesynchroniseerd bereik vanwege een OE-filters gebruiken om configuratie. In het volgende voorbeeld wordt het object deel uitmaakt van organisatie-eenheid = NoSync, DC = bvtadwbackdc, DC = com.  Deze organisatie-eenheid is niet opgenomen in het bereik van gegevenssynchronisatie.</br>
@@ -99,7 +99,7 @@ Als gevolg van diverse verschillen tussen on-premises synchroniseert Active Dire
 ## <a name="html-report"></a>HTML-rapport
 Naast het analyseren van het object, genereert de taak voor het oplossen van problemen ook een HTML-rapport dat alles bekend over het object is. Dit HTML-rapport kan worden gedeeld met het ondersteuningsteam om te doen probleemoplossing, indien nodig meer.
 
-![](media/tshoot-connect-objectsync/objsynch8.png)
+![HTML-rapport](media/tshoot-connect-objectsync/objsynch8.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory](whatis-hybrid-identity.md).

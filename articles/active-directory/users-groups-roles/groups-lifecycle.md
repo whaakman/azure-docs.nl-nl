@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c19ee3bdd14ee6a2c5b59294f475f6c18b570fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1be88f0938a16302be4cf2308ba463900c067104
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471958"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920158"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Het vervalbeleid voor Office 365-groepen configureren
 
@@ -86,7 +86,7 @@ De groep binnen 30 dagen na de verwijdering kan worden hersteld door het selecte
 Als de groep die u herstellen van wilt documenten, SharePoint-sites of andere permanente objecten bevat, is het duurt maximaal 24 uur aan de groep en de inhoud ervan volledig te herstellen.
 
 ## <a name="how-to-retrieve-office-365-group-expiration-date"></a>Datum van afloop voor Office 365-groep ophalen
-Naast het paneel voor Apptoegang waar gebruikers Groepsdetails, met inbegrip van de datum van afloop en datum van laatste vernieuwde kunnen bekijken, kan de vervaldatum van een Office 365-groep worden opgehaald van Microsoft Graph REST API Beta. expirationDateTime als een groepseigenschap is ingeschakeld in Microsoft Graph Beta. Het kan worden opgehaald met een GET-aanvraag. Raadpleeg voor meer informatie, [in dit voorbeeld](https://docs.microsoft.com/en-us/graph/api/group-get?view=graph-rest-beta#example).
+Naast het paneel voor Apptoegang waar gebruikers Groepsdetails, met inbegrip van de datum van afloop en datum van laatste vernieuwde kunnen bekijken, kan de vervaldatum van een Office 365-groep worden opgehaald van Microsoft Graph REST API Beta. expirationDateTime als een groepseigenschap is ingeschakeld in Microsoft Graph Beta. Het kan worden opgehaald met een GET-aanvraag. Raadpleeg voor meer informatie, [in dit voorbeeld](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta#example).
 
 > [!NOTE]
 > Wilt u groepslidmaatschappen in Toegangsvenster beheren, moet "Toegang beperken tot groepen in Toegangsvenster" worden ingesteld op "Nee" in Azure Active Directory-groepen algemene instelling.
@@ -101,10 +101,10 @@ Het bewaarbeleid is geconfigureerd in de beveiligings- en Compliancecentrum. Of 
 ## <a name="powershell-examples"></a>PowerShell-voorbeelden
 Hier volgen enkele voorbeelden van hoe u PowerShell-cmdlets gebruiken kunt voor het configureren van de instellingen voor verlooptijd voor Office 365-groepen in uw tenant:
 
-1. De module voor PowerShell versie 2.0 Preview (2.0.0.137) installeren en meld u aan bij de PowerShell-prompt:
+1. De module PowerShell 2.0 installeren en meld u aan bij de PowerShell-prompt:
    ```powershell
-   Install-Module -Name AzureADPreview
-   connect-azuread 
+   Install-Module -Name AzureAD
+   Connect-AzureAD
    ```
 2. Configureer de instellingen voor verlooptijd New-AzureADMSGroupLifecyclePolicy:  Deze cmdlet wordt de levensduur ingesteld voor alle Office 365-groepen in de tenant en 365 dagen. Meldingen voor het vernieuwen voor Office 365 groepen zonder eigenaren wordt verzonden naar 'emailaddress@contoso.com'
   

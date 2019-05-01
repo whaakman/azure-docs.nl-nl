@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: baa2a09adeba133c5348449b12e037d4a9cb3213
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: a9d8bc172eb5f5e0e119a0bde56fb167f7a0c2b2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683025"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699156"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS-metrische gegevens en waarschuwingen
 Azure DNS is een hostingservice voor DNS-domeinen die naamomzetting met de Microsoft Azure-infrastructuur biedt. Dit artikel wordt beschreven voor metrische gegevens en waarschuwingen voor de Azure DNS-service.
@@ -36,7 +36,7 @@ U ziet ook de [definitie van deze metrische gegevens](../azure-monitor/platform/
 >[!NOTE]
 > Deze metrische gegevens zijn op dit moment alleen beschikbaar voor openbare DNS-zones die worden gehost in Azure DNS. Hebt u Private Zones die worden gehost in Azure DNS, bieden deze metrische gegevens niet voor deze zones. Bovendien is de metrische gegevens en waarschuwingen functie alleen ondersteund in Azure openbare cloud. Ondersteuning voor onafhankelijke clouds volgt op een later tijdstip. 
 
-De gedetailleerde niveau van de dimensie voor deze metrische gegevens is DNS-Zone.
+De meest gedetailleerde element dat u kunt metrische gegevens weergeven is een DNS-zone. U zien metrische gegevens voor afzonderlijke bronrecords binnen een zone momenteel niet.
 
 ### <a name="query-volume"></a>Queryvolume
 

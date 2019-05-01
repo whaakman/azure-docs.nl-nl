@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 51d168474fd593dd537a25c0434e240a426c2cbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 25b2eb05a612b18eab1fbf790b119edbe9c4d8d2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817334"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707395"
 ---
 # <a name="scaling-media-processing-overview"></a>Verwerking van Media schalingsoverzicht 
 Deze pagina geeft een overzicht van hoe en waarom mediaverwerking schalen. 
@@ -33,9 +33,9 @@ De volgende tabel kunt u een beslissing te nemen bij de keuze tussen verschillen
 
 |RU-type|Scenario|Voorbeeld van resultaten voor de [7 min 1080 p video](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
 |---|---|---|
-| **S1**|Single-bitrate codering. <br/>Bestanden op SD of onder oplossingen, tijd niet gevoelige, lage kosten.|Codering op single bitrate SD resolutie MP4-bestand met behulp van 'H264 Single Bitrate SD 16 x 9' duurt tien minuten.|
-| **S2**|Single-bitrate en meerdere bitrate codering.<br/>Normaal gebruik voor zowel SD en HD-codering.|Codering met "H264 Single-Bitrate 720p" vooraf duurt ongeveer 8 minuten.<br/><br/>Codering met ' H264 Multiple Bitrate 720p "vooraf ingestelde duurt ongeveer 16,8 minuten.|
-| **S3**|Single-bitrate en meerdere bitrate codering.<br/>Volledige HD en 4K resolutie van video's. Tijd gevoelige en snellere doorlooptijd codering.|Codering met "H264 Single-Bitrate 1080p" vooraf duurt ongeveer vier minuten.<br/><br/>Codering met ' H264 Multiple Bitrate 1080p "vooraf ingestelde duurt ongeveer 8 minuten.|
+| **S1**|Single-bitrate codering. <br/>Bestanden op SD of onder oplossingen, tijd niet gevoelige, lage kosten.|Coderen naar single-bitrate SD resolutie MP4-bestand met behulp van 'H264 Single Bitrate SD 16 x 9' duurt ongeveer 7 minuten.|
+| **S2**|Single-bitrate en meerdere bitrate codering.<br/>Normaal gebruik voor zowel SD en HD-codering.|Codering met "H264 Single-Bitrate 720p" vooraf duurt ongeveer 6 minuten.<br/><br/>Codering met ' H264 Multiple Bitrate 720p "voorinstelling duurt ongeveer 12 minuten.|
+| **S3**|Single-bitrate en meerdere bitrate codering.<br/>Volledige HD en 4K resolutie van video's. Tijd gevoelige en snellere doorlooptijd codering.|Codering met "H264 Single-Bitrate 1080p" vooraf duurt ongeveer 3 minuten.<br/><br/>Codering met ' H264 Multiple Bitrate 1080p "voorinstelling duurt ongeveer 8 minuten.|
 
 ## <a name="considerations"></a>Overwegingen
 > [!IMPORTANT]

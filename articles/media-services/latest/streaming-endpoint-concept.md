@@ -1,6 +1,6 @@
 ---
-title: Streaming-eindpunten in Azure mediaservices | Microsoft Docs
-description: Dit artikel bevat een uitleg over wat Streaming-eindpunten zijn en hoe ze worden gebruikt door Azure Media Services.
+title: Streaming-eindpunten (oorsprong) in Azure mediaservices | Microsoft Docs
+description: In Azure Media Services vertegenwoordigt een Streaming-eindpunt (oorsprong) een dynamische pakketten en een streamingservice waarmee inhoud kan worden geleverd rechtstreeks naar een clientafspeeltoepassing of aan een Content Delivery Network (CDN) voor verdere distributie.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,18 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 8b6deadca610916a10f719d715fe6a17e29148bb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125420"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867617"
 ---
-# <a name="streaming-endpoints"></a>Streaming-eindpunten
+# <a name="streaming-endpoints-origin"></a>Streaming-eindpunten (oorsprong)
 
-In Microsoft Azure Media Services (AMS), de [Streaming-eindpunten](https://docs.microsoft.com/rest/api/media/streamingendpoints) entiteit vertegenwoordigt een streamingservice waarmee u kunt inhoud rechtstreeks aan een client-afspeeltoepassing leveren, of aan een Content Delivery Network (CDN) voor meer distributie. De uitgaande stroom van een **Streaming-eindpunt** service mag bestaan uit een live stream of een video op aanvraag actief in Media Services-account. Wanneer u een Media Services-account, maakt een **standaard** Streaming-eindpunt is voor u gemaakt in een status ' gestopt '. U kunt niet verwijderen de **standaard** Streaming-eindpunt. Aanvullende Streaming-eindpunten kunnen worden gemaakt onder het account. 
+In Microsoft Azure Media Services, een [Streaming-eindpunt](https://docs.microsoft.com/rest/api/media/streamingendpoints) vertegenwoordigt een dynamische (just-in-time)-verpakking en oorsprong service die uw live en on-demand inhoud rechtstreeks naar een clientafspeeltoepassing leveren kunt, met behulp van een van de algemene mediaprotocollen streaming (HLS of streepje). Bovendien de **Streaming-eindpunt** biedt dynamische (just-in-time)-versleuteling voor de bedrijfstak toonaangevende DRM's.
+
+Wanneer u een Media Services-account, maakt een **standaard** Streaming-eindpunt is voor u gemaakt in een status ' gestopt '. U kunt niet verwijderen de **standaard** Streaming-eindpunt. Aanvullende Streaming-eindpunten kunnen worden gemaakt onder het account (Zie [quota en beperkingen](limits-quotas-constraints.md)). 
 
 > [!NOTE]
 > Voor het starten van video's streamen, moet u start de **Streaming-eindpunt** vanwaaruit u wilt de video te streamen. 
@@ -35,33 +37,37 @@ Voor elke extra eindpunten: `{EndpointName}-{AccountName}-{DatacenterAbbreviatio
 
 ## <a name="types"></a>Typen  
 
-Er zijn twee typen **streaming-eindpunten**: **Standard** en **Premium**. Het type is gedefinieerd door het aantal schaaleenheden (`scaleUnits`) u toewijzen voor het streaming-eindpunt. 
+Er zijn twee typen **streaming-eindpunten**: **Standard** (preview) en **Premium**. Het type is gedefinieerd door het aantal schaaleenheden (`scaleUnits`) u toewijzen voor het streaming-eindpunt. 
 
 In de tabel worden de typen beschreven:  
 
 |Type|Schaaleenheden|Description|
 |--------|--------|--------|  
-|**Standaard streaming-eindpunt** (aanbevolen)|0|De Streaming-eindpunt wordt standaard een **Standard** typt, maar kan worden gewijzigd in het type Premium.<br/> Het type Standard is de aanbevolen optie voor vrijwel alle streaming scenario's en doelgroepen van elke grootte. Bij het **Standard**-type wordt uitgaande bandbreedte automatisch geschaald. De doorvoer van dit type Streaming-eindpunt is maximaal 600 Mbps. Video-fragmenten in de cache opgeslagen in het CDN, moet u de bandbreedte van het Streaming-eindpunt niet gebruiken.<br/>Voor klanten met extreem hoge eisen biedt Media Services **Premium** streaming-eindpunten, die kunnen worden gebruikt om de capaciteit uit te schalen voor de grootste doelgroepen op internet. Als u verwacht grote doelgroepen en gelijktijdige viewers dat, contact met ons op amsstreaming\@microsoft.com voor informatie over de noodzaak om te verplaatsen naar de **Premium** type. |
-|**Premium-streaming-eindpunt**|>0|**Premium**-streaming-eindpunten zijn geschikt voor geavanceerde workloads omdat er gebruik wordt gemaakt van toegewezen, schaalbare bandbreedtecapaciteit. U verplaatst naar een **Premium** type door aan te passen `scaleUnits`. `scaleUnits` bieden u speciale uitgangscapaciteit die kan worden aangeschaft per 200 Mbps. Bij gebruik van het **Premium**-type biedt elke ingeschakelde eenheid extra bandbreedte voor de toepassing. |
- 
-## <a name="comparing-streaming-types"></a>Streaming typen vergelijken
+|**Standard**|0|De Streaming-eindpunt wordt standaard een **Standard** typt, kan worden gewijzigd in het type Premium door aan te passen `scaleUnits`.|
+|**Premium**|>0|**Premium** Streaming-eindpunten zijn geschikt voor geavanceerde workloads die toegewezen, schaalbare bandbreedtecapaciteit. U verplaatst naar een **Premium** type door aan te passen `scaleUnits` (streaming-eenheden). `scaleUnits` bieden u speciale uitgangscapaciteit die kan worden aangeschaft per 200 Mbps. Bij gebruik van het **Premium**-type biedt elke ingeschakelde eenheid extra bandbreedte voor de toepassing. |
 
-### <a name="features"></a>Functies
+> [!NOTE]
+> Voor klanten die voor het leveren van inhoud naar grote doelgroepen van het internet, wordt u aangeraden dat u de CDN op het Streaming-eindpunt inschakelen.
+
+Voor SLA-informatie, Zie [prijzen en SLA](https://azure.microsoft.com/pricing/details/media-services/).
+
+## <a name="comparing-streaming-types"></a>Streaming typen vergelijken
 
 Functie|Standard|Premium
 ---|---|---
-Gratis voor de eerste 15 dagen| Ja |Nee
-Doorvoer |Maximaal 600 Mbps wanneer Azure CDN wordt niet gebruikt. Schalen met CDN.|200 Mbps per streaming-eenheid (SU). Schalen met CDN.
+Eerste 15 dagen gratis <sup>1</sup>| Ja |Nee
+Doorvoer |Maximaal 600 Mbps en krijgt een veel hogere effectieve doorvoer wanneer een CDN wordt gebruikt.|200 Mbps per streaming-eenheid (SU). Krijgt u een veel hogere effectieve doorvoer wanneer een CDN wordt gebruikt.
 CDN|Azure CDN, van derden CDN of er is geen CDN.|Azure CDN, van derden CDN of er is geen CDN.
 Facturering is Pro rata| Dagelijks|Dagelijks
 Dynamische versleuteling|Ja|Ja
 Dynamische verpakking|Ja|Ja
-Schalen|Automatisch omhoog kan worden opgeschaald naar de betreffende doorvoer.|Aanvullende streaming-eenheden
-IP-filtering/G20/aangepast host <sup>1</sup>|Ja|Ja
+Schalen|Automatisch omhoog kan worden opgeschaald naar de betreffende doorvoer.|Aanvullende su 's
+IP-filtering/G20/aangepast host <sup>2</sup>|Ja|Ja
 Progressief downloaden|Ja|Ja
-Aanbevolen gebruik |Aanbevolen voor de meeste streaming-scenario's.|Professionele gebruik.<br/>Als u denkt dat wellicht u behoeften dan Standard. Contact met ons opnemen (amsstreaming@microsoft.com) als u verwacht de grootte van een gelijktijdige doelgroep groter zijn dan 50.000 viewers dat.
+Aanbevolen gebruik |Aanbevolen voor de meeste streaming-scenario's.|Professionele gebruik.
 
-<sup>1</sup> alleen rechtstreeks op het Streaming-eindpunt wordt gebruikt wanneer het CDN niet is ingeschakeld op het eindpunt.
+<sup>1</sup> de gratis proefversie alleen van toepassing op nieuwe media services-accounts en het standaard Streaming-eindpunt.<br/>
+<sup>2</sup> alleen rechtstreeks op het Streaming-eindpunt wordt gebruikt wanneer het CDN niet is ingeschakeld op het eindpunt.<br/>
 
 ## <a name="properties"></a>Properties 
 

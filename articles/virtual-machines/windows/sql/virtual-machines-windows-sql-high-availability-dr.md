@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: 463ef5f4a655617074915078fb4ced9e596f8957
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8a9d4699ba625f575cdcba2a85af900a7c04843e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478286"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924462"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Maximale beschikbaarheid en herstel na noodgeval voor SQL Server in SQL Server Virtual Machine
 
@@ -59,7 +59,7 @@ U kunt een oplossing voor noodherstel voor SQL Server-databases in Azure met beh
 | Technologie | Voorbeeldarchitecturen |
 | --- | --- |
 | **Beschikbaarheidsgroepen** |De beschikbaarheidsreplica is uitgevoerd in meerdere datacenters in Azure VM's voor herstel na noodgevallen. Deze oplossing regio-overschrijdende beveiligt tegen uitval van het volledige site. <br/> ![Beschikbaarheidsgroepen](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>Binnen een regio moet alle replica's binnen dezelfde cloudservice en hetzelfde VNet. Omdat elke regio een apart VNet, vereisen deze oplossingen een VNet naar VNet-connectiviteit. Zie voor meer informatie, [configureren van een VNet-naar-VNet-verbinding met de Azure portal](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Zie voor gedetailleerde instructies [configureren van een beschikbaarheidsgroep van SQL Server op Azure Virtual Machines in verschillende regio's](virtual-machines-windows-portal-sql-availability-group-dr.md).|
-| **Databasespiegeling** |Principal en gespiegelde en servers die worden uitgevoerd in verschillende datacenters voor herstel na noodgevallen. U moet implementeren met behulp van servercertificaten omdat het active directory-domein kan niet meerdere datacenters omvatten.<br/>![Databasespiegeling](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
+| **Databasespiegeling** |Principal en gespiegelde en servers die worden uitgevoerd in verschillende datacenters voor herstel na noodgevallen. U moet implementeren met behulp van certificaten. <br/>![Databasespiegeling](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
 | **Back-up en herstel met Azure Blob Storage-Service** |Productiedatabases back-ups rechtstreeks naar de blob-opslag in een ander datacenter voor herstel na noodgevallen.<br/>![Back-up en herstel](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_backup_restore.gif)<br/>Zie voor meer informatie, [back-up en herstel voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md). |
 | **Repliceren en failover-SQL-Server naar Azure met Azure Site Recovery** |Productie SQL Server van een Azure-datacenter gerepliceerd rechtstreeks naar Azure Storage van andere Azure-datacenter voor herstel na noodgevallen.<br/>![Repliceren met Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_standalone_sqlserver-asr.png)<br/>Zie voor meer informatie, [SQL Server beveiligen met behulp van SQL Server-noodherstel en Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
 

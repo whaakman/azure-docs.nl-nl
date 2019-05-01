@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.openlocfilehash: 935c6ff03485c2b8e4d3e2f3df51c740ec1e8371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7ac4b54740b03a8b3fa09486a8e09f3262f67555
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60770208"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866885"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Algemene scenario's Azure Cosmos DB
 Dit artikel bevat een overzicht van enkele algemene scenario's voor Azure Cosmos DB.  De aanbevelingen in dit artikel fungeren als een beginpunt tijdens het ontwikkelen van uw toepassing met Cosmos DB.   
@@ -108,7 +108,7 @@ Of, als u wilt meer informatie over klanten met Cosmos DB, de volgende verhalen 
 * [Citrix](https://customers.microsoft.com/story/citrix). Citrix ontwikkelt single-sign-on oplossing met behulp van Azure Service Fabric en Azure Cosmos DB
 * [TEXA](https://customers.microsoft.com/story/texaspa) TEXA van revolutionaire IoT-oplossing voor eigenaren van het voertuig bespaart u tijd, geld, gas- en mogelijk zich bevinden.
 * [De Domino Pizza](https://www.dominos.com). De Domino Pizza Inc. is een Amerikaanse pizza restaurantketen.
-* [Hiermee bepaalt u Johnson](https://www.johnsoncontrols.com). Johnson Controls is een algemene gediversifieerde technologie en meerdere industriële leider voor een breed scala aan klanten in meer dan 150 landen.
+* [Hiermee bepaalt u Johnson](https://www.johnsoncontrols.com). Johnson Controls is een algemene gediversifieerde technologie en meerdere industriële leider voor een breed scala aan klanten in meer dan 150 landen/regio's.
 * [Microsoft Windows, universele Store, Azure IoT Hub, Xbox Live en andere services internetschaal](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/). Hoe Microsoft maakt zeer schaalbare services met Azure Cosmos DB.
 * [Microsoft Data- en analyseteam](https://customers.microsoft.com/story/microsoftdataandanalytics). Microsoft gegevens- en analyseteam bereikt een verzameling van big data op planetaire schaal met Azure Cosmos DB
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha maakt gebruik van Azure Cosmos DB voor het aansluiten van klanten en bedrijven in India.

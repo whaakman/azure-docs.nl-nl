@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 01/08/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3ec3e915c26abf38653d1bddfe0a5ba44d5e6de1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819913"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914894"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Maken en uitvoeren van een machine learning-pijplijn met behulp van Azure Machine Learning-SDK
 
@@ -359,6 +359,7 @@ response = requests.post(published_pipeline1.endpoint,
     json={"ExperimentName": "My_Pipeline",
         "ParameterAssignments": {"pipeline_arg": 20}})
 ```
+
 ## <a name="view-results"></a>Resultaten weergeven
 
 Zie de lijst van alle uw pijplijnen en de details van de uitvoering:
@@ -368,6 +369,25 @@ Zie de lijst van alle uw pijplijnen en de details van de uitvoering:
  ![lijst met machine learning-pijplijnen](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Selecteer een specifieke pijplijn om te zien van de resultaten van de uitvoering.
+
+## <a name="caching--reuse"></a>Opslaan in cache & opnieuw gebruiken  
+
+U kunt enkele zaken rondom het in cache opslaan en opnieuw gebruiken om te optimaliseren en het gedrag van uw pijplijnen aanpassen. U kunt bijvoorbeeld, om te kiezen:
++ **Het standaard hergebruik van de uitvoer stap uitschakelen** door in te stellen `allow_reuse=False` tijdens [stap definitie](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **Uitbreiden buiten de script-hashing**om ook een absoluut pad of relatieve paden naar de bronmap naar andere bestanden en mappen met behulp van de `hash_paths=['<file or directory']` 
++ **Afdwingen van uitvoer opnieuw genereren voor alle stappen in een uitvoering** met `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
+
+Standaard stap opnieuw gebruiken is ingeschakeld en alleen de belangrijkste scriptbestand wordt gehasht. Als het script voor een bepaalde stap blijft hetzelfde (`script_name`, invoer en de parameters), de uitvoer van een vorige stap uitvoeren opnieuw wordt gebruikt, de taak is niet verzonden naar de rekenkracht en de resultaten van de vorige uitvoering in plaats daarvan zijn onmiddellijk beschikbaar voor de volgende stap .  
+
+```python
+step = PythonScriptStep(name="Hello World", 
+                        script_name="hello_world.py",  
+                        compute_target=aml_compute,  
+                        source_directory= source_directory, 
+                        allow_reuse=False, 
+                        hash_paths=['hello_world.ipynb']) 
+```
+ 
 
 ## <a name="next-steps"></a>Volgende stappen
 - Gebruik [deze Jupyter-notebooks in GitHub](https://aka.ms/aml-pipeline-readme) machine learning-pijplijnen verder verkennen.

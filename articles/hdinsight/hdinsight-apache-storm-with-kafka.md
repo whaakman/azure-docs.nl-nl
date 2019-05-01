@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: bf62b4f8f8dbfc7df73102bb06e4f16c0fdb806c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c89567115079887295704e216cd4046fae99c9d1
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097307"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873018"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Zelfstudie: Apache Storm gebruiken met Apache Kafka in HDInsight
 
@@ -79,7 +79,7 @@ Apache Storm biedt de verschillende onderdelen voor het werken met Apache Kafka.
     * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: met dit onderdeel worden gegevens vanuit de tuple-structuur binnen de Storm-topologie toegewezen aan velden die zijn opgeslagen in Kafka.
 
 Deze onderdelen zijn beschikbaar in het pakket `org.apache.storm : storm-kafka`. Gebruik de pakketversie die overeenkomt met de Storm-versie. Voor HDInsight 3.6 is dit Storm versie 1.1.0.
-U hebt ook het pakket `org.apache.kafka : kafka_2.10` nodig, met daarin aanvullende Kafka-onderdelen. Gebruik de pakketversie die overeenkomt met de Kafka-versie. Voor HDInsight 3.6 is dit Kafka versie 0.10.0.0.
+U hebt ook het pakket `org.apache.kafka : kafka_2.10` nodig, met daarin aanvullende Kafka-onderdelen. Gebruik de pakketversie die overeenkomt met de Kafka-versie. Voor HDInsight 3.6 is de Kafka-versie 1.1.1.
 
 De volgende XML vormt de afhankelijksdeclaratie in de `pom.xml` voor een [Apache Maven](https://maven.apache.org/)-project:
 
@@ -94,7 +94,7 @@ De volgende XML vormt de afhankelijksdeclaratie in de `pom.xml` voor een [Apache
 <dependency>
     <groupId>org.apache.kafka</groupId>
     <artifactId>kafka_2.10</artifactId>
-    <version>0.10.0.0</version>
+    <version>1.1.1</version>
     <!-- Exclude components that are loaded from the Storm cluster at runtime -->
     <exclusions>
         <exclusion>

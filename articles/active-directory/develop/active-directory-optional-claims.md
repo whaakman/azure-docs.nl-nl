@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc38e2096b6a761060fab09a8ce2518808b370e1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300141"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713357"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedure: Geef optioneel claims voor uw Azure AD-app
 
@@ -57,7 +57,7 @@ De set optioneel claims die standaard beschikbaar is voor toepassingen om te geb
 | `auth_time`                | Tijd wanneer de gebruiker laatste geverifieerd. Zie de OpenID Connect-specificatie.| JWT        |           |  |
 | `tenant_region_scope`      | De regio van de resource-tenant | JWT        |           | |
 | `home_oid`                 | Voor gastgebruikers, de object-ID van de gebruiker in de starttenant van de gebruiker.| JWT        |           | |
-| `sid`                      | Sessie-ID die wordt gebruikt voor aanmelding door een gebruiker per sessie af. | JWT        |           |         |
+| `sid`                      | Sessie-ID die wordt gebruikt voor aanmelding door een gebruiker per sessie af. | JWT        |  Persoonlijke en Azure AD-accounts.   |         |
 | `platf`                    | Apparaatplatform    | JWT        |           | Beperkt tot beheerde apparaten die u kunnen controleren of apparaattype.|
 | `verified_primary_email`   | Afkomstig uit van de gebruiker PrimaryAuthoritativeEmail      | JWT        |           |         |
 | `verified_secondary_email` | Afkomstig uit van de gebruiker SecondaryAuthoritativeEmail   | JWT        |           |        |
@@ -91,7 +91,6 @@ Deze claims worden altijd in de Azure AD-tokens v1.0 opgenomen, maar niet opgeno
 | `family_name` | Achternaam                       | Bevat de laatste naam, de achternaam of familienaam van de gebruiker gedefinieerd in het gebruikersobject. <br>"family_name": "Kleefstra" | Ondersteund in beheerde Serviceaccounts en AAD   |
 | `given_name`  | Voornaam                      | De eerste biedt of als u ' ' naam van de gebruiker, zoals ingesteld op het gebruikersobject.<br>'given_name': "Frank"                   | Ondersteund in beheerde Serviceaccounts en AAD  |
 | `upn`         | User principal name | Een id voor de gebruiker die kan worden gebruikt met de parameter username_hint.  Geen een gebruiksartikel-id voor de gebruiker en mag niet worden gebruikt om belangrijke gegevens. | Zie [extra eigenschappen](#additional-properties-of-optional-claims) hieronder voor de configuratie van de claim. |
-| `sid`         | Sessie-id                      | GUID-sessie-id, die wordt gebruikt voor het bijhouden van verificatiesessie met beheerde Serviceaccounts. | MSA.  Niet worden opgenomen voor Azure AD-accounts. | 
 
 
 ### <a name="additional-properties-of-optional-claims"></a>Aanvullende eigenschappen van optionele claims
@@ -100,7 +99,7 @@ Sommige optionele claims kunnen worden geconfigureerd voor het wijzigen van de m
 
 **Tabel 4: Waarden voor het configureren van optionele claims**
 
-| Naam van eigenschap  | Aanvullende eigenschapsnaam | Beschrijving |
+| Naam van eigenschap  | Aanvullende eigenschapsnaam | Description |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Kan worden gebruikt voor SAML- en JWT antwoorden en v1.0 en v2.0-tokens. |
 |                | `include_externally_authenticated_upn`  | Bevat de UPN die is opgeslagen in de resource-tenant van de Gast. Bijvoorbeeld: `foo_hometenant.com#EXT#@resourcetenant.com` |             
@@ -177,7 +176,7 @@ Als dit wordt ondersteund door een specifieke claim, kunt u ook het gedrag van h
 
 **Tabel 6: OptionalClaim Type-eigenschappen**
 
-| Name                 | Type                    | Beschrijving                                                                                                                                                                                                                                                                                                   |
+| Name                 | Type                    | Description                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | De naam van de optionele claim.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | De bron (directory-object) van de claim. Er zijn vooraf gedefinieerde claims en de gebruiker gedefinieerde claims van extensie-eigenschappen. Als de waarde null is, is de claim een vooraf gedefinieerde optioneel claim. Als waarde voor de gebruiker is, is de waarde in de naameigenschap van de extensie-eigenschap van het gebruikersobject. |

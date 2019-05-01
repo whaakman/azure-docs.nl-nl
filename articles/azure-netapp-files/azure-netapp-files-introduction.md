@@ -1,5 +1,5 @@
 ---
-title: Inleiding tot Azure NetApp Files | Microsoft Docs
+title: Wat is Azure NetApp Files | Microsoft Docs
 description: Dit artikel biedt een overzicht van Azure NetApp Files en de belangrijkste taken.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: d7eb73c8fb4573084ba0a213282fdb71e14ff5fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a957ac3536bff06f990e60da90df7235b6917dfe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61086326"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730551"
 ---
-# <a name="introduction-to-azure-netapp-files"></a>Kennismaking met Azure NetApp Files
+# <a name="what-is-azure-netapp-files"></a>Wat is Azure NetApp Files
 De service Azure NetApp Files is een bestandsopslagservice op enterprise-niveau met hoge prestaties die naar gebruik wordt gefactureerd. Azure NetApp Files biedt ondersteuning voor elk type werkbelasting en is standaard maximaal beschikbaar. U kunt gegarandeerde service- en prestatieniveaus selecteren en via de service momentopnamen instellen. 
 
 De documentatie van Azure NetApp Files biedt instructies voor het maken en beheren van volumes met behulp van Azure NetApp Files. 
@@ -29,7 +29,7 @@ De documentatie van Azure NetApp Files biedt instructies voor het maken en beher
 > [!IMPORTANT] 
 > Voor alle taken die in deze documentatie worden beschreven, is vereist dat u deel uitmaakt van het Openbare Preview-programma en toegang hebt gekregen tot de Microsoft.NetApp Azure Resource Provider. Raadpleeg [registreren voor Azure NetApp Files](azure-netapp-files-register.md) om een verzoek in te dienen voor deelname aan het openbare preview-programma. 
 
-**Aan de slag** 
+**Volgende stappen** 
 
 * [Informatie over de opslaghiërarchie van Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md) 
-* [Snelstart: Azure NetApp Files instellen en een volume maken](azure-netapp-files-quickstart-set-up-account-create-volumes.md)
+* [Snelstart: Instellen van Azure NetApp-bestanden en het maken van een NFS-volume](azure-netapp-files-quickstart-set-up-account-create-volumes.md)

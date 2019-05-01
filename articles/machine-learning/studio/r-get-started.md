@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 307636b019b53c8457c65261824adbf8e52ca0a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5c4fa2260b00043e016748010528926b1b9d74a3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875512"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726529"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>Aan de slag met de programmeertaal in Azure Machine Learning Studio R
 
@@ -1320,7 +1320,7 @@ Er zijn veel boeken op R waarmee u aan de slag kunt. Hier volgen enkele die ik h
 * De **illustraties van R-programmering: Een ontwerp rondleiding door de statistische Software** Norman Matloff is een uitstekende inleiding in programmeren in R.  
 * **R Cookbook** door Paul Teetor biedt een oplossing en probleem aanpak voor het gebruik van R.  
 * **R in actie** Robert Kabacoff is een ander handig inleidende rapport. De bijbehorende [snelle R website](https://www.statmethods.net/) is een nuttig middel.
-* **R Inferno** door Patrick Burns is een verrassend humoristische boek die met een aantal lastig en moeilijk onderwerpen die kunnen worden aangetroffen bij het programmeren in R. Het rapport is beschikbaar voor gratis op [de R-Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/).
+* **R Inferno** door Patrick Burns is een verrassend humoristische boek die met een aantal lastig en moeilijk onderwerpen die kunnen worden aangetroffen bij het programmeren in R. Het rapport is beschikbaar voor gratis op [de R-Inferno](https://www.burns-stat.com/documents/books/the-r-inferno/).
 * Als u een nauwkeuriger geavanceerde onderwerpen van R wilt, hebt u een overzicht van het boek **geavanceerde R** door Hadley Wickham. De online versie van deze handleiding vindt u gratis op [ http://adv-r.had.co.nz/ ](http://adv-r.had.co.nz/).
 
 Een catalogus van R-pakketten voor time series kunt u vinden in [CRAN taak weergeven: Time Series-analyse](https://cran.r-project.org/web/views/TimeSeries.html). Voor informatie over specifieke tijd reeks object pakketten, moet u verwijzen naar de documentatie voor dit pakket.

@@ -1,5 +1,5 @@
 ---
-title: Een toepassing configureren voor het beschikbaar maken van web-API's (preview) | Azure
+title: Een toepassing om beschikbaar te stellen van web-API's - Microsoft identity-platform configureren
 description: Leer hoe u een toepassing kunt configureren voor het beschikbaar maken van een nieuwe machtiging/nieuw bereik en een nieuwe rol, om de toepassing beschikbaar te maken voor clienttoepassingen.
 services: active-directory
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a0b31aebfe431aca43dc763c2f168f123889b72
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443643"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918881"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Quickstart: Een toepassing configureren voor het beschikbaar maken van web-API's (preview)
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Quickstart: Een toepassing configureren voor het beschikbaar maken van web-API 's
 
 U kunt een web-API ontwikkelen en deze beschikbaar maken voor clienttoepassingen door [machtigingen/bereiken](developer-glossary.md#scopes) en [rollen](developer-glossary.md#roles) beschikbaar te maken. Een correct geconfigureerde web-API wordt net als de andere Microsoft web-API's beschikbaar gesteld, met inbegrip van de Graph API en de Office 365-API's.
 

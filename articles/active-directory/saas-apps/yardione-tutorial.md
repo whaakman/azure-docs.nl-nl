@@ -4,222 +4,192 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 508957f6-caa5-4234-a7f3-90015937e4eb
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 03/29/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22abdcc004f3b353042d84cf01070fde7650367b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c1b35e6a28948cf952c61ec700cbd2ba764674ab
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60629513"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920133"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardione"></a>Zelfstudie: Azure Active Directory-integratie met YardiOne
 
 In deze zelfstudie leert u hoe u YardiOne integreren met Azure Active Directory (Azure AD).
-
 YardiOne integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot YardiOne heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij YardiOne (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* U kunt beheren in Azure AD die toegang tot YardiOne heeft.
+* U kunt uw gebruikers worden automatisch aangemeld YardiOne (Single Sign-On) met hun Azure AD-accounts inschakelen.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met YardiOne, moet u de volgende items:
 
-- Een Azure AD-abonnement
-- Een YardiOne eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, krijgt u een [gratis account](https://azure.microsoft.com/free/).
+* Eenmalige aanmelding YardiOne ingeschakeld abonnement
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. YardiOne uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
+
+* Biedt ondersteuning voor YardiOne **SP** gestart door SSO
+
+* Biedt ondersteuning voor YardiOne **Just In Time** inrichten van gebruikers
 
 ## <a name="adding-yardione-from-the-gallery"></a>YardiOne uit de galerie toe te voegen
+
 Voor het configureren van de integratie van YardiOne in Azure AD, moet u YardiOne uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen YardiOne uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
-    ![De Azure Active Directory-knop][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![De knop Nieuwe toepassing][3]
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-1. Typ in het zoekvak **YardiOne**, selecteer **YardiOne** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![YardiOne in de lijst met resultaten](./media/yardione-tutorial/tutorial_yardione_addfromgallery.png)
+4. Typ in het zoekvak **YardiOne**, selecteer **YardiOne** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+
+     ![YardiOne in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met YardiOne op basis van een testgebruiker 'Julia steen' genoemd.
-
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in YardiOne is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in YardiOne tot stand worden gebracht.
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met YardiOne op basis van een testgebruiker met de naam **Britta Simon**.
+Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in YardiOne tot stand worden gebracht.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met YardiOne, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker YardiOne](#create-a-yardione-test-user)**  : als u wilt een equivalent van Britta Simon in YardiOne die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+2. **[Configureren van eenmalige aanmelding YardiOne](#configure-yardione-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Maken van de testgebruiker YardiOne](#create-yardione-test-user)**  : als u wilt een equivalent van Britta Simon in YardiOne die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing YardiOne.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met YardiOne, moet u de volgende stappen uitvoeren:**
+Voor het configureren van Azure AD eenmalige aanmelding met YardiOne, moet u de volgende stappen uitvoeren:
 
-1. In de Azure-portal op de **YardiOne** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/)op de **YardiOne** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/yardione-tutorial/tutorial_yardione_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **YardiOne domein en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![YardiOne domein en URL's, eenmalige aanmelding informatie](./media/yardione-tutorial/tutorial_yardione_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<y1-subdomain>.yardione.com`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. Typ in het tekstvak **Id** een URL met het volgende patroon: `http://<y1-subdomain>.yardione.com/yAuth2/trust`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met [YardiOne Client ondersteuningsteam](https://clientcentral.yardi.com) om deze waarden te verkrijgen.
-     
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok. 
+    ![YardiOne domein en URL's, eenmalige aanmelding informatie](common/sp-identifier.png)
 
-    ![De link om het certificaat te downloaden](./media/yardione-tutorial/tutorial_yardione_certificate.png) 
- 
-1. Klik op **opslaan** knop.
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<y1-subdomain>.yardione.com`
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/yardione-tutorial/tutorial_general_400.png)
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `http://<y1-subdomain>.yardione.com/yAuth2/trust`
 
-1. Het configureren van eenmalige aanmelding op **YardiOne** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens** naar [YardiOne ondersteuningsteam](https://clientcentral.yardi.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [YardiOne Client ondersteuningsteam](https://clientcentral.yardi.com/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op de kopieerknop om de **URL voor federatieve metagegevens van de app** te kopiëren en slaat u deze op uw computer op.
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+    ![De link om het certificaat te downloaden](common/copy-metadataurl.png)
 
-   ![Maak een testgebruiker Azure AD][100]
+### <a name="configure-yardione-single-sign-on"></a>YardiOne voor eenmalige aanmelding configureren
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+Het configureren van eenmalige aanmelding op **YardiOne** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens** naar [YardiOne ondersteuningsteam](https://clientcentral.yardi.com/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-    ![De Azure Active Directory-knop](./media/yardione-tutorial/create_aaduser_01.png)
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/yardione-tutorial/create_aaduser_02.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![De knop toevoegen](./media/yardione-tutorial/create_aaduser_03.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    ![Het dialoogvenster gebruiker](./media/yardione-tutorial/create_aaduser_04.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. In de **naam** in het vak **BrittaSimon**.
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In de **gebruikersnaam** veldtype brittasimon@yourcompanydomain.extension. Bijvoorbeeld: BrittaSimon@contoso.com
 
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-a-yardione-test-user"></a>Maak een testgebruiker YardiOne
-
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in YardiOne. YardiOne biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot YardiOne als deze nog niet bestaat.
-
->[!Note]
->Als u maken van een gebruiker handmatig wilt, neem dan contact op met [YardiOne ondersteuningsteam](https://clientcentral.yardi.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
 In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan YardiOne.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **YardiOne**.
 
-**Als u wilt Britta Simon aan YardiOne toewijst, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer in de lijst met toepassingen, **YardiOne**.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling YardiOne in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **YardiOne**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling YardiOne in de lijst met toepassingen](./media/yardione-tutorial/tutorial_yardione_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-yardione-test-user"></a>YardiOne testgebruiker maken
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in YardiOne. YardiOne biedt ondersteuning voor just-in-time-gebruikersinrichting, dat standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet in YardiOne bestaat, wordt een nieuw gemaakt nadat verificatie.
+
+>[!Note]
+>Als u maken van een gebruiker handmatig wilt, neem dan contact op met [YardiOne ondersteuningsteam](https://clientcentral.yardi.com).
+
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel YardiOne in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing YardiOne.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de tegel YardiOne in het toegangsvenster, moet u worden automatisch aangemeld bij de YardiOne waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
-
-<!--Image references-->
-
-[1]: ./media/yardione-tutorial/tutorial_general_01.png
-[2]: ./media/yardione-tutorial/tutorial_general_02.png
-[3]: ./media/yardione-tutorial/tutorial_general_03.png
-[4]: ./media/yardione-tutorial/tutorial_general_04.png
-
-[100]: ./media/yardione-tutorial/tutorial_general_100.png
-
-[200]: ./media/yardione-tutorial/tutorial_general_200.png
-[201]: ./media/yardione-tutorial/tutorial_general_201.png
-[202]: ./media/yardione-tutorial/tutorial_general_202.png
-[203]: ./media/yardione-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

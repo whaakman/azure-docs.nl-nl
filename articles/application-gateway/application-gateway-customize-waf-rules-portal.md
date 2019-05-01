@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: b18c9666e58925746a3b61740db6fb5118c2010b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f7ffb8d6adfd4afc75618834a3fe82cf9a3d0c9f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733713"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720392"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Regels voor web application firewall via de Azure-portal aanpassen
 
@@ -33,11 +33,14 @@ De Azure Application Gateway web application firewall (WAF) biedt beveiliging vo
 
 ## <a name="search-for-rules-to-disable"></a>Zoeken naar regels om uit te schakelen
 
-De **Web application firewall-instellingen** blade biedt de mogelijkheid voor het filteren van de regels via een tekstuele zoekopdracht. Het resultaat geeft alleen de regelgroepen en -regels die de tekst die u hebt gezocht bevatten.
+De **Web application firewall-instellingen** pagina biedt de mogelijkheid voor het filteren van de regels via een tekstuele zoekopdracht. Het resultaat geeft alleen de regelgroepen en -regels die de tekst die u hebt gezocht bevatten.
 
 ![Regels zoeken][2]
 
 ## <a name="disable-rule-groups-and-rules"></a>Regels en regelgroepen uitschakelen
+
+> [!IMPORTANT]
+> Wees voorzichtig bij het uitschakelen van regelgroepen of regels. Hiermee kunt u blootstellen aan verhoogde beveiligingsrisico's.
 
 Wanneer u regels uitschakelen wilt, kunt u een volledige regelgroep of specifieke regels onder een of meer regelgroepen uitschakelen. 
 
@@ -51,7 +54,9 @@ Wanneer u regels uitschakelen wilt, kunt u een volledige regelgroep of specifiek
 
 ## <a name="mandatory-rules"></a>Verplichte regels
 
-De volgende lijst bevat de voorwaarden die ertoe leiden dat het WAF moet worden geblokkeerd dat de aanvraag in de Preventiemodus (in de detectiemodus die ze zijn aangemeld als uitzonderingen). Deze kunnen niet worden geconfigureerd of uitgeschakeld:
+De volgende lijst bevat de voorwaarden die ertoe leiden dat het WAF moet worden geblokkeerd dat de aanvraag in de Preventiemodus. In de modus voor detectie, zijn ze aangemeld als uitzonderingen.
+
+Deze kunnen niet worden geconfigureerd of uitgeschakeld:
 
 * Fout bij parseren van de hoofdtekst van de aanvraag resulteert in de aanvraag wordt geblokkeerd, tenzij de hoofdtekst van de controle is uitgeschakeld (XML, JSON, formuliergegevens)
 * Gegevenslengte aanvraag-instantie (met geen bestanden) is groter dan de geconfigureerde limiet

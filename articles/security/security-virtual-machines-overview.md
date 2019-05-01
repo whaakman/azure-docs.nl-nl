@@ -1,5 +1,5 @@
 ---
-title: Functies van Azure-beveiliging gebruikt met Azure virtual machines | Microsoft Docs
+title: 'Beveiligingsfuncties die worden gebruikt in combinatie met Azure virtual machines: Azure-beveiliging | Microsoft Docs'
 description: Dit artikel bevat een overzicht van de belangrijkste functies van Azure-beveiliging die kunnen worden gebruikt met Azure Virtual Machines.
 services: security
 documentationcenter: na
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: c0a4a8ae270c8d8f6f3c2e86db9deed4e14f668e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3467050214cba6ce5723c2747d2c13e40e86609b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444245"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872014"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Overzicht van beveiliging van Azure Virtual Machines
+Dit artikel bevat een overzicht van de belangrijkste functies van Azure-beveiliging die kunnen worden gebruikt met virtuele machines.
 
 U kunt Azure Virtual Machines gebruiken voor het implementeren van een breed scala aan computeroplossingen op flexibele wijze inzetten. De service biedt ondersteuning voor Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP en Azure BizTalk Services. U kunt dus elke workload en elke taal op vrijwel elk besturingssysteem implementeren.
 
@@ -33,9 +34,7 @@ Met Azure, kunt u dat verbeterde beveiliging en compatibele oplossingen bouwen:
 * Gevoelige gegevens versleutelen.
 * Netwerkverkeer beveiligen.
 * Identificeren en bedreigingen te detecteren.
-* Voldoen aan nalevingsvereisten.
-
-Het doel van dit artikel is voor een overzicht van de belangrijkste functies van Azure-beveiliging die kunnen worden gebruikt met virtuele machines. Koppelingen naar artikelen Geef details van elke functie zodat u kunt meer informatie.  
+* Voldoen aan nalevingsvereisten.  
 
 ## <a name="antimalware"></a>Antimalware
 
@@ -77,14 +76,14 @@ Voor nog krachtiger beveiliging, kunt u overwegen [Windows Defender Advanced Thr
 * [Beheer en API 's](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
-Meer informatie: 
+Meer informatie:
 
 * [Aan de slag met WDATP](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/get-started)  
 * [Overzicht van WDATP mogelijkheden](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview)  
 
 ## <a name="hardware-security-module"></a>Hardware security module
 
-Verbetering van de sleutelbeveiliging kan versleuteling en authenticatie beveiligingen verbeteren. U kunt het beheer en beveiliging van uw essentiële geheimen en sleutels vereenvoudigen doordat ze in Azure Key Vault. 
+Verbetering van de sleutelbeveiliging kan versleuteling en authenticatie beveiligingen verbeteren. U kunt het beheer en beveiliging van uw essentiële geheimen en sleutels vereenvoudigen doordat ze in Azure Key Vault.
 
 Azure Key Vault biedt u de mogelijkheid om uw sleutels op te slaan in Hardware Security Modules (HSM's) die zijn gecertificeerd voor de standaarden van FIPS 140-2 Level 2. Uw SQL Server-versleutelingssleutels voor back-up of [transparante gegevensversleuteling](https://msdn.microsoft.com/library/bb934049.aspx) kunnen allemaal worden opgeslagen in Key Vault met alle sleutels of geheimen voor uw toepassingen. Machtigingen en toegang tot deze beveiligde items worden beheerd via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
@@ -133,7 +132,7 @@ Meer informatie:
 
 ## <a name="virtual-networking"></a>Virtueel netwerk
 
-Virtuele machines moet verbinding met het netwerk. Voor de ondersteuning die vereiste vereist Azure virtuele machines worden verbonden met een Azure-netwerk. 
+Virtuele machines moet verbinding met het netwerk. Voor de ondersteuning die vereiste vereist Azure virtuele machines worden verbonden met een Azure-netwerk.
 
 Een Azure-netwerk is een logische constructie die is gebaseerd op de fysieke netwerk van Azure-infrastructuur. Elke logische Azure-netwerk is geïsoleerd van andere Azure-netwerken. Deze isolatie helpt ervoor gezorgd dat het netwerkverkeer in uw implementaties niet toegankelijk voor andere Microsoft Azure-klanten is.
 
@@ -169,14 +168,13 @@ Meer informatie:
 
 ## <a name="confidential-computing"></a>Vertrouwelijke Computing
 
-Terwijl een vertrouwelijk computing is geen technisch onderdeel van de beveiliging van virtuele machines, wordt het onderwerp van de beveiliging van virtuele machines behoort tot het onderwerp op een hoger niveau van beveiliging 'compute'. In de categorie 'compute' beveiliging behoort vertrouwelijke computing. 
+Terwijl een vertrouwelijk computing is geen technisch onderdeel van de beveiliging van virtuele machines, wordt het onderwerp van de beveiliging van virtuele machines behoort tot het onderwerp op een hoger niveau van beveiliging 'compute'. In de categorie 'compute' beveiliging behoort vertrouwelijke computing.
 
 Vertrouwelijke computing zorgt ervoor dat als gegevens 'in de wissen", die is vereist voor efficiënte verwerking, de gegevens wordt beveiligd in een vertrouwde omgeving https://en.wikipedia.org/wiki/Trusted_execution_environment (t - ook wel bekend als een enclave), een voorbeeld van die in de afbeelding hieronder wordt weergegeven .  
 
-Grote zorg ervoor dat er is geen manier om gegevens of de bewerkingen binnen van buiten en zelfs met een foutopsporingsprogramma weer te geven. Zelfs ervoor dat alleen geautoriseerde code is toegestaan voor toegang tot gegevens. Als de code is gewijzigd of gewijzigd, de bewerkingen zijn geweigerd en de omgeving is uitgeschakeld. De t dwingt deze beveiligingen gedurende de uitvoering van code in het af. 
+Grote zorg ervoor dat er is geen manier om gegevens of de bewerkingen binnen van buiten en zelfs met een foutopsporingsprogramma weer te geven. Zelfs ervoor dat alleen geautoriseerde code is toegestaan voor toegang tot gegevens. Als de code is gewijzigd of gewijzigd, de bewerkingen zijn geweigerd en de omgeving is uitgeschakeld. De t dwingt deze beveiligingen gedurende de uitvoering van code in het af.
 
 Meer informatie:
 
 * [Maak kennis met Azure vertrouwelijke computing](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
 * [Azure vertrouwelijke computing](https://azure.microsoft.com/blog/azure-confidential-computing/)  
-

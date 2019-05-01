@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: a6304a93b1409cff871ed1c4c1d7e66d6c8c6f53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 496f7c75e6633089d4ca88a9e3cd7c76ee415780
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736707"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922413"
 ---
 # <a name="language-support-for-qna-maker"></a>Taalondersteuning voor QnA Maker
 
@@ -41,7 +41,7 @@ Als de gebruiker wil bieden ondersteuning voor meerdere talen, moeten ze hebben 
 
 Controleer of de primaire taal met de volgende stappen uit:
 
-1. Meld u aan bij [Azure Portal](http://portal.azure.com).  
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).  
 1. Zoek en selecteer de Azure Search-resource gemaakt als onderdeel van uw resource QnA Maker. De naam van de Azure Search-resource begint met dezelfde naam als de QnA Maker-resource en heeft het type **Search-service**. 
 1. Uit de **overzicht** pagina van de Search-resource, selecteer **indexen**. 
 1. Selecteer de **testkb** index.

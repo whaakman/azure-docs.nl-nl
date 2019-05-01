@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 547b6a629677830b6f37883a4be835c12a62e599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0faad91e9e3ff9384dcae57ed27c21fa21946b5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234033"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573764"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-handleiding voor oplossingen voor Voorspellend onderhoud
 
@@ -92,7 +92,7 @@ Deze sectie richt zich op een verzameling van PdM van use cases in diverse branc
 |**Financiën** |                         |
 |_ATM-fout_ is een veelvoorkomend probleem in het bankwezen. Het probleem hier is voor het rapporteren van de kans dat een transactie ATM geld intrekking wordt onderbroken vanwege een fout papier zit vast of een deel in de dispenser geld. Gebaseerd op voorspellingen van transactiefouten optreden, kunnen geldautomaten worden onderhouden proactief om te voorkomen dat er fouten optreden.| In plaats van dat de machine halverwege een transactie mislukt, wordt het wenselijk alternatief is naar de machine service weigeren op basis van de voorspelling-programma.|
 |**Energie** |                          |
-|_Liquidatie turbine fouten_: Wind maar zijn de belangrijkste energiebron in milieu verantwoordelijk landen en betrekking hebben op hoge kosten. Een belangrijk onderdeel voor wind maar is de motor generator. de fout wordt weergegeven de turbine ongeschikt. Het is ook zeer kostbaar zijn om op te lossen.|KPI's te voorspellen, zoals MTTF (gemiddelde tijd bij een storing) kunt u de energiebedrijven turbine fouten voorkomen, en controleer of de minimale downtime. Fout kansen wordt in kennis technici om te controleren, maar die waarschijnlijk zal mislukken snel en gepland onderhoud op basis van tijd regelingen. Voorspellende modellen bieden inzicht in verschillende factoren die bijdragen aan de fout, waarmee technici beter begrip van dat de belangrijkste oorzaken van problemen.|
+|_Liquidatie turbine fouten_: Wind maar zijn de belangrijkste energiebron in milieu verantwoordelijk landen/regio's en betrekking hebben op hoge kosten. Een belangrijk onderdeel voor wind maar is de motor generator. de fout wordt weergegeven de turbine ongeschikt. Het is ook zeer kostbaar zijn om op te lossen.|KPI's te voorspellen, zoals MTTF (gemiddelde tijd bij een storing) kunt u de energiebedrijven turbine fouten voorkomen, en controleer of de minimale downtime. Fout kansen wordt in kennis technici om te controleren, maar die waarschijnlijk zal mislukken snel en gepland onderhoud op basis van tijd regelingen. Voorspellende modellen bieden inzicht in verschillende factoren die bijdragen aan de fout, waarmee technici beter begrip van dat de belangrijkste oorzaken van problemen.|
 |_Circuitonderbreker fouten_: Distributie van elektriciteit aan huizen en bedrijven vereist power regels te allen tijde om te waarborgen van energie-levering operationele zijn. Stroomonderbrekers te beperken of te voorkomen dat schade aan power regels tijdens overbelasting of schadelijke weersomstandigheden. Het zakelijke probleem hier is Circuitonderbreker fouten kunt voorspellen.| PdM oplossingen helpen herstellen kosten te verlagen en de levensduur van de uitrusting zoals stroomonderbrekers verhogen. Ze helpen de kwaliteit van het netwerk power verbeteren door te verminderen onverwachte fouten en serviceonderbrekingen.|
 |**Vervoer en logistiek** |    |
 |_Lift klep fouten_: Grote lift bedrijven bieden een volledige stack-service voor miljoenen functionele liften over de hele wereld. Lift-veiligheid, betrouwbaarheid en beschikbaarheid zijn de belangrijkste zorgen voor hun klanten. Deze bedrijven volgen deze en verschillende andere kenmerken via sensoren, zodat ze kunnen met corrigerende en preventief onderhoud. In een lift, is het probleem van de meest prominente klant lift deuren defect. Het zakelijke probleem wordt in dit geval een voorspellende knowledge base-toepassing die voorspelt dat de mogelijke oorzaken van de deur van fouten.| Liften zijn kapitaalinvesteringen voor mogelijk een 20-30-jaar geldig. Zodat elke potentiële verkoop uiterst concurrerende; verwachtingen voor de service en ondersteuning zijn daarom hoog. Voorspeld onderhoud kan deze bedrijven voorzien van een voordeel ten opzichte van hun concurrenten in hun product en serviceaanbiedingen.|

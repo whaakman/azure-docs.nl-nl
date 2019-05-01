@@ -1,36 +1,36 @@
 ---
 title: Azure Machine Learning-workloads uitvoeren met geautomatiseerde machine learning-(AutoML) op Apache Spark in Azure HDInsight
 description: Leer hoe u Azure Machine Learning-workloads uitvoeren met geautomatiseerde machine learning-(AutoML) op Apache Spark in Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: 896cae9b7fc43765e340ba3b92351e04b5512efd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5135de0fc87af227073f96c653d928ace1a50fd0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762548"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917034"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>Azure Machine Learning-workloads uitvoeren met geautomatiseerde machine learning-(AutoML) op Apache Spark in Azure HDInsight
 
-Azure Machine Learning is een analyseplatform voor samenwerking, slepen-en-neerzetten-hulpprogramma die kunt u bouwen, testen en implementeren van predictive analytics-oplossingen voor uw gegevens. Azure Machine Learning publiceert modellen als webservices die eenvoudig kunnen worden gebruikt door aangepaste apps of BI-hulpprogramma's zoals Excel. Geautomatiseerde machine learning-(AutoML) kunt maken van hoge kwaliteit machine learning-modellen met behulp van intelligente automatisering en optimalisatie. AutoML besluit het juiste algoritme en hyper parameters voor specifieke typen.
+Azure Machine Learning vereenvoudigt en versnelt de gebouw, training en implementatie van machine learning-modellen. In geautomatiseerde machine learning-(AutoML), moet u beginnen met trainingsgegevens waarvoor een gedefinieerd doel-functie en vervolgens doorlopen en combinaties van algoritmen en functie van selecties automatisch het beste model selecteren voor uw gegevens op basis van de scores training. HDInsight kan klanten voor het inrichten van clusters met honderden knooppunten. AutoML op Spark wordt uitgevoerd in een HDInsight-cluster kan gebruikers het gebruik van rekencapaciteit op deze knooppunten trainingstaken uitvoeren op een uitbreidbare manier, en om meerdere trainingstaken parallel uit te voeren. Hierdoor kunnen gebruikers AutoML experimenten uitvoeren terwijl u de compute deelt met hun big data-workloads.
+ 
 
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>Azure Machine Learning installeren op een HDInsight-cluster
 
-> [!Note]
-> De Azure ML-werkruimte is momenteel beschikbaar in de volgende regio's: VS-Oost, eastus2 en westcentralus. Het HDInsight-cluster moet ook worden gemaakt in een van deze regio's.
-
-Raadpleeg voor algemene zelfstudies van Azure Machine Learning en geautomatiseerde machine learning, [zelfstudie: Uw eerste gegevenswetenschapexperiment maken in Azure Machine Learning Studio](../../machine-learning/studio/create-experiment.md) en [zelfstudie: Gebruik automatische machine learning om uw regressiemodel](../../machine-learning/service/tutorial-auto-train-models.md).
-AzureML installeren op uw Azure HDInsight-cluster, voert u het script action - [install_aml](https://commonartifacts.blob.core.windows.net/automl/install_aml.sh) - op de hoofdknooppunten en het worker-knooppunten van een cluster met HDInsight 3.6 Spark 2.3.0 (aanbevolen). Deze scriptactie kan worden uitgevoerd als onderdeel van de cluster-proces voor het maken of op een bestaand cluster via Azure portal.
-
-Lees voor meer informatie over scriptacties [aanpassen Linux gebaseerde HDInsight-clusters met scriptacties](../hdinsight-hadoop-customize-cluster-linux.md). Naast het installeren van Azure Machine Learning-pakketten en afhankelijkheden, downloadt het script ook een voorbeeld van een Jupyter-Notebook (via pad `HdiNotebooks/PySpark` van het standaardarchief). Deze Jupyter-Notebook ziet u hoe u van een geautomatiseerde machine learning-classificatie voor een eenvoudige indeling.
+Raadpleeg voor algemene zelfstudies van geautomatiseerde machine learning, [zelfstudie: Gebruik automatische machine learning om uw regressiemodel](../../machine-learning/service/tutorial-auto-train-models.md).
+Alle nieuwe HDInsight Spark-clusters worden geleverd vooraf worden geïnstalleerd met AzureML-AutoML SDK. U kunt aan de slag met AutoML op HDInsight met deze [voorbeeld Jupyter-notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi). Deze Jupyter-Notebook ziet u hoe u van een geautomatiseerde machine learning-classificatie voor een eenvoudige indeling.
 
 > [!Note]
 > Azure Machine Learning-pakketten zijn geïnstalleerd in Python3 conda-omgeving. De geïnstalleerde Jupyter-notebook moet worden uitgevoerd met behulp van de kernel PySpark3.
+
+U kunt ook Zeppelin-notebooks gebruiken AutoML ook gebruiken.
+
+> [!Note]
+> Zeppelin is een [bekende probleem](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html) waar PySpark3 de juiste versie van Python niet ophalen. Gebruik de gedocumenteerde tijdelijke oplossing.
 
 ## <a name="authentication-for-workspace"></a>Verificatie voor werkruimte
 
@@ -42,8 +42,8 @@ Het volgende codefragment maakt u een verificatie-token met een **Azure AD-toepa
 from azureml.core.authentication import ServicePrincipalAuthentication
 auth_sp = ServicePrincipalAuthentication(
                 tenant_id = '<Azure Tenant ID>',
-                username = '<Azure AD Application ID>',
-                password = '<Azure AD Application Key>'
+                service_principal_id = '<Azure AD Application ID>',
+                service_principal_password = '<Azure AD Application Key>'
                 )
 ```
 Het volgende codefragment maakt u een verificatie-token met een **Azure AD-gebruiker**.
@@ -69,9 +69,10 @@ U kunt ook het gegevensarchief registreren met de werkruimte met behulp van een 
 
 ## <a name="experiment-submission"></a>Verzending van experiment
 
-In de configuratie van geautomatiseerde machine learning, de eigenschap `spark_context` moet worden ingesteld voor het pakket uit te voeren op de gedistribueerde modus. De eigenschap `concurrent_iterations`, dit is het maximum aantal iteraties parallel worden uitgevoerd, moet worden ingesteld op een getal kleiner dan de executor-cores voor de Spark-app.
+In de [geautomatiseerde machine learning-configuratie](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig), de eigenschap `spark_context` moet worden ingesteld voor het pakket uit te voeren op de gedistribueerde modus. De eigenschap `concurrent_iterations`, dit is het maximum aantal iteraties parallel worden uitgevoerd, moet worden ingesteld op een getal kleiner dan de executor-cores voor de Spark-app.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over de reden achter automatische leerprocessen [Release modellen op gelijke tred met behulp van Microsoft machine learning geautomatiseerde!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/).
+* Zie voor meer informatie over de reden achter automatische leerprocessen [Release modellen op gelijke tred met behulp van Microsoft machine learning geautomatiseerde!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
+* Zie voor meer informatie over het gebruik van Azure ML geautomatiseerde ML-mogelijkheden [nieuwe geautomatiseerde mogelijkheden voor machine learning in Azure Machine Learning-service](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
 * [AutoML project van Microsoft Research](https://www.microsoft.com/research/project/automl/)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: d0802cfcf05874044b6e116ba194c16a79f9d309
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: da1328ba826ce940115bc45ffc8d6f417eeda798
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541596"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744078"
 ---
 In deze sectie bevat informatie over eerdere generaties groottes van virtuele machines. Met deze grootten zijn nog steeds kunnen worden gebruikt, maar er zijn nieuwere generaties beschikbaar. 
 
@@ -27,7 +27,7 @@ ACU: 210 - 250
 
 Premium-opslag:  Niet ondersteund
 
-Premium Storage Caching:  Niet ondersteund
+Premium Storage opslaan in cache:  Niet ondersteund
 
 | Grootte         | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Max. aantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -45,7 +45,7 @@ ACU: 210 - 250
 
 Premium-opslag:  Ondersteund
 
-Premium Storage Caching:  Ondersteund
+Premium Storage opslaan in cache:  Ondersteund
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor opslag in cache en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -69,7 +69,7 @@ ACU: 180-240
 
 Premium-opslag:  Ondersteund
 
-Premium Storage Caching:  Niet ondersteund
+Premium Storage opslaan in cache:  Niet ondersteund
  
 | Grootte          | vCPU | Geheugen (GiB) | Tijdelijke opslag (GiB) | Max. aantal gegevensschijven | Maximale tijdelijke opslagdoorvoer (IOPS / MBps) | Belastingstests maximale schijfdoorvoer (IOPS / MBps) | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) | 
 |----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 

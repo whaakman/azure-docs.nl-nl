@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a404b5e6769c7bb91b4f7b5830cea18372ec456d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0bb7032c2741cc8c407c8d7d0285e58647f0bfd5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291340"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918542"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Met behulp van systeem voor meerdere domeinen Identity Management (SCIM) voor het automatisch inrichten van gebruikers en groepen uit Azure Active Directory voor toepassingen
 
@@ -128,7 +128,7 @@ Volg deze algemene richtlijnen bij het implementeren van een eindpunt SCIM compa
      - `and`
 * Geen vereist een hoofdlettergevoelige overeenkomst op structurele elementen in SCIM in bepaalde PATCH `op` bewerking waarden, zoals gedefinieerd in https://tools.ietf.org/html/rfc7644#section-3.5.2. Azure AD de waarden van 'op' verzendt als `Add`, `Replace`, en `Remove`.
 * Microsoft Azure AD kunt u aanvragen voor het ophalen van een willekeurige gebruiker en groep om ervoor te zorgen dat het eindpunt en de referenties geldig zijn. Dit gebeurt ook als onderdeel van **testverbinding** over flow in de [Azure-portal](https://portal.azure.com). 
-* Het kenmerk dat de bronnen kunnen worden opgevraagd op als een overeenkomende kenmerk moet worden ingesteld op de toepassing in de [Azure-portal](https://portal.azure.com). Zie voor meer informatie, [gebruiker inrichting kenmerktoewijzingen aanpassen](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
+* Het kenmerk dat de bronnen kunnen worden opgevraagd op als een overeenkomende kenmerk moet worden ingesteld op de toepassing in de [Azure-portal](https://portal.azure.com). Zie voor meer informatie, [gebruiker inrichting kenmerktoewijzingen aanpassen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 
 ### <a name="user-provisioning-and-de-provisioning"></a>Inrichten van gebruikers en het ongedaan maken inrichting
 De volgende afbeelding ziet u de berichten die Azure Active Directory voor het beheren van de levenscyclus van een gebruiker in het archief van uw toepassing verzendt naar een SCIM-service.  

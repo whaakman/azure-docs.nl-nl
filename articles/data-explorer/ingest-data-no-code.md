@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 04/07/2019
-ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: 187aa4b02e389c485b24ad7de256422d1880182b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60759772"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872588"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Zelfstudie: Gegevens opnemen in Azure Data Explorer zonder één regel code
 
@@ -380,7 +380,7 @@ Nu moet u de gegevensverbindingen voor uw diagnostische logboeken en activiteite
     |---|---|---|
     | **Tabel** | *DiagnosticLogsRawRecords* | De tabel die u hebt gemaakt in de *TestDatabase*-database. |
     | **Gegevensindeling** | *JSON* | De indeling die in de tabel wordt gebruikt. |
-    | **Toewijzen van kolommen** | *DiagnosticLogsRecordsMapping* | De toewijzing die u hebt gemaakt in de *TestDatabase*-database, waarmee binnenkomende JSON-gegevens worden toegewezen aan de kolomnamen en gegevenstypen van de tabel *DiagnosticLogsRecords*.|
+    | **Toewijzen van kolommen** | *DiagnosticLogsRecordsMapping* | De toewijzing die u hebt gemaakt in de *TestDatabase* database, waarmee binnenkomende JSON-gegevens wordt toegewezen aan de kolomnamen en gegevenstypen van de *DiagnosticLogsRawRecords* tabel.|
     | | |
 
 1. Selecteer **Maken**.  

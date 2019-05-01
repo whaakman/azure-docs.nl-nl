@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: 044e997703f5b274215fb05c7152186948b331b4
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63761401"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728823"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -157,7 +157,7 @@ U ziet deze fout als azds.exe is niet geïnstalleerd of niet juist geconfigureer
 
 ### <a name="try"></a>Probeer:
 
-1. Controleer de locatie-%ProgramFiles%/Microsoft SDKs\Azure\Azure Dev spaties CLI (Preview) voor azds.exe. Als deze aanwezig is, moet u die locatie toevoegen aan de omgevingsvariabele PATH.
+1. Controleer de locatie-%ProgramFiles%/Microsoft SDKs\Azure\Azure Dev spaties CLI voor azds.exe. Als deze aanwezig is, moet u die locatie toevoegen aan de omgevingsvariabele PATH.
 2. Als azds.exe niet is geïnstalleerd, moet u de volgende opdracht uitvoeren:
 
     ```cmd
@@ -292,6 +292,16 @@ Deze fout treedt op als de Helm-client kan niet meer communiceren met de Tiller-
 
 ### <a name="try"></a>Probeer:
 Dit probleem wordt opgelost als de agentknooppunten in het cluster meestal opnieuw te starten.
+
+## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>' Fout: de release azds -\<id\>-\<spacename\>-\<servicename\> is mislukt: services\<servicename\>' al bestaat ' of ' Pull-toegang is geweigerd voor \<servicename\>, opslagplaats bestaat niet of 'docker login' mogelijk '
+
+### <a name="reason"></a>Reden
+Deze fouten kunnen optreden als u direct Helm-opdrachten uitvoeren (zoals `helm install`, `helm upgrade`, of `helm delete`) met opslagruimten Dev-opdrachten (zoals `azds up` en `azds down`) binnen de dezelfde dev-ruimte. Ze optreden, Dev-Spaces heeft een eigen Tiller-instantie, die strijdig is met uw eigen Tiller-instantie die wordt uitgevoerd in de dezelfde dev-ruimte.
+
+### <a name="try"></a>Probeer:
+Het is prima om zowel Helm-opdrachten en spaties Dev-opdrachten op basis van de dezelfde AKS-cluster te gebruiken, maar elke naamruimte Dev spaties ingeschakeld moet een of andere gebruiken.
+
+Stel bijvoorbeeld dat u een Helm-opdracht gebruiken om uit te voeren van de gehele toepassing in een bovenliggende dev-ruimte. U kunt maken van onderliggende dev spaties uit dat de bovenliggende, Dev opslagruimten gebruiken voor het uitvoeren van afzonderlijke services in de onderliggende dev spaties en testen van de services samen. Wanneer u klaar om te controleren in uw wijzigingen bent, moet u een Helm-opdracht gebruiken voor het implementeren van de bijgewerkte code aan de bovenliggende dev-ruimte. Gebruik geen `azds up` voor het uitvoeren van de bijgewerkte service in de bovenliggende dev-ruimte, omdat dit een conflict oplevert met de service die in eerste instantie uitgevoerd met behulp van Helm.
 
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Azure Dev spaties proxy kan leiden tot problemen met andere schillen uitgevoerd in een dev-ruimte
 

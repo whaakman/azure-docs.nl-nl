@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d64cac3812d8daf8ac34b93c91338e1dfab88a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39495e11e42853bf3cf9481475d970667c56223f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381967"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919107"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Een strategie voor hybride identiteit ingebruikname definiëren
 In deze taak definieert u de acceptatiestrategie voor hybride identiteit voor uw oplossing voor hybride identiteit om te voldoen aan de zakelijke vereisten die zijn beschreven in:
@@ -37,7 +37,7 @@ De eerste taak adressen bepalen van het bedrijf organisaties moet.  Dit kan zijn
 ## <a name="define-an-integration-strategy"></a>Een Integratiestrategie voor definiëren
 Microsoft heeft drie belangrijkste integratiescenario's die cloud-identiteiten, gesynchroniseerde identiteiten en federatieve identiteiten zijn.  U moet plannen op overstappen op een van deze integratiestrategieën.  De strategie die u kiest kan variëren en de beslissingen bij het kiezen van een kunnen bevatten, wat voor soort gebruikerservaring die u bieden wilt, hebt u een bestaande infrastructuur en wat is de meest efficiënte.  
 
-![](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
+![Integratiescenario 's](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
 
 De scenario's die zijn gedefinieerd in de bovenstaande afbeelding zijn:
 
@@ -111,14 +111,14 @@ De afgelopen jaren hebben verschillende hulpprogramma's voor synchronisatie best
 ### <a name="supported-topologies"></a>Ondersteunde topologieën
 Bij het definiëren van een strategie voor synchronisatie, kunnen de topologie die wordt gebruikt, moet worden bepaald. Afhankelijk van de informatie die is vastgesteld in stap 2 u kunt vaststellen welke topologie de beste is om te gebruiken. De één forest, één Azure AD-topologie is de meest voorkomende en bestaat uit één Active Directory-forest en één exemplaar van Azure AD.  Dit zal worden gebruikt in een meerderheid van de scenario's en de verwachte topologie is bij het gebruik van Azure AD verbinding maken met Express-installatie, zoals wordt weergegeven in de afbeelding hieronder.
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest.png) Scenario voor één Forest het is gebruikelijk voor kleine en zelfs grote organisaties hebben meerdere forests, zoals wordt weergegeven in afbeelding 5.
+![Ondersteunde topologieën](./media/plan-hybrid-identity-design-considerations/single-forest.png) één Forest Scenario is het gebruikelijk voor kleine en zelfs grote organisaties hebben meerdere forests, zoals wordt weergegeven in afbeelding 5.
 
 > [!NOTE]
 > Voor meer informatie over de verschillende on-premises en Azure AD-topologieën met Azure AD Connect sync Lees het artikel [topologieën voor Azure AD Connect](plan-connect-topologies.md).
 > 
 > 
 
-![](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
+![topologie met meerdere forests](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
 
 Scenario voor meerdere forests
 
@@ -140,7 +140,7 @@ Als dit het geval is, en vervolgens de meerdere forests één Azure AD-topologie
 
 Als de bovenstaande niet waar zijn en u meer dan één actieve account of meer dan één postvak hebt, wordt Azure AD Connect Kies een en de andere negeren.  Als u postvakken, maar er is geen andere account hebt gekoppeld, wordt deze accounts worden niet geëxporteerd naar Azure AD en wordt die gebruiker zich niet lid is van een groep.  Dit wijkt af van hoe het is in het verleden met DirSync en is bedoeld voor een beter ondersteuning van deze scenario's voor meerdere forests. Een scenario met meerdere forests wordt weergegeven in de afbeelding hieronder.
 
-![](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
+![Meerdere Azure AD-tenants](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
 
 **Meerdere forests meerdere Azure AD-scenario**
 
@@ -148,7 +148,7 @@ Het wordt aanbevolen dat slechts één map in Azure AD voor een organisatie, maa
 
 Het is mogelijk en worden ondersteund in een on-premises exemplaar van Active Directory verbinden met meerdere Azure AD-mappen zoals weergegeven in de afbeelding hieronder:
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
+![Eén forest filteren](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
 
 **Filters gebruiken om één forest-scenario**
 

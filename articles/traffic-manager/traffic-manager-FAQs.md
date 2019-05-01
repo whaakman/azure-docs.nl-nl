@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 6086c182763885b62f28ab093be2a7f3f8282b8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b89e9a48ce20c7c00bd3282623919b8066e34b25
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803034"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717054"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager Frequently Asked Questions (FAQ)
 
@@ -320,7 +320,7 @@ Ja. Traffic Manager biedt ondersteuning voor scannen via HTTPS. Configureer **HT
 Traffic manager biedt geen een validatie van het servercertificaat, met inbegrip van:
 
 * Server-side-certificaten worden niet gevalideerd
-* SNI-serverzijde certificaten worden niet ondersteund
+* SNI-serverzijde certificaten worden niet gevalideerd
 * Clientcertificaten worden niet ondersteund.
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Gebruik ik een IP-adres of een DNS-naam bij het toevoegen van een eindpunt?

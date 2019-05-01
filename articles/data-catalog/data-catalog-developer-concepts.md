@@ -8,12 +8,12 @@ ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 42e4b545a48bcbd0ad4b7faf077ebdbfe21648b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3cfd6bd453cd06be4676a806997697a71afb0b59
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61002664"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727409"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure Data Catalog-concepten voor ontwikkelaars
 Microsoft **Azure Data Catalog** is een volledig beheerde cloudservice die mogelijkheden voor detectie van gegevensbronnen en crowdsourcing metagegevens van de gegevensbron biedt. Ontwikkelaars kunnen de service via de REST-API's gebruiken. Informatie over de concepten die zijn geïmplementeerd in de service is het belangrijk is voor ontwikkelaars om te integreren in is **Azure Data Catalog**.
@@ -174,9 +174,9 @@ Algemene typen kunnen worden gebruikt als de typen voor eigenschappen, maar er z
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>protocol</td><td>string</td><td>Vereist. Beschrijving van een protocol dat wordt gebruikt om te communiceren met de gegevensbron. Bijvoorbeeld: "tds" voor SQl Server, "oracle' voor Oracle, enzovoort. Raadpleeg <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">verwijzing opgegeven - DSL-structuur van gegevensbron</a> voor de lijst met ondersteunde protocollen.</td></tr>
-<tr><td></td><td>address</td><td>Woordenlijst<string, object></td><td>Vereist. Adres is een set gegevens die specifiek zijn voor het protocol dat wordt gebruikt voor het identificeren van de gegevensbron waarnaar wordt verwezen. De gegevens voor adres binnen het bereik van een bepaald protocol, wat betekent dat deze zonder te weten het protocol is geen betekenis heeft.</td></tr>
+<tr><td></td><td>address</td><td>Woordenlijst&lt;string, object&gt;</td><td>Vereist. Adres is een set gegevens die specifiek zijn voor het protocol dat wordt gebruikt voor het identificeren van de gegevensbron waarnaar wordt verwezen. De gegevens voor adres binnen het bereik van een bepaald protocol, wat betekent dat deze zonder te weten het protocol is geen betekenis heeft.</td></tr>
 <tr><td></td><td>verificatie</td><td>string</td><td>Optioneel. Het verificatieschema gebruikt om te communiceren met de gegevensbron. Bijvoorbeeld: windows, oauth, enzovoort.</td></tr>
-<tr><td></td><td>connectionProperties</td><td>Woordenlijst<string, object></td><td>Optioneel. Meer informatie over hoe u verbinding maakt met een gegevensbron.</td></tr>
+<tr><td></td><td>connectionProperties</td><td>Woordenlijst&lt;string, object&gt;</td><td>Optioneel. Meer informatie over hoe u verbinding maakt met een gegevensbron.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>De back-end wordt een validatie van de opgegeven eigenschappen op basis van AAD tijdens de publicatie niet uitvoeren.</td></tr>
 <tr><td></td><td>UPN</td><td>string</td><td>De unieke e-mailadres van gebruiker. Moet worden opgegeven als object-id is niet opgegeven of in de context van de eigenschap 'lastRegisteredBy', anders is optioneel.</td></tr>

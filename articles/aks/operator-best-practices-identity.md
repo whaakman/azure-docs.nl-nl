@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 04/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 42f6fefa930a36fbfcca7b3f792cc749723f7b99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1c20e7796d152c9198786c491f9a61752d88ea6f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464465"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726623"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor verificatie en autorisatie in Azure Kubernetes Service (AKS)
 
@@ -108,7 +108,8 @@ In het volgende voorbeeld maakt u een ontwikkelaar een schil die gebruikmaakt va
 1. Een ontwikkelaar implementeert een schil met een beheerde identiteit die een toegangstoken via de NMI-server vraagt.
 1. Het token wordt geretourneerd naar de schil en gebruikt voor toegang tot een Azure SQL Server-exemplaar.
 
-Beheerde pod identiteiten is een open-SourceProject van AKS en wordt niet ondersteund door Azure technische ondersteuning. Dit wordt geleverd met het verzamelen van fouten en feedback van onze community. Het project wordt niet aanbevolen voor gebruik in productieomgevingen.
+> [!NOTE]
+> Beheerde pod identiteiten is een open-source-project en wordt niet ondersteund door Azure technische ondersteuning.
 
 Zie voor het gebruik van de schil identiteiten [Azure Active Directory-identiteiten voor toepassingen met Kubernetes][aad-pod-identity].
 

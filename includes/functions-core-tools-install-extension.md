@@ -2,33 +2,48 @@
 title: bestand opnemen
 description: bestand opnemen
 services: functions
-author: ggailey777
+author: craigshoemaker
 ms.service: functions
 ms.topic: include
-ms.date: 09/21/2018
-ms.author: glenga
+ms.date: 09/25/2018
+ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: f1b53c53b1e5fb089eb9b8a9b816b11a1eea126d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47044506"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733270"
 ---
-Als u functies lokaal ontwikkelt, kunt u de uitbreidingen die u nodig hebt met behulp van Azure Functions Core Tools vanaf de Terminal of vanaf een opdrachtprompt installeren.
+Extensie-bundels maken alle bindingen die zijn gepubliceerd door de Azure Functions-team beschikbaar via een instelling in de *host.json* bestand. Voor lokale ontwikkeling, zorg ervoor dat u hebt de nieuwste versie van [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
 
-Nadat u hebt bijgewerkt uw *function.json* bestand om op te nemen van de bindingen die uw functie nodig heeft, voer de volgende opdracht uit in de projectmap.
+Als u wilt gebruiken extensie bundels, de *host.json* bestand om op te nemen van de volgende vermelding voor `extensionBundle`:
 
-```bash
-func extensions install
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
+    }
+}
 ```
 
-De opdracht leest de *function.json* bestand om te zien welke pakketten die u nodig hebt, worden ze geïnstalleerd en wordt het project extensies. Voegt een nieuwe bindingen toe op de huidige versie, maar wordt de bestaande bindingen niet bijgewerkt. Gebruik de `--force` optie bestaande bindingen bijwerken naar de meest recente versie bij het installeren van nieuwe labels.
+- De `id` eigenschap verwijst naar de naamruimte voor Microsoft Azure Functions-extensie bundels.
+- De `version` verwijst naar de versie van de bundel.
 
-Als u wilt dat een bepaalde versie van een pakket te installeren of u wilt om pakketten te installeren voordat u bewerkt de *function.json* bestand, gebruikt u de `func extensions install` opdracht met de naam van het pakket, zoals wordt weergegeven in het volgende voorbeeld:
+Verhoging van de bundel versies als pakketten in de bundel wordt gewijzigd. Primaire versiewijzigingen optreden alleen wanneer pakketten in de bundel een primaire versie verplaatsen. De `version` eigenschap gebruikt de [interval notatie voor het opgeven van versiebereiken](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). De Functions-runtime kiest altijd de maximale toegestane versie gedefinieerd door het bereik van de versie of de interval.
 
-```bash
-func extensions install --package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
-```
+Wanneer u verwijst naar de extensie-bundels in uw project, zijn alle standaard bindingen zijn beschikbaar voor uw functies. De bindingen die beschikbaar zijn in de [extensie bundel](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) zijn:
 
-Vervang `<target_version>` met een specifieke versie van het pakket, zoals `3.0.0-beta5`. Geldige versies worden weergegeven op de afzonderlijke pakket's op de [NuGet.org](https://nuget.org).
+|Pakket  |Versie  |
+|---------|---------|
+|Microsoft.Azure.WebJobs.Extensions.CosmosDB|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.DurableTask|1.8.0|
+|Microsoft.Azure.WebJobs.Extensions.EventGrid|2.0.0|
+|Microsoft.Azure.WebJobs.Extensions.EventHubs|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.SendGrid|3.0.0|
+|Microsoft.Azure.WebJobs.Extensions.ServiceBus|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.SignalRService|1.0.0|
+|Microsoft.Azure.WebJobs.Extensions.Storage|3.0.4|
+|Microsoft.Azure.WebJobs.Extensions.Twilio|3.0.0|

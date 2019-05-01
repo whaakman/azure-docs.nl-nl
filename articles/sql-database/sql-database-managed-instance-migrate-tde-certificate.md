@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 43793380fab2bcece215c53b82e09a3c3a849af3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/25/2019
+ms.openlocfilehash: f54950ab96664b17aab056b468db0644216e8654
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57833910"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706096"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Certificaat van TDE beveiligde database migreren naar Azure SQL Database Managed Instance
 
@@ -31,7 +31,7 @@ Wanneer een database die is beveiligd door migreren [Transparent Data Encryption
 Zie [Uw on-premises database migreren naar een beheerd exemplaar met behulp van Azure Database Migration Service ](../dms/tutorial-sql-server-to-managed-instance.md) voor een alternatieve optie met behulp van een volledig beheerde service voor naadloze migratie van zowel een met TDE beveiligde database als het bijbehorende certificaat.
 
 > [!IMPORTANT]
-> De Transparent Data Encryption voor Azure SQL Database Managed Instance werkt in de service beheerde modus. Het gemigreerde certificaat wordt alleen gebruikt voor het herstellen van de met TDE beveiligde database. Vlak nadat het herstellen is voltooid, wordt het gemigreerde certificaat vervangen door een ander, door het systeem beheerd certificaat.
+> Het gemigreerde certificaat wordt alleen gebruikt voor het herstellen van de met TDE beveiligde database. Zodra terugzetten is voltooid, de gemigreerde certificaat wordt vervangen door de beveiliging van een andere service beheerde certificaten of asymmetrische sleutel van de key vault, afhankelijk van het type van de transparent data encryption voor u ingesteld op het exemplaar.
 
 ## <a name="prerequisites"></a>Vereisten
 

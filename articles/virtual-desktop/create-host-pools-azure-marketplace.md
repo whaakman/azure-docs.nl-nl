@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: f539a71fccca116ee031781df855ec55158eb63a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c4ab209d63a01d9e1089eec351eff64fc116f403
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883850"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924979"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Zelfstudie: Een hostpool maken met Azure Marketplace
 
@@ -118,7 +118,7 @@ Hier volgen de huidige ondersteunde clients:
 - [Virtuele Windows-bureaublad-webclient](connect-web.md)
 
 >[!IMPORTANT]
->Als u wilt beveiligen uw virtuele Windows-bureaublad-omgeving in Azure, wordt aangeraden dat u binnenkomende poort 3389 op uw VM's niet openen. Virtuele Windows-bureaublad zijn vereist om een open binnenkomende poort 3389 voor gebruikers toegang krijgen tot virtuele machines van de host-pool. Als u poort 3389 voor het oplossen van problemen opent moet, raden wij aan u [just-in-time-VM-toegang](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+>Als u wilt beveiligen uw virtuele Windows-bureaublad-omgeving in Azure, wordt aangeraden dat u binnenkomende poort 3389 op uw VM's niet openen. Virtuele Windows-bureaublad zijn vereist om een open binnenkomende poort 3389 voor gebruikers toegang krijgen tot virtuele machines van de host-pool. Als u poort 3389 voor het oplossen van problemen opent moet, raden wij aan u [just-in-time-VM-toegang](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
 
 ## <a name="next-steps"></a>Volgende stappen
 

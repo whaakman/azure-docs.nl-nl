@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d90af62c8d6267001ede567c71b7e1204f6ce74
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299614"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917219"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Procedure: SSO voor cross-app voor iOS met behulp van ADAL inschakelen
 
@@ -44,7 +44,7 @@ Deze instructies van toepassing op:
 
 Deze instructies wordt ervan uitgegaan dat u weet hoe u:
 
-* Inrichten van uw app met behulp van de oude portal voor Azure AD. Zie voor meer informatie, [een app registreren bij de Azure AD v1.0-eindpunt](quickstart-v1-add-azure-ad-app.md)
+* Inrichten van uw app met behulp van de oude portal voor Azure AD. Zie voor meer informatie, [een app registreren](quickstart-register-app.md)
 * Integreer uw toepassing met de [iOS SDK voor Azure AD](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## <a name="single-sign-on-concepts"></a>Concepten voor eenmalige aanmelding

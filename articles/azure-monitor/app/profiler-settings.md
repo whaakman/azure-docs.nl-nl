@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2bc32e28ffd6dd9dab2da61078684791a04709cc
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228124"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922990"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler configureren
 
@@ -41,7 +41,7 @@ Afhankelijk van hoe uw Azure App Service-omgeving is geconfigureerd, kan de aanr
 ## <a id="profileondemand"></a> Profiler handmatig activeren
 
 ### <a name="minimum-requirements"></a>Minimale vereisten 
-Voor een gebruiker handmatig activeren een profiler-sessie moeten ze ten minste "schrijftoegang' op hun rol voor de Application Insights-onderdeel. In de meeste gevallen krijgt u deze toegang automatisch en geen extra werk is vereist. Als u problemen ondervindt, zou de rol "Application Insights-Onderdeelinzender" zijn in het bereik abonnement de rol toe te voegen. [Zie voor meer informatie over rollen van toegangsbeheer met Azure Monitoring](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control).
+Voor een gebruiker handmatig activeren een profiler-sessie moeten ze ten minste "schrijftoegang' op hun rol voor de Application Insights-onderdeel. In de meeste gevallen krijgt u deze toegang automatisch en geen extra werk is vereist. Als u problemen ondervindt, zou de rol "Application Insights-Onderdeelinzender" zijn in het bereik abonnement de rol toe te voegen. [Zie voor meer informatie over rollen van toegangsbeheer met Azure Monitoring](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
 
 Met één klik kunt u Profiler handmatig activeren. Stel dat u een webprestatietesten uitvoert. Hebt u traceringen om te begrijpen hoe uw web-app wordt uitgevoerd onder belasting nodig. Controle over wanneer traceringen worden vastgelegd met is cruciaal omdat u weet wanneer de belastingstest wordt uitgevoerd. Maar het interval van steekproeven mogelijk worden gemist.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 79faab0dcf2dd4c5592fe0543fa63f2538facf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e21ed77a80892da22c380787dc64ea07db756fdf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60909571"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917639"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen vindt u antwoorden op vragen over Azure Security Center, een service die u bij het voorkomen helpt, detecteren en direct reageren op bedreigingen met verbeterde zichtbaarheid en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -77,7 +77,7 @@ Windows- of Linux IaaS-VM's in aanmerking komt als:
 
 - De Microsoft Monitoring Agent-extensie is momenteel niet geïnstalleerd op de virtuele machine.
 - De virtuele machine wordt uitgevoerd.
-- De Windows- of Linux [Azure Virtual Machine Agent](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-windows) is geïnstalleerd.
+- De Windows- of Linux [Azure Virtual Machine Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) is geïnstalleerd.
 - De virtuele machine wordt niet gebruikt als een apparaat, zoals de web application firewall of de firewall van volgende generatie.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Kan ik de Standaardwerkruimten die zijn gemaakt door Security Center wilt verwijderen?

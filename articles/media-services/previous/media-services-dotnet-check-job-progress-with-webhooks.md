@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 36ef27dfb4a5d77ec2e595013a82f55cdf240c0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3b4c3bac1a2d62246fa5a7ff3a348c6cb2652ea1
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465691"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868172"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Gebruik Azure Webhooks voor het bewaken van taakmeldingen Media Services met .NET 
+
+> [!NOTE]
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
 
 Wanneer u taken uitvoert, moet u vaak een manier om bij te houden van de taak wordt uitgevoerd. U kunt Media Services-taakmeldingen bewaken met behulp van Azure-Webhooks of [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). Dit artikel leest hoe u werkt met webhooks.
 
@@ -31,7 +34,7 @@ Dit artikel wordt beschreven hoe u
     
     In dit geval worden de webhook wordt geactiveerd door Media Services wanneer de status van de coderingstaak gewijzigd. De functie luistert naar de webhook-aanroep van Media Services-meldingen en publiceert de uitvoerasset zodra de taak is voltooid. 
     
-    >[!NOTE]
+    >[!TIP]
     >Voordat u doorgaat, zorg ervoor dat u begrijpt hoe [Azure Functions-HTTP- en webhook-bindingen](../../azure-functions/functions-bindings-http-webhook.md) werken.
     >
     

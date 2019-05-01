@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: a4c643ecff5c33ec19c607da6ef8db41cfeb90c6
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 9154e5d58a36bde1827d63d11d57a77b4289a781
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63762813"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689377"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video-en audiobestanden analyseren
 
@@ -35,7 +35,7 @@ Media Services ondersteunt momenteel de volgende ingebouwde analyzer voorinstell
 |---|---|---|
 |[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Audio analyseren|De definitie van een vooraf gedefinieerde set op basis van AI analysis-bewerkingen, met inbegrip van spraaktranscriptie toepassing. De vooraf ingestelde ondersteunt momenteel de verwerking van inhoud met een één audiotrack die gesproken tekst in één taal bevat. U kunt de taal voor de nettolading van de audio in de invoer met behulp van de BCP-47-indeling van 'taal tag-regio' opgeven. Ondersteunde talen zijn Engels ('en-US' en "en-GB"), Spaans ('es-ES' en 'es-MX'), Frans ('fr-FR'), Italiaans ('it-IT'), Japans ('ja-JP'), Portugees ('pt-BR'), Chinees ('zh-CN'), Duits ('nl-nl'), Arabisch ('ar-bijvoorbeeld'), Russisch ('ru-RU'), Hindi ("Hallo-IN' ), en Koreaans ('ko-KR').<br/><br/> Als de taal is niet opgegeven of is ingesteld op null-waarde, automatische taaldetectie wordt de eerste taal gedetecteerd kiezen en verwerken met de geselecteerde taal voor de duur van het bestand. De functie voor automatische taalherkenning ondersteunt momenteel het Engels, Chinees, Frans, Duits, Italiaans, Japans, Spaans, Russisch en Portugees. Het ondersteunt momenteel geen dynamisch schakelen tussen talen nadat de eerste taal die is gedetecteerd. De functie voor automatische taalherkenning werkt het beste met audio-opnamen met duidelijke spraak. Als automatische taaldetectie niet vinden van de taal, terugvallen de transcriptie naar het Engels.|
 |[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analyse van audio en video|Inzichten (uitgebreide metagegevens) wordt geëxtraheerd uit de audio en video en voert een bestand met JSON-indeling. U kunt opgeven of u alleen audio inzicht wilt bij het verwerken van een videobestand. Zie voor meer informatie, [analyseren video](analyze-videos-tutorial-with-api.md).|
-|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)||Beschrijft de instellingen moet worden gebruikt wanneer een video analyseren om de huidige gezichten detecteren.|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|De aanwezig zijn in de video gezichten detecteren|Beschrijft de instellingen moet worden gebruikt wanneer een video analyseren om de huidige gezichten detecteren.|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 

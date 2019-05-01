@@ -8,16 +8,16 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
-ms.openlocfilehash: 40aa032654d81c947e2c31e9d93954ee050f78a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 01e86d9769b07a57d44ae21b2c76d894ac29e8bc
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60849945"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920040"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Inhoud leveren vanuit Azure Storage in App Service onder Linux
 
-Deze handleiding wordt beschreven hoe u aan het leveren van statische inhoud in App Service on Linux met behulp van [Azure Storage](/azure/storage/common/storage-introduction). De volgende voordelen beveiligde inhoud, inhoud draagbaarheid, de toegang tot meerdere apps en meerdere methoden voor overdracht. In deze handleiding leert u hoe u inhoud leveren in Azure Storage door aangepaste opslag configureren.
+Deze handleiding wordt beschreven hoe u aan het leveren van statische inhoud in App Service on Linux met behulp van [Azure Storage](/azure/storage/common/storage-introduction). De volgende voordelen beveiligde inhoud, inhoud draagbaarheid, de toegang tot meerdere apps en meerdere methoden voor overdracht. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -67,7 +67,20 @@ U moet dit doen voor alle andere mappen die u wilt dat moet worden gekoppeld aan
 Nadat een opslagcontainer is gekoppeld aan een web-app, kunt u dit controleren door de volgende opdracht uit:
 
 ```azurecli
-az webapp config storage-account list --resource-group <group_name> --name <app_name>
+az webapp config storage-account list --resource-group <resource_group> --name <app_name>
+```
+
+## <a name="use-custom-storage-in-docker-compose"></a>Aangepaste storage gebruiken in het Docker Compose
+
+Azure-opslag kan worden gekoppeld met meerdere containers apps met behulp van de aangepaste-id. Uitvoeren als u de naam van de aangepaste-id, [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
+
+In uw *docker-compose.yml* bestand, wijs de `volumes` optie naar `custom-id`. Bijvoorbeeld:
+
+```yaml
+wordpress:
+  image: wordpress:latest
+  volumes:
+  - <custom-id>:<path_in_container>
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

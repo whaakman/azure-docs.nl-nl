@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 8bb790571e1499bd45fb8bee27f4f1896046cbc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a7fcd4deb0446577af310ff5380ffddf05ba87be
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749065"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719814"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V naar Azure-replicatie en failover oplossen
 
@@ -129,7 +129,7 @@ Een app-consistente momentopname is een point-in-time-momentopname van de toepas
 
 2. Voor het genereren van VSS-momentopnamen voor de virtuele machine die Hyper-V-integratieservices zijn geïnstalleerd op de virtuele machine, en dat de back-up (VSS) Integration-Service is ingeschakeld.
     - Zorg ervoor dat de Integration Services VSS-service/daemons worden uitgevoerd op de Gast en zich in een **OK** staat.
-    - U kunt dit controleren vanuit een sessie met verhoogde bevoegdheden PowerShell op de Hyper-V-host met de opdracht **et-VMIntegrationService - VMName<VMName>-naam VSS** u kunt deze informatie ook ophalen door aan te melden bij de Gast-VM. [Meer informatie](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - U kunt dit controleren vanuit een sessie met verhoogde bevoegdheden PowerShell op de Hyper-V-host met de opdracht **et-VMIntegrationService - VMName\<VMName >-naam VSS** u kunt deze informatie ook ophalen door aan te melden bij de Gast-VM. [Meer informatie](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - Zorg ervoor dat de back-up/VSS-integratieservices op de virtuele machine actief is en in orde. Als dat niet het geval is, start deze services en de Hyper-V Volume Shadow Copy-aanvrager-service op de Hyper-V-hostserver.
 
 ### <a name="common-errors"></a>Algemene fouten

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371721"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919153"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Instellen van uw factureringsrekening voor een Microsoft-KLANTOVEREENKOMST
 
@@ -108,7 +108,7 @@ Een Azure Active Directory-tenant is geselecteerd voor de nieuwe factureringsacc
 
 Uw nieuwe account biedt alleen ondersteuning voor gebruikers van de tenant die is geselecteerd tijdens het ondertekenen van de Microsoft-overeenkomst voor de klant. Als gebruikers met beheerdersrechten van uw Enterprise overeenkomst deel van de tenant uitmaken, krijgt zij toegang tot de nieuwe factureringsaccount tijdens de installatie. Als ze geen deel uit van de tenant bent, zich ze niet voor toegang tot de nieuwe factureringsaccount, tenzij u ze kunt uitnodigen.
 
-Wanneer u de gebruikers uitnodigen, ze als gastgebruikers ook kunnen worden toegevoegd aan de tenant en krijg toegang tot de rekening. Als u wilt uitnodigen de gebruikers, moet u de toegang voor gasten ingeschakeld voor de tenant. Zie voor meer informatie, [beheren van toegang voor gasten in Azure Active Directory](https://docs.microsoft.com/en-us/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Als de toegang voor gasten is uitgeschakeld, moet u contact op met de globale beheerders van uw tenant deze in te schakelen. <!-- Todo - How can they find their global administrator -->
+Wanneer u de gebruikers uitnodigen, ze als gastgebruikers ook kunnen worden toegevoegd aan de tenant en krijg toegang tot de rekening. Als u wilt uitnodigen de gebruikers, moet u de toegang voor gasten ingeschakeld voor de tenant. Zie voor meer informatie, [beheren van toegang voor gasten in Azure Active Directory](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Als de toegang voor gasten is uitgeschakeld, moet u contact op met de globale beheerders van uw tenant deze in te schakelen. <!-- Todo - How can they find their global administrator -->
 
 ## <a name="view-features-replaced-by-the-new-billing-account"></a>Functies die zijn vervangen door de nieuwe factureringsaccount weergeven
 

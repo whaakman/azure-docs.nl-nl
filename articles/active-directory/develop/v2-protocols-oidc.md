@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f4a7f2a4fe0e1ca455b1140e83f31f6b30a7511
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bfac577d7582caa5b538f05273a02e4c3baf71ff
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250049"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918464"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft identity-platform en OpenID Connect-protocol
 
@@ -32,7 +32,7 @@ OpenID Connect is gebouwd op OAuth 2.0 waarmee u kunt veilig zich in een gebruik
 > [!NOTE]
 > Het eindpunt van de Microsoft identity-platform biedt geen ondersteuning voor alle Azure Active Directory (Azure AD)-scenario's en onderdelen. Meer informatie over om te bepalen of moet u het eindpunt van de Microsoft identity-platform, [beperkingen van het Microsoft identity platform](active-directory-v2-limitations.md).
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) kunt u de OAuth 2.0 uitbreiden *autorisatie* protocol moet worden gebruikt als een *verificatie* protocol, zodat u kunt doen eenmalige aanmelding met OAuth. OpenID Connect introduceert het concept van een *ID-token*, dit is een beveiligingstoken dat kan de client om de identiteit van de gebruiker te verifiëren. De ID-token wordt ook basisprofielgegevens informatie over de gebruiker. Omdat de OpenID Connect, kunt u OAuth 2.0 uitbreiden, apps veilig kunnen verkrijgen *toegangstokens*, die kan worden gebruikt voor toegang tot resources die worden beveiligd door een [autorisatieserver](active-directory-v2-protocols.md#the-basics). Het eindpunt van de Microsoft identity platform kan ook apps van derden die zijn geregistreerd bij Azure AD om uit te geven van de toegangstokens voor beveiligde resources, zoals Web-API's. Zie voor meer informatie over het instellen van een toepassing om uit te geven toegangstokens [over het registreren van een app met het eindpunt van de Microsoft identity-platform](quickstart-v2-register-an-app.md). Raden wij aan dat u OpenID verbinding maken als u bouwt een [webtoepassing](v2-app-types.md#web-apps) dat is gehost op een server en toegankelijk is via een browser.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) kunt u de OAuth 2.0 uitbreiden *autorisatie* protocol moet worden gebruikt als een *verificatie* protocol, zodat u kunt doen eenmalige aanmelding met OAuth. OpenID Connect introduceert het concept van een *ID-token*, dit is een beveiligingstoken dat kan de client om de identiteit van de gebruiker te verifiëren. De ID-token wordt ook basisprofielgegevens informatie over de gebruiker. Omdat de OpenID Connect, kunt u OAuth 2.0 uitbreiden, apps veilig kunnen verkrijgen *toegangstokens*, die kan worden gebruikt voor toegang tot resources die worden beveiligd door een [autorisatieserver](active-directory-v2-protocols.md#the-basics). Het eindpunt van de Microsoft identity platform kan ook apps van derden die zijn geregistreerd bij Azure AD om uit te geven van de toegangstokens voor beveiligde resources, zoals Web-API's. Zie voor meer informatie over het instellen van een toepassing om uit te geven toegangstokens [over het registreren van een app met het eindpunt van de Microsoft identity-platform](quickstart-register-app.md). Raden wij aan dat u OpenID verbinding maken als u bouwt een [webtoepassing](v2-app-types.md#web-apps) dat is gehost op een server en toegankelijk is via een browser.
 
 ## <a name="protocol-diagram-sign-in"></a>Diagram van protocol: aanmelden
 
@@ -52,7 +52,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 De `{tenant}` kan duren voordat een van de vier waarden:
 
-| Value | Beschrijving |
+| Value | Description |
 | --- | --- |
 | `common` |Gebruikers met zowel een persoonlijk Microsoft-account en een account voor werk- of schoolaccount van Azure AD kunnen zich aanmelden bij de toepassing. |
 | `organizations` |Alleen gebruikers met een werk- of schoolaccounts van Azure AD kunnen zich aanmelden bij de toepassing. |
@@ -166,7 +166,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 De volgende tabel worden foutcodes beschreven die kunnen worden geretourneerd in de `error` parameter van het foutbericht:
 
-| Foutcode | Beschrijving | Clientactie |
+| Foutcode | Description | Clientactie |
 | --- | --- | --- |
 | `invalid_request` | Protocolfout, zoals een ontbrekende vereiste parameter. |Los en verzend de aanvraag opnieuw. Dit is een ontwikkeling-fout die meestal is aangetroffen tijdens de eerste test. |
 | `unauthorized_client` | De clienttoepassing kan geen een autorisatiecode vragen. |Dit gebeurt meestal wanneer de clienttoepassing niet is geregistreerd bij Azure AD of is niet toegevoegd aan Azure AD-tenant van de gebruiker. De toepassing kan de gebruiker met instructies voor het installeren van de toepassing en deze toevoegen aan Azure AD vragen. |
@@ -253,7 +253,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | `id_token` | De ID-token dat de app worden aangevraagd. U kunt de ID-token gebruiken om te controleren of de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. U vindt meer informatie over ID-tokens en hun inhoud in de [ `id_tokens` verwijzing](id-tokens.md). |
 | `code` | De autorisatiecode die de app heeft aangevraagd. De app kan de autorisatiecode gebruiken om aan te vragen van een toegangstoken voor de doelresource. Er is een autorisatiecode tijdelijke. Normaal gesproken verloopt een autorisatiecode over ongeveer tien minuten. |
@@ -271,7 +271,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | `error` | Een tekenreeks voor de foutcode die u gebruiken kunt voor het classificeren van typen fouten die optreden en om te reageren op fouten. |
 | `error_description` | Een bericht specifieke fout die u kan helpen de hoofdoorzaak van een verificatiefout identificeren. |

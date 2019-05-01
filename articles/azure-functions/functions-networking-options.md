@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: b7af0149a690e3cc3a357a5cb769751e3674d374
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61437681"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575613"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions netwerkopties
 
@@ -31,15 +31,14 @@ U kunt de functie-apps in een aantal manieren hosten:
 
 ## <a name="matrix-of-networking-features"></a>Matrix van functies voor netwerkbeheer
 
-|                |[Verbruiksabonnement](functions-scale.md#consumption-plan)|⚠ [Premium-abonnement](functions-scale.md#premium-plan-public-preview)|[App Service-plan](functions-scale.md#app-service-plan)|[App Service-omgeving](../app-service/environment/intro.md)|
+|                |[Verbruiksabonnement](functions-scale.md#consumption-plan)|[Premium-abonnement (preview)](functions-scale.md#premium-plan-public-preview)|[App Service-plan](functions-scale.md#app-service-plan)|[App Service-omgeving](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Inkomende IP-adresbeperkingen](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
+|[Uitgaande IP-beperkingen](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 |[Integratie van virtueel netwerk](#virtual-network-integration)|❌No|❌No|✅Yes|✅Yes|
-|[Preview-versie van de integratie van virtuele netwerken (Azure ExpressRoute en service-eindpunten)](#preview-version-of-virtual-network-integration)|❌No|⚠Ja|⚠Ja|✅Yes|
+|[Integratie van virtuele netwerken voor Preview-versie (Azure ExpressRoute en service-eindpunten uitgaand)](#preview-version-of-virtual-network-integration)|❌No|✅Yes|✅Yes|✅Yes|
 |[Hybride verbindingen](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
-|[toegang tot de persoonlijke site](#private-site-access)|❌No| ❌No|❌No|✅Yes|
-
-⚠ Deze preview-functie is niet beschikbaar voor gebruik in productieomgevingen.
+|[toegang tot de persoonlijke site](#private-site-access)|❌No| ✅Yes|✅Yes|✅Yes|
 
 ## <a name="inbound-ip-restrictions"></a>Inkomende IP-adresbeperkingen
 
@@ -49,6 +48,10 @@ U kunt IP-beperkingen gebruiken om een prioriteit geordende lijst IP-adressen di
 > Voor het gebruik van de Azure portal-editor, moet de portal kunnen rechtstreeks toegang tot uw functie-app die wordt uitgevoerd. Ook moet het apparaat dat u gebruikt voor toegang tot de portal de goedgekeurde IP-hebben. Met netwerkbeperkingen op locatie, u kunt nog steeds toegang tot alle functies op de **platformfuncties** tabblad.
 
 Zie voor meer informatie, [statische toegangsbeperkingen voor Azure App Service](../app-service/app-service-ip-restrictions.md).
+
+## <a name="outbound-ip-restrictions"></a>Uitgaande IP-adresbeperkingen
+
+Uitgaande IP-beperkingen zijn alleen beschikbaar voor functies die zijn geïmplementeerd op een App Service Environment. U kunt configureren dat uitgaande beperkingen voor het virtuele netwerk waarop uw App Service Environment wordt geïmplementeerd.
 
 ## <a name="virtual-network-integration"></a>Integratie van virtueel netwerk
 
@@ -88,7 +91,10 @@ Zie voor meer informatie, de [App Service-documentatie voor hybride verbindingen
 
 ## <a name="private-site-access"></a>Toegang tot privésite
 
-Toegang tot de persoonlijke site verwijst naar het maken van uw app alleen toegankelijk vanuit een particulier netwerk zoals uit binnen een virtueel Azure-netwerk. Persoonlijke sitetoegang is alleen met een App Service Environment is geconfigureerd met een interne load balancer (ILB) beschikbaar. Zie voor meer informatie, [maken en gebruiken van een interne load balancer met een App Service Environment](../app-service/environment/create-ilb-ase.md).
+Toegang tot de persoonlijke site verwijst naar het maken van uw app alleen toegankelijk vanuit een particulier netwerk zoals uit binnen een virtueel Azure-netwerk. 
+* Toegang tot de persoonlijke site is beschikbaar in de Premium- en App Service plannen wanneer **Service-eindpunten** zijn geconfigureerd. Zie voor meer informatie, [virtual network-service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md)
+    * Houd er rekening mee dat met Service-eindpunten, uw functie nog steeds volledige uitgaande toegang tot internet, zelfs met VNET-integratie is geconfigureerd heeft.
+* Persoonlijke sitetoegang is alleen met een App Service Environment is geconfigureerd met een interne load balancer (ILB) beschikbaar. Zie voor meer informatie, [maken en gebruiken van een interne load balancer met een App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 Er zijn veel manieren voor toegang tot resources in andere hostingopties virtueel netwerk. Maar een App Service Environment is de enige manier om toe te staan van triggers voor een functie vindt plaats via een virtueel netwerk.
 

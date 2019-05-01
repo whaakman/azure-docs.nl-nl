@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f82c654b443d58c9ce38c2fb0f48c1654daeb34
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537697"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922247"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Controleren, maken en beheren van de SFTP-bestanden met behulp van SSH en Azure Logic Apps
 
@@ -32,7 +32,7 @@ Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](.
 
 ## <a name="limits"></a>Limits
 
-* SFTP-SSH-acties kunnen lezen of schrijven van bestanden die zijn *1 GB of kleiner* door het beheer van gegevens als *50 MB stuks*, niet 1 GB-onderdelen.
+* SFTP-SSH-acties kunnen lezen of schrijven van bestanden die zijn *1 GB of kleiner* door het beheer van gegevens als *15 MB stukken*, niet 1 GB-onderdelen.
 
 * Voor bestanden *groter is dan 1 GB*, acties kunt [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md). Op dit moment ondersteunen SFTP-SSH triggers geen logische groepen te verdelen.
 
@@ -44,7 +44,7 @@ Raadpleeg voor meer verschillen [vergelijken SFTP-SSH versus SFTP](#comparison) 
 
 Hier volgen andere belangrijke verschillen tussen de SFTP-SSH-connector en de SFTP-connector waar de SFTP-SSH-connector heeft voor deze mogelijkheden:
 
-* Maakt gebruik van de <a href="https://github.com/sshnet/SSH.NET" target="_blank"> **SSH.NET** </a> library, die is een open-source Secure Shell (SSH)-bibliotheek die ondersteuning biedt voor .NET.
+* Maakt gebruik van de [SSH.NET bibliotheek](https://github.com/sshnet/SSH.NET), dit is een open-source Secure Shell (SSH)-bibliotheek die ondersteuning biedt voor .NET.
 
   > [!NOTE]
   >
@@ -54,7 +54,7 @@ Hier volgen andere belangrijke verschillen tussen de SFTP-SSH-connector en de SF
   > * **Versleutelingsalgoritmen**: DES-EDE3-CBC, DES-EDE3-CFB DES-CBC, AES-128-CBC 192-AES-CBC en AES-256-CBC
   > * **Fingerprint**: MD5
 
-* Acties kunnen lezen of schrijven van bestanden *maximaal 1 GB* vergeleken met de SFTP-connector, maar de gegevens verwerkt in 50 MB-onderdelen, niet 1 GB-onderdelen. Voor bestanden die groter zijn dan 1 GB, kunnen acties ook gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md). Op dit moment ondersteunen SFTP-SSH triggers geen logische groepen te verdelen.
+* Acties kunnen lezen of schrijven van bestanden *maximaal 1 GB* vergeleken met de SFTP-connector, maar de gegevens verwerkt in 15 MB-onderdelen, niet 1 GB-onderdelen. Voor bestanden die groter zijn dan 1 GB, kunnen acties ook gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md). Op dit moment ondersteunen SFTP-SSH triggers geen logische groepen te verdelen.
 
 * Biedt de **map maken** actie maakt u een map op het opgegeven pad op de SFTP-server.
 
@@ -136,7 +136,7 @@ De SFTP-SSH-triggers werken door het bestandssysteem SFTP polling en op zoek naa
 
 Als een trigger een nieuw bestand wordt gevonden, wordt de trigger wordt gecontroleerd dat het nieuwe bestand voltooid en geen gedeeltelijk geschreven is. Bijvoorbeeld, een bestand mogelijk wijzigingen wordt uitgevoerd wanneer de trigger wordt gecontroleerd voor de bestandsserver. Om te voorkomen dat een gedeeltelijk geschreven bestand retourneren, merkt de trigger de tijdstempel voor het bestand dat recente wijzigingen, maar niet direct dat bestand geretourneerd. De trigger retourneert het bestand alleen wanneer u een polling van de server opnieuw. Dit gedrag kan soms leiden tot een vertraging die is maximaal twee keer van de trigger polling-interval. 
 
-Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
+Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter zijn dan 15 MB. Als u bestanden groter zijn dan 15 MB, gaat u als volgt dit patroon: 
 
 * Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
 
@@ -152,7 +152,7 @@ Deze trigger wordt een werkstroom voor logische app gestart wanneer een bestand 
 
 **Voorbeeld van de onderneming**: U kunt deze trigger gebruiken voor het bewaken van een SFTP-map voor nieuwe bestanden die staan voor klanten en orders. U kunt vervolgens een SFTP-actie zoals gebruiken **bestandsinhoud ophalen** , zodat u de volgorde van de inhoud ophalen voor verdere verwerking en die volgorde opslaan in een orderdatabase.
 
-Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
+Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter zijn dan 15 MB. Als u bestanden groter zijn dan 15 MB, gaat u als volgt dit patroon: 
 
 * Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
 
@@ -164,7 +164,7 @@ Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter
 
 Deze actie wordt de inhoud opgehaald van een bestand in een SFTP-server. U kunt bijvoorbeeld de trigger toevoegen uit het vorige voorbeeld en een voorwaarde die moet voldoen aan de inhoud van het bestand. Als de voorwaarde waar is, wordt de actie die wordt de inhoud opgehaald kunt uitvoeren. 
 
-Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
+Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter zijn dan 15 MB. Als u bestanden groter zijn dan 15 MB, gaat u als volgt dit patroon: 
 
 * Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 95e501eca0f7765cc5201f7b315703c3ca43df8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 422c2a8a61b1df36b452c153aa6cd78ba7e2dcef
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60529554"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723644"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Ontwikkelaarsaccounts authoriseren met behulp van Azure Active Directory in Azure API Management
 
@@ -79,12 +79,12 @@ Dit artikel leest u hoe de developer-Portal voor gebruikers om toegang te krijge
 
 Nadat de wijzigingen zijn opgeslagen, worden gebruikers in de opgegeven Azure AD exemplaar kan zich aanmelden bij de portal voor ontwikkelaars met de volgende stappen in [aanmelden bij de portal voor ontwikkelaars met behulp van een Azure AD-account](#log_in_to_dev_portal).
 
-
 ## <a name="add-an-external-azure-ad-group"></a>Toevoegen van een externe Azure AD-groep
 
 Nadat u de toegang voor gebruikers in een Azure AD-exemplaar hebt ingeschakeld, kunt u Azure AD-groepen toevoegen in API Management. Vervolgens kunt u de koppeling van de ontwikkelaars in de groep met de gewenste producten eenvoudiger beheren.
 
-Het configureren van een externe Azure AD-groep, moet u eerst de Azure AD-exemplaar op de **identiteiten** tabblad via de volgende procedure in de vorige sectie. 
+ > [!IMPORTANT]
+ > Toevoegen van een externe Azure AD-groep, moet u eerst de Azure AD-exemplaar op de **identiteiten** tabblad via de volgende procedure in de vorige sectie. Bovendien de toepassing, moet toegangsrechten hebben voor Azure AD Graph API met `Directory.Read.All` machtiging. 
 
 Toevoegen van externe Azure AD-groepen van de **groepen** tabblad van uw exemplaar van API Management.
 

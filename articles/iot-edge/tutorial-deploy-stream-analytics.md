@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: een Azure Stream Analytics-taak implementeren op een apparaat - Azure IoT Edge | Microsoft Docs'
-description: In deze zelfstudie implementeert u Azure Stream Analytics als module op een Iot Edge-apparaat
+description: In deze zelfstudie hebt implementeren u Azure Stream Analytics als een module aan een IoT Edge-apparaat
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 31330c3d2b10e6245db775da4039fd1948539df4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: cea0d091620d53892f3334306a341b196765879d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096280"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575888"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Zelfstudie: Azure Stream Analytics implementeren als een IoT Edge-module
 
@@ -44,7 +44,7 @@ In deze zelfstudie leert u het volgende:
 
 Een Azure IoT Edge-apparaat:
 
-* U kunt uw ontwikkelcomputer of een virtuele machine gebruiken als een Edge-apparaat door de stappen te volgen in de snelstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md).
+* U kunt een virtuele machine van Azure gebruiken als een IoT Edge-apparaat met de volgende stappen in de Quick Start voor [Linux](quickstart-linux.md) of [Windows-apparaten](quickstart.md).
 
 Cloudresources:
 
@@ -233,11 +233,9 @@ U ziet nu dat de temperatuur van de machine geleidelijk stijgt totdat deze gedur
 
 Als u van plan bent door te gaan met het volgende aanbevolen artikel, kunt u de resources en configuraties die u hebt gemaakt behouden en opnieuw gebruiken. U kunt ook hetzelfde IoT Edge-apparaat blijven gebruiken als een testapparaat. 
 
-Anders kunt u de lokale configuraties en Azure-resources die u in dit artikel hebt gemaakt, verwijderen om kosten te voorkomen. 
+Anders kunt u de lokale configuraties en de Azure-resources dat u in dit artikel gebruikt om kosten te vermijden verwijderen. 
  
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## <a name="next-steps"></a>Volgende stappen

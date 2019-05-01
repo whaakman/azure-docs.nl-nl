@@ -9,18 +9,18 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 221bcbfb2517efae41005641321a651dfdf8e39f
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: e008d9fd2734af6a355771c321ecaea9150bcc33
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63759443"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722984"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connectors voor Azure Logic Apps
 
 Connectors bieden snelle toegang van Azure Logic Apps-gebeurtenissen, gegevens en acties voor andere apps, services, systemen, protocollen en -platforms. Met behulp van connectors in uw logische apps, moet u de mogelijkheden voor uw cloud en on-premises apps uitvoeren met de gegevens die u maakt en al hebt uitbreiden.
 
-Logic Apps biedt terwijl [~ meer dan 200 connectoren](https://docs.microsoft.com/connectors), populaire en veelgebruikte connectors die met succes worden gebruikt door duizenden apps en miljoenen uitvoeringen voor het verwerken van gegevens en informatie door dit artikel wordt beschreven. Verwijst naar pagina's in om u te vinden, de volledige lijst met connectors en van elke connector referentie-informatie, zoals triggers en acties limieten, Controleer de connector [overzicht van Connectors](https://docs.microsoft.com/connectors). Ook meer informatie over [triggers en acties](#triggers-actions).
+Logic Apps biedt terwijl [~ meer dan 200 connectoren](https://docs.microsoft.com/connectors), populaire en veelgebruikte connectors die met succes worden gebruikt door duizenden apps en miljoenen uitvoeringen voor het verwerken van gegevens en informatie door dit artikel wordt beschreven. Ga voor de volledige lijst met connectors en van elke connector referentie-informatie, zoals triggers en acties limieten, Controleer de connector Referentiepagina's onder [overzicht van Connectors](https://docs.microsoft.com/connectors). Ook meer informatie over [triggers en acties](#triggers-actions).
 
 > [!NOTE]
 > Om te integreren met een service of de API die geen connector, kunt u rechtstreeks aanroepen van de service via een protocol, zoals HTTP of maak een [aangepaste connector](#custom).
@@ -29,27 +29,32 @@ Connectors zijn beschikbaar als ingebouwde triggers en acties of beheerde connec
 
 * [**Dient te worden**](#built-ins): Deze ingebouwde acties en triggers zijn 'native' naar Azure Logic Apps en hulp bij het maken van logische apps die worden uitgevoerd op aangepaste schema's, communiceren met andere eindpunten, ontvangen en reageren op aanvragen en Azure functions, Azure API Apps (Web-Apps), uw eigen API's aanroepen beheerde en gepubliceerd met Azure API Management en geneste logische apps die aanvragen kunnen ontvangen. U kunt ook ingebouwde acties waarmee u ordenen en beheren van uw logische app-werkstroom en ook werken met gegevens.
 
-* **Beheerde connectors**: Geïmplementeerd en beheerd door Microsoft, wordt deze connectors bieden triggers en acties voor toegang tot andere services en systemen, zoals Office 365, Azure Blob Storage, SQL Server, Salesforce en meer. Sommige connectors moeten eerst de verbindingen die worden beheerd door Azure Logic Apps te maken. Beheerde connectors zijn ingedeeld in deze groepen:
+* **Beheerde connectors**: Geïmplementeerd en beheerd door Microsoft, wordt deze connectors bieden triggers en acties voor toegang tot cloudservices, on-premises systemen of beide, met inbegrip van Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint en meer. Sommige connectors die speciaal zijn ondersteuning van scenario's voor business-to-business (B2B)-communicatie en vereisen een [integratieaccount](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) dat gekoppeld aan uw logische app. Voordat u bepaalde connectors gebruikt, moet u mogelijk eerst maken verbindingen die worden beheerd door Azure Logic Apps. 
+
+  Bijvoorbeeld, als u van Microsoft BizTalk Server gebruikmaakt, uw logische apps kunnen verbinding maken met en communiceren met uw BizTalk-Server met behulp van de [BizTalk Server on-premises-connector](#on-premises-connectors). 
+  U kunt vervolgens uitbreiden of BizTalk-achtige bewerkingen uitvoeren in uw logische apps met behulp van de [integratieaccountconnectors](#integration-account-connectors).
+
+  Connectors zijn geclassificeerd als Standard of Enterprise. 
+  [Enterprise-connectors](#enterprise-connectors) toegang verlenen tot bedrijfssystemen zoals SAP, IBM MQ en IBM 3270 voor een extra kosten. Om te bepalen of een connector Standard of Enterprise is, bekijk de technische details op de pagina van elke connector reference onder [overzicht van Connectors](https://docs.microsoft.com/connectors). 
+  
+  U kunt connectors ook identificeren met behulp van deze categorieën, hoewel sommige connectors meerdere categorieën heen kunnen. 
+  SAP is bijvoorbeeld een Enterprise-connector en een on-premises-connector:
 
   |   |   |
   |---|---|
-  | [**Beheerde API-connectors**](#managed-api-connectors) | Het maken van logische apps die gebruikmaken van services zoals Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, en nog veel meer. | 
-  | [**On-premises connectors**](#on-premises-connectors) | Na het installeren en instellen van de [on-premises gegevensgateway][gateway-doc], deze connectors helpt om uw logische apps toegang tot on-premises systemen, zoals SQL Server, SharePoint Server, Oracle DB, bestandsshares en anderen. | 
-  | [**Integratieaccountconnectors**](#integration-account-connectors) | Beschikbaar wanneer u maken en voor een integratie-account, deze transformatie connectors betaalt en XML-validatie, coderen en decoderen van platte bestanden en verwerken van business-to-business (B2B) berichten met AS2, EDIFACT en X12 protocollen. | 
-  | [**Enterprise-connectors**](#enterprise-connectors) | Bieden toegang tot bedrijfssystemen zoals SAP en IBM MQ tegen extra kosten. |
-  ||| 
-
-  Bijvoorbeeld, als u van Microsoft BizTalk Server gebruikmaakt, uw logische apps kunnen verbinding maken met en communiceren met uw BizTalk-Server met behulp van de [BizTalk Server-connector](#on-premises-connectors). 
-  U kunt vervolgens uitbreiden of BizTalk-achtige bewerkingen uitvoeren in uw logische apps met behulp van de [integratieaccountconnectors](#integration-account-connectors). 
+  | [**Beheerde API-connectors**](#managed-api-connectors) | Het maken van logische apps die gebruikmaken van services zoals Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, en nog veel meer. |
+  | [**On-premises connectors**](#on-premises-connectors) | Na het installeren en instellen van de [on-premises gegevensgateway][gateway-doc], deze connectors helpt om uw logische apps toegang tot on-premises systemen, zoals SQL Server, SharePoint Server, Oracle DB, bestandsshares en anderen. |
+  | [**Integratieaccountconnectors**](#integration-account-connectors) | Beschikbaar wanneer u maken en voor een integratie-account, deze transformatie connectors betaalt en XML-validatie, coderen en decoderen van platte bestanden en verwerken van business-to-business (B2B) berichten met AS2, EDIFACT en X12 protocollen. |
+  |||
 
 > [!NOTE]
-> Voor een volledige lijst van connectors en van elke connector referentie-informatie, zoals acties en geen triggers, die door een beschrijving van de Swagger zijn gedefinieerd, plus eventuele beperkingen, vindt u de volledige lijst onder de [overzicht van Connectors](/connectors/). Zie voor informatie over de prijzen [Logic Apps prijsinformatie](https://azure.microsoft.com/pricing/details/logic-apps/) en de [Logic Apps prijsmodel](../logic-apps/logic-apps-pricing.md). 
+> Voor een volledige lijst van connectors en van elke connector referentie-informatie, zoals acties en geen triggers die zijn gedefinieerd door een OpenAPI (voorheen Swagger) beschrijving, plus eventuele beperkingen, u vindt de volledige lijst onder de [overzicht van Connectors ](/connectors/). Zie voor informatie over de prijzen [Logic Apps prijsinformatie](https://azure.microsoft.com/pricing/details/logic-apps/) en de [Logic Apps prijsmodel](../logic-apps/logic-apps-pricing.md). 
 
 <a name="built-ins"></a>
 
 ## <a name="built-ins"></a>Dient te worden
 
-Logic Apps biedt ingebouwde triggers en acties, zodat u werkstromen op basis van een planning maken voor help uw logische apps communiceren met andere apps en services, beheer de werkstroom door middel van uw logische apps, en te beheren of te bewerken van gegevens. 
+Logic Apps biedt ingebouwde triggers en acties, zodat u werkstromen op basis van een planning maken voor help uw logische apps communiceren met andere apps en services, beheer de werkstroom door middel van uw logische apps, en te beheren of te bewerken van gegevens.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -128,10 +133,10 @@ Hier vindt u connectors voor het bouwen van oplossingen met uw logische apps bus
 
 Uw logische apps hebben toegang tot bedrijfssystemen, zoals SAP en IBM MQ:
 
-|   |   | 
-|---|---| 
-| [![API-pictogram][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API-pictogram][sap-icon]<br/>**SAP**][sap-connector-doc] |
-||| 
+|   |   |   | 
+|---|---|---| 
+| [![API icon][ibm-3270-icon]<br/>**IBM 3270**][ibm-3270-doc] | [![API-pictogram][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API-pictogram][sap-icon]<br/>**SAP**][sap-connector-doc] |
+|||| 
 
 <a name="triggers-actions"></a>
 
@@ -156,9 +161,9 @@ Hier volgen de algemene typen triggers die Azure Logic Apps biedt:
 
 De triggers en acties van elke connector bieden hun eigen eigenschappen voor u om te configureren. Verschillende connectors die ook vereisen dat u eerst maken een *verbinding* naar de doelservice of het systeem uit en geef referenties voor verificatie of andere gegevens in de netwerkconfiguratie voordat u een actie of trigger in uw logische app kunt gebruiken. Bijvoorbeeld, moet u een verbinding met een Twitter-account voor toegang tot gegevens of te boeken namens machtigen. 
 
-Connectors die gebruikmaken van OAuth, het maken van een verbinding betekent de service, zoals Office 365, Salesforce of GitHub, waar uw toegangstoken is versleuteld en veilig opgeslagen in een Azure-geheim store aan te melden. Andere connectors, zoals FTP- en SQL, een verbinding met configuratiegegevens, zoals het serveradres, gebruikersnaam en wachtwoord is vereist. Deze configuratie Verbindingsdetails zijn eveneens versleuteld en veilig opgeslagen. 
+Connectors die gebruikmaken van OAuth, het maken van een verbinding betekent de service, zoals Office 365, Salesforce of GitHub, waar uw toegangstoken is versleuteld en veilig opgeslagen in een Azure-geheim store aan te melden. Andere connectors, zoals FTP- en SQL, een verbinding met configuratiegegevens, zoals het serveradres, gebruikersnaam en wachtwoord is vereist. De details voor deze verbinding-configuratie worden ook versleuteld en veilig opgeslagen. 
 
-Verbindingen hebben toegang tot de doelservice of het systeem voor mits deze service of het systeem toestaan. Voor services die gebruikmaken van Azure Active Directory (AD) OAuth-verbindingen, zoals Office 365 en Dynamics, vernieuwt Azure Logic Apps-toegangstokens voor onbepaalde tijd. Andere services mogelijk limieten plaats op hoe lang Azure Logic Apps voor een token zonder te vernieuwen gebruiken kunt. Sommige acties worden over het algemeen alle toegangstokens te geven, zoals het wijzigen van het wachtwoord ongeldig.
+Verbindingen hebben toegang tot de doelservice of het systeem voor mits deze service of het systeem toestaan. Voor services die gebruikmaken van Azure Active Directory (AD) OAuth-verbindingen, zoals Office 365 en Dynamics, vernieuwt Azure Logic Apps-toegangstokens voor onbepaalde tijd. Andere services mogelijk limieten voor Azure Logic Apps hoe lang een token zonder te vernieuwen gebruiken kunt. Sommige acties worden over het algemeen alle toegangstokens te geven, zoals het wijzigen van het wachtwoord ongeldig.
 
 <a name="custom"></a>
 
@@ -222,6 +227,7 @@ Als u aangepaste API Apps of connectors openbare voor iedereen die het gebruik i
 [google-drive-doc]: ./connectors-create-api-googledrive.md "Verbinding maken met GoogleDrive, zodat u met uw gegevens kunt werken"
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "Maak verbinding met Google spreadsheets zodat u uw werkbladen kunt wijzigen"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Maakt verbinding met Google Taken, zodat u uw taken kunt beheren"
+[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Verbinding maken met 3270 apps op IBM-mainframes"
 [ibm-db2-doc]: ./connectors-create-api-db2.md "Verbinding maken met IBM DB2 in de cloud of on-premises. Een rij bijwerken, een tabel ophalen, en meer"
 [ibm-informix-doc]: ./connectors-create-api-informix.md "Verbinding maken met Informix in de cloud of on-premises. Een rij lezen, de tabellen vermelden, en meer"
 [ibm-mq-doc]: ./connectors-create-api-mq.md "Verbinding maken met IBM MQ on-premises of in Azure te verzenden en ontvangen van berichten"
@@ -328,6 +334,7 @@ Als u aangepaste API Apps of connectors openbare voor iedereen die het gebruik i
 [google-sheets-icon]: ./media/apis-list/google-sheet.png
 [google-tasks-icon]: ./media/apis-list/google-tasks.png
 [hipchat-icon]: ./media/apis-list/hipchat.png
+[ibm-3270-icon]: ./media/apis-list/ibm-3270.png
 [ibm-db2-icon]: ./media/apis-list/ibm-db2.png
 [ibm-informix-icon]: ./media/apis-list/ibm-informix.png
 [ibm-mq-icon]: ./media/apis-list/ibm-mq.png

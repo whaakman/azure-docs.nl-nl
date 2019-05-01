@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Live streamen met Azure Media Services | Microsoft Docs
+title: Overzicht van Live streamen met Azure Media Services v3 | Microsoft Docs
 description: Dit artikel biedt een overzicht van live streamen met Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
-ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0157cdc8062d7c53aaeb3ff01762e9562aa9c394
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322465"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866344"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Live streamen met Azure Media Services v3
 
@@ -26,7 +26,7 @@ Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. 
 
 - Een camera die wordt gebruikt om vast te leggen van de live-gebeurtenis.<br/>Bekijk voor setup ideeën [video versnelling met eenvoudige en draagbare gebeurtenisinstelling]( https://link.medium.com/KNTtiN6IeT).
 
-    Als u geen toegang tot een camera, hulpprogramma's zoals [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) kan worden gebruikt voor het genereren van een live feed uit een videobestand.
+    Als u geen toegang tot een camera, hulpprogramma's zoals [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) kan worden gebruikt voor het genereren van een live feed uit een videobestand.
 - Een coderingsprogramma voor live video dat signalen vanaf een camera (of een ander apparaat, zoals een laptop) converteert naar een bijdrage feed die wordt verzonden naar Media Services. De feed bijdrage kan signalen met betrekking tot reclame, zoals SCTE 35 markeringen bevatten.<br/>Zie voor een lijst met aanbevolen live streaming-coderingsprogramma's, [live coderingsprogramma's streamen](recommended-on-premises-live-encoders.md). Controleer ook of deze blog bekijken: [Live streaming productie met IB](https://link.medium.com/ttuwHpaJeT).
 - Onderdelen in Media Services, waarmee u om op te nemen, preview, inpakken, registreren, versleutelen en uitzenden van de live-gebeurtenis aan uw klanten of aan een CDN voor verdere distributie.
 
@@ -37,7 +37,7 @@ In dit artikel biedt een overzicht en richtlijnen voor live streamen met Media S
 
 ## <a name="dynamic-packaging"></a>Dynamische verpakking
 
-Met Media Services, kunt u profiteren van dynamische Packaging](dynamic-packaging-overview.md), zodat u kunt het voorbeeld uit te zenden van uw live streams in [MPEG DASH, HLS en Smooth Streaming-indelingen](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) van de bijdrage de feed die u naar de service verzendt. De doelgroep kunnen de live stream met een compatibele spelers HLS, DASH of Smooth Streaming worden afgespeeld. U kunt [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) in uw web- of mobiele toepassingen voor het leveren van uw stroom in een van deze protocollen.
+Met Media Services, kunt u profiteren van [dynamische pakketten](dynamic-packaging-overview.md), waarmee u preview uit te zenden van uw live streams in [MPEG DASH, HLS en Smooth Streaming-indelingen](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) van de bijdrage feed die wordt verzonden naar de service. De doelgroep kunnen de live stream met een compatibele spelers HLS, DASH of Smooth Streaming worden afgespeeld. U kunt [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) in uw web- of mobiele toepassingen voor het leveren van uw stroom in een van deze protocollen.
 
 ## <a name="dynamic-encryption"></a>Dynamische versleuteling
 
@@ -73,7 +73,7 @@ Voor meer informatie over de werkstroom voor live streaming in Media Services v3
 
 ### <a name="general-steps"></a>Algemene stappen
 
-1. In Media Services-account, zorg ervoor dat de **Streaming-eindpunt** wordt uitgevoerd. 
+1. In Media Services-account, zorg ervoor dat de **Streaming-eindpunt** (oorsprong) wordt uitgevoerd. 
 2. Maak een [Live evenement](live-events-outputs-concept.md). <br/>Bij het maken van de gebeurtenis, kunt u op automatisch starten het. U kunt ook kun u de gebeurtenis wanneer u klaar bent om te streamen.<br/> Wanneer autostart is ingesteld op true, wordt de Live gebeurtenis wordt gestart rechts nadat is gemaakt. De facturering begint zodra de Live gebeurtenis wordt gestart. U moet expliciet Stop aanroepen in de resource van de livegebeurtenis om verdere facturering stop te zetten. Zie [Live Event states and billing](live-event-states-billing.md) (Statussen en facturering voor livegebeurtenissen) voor meer informatie.
 3. De opname-URL's ophalen en uw on-premises coderingsprogramma voor het gebruik van de URL voor het verzenden van de bijdrage feed configureren.<br/>Zie [aanbevolen live coderingsprogramma's](recommended-on-premises-live-encoders.md).
 4. De voorbeeld-URL ophalen en deze gebruiken om te controleren dat de invoer van het coderingsprogramma daadwerkelijk worden ontvangen.
@@ -81,7 +81,7 @@ Voor meer informatie over de werkstroom voor live streaming in Media Services v3
 6. Maak een **uitvoer Live** en gebruikt u de assetnaam van de die u hebt gemaakt.<br/>De **uitvoer Live** worden gearchiveerd de stroom in de **Asset**.
 7. Maak een **Streaming-Locator gemaakt** met de ingebouwde **beleid Streaming** typen.<br/>Als u van plan bent uw inhoud coderen, raadpleegt u [Content protection overzicht](content-protection-overview.md).
 8. Lijst van de paden op de **Streaming-Locator gemaakt** om terug te gaan de URL's te gebruiken (dit zijn deterministische).
-9. Ophalen van de hostnaam voor de **Streaming-eindpunt** u wilt streamen uit.
+9. Ophalen van de hostnaam voor de **Streaming-eindpunt** (oorsprong) die u wilt streamen uit.
 10. De URL in stap 8 worden gecombineerd met de hostnaam in stap 9 om op te halen van de volledige URL.
 11. Als u wilt stoppen met het maken van uw **Live gebeurtenis** zichtbaar, dat u wilt stoppen met het streamen van de gebeurtenis en verwijderen de **Streaming-Locator gemaakt**.
 
@@ -92,6 +92,10 @@ Voor meer informatie over de werkstroom voor live streaming in Media Services v3
 - [Live gebeurtenistypen vergelijking van functies](live-event-types-comparison.md)
 - [Statussen en facturering](live-event-states-billing.md)
 - [Latentie](live-event-latency.md)
+
+## <a name="provide-feedback"></a>Feedback geven
+
+Bekijk de [Azure Media Services-community](media-services-community.md) artikel om te zien van verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

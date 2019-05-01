@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/27/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47273bf687d88e82afba5de878f08bd53422479c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7711c3476ac9118406a86430e5ade238bec2c028
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381311"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918631"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Bepaal de identiteitsvereisten voor voor uw oplossing voor hybride identiteit
 De eerste stap bij het ontwerpen van een oplossing voor hybride identiteit is om te bepalen van de vereisten voor de organisatie van de bedrijven die zal worden gebruik te maken van deze oplossing.  Hybride identiteit wordt gestart als een ondersteunende rol uitvoeren (deze ondersteunt alle cloudoplossingen door verificatie te bieden) en gaat op nieuwe en interessante mogelijkheden die voor gebruikers van nieuwe werkbelasting ontgrendelen.  Deze werkbelastingen of services die u wilt vaststellen voor uw gebruikers worden bepaald door de vereisten voor het ontwerp van de hybride identiteit.  Deze werkbelastingen en services moeten gebruikmaken van hybride identiteit zowel on-premises en in de cloud.  
 
 Neem deze belangrijke aspecten van het bedrijf om te begrijpen wat het is nu een vereiste is en wat het bedrijf plannen voor de toekomst. Als u de zichtbaarheid van de lange termijnstrategie voor het ontwerpen van hybride identiteit niet hebt, is het waarschijnlijk dat uw oplossing niet schaalbaar worden wanneer de bedrijfsbehoeften groei en veranderingen.   T hij diagram hieronder toont een voorbeeld van een architectuur voor hybride identiteit en de werkbelastingen die zijn voor gebruikers wordt ontgrendeld. Dit is slechts een voorbeeld van de nieuwe mogelijkheden die kunnen worden ontgrendeld en geleverd met een strategie voor een solide hybride identiteit. 
 
-Sommige onderdelen die deel van de architectuur van hybride identiteit uitmaken ![](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
+Sommige onderdelen die deel van de architectuur van hybride identiteit uitmaken ![architectuur voor hybride identiteit](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>Bedrijfsbehoeften vaststellen
 Elk bedrijf kent verschillende behoeften, zelfs als deze bedrijven deel uitmaken van dezelfde bedrijfstak, de echte zakelijke behoeften verschillen. U kunt nog steeds gebruikmaken van best practices uit de industrie, maar uiteindelijk de bedrijfsbehoeften van het bedrijf die u voor het definiëren van de vereisten voor het ontwerp van de hybride identiteit is. 

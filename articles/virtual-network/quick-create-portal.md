@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: In deze snelstart leert u hoe u een virtueel netwerk maakt met het Azure Portal. Met een virtueel netwerk kunnen Azure-resources, zoals virtuele machines, privé met elkaar en met internet communiceren.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 11/30/2018
-ms.author: jdial
-ms.openlocfilehash: 346299dff8354bfca56a1f348c8f66e90da89632
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: kumud
+ms.openlocfilehash: 995bc8e7b2eb4e9160b2b625067f20324df2cbfd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391397"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717007"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Snelstart: Een virtueel netwerk maken met Azure Portal
 
@@ -43,7 +43,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
     | Adresruimte | Voer *10.1.0.0/16* in. |
     | Abonnement | Selecteer uw abonnement.|
     | Resourcegroep | Selecteer **Nieuwe maken**, voer *myResourceGroup* in en selecteer vervolgens **OK**. |
-    | Location | Selecteer **US - oost**.|
+    | Locatie | Selecteer **US - oost**.|
     | Subnet - naam | Voer *myVirtualSubnet* in. |
     | Subnet - adresbereik | Voer *10.1.0.0/24* in. |
 

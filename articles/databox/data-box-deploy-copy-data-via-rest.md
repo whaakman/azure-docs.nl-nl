@@ -1,5 +1,5 @@
 ---
-title: Gegevens kopiëren naar Azure Data Box-blobopslag via REST API's| Microsoft Docs
+title: Zelfstudie voor het kopiëren van gegevens naar Azure Data Box-blobopslag via REST API's | Microsoft Docs
 description: In deze zelfstudie leest u hoe u gegevens kopieert naar uw Azure Data Box-blobopslag via REST API's
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 2a4c4c7431752ade60161af84b4cc15f010af656
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a33734af34814772fdd8c391d0ee19a79b47d856
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728299"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925017"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box-blobopslag via REST API's  
 

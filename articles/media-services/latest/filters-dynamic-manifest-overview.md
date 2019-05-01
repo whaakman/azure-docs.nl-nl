@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2da4ee5d60290485d87af86885dda0d72a625fef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44894694bab7d34ed9e6a71fe5e47c9e41144bca
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323088"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716276"
 ---
 # <a name="dynamic-manifests"></a>Dynamische manifesten
 
@@ -131,7 +131,7 @@ U kunt een lijst met activa of account filters, die voor uw Streaming-Locator ge
 - De waarden voor **forceEndTimestamp**, **presentationWindowDuration**, en **liveBackoffDuration** mag niet worden ingesteld voor een VoD-filter. Ze worden alleen gebruikt voor scenario's voor live-filter. 
 - Dynamische manifest werkt in GOP grenzen (sleutel Frames) daarom bijsnijden heeft GOP nauwkeurigheid. 
 - U kunt dezelfde filternaam voor Account- en Asset filters gebruiken. Asset-filters hebben een hogere prioriteit en accountfilters wordt overschreven.
-- Als u een filter bijwerkt, kan het tot 2 minuten voor Streaming-eindpunt om te vernieuwen van de regels duren. Als de inhoud is uitgevoerd met bepaalde filters (en caches in proxy's en CDN-cache), kan deze filters bijwerken resulteren in fouten player. Het verdient aanbeveling om de cache leeg na het bijwerken van het filter. Als deze optie niet mogelijk is is, kunt u overwegen een ander filter.
+- Als u een filter bijwerkt, kan het tot 2 minuten voor de Streaming-eindpunt om te vernieuwen van de regels duren. Als de inhoud is uitgevoerd met bepaalde filters (en caches in proxy's en CDN-cache), kan deze filters bijwerken resulteren in fouten player. Het verdient aanbeveling om de cache leeg na het bijwerken van het filter. Als deze optie niet mogelijk is is, kunt u overwegen een ander filter.
 - Klanten moeten handmatig het manifest downloaden en parseren van de exacte startTimestamp en schaal.
     
     - Eigenschappen van de nummers in een actief [ophalen en bekijk het manifestbestand](#get-and-examine-manifest-files).

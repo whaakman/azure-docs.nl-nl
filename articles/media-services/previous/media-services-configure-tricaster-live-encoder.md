@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: adacce5c8307f3be972920bd3aef6d8ea912eb30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6e09ce83296fccfbcb4a04913d55961e0da4de79
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992003"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720800"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>NewTek TriCaster-coderingsprogramma gebruiken voor het verzenden van een single-bitrate live stream  
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "57992003"
 >
 >
 
-In dit artikel laat zien hoe het configureren van de [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) live coderingsprogramma voor het verzenden van een single-bitrate stream aan AMS kanalen die zijn ingeschakeld voor live codering. Zie [Werken met kanalen waarmee Live Encoding kan worden uitgevoerd met Azure Media Services](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie.
+In dit artikel laat zien hoe het configureren van de [NewTek TriCaster](https://newtek.com/products/tricaster-40.html) live coderingsprogramma voor het verzenden van een single-bitrate stream aan AMS kanalen die zijn ingeschakeld voor live codering. Zie [Werken met kanalen waarmee Live Encoding kan worden uitgevoerd met Azure Media Services](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie.
 
 In deze zelfstudie laat zien hoe Azure Media Services (AMS) beheren met Azure Media Services Explorer (AMSE)-hulpprogramma. Dit hulpprogramma wordt alleen uitgevoerd op Windows-PC. Als u van Mac- of Linux gebruikmaakt, de Azure portal gebruiken voor het maken van [kanalen](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) en [programma's](media-services-portal-creating-live-encoder-enabled-channel.md).
 

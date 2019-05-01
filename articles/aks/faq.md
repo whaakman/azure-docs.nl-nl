@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: ae92a5c894b186a1c8b471c1b446a88299742aec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 04ed95317311b81af49f5d96addb203b7cfeb74a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466372"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725651"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Veelgestelde vragen over Azure Kubernetes Service (AKS)
 
@@ -53,10 +53,27 @@ Zie voor meer informatie over het gebruik van kured [beveiligings- en -kernel-up
 
 Elke AKS-implementatie omvat twee resourcegroepen:
 
-- De eerste resourcegroep wordt gemaakt door u en bevat alleen de bron van de Kubernetes-service. De resourceprovider AKS maakt automatisch de tweede waarde tijdens de implementatie, zoals *MC_myResourceGroup_myAKSCluster_eastus*.
+- De eerste resourcegroep wordt gemaakt door u en bevat alleen de bron van de Kubernetes-service. De resourceprovider AKS maakt automatisch de tweede waarde tijdens de implementatie, zoals *MC_myResourceGroup_myAKSCluster_eastus*. Zie voor informatie over hoe u de naam van deze tweede resourcegroep kunt opgeven, de volgende sectie.
 - Deze tweede resourcegroep, zoals *MC_myResourceGroup_myAKSCluster_eastus*, bevat alle van de infrastructuurresources die zijn gekoppeld aan het cluster. Deze bronnen omvatten de Kubernetes-knooppunt virtuele machines, virtuele netwerken en opslag. Deze afzonderlijke resourcegroep wordt gemaakt voor het opruimen van de resource te vereenvoudigen.
 
 Als u resources voor gebruik met uw AKS-cluster, zoals storage-accounts of gereserveerde openbare IP-adressen maken, plaatst u ze in de automatisch gegenereerde resourcegroep.
+
+## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>Kan ik mijn eigen naam op voor de resourcegroep van de AKS-infrastructuur bieden?
+
+Ja. De resourceprovider AKS automatisch maakt standaard een secundaire resourcegroep tijdens de implementatie, zoals *MC_myResourceGroup_myAKSCluster_eastus*. U kunt uw eigen naam voor dit beheerde cluster opgeven om te voldoen aan het bedrijfsbeleid, (*MC_*) resourcegroep.
+
+Als u uw eigen Resourcegroepnaam, installeert de [aks-preview] [ aks-preview-cli] versie van de Azure CLI-extensie *0.3.2* of hoger. Wanneer u een AKS-cluster met maakt de [az aks maken] [ az-aks-create] opdracht, gebruikt u de *--knooppunt-resource-group* parameter en geef een naam voor de resourcegroep. Als u [u een Azure Resource Manager-sjabloon] [ aks-rm-template] voor het implementeren van een AKS-cluster, kunt u de resource naam via de *nodeResourceGroup* eigenschap.
+
+* Deze resourcegroep wordt automatisch gemaakt door de provider van de Azure-resource in uw eigen abonnement.
+* U kunt alleen de naam van een aangepaste resource-groep opgeven wanneer het cluster is gemaakt.
+
+De volgende scenario's worden niet ondersteund:
+
+* U kunt een bestaande resourcegroep voor niet opgeven *MC_* groep.
+* U kunt geen opgeven dat een ander abonnement voor de *MC_* resourcegroep.
+* U kunt niet wijzigen de *MC_* groepsnaam voor accountresources nadat het cluster is gemaakt.
+* U kunt geen opgeven namen voor de beheerde resources binnen de *MC_* resourcegroep.
+* U kan wijzigen of verwijderen van tags van beheerde resources binnen de *MC_* resourcegroep (Zie aanvullende informatie in de volgende sectie).
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Kan ik labels en andere eigenschappen van de AKS-resources in de resourcegroep MC_ * wijzigen?
 
@@ -100,6 +117,9 @@ In een serviceovereenkomst (SLA) stemt de provider in met het betalen van de kla
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md
+[aks-preview-cli]: /cli/azure/ext/aks-preview/aks
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
 
 <!-- LINKS - external -->
 
@@ -108,4 +128,3 @@ In een serviceovereenkomst (SLA) stemt de provider in met het betalen van de kla
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
-

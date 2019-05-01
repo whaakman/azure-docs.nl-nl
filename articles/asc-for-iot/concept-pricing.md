@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 00666e27c9251248aa6ecff75d88908baabf71f3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61360146"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919715"
 ---
 # <a name="pricing-and-associated-costs"></a>Prijs en bijbehorende kosten
 
@@ -40,7 +40,7 @@ De ASC voor IoT prijsmodel uit twee bestaat delen en wordt in rekening gebracht 
   >[!Note]
   > Beveiligingsberichten wordt ook quotumverbruik op IoT-Hub in rekening gebracht.
 
-Zie voor meer informatie, [prijzen van Security Center](https://azure.microsoft.com/en-us/pricing/details/security-center/).
+Zie voor meer informatie, [prijzen van Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>Bijbehorende kosten
 
@@ -65,7 +65,7 @@ De volgende tabel bevat een overzicht van de bijbehorende kosten en de implicati
 |     | Gebruik | Opmerking |
 | --- | --- | --- |
 | **IoT Hub quotumverbruik** |  |
-| [Exporteren van apparaat](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) taak (dubbele exporteren) | Eenmaal per dag | Uitschakelen _metagegevensverzameling twin_ |
+| [Exporteren van apparaat](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) taak (dubbele exporteren) | Eenmaal per dag | Uitschakelen _metagegevensverzameling twin_ |
 | **Log Analytics-opslag** |  |
 | Apparaat aanbevelingen en waarschuwingen| Beveiligingsaanbeveling en waarschuwingen die zijn gegenereerd door de service | Niet optioneel |
 | Onbewerkte beveiligingsgegevens| Onbewerkte beveiligingsgegevens van IoT-apparaten die worden verzameld door beveiliging-agents | Uitschakelen _beveiligingsgebeurtenissen van niet-gecodeerd apparaat opslaan_ |

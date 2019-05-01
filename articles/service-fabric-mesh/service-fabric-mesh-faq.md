@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: chackdan
 ms.author: chackdan
-ms.date: 12/12/2018
+ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 27cf4d31f11eaf861d1cafc093d912aa15c8bec0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979748"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728587"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Veelgestelde vragen over Service Fabric NET
 
@@ -77,7 +77,9 @@ Bijvoorbeeld:
 
 Als u wilt verwijderen van de resourcegroep, gebruikt u de `az group delete <nameOfResourceGroup>` opdracht.
 
-## <a name="supported-container-os-images"></a>Ondersteunde OS containerinstallatiekopieën
+## <a name="deployments"></a>Implementaties
+
+### <a name="what-container-images-are-supported"></a>Welke containerinstallatiekopieën worden ondersteund?
 
 Als u ontwikkelt op een computer met Windows Fall Creators Update (versie 1709), kunt u alleen Windows-versie 1709 docker-installatiekopieën.
 
@@ -90,6 +92,10 @@ De volgende container OS-installatiekopieën kunnen worden gebruikt om services 
     - Windows Server versie 1803
 - Linux
     - Er zijn geen bekende beperkingen
+
+### <a name="what-types-of-applications-can-i-deploy"></a>Welke typen toepassingen kan ik implementeren? 
+
+U kunt die wordt uitgevoerd in de containers die binnen de beperkingen voor de bron van een toepassing (Zie hierboven voor meer informatie over quota) implementeren. Als wordt gedetecteerd dat u net voor het uitvoeren van ongeldige workloads of misbruik van het systeem (dat wil zeggen analysemodel), klikt u vervolgens we behouden ons het recht uw implementaties en blokkeringslijst uw abonnement niet kunnen worden uitgevoerd op de service is beëindigd. Neem contact met ons opnemen als u vragen over het uitvoeren van een specifieke werkbelasting hebt. 
 
 ## <a name="developer-experience-issues"></a>Problemen met Developer-ervaring
 

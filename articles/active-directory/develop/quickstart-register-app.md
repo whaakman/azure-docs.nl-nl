@@ -1,5 +1,5 @@
 ---
-title: Een app registreren bij het Microsoft Identity Platform (preview) | Azure
+title: Een app registreren bij de Microsoft identity-platform - identiteitsplatform van Microsoft
 description: Leer hoe u een toepassing toevoegt en registreert bij het Microsoft Identity Platform.
 services: active-directory
 documentationcenter: ''
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 366d6fe8921a5330f48da2879444e0b80cbc9bd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2e78a837588ef177182f0c13db49e480845f772
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299577"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918755"
 ---
-# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Quickstart: Een toepassing registreren bij het Microsoft Identity Platform (preview)
+# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Quickstart: Een toepassing registreren met het Microsoft identity-platform
 
 Enterprise-ontwikkelaars en SaaS-providers (software-as-a-service) kunnen commerciële cloudservices of bedrijfstoepassingen ontwikkelen die kunnen worden geïntegreerd met Microsoft Identity Platform om beveiligde aanmelding en autorisatie te bieden voor hun services.
 
-In deze snelstart wordt getoond hoe u via de **App-registraties-ervaring (preview)** een toepassing toevoegt en registreert in de Azure-portal, zodat de app kan worden geïntegreerd met het Microsoft Identity Platform. Lees [deze blogpost](https://developer.microsoft.com/graph/blogs/new-app-registration/) voor meer informatie over de nieuwe functies en verbeteringen in de nieuwe versie voor app-registraties. 
+Deze snelstartgids leest u hoe u toevoegen en registreert een toepassing met behulp van de **App-registraties** -ervaring in Azure portal zodat uw app kan worden geïntegreerd met het Microsoft identity-platform. Lees [deze blogpost](https://developer.microsoft.com/graph/blogs/new-app-registration/) voor meer informatie over de nieuwe functies en verbeteringen in de nieuwe versie voor app-registraties.
 
 ## <a name="prerequisite"></a>Vereiste
 

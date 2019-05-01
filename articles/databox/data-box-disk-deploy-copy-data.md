@@ -1,5 +1,5 @@
 ---
-title: Gegevens kopiëren naar uw Microsoft Azure Data Box-schijf| Microsoft Docs
+title: Zelfstudie voor het kopiëren van gegevens naar Azure Data Box-schijf | Microsoft Docs
 description: In deze zelfstudie leest u hoe u gegevens kopieert naar uw Azure Data Box-schijf
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 418b158b127a688314fb3a0a506d116cc27da98c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5c498fc3f3fe051070b3565041e506bc40fceda
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60727523"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925155"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box Disk en deze gegevens controleren
 
@@ -86,7 +86,7 @@ Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer 
     
     De parameters en opties voor de opdracht worden in de volgende tabel weergegeven:
     
-    |Parameters/opties  |Beschrijving |
+    |Parameters/opties  |Description |
     |--------------------|------------|
     |Bron            | Hiermee geeft u het pad naar de bronmap op.        |
     |Doel       | Hiermee geeft u het pad naar de doelmap op.        |

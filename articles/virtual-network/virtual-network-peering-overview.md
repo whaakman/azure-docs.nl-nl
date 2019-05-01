@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: b65bad57a300d941774f5d3e5d01967f0c13d684
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22521abbc341fa9999738dd51301d3f84c18627a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60186828"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919314"
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -78,7 +78,7 @@ U kunt ook de [Probleemoplosser voor virtueel netwerk peering problemen](https:/
 ## <a name="requirements-and-constraints"></a>Vereisten en beperkingen
 
 De volgende beperkingen zijn alleen van toepassing wanneer virtuele netwerken wereldwijd zijn gekoppeld:
-- Resources in een virtueel netwerk kunnen niet communiceren met de front-end-IP-adres van een algemene interne load balancer in een wereldwijd gekoppelde virtuele netwerk. Ondersteuning voor de basisversie van Load Balancer bestaat alleen binnen dezelfde regio. Ondersteuning voor de standaardversie van Load Balancer bestaat voor wereldwijde VNet-Peering.
+- Resources in een virtueel netwerk kunnen niet communiceren met de front-end-IP-adres van een algemene interne load balancer in een wereldwijd gekoppelde virtuele netwerk. Ondersteuning voor de basisversie van Load Balancer bestaat alleen binnen dezelfde regio. Ondersteuning voor de standaardversie van Load Balancer bestaat voor zowel, VNet-Peering en wereldwijde VNet-Peering. Services die gebruikmaken van een basisversie van load balancer die niet over wereldwijde VNet-Peering werken zal zijn gedocumenteerd [hier.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 
 Zie [Vereisten en beperkingen voor peering op een virtueel netwerk](virtual-network-manage-peering.md#requirements-and-constraints) voor meer informatie over vereisten en beperkingen. Zie [Azure-netwerklimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie over de limieten voor het aantal peerings dat u kunt maken voor een virtueel netwerk. 
 

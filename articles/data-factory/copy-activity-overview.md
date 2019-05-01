@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 28d8c077f106f12812f7ed710217febd24d81efc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d04bb965ddf9616aaa01f4c8822ac42aea6dab2d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387710"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869574"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>De Kopieeractiviteit in Azure Data Factory
 
@@ -54,7 +54,7 @@ Kopieeractiviteit verloopt via de volgende fasen om gegevens te kopiëren van ee
 
 U kunt Copy-activiteit naar **bestanden als kopiëren-is** tussen twee bestanden zijn gebaseerd, in dat geval de gegevens worden gekopieerd efficiënt zonder een serialisatie/deserialisatie.
 
-Copy Activity biedt ook ondersteuning voor lezen van en schrijven naar bestanden in een opgegeven indeling: **Tekst, JSON, Avro, ORC en Parquet**, en comprimeren en decompresing bestanden met de volgende codecs: **GZip, Deflate, BZip2 en ZipDeflate**. Zie [ondersteunde indelingen voor bestanden en compressie](supported-file-formats-and-compression-codecs.md) met details.
+Copy Activity biedt ook ondersteuning voor lezen van en schrijven naar bestanden in een opgegeven indeling: **Tekst, JSON, Avro, ORC en Parquet**, comprimeren en decomprimeren van bestanden met de volgende codecs: **GZip, Deflate, BZip2 en ZipDeflate**. Zie [ondersteunde indelingen voor bestanden en compressie](supported-file-formats-and-compression-codecs.md) met details.
 
 U kunt bijvoorbeeld de volgende kopieeractiviteiten doen:
 
@@ -74,7 +74,7 @@ Voor het gebruik van kopieeractiviteit in Azure Data Factory, moet u naar:
 
 1. **Maak gekoppelde services voor gegevensopslag van de bron en sink-gegevensopslag.** Raadpleeg het connector-artikel 'Gekoppelde service-eigenschappen' gedeelte over het configureren en de ondersteunde eigenschappen. U vindt de lijst met ondersteunde connector in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats) sectie.
 2. **Gegevenssets voor de bron en sink maken.** Raadpleeg de bron en sink van de sectie 'Dependencies voor gegevensset' connector-artikelen over het configureren en de ondersteunde eigenschappen.
-3. **Een pijplijn maken met de kopieeractiviteit.** De volgende sectie bevat een voorbeeld.  
+3. **Een pijplijn maken met de kopieeractiviteit.** De volgende sectie bevat een voorbeeld.
 
 ### <a name="syntax"></a>Syntaxis
 
@@ -139,7 +139,7 @@ De volgende sjabloon van een kopieeractiviteit bevat een uitgebreide lijst met o
 | Translator | Geef expliciete kolomtoewijzingen van bron naar een sink. Is van toepassing wanneer het standaardgedrag van het exemplaar kan niet voldoen aan uw behoeften.<br/><br/>Informatie over de details van [toewijzing van het type Schema en gegevens](copy-activity-schema-and-type-mapping.md). | Nee |
 | dataIntegrationUnits | Geef de powerfulness van [Azure Integration Runtime](concepts-integration-runtime.md) om te kopiëren van gegevens. Voorheen bekend als cloud Data Movement eenheden (DMU). <br/><br/>Informatie over de details van [integratie gegevenseenheden](copy-activity-performance.md#data-integration-units). | Nee |
 | parallelCopies | Geef de parallelle uitvoering die u wilt dat Copy-activiteit naar het sink-wordt gebruikt bij het lezen van gegevens uit de bron en het schrijven van gegevens.<br/><br/>Informatie over de details van [kopie parallelle](copy-activity-performance.md#parallel-copy). | Nee |
-| enableStaging<br/>stagingSettings | Wilt u de tussentijdse gegevens in aa blob-opslag in plaats van rechtstreeks gegevens kopiëren van bron naar het sink-fase.<br/><br/>Meer informatie over de handige scenario's en de configuratiedetails van de van [gefaseerd kopiëren](copy-activity-performance.md#staged-copy). | Nee |
+| enableStaging<br/>stagingSettings | Wilt u de tussentijdse gegevens in een blob-opslag in plaats van rechtstreeks gegevens kopiëren van bron naar het sink-fase.<br/><br/>Meer informatie over de handige scenario's en de configuratiedetails van de van [gefaseerd kopiëren](copy-activity-performance.md#staged-copy). | Nee |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Kiezen hoe u voor het afhandelen van incompatibele rijen tijdens het kopiëren van gegevens van bron naar een sink.<br/><br/>Informatie over de details van [fouttolerantie](copy-activity-fault-tolerance.md). | Nee |
 
 ## <a name="monitoring"></a>Bewaking
@@ -148,7 +148,7 @@ U kunt controleren met de kopieeractiviteit in Azure Data Factory 'Maken en cont
 
 ### <a name="monitor-visually"></a>Visueel bewaken
 
-Als u wilt de copy-activiteit uitvoeren visueel te controleren, Ga naar uw data factory -> **Author & Monitor** -> **controletabblad**, ziet u een lijst van de pijplijn wordt uitgevoerd met een koppeling 'Uitvoeringen van activiteit weergeven' in de  **Acties** kolom. 
+Als u wilt de copy-activiteit uitvoeren visueel te controleren, Ga naar uw data factory -> **Author & Monitor** -> **controletabblad**, ziet u een lijst van de pijplijn wordt uitgevoerd met een koppeling 'Uitvoeringen van activiteit weergeven' in de  **Acties** kolom.
 
 ![Pijplijnuitvoeringen controleren](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
@@ -156,7 +156,7 @@ Klik om te zien van de lijst met activiteiten in deze pijplijn-run. In de **acti
 
 ![Uitvoering van activiteiten controleren](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Klik op de '**Details**' koppeling onder **acties** om te zien van de kopieeractiviteit uitvoeringsdetails en prestatiekenmerken. Hier ziet u informatie, inclusief volume/rijen/bestanden van de gegevens opgehaald uit de bron om op te vangen, doorvoer, stappen gaat door met de bijbehorende tijdsduur en gebruikt als deze configuraties voor uw scenario kopiëren. 
+Klik op de '**Details**' koppeling onder **acties** om te zien van de kopieeractiviteit uitvoeringsdetails en prestatiekenmerken. Hier ziet u informatie, inclusief volume/rijen/bestanden van de gegevens opgehaald uit de bron om op te vangen, doorvoer, stappen gaat door met de bijbehorende tijdsduur en gebruikt als deze configuraties voor uw scenario kopiëren.
 
 >[!TIP]
 >Voor sommige scenario's, ziet u ook '**tips afstemmen van prestaties**"boven op het kopiëren van bewaking van de pagina die leest u het knelpunt geïdentificeerd en helpt u op wat u wilt wijzigen zodat deze kopie doorvoer te verhogen, Zie het voorbeeld met details [hier](#performance-and-tuning).
@@ -241,12 +241,12 @@ In sommige gevallen, als u een kopieeractiviteit in ADF uitvoert, rechtstreeks z
 
 **Voorbeeld: kopiëren naar Azure SQL-database met tips afstemmen van prestaties**
 
-In dit voorbeeld tijdens het kopiëren van uitvoert, ADF kennisgeving die de sink-Azure SQL DB bereikt hoog DTU-gebruik die de bewerkingen voor schrijven vertraagt, dus het voorstel is om te verhogen van de Azure SQL DB-laag met meer DTU. 
+In dit voorbeeld tijdens het kopiëren van uitvoert, ADF kennisgeving die de sink-Azure SQL DB bereikt hoog DTU-gebruik die de bewerkingen voor schrijven vertraagt, dus het voorstel is om te verhogen van de Azure SQL DB-laag met meer DTU.
 
 ![Kopiëren met tips afstemmen van de prestaties controleren](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-## <a name="incremental-copy"></a>Incrementele kopie 
-Data Factory biedt ondersteuning voor scenario's voor het incrementeel kopiëren van delta-gegevens van een brongegevensarchief naar een doelgegevensarchief. Zie [zelfstudie: gegevens stapsgewijs kopiëren](tutorial-incremental-copy-overview.md). 
+## <a name="incremental-copy"></a>Incrementele kopie
+Data Factory biedt ondersteuning voor scenario's voor het incrementeel kopiëren van delta-gegevens van een brongegevensarchief naar een doelgegevensarchief. Zie [zelfstudie: gegevens stapsgewijs kopiëren](tutorial-incremental-copy-overview.md).
 
 ## <a name="read-and-write-partitioned-data"></a>Gepartitioneerde gegevens lezen en schrijven
 Azure Data Factory ondersteund in versie 1, lezen of schrijven van gepartitioneerde gegevens met behulp van de slicestart-waarde/SliceEnd/WindowStart/WindowEnd systeemvariabelen. In de huidige versie, kunt u dit gedrag bewerkstelligen met behulp van een pijplijnparameter en de tijd/geplande begintijd van trigger als een waarde van de parameter. Zie voor meer informatie, [lezen of schrijven gegevens gepartitioneerd](how-to-read-write-partitioned-data.md).

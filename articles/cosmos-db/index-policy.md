@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: thweiss
-ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a089d8bd4f2197c93d43e70742743db29944b910
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61046315"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872673"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexering in Azure Cosmos DB
 
@@ -68,6 +68,8 @@ Alle indexeringsbeleid heeft om op te nemen van pad naar de hoofdmap `/*` als ee
 
 - Het pad naar de hoofdmap als u wilt uitsluiten selectief paden die niet hoeven te worden geïndexeerd bevatten. Dit is de aanbevolen aanpak omdat het Azure Cosmos DB is een nieuwe eigenschap die kan worden toegevoegd aan uw model proactief index kunt.
 - Sluit het hoofdpad selectief om paden te nemen die moeten worden geïndexeerd.
+
+- Voor paden met gewone tekens bevatten: alfanumerieke tekens en _ (onderstrepingstekens), moet u geen escape-tekenreeks voor het pad om dubbele aanhalingstekens (bijvoorbeeld: "/ path /?"). Voor paden met andere speciale tekens bevat, moet u escape-tekenreeks voor het pad om dubbele aanhalingstekens (bijvoorbeeld: "/\"pad abc\"/?"). Als u speciale tekens in het pad verwacht, kunt u elk pad voor de veiligheid druk op ESC. Functioneel niet dat u enig verschil merkt als escape voor elk pad Vs alleen de resources die speciale tekens bevatten.
 
 Zie [in deze sectie](how-to-manage-indexing-policy.md#indexing-policy-examples) voor indexering beleid voorbeelden.
 

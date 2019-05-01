@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 3e2c6a550a9358656fd0870c7e785d131c5b6380
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9799914cdabf1f64fccfd6bfd891f9498b860e39
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894390"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64923007"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Ondersteuningsmatrix voor de back-up met de Microsoft Azure Recovery Services agent (MARS)
 
@@ -24,14 +24,14 @@ U kunt de [Azure Backup-service](backup-overview.md) back-up on-premises machine
 Azure Backup gebruikt de MARS-agent om back-ups van on-premises machines en virtuele Azure-machines naar een back-Recovery Services-kluis in Azure. De MARS-agent kunt doen:
 - Uitgevoerd op on-premises Windows-computers zodat ze kunnen back-up rechtstreeks naar een back-Recovery Services-kluis in Azure.
 - Uitgevoerd op Windows-VM's zodat ze kunnen back-up rechtstreeks naar een kluis.
-- Uitgevoerd op Microsoft Azure Backup-Server (MABS) of een server met System Center Data Protection Manager (DPM). In dit scenario back computers en werkbelastingen-up naar MABS of naar de DPM-server. De MARS-agent en de back-up van deze server naar een kluis in Azure. 
+- Uitgevoerd op Microsoft Azure Backup-Server (MABS) of een server met System Center Data Protection Manager (DPM). In dit scenario back computers en werkbelastingen-up naar MABS of naar de DPM-server. De MARS-agent en de back-up van deze server naar een kluis in Azure.
 
 Uw back-upopties, is afhankelijk van de waarop de agent is geïnstalleerd. Zie voor meer informatie, [Azure Backup-architectuur met behulp van de MARS-agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Zie voor meer informatie over de architectuur van MABS en DPM back-up [back-up op de DPM- of MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Zie ook [vereisten](backup-support-matrix-mabs-dpm.md) voor de back-architectuur.
 
 **Installatie** | **Details**
 --- | ---
 Download de nieuwste MARS-agent | U kunt de meest recente versie van de agent downloaden uit de kluis of [rechtstreeks downloaden](https://aka.ms/azurebackup_agent).
-Rechtstreeks op een computer installeren | U kunt de MARS-agent installeren rechtstreeks op een on-premises Windows server of op een Windows-VM die wordt uitgevoerd een van de [ondersteunde besturingssystemen](https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Rechtstreeks op een computer installeren | U kunt de MARS-agent installeren rechtstreeks op een on-premises Windows server of op een Windows-VM die wordt uitgevoerd een van de [ondersteunde besturingssystemen](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
 Installeren op een back-upserver | Bij het instellen van DPM- of MABS back-up naar Azure, kunt u downloaden en installeren van de MARS-agent op de server. U kunt de agent installeren op [ondersteunde besturingssystemen](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) in de ondersteuningsmatrix voor back-upserver.
 
 > [!NOTE]
@@ -45,8 +45,8 @@ Wanneer u de MARS-agent gebruikt voor back-up van gegevens, wordt de agent een m
 
 **Cache** | **Details**
 --- | ---
-Grootte |  Vrije ruimte in de cachemap moet ten minste 5 tot 10 procent van de totale grootte van uw back-upgegevens. 
-Locatie | De cachemap moet lokaal worden opgeslagen op de computer die de back-up en moet online zijn. De cachemap mag niet op een netwerkshare bevindt, op verwisselbare media of op een offline-volume. 
+Grootte |  Vrije ruimte in de cachemap moet ten minste 5 tot 10 procent van de totale grootte van uw back-upgegevens.
+Locatie | De cachemap moet lokaal worden opgeslagen op de computer die de back-up en moet online zijn. De cachemap mag niet op een netwerkshare bevindt, op verwisselbare media of op een offline-volume.
 Map | De cachemap moet worden versleuteld op een ontdubbeld volume of in een map die gecomprimeerd, die wordt verspreid, of waarvoor een reparsepunt.
 Locatiewijzigingen | U kunt de cachelocatie wijzigen door de engine voor het back-up stoppen (`net stop bengine`) en de cachemap kopiëren naar een nieuw station. (Zorg ervoor dat het nieuwe station voldoende ruimte heeft.) Werk vervolgens twee registervermeldingen onder **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** en **CloudBackupProvider-Config-ScratchLocation**) naar de nieuwe locatie en de engine voor het opnieuw.
 
@@ -103,9 +103,9 @@ Windows 7   | 1700 GB
 
 ## <a name="supported-file-types-for-backup"></a>Ondersteunde bestandstypen voor back-up
 
-**Type** | **Ondersteuning** 
---- | --- 
-Versleuteld   | Ondersteund. 
+**Type** | **Ondersteuning**
+--- | ---
+Versleuteld   | Ondersteund.
 Gecomprimeerd | Ondersteund.
 Sparse | Ondersteund.
 Gecomprimeerd en sparse | Ondersteund.
@@ -114,7 +114,7 @@ Reparsepunt   | Wordt niet ondersteund. Overgeslagen.
 Versleuteld en sparse |  Wordt niet ondersteund. Overgeslagen.
 Gecomprimeerde stream   | Wordt niet ondersteund. Overgeslagen.
 Sparse stream   | Wordt niet ondersteund. Overgeslagen.
-OneDrive (gesynchroniseerde bestanden zijn sparse streams)  | Wordt niet ondersteund. 
+OneDrive (gesynchroniseerde bestanden zijn sparse streams)  | Wordt niet ondersteund.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Ondersteunde stations of volumes voor back-up
 

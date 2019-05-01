@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61305964"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919717"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -54,7 +54,9 @@ De oplossing rapporteert hoe up-to-date de computer is gebaseerd op de bron waar
 
 U kunt software-updates implementeren en installeren op computers die updates vereisen door daarvoor een planning in te stellen. Updates die zijn geclassificeerd als *optioneel* niet zijn opgenomen in het implementatiebereik voor Windows-computers. Alleen vereiste updates zijn opgenomen in het implementatiebereik.
 
-De geplande implementatie wordt gedefinieerd welke doelcomputers de updates worden geïmplementeerd, ontvangen door computers expliciet op te geven of door het selecteren van een [computergroep](../azure-monitor/platform/computer-groups.md) die gebaseerd op logboekzoekopdrachten van een specifieke set computers. U geeft ook een planning voor het goedkeuren en instellen van een bepaalde periode gedurende welke updates kunnen worden geïnstalleerd. Deze periode wordt het onderhoudsvenster genoemd. Tien minuten van het onderhoudsvenster is gereserveerd voor opnieuw opstarten als een herstart nodig en u hebt geselecteerd de optie voor de juiste opnieuw opstarten. Opnieuw opstarten wordt niet uitgevoerd als patches langer duurt dan verwacht en er minder dan tien minuten binnen het onderhoudsvenster is.
+De geplande implementatie wordt gedefinieerd welke doelcomputers de updates worden geïmplementeerd, ontvangen door computers expliciet op te geven of door het selecteren van een [computergroep](../azure-monitor/platform/computer-groups.md) die gebaseerd op logboekzoekopdrachten van een specifieke set computers, of een [Azure query](#azure-machines) die wordt dynamisch geselecteerd met virtuele Azure-machines op basis van opgegeven criteria. Deze groepen zijn verschilt [scopeconfiguratie](../azure-monitor/insights/solution-targeting.md), die alleen wordt gebruikt om te bepalen welke computers u de management packs die de oplossing inschakelen. 
+
+U geeft ook een planning voor het goedkeuren en instellen van een bepaalde periode gedurende welke updates kunnen worden geïnstalleerd. Deze periode wordt het onderhoudsvenster genoemd. Tien minuten van het onderhoudsvenster is gereserveerd voor opnieuw opstarten als een herstart nodig en u hebt geselecteerd de optie voor de juiste opnieuw opstarten. Opnieuw opstarten wordt niet uitgevoerd als patches langer duurt dan verwacht en er minder dan tien minuten binnen het onderhoudsvenster is.
 
 Updates worden geïnstalleerd door runbooks in Azure Automation. U kunt deze runbooks niet weergeven en de runbooks vereisen geen configuratie. Wanneer een update-implementatie wordt gemaakt, wordt een planning waarmee een masterupdate-runbook op de opgegeven tijd voor de opgenomen computers gestart door de update-implementatie gemaakt. De master-runbook start een onderliggend runbook op elke agent om de vereiste updates te installeren.
 
@@ -76,6 +78,9 @@ De volgende tabel ziet u een lijst met ondersteunde besturingssystemen:
 |Red Hat Enterprise 6 (x86/x64) en 7 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |Ubuntu 14.04 LTS, 16.04 LTS en 18.04 (x86/x64)      |Linux-agents moeten toegang hebben tot een opslagplaats voor updates.         |
+
+> [!NOTE]
+> Schaalsets voor virtuele machine van Azure kunnen worden beheerd met updatebeheer. Updatebeheer werkt op de instanties zelf en niet de basisinstallatiekopie. U moet de updates plannen op een incrementele manier, dat niet alle VM-exemplaren in één keer worden bijgewerkt.
 
 ### <a name="unsupported-client-types"></a>Niet-ondersteunde client-typen
 

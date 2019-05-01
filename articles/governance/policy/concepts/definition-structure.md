@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311638"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716770"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -66,7 +66,7 @@ De volgende JSON ziet u bijvoorbeeld een beleid dat beperkt welke resources zijn
 }
 ```
 
-Alle voorbeelden van Azure Policy lopen [beleid voorbeelden](../samples/index.md).
+Alle voorbeelden van Azure Policy lopen [voorbeelden voor Azure Policy](../samples/index.md).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -99,6 +99,7 @@ Een parameter heeft de volgende eigenschappen die worden gebruikt in de beleidsd
   - `description`: De uitleg van waarvoor de parameter wordt gebruikt. Kan worden gebruikt voor voorbeelden van acceptabele waarden.
   - `displayName`: De beschrijvende naam die wordt weergegeven in de portal voor de parameter.
   - `strongType`: (Optioneel) Gebruikt bij het toewijzen van de beleidsdefinitie via de portal. Geeft een lijst van context-op de hoogte. Zie voor meer informatie, [strongType](#strongtype).
+  - `assignPermissions`: (Optioneel) Instellen als _waar_ dat Azure-portal roltoewijzingen maken tijdens de toewijzing van configuratiebeleid. Deze eigenschap is handig als u wilt toewijzen van machtigingen buiten het bereik van de beleidstoewijzing. Er is een roltoewijzing per roldefinitie in het beleid (of roldefinitie in alle beleidsregels in het initiatief). De waarde van parameter moet een geldige resource of het bereik.
 - `defaultValue`: (Optioneel) Hiermee stelt u de waarde van de parameter in een toewijzing, als er geen waarde is opgegeven. Vereist bij het bijwerken van een bestaande beleidsdefinitie die is toegewezen.
 - `allowedValues`: (Optioneel) Biedt een matrix met waarden die de parameter tijdens de toewijzing accepteert.
 
@@ -148,6 +149,7 @@ Binnen de `metadata` eigenschap, kunt u **strongType** voor een multi-keuzelijst
 - `omsWorkspace`
 - `Microsoft.EventHub/Namespaces/EventHubs`
 - `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
+- `Microsoft.EventHub/Namespaces/AuthorizationRules`
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -375,7 +377,7 @@ Met de gewijzigde beleidsregel `if()` controleert de lengte van **naam** voordat
 
 ### <a name="effect"></a>Effect
 
-Beleid ondersteunt de volgende typen effect:
+Azure-beleid ondersteunt de volgende typen effect:
 
 - **Weigeren**: genereert een gebeurtenis in het activiteitenlogboek en de aanvraag is mislukt
 - **Audit**: genereert een waarschuwingsgebeurtenis in het activiteitenlogboek, maar niet de aanvraag mislukt
@@ -410,7 +412,7 @@ De **DeployIfNotExists** effect vereist de **roleDefinitionId** eigenschap in de
 }
 ```
 
-Zie voor meer informatie over elk effect, de volgorde van de evaluatie, eigenschappen en voorbeelden, [Understanding beleid effecten](effects.md).
+Zie voor meer informatie over elk effect, de volgorde van de evaluatie, eigenschappen en voorbeelden, [wat Azure Policy effecten](effects.md).
 
 ### <a name="policy-functions"></a>Beleidsfuncties
 
@@ -593,9 +595,9 @@ Het volgende voorbeeld wordt het maken van een initiatief voor het verwerken van
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Bekijk voorbeelden op [Azure Policy-voorbeelden](../samples/index.md)
-- Beoordeling [effecten beleid begrijpen](effects.md)
-- Begrijpen hoe u [programmatisch beleid maken](../how-to/programmatically-create.md)
-- Meer informatie over het [Nalevingsgegevens ophalen](../how-to/getting-compliance-data.md)
-- Meer informatie over het [herstellen van niet-compatibele resources](../how-to/remediate-resources.md)
-- Bekijk wat een beheergroep is met [Resources organiseren met Azure-beheergroepen](../../management-groups/overview.md)
+- Bekijk voorbeelden op [voorbeelden voor Azure Policy](../samples/index.md).
+- Lees [Informatie over de effecten van het beleid](effects.md).
+- Begrijpen hoe u [programmatisch beleid maken](../how-to/programmatically-create.md).
+- Meer informatie over het [ophalen compatibiliteitsgegevens](../how-to/getting-compliance-data.md).
+- Meer informatie over het [herstellen van niet-compatibele resources](../how-to/remediate-resources.md).
+- Lees wat een beheergroep met is [organiseren van uw resources met Azure-beheergroepen](../../management-groups/overview.md).

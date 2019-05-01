@@ -12,18 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 04/08/2019
-ms.author: v-junlch
+ms.date: 09/24/2018
+ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0337f3de40e75ada86c0a5265fc99b34f1c2ecae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea3e1b951a683d7ee1def09024e531e94dd905b4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60296811"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918532"
 ---
 # <a name="web-apps"></a>Web-apps
 
@@ -46,7 +45,7 @@ Zie de codevoorbeelden voor scenario's voor web application webbrowser. En contr
 
 ## <a name="app-registration"></a>App-registratie
 
-Zie voor het registreren van een web-app, [een app registreren bij de Azure AD-eindpunt v1.0](quickstart-v1-add-azure-ad-app.md).
+Zie voor het registreren van een web-app, [een app registreren](quickstart-register-app.md).
 
 * Één tenant - als u een toepassing voor uw organisatie bouwt, moet deze worden geregistreerd in de directory van uw bedrijf met behulp van de Azure-portal.
 * Multitenant - als u het bouwen van een toepassing die kan worden gebruikt door gebruikers buiten uw organisatie, deze moet worden geregistreerd in de directory van uw bedrijf, maar ook moet worden geregistreerd in de adreslijst van elke organisatie die van de toepassing gebruikmaakt. Als u uw toepassing in de directory, kunt u een aanmeldingsproces opnemen voor uw klanten waarmee ze akkoord gaan met uw toepassing. Wanneer ze zich registreren voor uw toepassing, wordt deze weergegeven met een dialoogvenster waarin de machtigingen die voor de toepassing moet worden weergegeven, en vervolgens de optie om in te stemmen. Afhankelijk van de vereiste machtigingen kan een beheerder in de andere organisatie worden vereist om toestemming te geven. Wanneer de gebruiker of beheerder hiermee akkoord gaat, wordt de toepassing is geregistreerd in de directory.
@@ -59,5 +58,3 @@ Sessie van de gebruiker is verlopen wanneer de levensduur van het token dat is u
 
 * Meer informatie over andere [toepassingstypen en scenario's](app-types.md)
 * Meer informatie over de Azure AD [de basisbeginselen van verificatie](authentication-scenarios.md)
-
-<!-- Update_Description: wording update -->

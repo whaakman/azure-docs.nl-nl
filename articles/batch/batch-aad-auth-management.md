@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory gebruiken voor verificatie van oplossingen voor Batch | Microsoft Docs
-description: Toepassingen die zijn gebouwd met Azure resourcemanager en de Batch-resourceprovider verifiëren met Azure AD.
+description: Toepassingen die zijn gebouwd met Azure Resource Manager en de Batch-resourceprovider verifiëren met Azure AD.
 services: batch
 documentationcenter: .net
 author: laurenhughes
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: lahugh
-ms.openlocfilehash: 22cab5f22eccabf9176d777b1e3a3356cbf37c4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0f6db6d9c86e6da047c45ae7b1c43cf5f55c7e2b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60722277"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922828"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Verifiëren van Batch Management-oplossingen met Active Directory
 
@@ -36,7 +36,7 @@ Zie voor meer informatie over het gebruik van de Batch Management .NET-bibliothe
 
 De Azure [Active Directory Authentication Library] [ aad_adal] (ADAL) biedt een programmatische interface naar Azure AD voor gebruik in uw toepassingen. Om aan te roepen ADAL van uw toepassing, moet u uw toepassing registreren in een Azure AD-tenant. Als u uw toepassing registreert, kunt u Azure AD met informatie opgeven over uw toepassing, met inbegrip van een naam voor het binnen de Azure AD-tenant. Vervolgens Azure AD biedt een toepassings-ID waarmee u uw toepassing koppelen aan Azure AD tijdens runtime. Zie voor meer informatie over de toepassings-ID, [toepassing en service-principalobjecten in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Voor het registreren van de voorbeeldtoepassing AccountManagement, volg de stappen in de [toevoegen van een toepassing](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) in sectie [toepassingen integreren met Azure Active Directory] [ aad_integrate]. Geef **systeemeigen clienttoepassing** voor het type toepassing. De branche standaard OAuth 2.0-URI voor de **omleidings-URI** is `urn:ietf:wg:oauth:2.0:oob`. U kunt echter geldige URI opgeven (zoals `http://myaccountmanagementsample`) voor de **omleidings-URI**, zoals het hoeft niet te worden geen echt eindpunt:
+Voor het registreren van de voorbeeldtoepassing AccountManagement, volg de stappen in de [toevoegen van een toepassing](../active-directory/develop/quickstart-register-app.md) in sectie [toepassingen integreren met Azure Active Directory] [ aad_integrate]. Geef **systeemeigen clienttoepassing** voor het type toepassing. De branche standaard OAuth 2.0-URI voor de **omleidings-URI** is `urn:ietf:wg:oauth:2.0:oob`. U kunt echter geldige URI opgeven (zoals `http://myaccountmanagementsample`) voor de **omleidings-URI**, zoals het hoeft niet te worden geen echt eindpunt:
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 

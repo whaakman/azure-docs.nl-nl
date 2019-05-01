@@ -1,20 +1,20 @@
 ---
 title: 'Zelfstudie: Sentimentanalyse voor streaminggegevens met behulp van Azure Databricks'
-description: Informatie over het gebruik van Azure Databricks met Event Hubs en de Cognitive Services API voor het uitvoeren van sentimentanalyse voor bijna-realtime streaminggegevens.
+description: Informatie over het gebruik van Azure Databricks met Event Hubs en Cognitive Services-API voor het uitvoeren van sentimentanalyse voor streaming-gegevens in bijna realtime.
 services: azure-databricks
 author: lenadroid
 ms.author: alehall
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 12/07/2018
-ms.openlocfilehash: 54a7f308163cb2463554da32f0fae8b897c0742f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: a4762f78b16b7798ff746770f1ea69ccebd30130
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60786160"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919013"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Zelfstudie: Sentimentanalyse voor streaminggegevens met behulp van Azure Databricks
 
@@ -55,7 +55,7 @@ Zorg ervoor dat u aan de volgende vereisten voldoet voordat u met deze zelfstudi
 
 U kunt aan deze vereisten voldoen via de stappen in het artikel [Een Azure Event Hubs-naamruimte en een event hub maken](../event-hubs/event-hubs-create.md).
 
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
@@ -154,7 +154,7 @@ In deze zelfstudie gebruikt u de Twitter-API's om tweets te verzenden naar Event
 
 ## <a name="get-a-cognitive-services-access-key"></a>Een Cognitive Services-toegangssleutel ophalen
 
-In deze zelfstudie gebruikt u de [Microsoft Cognitive Services Text Analytics-API's](../cognitive-services/text-analytics/overview.md) om sentimentanalyse uit te voeren op een bijna-realtime stream van tweets. Voordat u de API's gebruikt, moet u een Microsoft Cognitive Services-account in Azure maken en een toegangssleutel ophalen om de Text Analytics-API's te gebruiken.
+In deze zelfstudie gebruikt u de [Azure Cognitive Services Text Analytics API's](../cognitive-services/text-analytics/overview.md) sentimentanalyse kunt uitvoeren op een stream van tweets in bijna realtime. Voordat u de API's gebruiken, moet u een Azure Cognitive Services-account maken in Azure en een toegangssleutel voor het gebruik van de Tekstanalyse-API's ophalen.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
@@ -227,7 +227,7 @@ val connStr = new ConnectionStringBuilder()
             .setSasKeyName(sasKeyName)
             .setSasKey(sasKey)
 
-val pool = Executors.newFixedThreadPool(1)
+val pool = Executors.newScheduledThreadPool(1)
 val eventHubClient = EventHubClient.create(connStr.toString(), pool)
 
 def sendEvent(message: String) = {

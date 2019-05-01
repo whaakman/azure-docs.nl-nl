@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: magattus
-ms.openlocfilehash: 53002fba9883d4ae0276ee1d91e915587f89177b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ae316749d3e88bc8bfd99d0f4856d5386916a27f
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627578"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869626"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN-dekking door Metro 
 > [!div class="op_single_selector"]
@@ -43,8 +43,8 @@ In dit artikel geeft een lijst met huidige metro's met point-of-presence (POP)-l
 | Europa | Wenen, Oostenrijk<br />Brussel, België<br />Praag, Tsjechië<br />Kopenhagen, Denemarken<br /> Helsinki, Finland<br />Marseille, Frankrijk<br />Parijs, Frankrijk<br />Berlijn, Duitsland<br />Frankfurt, Duitsland<br />Athene, Griekenland<br />Boedapest, Hongarije<br />Dublin, Ierland<br />Milaan, Italië<br />Amsterdam, Nederland<br />Warschau, Polen<br />Barcelona, Spanje<br />Madrid, Spanje<br />Stockholm, Zweden<br />Zürich, Zwitserland<br />Londen, Verenigd Koninkrijk<br />Manchester, Verenigd Koninkrijk | Wenen, Oostenrijk<br />Kopenhagen, Denemarken<br />Helsinki, Finland<br />Marseille, Frankrijk<br />Parijs, Frankrijk<br />Frankfurt, Duitsland<br />Milaan, Italië<br />Riga, Letland<br />Amsterdam, Nederland<br />Warschau, Polen<br />Madrid, Spanje<br />Stockholm, Zweden<br />Londen, Verenigd Koninkrijk | Oostenrijk<br />Bulgarije<br />Denemarken<br />Finland<br />Frankrijk<br />Duitsland<br />Griekenland<br />Ierland<br />Italië<br />Nederland<br />Polen<br />Rusland<br />Spanje<br />Zweden<br />Zwitserland<br />Verenigd Koninkrijk |
 | Afrika | Kaapstad, Zuid-Afrika<br />Johannesburg, Zuid-Afrika | Johannesburg, Zuid-Afrika | Zuid-Afrika |
 | Midden-Oosten | Dubai, Verenigde Arabische Emiraten | Muscat, Oman<br />Fujirah, Verenigde Arabische Emiraten | Qatar<br />Verenigde Arabische Emiraten |
-| India | Chennai, India<br />Mumbai, India<br />New Delhi, India | Bangalore, India<br />Chennai, India<br />Mumbai, India<br />New Delhi, India<br /> | India |
-| Azië | Hongkong SAR<br />Osaka, Japan<br />Tokio, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Filippijnen<br />Singapore<br />Busan, South Korea<br />Seoul, Zuid-Korea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hongkong SAR<br />Batam, Indonesië<br />Jakarta, Indonesië<br />Osaka, Japan<br />Tokio, Japan<br />Singapore<br />Busan, South Korea<br />Seoul, Zuid-Korea<br />Kaohsiung, Taiwan | Hongkong SAR<br />Indonesië<br />Israël<br />Japan<br />Macau SAR<br />Maleisië<br />Filipijnen<br />Singapore<br />Zuid-Korea<br />Taiwan<br />Thailand<br />Turkije<br />Vietnam |
+| India | Chennai, India<br />Mumbai, India<br />New Delhi, India | Bengaluru (Bangalore), India<br />Chennai, India<br />Mumbai, India<br />New Delhi, India<br /> | India |
+| Azië | Hongkong SAR<br />Osaka, Japan<br />Tokio, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Filippijnen<br />Singapore<br />Busan, South Korea<br />Seoul, Zuid-Korea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hongkong SAR<br />Batam, Indonesië<br />Jakarta, Indonesië<br />Osaka, Japan<br />Tokio, Japan<br />Singapore<br />Busan, South Korea<br />Seoul, Zuid-Korea<br />Kaohsiung, Taiwan | Hongkong SAR<br />Indonesië<br />Israël<br />Japan<br />Macau<br />Maleisië<br />Filipijnen<br />Singapore<br />Zuid-Korea<br />Taiwan<br />Thailand<br />Turkije<br />Vietnam |
 | Australië en Nieuw-Zeeland | Brisbane, Australië<br />Melbourne, Australië<br />Perth, Australië<br />Sydney, Australië<br />Auckland, New Zealand | Melbourne, Australië<br />Sydney, Australië<br />Auckland, New Zealand | Australië<br />Nieuw-Zeeland |
 
 

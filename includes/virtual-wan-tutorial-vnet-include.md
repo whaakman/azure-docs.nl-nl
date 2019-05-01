@@ -5,26 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/01/2019
+ms.date: 04/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 660bbf50e1a8ae73bd7bbe1f7c42691ed62d276a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 40c8cb41ad3bcd46e9973a5f96134ff1bfd02fd2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552972"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744076"
 ---
-Als u nog geen een VNet hebt, kunt u er eenvoudig een maken met behulp van PowerShell. U kunt ook een virtueel netwerk maken via Azure Portal.
+Voor het snel maken van een VNet, kunt u 'Try It' in dit artikel om een PowerShell-console te openen. Pas de waarden aan en kopieer en plak de opdrachten in het consolevenster. Zie voor meer informatie over de nieuwe Az-module en compatibiliteit met AzureRM [Introductie van de nieuwe Az-module van Azure PowerShell](/powershell/azure/new-azureps-module-az). Zie voor instructies over Az-module installeren, [Azure PowerShell installeren](/powershell/azure/install-az-ps).
 
-* Controleer wel of de adresruimte voor het VNet dat u maakt niet overlapt met een van de adresbereiken van andere VNet's waarmee u verbinding wilt maken of met de adresruimten van uw on-premises netwerk. 
-* Als u al een VNet hebt, dient u te controleren u of dit VNet voldoet aan de vereiste criteria en geen virtuele netwerkgateway heeft.
-
-U kunt eenvoudig een VNet maken door in dit artikel te klikken op 'Try it', waardoor een PowerShell-console wordt geopend. Pas de waarden aan en kopieer en plak de opdrachten in het consolevenster.
+Controleer wel of de adresruimte voor het VNet dat u maakt niet overlapt met een van de adresbereiken van andere VNet's waarmee u verbinding wilt maken of met de adresruimten van uw on-premises netwerk.
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Pas de PowerShell-opdrachten aan en maak een resourcegroep.
+Als u geen al een resourcegroep die u wilt gebruiken, kunt u een nieuwe maken. Aanpassen van de PowerShell-opdrachten in overeenstemming met de naam van de resource dat u wilt gebruiken, en voer vervolgens de volgende cmdlet:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName WANTestRG -Location WestUS
@@ -32,7 +29,7 @@ New-AzResourceGroup -ResourceGroupName WANTestRG -Location WestUS
 
 ### <a name="create-a-vnet"></a>Een VNet maken
 
-Pas de PowerShell-opdrachten aan om een VNet te maken dat compatibel is met uw omgeving.
+De PowerShell-opdrachten voor het maken van een VNet dat compatibel is voor uw omgeving aanpassen.
 
 ```azurepowershell-interactive
 $fesub1 = New-AzVirtualNetworkSubnetConfig -Name FrontEnd -AddressPrefix "10.1.0.0/24"

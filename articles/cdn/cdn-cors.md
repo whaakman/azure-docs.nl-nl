@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3dbf0aea50f382a0b325bf068a200cde42098733
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 337f2a31d60d54b47c692b06b5d63c28c0964061
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679851"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876208"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Azure CDN gebruiken met CORS
 ## <a name="what-is-cors"></a>Wat is CORS?
@@ -30,9 +30,9 @@ Er zijn twee soorten CORS-aanvragen, *eenvoudige aanvragen* en *complexe aanvrag
 
 ### <a name="for-simple-requests"></a>Voor eenvoudige aanvragen:
 
-1. De browser verzendt de CORS-aanvraag met een extra **oorsprong** header HTTP-aanvraag. De waarde van deze header is de oorsprong die de bovenliggende pagina, die is gedefinieerd als de combinatie van behandeld *-protocol,* *domein* en *poort.*  Als een pagina van https://www.contoso.com probeert te krijgen tot gegevens van een gebruiker in de oorsprong fabrikam.com, de volgende aanvraagheader naar fabrikam.com worden verzonden:
+1. De browser verzendt de CORS-aanvraag met een extra **oorsprong** header HTTP-aanvraag. De waarde van deze header is de oorsprong die de bovenliggende pagina, die is gedefinieerd als de combinatie van behandeld *-protocol,* *domein* en *poort.*  Als een pagina van https\:/ / www.contoso.com probeert te krijgen tot gegevens van een gebruiker in de oorsprong fabrikam.com, zou de volgende aanvraagheader worden verzonden naar fabrikam.com:
 
-   `Origin: https:\//www.contoso.com`
+   `Origin: https://www.contoso.com`
 
 2. De server reageert met een van de volgende:
 

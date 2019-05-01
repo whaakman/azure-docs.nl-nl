@@ -14,24 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: df967c56d84650894d2e07054e9ec8d6f830192b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c6271b5bb64eacf66c771b84139cead722a2e7b3
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711728"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869399"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Dynamische algemene versleuteling met PlayReady en/of Widevine gebruiken
 
-> [!div class="op_single_selector"]
-> * [.NET](media-services-protect-with-playready-widevine.md)
-> * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
-> * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
->
-
 > [!NOTE]
-> Zie [Aan de slag met de SDK voor Java-clients voor Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use) om de nieuwste versie van de Java-SDK op te halen en te ontwikkelen met Java. <br/>
-> Als u de nieuwste PHP-SDK voor Media Services wilt downloaden, zoekt u versie 0.5.7 van het Microsoft/WindowsAzure-pakket in de [Packagist-opslagplaats](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
+> U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.   > Er zijn geen nieuwe functies of functionaliteit worden toegevoegd aan Media Services v2. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
+>   
 
 ## <a name="overview"></a>Overzicht
 
@@ -619,6 +613,9 @@ namespace DynamicEncryptionWithDRM
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zie ook
+
 * [De CENC gebruiken met Multi-DRM en toegangsbeheer](media-services-cenc-with-multidrm-access-control.md)
 * [Widevine-verpakking configureren met Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
-* [Google Widevine-services voor het leveren van licenties in Azure Media Services aankondigen](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
+* [Aan de slag met de Java-client-SDK voor Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)
+* Als u de nieuwste PHP-SDK voor Media Services wilt downloaden, zoekt u versie 0.5.7 van het Microsoft/WindowsAzure-pakket in de [Packagist-opslagplaats](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
+

@@ -3,19 +3,19 @@ title: Het technische profiel van een Azure Active Directory definiëren in een 
 description: Definieer het technische profiel van een Azure Active Directory in een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b8dac47d1aa91eb8a8ee1ef9515809607b267437
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 433307791201e3799b3bc9e54aec765d9fbeb4af
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190698"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718701"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Het technische profiel van een Azure Active Directory in een aangepast Azure Active Directory B2C-beleid definiëren
 
@@ -252,7 +252,7 @@ De volgende technische profiel Hiermee verwijdert u een sociale gebruikersaccoun
 ```
 ## <a name="metadata"></a>Metagegevens
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Bewerking | Ja | De bewerking die moet worden uitgevoerd. Mogelijke waarden: `Read`, `Write`, `DeleteClaims`, of `DeleteClaimsPrincipal`. | 
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Nee | Als het gebruikersobject niet in de map bestaat, moet u een foutbericht. Mogelijke waarden: `true` of `false`. | 

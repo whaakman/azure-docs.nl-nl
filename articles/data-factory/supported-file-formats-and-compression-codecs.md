@@ -3,18 +3,18 @@ title: Ondersteunde bestandsindelingen in Azure Data Factory | Microsoft Docs
 description: Dit onderwerp beschrijft de bestandsindelingen en compressie-codes die worden ondersteund door de connectors op basis van bestanden in Azure Data Factory.
 author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: d7e2ecd9c9c27140fff4d483e01eaaca632e929a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f117e02a063b93b8b1badbd9868f78da95c3c671
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394423"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925140"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Ondersteunde indelingen en codecs voor de compressie in Azure Data Factory
 
@@ -29,9 +29,12 @@ Als u wilt **bestanden als kopiëren-is** overslaan tussen op basis van bestande
 * [Avro-indeling](#avro-format)
 
 > [!TIP]
-> Informatie over hoe copy activity in uw gegevens om op te vangen van kaarten [schematoewijzing in de kopieeractiviteit](copy-activity-schema-and-type-mapping.md), met inbegrip van hoe de metagegevens wordt bepaald op basis van uw bestandsindelingsinstellingen en tips van het moment waarop om op te geven de [gegevensset `structure` ](concepts-datasets-linked-services.md#dataset-structure) sectie.
+> Informatie over hoe copy activity in uw gegevens om op te vangen van kaarten [schematoewijzing in de kopieeractiviteit](copy-activity-schema-and-type-mapping.md), met inbegrip van hoe de metagegevens wordt bepaald op basis van uw bestandsindelingsinstellingen en tips van het moment waarop om op te geven de [gegevensset `structure` ](concepts-datasets-linked-services.md#dataset-structure-or-schema) sectie.
 
 ## <a name="text-format"></a>Tekstindeling
+
+>[!NOTE]
+>Data Factory nieuwe geïntroduceerd gescheiden tekst opmaken DataSet, Zie [gescheiden tekstopmaak](format-delimited-text.md) artikel met informatie. De volgende configuraties op bestanden gebaseerde gegevens store gegevensset wordt nog steeds ondersteund als-is voor achterwaartse compabitility. U worden gebruik van het nieuwe model voortaan voorgesteld.
 
 Als u wilt lezen uit een tekstbestand of schrijven naar een tekstbestand, stelt u de `type` eigenschap in de `format` sectie van de gegevensset in **TextFormat**. U kunt ook de volgende **optionele** eigenschappen opgeven in het gedeelte `format`. Raadpleeg het gedeelte [TextFormat-voorbeeld](#textformat-example) voor configuratie-instructies.
 
@@ -97,7 +100,7 @@ Als u wilt voor het parseren van JSON-bestanden of de gegevens in JSON-indeling 
 | nestingSeparator |Teken dat wordt gebruikt voor het scheiden van geneste niveaus. De standaardwaarde is '.' (punt). |Nee |
 
 >[!NOTE]
->Voor het geval van gegevens in de matrix met een kruis toepassen in meerdere rijen (case 1 -> voorbeeld 2 in [JsonFormat voorbeelden](#jsonformat-example)), kunt u slechts één matrix met behulp van de eigenschap Vouw `jsonNodeReference`. 
+>Voor het geval van gegevens in de matrix met een kruis toepassen in meerdere rijen (case 1 -> voorbeeld 2 in [JsonFormat voorbeelden](#jsonformat-example)), kunt u slechts één matrix met behulp van de eigenschap Vouw `jsonNodeReference`.
 
 ### <a name="json-file-patterns"></a>JSON-bestandpatronen
 
@@ -196,7 +199,7 @@ Kopieeractiviteit kan de volgende patronen van JSON-bestanden parseren:
 
 **Voorbeeld 1: gegevens ophalen uit object en matrix**
 
-In dit voorbeeld kunt u verwachten dat één JSON-hoofdobject wordt toegewezen aan één record in het tabelresultaat. Als u een JSON-bestand hebt met de volgende inhoud:  
+In dit voorbeeld kunt u verwachten dat één JSON-hoofdobject wordt toegewezen aan één record in het tabelresultaat. Als u een JSON-bestand hebt met de volgende inhoud:
 
 ```json
 {
@@ -408,6 +411,9 @@ De uitvoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: 
 
 ## <a name="parquet-format"></a>Parquet-indeling
 
+>[!NOTE]
+>Data Factory nieuwe Parquet-indeling DataSet geïntroduceerd, Zie [Parquet-indeling](format-delimited-text.md) artikel met informatie. De volgende configuraties op bestanden gebaseerde gegevens store gegevensset wordt nog steeds ondersteund als-is voor achterwaartse compabitility. U worden gebruik van het nieuwe model voortaan voorgesteld.
+
 Als u de Parquet-bestanden wilt parseren of de gegevens in Parquet-indeling wilt schrijven, stelt u de eigenschap `format` `type` in op **ParquetFormat**. U hoeft geen eigenschappen op te geven in het gedeelte Indeling binnen het gedeelte typeProperties. Voorbeeld:
 
 ```json
@@ -426,13 +432,13 @@ Houd rekening met de volgende punten:
 > [!IMPORTANT]
 > Voor kopiëren gemachtigd door zelfgehoste Cloudintegratieruntime bijvoorbeeld tussen on-premises en cloud gegevensarchieven, als u niet Parquet-bestanden kopieert **als-is**, moet u voor het installeren van de **64-bits JRE 8 (Java Runtime Environment) of OpenJDK** op uw computer IR. Zie de volgende alinea met meer informatie.
 
-Voor het exemplaar wordt uitgevoerd in zelfgehoste IR en Parquet-bestand serialisatie/deserialisatie, ADF wordt gezocht naar de Java-runtime door te controleren in de eerste plaats het register *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* voor JRE, als dat niet wordt gevonden, ten tweede controle systeemvariabele *`JAVA_HOME`* voor OpenJDK. 
+Voor het exemplaar wordt uitgevoerd in zelfgehoste IR en Parquet-bestand serialisatie/deserialisatie, ADF wordt gezocht naar de Java-runtime door te controleren in de eerste plaats het register *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* voor JRE, als dat niet wordt gevonden, ten tweede controle systeemvariabele *`JAVA_HOME`* voor OpenJDK.
 
 - **Gebruik Java Runtime Environment**: De 64-bits-IR is 64-bits JRE vereist. U vindt deze in [hier](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Gebruik OpenJDK**: dit wordt ondersteund sinds IR versie 3.13. Pakket de jvm.dll met alle andere vereiste assembly's van OpenJDK in zelfgehoste IR-machine en set-systeemomgevingsvariabele JAVA_HOME dienovereenkomstig.
 
 >[!TIP]
->Als u kopieert gegevens naar/vanuit Parquet-indeling met behulp van zelfgehoste Cloudintegratieruntime en druk op fout met de melding "Er is een fout opgetreden bij het aanroepen van java, bericht: **java.lang.OutOfMemoryError:Java heap ruimte**', kunt u een omgevingsvariabele toevoegen `_JAVA_OPTIONS` in de computer die als host fungeert voor de zelfgehoste IR om aan te passen de min/max heap-grootte voor JVM voor die te maken van dergelijke kopiëren, klikt u vervolgens de pijplijn opnieuw uitvoeren. 
+>Als u kopieert gegevens naar/vanuit Parquet-indeling met behulp van zelfgehoste Cloudintegratieruntime en druk op fout met de melding "Er is een fout opgetreden bij het aanroepen van java, bericht: **java.lang.OutOfMemoryError:Java heap ruimte**', kunt u een omgevingsvariabele toevoegen `_JAVA_OPTIONS` in de computer die als host fungeert voor de zelfgehoste IR om aan te passen de min/max heap-grootte voor JVM voor die te maken van dergelijke kopiëren, klikt u vervolgens de pijplijn opnieuw uitvoeren.
 
 ![JVM-heap-grootte instellen op zelfgehoste IR](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
@@ -483,7 +489,7 @@ Houd rekening met de volgende punten:
 > [!IMPORTANT]
 > Voor kopiëren gemachtigd door zelfgehoste Cloudintegratieruntime bijvoorbeeld tussen on-premises en cloud gegevensarchieven, als u niet ORC-bestanden kopieert **als-is**, moet u voor het installeren van de **64-bits JRE 8 (Java Runtime Environment) of OpenJDK**  op uw computer IR. Zie de volgende alinea met meer informatie.
 
-Voor het exemplaar wordt uitgevoerd in zelfgehoste IR en ORC-bestand serialisatie/deserialisatie, ADF wordt gezocht naar de Java-runtime door te controleren in de eerste plaats het register *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* voor JRE, als dat niet wordt gevonden, ten tweede controle systeemvariabele *`JAVA_HOME`* voor OpenJDK. 
+Voor het exemplaar wordt uitgevoerd in zelfgehoste IR en ORC-bestand serialisatie/deserialisatie, ADF wordt gezocht naar de Java-runtime door te controleren in de eerste plaats het register *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* voor JRE, als dat niet wordt gevonden, ten tweede controle systeemvariabele *`JAVA_HOME`* voor OpenJDK.
 
 - **Gebruik Java Runtime Environment**: De 64-bits-IR is 64-bits JRE vereist. U vindt deze in [hier](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Gebruik OpenJDK**: dit wordt ondersteund sinds IR versie 3.13. Pakket de jvm.dll met alle andere vereiste assembly's van OpenJDK in zelfgehoste IR-machine en set-systeemomgevingsvariabele JAVA_HOME dienovereenkomstig.
@@ -538,7 +544,7 @@ Azure Data Factory ondersteunt comprimeren/decomprimeren van gegevens tijdens he
 * ZIP-bestand lezen van FTP-server, decomprimeren voor het ophalen van de bestanden in, en deze bestanden worden neergezet in Azure Data Lake Store. U definieert een invoergegevensset FTP met de `compression` `type` eigenschap ZipDeflate.
 * Een gecomprimeerde GZIP-gegevens lezen uit een Azure-blob, het decomprimeren, comprimeren met behulp van BZIP2 en resultaatgegevens schrijven naar een Azure-blob. U definieert de Azure Blob-invoergegevensset met `compression` `type` ingesteld op GZIP- en de uitvoergegevensset met `compression` `type` ingesteld op BZIP2.
 
-Als u compressie voor een gegevensset, gebruikt u de **compressie** eigenschap in de gegevensset JSON zoals in het volgende voorbeeld:   
+Als u compressie voor een gegevensset, gebruikt u de **compressie** eigenschap in de gegevensset JSON zoals in het volgende voorbeeld:
 
 ```json
 {
@@ -579,11 +585,12 @@ De **compressie** sectie heeft twee eigenschappen:
 
 ## <a name="unsupported-file-types-and-compression-formats"></a>Niet-ondersteunde bestandstypen en compressie-indelingen
 
-De functies van de uitbreidbaarheid van Azure Data Factory kunt u transformatie van bestanden die niet worden ondersteund. Twee opties zijn onder andere Azure Functions en aangepaste taken met behulp van Azure Batch.
+De functies van de uitbreidbaarheid van Azure Data Factory kunt u transformatie van bestanden die niet worden ondersteund.
+Twee opties zijn onder andere Azure Functions en aangepaste taken met behulp van Azure Batch.
 
 U kunt een voorbeeld dat gebruikmaakt van een Azure-functie om te zien [Pak de inhoud van een bestand met tar](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Zie voor meer informatie, [Azure Functions-activiteit](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
 
-U kunt ook deze functionaliteit met behulp van een aangepaste dotnet-activiteit maken. Meer informatie vindt u [hier](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-dotnet-custom-activity)
+U kunt ook deze functionaliteit met behulp van een aangepaste dotnet-activiteit maken. Meer informatie vindt u [hier](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
 ## <a name="next-steps"></a>Volgende stappen
 

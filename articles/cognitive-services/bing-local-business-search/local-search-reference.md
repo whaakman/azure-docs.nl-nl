@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: bc38b4457179c11f9d6b2656aacb8aa66848c444
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3628670d2393d7b6921c60317719ccf8e72a451
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581034"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866345"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Verwijzing van lokale bedrijven zoeken-API voor Bing versie 7
 
-De lokale bedrijven zoeken-API verzendt een zoekopdracht naar Bing restaurants, hotels of andere lokale bedrijven omvatten de resultaten ophalen. Voor locaties, kunt de query de naam van de lokale bedrijven of Selecteer een categorie (bijvoorbeeld restaurants in de buurt) opgeven. Entiteitsresultaten zijn personen, plaatsen of dingen. Plaats in deze context is bedrijfsentiteiten, Staten, landen, enzovoort.  
+De lokale bedrijven zoeken-API verzendt een zoekopdracht naar Bing restaurants, hotels of andere lokale bedrijven omvatten de resultaten ophalen. Voor locaties, kunt de query de naam van de lokale bedrijven of Selecteer een categorie (bijvoorbeeld restaurants in de buurt) opgeven. Entiteitsresultaten zijn personen, plaatsen of dingen. Plaats in deze context is bedrijfsentiteiten, Staten, landen/regio's, enzovoort.  
 
 In deze sectie vindt u technische gegevens over de antwoordobjecten, en de query-parameters en headers die invloed hebben op de lijst met zoekresultaten. Zie voor meer voorbeelden die laten zien hoe aanvragen, [lokale bedrijven zoeken C# snelstartgids](quickstarts/local-quickstart.md) of [lokale bedrijven zoeken Java-quickstart](quickstarts/local-search-java-quickstart.md). 
   
@@ -86,7 +86,7 @@ De aanvraag kan de volgende queryparameters bevatten. Zie de vereiste kolom voor
 Hieronder vindt u de JSON-antwoord-objecten die het antwoord kan bevatten. Als de aanvraag is geslaagd, wordt het object op het hoogste niveau in het antwoord is de [SearchResponse](#searchresponse) object. Als de aanvraag mislukt, wordt het object op het hoogste niveau is het [ErrorResponse](#errorresponse) object.
 
 
-|Object|Beschrijving|  
+|Object|Description|  
 |------------|-----------------|  
 |[Place](#place)|Informatie over een lokale bedrijven, zoals een restaurant of in een hotel definieert.|  
 

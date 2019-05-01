@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9d4bcc66cfd82fee13ce57d096e061ddd8706720
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7e9e046ef4fcba81d5a8c330180a6e0831a7dcdd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419081"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718067"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Overzicht van gebruikersaccounts in Azure Active Directory B2C
 
@@ -46,21 +46,21 @@ Wanneer u een nieuwe werkaccount toevoegt, moet u rekening houden met de volgend
 
 Gebruik de volgende informatie kunt u een nieuw werkaccount maken:
 
-- [Azure-portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
+- [Azure Portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>Een gebruikersprofiel bijwerken
 
 Gebruik de volgende informatie kunt u het profiel van een gebruiker bijwerken:
 
-- [Azure-portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+- [Azure Portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>Een wachtwoord voor een gebruiker opnieuw instellen
 
 Gebruik de volgende informatie kunt u het wachtwoord van een gebruiker opnieuw instellen: 
 
-- [Azure-portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
+- [Azure Portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>Gastgebruiker

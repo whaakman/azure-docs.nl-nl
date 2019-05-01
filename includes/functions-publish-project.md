@@ -5,29 +5,28 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/27/2018
+ms.date: 04/24/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 1b553cbd720fcb76899844712ce5053af46f7ccb
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
-ms.translationtype: HT
+ms.openlocfilehash: 48bb91b3b2e9a31de63e515edb857bc2a170ea79
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452952"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867362"
 ---
 ## <a name="deploy-the-function-app-project-to-azure"></a>Het functie-appproject implementeren in Azure
 
-Nadat de functie-app is gemaakt in Azure, kunt u de [`func azure functionapp publish`](../articles/azure-functions/functions-run-local.md#project-file-deployment)-opdracht gebruiken om uw projectcode in Azure te implementeren.
+Nadat de functie-app is gemaakt in Azure, kunt u de [ `func azure functionapp publish` ](../articles/azure-functions/functions-run-local.md#project-file-deployment) Core Tools-opdracht voor het implementeren van de projectcode van uw naar Azure. In de volgende opdracht, vervangt u `<APP_NAME>` met de naam van uw app uit de vorige stap.
 
 ```bash
-func azure functionapp publish <FunctionAppName>
+func azure functionapp publish <APP_NAME>
 ```
 
-U ziet ongeveer de volgende uitvoer, die voor de leesbaarheid is afgekapt.
+Hier ziet u uitvoer die vergelijkbaar is met het volgende voorbeeld, waarin is afgekapt voor de leesbaarheid.
 
 ```output
 Getting site publishing info...
-
 ...
 
 Preparing archive...
@@ -35,6 +34,9 @@ Uploading content...
 Upload completed successfully.
 Deployment completed successfully.
 Syncing triggers...
+Functions in myfunctionapp:
+    HttpTrigger - [httpTrigger]
+        Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
 ```
 
-U kunt nu uw functies in Azure testen.
+Kopieer de aanroepen van URL-waarde voor uw HttpTrigger, waarin u nu kunt uw functie testen in Azure. De URL bevat een `code` query string-waarde die is de sleutel van uw functie. Deze sleutel waardoor het lastig is voor anderen om aan te roepen van het eindpunt van uw HTTP-trigger in Azure.

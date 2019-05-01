@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/22/2018
 ms.author: jeconnoc
 ms.openlocfilehash: bc861b6730e8bf9db6ba2ab005496914f7b9ed89
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63759813"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699683"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installeer .NET op Azure Cloud Services-rollen
 Dit artikel wordt beschreven hoe u versies van .NET Framework die niet geleverd met de Azure-Gastbesturingssysteem te installeren. U kunt .NET op het Gastbesturingssysteem gebruiken voor het configureren van uw web- en werkrollen cloudservicerollen.

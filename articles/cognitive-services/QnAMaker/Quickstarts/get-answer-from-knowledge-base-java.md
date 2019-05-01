@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: a8e51534fec3dacb577ef9b79bb42c48557dc15b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 746551cf05634427f839bf33af641bc4615179fa
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60920158"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916892"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Antwoorden vinden op vragen met behulp van een knowledge base met Java
 
@@ -24,7 +24,7 @@ In deze quickstart wordt beschreven hoe u programmatisch een antwoord uit een ge
 ## <a name="prerequisites"></a>Vereisten
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
-* In dit voorbeeld wordt de Apache [HTTP-client](http://hc.apache.org/httpcomponents-client-ga/) uit HTTP Components gebruikt. U moet de volgende Apache HTTP-clientbibliotheken toevoegen aan uw project: 
+* In dit voorbeeld wordt de Apache [HTTP-client](https://hc.apache.org/httpcomponents-client-ga/) uit HTTP Components gebruikt. U moet de volgende Apache HTTP-clientbibliotheken toevoegen aan uw project: 
     * httpclient-4.5.3.jar
     * httpcore-4.4.6.jar
     * commons-logging-1.2.jar

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b141de4c22ba1ba1325982d8e027fa46e0909fbb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06b6fdf7a3d21a6b7dc84c4347824d4eaeac046f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60248794"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918402"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Koppelen of een Azure-abonnement toevoegen aan uw Azure Active Directory-tenant
 
@@ -31,7 +31,7 @@ Alle gebruikers hebben één *home* Active directory voor verificatie. Uw gebrui
 > [!Important]
 > Wanneer u een abonnement op een andere map, gebruikers die beschikken over de rol is toegewezen met behulp van koppelen [op rollen gebaseerd toegangsbeheer (RBAC)](../../role-based-access-control/role-assignments-portal.md) verliest de toegang. Klassieke abonnementsbeheerders (servicebeheerder en Medebeheerders) zal ook geen toegang meer.
 > 
-> Bovendien uw cluster Azure Kubernetes Service (AKS) verplaatst naar een ander abonnement of het abonnement die eigenaar van het cluster verplaatsen naar een nieuwe tenant is, zorgt ervoor dat het cluster te verliezen functionaliteit vanwege verloren roltoewijzingen en service-principals rechten. Zie voor meer informatie over AKS [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
+> Bovendien uw cluster Azure Kubernetes Service (AKS) verplaatst naar een ander abonnement of het abonnement die eigenaar van het cluster verplaatsen naar een nieuwe tenant is, zorgt ervoor dat het cluster te verliezen functionaliteit vanwege verloren roltoewijzingen en service-principals rechten. Zie voor meer informatie over AKS [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 

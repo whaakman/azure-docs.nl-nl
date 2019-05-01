@@ -1,20 +1,20 @@
 ---
-title: Zelfstudie over het voorbereiden van Azure Portal voor de implementatie van Data Box Edge | Microsoft Docs
+title: Zelfstudie voor het voorbereiden van Azure portal, datacenteromgeving naar Azure Data Box-Edge implementeren | Microsoft Docs
 description: De eerste zelfstudie over het implementeren van Azure Data Box Edge omvat het voorbereiden van de Azure-portal.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 04/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 19c4fc96653f966ea5642149d944886e4b7f4483
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: d7e66970db3397531c798bc37bf7c1f346e999bf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401681"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924774"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Zelfstudie: Voorbereidingen voor de implementatie van Azure Data Box Edge  
 
@@ -55,6 +55,8 @@ Hier volgen de configuratievereisten voor uw Data Box Edge-resource, uw Data Box
 Zorg voordat u begint voor het volgende:
 
 - Uw Microsoft Azure-abonnement is ingeschakeld voor een Data Box Edge-resource. Betalen per gebruik-abonnementen worden niet ondersteund.
+- Hebt u eigenaar of bijdrager toegang tot uw abonnement.
+- U hebt de beheerder of gebruiker toegang tot Azure Active Directory Graph API. Zie voor meer informatie, [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - U hebt een Microsoft Azure Storage-account met toegangsreferenties.
 
 ### <a name="for-the-data-box-edge-device"></a>Voor het Data Box Edge-apparaat
@@ -87,11 +89,15 @@ Voer de volgende stappen uit in Azure Portal om een Data Box-resource te maken.
 
 1. Gebruik uw Microsoft Azure-referenties voor het aanmelden bij 
     
-    - De Azure-portal op de volgende URL: [ https://portal.azure.com ](http://portal.azure.com).
-    - Of de Azure Government-portal op de volgende URL: [https://portal.azure.us](https://portal.azure.us)
+    - De Azure-portal op de volgende URL: [ https://portal.azure.com ](https://portal.azure.com).
+    - Of, in de Azure Government-portal op de volgende URL: [ https://portal.azure.us ](https://portal.azure.us). Voor meer informatie gaat u naar [verbinding maken met Azure Government met behulp van de portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. Selecteer in het linkerdeelvenster **+ een resource maken**. Zoeken naar **Data Box Edge / Data Box Gateway**. Selecteer **Data Box Edge / Data Box Gateway**. Selecteer **Maken**.
-3. Kies het abonnement dat u wilt gebruiken voor de gegevens in het Edge-apparaat. Selecteer de regio waar u de Data Box Edge-resource wilt implementeren. VS-Oost, Zuidoost-Azië en West-Europa zijn beschikbaar voor deze release. Kies een locatie die het dichtst bij de geografische regio ligt waar u uw apparaat wilt implementeren. Selecteer bij **Maken** bij de optie **Data Box Edge**.
+3. Kies het abonnement dat u wilt gebruiken voor de gegevens in het Edge-apparaat. Selecteer de regio waar u de Data Box Edge-resource wilt implementeren. VS-Oost, Zuidoost-Azië en West-Europa zijn beschikbaar voor deze release. 
+
+    Kies een locatie die het dichtst bij de geografische regio ligt waar u uw apparaat wilt implementeren. De regio slaat alleen de metagegevens voor Apparaatbeheer. De werkelijke gegevens kunnen worden opgeslagen in een storage-account. 
+    
+    Selecteer bij **Maken** bij de optie **Data Box Edge**.
 
     ![Data Box Edge-service zoeken](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
 

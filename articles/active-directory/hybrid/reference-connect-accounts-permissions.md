@@ -13,22 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/24/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d145407331ed652f21510483b51a4617bf28e2fa
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 466b1aadb84bc92981b9adf1b1affa69f5f2ec25
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096164"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919173"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Accounts en machtigingen
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Accounts die worden gebruikt voor Azure AD Connect
 
-![](media/reference-connect-accounts-permissions/account5.png)
+![overzicht van serviceaccounts](media/reference-connect-accounts-permissions/account5.png)
 
 Azure AD Connect maakt gebruik van 3-accounts om te synchroniseren van gegevens van on-premises of Windows Server Active Directory naar Azure Active Directory.  Deze accounts zijn:
 
@@ -114,7 +114,7 @@ Hier volgt een samenvatting van de aangepaste installatie wizardpagina's, de ref
 | AD FS-Servers |Voor elke server in de lijst verzamelt met de wizard referenties wanneer de aanmeldingsreferenties van de gebruiker die de wizard zijn niet voldoende om verbinding te maken |Domeinbeheerder |Installatie en configuratie van de AD FS-serverfunctie. |
 | WAP-servers |Voor elke server in de lijst verzamelt met de wizard referenties wanneer de aanmeldingsreferenties van de gebruiker die de wizard zijn niet voldoende om verbinding te maken |Lokale beheerder op de doel-VM |Installatie en configuratie van WAP-server-rol. |
 | Vertrouwde proxyreferenties |Federation-service vertrouwen referenties (de referenties van de proxy wordt gebruikt om in te schrijven voor een vertrouwensrelatie certificaat van de FS |Domeinaccount dat een lokale beheerder van de AD FS-server |Initiële inschrijving van FS WAP-vertrouwensrelatie certificaat. |
-| Pagina voor AD FS-serviceaccount, "De accountoptie van een domein-gebruiker gebruiken" |Accountreferenties van de AD-gebruiker |Domeingebruiker |Het account van de AD-gebruiker waarvan de referenties zijn opgegeven, wordt gebruikt als het aanmeldingsaccount van de AD FS-service. |
+| Pagina voor AD FS-serviceaccount, "De accountoptie van een domein-gebruiker gebruiken" |Accountreferenties van de AD-gebruiker |Domeingebruiker |Het account van de Azure AD-gebruiker waarvan de referenties zijn opgegeven, wordt gebruikt als de aanmeldingsaccount van de AD FS-service. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>Het AD DS-Connector-account maken
 
@@ -239,6 +239,11 @@ Het account is gemaakt met een lange complex wachtwoord in dat niet verloopt. Ee
 Er is een limiet van 20 sync-service-accounts in Azure AD. Als u de lijst met bestaande Azure AD-service-accounts in uw Azure AD, moet u de volgende Azure AD PowerShell-cmdlet uitvoeren: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
 Verwijderen van niet-gebruikte Azure AD-serviceaccounts, voer de volgende Azure AD PowerShell-cmdlet uit: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+
+>[!NOTE]
+>Voordat u de bovenstaande PowerShell-opdrachten kunt u moet voor het installeren van de [Azure Active Directory PowerShell voor Graph module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) en maak verbinding met uw exemplaar van het gebruik van Azure AD [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+
+Zie voor meer informatie over het beheren of opnieuw instellen van het wachtwoord voor de Azure AD-Connector-account [de Azure AD Connect-account beheren](how-to-connect-azureadaccount.md)
 
 ## <a name="related-documentation"></a>Verwante documentatie
 Als u hebt niet de documentatie lezen op [uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md), de volgende tabel vindt u koppelingen naar verwante onderwerpen.

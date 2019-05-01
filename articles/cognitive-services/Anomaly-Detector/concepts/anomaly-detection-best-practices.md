@@ -1,5 +1,5 @@
 ---
-title: Aanbevolen procedures wanneer u de API van de detectie van afwijkingen
+title: Best practices bij het gebruik van de Anomaly Detector-API
 description: Meer informatie over aanbevolen procedures bij het detecteren van afwijkingen met de API van de detectie van afwijkingen.
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 467ac4e475a1c23e25b62c76cfbc959e7ed49465
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484030"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692201"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Aanbevolen procedures voor het gebruik van de Anomaliedetectie-API voor Detector
 
@@ -25,6 +25,29 @@ De detectie van afwijkingen API is een staatloze anomaly detection-service. De n
 * Het aantal gegevenspunten in uw API-aanvraag. 
 
 Gebruik dit artikel voor meer informatie over aanbevolen procedures voor het gebruik van de API ophalen van de beste resultaten voor uw gegevens. 
+
+## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>Wanneer u batch (hele) of de meest recente (laatste) wijst u detectie van afwijkingen
+
+De Anomaliedetectie Detector API van batch-detectie-eindpunt kunt u afwijkingen via uw volledige tijden series-gegevens. In deze detectiemodus één statistische model gemaakt en toegepast op elk punt in de gegevensset. Als de tijdreeks heeft de onderstaande kenmerken, wordt u aangeraden de detectie van batch om een voorbeeld van uw gegevens in één API-aanroep.
+
+* Een seizoensgebonden tijdreeks met incidentele afwijkingen.
+* Een platte trend tijdreeks, met af en toe pieken dips krijgen. 
+
+We raden gebruik van batch-anomaliedetectie voor gegevens in realtime controleren, of gebruikt op time series-gegevens die geen hierboven kenmerken. 
+
+* Detectie van batch maakt en geldt slechts één model, de detectie voor elk punt in de context van een hele serie wordt uitgevoerd. Als de tijd reeks gegevenstrends omhoog of omlaag zonder seizoensgebondenheid zien, enkele punten van wijzigt (Spanningsdips en pieken in de gegevens) worden gemist door het model. Op deze manier enkele punten van de wijziging die minder belangrijk dan de wijzigingsaanvragen later in de gegevensset zijn mogelijk niet worden geteld als aanzienlijk kunnen worden opgenomen in het model.
+
+* Batch-detectie is langzamer dan het detecteren van de anomaliedetectie-status van het laatste herstelpunt bij het uitvoeren van realtime gegevens controleren, vanwege het aantal punten die wordt geanalyseerd.
+
+Voor het bewaken van real-time gegevens, wordt u aangeraden de anomaliedetectie-status van alleen de meest recente gegevenspunt detecteren. Laatste punt detectie continu toepast, kan streaming gegevens bewaking worden gedaan efficiënt en nauwkeurig.
+
+In het volgende voorbeeld wordt de impact die deze modi detectie op prestaties hebben kunnen beschreven. De eerste afbeelding toont het resultaat van het laatste herstelpunt van afwijkingen status langs 28 eerder weergegeven gegevenspunten continu te detecteren. De rode punten worden afwijkingen.
+
+![Een afbeelding van de detectie van afwijkingen met behulp van het laatste herstelpunt](../media/last.png)
+
+Hieronder ziet u de dezelfde gegevensset met behulp van batch-anomaliedetectie. Het model die is gebouwd voor de bewerking heeft verschillende afwijkingen, gemarkeerd met rechthoeken genegeerd.
+
+![Een afbeelding van de detectie van afwijkingen met behulp van de batch-methode](../media/entire.png)
 
 ## <a name="data-preparation"></a>Gegevensvoorbereiding
 

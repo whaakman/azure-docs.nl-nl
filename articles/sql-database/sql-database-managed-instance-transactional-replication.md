@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 409c1abd7e9f532bb243ecab00228b402215c77e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c8d5df0f83a7ae37b9f06a5e255e9809288b6d67
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61313643"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917045"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Transactionele replicatie met één, gegroepeerd en databases in Azure SQL Database-exemplaar
 
@@ -79,7 +79,7 @@ Er zijn verschillende [replicatietypes](https://docs.microsoft.com/sql/relationa
   > - -Replicatie configureren met een oudere versie willen kan resulteren in fout MSSQL_REPL20084 (het proces kan geen verbinding met abonneeserver.) en MSSQ_REPL40532 (server kan niet worden geopend \<naam > door de aanmelding is aangevraagd. De aanmelding is mislukt.)
   > - Voor het gebruik van alle functies van Azure SQL Database, moet u de nieuwste versies van [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) en [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
   
-  ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>Supportabilty matrix voor exemplaar-Databases en On-premises systemen
+  ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>Matrix van ondersteuning voor Instance-Databases en On-premises systemen
   De replicatie supportability matrix bijvoorbeeld-databases zijn hetzelfde als de waarde voor on-premises SQL Server. 
   
   | **Publisher**   | **Distributor** | **Abonnee** |
@@ -140,7 +140,7 @@ In deze configuratie is een Azure SQL-Database (één, gegroepeerd en database-e
 
 ## <a name="next-steps"></a>Volgende stappen
 
-1. [Configureren van transactionele replicatie voor een beheerd exemplaar](replication-with-sql-database-managed-instance.md#configure-publishing-and-distribution-example). 
+1. [Configureren van transactionele replicatie voor een beheerd exemplaar](replication-with-sql-database-managed-instance.md). 
 1. [Maken van een publicatie](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Maken van een push-abonnement](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) met behulp van de naam van de Azure SQL Database-server als de abonnee (bijvoorbeeld `N'azuresqldbdns.database.windows.net` en de naam van de Azure SQL Database als de doeldatabase (bijvoorbeeld **Adventureworks**. )
 

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5c393916bc977f4e0bc51913bdb2dfbbd6677c97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c26c9021637b1b6ec2b3808db1307de9955bb660
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323915"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922397"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Quickstart: Een Azure CDN-profiel en een eindpunt met behulp van Resource Manager-sjabloon maken
 
@@ -51,7 +51,7 @@ az group create --name cdn --location eastus
 
 In deze stap maakt u een sjabloon voor bestanden die worden geïmplementeerd.
 
-In dit voorbeeld begeleidt bij een scenario voor het algemene Website versnelling, maar er zijn veel andere instellingen die kunnen worden geconfigureerd. Deze instellingen zijn beschikbaar in een verwijzing naar de Azure Resource Manager-sjabloon. Zie Naslaginformatie voor [CDN-profiel](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles) en [CDN-profiel-eindpunt](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
+In dit voorbeeld begeleidt bij een scenario voor het algemene Website versnelling, maar er zijn veel andere instellingen die kunnen worden geconfigureerd. Deze instellingen zijn beschikbaar in een verwijzing naar de Azure Resource Manager-sjabloon. Zie Naslaginformatie voor [CDN-profiel](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) en [CDN-profiel-eindpunt](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
 
 Houd er rekening mee dat Microsoft CDN biedt geen ondersteuning voor de lijst met inhoudstypen wijzigen.
 
@@ -224,8 +224,8 @@ az group delete --name cdn
 
 ## <a name="references"></a>Verwijzingen
 
-* CDN-profiel - [naslaginformatie over Azure Resource Manager-sjabloon](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles)
-* CDN-eindpunt - [sjabloonverwijzing voor Azure Resource Manager-documentatie](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
+* CDN-profiel - [naslaginformatie over Azure Resource Manager-sjabloon](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles)
+* CDN-eindpunt - [sjabloonverwijzing voor Azure Resource Manager-documentatie](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
 
 ## <a name="next-steps"></a>Volgende stappen
 

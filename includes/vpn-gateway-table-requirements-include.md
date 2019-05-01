@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5e7e365a73c9ba9cfd91d4f93759e7af55a0ad48
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dc018b5d09c9b33c10cd2d54ac6572537e05ed25
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "30929322"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "64859053"
 ---
-De volgende tabel bevat de vereisten voor PolicyBased en RouteBased VPN-gateways. Deze tabel is van toepassing op de Resource Manager en de klassieke implementatiemodellen. Voor het klassieke model PolicyBased VPN-gateways zijn hetzelfde als statische gateways en op Route gebaseerde gateways zijn hetzelfde als dynamische gateways.
+De volgende tabel bevat de vereisten voor PolicyBased en RouteBased VPN-gateways. Deze tabel is van toepassing op de Resource Manager en de klassieke implementatiemodellen. Voor het klassieke model, PolicyBased VPN-gateways zijn hetzelfde als statische gateways en Route gebaseerde gateways zijn hetzelfde als dynamische gateways.
 
-|  | **PolicyBased Basic VPN-Gateway** | **Basic op route gebaseerd VPN-Gateway** | **Standaard op route gebaseerd VPN-Gateway** | **RouteBased High Performance VPN-Gateway** |
+|  | **PolicyBased Basic VPN Gateway** | **Basic op route gebaseerd VPN-Gateway** | **Standaard op route gebaseerd VPN-Gateway** | **RouteBased High Performance VPN Gateway** |
 | --- | --- | --- | --- | --- |
 | **Site-naar-Site-connectiviteit (S2S)** |PolicyBased VPN-configuratie |RouteBased VPN-configuratie |RouteBased VPN-configuratie |RouteBased VPN-configuratie |
 | **Punt-naar-site-verbinding (P2S**) |Niet ondersteund |Ondersteund (kan tegelijk bestaan met S2S) |Ondersteund (kan tegelijk bestaan met S2S) |Ondersteund (kan tegelijk bestaan met S2S) |

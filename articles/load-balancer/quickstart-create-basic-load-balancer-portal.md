@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: db781899a3fe0d13d030943ed3ab4ebd3d105ad1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507877"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727577"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Quickstart: Een Basic load balancer maken met behulp van de Microsoft Azure-portal
 
@@ -37,7 +37,7 @@ Maak eerst een openbare basis load balancer met behulp van de portal. De naam en
 1. Klik linksboven in het scherm op **Een resource maken** > **Netwerken** > **Load balancer**.
 2. Voer op het tabblad **Basis** van de pagina **Load balancer maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer vervolgens **Controleren + maken**:
 
-    | Instelling                 | Waarde                                              |
+    | Instelling                 | Value                                              |
     | ---                     | ---                                                |
     | Abonnement               | Selecteer uw abonnement.    |    
     | Resourcegroep         | Selecteer **Nieuwe maken** en typ *MyResourceGroupLB* in het tekstvak.|
@@ -235,21 +235,27 @@ Installeer Internet Information Services (IIS) op de virtuele machines om de loa
    
    Het bureaublad van de virtuele machine wordt in een nieuw venster geopend. 
    
-**IIS installeren op de VM:**
+**Het installeren van IIS**
 
-1. Als **Serverbeheer** nog niet op het bureaublad van de server is geopend, gaat u naar **Windows Systeembeheer** > **Serverbeheer**.
-   
-1. Selecteer in **Serverbeheer** de optie **Add roles and features**.
-   
-   ![Serverbeheerdersrol toevoegen](./media/load-balancer-get-started-internet-portal/servermanager.png)
-   
-1. In **Add Roles and Features Wizard**:
-   1. Selecteer op de pagina **Type installatie selecteren** de optie **Installatie die op de functie of het onderdeel is gebaseerd**.
-   1. Selecteer op de pagina **De doelserver selecteren** de optie **MyVM1**.
-   1. Selecteer op de pagina **Een serverfunctie selecteren** de optie **Webserver (IIS)**. 
-   1. Als u wordt gevraagd de vereiste hulpprogramma's te installeren, selecteert u **Onderdelen toevoegen**. 
-   1. Accepteer de standaardwaarden en selecteer **Installeren**. 
-   1. Als de onderdelen zijn geïnstalleerd, selecteert u **Sluiten**. 
+1. Selecteer **alle services** Selecteer in het menu links **alle resources**, en selecteer vervolgens in de lijst met resources **myVM1** die bevindt zich in de  *myResourceGroupSLB* resourcegroep.
+2. Selecteer op de pagina **Overzicht** de optie **Verbinding maken** om extern verbinding te maken met de VM.
+5. Meld u aan bij de virtuele machine met de referenties die u hebt opgegeven tijdens het maken van deze virtuele machine. Hiermee wordt een sessie met extern bureaublad met virtuele machine *myVM1* gestart.
+6. Ga op de serverdesktop naar **Windows Systeembeheer**>**Windows Powershell**.
+7. Voer in het venster PowerShell de volgende opdrachten uit om de IIS-server te installeren, het standaardbestand iisstart.htm te verwijderen en een nieuw bestand iisstart.htm toe te voegen dat de naam van de VM weergeeft:
+
+   ```azurepowershell
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+    remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+   ```
+6. Sluit de RDP-sessie met *myVM1*.
+7. Herhaal de stappen 1 tot en met 6 om IIS en het bijgewerkte bestand iisstart.htm te installeren op *myVM2*.
    
 1. Herhaal de stappen voor de virtuele machine **MyVM2**, maar stel de doelserver in op **MyVM2**.
 
@@ -257,9 +263,9 @@ Installeer Internet Information Services (IIS) op de virtuele machines om de loa
 
 Open een browser en plak het openbare IP-adres van de load balancer in de adresbalk van de browser. De standaardpagina van de IIS-webserver wordt weergegeven in de browser.
 
-![IIS-webserver](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
+![IIS-webserver](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-Als u wilt zien hoe de load balancer verkeer distribueert naar alle drie de VM's waarop uw app wordt uitgevoerd, kunt u vernieuwing van uw webbrowser afdwingen.
+Als u wilt zien hoe de load balancer verkeer distribueert naar beide VM's waarop uw app wordt uitgevoerd, kunt u vernieuwing van uw webbrowser afdwingen.
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 Als u de load balancer en alle bijbehorende resources wilt verwijderen omdat u deze niet meer nodig hebt, opent u de resourcegroep **MyResourceGroupLB** en selecteert u **Resourcegroep verwijderen**.

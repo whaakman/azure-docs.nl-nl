@@ -13,11 +13,11 @@ ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 48d08af1c33eaddd8d963d9e1ab0322c3972997e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103530"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64693268"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Zelfstudie: Video's analyseren met Media Services v3 met behulp van .NET
 

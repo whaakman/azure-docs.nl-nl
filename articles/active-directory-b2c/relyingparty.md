@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5d42568a738d946d7df65601044b9797a35f6b1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ca78e7a9ce44b492dafcc00c1663d54718ca7fac
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360398"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705075"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -122,7 +122,7 @@ De **UserJourneyBehaviors** element bevat de volgende elementen:
 
 De **SingleSignOn** element in het volgende kenmerk bevat:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Bereik | Ja | Het bereik van het gedrag van eenmalige aanmelding. Mogelijke waarden: `Suppressed`, `Tenant`, `Application`, of `Policy`. De `Suppressed` waarde geeft aan dat het probleem wordt onderdrukt. Bijvoorbeeld geen sessie wordt bijgehouden voor de gebruiker in het geval van een sessie voor eenmalige aanmelding en de gebruiker altijd een prompt wordt voor de selectie van een id-provider. De `TrustFramework` waarde geeft aan dat het gedrag voor alle beleidsregels in het kader van de vertrouwensrelatie wordt toegepast. Bijvoorbeeld, navigeren door twee trajecten van beleid voor het kader van een vertrouwensrelatie van een gebruiker niet gevraagd voor de selectie van een id-provider. De `Tenant` waarde geeft aan dat het probleem wordt toegepast op alle beleidsregels in de tenant. Bijvoorbeeld, navigeren door twee trajecten van beleid voor een tenant van een gebruiker niet gevraagd voor de selectie van een id-provider. De `Application` waarde geeft aan dat het probleem wordt toegepast op alle beleidsregels voor de toepassing die de aanvraag. Bijvoorbeeld, navigeren door twee beleid trajecten voor een toepassing van een gebruiker niet gevraagd voor de selectie van een id-provider. De `Policy` waarde geeft aan dat het gedrag is alleen van toepassing op een beleid. Bijvoorbeeld, wordt navigeren door twee trajecten van beleid voor het kader van een vertrouwensrelatie van een gebruiker gevraagd een id-provider selecteren bij het schakelen tussen beleid. |
 | KeepAliveInDays | Ja | Hiermee bepaalt u hoe lang de gebruiker blijft aangemeld. Als u de waarde op 0 schakelt KMSI functionaliteit. Zie voor meer informatie, [aangemeld blijven](active-directory-b2c-reference-kmsi-custom.md). |
@@ -152,7 +152,7 @@ Het volgende voorbeeld wordt een parameter met de naam doorgegeven `campaignId` 
 
 De **ContentDefinitionParameters** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | ContentDefinitionParameter | 0: n | Een tekenreeks zijn met de sleutel-waardepaar dat wordt toegevoegd aan de querytekenreeks van een inhoudsdefinitie laden URI. |
 

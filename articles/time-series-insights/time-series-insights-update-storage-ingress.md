@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: eba4c70a25cba2e456ed418a98b938f2029c4c1f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fe6848caad7cdac98d6717b7cea4860e7ce2db8f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438360"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725735"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Opslag van gegevens en de inkomende gegevens in Azure Time Series Insights-Preview
 
@@ -112,7 +112,7 @@ Het is belangrijk om te selecteren van een juiste ID in de reeks tijd, omdat het
 
 ## <a name="your-azure-storage-account"></a>Uw Azure storage-account
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 
 Wanneer u een betalen per gebruik Time Series Insights-omgeving maakt, maakt u twee resources: een Time Series Insights-omgeving en een Azure Storage voor algemeen gebruik V1-account waar de gegevens worden opgeslagen. We hebben gekozen Azure-opslag voor algemeen gebruik V1 van de standaardbron maken vanwege de interoperabiliteit, de prijs en prestaties. 
 
@@ -193,9 +193,9 @@ Time Series Insights Preview biedt ondersteuning voor de schaal van een eerste i
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees de [Azure Time Series Insights Preview opslag- en Uitgangsclaims](./time-series-insights-update-storage-ingress.md).
+- Lees de [Azure Time Series Insights Preview opslag- en Uitgangsclaims](./time-series-insights-update-storage-ingress.md).
 
-Meer informatie over de nieuwe [gegevensmodellering](./time-series-insights-update-tsm.md).
+- Meer informatie over de nieuwe [gegevensmodellering](./time-series-insights-update-tsm.md).
 
 <!-- Images -->
 [1]: media/v2-update-storage-ingress/storage-architecture.png

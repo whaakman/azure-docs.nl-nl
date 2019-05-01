@@ -1,20 +1,19 @@
 ---
 title: Wat is Azure Backup?
-description: Geeft een overzicht van de Azure Backup-service en hoe u deze kunt implementeren als onderdeel van uw strategie voor bedrijfscontinuïteit en herstel na noodgevallen (BCDR).
-services: backup
+description: Biedt een overzicht van de Azure Backup-service en hoe het bijdraagt aan uw strategie voor zakelijke continuïteit en noodherstel herstel (BCDR).
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: overview
-ms.date: 04/05/2019
+ms.date: 04/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bd90d315fd5590a8bd862a1a3397cf8c254fccc8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254700"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714277"
 ---
 # <a name="what-is-azure-backup"></a>Wat is Azure Backup?
 
@@ -31,11 +30,7 @@ Azure Backup biedt deze belangrijke voordelen:
 - **Onbeperkte gegevensoverdracht ophalen**: Azure Backup stelt geen beperking voor de hoeveelheid binnenkomende of uitgaande gegevens u overdragen of kosten in rekening gebracht voor de gegevens die worden overgedragen.
     - Uitgaande gegevens zijn gegevens die tijdens een herstelbewerking worden overgebracht uit een Recovery Services-kluis.
     - Als u met de Azure Import/Exportservice een offline eerste back-up uitvoert voor het importeren van grote hoeveelheden gegevens, zijn er kosten verbonden aan inkomende gegevens.  [Meer informatie](backup-azure-backup-import-export.md).
-- **Gegevens veilig houden**:
-    - On-premises gegevens die onderweg zijn, worden versleuteld op de on-premises virtuele machine met AES256. De verstrekte gegevens wordt beveiligd door middel van HTTPS tussen opslag en back-up. Het iSCSI-protocol voor beveiliging van de gegevens tussen back-up en de computer van de gebruiker verzonden. Secure tunneling wordt gebruikt voor het beveiligen van het iSCSI-kanaal.
-    - Voor on-premises naar Azure backup is gegevens in Azure het versleuteld in rust met de wachtwoordzin die u opgeeft bij het instellen van back-up. De wachtwoordzin of de sleutel wordt nooit verzonden of opgeslagen in Azure. Als het herstellen van gegevens noodzakelijk is, bent u de enige met de wachtwoordzin voor versleuteling of de sleutel.
-    - Voor virtuele Azure-machines, gegevens worden versleuteld met behulp van Storage Service Encryption (SSE) op herstellen. Back-up versleutelt gegevens automatisch voordat u opslaat. Azure Storage ontsleutelt gegevens voordat u ze ophaalt.
-    - Back-up biedt ook ondersteuning voor Azure VM's die zijn versleuteld met behulp van Azure Disk Encryption (ADE). [Meer informatie](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
+- **Gegevens veilig houden**: Azure Backup biedt oplossingen voor het beveiligen van gegevens in-transit en in rust.
 - **App-consistente back-ups**: Een app-consistente back-up betekent dat een herstelpunt alle vereiste gegevens heeft om de back-up te kunnen herstellen. Azure Backup biedt toepassingsconsistente back-ups, om ervoor te zorgen dat er geen aanvullende correcties nodig zijn om de gegevens te herstellen. Herstellen van toepassingsconsistente gegevens verkort de hersteltijd, zodat u snel weer normaal aan het werk kunt.
 - **Korte- en langetermijngegevens bewaren**: u kunt de Recovery Services-kluizen gebruiken voor het bewaren van gegevens voor de korte en de lange termijn. Azure heeft geen beperkingen voor hoelang gegevens bewaard blijven in een Recovery Services-kluis. U kunt gegevens zo lang bewaren als u wilt. Azure Backup heeft een limiet van 9999 herstelpunten per beveiligd exemplaar. [Lees meer](backup-introduction-to-azure-backup.md#backup-and-retention) over de invloed van deze limiet op uw back-upbehoeften.
 - **Automatisch opslagbeheer**: voor hybride omgevingen is vaak heterogene opslag vereist, soms on-premises en soms in de cloud. Met Azure Backup zijn er geen kosten voor het gebruik van on-premises opslagapparaten. De back-upopslag wordt automatisch door Azure Backup toegewezen en beheerd en u betaalt naar gebruik. Dat betekent dat u alleen betaalt voor de opslag die u verbruikt. [Lees meer](https://azure.microsoft.com/pricing/details/backup) over prijzen.
@@ -100,20 +95,26 @@ Lees meer [hoe back-up werkt](backup-architecture.md#architecture-back-up-to-dpm
 --- | ---
 **Back-ups maken van Azure-VM's** | Geen agent nodig. Azure VM-extensie voor back-up is geïnstalleerd op de virtuele machine van Azure wanneer u de eerste Azure-VM-back-up uitvoert.<br/><br/> Ondersteunt Windows en Linux.
 **Back-up van on-premises Windows-machines** | Download, installeer en voer de MARS-agent rechtstreeks uit op de machine.
-**Back-up van Azure-VM's met de MARS-agent** | Download, installeer en voer de MARS-agent rechtstreeks uit op de machine. De MARS-agent kan naast de back-upextensie worden uitgevoerd.
+**Back-up van virtuele Azure-machines met de MARS-agent** | Download, installeer en voer de MARS-agent rechtstreeks uit op de machine. De MARS-agent kan naast de back-upextensie worden uitgevoerd.
 **Back-up van on-premises machines en Azure-VM's naar DPM/MABS** | De DPM- of MABS-beveiligingsagent wordt uitgevoerd op de machines die u wilt beveiligen. De MARS-agent wordt uitgevoerd op de DPM-server/MABS waarvan u een back-up wilt maken naar Azure.
 
 ## <a name="which-backup-agent-should-i-use"></a>Welke back-upagent moet ik gebruiken?
 
 **Een back-up maken** | **Oplossing** | **Beperking**
 --- | --- | ---
-**Ik wil een back-up maken van een hele Azure VM** | Schakel back-up in voor de virtuele machine. De back-upextensie wordt automatisch geconfigureerd op de Windows- of Linux-Azure-VM. | Er wordt een back-up gemaakt van de hele virtuele machine <br/><br/> Voor Windows-VM's is de back-up app-consistent. Voor Linux is de back-up bestandsconsistent. Als u app-bewustheid voor Linux-VM's nodig hebt, moet u dit configureren met aangepaste scripts.
+**Ik wil een back-up maken van een hele Azure VM** | Schakel back-up in voor de virtuele machine. De back-upextensie wordt automatisch geconfigureerd op de Windows- of Linux-Azure-VM. | Er wordt een back-up gemaakt van de hele virtuele machine <br/><br/> Voor Windows-VM's is de back-up app-consistent. Voor Linux is de back-up bestandsconsistent. Als u app-bewuste voor virtuele Linux-machines moet, hebt u dit wilt configureren met aangepaste scripts.
 **Ik wil een back-up van bepaalde bestanden/mappen maken op Azure VM** | Implementeer de MARS-agent op de virtuele machine.
 **Ik wil een back-up maken van on-premises Windows-machines** | Installeer de MARS-agent op de machine. | U kunt een back-up van bestanden, mappen en de systeemstatus maken naar Azure. Back-ups zijn niet app-bewust.
-**Ik wil een directe back-up maken van on-premises Linux-machines** | U moet DPM of MABS implementeren om een back-up te maken naar Azure. | Back-up van Linux-host wordt niet ondersteund, kunt u alleen back-up Linux Gast-machine die wordt gehost op Hyper-V of VMWare.
+**Ik wil een directe back-up maken van on-premises Linux-machines** | U moet DPM of MABS implementeren om een back-up te maken naar Azure. | Back-up van Linux-host wordt niet ondersteund, u kunt alleen back-up van Linux Gast-machine die wordt gehost op Hyper-V of VMWare.
 **Ik wil een back-up maken van apps die on-premises worden uitgevoerd** | Voor app-bewuste back-ups moeten machines worden beveiligd door DPM of MABS.
 **Ik wil gedetailleerde en flexibele back-up- en herstelinstellingen voor virtuele Azure-machines** | Bescherm Azure-VM's met MABS/DPM in Azure voor extra flexibiliteit voor back-upplanning en volledige flexibiliteit voor het beschermen en herstellen van bestanden, mappen, volumes, apps en systeemstatus.
 
+## <a name="how-does-azure-backup-work-with-encryption"></a>Hoe werkt Azure Backup met versleuteling?
+
+**Versleuteling** | **Back-up van on-premises** | **Back-ups maken van Azure-VM's** | **Back-up van SQL op Azure Virtual machines**
+--- | --- | --- | ---
+Versleuteling 'at rest'<br/> (Versleuteling van gegevens waar ze zich persistent gemaakt/zijn opgeslagen) | Klant opgegeven wachtwoordzin wordt gebruikt om gegevens te versleutelen | Azure [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) wordt gebruikt voor het versleutelen van gegevens die zijn opgeslagen in de kluis.<br/><br/> Back-up versleutelt gegevens automatisch voordat u opslaat. Azure Storage ontsleutelt gegevens voordat u ze ophaalt. Gebruik van de klant beheerde sleutels voor SSE is momenteel niet ondersteund.<br/><br/> U kunt back-up van virtuele machines die gebruikmaken van [Azure disk encryption (ADE)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) voor het versleutelen van besturingssysteem en gegevensschijven. Azure Backup biedt ondersteuning voor virtuele machines die zijn versleuteld met de BEK-alleen en met beide BEK en [KEK](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/). Controleer de [beperkingen](backup-azure-vms-encryption.md#encryption-support). | Azure Backup biedt ondersteuning voor back-up van SQL Server-databases of een server met [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) ingeschakeld. Back-up ondersteunt TDE met sleutels die worden beheerd door Azure, of door de klant beheerde sleutels (BYOK).<br/><br/> Back-up uitvoeren niet alle SQL-versleuteling als onderdeel van de back-up.
+Versleuteling tijdens overdracht<br/> (Versleuteling van gegevens van de ene locatie verplaatsen naar een ander) | Gegevens worden versleuteld met behulp van AES256 en die naar de kluis in Azure worden verzonden via HTTPS | Gegevens tussen Azure-opslag en de kluis worden beveiligd in Azure, door middel van HTTPS. Deze gegevens blijven op het Azure-backbone-netwerk.<br/><br/> ISCSI beveiligt voor herstel van bestanden, de gegevens tussen de kluis en de virtuele machine van Azure verzonden. Secure tunneling, beveiligt het iSCSI-kanaal. | Gegevens tussen Azure-opslag en de kluis worden beveiligd in Azure, door middel van HTTPS.<br/><br/> Bestandsherstel niet relevant zijn voor SQL.
 
 ## <a name="next-steps"></a>Volgende stappen
 

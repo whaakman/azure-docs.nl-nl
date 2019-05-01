@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d146027ea3a21ab8df3750014c02893bc2f50dd6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097726"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711572"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Setup voor de Azure-SSIS integratieruntime aanpassen
 
@@ -82,7 +82,7 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
       ![Een blob-container maken](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   1. Selecteer de nieuwe container en upload uw aangepaste setup-script en de bijbehorende bestanden. Zorg ervoor dat u uploadt `main.cmd` op het hoogste niveau van de container, niet in een map. Controleer ook of dat uw container bevat alleen de benodigde aangepaste setup-bestanden, zodat deze worden gedownload naar uw Azure-SSIS IR later duurt niet lang.
+   1. Selecteer de nieuwe container en upload uw aangepaste setup-script en de bijbehorende bestanden. Zorg ervoor dat u uploadt `main.cmd` op het hoogste niveau van de container, niet in een map. Controleer ook of dat uw container bevat alleen de benodigde aangepaste setup-bestanden, zodat deze worden gedownload naar uw Azure-SSIS IR later duurt niet lang. De maximumduur voor de aangepaste installatie is momenteel ingesteld op 45 minuten voordat er een optreedt time-out en dit de tijd omvat voor alle bestanden in de container downloaden en installeren op Azure-SSIS IR. Wanneer u een langere periode nodig hebt, neem een ondersteuningsticket te verhogen.
 
       ![Bestanden uploaden naar de blob-container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 

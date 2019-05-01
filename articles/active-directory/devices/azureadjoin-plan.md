@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b59471cd8af02513186fa4437a2249b056cc324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12d603ddbba9e36d562c8dcd6e3844af28c91255
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354438"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918838"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedure: Uw implementatie van Azure AD-deelname plannen
 
@@ -135,7 +135,11 @@ Azure AD join:
 
 ### <a name="management-platform"></a>Het platform voor wachtwoordbeheer
 
-Device management voor Azure AD gekoppelde apparaten is gebaseerd op een MDM-platform, zoals Intune) en MDM CSP's. Windows 10 heeft een ingebouwde MDM-agent die geschikt is voor alle compatibele MDM-oplossingen.
+Device management voor Azure AD gekoppelde apparaten is gebaseerd op een MDM-platform, zoals Intune en MDM CSP's. Windows 10 heeft een ingebouwde MDM-agent die geschikt is voor alle compatibele MDM-oplossingen.
+
+> [!NOTE]
+> Groepsbeleid worden niet ondersteund in Azure AD gekoppelde apparaten als ze niet zijn verbonden met on-premises Active Directory. Beheer van Azure AD gekoppelde apparaten is alleen mogelijk via MDM
+
 
 Er zijn twee manieren voor het beheer van Azure AD gekoppelde apparaten:
 
@@ -143,7 +147,6 @@ Er zijn twee manieren voor het beheer van Azure AD gekoppelde apparaten:
 
 - **CO-beheer** -een apparaat wordt beheerd door een MDM-provider en SCCM. In deze benadering is de SCCM-agent geïnstalleerd op een apparaat met MDM worden beheerd voor het beheren van bepaalde aspecten.
 
-Omdat Azure AD join apparaten niet zijn verbonden met on-premises Active Directory, Groepsbeleid worden niet ondersteund.
 
 
 Als u met behulp van Groepsbeleid, evalueren de pariteit van uw MDM-beleid met behulp van de [MDM migratie analyse hulpprogramma (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 

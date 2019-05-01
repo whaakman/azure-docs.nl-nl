@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129200"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710405"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux Diagnostic-extensie gebruiken om te controleren, logboeken en metrische gegevens
 
@@ -500,7 +500,9 @@ ReadsPerSecond | Leesbewerkingen per seconde
 WritesPerSecond | Schrijfbewerkingen per seconde
 TransfersPerSecond | Lees- of -bewerkingen per seconde
 
-Geaggregeerde waarden voor alle bestandssystemen kunnen worden verkregen door in te stellen `"condition": "IsAggregate=True"`. Waarden voor een specifieke gekoppeld bestandssysteem, zoals ' / mnt ', kunnen worden verkregen door in te stellen `"condition": 'Name="/mnt"'`.
+Geaggregeerde waarden voor alle bestandssystemen kunnen worden verkregen door in te stellen `"condition": "IsAggregate=True"`. Waarden voor een specifieke gekoppeld bestandssysteem, zoals ' / mnt ', kunnen worden verkregen door in te stellen `"condition": 'Name="/mnt"'`. 
+
+**OPMERKING**: Als de Azure-Portal in plaats van de JSON, is de juiste voorwaarde veld vorm naam ='/ mnt'
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>ingebouwde metrische gegevens voor de schijf-klasse
 

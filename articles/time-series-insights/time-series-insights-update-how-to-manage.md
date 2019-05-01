@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 85d5bb822bc9b89c68c70633a22a1bed74118f49
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a73be313daa3b45cabc2adb07bb3d2592c7d307e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758192"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725457"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Inrichten en beheren van Azure Time Series Insights Preview
 
@@ -92,11 +92,11 @@ U kunt uw Azure Time Series Insights Preview-omgeving beheren met behulp van de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lezen [uw omgeving plannen](./time-series-insights-update-plan.md).
+- Lezen [uw omgeving plannen](./time-series-insights-update-plan.md).
 
-Lezen [een event hub-bron toevoegen](./time-series-insights-how-to-add-an-event-source-eventhub.md).
+- Meer informatie over het [een event hub-bron toevoegen](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
-Lezen [een IoT hub-bron toevoegen](./time-series-insights-how-to-add-an-event-source-iothub.md).
+- Configureer [een IoT hub-bron](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
 <!-- Images -->
 [1]: media/v2-update-manage/manage_one.PNG

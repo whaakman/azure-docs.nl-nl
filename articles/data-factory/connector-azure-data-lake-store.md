@@ -10,27 +10,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 433824c4e375cf1ce7d7a6fe16730044628ccab1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2f315911d79c46810faf720c017cc1f72d5592d7
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001623"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876810"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen1 met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-azure-datalake-connector.md)
 > * [Huidige versie](connector-azure-data-lake-store.md)
 
-In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren naar en van Azure Data Lake Storage Gen1 (voorheen bekend als Azure Data Lake Store). Dit is gebaseerd op de [overzicht van Kopieeractiviteit](copy-activity-overview.md).
+In dit artikel bevat een overzicht van hoe u gegevens kopiëren naar en van Azure Data Lake Storage Gen1 (ADLS Gen1). Lees voor meer informatie over Azure Data Factory, de [inleidende artikel](introduction.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens kopiëren van een ondersteund brongegevensarchief naar Azure Data Lake Store, of gegevens van Azure Data Lake Store kopiëren naar een ondersteunde sink-gegevensopslag. Zie de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+Deze connector Azure Data Lake Storage Gen1 wordt ondersteund voor de volgende activiteiten:
 
-Specifiek, ondersteunt deze Azure Data Lake Store-connector:
+- [Kopieeractiviteit](copy-activity-overview.md) met [ondersteunde bron/sink-matrix](copy-activity-overview.md)
+- [Toewijzing van de gegevensstroom](concepts-data-flow-overview.md)
+- [Activiteit Lookup](control-flow-lookup-activity.md)
+- [De activiteit GetMetadata](control-flow-get-metadata-activity.md)
+
+Deze connector ondersteunt name:
 
 - Kopiëren van bestanden met behulp van een van de volgende methoden voor verificatie: **service-principal** of **beheerde identiteiten voor een Azure-resources**.
 - Kopiëren van bestanden als-is, of parsering of genereren van bestanden met de [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md).
@@ -70,7 +75,7 @@ De Toepassingsentiteit van een registreren in Azure Active Directory voor het ge
 >[!IMPORTANT]
 > Zorg ervoor dat u verleent de service principal juiste machtiging in Data Lake Store:
 >- **Als bron**: In **Data explorer** > **toegang**, ten minste verlenen **lees- en uitvoeringsmachtigingen** toestemming voor het weergeven en kopieer de bestanden in mappen en submappen. Of u kunt verlenen **lezen** machtiging voor het kopiëren van een enkel bestand. U kunt kiezen om toe te voegen aan **deze map en alle onderliggende** voor recursieve, en toevoegen als **een toegangsmachtiging en een standaardmachtiging**. Er is geen vereiste op account niveau toegangsbeheer (IAM).
->- **Als sink**: In **Data explorer** > **toegang**, ten minste verlenen **schrijven + uitvoeren** machtiging voor het maken van onderliggende items in de map. U kunt kiezen om toe te voegen aan **deze map en alle onderliggende** voor recursieve, en toevoegen als **een toegangsmachtiging en een standaardmachtiging**. Als u Azure-integratie-runtime gebruiken om te kopiëren (bron en sink zijn in de cloud), verleen in IAM, ten minste de **lezer** rol om te kunnen detecteren van de regio voor Data Lake Store met Data Factory. Als u wilt om te voorkomen dat deze rol IAM expliciet [maken van een Azure integratieruntime](create-azure-integration-runtime.md#create-azure-ir) door de locatie van Data Lake Store. Koppel deze in de Data Lake Store gekoppelde service als in het volgende voorbeeld.
+>- **Als sink**: In **Data explorer** > **toegang**, ten minste verlenen **schrijven + uitvoeren** machtiging voor het maken van onderliggende items in de map. U kunt kiezen om toe te voegen aan **deze map en alle onderliggende** voor recursieve, en toevoegen als **een toegangsmachtiging en een standaardmachtiging**. Als u Azure-integratie-runtime gebruiken om te kopiëren (bron en sink zijn in de cloud), verleen in IAM, ten minste de **lezer** rol om te kunnen detecteren van de regio voor Data Lake Store met Data Factory. Als u wilt om te voorkomen dat deze rol IAM expliciet [maken van een Azure integratieruntime](create-azure-integration-runtime.md#create-azure-ir) door de locatie van Data Lake Store. Bijvoorbeeld, als uw Data Lake Store in West-Europa is, een Azure integratieruntime maken met de locatie ingesteld op 'West-Europa'. Koppel deze in de Data Lake Store gekoppelde service zoals in het volgende voorbeeld.
 
 >[!NOTE]
 >Aan de lijst met mappen begint vanuit de hoofdmap, moet u de machtiging van de service-principal wordt verleend aan instellen **op hoofdniveau met de machtiging 'Uitvoeren'**. Dit geldt wanneer u de:
@@ -156,7 +161,54 @@ In Azure Data Factory moet u niet alle eigenschappen naast de algemene informati
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Om gegevens te kopiëren naar en van Azure Data Lake Store, stel de `type` eigenschap van de gegevensset in **AzureDataLakeStoreFile**. De volgende eigenschappen worden ondersteund:
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. 
+
+- Voor **Parquet en gescheiden tekstopmaak**, verwijzen naar [Parquet en tekst met scheidingstekens indeling gegevensset](#parquet-and-delimited-text-format-dataset) sectie.
+- Voor andere indelingen, zoals **ORC/Avro/JSON/binaire indeling**, verwijzen naar [andere gegevensset indeling](#other-format-dataset) sectie.
+
+### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet en tekst met scheidingstekens indeling gegevensset
+
+Het kopiëren van gegevens naar en van ADLS Gen1 in **Parquet of gescheiden tekstopmaak**, verwijzen naar [Parquet-indeling](format-parquet.md) en [gescheiden tekstopmaak](format-delimited-text.md) artikel op de gegevensset op basis van indeling en ondersteunde instellingen. De volgende eigenschappen worden ondersteund voor ADLS Gen1 onder `location` instellingen in de indeling op basis van gegevensset:
+
+| Eigenschap   | Description                                                  | Vereist |
+| ---------- | ------------------------------------------------------------ | -------- |
+| type       | De eigenschap type onder `location` in de gegevensset moet worden ingesteld op **AzureDataLakeStoreLocation**. | Ja      |
+| folderPath | Het pad naar map. Als u wilt met jokertekens map filteren, deze instelling overslaan en geef in instellingen voor de bron. | Nee       |
+| fileName   | De naam van het bestand onder het opgegeven mappad. Als u wilt een jokerteken gebruiken om te filteren van bestanden, deze instelling overslaan en geef in instellingen voor de bron. | Nee       |
+
+> [!NOTE]
+>
+> **AzureDataLakeStoreFile** type gegevensset met Parquet/tekstindeling die worden vermeld in de volgende sectie wordt nog steeds ondersteund als-is voor het kopiëren/Lookup/de GET metadata activity voor compatibiliteit met eerdere versies, maar werkt niet met gegevensstroom toewijzen. U gebruik van dit nieuwe model voortaan worden voorgesteld, en de gebruikersinterface ontwerpen ADF is overgeschakeld naar deze nieuwe typen genereren.
+
+**Voorbeeld:**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<ADLS Gen1 linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "AzureDataLakeStoreLocation",
+                "folderPath": "root/folder/subfolder"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### <a name="other-format-dataset"></a>Andere indeling-gegevensset
+
+Het kopiëren van gegevens naar en van ADLS Gen1 in **ORC/Avro/JSON/binaire indeling**, de volgende eigenschappen worden ondersteund:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
@@ -208,23 +260,87 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 ### <a name="azure-data-lake-store-as-source"></a>Azure Data Lake Store als bron
 
-Om gegevens te kopiëren van Data Lake Store, stelt u het brontype in de Kopieeractiviteit naar **AzureDataLakeStoreSource**. De volgende eigenschappen worden ondersteund in de Kopieeractiviteit **bron** sectie:
+- Voor het kopiëren van **Parquet en gescheiden tekstopmaak**, verwijzen naar [Parquet en tekst met scheidingstekens indeling bron](#parquet-and-delimited-text-format-source) sectie.
+- Voor het kopiëren van andere indelingen, zoals **ORC/Avro/JSON/binaire indeling**, verwijzen naar [andere bron indeling](#other-format-source) sectie.
 
-| Eigenschap | Description | Vereist |
-|:--- |:--- |:--- |
-| type | De `type` eigenschap van de Kopieeractiviteit-bron moet worden ingesteld op: **AzureDataLakeStoreSource**. |Ja |
-| recursieve | Geeft aan of de gegevens recursief worden gelezen uit de submappen of alleen voor de opgegeven map. Houd er rekening mee dat wanneer `recursive` is ingesteld op true en de sink is een bestandsgebaseerde opslag, een lege map of submap is niet gekopieerd of gemaakt in de sink. Toegestane waarden zijn: **waar** (standaard) en **false**. | Nee |
+#### <a name="parquet-and-delimited-text-format-source"></a>Parquet en tekst met scheidingstekens indeling bron
+
+Het kopiëren van gegevens van ADLS Gen1 in **Parquet of gescheiden tekstopmaak**, verwijzen naar [Parquet-indeling](format-parquet.md) en [gescheiden tekstopmaak](format-delimited-text.md) artikel op de bron voor kopiëren-indeling op basis van activiteit en ondersteunde instellingen. De volgende eigenschappen worden ondersteund voor ADLS Gen1 onder `storeSettings` instellingen in de bron voor kopiëren-indeling op basis van:
+
+| Eigenschap                 | Description                                                  | Vereist                                      |
+| ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
+| type                     | De eigenschap type onder `storeSettings` moet worden ingesteld op **AzureDataLakeStoreReadSetting**. | Ja                                           |
+| recursieve                | Geeft aan of de gegevens recursief worden gelezen uit de submappen of alleen voor de opgegeven map. Houd er rekening mee dat wanneer recursieve is ingesteld op true en de sink is een opslagplaats op basis van bestanden, een lege map of submap is niet gekopieerd of gemaakt in de sink. Toegestane waarden zijn **waar** (standaard) en **false**. | Nee                                            |
+| wildcardFolderPath       | Het pad met jokertekens voor het filteren van bronmappen. <br>Jokertekens zijn toegestaan: `*` (komt overeen met nul of meer tekens) en `?` (komt overeen met nul of één teken); Gebruik `^` als escape voor als de naam van uw map zelf jokertekens of deze escape-teken in. <br>Meer voorbeelden in [mappen en bestanden filteren voorbeelden](#folder-and-file-filter-examples). | Nee                                            |
+| wildcardFileName         | De naam van het bestand met jokertekens onder het opgegeven mappad/wildcardFolderPath naar de bronbestanden filter. <br>Jokertekens zijn toegestaan: `*` (komt overeen met nul of meer tekens) en `?` (komt overeen met nul of één teken); Gebruik `^` als escape voor als de naam van uw map zelf jokertekens of deze escape-teken in.  Meer voorbeelden in [mappen en bestanden filteren voorbeelden](#folder-and-file-filter-examples). | Ja als `fileName` niet is opgegeven in de gegevensset |
+| modifiedDatetimeStart    | Bestanden filteren op basis van het kenmerk: Het laatst is gewijzigd. De bestanden worden geselecteerd als hun laatst gewijzigd binnen het tijdsinterval tussen zijn `modifiedDatetimeStart` en `modifiedDatetimeEnd`. De tijd wordt toegepast op de UTC-tijdzone in de notatie ' 2018-12-01T05:00:00Z '. <br> De eigenschappen is NULL. Dit betekent dat er geen kenmerk bestandsfilter worden toegepast op de gegevensset.  Wanneer `modifiedDatetimeStart` datum / tijdwaarde heeft, maar `modifiedDatetimeEnd` NULL is, betekent dit dat de bestanden waarvan het kenmerk Laatst gewijzigde groter dan is of gelijk is aan de datum / tijdwaarde wordt geselecteerd.  Wanneer `modifiedDatetimeEnd` datum / tijdwaarde heeft, maar `modifiedDatetimeStart` NULL is, betekent dit dat de bestanden waarvan het kenmerk Laatst gewijzigde lager is dan de datum / tijdwaarde wordt geselecteerd. | Nee                                            |
+| modifiedDatetimeEnd      | Hetzelfde als hierboven.                                               | Nee                                            |
+| maxConcurrentConnections | Het nummer van de verbindingen gelijktijdig verbinding maken met opslag-store. Geef alleen als u wilt beperken, de gelijktijdige verbinding met het gegevensarchief. | Nee                                            |
+
+> [!NOTE]
+> Voor Parquet/gescheiden tekstopmaak **AzureDataLakeStoreSource** type activiteit kopieerbron vermeld in de volgende sectie wordt nog steeds ondersteund als-is voor voor achterwaartse compatibiliteit. U gebruik van dit nieuwe model voortaan worden voorgesteld, en de gebruikersinterface ontwerpen ADF is overgeschakeld naar deze nieuwe typen genereren.
 
 **Voorbeeld:**
 
 ```json
 "activities":[
     {
-        "name": "CopyFromADLS",
+        "name": "CopyFromADLSGen1",
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<ADLS input dataset name>",
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "AzureDataLakeStoreReadSetting",
+                    "recursive": true,
+                    "wildcardFolderPath": "myfolder*A",
+                    "wildcardFileName": "*.csv"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-source"></a>De bron van andere indeling
+
+Het kopiëren van gegevens van ADLS Gen1 in **ORC/Avro/JSON/binaire indeling**, de volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
+
+| Eigenschap | Description | Vereist |
+|:--- |:--- |:--- |
+| type | De `type` eigenschap van de Kopieeractiviteit-bron moet worden ingesteld op: **AzureDataLakeStoreSource**. |Ja |
+| recursieve | Geeft aan of de gegevens recursief worden gelezen uit de submappen of alleen voor de opgegeven map. Houd er rekening mee dat wanneer `recursive` is ingesteld op true en de sink is een bestandsgebaseerde opslag, een lege map of submap is niet gekopieerd of gemaakt in de sink. Toegestane waarden zijn: **waar** (standaard) en **false**. | Nee |
+| maxConcurrentConnections | Het nummer van de verbindingen gelijktijdig verbinding maken met het gegevensarchief. Geef alleen als u wilt beperken, de gelijktijdige verbinding met het gegevensarchief. | Nee |
+
+**Voorbeeld:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromADLSGen1",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<ADLS Gen1 input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -249,19 +365,28 @@ Om gegevens te kopiëren van Data Lake Store, stelt u het brontype in de Kopieer
 
 ### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store als sink
 
-Om gegevens te kopiëren naar Data Lake Store, stelt u het sink-type in de Kopieeractiviteit naar **AzureDataLakeStoreSink**. De volgende eigenschappen worden ondersteund in de **sink** sectie:
+- Voor kopiëren naar **Parquet en gescheiden tekstopmaak**, verwijzen naar [Parquet en tekst met scheidingstekens indeling sink](#parquet-and-delimited-text-format-sink) sectie.
+- Voor het kopiëren naar andere indelingen, zoals **ORC/Avro/JSON/binaire indeling**, verwijzen naar [andere indeling sink](#other-format-sink) sectie.
 
-| Eigenschap | Description | Vereist |
-|:--- |:--- |:--- |
-| type | De `type` eigenschap van de Copy-activiteit-sink moet zijn ingesteld op: **AzureDataLakeStoreSink**. |Ja |
-| copyBehavior | Definieert het gedrag kopiëren wanneer de bron bestanden vanuit een bestandsgebaseerde gegevensarchief is.<br/><br/>Toegestane waarden zijn:<br/><b>-PreserveHierarchy (standaard)</b>: behoudt de bestandshiërarchie in de doelmap. Het relatieve pad van het bronbestand voor de bronmap is identiek aan het relatieve pad van de doel-bestand naar de doelmap.<br/><b>-FlattenHierarchy</b>: alle bestanden uit de bronmap van het zich in het eerste niveau van de doelmap. De doelbestanden hebben automatisch gegenereerde namen. <br/><b>-MergeFiles</b>: alle bestanden uit de bronmap naar één bestand worden samengevoegd. Als de naam van de bestands-/ blob is opgegeven, is de naam van het samengevoegde de opgegeven naam. Anders is de naam van het automatisch gegenereerde. | Nee |
+#### <a name="parquet-and-delimited-text-format-sink"></a>Parquet en tekst met scheidingstekens indeling sink
+
+Gegevens kopiëren naar ADLS Gen1 in **Parquet of gescheiden tekstopmaak**, verwijzen naar [Parquet-indeling](format-parquet.md) en [gescheiden tekstopmaak](format-delimited-text.md) artikel voor kopiëren-indeling op basis van activiteit-sink en ondersteunde instellingen. De volgende eigenschappen worden ondersteund voor ADLS Gen1 onder `storeSettings` instellingen in op basis van opmaak kopiëren sink:
+
+| Eigenschap                 | Description                                                  | Vereist |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| type                     | De eigenschap type onder `storeSettings` moet worden ingesteld op **AzureDataLakeStoreWriteSetting**. | Ja      |
+| copyBehavior             | Definieert het gedrag kopiëren wanneer de bron bestanden vanuit een bestandsgebaseerde gegevensarchief is.<br/><br/>Toegestane waarden zijn:<br/><b>-PreserveHierarchy (standaard)</b>: Hiermee behoudt u de bestandshiërarchie in de doelmap. Het relatieve pad van het bronbestand voor bronmap is identiek aan het relatieve pad van doelbestand naar doelmap.<br/><b>-FlattenHierarchy</b>: Alle bestanden uit de bronmap zijn in het eerste niveau van de doelmap. De doelbestanden hebben automatisch gegenereerde namen. <br/><b>-MergeFiles</b>: Hiermee worden alle bestanden uit de bronmap naar één bestand samengevoegd. Als de bestandsnaam is opgegeven, is de naam van het samengevoegde de opgegeven naam. Anders is de naam van een automatisch gegenereerde bestand. | Nee       |
+| maxConcurrentConnections | Het nummer van de verbindingen gelijktijdig verbinding maken met het gegevensarchief. Geef alleen als u wilt beperken, de gelijktijdige verbinding met het gegevensarchief. | Nee       |
+
+> [!NOTE]
+> Voor Parquet/gescheiden tekstopmaak **AzureDataLakeStoreSink** type activiteit-sink voor kopiëren die worden vermeld in de volgende sectie wordt nog steeds ondersteund als-is voor voor achterwaartse compatibiliteit. U gebruik van dit nieuwe model voortaan worden voorgesteld, en de gebruikersinterface ontwerpen ADF is overgeschakeld naar deze nieuwe typen genereren.
 
 **Voorbeeld:**
 
 ```json
 "activities":[
     {
-        "name": "CopyToADLS",
+        "name": "CopyToADLSGen1",
         "type": "Copy",
         "inputs": [
             {
@@ -271,7 +396,52 @@ Om gegevens te kopiëren naar Data Lake Store, stelt u het sink-type in de Kopie
         ],
         "outputs": [
             {
-                "referenceName": "<ADLS output dataset name>",
+                "referenceName": "<Parquet output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "ParquetSink",
+                "storeSettings":{
+                    "type": "AzureDataLakeStoreWriteSetting",
+                    "copyBehavior": "PreserveHierarchy"
+                }
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-sink"></a>Andere indeling-sink
+
+Gegevens kopiëren naar ADLS Gen1 in **ORC/Avro/JSON/binaire indeling**, de volgende eigenschappen worden ondersteund in de **sink** sectie:
+
+| Eigenschap | Description | Vereist |
+|:--- |:--- |:--- |
+| type | De `type` eigenschap van de Copy-activiteit-sink moet zijn ingesteld op: **AzureDataLakeStoreSink**. |Ja |
+| copyBehavior | Definieert het gedrag kopiëren wanneer de bron bestanden vanuit een bestandsgebaseerde gegevensarchief is.<br/><br/>Toegestane waarden zijn:<br/><b>-PreserveHierarchy (standaard)</b>: behoudt de bestandshiërarchie in de doelmap. Het relatieve pad van het bronbestand voor de bronmap is identiek aan het relatieve pad van de doel-bestand naar de doelmap.<br/><b>-FlattenHierarchy</b>: alle bestanden uit de bronmap van het zich in het eerste niveau van de doelmap. De doelbestanden hebben automatisch gegenereerde namen. <br/><b>-MergeFiles</b>: alle bestanden uit de bronmap naar één bestand worden samengevoegd. Als de bestandsnaam is opgegeven, is de naam van het samengevoegde de opgegeven naam. Anders is de naam van het automatisch gegenereerde. | Nee |
+| maxConcurrentConnections | Het nummer van de verbindingen gelijktijdig verbinding maken met het gegevensarchief. Geef alleen als u wilt beperken, de gelijktijdige verbinding met het gegevensarchief. | Nee |
+
+**Voorbeeld:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToADLSGen1",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<ADLS Gen1 output dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -312,5 +482,10 @@ In deze sectie beschrijft het resulterende gedrag van de kopieerbewerking voor d
 | false |flattenHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Het doel Map1 is gemaakt met de volgende structuur:<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/><br/>Subfolder1 bestand3 File4 en File5 worden niet doorgevoerd. |
 | false |mergeFiles | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Het doel Map1 is gemaakt met de volgende structuur:<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand1 + bestand2 inhoud worden samengevoegd in één bestand met automatisch gegenereerde naam. Automatisch gegenereerde naam voor File1<br/><br/>Subfolder1 bestand3 File4 en File5 worden niet doorgevoerd. |
 
+## <a name="mapping-data-flow-properties"></a>Eigenschappen van fouttoewijzing gegevensstroom
+
+Informatie over de details van [bron transformatie](data-flow-source.md) en [sink-transformatie](data-flow-sink.md) in de gegevensstroom toewijzen.
+
 ## <a name="next-steps"></a>Volgende stappen
+
 Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de Kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).

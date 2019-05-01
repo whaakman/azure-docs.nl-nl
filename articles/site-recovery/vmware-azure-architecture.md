@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/26/2019
 ms.author: raynew
-ms.openlocfilehash: d9fdd6f42e1443c0515c2c38496e9d474c87715c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c91629d24267d280edefdb7530e2614eb7be89fd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837423"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704882"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware naar Azure disaster recovery-architectuur
 
@@ -53,6 +53,7 @@ De volgende tabel en afbeelding vindt een weergave op hoog niveau van de onderde
     - De configuratieserver coördineert de replicatie met Azure via HTTPS-poort 443 uitgaande.
     - Virtuele machines verzenden replicatiegegevens naar de processerver (die wordt uitgevoerd op de server configuration) op HTTPS-poort 9443 inkomende. Deze poort kan worden gewijzigd.
     - De processerver ontvangt replicatiegegevens, optimaliseert en versleutelt deze en verzendt ze naar Azure storage via poort 443 uitgaande.
+5. De replicatiegegevens registreert eerste land in een cache-opslagaccount in Azure. Deze logboeken worden verwerkt en de gegevens worden opgeslagen in een door Azure beheerde schijf (met de naam als asr seed-schijf). De herstelpunten worden gemaakt op deze schijf.
 
 
 

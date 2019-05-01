@@ -2,31 +2,25 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/04/2018
+ms.date: 04/24/2019
 ms.author: glenga
-ms.openlocfilehash: 914c006daf49e22ebec870a549bfdbc63f882647
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: a3f75b7273164abc5318f16e9ab8d9883ff0c0aa
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55148077"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867330"
 ---
-## <a name="test"></a>De functie testen
+## <a name="test"></a>De functie testen in Azure
 
-Gebruik cURL om de geïmplementeerde functie te testen op een Mac- of Linux-computer of met Powershell op Windows. Voer de volgende cURL-opdracht uit, waarbij u de plaatsaanduiding `<app_name>` vervangt door de naam van de functie-app die u hebt gemaakt. Voeg de queryreeks `&name=<yourname>` toe aan de URL.
-
-```powershell
-Invoke-WebRequest -Uri "https://<app_name>.azurewebsites.net/api/MyHttpTrigger?name=<yourname>"
-```
+Gebruiken we cURL om de geïmplementeerde functie te testen. Met behulp van de URL die u hebt gekopieerd uit de vorige stap, voeg de queryreeks `&name=<yourname>` naar de URL, zoals in het volgende voorbeeld:
 
 ```bash
-curl https://<app_name>.azurewebsites.net/api/MyHttpTrigger?name=<yourname>
-```  
+curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
+```
 
-![Het antwoord van de functie weergegeven in een browser.](./media/functions-test-function-code/functions-azure-cli-function-test-curl.png)  
+![cURL gebruiken voor het aanroepen van de functie in Azure.](./media/functions-test-function-code/functions-azure-cli-function-test-curl.png) 
 
-Als `cURL` of `Invoke-WebRequest` niet beschikbaar is op uw opdrachtregel, moet u gewoon dezelfde URL opgeven op de adresbalk van uw webbrowser. Vervang weer de plaatsaanduiding `<app_name>` door de naam van uw functie-app, voeg de queryreeks `&name=<yourname>` toe aan de URL en voer de aanvraag uit.
+U kunt ook de gekopieerde URL in naar het adres van uw webbrowser plakken. Nogmaals, voeg de queryreeks `&name=<yourname>` naar de URL voordat u de aanvraag hebt uitgevoerd.
 
-    https://<app_name>.azurewebsites.net/api/MyHttpTrigger?name=<yourname>
-   
-![Het antwoord van de functie weergegeven in een browser.](./media/functions-test-function-code/functions-azure-cli-function-test-browser.png)  
+![Een webbrowser gebruiken voor de functie aanroepen.](./media/functions-test-function-code/functions-azure-cli-function-test-browser.png)  

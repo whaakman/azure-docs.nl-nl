@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3485639062f33d013152cd30f6785df4d1c79790
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ae0e87fddabee9f42cbb5506dce4cd7a5f4f082
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350240"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918858"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Azure AD Connect-database verplaatsen van SQL Server Express naar SQL Server 
 
@@ -25,7 +25,7 @@ In dit document wordt beschreven hoe u de Azure AD Connect-database verplaatst v
 ## <a name="about-this-scenario"></a>Over dit scenario
 Hier volgt kort wat informatie over dit scenario.  In dit scenario is Azure AD Connect-versie (1.1.819.0) geïnstalleerd op een enkele Windows Server 2016-domeincontroller.  Voor de bijbehorende database wordt gebruikgemaakt van het ingebouwde SQL Server 2012 Express Edition.  De database wordt verplaatst naar een SQL Server 2017-server.
 
-![](media/how-to-connect-install-move-db/move1.png)
+![Scenario-architectuur](media/how-to-connect-install-move-db/move1.png)
 
 ## <a name="move-the-azure-ad-connect-database"></a>De Azure AD Connect-database verplaatsen
 Voer de volgende stappen uit om de Azure AD Connect-database te verplaatsen naar een externe SQL-server.
@@ -37,7 +37,7 @@ Voer de volgende stappen uit om de Azure AD Connect-database te verplaatsen naar
 5. Open SQL Server Management Studio op de externe SQL-server.
 6. Klik met de rechtermuisknop op Databases en selecteer Bijvoegen.
 7. Klik op het scherm **Databases bijvoegen** op **Toevoegen** en ga naar het bestand ADSync.mdf.  Klik op **OK**.
-   ![](media/how-to-connect-install-move-db/move2.png)
+   ![database koppelen](media/how-to-connect-install-move-db/move2.png)
 
 8. Zodra de database is bijgevoegd, gaat u terug naar de Azure AD Connect-server en installeert u Azure AD Connect.
 9. Zodra de MSI-installatie is voltooid, wordt de wizard Azure AD Connect gestart met de Express-installatiemodus. Sluit het scherm door op het pictogram Afsluiten te klikken.

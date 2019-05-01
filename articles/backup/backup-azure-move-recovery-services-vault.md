@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 8d5d6ed6c14927c57279cf500518f3b3a86d591d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 72bfbc34f57e7725ae9556e893825900474317cb
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699762"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876851"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Een Recovery Services-kluis verplaatsen tussen Azure-abonnementen en resourcegroepen
 
@@ -21,7 +21,7 @@ In dit artikel wordt uitgelegd hoe u een Recovery Services-kluis geconfigureerd 
 
 ## <a name="supported-region"></a>Ondersteunde regio
 
-Verplaatsen van de resource voor de Recovery Services-kluis wordt ondersteund in Australië-Oost, Australië-Zuidoost, Canada-centraal, Canada-Oost, Zuidoost-Azië, Oost-Azië, VS-midden, Noord-centraal VS, VS-Oost, VS-Oost 2, Zuid-centraal VS, West-Centraal VS, West-Centraal 2, VS-West Centraal-India, Zuid-India, Japan-Oost, Japan-West, Korea centraal, Korea Zuid, Noord-Europa, West-Europa, Zuid-Afrika Noord, Zuid-Afrika West, UK-Zuid, UK-West, VAE-centraal en VAE-Noord.
+Verplaatsen van de resource voor de Recovery Services-kluis wordt ondersteund in Australië-Oost, Australië-Zuidoost, Canada-centraal, Canada-Oost, Zuidoost-Azië, Oost-Azië, VS-midden, Noord-centraal VS, VS-Oost, VS-Oost 2, Zuid-centraal VS, West-Centraal VS, West-Centraal 2, VS-West Centraal-India, Zuid-India, Japan-Oost, Japan-West, Korea centraal, Korea Zuid, Noord-Europa, West-Europa, Zuid-Afrika Noord, Zuid-Afrika West, UK-Zuid en UK-West.
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Vereisten voor het verplaatsen van Recovery Services-kluis
 

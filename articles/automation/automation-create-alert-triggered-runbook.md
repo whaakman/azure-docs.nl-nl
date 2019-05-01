@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 88fe7740170638e9e0d7398a02dcf83ab81f6ffc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 892906089ae3538b3427d97165173fd82621f58a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61073849"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920015"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Gebruik van een waarschuwing voor het activeren van een Azure Automation-runbook
 
@@ -22,18 +22,22 @@ U kunt [Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2f
 
 ## <a name="alert-types"></a>Waarschuwingstypen
 
-U kunt automation-runbooks met drie typen waarschuwingen:
-* Klassieke metrische waarschuwingen
+U kunt automation-runbooks met vier typen waarschuwingen:
+
+* Algemene waarschuwingen
 * Waarschuwingen voor activiteitenlogboeken
 * Bijna realtime metrische waarschuwingen
+
+> [!NOTE]
+> Het algemene schema van de waarschuwing standaardiseert vandaag nog de ervaring voor waarschuwingen in Azure. De drie typen waarschuwingen in Azure vandaag (metrische gegevens, logboeken en het activiteitenlogboek) hebben in het verleden had hun eigen e-mailsjablonen, webhook-schema's, enzovoort. Zie voor meer informatie, [algemene waarschuwing schema](../azure-monitor/platform/alerts-common-schema.md)
 
 Wanneer een waarschuwing een runbook aanroept, wordt de werkelijke aanroep een HTTP POST-aanvraag naar de webhook. De hoofdtekst van de POST-aanvraag bevat een JSON-indeling-object dat is nuttige eigenschappen die betrekking op de waarschuwing hebben. De volgende tabel bevat koppelingen naar het schema van de nettolading voor elk type waarschuwing:
 
 |Waarschuwing  |Description|De nettolading van schema  |
 |---------|---------|---------|
-|[Klassieke metrische waarschuwing](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    |Verzendt een melding wanneer elke meetwaarde platform-niveau voldoet aan een bepaalde voorwaarde. Bijvoorbeeld, wanneer de waarde voor **CPU-percentage** op een virtuele machine is groter dan **90** voor de afgelopen vijf minuten.| [Metrische alert payload-klasseschema](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
+|[Algemene waarschuwing](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Het algemene waarschuwing schema die de ervaring voor waarschuwingen in Azure vandaag standaardiseert.|[Algemene alert payload schema](../azure-monitor/platform/alerts-common-schema-definitions.md?toc=%2fazure%2fautomation%2ftoc.json#sample-alert-payload)|
 |[Waarschuwing voor activiteitenlogboek](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Een melding wordt verzonden wanneer een nieuwe gebeurtenis in het Azure-activiteitenlogboek voldoet aan bepaalde voorwaarden. Bijvoorbeeld, wanneer een `Delete VM` bewerking wordt uitgevoerd **myProductionResourceGroup** of wanneer een nieuwe Azure Service Health-gebeurtenis met een **Active** status wordt weergegeven.| [Activiteit log alert payload schema](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
-|[Bijna realtime metrische waarschuwing](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Verzendt een melding sneller dan metrische waarschuwingen wanneer een of meer platform-niveau metrische gegevens voldoen aan opgegeven voorwaarden. Bijvoorbeeld, wanneer de waarde voor **CPU-percentage** op een virtuele machine is groter dan **90**, en de waarde voor **netwerk In** groter is dan **500 MB** gedurende de afgelopen 5 minuten.| [Bijna realtime metrische alert payload schema](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
+|[Bijna realtime metrische waarschuwing](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Verzendt een melding sneller dan metrische waarschuwingen wanneer een of meer platform-niveau metrische gegevens voldoen aan opgegeven voorwaarden. Bijvoorbeeld, wanneer de waarde voor **CPU-percentage** op een virtuele machine is groter dan **90**, en de waarde voor **netwerk In** groter is dan **500 MB** gedurende de afgelopen 5 minuten.| [Bijna realtime metrische alert payload schema](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
 Omdat de gegevens die wordt geleverd door elk type waarschuwing anders is, wordt elk type waarschuwing wordt anders afgehandeld. In de volgende sectie leert u hoe een runbook voor het afhandelen van verschillende typen waarschuwingen te maken.
 
@@ -50,96 +54,78 @@ Maakt gebruik van het runbook de **AzureRunAsConnection** [uitvoeren als-account
 In dit voorbeeld gebruiken om te maken van een runbook met de naam **Stop-AzureVmInResponsetoVMAlert**. U kunt het PowerShell-script wijzigen en deze gebruiken met veel verschillende bronnen.
 
 1. Ga naar uw Azure Automation-account.
-1. Onder **PROCESAUTOMATISERING**, selecteer **Runbooks**.
-1. Selecteer aan de bovenkant van de lijst met runbooks, **een runbook toevoegen**. 
-1. Selecteer op de pagina **Runbook toevoegen** de optie **Snel maken**.
-1. Voer voor de runbooknaam **Stop-AzureVmInResponsetoVMAlert**. Selecteer voor het runbooktype **PowerShell**. Ten slotte selecteert u **Create**.  
-1. Kopieer de volgende PowerShell-voorbeeld in de **bewerken** deelvenster. 
+2. Onder **procesautomatisering**, selecteer **Runbooks**.
+3. Selecteer aan de bovenkant van de lijst met runbooks, **+ maken van een runbook**.
+4. Op de **Runbook toevoegen** pagina **Stop-AzureVmInResponsetoVMAlert** voor de naam van het runbook. Selecteer voor het runbooktype **PowerShell**. Ten slotte selecteert u **Create**.  
+5. Kopieer de volgende PowerShell-voorbeeld in de **bewerken** pagina.
 
     ```powershell-interactive
-    <#
-    .SYNOPSIS
-    This runbook stops a resource management VM in response to an Azure alert trigger.
-
-    .DESCRIPTION
-    This runbook stops a resource management VM in response to an Azure alert trigger.
-    The input is alert data that has the information required to identify which VM to stop.
-    
-    DEPENDENCIES
-    - The runbook must be called from an Azure alert via a webhook.
-    
-    REQUIRED AUTOMATION ASSETS
-    - An Automation connection asset called "AzureRunAsConnection" that is of type AzureRunAsConnection.
-    - An Automation certificate asset called "AzureRunAsCertificate".
-
-    .PARAMETER WebhookData
-    Optional. (The user doesn't need to enter anything, but the service always passes an object.)
-    This is the data that's sent in the webhook that's triggered from the alert.
-
-    .NOTES
-    AUTHOR: Azure Automation Team
-    LASTEDIT: 2017-11-22
-    #>
-
-    [OutputType("PSAzureOperationResponse")]
-
-    param
-    (
-        [Parameter (Mandatory=$false)]
-        [object] $WebhookData
-    )
-
-    $ErrorActionPreference = "stop"
-
     if ($WebhookData)
     {
-        # Get the data object from WebhookData.
+        # Get the data object from WebhookData
         $WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
 
-        # Get the info needed to identify the VM (depends on the payload schema).
+        # Get the info needed to identify the VM (depends on the payload schema)
         $schemaId = $WebhookBody.schemaId
         Write-Verbose "schemaId: $schemaId" -Verbose
-        if ($schemaId -eq "AzureMonitorMetricAlert") {
+        if ($schemaId -eq "azureMonitorCommonAlertSchema") {
+            # This is the common Metric Alert schema (released March 2019)
+            $Essentials = [object] ($WebhookBody.data).essentials
+            # Get the first target only as this script doesn't handle multiple
+            $alertTargetIdArray = (($Essentials.alertTargetIds)[0]).Split("/")
+            $SubId = ($alertTargetIdArray)[2]
+            $ResourceGroupName = ($alertTargetIdArray)[4]
+            $ResourceType = ($alertTargetIdArray)[6] + "/" + ($alertTargetIdArray)[7]
+            $ResourceName = ($alertTargetIdArray)[-1]
+            $status = $Essentials.monitorCondition
+        }
+        elseif ($schemaId -eq "AzureMonitorMetricAlert") {
             # This is the near-real-time Metric Alert schema
             $AlertContext = [object] ($WebhookBody.data).context
+            $SubId = $AlertContext.subscriptionId
+            $ResourceGroupName = $AlertContext.resourceGroupName
+            $ResourceType = $AlertContext.resourceType
             $ResourceName = $AlertContext.resourceName
             $status = ($WebhookBody.data).status
         }
         elseif ($schemaId -eq "Microsoft.Insights/activityLogs") {
             # This is the Activity Log Alert schema
             $AlertContext = [object] (($WebhookBody.data).context).activityLog
+            $SubId = $AlertContext.subscriptionId
+            $ResourceGroupName = $AlertContext.resourceGroupName
+            $ResourceType = $AlertContext.resourceType
             $ResourceName = (($AlertContext.resourceId).Split("/"))[-1]
             $status = ($WebhookBody.data).status
         }
         elseif ($schemaId -eq $null) {
             # This is the original Metric Alert schema
             $AlertContext = [object] $WebhookBody.context
+            $SubId = $AlertContext.subscriptionId
+            $ResourceGroupName = $AlertContext.resourceGroupName
+            $ResourceType = $AlertContext.resourceType
             $ResourceName = $AlertContext.resourceName
             $status = $WebhookBody.status
         }
         else {
-            # The schema isn't supported.
+            # Schema not supported
             Write-Error "The alert data schema - $schemaId - is not supported."
         }
 
         Write-Verbose "status: $status" -Verbose
-        if ($status -eq "Activated")
+        if (($status -eq "Activated") -or ($status -eq "Fired"))
         {
-            $ResourceType = $AlertContext.resourceType
-            $ResourceGroupName = $AlertContext.resourceGroupName
-            $SubId = $AlertContext.subscriptionId
             Write-Verbose "resourceType: $ResourceType" -Verbose
             Write-Verbose "resourceName: $ResourceName" -Verbose
             Write-Verbose "resourceGroupName: $ResourceGroupName" -Verbose
             Write-Verbose "subscriptionId: $SubId" -Verbose
 
-            # Use this only if this is a resource management VM.
+            # Determine code path depending on the resourceType
             if ($ResourceType -eq "Microsoft.Compute/virtualMachines")
             {
-                # This is the VM.
-                Write-Verbose "This is a resource management VM." -Verbose
+                # This is an Resource Manager VM
+                Write-Verbose "This is an Resource Manager VM." -Verbose
 
-                # Authenticate to Azure by using the service principal and certificate. Then, set the subscription.
+                # Authenticate to Azure with service principal and certificate and set subscription
                 Write-Verbose "Authenticating to Azure with service principal and certificate" -Verbose
                 $ConnectionAssetName = "AzureRunAsConnection"
                 Write-Verbose "Get connection asset: $ConnectionAssetName" -Verbose
@@ -149,22 +135,22 @@ In dit voorbeeld gebruiken om te maken van een runbook met de naam **Stop-AzureV
                     throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
                 }
                 Write-Verbose "Authenticating to Azure with service principal." -Verbose
-                Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
+                Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
                 Write-Verbose "Setting subscription to work against: $SubId" -Verbose
                 Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
 
-                # Stop the VM.
+                # Stop the Resource Manager VM
                 Write-Verbose "Stopping the VM - $ResourceName - in resource group - $ResourceGroupName -" -Verbose
                 Stop-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -Force
                 # [OutputType(PSAzureOperationResponse")]
             }
             else {
-                # ResourceType isn't supported.
+                # ResourceType not supported
                 Write-Error "$ResourceType is not a supported resource type for this runbook."
             }
         }
         else {
-            # The alert status was not 'Activated', so no action taken.
+            # The alert status was not 'Activated' or 'Fired' so no action taken
             Write-Verbose ("No action taken. Alert status: " + $status) -Verbose
         }
     }
@@ -173,58 +159,31 @@ In dit voorbeeld gebruiken om te maken van een runbook met de naam **Stop-AzureV
         Write-Error "This runbook is meant to be started from an Azure alert webhook only."
     }
     ```
-1. Selecteer **publiceren** opslaan en publiceren van het runbook.
 
-## <a name="create-an-action-group"></a>Een actiegroep maken
+6. Selecteer **publiceren** opslaan en publiceren van het runbook.
 
-Een actiegroep is een verzameling van acties die worden geactiveerd door een waarschuwing. Runbooks zijn slechts een van de vele acties die u met actiegroepen gebruiken kunt.
+## <a name="create-the-alert"></a>De waarschuwing maken
 
-1. Selecteer in de Azure portal, **Monitor** > **instellingen** > **actiegroepen**.
-1. Selecteer **actiegroep toevoegen**, en voer vervolgens de vereiste gegevens:  
-    1. In de **naam van de actiegroep** vak, voer een naam in.
-    1. In de **afkorting** vak, voer een naam in. De korte naam wordt gebruikt in plaats van een volledige groep actienaam wanneer meldingen worden verzonden met behulp van deze actiegroep.
-    1. De **abonnement** vak wordt automatisch ingevuld met uw huidige abonnement. Dit is het abonnement waarin de actiegroep is opgeslagen.
-    1. Selecteer de resourcegroep waarin de actiegroep is opgeslagen.
+Waarschuwingen gebruiken actiegroepen, oftewel verzamelingen van acties die worden geactiveerd door de waarschuwing. Runbooks zijn slechts een van de vele acties die u met actiegroepen gebruiken kunt.
 
-In dit voorbeeld maakt u twee acties: een actie runbook en een melding.
-
-### <a name="runbook-action"></a>Runbook-actie
-
-Een runbook-actie in de actiegroep maken:
-
-1. Onder **acties**, voor **ACTIENAAM**, voer een naam voor de actie. Voor **ACTIETYPE**, selecteer **Automation-Runbook**.
-1. Onder **DETAILS**, selecteer **Details bewerken**.  
-1. Op de **Runbook configureren** pagina onder **runbookbron**, selecteer **gebruiker**.  
+1. Selecteer in uw Automation-Account **waarschuwingen** onder **bewaking**.
+1. Selecteer **+ nieuwe waarschuwingsregel**.
+1. Klik op **Selecteer** onder **Resource**. Op de **selecteert u een resource** pagina, selecteer de virtuele machine op waarschuwing afmelden en klikt u op **gedaan**.
+1. Klik op **voorwaarde toevoegen** onder **voorwaarde**. Selecteer het signaal dat u gebruiken wilt, bijvoorbeeld **Percentage CPU** en klikt u op **gedaan**.
+1. Op de **signaallogica configureren** pagina, Voer uw **drempelwaarde** onder **waarschuwen logische**, en klikt u op **gedaan**.
+1. Selecteer onder **Actiegroepen** de optie **Nieuwe maken**.
+1. Op de **actiegroep toevoegen** pagina, Geef uw actiegroep een naam en een korte naam.
+1. Geef een naam op de actie. Selecteer voor het actietype **Automation-Runbook**.
+1. Selecteer **Details bewerken**. Op de **Runbook configureren** pagina onder **runbookbron**, selecteer **gebruiker**.  
 1. Selecteer uw **abonnement** en **Automation-account**, en selecteer vervolgens de **Stop-AzureVmInResponsetoVMAlert** runbook.  
-1. Wanneer u klaar bent, selecteert u **OK**.
-
-### <a name="notification-action"></a>Meldingsactie
-
-Een meldingsactie in de actiegroep maken:
-
-1. Onder **acties**, voor **ACTIENAAM**, voer een naam voor de actie. Voor **ACTIETYPE**, selecteer **e**.  
-1. Onder **DETAILS** selecteert, **Details bewerken**.  
-1. Op de **e** pagina, typ de e-mailadres gebruiken voor meldingen en selecteer vervolgens **OK**. Een e-mailadres naast het runbook als een actie toe te voegen is handig. U wordt gewaarschuwd wanneer het runbook wordt gestart.  
-
-    De actiegroep moet er uitzien zoals in de volgende afbeelding:
-
-   ![Actie groepspagina toevoegen](./media/automation-create-alert-triggered-runbook/add-action-group.png)
+1. Selecteer **Ja** voor **inschakelen van het algemene schema van de waarschuwing**.
 1. Voor het maken van de actiegroep selecteert **OK**.
 
-U kunt deze actiegroep in de [waarschuwingen voor activiteitenlogboeken](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) en [bijna in realtime waarschuwingen](../azure-monitor/platform/alerts-overview.md?toc=%2fazure%2fautomation%2ftoc.json) die u maakt.
+    ![Actie groepspagina toevoegen](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 
-## <a name="classic-alert"></a>Klassieke waarschuwing
+    U kunt deze actiegroep in de [waarschuwingen voor activiteitenlogboeken](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) en [bijna in realtime waarschuwingen](../azure-monitor/platform/alerts-overview.md?toc=%2fazure%2fautomation%2ftoc.json) die u maakt.
 
-Klassieke waarschuwingen zijn gebaseerd op de metrische gegevens en gebruik geen actiegroepen. U kunt echter een runbook-actie op basis van een klassieke waarschuwing instellen. 
-
-Een klassieke waarschuwing maken:
-
-1. Selecteer **Waarschuwing voor metrische gegevens toevoegen**.
-1. Naam van de waarschuwing voor metrische gegevens **myVMCPUAlert**. Geef een korte beschrijving voor de waarschuwing.
-1. Selecteer voor de waarschuwing metrische **groter is dan**. Voor de **drempelwaarde** waarde, selecteer **10**. Voor de **periode** waarde, selecteer **in de afgelopen vijf minuten**.
-1. Onder **actie ondernemen**, selecteer **een runbook uitvoeren vanuit deze waarschuwing**.
-1. Op de **Runbook configureren** pagina voor **runbookbron**, selecteer **gebruiker**. Kies uw automation-account en selecteer vervolgens de **Stop-AzureVmInResponsetoVMAlert** runbook. Selecteer **OK**.
-1. Als u wilt de waarschuwingsregel opslaan, selecteert u **OK**.
+1. Onder **Waarschuwingsdetails**, een waarschuwingsregel naam en beschrijving toevoegen en klik op **waarschuwingsregel maken**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -232,4 +191,3 @@ Een klassieke waarschuwing maken:
 * Zie voor meer informatie over de verschillende manieren om een runbook te starten, [een runbook starten](automation-starting-a-runbook.md).
 * Zie voor meer informatie over het maken van een waarschuwing voor activiteitenlogboek, [waarschuwingen voor activiteitenlogboek maken](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Zie voor meer informatie over het maken van een waarschuwing voor bijna realtime, [een waarschuwingsregel maken in Azure portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
-

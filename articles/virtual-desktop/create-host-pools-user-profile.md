@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 0cb4df099faad8ca482fd15cf0bb50504c1528ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f6516e37107a16d80c4d9eb9514782bdbcc44184
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883867"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925218"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Een gebruikersprofielshare instellen voor een hostpool
 
@@ -68,4 +68,4 @@ Voor het configureren van de virtuele machines met de software FSLogix, doe het 
 | VHDLocations        | Waarde met meerdere tekenreeksen | "Netwerkpad voor de bestandsshare"     |
 
 >[!IMPORTANT]
->Als u wilt beveiligen uw virtuele Windows-bureaublad-omgeving in Azure, wordt aangeraden dat u binnenkomende poort 3389 op uw VM's niet openen. Virtuele Windows-bureaublad zijn vereist om een open binnenkomende poort 3389 voor gebruikers toegang krijgen tot virtuele machines van de host-pool. Als u poort 3389 voor het oplossen van problemen opent moet, raden wij aan u [just-in-time-VM-toegang](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+>Als u wilt beveiligen uw virtuele Windows-bureaublad-omgeving in Azure, wordt aangeraden dat u binnenkomende poort 3389 op uw VM's niet openen. Virtuele Windows-bureaublad zijn vereist om een open binnenkomende poort 3389 voor gebruikers toegang krijgen tot virtuele machines van de host-pool. Als u poort 3389 voor het oplossen van problemen opent moet, raden wij aan u [just-in-time-VM-toegang](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).

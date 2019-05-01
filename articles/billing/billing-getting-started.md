@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: d215e2ba5d650b532b9d7554ccca9ad5537cf4de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 146c74fe751e75fb85563378be6f812802928fe2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60919322"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918938"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Voorkomen van onverwachte kosten met Azure-facturering en -kostenbeheer
 
@@ -203,7 +203,7 @@ SLA drempels afhankelijk van de service. Bijvoorbeeld, de weblaag SQL beschikt o
 
 Voor sommige services zijn er vereisten voor de SLA te kunnen toepassen. Virtuele Machines moet bijvoorbeeld twee of meer instanties zijn geïmplementeerd in dezelfde Beschikbaarheidsset hebben.
 
-Zie voor meer informatie de [Service Level Agreements](https://azure.microsoft.com/en-us/support/legal/sla/) documentatie en de [samenvatting van SLA voor Azure-services](https://azure.microsoft.com/en-us/support/legal/sla/summary/) documentatie.
+Zie voor meer informatie de [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) documentatie en de [samenvatting van SLA voor Azure-services](https://azure.microsoft.com/support/legal/sla/summary/) documentatie.
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 640c65b1f6995a6c5fb7a3a1fcfeb580aecf5c43
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324459"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869412"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Beveiligen van Azure CDN-assets met tokenverificatie
 
@@ -33,7 +33,7 @@ Tokenverificatie is een mechanisme waarmee u om te voorkomen dat het Azure Conte
 
 Tokenverificatie controleert u of aanvragen worden gegenereerd door een vertrouwde site doordat aanvragen naar de waarde voor een token dat bevat informatie over de aanvrager kan gecodeerde bevatten. Content wordt geleverd voor een aanvrager alleen als de gecodeerde gegevens voldoet aan de vereisten; anders worden aanvragen geweigerd. U kunt de vereisten instellen met behulp van een of meer van de volgende parameters:
 
-- Land/regio: Toestaan of weigeren van aanvragen die afkomstig van de landen die is opgegeven zijn door hun [landcode](/previous-versions/azure/mt761717(v=azure.100)).
+- Land/regio: Toestaan of weigeren van aanvragen die afkomstig van de landen/regio's zijn opgegeven zijn door hun [landcode](/previous-versions/azure/mt761717(v=azure.100)).
 - URL: Alleen aanvragen die overeenkomen met de opgegeven asset of het pad toestaan.
 - Host: Toestaan of weigeren van aanvragen die gebruikmaken van de opgegeven hosts in de aanvraagheader.
 - Verwijzende site: Toestaan of weigeren van aanvraag van de opgegeven verwijzende site.
@@ -86,7 +86,7 @@ Het volgende stroomdiagram wordt beschreven hoe een clientaanvraag door Azure CD
 
       ![CDN-setup van token verificatiesleutel](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-   4. Gebruik het hulpprogramma coderen voor versleuteling parameters instellen en het genereren van een token. Met het hulpprogramma versleutelen, kunt u toestaan of weigeren op basis van de verlooptijd van, land, verwijzende site, protocol en client-IP-adres (in een combinatie). Hoewel er geen limiet voor het aantal en de combinatie van parameters die kunnen worden gecombineerd voor het token van een formulier, is de totale lengte van een token beperkt tot 512 tekens. 
+   4. Gebruik het hulpprogramma coderen voor versleuteling parameters instellen en het genereren van een token. Met het hulpprogramma versleutelen, kunt u toestaan of weigeren aanvragen op basis van de verlooptijd van, land/regio, verwijzende site, protocol en client-IP-adres (in een combinatie). Hoewel er geen limiet voor het aantal en de combinatie van parameters die kunnen worden gecombineerd voor het token van een formulier, is de totale lengte van een token beperkt tot 512 tekens. 
 
       ![CDN hulpprogramma versleutelen](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
@@ -120,11 +120,11 @@ Het volgende stroomdiagram wordt beschreven hoe een clientaanvraag door Azure CD
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>U kunt alleen aanvragen die afkomstig uit een of meer opgegeven landen zijn. Aanvragen die afkomstig uit alle overige landen zijn worden geweigerd. Gebruik van twee letters [3166 ISO-landcode](/previous-versions/azure/mt761717(v=azure.100)) voor elk land en gescheiden van elkaar met een door komma's, Voeg een spatie. Bijvoorbeeld, als u toegang toestaan van alleen de Verenigde Staten en Frankrijk wilt, voert u `US,FR`.</td>
+      >    <td>U kunt alleen aanvragen die afkomstig uit een of meer opgegeven landen/regio's zijn. Aanvragen die afkomstig van alle andere landen/regio's zijn worden geweigerd. Gebruik van twee letters [3166 ISO-landcode](/previous-versions/azure/mt761717(v=azure.100)) voor elk land en gescheiden van elkaar met een door komma's, Voeg een spatie. Bijvoorbeeld, als u toegang toestaan van alleen de Verenigde Staten en Frankrijk wilt, voert u `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Hiermee worden aanvragen die afkomstig uit een of meer opgegeven landen zijn geweigerd. Aanvragen die afkomstig uit alle overige landen zijn zijn toegestaan. De implementatie is hetzelfde als de <b>ec_country_allow</b> parameter. Als een landcode aanwezig in zowel is de <b>ec_country_allow</b> en <b>ec_country_deny</b> parameters, de <b>ec_country_allow</b> parameter voorrang.</td>
+      >    <td>Weigert de aanvragen die afkomstig uit een of meer opgegeven landen/regio's zijn. Aanvragen die afkomstig van alle andere landen/regio's zijn zijn toegestaan. De implementatie is hetzelfde als de <b>ec_country_allow</b> parameter. Als een landcode aanwezig in zowel is de <b>ec_country_allow</b> en <b>ec_country_deny</b> parameters, de <b>ec_country_allow</b> parameter voorrang.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>

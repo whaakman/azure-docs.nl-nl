@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 2af9df4771d58f2288820dad8ef8d7ac84deb8ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e550111e04ea77e35a4554bcc6e3bffaf4d543d2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870537"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924963"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Een hostpool maken met PowerShell
 
@@ -113,7 +113,7 @@ Doe het volgende op elke virtuele machine voor het registreren van de virtuele b
      - Selecteer de knop play groen het script uit te voeren.
 
 >[!IMPORTANT]
->Als u wilt beveiligen uw virtuele Windows-bureaublad-omgeving in Azure, wordt aangeraden dat u binnenkomende poort 3389 op uw VM's niet openen. Virtuele Windows-bureaublad zijn vereist om een open binnenkomende poort 3389 voor gebruikers toegang krijgen tot virtuele machines van de host-pool. Als u poort 3389 voor het oplossen van problemen opent moet, raden wij aan u [just-in-time-VM-toegang](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+>Als u wilt beveiligen uw virtuele Windows-bureaublad-omgeving in Azure, wordt aangeraden dat u binnenkomende poort 3389 op uw VM's niet openen. Virtuele Windows-bureaublad zijn vereist om een open binnenkomende poort 3389 voor gebruikers toegang krijgen tot virtuele machines van de host-pool. Als u poort 3389 voor het oplossen van problemen opent moet, raden wij aan u [just-in-time-VM-toegang](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
 
 ## <a name="next-steps"></a>Volgende stappen
 
