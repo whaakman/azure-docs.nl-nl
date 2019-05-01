@@ -60,7 +60,7 @@ ML-Services in HDInsight biedt de volgende voordelen:
 
 De volgende functies zijn opgenomen in ML-Services op HDInsight.
 
-| Functie-categorie | Beschrijving |
+| Functie-categorie | Description |
 |------------------|-------------|
 | R-enabled | [R-pakketten](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) voor oplossingen die zijn geschreven in R, met een open-source-distributie van R- en runtime-infrastructuur voor het uitvoeren van script. |
 | Python-ingeschakeld | [Python-modules](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) voor oplossingen die zijn geschreven in Python, met een open-source-verdeling van Python en runtime-infrastructuur voor het uitvoeren van script.

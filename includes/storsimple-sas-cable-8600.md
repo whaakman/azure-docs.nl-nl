@@ -28,7 +28,7 @@ ms.locfileid: "60482677"
    
     **Locatie van het serienummer sticker**
    
-   | Label | Beschrijving |
+   | Label | Description |
    |:--- |:--- |
    | 1 |Wissen van de behuizing |
 3. Gebruik de opgegeven SAS-kabels verbinden met de behuizing EBOD de primaire behuizing als volgt:

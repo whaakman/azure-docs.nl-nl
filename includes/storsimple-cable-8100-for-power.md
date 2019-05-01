@@ -25,7 +25,7 @@ ms.locfileid: "60482678"
    
     **Power bekabeling op een 8100-apparaat**
    
-   | Label | Beschrijving |
+   | Label | Description |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |Controller 1 |

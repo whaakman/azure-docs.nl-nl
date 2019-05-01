@@ -27,7 +27,7 @@ Gebruik de volgende snelstarts en zelfstudies voor meer informatie over het ontw
 
 - Snelstartgidsen
 
-    |Titel|Beschrijving|
+    |Titel|Description|
     |------|-----|
     |[Azure Portal gebruiken](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)|Een sjabloon met behulp van de portal genereren en inzicht in het proces van bewerken en de sjabloon te implementeren.|
     |[Visual Studio Code gebruiken](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Leer hoe u met Visual Studio Code sjablonen kunt maken en bewerken en hoe u de Azure Cloud-shell kunt gebruiken om sjablonen te implementeren.|
