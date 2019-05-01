@@ -72,7 +72,7 @@ Hier volgen enkele voordelen van het gebruik van de nieuwe kernels op Jupyter-no
    
     De volgende tabel geeft een lijst van de andere magics die beschikbaar zijn via de kernels.
 
-   | Magic-pakket | Voorbeeld | Beschrijving |
+   | Magic-pakket | Voorbeeld | Description |
    | --- | --- | --- |
    | Help |`%%help` |Genereert een tabel met alle beschikbare magics met voorbeeld en beschrijving |
    | informatie |`%%info` |Uitvoer sessie-informatie voor het eindpunt van de huidige Livy |
