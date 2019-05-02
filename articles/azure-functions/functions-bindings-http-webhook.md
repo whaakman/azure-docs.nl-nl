@@ -561,9 +561,9 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 | **type** | N.v.t.| Vereist: moet worden ingesteld op `httpTrigger`. |
 | **direction** | N.v.t.| Vereist: moet worden ingesteld op `in`. |
-| **De naam** | N.v.t.| Vereist: de naam van de variabele die wordt gebruikt in de functiecode voor de aanvraag of de hoofdtekst van de aanvraag. |
+| **name** | N.v.t.| Vereist: de naam van de variabele die wordt gebruikt in de functiecode voor de aanvraag of de hoofdtekst van de aanvraag. |
 | <a name="http-auth"></a>**authLevel** |  **authLevel** |Hiermee bepaalt u wat sleutels, indien van toepassing, aanwezig zijn op de aanvraag moeten om de functie aanroepen. Het autorisatieniveau kan een van de volgende waarden zijn: <ul><li><code>anonymous</code>&mdash;Er zijn geen API-sleutel is vereist.</li><li><code>function</code>&mdash;Een functie-specifieke API-sleutel is vereist. Dit is de standaardwaarde als niets wordt opgegeven.</li><li><code>admin</code>&mdash;De hoofdsleutel is vereist.</li></ul> Zie de sectie voor meer informatie over [sleutels voor de verificatieregel](#authorization-keys). |
-| **Methoden** |**Methoden** | Een matrix met de HTTP-methoden waarop de functie reageert. Indien niet opgegeven, wordt de functie reageert op alle HTTP-methoden. Zie [aanpassen van het http-eindpunt](#customize-the-http-endpoint). |
+| **methods** |**Methoden** | Een matrix met de HTTP-methoden waarop de functie reageert. Indien niet opgegeven, wordt de functie reageert op alle HTTP-methoden. Zie [aanpassen van het http-eindpunt](#customize-the-http-endpoint). |
 | **route** | **Route** | Hiermee definieert u de Routesjabloon beheren waarop aanvraag-URL's die uw functie reageert. De standaardwaarde als niets wordt opgegeven is `<functionname>`. Zie voor meer informatie, [aanpassen van het http-eindpunt](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** | _Alleen ondersteund voor de versie 1.x-runtime._<br/><br/>Hiermee wordt de HTTP-trigger om te fungeren als een [webhook](https://en.wikipedia.org/wiki/Webhook) ontvanger voor de opgegeven provider. Stel de `methods` eigenschap als u deze eigenschap is ingesteld. Het webhooktype kan een van de volgende waarden zijn:<ul><li><code>genericJson</code>&mdash;Een algemene webhook-eindpunt zonder logica voor een specifieke provider. Deze instelling aanvragen beperkt tot alleen die via HTTP POST en met de `application/json` type inhoud.</li><li><code>github</code>&mdash;De functie reageert op [GitHub webhooks](https://developer.github.com/webhooks/). Gebruik niet de _authLevel_ eigenschap met GitHub webhooks. Zie de sectie GitHub webhooks verderop in dit artikel voor meer informatie.</li><li><code>slack</code>&mdash;De functie reageert op [webhooks Slack](https://api.slack.com/outgoing-webhooks). Gebruik niet de _authLevel_ eigenschap met de Slack webhooks. Zie de sectie Slack webhooks verderop in dit artikel voor meer informatie.</li></ul>|
 
@@ -804,7 +804,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |---------|---------|
 | **type** |Moet worden ingesteld op `http`. |
 | **direction** | Moet worden ingesteld op `out`. |
-|**De naam** | De naam van de variabele in functiecode gebruikt voor het antwoord of `$return` de geretourneerde waarde gebruiken. |
+|**name** | De naam van de variabele in functiecode gebruikt voor het antwoord of `$return` de geretourneerde waarde gebruiken. |
 
 ## <a name="output---usage"></a>Uitvoer - gebruik
 
