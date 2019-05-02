@@ -1,64 +1,59 @@
-items:
 - name: Documentatie voor Azure App Configuration (preview)
   href: index.yml
 - name: Overzicht
   items:
-  - name: Over Azure App Configuration
-    href: overview.md
+    - name: Over Azure App Configuration
+      href: overview.md
 - name: Snelstartgidsen
-  items:
-  - name: Een ASP.NET Core-app maken
-    href: quickstart-aspnet-core-app.md
-  - name: Een .NET Core-app maken
-    href: quickstart-dotnet-core-app.md
-  - name: Een .NET Framework-app maken
-    href: quickstart-dotnet-app.md
-  - name: Een Azure-functie maken
-    href: quickstart-azure-function-csharp.md
-  - name: Een Java Spring-app maken
-    href: quickstart-java-spring-app.md
   expanded: true
+  items:
+    - name: Een ASP.NET Core-app maken
+      href: quickstart-aspnet-core-app.md
+    - name: Een .NET Core-app maken
+      href: quickstart-dotnet-core-app.md
+    - name: Een .NET Framework-app maken
+      href: quickstart-dotnet-app.md
+    - name: Een Azure-functie maken
+      href: quickstart-azure-function-csharp.md
+    - name: Een Java Spring-app maken
+      href: quickstart-java-spring-app.md
 - name: Zelfstudies
   items:
-  - name: Dynamische configuratie in ASP.NET Core inschakelen
-    href: enable-dynamic-configuration-aspnet-core.md
-  - name: Integreren met een CI/CD-pijplijn
-    href: integrate-ci-cd-pipeline.md
+    - name: Dynamische configuratie in ASP.NET Core inschakelen
+      href: enable-dynamic-configuration-aspnet-core.md
+    - name: Integreren met een CI/CD-pijplijn
+      href: integrate-ci-cd-pipeline.md
 - name: Voorbeelden
   items:
-  - name: Azure-CLI
-    href: cli-samples.md
+    - name: Azure-CLI
+      href: cli-samples.md
 - name: Concepten
   items:
-  - name: Sleutel-waardearchief
-    href: concept-key-value.md
-  - name: Momentopname van een bepaald tijdstip
-    href: concept-point-time-snapshot.md
+    - name: Sleutel-waardearchief
+      href: concept-key-value.md
+    - name: Momentopname van een bepaald tijdstip
+      href: concept-point-time-snapshot.md
 - name: Handleidingen
   items:
-  - name: Integreren met Azure Managed Service Identity
-    href: howto-integrate-azure-managed-service-identity.md
-  - name: Configuratiegegevens importeren of exporteren
-    href: howto-import-export-data.md
+    - name: Integreren met Azure Managed Service Identity
+      href: howto-integrate-azure-managed-service-identity.md
+    - name: Configuratiegegevens importeren of exporteren
+      href: howto-import-export-data.md
 - name: Naslaginformatie
   items:
-  - name: .NET Core-configuratieprovider
-    href: https://go.microsoft.com/fwlink/?linkid=2074664
-  - name: .NET Framework-configuratie maken
-    href: https://go.microsoft.com/fwlink/?linkid=2074663
-  - name: Java Spring-configuratieprovider
-    href: https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config
-  - name: .NET Azure SDK
-    href: https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane
-  - name: REST
-    href: https://go.microsoft.com/fwlink/?linkid=2078296
+    - name: .NET Core-configuratieprovider
+      href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
+    - name: .NET Framework-configuratie maken
+      href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
+    - name: Java Spring-configuratieprovider
+      href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
+    - name: .NET Azure SDK
+      href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
+    - name: REST
+      href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
 - name: Resources
   items:
-  - name: Productfeedback geven
-    href: https://github.com/Azure/AppConfiguration
-ms.openlocfilehash: 74de90cd0e8274f7192b177c41aba165eabbed40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699607"
+    - name: Aan de slag-video
+      href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+    - name: Productfeedback geven
+      href: 'https://github.com/Azure/AppConfiguration/issues'

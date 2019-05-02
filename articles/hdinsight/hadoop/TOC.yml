@@ -136,8 +136,6 @@
         - name: Lege edge-knooppunten gebruiken
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
-        - name: Streaming Python-programma's ontwikkelen
-          href: apache-hadoop-streaming-python.md
         - name: JSON-documenten verwerken en analyseren
           href: using-json-in-hive.md
         - name: 'Door gebruiker gedefinieerde C#-functies gebruiken'

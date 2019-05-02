@@ -59,7 +59,7 @@
     - name: Tracering wijzigen
       items:
         - name: Overzicht van wijzigingen bijhouden
-          href: automation-change-tracking.md
+          href: change-tracking.md
           displayName: 'wildcard, recursion, environment variables, registry'
         - name: Inhoud van bijgehouden bestanden bekijken
           href: change-tracking-file-contents.md

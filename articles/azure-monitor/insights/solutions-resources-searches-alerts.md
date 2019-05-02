@@ -76,7 +76,7 @@ Opnemen [opgeslagen zoekopdrachten](../../azure-monitor/log-query/log-query-over
 
 Elke eigenschap van een opgeslagen zoekopdracht wordt in de volgende tabel beschreven.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | category | De categorie voor de opgeslagen zoekopdracht.  Alle opgeslagen zoekopdrachten in dezelfde oplossing delen vaak één categorie, zodat ze samen worden gegroepeerd in de console. |
 | displayname | De naam om weer te geven voor de opgeslagen zoekopdracht in de portal. |
@@ -269,7 +269,7 @@ Als de waarschuwing een webhook wordt aangeroepen, dan deze een actie-resource m
     }
 De eigenschappen voor Webhook actie resources worden in de volgende tabellen beschreven.
 
-| De naam van element | Vereist | Beschrijving |
+| De naam van element | Vereist | Description |
 |:--|:--|:--|
 | type | Ja | Het type van de actie. Dit is **Webhook** voor webhookacties. |
 | naam | Ja | De weergavenaam voor de actie. Dit wordt niet weergegeven in de console. |

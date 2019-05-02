@@ -21,7 +21,7 @@ ms.locfileid: "60527763"
 
 2. Configureer in **Nieuwe Azure Cache voor Redis** de instellingen voor de nieuwe cache.
 
-    | Instelling      | Voorgestelde waarde  | Beschrijving |
+    | Instelling      | Voorgestelde waarde  | Description |
     | ------------ |  ------- | -------------------------------------------------- |
     | **DNS-naam** | Wereldwijd unieke naam | Naam van cache. De naam is een tekenreeks van 1 tot 63 tekens die alleen cijfers, letters en het teken `-` mag bevatten. De cachenaam mag niet beginnen of eindigen met het teken `-`, en opeenvolgende `-`-tekens zijn niet toegestaan.  | 
     | **Abonnement** | Uw abonnement | Het abonnement waarmee dit nieuwe Azure Cache voor Redis-exemplaar is gemaakt. | 

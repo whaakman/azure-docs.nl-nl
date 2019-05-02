@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6771cf093f62ef7823e57ced8223e4cc6c0dc57e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7c4ef16457181b4147b763233c54bcca6598b05a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354633"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917680"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Wat is de locatievoorwaarde in Azure Active Directory voor voorwaardelijke toegang? 
 
@@ -50,16 +50,13 @@ Een benoemde locatie heeft de volgende onderdelen:
 - **IP-adresbereiken** -een of meer IPv4-adresbereiken in CIDR-indeling. Een IPv6-adresbereik op te geven wordt niet ondersteund.
 
    > [!NOTE]
-   > IPv6-adres rangess kan niet op dit moment worden opgenomen in een benoemde locationThis measn IPv6-bereiken kunnen niet worden uitgesloten van een beleid voor voorwaardelijke toegang.
+   > IPv6-adres rangess kan niet op dit moment worden opgenomen in een benoemde locatie. Deze measn IPv6-bereiken kunnen niet worden uitgesloten van een beleid voor voorwaardelijke toegang.
 
 - **Als vertrouwde locatie markeren** -een vlag die u kunt instellen voor een benoemde locatie om aan te geven van een vertrouwde locatie bevindt. Vertrouwde locaties zijn meestal netwerkgebieden die worden beheerd door uw IT-afdeling. Naast de voorwaardelijke toegang benoemde locaties vertrouwde worden ook gebruikt door Azure Identity Protection en Azure AD-beveiligingsrapporten te verminderen [fout-positieven](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Landen/regio's** -deze optie kunt u een of meer land of regio voor het definiëren van een benoemde locatie selecteren.
 - **Onbekende gebieden opnemen** -enkele IP-adressen zijn niet toegewezen aan een bepaald land. Deze optie kunt u kiezen of deze IP-adressen op de locatie met de naam moeten worden opgenomen. Gebruik deze instelling wanneer het beleid met behulp van de locatie met de naam van toepassing op onbekende locaties.
 
-Het aantal benoemde locaties die u kunt configureren wordt beperkt door de grootte van het gerelateerde object in Azure AD. U kunt configureren locaties op basis van de volgende beperkingen:
-
-- Een locatie met maximaal 1200 IP-bereiken met de naam.
-- Maximaal 90 benoemde locaties met één IP-adresbereik dat is toegewezen aan elk van deze.
+Het aantal benoemde locaties die u kunt configureren wordt beperkt door de grootte van het gerelateerde object in Azure AD. Organisaties kunnen maximaal 90 lamed locaties configureren, elk geconfigureerd met maximaal 12000 IP-adresbereiken.
 
 Beleid voor voorwaardelijke toegang is van toepassing op IPv4 en IPv6-verkeer. Op dit moment benoemde locaties Sta geen IPv6-adresbereiken op die moeten worden geconfigureerd. Deze beperking zorgt ervoor dat de volgende situaties:
 

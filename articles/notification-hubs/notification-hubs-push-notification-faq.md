@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 642e586371a0ce6abe362f8b10b54bfd8baff678
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8af545f5700e90303562174a3c27cc5438b28e24
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60872034"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925869"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Pushmeldingen verzenden met Azure Notification Hubs: Veelgestelde vragen
 
@@ -218,7 +218,7 @@ U kunt ook programmatisch toegang tot metrische gegevens. Raadpleeg voor meer in
 [Notification Hubs beveiligde Push-zelfstudie]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Notification Hubs oplossen van problemen]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Notification Hubs metrische gegevens]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Registraties exporteren/importeren]: https://docs.microsoft.com/en-us/azure/notification-hubs/export-modify-registrations-bulk
+[Registraties exporteren/importeren]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/

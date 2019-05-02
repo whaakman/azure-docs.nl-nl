@@ -2,26 +2,19 @@
 title: Go-To-Market Services - biedt best practices voor aanbieding | Azure
 description: Go-To-Market Services - in deze sectie beschrijft de aanbevolen procedures van de aanbieding voor een aanbieding
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: e5db2f340917705ec29f7b6db4de40914c66efcd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c06a338ec041c83588c3ee5126795b8c445ef469
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863930"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937990"
 ---
-# <a name="offer-listing-best-practices"></a>Aanbevolen procedures aanbieding bieden
+# <a name="offer-listing-best-practices"></a>Best practices voor aanbiedingsvermeldingen
 
 De tabellen in deze sectie biedt suggesties voor het maken en het gebruik van marketplace-aanbiedingen. Om te schrijven en configureren uw marketingmaterialen, gaat u naar de [Cloud Partner-portal](https://cloudpartner.azure.com/#insights). 
 
@@ -35,7 +28,7 @@ De tabellen in deze sectie biedt suggesties voor het maken en het gebruik van ma
 | StoreFront instelling | Best practice |
 |:--- |:--- |  
 | Branches: AppSource-apps en adviesservices alleen | Selecteer branches als uw aanbieding branche-specifieke behoeften adressen: <ul><li> Aanroepen per branche mogelijkheden in de beschrijving van uw aanbieding.</li> </ul> **Opmerking**: Het maximum aantal opties is afhankelijk van het aanbiedingtype en wordt aangegeven in de [Cloud Partner-portal](https://cloudpartner.azure.com/#insights). |
-| Categorieën | Selecteer de categorieën die het beste zijn afgestemd op uw aanbieding:<br> <ul> <li> Kies de categorieën zorgvuldig, omdat klanten deze gebruiken om te zoeken naar relevante apps. </li> <li> Zorg ervoor dat houden hoe uw aanbieding categorie-specifieke behoeften in de beschrijving van de aanbieding ondersteunt. </li> </ul> **Opmerking**: Het maximum aantal opties is afhankelijk van het aanbiedingtype en wordt aangegeven in de [Cloud Partner-portal](https://cloudpartner.azure.com/#insights). |
+| Categories | Selecteer de categorieën die het beste zijn afgestemd op uw aanbieding:<br> <ul> <li> Kies de categorieën zorgvuldig, omdat klanten deze gebruiken om te zoeken naar relevante apps. </li> <li> Zorg ervoor dat houden hoe uw aanbieding categorie-specifieke behoeften in de beschrijving van de aanbieding ondersteunt. </li> </ul> **Opmerking**: Het maximum aantal opties is afhankelijk van het aanbiedingtype en wordt aangegeven in de [Cloud Partner-portal](https://cloudpartner.azure.com/#insights). |
 | Producten die uw app met (maximaal 3 werkt): AppSource-apps | Overzicht van aanvullende producten en technologieën die uw oplossing wordt gebruikt of een uitbreiding. Bijvoorbeeld, Azure IoT Hub of Azure Machine Learning. |
 | Trefwoorden (maximaal 3) | Trefwoorden voor zoekopdrachten mogen kunt zakelijke gebruikers uw aanbieding vinden wanneer ze zoeken <ul> <li> in de Azure Marketplace </li> <li> op AppSource </li> <li> met behulp van zoekmachines </li> </ul> Voor uw aanbieding wordt weergegeven in deze zoekbewerkingen, moet u naar: <ul> <li> Identificeren van de top drie zoekwoorden voor uw aanbieding; </li> <li> de zoekwoorden in uw aanbieding samenvatting en beschrijving; opnemen </li> <li> Geef hier de trefwoorden. </li> </ul> |
 

@@ -4,15 +4,15 @@ description: Informatie over de managementgroepen, hoe hun machtigingen werken e
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 04/17/2019
+ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ceb606f2243ef723866e485c6580a6323c1c92ec
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699378"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722478"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Uw resources organiseren met Azure-beheergroepen
 
@@ -47,9 +47,8 @@ Deze hoofdbeheergroep is zo in de hiërarchie ingebouwd dat alle beheergroepen e
 
 ### <a name="important-facts-about-the-root-management-group"></a>Belangrijke feiten over de hoofdbeheergroep
 
-- De naam en id van de hoofdbeheergroep worden standaard gegenereerd. De weergavenaam kan te allen tijde worden bijgewerkt, zodat die anders wordt weergegeven in de Azure-portal. Als u de [naam wilt wijzigen](manage.md#change-the-name-of-a-management-group), moet uw account eerst de rol Eigenaar of Inzender in de hoofdbeheergroep toegewezen hebben gekregen.
-  - De naam wordt ‘Hoofdgroep tenant’.
-  - De ID is de Azure Active Directory-id.
+- Standaard is de weergavenaam van de hoofdbeheergroep **Tenanthoofdgroep**. De id is de Azure Active Directory-id.
+- Als u de weergavenaam wilt wijzigen, moet uw account de rol Eigenaar of Inzender in de hoofdbeheergroep hebben toegewezen gekregen. Raadpleeg voor de stappen om de naam te wijzigen [De naam van een beheergroep wijzigen](manage.md#change-the-name-of-a-management-group).
 - In tegenstelling tot andere beheergroepen kan de hoofdbeheergroep niet worden verplaatst of verwijderd.  
 - Alle abonnementen en beheergroepen kunnen worden samengevouwen in deze ene hoofdbeheergroep binnen de map.
   - Alle resources in de map kunnen worden samengevouwen in de hoofdbeheergroep voor algemeen beheer.

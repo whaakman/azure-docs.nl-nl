@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b6846c5f907c41db16e99883be7041a68357586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9f21b592f31790daa9cc4eeb217ea6e2987fc38
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468871"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920521"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Thuisdomein detectie voor Active Directory van Azure sign-in 's
 
@@ -49,7 +49,7 @@ Een bijkomend voordeel van deze taak is verbeterd foutbericht messaging. Hier vo
     ![wachtwoord is een typefout gemaakt met een goede gebruikersnaam](./media/signin-realm-discovery/incorrect-password.png)
   
 > [!IMPORTANT]
-> Deze functie kan een invloed hebben op federatieve domeinen die afhankelijk zijn van het oude domeinniveau start Realm detectie om af te dwingen federation. Zie voor updates op wanneer ondersteuning voor federatieve domeinen worden toegevoegd, [thuis realm detectie tijdens het aanmelden voor Microsoft 365-services](https://azure.microsoft.com/en-us/updates/signin-hrd/). Sommige organisaties hebben in de tussentijd hun werknemers zich aanmelden met een gebruikersnaam die niet bestaat in Azure Active Directory, maar bevat de naam van het juiste domein, omdat de domeinnamen gebruikers momenteel omleidt naar van hun organisatie domein eindpunt getraind. Het nieuwe gedrag aanmelden niet mogelijk. De gebruiker is een melding voor het corrigeren van de gebruikersnaam en ze zich aanmelden met een gebruikersnaam die niet in Azure Active Directory bestaat zijn niet toegestaan.
+> Deze functie kan een invloed hebben op federatieve domeinen die afhankelijk zijn van het oude domeinniveau start Realm detectie om af te dwingen federation. Zie voor updates op wanneer ondersteuning voor federatieve domeinen worden toegevoegd, [thuis realm detectie tijdens het aanmelden voor Microsoft 365-services](https://azure.microsoft.com/updates/signin-hrd/). Sommige organisaties hebben in de tussentijd hun werknemers zich aanmelden met een gebruikersnaam die niet bestaat in Azure Active Directory, maar bevat de naam van het juiste domein, omdat de domeinnamen gebruikers momenteel omleidt naar van hun organisatie domein eindpunt getraind. Het nieuwe gedrag aanmelden niet mogelijk. De gebruiker is een melding voor het corrigeren van de gebruikersnaam en ze zich aanmelden met een gebruikersnaam die niet in Azure Active Directory bestaat zijn niet toegestaan.
 >
 > Als u of uw organisatie hebt de procedures die afhankelijk van het oude gedrag zijn, is het belangrijk dat beheerders van de organisatie voor het bijwerken van de documentatie bij de aanmelding en verificatie van de werknemer en met het trainen van werknemers kunnen hun Azure Active Directory-gebruikersnaam aan te melden bij gebruiken.
   

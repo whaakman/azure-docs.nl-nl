@@ -176,6 +176,12 @@
           href: vpn-gateway-download-vpndevicescript.md
         - name: 'Voorbeeld: Cisco ASA-apparaat (IKEv2/geen BGP)'
           href: vpn-gateway-3rdparty-device-config-cisco-asa.md
+    - name: Bewaking en waarschuwingen
+      items:
+        - name: Waarschuwingen instellen op basis van metrische gegevens
+          href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
+        - name: Waarschuwingen instellen op basis van diagnostische logboeken
+          href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: Problemen oplossen
       href: vpn-gateway-troubleshoot.md
       items:

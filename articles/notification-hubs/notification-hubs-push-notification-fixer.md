@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4fc4175c03baa4ddb81507dd4001fcdbe7c7058b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eebf9ef63a8622c4cc431322b786fdf30f6352fe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61458638"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925824"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnose verloren meldingen in Azure Notification Hubs
 
@@ -123,7 +123,7 @@ Hier volgen om te achterhalen wat de hoofdoorzaak van verloren meldingen in Noti
 
 #### <a name="push-notification-service-developer-portal"></a>Push notification service-portal voor ontwikkelaars ####
 
-Controleer of de referenties in de respectieve push notification serviceportal voor ontwikkelaars (APNs, FCM, Windows Notification Service, enzovoort). Zie [Zelfstudie: Meldingen verzenden naar Universeel Windows-platform-apps met behulp van Azure Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
+Controleer of de referenties in de respectieve push notification serviceportal voor ontwikkelaars (APNs, FCM, Windows Notification Service, enzovoort). Zie [Zelfstudie: Meldingen verzenden naar Universeel Windows-platform-apps met behulp van Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
 
 #### <a name="azure-portal"></a>Azure Portal ####
 
@@ -180,7 +180,7 @@ Ook kunt u testmeldingen verzenden vanuit Visual Studio.
 
 Zie de volgende artikelen voor meer informatie over het gebruik van Notification Hubs met Visual Studio Server Explorer:
 
-* [Het apparaatregistraties voor notification hubs bekijken](https://docs.microsoft.com/en-us/previous-versions/windows/apps/dn792122(v=win.10))
+* [Het apparaatregistraties voor notification hubs bekijken](https://docs.microsoft.com/previous-versions/windows/apps/dn792122(v=win.10))
 * [Gedetailleerde informatie over: Visual Studio 2013 Update 2 RC bijwerkt en Azure SDK 2.3]
 * [Aankondiging van de release van Visual Studio 2013 Update 3 en Azure SDK 2.4]
 
@@ -261,7 +261,7 @@ In de portal krijgt u een kort overzicht van alle activiteiten in uw notificatio
 
 #### <a name="programmatic-access"></a>Toegang op programmeerniveau ####
 
-Zie voor meer informatie over toegang op programmeerniveau [toegang op programmeerniveau](https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/dn458823(v=azure.100)).
+Zie voor meer informatie over toegang op programmeerniveau [toegang op programmeerniveau](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100)).
 
 > [!NOTE]
 > Meerdere telemetrie-gerelateerde functies, zoals exporteren en importeren van registraties en telemetrie toegang via API's, zijn alleen beschikbaar op de servicelaag Standard. Als u probeert te gebruiken deze functies van de gratis of Basic-servicelaag, krijgt u een bericht van uitzondering als u de SDK gebruiken. U krijgt een fout HTTP 403 (verboden) als u de functies rechtstreeks vanuit de REST API's gebruiken.

@@ -1,7 +1,6 @@
 ---
 title: Gebruik Apache Kafka in HDInsight met Azure IoT Hub
 description: Informatie over het gebruik van Apache Kafka op HDInsight met Azure IoT Hub. Het project Kafka verbinding maken met Azure IoT Hub biedt een bron en sink-connector voor Kafka. De bron-connector kan de gegevens van IoT Hub kan lezen en de sink-connector schrijft naar IoT Hub.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: e64490517603687684617ce915e0d3f3e35298e9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 420800e718c8f98bfd3d5d7383829d5aa5472828
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093385"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698166"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Gebruik Apache Kafka in HDInsight met Azure IoT Hub
 

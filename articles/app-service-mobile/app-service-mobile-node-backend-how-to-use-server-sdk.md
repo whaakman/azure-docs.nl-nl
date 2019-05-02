@@ -370,7 +370,7 @@ We raden u aan **azureMobile.js** aan uw **.gitignore** bestand (of andere bronc
 
 De meeste instellingen in het bestand azureMobile.js hebben een gelijkwaardige app-instelling in de [Azure Portal]. Gebruik de volgende lijst om te configureren in uw app **App-instellingen**:
 
-| App-instelling | azureMobile.js instelling | Beschrijving | Geldige waarden |
+| App-instelling | azureMobile.js instelling | Description | Geldige waarden |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |naam |Naam van de app |string |
 | **MS_MobileLoggingLevel** |logging.level |Minimaal logboekniveau van berichten aan te melden |fout, waarschuwing, informatie, uitgebreid, foutopsporing, stom |

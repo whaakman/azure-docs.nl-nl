@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f873f20f97b822e1f4dee716cb69535b0522dc2c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614320"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866518"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Functies en hulpprogramma's voor Azure Cloud Shell
 
@@ -50,6 +50,18 @@ U kunt echter ook doorgaan met de vertrouwde [Azure PowerShell-cmdlets](https://
 Eventuele wijzigingen in de Azure-resources, hetzij rechtstreeks in Azure portal of via Azure PowerShell-cmdlets, worden weerspiegeld in de Azure-station.  U kunt uitvoeren `dir -Force` vernieuwen van uw resources.
 
 ![](media/features-powershell/azure-drive.png)
+
+### <a name="manage-exchange-online"></a>Exchange Online beheren
+
+PowerShell in Cloud Shell bevat een persoonlijke build van de Exchange Online-module.  Voer `Connect-EXOPSSession` om op te halen van uw Exchange-cmdlets.
+
+![](media/features-powershell/exchangeonline.png)
+
+ Voer `Get-Command -Module tmp_*` uit.
+> [!NOTE]
+> De modulenaam moet beginnen met `tmp_`, als u modules met hetzelfde voorvoegsel hebt geïnstalleerd, wordt ook de cmdlets worden opgehaald. 
+
+![](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>Diepe integratie met open source-programma 's
 

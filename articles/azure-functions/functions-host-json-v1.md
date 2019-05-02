@@ -165,7 +165,7 @@ Configuratie-instellingen voor [health monitor voor de Host](https://github.com/
 
 |Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
-|ingeschakeld|true|Hiermee geeft u op of de functie is ingeschakeld. | 
+|enabled|true|Hiermee geeft u op of de functie is ingeschakeld. | 
 |healthCheckInterval|10 seconden|Het tijdsinterval tussen de periodieke achtergrond-status wordt gecontroleerd. | 
 |healthCheckWindow|2 minuten|Een verschuivend tijdvenster gebruikt in combinatie met de `healthCheckThreshold` instelling.| 
 |healthCheckThreshold|6|Maximum aantal keren dat de statuscontrole kan mislukken voordat het recyclen van een host wordt gestart.| 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ad5a4981869f992ab6823a13afc2cad0e5252d08
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: eb731dc18b1524bcf161352265af9e277f85876e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105430"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730623"
 ---
 # <a name="configure-php-in-azure-app-service"></a>PHP configureren in Azure App Service
 
@@ -35,15 +35,11 @@ PHP 7.0 en PHP 7.2 versies zijn ook beschikbaar, maar worden niet standaard inge
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Blader naar uw app in de [Azure-portal](https://portal.azure.com) en klik op de **instellingen** knop.
+1. Blader naar uw app in de [Azure-portal](https://portal.azure.com) en schuif naar de **configuratie** pagina.
 
-    ![App-instellingen][settings-button]
-2. Uit de **instellingen** Selecteer **toepassingsinstellingen** en kiest u de nieuwe versie van PHP.
+2. Van **configuratie**, selecteer **algemene instellingen** en kiest u de nieuwe versie van PHP.
 
-    ![Toepassingsinstellingen][application-settings]
-3. Klik op de **opslaan** knop aan de bovenkant van de **toepassingsinstellingen** blade.
-
-    ![Configuratie-instellingen opslaan][save-button]
+3. Klik op de **opslaan** knop aan de bovenkant van de **algemene instellingen** blade.
 
 ### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
 
@@ -130,18 +126,12 @@ Zoals vermeld in de vorige sectie, de beste manier om te zien van de standaard-P
 ### <a name="configure-via-app-setting"></a>Configureren via de App-instelling
 
 1. Voeg een `bin` map naar de hoofdmap.
-1. Plaats `.dll` extensie bestanden in de `bin` directory (bijvoorbeeld `php_xdebug.dll`). Zorg ervoor dat de extensies compatibel met de standaardversie van PHP en zijn VC9 en compatibel is met niet-thread-safe (nts zijn).
-2. Implementeer uw app.
-3. Blader naar uw app in Azure portal en klik op de **instellingen** knop.
-
-    ![App-instellingen][settings-button]
-4. Uit de **instellingen** Selecteer **toepassingsinstellingen** en schuif naar de **App-instellingen** sectie.
-5. In de **App-instellingen** sectie, maakt u een **PHP_EXTENSIONS** sleutel. De waarde voor deze sleutel is een pad relatief ten opzichte van hoofdmap van website: **bin\your-ext-file**.
-
-    ![De extensie in de app-instellingen inschakelen][php-extensions]
-6. Klik op de **opslaan** knop aan de bovenkant van de **toepassingsinstellingen** blade.
-
-    ![Configuratie-instellingen opslaan][save-button]
+2. Plaats `.dll` extensie bestanden in de `bin` directory (bijvoorbeeld `php_xdebug.dll`). Zorg ervoor dat de extensies compatibel met de standaardversie van PHP en zijn VC9 en compatibel is met niet-thread-safe (nts zijn).
+3. Implementeer uw app.
+4. Blader naar uw app in Azure portal en klik op de **configuratie** zich bevindt onder **instellingen** sectie.
+5. Uit de **configuratie** Selecteer **toepassingsinstellingen**.
+6. In de **toepassingsinstellingen** sectie, klikt u op **+ nieuwe toepassingsinstelling** en maak een **PHP_EXTENSIONS** sleutel. De waarde voor deze sleutel is een pad relatief ten opzichte van hoofdmap van website: **bin\your-ext-file**.
+7. Klik op de **Update** knop aan de onderkant en klik vervolgens op **opslaan** boven de **toepassingsinstellingen** tabblad.
 
 Zend-extensies worden ook ondersteund met behulp van een **PHP_ZENDEXTENSIONS** sleutel. Zodat meerdere extensies bevatten een lijst met door komma's gescheiden van `.dll` bestanden voor de waarde van de app-instelling.
 
@@ -154,15 +144,11 @@ In plaats van de standaard-PHP-runtime, kunt App Service gebruiken van een PHP-r
 3. (Optioneel) extensies toevoegen aan uw PHP-runtime en kunnen ze in de `php.ini` bestand.
 4. Voeg een `bin` naar de hoofdmap en put de map waarin uw PHP-runtime in deze map (bijvoorbeeld `bin\php`).
 5. Implementeer uw app.
-6. Blader naar uw app in Azure portal en klik op de **instellingen** knop.
-
-    ![App-instellingen][settings-button]
-7. Uit de **instellingen** Selecteer **toepassingsinstellingen** en schuif naar de **Handlertoewijzingen** sectie. Voeg `*.php` veld naar de extensie en voeg het pad naar de `php-cgi.exe` uitvoerbaar bestand. Als u uw PHP-runtime in de `bin` -map in de hoofdmap van uw toepassing, het pad is `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
-
-    ![Handler in Handlertoewijzingen opgeven][handler-mappings]
-8. Klik op de **opslaan** knop aan de bovenkant van de **toepassingsinstellingen** blade.
-
-    ![Configuratie-instellingen opslaan][save-button]
+6. Blader naar uw app in Azure portal en klik op de **configuratie** blade.
+8. Uit de **configuratie** Selecteer **pad toewijzingen**. 
+9. Klik op **+ nieuwe Handler** en toe te voegen `*.php` veld naar de extensie en voeg het pad naar de `php-cgi.exe` uitvoerbare in **ScriptProcessor**. Als u uw PHP-runtime in de `bin` -map in de hoofdmap van uw toepassing, het pad is `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
+10. Klik onderaan op **Update** voltooid de handlertoewijzing toe te voegen.
+11. Klik op **Opslaan** om de wijzigingen op te slaan.
 
 <a name="composer" />
 

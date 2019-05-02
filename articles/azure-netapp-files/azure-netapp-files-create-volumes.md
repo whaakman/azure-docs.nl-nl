@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/12/2019
+ms.date: 4/23/2019
 ms.author: b-juche
-ms.openlocfilehash: fc748ee993855c77f25f9b115ea472df4281acec
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 53b2742cf92f3a3df346ba3557c718b8d7a11a4e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764358"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719436"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Een volume maken voor Azure NetApp Files
 
@@ -44,7 +44,7 @@ Er moet een subnet zijn gedelegeerd aan Azure NetApp Files.
     * **Volumenaam**      
         Geef de naam op voor het volume dat u wilt maken.   
 
-        De naam moet uniek zijn binnen de resourcegroep. De naam moet minstens drie tekens bevatten.  U kunt geen alfanumerieke tekens gebruiken.
+        De naam van een volume moet uniek zijn binnen elke capaciteit van toepassingen. De naam moet minstens drie tekens bevatten. U kunt geen alfanumerieke tekens gebruiken.
 
     * **Capaciteit van toepassingen**  
         Geef de capaciteit van toepassingen waar u het volume moet worden gemaakt.
@@ -72,7 +72,9 @@ Er moet een subnet zijn gedelegeerd aan Azure NetApp Files.
 4. Klik op **Protocol**en selecteer vervolgens **NFS** als het protocoltype voor het volume.   
     * Geef de **bestandspad** die wordt gebruikt voor het maken van het pad voor exporteren voor het nieuwe volume. Het exportpad wordt gebruikt om het volume te koppelen en benaderen.
 
-        Het bestandspad mag alleen letters, cijfers en afbreekstreepjes ('-') bevatten. Het bestandspad moet tussen de 16 en 40 tekens lang zijn.  
+        Het bestandspad mag alleen letters, cijfers en afbreekstreepjes ('-') bevatten. Het bestandspad moet tussen de 16 en 40 tekens lang zijn. 
+
+        Het bestandspad moet uniek zijn binnen elk abonnement en elke regio. 
 
     * U kunt desgewenst [export-beleid voor het NFS-volume configureren](azure-netapp-files-configure-export-policy.md)
 
@@ -89,6 +91,33 @@ Er moet een subnet zijn gedelegeerd aan Azure NetApp Files.
 Azure NetApp-bestanden ondersteunt SMBv3-volumes. U moet Active Directory-verbindingen maken voordat u een SMB-volume toevoegt. 
 
 ### <a name="create-an-active-directory-connection"></a>Maak een Active Directory-verbinding
+
+1. Zorg ervoor dat u voldoet aan de volgende requiements: 
+
+    * Het beheerdersaccount dat u moet mogelijk te maken van computeraccounts in de organisatie-eenheid (OE)-pad dat u opgeeft.
+    * Juiste poorten moeten worden geopend op de toepasselijke Windows Active Directory (AD).  
+        De vereiste poorten zijn als volgt: 
+
+        |     Service           |     Poort     |     Protocol     |
+        |-----------------------|--------------|------------------|
+        |    AD Web Services    |    9389      |    TCP           |
+        |    DNS                |    53        |    TCP           |
+        |    DNS                |    53        |    UDP           |
+        |    ICMPv4             |    N/A       |    Echoantwoord    |
+        |    Kerberos           |    464       |    TCP           |
+        |    Kerberos           |    464       |    UDP           |
+        |    Kerberos           |    88        |    TCP           |
+        |    Kerberos           |    88        |    UDP           |
+        |    LDAP               |    389       |    TCP           |
+        |    LDAP               |    389       |    UDP           |
+        |    LDAP               |    3268      |    TCP           |
+        |    NetBIOS-naam       |    138       |    UDP           |
+        |    SAM/LSA            |    445       |    TCP           |
+        |    SAM/LSA            |    445       |    UDP           |
+        |    Secure LDAP        |    636       |    TCP           |
+        |    Secure LDAP        |    3269      |    TCP           |
+        |    W32Time            |    123       |    UDP           |
+
 
 1. Uw account NetApp, klik op **Active Directory-verbindingen**, klikt u vervolgens op **Join**.  
 
@@ -134,12 +163,7 @@ Azure NetApp-bestanden ondersteunt SMBv3-volumes. U moet Active Directory-verbin
     * **Volumenaam**      
         Geef de naam op voor het volume dat u wilt maken.   
 
-        De naam moet uniek zijn binnen de resourcegroep. De naam moet minstens drie tekens bevatten.  U kunt geen alfanumerieke tekens gebruiken.
-
-    * **Bestandspad**  
-        Geef het bestandspad op dat wordt gebruikt om het exportpad voor het nieuwe volume te maken. Het exportpad wordt gebruikt om het volume te koppelen en benaderen.   
-     
-        Het bestandspad mag alleen letters, cijfers en afbreekstreepjes ('-') bevatten. Het bestandspad moet tussen de 16 en 40 tekens lang zijn.  
+        De naam van een volume moet uniek zijn binnen elke capaciteit van toepassingen. De naam moet minstens drie tekens bevatten. U kunt geen alfanumerieke tekens gebruiken.
 
     * **Capaciteit van toepassingen**  
         Geef de capaciteit van toepassingen waar u het volume moet worden gemaakt.
