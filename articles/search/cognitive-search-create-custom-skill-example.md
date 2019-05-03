@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f3b4e6cd18a362775443bb296560a076aaa1497d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82d49a6a82251f440c06db03edc92851fce87741
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61344141"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023610"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Voorbeeld: Een aangepaste vaardigheden met behulp van de tekst vertalen API maken
 
@@ -243,7 +243,7 @@ Wanneer u tevreden met het gedrag van de functie bent, kunt u deze kunt publicer
 
 1. Volg de aanwijzingen op. U wordt gevraagd om op te geven van het Azure-account, de resourcegroep, het hostingabonnement en het opslagaccount dat u wilt gebruiken. U kunt een nieuwe resourcegroep, een nieuw hosting plan en een storage-account maken als u dit nog niet hebt. Wanneer u klaar bent, selecteert u **maken**
 
-1. Als de implementatie voltooid is, noteert u de Site-URL. Dit is het adres van uw functie-app in Azure. 
+1. Nadat de implementatie voltooid is, ziet u de Site-URL. Dit is het adres van uw functie-app in Azure. 
 
 1. In de [Azure-portal](https://portal.azure.com), gaat u naar de resourcegroep en zoek naar de functie vertalen u gepubliceerd. Onder de **beheren** sectie ziet u Hostsleutels. Selecteer de **kopie** pictogram voor de *standaard* host-sleutel.  
 
@@ -282,7 +282,7 @@ Nu dat u een nieuwe aangepaste vaardigheden hebt, kunt u deze kunt toevoegen aan
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new translator custom skill",
-        "uri": "http://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
+        "uri": "https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
         "batchSize":1,
         "context": "/document",
         "inputs": [

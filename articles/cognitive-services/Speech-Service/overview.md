@@ -8,28 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e82e033e56af10bd8e676570e9409941753eb38
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460487"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020990"
 ---
 # <a name="what-are-the-speech-services"></a>Wat zijn de Speech Services?
 
-Azure Speech Services zijn van spraak naar tekst, tekst naar spraak en spraakomzetting combineert in een enkel Azure-abonnement. Spraak eenvoudig inschakelen van uw toepassingen, hulpprogramma's en apparaten met de [spraak SDK](speech-sdk-reference.md), [spraak Devices SDK](speech-devices-sdk-qsg.md), of [REST-API's](rest-apis.md).
+Azure Speech Services zijn van spraak naar tekst, tekst naar spraak en spraakomzetting combineert in een enkel Azure-abonnement. Spraak eenvoudig inschakelen van uw toepassingen, hulpprogramma's en apparaten met de [spraak SDK](speech-sdk-reference.md), [spraak Devices SDK](https://aka.ms/sdsdk-quickstart), of [REST-API's](rest-apis.md).
 
 > [!IMPORTANT]
 > Bing Speech-API, Translator Speech- en aangepaste spraak vervangen spraakservices. Zie *instructies begeleidt > migratie* voor migratie-instructies.
 
 Deze functies zijn vormen van de Azure-Services voor spraak. Gebruik de koppelingen in deze tabel voor meer informatie over algemene scenario's voor elke functie of de API-verwijzing bladeren.
 
-| Service | Functie | Beschrijving | SDK | REST |
+| Service | Functie | Description | SDK | REST |
 |---------|---------|-------------|-----|------|
 | [Spraak-naar-tekst](speech-to-text.md) | Spraak-naar-tekst | Spraak-naar-tekst transcribes audiostreams naar tekst in realtime die uw toepassingen, hulpprogramma's of apparaten kunnen gebruiken of weergeven. Gebruik spraak-naar-tekst met [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) worden afgeleid van de gebruiker intents van getranscribeerde spraak- en act op gesproken opdrachten. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Batch transcriptie](batch-transcription.md) | Batch transcriptie kunt asynchrone transcriptie van spraak-naar-tekst van grote hoeveelheden gegevens. Dit is een REST gebaseerde service die gebruikmaakt van hetzelfde eindpunt als aanpassing en Modelbeheer. | Nee | [Ja](https://westus.cris.ai/swagger/ui/index) |
+| | [Conversatie transcriptie Service](conversation-transcription-service.md) | Maakt een realtime spraakherkenning, sprekeridentificatie en diarization. Dit is ideaal voor het te vergaderingen in met de mogelijkheid om onderscheid sprekers te transcriberen. | Ja | Nee |
 | | [Aanpassing](#customize-your-speech-experience) | Als u van spraak-naar-tekst voor de opname- en schrijffouten in een unieke omgeving gebruikmaakt, kunt u maken en trainen aangepaste akoestische, taal en de uitspraak modellen adres omgevingsgeluid of branchespecifieke vocabulaire. | Nee | [Ja](https://westus.cris.ai/swagger/ui/index) |
 | [Tekst naar spraak](text-to-speech.md) | Tekst naar spraak | Tekst naar spraak converteert invoertekst naar menselijke kunstmatige spraak. Kies uit de standard stemmen en neurale stemmen (Zie [taalondersteuning](language-support.md)). | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Aanpassing](#customize-your-speech-experience) | Maak aangepaste spraakstijlen uniek is voor uw merk of product. | Nee | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
@@ -39,7 +40,8 @@ Deze functies zijn vormen van de Azure-Services voor spraak. Gebruik de koppelin
 
 Meer informatie over wat is er nieuw in de Azure-Services voor spraak.
 
-* April 2019 - die zijn uitgebracht spraak SDK 1.4.0 met ondersteuning voor tekst naar spraak (bèta) voor C++ C#, en Java in Windows en Linux. Bovendien de SDK biedt nu ondersteuning voor MP3- en Opus/Ogg audio-indelingen voor C++ en C# op Linux. Zie voor een volledige lijst van updates, verbeteringen en bekende problemen, [opmerkingen bij de Release](releasenotes.md). 
+* Mei 2019 - Speech SDK 1.5.0 uitgebracht. Zie voor een volledige lijst van updates, verbeteringen en bekende problemen, [opmerkingen bij de Release](releasenotes.md).
+* April 2019 - die zijn uitgebracht spraak SDK 1.4.0 met ondersteuning voor tekst naar spraak (bèta) voor C++ C#, en Java in Windows en Linux. Bovendien de SDK biedt nu ondersteuning voor MP3- en Opus/Ogg audio-indelingen voor C++ en C# op Linux. Zie voor een volledige lijst van updates, verbeteringen en bekende problemen, [opmerkingen bij de Release](releasenotes.md).
 * Maart 2019 - is een nieuw eindpunt voor spraak die als resultaat een volledige lijst met beschikbare stemmen in een bepaalde regio geeft nu beschikbaar. Bovendien worden nieuwe regio's worden nu ondersteund voor TTS. Zie voor meer informatie, [Text to Speech-API reference (REST)](rest-text-to-speech.md).
 * Februari 2019 - die zijn uitgebracht spraak SDK 1.3.0 met ondersteuning voor [Unity (bèta)](quickstart-csharp-unity.md). Ondersteuning toegevoegd voor de `AudioInput` klasse, kunt u de streamingbron van audio kiezen. Zie voor een volledige lijst van verbeteringen en bekende problemen, [opmerkingen bij de Release](releasenotes.md).
 * December 2018 - die zijn uitgebracht spraak SDK 1.2.0 met ondersteuning voor [Python](quickstart-python.md) en [Node.js](quickstart-js-node.md), en als Ubuntu 18.04 LTS. Zie voor meer informatie, [opmerkingen bij de Release](releasenotes.md).

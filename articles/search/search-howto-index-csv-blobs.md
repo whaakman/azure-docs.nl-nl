@@ -1,7 +1,7 @@
 ---
 title: CSV-blobs indexeren met de indexeerfunctie Azure Search Blob - Azure Search
 description: CSV-blobs in Azure Blob-opslag voor zoeken in volledige tekst met behulp van een Azure Search-index verkennen. Indexeerfuncties automatiseren opname van gegevens voor bepaalde gegevensbronnen, zoals Azure Blob-opslag.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0bbb131b5fb155443c8c3dc340185f3a6fa950a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 193ed7099293fb1ee4c056abcc5c2f34d78627b7
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871260"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024719"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexeren van CSV-blobs met de indexeerfunctie voor Azure Search blob
 Standaard [indexeerfunctie voor Azure Search blob](search-howto-indexing-azure-blob-storage.md) parseert gescheiden tekst blobs als één segment van de tekst. Echter met blobs met CSV-gegevens, wilt u meestal voor het behandelen van elke regel in de blob als een afzonderlijke document. Bijvoorbeeld, de volgende tekst met scheidingstekens worden gegeven, kunt u parseren in twee documenten, elk met de 'id', 'datePublished' en 'tags' velden: 
@@ -24,7 +24,9 @@ Standaard [indexeerfunctie voor Azure Search blob](search-howto-indexing-azure-b
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-In dit artikel leert u hoe u parseren van CSV-blobs met een indexeerfunctie Azure Search blob. 
+In dit artikel leert u hoe het parseren van CSV-blobs met een Azure Search blob indexerby instelling de `delimitedText` parseermodus. 
+
+De `delimitedText` parseermodus is momenteel in openbare preview en wordt niet aanbevolen voor productieworkloads.
 
 > [!NOTE]
 > Volg de aanbevelingen van de configuratie van indexeerfunctie in [een-op-veel indexeren](search-howto-index-one-to-many-blobs.md) voor uitvoer van meerdere documenten zoeken van een Azure-blob.
@@ -62,7 +64,7 @@ Als dit alle samen, zijn hier de volledige nettolading-voorbeelden.
 
 Gegevensbron: 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -75,7 +77,7 @@ Gegevensbron:
 
 Indexer:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06-Preview
     Content-Type: application/json
     api-key: [admin key]
 
