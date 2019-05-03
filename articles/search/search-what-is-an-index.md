@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308222"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024428"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Maak een eenvoudige index in Azure Search
 
@@ -54,7 +54,7 @@ Code, in plaats van een portal-benadering wordt aanbevolen voor terugkerende ont
 
 Stroomschema, wordt een Azure Search-index bestaat uit de volgende elementen. 
 
-De [ *Veldenverzameling* ](#fields-collection) is doorgaans het grootste deel van een index, waarbij elk veld heet, getypt en toegeschreven met toegestane gedragingen die bepalen hoe deze wordt gebruikt. Andere elementen zijn [suggesties](#suggesters), [scoreprofielen](#scoring-profiles), [analyzers](#analyzers) met onderdelen op ondersteuning voor aanpassing, en [CORS](#cors) Opties.
+De [ *Veldenverzameling* ](#fields-collection) is doorgaans het grootste deel van een index, waarbij elk veld heet, getypt en toegeschreven met toegestane gedragingen die bepalen hoe deze wordt gebruikt. Andere elementen zijn [suggesties](#suggesters), [scoreprofielen](#scoring-profiles), [analyzers](#analyzers) met onderdelen op ondersteuning voor aanpassing, [CORS](#cors) en [versleutelingssleutel](#encryption-key) opties.
 
 ```json
 {
@@ -126,6 +126,15 @@ De [ *Veldenverzameling* ](#fields-collection) is doorgaans het grootste deel va
   "corsOptions": (optional) {
     "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
     "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
+  },
+  "encryptionKey":(optional){
+    "keyVaultUri": "azure_key_vault_uri",
+    "keyVaultKeyName": "name_of_azure_key_vault_key",
+    "keyVaultKeyVersion": "version_of_azure_key_vault_key",
+    "accessCredentials":(optional){
+      "applicationId": "azure_active_directory_application_id",
+      "applicationSecret": "azure_active_directory_application_authentication_key"
+    }
   }
 }
 ```
@@ -203,6 +212,10 @@ De volgende opties kunnen worden ingesteld voor CORS:
   Als u wilt toestaan toegang tot alle oorsprongen, `*` als één item in de **allowedOrigins** matrix. *Dit wordt niet aanbevolen voor productie-zoekservices* maar vaak is het handig is voor de ontwikkeling en foutopsporing.
 
 + **maxAgeInSeconds** (optioneel): Browsers gebruiken deze waarde om te bepalen van de duur (in seconden) aan voorbereidende CORS-antwoorden cache. Dit moet een niet-negatief geheel getal zijn. Hoe groter deze waarde is, de prestaties beter, maar hoe langer het duurt voor CORS-beleidswijzigingen worden doorgevoerd. Als deze niet is ingesteld, wordt een standaardduur van 5 minuten worden gebruikt.
+
+## <a name="encryption-key"></a>Coderingssleutel
+
+Terwijl alle Azure search-indexen standaard door Microsoft beheerde sleutels zijn versleuteld, indexen kunnen worden geconfigureerd om te worden versleuteld met **klant beheerde sleutels** in Key Vault. Zie voor meer informatie, [coderingssleutels opgeslagen in Azure Search beheren](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

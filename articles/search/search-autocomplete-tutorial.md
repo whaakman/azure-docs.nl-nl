@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5cb8d2fee706600251039d80232d9fc7f60d5fb
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126735"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025145"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Voorbeeld: Suggesties of automatisch aangevulde toevoegen aan uw Azure Search-toepassing
 
@@ -23,7 +23,7 @@ In dit artikel leert u hoe u [suggesties](https://docs.microsoft.com/rest/api/se
 
 + *Suggesties* voorgestelde resultaten die zijn gegenereerd tijdens het typen, waarbij elke voorstel is een enkelvoudig resultaat wordt verkregen uit de index die overeenkomt met wat u tot nu toe hebt getypt zijn. 
 
-+ *Automatisch aanvullen*, [een preview-functie](search-api-preview.md), "voltooid" het woord of woordgroep die een gebruiker is momenteel te typen. In plaats van het retourneren van resultaten, is een query die u vervolgens uitvoeren kunt om te retourneren van resultaten voltooid. Net als bij suggesties voor is een voltooide woord of zinsdeel in een query echter afhankelijk van een overeenkomst in de index. De service wordt niet query's die geen resultaten geretourneerd in de index bieden.
++ *Automatisch aanvullen* "voltooid" het woord of woordgroep die een gebruiker is momenteel te typen. In plaats van het retourneren van resultaten, is een query die u vervolgens uitvoeren kunt om te retourneren van resultaten voltooid. Net als bij suggesties voor is een voltooide woord of zinsdeel in een query echter afhankelijk van een overeenkomst in de index. De service wordt niet query's die geen resultaten geretourneerd in de index bieden.
 
 U kunt downloaden en uitvoeren van de voorbeeldcode **DotNetHowToAutocomplete** om te evalueren van deze functies. De voorbeeldcode is gericht op een vooraf gedefinieerde index die is gevuld met [NYCJobs demo gegevens](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). De index NYCJobs bevat een [suggestie constructie](index-add-suggesters.md), dit is een vereiste voor het gebruik van suggesties of automatisch aanvullen. U kunt de voorbereide index die wordt gehost in een sandboxservice of [uw eigen-index te vullen](#configure-app) met behulp van een laadprogramma voor inventarisatiegegevens in de Voorbeeldoplossing NYCJobs. 
 

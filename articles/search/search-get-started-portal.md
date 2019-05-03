@@ -7,15 +7,15 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b30fa61cd46acd4fa9da9d97c100e3b3a0aaf067
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61289416"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024746"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Quickstart: Ingebouwde portalprogramma's gebruiken voor importeren, indexeren en query's uitvoeren in Azure Search
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Deze stap slaan we nu even over en we gaan naar **Doelindex aanpassen**.
    ![Stap voor cognitieve vaardigheden overslaan](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
-> U kunt de nieuwe previewfunctie van cognitief zoeken voor Azure Search proberen via de [Snelstart](cognitive-search-quickstart-blob.md) of [zelfstudie over cognitief zoeken](cognitive-search-tutorial-blob.md).
+> U kunt stap voor stap door een voorbeeld van AI-indexering in een [snelstartgids](cognitive-search-quickstart-blob.md) of [zelfstudie](cognitive-search-tutorial-blob.md).
 
 ### <a name="step-3---configure-index"></a>Stap 3: index configureren
 
@@ -154,7 +154,7 @@ U zou nu een zoekindex moeten hebben die klaar is om query’s uit te voeren met
 
    ![Opdracht Search Explorer](media/search-get-started-portal/search-explorer-cmd2.png)
 
-2. Klik in de opdrachtbalk op **Index wijzigen** om te schakelen naar *realestate-us-sample*. Klik in de opdrachtbalk op **API-versie instellen** om te zien welke REST API's beschikbaar zijn. Gebruik voor onderstaande query’s de algemeen beschikbare versie (11-11-2017).
+2. Klik in de opdrachtbalk op **Index wijzigen** om te schakelen naar *realestate-us-sample*. Klik in de opdrachtbalk op **API-versie instellen** om te zien welke REST API's beschikbaar zijn. Gebruik voor onderstaande query's de algemeen beschikbare versie (2019-05-06).
 
    ![Index- en API-opdrachten](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 

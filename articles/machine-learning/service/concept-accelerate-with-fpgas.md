@@ -1,5 +1,5 @@
 ---
-title: Wat zijn FPGA's en Project Brainwave?
+title: What are field-programmable gate arrays (FPGA)
 titleSuffix: Azure Machine Learning service
 description: Informatie over het versnellen van modellen en deep neural networks met FPGA's op Azure. Dit artikel bevat een inleiding tot veld-programmable gate arrays (FPGA) en hoe de Azure Machine Learning-service biedt realtime kunstmatige intelligentie (AI) wanneer u uw model naar een Azure-FPGA implementeert.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
-ms.date: 1/10/2019
+ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 716de6d491be753c5c32c0a2774404140010f72c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 648dc462477570a692eff588c558a18a3121e4e7
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821219"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025255"
 ---
-# <a name="what-are-fpgas-and-project-brainwave"></a>Wat zijn FPGA's en Project Brainwave?
+# <a name="what-are-field-programmable-gate-arrays-fpga"></a>What are field-programmable gate arrays (FPGA)
 
 Dit artikel bevat een inleiding tot veld-programmable gate arrays (FPGA) en hoe de Azure Machine Learning-service biedt realtime kunstmatige intelligentie (AI) wanneer u uw model implementeert naar een Azure-FPGA.
 
@@ -37,31 +37,28 @@ Het volgende diagram en tabel laten u zien hoe FPGA's zich verhouden tot andere 
 |Grafische verwerkingseenheden|GPU 's|Een populaire optie voor AI-berekeningen. GPU's bieden mogelijkheden voor parallelle verwerking, waardoor het sneller op beeldweergave dan CPU's.|
 |Central processing units|CPU's|Voor algemene doeleinden processors, de prestaties van die niet ideaal voor grafische afbeeldingen en video verwerking is.|
 
-## <a name="project-brainwave-on-azure"></a>Project Brainwave op Azure
+FPGA's in Azure zijn gebaseerd op Intel FPGA-apparaten, welke data scientists en ontwikkelaars met realtime AI-berekeningen te versnellen. Deze architectuur FPGA-functionaliteit biedt prestaties, flexibiliteit en de schaal en is beschikbaar op Azure.
 
-[Project Brainwave](https://www.microsoft.com/en-us/research/project/project-brainwave/) is een hardwarearchitectuur van Microsoft. Deze gebaseerd op Intel FPGA apparaten, welke data scientists en ontwikkelaars met realtime AI-berekeningen te versnellen. Deze architectuur FPGA-functionaliteit biedt prestaties, flexibiliteit en de schaal en is beschikbaar op Azure.
-
-FPGA's maken het mogelijk is om te realiseren met lage latentie voor realtime inferentietaken aanvragen. Asynchrone aanvragen (batchverwerking) niet meer nodig hebt. Batchverwerking kan de latentie, veroorzaken, omdat er meer gegevens moet worden verwerkt. Project Brainwave implementaties van neurale verwerkingseenheden vereisen batchverwerking; de latentie kan dus minder vaak, vergeleken met de CPU en GPU-processors.
+FPGA's maken het mogelijk is om te realiseren met lage latentie voor realtime inferentietaken aanvragen. Asynchrone aanvragen (batchverwerking) niet meer nodig hebt. Batchverwerking kan de latentie, veroorzaken, omdat er meer gegevens moet worden verwerkt. Implementaties van neurale verwerkingseenheden vereisen batchverwerking; de latentie kan dus minder vaak, vergeleken met de CPU en GPU-processors.
 
 ### <a name="reconfigurable-power"></a>Herconfigureerbare power
 U kunt FPGA's voor verschillende soorten machine learning-modellen opnieuw configureren. Deze flexibiliteit maakt het gemakkelijker om te versnellen van de toepassingen op basis van de meest optimale numerieke precisie en model van het geheugen wordt gebruikt. Omdat FPGA's herconfigureerbare, u kunt op de hoogte blijven met de vereisten van snel veranderende AI-algoritmen.
 
 ### <a name="whats-supported-on-azure"></a>Wat wordt ondersteund op Azure
-Microsoft Azure is's werelds grootste investeringen in de cloud in FPGA's. U kunt Project Brainwave uitvoeren op de infrastructuur van Azure schaal.
+Microsoft Azure is's werelds grootste investeringen in de cloud in FPGA's. FPGA's op Azure ondersteunt:
 
-Nu een Project Brainwave ondersteunt:
 + Afbeelding classificatie en herkenning van scenario 's
 + TensorFlow-implementatie
 + Dnn's: ResNet 50, ResNet 152 VGG-16, SSD-VGG en DenseNet 121
 + Intel FPGA-hardware 
 
-Met deze hardwarearchitectuur FPGA-functionaliteit, getrainde neurale netwerken uitvoeren snel en met een lagere latentie. Project Brainwave kunt vooraf getrainde (DNN) in de deep neural networks parallel op FPGA's uit de service te schalen. De dnn's kunnen worden vooraf getrainde, als een grondige featurizer voor overdracht leren of op uw wensen afgestemd met bijgewerkte waarden.
+Met deze hardwarearchitectuur FPGA-functionaliteit, getrainde neurale netwerken uitvoeren snel en met een lagere latentie. Azure kan vooraf getrainde (DNN) in de deep neural networks parallel op FPGA's uit de service te schalen. De dnn's kunnen worden vooraf getrainde, als een grondige featurizer voor overdracht leren of op uw wensen afgestemd met bijgewerkte waarden.
 
 ### <a name="scenarios-and-applications"></a>Scenario's en toepassingen
 
-Project Brainwave is geïntegreerd met Azure Machine Learning. Gebruikt door Microsoft FPGA's voor DNN evaluatie, Bing-zoekresultaten en software gedefinieerde netwerken (SDN)-versnelling om te verlagen, latentie, terwijl het vrijmaken van CPU's voor andere taken.
+Azure FPGA's zijn geïntegreerd met Azure Machine Learning. Gebruikt door Microsoft FPGA's voor DNN evaluatie, Bing-zoekresultaten en software gedefinieerde netwerken (SDN)-versnelling om te verlagen, latentie, terwijl het vrijmaken van CPU's voor andere taken.
 
-De volgende scenario's gebruiken FPGA op Project Brainwave architectuur:
+De volgende scenario's gebruiken FPGA's:
 + [Geautomatiseerd systeem voor netwerkinspectie optische](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
 
 + [Land cover toewijzing](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
@@ -70,7 +67,7 @@ De volgende scenario's gebruiken FPGA op Project Brainwave architectuur:
 
 Voor het maken van een image recognition-service in Azure, kunt u ondersteunde dnn's als een featurizer voor implementatie op Azure FPGA's:
 
-1. Gebruik de [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk) om de servicedefinitie van een te maken. De servicedefinitie van een is een bestand met een beschrijving van een pijplijn van grafieken (invoer, featurizer en classificatie) op basis van TensorFlow. De implementatieopdracht automatisch de definitie en grafieken comprimeert in een ZIP-bestand, en wordt het ZIP-bestand geüpload naar Azure Blob-opslag. De DNN is al geïmplementeerd op het Project Brainwave uit te voeren op FPGA.
+1. Gebruik de [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk) om de servicedefinitie van een te maken. De servicedefinitie van een is een bestand met een beschrijving van een pijplijn van grafieken (invoer, featurizer en classificatie) op basis van TensorFlow. De implementatieopdracht automatisch de definitie en grafieken comprimeert in een ZIP-bestand, en wordt het ZIP-bestand geüpload naar Azure Blob-opslag. De DNN is al geïmplementeerd om uit te voeren op FPGA.
 
 1. Registreer het model met behulp van de SDK met het ZIP-bestand in Azure Blob-opslag.
 

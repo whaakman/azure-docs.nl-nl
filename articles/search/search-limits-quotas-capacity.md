@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ff2b843e00ffdf005d952cf62eab6b93c9434913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193114"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024644"
 ---
 # <a name="service-limits-in-azure-search"></a>Servicelimieten in Azure Search
 Maximale limieten voor opslag, workloads en aantallen indexen, documenten, en andere objecten afhankelijk zijn van of u [inrichten van Azure Search](search-create-service-portal.md) op **gratis**, **Basic**,  **Standard**, of **met geoptimaliseerde opslag** Prijscategorieën.
@@ -50,7 +50,10 @@ Maximale limieten voor opslag, workloads en aantallen indexen, documenten, en an
 | Resource | Gratis | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Maximale aantal indexen |3 |5 of 15 |50 |200 |200 |1000 per partitie of 3000 per service |10 |10 |
-| Maximum aantal velden per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Maximale eenvoudige velden per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Maximum aantal complexe verzameling velden per index |40 |40 |40 |40 |40 |40 |40 |40 |
+| Maximum aantal elementen voor alle complexe verzamelingen per document |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Maximale diepte van complexe velden |10 |10 |10 |10 |10 |10 |10 |10 |
 | Maximale [suggesties](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Maximale [scoreprofielen](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Maximumaantal functies per profiel |8 |8 |8 |8 |8 |8 |8 |8 |

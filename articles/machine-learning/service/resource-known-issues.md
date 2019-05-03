@@ -11,16 +11,33 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 242b7cb45e9a73e78ae9f9b62e83311e110e07ee
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60752331"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021096"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bekende problemen en oplossen van problemen met Azure Machine Learning-service
 
 Dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten opgetreden bij het gebruik van de Azure Machine Learning-service.
+
+## <a name="visual-interface-issues"></a>Problemen met de visuele interface
+
+Visuele interface voor machine learning-problemen met de service.
+
+### <a name="long-compute-preparation-time"></a>Lange voorbereidingstijd
+
+Maken van nieuwe berekening of beantwoorden verlaten rekentijd duurt, is mogelijk een paar minuten of zelfs nog langer. Het team werkt voor optimalisatie.
+
+
+### <a name="cannot-run-an-experiment-only-contains-dataset"></a>Een experiment uitvoeren kan niet alleen bevat gegevensset 
+
+Om uit te voeren kunt u een experiment bevat alleen de gegevensset voor het visualiseren van de gegevensset. Maar het is niet toegestaan om uit te voeren alleen bevat gegevensset vandaag nog een experiment. We zijn actief in dit probleem is opgelost.
+ 
+Voordat u de oplossing kunt u de gegevensset verbinden met een transformatie gegevensmodule (Select Columns in Dataset, metagegevens bewerken, Split Data enz.) en voer het experiment uit. Vervolgens kunt u de gegevensset visualiseren. 
+
+Onderstaande afbeelding toont hoe: ![visulize-gegevens](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>Problemen met de SDK-installatie
 

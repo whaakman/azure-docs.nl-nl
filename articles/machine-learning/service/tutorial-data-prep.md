@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c1c00fec5f56fc81b2cb73404728b214b5aaf3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a717fa4191c57c21705d24884397ebb485726492
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60764586"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025094"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Zelfstudie: Gegevens voorbereiden voor regressiemodellering
 
@@ -41,18 +41,16 @@ Ga naar [De ontwikkelomgeving instellen](#start) om de notebook-stappen te doorl
     * De Azure Machine Learning Data Prep SDK voor Python
 * Het notebook voor de zelfstudie
 
-Haal al deze vereisten op uit een van de secties hieronder.
-
-* [Azure Notebooks](#azure) gebruiken
+* Gebruik een [cloud notebook-server in uw werkruimte](#azure) 
 * [Uw eigen Notebook-server](#server) gebruiken
 
-### <a name="azure"></a>Azure Notebooks gebruiken: Gratis Jupyter-notebooks in de cloud
+### <a name="azure"></a>Een cloud-notebook-server gebruiken in uw werkruimte
 
-U kunt eenvoudig aan de slag met Azure Notebooks. De Azure Machine Learning Data Prep SDK is al voor u geïnstalleerd en geconfigureerd in [Azure Notebooks](https://notebooks.azure.com/). De installatie en toekomstige updates worden automatisch beheerd via Azure-services.
-
-Nadat u de onderstaande stappen hebt uitgevoerd, voert u het notebook **tutorials/regression-part1-data-prep.ipynb** in het project **Aan de slag** uit.
+Het is eenvoudig aan de slag met uw eigen cloud-gebaseerde notebook-server. De [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk) al is geïnstalleerd en geconfigureerd voor u, zodra u deze cloudresource hebt gemaakt.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Nadat u de webpagina van de notebook start, voert u de **zelfstudies/regressie-deel 1-gegevens-prep.ipynb** notebook.
 
 ### <a name="server"></a>Uw eigen Jupyter Notebook-server gebruiken
 

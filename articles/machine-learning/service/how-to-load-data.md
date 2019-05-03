@@ -10,22 +10,24 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 2/22/2019
+ms.date: 02/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34dd20826928d1ab2ba1fc7980c7d47b796ea663
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7dc07ba7f1d62b49232b1cd892070804099fab8c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819224"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024006"
 ---
-# <a name="load-and-read-data-with-azure-machine-learning"></a>Laden en lezen van gegevens met Azure Machine Learning
-
+# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Laden en lezen van gegevens met de Azure Machine Learning Data Prep SDK
 In dit artikel leert u verschillende methoden voor het laden van gegevens met behulp van de Azure Machine Learning Data Prep SDK. Referentiedocumentatie voor de SDK, Zie de [overzicht](https://aka.ms/data-prep-sdk). De SDK biedt ondersteuning voor meerdere gegevensopname-functies, waaronder:
 
 * Laden uit veel bestandstypen met het parseren van de parameter Deductie (codering, scheidingsteken, headers)
 * Type converteren met behulp van Deductie tijdens het laden van bestand
 * Ondersteuning voor MS SQL Server en Azure Data Lake Storage-verbindingen
+
+> [!Important]
+> Als u een nieuwe oplossing bouwt, kunt u de [Azure Machine Learning gegevenssets](how-to-explore-prepare-data.md) (preview) voor gegevens verkennen en de voorbereiding. Gegevenssets is de volgende versie van de SDK biedt uitgebreide functionaliteit voor het beheren van data-sets in AI-oplossingen voor gegevensvoorbereiding.
 
 De volgende tabel ziet u een selectie van functies die worden gebruikt voor het laden van gegevens uit algemene bestandstypen.
 

@@ -1,7 +1,7 @@
 ---
 title: Een Azure Cosmos DB-gegevensbron - Azure Search-index
 description: Een Azure Cosmos DB-gegevensbron verkennen en opnemen van gegevens in een doorzoekbare index met volledige tekst in Azure Search. Indexeerfuncties automatiseren opname van gegevens voor bepaalde gegevensbronnen, zoals Azure Cosmos DB.
-ms.date: 02/28/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d10a1df402fc4931c4d6cc513aa5e22cfe7ec2ba
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871694"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024728"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indexeren van Cosmos DB met behulp van een Azure Search-indexeerfunctie
 
@@ -122,9 +122,8 @@ Als u MongoDB evalueert, moet u de REST-API gebruiken om de gegevensbron te make
 
 U kunt in uw Cosmos DB-account of u wilt dat de verzameling moeten worden alle documenten automatisch te indexeren. Standaard alle documenten automatisch worden geïndexeerd, maar u kunt automatische indexering uitschakelen. Wanneer indexeren is uitgeschakeld, documenten zijn toegankelijk via alleen hun Self link-elementen of door query's met behulp van het document-id. Azure Search is vereist voor Cosmos DB automatische indexering zijn ingeschakeld in de verzameling die door Azure Search worden geïndexeerd. 
 
-> [!NOTE]
-> Azure Cosmos DB is de volgende generatie van DocumentDB. Hoewel de productnaam wordt gewijzigd, de `documentdb` -syntaxis in Azure Search-indexeerfuncties nog steeds bestaat voor achterwaartse compatibiliteit in de Azure Search API's en de portal-pagina's. Bij het configureren van indexeerfuncties, moet u opgeven de `documentdb` syntaxis volgens de instructies in dit artikel.
-
+> [!WARNING]
+> Azure Cosmos DB is de volgende generatie van DocumentDB. Eerder met API-versie **2017-11-11** kunt u de `documentdb` syntaxis. Dit betekent dat u dat uw gegevensbrontype als opgeven kunt `cosmosdb` of `documentdb`. Beginnen met API-versie **2019-05-06** zowel de Azure Search API's en de Portal ondersteunen alleen de `cosmosdb` syntaxis volgens de instructies in dit artikel. Dit betekent dat het gegevensbrontype moet `cosmosdb` als u wilt verbinding maken met een Cosmos DB-eindpunt.
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - invoer voor de aanvraag samenvoegen
 
@@ -150,13 +149,13 @@ Een **gegevensbron** Hiermee geeft u de gegevens naar de index, referenties en b
 
 Formuleer een POST-aanvraag voor het maken van een gegevensbron:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
     {
-        "name": "mydocdbdatasource",
-        "type": "documentdb",
+        "name": "mycosmosdbdatasource",
+        "type": "cosmosdb",
         "credentials": {
             "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;Database=myCosmosDbDatabaseId"
         },
@@ -172,7 +171,7 @@ De hoofdtekst van de aanvraag bevat de definitie van de gegevensbron, waaronder 
 | Veld   | Description |
 |---------|-------------|
 | **De naam** | Vereist. Kies een naam voor uw data source-object. |
-|**type**| Vereist. Moet `documentdb`. |
+|**type**| Vereist. Moet `cosmosdb`. |
 |**credentials** | Vereist. Moet u een Cosmos DB-verbindingsreeks.<br/>Voor de SQL-collecties zijn tekenreeksen voor databaseverbindingen in deze indeling: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Voor MongoDB-verzamelingen toevoegen **API-soort MongoDb =** op de verbindingstekenreeks:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Vermijd poortnummers in de eindpunt-url. Als u het poortnummer opgeeft, worden Azure Search kan geen index van uw Azure Cosmos DB-database.|
 | **container** | Bevat de volgende elementen: <br/>**name**: Vereist. Geef de ID van de databaseverzameling worden geïndexeerd.<br/>**query**: Optioneel. U kunt een query voor het samenvoegen van een willekeurige JSON-document in een vast schema dat Azure Search kunt indexeren.<br/>Query's worden niet ondersteund voor MongoDB-verzamelingen. |
 | **dataChangeDetectionPolicy** | Aanbevolen. Zie [gewijzigd documenten te indexeren](#DataChangeDetectionPolicy) sectie.|
@@ -193,7 +192,7 @@ Voorbeelddocument:
             "lastName": "hoh"
         },
         "company": "microsoft",
-        "tags": ["azure", "documentdb", "search"]
+        "tags": ["azure", "cosmosdb", "search"]
     }
 
 Filterquery:
@@ -219,7 +218,7 @@ Matrix afvlakken query:
 
 [Maken van een doel-Azure Search-index](/rest/api/searchservice/create-index) als u er nog geen hebt. Het volgende voorbeeld wordt een index met een veld-ID en -beschrijving:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -263,13 +262,13 @@ Zorg ervoor dat het schema van de doelindex compatibel met het schema van de bro
 
 Zodra de index en gegevensbron zijn gemaakt, bent u klaar om te maken van de indexeerfunctie:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
     {
-      "name" : "mydocdbindexer",
-      "dataSourceName" : "mydocdbdatasource",
+      "name" : "mycosmosdbindexer",
+      "dataSourceName" : "mycosmosdbdatasource",
       "targetIndexName" : "mysearchindex",
       "schedule" : { "interval" : "PT2H" }
     }
@@ -334,17 +333,17 @@ Als u een aangepaste query gebruikt, zorgt u ervoor dat de eigenschap waarnaar w
 
 Het volgende voorbeeld wordt een gegevensbron met een beleid voor voorlopig verwijderen:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
     {
-        "name": "mydocdbdatasource",
-        "type": "documentdb",
+        "name": "mycosmosdbdatasource",
+        "type": "cosmosdb",
         "credentials": {
-            "connectionString": "AccountEndpoint=https://myDocDbEndpoint.documents.azure.com;AccountKey=myDocDbAuthKey;Database=myDocDbDatabaseId"
+            "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;Database=myCosmosDbDatabaseId"
         },
-        "container": { "name": "myDocDbCollectionId" },
+        "container": { "name": "myCosmosDbCollectionId" },
         "dataChangeDetectionPolicy": {
             "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
             "highWaterMarkColumnName": "_ts"

@@ -1,22 +1,22 @@
 ---
-title: 'Quickstart: Bouw een index AI aangestuurde in Azure portal - Azure Search'
+title: 'Quickstart: Bouw een AI-verrijkt index in Azure portal - Azure Search'
 description: Ophalen van gegevens, natuurlijke taal en afbeeldingsverwerking vaardigheden in een Azure Search-indexering portal met behulp van de Azure portal en sample van gegevens.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 161d3ff3e00f7e9e979527533f6b8ac365c41490
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb029530d2c6cdac82fd0d257e10717386eebf0e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61345361"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65022098"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>Quickstart: Een AI-pijplijn indexeren met cognitieve vaardigheden en voorbeeldgegevens maken
+# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Quickstart: Een AI-pijplijn indexeren met cognitieve vaardigheden in Azure Search
 
 Azure Search kan worden geïntegreerd met [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), uitpakken van inhoud, natuurlijke taalverwerking (NLP) en afbeelding verwerking vaardigheden toe te voegen aan een Azure Search indexeren pijplijn, waardoor unsearchable of ongestructureerde inhoud meer doorzoekbaar. 
 
@@ -30,12 +30,12 @@ Maak in deze snelstart uw eerste verrijkingspijplijn in [Azure Portal](https://p
 > * Voer de wizard uit (een entiteitsvaardigheid detecteert mensen, locatie en organisaties)
 > * Gebruik [**Search Explorer**](search-explorer.md) om query's op de verrijkte gegevens uit te voeren
 
-Deze snelstartgids wordt uitgevoerd op de gratis service, maar het aantal gratis transacties is beperkt tot 20 documenten per dag. Als u deze Quick Start meer dan één keer uitgevoerd in dezelfde dag wilt, gebruikt u een kleiner bestand instellen, zodat u in meer uitvoeringen past.
+Deze snelstartgids wordt uitgevoerd op de gratis service, maar het aantal gratis transacties is beperkt tot 20 documenten per dag. Als u wilt uitvoeren in deze Quick Start van meer dan eenmaal per dag, gebruikt een kleiner bestand instellen, zodat u in meer uitvoeringen past.
 
 > [!NOTE]
-> Als u een bereik uitbreiden door het verhogen van de frequentie van de verwerking, meer documenten toe te voegen of meer AI-algoritmen toe te voegen, moet u een factureerbare Cognitive Services-resource koppelen. Kosten toenemen bij het aanroepen van API's in Cognitive Services en voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken in Azure Search. Er zijn geen kosten voor het ophalen van de tekst van documenten.
+> Als u bereik uitbreiden door het verhogen van de frequentie van de verwerking, meer documenten toe te voegen of toe te voegen meer AI-algoritmen, u moet [een factureerbare Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md). Kosten toenemen bij het aanroepen van API's in Cognitive Services en voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken in Azure Search. Er zijn geen kosten voor het ophalen van de tekst van documenten.
 >
-> Uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijzen wordt in rekening gebracht op de preview-prijzen, zoals wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400). [Meer](cognitive-search-attach-cognitive-services.md) informatie.
+> Uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/). Afbeelding extractie prijzen wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 

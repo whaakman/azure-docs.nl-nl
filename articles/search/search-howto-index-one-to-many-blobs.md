@@ -1,7 +1,7 @@
 ---
 title: Index blobs met meerdere documenten van de index van Azure Blob-indexering voor zoeken in volledige tekst - Azure Search zoeken
 description: Verken Azure-blobs voor tekstinhoud met behulp van de indexeerfunctie Azure Search Blob. Elke blob kan een of meer Azure Search-index documenten bevatten.
-ms.date: 02/12/2019
+ms.date: 05/02/2019
 author: arv100kri
 manager: briansmi
 ms.author: arjagann
@@ -10,21 +10,18 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seofeb2018
-ms.openlocfilehash: e95eff015340659b642dff800a03f615e22c1577
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 628ced069c9d32c6e874c2e36a1e3b752c476003
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871196"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024647"
 ---
 # <a name="indexing-blobs-producing-multiple-search-documents"></a>Indexeren van blobs produceren van documenten met meerdere zoeken
 Standaard wordt een blob-indexeerfunctie de inhoud van een blob behandelen als een document met één zoekopdracht doorzoeken. Bepaalde **parsingMode** waarden ondersteuning van scenario's waarbij een afzonderlijke blob in meerdere documenten met zoeken resulteren kan. De verschillende typen **parsingMode** waarmee een indexeerfunctie om op te halen van meer dan één zoekopdracht documenten van een blob zijn:
 + `delimitedText`
 + `jsonArray`
 + `jsonLines`
-
-> [!IMPORTANT]
-> `jsonLines` parseermodus is in openbare preview en mag niet worden gebruikt in een productieomgeving. Zie voor meer informatie, [REST api-version = 2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 
 ## <a name="one-to-many-document-key"></a>Een-op-veel-documentsleutel
 Elk document dat weergegeven in een Azure Search-index wordt wordt uniek geïdentificeerd door een documentsleutel. 
@@ -106,7 +103,7 @@ Als u instellen van een expliciete veldtoewijzing wilt, zorg ervoor dat de _sour
 + [Indexeerfuncties in Azure Search](search-indexer-overview.md)
 + [Azure Blob Storage met Azure Search indexeren](search-howto-index-json-blobs.md)
 + [Indexeren van CSV-blobs met de indexeerfunctie voor Azure Search blob](search-howto-index-csv-blobs.md)
-+ [Indexeren van JSON-blobs met de indexeerfunctie voor Azure Search blob](search-howto-index-csv-blobs.md)
++ [Indexeren van JSON-blobs met de indexeerfunctie voor Azure Search blob](search-howto-index-json-blobs.md)
 
 ## <a name="NextSteps"></a>Volgende stappen
 * Zie voor meer informatie over Azure Search, de [pagina zoekservice](https://azure.microsoft.com/services/search/).

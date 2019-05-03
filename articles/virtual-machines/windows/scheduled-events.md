@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: ab0aefd5650aada9c301115813a80747ddd1f2ac
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1a82b9256405e2cac12f4c5611ee3bdad459162b
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926325"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64992940"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Geplande gebeurtenissen voor Windows-VM 's
 
@@ -45,7 +45,7 @@ Veel toepassingen kunnen profiteren van de tijd om voor te bereiden voor onderho
 Met behulp van geplande gebeurtenissen van uw toepassing kan detecteren wanneer onderhoud zal optreden en taken te beperken de gevolgen ervan te activeren. Inschakelen van geplande gebeurtenissen, biedt uw virtuele machine een minimale hoeveelheid tijd voordat de activiteit onderhoud wordt uitgevoerd. Zie de sectie planning van de gebeurtenis hieronder voor meer informatie.
 
 Geplande gebeurtenissen biedt gebeurtenissen in de volgende gevallen gebruik:
-- Platform gestart onderhoud (bijvoorbeeld Host Update van het besturingssysteem)
+- [Platform gestart onderhoud](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/maintenance-and-updates) (bijvoorbeeld virtuele machine opnieuw opstarten, live migratie of geheugen behoud van updates voor host)
 - Gedegradeerde hardware
 - De gebruiker gestart onderhoud (bijvoorbeeld als gebruiker opnieuw wordt opgestart of implementeert een virtuele machine opnieuw)
 - [Verwijdering van de VM met lage prioriteit](https://azure.microsoft.com/blog/low-priority-scale-sets) in schaal ingesteld
@@ -119,7 +119,7 @@ De DocumentIncarnation is een ETag en biedt een eenvoudige manier om te controle
 |Eigenschap  |  Description |
 | - | - |
 | Gebeurtenis-id | Unieke id voor deze gebeurtenis. <br><br> Voorbeeld: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| Type gebeurtenis | Impact die deze gebeurtenis is veroorzaakt. <br><br> Waarden: <br><ul><li> `Freeze`: De virtuele Machine is gepland voor een paar seconden onderbreken. De CPU wordt onderbroken, maar er is geen invloed op geheugen, geopende bestanden of netwerkverbindingen. <li>`Reboot`: De virtuele Machine is gepland voor opnieuw opstarten (niet-permanent geheugen is verloren gegaan). <li>`Redeploy`: De virtuele Machine is gepland om te verplaatsen naar een ander knooppunt (tijdelijke schijven zijn verloren). <li>`Preempt`: De VM met lage prioriteit wordt verwijderd (tijdelijke schijven zijn verloren).|
+| Type gebeurtenis | Impact die deze gebeurtenis is veroorzaakt. <br><br> Waarden: <br><ul><li> `Freeze`: De virtuele Machine is gepland voor een paar seconden onderbreken. CPU- en -connectiviteit wordt mogelijk onderbroken, maar er is geen invloed op geheugen of geopende bestanden. <li>`Reboot`: De virtuele Machine is gepland voor opnieuw opstarten (niet-permanent geheugen is verloren gegaan). <li>`Redeploy`: De virtuele Machine is gepland om te verplaatsen naar een ander knooppunt (tijdelijke schijven zijn verloren). <li>`Preempt`: De VM met lage prioriteit wordt verwijderd (tijdelijke schijven zijn verloren).|
 | ResourceType | Het type resource dat gevolgen heeft voor deze gebeurtenis. <br><br> Waarden: <ul><li>`VirtualMachine`|
 | Resources| Lijst met resources die gevolgen heeft voor deze gebeurtenis. Dit kan worden gegarandeerd machines van maximaal één bevatten [Updatedomein](manage-availability.md), maar niet alle machines in de UD kan bevatten. <br><br> Voorbeeld: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Gebeurtenisstatus | De status van deze gebeurtenis. <br><br> Waarden: <ul><li>`Scheduled`: Deze gebeurtenis is gepland om te starten na de tijd die is opgegeven de `NotBefore` eigenschap.<li>`Started`: Deze gebeurtenis is gestart.</ul> Geen `Completed` of soortgelijke status ooit wordt geleverd; de gebeurtenis wordt niet meer worden geretourneerd wanneer de gebeurtenis is voltooid.
@@ -136,7 +136,8 @@ Elke gebeurtenis is gepland op basis van een minimale hoeveelheid tijd in de toe
 | Hebben voorrang op | 30 seconden |
 
 ### <a name="event-scope"></a>Bereik van gebeurtenis     
-Geplande gebeurtenissen worden geleverd aan:        
+Geplande gebeurtenissen worden geleverd aan:
+ - Zelfstandige virtuele Machines
  - Alle virtuele Machines in een Cloudservice      
  - Alle virtuele Machines in een Beschikbaarheidsset      
  - Alle virtuele Machines in een Schaalset instellen Plaatsingsgroep.         

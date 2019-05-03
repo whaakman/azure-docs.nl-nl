@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 04/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 76567db7362298b5cd35b544bf7952ebc54a2b66
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 712b5a003d3542908698d7b69c636780f6cf1007
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723203"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021737"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Zelfstudie: een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service
 
@@ -45,31 +45,29 @@ Ga naar [De ontwikkelomgeving instellen](#start) om de notebook-stappen te doorl
 * Een Python 3.6 notebook-server met het volgende geïnstalleerd:
     * De Azure Machine Learning-SDK voor Python
     * `matplotlib` en `scikit-learn`
-* Het zelfstudienotebook en het bestand utils.py
-* Een machine learning-werkruimte 
-* Het configuratiebestand voor de werkruimte in dezelfde directory als het notebook 
+* De zelfstudie notebook en het bestand **utils.py**
+* Een machine learning-werkruimte
+* Het configuratiebestand voor de werkruimte in dezelfde directory als het notebook
 
 Haal al deze vereisten op uit een van de secties hieronder.
  
-* [Azure Notebooks](#azure) gebruiken 
+* Gebruik een [cloud notebook-server in uw werkruimte](#azure) 
 * [Uw eigen Notebook-server](#server) gebruiken
 
-### <a name="azure"></a>Azure Notebooks gebruiken: Gratis Jupyter-notebooks in de cloud
+### <a name="azure"></a>Een cloud-notebook-server gebruiken in uw werkruimte
 
-U kunt eenvoudig aan de slag met Azure Notebooks. De [Azure Machine Learning SDK voor Python](https://aka.ms/aml-sdk) is al voor u geïnstalleerd en geconfigureerd in [Azure Notebooks](https://notebooks.azure.com/). De installatie en toekomstige updates worden automatisch beheerd via Azure-services.
-
-Nadat u de onderstaande stappen hebt uitgevoerd, voert u het notebook **tutorials/img-classification-part1-training.ipynb** in uw **Aan de slag**-project uit.
+Het is eenvoudig aan de slag met uw eigen cloud-gebaseerde notebook-server. De [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk) al is geïnstalleerd en geconfigureerd voor u, zodra u deze cloudresource hebt gemaakt.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Nadat u de webpagina van de notebook start, opent u de **zelfstudies/img-classificatie-deel 1-training.ipynb** notebook.
 
 
 ### <a name="server"></a>Uw eigen Jupyter Notebook-server gebruiken
 
-Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer. 
-
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
- Nadat u de stappen hebt uitgevoerd, voert u het notebook **tutorials/img-classification-part1-training.ipynb** uit.
+ Nadat u de stappen hebt voltooid, voert u de **zelfstudies/img-classificatie-deel 1-training.ipynb** notebook vanuit de gekloonde map.
 
 ## <a name="start"></a>De ontwikkelomgeving instellen
 

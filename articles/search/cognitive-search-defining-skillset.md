@@ -7,19 +7,19 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9369e076517e295a7d17011e024353614ec8ad46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9eedf0be6089764c8111ae81d558f7e65af0a66d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61344523"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021787"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Over het maken van een set vaardigheden in een pijplijn verrijking
 
-Cognitieve zoekopdrachten worden uitgepakt en verrijkt gegevens zodat deze kan worden doorzocht in Azure Search. We noemen extractie en verrijking *cognitieve vaardigheden*, gecombineerd in een *vaardigheden* waarnaar wordt verwezen tijdens het indexeren. Een set vaardigheden kunt [vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md) of aangepaste vaardigheden (Zie [voorbeeld: Maak een aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md) voor meer informatie).
+Cognitieve zoekopdrachten worden uitgepakt en verrijkt gegevens zodat deze kan worden doorzocht in Azure Search. We noemen extractie en verrijking *cognitieve vaardigheden*, gecombineerd in een *vaardigheden* waarnaar wordt verwezen tijdens het indexeren. Een set vaardigheden kunt [ingebouwde vaardigheden](cognitive-search-predefined-skills.md) of aangepaste vaardigheden (Zie [voorbeeld: Maak een aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md) voor meer informatie).
 
 In dit artikel leert u hoe u een pijplijn verrijking voor de vaardigheden die u wilt gebruiken. Een set vaardigheden is gekoppeld aan een Azure Search [indexeerfunctie](search-indexer-overview.md). Een deel van de pijplijn-ontwerp, in dit artikel besproken, is de vaardigheden zelf maken. 
 
@@ -57,7 +57,7 @@ In het diagram wordt de *documenten kraken* stap gebeurt automatisch. In princip
 Een set vaardigheden wordt gedefinieerd als een matrix van vaardigheden. Elke vaardigheid definieert de bron van de ingevoerde gegevens en de naam van de uitvoer geproduceerd. Met behulp van de [vaardigheden REST-API maken](https://docs.microsoft.com/rest/api/searchservice/create-skillset), kunt u een set vaardigheden die overeenkomt met het vorige diagram: 
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -69,7 +69,7 @@ Content-Type: application/json
   "skills":
   [
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -138,11 +138,11 @@ Tijdens het maken van een set vaardigheden, kunt u een beschrijving, zodat de va
 }
 ```
 
-Het volgende gedeelte in de vaardigheden is een matrix van vaardigheden. U kunt elke vaardigheid beschouwen als een primitieve nemen van verrijking. Elke vaardigheid voert een kleine taak in deze pijplijn verrijking. Elke een invoer (of een set van invoer) en bepaalde uitvoer geretourneerd. De volgende gedeelten zijn gericht op vooraf gedefinieerde en aangepaste ervaring, vaardigheden samen-koppeling door middel van invoer en uitvoer verwijzingen opgeven. Invoer kunnen afkomstig zijn van de brongegevens of van een andere vraagstukken. Uitvoer kunnen worden toegewezen aan een veld in een search-index of gebruikt als invoer voor een downstream-kwalificatie.
+Het volgende gedeelte in de vaardigheden is een matrix van vaardigheden. U kunt elke vaardigheid beschouwen als een primitieve nemen van verrijking. Elke vaardigheid voert een kleine taak in deze pijplijn verrijking. Elke een invoer (of een set van invoer) en bepaalde uitvoer geretourneerd. De volgende gedeelten richt u op hoe u ingebouwde en aangepaste ervaring, vaardigheden samen-koppeling door middel van invoer en uitvoer verwijzingen. Invoer kunnen afkomstig zijn van de brongegevens of van een andere vraagstukken. Uitvoer kunnen worden toegewezen aan een veld in een search-index of gebruikt als invoer voor een downstream-kwalificatie.
 
-## <a name="add-predefined-skills"></a>Vooraf gedefinieerde vaardigheden toevoegen
+## <a name="add-built-in-skills"></a>Ingebouwde vaardigheden toevoegen
 
-Bekijk de eerste kwalificatie, dit de vooraf gedefinieerde is [entiteit erkenning vaardigheid](cognitive-search-skill-entity-recognition.md):
+Bekijk de eerste kwalificatie, dit de ingebouwde is [entiteit erkenning vaardigheid](cognitive-search-skill-entity-recognition.md):
 
 ```json
     {
@@ -165,11 +165,11 @@ Bekijk de eerste kwalificatie, dit de vooraf gedefinieerde is [entiteit erkennin
     }
 ```
 
-* Elke vooraf gedefinieerde vaardigheid heeft `odata.type`, `input`, en `output` eigenschappen. Kwalificatie-specifieke eigenschappen bevatten aanvullende informatie die van toepassing zijn op deze kwalificatie. Voor de herkenning van entiteit `categories` is een entiteit uit een vaste set Entiteitstypen die het pretrained model kan herkennen.
+* Elke ingebouwde vaardigheid heeft `odata.type`, `input`, en `output` eigenschappen. Kwalificatie-specifieke eigenschappen bevatten aanvullende informatie die van toepassing zijn op deze kwalificatie. Voor de herkenning van entiteit `categories` is een entiteit uit een vaste set Entiteitstypen die het pretrained model kan herkennen.
 
-* Elke vaardigheid moet een ```"context"```. De context geeft het niveau waarop-bewerkingen plaatsvinden. De context is in de bovenstaande vaardigheid het hele document, wat betekent dat de kwalificatie van de herkenning van benoemde entiteiten één keer per document wordt genoemd. Uitvoer worden ook op dat niveau geproduceerd. Meer specifiek, ```"organizations"``` worden gegenereerd als een lid van ```"/document"```. In downstream vaardigheden, kunt u verwijzen naar de zojuist gemaakte informatie als ```"/document/organizations"```.  Als de ```"context"``` veld niet expliciet is ingesteld, is de standaard-context het document.
+* Elke vaardigheid moet een ```"context"```. De context geeft het niveau waarop-bewerkingen plaatsvinden. De context is in de bovenstaande vaardigheid het hele document, wat betekent dat de entiteit erkenning vaardigheid één keer per document wordt genoemd. Uitvoer worden ook op dat niveau geproduceerd. Meer specifiek, ```"organizations"``` worden gegenereerd als een lid van ```"/document"```. In downstream vaardigheden, kunt u verwijzen naar de zojuist gemaakte informatie als ```"/document/organizations"```.  Als de ```"context"``` veld niet expliciet is ingesteld, is de standaard-context het document.
 
-* De kwalificatie heeft één invoer met de naam 'tekst', waarbij een bron invoer is ingesteld op ```"/document/content"```. De kwalificatie (met de naam van entiteit erkenning) is van invloed op de *inhoud* veld van elk document een standaardveld is gemaakt door de Azure blob-indexeerfunctie. 
+* De kwalificatie heeft één invoer met de naam 'tekst', waarbij een bron invoer is ingesteld op ```"/document/content"```. De kwalificatie (entiteit recognition) is van invloed op de *inhoud* veld van elk document een standaardveld is gemaakt door de Azure blob-indexeerfunctie. 
 
 * De kwalificatie heeft een uitvoer met de naam ```"organizations"```. Uitvoer bestaan alleen tijdens de verwerking. Verwijzen naar de uitvoer als om een keten van deze uitvoer naar een downstream vaardigheid invoer ```"/document/organizations"```.
 
@@ -229,13 +229,13 @@ De structuur van de aangepaste Bing entity search enricher intrekken:
     }
 ```
 
-Deze definitie wordt een [aangepaste vaardigheden](cognitive-search-custom-skill-web-api.md) die een web-API-aanroepen als onderdeel van het proces verrijking. Voor elke organisatie aangeduid met herkenning van benoemde entiteiten, roept deze kwalificatie een web-API om te zoeken, de beschrijving van die organisatie. De indeling van wanneer de web-API-aanroep en hoe de ontvangen gegevens stromen wordt intern verwerkt door de engine verrijking. De initialisatie van die nodig zijn voor deze aangepaste API oproept moet echter worden opgegeven in de JSON (zoals uri, httpHeaders en de invoer verwacht). Zie voor richtlijnen bij het maken van een aangepaste web-API voor de pijplijn verrijking [over het definiëren van een aangepaste interface](cognitive-search-custom-skill-interface.md).
+Deze definitie wordt een [aangepaste vaardigheden](cognitive-search-custom-skill-web-api.md) die een web-API-aanroepen als onderdeel van het proces verrijking. Voor elke organisatie die wordt geïdentificeerd door de entiteit erkenning, roept deze kwalificatie een web-API om te zoeken, de beschrijving van die organisatie. De indeling van wanneer de web-API-aanroep en hoe de ontvangen gegevens stromen wordt intern verwerkt door de engine verrijking. De initialisatie van die nodig zijn voor deze aangepaste API oproept moet echter worden opgegeven in de JSON (zoals uri, httpHeaders en de invoer verwacht). Zie voor richtlijnen bij het maken van een aangepaste web-API voor de pijplijn verrijking [over het definiëren van een aangepaste interface](cognitive-search-custom-skill-interface.md).
 
 U ziet dat het veld 'context' is ingesteld op ```"/document/organizations/*"``` met een sterretje, wat betekent dat de stap verrijking heet *voor elk* organisatie onder ```"/document/organizations"```. 
 
 De uitvoer, wordt in dit geval een beschrijving van bedrijf gegenereerd voor elke organisatie geïdentificeerd. Met betrekking tot de beschrijving in een downstream stap (bijvoorbeeld in sleuteltermextractie), gebruikt u het pad ```"/document/organizations/*/description"``` om dit te doen. 
 
-## <a name="enrichments-create-structure-out-of-unstructured-information"></a>Enrichments maken structuur buiten niet-gestructureerde gegevens
+## <a name="add-structure"></a>Structuur toevoegen
 
 De vaardigheden genereert gestructureerde informatie uit de niet-gestructureerde gegevens. Kijk een naar het volgende voorbeeld:
 
@@ -245,9 +245,38 @@ Een waarschijnlijke resultaat is een gegenereerde structuur die vergelijkbaar is
 
 ![Voorbeeld van uitvoer structuur](media/cognitive-search-defining-skillset/enriched-doc.png "voorbeeld van uitvoer structuur")
 
-Intrekken dat deze structuur intern is. U daadwerkelijk ophalen deze grafiek in de code niet.
+Deze structuur is tot nu toe is alleen interne, alleen-geheugen en gebruikt alleen in Azure Search-index. Het toevoegen van een winkel kennis biedt u een manier om op te slaan gevormde enrichments voor gebruik buiten zoeken.
+
+## <a name="add-a-knowledge-store"></a>Een archief kennis toevoegen
+
+[Kennis Store](knowledge-store-concept-intro.md) is een preview-functie in Azure Search voor het opslaan van uw verrijkt document. Een store, kennis die u hebt gemaakt, is ondersteund door Azure storage-account, de opslagplaats waar uw gegevens verrijkt terechtkomt. 
+
+Een definitie van de store kennis wordt toegevoegd aan een set vaardigheden. Zie voor een overzicht van het hele proces, [aan de slag met kennis store](knowledge-store-howto.md).
+
+```json
+"knowledgeStore": {
+  "storageConnectionString": "<an Azure storage connection string>",
+  "projections" : [
+    {
+      "tables": [ ]
+    },
+    {
+      "objects": [
+        {
+          "storageContainer": "containername",
+          "source": "/document/EnrichedShape/",
+          "key": "/document/Id"
+        }
+      ]
+    }
+  ]
+}
+```
+
+U kunt de verrijkt documenten opslaan als tabellen met een hiërarchische relatie behouden of als JSON-documenten in blob-opslag. Uitvoer van een van de vaardigheden die in de vaardigheden kunt afkomstig als invoer voor de projectie. Als u wilt de gegevens in een bepaald project vormen en de bijgewerkte [shaper vaardigheid](cognitive-search-skill-shaper.md) nu model complexe typen voor u gebruiken kunt. 
 
 <a name="next-step"></a>
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Nu u bekend bent met de pijplijn voor verrijking en de kennis en vaardigheden, doorgaan met [aantekeningen in een set vaardigheden verwijzen naar](cognitive-search-concept-annotations-syntax.md) of [uitvoer toewijzen aan velden in een index](cognitive-search-output-field-mapping.md). 

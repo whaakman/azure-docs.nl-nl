@@ -6,16 +6,16 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 4383cc327d8058ca44acd892f41a7a256e3b1727
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281799"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024316"
 ---
 # <a name="synonyms-in-azure-search"></a>Synoniemen Azure Search
 
@@ -23,11 +23,13 @@ Synoniemen in zoekmachines equivalente termen die impliciet uitbreiden van het b
 
 In Azure Search wordt synoniem uitbreiding uitgevoerd op moment dat de query. U kunt synoniementoewijzingen toevoegen aan een service met geen onderbreking van bestaande bewerkingen. U kunt toevoegen een **synonymMaps** eigenschap aan de velddefinitie van een zonder de index opnieuw opbouwen.
 
-## <a name="feature-availability"></a>Beschikbaarheid van functies
+## <a name="create-synonyms"></a>Synoniemen maken
 
-De synoniemenfunctie wordt ondersteund in de meest recente api-versie (api-version = 2017-11-11). Azure Portal biedt er momenteel geen ondersteuning voor.
+Er is geen portal ondersteuning voor het maken van synoniemen, maar u kunt de REST-API of .NET SDK gebruiken. Als u wilt aan de slag met REST, wordt aangeraden [met Postman](search-fiddler.md) en formulering van aanvragen met behulp van deze API: [Synoniementoewijzingen maken](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Voor C# ontwikkelaars, u kunt aan de slag met [synoniemen toevoegen in met behulp van Azure te zoeken naar C# ](search-synonyms-tutorial-sdk.md).
 
-## <a name="how-to-use-synonyms-in-azure-search"></a>Over het gebruik van synoniemen in Azure search
+(Optioneel) als u [klant beheerde sleutels](search-security-manage-encryption-keys.md) voor servicezijde versleuteling-at-rest, kunt u die beveiliging toepassen op de inhoud van de synoniemtoewijzing.
+
+## <a name="use-synonyms"></a>Synoniemen gebruiken
 
 In Azure Search is synoniem ondersteuning gebaseerd op synoniementoewijzingen die u definieert en uploadt naar uw service. Deze kaarten deel uitmaken van een onafhankelijke resource (zoals indexen of gegevensbronnen) en kunnen worden gebruikt door elk doorzoekbaar veld in een index in uw zoekservice.
 
@@ -49,7 +51,7 @@ Synoniementoewijzingen moeten zich in de indeling van Apache Solr die hieronder 
 
 U kunt een nieuwe synoniemtoewijzing met behulp van HTTP POST, zoals in het volgende voorbeeld maken:
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
     api-key: [admin key]
 
     {
@@ -62,7 +64,7 @@ U kunt een nieuwe synoniemtoewijzing met behulp van HTTP POST, zoals in het volg
 
 U kunt ook gebruik van PUT en geef de naam van de kaart synoniem op de URI. Als de synoniemtoewijzing niet bestaat, wordt deze gemaakt.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
     {
@@ -81,31 +83,31 @@ USA, United States, United States of America
 
 "VS" wordt aan de regel hierboven een zoekquery uitbreiden naar "VS" of "VS" of 'Verenigde Staten van Amerika'.
 
-Expliciete toewijzing wordt aangeduid met een pijl "= > '. Als u opgeeft, een reeks term van een zoekopdracht die overeenkomt met de linkerzijde van ' = > ' wordt vervangen door de alternatieven aan de rechterkant. Vermeld hieronder de regel, zoekquery's 'Washington', 'Washington' of "WA" wordt alle worden herschreven voor "WA". Expliciete toewijzing is alleen van toepassing is in de opgegeven richting en Herschrijf de query "WA" naar "Groningen" niet in dit geval.
+Expliciete toewijzing wordt aangeduid met een pijl "= > '. Als u opgeeft, een reeks term van een zoekopdracht die overeenkomt met de linkerkant van ' = > ' wordt vervangen door de alternatieven aan de rechterkant. Vermeld hieronder de regel, zoekquery's 'Washington', 'Washington' of "WA" wordt alle worden herschreven voor "WA". Expliciete toewijzing is alleen van toepassing is in de opgegeven richting en Herschrijf de query "WA" naar "Groningen" niet in dit geval.
 ```
 Washington, Wash., WA => WA
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Lijst met synoniem toegewezen onder uw service.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Een synoniemtoewijzing onder uw service ophalen.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Een kaart synoniemen onder uw service verwijderen.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Configureer een doorzoekbaar veld voor het gebruik van de synoniemtoewijzing in de indexdefinitie.
 
 De eigenschap van een nieuw veld **synonymMaps** kan worden gebruikt om op te geven van een synoniemtoewijzing moet worden gebruikt voor een doorzoekbaar veld. Synoniementoewijzingen zijn service level resources en kunnen worden verwezen door een veld van een index van de service.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[servicename].search.windows.net/indexes?api-version=2019-05-06
     api-key: [admin key]
 
     {

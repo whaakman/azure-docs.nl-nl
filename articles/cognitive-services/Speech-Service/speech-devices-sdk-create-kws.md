@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b5ace2e741f900dd4ab7ba6518d0956284af35f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2280af4bf37fdb3cd12482da855f979a9180f0ec
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461585"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020514"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Een aangepaste wake-woord maken met behulp van de Speech-service
 
@@ -47,29 +47,26 @@ Houd rekening met de volgende richtlijnen wanneer u een woord wake kiest:
 
 ## <a name="create-your-wake-word"></a>Maken van de wake-woord
 
-Voordat u een aangepaste wake word met uw apparaat gebruiken kunt, moet u het woord wake maken met behulp van de aangepaste Wake Word generatie Microsoft-service. Nadat u een woord wake, de service produceert een bestandsnaam die opgeven implementeert u uw development kit om in te schakelen van het woord wake op uw apparaat.
+Voordat u een aangepaste wake word met uw apparaat gebruiken kunt, moet u een woord wake maken met de aangepaste Wake Word generatie Microsoft-service. Nadat u een woord wake, de service produceert een bestandsnaam die opgeven implementeert u uw development kit om in te schakelen van het woord wake op uw apparaat.
 
-1. Ga naar de [Custom Speech serviceportal](https://cris.ai/).
+1. Ga naar de [Custom Speech Service Portal](https://aka.ms/sdsdk-speechportal) en **aanmelden** of als u geen een spraak-abonnement kiezen [ **een abonnement maken**](https://go.microsoft.com/fwlink/?linkid=2086754)
 
     ![De Custom Speech serviceportal](media/speech-devices-sdk/wake-word-4.png)
 
-1. Meld u aan met het e-mailadres dat de uitnodiging voor Azure Active Directory hebt ontvangen.
-
-1. De **aangepaste Wake Word** pagina is niet beschikbaar voor het publiek, dus er is geen directe koppeling waarmee u er gaat. De functie voor aangepaste spraak vereist een Azure-abonnement, maar de functie aangepaste Wake Word niet. Als u de **geen abonnementen gevonden.** foutpagina, alleen vervangen de **"abonnementen? errorMessage = geen % 20Subscriptions % 20found"** met '**customkws**' in de URL en op ENTER. De URL moet een van de volgende: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws of https://northeurope.cris.ai/customkws, afhankelijk van waar uw regio is.
-
-1. Typ in het woord wake van uw keuze, en selecteer vervolgens **verzenden van het woord**.
+1. Op de [aangepaste Wake Word](https://aka.ms/sdsdk-wakewordportal) typt u het woord wake van uw keuze en klik op pagina **toevoegen wake word**. We hebben enkele [richtlijnen](#choose-an-effective-wake-word) om u te helpen bij het kiezen van een doeltreffende trefwoord. We ondersteunen momenteel alleen en-US-taal.
 
     ![Voer uw wake-woord](media/speech-devices-sdk/wake-word-5.png)
 
-1. Het duurt een paar minuten de bestanden die worden gegenereerd. Hier ziet u een draaiende cirkel in het browservenster. Kort daarna een informatiebalk wordt weergegeven waarin u een zipbestand te downloaden.
+1. Drie alternatieve uitspraak van de wake-woord wordt gemaakt. U kunt de uitspraak die u bevalt. Selecteer vervolgens **indienen** voor het genereren van het woord wake. Als u wijzigen het woord wake Verwijder het bestaande bestand eerst wilt, wanneer u de muisaanwijzer op de regel uitspraak van wordt het verwijderpictogram weergegeven.
 
-1. Sla het ZIP-bestand op uw computer. U moet dit bestand op het woord aangepaste wake development kit implementeren. Volg de instructies in voor het implementeren van het woord aangepaste wake [aan de slag met de SDK van de apparaten spraak](speech-devices-sdk-qsg.md).
+    ![Controleer uw wake-woord](media/speech-devices-sdk/wake-word-6.png)
 
-1. Selecteer **Meld u af.**
+1. Het duurt maximaal één minuut voor het model moet worden gegenereerd. U wordt gevraagd om het bestand te downloaden.
+
+    ![Downloaden van de wake-woord](media/speech-devices-sdk/wake-word-7.png)
+
+1. Sla het ZIP-bestand op uw computer. U moet dit bestand op het implementeren van uw aangepaste wake word development kit.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt beginnen, krijgen een [gratis Azure-account](https://azure.microsoft.com/free/) en zich registreren voor de SDK van de apparaten spraak.
-
-> [!div class="nextstepaction"]
-> [Aanmelden voor de SDK van de apparaten spraak](get-speech-devices-sdk.md)
+Testen van uw aangepaste wake word met [Quick Start de SDK van de spraakherkenning apparaten](https://aka.ms/sdsdk-quickstart).

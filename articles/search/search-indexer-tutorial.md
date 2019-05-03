@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8550e220a2c87823fc337154ea33dd3c4ec81ed0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9413fb78bbb92618818ac4311ab1af8ad65576d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322153"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025072"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C#Zelfstudie: Een Azure SQL-database verkennen met de indexeerfuncties van Azure Search
 
@@ -267,7 +267,7 @@ De snelste manier om op te schonen na een zelfstudie is de resourcegroep met de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt AI-algoritmen aan een indexeringspijplijn koppelen. Als volgende stap kunt u verdergaan met de volgende zelfstudie.
+U kunt AI-algoritmen voor verrijking koppelen aan een pijplijn voor indexering. Als volgende stap kunt u verdergaan met de volgende zelfstudie.
 
 > [!div class="nextstepaction"]
 > [Documenten in Azure Blob Storage indexeren](search-howto-indexing-azure-blob-storage.md)

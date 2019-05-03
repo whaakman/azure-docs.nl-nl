@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: e4849487c2dd9330dbf9e6b6cf0ed4d1b6b96020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f773cd298c8faaac90b30d88a74e8ddcb51c3afa
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637515"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021954"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>Afgeschafte Cognitief zoeken vaardigheden
 
@@ -31,7 +31,7 @@ Dit document beschrijft cognitieve vaardigheden die worden beschouwd als afgesch
 
 ### <a name="last-available-api-version"></a>Laatste beschikbare api-versie
 
-2017-11-11-preview
+2019-05-06-preview
 
 ### <a name="end-of-support"></a>Einde van ondersteuning
 
@@ -43,7 +43,8 @@ Gebruik [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-en
 
 Om te migreren naar de [entiteit erkenning vaardigheid](cognitive-search-skill-entity-recognition.md), u moet een of meer van de volgende wijzigingen aan de definitie van de kwalificatie uitvoeren. U kunt bijwerken met de kwalificatie definitie met behulp van de [vaardigheden API Update](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Opmerking_: Betrouwbaarheidsscore als een concept wordt momenteel niet ondersteund. Het wordt in de nabije toekomst worden ondersteund. De `minimumPrecision` parameter bestaat op de `EntityRecognitionSkill` voor toekomstig gebruik en voor achterwaartse compatibiliteit.
+> [!NOTE]
+> Betrouwbaarheidsscore als een concept wordt momenteel niet ondersteund. De `minimumPrecision` parameter bestaat op de `EntityRecognitionSkill` voor toekomstig gebruik en voor achterwaartse compatibiliteit.
 
 1. *(Vereist)*  Wijzigen de `@odata.type` van `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` naar `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 

@@ -1,7 +1,7 @@
 ---
 title: Aangepaste R-modules definiëren
 titleSuffix: Azure Machine Learning Studio
-description: In dit onderwerp wordt beschreven hoe u voor het ontwerpen en implementeren van een aangepaste R-module in Azure Machine Learning Studio. Hierin wordt uitgelegd wat aangepaste R-modules zijn en welke bestanden worden gebruikt om deze te bepalen.
+description: In dit onderwerp wordt beschreven hoe u voor het ontwerpen en implementeren van een aangepaste R Studio. Hierin wordt uitgelegd wat aangepaste R-modules zijn en welke bestanden worden gebruikt om deze te bepalen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d330340ff09ddb6c2bec04259f964f2298dbffc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751204"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025068"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Aangepaste R-modules voor Azure Machine Learning Studio definieert
 
-In dit onderwerp wordt beschreven hoe u voor het ontwerpen en implementeren van een aangepaste R-module in Azure Machine Learning Studio. Hierin wordt uitgelegd wat aangepaste R-modules zijn en welke bestanden worden gebruikt om deze te bepalen. Deze ziet u hoe u een van de bestanden die een module definiëren en registreren van de module voor implementatie in een Machine Learning-werkruimte. De elementen en kenmerken die worden gebruikt in de definitie van de aangepaste module worden vervolgens in meer detail beschreven. Het gebruik van aanvullende functionaliteit, bestanden en meerdere uitvoer wordt ook beschreven. 
+In dit onderwerp wordt beschreven hoe u voor het ontwerpen en implementeren van een aangepaste R Studio. Hierin wordt uitgelegd wat aangepaste R-modules zijn en welke bestanden worden gebruikt om deze te bepalen. Deze ziet u hoe u een van de bestanden die een module definiëren en registreren van de module voor implementatie in een Machine Learning-werkruimte. De elementen en kenmerken die worden gebruikt in de definitie van de aangepaste module worden vervolgens in meer detail beschreven. Het gebruik van aanvullende functionaliteit, bestanden en meerdere uitvoer wordt ook beschreven. 
 
 
 
@@ -159,7 +159,7 @@ Optionele **DataTable** poorten die niet worden doorgegeven als invoer in een ex
             <Description>Zip files to be extracted to the R working directory.</Description>
            </Input>
 
-Voor aangepaste R-modules heeft de id voor een Zip-poort niet overeenkomt met de parameters van de R-functie. Dit is omdat het zip-bestand automatisch naar de R-werkmap wordt opgehaald.
+Voor aangepaste R-modules heeft de ID voor een Zip-poort niet overeenkomt met de parameters van de R-functie. Dit is omdat het zip-bestand automatisch naar de R-werkmap wordt opgehaald.
 
 **Invoer regels:**
 
@@ -225,7 +225,7 @@ En de lijst van objecten in een lijst in de juiste volgorde in 'CustomAddRows.R'
 ### <a name="arguments"></a>Argumenten
 Aanvullende gegevens kunnen worden doorgegeven aan de R-functie via de moduleparameters die zijn gedefinieerd in de **argumenten** element. Deze parameters worden weergegeven in het deelvenster met de meest rechtse eigenschappen van de Machine Learning-gebruikersinterface wanneer de module is geselecteerd. Argumenten kunnen bestaan uit een van de ondersteunde typen of kunt u een aangepaste opsomming wanneer dat nodig is. Vergelijkbaar met de **poorten** elementen, **argumenten** elementen kunnen hebben een optioneel **beschrijving** element dat Hiermee geeft u de tekst die wordt weergegeven wanneer u de muisaanwijzer de parameternaam.
 Optionele eigenschappen voor een module, zoals defaultValue, minValue en maxValue kunnen worden toegevoegd aan een van de argumenten als kenmerken aan een **eigenschappen** element. Geldige eigenschappen voor de **eigenschappen** element afhankelijk zijn van het argumenttype en met de ondersteunde argumenttypen in de volgende sectie worden beschreven. Argumenten met de **isOptional** eigenschap ingesteld op **"true"** niet vereisen dat de gebruiker een waarde invoeren. Als een waarde niet aan het argument is opgegeven, klikt u vervolgens het argument niet doorgegeven aan de functie voor het item. Argumenten van de functie voor de vermelding die optioneel zijn moeten expliciet worden verwerkt door de functie, bijvoorbeeld een standaardwaarde van NULL in de definitie van de vermelding punt functie toegewezen. Een optioneel argument wordt alleen de andere argument beperkingen, dat wil zeggen min of max, afdwingen als een waarde is opgegeven door de gebruiker.
-Net als bij de invoer en uitvoer, is het essentieel dat elk van de parameters die zijn gekoppeld aan deze unieke id-waarden hebben. In ons voorbeeld snel aan de slag met de bijbehorende id/parameter was *wisselen*.
+Net als bij de invoer en uitvoer, is het essentieel dat elk van de parameters unieke id-waarden die zijn gekoppeld aan deze hebben. In ons voorbeeld Quick Start de bijbehorende id/parameter was *wisselen*.
 
 ### <a name="arg-element"></a>Func-element
 Een module-parameter wordt gedefinieerd met behulp van de **func** onderliggend element van de **argumenten** sectie van de definitie van het XML-bestand. Net als bij de onderliggende elementen in de **poorten** sectie, de volgorde van de parameters in de **argumenten** gedeelte definieert de lay-out aangetroffen in de UX De parameters weergegeven van boven naar beneden in de gebruikersinterface in dezelfde volgorde als waarin ze zijn gedefinieerd in het XML-bestand. De typen die worden ondersteund door Machine Learning voor parameters worden hier weergegeven. 
@@ -270,7 +270,7 @@ Een module-parameter wordt gedefinieerd met behulp van de **func** onderliggend 
 
 * *Optionele eigenschappen*: **standaard** en **isOptional**
 
-**ColumnPicker**: de parameter van een kolom selecteren. Dit type wordt weergegeven in de UX als een kolomkiezer. De **eigenschap** element wordt hier gebruikt om op te geven van de id van de poort van waaruit kolommen zijn geselecteerd, waarbij het doeltype van de poort moet zijn *DataTable*. Het resultaat van de kolomselectie wordt doorgegeven aan de R-functie als een lijst met tekenreeksen die de naam van de geselecteerde kolom bevat. 
+**ColumnPicker**: de parameter van een kolom selecteren. Dit type wordt weergegeven in de UX als een kolomkiezer. De **eigenschap** element wordt hier gebruikt om op te geven van de ID van de poort van waaruit kolommen zijn geselecteerd, waarbij het doeltype van de poort moet zijn *DataTable*. Het resultaat van de kolomselectie wordt doorgegeven aan de R-functie als een lijst met tekenreeksen die de naam van de geselecteerde kolom bevat. 
 
         <Arg id="colset" name="Column set" type="ColumnPicker">      
           <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -278,7 +278,7 @@ Een module-parameter wordt gedefinieerd met behulp van de **func** onderliggend 
         </Arg>
 
 
-* *Vereiste eigenschappen*: **portId** -komt overeen met de id van een invoer-element met het type *DataTable*.
+* *Vereiste eigenschappen*: **portId** -komt overeen met de ID van een invoer-element met het type *DataTable*.
 * *Optionele eigenschappen*:
   
   * **allowedTypes** -Filters de kolom van het type van die u kunt kiezen. Geldige waarden zijn: 
@@ -327,7 +327,7 @@ Een module-parameter wordt gedefinieerd met behulp van de **func** onderliggend 
     </Arg>    
 
 * *Optionele eigenschappen*:
-  * **standaard** -de waarde voor de eigenschap default moet overeenkomen met een id-waarde van een van de **Item** elementen.
+  * **standaard** -de waarde voor de eigenschap default moet overeenkomen met een ID-waarde van een van de **Item** elementen.
 
 ### <a name="auxiliary-files"></a>Aanvullende bestanden
 Elk bestand dat wordt geplaatst in uw aangepaste module-ZIP-bestand is het verstandig om beschikbaar voor gebruik tijdens de uitvoeringstijd. Een directory-structuren aanwezig blijven behouden. Dit betekent dat bestand sourcing werkt hetzelfde lokaal en in de Azure Machine Learning Studio worden uitgevoerd. 

@@ -1,7 +1,7 @@
 ---
 title: Azure Blob storage-inhoud voor zoeken in volledige tekst - Azure Search-index
 description: Leer hoe u Azure Blob Storage indexeren en haal de tekst van documenten met Azure Search.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 87dc1dab0670f69ff8c418be476986baec2821fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e55d596cfaf34c177f6dc43c27aaac37da87d2f7
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871336"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024869"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Documenten in Azure Blob-opslag met Azure Search indexeren
 Dit artikel wordt beschreven hoe u met Azure Search index documenten (zoals PDF-bestanden en Microsoft Office-documenten en enkele andere algemene indelingen) die zijn opgeslagen in Azure Blob-opslag. Eerst wordt de basisbeginselen van het instellen en configureren van een blob-indexeerfunctie uitgelegd. Vervolgens, biedt een diepergaand onderzoek van problemen en scenario's kunt u waarschijnlijk optreden.
@@ -50,7 +50,7 @@ Voor blob-indexering, moet de gegevensbron de volgende vereiste eigenschappen he
 
 Een gegevensbron maken:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -82,7 +82,7 @@ De index Hiermee geeft u de velden in een document, kenmerken, en andere constru
 
 Hier wordt beschreven hoe u een index maken met een doorzoekbare `content` veld voor het opslaan van de tekst die is geëxtraheerd uit blobs:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -101,7 +101,7 @@ Een indexeerfunctie verbindt een gegevensbron met een doelzoekindex en biedt een
 
 Zodra de index en gegevensbron zijn gemaakt, bent u klaar om te maken van de indexeerfunctie:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -121,7 +121,7 @@ Bekijk voor meer informatie over de indexeerfunctie maken API [indexeerfunctie m
 Afhankelijk van de [configuratie van de indexeerfunctie](#PartsOfBlobToIndex), de blob-indexeerfunctie kunt u alleen de opslagmetagegevens indexeren (dit is nuttig wanneer u alleen de metagegevens van de interessante en hoeft niet te indexeren van de inhoud van blobs), opslag en metagegevens, of beide metagegevens en tekstuele inhoud. Standaard haalt de indexeerfunctie zowel de metagegevens als de inhoud.
 
 > [!NOTE]
-> Standaard worden de blobs met gestructureerde inhoud, zoals JSON- of CSV geïndexeerd als één segment van de tekst. Als u wilt om te indexeren van JSON en CSV-blobs in een gestructureerd, Zie [indexeren van JSON-blobs](search-howto-index-json-blobs.md) en [indexeren van CSV-blobs](search-howto-index-csv-blobs.md) preview-functies.
+> Standaard worden de blobs met gestructureerde inhoud, zoals JSON- of CSV geïndexeerd als één segment van de tekst. Als u wilt om te indexeren van JSON en CSV-blobs in een gestructureerd, Zie [indexeren van JSON-blobs](search-howto-index-json-blobs.md) en [indexeren van CSV-blobs](search-howto-index-csv-blobs.md) voor meer informatie.
 >
 > Een document samengestelde of ingesloten (zoals een ZIP-archief of een Word-document met ingesloten Outlook e-mail met bijlagen) worden ook geïndexeerd als één document.
 
@@ -172,7 +172,7 @@ In dit voorbeeld gaan we kiezen de `metadata_storage_name` veld als de documents
 
 Om dit allemaal bij elkaar, dit is het toevoegen van veldtoewijzingen en Base64-codering van sleutels voor een bestaande indexeerfunctie:
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -198,7 +198,7 @@ U kunt bepalen welke blobs worden geïndexeerd en die zijn overgeslagen.
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Alleen de blobs met specifieke extensies indexeren
 U kunt alleen de blobs met de bestandsnaamextensies die u met behulp van opgeeft de index de `indexedFileNameExtensions` configuratieparameter indexeerfunctie. De waarde is een tekenreeks met een door komma's gescheiden lijst met bestandsextensies (met een toonaangevende punt). Bijvoorbeeld, voor index alleen de. PDF-bestand en. Blobs, DOCX, doen dit:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -210,7 +210,7 @@ U kunt alleen de blobs met de bestandsnaamextensies die u met behulp van opgeeft
 ### <a name="exclude-blobs-with-specific-file-extensions"></a>Blobs met bepaalde bestandsextensies uitsluiten
 U kunt blobs met specifieke bestandsnaamextensies uitsluiten van het indexeren met behulp van de `excludedFileNameExtensions` configuratieparameter. De waarde is een tekenreeks met een door komma's gescheiden lijst met bestandsextensies (met een toonaangevende punt). Bijvoorbeeld, voor de index alle blobs met uitzondering van die met de. PNG en. JPEG-extensies, doen dit:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -232,7 +232,7 @@ U kunt bepalen welke onderdelen van de blobs worden geïndexeerd met behulp van 
 
 Bijvoorbeeld: als u alleen de opslagmetagegevens indexeren, wilt gebruiken:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -255,7 +255,7 @@ De configuratieparameters die hierboven worden beschreven van toepassing op alle
 
 Standaard stopt de blob-indexeerfunctie zodra er een blob met een niet-ondersteund inhoudstype (bijvoorbeeld een afbeelding). U kunt natuurlijk de `excludedFileNameExtensions` parameter om over te slaan, bepaalde inhoudstypen. Maar mogelijk moet u index blobs zonder dat alle mogelijke inhoudstypen vooraf bekend. Instellen als u wilt doorgaan met het indexeren als een niet-ondersteund inhoudstype is aangetroffen, de `failOnUnsupportedContentType` configuratieparameter op `false`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -293,7 +293,7 @@ Ter ondersteuning van verwijderen van documenten, een 'voorlopig verwijderen'-aa
 
 Bijvoorbeeld, het volgende beleid rekening gehouden met een blob moet worden verwijderd als er een eigenschap metadata `IsDeleted` met de waarde `true`:
 
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -340,7 +340,7 @@ Om dit te werken, moeten alle Indexeerfuncties en andere onderdelen te stemmen o
 
 Als alle blobs in uw tekst zonder opmaak in dezelfde codering bevatten, kunt u indexering prestaties aanzienlijk verbeteren met behulp van **modus voor het parseren van tekst**. Voor het gebruik van modus voor het parseren van tekst, stel de `parsingMode` configuratie-eigenschap op `text`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

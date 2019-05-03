@@ -8,42 +8,36 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9a1dadc29006a365f7e614db5722fa0e92e0129d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ca3f537ed52da547f64aa1fb98eb82c4ea73d81d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922506"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021426"
 ---
-# <a name="about-the-speech-devices-sdk-preview"></a>Informatie over de apparaten van de spraakherkenning SDK (Preview)
+# <a name="about-the-speech-devices-sdk"></a>Informatie over de apparaten van de spraak-SDK
 
 De [spraakservices](overview.md) werken met een groot aantal apparaten en audio-bronnen. Nu kunt u uw spraaktoepassingen-naar een hoger niveau met overeenkomende hardware en software uitvoeren. De spraak-apparaten-SDK is een pretuned bibliotheek die gekoppeld met speciaal ontwikkelde, microfoon SDK in de matrix.
 
 De SDK van de apparaten spraak kan u helpen:
+
 * Snel test nieuwe stem-scenario's.
 * Integreer de cloudgebaseerde spraakservices eenvoudiger in uw apparaat.
 * Maak een uitstekende gebruikerservaring voor uw klanten.
 
 De SDK van de apparaten spraak verbruikt de [spraak SDK](speech-sdk.md). De spraak-SDK wordt gebruikt voor het verzenden van de audio die wordt verwerkt door onze geavanceerde verwerking van audio-algoritme van de microfoon-matrix van het apparaat naar de [spraakservices](overview.md). Meerkanaalse audio wordt gebruikt voor nauwkeurigere ver-veld [spraakherkenning](speech-to-text.md) via ruis onderdrukking, echo annulering beamforming en dereverberation.
 
-U kunt ook de spraak-apparaten-SDK gebruiken voor het bouwen van de apparaten waarop uw eigen [aangepast wake word](speech-devices-sdk-create-kws.md), zodat de hint die een tussenkomst van de gebruiker initieert uniek is voor uw merk is.
+U kunt ook de spraak-apparaten-SDK gebruiken voor het bouwen van de apparaten waarop uw eigen [aangepast wake word](speech-devices-sdk-create-kws.md) , zodat de hint die een tussenkomst van de gebruiker initieert uniek is voor uw merk is.
 
-De SDK van de apparaten spraak vereenvoudigt het uitvoeren van een aantal verschillende spraakmogelijkheden's, zoals schijf-t/m bestellen systemen, in de winkel of Home assistenten en slimme sprekers. U kunt reageren op gebruikers met tekst, spreken terug naar deze in een standaard of [aangepaste gesproken](how-to-customize-voice-font.md), zoekresultaten, bieden [vertalen](speech-translation.md) in andere talen en meer. We kijken ernaar uit om te zien wat u bouwen!
-
-## <a name="development-kit-providers"></a>Development kit-providers
-
-Deze volledige, end-to-end system voorbeeldontwerpen zijn momenteel beschikbaar:
-
-|||
-|-|-|
-|[![ROOBO-logo](media/speech-devices-sdk/roobo-logo.png)](https://ddk.roobo.com/)|ROOBO biedt volledige kunstmatige intelligentie (AI) system-oplossingen voor electric huishoudelijke, auto's, robots, toys en andere bedrijfstakken. Voorbeeldontwerpen van ROOBO minder aanzienlijk ontwikkeling time-to-market Dankzij integratie met de Azure-Services voor spraak. [Ga naar ROOBO](https://ddk.roobo.com/).|
+De SDK van de apparaten spraak vereenvoudigt het uitvoeren van een verscheidenheid aan scenario's voor het stem-functionaliteit, zoals [aangepaste spraak op de eerste virtuele assistenten](https://aka.ms/sdsdk-assistant), schijf-t/m-systemen, bestellen [conversatie transcriptie](conversation-transcription-service.md), en slimme sprekers. U kunt reageren op gebruikers met tekst, spreken terug naar deze in een standaard of [aangepaste gesproken](how-to-customize-voice-font.md), zoekresultaten, bieden [vertalen](speech-translation.md) in andere talen en meer. We kijken ernaar uit om te zien wat u bouwen!
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt beginnen, krijgen een [gratis Azure-account](https://azure.microsoft.com/free/ai/) en zich registreren voor de SDK van de apparaten spraak.
-
 > [!div class="nextstepaction"]
-> [Aanmelden voor de SDK van de apparaten spraak](get-speech-devices-sdk.md)
+> [Kies uw apparaat spraak](get-speech-devices-sdk.md)
+>
+> [!div class="nextstepaction"]
+> [Ontvangt u een abonnementssleutel Speech Services gratis](get-started.md)

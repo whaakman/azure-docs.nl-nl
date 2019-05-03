@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 21c75c0f377f55614e2c7fa0bb27628cf598e3e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43c072cb72935a80da0e48e6b8343f38ee08876b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924575"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023964"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Facetnavigatie implementeren in Azure Search
 Facetnavigatie is een filteren mechanisme waarmee Self-directed drilldown navigatie in zoektoepassingen. De term 'meervoudige navigatie' kan niet bekend zijn, maar u hebt waarschijnlijk eerder gebruikt. Zoals in het volgende voorbeeld wordt weergegeven, is meervoudige navigatie niets meer dan de categorieën die worden gebruikt om resultaten te filteren.
 
  ![Azure Search taak Portal-Demo][1]
 
-Facetnavigatie is een alternatieve toegangspunt om te zoeken. Het biedt een alternatief voor complexe zoekquery expressies handmatig te typen. Facetten kunt u vinden wat u zoekt, terwijl u ervoor te zorgen dat er geen nul resultaten. Als ontwikkelaar kunnen facetten u de handigste zoekcriteria voor het navigeren in uw zoekverzameling beschikbaar. In de detailhandel online toepassingen, is vaak facetnavigatie gebouwd merken, afdelingen (kinderen schoenen), grootte, prijs, populariteit en classificaties. 
+Facetnavigatie is een alternatieve toegangspunt om te zoeken. Het biedt een alternatief voor complexe zoekquery expressies handmatig te typen. Facetten kunt u vinden wat u zoekt, terwijl u ervoor te zorgen dat er geen nul resultaten. Als ontwikkelaar kunnen facetten u weergeven van de handigste zoekcriteria voor het navigeren door uw search-index. In de detailhandel online toepassingen, is vaak facetnavigatie gebouwd merken, afdelingen (kinderen schoenen), grootte, prijs, populariteit en classificaties. 
 
 Facetnavigatie implementeren verschilt via zoektechnologieën. In Azure Search is meervoudige navigatie op het moment dat de query, gebouwd met behulp van de velden die u eerder de kenmerken in uw schema.
 

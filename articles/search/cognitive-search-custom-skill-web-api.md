@@ -8,19 +8,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
-ms.openlocfilehash: 1fcb12fc2cfae98376210e1924a670cce444f4f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61343336"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023861"
 ---
 # <a name="custom-web-api-skill"></a>Aangepaste Web-API-kwalificatie
 
-De **aangepaste Web-API** vaardigheden kunt u cognitief zoeken uitbreiden door het aanroepen van een web-API-eindpunt aangepaste bewerkingen bieden. Vergelijkbaar met ingebouwde vaardigheden, een **aangepaste Web-API** vaardigheid heeft invoer en uitvoer. Afhankelijk van de invoer, uw web-API een JSON-nettolading ontvangt wanneer de indexeerfunctie wordt uitgevoerd, en levert een JSON-nettolading als antwoord, samen met een code van de status geslaagd. Het antwoord wordt verwacht dat de uitvoer die is opgegeven door uw aangepaste vaardigheden. Een ander antwoord wordt beschouwd als een fout opgetreden en er is geen enrichments worden uitgevoerd.
+De **aangepaste Web-API** vaardigheden kunt u cognitief zoeken uitbreiden door het aanroepen van een Web-API-eindpunt aangepaste bewerkingen bieden. Vergelijkbaar met ingebouwde vaardigheden, een **aangepaste Web-API** vaardigheid heeft invoer en uitvoer. Afhankelijk van de invoer, uw Web-API een JSON-nettolading ontvangt wanneer de indexeerfunctie wordt uitgevoerd, en levert een JSON-nettolading als antwoord, samen met een code van de status geslaagd. Het antwoord wordt verwacht dat de uitvoer die is opgegeven door uw aangepaste vaardigheden. Een ander antwoord wordt beschouwd als een fout opgetreden en er is geen enrichments worden uitgevoerd.
 
 De structuur van de JSON-nettoladingen zijn verder omlaag in dit document beschreven.
 
@@ -38,7 +38,7 @@ Parameters zijn hoofdlettergevoelig.
 
 | Parameternaam     | Description |
 |--------------------|-------------|
-| uri | De URI van de web-api waarmee de _JSON_ nettolading wordt verzonden. Alleen **https** URI-schema is toegestaan |
+| uri | De URI van de Web-API die de _JSON_ nettolading wordt verzonden. Alleen **https** URI-schema is toegestaan |
 | HttpMethod | De methode die u wilt gebruiken tijdens het verzenden van de nettolading. Toegestane methoden zijn `PUT` of `POST` |
 | httpHeaders | Een verzameling van sleutel / waarde-paren waarbij de sleutels headernamen en waarden staan vertegenwoordigen headerwaarden die worden verzonden naar uw Web-API, samen met de nettolading. De volgende headers zijn niet toegestaan in deze verzameling wordt: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | timeout | (Optioneel) Als u opgeeft, geeft u de time-out voor de http-client die van de API-aanroep. Deze moet zijn opgemaakt als een "dayTimeDuration" XSD-waarde (een beperkte subset van een [duur van de ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) waarde). Bijvoorbeeld, `PT60S` gedurende 60 seconden. Als dat niet is ingesteld, een standaardwaarde van 30 seconden wordt gekozen. De time-out kan worden ingesteld op een maximum van 90 seconden en een minimum van 1 seconde. |
@@ -139,10 +139,10 @@ Het wordt altijd volgt u deze beperkingen:
 
 ## <a name="sample-output-json-structure"></a>Voorbeeld van uitvoer-JSON-structuur
 
-De 'uitvoer"komt overeen met het antwoord geretourneerd door uw web-api. De web api alleen moet retourneren een _JSON_ nettolading (geverifieerd door te kijken de `Content-Type` reactieheader) en moet voldoen aan de volgende beperkingen:
+De 'uitvoer"komt overeen met het antwoord geretourneerd door uw Web-API. De Web-API moet alleen retourneren een _JSON_ nettolading (geverifieerd door te kijken de `Content-Type` reactieheader) en moet voldoen aan de volgende beperkingen:
 
 * Er moet een entiteit op het hoogste niveau met de naam `values` dit moet een matrix met objecten zijn.
-* Het aantal objecten in de matrix moet hetzelfde zijn als het aantal objecten dat is verzonden naar de web-api.
+* Het aantal objecten in de matrix moet hetzelfde zijn als het aantal objecten dat is verzonden naar de Web-API.
 * Elk object moet hebben:
    * Een `recordId` eigenschap
    * Een `data` eigenschap, dit is een object waarin de velden enrichments zijn die overeenkomen met de 'naam' de `output` en waarvan de waarde wordt beschouwd als de verrijking.

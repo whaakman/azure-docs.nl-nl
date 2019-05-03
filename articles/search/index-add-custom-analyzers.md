@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9a15078c953c1fab40ad521eff079a623c93b9d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5983c2036ff206825a82072b57ca2b9bb44ca678
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60914905"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021664"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Analysevoorzieningen aanpassen aan een Azure Search-index toevoegen
 
@@ -300,7 +300,7 @@ In de onderstaande tabel worden de tekens filters die zijn geïmplementeerd met 
 |[mapping](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/charfilter/MappingCharFilter.html)|MappingCharFilter|Een char-filter die van toepassing gedefinieerd met de optie toewijzingen toewijzingen is. Overeenkomende is greedy (langste gebruik van jokertekens op een bepaald moment wins). Vervanging is toegestaan op de lege tekenreeks.<br /><br /> **Opties**<br /><br /> toewijzingen (type: string-matrix)-een lijst met toewijzingen van de volgende indeling: "een = > b ' (alle exemplaren van het teken"a"zijn vervangen door het teken"b"). Vereist.|  
 |[pattern_replace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/pattern/PatternReplaceCharFilter.html)|PatternReplaceCharFilter|Een char-filter die tekens in de invoerreeks vervangt. Maakt gebruik van een reguliere expressie voor het identificeren van tekenreeksen te behouden en een vervangende patroon voor het identificeren van de tekens wilt vervangen. Bijvoorbeeld, invoertekst = "aa-bb aa bb", pattern="(aa)\\\s+(bb)" vervanging = "$1 #$2", resultaat = "aa #bb aa #bb".<br /><br /> **Opties**<br /><br /> patroon (type: string) - vereist.<br /><br /> vervanging (type: string) - vereist.|  
 
- <sup>1</sup> filtertypen char worden altijd voorafgegaan in code met '#Microsoft.Azure.Search' zodat "MappingCharFilter" daadwerkelijk zou worden opgegeven als '#Microsoft.Azure.Search.MappingCharFilter. We hebben verwijderd het voorvoegsel voor het verminderen van de breedte van de tabel, maar houd er rekening mee te nemen in uw code. Houd er rekening mee dat char_filter_type is alleen van toepassing op de filters die kunnen worden aangepast. Als er geen opties, zijn zoals het geval is bij html_strip, is er geen bijbehorende #Microsoft.Azure.Search-type.
+ <sup>1</sup> filtertypen char worden altijd voorafgegaan in code met '#Microsoft.Azure.Search' zodat "MappingCharFilter" daadwerkelijk zou worden opgegeven als '#Microsoft.Azure.Search.MappingCharFilter. We hebben verwijderd het voorvoegsel voor het verminderen van de breedte van de tabel, maar houd er rekening mee te nemen in uw code. U ziet dat char_filter_type is alleen van toepassing op de filters die kunnen worden aangepast. Als er geen opties, zijn zoals het geval is bij html_strip, is er geen bijbehorende #Microsoft.Azure.Search-type.
 
 <a name="Tokenizers"></a>
 
@@ -324,7 +324,7 @@ In de onderstaande tabel worden de tokenizers die zijn geïmplementeerd met behu
 |[uax_url_email](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|Basis van URL's en e-mailberichten woordgrenzen als een token.<br /><br /> **Opties**<br /><br /> maxTokenLength (type: int)-de maximale lengte van de token. Standaard: 255, maximum: 300. Tokens die langer zijn dan de maximale lengte worden gesplitst.|  
 |[whitespace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(type geldt alleen wanneer opties zijn beschikbaar) |Verdeelt tekst bij een witruimte zijn. Tokens die langer dan 255 tekens zijn worden gesplitst.|  
 
- <sup>1</sup> tokenizer-typen worden altijd voorafgegaan in code met '#Microsoft.Azure.Search' zodat "ClassicTokenizer" daadwerkelijk zou worden opgegeven als '#Microsoft.Azure.Search.ClassicTokenizer'. We hebben verwijderd het voorvoegsel voor het verminderen van de breedte van de tabel, maar houd er rekening mee te nemen in uw code. Houd er rekening mee dat tokenizer_type is alleen van toepassing op tokenizers die kunnen worden aangepast. Als er geen opties, zijn zoals het geval is met de letter tokenizer, is er geen bijbehorende #Microsoft.Azure.Search-type.
+ <sup>1</sup> tokenizer-typen worden altijd voorafgegaan in code met '#Microsoft.Azure.Search' zodat "ClassicTokenizer" daadwerkelijk zou worden opgegeven als '#Microsoft.Azure.Search.ClassicTokenizer'. We hebben verwijderd het voorvoegsel voor het verminderen van de breedte van de tabel, maar houd er rekening mee te nemen in uw code. U ziet dat tokenizer_type is alleen van toepassing op tokenizers die kunnen worden aangepast. Als er geen opties, zijn zoals het geval is met de letter tokenizer, is er geen bijbehorende #Microsoft.Azure.Search-type.
 
 <a name="TokenFilters"></a>
 

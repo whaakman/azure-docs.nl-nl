@@ -10,18 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2bd271557ae0deefeb12a2dc7343c46fbd35363
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b8cba8d0a400efb720d8374cdca886a2a638938
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817560"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023794"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Gegevens transformeren met de Azure Machine Learning Data Prep SDK
 
 In dit artikel leert u verschillende methoden voor het transformeren van gegevens met behulp van de Azure Machine Learning Data Prep SDK. De SDK biedt de functies die u eenvoudig kunnen aan kolommen toevoegen, filteren ongewenste rijen of kolommen en rekenen ontbrekende waarden. Referentiedocumentatie voor de SDK, Zie de [overzicht](https://aka.ms/data-prep-sdk).
+
+> [!Important]
+> Als u een nieuwe oplossing bouwt, kunt u de [Azure Machine Learning gegevenssets](how-to-explore-prepare-data.md) (preview) uw gegevens, een momentopname van de gegevens transformeren en opslaan van definities van de gegevensset is samengesteld. Gegevenssets is de volgende versie van de SDK biedt uitgebreide functionaliteit voor het beheren van gegevenssets in AI-oplossingen voor gegevensvoorbereiding.
 
 Deze procedure ziet u voorbeelden voor de volgende taken:
 
@@ -35,7 +38,7 @@ Deze procedure ziet u voorbeelden voor de volgende taken:
 
 De Azure Machine Learning Data Prep SDK bevat `substring` expressies die u kunt gebruiken om een waarde uit bestaande kolommen te berekenen en vervolgens samengesteld die waarde in een nieuwe kolom. In dit voorbeeld moet u gegevens laden en probeer kolommen toevoegen aan die invoergegevens.
 
-```python
+```Python
 import azureml.dataprep as dprep
 
 # loading data
@@ -52,7 +55,7 @@ dflow.head(3)
 
 Gebruik de `substring(start, length)` expressie voor het extraheren van het voorvoegsel van de kolom aanvraag en die tekenreeks in een nieuwe kolom geplaatst `Case Category`. Doorgeven van de `substring_expression` variabele de `expression` parameter maakt u een nieuwe berekende kolom die de expressie op elke record wordt uitgevoerd.
 
-```python
+```Python
 substring_expression = dprep.col('Case Number').substring(0, 2)
 case_category = dflow.add_column(new_column_name='Case Category',
                                     prior_column='Case Number',
@@ -67,10 +70,9 @@ case_category.head(3)
 |2|10140270|HY329253|AAROM|07-05-2015 23:20:00 UUR|121XX S FRONT AVE|0486|ACCU|EENVOUDIGE VAN BINNENLANDSE ACCU|ADRES|false|true|...|9|53|08B|||2015|07-12-2015 12:42:46 UUR|
 
 
-
 Gebruik de `substring(start)` expressie voor het extraheren van alleen het nummer van de kolom aanvraag en maak een nieuwe kolom. Converteren naar een numerieke gegevens met behulp van de `to_number()` functioneren en de naam van de kolom als een parameter doorgeven.
 
-```python
+```Python
 substring_expression2 = dprep.col('Case Number').substring(2)
 case_id = dflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',

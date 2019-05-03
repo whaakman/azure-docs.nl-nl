@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 609b5d990cffce10733f6fc82e6b1032ad0f06bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 225ac86efba8a32b085a5fb7fc41bed48c499eab
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60951788"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65022166"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Documentatie voor cognitief zoeken-workloads
 
-Cognitief zoeken, nu is in openbare preview, een nieuwe verrijking-laag in Azure Search indexeren die latente informatie gevonden in niet-tekstuele bronnen en niet-gedifferentieerde tekst omzetten ervan in volledige tekst doorzoekbare inhoud in Azure Search.
+Cognitief zoeken, nu algemeen beschikbaar is, is een nieuwe verrijking-laag in Azure Search indexeren die latente informatie gevonden in niet-tekstuele bronnen en niet-gedifferentieerde tekst omzetten ervan in volledige tekst doorzoekbare inhoud in Azure Search.
 
 De volgende artikelen zijn de volledige documentatie voor cognitief zoeken.
 
@@ -51,9 +51,9 @@ De volgende artikelen zijn de volledige documentatie voor cognitief zoeken.
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
-+ [Preview-REST-API](search-api-2017-11-11-preview.md)
-  + [Vaardighedenset maken (api-version = 2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-  + [Indexeerfunctie maken (api-version = 2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [REST API](https://docs.microsoft.com/rest/api/searchservice/)
+  + [Vaardighedenset maken (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+  + [Indexeerfunctie maken (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## <a name="see-also"></a>Zie ook
 

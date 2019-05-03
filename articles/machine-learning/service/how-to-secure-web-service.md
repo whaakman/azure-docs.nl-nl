@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: ece32754ae51bde5db52d20ab44f0d748bf46533
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 50e42172af6ca6b966f9f60d3e037f9ae3dc5cbe
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943941"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023767"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>SSL gebruiken voor het beveiligen van webservices met Azure Machine Learning-service
 
@@ -72,7 +72,36 @@ Wanneer u een certificaat aanvraagt, moet u de volledig gekwalificeerde domeinna
 
 Als u wilt implementeren (of opnieuw implementeren) op de service met SSL is ingeschakeld, stel de `ssl_enabled` parameter `True`, gebruikt u waar van toepassing. Stelt de `ssl_certificate` parameter met de waarde van de __certificaat__ bestand en de `ssl_key` aan de waarde van de __sleutel__ bestand.
 
-+ **Implementeren op Azure Kubernetes Service (AKS)**
++ **Visuele interface - maken van veilige Azure Kubernetes Service (AKS) voor implementatie** 
+    
+    Verwijzen naar dit als u probeert te maken van veilige distributie compute voor de visuele interface. Geef waarden op voor parameters met betrekking tot SSL tijdens het inrichten van het AKS-cluster, en maakt u een nieuw AKS.  Raadpleeg onderstaande codefragment:
+    
+
+    > [!TIP]
+    >  Als u niet bekend met de Python-SDK bent, starten vanaf [overzicht van Azure Machine Learning Python SDK.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+
+
+    ```python
+    from azureml.core.compute import AksCompute, ComputeTarget
+
+    # Provide SSL-related parameters when provisioning the AKS cluster
+    prov_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")   
+ 
+    aks_name = 'secure-aks'
+    # Create the cluster
+    aks_target = ComputeTarget.create(workspace = ws,
+                                        name = aks_name,
+                                        provisioning_configuration = prov_config)
+    
+    # Wait for the create process to complete
+    aks_target.wait_for_completion(show_output = True)
+    print(aks_target.provisioning_state)
+    print(aks_target.provisioning_errors)
+    ```
+    
+   
+
++ **Implementeren op Azure Kubernetes Service (AKS) en FPGA**
 
   Bij het implementeren naar AKS, kunt u een nieuw AKS-cluster maken of koppelen van een bestaande resourcegroep. Het maken van een nieuw cluster maakt gebruik van [AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-) tijdens het koppelen van een bestaand cluster wordt gebruikt [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-). Retourneren beide een configuratieobject dat heeft een `enable_ssl` methode.
 
@@ -142,6 +171,8 @@ Vervolgens moet u uw DNS om te verwijzen naar de webservice bijwerken.
   Werk de DNS-server op het tabblad "Configuratie" van het 'openbare IP-adres' van het AKS-cluster, zoals weergegeven in de afbeelding. U vindt het openbare IP-adres als een van de resourcetypen die is gemaakt op basis van de resourcegroep met de AKS-knooppunten van de agent en andere netwerkresources.
 
   ![Azure Machine Learning-service: Beveiligen met SSL-webservices](./media/how-to-secure-web-service/aks-public-ip-address.png)
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 Leer hoe u het volgende doet:

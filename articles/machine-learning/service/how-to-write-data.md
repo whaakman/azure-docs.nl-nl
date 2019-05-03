@@ -10,18 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 92f04d80ea956f3036d7778a5d6de62e53b969ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8644c2c0d4ee5b6ee4dcf16e470e4f2fa478237
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817375"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023730"
 ---
-# <a name="write-and-configure-data-using-azure-machine-learning"></a>Schrijven en configureren van gegevens met behulp van Azure Machine Learning
+# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Schrijven en configureren van gegevens met de Azure Machine Learning Data Prep SDK
 
 In dit artikel leert u verschillende methoden voor het schrijven van gegevens met behulp van de [Azure Machine Learning Data Prep Python SDK](https://aka.ms/data-prep-sdk) en het configureren van die gegevens voor experimenteren met de [Azure Machine Learning-SDK voor Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Uitgevoerde gegevens kunnen op elk gewenst moment in een gegevensstroom worden geschreven. Schrijfbewerkingen worden toegevoegd als stappen om de resulterende gegevensstroom en deze stappen worden uitgevoerd telkens wanneer de gegevensstroom wordt uitgevoerd. Gegevens worden naar meerdere partitiebestanden naar parallelle schrijfbewerkingen geschreven.
+
+> [!Important]
+> Als u een nieuwe oplossing bouwt, kunt u de [Azure Machine Learning gegevenssets](how-to-explore-prepare-data.md) (preview) uw gegevens, een momentopname van de gegevens transformeren en opslaan van definities van de gegevensset is samengesteld. Gegevenssets is de volgende versie van de SDK biedt uitgebreide functionaliteit voor het beheren van gegevenssets in AI-oplossingen voor gegevensvoorbereiding.
 
 Aangezien er geen beperkingen voor het aantal schrijven stappen er zijn in een pijplijn, kunt u eenvoudig aanvullende schrijven stappen voor het ophalen van tussenliggende resultaten voor het oplossen van problemen of voor andere pijplijnen toevoegen.
 

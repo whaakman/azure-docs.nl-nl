@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 04/30/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2992ec9f43aac9e0d80c5e42873d26ac3a9c3fd1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9cc6ad4f7b33de4d132efe63ff11c34f10b614af
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916982"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023387"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Gebruik de CLI-extensie voor Azure Machine Learning-service
 
@@ -80,7 +80,6 @@ De volgende opdrachten laten zien hoe u de CLI gebruiken voor het beheren van re
     ```
 
 + Een configuratie van de werkruimte koppelen aan een map om in te schakelen contextuele awareness CLI.
-
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
@@ -90,26 +89,14 @@ De volgende opdrachten laten zien hoe u de CLI gebruiken voor het beheren van re
     ```azurecli-interactive
     az ml datastore attach-blob  -n datastorename -a accountname -c containername
     ```
-
+    
 + Een AKS-cluster koppelen als een Compute-doel.
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
     ```
 
-+ Maak een nieuwe AMLcompute-doel
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
-    ```
-    
 ## <a id="experiments"></a>Voer experimenten
-
-+ Een configuratie van de werkruimte koppelen aan een map om in te schakelen contextuele awareness CLI.
-
-    ```azurecli-interactive
-    az ml folder attach -w myworkspace -g myresourcegroup
-    ```
 
 * Start een uitvoering van uw experiment. Wanneer u deze opdracht gebruikt, geef de naam van het bestand runconfig (de tekst vóór \*.runconfig als u uw bestandssysteem wilt) op basis van de parameter - c.
 
@@ -123,7 +110,7 @@ De volgende opdrachten laten zien hoe u de CLI gebruiken voor het beheren van re
     az ml experiment list
     ```
 
-## <a name="model-registration-profiling-deployment"></a>Model-registratie, profilering, implementatie
+## <a name="model-registration-profiling--deployment"></a>Registratie van modellen, profileren en implementatie
 
 De volgende opdrachten laten zien hoe u een getraind model registreert en implementeert u deze vervolgens als een productieservice:
 

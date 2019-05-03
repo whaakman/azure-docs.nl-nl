@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 9097fef88a2c3c667416761c341a2e320c790121
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: f892ded46f7124237fd80fbe1e3f5e866c12f0d5
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919060"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993072"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -640,6 +640,8 @@ openssl x509 -noout -issuer -in intermediate.pem
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
+In gevallen waar de tussenliggende certificaat kan niet worden gedownload vanwege een netwerkbeperkingen tijdens het valideren van kan de tussenliggende certificaten worden vastgemaakt. Azure wordt echter de certificaten aan de hand van PKI-standaardprocedure meenemen. De vastgemaakte certificaten moet worden bijgewerkt als rollover gebeurt. Wanneer een wijziging in de tussenliggende certificaat bijwerken is gepland, de Azure-blog wordt bijgewerkt en Azure-klanten worden ontvangen. De tussenliggende certificaten vindt [hier](https://www.microsoft.com/pki/mscorp/cps/default.htm). De tussenliggende certificaten voor elk van de regio's kunnen afwijken.
+
 ### <a name="failover-clustering-in-windows-server"></a>Failover Clustering in WindowsServer
 
 Voor bepaalde scenario's, bij het opvragen van Instance Metadata Service met Failover Clustering, dit is nodig om een route toevoegen aan de routeringstabel.
@@ -686,13 +688,15 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### <a name="custom-data"></a>Aangepaste gegevens
-Instance Metadata Service biedt de mogelijkheid voor de virtuele machine toegang heeft tot de aangepaste gegevens. De binaire gegevens moet minder zijn dan 64KB en wordt geleverd met de virtuele machine in base64-gecodeerde vorm. Zie voor meer informatie over het maken van een virtuele machine met aangepaste gegevens [implementeren van een virtuele Machine met CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+Instance Metadata Service biedt de mogelijkheid voor de virtuele machine toegang heeft tot de aangepaste gegevens. De binaire gegevens moet minder zijn dan 64 KB en wordt geleverd met de virtuele machine in base64-gecodeerde vorm. Zie voor meer informatie over het maken van een virtuele machine met aangepaste gegevens [implementeren van een virtuele Machine met CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+
+Aangepaste gegevens is beschikbaar voor alle processen die worden uitgevoerd in de virtuele machine. Het wordt aangeraden dat klanten geen geheime gegevens in aangepaste gegevens invoegen.
 
 #### <a name="retrieving-custom-data-in-virtual-machine"></a>Bij het ophalen van aangepaste gegevens in de virtuele Machine
 Instance Metadata Service kunt u aangepaste gegevens aan de virtuele machine in base64-gecodeerde vorm. Het volgende voorbeeld decodeert de met base64 gecodeerde tekenreeks.
 
 > [!NOTE]
-> De aangepaste gegevens in dit voorbeeld wordt geïnterpreteerd als een ASCII-tekenreeks die leest, 'Mijn gegevens geheimen.'.
+> De aangepaste gegevens in dit voorbeeld wordt geïnterpreteerd als een ASCII-tekenreeks die "Mijn aangepaste gegevens.", leest.
 
 **Aanvraag**
 
@@ -703,7 +707,7 @@ curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/custom
 **Antwoord**
 
 ```text
-My super secret data.
+My custom data.
 ```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Voorbeelden van het aanroepen van metadata-service met behulp van verschillende talen in de virtuele machine 

@@ -1,7 +1,7 @@
 ---
 title: JSON-blobs indexeren van Azure Blob-indexering voor zoeken in volledige tekst - Azure Search
 description: Verken Azure JSON-blobs voor tekstinhoud met behulp van de indexeerfunctie Azure Search Blob. Indexeerfuncties automatiseren opname van gegevens voor bepaalde gegevensbronnen, zoals Azure Blob-opslag.
-ms.date: 04/11/2019
+ms.date: 05/02/2019
 author: HeidiSteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b04cabe734b97436421595dbb0ab7584efd4911
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871574"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024947"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexeren van JSON-blobs met behulp van de indexeerfunctie Azure Search Blob
 Dit artikel leest u hoe het configureren van een Azure Search blob [indexeerfunctie](search-indexer-overview.md) gestructureerde inhoud ophalen van JSON-documenten in Azure Blob-opslag en kunt u in Azure Search kan worden doorzocht. Deze werkstroom wordt een Azure Search-index gemaakt en wordt geladen met de bestaande tekst die is geëxtraheerd uit JSON-blobs. 
@@ -24,8 +24,7 @@ U kunt de [portal](#json-indexer-portal), [REST-API's](#json-indexer-rest), of [
 
 JSON-blobs in Azure Blob-opslag zijn doorgaans een enkele JSON-document of een verzameling van JSON-entiteiten. Voor JSON-verzamelingen, de blob kan hebben een **matrix** van opgemaakte JSON-elementen. BLOBs kunnen ook bestaan uit meerdere afzonderlijke JSON-entiteiten van elkaar gescheiden door een nieuwe regel. Dergelijke constructie, afhankelijk van hoe u ingesteld kan worden geparseerd in de blob-indexeerfunctie in Azure Search de **parsingMode** parameter voor de aanvraag.
 
-> [!IMPORTANT]
-> `json` en `jsonArray` parseermodi zijn algemeen beschikbaar, maar `jsonLines` parseermodus is in openbare preview en mag niet worden gebruikt in een productieomgeving. Zie voor meer informatie, [REST api-version = 2017-11-11-Preview](search-api-2017-11-11-preview.md). 
+Alle JSON parseren modi (`json`, `jsonArray`, `jsonLines`) zijn nu algemeen beschikbaar. 
 
 > [!NOTE]
 > Volg de aanbevelingen van de configuratie van indexeerfunctie in [een-op-veel indexeren](search-howto-index-one-to-many-blobs.md) voor uitvoer van meerdere documenten zoeken van een Azure-blob.
@@ -132,8 +131,8 @@ JSON-blobs in Azure Blob-opslag zijn doorgaans een enkele JSON-document of een J
 | JSON-document | parsingMode | Description | Beschikbaarheid |
 |--------------|-------------|--------------|--------------|
 | Een per-blob | `json` | Geparseerd JSON-blobs als één segment van de tekst. Elk JSON-blob wordt één Azure Search-document. | Algemeen beschikbaar in zowel [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Meerdere per blob | `jsonArray` | Een JSON-matrix in de blob, waarbij elk element van de matrix een afzonderlijke Azure Search-document wordt geparseerd.  | Beschikbaar in preview in beide [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Meerdere per blob | `jsonLines` | Een blob die meerdere JSON-entiteiten (een ' matrix' bevat) gescheiden door een nieuwe regel, waarbij elke entiteit een afzonderlijke Azure Search-document wordt worden geparseerd. | Beschikbaar in preview in beide [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Meerdere per blob | `jsonArray` | Een JSON-matrix in de blob, waarbij elk element van de matrix een afzonderlijke Azure Search-document wordt geparseerd.  | Algemeen beschikbaar in zowel [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Meerdere per blob | `jsonLines` | Een blob die meerdere JSON-entiteiten (een ' matrix' bevat) gescheiden door een nieuwe regel, waarbij elke entiteit een afzonderlijke Azure Search-document wordt worden geparseerd. | Algemeen beschikbaar in zowel [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - invoer voor de aanvraag samenvoegen
 
@@ -160,7 +159,7 @@ Deze stap voorziet in informatie van de gegevensbronverbinding die worden gebrui
 
 Vervangen door geldige waarden voor de servicenaam van de, beheersleutel en storage-account en sleutels tijdelijke aanduidingen account.
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -179,7 +178,7 @@ De index slaat doorzoekbare inhoud samenvoegt in Azure Search. Geef voor het mak
 
 Het volgende voorbeeld wordt een [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) aanvraag. De index heeft een doorzoekbare `content` veld voor het opslaan van de tekst die is geëxtraheerd uit blobs:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -196,7 +195,7 @@ Het volgende voorbeeld wordt een [Create Index](https://docs.microsoft.com/rest/
 
 Als met een index en een gegevensbron en indexeerfunctie zijn ook een benoemd exemplaar object te maken en gebruiken op een Azure Search-service. Een volledig opgegeven aanvraag voor het maken van een indexeerfunctie kan er als volgt uitzien:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -223,7 +222,7 @@ In deze sectie vindt u een samenvatting van alle aanvragen die worden gebruikt v
 
 Alle indexeerfuncties vereisen object voor een gegevensbron met de contactgegevens van verbinding met bestaande gegevens. 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -239,7 +238,7 @@ Alle indexeerfuncties vereisen object voor een gegevensbron met de contactgegeve
 
 Alle indexeerfuncties vereisen een doelindex waarin de gegevens worden ontvangen. De hoofdtekst van de aanvraag definieert het indexschema, die bestaan uit velden, ter ondersteuning van het gewenste gedrag in een doorzoekbare index toegeschreven. Deze index mag niet leeg zijn wanneer u de indexeerfunctie worden uitgevoerd. 
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -258,7 +257,7 @@ Deze aanvraag bevat een indexeerfunctie volledig opgegeven. Het bevat veldtoewij
 
 Het maken van de indexeerfunctie voor Azure Search, activeert het importeren van gegevens. Deze wordt uitgevoerd onmiddellijk, en daarna volgens een schema als u een hebt opgegeven.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -339,7 +338,7 @@ U kunt ook de JSON-matrix-optie gebruiken. Deze optie is nuttig wanneer blobs be
 
 Voor een JSON-matrix, moet definitie van de indexeerfunctie lijken op het volgende voorbeeld. U ziet dat de parameter parsingMode geeft u de `jsonArray` parser. De juiste parser op te geven en met de juiste gegevens zijn invoer de slechts twee matrix-specifieke vereisten voor het indexeren van JSON-blobs.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -386,7 +385,7 @@ Als uw blob meerdere JSON-entiteiten bevat, gescheiden door een nieuwe regel en 
 
 Voor JSON-regels, moet definitie van de indexeerfunctie lijken op het volgende voorbeeld. U ziet dat de parameter parsingMode geeft u de `jsonLines` parser. 
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

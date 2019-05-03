@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: eb3697eefb5835305b2ec80ca1e77ccade19e44f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83cea56cecf9792c829e062965fe39b63201af3e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60480655"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020667"
 ---
 # <a name="speech-service-supported-regions"></a>Speech Service ondersteunde regio 's
 
@@ -28,9 +28,9 @@ Zorg ervoor dat u het eindpunt dat overeenkomt met de regio voor uw abonnement.
 
 In de [spraak SDK](speech-sdk.md), regio's zijn opgegeven als een tekenreeks (bijvoorbeeld, als een parameter voor `SpeechConfig.FromSubscription` in de spraak-SDK voor C#).
 
-### <a name="speech-recognition-and-translation"></a>Spraakherkenning en vertaling
+### <a name="speech-to-text-text-to-speech-and-translation"></a>Spraak-naar-tekst, tekst naar spraak en vertaling
 
-De spraak-SDK is beschikbaar in deze regio's voor **spraakherkenning** en **vertaling**:
+De spraak-SDK is beschikbaar in deze regio's voor **spraakherkenning**, **tekst naar spraak**, en **vertaling**:
 
   Regio | Parameter voor spraak-SDK | Spraak aanpassing Portal
  ------|-------|--------

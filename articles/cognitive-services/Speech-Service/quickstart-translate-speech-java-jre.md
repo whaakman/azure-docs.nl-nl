@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 36eaaeabcf888aac10bcf9b8a27e3590d21079ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dc1852a57970c2994d9f36cbd7242a18b580a61
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60619202"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021000"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Quickstart: Omzetten van spraak met de Speech SDK voor Java
 
-In deze quickstart maakt u een eenvoudige Java-toepassing waarmee spraak van gebruikers via de microfoon van de computer wordt vastgelegd, waarna de spraak wordt omgezet en de omgezette tekst in realtime wordt getranscribeerd naar de opdrachtregel. De toepassing is ontworpen voor gebruik met 64-bits Windows of 64-bits Ubuntu Linux 16.04/18.04, en wordt gebouwd met het Speech SDK Maven-pakket en de Eclipse Java IDE.
+In deze quickstart maakt u een eenvoudige Java-toepassing waarmee spraak van gebruikers via de microfoon van de computer wordt vastgelegd, waarna de spraak wordt omgezet en de omgezette tekst in realtime wordt getranscribeerd naar de opdrachtregel. Deze toepassing is ontworpen om uit te voeren op Windows 64-bits of 64-bits Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9), of op macOS 10.13 of hoger. Deze is gebouwd met de Speech SDK Maven-pakket en de Eclipse IDE voor Java.
 
 Zie [Taalondersteuning](language-support.md) voor een volledige lijst met talen die voor spraakomzetting beschikbaar zijn.
 
@@ -27,17 +27,26 @@ Zie [Taalondersteuning](language-support.md) voor een volledige lijst met talen 
 
 Voor deze snelstart zijn de volgende zaken vereist:
 
-* Besturingssysteem: 64-bits Windows of 64-bits Ubuntu Linux 16.04/18.04
+* Besturingssysteem: 64-bits Windows, 64-bits Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9) of macOS 10.13 of hoger
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) of [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Een Azure-abonnementssleutel voor de Spraakservice. [Gratis downloaden](get-started.md).
 
-Als u Ubuntu 16.04/18.04 gebruikt, zorg er dan voor dat deze afhankelijkheden zijn geïnstalleerd voordat u Eclipse start.
+Als u Linux uitvoert, zorg er dan voor dat deze afhankelijkheden zijn geïnstalleerd voordat u begint met Eclipse.
 
-```console
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-```
+ * Op Ubuntu:
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.0 libasound2
+   ```
+
+ * Op Debian 9:
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.2 libasound2
+   ```
 
 > [!NOTE]
 > Zie [Speech Devices SDK](speech-devices-sdk.md) voor de Speech Devices-SDK en het Roobo-apparaat.

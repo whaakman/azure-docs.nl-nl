@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: cdd639f690d98651661226fbd340964dfdc7861f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4d22764cfb038bc2021b99d0743f3cbac17d91d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64914929"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024932"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -23,10 +23,24 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 + De Azure Machine Learning [ **belangrijkste SDK voor Python**](https://aka.ms/aml-sdk)
 + De Azure Machine Learning [ **Dataprep-SDK**](https://aka.ms/data-prep-sdk)
 
+Zie [de lijst met bekende problemen](resource-known-issues.md) voor meer informatie over bekende problemen en oplossingen.
+
+## <a name="2019-05-02"></a>2019-05-02
+
+### <a name="azure-portal"></a>Azure Portal
+
++ Geautomatiseerde ML-experimenten maken in de portal.
+
 
 ## <a name="2019-04-22"></a>2019-04-22
 
 ### <a name="azure-machine-learning-sdk-for-python-v1030"></a>Azure Machine Learning-SDK voor Python v1.0.30
++ **Nieuwe functies**
+  + Gegevenssets
+
++ **Fouten opgelost en verbeteringen**
+  + Geen
+
 
 ## <a name="2019-04-17"></a>2019-04-17
 

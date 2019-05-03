@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: cdde9f0ec69bec48ae0fb747db0cc49e81920817
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3cedfaf1ae16c17026314fc24dbdc7bb11494caf
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457085"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020943"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Quickstart: Spraak herkennen met de Speech-SDK voor Unity (bètaversie)
 
@@ -27,14 +27,15 @@ Als u niet bekend met Unity bent, is het raadzaam eerst de [gebruikershandleidin
 
 > [!NOTE]
 > De Speech-SDK voor Unity is momenteel alleen beschikbaar als bètaversie.
-> Deze biedt ondersteuning voor Windows x86 en x64 (zelfstandige bureaubladtoepassing of universeel Windows-platform) en Android (ARM32/64, x86).
+> Ondersteunt Windows-bureaublad (x86 en x64) of Universal Windows Platform (x86, x64, ARM/ARM64) en Android (x86, ARM32/64).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Als u dit project wilt voltooien, hebt u het volgende nodig:
 
-* [Unity 2018.3 of hoger](https://store.unity.com/)
+* [Unity 2018.3 of hoger](https://store.unity.com/) met [Unity 2019.1 ondersteuning toegevoegd voor UWP-ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+     * Voor ondersteuning voor ARM64, installeert u de [optionele build-hulpprogramma's voor arm64 uit, en de Windows 10 SDK voor ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
 * Een abonnementssleutel voor de Speech Service. [Gratis downloaden](get-started.md).
 * Toegang tot de microfoon van uw computer.
 

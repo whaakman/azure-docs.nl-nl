@@ -11,18 +11,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: a862c920f1e070ab1bbb8af2546bc3d4350347b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4aaf56a00669dbf7e312e2a6f8787ccc664d1190
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819462"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023820"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Een Azure Machine Learning-model dat is geïmplementeerd als een webservice gebruiken
 
 Een Azure Machine Learning-model als een webservice implementeren, maakt u een REST-API. U kunt gegevens verzenden naar deze API en ontvangen de voorspelling geretourneerd door het model. In dit document, informatie over het maken van clients voor de webservice met behulp van C#, Go, Java en Python.
 
-Wanneer u een installatiekopie op Azure Container Instances, Azure Kubernetes Service of Project Brainwave (veld programmable gate arrays implementeert) maakt u een webservice. U maken installatiekopieën van geregistreerde modellen en scoring-bestanden. Ophalen van de URI die wordt gebruikt voor toegang tot een webservice met behulp van de [SDK van Azure Machine Learning](https://aka.ms/aml-sdk). Als verificatie is ingeschakeld, kunt u de SDK ook gebruiken om op te halen van de verificatiesleutels.
+Wanneer u een installatiekopie op Azure Container Instances, Azure Kubernetes Service of veld-programmable gate arrays (FPGA implementeert) maakt u een webservice. U maken installatiekopieën van geregistreerde modellen en scoring-bestanden. Ophalen van de URI die wordt gebruikt voor toegang tot een webservice met behulp van de [SDK van Azure Machine Learning](https://aka.ms/aml-sdk). Als verificatie is ingeschakeld, kunt u de SDK ook gebruiken om op te halen van de verificatiesleutels.
 
 De algemene werkstroom voor het maken van een client die gebruikmaakt van een machine learning-webservice is:
 

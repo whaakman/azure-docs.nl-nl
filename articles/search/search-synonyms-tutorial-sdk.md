@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f9cadfcf0c027f4aec4f9d4928872709ee7d3e99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b81e4b9a8773cc8e4cc76582ccf2df88565d3d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281774"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025160"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Voorbeeld: Synoniemen toevoegen voor Azure Search in C#
 
@@ -23,13 +23,15 @@ Met synoniemen breidt u een query uit door termen te gebruiken die semantisch ov
 In Azure Search worden synoniemen gedefinieerd in een *synoniementoewijzing* op basis van *toewijzingsregels* waarmee equivalente termen worden gekoppeld. In dit voorbeeld bevat informatie over essentiële stappen voor het toevoegen en het gebruik van synoniemen met een bestaande index. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * Synoniemen inschakelen door toewijzingsregels te maken en plaatsen 
-> * Verwijzen naar een synoniemtoewijzing in een queryreeks
+> * Maak een synoniem kaart met het [synonymmap, die vervolgens](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) klasse. 
+> * Stel de [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) eigenschap in de velden die ondersteuning voor uitbreiding van de query via synoniemen bieden moeten.
+
+U kunt een veld synoniem ingeschakeld opvragen, zoals u normaal doet. Er is geen aanvullende query-syntaxis die is vereist voor toegang tot synoniemen.
 
 U kunt meerdere synoniementoewijzingen maken en deze als algemene serviceresource beschikbaar maken voor alle indexen. Daarna kunt u op veldniveau aangeven welke u wilt gebruiken. Bij het uitvoeren van query's doorzoekt Azure Search niet alleen een index, maar wordt er ook in een synoniementoewijzing gekeken als er een is opgegeven in de velden die voor de query zijn gebruikt.
 
 > [!NOTE]
-> Synoniemen worden ondersteund in de nieuwste API- en SDK-versie (API-versie=2017-11-11, SDK-versie 5.0.0). Azure Portal biedt er momenteel geen ondersteuning voor. Als u graag Azure Portal-ondersteuning voor synoniemen wilt, kunt u hieronder feedback verzenden via [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
+> Synoniemen via een programma, kunnen worden gemaakt, maar niet in de portal. Als u graag Azure Portal-ondersteuning voor synoniemen wilt, kunt u hieronder feedback verzenden via [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -172,7 +174,7 @@ De snelste manier om op te schonen nadat een voorbeeld is door de resourcegroep 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit voorbeeld de [synoniemen REST-API](https://aka.ms/rgm6rq) in C# code voor het maken en regels voor apparaatgroeptoewijzing plaatsen en vervolgens de synoniemtoewijzing aanroepen op een query. Aanvullende informatie vindt u in de referentiedocumentatie voor de [.NET-SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) en [REST-API](https://docs.microsoft.com/rest/api/searchservice/).
+In dit voorbeeld wordt de synoniemenfunctie in gedemonstreerd C# code voor het maken en regels voor apparaatgroeptoewijzing plaatsen en vervolgens de synoniemtoewijzing aanroepen op een query. Aanvullende informatie vindt u in de referentiedocumentatie voor de [.NET-SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) en [REST-API](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Synoniemen gebruiken in Azure Search](search-synonyms.md)

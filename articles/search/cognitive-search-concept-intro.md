@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 04/05/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c421d99f1071c7a38cfe315cc3054136f81598e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8201b4089759fb55fae12820f7495664c502837e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531164"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023635"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Wat is 'cognitive search' in Azure Search?
 
@@ -32,15 +32,12 @@ Cognitieve vaardigheden in Azure Search zijn gebaseerd op machine learning-model
 Natuurlijke taal en verwerking van afbeeldingen wordt toegepast tijdens de fase van de gegevensopname met steeds deel van de samenstelling van een document in een doorzoekbare index in Azure Search resultaten. Gegevens worden als een Azure data source en vervolgens via een indexing-pijplijn met behulp van afhankelijk van wat wordt gepusht [ingebouwde vaardigheden](cognitive-search-predefined-skills.md) u nodig hebt. De architectuur worden uitgebreid, zodat als de ingebouwde vaardigheden niet voldoende, kunt u maken en koppelen [aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md) aangepaste verwerking te integreren. Voorbeelden zijn een aangepaste entiteit module of document classificatie die gericht is op een specifiek domein, zoals Financiën, wetenschappelijke publicaties of diergeneeskunde.
 
 > [!NOTE]
-> Vanaf December 21 mei 2018, kunt u [een Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md) met een Azure Search-vaardigheden. Dit kan we beginnen kosten te bereken voor uitvoering van vaardigheden. Op deze datum begon wordt ook kosten in rekening gebracht voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijft zonder extra kosten worden aangeboden.
+> Als u bereik uitbreiden door het verhogen van de frequentie van de verwerking, meer documenten toe te voegen of toe te voegen meer AI-algoritmen, u moet [een factureerbare Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md). Kosten toenemen bij het aanroepen van API's in Cognitive Services en voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken in Azure Search. Er zijn geen kosten voor het ophalen van de tekst van documenten.
 >
-> Uitvoering van de ingebouwde vaardigheden is een Cognitive Services-kosten in rekening gebracht op de bestaande [betaalt u Ga prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijzen zijn de kosten van een Azure Search, momenteel in rekening gebracht op de preview-prijzen zoals beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
-
+> Uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/). Afbeelding extractie prijzen wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
 ## <a name="components-of-cognitive-search"></a>Onderdelen van cognitief zoeken
 
-Cognitive search is een preview-functie van [Azure Search](search-what-is-azure-search.md).
-
-De pijplijn cognitief zoeken is gebaseerd op [Azure Search *indexeerfuncties* ](search-indexer-overview.md) die gegevensbronnen verkennen en verwerking van de end-to-end-index. Vaardigheden zijn nu gekoppeld aan indexeerfuncties, onderscheppen en verrijkende documenten op basis van de vaardigheden die u definieert. Nadat geïndexeerd, u toegang tot inhoud via search-aanvragen via alle [query's uitvoeren die worden ondersteund door Azure Search](search-query-overview.md).  Als u niet bekend bent met indexeerfuncties, doorloopt in deze sectie u de stappen.
+Een pijplijn cognitief zoeken is gebaseerd op [Azure Search *indexeerfuncties* ](search-indexer-overview.md) die gegevensbronnen verkennen en verwerking van de end-to-end-index. Vaardigheden zijn nu gekoppeld aan indexeerfuncties, onderscheppen en verrijkende documenten op basis van de vaardigheden die u definieert. Nadat geïndexeerd, u toegang tot inhoud via search-aanvragen via alle [query's uitvoeren die worden ondersteund door Azure Search](search-query-overview.md).  Als u niet bekend bent met indexeerfuncties, doorloopt in deze sectie u de stappen.
 
 ### <a name="step-1-connection-and-document-cracking-phase"></a>Stap 1: Verbinding en het document kraken fase
 
@@ -60,9 +57,15 @@ Een set vaardigheden is gebaseerd op [vooraf gedefinieerde cognitieve vaardighed
 
 Intern, genereert de pijplijn een verzameling verrijkt documenten. U kunt bepalen welke onderdelen van de geavanceerde documenten moeten worden toegewezen aan indexeerbare velden in uw search-index. Als u de extractie van sleuteluitdrukkingen en de vaardigheden die entiteit erkenning toegepast, klikt u vervolgens die nieuwe velden deel van de geavanceerde document zou worden en ze kunnen worden toegewezen aan de velden in uw index. Zie [aantekeningen](cognitive-search-concept-annotations-syntax.md) voor meer informatie over i/o-ontstaan wachtrijen.
 
+#### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>Een element knowledgeStore om op te slaan enrichments toevoegen
+
+[Zoeken naar service REST api-version = 2019-05-06](search-api-preview.md) breidt kennis en vaardigheden met een definitie van knowledgeStore waarmee een verbinding met Azure storage en projecties waarin wordt beschreven hoe de enrichments worden opgeslagen. 
+
+Een store kennis toevoegen aan een set vaardigheden biedt u de mogelijkheid om een weergave van uw enrichments voor scenario's dan zoeken in volledige tekst. Zie voor meer informatie, [wat is er kennis Store](knowledge-store-concept-intro.md).
+
 ### <a name="step-3-search-index-and-query-based-access"></a>Stap 3: Search-index en query's gebaseerde toegang
 
-Wanneer de verwerking is voltooid, hebt u een zoekverzameling die bestaan uit geavanceerde documenten, tekst-zoekacties in Azure Search. [Query's in de index](search-query-overview.md) is hoe ontwikkelaars en gebruikers toegang de verrijkt inhoud worden gegenereerd door de pijplijn tot. 
+Wanneer de verwerking is voltooid, hebt u een search-index die bestaan uit geavanceerde documenten, tekst-zoekacties in Azure Search. [Query's in de index](search-query-overview.md) is hoe ontwikkelaars en gebruikers toegang de verrijkt inhoud worden gegenereerd door de pijplijn tot. 
 
 ![Index met zoekpictogram](./media/cognitive-search-intro/search-phase-blowup.png "Index met zoekpictogram")
 
@@ -78,7 +81,7 @@ Indexen zijn gegenereerd op basis van een indexschema waarin de velden, kenmerke
 |---------|------------|-------|
 | Vaardigheden | Een op het hoogste niveau met de naam resource met een verzameling van vaardigheden. Een set vaardigheden is de pijplijn verrijking. Deze wordt aangeroepen tijdens het indexeren van een indexeerfunctie. | [Een set vaardigheden definiëren](cognitive-search-defining-skillset.md) |
 | Cognitieve vaardigheden | Een atomische transformatie in een pijplijn verrijking. Het is vaak het geval is, een onderdeel dat wordt opgehaald of bepaalt welke structuur en worden daarom verbetert uw kennis van de ingevoerde gegevens. Bijna altijd de uitvoer is op basis van tekst en de verwerking is verwerking van natuurlijke taal of verwerking van afbeeldingen die worden geëxtraheerd of tekst van de invoer van de afbeelding genereert. Uitvoer van een kwalificatie kan worden toegewezen aan een veld in een index of gebruikt als invoer voor een downstream verrijking. Een kwalificatie is vooraf gedefinieerd en geleverd door Microsoft of aangepast: gemaakt en geïmplementeerd door u. | [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md) |
-| Ophalen van gegevens | Omvat een breed scala aan verwerking, maar die betrekking hebben op cognitief zoeken, de kwalificatie van de herkenning van benoemde entiteiten doorgaans gebruikt wordt om gegevens te extraheren (een entiteit) van een bron die deze informatie wordt niet systeemeigen bieden. | [Vraagstukken voor herkenning van named Entity](cognitive-search-skill-named-entity-recognition.md)| 
+| Ophalen van gegevens | Omvat een breed scala aan verwerking, maar die betrekking hebben op cognitief zoeken, de kwalificatie van de spraakherkenning entiteit doorgaans gebruikt wordt om te gegevens (een entiteit) ophalen uit een bron die deze informatie wordt niet systeemeigen bieden. | [Entiteit erkenning vaardigheid](cognitive-search-skill-entity-recognition.md)| 
 | Verwerking van installatiekopieën | Bepaalt welke tekst van een installatiekopie, zoals de mogelijkheid een oriëntatiepunten herkennen of haalt tekst op basis van een installatiekopie. Algemene voorbeelden zijn OCR voor tekens uit een bestand gescande documenten (JPEG) op te heffen of herkennen van een straatnaam in een foto met een straat teken. | [Afbeelding Analysis vaardigheid](cognitive-search-skill-image-analysis.md) of [OCR-kwalificatie](cognitive-search-skill-ocr.md)
 | Natuurlijke taalverwerking | Tekst te verwerken voor inzichten en informatie over teksten. Taaldetectie en sentimentanalyse, sleuteltermextractie zijn vaardigheden die onder de verwerking van natuurlijke taal vallen.  | [Woordgroep extractie kwalificatie Key](cognitive-search-skill-keyphrases.md), [taal detectie vaardigheid](cognitive-search-skill-language-detection.md), [Sentiment-analyse vaardigheid](cognitive-search-skill-sentiment.md) |
 | Document kraken | Het proces van het uitpakken of het maken van de tekstinhoud van niet-tekstuele bronnen tijdens het indexeren. Optische tekenherkenning (OCR) is een voorbeeld, maar in het algemeen deze gegevensset verwijst naar indexeerfunctie Kernfunctionaliteit als de indexeerfunctie inhoud uit toepassingsbestanden haalt. De gegevensbron met de locatie van bronbestand en de definitie van de indexeerfunctie veldtoewijzingen, bieden zijn beide belangrijke factoren in document kraken. | Zie [indexeerfuncties](search-indexer-overview.md) |
@@ -86,7 +89,7 @@ Indexen zijn gegenereerd op basis van een indexschema waarin de velden, kenmerke
 | Verrijkt documenten | Een tijdelijke interne structuur, niet rechtstreeks toegankelijk zijn in de code. Verrijkt documenten zijn gegenereerd tijdens de verwerking, maar alleen uiteindelijke uitvoer zijn opgeslagen in een search-index. Veldtoewijzingen te bepalen welke gegevens worden toegevoegd aan de index. | Zie [toegang tot geavanceerde documenten](cognitive-search-tutorial-blob.md#access-enriched-document). |
 | Indexer |  Een Verkenner die doorzoekbare gegevens en metagegevens geëxtraheerd uit een externe gegevensbron en een index op basis van veld naar toewijzingen tussen de index en de gegevensbron voor documenten kraken vult. Voor cognitief zoeken enrichments, de indexeerfunctie roept een set vaardigheden en de veldtoewijzingen koppelen verrijking uitvoer naar de doelvelden in de index bevat. Definitie van de indexeerfunctie bevat alle instructies en verwijzingen voor bewerkingen van de pijplijn en de pijplijn wordt aangeroepen wanneer u de indexeerfunctie uitvoeren. | [Indexeerfuncties](search-indexer-overview.md) |
 | Gegevensbron  | Een object dat wordt gebruikt door een indexeerfunctie om te verbinden met een externe gegevensbron van de ondersteunde typen in Azure. | Zie [indexeerfuncties](search-indexer-overview.md) |
-| Index | Een permanente zoekverzameling in Azure Search, gebouwd op basis van een indexschema dat veld structuur en het gebruik definieert. | [Indexen in Azure Search](search-what-is-an-index.md) | 
+| Index | Een persistente search-index in Azure Search, gebouwd op basis van een indexschema dat veld structuur en het gebruik definieert. | [Indexen in Azure Search](search-what-is-an-index.md) | 
 
 <a name="where-do-i-start"></a>
 
@@ -102,16 +105,18 @@ Indexen zijn gegenereerd op basis van een indexschema waarin de velden, kenmerke
 
 We raden aan de gratis service voor educatieve doeleinden, maar houd er rekening mee dat het aantal gratis transacties beperkt tot 20 documenten per dag is. Een kleiner bestand gebruiken om uit te voeren van de Quick Start en de zelfstudie in één dag (10 documenten) zo ingesteld dat u in beide oefeningen past.
 
-**Stap 3: Bekijk de API (alleen REST)**
+**Stap 3: De API bekijken**
 
-Op dit moment worden alleen REST-API's geleverd. Gebruik `api-version=2017-11-11-Preview` op alle aanvragen. Gebruik de volgende API's om een oplossing voor cognitief zoeken. Slechts twee API's worden toegevoegd of uitgebreid voor cognitief zoeken. Andere API's hebben dezelfde syntaxis als de algemeen beschikbare versie.
+U kunt REST `api-version=2019-05-06` op aanvragen of de .NET SDK. 
+
+Deze stap maakt gebruik van de REST API's om een cognitief zoeken-oplossing te bouwen. Slechts twee API's worden toegevoegd of uitgebreid voor cognitief zoeken. Andere API's hebben dezelfde syntaxis als de algemeen beschikbare versie.
 
 | REST-API | Description |
 |-----|-------------|
 | [Gegevensbron maken](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Een bron voor het identificeren van een externe gegevensbron brongegevens gebruikt voor het maken van geavanceerde documenten bieden.  |
-| [Vaardighedenset maken (api-version = 2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Een resource coördinatie van het gebruik van [vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md) en [aangepaste cognitieve vaardigheden](cognitive-search-custom-skill-interface.md) gebruikt in een pijplijn verrijking tijdens het indexeren. |
+| [Vaardighedenset maken (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Een resource coördinatie van het gebruik van [vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md) en [aangepaste cognitieve vaardigheden](cognitive-search-custom-skill-interface.md) gebruikt in een pijplijn verrijking tijdens het indexeren. |
 | [Index maken](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Een schema aan een Azure Search-index. Velden in de index toewijzen aan velden in de brongegevens of aan velden die tijdens de fase verrijking (bijvoorbeeld een veld voor organisatienamen die zijn gemaakt door herkenning entiteit). |
-| [Indexeerfunctie maken (api-version = 2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Een resource voor het definiëren van onderdelen die worden gebruikt tijdens het indexeren: met inbegrip van een gegevensbron, een set vaardigheden, Veldkoppelingen van de bron- en om gegevens tussentijds structuren met doelindex en de index zelf. De indexeerfunctie wordt uitgevoerd, wordt de trigger voor gegevensopname en verrijking. De uitvoer is een zoekverzameling op basis van het indexschema, ingevuld met de brongegevens, verrijkt via kennis en vaardigheden.  |
+| [Indexeerfunctie maken (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Een resource voor het definiëren van onderdelen die worden gebruikt tijdens het indexeren: met inbegrip van een gegevensbron, een set vaardigheden, Veldkoppelingen van de bron- en om gegevens tussentijds structuren met doelindex en de index zelf. De indexeerfunctie wordt uitgevoerd, wordt de trigger voor gegevensopname en verrijking. De uitvoer is een search-index op basis van het indexschema, ingevuld met de brongegevens, verrijkt via kennis en vaardigheden.  |
 
 **Checklist: Een werkstroom**
 
@@ -140,3 +145,5 @@ Zie voor meer informatie over specifieke vragen of problemen [tips voor probleem
 + [Documentatie voor cognitief zoeken](cognitive-search-resources-documentation.md)
 + [Snelstart: Probeer cognitief zoeken in een kennismaken met de portal](cognitive-search-quickstart-blob.md)
 + [Zelfstudie: Informatie over de cognitief zoeken-API 's](cognitive-search-tutorial-blob.md)
++ [Kennis Store-overzicht](knowledge-store-concept-intro.md)
++ [Kennis Store-overzicht](knowledge-store-howto.md)

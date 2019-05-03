@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
-ms.date: 09/24/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f40606d5fae3b3784ac7f1fdcf4977b7fd9eb1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b55282adf56bedb0724eca578b8eaea00c26074
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819421"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023979"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exporteren of uw gegevens in de werkruimte voor Machine Learning-service verwijderen 
 
@@ -231,3 +231,29 @@ Sjablonen kunnen worden verkregen door:
 Gegevensbronnen kunnen worden verkregen door:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
+
+## <a name="delete-visual-interface-assets"></a>Visuele interface assets verwijderen
+
+In de visuele interface waar u uw experiment hebt gemaakt, kunt u afzonderlijke assets verwijderen:
+
+1. Aan de linkerkant, selecteer het type van de asset die u wilt verwijderen.
+
+    ![Assets verwijderen](media/how-to-export-delete-data.md/delete-experiment.png)
+
+1. In de lijst, selecteert u de afzonderlijke elementen te verwijderen.
+
+1. Selecteer op de onderste **verwijderen**.
+
+## <a name="export-visual-interface-data"></a>Visuele interface gegevens exporteren
+
+In de visuele interface waar u uw experiment hebt gemaakt, exporteert u gegevens die u hebt toegevoegd:
+
+1. Selecteer aan de linkerkant **gegevens**.
+
+1. Selecteer op de bovenkant **mijn gegevenssets** of **voorbeelden** te vinden van de gegevens die u wilt exporteren.
+
+    ![Gegevens downloaden](media/how-to-export-delete-data.md/download-data.png)
+
+1. In de lijst, selecteert u de afzonderlijke gegevenssets te exporteren.
+
+1. Selecteer op de onderste **downloaden**.

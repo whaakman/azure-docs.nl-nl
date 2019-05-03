@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 0d3927fbc1826f9ab4f613a7c2a310f581b7f7c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: HT
+ms.openlocfilehash: a5d93a77652f540fde44b33963b13df04b45ecee
+ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729294"
+ms.lasthandoff: 05/01/2019
+ms.locfileid: "64987944"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uw datawarehouse een upgrade uitvoert naar Gen2
 
@@ -67,7 +67,7 @@ De volgende tabel geeft een overzicht van per regio als de lagere Gen2 compute-l
 
 ## <a name="automatic-upgrade-process"></a>Automatische upgradeproces
 
-Op basis van de van bovenstaande beschikbaarheidsgrafiek, u we gepland worden automatische upgrades voor uw Gen1-instanties. Om te voorkomen van onverwachte onderbrekingen van de beschikbaarheid van het datawarehouse, wordt de automatische upgrades gepland tijdens uw onderhoudsplanning. Zie voor meer informatie over planningen [een onderhoudsplanning weergeven](viewing-maintenance-schedule.md)
+Op basis van de van bovenstaande beschikbaarheidsgrafiek, u we gepland worden automatische upgrades voor uw Gen1-instanties. Om te voorkomen van onverwachte onderbrekingen van de beschikbaarheid van het datawarehouse, wordt de automatische upgrades gepland tijdens uw onderhoudsplanning. De mogelijkheid om een nieuwe Gen1-exemplaar te maken worden, uitgeschakeld in regio's die wordt automatisch bijgewerkt naar Gen2. Zie voor meer informatie over planningen [een onderhoudsplanning weergeven](viewing-maintenance-schedule.md)
 
 Het upgradeproces omvatten een korte afname in de verbinding (ongeveer 5 min.) als we uw datawarehouse opnieuw opstarten.  Wanneer uw datawarehouse opnieuw is gestart, worden deze volledig beschikbaar voor gebruik. Echter, kan een afname van prestaties optreden tijdens het upgradeproces blijft de gegevensbestanden op de achtergrond bijwerken. De totale tijd voor de prestaties achteruitgaan variëren afhankelijk van de grootte van uw gegevensbestanden.
 

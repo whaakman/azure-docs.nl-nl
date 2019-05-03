@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9ea4e4ec78e5613758bd9e5ff7a4fbd3273208c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c77f26187914b2c6e52426bb2a07303b22ccb2b0
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290445"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023999"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure Search - Veelgestelde vragen (FAQ)
 
@@ -64,7 +64,7 @@ Er zijn geen beperkingen voor het gebruik van de primaire of secundaire replica'
 
 Nee, deze bewerking wordt niet ondersteund. Zoeken wordt altijd toegewezen aan één index.
 
-### <a name="can-i-restrict-search-corpus-access-by-user-identity"></a>Kan ik zoeken corpus toegang beperken door gebruikers-id?
+### <a name="can-i-restrict-search-index-access-by-user-identity"></a>Kan ik search-index toegang beperken door gebruikers-id?
 
 U kunt implementeren [beveiligingsfilters](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) met `search.in()` filter. Het filter stelt goed met het bericht [identity management-services zoals Azure Active Directory(AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) gedefinieerd waaruit de zoekresultaten op basis van lidmaatschap van gebruikersgroepen.
 

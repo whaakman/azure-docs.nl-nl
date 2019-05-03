@@ -20,6 +20,14 @@
   items:
     - name: Afwijkingen in uw gegevens identificeren
       href: how-to/identify-anomalies.md
+    - name: Containers gebruiken
+      items:
+        - name: Containers installeren en uitvoeren
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+          href: anomaly-detector-container-howto.md
+        - name: Containers configureren
+          href: anomaly-detector-container-configuration.md
+          displayName: 'docker, container, apikey, billing, log, mount, run, pull, port'
 - name: Concepten
   items:
     - name: Best practices voor de Anomaly Detector-API

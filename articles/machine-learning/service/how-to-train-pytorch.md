@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9ae7795381f036bb819ce24554d8cea94ceb5552
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02463ba47a48f5e86055b9ecb4e0edbdf9608769
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818353"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024576"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Trainen PyTorch-modellen met Azure Machine Learning-service
 
@@ -102,6 +102,10 @@ Ten slotte uw gedistribueerde PyTorch-taak verzenden:
 ```Python
 run = exp.submit(pt_est)
 ```
+
+## <a name="export-to-onnx"></a>Exporteren naar de ONNX
+
+Om op te halen geoptimaliseerde inferentietaken met de [ONNX-Runtime](concept-onnx.md), kunt u het getrainde model voor PyTorch converteren naar de ONNX-indeling. Zie de [zelfstudie](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) voor een voorbeeld.
 
 ## <a name="examples"></a>Voorbeelden
 

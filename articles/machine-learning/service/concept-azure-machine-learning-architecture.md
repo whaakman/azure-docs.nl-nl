@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821248"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025240"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Hoe werkt de Azure Machine Learning-service: Architectuur en concepten
 
@@ -68,7 +68,7 @@ Wanneer u een nieuwe werkruimte maakt, wordt automatisch verschillende Azure-res
 
 Een taxonomie van de werkruimte wordt weergegeven in het volgende diagram:
 
-[![Taxonomie van werkruimte](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Taxonomie van werkruimte](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>Experiment
 
@@ -106,6 +106,16 @@ Een uitvoeren-configuratie kunt permanent worden opgeslagen in een bestand in de
 
 Bijvoorbeeld configuraties worden uitgevoerd, Zie [selecteren en gebruiken van een compute-doel aan uw model te trainen](how-to-set-up-training-targets.md).
 
+## <a name="dataset"></a>Gegevensset
+
+Azure Machine Learning-gegevenssets (preview) kunt gemakkelijker toegang tot en met uw gegevens kunt werken. Gegevenssets beheren van gegevens in verschillende scenario's zoals modeltraining en pijplijn maken. Met de Azure Machine Learning-SDK, kunt u toegang tot de onderliggende opslag, verkennen en gegevens voorbereiden, beheren van de levenscyclus van verschillende definities van de gegevensset en vergelijken tussen gegevenssets die worden gebruikt in training en in productie.
+
+Gegevenssets biedt methoden voor het werken met gegevens in populaire indelingen, zoals het gebruik van `from_delimited_files()` of `to_pandas_dataframe()`.
+
+Zie voor meer informatie, [maken en registreren Azure Machine Learning gegevenssets](how-to-create-register-datasets.md).
+
+Zie voor een voorbeeld van het gebruik van gegevenssets, de [voorbeeld notitieblokken](https://aka.ms/dataset-tutorial).
+
 ## <a name="datastore"></a>Gegevensopslag
 
 Een gegevensarchief is een abstractie storage via Azure storage-account. Het gegevensarchief kan een Azure blob-container of een Azure-bestandsshare als back-end opslag gebruiken. Elke werkruimte heeft een standaard-gegevensarchief en u kunt aanvullende gegevensopslag registreren.
@@ -127,7 +137,7 @@ Een compute-doel is de compute-resource die u kunt uw trainingsscript uitgevoerd
 | Azure Container Instances | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
-| Project Brainwave</br>(Field-programmable gate array) | &nbsp; | ✓ |
+| Field-programmable gate array (FPGA) | &nbsp; | ✓ |
 
 COMPUTE-doelen zijn gekoppeld aan een werkruimte. COMPUTE-doelen dan de lokale computer worden gedeeld door gebruikers van de werkruimte.
 
@@ -189,8 +199,6 @@ Azure Machine Learning kunt twee soorten afbeeldingen maken:
 * **Docker-installatiekopie**: Wanneer u implementeert voor compute-doelen dan FPGA gebruikt. Voorbeelden zijn Azure Container Instances en Azure Kubernetes Service.
 
 De Azure Machine Learning-service biedt een basisinstallatiekopie, wordt standaard gebruikt. U kunt ook uw eigen aangepaste installatiekopieën opgeven.
-
-Voor meer informatie, Zie de configureren en registreren sectie van de installatiekopie van [modellen implementeren](how-to-deploy-and-where.md#configureimage).
 
 Zie voor een voorbeeld van het maken van een installatiekopie van een [implementeren een installatiekopie classificeringsmodel in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 

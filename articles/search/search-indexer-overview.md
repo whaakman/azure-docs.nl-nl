@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/02/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b485b6b7f6ddbdb45d3ca6170c29a9af3c5b63dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87e35573eea836fc8a88c7515409c070ec63aa3b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60321924"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024900"
 ---
 # <a name="indexers-in-azure-search"></a>Indexeerfuncties in Azure Search
 
@@ -79,7 +79,7 @@ Definitie van de indexeerfunctie is een constructie die combineert alle elemente
 
 Het is gebruikelijk om te plannen indexeren, een indexeerfunctie kan worden aangeroepen op aanvraag met behulp van de [RunCommand-](https://docs.microsoft.com/rest/api/searchservice/run-indexer):
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2019-05-06
     api-key: [Search service admin key]
 
 > [!NOTE]
@@ -94,7 +94,7 @@ U kunt de status van de indexeerfunctie in de portal of via ophalen indexeerfunc
 U kunt de status en uitvoering van de geschiedenis van een indexeerfunctie via ophalen de [indexeerfunctie Status ophalen-opdracht](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
 
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2019-05-06
     api-key: [Search service admin key]
 
 Het antwoord bevat de algemene status van de indexeerfunctie, het laatste (of in uitvoering) indexer-aanroepen en de geschiedenis van recente indexeerfunctie aanroepen.

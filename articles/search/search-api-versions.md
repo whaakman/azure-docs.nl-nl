@@ -7,15 +7,14 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: c07a0c8f5440033455c69fe40806adf9b548c16f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f361417f25579b0ca605b33bafa4a581f68b1798
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126955"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024393"
 ---
 # <a name="api-versions-in-azure-search"></a>API-versies in Azure Search
 Azure Search de regelmatig updates van de functie. Soms, maar niet altijd noodzakelijk een nieuwe versie van de API te behouden voor achterwaartse compatibiliteit. Publiceren van een nieuwe versie, kunt u bepalen wanneer en hoe u de search service-updates in uw code integreren.
@@ -30,18 +29,19 @@ De dezelfde regel geldt voor SDK-updates. De Azure Search SDK volgt de [semantis
 ## <a name="snapshot-of-current-versions"></a>Momentopname van de huidige versies
 Hieronder wordt een momentopname van de huidige versies van alle interfaces voor het Azure Search programmeren.
 
+
 | Interfaces | Meest recente primaire versie | Status |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |5.0 |In het algemeen beschikbaar, die zijn uitgebracht April 2018 |
-| [Preview-versie van .NET SDK](https://aka.ms/search-sdk-preview) |4.0.1-preview |Preview-versie, uitgebracht: mei 2017 |
-| [Service REST API](https://docs.microsoft.com/rest/api/searchservice/) |2017-11-11 |Algemeen verkrijgbaar |
-| [Service REST API-2017-11-11-Preview](search-api-2017-11-11-preview.md) |11-11-2017-preview |Preview |
-| [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |2.0 |Algemeen verkrijgbaar |
+| [.NET SDK](https://aka.ms/search-sdk) |9.0 |In het algemeen beschikbaar, die zijn uitgebracht mei 2019. Inhoud is nog steeds onder constructie.  |
+| [Preview-versie van .NET SDK](https://aka.ms/search-sdk-preview) |8.0.0-Preview |Preview-versie, die zijn uitgebracht April 2019. Inhoud is nog steeds onder constructie.|
+| [Service REST API](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Algemeen verkrijgbaar |
+| [Service REST API 2019-05-06-Preview](search-api-preview.md) |2019-05-06-preview |Preview |
+| [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |3.0 |Algemeen verkrijgbaar |
 | [REST-API voor beheer](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Algemeen verkrijgbaar |
 
 Voor de REST API's, met inbegrip van de `api-version` elke aanroep is vereist. Met behulp van `api-version` kunt u eenvoudig gericht op een specifieke versie, zoals een preview-API. Het volgende voorbeeld ziet u hoe de `api-version` parameter opgegeven:
 
-    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2017-11-11
+    GET https://my-demo-app.search.windows.net/indexes/hotels?api-version=2019-05-06
 
 > [!NOTE]
 > Hoewel elke aanvraag heeft een `api-version`, raden wij aan dat u dezelfde versie voor alle API-aanvragen. Dit is vooral van toepassing wanneer nieuwe API-versies introduceren kenmerken of bewerkingen die niet worden herkend door vorige versies. Met een combinatie van API-versies kan hebben ongewenste gevolgen en moeten worden vermeden.

@@ -1,7 +1,7 @@
 ---
 title: Verbinding maken en Azure SQL Database-inhoud met de indexeerfuncties - Azure Search-index
 description: Leer hoe u gegevens in Azure SQL Database met de indexeerfuncties voor zoeken in volledige tekst in Azure Search verkennen. In dit artikel bevat informatie over verbindingen, configuratie van de indexeerfunctie en opname van gegevens.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817172"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025344"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Verbinding maken met en inhoud met behulp van Azure Search-indexeerfuncties van Azure SQL Database indexeren
 
@@ -63,7 +63,7 @@ Afhankelijk van diverse factoren met betrekking tot uw gegevens, het gebruik van
 1. De gegevensbron maken:
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2017-11-11
+    POST https://myservice.search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -82,7 +82,7 @@ Afhankelijk van diverse factoren met betrekking tot uw gegevens, het gebruik van
 3. De indexeerfunctie maken door een naam geven en verwijzen naar de bron en doel-index van gegevens:
 
     ```
-    POST https://myservice.search.windows.net/indexers?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -95,7 +95,7 @@ Afhankelijk van diverse factoren met betrekking tot uw gegevens, het gebruik van
 
 Een indexeerfunctie gemaakt op deze manier beschikt niet over een schema. Deze wordt automatisch uitgevoerd zodra wanneer deze gemaakt. U kunt het opnieuw uitvoeren op elk gewenst moment een **indexeerfunctie uitvoeren** aanvraag:
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2019-05-06
     api-key: admin-key
 
 U kunt verschillende aspecten van indexeerfunctie gedrag, zoals batchgrootte en het aantal documenten worden overgeslagen voordat de uitvoering van een indexeerfunctie is mislukt. Zie voor meer informatie, [Indexer-API maken](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
@@ -104,7 +104,7 @@ Mogelijk moet u verbinding maakt met uw database Azure-services toestaan. Zie [v
 
 Voor het controleren van de indexeerfunctie status en de uitvoering geschiedenis (aantal items dat is geïndexeerd, fouten, enzovoort) gebruikt een **indexeerfunctie status** aanvraag:
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2017-11-11
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2019-05-06
     api-key: admin-key
 
 Het antwoord moet er ongeveer als volgt uitzien:
@@ -146,7 +146,7 @@ Meer informatie over het antwoord kunt vinden [indexeerfunctie Status ophalen](h
 ## <a name="run-indexers-on-a-schedule"></a>Indexeerfuncties volgens een planning wordt uitgevoerd
 Ook kunt u instellen dat de indexeerfunctie periodiek wordt uitgevoerd volgens een schema. Om dit te doen, voeg de **planning** eigenschap bij het maken of bijwerken van de indexeerfunctie. In het volgende voorbeeld toont een PUT-aanvraag voor het bijwerken van de indexeerfunctie:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2017-11-11
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 

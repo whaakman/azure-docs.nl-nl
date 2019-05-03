@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1232cdd156dd473850fde6e7c4f3ce0554155764
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456169"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020386"
 ---
 # <a name="ship-an-application"></a>Verzenden van een toepassing
 
@@ -49,19 +49,26 @@ De vereiste spraak SDK-bestanden kunnen worden geïmplementeerd in dezelfde map 
 
 ## <a name="linux"></a>Linux
 
-De spraak-SDK ondersteunt momenteel de Ubuntu-16.04 en 18.04 distributies.
+De spraak-SDK ondersteunt momenteel de Ubuntu 16.04, Ubuntu 18.04 en 9 van Debian-distributies.
 Voor een systeemeigen toepassing, moet u voor het verzenden van de spraak-SDK-bibliotheek, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Zorg ervoor dat u selecteert u de versie (x86, x64) die overeenkomt met uw toepassing. Afhankelijk van de Linux-versie moet u ook mogelijk om op te nemen van de volgende afhankelijkheden:
 
 * De gedeelde bibliotheken van de GNU C-bibliotheek (met inbegrip van de bibliotheek POSIX Threads Programming `libpthreads`)
-* De OpenSSL-bibliotheek (`libssl.so.1.0.0`)
+* De OpenSSL-bibliotheek (`libssl.so.1.0.0` of `libssl.so.1.0.2`)
 * De gedeelde bibliotheek voor ALSA toepassingen (`libasound.so.2`)
 
 Op Ubuntu, moeten de bibliotheken GNU C al standaard worden geïnstalleerd. De laatste drie kan worden geïnstalleerd met behulp van deze opdrachten:
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2
+```
+
+Op Debian 9 deze pakketten te installeren:
+
+```sh
+sudo apt-get update
+sudo apt-get install libssl1.0.2 libasound2
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

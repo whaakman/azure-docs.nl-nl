@@ -7,17 +7,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: afc60e933c9fcc154af74c47e382d8b8e7b0df8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25a156c4403b7a89f7a7bf7f6acf22fa34216791
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871294"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025131"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Het gebruik van Azure Search via een .NET-toepassing
+
+> [!Important]
+> Deze inhoud is nog steeds onder constructie. Versie 9.0 van de Azure Search .NET SDK is beschikbaar op NuGet. We werken over het bijwerken van deze Migratiehandleiding voor een uitleg van hoe u een upgrade uitvoert naar de nieuwe versie. Kom regelmatig terug voor het laatste nieuws.
+>
+
 In dit artikel is een overzicht te krijgen u actief en werkend de [Azure Search .NET SDK](https://aka.ms/search-sdk). U kunt de .NET SDK gebruiken voor het implementeren van een uitgebreide zoekervaring in uw toepassing met behulp van Azure Search.
 
 ## <a name="whats-in-the-azure-search-sdk"></a>Wat is er in de Azure SDK zoeken
@@ -38,7 +42,7 @@ De clientbibliotheken van verschillende klassen, zoals definiëren `Index`, `Fie
 
 De huidige versie van de Azure Search .NET SDK is nu algemeen beschikbaar. Als u feedback geven voor ons om op te nemen in de volgende versie wilt, gaat u naar onze [feedbackpagina](https://feedback.azure.com/forums/263029-azure-search/).
 
-De .NET-SDK biedt ondersteuning voor versie `2017-11-11` van de [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). Deze versie biedt nu ondersteuning voor synoniemen, evenals incrementele verbeteringen aan indexeerfuncties. Preview-functies die zijn *niet* deel van deze versie, zoals ondersteuning voor het indexeren van JSON-matrices en CSV-bestanden, worden [preview](search-api-2016-09-01-preview.md) en beschikbaar zijn via [4.0-preview-versie van de .NET SDK](https://aka.ms/search-sdk-preview).
+De .NET-SDK biedt ondersteuning voor versie `2017-11-11` van de [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). Deze versie biedt nu ondersteuning voor synoniemen, evenals incrementele verbeteringen aan indexeerfuncties. 
 
 Deze SDK biedt geen ondersteuning voor [beheerbewerkingen](https://docs.microsoft.com/rest/api/searchmanagement/) , zoals het maken en schalen van de Search-services en beheren van API-sleutels. Als u nodig hebt voor het beheren van uw resources zoeken via een .NET-toepassing, kunt u de [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk).
 

@@ -1,7 +1,7 @@
 ---
 title: Een Python-ontwikkelomgeving instellen
 titleSuffix: Azure Machine Learning service
-description: Leer hoe u een ontwikkelomgeving configureren wanneer u met de Azure Machine Learning-service werkt. In dit artikel leert u hoe u Conda-omgevingen gebruiken, configuratiebestanden maken en configureren van Jupyter Notebooks, Azure-laptops, Azure Databricks, IDE's, code-editors en de Data Science Virtual Machine.
+description: Leer hoe u een ontwikkelomgeving configureren wanneer u met de Azure Machine Learning-service werkt. In dit artikel leert u hoe u Conda-omgevingen gebruiken, configuratiebestanden maken en configureren uw eigen cloud-gebaseerde notebook-server, Jupyter Notebooks, Azure Databricks, Azure-laptops, IDE's, code-editors en de Data Science Virtual Machine.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 720f984feb5675281510962d4ebee63f638d696d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8c0291997c1ce301083f7d5c19b5067a85cfd0f
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820005"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024961"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -26,7 +26,7 @@ De enige vereisten voor uw ontwikkelomgeving zijn Python 3, Anaconda (voor geïs
 
 In dit artikel is gericht op de volgende omgevingen en hulpprogramma's:
 
-* Azure-notitieblokken: Een Jupyter-Notebooks-service die wordt gehost in de Azure-cloud. Dit is de eenvoudigste manier om aan de slag, omdat de SDK van Azure Machine Learning al is geïnstalleerd.
+* Uw eigen [notebookserver voor cloud-gebaseerde](#notebookvm): Een compute-resource in uw werkstation voor Jupyter-notebooks gebruiken. Dit is de eenvoudigste manier om aan de slag, omdat de SDK van Azure Machine Learning al is geïnstalleerd.
 
 * [De Data Science Virtual Machine (DSVM)](#dsvm): Een vooraf geconfigureerde ontwikkeling of experimenten omgeving in de Azure-cloud die ontworpen voor data science werk en kan worden geïmplementeerd op CPU alleen VM-exemplaren of op basis van GPU-exemplaren. Python 3, Conda, Jupyter-Notebooks en de SDK van Azure Machine Learning zijn al geïnstalleerd. De virtuele machine wordt geleverd met populaire machine learning- en deep learning-frameworks, hulpprogramma's en editors voor het ontwikkelen van machine learning-oplossingen. Het is waarschijnlijk het meest complete ontwikkelomgeving voor machine learning op het Azure-platform.
 
@@ -44,7 +44,7 @@ Als u al een Python 3-omgeving hebt, of alleen de basisstappen voor het installe
 
 - Een werkruimte van Azure Machine Learning-service. Zie voor het maken van de werkruimte, [maken van een werkruimte van Azure Machine Learning-service](setup-create-workspace.md).
 
-Een werkruimte is alles wat u nodig om aan de slag met uw [Azure notitieblokken](#aznotebooks), een [DSVM](#dsvm), of [Azure Databricks](#aml-databricks).
+Een werkruimte is alles wat u nodig om aan de slag met uw eigen [notebookserver voor cloud-gebaseerde](#notebookvm), een [DSVM](#dsvm), [Azure Databricks](#aml-databricks), of [Azure notitieblokken](#aznotebooks).
 
 Voor het installeren van de SDK-omgeving voor uw [lokale computer](#local), [Jupyter-Notebook server](#jupyter) of [Visual Studio Code](#vscode) moet u ook:
 
@@ -57,16 +57,15 @@ Voor het installeren van de SDK-omgeving voor uw [lokale computer](#local), [Jup
 
 - Op Windows moet u de opdrachtprompt of Anaconda-prompt (geïnstalleerd door Anaconda en Miniconda).
 
-## <a id="aznotebooks"></a>Azure-laptops
+## <a id="notebookvm"></a>Uw eigen cloud-gebaseerde notebook-server
 
-[Azure-notitieblokken](https://notebooks.azure.com) (preview) is een interactieve ontwikkelomgeving in de Azure-cloud. Het is een eenvoudige manier aan de slag met Azure Machine Learning-ontwikkeling.
+Maak een notebookserver in uw Azure Machine Learning-werkruimte voor de eenvoudigste manier om aan de slag met Azure Machine Learning-ontwikkeling.
 
 * De SDK van Azure Machine Learning is al geïnstalleerd.
-* Nadat u een werkruimte van de service Azure Machine Learning in Azure portal maakt, kunt u klikt op een knop automatisch configureren aan de Notebook van Azure-omgeving werkt met de werkruimte.
+* De notebook VM-omgeving wordt automatisch geconfigureerd om te werken met uw werkruimte.
+* De resource is gemaakt in de werkruimte en er kan worden beheerd
 
-Gebruik de [Azure-portal](https://portal.azure.com) aan de slag met Azure-Notebooks.  Uw werkruimte openen en naar de **overzicht** sectie, selecteer **aan de slag met Azure-notitieblokken**.
-
-Azure-notitieblokken gebruikt standaard een gratis service-laag die is beperkt tot 4GB geheugen en 1GB aan gegevens. U kunt deze limieten echter verwijderen door het koppelen van een Data Science Virtual Machine-instantie aan het project Azure notitieblokken. Zie voor meer informatie, [beheren en configureren van Azure-notitieblokken projecten - Compute-laag](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).    
+Om te beginnen met ontwikkelen met uw cloud-gebaseerde notebook-server, Zie [Quick Start: Gebruik van een cloud-gebaseerde notebookserver aan de slag met Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
 
 ## <a id="dsvm"></a>Virtuele Machine voor Datatechnologie
@@ -320,7 +319,7 @@ Zodra het cluster wordt uitgevoerd, [maakt u een bibliotheek](https://docs.datab
       
    Houd ook rekening met:
    + In de configuratie van de Automl, bij het gebruik van Azure Databricks Voeg de volgende parameters:
-        1. ```max_concurrent_iterations``` is gebaseerd op het aantal worker-knooppunten in uw cluster. 
+       1. ```max_concurrent_iterations``` is gebaseerd op het aantal worker-knooppunten in uw cluster. 
         2. ```spark_context=sc``` is gebaseerd op de standaard-spark-context. 
    + Of als u een oude versie van de SDK hebt, deze van de geïnstalleerde bibliotheken van het cluster uit te schakelen en verplaatsen naar de Prullenbak. De nieuwe versie van de SDK installeren en opnieuw starten van het cluster. Als er een probleem na deze is, loskoppelen en opnieuw koppelen van uw cluster.
 
@@ -337,6 +336,17 @@ Probeer het nu:
   Veel voorbeeldnotitieblokken zijn beschikbaar, **alleen [deze voorbeeldnotitieblokken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) werken met Azure Databricks.**
   
 + Meer informatie over het [een pijplijn maken met Databricks als de training compute](how-to-create-your-first-pipeline.md).
+
+## <a id="aznotebooks"></a>Azure-laptops
+
+[Azure-notitieblokken](https://notebooks.azure.com) (preview) is een interactieve ontwikkelomgeving in de Azure-cloud. Het is een eenvoudige manier aan de slag met Azure Machine Learning-ontwikkeling.
+
+* De SDK van Azure Machine Learning is al geïnstalleerd.
+* Nadat u een werkruimte van de service Azure Machine Learning in Azure portal maakt, kunt u klikt op een knop automatisch configureren aan de Notebook van Azure-omgeving werkt met de werkruimte.
+
+Gebruik de [Azure-portal](https://portal.azure.com) aan de slag met Azure-Notebooks.  Uw werkruimte openen en naar de **overzicht** sectie, selecteer **aan de slag met Azure-notitieblokken**.
+
+Azure-notitieblokken gebruikt standaard een gratis service-laag die is beperkt tot 4GB geheugen en 1GB aan gegevens. U kunt deze limieten echter verwijderen door het koppelen van een Data Science Virtual Machine-instantie aan het project Azure notitieblokken. Zie voor meer informatie, [beheren en configureren van Azure-notitieblokken projecten - Compute-laag](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a id="workspace"></a>Het configuratiebestand van een werkruimte maken
 
@@ -358,7 +368,7 @@ U kunt het configuratiebestand op drie manieren maken:
 
 * **Volg de stappen in [maken van een werkruimte van Azure Machine Learning-service](setup-create-workspace.md#sdk)**: Een *config.json* bestand wordt gemaakt in uw Azure-notitieblokken-bibliotheek. Het bestand bevat de configuratiegegevens voor uw werkruimte. U kunt downloaden of kopieer de *config.json* in andere omgevingen ontwikkeling.
 
-* **Maak het bestand handmatig**: Met deze methode maakt u een teksteditor. U vindt de waarden die het configuratiebestand opdoen uw werkruimte in de [Azure-portal](https://portal.azure.com). Kopieer de naam van de werkruimte, de resourcegroep en de abonnement-id-waarden en deze gebruiken in het configuratiebestand.
+* **Download het bestand**: In de [Azure-portal](https://ms.portal.azure.com), selecteer **downloaden config.json** uit de **overzicht** sectie van uw werkruimte.
 
      ![Azure Portal](./media/how-to-configure-environment/configure.png)
 
@@ -387,3 +397,4 @@ U kunt het configuratiebestand op drie manieren maken:
 - [Een model te trainen](tutorial-train-models-with-aml.md) op Azure Machine Learning met de MNIST-gegevensset
 - Weergave de [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk) verwijzing
 - Meer informatie over de [SDK voor Azure Machine Learning-Dataprep](https://aka.ms/data-prep-sdk)
+- 

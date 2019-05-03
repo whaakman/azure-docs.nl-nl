@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 147f67f40a060f3e274fe1f3fa368ebfd01711b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b996effbc03bd1f7c446965b0aa5fb6fa2d0175
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61282060"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024375"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST-zelfstudie: Indexeren en doorzoeken van semi-gestructureerde gegevens (JSON-blobs) in Azure Search
 
@@ -27,9 +27,6 @@ In deze zelfstudie gebruikt u de [Azure Search REST API's](https://docs.microsof
 > * Een Azure Search-index bevatten doorzoekbare inhoud maken
 > * Configureren en uitvoeren van een indexeerfunctie om te lezen van de container en doorzoekbare inhoud ophalen uit Azure blob-opslag
 > * De index doorzoeken die u zojuist hebt gemaakt
-
-> [!NOTE]
-> In deze zelfstudie wordt gebruikgemaakt van JSON-matrixondersteuning. Dit is momenteel een preview-functie in Azure Search. Deze is niet beschikbaar in de portal. Daarom wordt hier gebruikgemaakt van de preview-REST API, die deze functie biedt, en een REST-clienthulpprogramma om de API aan te roepen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -81,7 +78,7 @@ De aanvraagmethode voor elke aanroep in deze zelfstudie is **POST**. De headersl
 
 We gebruiken Postman om drie API-aanroepen te doen naar uw zoekservice; voor het maken van een gegevensbron, een index en een indexeerfunctie. De gegevensbron bevat een verwijzing naar uw opslagaccount en uw JSON-gegevens. Uw zoekservice maakt de verbinding tijdens het laden van de gegevens.
 
-De query-tekenreeks moet bevatten een preview-API (zoals **api-version = 2017-11-11-Preview**) en elke aanroep moet resulteren in een **201-gemaakt**. Met de algemeen beschikbare api-versie is het nog niet mogelijk om json te verwerken als een jsonArray. Dat is momenteel alleen mogelijk met de preview-api-versie.
+Query-tekenreeksen moeten opgeven voor een api-versie en elke aanroep moet retourneren een **201-gemaakt**. De algemeen beschikbare api-versie voor het gebruik van JSON-matrices is `2019-05-06`.
 
 Voer de volgende drie API-aanroepen uit vanuit de REST-client.
 
@@ -89,7 +86,7 @@ Voer de volgende drie API-aanroepen uit vanuit de REST-client.
 
 De [Data Source-API maken](https://docs.microsoft.com/rest/api/searchservice/create-data-source)maakt een Azure Search-object waarmee wordt aangegeven welke gegevens moeten worden geïndexeerd.
 
-Het eindpunt van deze aanroep is `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Vervang `[service name]` door de naam van uw zoekservice. 
+Het eindpunt van deze aanroep is `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Vervang `[service name]` door de naam van uw zoekservice. 
 
 Voor deze aanroep moet de aanvraagtekst bevatten de naam van uw opslagaccount, sleutel van het opslagaccount en de naam van de blob-container. De opslagaccountsleutel vindt u in de **Toegangssleutels** van uw opslagaccount in Azure Portal. De locatie wordt in de volgende afbeelding weergegeven:
 
@@ -132,7 +129,7 @@ Het antwoord moet er als volgt uitzien:
     
 De tweede aanroep [API ' Create Index '](https://docs.microsoft.com/rest/api/searchservice/create-data-source), een Azure Search-index te maken die alle doorzoekbare gegevens worden opgeslagen. Een index geeft alle parameters en hun kenmerken op.
 
-De URL voor deze aanroep is `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. Vervang `[service name]` door de naam van uw zoekservice.
+De URL voor deze aanroep is `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Vervang `[service name]` door de naam van uw zoekservice.
 
 Vervang eerst de URL. Kopieer daarna de volgende code, plak deze in de hoofdtekst en voer de query uit.
 
@@ -222,7 +219,7 @@ Het antwoord moet er als volgt uitzien:
 
 Een indexeerfunctie verbindt de gegevensbron, worden gegevens geïmporteerd in de doelzoekindex en biedt optioneel een schema voor het automatiseren van het vernieuwen van gegevens. De REST-API is [indexeerfunctie maken](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-De URL voor deze aanroep is `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. Vervang `[service name]` door de naam van uw zoekservice.
+De URL voor deze aanroep is `https://[service name].search.windows.net/indexers?api-version=2019-05-06`. Vervang `[service name]` door de naam van uw zoekservice.
 
 Vervang eerst de URL. Kopieer en plak de volgende code in uw instantie en de aanvraag verzenden. De aanvraag wordt onmiddellijk verwerkt. Wanneer het antwoord terug afkomstig is, hebt u een index met volledige tekst kan worden doorzocht.
 
@@ -267,7 +264,7 @@ U kunt beginnen te zoeken als het eerste document wordt geladen. Gebruik voor de
 
 Open de search-service in Azure portal, **overzicht** pagina, vinden de index die u hebt gemaakt in de **indexen** lijst.
 
-Zorg ervoor dat de index die u zojuist hebt gemaakt te kiezen. De API-versie kan worden Preview-versie of een algemeen beschikbare versie. De enige vereiste voor de Preview-versie is voor het indexeren van JSON-matrices.
+Zorg ervoor dat de index die u zojuist hebt gemaakt te kiezen. 
 
   ![Niet-gestructureerde zoekopdracht](media/search-semi-structured-data/indexespane.png)
 

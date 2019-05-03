@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: fcb1e4f32608a1c83b653984dfa066da38e7c451
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0eefe38fdffd04bb95826f960771bd6430ea687
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871102"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024779"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>De wizard gegevens importeren voor Azure Search
 
@@ -77,14 +77,14 @@ De **gegevens importeren** wizard maakt een permanente gegevensbronobject verbin
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md) (niet ondersteund voor [cognitief zoeken](cognitive-search-concept-intro.md) pijplijnen)
 
-Een platte gegevensset is een vereiste invoer. U kunt slechts importeren uit één tabel, databaseweergave of gelijkwaardige gegevensstructuur. 
+U kunt slechts importeren uit een enkele tabel, databaseweergave of gelijkwaardige gegevensstructuur, maar de structuur hiërarchische of geneste substructuren kan bevatten. Zie voor meer informatie, [het model complexe typen](search-howto-complex-data-types.md).
 
 Inhoud moet bevatten en moet u deze gegevensstructuur maken voordat u de wizard uitvoert. Voer niet de **gegevens importeren** wizard op een lege gegevensbron.
 
 |  Selectie | Description |
 | ---------- | ----------- |
 | **Bestaande gegevensbron** |Als u al indexeerfuncties hebt gedefinieerd in uw zoekservice, kunt u een bestaande gegevensbrondefinitie voor een andere import selecteren. In Azure Search worden alleen gegevensbronobjecten gebruikt door indexeerfuncties. U kunt object voor een gegevensbron via een programma maken of via de **gegevens importeren** wizard.|
-| **Voorbeelden**| Azure Search als host fungeert voor een gratis openbare Azure SQL database die u gebruiken kunt voor meer informatie over aanvragen voor importeren en query's uitvoeren in Azure Search. Zie [Quickstart: Importeren, indexeren en query's uitvoeren met behulp van portal-hulpprogramma's](search-get-started-portal.md) voor een overzicht. |
+| **Voorbeelden**| Azure Search als host fungeert voor een gratis wereldwijde Azure SQL database die u gebruiken kunt voor meer informatie over aanvragen voor importeren en query's uitvoeren in Azure Search. Zie [Quickstart: Importeren, indexeren en query's uitvoeren met behulp van portal-hulpprogramma's](search-get-started-portal.md) voor een overzicht. |
 | **Azure SQL Database** |De servicenaam, referenties voor een databasegebruiker met leesmachtiging en de naam van een database kunnen worden opgegeven op de pagina of via een ADO.NET-verbindingsreeks. Kies de verbindingsreeksoptie om eigenschappen te bekijken of aan te passen. <br/><br/>De tabel of weergave die de rijenset bevat, moet worden opgegeven op de pagina. Deze optie wordt weergegeven nadat de verbinding tot stand is gebracht, waarna een vervolgkeuzelijst wordt weergegeven zodat u een selectie kunt maken. |
 | **SQL Server op virtuele Azure-machine** |Geef een volledig gekwalificeerde servicenaam, gebruikers-ID en wachtwoord en -database als een verbindingsreeks. Voor het gebruik van deze gegevensbron moet u eerder een certificaat hebben geïnstalleerd in het lokale archief dat de verbinding versleutelt. Zie [SQL VM-verbinding met Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) voor instructies. <br/><br/>De tabel of weergave die de rijenset bevat, moet worden opgegeven op de pagina. Deze optie wordt weergegeven nadat de verbinding tot stand is gebracht, waarna een vervolgkeuzelijst wordt weergegeven zodat u een selectie kunt maken. |
 | **Cosmos DB** |Vereisten zijn het account, de database en de verzameling. Alle documenten in de verzameling worden opgenomen in de index. U kunt een query voor het samenvoegen of filteren van de rijenset definiëren, of de query leeg laten. Een query is niet vereist in deze wizard.|

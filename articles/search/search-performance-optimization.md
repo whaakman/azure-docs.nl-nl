@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 8a07657d04cee57cb69c9f5f7862fed3e7965716
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32352a857f0a74dc008dc1ad76b4a5951a36b956
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283550"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024554"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Implementatiestrategieën en aanbevolen procedures voor het optimaliseren van prestaties van Azure Search
 
@@ -81,7 +81,7 @@ Er zijn twee opties voor het beveiligen van uw gedistribueerde zoekservices gesy
 
 ### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Indexeerfuncties gebruiken voor het bijwerken van inhoud op meerdere services
 
-Als u al indexeerfunctie op één service gebruikt, kunt u een tweede indexeerfunctie configureren op een tweede service voor het gebruik van dezelfde gegevensbronobject binnenhalen van gegevens vanaf dezelfde locatie is. Elke service in elke regio heeft een eigen indexeerfunctie en een doelindex (uw zoekverzameling wordt niet gedeeld, wat betekent dat gegevens worden gedupliceerd), maar elke indexeerfunctie verwijst naar dezelfde gegevensbron.
+Als u al indexeerfunctie op één service gebruikt, kunt u een tweede indexeerfunctie configureren op een tweede service voor het gebruik van dezelfde gegevensbronobject binnenhalen van gegevens vanaf dezelfde locatie is. Elke service in elke regio heeft een eigen indexeerfunctie en een doelindex (uw search-index wordt niet gedeeld, wat betekent dat gegevens worden gedupliceerd), maar elke indexeerfunctie verwijst naar dezelfde gegevensbron.
 
 Hier volgt een visual op hoog niveau van wat die architectuur eruit zou zien.
 

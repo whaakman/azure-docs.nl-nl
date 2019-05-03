@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 217eecfe8f380718361c2f1b56965e4af85d54c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 61c5d60f0c2fab3786aa6adfa194c0716e621ea3
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753754"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023655"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Wat is er gebeurd met Azure Machine Learning Workbench?
 
@@ -87,7 +87,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 De modellen die u in uw oude modelregister hebt geregistreerd, moeten worden gemigreerd naar uw nieuwe werkruimte als u ze wilt blijven gebruiken. Voor het migreren van uw modellen downloadt u de modellen en registreert u deze opnieuw in uw nieuwe werkruimte. 
 
-De installatiekopieën die u in uw oude installatiekopieregister hebt gemaakt, moeten opnieuw worden gemaakt in de nieuwe werkruimte om ze te blijven gebruiken. U kunt deze installatiekopieën opnieuw maken door de sectie [Installatiekopie configureren en maken](how-to-deploy-and-where.md#configureimage) te volgen. 
+De installatiekopieën die u hebt gemaakt in het register van de oude installatiekopie kunnen niet rechtstreeks worden gemigreerd naar de nieuwe werkruimte. In de meeste gevallen kan het model worden geïmplementeerd zonder te hoeven maken van een installatiekopie. Indien nodig, kunt u een installatiekopie voor het model in de nieuwe werkruimte maken. Zie voor meer informatie, [beheren, registreren, implementeren en bewaken van machine learning-modellen](concept-model-management-and-deployment.md).
 
 ## <a name="what-about-deployed-web-services"></a>Hoe zit het met geïmplementeerde webservices?
 

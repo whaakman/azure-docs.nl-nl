@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78db7d21774750892c831ac220244c54594b78f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cedd45d4142633e48d0d9dd41870f57c16d860c8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817714"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023844"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Train TensorFlow en Keras-modellen met Azure Machine Learning-service
 
@@ -185,6 +185,10 @@ Zodra u klaar bent met uw trainingsscript schrijven en het maken van het object 
 ```Python
 run = exp.submit(tf_est)
 ```
+
+## <a name="export-to-onnx"></a>Exporteren naar de ONNX
+
+Om op te halen geoptimaliseerde inferentietaken met de [ONNX-Runtime](concept-onnx.md), kunt u het getrainde model voor TensorFlow converteren naar de ONNX-indeling. Zie de [voorbeeld](https://github.com/onnx/tensorflow-onnx/blob/master/examples/call_coverter_via_python.py).
 
 ## <a name="examples"></a>Voorbeelden
 

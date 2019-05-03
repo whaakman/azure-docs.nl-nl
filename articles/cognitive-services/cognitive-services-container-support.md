@@ -8,18 +8,26 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 172774c90633c96c3a8e2c128df050fedeb8b52b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 61d958ae4e53b5f2b123f3fa3660ef62a6cdcabe
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109831"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021514"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Ondersteuning voor containers in Azure Cognitive Services
 
-Ondersteuning voor containers in Azure Cognitive Services kunnen ontwikkelaars gebruikmaken van de dezelfde uitgebreide API's die beschikbaar in Azure zijn en flexibiliteit kunt waar u wilt implementeren en te hosten van de services die worden geleverd met [Docker-containers](https://www.docker.com/what-container). Ondersteuning voor containers is momenteel beschikbaar in Preview-versie voor een subset van Azure Cognitive Services, met inbegrip van onderdelen van [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), [Tekstanalyse](text-analytics/overview.md), en [ Language Understanding](LUIS/luis-container-howto.md) (LUIS).
+Ondersteuning voor containers in Azure Cognitive Services kunnen ontwikkelaars gebruikmaken van de dezelfde uitgebreide API's die beschikbaar in Azure zijn en flexibiliteit kunt waar u wilt implementeren en te hosten van de services die worden geleverd met [Docker-containers](https://www.docker.com/what-container). Ondersteuning voor containers is momenteel beschikbaar in Preview-versie voor een subset van Azure Cognitive Services, met inbegrip van onderdelen van:
+
+* [Detectie van afwijkingen](Anomaly-Detector/overview.md)
+* [Computer Vision](Computer-vision/Home.md)
+* [Face](Face/Overview.md)
+* [Form Recognizer](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
+* [Language Understanding](LUIS/luis-container-howto.md) (LUIS)
+* [Speech Service-API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
+* [Tekstanalyse](text-analytics/overview.md)
 
 Containerstrategie is een benadering voor softwaredistributie waarin een toepassing of service, inclusief de afhankelijkheden en de configuratie wordt geleverd samen als een containerinstallatiekopie. Met weinig of geen wijziging, kan de installatiekopie van een container worden geïmplementeerd op een containerhost. Containers zijn geïsoleerd van elkaar worden verbonden en het onderliggende besturingssysteem, met een kleinere footprint dan een virtuele machine. Containers kunnen worden geïnstantieerd van containerinstallatiekopieën voor taken op korte termijn en verwijderd wanneer het niet meer nodig hebt.
 
@@ -27,7 +35,7 @@ De volgende video ziet u met behulp van een Cognitive Services-container.
 
 [![Demonstratie van de container voor Cognitive Services](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
 
-De [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), [Tekstanalyse](text-analytics/overview.md), en [Language Understanding (LUIS)](LUIS/what-is-luis.md) services zijn beschikbaar op [Microsoft Azure](https://azure.microsoft.com). Meld u aan bij de [Azure-portal](https://portal.azure.com/) maken en verken Azure-resources voor deze services.
+Cognitive Services-resources zijn beschikbaar op [Microsoft Azure](https://azure.microsoft.com). Meld u aan bij de [Azure-portal](https://portal.azure.com/) maken en verken Azure-resources voor deze services.
 
 ## <a name="features-and-benefits"></a>Functies en voordelen
 
@@ -43,14 +51,23 @@ Azure Cognitive Services-containers bieden de volgende set Docker-containers, di
 
 | Service | Ondersteunde prijscategorie | Container | Description |
 |---------|----------|----------|-------------|
+|[Detectie van afwijkingen](https://go.microsoft.com/fwlink/?linkid=2083925&clcid=0x409) |F0, S0|**Anomaliedetectie-Detector** |De detectie van afwijkingen API kunt u om te controleren en detecteren van afwijkingen in uw time series-gegevens met machine learning.<br>[Toegang aanvragen](https://aka.ms/adcontainer)|
 |[Computer Vision](Computer-vision/computer-vision-how-to-install-containers.md) |F0, S1|**Tekst herkennen** |Extraheert gedrukte tekst uit afbeeldingen van verschillende objecten met verschillende oppervlakken en achtergronden, zoals ontvangsten, posters en visitekaartjes.<br/><br/>**Belangrijk:** De tekst herkennen-container wordt op dit moment werkt alleen met Engels.<br>[Toegang aanvragen](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Face](Face/face-how-to-install-containers.md) |F0, S0|**Face** |Detecteert menselijke gezichten in afbeeldingen en -kenmerken, zoals gezichtsoriëntatiepunten (zoals hartstukken en ogen), geslacht, leeftijd en andere machine voorspeld gezichtskenmerken identificeert. Naast detectie controleren Face of twee gezichten in dezelfde afbeelding of andere installatiekopieën zijn hetzelfde met behulp van een betrouwbaarheidsscore of gezichten op een database om te zien als een gelijkende vergelijken of identieke face al bestaat. Deze kunt soortgelijke gezichten ook organiseren in groepen, met behulp van gedeelde visuele kenmerken.<br>[Toegang aanvragen](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
-|[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2043204))|Een ervaren of gepubliceerd Language Understanding-model, ook wel bekend als een LUIS-app, worden in een docker-container en biedt toegang tot de voorspellingen van de query van de API-eindpunten van de container. U kunt het verzamelen van Logboeken voor query's uit de container en upload deze terug naar de [LUIS portal](https://www.luis.ai) voor het verbeteren van de nauwkeurigheid van de app.|
-|[Tekstanalyse](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Sleutel vindt er sleuteltermextractie plaats** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2018757)) |Extraheert sleuteltermen voor het identificeren van de belangrijkste punten. Bijvoorbeeld, voor de invoertekst 'het eten was heerlijk en de bediening fantastisch' retourneert de API de belangrijkste gespreksonderwerpen: 'eten' en 'bediening fantastisch'. |
-|[Tekstanalyse](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Taaldetectie** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2018759)) |Detecteert welke taal de ingevoerde tekst is geschreven en het rapport een code één taal voor elk document dat op de aanvraag ingediend voor maximaal 120 talen. De taalcode is gekoppeld aan een score die de sterkte van de score aangeeft. |
-|[Tekstanalyse](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Sentimentanalyse** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2018654)) |Onbewerkte tekst of er aanwijzingen over positief of negatief gevoel analyseert. Deze API retourneert een gevoelsscore tussen 0 en 1 voor elk document, waarbij 1 het meest positief is. De analyse-modellen zijn vooraf getrainde met behulp van een uitgebreide hoofdtekst van de tekst en natuurlijke taal technologieën van Microsoft. Voor [geselecteerde talen](./text-analytics/language-support.md) kan de API elke onbewerkte tekst die u opgeeft analyseren en beoordelen en de resultaten direct doorgeven aan de aanroepende toepassing. |
+|[Formulier-herkenning](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Form Recognizer** |Inzicht in de vorm van toepassing is machine learning-technologie om te identificeren en extraheren van sleutel / waarde-paren en tabellen uit formulieren.<br>[Toegang aanvragen](https://aka.ms/FormRecognizerContainerRequestAccess)|
+|[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Een ervaren of gepubliceerd Language Understanding-model, ook wel bekend als een LUIS-app, worden in een docker-container en biedt toegang tot de voorspellingen van de query van de API-eindpunten van de container. U kunt het verzamelen van Logboeken voor query's uit de container en upload deze terug naar de [LUIS portal](https://www.luis.ai) voor het verbeteren van de nauwkeurigheid van de app.|
+|[Speech Service-API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Spraak naar tekst** |Transcribeert continue realtime spraak naar tekst.<br>[Toegang aanvragen](https://aka.ms/speechcontainerspreview/)|
+|[Speech Service-API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Tekst naar spraak** |Converteert tekst naar natuurlijk klinkende spraak.<br>[Toegang aanvragen](https://aka.ms/speechcontainerspreview/)|
+|[Tekstanalyse](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Sleutel vindt er sleuteltermextractie plaats** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extraheert sleuteltermen voor het identificeren van de belangrijkste punten. Bijvoorbeeld, voor de invoertekst 'het eten was heerlijk en de bediening fantastisch' retourneert de API de belangrijkste gespreksonderwerpen: 'eten' en 'bediening fantastisch'. |
+|[Tekstanalyse](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Taaldetectie** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |Detecteert welke taal de ingevoerde tekst is geschreven en het rapport een code één taal voor elk document dat op de aanvraag ingediend voor maximaal 120 talen. De taalcode is gekoppeld aan een score die de sterkte van de score aangeeft. |
+|[Tekstanalyse](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Sentimentanalyse** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Onbewerkte tekst of er aanwijzingen over positief of negatief gevoel analyseert. Deze API retourneert een gevoelsscore tussen 0 en 1 voor elk document, waarbij 1 het meest positief is. De analyse-modellen zijn vooraf getrainde met behulp van een uitgebreide hoofdtekst van de tekst en natuurlijke taal technologieën van Microsoft. Voor [geselecteerde talen](./text-analytics/language-support.md) kan de API elke onbewerkte tekst die u opgeeft analyseren en beoordelen en de resultaten direct doorgeven aan de aanroepende toepassing. |
 
-Bovendien containers worden ondersteund in Cognitive Services [All-in-One aanbieding](https://azure.microsoft.com/pricing/details/cognitive-services/). U kunt één enkel All-in-One-resource van Cognitive Services maken en gebruiken van dezelfde facturering sleutel voor alle van de containertypen hierboven genoemde.
+Bovendien enkele containers worden ondersteund in Cognitive Services [ **All-in-One aanbieding** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource sleutels. U kunt één enkele All-in-One-resource van Cognitive Services maken en gebruiken dezelfde facturering sleutel voor ondersteunde services voor de volgende services:
+
+* Computer Vision
+* Face
+* LUIS
+* Tekstanalyse
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Beschikbaarheid van de container in Azure Cognitive Services
 
@@ -81,7 +98,10 @@ Voorbeelden voor ontwikkelaars zijn beschikbaar op onze [GitHub-opslagplaats](ht
 
 Installeren en de functionaliteit van containers in Azure Cognitive Services verkennen:
 
-* [Installeren en Computer Vision-containers gebruiken](Computer-vision/computer-vision-how-to-install-containers.md)
-* [Installeren en gebruiken van de Face-containers](Face/face-how-to-install-containers.md)
-* [Installeren en gebruiken van de Text Analytics-containers](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
-* [Installeren en gebruiken van containers met Language Understanding (LUIS)](LUIS/luis-container-howto.md)
+* [Anomaliedetectie Detector containers](Anomaly-Detector/anomaly-detector-container-howto.md)
+* [Computer Vision-containers](Computer-vision/computer-vision-how-to-install-containers.md)
+* [Face-containers](Face/face-how-to-install-containers.md)
+* [Formulier herkenning containers](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
+* [Language Understanding (LUIS) containers](LUIS/luis-container-howto.md)
+* [Containers voor spraak-API-Service](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
+* [Text Analytics-containers](text-analytics/how-tos/text-analytics-how-to-install-containers.md)

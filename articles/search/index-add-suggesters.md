@@ -1,7 +1,7 @@
 ---
 title: Typeahead query's toevoegen aan een index - Azure Search
 description: Automatisch aangevulde Queryacties in Azure Search inschakelen door het maken van suggesties en aanvragen die aanroepen van automatisch aanvullen of autosuggested querytermen formuleren.
-ms.date: 03/22/2019
+ms.date: 05/02/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844425"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021877"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Suggesties toevoegen aan een index voor typeahead in Azure Search
 
@@ -39,9 +39,6 @@ Voor het implementeren van deze problemen in Azure Search, is er een index en qu
 + Het onderdeel van de index is een suggestie. U kunt de portal, REST-API of .NET SDK gebruiken om te maken van een suggestie. 
 
 + Het queryonderdeel is een actie die is opgegeven in de queryaanvraag (actie die een suggestie of automatisch aanvullen). 
-
-> [!Important]
-> Automatisch aanvullen is momenteel in preview, beschikbaar in preview REST-API's en SDK voor .NET. Het is niet bedoeld voor productietoepassingen. 
 
 Search-as-u-type ondersteuning is ingeschakeld op basis van per veld. Als u een ervaring die vergelijkbaar is met de aangegeven in de schermafbeelding wilt, kunt u beide gedrag typeahead binnen de dezelfde search-oplossing implementeren. Het doel van beide aanvragen de *documenten* verzameling van specifieke index en -antwoorden worden geretourneerd nadat een gebruiker ten minste een invoerreeks drie tekens heeft geleverd.
 
@@ -106,7 +103,7 @@ Eigenschappen die een suggestie bepalen omvatten het volgende:
 
 |Eigenschap      |Description      |
 |--------------|-----------------|
-|`name`        |De naam van de suggestie. U de naam van de suggestie gebruiken bij het aanroepen van de [suggesties REST-API](https://docs.microsoft.com/rest/api/searchservice/suggestions) of [automatisch aanvullen REST-API (preview)](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
+|`name`        |De naam van de suggestie. U de naam van de suggestie gebruiken bij het aanroepen van de [suggesties REST-API](https://docs.microsoft.com/rest/api/searchservice/suggestions) of [REST-API automatisch aanvullen](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
 |`searchMode`  |De strategie gebruikt om te zoeken naar kandidaat zinnen. De enige modus die momenteel niet ondersteund is `analyzingInfixMatching`, die wordt uitgevoerd met het flexibele overeenkomende woordgroepen aan het begin of in het midden van zinnen.|
 |`sourceFields`|Een lijst met een of meer velden die de bron van de inhoud voor suggesties. Alleen de velden van het type `Edm.String` en `Collection(Edm.String)` mogelijk bronnen voor suggesties. Alleen velden waarvoor een aangepaste taalanalyse ingesteld niet kunnen worden gebruikt.<p/>Geef alleen de velden die voor een verwachte en het juiste antwoord lenen, of het is een voltooide tekenreeks in een zoekbalk of in een vervolgkeuzelijst weergegeven.<p/>De naam van een hotel is een goede kandidaat omdat er precisie. Er zijn uitgebreide velden, zoals beschrijvingen en opmerkingen te compacte. Op deze manier zijn terugkerende velden, zoals categorieën en -tags minder effectief. In de voorbeelden opnemen we 'categorie' toch om aan te tonen dat u meerdere velden kunt opnemen. |
 
@@ -120,7 +117,7 @@ Als u een suggestie aan een bestaande index toevoegt, waarbij bestaande velden z
 
 Zoals eerder vermeld, kunt u een suggestie voor voorgestelde query's, automatisch aanvullen, of beide. 
 
-Een suggestie wordt verwezen in de aanvraag, samen met de bewerking. Geef bijvoorbeeld op een GET REST-aanroep, een `suggest` of `autocomplete` op de verzameling documenten. Rest, nadat een suggestie is gemaakt, gebruiken de [suggesties API](https://docs.microsoft.com/rest/api/searchservice/suggestions) of de [automatisch aanvullen API (preview)](https://docs.microsoft.com/rest/api/searchservice/autocomplete) in uw querylogica.
+Een suggestie wordt verwezen in de aanvraag, samen met de bewerking. Geef bijvoorbeeld op een GET REST-aanroep, een `suggest` of `autocomplete` op de verzameling documenten. Rest, nadat een suggestie is gemaakt, gebruiken de [suggesties API](https://docs.microsoft.com/rest/api/searchservice/suggestions) of de [API automatisch aanvullen](https://docs.microsoft.com/rest/api/searchservice/autocomplete) in uw querylogica.
 
 Voor .NET, gebruiken [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) of [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet).
 

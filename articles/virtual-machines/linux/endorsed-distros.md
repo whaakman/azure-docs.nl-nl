@@ -13,29 +13,29 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 05/01/2019
 ms.author: szark
-ms.openlocfilehash: c0124d133fe2db9acb16251bc21ffb19f1b1268f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db10c95c982132c41193ed1cccfdcdca6f60ba5e
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743442"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993088"
 ---
-# <a name="linux-distributions-endorsed-on-azure"></a>Voor Azure goedgekeurde Linux-distributies
+# <a name="endorsed-linux-distributions-on-azure"></a>Linux-distributies op Azure
 -Partners bieden Linux-installatiekopieën in de Azure Marketplace. We werken met verschillende Linux-community's nog meer varianten toevoegen aan de lijst met distributiepunten die zijn goedgekeurd. In de tussentijd voor distributies die niet beschikbaar zijn vanuit de Marketplace, u kunt altijd brengt uw eigen Linux door de richtlijnen op [maken en uploaden van een virtuele harde schijf met het Linux-besturingssysteem](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
 
 ## <a name="supported-distributions-and-versions"></a>Ondersteunde distributies en versies
-De volgende tabel bevat de Linux-distributies en versies die worden ondersteund op Azure. Raadpleeg [ondersteuning voor Linux-installatiekopieën in Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) voor meer informatie over ondersteuning voor Linux en open source-technologie in Azure gedetailleerde.
+De volgende tabel bevat de Linux-distributies en versies die worden ondersteund op Azure. Raadpleeg [ondersteuning voor Linux-installatiekopieën in Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) voor meer informatie over ondersteuning voor Linux en open-source-technologie in Azure gedetailleerde.
 
-De Linux Integration Services (LIS) stuurprogramma's voor Hyper-V en Azure zijn kernelmodules die deel uitmaakt van Microsoft rechtstreeks naar de upstream-Linux-kernel.  Aantal LIS-stuurprogramma's zijn standaard ingebouwd in kernel van de distributie. Oudere distributies die zijn gebaseerd op Red Hat Enterprise (RHEL) / CentOS zijn beschikbaar als een afzonderlijke download op [Linux Integration Services versie 4.2 voor Hyper-V en Azure](https://www.microsoft.com/en-us/download/details.aspx?id=55106). Zie [vereisten voor Linux-kernel](create-upload-generic.md#linux-kernel-requirements) voor meer informatie over de LIS-stuurprogramma's.
+De Linux Integration Services (LIS) stuurprogramma's voor Hyper-V en Azure zijn kernelmodules die deel uitmaakt van Microsoft rechtstreeks naar de upstream-Linux-kernel.  Aantal LIS-stuurprogramma's zijn standaard ingebouwd in kernel van de distributie. Oudere distributies die zijn gebaseerd op Red Hat Enterprise (RHEL) / CentOS zijn beschikbaar als een afzonderlijke download op [Linux Integration Services versie 4.2 voor Hyper-V en Azure](https://www.microsoft.com/download/details.aspx?id=55106). Zie [vereisten voor Linux-kernel](create-upload-generic.md#linux-kernel-requirements) voor meer informatie over de LIS-stuurprogramma's.
 
 De Azure Linux Agent al vooraf is geïnstalleerd op de Azure Marketplace-installatiekopieën en is meestal beschikbaar vanuit de distributie van pakket-opslagplaats. Broncode is te vinden in [GitHub](https://github.com/azure/walinuxagent).
 
   
 | Distributie | Versie | Stuurprogramma's | Agent |
 | --- | --- | --- | --- |
-| CentOS |CentOS 6.3+, 7.0+ |CentOS 6.3: [LIS downloaden](https://www.microsoft.com/en-us/download/details.aspx?id=55106)<p>CentOS 6.4+: In kernel |Pakket: In [opslagplaats](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) onder "WALinuxAgent" <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| CentOS |CentOS 6.3+, 7.0+ |CentOS 6.3: [LIS downloaden](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+: In kernel |Pakket: In [opslagplaats](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) onder "WALinuxAgent" <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |In kernel |Broncode: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
 | Debian |Debian 7,9 +, 8.2 + |In kernel |Pakket: In de opslagplaats onder 'waagent' <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6.4+, 7.0+ |In kernel |Pakket: In de opslagplaats onder "WALinuxAgent" <br/>Broncode: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
@@ -44,7 +44,25 @@ De Azure Linux Agent al vooraf is geïnstalleerd op de Azure Marketplace-install
 | openSUSE |openSUSE Leap 42.2 + |In kernel |Pakket: In [Cloud: extra](https://build.opensuse.org/project/show/Cloud:Tools) opslagplaats onder 'python-azure-agent' <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04+ **<sup>1</sup>** |In kernel |Pakket: In de opslagplaats onder "walinuxagent" <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
-  - **<sup>1</sup>**  voor Ubuntu 12.04 ondersteuning op Azure raadpleegt u de [EOL kennisgeving](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/).
+  - **<sup>1</sup>**  informatie over uitgebreide ondersteuning voor Ubuntu 12.04 en 14.04 vindt u hier: [Ubuntu uitgebreid beveiligingsbeheer](https://www.ubuntu.com/esm).
+
+
+## <a name="image-update-cadence"></a>Installatiekopie-update uitgebracht
+Azure vereist dat de uitgevers van de onderschreven Linux-distributies afbeeldingen in de Azure Marketplace regelmatig met de meest recente patches en beveiligingsproblemen, op een per kwartaal of sneller uitgebracht bijgewerkt. Bijgewerkte installatiekopieën in de Azure Marketplace zijn beschikbaar voor klanten automatisch als nieuwe versies van een installatiekopie-SKU. Meer informatie over het Linux-installatiekopieën zoeken: [Linux-VM-installatiekopieën zoeken in de Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage).
+
+### <a name="additional-links"></a>Aanvullende koppelingen
+ - [Levenscyclus van de installatiekopie SUSE openbare Cloud](https://www.suse.com/c/suse-public-cloud-image-life-cycle/)
+
+## <a name="azure-tuned-kernels"></a>Afgestemd op de Azure kernels
+
+Azure werkt nauw samen met verschillende onderschreven Linux-distributies het optimaliseren van de installatiekopieën die zij gepubliceerd naar de Azure Marketplace. Slechts één aspect van deze samenwerking is de ontwikkeling van 'op' Linux kernels die zijn geoptimaliseerd voor het Azure-platform en geleverd als volledig ondersteunde onderdelen van de Linux-distributie. De kernels afgestemd op de Azure opnemen van nieuwe functies en verbeterde prestaties en op een snellere (meestal kwartalen) uitgebracht in vergelijking met de standaard- of algemene kernels die beschikbaar in de distributie zijn.
+
+In de meeste gevallen vindt u deze vooraf zijn geïnstalleerd op de standaardinstallatiekopieën in de Azure Marketplace kernels en dus Azure-klanten wordt onmiddellijk het voordeel van deze geoptimaliseerde kernels. Meer informatie over deze kernels zijn afgestemd op Azure kan worden gevonden in de volgende koppelingen:
+
+ - CentOS afgestemd op de Azure Kernel - beschikbaar via de virtualisatie van CentOS SIG - [meer informatie](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
+ - Debian Cloud-Kernel - beschikbaar met de Debian 10 en de Debian 9 'backports' afbeelding op Azure - [meer Info](https://wiki.debian.org/Cloud/MicrosoftAzure)
+ - SLES afgestemd op de Azure Kernel - [meer informatie](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
+ - Ubuntu afgestemd op de Azure Kernel - [meer informatie](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
 
 
 ## <a name="partners"></a>Partners

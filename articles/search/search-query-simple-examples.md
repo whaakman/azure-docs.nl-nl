@@ -7,15 +7,15 @@ tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9b7147971bd320a11606a93ab4d988e924cf93b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0c47212e51725e7d4a173c441709dca739d4e357
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61296967"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024536"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Met behulp van de zoeksyntaxis 'eenvoudige' in Azure Search-queryvoorbeelden
 
@@ -50,7 +50,7 @@ Samenstelling van de URL heeft de volgende elementen:
 + **`https://azs-playground.search.windows.net/`** een sandbox-zoekservice is onderhouden door het ontwikkelingsteam Azure Search. 
 + **`indexes/nycjobs/`** is de index NYC-Jobs in de verzameling indexen van de betreffende service. De servicenaam en de index zijn vereist voor de aanvraag.
 + **`docs`** de verzameling documenten is die alle doorzoekbare inhoud bevat. De query api-sleutel opgegeven in de aanvraagheader werkt alleen op leesbewerkingen die gericht is op de verzameling documenten.
-+ **`api-version=2017-11-11`** Hiermee stelt u de api-versie, is een vereiste parameter bij elke aanvraag.
++ **`api-version=2019-05-06`** Hiermee stelt u de api-versie, is een vereiste parameter bij elke aanvraag.
 + **`search=*`** de querytekenreeks, die in de eerste query null is is, de eerste 50 resultaten retourneren (standaard).
 
 ## <a name="send-your-first-query"></a>Uw eerste query verzenden
@@ -60,7 +60,7 @@ Als verificatiestap, plak de volgende aanvraag ophalen en klikt u op **verzenden
 Plak deze URL in een REST-client als validatiestap en weer te geven van de documentstructuur.
 
   ```http
-  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
+  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
 De queryreeks **`search=*`**, is een niet-opgegeven zoekopdracht gelijk is aan null of leeg zijn zoeken. Het is niet met name nuttig, maar is de eenvoudigste zoeken die u kunt doen.
@@ -92,7 +92,7 @@ search=*&searchFields=business_title, posting_type&$select=business_title, posti
 ### <a name="full-url"></a>Volledige URL
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchFields=business_title&$select=business_title&search=*
 ```
 
 Antwoord voor deze query moet eruitzien als op de volgende schermafbeelding.
@@ -108,13 +108,13 @@ In dit voorbeeld is een en ander ongewone, maar bij het evalueren van zoekgedrag
 Alle documenten hebben een unieke id. Als u wilt uitproberen de syntaxis voor een lookup-query, eerst retourneert een lijst met document-id's zodat u er een vinden kunt om te gebruiken. Voor NYC-Jobs, de id's worden opgeslagen in de `id` veld.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=id&$select=id&search=*
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchFields=id&$select=id&search=*
 ```
 
 Het volgende voorbeeld wordt een lookup-query retourneert een bepaald document op basis van `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", bovenaan in het vorige antwoord weergegeven. De volgende query retourneert het gehele document, niet alleen de geselecteerde velden. 
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2017-11-11&$count=true&search=*
+https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2019-05-06&$count=true&search=*
 ```
 
 ## <a name="example-3-filter-queries"></a>Voorbeeld 3: Filter-query 's
@@ -122,7 +122,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 [Filtersyntaxis](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) is een OData-expressie die u met gebruiken kunt **zoeken** of door zelf. Een zelfstandige worden gefilterd, zonder een search-parameter is nuttig wanneer de filterexpressie in staat om volledig te kwalificeren documenten van belang is. Zonder een queryreeks geen lexicale of linguïstische analyse, er is geen scoren van (alle scores zijn 1), en er is geen classificatie. U ziet dat de zoektekenreeks is leeg.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+POST /indexes/nycjobs/docs/search?api-version=2019-05-06
     {
       "search": "",
       "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
@@ -138,13 +138,13 @@ Het filter eerst wordt toegepast op de gehele index samen worden gebruikt, en ve
 Als u dit proberen in Postman met behulp van GET wilt, kunt u in deze reeks plakken:
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
 ```
 
 Een andere krachtige manier om te filteren en zoeken combineren, is via **`search.ismatch*()`** in een filterexpressie, waarbij u gebruik van een zoekopdracht in het filter maken kan. Dit filterexpressie wordt een jokerteken op *plan* selecteren business_title met inbegrip van de termijn plan, planner, planning, enzovoort.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
 Zie voor meer informatie over de functie [search.ismatch in "Filter voorbeelden"](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
@@ -158,7 +158,7 @@ Gegevenstypen zijn belangrijk in bereikfilters en werken het beste als numerieke
 De volgende voorbeelden zijn in de POST-indeling voor de leesbaarheid (numeriek bereik, gevolgd door tekstbereik):
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+POST /indexes/nycjobs/docs/search?api-version=2019-05-06
     {
       "search": "",
       "filter": "num_of_positions ge 5 and num_of_positions lt 10",
@@ -171,7 +171,7 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
 
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+POST /indexes/nycjobs/docs/search?api-version=2019-05-06
     {
       "search": "",
       "filter": "business_title ge 'A*' and business_title lt 'C*'",
@@ -186,11 +186,11 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
 U kunt deze ook proberen om in Postman met behulp van GET:
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=&$filter=num_of_positions ge 5 and num_of_positions lt 10&$select=job_id, business_title, num_of_positions, agency&$orderby=agency&$count=true
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&search=&$filter=num_of_positions ge 5 and num_of_positions lt 10&$select=job_id, business_title, num_of_positions, agency&$orderby=agency&$count=true
 ```
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=&$filter=business_title ge 'A*' and business_title lt 'C*'&$select=job_id, business_title, agency&$orderby=business_title&$count=true
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&search=&$filter=business_title ge 'A*' and business_title lt 'C*'&$select=job_id, business_title, agency&$orderby=business_title&$count=true
 ```
 
 > [!NOTE]
@@ -203,7 +203,7 @@ De voorbeeldindex bevat een veld geo_location met de breedtegraad en lengtegraad
 Het volgende voorbeeld is in de POST-indeling voor de leesbaarheid:
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+POST /indexes/nycjobs/docs/search?api-version=2019-05-06
     {
       "search": "",
       "filter": "geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4",
@@ -216,7 +216,7 @@ Zoekresultaten zijn voor een beter leesbare resultaten bijgesneden om op te neme
 U kunt dit ook proberen om in Postman met behulp van GET:
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=&$select=job_id, business_title, work_location&$filter=geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=&$select=job_id, business_title, work_location&$filter=geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4
 ```
 
 ## <a name="example-6-search-precision"></a>Voorbeeld 6: De precisie zoeken
@@ -226,19 +226,19 @@ Term query's zijn enkelvoudige termen, mogelijk veel van deze, die onafhankelijk
 Voorbeeld 1: **`&search=fire`** 150 resultaten geretourneerd waarbij alle komt overeen met de brand word ergens in het document bevatten.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=fire
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=fire
 ```
 
 Voorbeeld 2: **`&search=fire department`** 2002 resultaten oplevert. Resultaten geretourneerd voor documenten die worden gestart of afdeling.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=fire department
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=fire department
 ```
 
 Voorbeeld 3: **`&search="fire department"`** 82 resultaten oplevert. De tekenreeks insluitende aanhalingstekens is een verbatim zoeken op beide termen, en overeenkomsten worden gevonden op tokens voorwaarden in de index die bestaat uit de gecombineerde voorwaarden. Dit verklaart waarom een zoekopdracht, zoals **`search=+fire +department`** komt niet overeen. Beide termen zijn vereist, maar onafhankelijk van elkaar worden gescand op. 
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search="fire department"
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search="fire department"
 ```
 
 ## <a name="example-7-booleans-with-searchmode"></a>Voorbeeld 7: Booleaanse waarden met searchMode
@@ -248,7 +248,7 @@ Eenvoudige syntaxis ondersteunt Booleaanse operators in de vorm van tekens (`+, 
 Met behulp van de standaard searchMode die (willekeurig), 2800 documenten worden geretourneerd: met de meerdelige termijn 'afdeling worden gestart', plus alle documenten waarvoor geen de term 'Metrotech Center'.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
   ![modus elk zoeken](media/search-query-simple-examples/searchmodeany.png)
@@ -256,7 +256,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 Wijzigen van searchMode naar `all` dwingt een cumulatieve effect van criteria en retourneert een kleiner resultatenset - 21 documenten - bestaande van documenten die de hele woordgroep "fire-afdeling, min de deze taken op het adres Metrotech Center bevatten.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
   ![alle zoekmodus](media/search-query-simple-examples/searchmodeall.png)
 
@@ -265,24 +265,24 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 Aantal parameters bepalen welke velden worden in het zoekvak resulteert, het aantal geretourneerde documenten in elke batch, en de sorteervolgorde. In dit voorbeeld resurfaces enkele van de eerdere voorbeelden, beperken van resultaten op bepaalde velden met behulp van de **$select** instructie en verbatim zoekcriteria 82 overeenkomsten retourneren 
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"
 ```
 Toegevoegd op het vorige voorbeeld, kunt u sorteren op de titel. Deze sorteren werkt omdat civil_service_title *sorteerbaar* in de index.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title
 ```
 
 Resultaten pagineren is geïmplementeerd met behulp van de **$top** parameter, de top 5-documenten in dit geval retourneren:
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=0
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=0
 ```
 
 Overslaan als u de volgende 5, de eerste batch:
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=5
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=5
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

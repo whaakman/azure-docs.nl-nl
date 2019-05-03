@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/06/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f366726f539a817f515a78fbc35bfeaa3b65514e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283364"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024501"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Beveiliging en privacy in Azure Search
 
@@ -43,11 +43,8 @@ Versleuteling is een uitbreiding gedurende de hele pijplijn voor indexering: van
 | Beveiligingslaag | Description |
 |----------------|-------------|
 | Versleuteling tijdens overdracht <br>(HTTPS/SSL/TLS) | Azure Search luistert naar HTTPS-poort 443. Verbindingen met Azure-services zijn op het platform versleuteld. <br/><br/>Alle client-naar-service Azure Search interacties zijn SSL/TLS 1.2 die geschikt.  Zorg dat u ondersteuning voor TLSv1.2 gebruiken voor SSL-verbindingen met uw service.|
-| Versleuteling 'at rest' | Versleuteling is volledig internalized in het indexeringsproces worden geautomatiseerd, met geen merkbare impact heeft op de indexering van tijd tot voltooiing of de indexgrootte. Dit gebeurt automatisch op alle indexeren, met inbegrip van incrementele updates naar een index die niet volledig is versleuteld (die zijn gemaakt vóór januari 2018).<br><br>Intern, versleuteling is gebaseerd op [Azure Storage-Serviceversleuteling](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), met behulp van 256-bits [AES-versleuteling](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).|
-
-Versleuteling is intern voor Azure Search met certificaten en versleutelingssleutels intern beheerd door Microsoft en universeel toegepast. U kan geen versleuteling inschakelen of uitschakelen, beheren of vervangen door uw eigen sleutels of weergeven van instellingen voor codering in de portal of via een programma. 
-
-Versleuteling-at-rest in januari 24 mei 2018 is aangekondigd en is van toepassing op alle service-lagen, inclusief gedeelde (gratis) services, in alle regio's. Voor volledige versleuteling moeten indexen die zijn gemaakt vóór die datum worden verwijderd en opnieuw worden opgebouwd voor versleuteling moet plaatsvinden. Anders worden alleen nieuwe gegevens die zijn toegevoegd na januari 24 is versleuteld.
+| Versleuteling 'at rest' <br>Microsoft beheerde sleutels | Versleuteling is volledig internalized in het indexeringsproces worden geautomatiseerd, met geen merkbare impact heeft op de indexering van tijd tot voltooiing of de indexgrootte. Dit gebeurt automatisch op alle indexeren, met inbegrip van incrementele updates naar een index die niet volledig is versleuteld (die zijn gemaakt vóór januari 2018).<br><br>Intern, versleuteling is gebaseerd op [Azure Storage-Serviceversleuteling](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), met behulp van 256-bits [AES-versleuteling](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).<br><br> Versleuteling is intern voor Azure Search met certificaten en versleutelingssleutels intern beheerd door Microsoft en universeel toegepast. U kan geen versleuteling inschakelen of uitschakelen, beheren of vervangen door uw eigen sleutels of weergeven van instellingen voor codering in de portal of via een programma.<br><br>Versleuteling-at-rest in januari 24 mei 2018 is aangekondigd en is van toepassing op alle service-lagen, inclusief gedeelde (gratis) services, in alle regio's. Voor volledige versleuteling moeten indexen die zijn gemaakt vóór die datum worden verwijderd en opnieuw worden opgebouwd voor versleuteling moet plaatsvinden. Anders worden alleen nieuwe gegevens die zijn toegevoegd na januari 24 is versleuteld.|
+| Versleuteling 'at rest' <br>Door klant beheerde sleutels | Versleuteling met sleutels die beheerd door de klant is een **preview** services-functie die niet gratis beschikbaar. Voor betaalde services, dit alleen beschikbaar voor search-services die zijn gemaakt is op of na januari 2019, met behulp van de meest recente preview-api-versie (api-version = 2019-05-06-Preview).<br><br>Azure Search-indexen en synoniementoewijzingen kunnen nu worden in rust versleuteld met de klant sleutels beheerde sleutels in Azure Key Vault. Zie voor meer informatie, [coderingssleutels opgeslagen in Azure Search beheren](search-security-manage-encryption-keys.md).<br>Deze functie is niet de standaard-versleuteling ' at rest ' vervangen, maar in plaats daarvan wordt toegepast naast het.<br>Inschakelen van deze functie wordt vergroot index en prestaties van query's verlagen. Op basis van de opmerkingen bij de datum, kunt u verwachten een toename van 30-60% van de tijden van de query, hoewel de werkelijke prestaties variëren, afhankelijk van de definitie van de index en de typen query's. Vanwege dit invloed op de prestaties, wordt het aangeraden dat u alleen deze functie inschakelen op indexen die echt nodig hebt.
 
 ## <a name="azure-wide-user-access-controls"></a>Toegangsbeheer voor brede, door het Azure-gebruiker
 

@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 05/02/2019
 ms.author: amishu
-ms.openlocfilehash: 2066dc3e20ab9fc92b23fd071728ea6a920d3324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6ab43b530c045eb4f2920b65f601ba981dfc8a2
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60697651"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020755"
 ---
 # <a name="stream-compressed-audio-with-the-speech-sdk"></a>Gecomprimeerde Stream audio met de spraak-SDK
 
 De spraak-SDK **gecomprimeerde Audio-invoer Stream** API biedt een manier om te streamen gecomprimeerde audio naar de Speech-Service met behulp van PullStream of PushStream.
 
 > [!IMPORTANT]
-> Streaming van gecomprimeerde audio wordt alleen ondersteund voor C++ C#, en Java in Linux (Ubuntu 16.04 of Ubuntu 18.04).
+> Streaming van gecomprimeerde audio wordt alleen ondersteund voor C++, C#, en Java in Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9).
 > Ondersteuning is beperkt tot de MP3- en OPUS/OGG.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet deze afhankelijkheden voor het gebruik van gecomprimeerde audio-invoer met de spraak-SDK voor Linux installeren:
+Deze extra afhankelijkheden voor het gebruik van gecomprimeerde audio-invoer met de spraak-SDK voor Linux installeren:
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
@@ -37,7 +37,7 @@ sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugin
 
 Om te streamen in een gecomprimeerde audio-indeling met de Speech Services, maken `PullAudioInputStream` of `PushAudioInputStream`. Vervolgens maakt u een `AudioConfig` van een exemplaar van uw stream-klasse, op te geven de compressie-indeling van de stroom.
 
-Stel dat u een invoerstroom klasse genaamd hebt `myPushStream` en OPUS/OGG gebruikt. Dit is wat de code kan er als volgt uitzien: 
+Stel dat u een invoerstroom klasse genaamd hebt `myPushStream` en OPUS/OGG gebruikt. Uw code ziet er als volgt:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
