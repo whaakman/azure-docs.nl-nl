@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d09fca68af55b577c47316363ed386e98525baf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d6e478cba13c7b4cf628535a4a1ecdbec344a733
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925762"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035455"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Zelfstudie: Geautomatiseerde machine learning gebruiken om uw regressiemodel te bouwen
 
@@ -54,16 +54,16 @@ Ga naar [De ontwikkelomgeving instellen](#start) om de notebook-stappen te doorl
 
 Haal al deze vereisten op uit een van de secties hieronder.
 
-* [Azure Notebooks](#azure) gebruiken
+* Gebruik een [cloud notebook-server in uw werkruimte](#azure) 
 * [Uw eigen Notebook-server](#server) gebruiken
 
-### <a name="azure"></a>Azure Notebooks gebruiken: Gratis Jupyter-notebooks in de cloud
+### <a name="azure"></a>Een cloud-notebook-server gebruiken in uw werkruimte
 
-U kunt eenvoudig aan de slag met Azure Notebooks. De [Azure Machine Learning SDK voor Python](https://aka.ms/aml-sdk) is al voor u geïnstalleerd en geconfigureerd in [Azure Notebooks](https://notebooks.azure.com/). De installatie en toekomstige updates worden automatisch beheerd via Azure-services.
-
-Nadat u de onderstaande stappen hebt uitgevoerd, voert u de notebook **tutorials/regression-part2-automated-ml.ipynb** in uw **Aan de slag**-project uit.
+Het is eenvoudig aan de slag met uw eigen cloud-gebaseerde notebook-server. De [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk) al is geïnstalleerd en geconfigureerd voor u, zodra u deze cloudresource hebt gemaakt.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Nadat u de webpagina van de notebook start, voert u de **zelfstudies/regressie-deel 2-automated-ml.ipynb** notebook.
 
 ### <a name="server"></a>Uw eigen Jupyter Notebook-server gebruiken
 

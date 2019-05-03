@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b597d6efa87aa2811ce42f3315698acfa17426b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd88fd85ce6d18287c700a54e42b6237a42ea5c9
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753357"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035382"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Jupyter-notebooks gebruiken om Azure Machine Learning Service te verkennen
 
@@ -26,15 +26,15 @@ Ontdek hoe u de service gebruikt met de documentatie op deze site en hoe u de no
 
 Gebruik een van de onderstaande paden om een notebookserver met deze voorbeeldnotebooks uit te voeren.  Zodra de server wordt uitgevoerd, vindt u notebooks voor zelfstudie in de map **tutorials**. U kunt ook de verschillende functies bekijken in de map **how-to-use-azureml**.
 
+## <a name="a-managed-cloud-notebook-server"></a>Een beheerde cloud notebook-server
 
-## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Azure Notebooks proberen: Gratis Jupyter-notebooks in de cloud
+Het is eenvoudig aan de slag met uw eigen cloud-gebaseerde notebook-server. De voorbeeld-laptop en de [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk) al zijn geïnstalleerd en geconfigureerd voor u, zodra u deze cloudresource hebt gemaakt.  
 
-U kunt eenvoudig aan de slag met Azure Notebooks. De [Azure Machine Learning SDK voor Python](https://aka.ms/aml-sdk) is al voor u geïnstalleerd en geconfigureerd in [Azure Notebooks](https://notebooks.azure.com/). De installatie en toekomstige updates worden automatisch beheerd via Azure-services.
-  
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
+* De voorbeelden zijn beschikbaar op de webpagina van de notebook.
 
-## <a name="use-a-data-science-virtual-machine-dsvm"></a>Een Data Science Virtual Machine (DSVM) gebruiken
+## <a name="a-data-science-virtual-machine-dsvm"></a>Een Data Science Virtual Machine (DSVM)
 
 De [Azure Machine Learning SDK voor Python](https://aka.ms/aml-sdk) en de notebookserver zijn al voor u geïnstalleerd en geconfigureerd in een DSVM. 
 
@@ -42,18 +42,23 @@ Nadat u [een DSVM hebt gemaakt](how-to-configure-environment.md#dsvm), volgt u d
 
 [!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
-
-## <a name="use-your-own-jupyter-notebook-server"></a>Uw eigen Jupyter Notebook-server gebruiken
+## <a name="your-own-jupyter-notebook-server"></a>Uw eigen Jupyter-Notebook-server
 
 Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-Met de instructies uit de quickstart installeert u de pakketten die u nodig hebt om de quickstart en zelfstudienotebooks uit te voeren.  Voor andere voorbeeldnotebooks moeten mogelijk extra onderdelen worden geïnstalleerd.  Zie [De Azure Machine Learning-SDK voor Python installeren](https://docs.microsoft.com/python/api/overview/azure/ml/install) voor meer informatie over deze onderdelen.
+De installatie-instructies installeert de pakketten die u wilt uitvoeren van de Quick Start- en -zelfstudie-notebooks.  Voor andere voorbeeldnotebooks moeten mogelijk extra onderdelen worden geïnstalleerd.  Zie [De Azure Machine Learning-SDK voor Python installeren](https://docs.microsoft.com/python/api/overview/azure/ml/install) voor meer informatie over deze onderdelen.
+
+## <a name="azure-notebooks"></a>Azure Notebooks
+
+De voorbeeld-notebooks en de [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk) al zijn geïnstalleerd en geconfigureerd voor u op [Azure notitieblokken](https://notebooks.azure.com/). De installatie en toekomstige updates worden automatisch beheerd via Azure-services.
+
+Gebruik de [Azure-portal](https://portal.azure.com) aan de slag met Azure-Notebooks.  Uw werkruimte openen en naar de **overzicht** sectie, selecteer **aan de slag met Azure-notitieblokken**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Verken de [GitHub-opslagplaats voor notebooks voor Azure Machine Learning Service](https://aka.ms/aml-notebooks)
++ Verken de voorbeeld-notebooks voor Azure Machine Learning-service in deze GitHub-opslagplaats: https://aka.ms/aml-notebooks
 
 Volg deze zelfstudies:
 + [Een model voor de classificatie van afbeeldingen trainen en implementeren met MNIST](tutorial-train-models-with-aml.md)

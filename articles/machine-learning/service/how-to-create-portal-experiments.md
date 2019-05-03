@@ -11,18 +11,18 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 8b6d7f791300a970e71fda4f1d56354a45d07afd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 96abef29c5290770d296fb5053007e36d1eaf537
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029893"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035446"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Maken en het verkennen van geautomatiseerde experimenten voor machine learning in Azure portal (Preview)
 
- In dit artikel leert u hoe u te maken, uitvoeren en geautomatiseerde experimenten voor machine learning in Azure portal zonder één regel code te verkennen. Automatische leerprocessen automatiseert het proces van het selecteren van het beste algoritme gebruiken voor uw specifieke gegevens, zodat u snel een machine learning-model kunt genereren. [Meer informatie over automatische leerprocessen](https://docs.microsoft.com/azure/machine-learning/service/concept-automated-ml).
+ In dit artikel leert u hoe u te maken, uitvoeren en geautomatiseerde experimenten voor machine learning in Azure portal zonder één regel code te verkennen. Automatische leerprocessen automatiseert het proces van het selecteren van het beste algoritme gebruiken voor uw specifieke gegevens, zodat u snel een machine learning-model kunt genereren. [Meer informatie over automatische leerprocessen](concept-automated-ml.md).
 
- Als u liever een meer op basis van code-ervaring, kunt u ook [configureren van uw geautomatiseerde machine learning-experimenten in Python](how-to-configure-auto-train.md) met de [Azure Machine Learning-SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+ Als u liever een meer op code gebaseerde ervaring, kunt u ook [configureren van uw geautomatiseerde machine learning-experimenten in Python](how-to-configure-auto-train.md) met de [Azure Machine Learning-SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -40,7 +40,7 @@ Ga naar het linkerdeelvenster van uw werkruimte. Selecteer geautomatiseerde Mach
 
 ![Landingspagina van Azure portal experiment](media/how-to-create-portal-experiments/landing-page.png)
 
-Anders is, ziet u uw automatische machine learning-dashboard met een overzicht van al uw geautomatiseerde machine learning-experimenten en wordt uitgevoerd, met inbegrip van die worden uitgevoerd met behulp van de SDK. Hier kunt u filteren en verkennen van uw uitvoerbewerkingen per datum, naam experimenteren en status worden uitgevoerd.
+Anders is, ziet u uw automatische machine learning-dashboard met een overzicht van al uw geautomatiseerde experimenten voor machine learning, inclusief verbindingen met de SDK worden uitgevoerd. Hier kunt u filteren en verkennen van uw uitvoerbewerkingen per datum, naam experimenteren en status worden uitgevoerd.
 
 ![Experiment met Azure portal-dashboard](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -148,8 +148,6 @@ U kunt een enorme verscheidenheid aan samenvattende statistieken ophalen voor uw
 
 * **Kurtosis**: de kurtosis van de kolom. Lege gegevens worden weergegeven voor functies met irrelevante typen.
 
-Bovendien kunt u deze gegevens om te bepalen of u wilt opnemen of uitsluiten van bepaalde kolommen. U kunt het bereik in welke kolommen worden gebruikt in uw geautomatiseerde machine learning-experiment beheren door het omschakelen van de selector voor elke kolom.
-
 <a name="preprocess"></a>
 
 ### <a name="advanced-preprocessing"></a>Geavanceerde voorverwerking
@@ -168,72 +166,24 @@ Bij het configureren van de experimenten nodig hebben, kunt u de geavanceerde in
 |Gewicht van bewijs (wee)|Berekent de wee als een meting van correlatie van categorische kolommen op de doelkolom. Dit wordt berekend als het logboek van de verhouding van Visual Studio in klasse out van de klasse kansen. Deze stap voert een functie voor numerieke kolom per klasse en hoeven zich niet expliciet worden toegerekend ontbrekende waarden en uitschieter behandeling.|
 |Afstand van cluster|Traint k-means clustering-model voor alle numerieke kolommen.  Uitvoer k nieuwe functies, een nieuwe numerieke functies per cluster, met de afstand van elk voorbeeld op de massamiddelpunt van elk cluster.|
 
-## <a name="run-experiment"></a>Experiment uit te voeren
+## <a name="run-experiment-and-view-results"></a>Experiment uit te voeren en resultaten te bekijken
 
-Als u wilt het experiment uitvoeren, klikt u op de knop Start.
-  
-Het experiment voorbereiden proces duurt enkele minuten.
+Als u wilt het experiment uitvoeren, klikt u op Start. Het experiment voorbereiden proces duurt enkele minuten.
 
-## <a name="view-results"></a>Resultaten weergeven
+### <a name="view-experiment-details"></a>Details van experiment
 
-Zodra de voorbereidingsfase experiment is voltooid, ziet u het scherm met details van uitvoering. Hiermee geeft u een volledige lijst van de modellen die zijn gemaakt. Standaard, het model dat de hoogste beoordeelt op basis van de parameters worden aan de bovenkant van de lijst. Als de trainingstaak om meer modellen probeert, ziet u deze toegevoegd aan de lijst en de grafiek.
-Gebruik de grafiek om een snelle vergelijking van de metrische gegevens voor de modellen die tot nu toe zijn geproduceerd.
-
-![Dashboard van de details van uitvoering](media/how-to-create-portal-experiments/run-details.png)
-
-U zijn kunt inzoomen op een van de uitvoer-modellen die wordt geopend de details van dit model met inbegrip van prestaties en distributie grafieken en metrische gegevens. [Meer informatie over grafieken](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
-
-![Details van de herhaling](media/how-to-create-portal-experiments/dashboard.png)
+Zodra de voorbereidingsfase experiment is voltooid, ziet u het scherm details worden uitgevoerd. Dit biedt u een volledige lijst van de modellen die zijn gemaakt. Standaard, het model dat de hoogste beoordeelt op basis van de parameters is aan de bovenkant van de lijst. Als de trainingstaak om meer modellen probeert, worden ze toegevoegd aan de lijst met iteratie en grafiek. Gebruik de grafiek herhaling een snelle vergelijking van de metrische gegevens ophalen voor de modellen die tot nu toe zijn geproduceerd.
 
 Taken training kan even voor elke pijplijn die wordt uitgevoerd.
 
-## <a name="deploy-model"></a>Model implementeren
+![Dashboard van de details van uitvoering](media/how-to-create-portal-experiments/run-details.png)
 
-Nadat u het beste model bij de hand hebt, is het tijd om het te implementeren als een webservice om te voorspellen op nieuwe gegevens.
+### <a name="view-training-run-details"></a>Details uitvoering van weergave-training
 
-Geautomatiseerde ML helpt u bij het implementeren van het model zonder code te schrijven:
+Inzoomen op een van de uitvoer-modellen om te zien uitvoeren-gegevens, zoals metrische gegevens en distributie worden prestatiegrafieken training. [Meer informatie over grafieken](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
 
-1. Selecteer "Model registreren" in het deelvenster Samenvatting uitvoeren aan de rechterkant.
-
-    ![Model registreren](media/how-to-create-portal-experiments/register-model.png)
-
-1. Zodra het model is geregistreerd, kunt u zult kunnen downloaden van het scoring-script moet worden gebruikt tijdens de implementatie.
-
-    ![Scoring-script downloaden](media/how-to-create-portal-experiments/download-scoring-script.png)
-
-1. Zodra u het scoring-script hebt, gaat u naar de pagina 'Modellen' (in het linker navigatiedeelvenster onder **activa**).
-
-    ![Navigatiedeelvenster model](media/how-to-create-portal-experiments/nav-pane-models.png)
-
-1. Schakel het selectievakje in naast het model dat u hebt geregistreerd, en selecteer 'Installatiekopie maken'.
-
-    U kunt het model identificeren door de omschrijving, waaronder de run-ID en iteratie getal, in de volgende indeling: **< Run_ID > _ < Iteration_number > _Model**.
-
-1. Voer een naam voor de installatiekopie en upload het scoring-bestand dat u eerder hebt gedownload. [Meer informatie over de scoring-scripts](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where.md#script).
-
-    U kunt uw eigen scoring-script en Conda-bestand. Als u een bestand Conda geen [Maak uw eigen](tutorial-deploy-models-with-aml.md#create-environment-file) en upload dit samen met eventuele aanvullende bestanden van dat u wilt gebruiken.
-
-    ![De vorm van een installatiekopie maken](media/how-to-create-portal-experiments/create-image.png)
-
-1. Selecteer de knop 'Maken' om te beginnen met het maken van de installatiekopie. Dit duurt enkele minuten om te voltooien, één keer uitgevoerd, ziet u een bericht op de bovenste balk.
-
-1. Ga naar het tabblad 'Installatiekopieën', schakel het selectievakje in naast de installatiekopie die u wilt implementeren en selecteer 'Implementatie maken'.
-
-    ![Afbeelding implementatiescherm maken](media/how-to-create-portal-experiments/images-create-deployment.png)
-
-1. Voer een unieke implementatie-naam.
-
-1. (optioneel) Voer een beschrijving voor de implementatie.
-
-1. Selecteer het type van de compute doel te gebruiken. 
-
-    ![Implementatie-formulier maken](media/how-to-create-portal-experiments/create-deployment.png)
-
-1. Selecteer 'Maken' voor het starten van het implementatieproces, het duurt enkele minuten.
-
-1. Dat is alles. U hebt een operationele webservice voor het genereren van voorspellingen.
+![Details van de herhaling](media/how-to-create-portal-experiments/iteration-details.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Het gebruik van een geïmplementeerd model](how-to-consume-web-service.md).
-* [Verzamelen van gegevens voor modellen in productie](how-to-enable-data-collection.md).
+* [Meer informatie over geautomatiseerde machine learning](concept-automated-ml.md) en Azure Machine Learning.
