@@ -3,39 +3,18 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/21/2019
-ms.openlocfilehash: e80feac7dbf16652cc2e2a6176ed8b2c8c48e35b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/07/2019
+ms.openlocfilehash: 4d2cfb8a39defec9d0d429bc80bfa6abf4f62164
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598906"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65031767"
 ---
 ### <a name="running-multiple-containers-on-the-same-host"></a>Meerdere containers uitvoeren op dezelfde host
 
-Als u van plan bent om uit te voeren van meerdere containers met blootgestelde poorten, zorg ervoor dat elke container uitvoeren met een andere poort. Bijvoorbeeld: de eerste container op poort 5000- en de tweede container uitvoeren op poort 5001.
+Als u van plan bent om uit te voeren van meerdere containers met blootgestelde poorten, zorg ervoor dat elke container uitvoeren met een andere poort weergegeven. Bijvoorbeeld: de eerste container op poort 5000- en de tweede container uitvoeren op poort 5001.
 
-Vervang de `<container-registry>` en `<container-name>` met de waarden van de containers die u gebruikt. Deze hoeven niet te zijn van dezelfde container. U kunt de Face-container en de LUIS-container die samen worden uitgevoerd op de HOST hebben of u kunt meerdere Face containers die worden uitgevoerd. 
-
-De eerste container worden uitgevoerd op poort 5000. 
-
-```bash 
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-<container-registry>/microsoft/<container-name> \
-Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
-```
-
-De tweede container op poort 5001 worden uitgevoerd.
+U kunt deze container en een andere Cognitive Service-container die samen worden uitgevoerd op de HOST hebben of u kunt meerdere containers van de dezelfde Cognitive Service-container die wordt uitgevoerd. 
 
 
-```bash 
-docker run --rm -it -p 5001:5000 --memory 4g --cpus 1 \
-<container-registry>/microsoft/<container-name> \
-Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
-```
-
-Elke volgende container moet zich op een andere poort. 

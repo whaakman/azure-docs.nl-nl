@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 05331c710817e575deb7729189c9b2d8ccbafd7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 57fd69542a5d92b9afd1e003d8b94c1ebb64953e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753826"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65031769"
 ---
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van de referenties voor het Azure-abonnement u gebruikt. 
 
@@ -26,7 +26,7 @@ ms.locfileid: "60753826"
 
 1. Voer in de zoekbalk typt, **Machine Learning**. Selecteer de **werkruimte van Machine Learning-service** zoekresultaat.
 
-   ![Zoeken naar een werkruimte](./media/aml-create-in-portal/allservices-search.PNG)
+   ![Zoeken naar een werkruimte](./media/aml-create-in-portal/allservices-search.png)
 
 1. In de **ML-werkruimte in service** deelvenster, schuif naar beneden en selecteer **maken** om te beginnen.
 
