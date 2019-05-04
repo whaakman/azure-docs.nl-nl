@@ -203,7 +203,7 @@ Hiermee bepaalt u het gedrag van de registratie van de functie-app, met inbegrip
 |Eigenschap  |Standaard | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Hiermee definieert u welk niveau van logboekregistratie is ingeschakeld.  Opties zijn `never`, `always`, `debugOnly`. |
-|LogLevel|N.v.t.|Object dat definieert de logboekcategorie filteren voor functies in de app. Versie 2.x volgt de ASP.NET Core-indeling voor het filteren van logboek-categorie. Hiermee kunt u filteren van logboekregistratie voor specifieke functies. Zie voor meer informatie, [logboek filteren](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) in de documentatie van ASP.NET Core. |
+|logLevel|N.v.t.|Object dat definieert de logboekcategorie filteren voor functies in de app. Versie 2.x volgt de ASP.NET Core-indeling voor het filteren van logboek-categorie. Hiermee kunt u filteren van logboekregistratie voor specifieke functies. Zie voor meer informatie, [logboek filteren](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) in de documentatie van ASP.NET Core. |
 |console|N.v.t.| De [console](#console) instelling voor logboekregistratie. |
 |applicationInsights|N.v.t.| De [applicationInsights](#applicationinsights) instelling. |
 
