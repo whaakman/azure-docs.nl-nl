@@ -273,10 +273,10 @@ Kunt u schrijven naar de streaminglogboeken functie op het standaardniveau voor 
 
 | Methode                 | Description                                |
 | ---------------------- | ------------------------------------------ |
-| **fout (_bericht_)**   | Schrijft naar foutniveau logboekregistratie of lager.   |
-| **waarschuwing (_bericht_)**    | Schrijft naar waarschuwingsniveau logboekregistratie of lager. |
-| **Info (_bericht_)**    | Schrijft naar info-niveau logboekregistratie of lager.    |
-| **uitgebreide (_bericht_)** | Schrijft gegevens naar uitgebreide logboekregistratie op.           |
+| **error(_bericht_)**   | Schrijft naar foutniveau logboekregistratie of lager.   |
+| **warn(_bericht_)**    | Schrijft naar waarschuwingsniveau logboekregistratie of lager. |
+| **info(_bericht_)**    | Schrijft naar info-niveau logboekregistratie of lager.    |
+| **verbose(_bericht_)** | Schrijft gegevens naar uitgebreide logboekregistratie op.           |
 
 Het volgende voorbeeld schrijft u een logboek tijdens het traceerniveau waarschuwing:
 
@@ -352,7 +352,7 @@ De `context.req` (aanvraag)-object heeft de volgende eigenschappen:
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Een object dat de hoofdtekst van de aanvraag bevat.               |
 | _headers_     | Een object dat de aanvraagheaders bevat.                   |
-| _Methode_      | De HTTP-methode van de aanvraag.                                |
+| _method_      | De HTTP-methode van de aanvraag.                                |
 | _originalUrl_ | De URL van de aanvraag.                                        |
 | _params_      | Een object dat de routering parameters van de aanvraag bevat. |
 | _query_       | Een object met de queryparameters.                  |
