@@ -45,14 +45,22 @@
           href: Tutorials/FaceAPIinCSharpTutorial.md
         - name: Android
           href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
-- name: Handleidingen
+- name: Concepten
   items:
     - name: Gezichtsdetectie
+      href: concepts/face-detection.md
+    - name: Gezichtsherkenning
+      href: concepts/face-recognition.md
+- name: Handleidingen
+  items:
+    - name: Gezichten detecteren
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-    - name: Gezichtsidentificatie
+    - name: Gezichten identificeren
       href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
     - name: Gezichten toevoegen
       href: Face-API-How-to-Topics/how-to-add-faces.md
+    - name: HeadPose gebruiken om rechthoeken te draaien
+      href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: Een model voor gezichtsherkenning opgeven
       href: Face-API-How-to-Topics/specify-recognition-model.md
     - name: De functie Grootschalig gebruiken
@@ -69,10 +77,6 @@
           href: face-resource-container-config.md
     - name: De verbonden service Face-API gebruiken
       href: vs-face-connected-service.md
-- name: Voorbeelden
-  items:
-    - name: Codevoorbeelden
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
 - name: Naslaginformatie
   items:
     - name: Face-API
@@ -93,10 +97,10 @@
           href: 'https://github.com/Microsoft/Cognitive-Face-iOS'
 - name: Resources
   items:
-    - name: Woordenlijst
-      href: Glossary.md
-    - name: Veelgestelde vragen
-      href: FAQ.md
+    - name: Voorbeelden
+      items:
+        - name: Voorbeelden van Face-API's
+          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
     - name: Prijzen en beperkingen
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
     - name: UserVoice

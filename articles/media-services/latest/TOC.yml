@@ -47,7 +47,7 @@
       items:
         - name: Overzicht
           href: encoding-concept.md
-          displayName: Presets
+          displayName: 'encoding, presets, jobs, adaptive, bitrate'
         - name: Transformaties en taken
           href: transforms-jobs-concept.md
         - name: Indelingen voor Media Encoder Standard
@@ -56,14 +56,19 @@
         - name: Automatisch gegenereerde adaptieve bitrateladder
           href: autogen-bitrate-ladder.md
         - name: Inhoudsafhankelijke codering
+          displayName: 'content, aware, cae'
           href: cae-experimental.md
+        - name: Foutcodes in taak
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: Media-analyses
       items:
         - name: Overzicht
           href: analyzing-video-audio-files-concept.md
-          displayName: Presets
+          displayName: 'analyzing, presets, jobs'
         - name: Transformaties en taken
           href: transforms-jobs-concept.md
+        - name: Foutcodes in taak
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: 'Verpakking, levering, beveiliging'
       items:
         - name: Verpakking
@@ -100,6 +105,8 @@
           href: streaming-policy-concept.md
         - name: Beleid voor inhoudssleutels
           href: content-key-policy-concept.md
+        - name: Oorspronkelijke foutcodes
+          href: origin-error-codes.md
     - name: Live streamen
       items:
         - name: Overzicht
@@ -138,6 +145,12 @@
           href: entities-overview.md
         - name: RBAC
           href: rbac-overview.md
+        - name: Foutcodes
+          items:
+            - name: Oorspronkelijke foutcodes
+              href: origin-error-codes.md
+            - name: Foutcodes in taak
+              href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: Hulp bij migratie van v2 naar v3
       href: migrate-from-v2-to-v3.md
 - name: Handleidingen
@@ -240,6 +253,12 @@
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Resource Manager-sjabloon
       href: /azure/templates/microsoft.media/allversions
+    - name: Foutcodes
+      items:
+        - name: Oorspronkelijke foutcodes
+          href: origin-error-codes.md
+        - name: Foutcodes in taak
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
 - name: Resources
   items:
     - name: Azure Media Services-community

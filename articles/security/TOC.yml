@@ -5,13 +5,13 @@
   expanded: false
   items:
     - name: Geavanceerde detectie van bedreigingen
-      displayName: 'vulnerability, virus, ids, incident'
+      displayName: 'vulnerability, virus, IDs, incident'
       href: azure-threat-detection.md
     - name: Logboekregistratie en bewaking in Azure
       displayName: incident
       href: azure-log-audit.md
     - name: Azure-netwerkbeveiliging
-      displayName: 'firewall, ssl, vpn, ids, gateway, https, application gateway, azure application gateway, ips, waf'
+      displayName: 'firewall, ssl, vpn, IDs, gateway, https, application gateway, azure application gateway, ips, waf'
       href: abstract-azure-network-security.md
     - name: Beveiliging van serverloze Azure-platforms
       href: abstract-serverless-platform-security.md
@@ -50,7 +50,7 @@
         - name: Schijfversleuteling voor IaaS-VM's
           items:
             - name: Meer informatie over Azure Disk Encryption
-              displayName: 'bitlocker, bek'
+              displayName: 'Bitlocker, bek'
               href: azure-security-disk-encryption-overview.md
             - name: Snelstartgidsen
               items:
@@ -141,7 +141,7 @@
           displayName: identity
           href: azure-security-global-admin.md
     - name: Netwerkbeveiliging
-      displayName: 'firewall, ssl, vpn, ids, gateway, https, azure application gateway, application gateway, ips, waf'
+      displayName: 'firewall, ssl, vpn, IDs, gateway, https, azure application gateway, application gateway, ips, waf'
       href: security-network-overview.md
       items:
         - name: Aanbevolen procedures
@@ -270,6 +270,11 @@
           href: ./blueprints/pcidss-iaaswa-overview.md
         - name: PaaS-webtoepassing
           href: ./blueprints/pcidss-paaswa-overview.md
+    - name: SCCA
+      displayName: 'blueprint, privacy, certifications'
+      items:
+        - name: Secure Azure Computing Architecture
+          href: ./compliance/secure-azure-computing-architecture.md
     - name: TIC
       displayName: 'blueprint, privacy, certifications'
       items:
@@ -327,13 +332,13 @@
         - name: Releases
           href: azure-security-threat-modeling-tool-releases.md
           items:
-            - name: Threat Modeling Tool GA-release 7.1.5091.2 - 9/12/2018
+            - name: Threat Modeling Tool GA-release 7.1.5091.2 - 12 sept 2018
               href: azure-security-threat-modeling-tool-releases-71509112.md
-            - name: Threat Modeling Tool-updaterelease 7.1.51023.1 - 11/1/2018
+            - name: Threat Modeling Tool-updaterelease 7.1.51023.1 - 1 nov 2018
               href: azure-security-threat-modeling-tool-releases-71510231.md
-            - name: Threat Modeling Tool-updaterelease 7.1.60126.1 - 1/29/2019
+            - name: Threat Modeling Tool-updaterelease 7.1.60126.1 - 29 jan 2019
               href: azure-security-threat-modeling-tool-releases-71601261.md
-            - name: Threat Modeling Tool-updaterelease 7.1.60408.1 - 4/09/2019
+            - name: Threat Modeling Tool-updaterelease 7.1.60408.1 - 9 april 2019
               href: azure-security-threat-modeling-tool-releases-71604081.md
         - name: Oplossingen
           href: azure-security-threat-modeling-tool-mitigations.md

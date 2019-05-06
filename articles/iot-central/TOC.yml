@@ -113,6 +113,8 @@
           href: howto-personalize-dashboard.md
         - name: Uw voorkeuren beheren
           href: howto-manage-preferences.md
+        - name: Live chat in-/uitschakelen
+          href: howto-show-hide-chat.md
 - name: Verwant
   items:
     - name: Oplossingen

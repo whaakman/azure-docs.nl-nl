@@ -60,16 +60,22 @@
     - name: Overzicht van gegevensopname
       displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
       href: ingest-data-overview.md
-    - name: Tijdreeksanalyse
-      href: time-series-analysis.md
 - name: Handleidingen
   items:
     - name: Aan de slag
       items:
-        - name: Query's schrijven
-          href: write-queries.md
         - name: Voorbeeldgegevens opnemen
           href: ingest-sample-data.md
+    - name: Querygegevens
+      items:
+        - name: Query's schrijven
+          href: write-queries.md
+        - name: Tijdreeksanalyse
+          href: time-series-analysis.md
+        - name: Detectie van afwijkingen en prognoses
+          href: anomaly-detection.md
+        - name: Machine learning
+          href: machine-learning-clustering.md
     - name: Beheren
       items:
         - name: Databasemachtigingen beheren
@@ -90,6 +96,8 @@
           href: using-metrics.md
     - name: Werken met andere hulpprogramma's
       items:
+        - name: Apache Spark-connector
+          href: spark-connector.md
         - name: Verbinding vanaf Databricks maken met behulp van Python
           href: connect-from-databricks.md
         - name: Gegevens analyseren met Jupyter Notebooks en Kqlmagic

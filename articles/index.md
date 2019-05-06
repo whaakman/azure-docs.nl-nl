@@ -6,12 +6,12 @@ description: Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Az
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: b9234814404194364f775add87f865170747220a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73dda32c3f5f89a8b3e7465fbfdde28cb0ad2d6f
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61469729"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020830"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -434,6 +434,12 @@ Azure-taken automatiseren met behulp van PowerShell-scripts </a>
                                             <a href="/azure/cyclecloud/">
                                                 <img src="media/index/logo_cyclecloud.svg" alt="" />
                                                 <p>CycleCloud</p>
+                                            </a>
+                                        </li>
+<li>
+                                            <a href="/azure/vmware-cloudsimple/">
+                                                <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                <p>Azure VMware-oplossing van CloudSimple</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1018,6 +1024,12 @@ Azure-taken automatiseren met behulp van PowerShell-scripts </a>
                                                 <p>Bing Afbeeldingen zoeken-API</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/open-datasets">
+                                                <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                <p>Open gegevenssets</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Migratie</h3>
                                     <ul>
@@ -1254,6 +1266,12 @@ Azure-taken automatiseren met behulp van PowerShell-scripts </a>
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Storage Gen1</p>
                                             </a>
+                                        </li>
+                                        <li>
+                                        <a href="/azure/open-datasets">
+                                            <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                            <p>Open gegevenssets</p>
+                                        </a>
                                         </li>
                                     </ul>
                                     <h3>DevOps</h3>
@@ -2076,6 +2094,25 @@ Azure-taken automatiseren met behulp van PowerShell-scripts </a>
                                     </div>
                                 </a>
                             </li>
+<li>
+                                <a href="/azure/vmware-cloudsimple/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure VMware-oplossing van CloudSimple</h3>
+                                                    <p>Het VMware-platform uitvoeren in Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -2421,7 +2458,7 @@ Azure-taken automatiseren met behulp van PowerShell-scripts </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen1</h3>
-                                                    <p>Zeer grote opslagruimte voor analyseworkloads van big data</p>
+                                                    <p>Hyperscale-opslagruimte voor analyseworkloads van big data</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3605,7 +3642,26 @@ Azure-taken automatiseren met behulp van PowerShell-scripts </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen1</h3>
-                                                    <p>Zeer grote opslagruimte voor analyseworkloads van big data</p>
+                                                    <p>Hyperscale-opslagruimte voor analyseworkloads van big data</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/open-datasets">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Open gegevenssets</h3>
+                                                    <p>Gecureerde openbare gegevenssets voor het verbeteren van Machine Learning-modellen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3785,6 +3841,25 @@ Azure-taken automatiseren met behulp van PowerShell-scripts </a>
                                                 <div class="cardText">
                                                     <h3>Azure Search</h3>
                                                     <p>Volledig beheerd zoeken als een service</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/open-datasets">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Open gegevenssets</h3>
+                                                    <p>Gecureerde openbare gegevenssets voor het verbeteren van Machine Learning-modellen</p>
                                                 </div>
                                             </div>
                                         </div>

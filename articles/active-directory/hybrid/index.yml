@@ -4,7 +4,7 @@ title: Documentatie voor hybride identiteit
 metadata:
   document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275e
   title: Documentatie voor hybride identiteit
-  meta.description: 'Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD.'
+  description: 'Azure AD Connect integreert uw on-premises directory''s met Azure Active Directory. Hiermee kunt u uw gebruikers een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD.'
   services: active-directory
   author: billmath
   manager: daveba
@@ -18,7 +18,7 @@ abstract:
   description: 'De identiteitsoplossingen van Microsoft omvatten mogelijkheden voor zowel on-premises als in de cloud. Er wordt één gebruikersidentiteit gemaakt voor verificatie en autorisatie bij alle resources, ongeacht hun locatie. We noemen dit hybride identiteit.</br></br></br>Azure AD Connect integreert uw on-premises directory''s met Azure Active Directory. Hiermee kunt u uw gebruikers een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD. In dit onderwerp wordt de planning, implementatie en bewerking besproken. Het is een verzameling van koppelingen naar de onderwerpen die betrekking hebben op dit gebied.'
   aside:
     image:
-      alt: null
+      alt: channel 9-video
       height: 110
       src: media/index/video2.png
       width: 250
@@ -36,16 +36,19 @@ sections:
           - href: /azure/active-directory/hybrid/tutorial-password-hash-sync
             html: <p>Meer informatie over hoe u uw identiteiten uitbreidt naar de cloud met synchronisatie van wachtwoord-hashes</p>
             image:
+              alt: wachtwoordhashsynchronisatie
               src: media/index/azuread2.png
             title: Een enkele AD-forest integreren met synchronisatie van wachtwoord-hashes (PHS)
           - href: /azure/active-directory/hybrid/tutorial-passthrough-authentication
             html: <p>Meer informatie over hoe u uw identiteiten uitbreidt naar de cloud met pass-through-verificatie.</p>
             image:
+              alt: pass-through-verificatie
               src: media/index/manage2.png
             title: Een enkele AD-forest integreren met pass-through-verificatie (PTA)
           - href: /azure/active-directory/hybrid/tutorial-federation
             html: <p>Ontdek hoe u Azure Active Directory (Azure AD) Connect federeert met on-premises Active Directory Federation Services (AD FS) en Azure AD.</p>
             image:
+              alt: federatie-
               src: media/index/federate2.png
             title: Een enkele AD-forest integreren met federatie
   - title: Handleidingen

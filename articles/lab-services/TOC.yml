@@ -107,7 +107,7 @@
               href: image-factory-save-distribute-custom-images.md
             - name: Een retentiebeleid instellen en opschoningsscripts uitvoeren
               href: image-factory-set-retention-policy-cleanup.md
-        - name: DevTest Labs-infrastructuur instellen in uw onderneming
+        - name: DevTest Labs in het bedrijf
           href: devtest-lab-guidance-prescriptive-adoption.md
           items:
             - name: Referentiearchitectuur

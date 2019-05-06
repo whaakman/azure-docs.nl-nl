@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Documentatie voor Azure Data Box - Online overdracht
 metadata:
-  title: Documentatie voor Azure Data Box - Online overdracht
-  description: 'Gebruik de Data Box-apparaten voor gegevensoverdrachten via het netwerk naar Azure op een snelle, goedkope en betrouwbare manier.'
+  title: Documentatie over Data Box Gateway en Data Box Edge voor gegevensoverdracht via het netwerk naar Azure
+  description: 'Gebruik de Data Box Edge en Data Box Gateway voor gegevensoverdrachten via het netwerk naar Azure op een snelle, goedkope en betrouwbare manier.'
   services: databox
   author: alkohli
   manager: twooley
@@ -13,7 +13,7 @@ metadata:
   ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: 'Met Azure Data Box-producten kunt u snel, goedkoop en betrouwbaar honderden terabytes aan gegevens overdragen naar Azure. Gebruik de Data Box-apparaten voor gegevensoverdracht via het netwerk met hoge prestaties.<p>Kies Data Box Gateway voor het verzenden van gegevens voor archivering in de cloud, voor herstel na noodgevallen of voor de verwerking van gegevens met de kracht van de cloud.  Gebruik Data Box Edge om uw gegevens te filteren, analyseren en transformeren terwijl deze worden verplaatst naar Azure.</p><p>Gebruik onze zelfstudies voor meer informatie over hoe u Data Box Gateway en Data Box Edge kunt gebruiken voor overdracht via een netwerk.</p>'
+  description: 'Met Azure Data Box-producten kunt u snel, goedkoop en betrouwbaar honderden terabytes aan gegevens overdragen naar Azure. Gebruik de Data Box Edge- en Data Box Gateway-apparaten voor gegevensoverdracht via het netwerk met hoge prestaties.<p>Kies Data Box Gateway voor het verzenden van gegevens voor archivering in de cloud, voor herstel na noodgevallen of voor de verwerking van gegevens met de kracht van de cloud.  Gebruik Data Box Edge om uw gegevens te filteren, analyseren en transformeren terwijl deze worden verplaatst naar Azure.</p><p>Gebruik onze zelfstudies voor meer informatie over hoe u Data Box Gateway en Data Box Edge kunt gebruiken voor overdracht via een netwerk.</p>'
 sections:
   - title: Zelfstudies
     items:

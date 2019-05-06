@@ -4,6 +4,8 @@
       href: index.yml
     - name: Snelstartgidsen
       items:
+        - name: Teamontwikkeling
+          href: quickstart-team-development.md
         - name: Java (VS Code en CLI)
           href: quickstart-java.md
         - name: .NET Core (VS Code en CLI)

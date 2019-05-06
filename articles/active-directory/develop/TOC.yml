@@ -14,20 +14,14 @@
         - name: Een toepassing configureren
           items:
             - name: Een app registreren
-              href: quickstart-v1-add-azure-ad-app.md
-            - name: Een app bijwerken
-              href: quickstart-v1-update-azure-ad-app.md
-            - name: Een app verwijderen
-              href: quickstart-v1-remove-azure-ad-app.md
-            - name: Een app registreren (preview)
               href: quickstart-register-app.md
-            - name: Een app configureren voor toegang tot web-API's (preview)
+            - name: Een app configureren voor toegang tot web-API's
               href: quickstart-configure-app-access-web-apis.md
-            - name: Een app configureren om web-API's beschikbaar te maken (preview)
+            - name: Een app configureren om web-API's beschikbaar te stellen
               href: quickstart-configure-app-expose-web-apis.md
-            - name: Accounts aanpassen die worden ondersteund door een app (preview)
+            - name: Accounts aanpassen die door een app worden ondersteund
               href: quickstart-modify-supported-accounts.md
-            - name: Een app verwijderen (preview)
+            - name: Een app verwijderen
               href: quickstart-remove-app.md
         - name: Toepassingen met één pagina
           items:
@@ -243,20 +237,14 @@
         - name: Een toepassing configureren
           items:
             - name: Een app registreren
-              href: quickstart-v2-register-an-app.md
-            - name: Een app bijwerken
-              href: quickstart-v1-update-azure-ad-app.md
-            - name: Een app verwijderen
-              href: quickstart-v1-remove-azure-ad-app.md
-            - name: Een app registreren (preview)
               href: quickstart-register-app.md
-            - name: Een app configureren voor toegang tot web-API's (preview)
+            - name: Een app configureren voor toegang tot web-API's
               href: quickstart-configure-app-access-web-apis.md
-            - name: Een app configureren om web-API's beschikbaar te maken (preview)
+            - name: Een app configureren om web-API's beschikbaar te stellen
               href: quickstart-configure-app-expose-web-apis.md
-            - name: Accounts aanpassen die worden ondersteund door een app (preview)
+            - name: Accounts aanpassen die door een app worden ondersteund
               href: quickstart-modify-supported-accounts.md
-            - name: Een app verwijderen (preview)
+            - name: Een app verwijderen
               href: quickstart-remove-app.md
         - name: Toepassingen met één pagina
           items:
@@ -350,6 +338,8 @@
               href: active-directory-certificate-credentials.md
         - name: Toepassingsconfiguratie
           items:
+            - name: Trainingshandleiding voor appregistraties
+              href: app-registrations-training-guide.md
             - name: Toepassingen en service-principals
               href: app-objects-and-service-principals.md
             - name: Apps met één tenant en apps met meerdere tenants

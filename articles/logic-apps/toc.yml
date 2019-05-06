@@ -61,6 +61,8 @@
           href: logic-apps-scenario-function-sb-trigger.md
         - name: 'Logische apps aanroepen, triggeren of nesten'
           href: logic-apps-http-endpoint.md
+        - name: Bulkgegevens ontvangen met paginering
+          href: logic-apps-exceed-default-page-size-with-pagination.md
         - name: Berichten batchgewijs verwerken
           href: logic-apps-batch-process-send-receive-messages.md
         - name: JSON-definities maken
@@ -103,11 +105,8 @@
           href: logic-apps-enterprise-integration-b2b.md
         - name: AS2-berichten uitwisselen
           href: logic-apps-enterprise-integration-as2.md
-          items:
-            - name: AS2-codering
-              href: logic-apps-enterprise-integration-as2-encode.md
-            - name: AS2-decodering
-              href: logic-apps-enterprise-integration-as2-decode.md
+        - name: AS2-berichtinstellingen
+          href: logic-apps-enterprise-integration-as2-message-settings.md
         - name: EDIFACT-berichten uitwisselen
           href: logic-apps-enterprise-integration-edifact.md
           items:

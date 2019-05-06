@@ -228,6 +228,8 @@
           href: custom-translator/how-to-manage-settings.md
         - name: Migreren vanuit Hub
           href: custom-translator/how-to-migrate.md
+        - name: Implementaties in niet-ondersteunde talen
+          href: custom-translator/unsupported-language-deployments.md
     - name: Resources
       items:
         - name: Taalondersteuning

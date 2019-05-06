@@ -152,6 +152,8 @@
         - name: vCPU-quota
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: Veelgestelde vragen over schaalsets
+      href: virtual-machine-scale-sets-faq.md
 - name: Procedures
   items:
     - name: Plannen en ontwerpen
@@ -183,6 +185,9 @@
               href: virtual-machine-scale-sets-autoscale-portal.md
             - name: Geavanceerd automatisch schalen
               href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+              maintainContext: true
+            - name: Problemen met automatisch schalen oplossen
+              href: virtual-machine-scale-sets-troubleshoot.md
         - name: Toepassingen op schaalsets
           href: virtual-machine-scale-sets-deploy-app.md
         - name: Extensies op schaalsets
@@ -199,6 +204,9 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: Azure CLI gebruiken
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
+            - name: Schijfversleuteling met extensievolgorde
+              href: ../security/azure-security-disk-encryption-extension-sequencing.md
+              maintainContext: true
         - name: Met grote schaalsets werken
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Een sjabloon voor schaalsets converteren voor gebruik van beheerde schijven
@@ -247,14 +255,6 @@
         - name: Een schaalset automatisch schalen
           href: /azure/ansible/ansible-auto-scale-vmss
           maintainContext: true
-    - name: Problemen oplossen
-      items:
-        - name: Automatisch schalen
-          href: virtual-machine-scale-sets-troubleshoot.md
-    - name: Veelgestelde vragen
-      items:
-        - name: Veelgestelde vragen over schaalsets
-          href: virtual-machine-scale-sets-faq.md
 - name: Naslaginformatie
   items:
     - name: Azure PowerShell

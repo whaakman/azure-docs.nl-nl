@@ -19,6 +19,8 @@
       href: functions-create-first-java-maven.md
     - name: Functie maken - Python
       href: functions-create-first-function-python.md
+    - name: Functie maken - PowerShell
+      href: functions-create-first-function-powershell.md
     - name: Functie maken - Azure CLI
       href: functions-create-first-azure-function-azure-cli.md
     - name: Functie maken - portal
@@ -39,7 +41,9 @@
       items:
         - name: Azure Cosmos DB
           href: functions-integrate-store-unstructured-data-cosmosdb.md
-        - name: Opslag
+        - name: Opslag - Python
+          href: functions-add-output-binding-storage-queue-python.md
+        - name: Opslag - portal
           href: functions-integrate-storage-queue-output-binding.md
 - name: Zelfstudies
   items:
@@ -100,6 +104,8 @@
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
+        - name: PowerShell
+          href: functions-reference-powershell.md
         - name: Python
           href: functions-reference-python.md
     - name: Diagnostiek
@@ -134,6 +140,8 @@
           href: functions-create-maven-eclipse.md
         - name: Een Linux-functie-app maken
           href: create-function-app-linux-app-service-plan.md
+        - name: Fouten opsporen in lokale PowerShell-functies
+          href: functions-debug-powershell-local.md
         - name: Verbindingen beheren
           href: manage-connections.md
         - name: Foutafhandeling
@@ -148,6 +156,8 @@
       items:
         - name: Doorlopende implementatie
           href: functions-continuous-deployment.md
+        - name: Bouwen en implementeren met behulp van Azure-pijplijnen
+          href: functions-how-to-azure-devops.md
         - name: Zip-implementatie
           href: deployment-zip-push.md
         - name: Uitvoeren uit pakket
