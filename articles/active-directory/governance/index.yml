@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 08/16/2018
+  ms.date: 04/18/2019
   ms.author: rolyon
 abstract:
   description: 'Identiteitsbeheer in Azure Active Directory (Azure AD) biedt organisaties de mogelijkheid om de identiteitslevenscyclus en de toegangslevenscyclus te beheren, en maakt veilig beheer van werknemers en partners mogelijk.'
@@ -32,17 +32,25 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/active-directory/governance/identity-governance-overview">Wat is identiteitsbeheer?</a>
+  - title: Rechtenbeheer (preview-versie)
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/governance/entitlement-management-overview">Wat is Azure AD-rechtenbeheer?</a>
+          - html: <a href="/azure/active-directory/governance/entitlement-management-access-package-first">Zelfstudie - Uw eerste toegangspakket maken</a>
+          - html: <a href="/azure/active-directory/governance/entitlement-management-access-package-edit">Een bestaand toegangspakket bewerken en beheren</a>
   - title: Toegangsbeoordelingen
     items:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/governance/access-reviews-overview">Wat is een toegangsbeoordeling?</a>
-          - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">Gebruikerstoegang beheren met toegangsbeoordelingen</a>
-          - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">Gastentoegang beheren met toegangsbeoordelingen</a>
+          - html: <a href="/azure/active-directory/governance/access-reviews-overview">Wat zijn toegangsbeoordelingen in Azure Active Directory?</a>
+          - html: <a href="/azure/active-directory/governance/create-access-review">Een toegangsbeoordeling van groepen of apps maken</a>
+          - html: <a href="/azure/active-directory/governance/perform-access-review">Toegang tot groepen of apps beoordelen</a>
   - title: Gebruiksvoorwaarden
     items:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">Wat kan ik doen met Gebruiksvoorwaarden?</a>
+          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">Gebruiksvoorwaarden vereisen?</a>

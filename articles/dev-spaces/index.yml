@@ -18,7 +18,7 @@ sections:
       - type: markdown
         text: |-
           > [!IMPORTANT]
-          > Azure Dev Spaces is momenteel beschikbaar als preview-versie en wordt alleen ondersteund door AKS-clusters in de regio's **US - oost**, **US - oost 2**, **US - centraal**, **US - west 2**, **EU - noord**, **EU - west**, **Azië - zuidoost**, **Canada - centraal** en **Canada - oost**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
+          > Azure Dev Spaces wordt alleen ondersteund door AKS-clusters in de regio's **US - oost**, **US - oost 2**, **US - centraal**, **US - west 2**, **EU - noord**, **EU - west**, **Azië - zuidoost**, **Canada - centraal** en **Canada - oost**. Azure Dev Spaces ondersteunt het gebruik van [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) of [Visual Studio Code](https://code.visualstudio.com/download) met een [Azure Dev Spaces-extensie](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) die is geïnstalleerd in Linux, MacOS of Windows 8 of hoger om uw toepassingen te ontwikkelen en in AKS uit te voeren. Azure Dev Spaces biedt ook ondersteuning voor het gebruik van [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) met de workload Web Development en [Visual Studio-hulpprogramma's voor Kubernetes](https://aka.ms/get-vsk8stools) die zijn geïnstalleerd in Windows 8 of hoger.
   - title: Aan de slag in Azure Dev Spaces
     items:
       - type: paragraph

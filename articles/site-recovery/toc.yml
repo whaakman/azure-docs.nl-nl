@@ -93,9 +93,11 @@
           href: vmware-azure-about-disaster-recovery.md
         - name: Veelgestelde vragen
           href: vmware-azure-common-questions.md
-        - name: Ondersteuningsmatrix voor VMware/fysiek naar Azure
+        - name: Ondersteuningsmatrix voor VMware-/fysieke machines naar Azure
           href: vmware-physical-azure-support-matrix.md
-        - name: Ondersteuningsvereisten voor implementatie van configuratieserver
+        - name: Over siteherstelonderdelen (configuratie/proces/masterdoelserver)
+          href: vmware-physical-azure-config-process-server-overview.md
+        - name: Ondersteuningsvereisten voor configuratie- en processervers
           href: vmware-azure-configuration-server-requirements.md
         - name: VMware naar Azure-architectuur
           href: vmware-azure-architecture.md
@@ -113,7 +115,7 @@
           href: hyper-v-azure-architecture.md
     - name: Over herstel na noodgevallen van fysieke server naar Azure
       items:
-        - name: Ondersteuningsmatrix voor VMware/fysiek naar Azure
+        - name: Ondersteuningsmatrix voor VMware-/fysieke machines naar Azure
           href: vmware-physical-azure-support-matrix.md
         - name: Fysieke server naar Azure-architectuur
           href: physical-azure-architecture.md
@@ -197,6 +199,8 @@
               items:
                 - name: Overzicht en vereisten
                   href: site-recovery-deployment-planner.md
+                - name: Versiegeschiedenis van implementatieplanner
+                  href: site-recovery-deployment-planner-history.md
                 - name: Het hulpprogramma Deployment Planner uitvoeren
                   href: site-recovery-vmware-deployment-planner-run.md
                 - name: Het gegenereerde rapport analyseren
@@ -319,6 +323,8 @@
               items:
                 - name: Overzicht en vereisten
                   href: hyper-v-deployment-planner-overview.md
+                - name: Versiegeschiedenis van implementatieplanner
+                  href: site-recovery-deployment-planner-history.md
                 - name: Het hulpprogramma Deployment Planner uitvoeren
                   href: hyper-v-deployment-planner-run.md
                 - name: Het gegenereerde rapport analyseren
@@ -425,10 +431,14 @@
           href: site-recovery-extension-troubleshoot.md
     - name: VMware/fysieke server
       items:
+        - name: Processervers bewaken
+          href: vmware-physical-azure-monitor-process-server.md
         - name: Problemen met replicatie van VMware naar Azure oplossen
           href: vmware-azure-troubleshoot-replication.md
         - name: Problemen met de configuratieserver oplossen
           href: vmware-azure-troubleshoot-configuration-server.md
+        - name: Problemen met processervers oplossen
+          href: vmware-physical-azure-troubleshoot-process-server.md
         - name: Problemen met de push-installatie van de Mobility-service voor virtuele VMware-machines/fysieke servers oplossen
           href: vmware-azure-troubleshoot-push-install.md
         - name: Problemen met failover naar Azure oplossen

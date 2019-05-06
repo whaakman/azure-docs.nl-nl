@@ -42,7 +42,7 @@
           href: render-coverage.md
         - name: Dekking voor routering
           href: routing-coverage.md
-    - name: Ondersteunde talen
+    - name: Lokalisatieondersteuning
       href: supported-languages.md
     - name: Ondersteunde kaartstijlen
       href: supported-map-styles.md
@@ -74,11 +74,11 @@
       items:
         - name: Kaartbesturingselement
           items:
-            - name: Map Control gebruiken
+            - name: Aan de slag gaan met online kaartbesturingselementen
               href: how-to-use-map-control.md
             - name: Een kaart maken
               href: map-create.md
-            - name: Een kaartstijl kiezen
+            - name: Stijl van de kaart wijzigen
               href: choose-map-style.md
             - name: Besturingselementen toevoegen aan de kaart
               href: map-add-controls.md
@@ -120,8 +120,14 @@
               href: map-route.md
     - name: Ontwikkelen met de Android SDK
       items:
-        - name: Een Android-kaartbesturingselement gebruiken
+        - name: Aan de slag gaan met Android-kaartbesturingselementen
           href: how-to-use-android-map-control-library.md
+        - name: Een symboollaag toevoegen
+          href: how-to-add-symbol-to-android-map.md
+        - name: Vormen toevoegen
+          href: how-to-add-shapes-to-android-map.md
+        - name: Stijl van de kaart wijzigen
+          href: set-android-map-styles.md
 - name: Naslaginformatie
   items:
     - name: API- en parameterextensies

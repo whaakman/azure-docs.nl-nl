@@ -7,10 +7,15 @@
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Een AKS-cluster maken - CLI
-      href: kubernetes-walkthrough.md
-    - name: Een AKS-cluster maken - Portal
-      href: kubernetes-walkthrough-portal.md
+    - name: Een AKS-cluster maken
+      expanded: true
+      items:
+        - name: Azure CLI gebruiken
+          href: kubernetes-walkthrough.md
+        - name: Azure Portal gebruiken
+          href: kubernetes-walkthrough-portal.md
+        - name: Een Resource Manager-sjabloon gebruiken
+          href: kubernetes-walkthrough-rm-template.md
     - name: Toepassingen ontwikkelen
       expanded: true
       items:
@@ -87,7 +92,7 @@
             - name: Pod-beveiliging
               href: developer-best-practices-pod-security.md
     - name: Quota en regionale limieten
-      href: container-service-quotas.md
+      href: quotas-skus-regions.md
     - name: Van ACS naar AKS migreren
       href: acs-aks-migration.md
     - name: Ondersteunde Kubernetes-versie

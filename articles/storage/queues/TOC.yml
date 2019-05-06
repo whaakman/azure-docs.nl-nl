@@ -18,6 +18,10 @@
       items:
         - name: .NET
           href: storage-quickstart-queues-dotnet.md
+- name: Zelfstudies
+  items:
+    - name: Werken met Azure-opslagwachtrijen
+      href: storage-tutorial-queues.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Voorbeelden
   items:
     - name: .NET

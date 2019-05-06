@@ -133,26 +133,22 @@
       items:
         - name: Wat is industriële IoT?
           href: overview-iot-industrial.md
-        - name: OPC Twin
-          items:
-            - name: Wat is OPC Twin?
-              href: overview-opc-twin.md
-            - name: OPC Twin-architectuur
-              href: overview-opc-twin-architecture.md
-        - name: OPC Vault
-          items:
-            - name: Wat is OPC Vault?
-              href: overview-opc-vault.md
-        - name: Verbonden factory
-          items:
-            - name: Overzicht van verbonden fabriek
-              href: iot-accelerators-connected-factory-features.md
-            - name: Architectuur van verbonden fabriek
-              href: iot-accelerators-connected-factory-sample-walkthrough.md
+        - name: Wat is OPC Twin?
+          href: overview-opc-twin.md
+        - name: Wat is OPC Vault?
+          href: overview-opc-vault.md
+        - name: Wat is een verbonden factory?
+          href: iot-accelerators-connected-factory-features.md
     - name: Snelstartgidsen
       items:
         - name: Een oplossing voor een verbonden fabriek uitproberen
           href: quickstart-connected-factory-deploy.md
+    - name: Concepten
+      items:
+        - name: OPC Twin-architectuur
+          href: overview-opc-twin-architecture.md
+        - name: Architectuur van verbonden fabriek
+          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: Handleidingen
       items:
         - name: Verbonden factory

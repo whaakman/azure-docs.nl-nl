@@ -43,15 +43,13 @@ sections:
       - type: paragraph
         text: 'Informatie over het installeren en configureren van IoT Edge, het implementeren van modules en het gebruik van Azure-services zoals Stream Analytics en Custom Vision aan de rand.'
       - type: list
-        style: unordered
+        style: ordered
         items:
+          - html: Stel uw ontwikkelcomputer in en kom meer te weten over IoT Edge-modules voor <a href="/azure/iot-edge/tutorial-develop-for-linux">Linux-apparaten</a> of <a href="/azure/iot-edge/tutorial-develop-for-windows">Windows-apparaten</a>.
+          - html: 'Ontwikkel aangepaste codemodules voor Linux-apparaten in <a href="/azure/iot-edge/tutorial-c-module">C</a>, <a href="/azure/iot-edge/tutorial-csharp-module">C#</a>, <a href="/azure/iot-edge/tutorial-python-module">Python</a>, <a href="/azure/iot-edge/tutorial-node-module">Node.js</a> of <a href="/azure/iot-edge/tutorial-java-module">Java</a>.'
+          - html: 'Ontwikkel aangepaste codemodules voor Windows-apparaten in <a href="/azure/iot-edge/tutorial-c-module-windows">C</a> of <a href="/azure/iot-edge/tutorial-csharp-module-windows">C#</a>.'
           - html: <a href="/azure/iot-edge/tutorial-deploy-function">Berichten filteren met Azure Functions</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Gemiddelden vinden met Azure Stream Analytics als module</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Gegevens een score geven met Azure Machine Learning als module</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">Afbeeldingen classificeren met Custom Vision Service als module</a>
-          - html: '<a href="/azure/iot-edge/tutorial-csharp-module">Gegevens filteren met een C#-module</a>'
-          - html: <a href="/azure/iot-edge/tutorial-python-module">Gegevens filteren met een Python-module</a>
-          - html: <a href="/azure/iot-edge/tutorial-node-module">Gegevens filteren met een Node.js-module</a>
-          - html: <a href="/azure/iot-edge/tutorial-java-module">Gegevens filteren met een Java-module</a>
-          - html: <a href="/azure/iot-edge/tutorial-c-module">Gegevens filteren met een C-module</a>
           - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">Gegevens opslaan aan de rand met SQL Server</a>

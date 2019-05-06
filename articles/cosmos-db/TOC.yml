@@ -143,17 +143,6 @@
             - name: Indexeringsbeleid
               displayName: 'consistent, none'
               href: index-policy.md
-        - name: Feed wijzigen
-          items:
-            - name: Overzicht
-              href: change-feed.md
-            - name: Wijzigingenfeed lezen
-              href: read-change-feed.md
-            - name: Verwerker van wijzigingenfeed
-              href: change-feed-processor.md
-            - name: Azure Functions activeren
-              displayName: change feed
-              href: change-feed-functions.md
         - name: Time To Live
           displayName: 'delete, delete data, ttl'
           href: time-to-live.md
@@ -498,6 +487,9 @@
           href: data-explorer.md
         - name: Indexeringsbeleid beheren
           href: how-to-manage-indexing-policy.md
+        - name: Voorbeelden van geneste SQL-query's
+          displayName: 'subquery, exists'
+          href: how-to-sql-subquery.md
     - name: Feed wijzigen
       items:
         - name: Meerdere Azure Cosmos DB-triggers

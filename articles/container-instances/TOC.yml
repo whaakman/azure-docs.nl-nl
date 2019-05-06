@@ -45,6 +45,8 @@
       href: container-instances-region-availability.md
     - name: Relatie met orchestrators
       href: container-instances-orchestrator-relationship.md
+    - name: Beveiligingsoverwegingen
+      href: container-instances-image-security.md
 - name: Handleidingen
   items:
     - name: Implementeren
@@ -69,6 +71,8 @@
           href: container-instances-managed-identity.md
         - name: GPU-resources gebruiken (preview)
           href: container-instances-gpu.md
+        - name: SSL-eindpunt inschakelen
+          href: container-instances-container-group-ssl.md
     - name: Gegevensvolumes koppelen
       items:
         - name: Azure-bestandsshare

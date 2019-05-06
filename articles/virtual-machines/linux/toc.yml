@@ -25,7 +25,7 @@
       href: tutorial-custom-images.md
     - name: 5 - Virtuele machines met hoge beschikbaarheid
       href: tutorial-availability-sets.md
-    - name: 6 - Een VM-schaalset maken
+    - name: 6 - Een schaalset maken
       href: tutorial-create-vmss.md
     - name: 7 - Taakverdelingen maken voor virtuele machines
       href: tutorial-load-balancer.md
@@ -259,6 +259,8 @@
               href: shared-image-galleries.md
             - name: Gedeelde installatiekopieën maken met behulp van de CLI
               href: shared-images.md
+            - name: Portal
+              href: shared-images-portal.md
             - name: Problemen met gedeelde installatiekopieën oplossen
               href: troubleshooting-shared-images.md
         - name: Installatiekopieën zoeken en gebruiken

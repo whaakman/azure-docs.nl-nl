@@ -49,6 +49,8 @@
       href: batch-pool-vm-sizes.md
     - name: Hoge beschikbaarheid en herstel na noodgevallen
       href: high-availability-disaster-recovery.md
+    - name: Omgevingsvariabelen voor de runtime van taken
+      href: batch-compute-node-environment-variables.md
 - name: Handleidingen
   items:
     - name: Batch-accounts beheren
@@ -199,8 +201,6 @@
           href: batch-task-complete-event.md
         - name: Gebeurtenis taak mislukt
           href: batch-task-fail-event.md
-    - name: Omgevingsvariabelen Batch-rekenknooppunt
-      href: batch-compute-node-environment-variables.md
 - name: Resources
   items:
     - name: Azure-roadmap

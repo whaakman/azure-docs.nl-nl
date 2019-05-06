@@ -1,60 +1,57 @@
-items:
 - name: Documentatie voor Azure NetApp Files
   href: index.yml
 - name: Overzicht
   items:
-  - name: Kennismaking met Azure NetApp Files
-    href: azure-netapp-files-introduction.md
-  - name: Inzicht in de opslaghiërarchie
-    href: azure-netapp-files-understand-storage-hierarchy.md
+    - name: Wat is Azure NetApp Files?
+      href: azure-netapp-files-introduction.md
+    - name: Inzicht in de opslaghiërarchie
+      href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Snelstartgidsen
-  items:
-  - name: Azure NetApp Files instellen en een volume maken
-    href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
   expanded: true
+  items:
+    - name: Azure NetApp Files instellen en een NFS-volume maken
+      href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: Concepten
   items:
-  - name: Serviceniveau's voor Azure NetApp Files
-    href: azure-netapp-files-service-levels.md
-  - name: Resourcelimieten voor Azure NetApp Files
-    href: azure-netapp-files-resource-limits.md
-  - name: Metrische gegevens voor Azure NetApp Files
-    href: azure-netapp-files-metrics.md
+    - name: Serviceniveau's voor Azure NetApp Files
+      href: azure-netapp-files-service-levels.md
+    - name: Resourcelimieten voor Azure NetApp Files
+      href: azure-netapp-files-resource-limits.md
+    - name: Metrische gegevens voor Azure NetApp Files
+      href: azure-netapp-files-metrics.md
+    - name: Prestatiebenchmarks voor Azure NetApp Files
+      href: azure-netapp-files-performance-benchmarks.md
 - name: Handleidingen
   items:
-  - name: Registreren voor Azure NetApp Files
-    href: azure-netapp-files-register.md
-  - name: Een NetApp-account maken
-    href: azure-netapp-files-create-netapp-account.md
-  - name: Een capaciteitspool instellen
-    href: azure-netapp-files-set-up-capacity-pool.md
-  - name: Een subnet delegeren aan Azure NetApp Files
-    href: azure-netapp-files-delegate-subnet.md
-  - name: Een volume maken voor Azure NetApp Files
-    href: azure-netapp-files-create-volumes.md
-  - name: Exportbeleid voor een NFS-volume configureren
-    href: azure-netapp-files-configure-export-policy.md
-  - name: Volumes beheren
-    href: azure-netapp-files-manage-volumes.md
-  - name: Een volume voor Windows- of Linux-VM's koppelen of ontkoppelen
-    href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
-  - name: Momentopnamen beheren
-    href: azure-netapp-files-manage-snapshots.md
-  - name: Het formaat van een capaciteitspool of volume wijzigen
-    href: azure-netapp-files-resize-capacity-pools-or-volumes.md
-  - name: Ontwikkelen
-    items:
-    - name: REST
-      href: azure-netapp-files-develop-with-rest-api.md
+    - name: Registreren voor Azure NetApp Files
+      href: azure-netapp-files-register.md
+    - name: Een NetApp-account maken
+      href: azure-netapp-files-create-netapp-account.md
+    - name: Een capaciteitspool instellen
+      href: azure-netapp-files-set-up-capacity-pool.md
+    - name: Een subnet delegeren aan Azure NetApp Files
+      href: azure-netapp-files-delegate-subnet.md
+    - name: Een volume maken voor Azure NetApp Files
+      href: azure-netapp-files-create-volumes.md
+    - name: Exportbeleid voor een NFS-volume configureren
+      href: azure-netapp-files-configure-export-policy.md
+    - name: Volumes beheren
+      href: azure-netapp-files-manage-volumes.md
+    - name: Een volume voor Windows- of Linux-VM's koppelen of ontkoppelen
+      href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+    - name: Momentopnamen beheren
+      href: azure-netapp-files-manage-snapshots.md
+    - name: Het formaat van een capaciteitspool of volume wijzigen
+      href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+    - name: Ontwikkelen
+      items:
+        - name: REST
+          href: azure-netapp-files-develop-with-rest-api.md
+        - name: Problemen met Azure NetApp Files-resourceproviders oplossen
+          href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Naslaginformatie
   items:
-  - name: REST
-    href: https://docs.microsoft.com/rest/api/netapp/
-  - name: Resource Manager-sjabloon
-    href: /azure/templates/microsoft.netapp/allversions
-ms.openlocfilehash: 1380aa56161e7c1f0f3d72aae36c834a087e1040
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545924"
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/netapp/'
+    - name: Resource Manager-sjabloon
+      href: /azure/templates/microsoft.netapp/allversions

@@ -72,7 +72,9 @@
           href: waf-front-door-custom-rules-powershell.md
         - name: Aangepast antwoordcode configureren
           href: waf-front-door-configure-custom-response-code.md
-        - name: WAF-frequentielimiet configureren - Azure PowerShell
+        - name: IP-beperkingen configureren
+          href: waf-front-door-configure-ip-restriction.md
+        - name: Frequentielimiet configureren - Azure PowerShell
           href: waf-front-door-rate-limit-powershell.md
 - name: Veelgestelde vragen
   items:

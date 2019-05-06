@@ -1,26 +1,57 @@
 - name: Documentatie over Azure AD-identiteitsbeheer
   href: index.yml
 - name: Overzicht
-  expanded: false
+  expanded: true
   items:
     - name: Wat is identiteitsbeheer?
       href: identity-governance-overview.md
+    - name: Wat is rechtenbeheer? (Preview)
+      href: entitlement-management-overview.md
     - name: Wat zijn toegangsbeoordelingen?
       href: access-reviews-overview.md
-- name: Concepten
-  expanded: false
+- name: Zelfstudies
+  expanded: true
   items:
-    - name: Gastentoegang beheren met beoordelingen
-      href: manage-guest-access-with-access-reviews.md
-    - name: Gebruikerstoegang beheren met beoordelingen
-      href: manage-user-access-with-access-reviews.md
-    - name: Programma's en de bijbehorende besturingselementen beheren
-      href: manage-programs-controls.md
-    - name: Gebruikers beheren die geen voorwaardelijke toegang hebben
-      href: conditional-access-exclusion.md
+    - name: Uw eerste toegangspakket maken
+      href: entitlement-management-access-package-first.md
+- name: Concepten
+  expanded: true
+  items:
+    - name: Rechtenbeheer
+      items:
+        - name: Proces en e-mailberichten aanvragen
+          href: entitlement-management-process.md
+    - name: Toegangsbeoordelingen
+      items:
+        - name: Gastentoegang beheren met beoordelingen
+          href: manage-guest-access-with-access-reviews.md
+        - name: Gebruikerstoegang beheren met beoordelingen
+          href: manage-user-access-with-access-reviews.md
+        - name: Programma's en de bijbehorende besturingselementen beheren
+          href: manage-programs-controls.md
+        - name: Gebruikers beheren die geen voorwaardelijke toegang hebben
+          href: conditional-access-exclusion.md
 - name: Handleidingen
   expanded: true
   items:
+    - name: Rechtenbeheer
+      items:
+        - name: Algemene scenario's
+          href: entitlement-management-scenarios.md
+        - name: Een nieuw toegangspakket maken
+          href: entitlement-management-access-package-create.md
+        - name: Een toegangspakket bewerken
+          href: entitlement-management-access-package-edit.md
+        - name: Een catalogus maken
+          href: entitlement-management-catalog-create.md
+        - name: Toegang aanvragen
+          href: entitlement-management-request-access.md
+        - name: Aanvragen goedkeuren
+          href: entitlement-management-request-approve.md
+        - name: Rapporten en logboeken weergeven
+          href: entitlement-management-reports.md
+        - name: Problemen oplossen
+          href: entitlement-management-troubleshoot.md
     - name: Toegangsbeoordelingen
       items:
         - name: Groepen en apps

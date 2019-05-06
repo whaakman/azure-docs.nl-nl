@@ -186,7 +186,7 @@
           href: how-to-connect-configure-ad-ds-connector-account.md
         - name: Het wachtwoord van het Azure AD Sync-serviceaccount wijzigen
           href: how-to-connect-sync-change-serviceacct-pass.md
-        - name: Het Azure AD Connector-account wijzigen
+        - name: Het wachtwoord voor het Azure AD Connector-account wijzigen
           href: how-to-connect-azureadaccount.md
         - name: Wachtwoord voor het AD DS Connector-account wijzigen
           href: how-to-connect-sync-change-addsacct-pass.md
