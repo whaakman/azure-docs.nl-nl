@@ -1,6 +1,6 @@
 ---
-title: Een toegangscontrole van mijn Azure AD-rollen in PIM - Azure Active Directory uitvoeren | Microsoft Docs
-description: Leer hoe u een toegangscontrole van uw Azure AD-rollen uitvoeren in Azure AD Privileged Identity Management (PIM).
+title: Toegang tot Azure AD-rollen in PIM - Azure Active Directory controleren | Microsoft Docs
+description: Meer informatie over het bekijken van de toegang van Azure AD-rollen in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,15 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66f16e02716ceb94d2c8b10bb246a13dc566229c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3850af026ea13e1920aea65e18358ebb04ef0d25
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287809"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140970"
 ---
-# <a name="perform-an-access-review-of-my-azure-ad-roles-in-pim"></a>Een toegangscontrole van mijn Azure AD-rollen in PIM uitvoeren
+# <a name="review-access-to-azure-ad-roles-in-pim"></a>Toegang tot Azure AD-rollen in PIM bekijken
+
 Azure Active Directory (AD) Privileged Identity Management (PIM) vereenvoudigt de manier waarop ondernemingen bevoegde toegang tot resources in Azure AD en andere Microsoft online services zoals Office 365 en Microsoft Intune beheren.  
 
 Als u aan een beheerdersrol toegewezen bent, kan beheerder met bevoorrechte rol van uw organisatie vragen u om regelmatig te bevestigen dat u die rol nog voor de taak moet. U kunt een e-mailbericht een koppeling bevat krijgen of gaat u rechtstreeks naar de [Azure-portal](https://portal.azure.com). Volg de stappen in dit artikel om uit te voeren met een zelf bekijken van de toegewezen rollen.

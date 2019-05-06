@@ -1,18 +1,18 @@
 ---
-title: Snelstart - Een Azure Database for PostgreSQL-server maken in Azure Portal
-description: Quick Start-handleiding voor het beheren en maken van een Azure Database for PostgreSQL-server via de Azure Portal-gebruikersinterface.
+title: 'Snelstart: een Azure Database for PostgreSQL - één Server met behulp van de Azure portal maken'
+description: Quick Start-handleiding voor het maken en beheren van een Azure Database voor PostgreSQL - één Server met behulp van de Azure portal-gebruikersinterface.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 01/09/2019
-ms.openlocfilehash: de0bd93b4cdd41ebd0ccc3aa89185e4501b711e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: af1918b24afafce076f6d1efa5fd00b6df1ac537
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61092177"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073256"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Quickstart: Een Azure Database for PostgreSQL-server maken in Azure Portal
 
@@ -32,23 +32,27 @@ Volg deze stappen voor het maken van een Azure Database for PostgreSQL-server:
 
 2. Selecteer **Databases** > **Azure Database for PostgreSQL**.
 
-    ![De optie Azure Database for PostgreSQL](./media/quickstart-create-database-portal/1-create-database.png)
+    ![De 'Azure Database for PostgreSQL' in het menu](./media/quickstart-create-database-portal/1-create-database.png)
 
-3. Vul het formulier voor de gegevens van de nieuwe server als volgt in:
+3. Selecteer de **één server** Implementatieoptie.
 
-    ![Een server maken](./media/quickstart-create-database-portal/3-create.png)
+   ![Azure Database voor PostgreSQL - optie voor implementatie van één server selecteren](./media/quickstart-create-database-portal/select-deployment-option.png)
 
-    Instelling|Voorgestelde waarde|Beschrijving
+4. Vul de **basisbeginselen** formulier met de volgende informatie:
+
+    ![Een server maken](./media/quickstart-create-database-portal/create-basics.png)
+
+    Instelling|Voorgestelde waarde|Description
     ---|---|---
-    Servernaam |*mydemoserver*|Een unieke naam ter identificatie van uw Azure Database for PostgreSQL-server. De domeinnaam *postgres.database.azure.com* wordt toegevoegd aan de naam van de server die u opgeeft. De server mag alleen kleine letters, cijfers en het koppelteken (-) bevatten. Hij moet ten minste 3 en mag maximaal 63 tekens bevatten.
     Abonnement|De naam van uw abonnement|Het Azure-abonnement dat u wilt gebruiken voor uw server. Als u meerdere abonnementen hebt, kiest u het abonnement waarin u wordt gefactureerd voor de resource.
     Resourcegroep|*myresourcegroup*| Een nieuwe resourcegroepnaam of een bestaande naam uit uw abonnement.
-    Bron selecteren | *Leeg* | Selecteer *Leeg* om een nieuwe server te maken. (Selecteer *Back-up* als u een server maakt op basis van een geo-back-up van een bestaande Azure Database for PostgreSQL-server).
-    Aanmeldgegevens van serverbeheerder |*myadmin*| Uw eigen aanmeldingsaccount dat moet worden gebruikt om verbinding te maken met de server. De aanmeldingsnaam voor de beheerder mag niet **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest** of **public** zijn. De naam mag niet met **pg_** beginnen.
+    Servernaam |*mydemoserver*|Een unieke naam ter identificatie van uw Azure Database for PostgreSQL-server. De domeinnaam *postgres.database.azure.com* wordt toegevoegd aan de naam van de server die u opgeeft. De server mag alleen kleine letters, cijfers en het koppelteken (-) bevatten. Hij moet ten minste 3 en mag maximaal 63 tekens bevatten.
+    Gegevensbron | *Geen* | Selecteer *geen* te maken van een nieuwe server maken. (Selecteer *Back-up* als u een server maakt op basis van een geo-back-up van een bestaande Azure Database for PostgreSQL-server).
+    Gebruikersnaam van beheerder |*myadmin*| Uw eigen aanmeldingsaccount dat moet worden gebruikt om verbinding te maken met de server. De aanmeldingsnaam voor de beheerder mag niet **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest** of **public** zijn. De naam mag niet met **pg_** beginnen.
     Wachtwoord |Uw wachtwoord| Een nieuw wachtwoord voor het beheerdersaccount voor de server. Dit wachtwoord moet tussen 8 en 128 tekens bevatten. Uw wachtwoord moet tekens bevatten uit drie van de volgende categorieën: Nederlandse hoofdletters, Nederlandse kleine letters, cijfers (0 t/m 9) en niet-alfanumerieke tekens (!, $, #, % enzovoort).
     Locatie|De regio het dichtst bij uw gebruikers| De locatie die zich het dichtst bij uw gebruikers bevindt.
     Versie|De meest recente primaire versie| De nieuwste primaire versie van PostgreSQL, tenzij u specifieke andere vereisten hebt.
-    Prijscategorie | **Algemeen**, **Gen 5**, **2 vCores**, **5 GB**, **7 dagen**, **Geografisch redundant** | De reken-, opslag- en back-upconfiguraties voor de nieuwe server. Selecteer **Prijscategorie**. Selecteer vervolgens het tabblad **Algemeen**. *Gen 5*, *2 vCores*, *5 GB* en *7 dagen* zijn de standaardwaarden voor **Bewerking voor compute**, **vCore**, **Opslag** en **Bewaarperiode voor back-up**. U kunt deze schuifregelaars laten zoals ze zijn. Als u serverback-ups in geografisch redundante opslag wilt inschakelen, selecteert u **Geografisch redundant** in het gedeelte **Redundantieopties voor back-up**. Selecteer **OK** om deze geselecteerde prijscategorie op te slaan. Deze selecties worden afgebeeld in de volgende schermopname.
+    Berekenen en opslag | **Algemeen**, **Gen 5**, **2 vCores**, **5 GB**, **7 dagen**, **Geografisch redundant** | De reken-, opslag- en back-upconfiguraties voor de nieuwe server. Selecteer **-server configureren**. Selecteer vervolgens het tabblad **Algemeen**. *Gen 5*, *4 vCores*, *100 GB*, en *7 dagen* zijn de standaardwaarden voor **bewerking voor Compute**,  **vCore**, **opslag**, en **bewaarperiode voor back-up**. U kunt deze schuifregelaars laten zoals is of pas ze aan. Als u serverback-ups in geografisch redundante opslag wilt inschakelen, selecteert u **Geografisch redundant** in het gedeelte **Redundantieopties voor back-up**. Selecteer **OK** om deze geselecteerde prijscategorie op te slaan. Deze selecties worden afgebeeld in de volgende schermopname.
 
    > [!NOTE]
    > Overweeg het gebruik van de prijscategorie Basic als lichte reken- en I/O-capaciteit voldoende is voor uw workload. Servers die zijn gemaakt in de prijscategorie Basic kunnen later niet meer worden geschaald voor Algemeen gebruik of Geoptimaliseerd voor geheugen. Zie de pagina met [prijzen](https://azure.microsoft.com/pricing/details/postgresql/) voor meer informatie.
@@ -56,9 +60,9 @@ Volg deze stappen voor het maken van een Azure Database for PostgreSQL-server:
 
     ![Het deelvenster Prijscategorie](./media/quickstart-create-database-portal/2-pricing-tier.png)
 
-4. Selecteer **Maken** om de server in te richten. Deze bewerking kan enkele minuten duren.
+5. Selecteer **bekijken + maken** naar Controleer uw selecties. Selecteer **Maken** om de server in te richten. Deze bewerking kan enkele minuten duren.
 
-5. Selecteer het pictogram **Meldingen** (een klok) op de werkbalk om het implementatieproces te bewaken. Na de implementatie kunt u **Vastmaken aan dashboard** selecteren. Hiermee maakt u een tegel voor deze server op uw dashboard in Azure Portal als snelkoppeling naar de **overzichtspagina** van de server. Als u **Naar de resource gaan** selecteert, wordt de **overzichtspagina** van de server weergegeven.
+6. Selecteer het pictogram **Meldingen** (een klok) op de werkbalk om het implementatieproces te bewaken. Na de implementatie kunt u **Vastmaken aan dashboard** selecteren. Hiermee maakt u een tegel voor deze server op uw dashboard in Azure Portal als snelkoppeling naar de **overzichtspagina** van de server. Als u **Naar de resource gaan** selecteert, wordt de **overzichtspagina** van de server weergegeven.
 
     ![Het deelvenster Meldingen](./media/quickstart-create-database-portal/3-notifications.png)
    

@@ -17,12 +17,12 @@ ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9d2e9aa5e5e805b302763f5417110cdd078eb3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c45cd1627eb1eb98b2fc19f6663d5635b001ce0c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298676"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067791"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Quickstart: De Microsoft Graph-API aanroepen vanuit de Universeel Windows-platformtoepasing (UWP)
 
@@ -51,14 +51,15 @@ In deze snelstartgids bevat een codevoorbeeld van die laat zien hoe een Universa
 > Volg deze stappen om de toepassing te registreren en de registratiegegevens van de app toe te voegen aan de oplossing:
 > 1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
 > 1. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
-> 1. Navigeer naar de Microsoft identity-platform voor ontwikkelaars [App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina.
+> 1. Navigeer naar de Microsoft identity-platform voor ontwikkelaars [App-registraties](https://aka.ms/MobileAppReg) pagina.
 > 1. Selecteer **registratie van nieuwe**.
 > 1. Wanneer de pagina **Een toepassing registreren** verschijnt, voert u de registratiegegevens van de toepassing in:
 >      - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `UWP-App-calling-MsGraph`.
 >      - Selecteer in de sectie **Ondersteunde accounttypen** de optie **Accounts in alle organisatiemappen en persoonlijke Microsoft-accounts (bijvoorbeeld Skype, Xbox, Outlook.com**.
 >      - Selecteer **Registreren** om de toepassing te maken.
 > 1. Selecteer in de lijst met pagina’s voor de app de optie **Verificatie**.
-> 1. Ga in de sectie **Omleidings-URL's** naar de sectie **Voorgestelde Omleidings-URI's voor openbare clients (mobiel, desktop)**, en selecteer **"urn:ietf:wg:oauth:2.0:oob**.
+> 1. Vouw de **Desktop + apparaten** sectie.  (Als **Desktop + apparaten** niet wordt weergegeven, klikt u eerst op de bovenste banner om de Preview-versie verificatie-ervaring weer te geven)
+> 1. Onder de **omleidings-URI** sectie, selecteer **URI toevoegen**.  Type **urn: ietf:wg:oauth:2.0:oob**.
 > 1. Selecteer **Opslaan**.
 
 > [!div renderon="portal" class="sxs-lookup alert alert-info"]

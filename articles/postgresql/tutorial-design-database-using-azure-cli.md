@@ -1,21 +1,21 @@
 ---
-title: 'Zelfstudie: Een Azure Database for PostgreSQL ontwerpen met Azure CLI'
-description: Deze zelfstudie laat zien hoe u uw eerste Azure Database for PostgreSQL-server kunt maken, configureren en er query's op kunt toepassen met Azure CLI.
+title: 'Zelfstudie: Een Azure Database for PostgreSQL - één Server met behulp van Azure CLI ontwerpen'
+description: Deze zelfstudie laat zien hoe u kunt maken, configureren en vragen van uw eerste Azure Database voor PostgreSQL - één Server met behulp van Azure CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 04/01/2018
-ms.openlocfilehash: eba1ffcbe07c617661d902de0726f17e4fec0a00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 5/6/2019
+ms.openlocfilehash: ed272afcfedaf6c781d2a96e5732fe2368914a67
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992086"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073074"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Zelfstudie: Een Azure Database for PostgreSQL ontwerpen met Azure CLI 
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Zelfstudie: Een Azure Database for PostgreSQL - één Server met behulp van Azure CLI ontwerpen 
 In deze zelfstudie gebruikt u Azure CLI (Command Line Interface of opdrachtregelinterface in goed Nederlands) en andere hulpprogramma's om deze bewerkingen uit te voeren:
 > [!div class="checklist"]
 > * Een Azure-database voor PostgreSQL-server maken

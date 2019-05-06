@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: 8612c1cc2867d27a86b4b90b1ba63c097ad43cf7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b5c61ecb74c0fcdacc6024a74565f05b036e2ac6
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803814"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65081190"
 ---
 1. Start Visual Studio 2017.
 
@@ -49,7 +49,7 @@ ms.locfileid: "59803814"
 1. De volgende regel wordt uitgevoerd in de Package Manager Console.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.4.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.5.0' to helloworld
    ```
 
 1. Omdat de toepassing de microfoon gebruikt voor spraakinvoer, voegt u **Microphone** toe aan het project. Dubbelklik in Solution Explorer op **Package.appxmanifest** om het manifest van uw toepassing te bewerken. Ga vervolgens naar het tabblad **Capabilities**, selecteer het selectievakje bij **Microphone** en sla de wijzigingen op.

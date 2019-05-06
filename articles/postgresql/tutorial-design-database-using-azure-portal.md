@@ -1,20 +1,20 @@
 ---
-title: 'Zelfstudie: Een Azure Database for PostgreSQL ontwerpen met Azure Portal'
-description: Deze zelfstudie laat zien hoe u uw eerste Azure Database for PostgreSQL ontwerpt met Azure Portal.
+title: 'Zelfstudie: Een Azure Database for PostgreSQL - één Server met behulp van Azure portal ontwerpen'
+description: In deze zelfstudie laat zien hoe uw eerste Azure Database for PostgreSQL - één Server met behulp van de Azure-portal te ontwerpen.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 03/20/2018
-ms.openlocfilehash: aed539484ac01d1b18b8374ffb57456364f9bd2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/16/2019
+ms.openlocfilehash: 20eb5a59e98c06d7bce4623a6a8facd998d3be4c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61091973"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069142"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Zelfstudie: Een Azure Database for PostgreSQL ontwerpen met Azure Portal
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Zelfstudie: Een Azure Database for PostgreSQL - één Server met behulp van de Azure-portal ontwerpen
 
 Azure Database voor PostgreSQL is een beheerde service waarmee u PostgreSQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. Met behulp van Azure Portal kunt u eenvoudig uw server beheren en een database ontwerpen.
 
@@ -31,9 +31,6 @@ In deze zelfstudie leert u hoe u Azure Portal kunt gebruiken voor deze bewerking
 ## <a name="prerequisites"></a>Vereisten
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
-Meld u aan bij [Azure Portal](https://portal.azure.com).
-
 ## <a name="create-an-azure-database-for-postgresql"></a>Een Azure Database voor PostgreSQL-server maken
 
 Een Azure Database voor PostgreSQL-server wordt gemaakt met een gedefinieerde set [reken- en opslagresources](./concepts-compute-unit-and-storage.md). De server wordt gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md).
@@ -43,34 +40,40 @@ Volg deze stappen voor het maken van een Azure Database voor PostgreSQL-server:
 2. Selecteer **Databases** op de pagina **Nieuw** en selecteer **Azure Database voor PostgreSQL** op de pagina **Databases**.
    ![Azure Database voor PostgreSQL - De database maken](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
-3. Vul het formulier voor de gegevens van de nieuwe server als volgt in:
+3. Selecteer de **één server** Implementatieoptie.
 
-   ![Een server maken](./media/tutorial-design-database-using-azure-portal/2-create.png)
+   ![Azure Database voor PostgreSQL - optie voor implementatie van één server selecteren](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
 
-   - Servernaam: **mydemoserver** (de servernaam verwijst naar een DNS-naam en moet daarom wereldwijd uniek zijn) 
-   - Abonnement: Als u meerdere abonnementen hebt, kiest u het abonnement waarin de resource is opgenomen of wordt gefactureerd.
-   - Resourcegroep: **myresourcegroup**
-   - De aanmeldgegevens van de serverbeheerder (gebruikersnaam en wachtwoord)
-   - Locatie
-   - PostgreSQL-versie
+4. Vul de **basisbeginselen** formulier met de volgende informatie:
 
-   > [!IMPORTANT]
-   > De aanmeldgegevens en het wachtwoord van de serverbeheerder die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze zelfstudie. Onthoud of noteer deze informatie voor later gebruik.
+    ![Een server maken](./media/tutorial-design-database-using-azure-portal/create-basics.png)
 
-4. Klik op **Prijscategorie** om de prijscategorie voor de nieuwe server op te geven. Selecteer voor deze zelfstudie **algemeen**, **Gen 5** bewerking voor compute, 2 **vCores**, 5 GB aan **opslag** en 7 dagen  **back-up bewaarperiode**. Selecteer **Geografisch redundant** als redundantieoptie voor back-ups, zodat de automatische back-ups van uw server worden opgeslagen in een geografisch redundante opslag.
-   ![Azure Database for PostgreSQL - De prijscategorie kiezen](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
+    Instelling|Voorgestelde waarde|Description
+    ---|---|---
+    Abonnement|De naam van uw abonnement|Het Azure-abonnement dat u wilt gebruiken voor uw server. Als u meerdere abonnementen hebt, kiest u het abonnement waarin u wordt gefactureerd voor de resource.
+    Resourcegroep|*myresourcegroup*| Een nieuwe resourcegroepnaam of een bestaande naam uit uw abonnement.
+    Servernaam |*mydemoserver*|Een unieke naam ter identificatie van uw Azure Database for PostgreSQL-server. De domeinnaam *postgres.database.azure.com* wordt toegevoegd aan de naam van de server die u opgeeft. De server mag alleen kleine letters, cijfers en het koppelteken (-) bevatten. Hij moet ten minste 3 en mag maximaal 63 tekens bevatten.
+    Gegevensbron | *Geen* | Selecteer *geen* te maken van een nieuwe server maken. (Selecteer *Back-up* als u een server maakt op basis van een geo-back-up van een bestaande Azure Database for PostgreSQL-server).
+    Gebruikersnaam van beheerder |*myadmin*| Uw eigen aanmeldingsaccount dat moet worden gebruikt om verbinding te maken met de server. De aanmeldingsnaam voor de beheerder mag niet **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest** of **public** zijn. De naam mag niet met **pg_** beginnen.
+    Wachtwoord |Uw wachtwoord| Een nieuw wachtwoord voor het beheerdersaccount voor de server. Dit wachtwoord moet tussen 8 en 128 tekens bevatten. Uw wachtwoord moet tekens bevatten uit drie van de volgende categorieën: Nederlandse hoofdletters, Nederlandse kleine letters, cijfers (0 t/m 9) en niet-alfanumerieke tekens (!, $, #, % enzovoort).
+    Locatie|De regio het dichtst bij uw gebruikers| De locatie die zich het dichtst bij uw gebruikers bevindt.
+    Versie|De meest recente primaire versie| De nieuwste primaire versie van PostgreSQL, tenzij u specifieke andere vereisten hebt.
+    Berekenen en opslag | **Algemeen**, **Gen 5**, **2 vCores**, **5 GB**, **7 dagen**, **Geografisch redundant** | De reken-, opslag- en back-upconfiguraties voor de nieuwe server. Selecteer **-server configureren**. Selecteer vervolgens het tabblad **Algemeen**. *Gen 5*, *4 vCores*, *100 GB*, en *7 dagen* zijn de standaardwaarden voor **bewerking voor Compute**,  **vCore**, **opslag**, en **bewaarperiode voor back-up**. U kunt deze schuifregelaars laten zoals is of pas ze aan. Als u serverback-ups in geografisch redundante opslag wilt inschakelen, selecteert u **Geografisch redundant** in het gedeelte **Redundantieopties voor back-up**. Selecteer **OK** om deze geselecteerde prijscategorie op te slaan. Deze selecties worden afgebeeld in de volgende schermopname.
 
-5. Klik op **OK**.
+   > [!NOTE]
+   > Overweeg het gebruik van de prijscategorie Basic als lichte reken- en I/O-capaciteit voldoende is voor uw workload. Servers die zijn gemaakt in de prijscategorie Basic kunnen later niet meer worden geschaald voor Algemeen gebruik of Geoptimaliseerd voor geheugen. Zie de pagina met [prijzen](https://azure.microsoft.com/pricing/details/postgresql/) voor meer informatie.
+   > 
 
-6. Klik op **Maken** om de server in te richten. De inrichting duurt een paar minuten.
+    ![Het deelvenster Prijscategorie](./media/quickstart-create-database-portal/2-pricing-tier.png)
 
-7. Klik op de werkbalk op **Meldingen** om het implementatieproces te bewaken.
-   ![Azure Database voor PostgreSQL - Meldingen bekijken](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
+5. Selecteer **bekijken + maken** naar Controleer uw selecties. Selecteer **Maken** om de server in te richten. Deze bewerking kan enkele minuten duren.
 
-   > [!TIP]
-   > Schakel de optie **Vastmaken aan dashboard** in om uw implementaties eenvoudig te kunnen volgen.
+6. Selecteer het pictogram **Meldingen** (een klok) op de werkbalk om het implementatieproces te bewaken. Na de implementatie kunt u **Vastmaken aan dashboard** selecteren. Hiermee maakt u een tegel voor deze server op uw dashboard in Azure Portal als snelkoppeling naar de **overzichtspagina** van de server. Als u **Naar de resource gaan** selecteert, wordt de **overzichtspagina** van de server weergegeven.
 
-   De database **postgres** wordt gemaakt op uw server. De database [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) is een standaarddatabase die kan worden gebruikt door gebruikers, hulpprogramma's en toepassingen van derden. 
+    ![Het deelvenster Meldingen](./media/quickstart-create-database-portal/3-notifications.png)
+   
+   Standaard word een **postgres**-database op uw server gemaakt. De database [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) is een standaarddatabase die kan worden gebruikt door gebruikers, hulpprogramma's en toepassingen van derden. (De andere standaarddatabase is **azure_maintenance**. De functie van de database is het scheiden van beheerde serviceprocessen van acties van de gebruiker. U hebt geen toegang tot deze database.)
+
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Een serverfirewallregel configureren
 

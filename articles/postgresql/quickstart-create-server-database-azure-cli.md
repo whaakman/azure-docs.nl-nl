@@ -1,21 +1,21 @@
 ---
-title: 'Snelstart: een Azure Database for PostgreSQL maken via Azure CLI'
-description: Quick Start voor het maken en beheren van Azure Database voor PostgreSQL-server met behulp van Azure CLI (opdrachtregelinterface).
+title: 'Snelstart: een Azure Database for PostgreSQL - één met de Azure CLI-Server maken'
+description: Quick Start voor het maken en beheren van Azure Database voor PostgreSQL - één Server met behulp van Azure CLI (opdrachtregelinterface).
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/12/2019
+ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: 07e3f1f2dd672fcfd0b7a3a4d102c429ac123c08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5b16d87a69ecdac578da2a90be22013744c32bd7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902015"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069058"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Quickstart: Een Azure-database voor PostgreSQL maken met de Azure CLI
+# <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Quickstart: Maak een Azure Database voor PostgreSQL - één Server met de Azure CLI
 
 > [!TIP]
 > Overweeg het gebruik van de meest eenvoudige [az postgres van](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI-opdracht (momenteel in Preview-versie). Probeer de [snelstartgids](./quickstart-create-server-up-azure-cli.md).
@@ -28,12 +28,12 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer de opdracht `az --version` uit om de geïnstalleerde versie te zien. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren. 
 
-Als u de CLI lokaal uitvoert, moet u zich aanmelden bij uw account met behulp van de opdracht [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Let op de **id**-eigenschap van de opdrachtuitvoer voor de naam van het desbetreffende abonnement.
+Als u de CLI lokaal uitvoert, moet u zich aanmeldt bij uw account met de [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) opdracht. Houd er rekening mee de **ID** eigenschap uit de uitvoer van de opdracht voor de naam van het desbetreffende abonnement.
 ```azurecli-interactive
 az login
 ```
 
-Als u meerdere abonnementen hebt, kiest u het juiste abonnement waarin de resource moet worden gefactureerd. Selecteer de specifieke abonnements-id in uw account met de opdracht [az account set](/cli/azure/account). Gebruik de **id**-eigenschap uit de **az login**-uitvoer voor uw abonnement in de tijdelijke aanduiding voor de abonnement-id.
+Als u meerdere abonnementen hebt, kiest u het juiste abonnement waarin de resource moet worden gefactureerd. Selecteer de specifieke abonnements-id in uw account met de opdracht [az account set](/cli/azure/account). Vervang de **ID** eigenschap uit de **az login** uitvoer voor uw abonnement in de tijdelijke aanduiding voor abonnement-ID.
 ```azurecli-interactive
 az account set --subscription <subscription id>
 ```
@@ -58,7 +58,7 @@ sku-name | GP_Gen5_2 | De naam van de SKU. Volgt de verkorte notatie voor conven
 backup-retention | 7 | Hoe lang een back-up moet worden bewaard. De eenheid is dagen. Het bereik is 7-35. 
 geo-redundant-backup | Uitgeschakeld | Of geografisch redundante back-ups moeten worden ingeschakeld voor deze server. Toegestane waarden: Ingeschakeld, Uitgeschakeld.
 location | westus | De Azure-locatie voor de server.
-ssl-enforcement | Ingeschakeld | Of ssl moet worden ingeschakeld voor deze server. Toegestane waarden: Ingeschakeld, Uitgeschakeld.
+ssl-enforcement | Enabled | Of ssl moet worden ingeschakeld voor deze server. Toegestane waarden: Ingeschakeld, Uitgeschakeld.
 storage-size | 51.200 | De opslagcapaciteit van de server (eenheid is MB). De minimale opslaggrootte is 5120 MB en deze kunt u ophogen in stappen van 1024 MB. Zie het document met [prijsinformatie](./concepts-pricing-tiers.md) voor meer informatie over de opslaglimieten. 
 versie | 9.6 | De primaire versie van PostgreSQL.
 admin-user | myadmin | De gebruikersnaam voor aanmelding als beheerder. De aanmeldingsnaam van de beheerder mag niet **azure_superuser**, **admin**, **administrator**, **root**, **guest** of **public** zijn.

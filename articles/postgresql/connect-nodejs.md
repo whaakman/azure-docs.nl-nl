@@ -1,21 +1,21 @@
 ---
-title: Verbinding maken met Azure Database for PostgreSQL via Node.js
-description: Deze snelstartgids bevat een voorbeeld van Node.js-code die u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor PostgreSQL.
+title: Node.js gebruiken om te verbinden met Azure Database voor PostgreSQL - één Server
+description: Deze snelstartgids bevat een Node.js-codevoorbeeld dat die u kunt verbinding maken en query uitvoeren op gegevens uit een Azure Database voor PostgreSQL - één Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 4c7f2f71ff302cbaa0aab66f97b93cb1c5b9e5e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 5ebcb3151bf9b6eaca4a726553a3c8f1d93c08aa
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60623852"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067137"
 ---
-# <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Node.js gebruiken om verbinding te maken met gegevens en er query's op uit te voeren
+# <a name="azure-database-for-postgresql---single-server-use-nodejs-to-connect-and-query-data"></a>Azure Database voor PostgreSQL - één-Server: Node.js gebruiken om verbinding te maken met gegevens en er query's op uit te voeren
 In deze Quick Start ziet u hoe u met behulp van een [Node.js](https://nodejs.org/)-toepassing verbinding maakt met een Azure Database for PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Node.js en geen ervaring hebt met het werken met Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Vereisten

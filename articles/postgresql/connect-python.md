@@ -1,21 +1,21 @@
 ---
-title: Verbinding maken met Azure Database for PostgreSQL via Python
-description: Deze snelstartgids bevat een voorbeeld van Python-code dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor PostgreSQL.
+title: Python gebruiken om te verbinden met Azure Database voor PostgreSQL - één Server
+description: Deze snelstartgids bevat een Python-codevoorbeeld dat u kunt verbinding maken en query uitvoeren op gegevens uit een Azure Database voor PostgreSQL - Server één.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: eb6b23d8f8c476ba41bea918456fdf7fb9782920
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4d7988ad590e6d57d9da37f46557f99fccaad294
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422141"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067225"
 ---
-# <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Python gebruiken om verbinding te maken met gegevens en er query's op uit te voeren
+# <a name="azure-database-for-postgresql---single-server-use-python-to-connect-and-query-data"></a>Azure Database voor PostgreSQL - één-Server: Python gebruiken om verbinding te maken met gegevens en er query's op uit te voeren
 In deze snelstartgids ziet u hoe u met behulp van [Python](https://python.org) verbinding maakt met Azure Database PostgreSQL. U kunt ook zien hoe SQL-instructies worden gebruikt om gegevens in te voegen, bij te werken, te verwijderen en er query's op uit te voeren in de database vanaf Mac OS-, Ubuntu Linux- en Windows-platforms. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Python en geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
 
 ## <a name="prerequisites"></a>Vereisten

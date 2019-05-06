@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d3d98c91b2a373e4ed8b1ae556d402cb29d0dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c9600c20349627c1da2bdf4f1bbc2f3d7a55549
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298625"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067766"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Quickstart: Een token verkrijgen en Microsoft Graph API aanroepen vanuit een Windows-bureaublad-app
 
@@ -51,13 +51,14 @@ In deze quickstart leert u hoe u een .NET-toepassing (WPF) voor Windows-bureaubl
 >
 > 1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
 > 1. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
-> 1. Navigeer naar de Microsoft identity-platform voor ontwikkelaars [App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina.
+> 1. Navigeer naar de Microsoft identity-platform voor ontwikkelaars [App-registraties](https://aka.ms/MobileAppReg) pagina.
 > 1. Selecteer **registratie van nieuwe**.
 >      - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `Win-App-calling-MsGraph`.
 >      - Selecteer in de sectie **Ondersteunde accounttypen** de optie **Accounts in alle organisatiemappen en persoonlijke Microsoft-accounts (bijvoorbeeld Skype, Xbox, Outlook.com**.
 >      - Selecteer **Registreren** om de toepassing te maken.
 > 1. Selecteer in de lijst met pagina’s voor de app de optie **Verificatie**.
-> 1. Ga in de sectie **Omleidings-URI's** naar de sectie **Voorgestelde omleidings-URI's voor openbare clients (mobiel, desktop)**, en selecteer **"urn:ietf:wg:oauth:2.0:oob**.
+> 1. Vouw de **Desktop + apparaten** sectie.  (Als **Desktop + apparaten** niet wordt weergegeven, klikt u eerst op de bovenste banner om de Preview-versie verificatie-ervaring weer te geven)
+> 1. Onder de **omleidings-URI** sectie, selecteer **URI toevoegen**.  Type **urn: ietf:wg:oauth:2.0:oob**.
 > 1. Selecteer **Opslaan**.
 
 > [!div class="sxs-lookup" renderon="portal"]

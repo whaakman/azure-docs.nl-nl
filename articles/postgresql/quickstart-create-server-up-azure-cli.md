@@ -1,25 +1,25 @@
 ---
-title: 'Snelstart: een Azure Database for PostgreSQL maken met een eenvoudige Azure CLI-opdracht - az postgres van (preview)'
-description: Quick Start voor het maken van Azure Database for PostgreSQL-server met behulp van Azure CLI (opdrachtregelinterface) van de opdracht.
+title: 'Quickstart: Maak een Azure Database voor PostgreSQL - één Server met de CLI-opdracht az postgres omhoog'
+description: Quick Start voor het maken van Azure Database voor PostgreSQL - één Server met behulp van Azure CLI (Command line interface) van de opdracht.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/18/2019
-ms.openlocfilehash: 0db49e2c370aee37cca4181cecbe4cf0b5585c51
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 49f71c199a2832d763bb3c19d878fade47dfb8e4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61091630"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069080"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-using-a-simple-azure-cli-command---az-postgres-up-preview"></a>Quickstart: Een Azure Database for PostgreSQL maken met een eenvoudige Azure CLI-opdracht - az postgres van (preview)
+# <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Quickstart: Een Azure CLI-opdracht, az postgres van (preview) gebruiken om u te maken van een Azure Database voor PostgreSQL - één Server
 
 > [!IMPORTANT]
 > De [az postgres van](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI-opdracht is beschikbaar als preview.
 
-Azure Database voor PostgreSQL is een beheerde service waarmee u PostgreSQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. Deze snelstartgids leest u hoe u de [az postgres van](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) opdracht voor het maken van een Azure Database for PostgreSQL-server met de Azure CLI. Naast het maken van de server, de `az postgres up` opdracht maakt u een voorbeelddatabase, een hoofdgebruiker zijn in de database, opent u de firewall voor Azure-services en maakt standaard firewall-regels voor de clientcomputer. Hiermee kunt u het ontwikkelproces versnellen.
+Azure Database voor PostgreSQL is een beheerde service waarmee u PostgreSQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. Deze snelstartgids leest u hoe u de [az postgres van](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) opdracht voor het maken van een Azure Database for PostgreSQL-server met de Azure CLI. Naast het maken van de server, de `az postgres up` opdracht maakt u een voorbeelddatabase, een hoofdgebruiker zijn in de database, opent u de firewall voor Azure-services en maakt standaard firewall-regels voor de clientcomputer. Deze standaardinstellingen te versnellen van het ontwikkelingsproces inbouwt.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -27,13 +27,13 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 In dit artikel is vereist dat u van Azure CLI versie 2.0 of hoger uitvoert lokaal. Voer de opdracht `az --version` uit om de geïnstalleerde versie te zien. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
-U moet zich aanmelden bij uw account met de [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) opdracht. Let op de **id**-eigenschap van de opdrachtuitvoer voor de naam van het desbetreffende abonnement.
+U moet zich aanmelden bij uw account met de [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) opdracht. Houd er rekening mee de **ID** eigenschap uit de uitvoer van de opdracht voor de naam van het desbetreffende abonnement.
 
 ```azurecli
 az login
 ```
 
-Als u meerdere abonnementen hebt, kiest u het juiste abonnement waarin de resource moet worden gefactureerd. Selecteer de specifieke abonnements-id in uw account met de opdracht [az account set](/cli/azure/account). Vervang de **abonnements-id** eigenschap uit de **az login** uitvoer voor uw abonnement in de tijdelijke aanduiding voor abonnement-id.
+Als u meerdere abonnementen hebt, kiest u het juiste abonnement waarin de resource moet worden gefactureerd. Selecteer de specifieke abonnements-id in uw account met de opdracht [az account set](/cli/azure/account). Vervang de **abonnements-ID** eigenschap uit de **az login** uitvoer voor uw abonnement in de tijdelijke aanduiding voor abonnement-ID.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -60,13 +60,13 @@ De server is gemaakt met de volgende standaardwaarden (tenzij u handmatig deze o
 servernaam | Door het systeem gegenereerde | Een unieke naam ter identificatie van uw Azure Database for PostgreSQL-server.
 resource-group | Door het systeem gegenereerde | Een nieuwe Azure-resourcegroep.
 sku-name | GP_Gen5_2 | De naam van de SKU. Volgt de verkorte notatie voor conventie {prijscategorie}\_{compute-generatie}\_{vCores}. De standaardwaarde is een Gen5 voor algemeen gebruik-server met 2 vCores. Zie onze [pagina met prijzen](https://azure.microsoft.com/pricing/details/postgresql/) voor meer informatie over de lagen.
-backup-retention | 7 | Hoe lang een back-up moet worden bewaard. De eenheid is dagen.
+backup-retention | 7 | Hoe lang een back-up wordt bewaard. De eenheid is dagen.
 geo-redundant-backup | Uitgeschakeld | Of geografisch redundante back-ups moeten worden ingeschakeld voor deze server.
 location | westus2 | De Azure-locatie voor de server.
 ssl-enforcement | Uitgeschakeld | Of ssl moet worden ingeschakeld voor deze server.
 storage-size | 5120 | De opslagcapaciteit van de server (eenheid is MB).
 versie | 10 | De primaire versie van PostgreSQL.
-admin-user | Door het systeem gegenereerde | De gebruikersnaam voor aanmelding als beheerder.
+admin-user | Door het systeem gegenereerde | De gebruikersnaam voor de beheerder.
 admin-password | Door het systeem gegenereerde | Het wachtwoord van het beheerdersaccount.
 
 > [!NOTE]

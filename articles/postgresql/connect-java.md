@@ -1,21 +1,21 @@
 ---
-title: Verbinding maken met Azure Database for PostgreSQL via Java
-description: Deze snelstartgids bevat een voorbeeld van Java-code die u kunt gebruiken om verbinding te maken met en query's uit te voeren voor gegevens uit een Azure Database voor PostgreSQL.
+title: Java gebruiken om te verbinden met Azure Database voor PostgreSQL - één Server
+description: Deze snelstartgids bevat een Java-codevoorbeeld dat die u kunt verbinding maken en query uitvoeren op gegevens uit een Azure Database voor PostgreSQL - één Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: c8216c67a912beb9a735c3757520684cc837e989
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 33d127c25fdb38071f44f21257df9b74b69dfa2e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776465"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067383"
 ---
-# <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Java gebruiken om verbinding te maken met gegevens en er query's op uit te voeren
+# <a name="azure-database-for-postgresql---single-server-use-java-to-connect-and-query-data"></a>Azure Database voor PostgreSQL - één-Server: Java gebruiken om verbinding te maken met gegevens en er query's op uit te voeren
 In deze snelstartgids ziet u hoe u met behulp van een Java-toepassing verbinding maakt met een Azure Database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Java en geen ervaring hebt met het werken met Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Vereisten

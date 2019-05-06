@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 05/06/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: dd6d527020bbf5e2fb510fa9605af408673e89dd
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: 511dab7090f6114c7769d504166f3e2c137d43ca
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64514234"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071827"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Quickstart: Een taak in de cloud Azure Stream Analytics maken in Visual Studio Code (Preview)
 
@@ -26,23 +26,13 @@ Deze quickstart laat zien hoe u maakt en een Stream Analytics-taak uitvoeren met
 
 * Installeer [Visual Studio Code](https://code.visualstudio.com/).
 
-* Download de [Azure Stream Analytics-extensie voor VS Code](https://usqldownload.blob.core.windows.net/ext/asa/vscode-asa-0.0.2.vsix).
-
 ## <a name="install-the-azure-stream-analytics-extension"></a>De Azure Stream Analytics-extensie installeren
-
-Azure Stream Analytics-extensie installeren uit het persoonlijke VSIX-pakket dat u hebt gedownload.
 
 1. Open Visual Studio Code.
 
-2. Van **extensies** in het linkerdeelvenster, selecteer het beletselteken **(...)**  in de rechterbovenhoek. Selecteer vervolgens **installeren vanaf VSIX**.
+2. Van **extensies** zoeken in het linkerdeelvenster naar **Stream Analytics** en selecteer **installeren** op de **Azure Stream Analytics** extensie.
 
-   ![Vanaf VSIX in Visual Studio Code installeren](./media/quick-create-vs-code/install-vsix.png)
-
-3. Kies de extensie die u hebt gedownload als een vereiste en selecteer **installeren**.  Dit kan enkele seconden duren.
-
-4. Wanneer de installatie is voltooid, selecteert u **nu opnieuw laden** in het pop-upvenster als u wordt gevraagd.
-
-5. Controleer **Azure Stream Analytics-hulpprogramma's** zichtbaar is in uw **ingeschakeld extensies**.
+3. Nadat de extensie is geïnstalleerd, Controleer **Azure Stream Analytics-hulpprogramma's** zichtbaar is in uw **ingeschakeld extensies**.
 
    ![Azure Stream Analytics-hulpprogramma's onder ingeschakelde uitbreidingen in Visual Studio Code](./media/quick-create-vs-code/enabled-extensions.png)
 
@@ -123,7 +113,7 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
 
    ![Stream Analytics-projectbestanden in VS Code](./media/quick-create-vs-code/asa-project-files.png)
 
-4. Het configuratiebestand asaproj.json bevat de invoer, uitvoer en taak bestand configuratiegegevens die nodig zijn voor het indienen van de ASA-taak naar Azure.
+4. De **asaproj.json** configuratie-item bevat de invoer, uitvoer en taak bestand configuratiegegevens die nodig zijn voor het indienen van de Stream Analytics-taak naar Azure.
 
    ![Stream Analytics-taak-configuratiebestand in VS Code](./media/quick-create-vs-code/job-configuration.png)
 
@@ -146,7 +136,7 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
 
 4. Voer de naam van het bestand voor invoer als **IotHub.json**.
 
-5. Bewerken **IoTHub.json** met de volgende waarden. Houd de standaardwaarden voor de velden niet die hieronder worden vermeld. De CodeLens gebruiken om u te helpen bij het invoeren van een tekenreeks of selecteert u in een vervolgkeuzelijst weergegeven.
+5. Bewerken **IoTHub.json** met de volgende waarden. Houd de standaardwaarden voor de velden niet die hieronder worden vermeld. U kunt de CodeLens gebruiken om u te helpen bij het invoeren van een tekenreeks, selecteren in een vervolgkeuzelijst of wijzig de tekst rechtstreeks in het bestand.
 
    |Instelling|Voorgestelde waarde|Description|
    |-------|---------------|-----------|
@@ -189,9 +179,9 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
    HAVING Temperature > 27
    ```
 
-## <a name="compile-script"></a>Script compileren
+## <a name="compile-the-script"></a>Het script compileren
 
-Script compilatie doet twee dingen: Controleer de syntaxis en de Azure Resource Manager-sjablonen voor automatische implementatie te genereren.
+Script compilatie doet twee dingen: Controleer de syntaxis en genereren van de Azure Resource Manager-sjablonen voor automatische implementatie.
 
 Er zijn twee manieren voor het activeren van de compilatie script:
 
@@ -205,6 +195,8 @@ Er zijn twee manieren voor het activeren van de compilatie script:
 
 3. Na de compilatie, vindt u de twee gegenereerde Azure Resource Manager-sjablonen in **implementeren** map van uw project. Deze twee bestanden worden gebruikt voor automatische implementatie.
 
+    ![Sjablonen voor de Stream Analytics-implementatie in Windows Verkenner](./media/quick-create-vs-code/deployment-templates.png)
+
 ## <a name="submit-a-stream-analytics-job-to-azure"></a>Een Stream Analytics-taak naar Azure verzenden
 
 1. Selecteer in de script-editor-venster van Visual Studio Code **selecteren bij uw abonnementen**.
@@ -213,7 +205,7 @@ Er zijn twee manieren voor het activeren van de compilatie script:
 
 2. Selecteer uw abonnement in de lijst met het pop-upvenster.
 
-3. Selecteer **selecteert u een taak**. Kies maken vervolgens een nieuwe taak.
+3. Selecteer een taak **. Kies maken vervolgens een nieuwe taak.
 
 4. Voer de taaknaam van uw **myASAjob** en volg de instructies voor het kiezen van de resourcegroep en locatie.
 
@@ -233,13 +225,15 @@ Er zijn twee manieren voor het activeren van de compilatie script:
 
 ## <a name="start-the-stream-analytics-job-and-check-output"></a>Stream Analytics-taak starten en uitvoer controleren
 
-1. Stream Analytics Explorer openen in Visual Studio Code en zoek uw taak,**myASAJob**.
+1. Open **Stream Analytics Explorer** in Visual Studio Code en zoek uw taak **myASAJob**.
 
 2. Met de rechtermuisknop op de taaknaam. Selecteer **Start** in het contextmenu.
 
+![Stream Analytics-taak te starten in VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
+
 3. Kies **nu** in het pop-upvenster om de taak te starten.
 
-4. Houd er rekening mee de taak de status is gewijzigd in **met**. Met de rechtermuisknop op de taaknaam van de en kies **Open taak weergeven in Portal** om te zien van de invoer en uitvoer van de gebeurtenis metrische gegevens. Dit kan enkele minuten duren.
+4. Houd er rekening mee de taak de status is gewijzigd in **met**. Met de rechtermuisknop op de taaknaam van de en kies **Open taak weergeven in Portal** om te zien van de invoer en uitvoer van de gebeurtenis metrische gegevens. Deze actie kan enkele minuten duren.
 
 5. De resultaten weergeven, opent u de blob-opslag in de Visual Studio Code-extensie of in Azure portal.
 

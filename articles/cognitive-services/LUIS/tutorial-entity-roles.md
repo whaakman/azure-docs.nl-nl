@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: diberry
-ms.openlocfilehash: 98c2ad15d836162608affbfbc89908a15e274cee
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 2e2b2c39cf9039c78a610e9b28065b972484123e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528695"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069271"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Zelfstudie: Contextueel gerelateerde gegevens ophalen uit een utterance
 
 In deze zelfstudie zoekt u gerelateerde gegevens op basis van context. Denk bijvoorbeeld aan de locaties van oorsprong en bestemming voor een overplaatsing tussen vestigingen. Hiervoor zijn mogelijk beide gegevenselementen vereist en ze zijn aan elkaar gerelateerd.  
 
-In deze zelfstudie is eerder geschreven met behulp van hiërarchische entiteiten. Entiteit rollen vervangen de noodzaak voor het hiërarchische entiteitstype. Een rol kan worden gebruikt met een vooraf gedefinieerde of aangepaste entiteit, en worden gebruikt in zowel voorbeeld uitingen en patronen. 
+Een rol kan worden gebruikt met een vooraf gedefinieerde of aangepaste entiteit, en worden gebruikt in zowel voorbeeld uitingen en patronen. 
 
 **In deze zelfstudie leert u het volgende:**
 
@@ -117,7 +117,7 @@ De vooraf gedefinieerde entiteit, geographyV2, haalt de locatie-informatie, waar
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-1. Ga naar het einde van de URL in de adresbalk en voer `Please move Carl Chamerlin from Tampa to Portland` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intent `MoveEmployee` als resultaat moet geven met de entiteit Hierarchical geëxtraheerd.
+1. Ga naar het einde van de URL in de adresbalk en voer `Please move Carl Chamerlin from Tampa to Portland` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde uitingen zodat het is een goede test en moet de `MoveEmployee` intentie aan de entiteit hebt uitgepakt.
 
     ```json
     {

@@ -1,5 +1,5 @@
 ---
-title: Wijziging handtekening hash-algoritme voor Office 365 relying partyvertrouwensrelatie | Microsoft Docs
+title: Wijzig de handtekening hash-algoritme voor Office 365 vertrouwensrelatie van relying party - Azure
 description: Deze pagina bevat richtlijnen voor het wijzigen van SHA-algoritme voor federatieve vertrouwensrelatie met Office 365
 keywords: SHA1, SHA256, O365, Federatie, aadconnect, adfs, ad fs, wijziging sha, federatieve vertrouwensrelatie, vertrouwensrelatie van relying party
 services: active-directory
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aa597c8b458305946aa298631726df3da317534
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b6c81343d52f016dc779f9e08176a0d909684c0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60244437"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138627"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Handtekening hash-algoritme voor Office 365 vertrouwensrelatie van relying party wijzigen
 ## <a name="overview"></a>Overzicht

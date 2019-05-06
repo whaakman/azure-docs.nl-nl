@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427e293c28f634df9f66a7210d79e0df0d4d063c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df0d0b02efe7e99253b64ba02a5d9e77bb968993
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410345"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138358"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedure: App-rollen in uw toepassing toevoegen en deze ontvangen in het token
 
@@ -51,7 +51,9 @@ De rollen voor deze toepassing zijn gedefinieerd in de [Azure-portal](https://po
 1. Het app-manifest bewerken door te zoeken op de `appRoles` instellen en het toevoegen van alle rollen in uw toepassing.
 
      > [!NOTE]
-     > De roldefinitie van elke in deze manifest moet hebben een andere geldige **Guid** voor de eigenschap 'Id'. De `"value"` eigenschap van elke rol moet exact overeenkomen met de tekenreeksen worden gebruikt in de code in de toepassing.
+     > Elke app roldefinitie in dit manifest moet een andere geldige GUID voor de `id` eigenschap. 
+     > 
+     > De `value` eigenschap van de definitie van elke app-rol moet exact overeenkomen met de tekenreeksen die worden gebruikt in de code in de toepassing. De `value` eigenschap mag geen spaties bevatten. Als dit het geval is, ontvangt u een fout opgetreden bij het opslaan van het manifest.
      
 1. Sla het manifest.
 

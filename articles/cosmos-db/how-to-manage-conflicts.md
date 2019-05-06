@@ -4,14 +4,14 @@ description: Informatie over het beheren van conflicten in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/16/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: fb9850548f0bfb71b797830eb0d5fdfddbc32306
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6e57dc5b4bcfa3f02e323253e24d68381c3535d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054795"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068739"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Conflictoplossingsbeleid beheren in Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Wanneer meerdere clients naar hetzelfde item schrijven, kunnen met schrijfbewerk
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Het conflictoplossingsbeleid 'last writer wins' maken
 
-Deze voorbeelden laten zien hoe u een container kunt instellen met het conflictoplossingsbeleid 'last writer wins'. Het standaardpad voor laatste schrijver wins is het tijdstempelveld of de `_ts` eigenschap. Dit kan ook worden ingesteld op een door de gebruiker gedefinieerde pad voor een numeriek type. Een conflict in de wins-de hoogste waarde. Als het pad is niet ingesteld of als deze waarde ongeldig is, wordt standaard `_ts`. Conflicten met dit beleid is opgelost, niet weergegeven in de feed conflict. Dit beleid kan worden gebruikt door alle API's.
+Deze voorbeelden laten zien hoe u een container kunt instellen met het conflictoplossingsbeleid 'last writer wins'. Het standaardpad voor laatste schrijver wins is het tijdstempelveld of de `_ts` eigenschap. Dit kan ook worden ingesteld op een door de gebruiker gedefinieerde pad voor een numeriek type. Een conflict optreedt wint de hoogste waarde. Als het pad is niet ingesteld of als deze waarde ongeldig is, wordt standaard `_ts`. Conflicten met dit beleid is opgelost, niet weergegeven in de feed conflict. Dit beleid kan worden gebruikt door alle API's.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -86,16 +86,16 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Een aangepaste conflict resolutie beleid met behulp van een opgeslagen procedure maken
 
-Deze voorbeelden laten zien hoe u een container kunt instellen met aangepast conflictoplossingsbeleid met een opgeslagen procedure om het conflict op te lossen. Deze conflicten worden niet weergegeven in de conflictfeed tenzij er een fout is in de opgeslagen procedure. Nadat het beleid is gemaakt met de container die u wilt maken van de opgeslagen procedure. De SDK voor .NET-voorbeeld hieronder toont een voorbeeld van deze. Dit beleid wordt alleen op Core (SQL) Api ondersteund.
+Deze voorbeelden laten zien hoe u een container kunt instellen met aangepast conflictoplossingsbeleid met een opgeslagen procedure om het conflict op te lossen. Deze conflicten worden niet weergegeven in de conflictfeed tenzij er een fout is in de opgeslagen procedure. Nadat het beleid is gemaakt met de container, moet u de opgeslagen procedure maken. De SDK voor .NET-voorbeeld hieronder toont een voorbeeld. Dit beleid wordt alleen op Core (SQL) Api ondersteund.
 
 ### <a name="sample-custom-conflict-resolution-stored-procedure"></a>Voorbeeld van aangepaste conflictoplossing opgeslagen procedure
 
 Aangepaste conflict resolutie opgeslagen procedures moeten worden geïmplementeerd met behulp van de functiehandtekening hieronder wordt weergegeven. Naam van de functie hoeft niet overeen met de naam die wordt gebruikt bij het registreren van de opgeslagen procedure met de container maar deze vereenvoudigen naamgeving. Hier volgt een beschrijving van de parameters die moeten worden geïmplementeerd voor deze opgeslagen procedure.
 
 - **incomingItem**: Het item wordt ingevoegd of bijgewerkt in de doorvoer die een conflict tussen het genereert. Is null voor de bewerking verwijderen.
-- **existingItem**: Het momenteel toegewezen item. Deze waarde is null in een update- en null voor het invoegen of verwijderen.
+- **existingItem**: Het momenteel toegewezen item. Deze waarde is niet gelijk zijn aan nul in een update en null voor een insert of verwijderd.
 - **isTombstone**: Booleaanse waarde waarmee wordt aangegeven als de incomingItem is in conflict met een eerder verwijderde item. Indien waar, is ook existingItem null zijn.
-- **conflictingItems**: Matrix van de doorgevoerde versie van alle items in de container die met incomingItem op id conflicteren of een andere unieke index-eigenschappen.
+- **conflictingItems**: Matrix van de doorgevoerde versie van alle items in de container die met incomingItem op ID conflicteren of een andere unieke index-eigenschappen.
 
 > [!IMPORTANT]
 > Net zoals met alle opgeslagen procedures, kunt een aangepaste oplossing procedure krijgen tot gegevens met dezelfde partitiesleutel en kunt uitvoeren van een invoegen, bijwerken of verwijderen bewerking voor het oplossen van conflicten.
@@ -361,7 +361,7 @@ Meer informatie over de volgende Azure Cosmos DB-concepten:
 
 * [Wereldwijde distributie - achter de schermen](global-dist-under-the-hood.md)
 * [Meerdere masters in uw toepassingen configureren](how-to-multi-master.md)
-* [Clients configureren voor multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Clients configureren voor multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Toevoegen of verwijderen van regio's van uw Azure Cosmos DB-account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Meerdere masters configureren in uw toepassingen](how-to-multi-master.md).
 * [Partitionering en gegevensdistributie](partition-data.md)

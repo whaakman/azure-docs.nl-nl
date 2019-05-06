@@ -1,6 +1,6 @@
 ---
-title: Een toegangscontrole voor Azure-resource-rollen in PIM - Azure Active Directory voltooien | Microsoft Docs
-description: Leer hoe u een toegangscontrole voor de Azure-resource in Azure AD Privileged Identity Management (PIM) voltooien.
+title: Een toegangscontrole van Azure-resource-rollen in PIM - Azure Active Directory voltooien | Microsoft Docs
+description: Leer hoe u een toegangscontrole van Azure-resource-rollen in Azure AD Privileged Identity Management (PIM) voltooien.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 837be3ccdbd133f6bf372779dadff4d3c574a2e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a310770f26a1c40682791582a05a9bb4c47a42d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288261"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141031"
 ---
-# <a name="complete-an-access-review-for-azure-resource-roles-in-pim"></a>Een toegangscontrole voor Azure-resource-rollen in PIM voltooien
+# <a name="complete-an-access-review-of-azure-resource-roles-in-pim"></a>Een toegangscontrole van Azure-resource-rollen in PIM voltooien
 Beheerders met bevoegdheid kunnen bekijken bevoegde toegang na een [toegangsbeoordeling is gestart](pim-resource-roles-start-access-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) verzendt automatisch een e-mailbericht dat gebruikers om te controleren van hun toegang wordt gevraagd. Als een gebruiker een e-mailbericht ontvangen heeft, kunt u ze de instructies van verzenden [hoe u een toegangscontrole uitvoeren](pim-resource-roles-perform-access-review.md).
 
 Nadat de periode van de toegangsbeoordeling is voltooid, of na alle gebruikers hebben hun eigen bekijken, volgt u de stappen in dit artikel voor het beheren van de beoordeling en bekijkt de resultaten.

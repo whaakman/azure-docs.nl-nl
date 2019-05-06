@@ -4,14 +4,14 @@ description: Informatie over het beheren van de indexing-beleid in Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 76275420e1e6ed7fdec8309da9e11a272f08fee0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48d67c765a8a76a6058592f59eb61770e2f23df5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054666"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068675"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Indexing policies in Azure Cosmos DB beheren
 
@@ -162,7 +162,7 @@ response = client.ReplaceContainer(containerPath, container)
 Hier volgen enkele voorbeelden van de indexing-beleid wordt weergegeven in de JSON-indeling, dit is hoe ze worden weergegeven op de Azure-portal. De parameters die kunnen worden ingesteld via de Azure CLI of een SDK.
 
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Opt-out beleid selectief enkele eigenschappaden uitsluiten
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -193,9 +193,10 @@ Hier volgen enkele voorbeelden van de indexing-beleid wordt weergegeven in de JS
             }
         ]
     }
+```
 
 ### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Beleid voor aanmelden enkele eigenschappaden selectief wilt opnemen
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -224,11 +225,12 @@ Hier volgen enkele voorbeelden van de indexing-beleid wordt weergegeven in de JS
             }
         ]
     }
+```
 
 Opmerking: Het wordt afgeraden om te gebruiken een **opt-out** indexeringsbeleid proactief zodat Azure Cosmos DB indexeren van een nieuwe eigenschap die kan worden toegevoegd aan uw model.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Met behulp van een ruimtelijke index op een bepaalde eigenschap alleen-pad
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -257,11 +259,12 @@ Opmerking: Het wordt afgeraden om te gebruiken een **opt-out** indexeringsbeleid
         ],
         "excludedPaths": []
     }
+```
 
 ### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Met uitzondering van alle eigenschappaden maar actieve externe worden indexeren
 
 Dit beleid kan worden gebruikt in situaties waar de [Time-to-Live (TTL) functie](time-to-live.md) is actief, maar geen secundaire index is vereist (voor Azure Cosmos DB gebruiken als een zuivere key-value store).
-
+```
     {
         "indexingMode": "consistent",
         "includedPaths": [],
@@ -269,12 +272,130 @@ Dit beleid kan worden gebruikt in situaties waar de [Time-to-Live (TTL) functie]
             "path": "/*"
         }]
     }
+```
 
 ### <a name="no-indexing"></a>Er is geen indexeren
-
+```
     {
         "indexingPolicy": "none"
     }
+```
+
+## <a name="composite-indexing-policy-examples"></a>Samengestelde indexering beleid-voorbeelden
+
+Naast opnemen of uitsluiten van paden voor afzonderlijke eigenschappen, kunt u ook een samengestelde index opgeven. Als u wilt uitvoeren van een query met een `ORDER BY` component voor meerdere eigenschappen, een [samengestelde index](index-policy.md#composite-indexes) deze eigenschappen is vereist.
+
+### <a name="composite-index-defined-for-name-asc-age-desc"></a>Samengestelde index gedefinieerd voor (asc naam, leeftijd desc):
+```
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+Deze samengestelde index zou kunnen ondersteunen de volgende twee query's:
+
+Query #1:
+```sql
+    SELECT *
+    FROM c
+    ORDER BY name asc, age desc    
+```
+
+Query #2:
+```sql
+    SELECT *
+    FROM c
+    ORDER BY name desc, age asc
+```
+
+### <a name="composite-index-defined-for-name-asc-age-asc-and-name-asc-age-desc"></a>Samengestelde index gedefinieerd voor (asc naam, leeftijd asc) en (asc naam, leeftijd desc):
+
+U kunt meerdere verschillende samengestelde indexen binnen de dezelfde indexeringsbeleid definiëren. 
+```
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"ascending"
+                }
+            ]
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+### <a name="composite-index-defined-for-name-asc-age-asc"></a>Samengestelde index gedefinieerd voor (asc naam, leeftijd asc):
+
+Dit is optioneel om op te geven van de volgorde. Indien niet opgegeven, wordt de volgorde van oplopende.
+```
+{  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                },
+                {  
+                    "path":"/age",
+                }
+            ]
+        ]
+}
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

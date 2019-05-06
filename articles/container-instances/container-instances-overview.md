@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 11/30/2018
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 91cf0986241a40c48430d8305849c12864d645fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ec0280ab2a39674a1b41120f0a8791dfb8b1922
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582768"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073293"
 ---
 # <a name="what-is-azure-container-instances"></a>Wat is Azure Container Instances?
 
@@ -56,7 +56,10 @@ Sommige functies zijn momenteel beperkt tot Linux-containers:
 * [Virtueel netwerkimplementatie](container-instances-vnet.md) (preview)
 * [GPU-resources](container-instances-gpu.md) (preview)
 
-Azure Container Instances ondersteunt momenteel installatiekopieën van Windows Server 2016 op basis van Long-Term Servicing-kanaal (LTSC)-versies. SAC-releases (Semi-Annual-kanaal) van Windows, zoals 1709 en 1803 worden niet ondersteund.
+Gebruik voor Windows-containerimplementaties, installatiekopieën op basis van gemeenschappelijke [Windows baseren installatiekopieën](container-instances-faq.md#what-windows-base-os-images-are-supported).
+
+> [!NOTE]
+> Gebruik van Windows Server 2019-installatiekopieën in Azure Container Instances is in preview.
 
 ## <a name="co-scheduled-groups"></a>Samen geplande groepen
 

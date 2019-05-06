@@ -27,12 +27,6 @@
       href: pim-deployment-plan.md
     - name: Beginnen met PIM
       href: pim-getting-started.md
-    - name: Mijn rollen activeren
-      items:
-        - name: Mijn Azure AD-rollen activeren
-          href: pim-how-to-activate-role.md
-        - name: Mijn Azure-resourcerollen activeren
-          href: pim-resource-roles-activate-your-roles.md
     - name: PIM configureren
       items:
         - name: Beveiligingswizard
@@ -43,6 +37,12 @@
           href: pim-how-to-give-access-to-pim.md
         - name: Toegangsrechten verhogen om alle abonnementen te beheren
           href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+    - name: Mijn rollen activeren
+      items:
+        - name: Mijn Azure AD-rollen activeren
+          href: pim-how-to-activate-role.md
+        - name: Mijn Azure-resourcerollen activeren
+          href: pim-resource-roles-activate-your-roles.md
     - name: Azure AD-rollen beheren
       items:
         - name: Rollen toewijzen
@@ -73,21 +73,21 @@
           href: azure-pim-resource-rbac.md
         - name: Aangepaste rollen gebruiken
           href: pim-resource-roles-custom-role-policy.md
-    - name: Toegang beoordelen
+    - name: Toegangsbeoordelingen
       items:
         - name: Azure AD-rollen
           items:
-            - name: Mijn Azure AD-rollen beoordelen
-              href: pim-how-to-perform-security-review.md
-            - name: Een toegangsbeoordeling starten
+            - name: Een toegangsbeoordeling maken
               href: pim-how-to-start-security-review.md
+            - name: Toegang beoordelen
+              href: pim-how-to-perform-security-review.md
             - name: Een toegangsbeoordeling voltooien
               href: pim-how-to-complete-review.md
         - name: Azure-resourcerollen
           items:
-            - name: Mijn Azure-resourcerollen controleren
-              href: pim-resource-roles-perform-access-review.md
-            - name: Een toegangsbeoordeling starten
+            - name: Een toegangsbeoordeling maken
               href: pim-resource-roles-start-access-review.md
+            - name: Toegang beoordelen
+              href: pim-resource-roles-perform-access-review.md
             - name: Een toegangsbeoordeling voltooien
               href: pim-resource-roles-complete-access-review.md
