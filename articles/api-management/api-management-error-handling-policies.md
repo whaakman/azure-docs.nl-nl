@@ -84,8 +84,8 @@ De `on-error` beleidssectie kan worden gebruikt op een bereik. API-uitgevers kun
 | Bericht  | string | Leesbare foutbeschrijving.                                                                         | Ja      |
 | Bereik    | string | Naam van het bereik waarin de fout is opgetreden en een van de 'global', 'product', "api" of 'bewerking' | Nee       |
 | Sectie  | string | De naam van sectie waarin fout is opgetreden. Mogelijke waarden: "inkomende", 'back-end', "uitgaande" of "on error".       | Nee       |
-| Pad     | string | Hiermee geeft u geneste beleid, bijvoorbeeld ' kiezen [3] / wanneer [2] '.                                                        | Nee       |
-| PolicyId | string | De waarde van de `id` kenmerk als opgegeven door de klant, in het beleid dat is waar de fout is opgetreden             | Nee       |
+| `Path`     | string | Hiermee geeft u geneste beleid, bijvoorbeeld ' kiezen [3] / wanneer [2] '.                                                        | Nee       |
+| `PolicyId` | string | De waarde van de `id` kenmerk als opgegeven door de klant, in het beleid dat is waar de fout is opgetreden             | Nee       |
 
 > [!TIP]
 > U kunt de statuscode openen via context. Response.StatusCode.  
