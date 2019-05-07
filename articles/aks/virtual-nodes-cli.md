@@ -5,23 +5,20 @@ services: container-service
 author: iainfoulds
 ms.topic: conceptual
 ms.service: container-service
-ms.date: 12/03/2018
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 38b2654c8f3e8d302a66cac335913583bd4426ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe837c4d89a59325040355e35f12c3499aee7d98
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61024551"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072809"
 ---
-# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Voorbeeld: maken en configureren van een cluster Azure Kubernetes-Services (AKS) voor het gebruik van virtuele knooppunten met de Azure CLI
+# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Maken en configureren van een cluster Azure Kubernetes-Services (AKS) voor het gebruik van virtuele knooppunten met de Azure CLI
 
-Als u wilt snel schalen werkbelastingen van toepassingen in een cluster Azure Kubernetes Service (AKS), kunt u virtuele-knooppunten. Met virtuele knooppunten kunt u snelle inrichting van schillen hebt, en betaalt alleen per seconde voor de uitvoeringstijd. U hoeft niet te wachten op Kubernetes-cluster automatisch schalen om te implementeren VM-rekenknooppunten voor het uitvoeren van de extra schillen. In dit artikel wordt beschreven hoe u maken en configureren van de virtuele-netwerkbronnen en AKS-cluster en vervolgens virtuele knooppunten inschakelen.
+Als u wilt snel schalen werkbelastingen van toepassingen in een cluster Azure Kubernetes Service (AKS), kunt u virtuele-knooppunten. Met virtuele knooppunten kunt u snelle inrichting van schillen hebt, en betaalt alleen per seconde voor de uitvoeringstijd. U hoeft niet te wachten op Kubernetes-cluster automatisch schalen om te implementeren VM-rekenknooppunten voor het uitvoeren van de extra schillen. Virtuele knooppunten worden alleen ondersteund met Linux-schillen en knooppunten.
 
-> [!IMPORTANT]
-> AKS-preview-functies zijn selfservice en aanmelden. Previews worden opgegeven voor het verzamelen van fouten en feedback van onze community. Ze worden echter niet ondersteund door Azure technische ondersteuning. Als u een cluster maken of deze functies aan bestaande clusters toevoegen, is dat cluster wordt niet ondersteund totdat de functie niet langer in preview is en is geslaagd voor algemene beschikbaarheid (GA).
->
-> Als u problemen met de preview-functies ondervindt, [opent u een probleem op de AKS-GitHub-opslagplaats] [ aks-github] met de naam van de preview-functie in de titel van fout.
+In dit artikel wordt beschreven hoe u maken en configureren van de virtuele-netwerkbronnen en AKS-cluster en vervolgens virtuele knooppunten inschakelen.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -52,10 +49,16 @@ az provider register --namespace Microsoft.ContainerInstance
 De volgende regio's worden ondersteund voor implementaties met virtuele knooppunten:
 
 * Australië-Oost (australiaeast)
+* VS-midden (centralus)
 * VS-Oost (VS-Oost)
+* VS-Oost 2 (eastus2)
+* Japan-Oost (japaneast)
+* North Europe (northeurope)
+* Zuidoost-Azië (southeastasia)
 * West-Centraal VS (westcentralus)
 * West Europe (westeurope)
 * VS-West (VS West)
+* West US 2 (westus2)
 
 ## <a name="known-limitations"></a>Bekende beperkingen
 Virtuele knooppunten functionaliteit is sterk afhankelijk van de ACI-functieset. De volgende scenario's worden nog niet ondersteund met virtuele knooppunten
@@ -183,11 +186,6 @@ az aks enable-addons \
     --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
-> [!NOTE]
-> Als u een foutbericht over virtuele-knooppunt is niet gevonden krijgt, moet u mogelijk de CLI-extensie installeren 
-> ```azurecli-interactive
-> az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
-> ```
 
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
 
@@ -266,7 +264,7 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.
 De schil is een interne IP-adres toegewezen vanuit het Azure-netwerksubnet overgedragen voor gebruik met virtuele-knooppunten.
 
 > [!NOTE]
-> Als u installatiekopieën die zijn opgeslagen in Azure Container Registry gebruikt [configureren en gebruiken van een Kubernetes-geheim][acr-aks-secrets]. Een beperking van de virtuele knooppunten preview is dat u kunt geen geïntegreerde verificatie van Azure AD-service-principal. Als u een geheim niet gebruikt, schillen gepland op virtuele-knooppunten niet starten en de fout melden `HTTP response status code 400 error code "InaccessibleImage"`.
+> Als u installatiekopieën die zijn opgeslagen in Azure Container Registry gebruikt [configureren en gebruiken van een Kubernetes-geheim][acr-aks-secrets]. Een beperking van de virtuele-knooppunten is dat u kunt geen geïntegreerde Azure AD-service-principal verificatie. Als u een geheim niet gebruikt, schillen gepland op virtuele-knooppunten niet starten en de fout melden `HTTP response status code 400 error code "InaccessibleImage"`.
 
 ## <a name="test-the-virtual-node-pod"></a>Test de schil virtueel knooppunt
 

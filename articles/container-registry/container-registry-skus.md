@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: 7fdc1417ac524b422a12a087cf1661040efb9f8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f36b206ff015511dea7369617febe9220282bbe5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582795"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069046"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry-SKU 's
 
@@ -22,7 +22,7 @@ Azure Container Registry (ACR) is beschikbaar in verschillende Servicelagen, ook
 | --- | :-------: | ----------- |
 | **Basic** | Ja | Een rendabel toegangspunt voor ontwikkelaars die meer willen leren over Azure Container Registry. Basic registers hebben dezelfde programmatische mogelijkheden als standaard en Premium (zoals Azure Active Directory [verificatie integratie](container-registry-authentication.md#individual-login-with-azure-ad), [installatiekopie verwijderen][container-registry-delete], en [webhooks][container-registry-webhook]). De inbegrepen opslag en doorvoer van de afbeelding zijn echter meest geschikt is voor lagere gebruiksscenario's. |
 | **Standard** | Ja | Standard registers bieden dezelfde mogelijkheden als Basic met verbeterde inbegrepen opslag- en image-doorvoer. Standard-registers moeten voldoen aan de behoeften van de meeste productiescenario's. |
-| **Premium** | Ja | Premium-registers voorzien in de grootste hoeveelheid inbegrepen opslag en gelijktijdige bewerkingen, voor het inschakelen van scenario's met hoge volumes. Naast de hogere doorvoer van de installatiekopie, Premium-functies zoals voegt [geo-replicatie] [ container-registry-geo-replication] voor het beheren van een enkel register in meerdere regio's [vertrouwen (preview)vaninhoud](container-registry-content-trust.md) voor het ondertekenen van de installatiekopie van code, en [firewalls en virtuele netwerken (preview)](container-registry-vnet.md) toegang te beperken tot het register. |
+| **Premium** | Ja | Premium-registers voorzien in de grootste hoeveelheid inbegrepen opslag en gelijktijdige bewerkingen, voor het inschakelen van scenario's met hoge volumes. Naast de hogere doorvoer van de installatiekopie, Premium-functies zoals voegt [geo-replicatie] [ container-registry-geo-replication] voor het beheren van een enkel register in meerdere regio's [inhoud vertrouwensrelatie](container-registry-content-trust.md) voor het ondertekenen van de installatiekopie van code, en [firewalls en virtuele netwerken (preview)](container-registry-vnet.md) toegang te beperken tot het register. |
 |  Klassieke (*niet beschikbaar na April 2019*) | Nee | Deze SKU ingeschakeld voor de eerste release van de Azure Container Registry-service in Azure. Klassieke registers worden ondersteund door een storage-account dat in uw abonnement, zodat ze worden beperkt de mogelijkheid voor ACR voor een hoger niveau mogelijkheden, zoals verbeterde doorvoer en geo-replicatie in Azure gemaakt. |
 
 > [!IMPORTANT]

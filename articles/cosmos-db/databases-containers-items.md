@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 8eaca83b7ea89737a63fe56a18505c8df7e93fdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 215ae29c571e56b7e3af589149123083223023c7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889377"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153458"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Werken met databases, containers en items
 
@@ -77,7 +77,7 @@ Een Azure Cosmos-container is een set van het systeem gedefinieerde eigenschappe
 
 | **Door het systeem gedefinieerde eigenschap** | **Systeem gegenereerd of de gebruiker configureerbare** | **Doel** | **SQL-API** | **Cassandra-API** | **Van Azure Cosmos DB-API voor MongoDB** | **Gremlin-API** | **Tabel-API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_rid | Door het systeem gegenereerde | De unieke id van de container | Ja | Nee | Nee | Nee | Nee |
+|_id | Door het systeem gegenereerde | De unieke id van de container | Ja | Nee | Nee | Nee | Nee |
 |_etag | Door het systeem gegenereerde | Entity-tag voor Optimistisch gelijktijdigheidbeheer gebruikt | Ja | Nee | Nee | Nee | Nee |
 |_ts | Door het systeem gegenereerde | De laatst bijgewerkte timestamp van de container | Ja | Nee | Nee | Nee | Nee |
 |_self | Door het systeem gegenereerde | Adresseerbare URI van de container | Ja | Nee | Nee | Nee | Nee |

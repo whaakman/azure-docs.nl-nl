@@ -10,16 +10,28 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 33a03b24de56ab1090cc8e07c9619eda17f33e27
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9147f02f6ef2e2f3f776e67aa1f103e95ef132aa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711900"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153041"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Opmerkingen bij de release van Cognitive Services spraak Devices SDK
 
 De volgende secties lijst met wijzigingen in de meest recente versies.
+
+## <a name="cognitive-services-speech-devices-sdk-150-2019-may-release"></a>Cognitive Services spraak apparaten SDK 1.5.0: 2019 mei release
+
+*   Spraak Devices SDK is nu algemeen beschikbaar en niet langer een gated Preview-versie.
+*   Bijgewerkt de [spraak SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) onderdeel naar versie 1.5.0. Zie voor meer informatie de [opmerkingen bij de release](https://aka.ms/csspeech/whatsnew).
+*   Nieuwe wake word technologie biedt aanzienlijke kwaliteitsverbeteringen op het gebied, kunt u belangrijke wijzigingen.
+*   Nieuwe pijplijn audio verwerking voor opname van verbeterde ver-veld.
+
+**Belangrijke wijzigingen**
+
+*   Vanwege de nieuwe wake word technologie moet alle wake woorden opnieuw worden gemaakt van onze verbeterde wake word-portal. Oude trefwoorden van het apparaat verwijderen om volledig te verwijderen van de oude app.
+    - ADB com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp verwijderen
 
 ## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Cognitive Services spraak apparaten SDK 1.4.0: 2019 Apr release 
 

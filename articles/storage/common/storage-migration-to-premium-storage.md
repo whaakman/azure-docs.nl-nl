@@ -2,18 +2,19 @@
 title: Migratie van VM's naar Azure Premium Storage | Microsoft Docs
 description: Uw bestaande virtuele machines migreren naar Azure Premium Storage. Premium Storage biedt ondersteuning voor schijven voor hoge prestaties en lage latentie voor I/O-intensieve werkbelastingen op Azure Virtual Machines.
 services: storage
-author: yuemlu
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
-ms.author: yuemlu
+ms.author: rogarana
+ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372315"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153764"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migreren naar Azure Premium Storage (niet-beheerde schijven)
 
@@ -255,7 +256,7 @@ Nu dat u uw VHD in de lokale map hebt, kunt u AzCopy of AzurePowerShell het VHD-
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-Een voorbeeld <Uri> mogelijk ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Een voorbeeld <FileInfo> mogelijk ***"C:\path\to\upload.vhd"***.
+Een voorbeeld \<Uri > mogelijk ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Een voorbeeld \<FileInfo > mogelijk ***"C:\path\to\upload.vhd"***.
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Optie 2: AzCopy gebruiken om de VHD-bestand te uploaden
 Met behulp van AzCopy, u kunt eenvoudig de VHD uploaden via Internet. Dit kan tijd duren, afhankelijk van de grootte van de VHD's. Vergeet niet om te controleren of limieten Inkomend/uitgaand verkeer van het opslagaccount wanneer u deze optie. Zie [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) voor meer informatie.

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: Blackmist
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d22764cfb038bc2021b99d0743f3cbac17d91d8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a355d18de875ad980e0c2b6c564d3379c2b90ee7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024932"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154287"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -25,22 +25,90 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 
 Zie [de lijst met bekende problemen](resource-known-issues.md) voor meer informatie over bekende problemen en oplossingen.
 
-## <a name="2019-05-02"></a>2019-05-02
+## <a name="2019-05-06"></a>2019-05-06
 
 ### <a name="azure-portal"></a>Azure Portal
 
-+ Geautomatiseerde ML-experimenten maken in de portal.
+In Azure portal kunt u nu:
++ Maken en uitvoeren van geautomatiseerde ML experimenten 
++ De virtuele machine een notitieblok voor het uitproberen van voorbeeld Jupyter-notebooks maken of uw eigen.
++ Nieuwe ontwerp sectie (Preview) in de werkruimte van de service Machine Learning, met inbegrip van geautomatiseerde Machine Learning, visuele Interface en laptop-VM's die worden gehost
+    + Automatisch maken van een model met behulp van automatische machine learning 
+    + Gebruik van een slepen en neerzetten visuele Interface voor het uitvoeren van experimenten
+    + Maak een VM-Notebook gegevens verkennen, modellen maken en implementeren van services.
++ Live grafiek en metrische gegevens bij te werken in rapporten uitvoeren en pagina's worden uitgevoerd
++ Bijgewerkte bestandsviewer voor Logboeken, uitvoer en momentopnamen in pagina's met uitvoeren.
++ Het maken van nieuwe en verbeterde rapport-ervaring in het tabblad experimenten. 
++ De mogelijkheid de config.json-bestand te downloaden van de pagina overzicht van de werkruimte van de Azure Machine Learning-service is toegevoegd.
++ Ondersteuning voor het maken werkruimte van Machine Learning-service van Azure Databricks-werkruimte 
+
+
+### <a name="notebook-virtual-machine"></a>Laptop virtuele Machine 
+
+Een VM-Notebook gebruiken als een veilig, bedrijfsklaar hostingomgeving voor Jupyter-notebooks waarin u kunt machine learning-experimenten-programma, modellen als web-eindpunten te implementeren en uitvoeren van alle andere bewerkingen die worden ondersteund door Azure Machine Learning-SDK met behulp van Python. Het biedt verschillende mogelijkheden:
++ [Stel snel een vooraf geconfigureerde VM-notebook](quickstart-run-cloud-notebook.md) waarvoor de nieuwste versie van Azure Machine Learning-SDK en gerelateerde pakketten.
++ Toegang wordt beveiligd via bewezen technologieën, zoals HTTPS, Azure Active Directory-verificatie en autorisatie.
++ Betrouwbare en betaalbare cloudopslag van notitieblokken en -code in uw blob storage-account van Azure Machine Learning-werkruimte. U kunt uw laptop VM veilig verwijderen zonder dat u uw werk kwijtraakt.
++ Vooraf geïnstalleerd voorbeeldnotitieblokken om te verkennen en te experimenteren met Azure Machine Learning-service-functies.
++ Van de volledige aanpassingsmogelijkheden van Azure-VM's, elk type virtuele machine, er pakketten, stuurprogramma's. 
+
+## <a name="2019-04-26"></a>2019-04-26
+
+### <a name="azure-machine-learning-sdk-for-python-v1033-released"></a>Azure Machine Learning SDK voor Python v1.0.33 die zijn uitgebracht.
+
++ Azure ML Hardware versnelde modellen op [FPGA's](concept-accelerate-with-fpgas.md) is algemeen beschikbaar.
+  + U kunt nu [het pakket azureml-Accel.-modellen](how-to-deploy-fpga-web-service.md) aan:
+    + Het gewicht van een ondersteunde deep neural network (ResNet 50, ResNet 152 DenseNet 121, VGG-16 en SSD-VGG) trainen
+    + Gebruik van overdrachtsleren met de ondersteunde DNN
+    + Registreer het model met de Modelbeheer-Service en het model in een container plaatsen
+    + Het model implementeren met een Azure-VM met een FPGA in een cluster Azure Kubernetes Service (AKS)
+  + De container te implementeren een [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview) server apparaat
+  + Uw gegevens met het eindpunt gRPC met deze score [voorbeeld](https://github.com/Azure-Samples/aml-hardware-accelerated-models)
+
+### <a name="automated-machine-learning"></a>Geautomatiseerde Machine Learning
+
++ Functie verstrekkende om in te schakelen dynamisch toe te voegen featurizers voor optimalisatie van prestaties. Nieuwe featurizers: insluitingen, gewicht van bewijs, doel-coderingen, doel tekstcodering, cluster afstand werken
++ Slimme CV om af te handelen train/geldig wordt gesplitst in geautomatiseerde ML
++ Enkele wijzigingen in de optimalisatie van geheugen en runtime prestatieverbetering
++ Prestatieverbeteringen in model uitleg
++ U kunt ONNX model conversie voor lokaal uitvoeren
++ Er is ondersteuning toegevoegd Subsampling
++ Intelligente wordt gestopt wanneer er geen afsluitcriteria die zijn gedefinieerd
++ Gestapelde ensembles
+
++ Time Series-prognoses
+  + Nieuwe voorspellen prognosefunctie   
+  + U kunt nu meerdere rolling-origin-validatie op time series-gegevens gebruiken
+  + Nieuwe functies toegevoegd aan het time series vertraagde configureren 
+  + Nieuwe functionaliteit toegevoegd ter ondersteuning van rolling statistische functies van het venster
+  + Nieuwe feestdagen detectie- en featurizer wanneer landcode is gedefinieerd in de instellingen voor experimenteren
+
++ Azure Databricks
+  + Time series-prognoses ingeschakeld en het model explainabilty/interpretability mogelijkheid
+  + U kunt nu annuleren en hervatten (Doorgaan) geautomatiseerde ML-experimenten
+  + Er is ondersteuning toegevoegd voor de verwerking van multicore
+
+### <a name="mlops"></a>MLOps
++ **Lokaal te implementeren en foutopsporing voor het scoren van containers**<br/> U kunt nu een ML-model lokaal implementeren, en u kunt snel Voortborduren op uw scoring-bestand en afhankelijkheden om ervoor te zorgen dat ze gedragen zich zoals verwacht.
+
++ **Introduced InferenceConfig & Model.deploy()**<br/> Nu de modellen implementatie biedt ondersteuning voor een bronmap met een post-script, gelijk zijn aan een RunConfig op te geven.  Modelimplementatie is bovendien vereenvoudigd naar slechts één opdracht.
+
++ **GIT-Naslaggids bijhouden**<br/> Klanten hebben zijn aanvragen worden basisfuncties voor Git-integratie voor enige tijd omdat deze helpt een audittrail voor end-to-end onderhouden. We hebben bijhouden geïmplementeerd in belangrijke entiteiten in Azure ML voor Git-gerelateerde metagegevens (opslagplaats, doorvoeren, schone status). Deze gegevens worden automatisch verzameld door de SDK en de CLI.
+
++ **Model profileren en validatie-service**<br/> Klanten klagen vaak van uw probleem om de grootte van de berekening die is gekoppeld aan hun Deductie-service naar behoren. Met ons model voor profilering service, de klant krijgt u een van Voorbeeldinvoer en we zullen profiel tussen 16 verschillende CPU / geheugenconfiguraties om te bepalen optimale grootte voor de implementatie.
+
++ **Breng uw eigen basisinstallatiekopie voor Deductie**<br/> Een andere algemene klacht is het probleem bij het verplaatsen van experimenten naar Deductie RE delen afhankelijkheden. Met onze nieuwe basisinstallatiekopie-mogelijkheden voor delen, kunt u nu uw experimenten-basisinstallatiekopieën, afhankelijkheden en alle voor Deductie opnieuw gebruiken. Dit moet implementaties versnellen en de ruimte van de binnenste beperken tot de buitenste lus.
+
++ **Verbeterde ervaring voor Swagger-schema genereren**<br/> Onze vorige swagger-generatie methode is fout opgetreden bij gevoelig en niet mogelijk om te automatiseren. Er is een nieuwe in-line manier voor het genereren van swagger-schema's uit een Python-functie via decorators. We hebben open-source deze code en onze protocol voor het schema genereren is niet gekoppeld aan het Azure ML-platform.
+
++ **Azure ML-CLI is algemeen beschikbaar (GA)**<br/> Modellen kunnen nu worden geïmplementeerd met slechts één CLI-opdracht. Wij algemene feedback van klanten die niemand implementeert een ML-model van een Jupyter-notebook. De [ **CLI referentiedocumentatie voor** ](https://aka.ms/azmlcli) is bijgewerkt.
 
 
 ## <a name="2019-04-22"></a>2019-04-22
 
-### <a name="azure-machine-learning-sdk-for-python-v1030"></a>Azure Machine Learning-SDK voor Python v1.0.30
-+ **Nieuwe functies**
-  + Gegevenssets
+Azure Machine Learning SDK voor Python v1.0.30 die zijn uitgebracht.
 
-+ **Fouten opgelost en verbeteringen**
-  + Geen
-
+De [ `PipelineEndpoint` ](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint?view=azure-ml-py) om toe te voegen een nieuwe versie van een gepubliceerde pijplijn behoud van hetzelfde eindpunt is geïntroduceerd.
 
 ## <a name="2019-04-17"></a>2019-04-17
 
@@ -69,12 +137,11 @@ Opmerking: Data Prep Python SDK wordt niet meer geïnstalleerd `numpy` en `panda
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure-portal
-+ **Nieuwe functies**
+### <a name="azure-portal"></a>Azure Portal
   + U kunt nu opnieuw indienen voor een bestaand Script uitvoeren op een bestaande externe compute-cluster. 
   + U kunt nu een gepubliceerde pijplijn uitvoeren met nieuwe parameters op het tabblad pijplijnen. 
   + De details van uitvoering biedt nu ondersteuning voor een nieuwe momentopname voor het bestand. U kunt een momentopname van de map weergeven wanneer u een specifieke uitvoering verzonden. U kunt ook de laptop die is ingediend bij het starten van de uitvoering downloaden.
-   + U kunt nu bovenliggende wordt uitgevoerd vanuit de Azure-Portal annuleren.
+  + U kunt nu bovenliggende wordt uitgevoerd vanuit de Azure-portal annuleren.
 
 ## <a name="2019-04-08"></a>2019-04-08
 
@@ -134,7 +201,7 @@ Opmerking: Data Prep Python SDK wordt niet meer geïnstalleerd `numpy` en `panda
 
  + **Wijzigingen**
    + Het pakket azureml-tensorboard vervangt azureml-contrib-tensorboard.
-   + Met deze release kunt u een gebruikersaccount op uw beheerde rekencluster (amlcompute) instellen tijdens het maken van deze. Dit kan worden gedaan door te geven deze eigenschappen in de configuratie van de rapportcentrumsite. U vindt meer informatie in de [SDK-referentiedocumentatie](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-).
+   + Met deze release, kunt u instellen een gebruikersaccount op uw beheerde rekencluster (amlcompute) tijdens het maken van deze. Dit kan worden gedaan door door te geven deze eigenschappen in de configuratie van de inrichting. U vindt meer informatie in de [SDK-referentiedocumentatie](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>Azure Machine Learning Data Prep SDK v1.0.17
 
@@ -163,14 +230,14 @@ Opmerking: Data Prep Python SDK wordt niet meer geïnstalleerd `numpy` en `panda
   + Azure Machine Learning-pijplijnen toegevoegd mogelijkheid trigger een Pijplijnuitvoering op basis van wijzigingen van de gegevensopslag. De pijplijn [planning notebook](https://aka.ms/pl-schedule) ter promotie van deze functie wordt bijgewerkt.
 
 + **Fouten opgelost en verbeteringen**
-  + We hebben ondersteuning voor Azure Machine Learning-pijplijnen toegevoegd voor het instellen van de eigenschap source_directory_data_store met een gewenste gegevensarchief (zoals een blob-opslag) op [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) die worden geleverd aan de [ PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Standaard stappen Azure File-opslag gebruikt als de back-ups gegevensopslag die kan worden uitgevoerd in de beperking van problemen wanneer een groot aantal stappen gelijktijdig worden uitgevoerd.
+  + We hebben ondersteuning voor Azure Machine Learning-pijplijnen toegevoegd voor het instellen van de eigenschap source_directory_data_store met een gewenste gegevensarchief (zoals een blob-opslag) op [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) die worden geleverd aan de [ PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Standaard stappen Azure File-opslag gebruikt als de back-ups gegevensopslag, wat problemen beperken ondervindt mogelijk wanneer een groot aantal stappen gelijktijdig worden uitgevoerd.
 
 ### <a name="azure-portal"></a>Azure Portal
 
 + **Nieuwe functies**
   + Nieuwe slepen en neerzetten van tabel editor-ervaring voor rapporten. Gebruikers kunnen een kolom uit de bron slepen naar de tabelgebied waar een Preview-versie van de tabel wordt weergegeven. De kolommen kunnen opnieuw worden gerangschikt.
   + Nieuwe logboeken bestandsviewer
-  + Koppelingen om te experimenteren wordt uitgevoerd, berekening, modellen, afbeeldingen en implementaties van het tabblad activiteiten
+  + Koppelingen om te experimenteren wordt uitgevoerd, compute, modellen, afbeeldingen en implementaties van het tabblad activiteiten
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1015"></a>Azure Machine Learning Data Prep SDK v1.0.15
 
@@ -189,7 +256,7 @@ Opmerking: Data Prep Python SDK wordt niet meer geïnstalleerd `numpy` en `panda
 ### <a name="azure-machine-learning-sdk-for-python-v1015"></a>Azure Machine Learning-SDK voor Python v1.0.15
 
 + **Nieuwe functies**
-  + Azure Machine Learning-pijplijnen AzureBatchStep toegevoegd ([notebook](https://aka.ms/pl-azbatch)), HyperDriveStep ([notebook](https://aka.ms/pl-hyperdrive)) en planning functionaliteit op basis van tijd ([notebook](https://aka.ms/pl-schedule)).
+  + Azure Machine Learning-pijplijnen AzureBatchStep toegevoegd ([notebook](https://aka.ms/pl-azbatch)), HyperDriveStep (laptop), en functionaliteit plannen op basis van tijd ([notebook](https://aka.ms/pl-schedule)).
   +  DataTranferStep bijgewerkt om te werken met Azure SQL-Server en Azure database for PostgreSQL ([notebook](https://aka.ms/pl-data-trans)).
 
 + **Wijzigingen**
@@ -202,7 +269,7 @@ Opmerking: Data Prep Python SDK wordt niet meer geïnstalleerd `numpy` en `panda
   + Data Prep nu ondersteunt het lezen van een Azure SQL-database met behulp van de gegevensopslag.
  
 + **Wijzigingen**
-  + Aanzienlijk verbeterd, de prestaties van het geheugen van bepaalde bewerkingen op grote hoeveelheden gegevens.
+  + De prestaties van het geheugen van bepaalde bewerkingen op grote hoeveelheden gegevens verbeterd.
   + `read_pandas_dataframe()` is het nu vereist `temp_folder` worden opgegeven.
   + De `name` eigenschap op `ColumnProfile` is afgekeurd - gebruiken `column_name` in plaats daarvan.
 
@@ -212,7 +279,7 @@ Opmerking: Data Prep Python SDK wordt niet meer geïnstalleerd `numpy` en `panda
 
 + **Wijzigingen**: 
   + Azure ML-SDK heeft niet langer azure cli-pakketten als afhankelijkheid. Basisversie van azure cli en azure-cli-profiel afhankelijkheden zijn specifiek, verwijderd uit de azureml-core. Dit zijn de gebruiker die invloed hebben op wijzigingen:
-    + Als u 'az login' uitvoeren en klik vervolgens met behulp van azureml-sdk, doet de SDK de browser of apparaataanmelding code nog een keer. Het niet de status van alle referenties die zijn gemaakt door 'az login' gebruiken.
+    + Als u 'az login' uitvoeren en klik vervolgens met behulp van azureml-sdk, wordt het logboek van de code browser of apparaat in de SDK doet in nog een keer. Het niet de status van alle referenties die zijn gemaakt door 'az login' gebruiken.
     + Gebruik voor de Azure CLI-verificatie, zoals het gebruik van 'az login', _azureml.core.authentication.AzureCliAuthentication_ klasse. Voer voor de Azure CLI-verificatie, _pip-installatie azure-cli_ in de Python-omgeving waarin u de azureml-sdk hebt geïnstalleerd.
     + Als u 'az login' met behulp van een service-principal voor automatisering, wordt u aangeraden _azureml.core.authentication.ServicePrincipalAuthentication_ klasse, zoals azureml-sdk niet de status van de referenties die zijn gemaakt door azure CLI gebruiken. 
 
@@ -221,7 +288,7 @@ Opmerking: Data Prep Python SDK wordt niet meer geïnstalleerd `numpy` en `panda
 ### <a name="azure-machine-learning-data-prep-sdk-v108"></a>Azure Machine Learning Data Prep SDK v1.0.8
 
 + **Oplossingen voor problemen**
-  + De prestaties van het ophalen van gegevens profielen aanzienlijk verbeterd.
+  + De prestaties van het ophalen van gegevens profielen verbeterd.
   + Kleine problemen opgelost met betrekking tot rapportage van fouten.
   
 ### <a name="azure-portal-new-features"></a>Azure-portal: nieuwe functies

@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 888a64de29178834fc47199a033eb6bc62858e57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 208308533753370575b844633c45f7e4aeda0864
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474824"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154211"
 ---
-# <a name="sql-data-warehouse-workload-classification-preview"></a>SQL Data Warehouse workload classificatie (Preview)
+# <a name="sql-data-warehouse-workload-classification"></a>SQL Data Warehouse workload classificatie
 
 In dit artikel wordt uitgelegd dat het proces van SQL Data Warehouse workload classificatie van het toewijzen van een resourceklasse en urgentie op binnenkomende aanvragen.
-
-> [!Note]
-> Classificatie van de werkbelasting is beschikbaar voor Preview-versie van SQL Data Warehouse Gen2. Preview van werkbelasting Management classificatie en belang is voor builds met een releasedatum van 9 April 2019 of hoger.  Gebruikers Vermijd het gebruik van builds vóór deze datum voor het testen van de workload-beheer.  Uitvoeren om te bepalen of uw build beheer van de werkbelasting die geschikt is, selecteer @@version wanneer verbonden met uw SQL Data Warehouse-exemplaar.
 
 ## <a name="classification"></a>Classificatie
 
@@ -63,10 +60,10 @@ Systeem classificaties gemaakt namens bieden een eenvoudige manier om te migrere
 
 Houd rekening met het volgende scenario:
 
-•An bestaande datawarehouse heeft een databasegebruiker die dbauser aan de resourceklasserol largerc toegewezen. De toewijzing van de resource-klasse is met sp_addrolemember uitgevoerd.
-•Het datawarehouse is nu bijgewerkt met beheer van de werkbelasting.
-Slechts test u de nieuwe classificatie syntaxis van de databaserol DBARole (dit DBAUser is een lid van), heeft een classificatie voor hen deze toe te wijzen aan mediumrc en hoge urgentie hebt gemaakt.
-•When DBAUser zich aanmeldt en een query wordt uitgevoerd, wordt de query worden toegewezen aan largerc. Omdat een gebruiker, hebben voorrang boven het lidmaatschap van een rol.
+- Een bestaande datawarehouse heeft een databasegebruiker die dbauser aan de resourceklasserol largerc toegewezen. De toewijzing van de resource-klasse is met sp_addrolemember uitgevoerd.
+- Het datawarehouse is nu bijgewerkt met beheer van de werkbelasting.
+- Als u wilt testen van de syntaxis van de nieuwe classificatie, heeft de databaserol DBARole (dit DBAUser is een lid van), een classificatie voor hen deze toe te wijzen aan mediumrc en hoge urgentie hebt gemaakt.
+- Wanneer DBAUser zich aanmeldt en een query wordt uitgevoerd, wordt de query worden toegewezen aan largerc. Omdat een gebruiker, hebben voorrang boven het lidmaatschap van een rol.
 
 Ter vereenvoudiging van het oplossen van problemen misclassification, raden wij dat u resource-klassetoewijzingen rol verwijderen bij het maken van classificaties van de werkbelasting.  De onderstaande code retourneert bestaande resource rollidmaatschappen klasse.  Voer [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) geretourneerd voor de lidnaam van elk van de bijbehorende resourceklasse.
 
@@ -84,4 +81,4 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over SQL Data Warehouse workload classificatie en urgentie [maken van een classificatie van de werkbelasting](quickstart-create-a-workload-classifier-tsql.md) en [SQL Data Warehouse belang](sql-data-warehouse-workload-importance.md). Zie [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) om query's en het belang toegewezen weer te geven.
+Om te beginnen met het maken van een classificatie, Zie de [WERKBELASTING classificatie maken (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  Zie voor meer informatie over SQL Data Warehouse workload classificatie en urgentie [maken van een classificatie van de werkbelasting](quickstart-create-a-workload-classifier-tsql.md) en [SQL Data Warehouse belang](sql-data-warehouse-workload-importance.md). Zie [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) om query's en het belang toegewezen weer te geven.

@@ -3,19 +3,18 @@ title: Informatie over hoe modules logische uitvoeren op uw apparaten - Azure Io
 description: Azure IoT Edge-modules zijn containers eenheden van de logica die kan worden geïmplementeerd en extern worden beheerd, zodat u bedrijfslogica op IoT Edge apparaten uitvoeren kunt
 author: kgremban
 manager: philmea
-ms.author: v-yiso
-origin.date: 03/21/2019
-ms.date: 04/08/2019
+ms.author: kgremban
+ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d1e2e35dafd90c16e9d0dbf38afb1e981653d1fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65cac484a9395aca47a38e2ba430b80c868267f5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445016"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152655"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Informatie over Azure IoT Edge-modules
 
@@ -44,6 +43,7 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 ## <a name="module-identities"></a>Module-id 's
 
 Wanneer een nieuw exemplaar van de module wordt gemaakt door de IoT Edge-runtime, wordt het exemplaar is gekoppeld aan een overeenkomstige module-id. De identiteit van de module is opgeslagen in IoT Hub, en wordt gebruikt als bereik voor adressen en beveiliging voor alle lokale en cloud-communicatie voor die specifieke module-exemplaar.
+
 De identiteit die is gekoppeld aan een module-exemplaar afhankelijk is van de identiteit van het apparaat op waarop het exemplaar wordt uitgevoerd en de naam die u voor die module in uw oplossing opgeeft. Bijvoorbeeld, als u aanroepen `insight` een module die gebruikmaakt van een Azure Stream Analytics, en u deze implementeren op een apparaat met de naam `Hannover01`, IoT Edge-runtime maakt u een overeenkomstige module-id met de naam `/devices/Hannover01/modules/insight`.
 
 Duidelijk in scenario's kunt als u wilt implementeren een installatiekopie van de module meerdere keren op hetzelfde apparaat, u implementeren dezelfde installatiekopie van meerdere keren met verschillende namen.
@@ -69,26 +69,9 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## <a name="offline-capabilities"></a>Functionaliteiten offline
 
-Azure IoT Edge biedt ondersteuning voor offline-bewerkingen op uw IoT Edge-apparaten. Deze mogelijkheden zijn beperkt voor nu. Aanvullende offline-mogelijkheden zijn beschikbaar in openbare preview. Zie voor meer informatie, [begrijpen uitgebreid offline-mogelijkheden voor IoT Edge-apparaten, modules en onderliggende apparaten](offline-capabilities.md).
-
-IoT Edge-modules zijn offline gedurende langere perioden, zolang de volgende vereisten wordt voldaan: 
-
-* **Bericht time-to-live (TTL) is niet verlopen**. De standaardwaarde voor TTL bericht is twee uur, kan maar worden gewijzigd hoger of lager in de Store en doorsturen configuratie in de IoT Edge hub-instellingen. 
-* **Modules hoeft te verifiëren bij de IoT Edge hub wanneer u offline bent**. Modules kunnen alleen worden geverifieerd met IoT Edge-hubs die u een actieve verbinding met een IoT-hub hebt. Modules moeten verifiëren als ze opnieuw om welke reden dan ook gestart zijn. Modules kunnen nog steeds berichten verzenden naar de IoT Edge hub nadat de SAS-token is verlopen. Wanneer verbinding wordt hervat, wordt de IoT Edge hub een nieuw token aanvragen van de module en wordt deze gevalideerd met de IoT-hub. Als dit lukt, IoT Edge hub stuurt de module die wordt opgeslagen, zelfs de berichten die zijn verzonden terwijl van de module-token is verlopen. 
-* **De module die de berichten verzonden offline nog steeds functioneel is wanneer verbinding wordt hervat**. Na het opnieuw verbinding maakt met IoT Hub, moet IoT Edge hub voor het valideren van een nieuwe module-token (als de voorgaande build is verlopen) voordat de module-berichten kunnen worden doorgestuurd. Als de module niet beschikbaar is, voor een nieuw token, wordt de IoT Edge hub kan niet reageren op opgeslagen berichten van de module. 
-* **De IoT Edge hub schijfruimte voor het opslaan van de berichten heeft**. Berichten worden standaard opgeslagen in de IoT Edge hub-container-bestandssysteem. Er is een configuratieoptie om op te geven van een gekoppeld volume voor het opslaan van de berichten in plaats daarvan. In beide gevallen moet er ruimte die beschikbaar is voor het opslaan van de berichten voor uitgestelde levering aan IoT-Hub.  
-
+Azure IoT Edge-modules kunnen offline werken voor onbepaalde tijd na het synchroniseren met IoT Hub ten minste één keer. IoT Edge-apparaten kunnen ook uitbreiden, deze offlinefunctionaliteit met andere IoT-apparaten. Zie voor meer informatie, [begrijpen uitgebreid offline-mogelijkheden voor IoT Edge-apparaten, modules en onderliggende apparaten](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Volgende stappen
  - [Informatie over de vereisten en hulpprogramma's voor het ontwikkelen van IoT Edge-modules](module-development.md)
  - [De Azure IoT Edge-runtime en de bijbehorende architectuur begrijpen](iot-edge-runtime.md)
 
-<!-- Images -->
-[1]: ./media/iot-edge-modules/image_instance.png
-[2]: ./media/iot-edge-modules/identity.png
-
-<!-- Links -->
-[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-runtime]: iot-edge-runtime.md
-[lnk-mod-dev]: module-development.md

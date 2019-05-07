@@ -8,13 +8,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 06/22/2018
-ms.openlocfilehash: 76783ffd91a8ad17fca912ac9c3a66a5f0f15821
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 503bd6cfee1c19d2342ec9f535b3945178ab3ea0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691934"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136605"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referentie voor de trigger en actie typen Werkstroomdefinitietaal voor Azure Logic Apps
 
@@ -804,6 +804,8 @@ Hier volgen enkele veelgebruikte actietypen:
 
   * [**Antwoord** ](#response-action) voor het reageren op aanvragen
 
+  * [**JavaScript-Code uitvoeren** ](#run-javascript-code) voor het uitvoeren van JavaScript-codefragmenten
+
   * [**Functie** ](#function-action) voor het aanroepen van Azure Functions
 
   * Gegevens bewerking acties zoals [ **Join**](#join-action), [ **opstellen**](#compose-action), [ **tabel** ](#table-action), [ **Selecteer**](#select-action), en anderen die maken of transformeren van gegevens uit verschillende invoer
@@ -821,6 +823,7 @@ Hier volgen enkele veelgebruikte actietypen:
 | Actietype | Description | 
 |-------------|-------------| 
 | [**Opstellen**](#compose-action) | Maakt een enkele van de uitvoer van de invoer, die verschillende typen kunnen hebben. | 
+| [**JavaScript-Code uitvoeren**](#run-javascript-code) | Uitvoeren van JavaScript-codefragmenten die binnen een bepaald criterium voldoen. Vereisten en meer informatie, Zie [toevoegen en voer codefragmenten inline code](../logic-apps/logic-apps-add-run-inline-code.md). |
 | [**Functie**](#function-action) | Een Azure Function aanroept. | 
 | [**HTTP**](#http-action) | Hiermee wordt een HTTP-eindpunt. | 
 | [**Join**](#join-action) | Een tekenreeks van de items in een matrix maakt en deze items worden gescheiden met een opgegeven scheidingsteken. | 
@@ -1047,6 +1050,81 @@ De definitie van deze actie voegt een string-variabele die bevat `abcdefg` en ee
 Hier volgt de uitvoer die deze actie wordt gemaakt:
 
 `"abcdefg1234"`
+
+<a name="run-javascript-code"></a>
+
+### <a name="execute-javascript-code-action"></a>JavaScript-Code actie uitvoeren
+
+Met deze actie wordt uitgevoerd een JavaScript-codefragment en retourneert de resultaten in een `Result` token dat kunnen verwijzen naar latere acties.
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "<JavaScript-code-snippet>",
+      "explicitDependencies": {
+         "actions": [ <previous-actions> ],
+         "includeTrigger": true
+      }
+   },
+   "runAfter": {}
+}
+```
+
+*Vereist*
+
+| Value | Type | Description |
+|-------|------|-------------|
+| <*JavaScript-code-snippet*> | Varieert | De JavaScript-code die u wilt uitvoeren. Vereisten en meer informatie, Zie [toevoegen en voer codefragmenten inline code](../logic-apps/logic-apps-add-run-inline-code.md). <p>In de `code` kenmerk, uw codefragment kunt gebruiken voor de alleen-lezen `workflowContext` object als invoer. Dit object heeft subeigenschappen waarmee uw code-toegang tot de resultaten van de trigger en vorige acties in uw werkstroom. Voor meer informatie over de `workflowContext` object, Zie [trigger en actie resultaten in uw code verwijzen naar](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
+||||
+
+*In sommige gevallen vereist*
+
+De `explicitDependencies` kenmerk geeft aan dat u wilt expliciet opneemt resultaten van de trigger, vorige acties of beide als afhankelijkheden voor het codefragment. Zie voor meer informatie over het toevoegen van deze afhankelijkheden [parameters toevoegt voor Inlinecode](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters). 
+
+Voor de `includeTrigger` kenmerk, kunt u `true` of `false` waarden.
+
+| Value | Type | Description |
+|-------|------|-------------|
+| <*vorige acties*> | String-matrix | Een matrix met de namen van de opgegeven actie. Gebruik de actienamen die worden weergegeven in de werkstroomdefinitie van de waar actienamen onderstrepingstekens (_), geen spaties gebruiken (""). |
+||||
+
+*Voorbeeld 1*
+
+Deze actie wordt uitgevoerd op code haalt u de naam van uw logische app en retourneert de tekst "Hallo wereld van < logica-app-naam >" Als het resultaat. In dit voorbeeld wordt de code wordt verwezen naar de naam van de werkstroom door het openen van de `workflowContext.workflow.name` eigenschap via de alleen-lezen `workflowContext` object. Voor meer informatie over het gebruik van de `workflowContext` object, Zie [trigger en actie resultaten in uw code verwijzen naar](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var text = \"Hello world from \" + workflowContext.workflow.name;\r\n\r\nreturn text;"
+   },
+   "runAfter": {}
+}
+```
+
+*Voorbeeld 2*
+
+Deze actie wordt uitgevoerd van code in een logische app die wordt geactiveerd wanneer een nieuwe e-mail binnenkomt in een Office 365 Outlook-account. De logische app maakt ook gebruik van een goedkeuringsactie e-mail verzenden die de inhoud van de ontvangen e-mail samen met een aanvraag voor goedkeuring verzendt. 
+
+De code haalt e-mailadressen uit van de trigger `Body` eigenschap en retourneert deze e-mailadressen samen met de `SelectedOption` eigenschapswaarde van de actie voor goedkeuring. De actie expliciet omvat goedkeuringsactie voor e-mail verzenden als een afhankelijkheid in de `explicitDependencies`  >  `actions` kenmerk.
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var re = /(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/g;\r\n\r\nvar email = workflowContext.trigger.outputs.body.Body;\r\n\r\nvar reply = workflowContext.actions.Send_approval_email_.outputs.body.SelectedOption;\r\n\r\nreturn email.match(re) + \" - \" + reply;\r\n;",
+      "explicitDependencies": {
+         "actions": [
+            "Send_approval_email_"
+         ]
+      }
+   },
+   "runAfter": {}
+}
+```
+
+
 
 <a name="function-action"></a>
 

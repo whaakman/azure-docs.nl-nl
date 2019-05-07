@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9a54cad9212bdb514f7742121909221863ba75e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: db2b543fa8e5429cc8d50d7789b03239173f563d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713519"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154538"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Quickstart: Een app implementeren in de portal LUIS
 
@@ -73,11 +73,11 @@ Telkens wanneer u een nieuwe resource van LUIS maakt, moet u de resource toewijz
 
 ## <a name="train-and-publish-the-app"></a>De app trainen en publiceren
 
-De app trainen wanneer u bent klaar om dit te testen. Publiceer de app als u wilt dat de momenteel getrainde versie beschikbaar zijn voor clienttoepassingen uit de voorspelling endpoint-runtime.
+De app trainen wanneer u bent klaar om dit te testen. Publiceer de app als u wilt dat de momenteel getrainde versie beschikbaar zijn voor clienttoepassingen van de query voorspelling endpoint-runtime.
 
 1. Als de app ongetrainde is, selecteert u **Train** in het menu in de rechterbovenhoek.
 
-1. Selecteer **publiceren** in het menu. Accepteer de standaardinstellingen van de omgeving en selecteer **publiceren**.
+1. Selecteer **publiceren** in het menu bovenaan. Accepteer de standaardinstellingen van de omgeving en selecteer **publiceren**.
 
 1. Wanneer de meldingsbalk groen geslaagd wordt weergegeven aan de bovenkant van het browservenster wordt weergegeven, selecteert u **verwijzen naar de lijst met eindpunten**.
 

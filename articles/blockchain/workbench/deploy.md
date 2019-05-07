@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/06/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 5f488811e57ee20cb25db56b2d9e04202b17ffb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4fffc54428b152a060594a5c107d3ac08457aaaa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869518"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154672"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench implementeren
 
@@ -27,16 +27,16 @@ Zie voor meer informatie over de onderdelen van Blockchain Workbench [Azure Bloc
 
 Met Blockchain Workbench kunt u een blockchain grootboek, samen met een set van relevante Azure-services voor het bouwen van een blockchain-gebaseerde toepassing, implementeren. De implementatie van Blockchain Workbench resulteert in de volgende Azure-services die binnen een resourcegroep in uw Azure-abonnement worden ingericht.
 
-* 1 Event Grid-Topic
-* 1-Service Bus Namespace
-* 1 Application Insights
-* 1 SQL Database (Standard S0)
-* 2 App Services (standaard)
-* 2 Azure Key Vaults
-* 2 Azure Storage-accounts (Standard LRS)
-* 2 virtuele-machine schaalsets (voor validatie en worker-knooppunten)
-* 2 virtuele netwerken (met inbegrip van de load balancer, netwerkbeveiligingsgroep en openbaar IP-adres voor elk virtueel netwerk)
-* Optioneel: Azure Monitor
+* App Service-Plan (Standard)
+* Application Insights
+* Event Grid
+* Azure Key Vault
+* Service Bus
+* SQL-Database (Standard S0) + logische SQL-Server
+* Azure Storage-account (Standard LRS)
+* Virtuele-machineschaalset met een capaciteit van 1
+* Virtueel netwerk-resourcegroep (met Load Balancer, Network Security Group, openbare IP-adres, Virtueelnetwerk)
+* Optioneel: Azure Blockchain-Service (Basic B0 standaard)
 
 Hieronder volgt een voorbeeld van een implementatie gemaakt in **myblockchain** resourcegroep.
 
@@ -44,17 +44,12 @@ Hieronder volgt een voorbeeld van een implementatie gemaakt in **myblockchain** 
 
 De kosten van Blockchain Workbench is een optelling van de kosten van de onderliggende Azure-services. Informatie over de prijzen voor Azure-services kunnen worden berekend met behulp van de [prijscalculator](https://azure.microsoft.com/pricing/calculator/).
 
-> [!IMPORTANT]
-> Als u van een abonnement met lage Servicelimieten, zoals een gratis laag van Azure-abonnement gebruikmaakt, wordt de implementatie mislukken vanwege onvoldoende quotum van VM-kernen. Voorafgaand aan de implementatie, Controleer uw quotum aanvragen met behulp van de richtlijnen van de [virtuele machine vCPU-quota](../../virtual-machines/windows/quotas.md) artikel. De standaardselectie voor de virtuele machine moet 6 VM-kernen. Wijzigen in een kleinere virtuele machine zoals *Standard DS1 versie 2* vermindert het aantal kernen tot en met 4.
-
 ## <a name="prerequisites"></a>Vereisten
 
 Azure Blockchain Workbench vereist Azure AD-configuratie en toepassing registraties. U kunt de Azure AD [configuraties handmatig](#azure-ad-configuration) vóór implementatie of een script uitvoeren na de implementatie. Als u opnieuw wilt Blockchain Workbench implementeren, Zie [Azure AD-configuratie](#azure-ad-configuration) om te controleren of de configuratie van uw Azure AD.
 
 > [!IMPORTANT]
 > Workbench hoeft niet te worden geïmplementeerd in dezelfde tenant als het account dat u gebruikt voor het registreren van een Azure AD-toepassing. Workbench moet worden geïmplementeerd in een tenant wanneer u hebt onvoldoende machtigingen om resources te implementeren. Zie voor meer informatie over Azure AD-tenants, [over het verkrijgen van een Active Directory-tenant](../../active-directory/develop/quickstart-create-new-tenant.md) en [toepassingen integreren met Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
-
-
 
 ## <a name="deploy-blockchain-workbench"></a>Blockchain Workbench implementeren
 
@@ -82,7 +77,7 @@ Als de vereiste stappen zijn voltooid, bent u klaar om de Blockchain Workbench t
     | Verificatietype | Selecteer of u een wachtwoord wilt gebruiken of een sleutel voor de verbinding met virtuele machines. |
     | Wachtwoord | Het wachtwoord wordt gebruikt om verbinding te maken met VM's. |
     | SSH | Gebruik een openbare RSA-sleutel in de indeling met één regel die begint met **ssh-rsa** of gebruik de PEM-indeling van meerdere regels. U kunt SSH-sleutels genereren met behulp van `ssh-keygen` op Linux en OS X of met PuTTYGen op Windows. Zie voor meer informatie over SSH-sleutels, [over het gebruik van SSH-sleutels met Windows op Azure](../../virtual-machines/linux/ssh-from-windows.md). |
-    | Wachtwoord van de database / wachtwoord bevestigen | Geef het wachtwoord voor toegang tot de database die wordt gemaakt als onderdeel van de implementatie. |
+    | Database- en Blockchain-wachtwoord | Geef het wachtwoord voor toegang tot de database die wordt gemaakt als onderdeel van de implementatie. Het wachtwoord moet drie van de volgende vier vereisten voldoen: de lengte moet tussen 12 en 72 tekens, 1 kleine letter, 1 hoofdletter, 1 cijfer en 1 speciaal teken dat geen getal sign(#), percentage (%), komma (,), star(*), back-offerte (\`), dubbele quote("), daarom enkele aanhalingstekens, koppeltekens en semicolumn(;) |
     | Implementatieregio | Geef op waar de Blockchain Workbench-resources worden geïmplementeerd. Voor beschikbaarheid wordt  aanbevolen om dit overeen te laten komen met de **locatie** instelling. |
     | Abonnement | Geef het Azure-abonnement dat u wilt gebruiken voor uw implementatie. |
     | Resourcegroepen | Maak een nieuwe resourcegroep door **nieuw** te selecteren en geef de naam op van een unieke resource-groep. |
@@ -94,15 +89,15 @@ Als de vereiste stappen zijn voltooid, bent u klaar om de Blockchain Workbench t
 
     Voor **nieuw**:
 
-    De *Maak een nieuwe* optie maakt u een set knooppunten binnen één enkel lid abonnement Ethereum Proof-of-Authority (PoA). 
+    De *Maak een nieuwe* optie implementeert u een Azure Blockchain Service Quorum grootboek met de standaard basis-sku.
 
     ![Geavanceerde instellingen voor nieuwe blockchain-netwerk](media/deploy/advanced-blockchain-settings-new.png)
 
-    | Instelling | Beschrijving  |
+    | Instelling | Description  |
     |---------|--------------|
-    | Bewaking | Kies of u Azure Monitor wilt inschakelen om uw blockchain-netwerk te controleren |
+    | Azure Blockchain Service-prijscategorie | Kies **Basic** of **Standard** Azure Blockchain-servicelaag die wordt gebruikt voor Blockchain Workbench |
     | Azure Active Directory-instellingen | Kies **Later toevoegen**.</br>Opmerking: Als u ervoor kiest [vooraf configureren van Azure AD](#azure-ad-configuration) of opnieuw wilt implementeren, wilt *nu toevoegen*. |
-    | Selectie van de virtuele machine | Kies de gewenste VM-grootte voor uw blockchain-netwerk. Kies een kleinere virtuele machine zoals *Standard DS1 versie 2* als u van een abonnement met lage Servicelimieten, zoals de gratis laag van Azure gebruikmaakt. |
+    | Selectie van de virtuele machine | Selecteer de voorkeur opslagprestaties en VM-grootte voor uw blockchain-netwerk. Kies een kleinere virtuele machine zoals *Standard DS1 versie 2* als u van een abonnement met lage Servicelimieten, zoals de gratis laag van Azure gebruikmaakt. |
 
     Voor **gebruik bestaande**:
 
@@ -121,7 +116,7 @@ Als de vereiste stappen zijn voltooid, bent u klaar om de Blockchain Workbench t
      |---------|--------------|
      | Ethereum RPC-eindpunt | Geef het RPC-eindpunt van een bestaand PoA blockchain-netwerk. Het eindpunt begint met https:// of http:// en eindigt met een poortnummer op. Bijvoorbeeld: `http<s>://<network-url>:<port>` |
      | Azure Active Directory-instellingen | Kies **Later toevoegen**.</br>Opmerking: Als u ervoor kiest [vooraf configureren van Azure AD](#azure-ad-configuration) of opnieuw wilt implementeren, wilt *nu toevoegen*. |
-     | Selectie van de virtuele machine | Kies de gewenste VM-grootte voor uw blockchain-netwerk. |
+     | Selectie van de virtuele machine | Selecteer de voorkeur opslagprestaties en VM-grootte voor uw blockchain-netwerk. Kies een kleinere virtuele machine zoals *Standard DS1 versie 2* als u van een abonnement met lage Servicelimieten, zoals de gratis laag van Azure gebruikmaakt. |
 
 9. Selecteer **OK** geavanceerde instellingen te voltooien.
 

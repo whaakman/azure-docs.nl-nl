@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/11/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 62eb75ef18d3ac81be65783e57c21c0aefd7a429
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a2729af6a689daa551fc01f585324d53a8770a9b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554606"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072889"
 ---
 | Resource | Standaardlimiet |
 | --- | :--- |
@@ -22,7 +22,7 @@ ms.locfileid: "57554606"
 | Maximale schillen per knooppunt: [basisnetwerken][basic-networking] met Kubenet | 110 |
 | Maximale schillen per knooppunt: [Geavanceerde netwerken] [ advanced-networking] met Azure Container-VPN-Interface | Implementatie van Azure CLI: 30<sup>1</sup><br />Azure Resource Manager-sjabloon: 30<sup>1</sup><br />Portal-implementatie: 30 |
 
-<sup>1</sup>wanneer u een cluster Azure Kubernetes Service (AKS) met de Azure CLI of een Resource Manager-sjabloon implementeert, deze waarde kan worden geconfigureerd maximaal 110 schillen per knooppunt. U kunt maximaal schillen per knooppunt niet configureren nadat u al een AKS-cluster hebt geïmplementeerd, of als u een cluster implementeren met behulp van de Azure-portal.<br />
+<sup>1</sup>wanneer u een cluster Azure Kubernetes Service (AKS) met de Azure CLI of een Resource Manager-sjabloon implementeert, deze waarde kan worden geconfigureerd maximaal 250 schillen per knooppunt. U kunt maximaal schillen per knooppunt niet configureren nadat u al een AKS-cluster hebt geïmplementeerd, of als u een cluster implementeren met behulp van de Azure-portal.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking

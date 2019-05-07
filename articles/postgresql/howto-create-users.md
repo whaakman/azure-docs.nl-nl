@@ -1,21 +1,19 @@
 ---
-title: Gebruikers maken in Azure Database for PostgreSQL-server
-description: Dit artikel wordt beschreven hoe u nieuwe gebruikersaccounts om te communiceren met een Azure Database for PostgreSQL-server kunt maken.
-author: WenJason
-ms.author: v-jay
-editor: jasonwhowell
+title: Gebruikers in Azure Database for PostgreSQL - één Server maken
+description: Dit artikel wordt beschreven hoe u nieuwe gebruikersaccounts om te communiceren met een Azure Database voor PostgreSQL - één Server kunt maken.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/16/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 33c107c46b314136fa3d43f8e7881e096afa374c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: ce6188732720bc43c5849fa492237c7ab98487c6
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422267"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067500"
 ---
-# <a name="create-users-in-azure-database-for-postgresql-server"></a>Gebruikers maken in Azure Database for PostgreSQL-server 
+# <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Gebruikers in Azure Database for PostgreSQL - één Server maken
 Dit artikel wordt beschreven hoe u gebruikers in een Azure Database for PostgreSQL-server kunt maken.
 
 ## <a name="the-server-admin-account"></a>Het beheerdersaccount voor de server
@@ -74,7 +72,7 @@ De gebruiker van het serverbeheerdersaccount kan worden gebruikt voor het maken 
 5. Meld u aan bij uw server, de aangewezen database, met behulp van de nieuwe gebruikersnaam en het wachtwoord op te geven. In dit voorbeeld ziet de psql-opdrachtregel. Met deze opdracht wordt u gevraagd om het wachtwoord voor de naam van de gebruiker. Vervangen door uw eigen servernaam, databasenaam en gebruikersnaam.
 
    ```azurecli-interactive
-   psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=db_user@mydemoserver --dbname=newdb
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=db_user@mydemoserver --dbname=newdb
    ```
 
 ## <a name="next-steps"></a>Volgende stappen

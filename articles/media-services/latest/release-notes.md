@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 09f9731f78093354f324f263899519bc5d31fa5d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8f50188480b963d13460c79175ea6972d3e68f6a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682150"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153063"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 release-opmerkingen
 
@@ -34,9 +34,19 @@ Als u wilt bijhouden met de meest recente ontwikkelingen, vindt in dit artikel u
 
 Zie voor meer informatie, [migratierichtlijnen voor het verplaatsen van Media Services v2 naar v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="may-2019"></a>Mei 2019
+
+### <a name="performance-improvements"></a>Verbeterde prestaties
+
+* De maximale bestandsgrootte die wordt ondersteund voor de verwerking is bijgewerkt. Zie, [quota en beperkingen](limits-quotas-constraints.md).
+* [Codering snelheden verbeteringen](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+
 ## <a name="april-2019"></a>April 2019
 
-[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) is toegevoegd aan de standaardinstellingen van de ingebouwde analyzer.
+### <a name="new-presets"></a>Nieuwe voorinstellingen
+
+* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) is toegevoegd aan de standaardinstellingen van de ingebouwde analyzer.
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) is toegevoegd aan de ingebouwde encoder-voorinstellingen. Zie voor meer informatie, [inhoud-bewuste codering](cae-experimental.md). 
 
 ## <a name="march-2019"></a>Maart 2019
 
@@ -205,7 +215,7 @@ De volgende functies zijn aanwezig in de .NET SDK:
 
 * Bij het indienen van een taak, kunt u opgeven voor opname van de bronvideo met behulp van HTTPS-URL's, SAS-URL's of paden tot bestanden in Azure Blob-opslag. Op dit moment biedt AMS v3 geen ondersteuning voor gesegmenteerde overdrachtscodering via HTTPS-URL's.
 
-## <a name="provide-feedback"></a>Feedback geven
+## <a name="ask-questions-give-feedback-get-updates"></a>Stel vragen, feedback geven, updates ophalen
 
 Bekijk de [Azure Media Services-community](media-services-community.md) artikel om te zien van verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
 

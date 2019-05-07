@@ -1,0 +1,54 @@
+---
+title: Azure Cosmos-containers te maken met grote partitiesleutel met behulp van de Azure-portal en de verschillende SDK's.
+description: Informatie over het maken van een container in Azure Cosmos DB met grote partitiesleutel met behulp van Azure portal en andere SDK's.
+author: markjbrown
+ms.service: cosmos-db
+ms.topic: conceptual
+ms.date: 05/06/2019
+ms.author: mjbrown
+ms.openlocfilehash: ee1568274792621b8ed9f25d211c40440a82208c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65160033"
+---
+# <a name="create-containers-with-large-partition-key"></a>Maken van containers met grote partitiesleutel
+
+Azure Cosmos DB maakt gebruik van partitionering op basis van een hash te bereiken horizontaal schalen van gegevens. Alle Azure Cosmos-containers die zijn gemaakt vóór 3 2019 mei gebruiken een hashfunctie die wordt berekend op basis van de eerste 100 bytes van de partitiesleutel hash. Als er meerdere partitiesleutels met de dezelfde eerste 100 bytes, worden klikt u vervolgens deze logische partities beschouwd als dezelfde logische partitie door de service. Dit kan leiden tot problemen, zoals onjuiste wordt het quotum van partitie en unieke indexen worden toegepast op de partitiesleutels. Grote partitiesleutels zijn geïntroduceerd om op te lossen dit probleem. Azure Cosmos DB nu ondersteunt grote partitiesleutels van waarden tot 2 KB. 
+
+Grote partitie sleutels worden ondersteund met behulp van de functionaliteit van een verbeterde versie van de hashfunctie, die een unieke hash uit grote partitie genereren kunt sleutels tot 2 KB. Deze hash-versie wordt ook aanbevolen voor scenario's met hoge partitie de kardinaliteit van sleutel, ongeacht de grootte van de partitiesleutel. De kardinaliteit van de sleutel van een partitie wordt gedefinieerd als het aantal unieke logische partities, bijvoorbeeld in de volgorde van ~ 30000 logische partities in een container. In dit artikel wordt beschreven hoe u een container maken met een grote partitie-sleutel met de Azure portal en de verschillende SDK's. 
+
+## <a name="create-a-large-partition-key-net-sdk-v2"></a>Maken van een grote partitiesleutel (.Net SDK-V2)
+
+Wanneer u de .net SDK gebruikt om te maken van een container met grote partitiesleutel, moet u de `PartitionKeyDefinitionVersion.V2` eigenschap. Het volgende voorbeeld ziet u hoe u de eigenschap versie binnen het object PartitionKeyDefinition opgeven en instellen op PartitionKeyDefinitionVersion.V2:
+
+```csharp
+DocumentCollection collection = await newClient.CreateDocumentCollectionAsync(
+database,
+     new DocumentCollection
+        {
+           Id = Guid.NewGuid().ToString(),
+           PartitionKey = new PartitionKeyDefinition
+           {
+             Paths = new Collection<string> {"/longpartitionkey" },
+             Version = PartitionKeyDefinitionVersion.V2
+           }
+         },
+      new RequestOptions { OfferThroughput = 400 });
+```
+
+## <a name="create-a-large-partition-key-azure-portal"></a>Maken van een grote partitiesleutel (Azure portal) 
+
+Voor het maken van een grote partitiesleutel, terwijl u een nieuwe container met behulp van de Azure portal maken, Controleer de **mijn partitiesleutel is groter dan 100 bytes** optie. Standaard worden de nieuwe containers deelneemt aan het gebruik van de grote partitiesleutels. Schakel het selectievakje in als u niet nodig voor grote partitiesleutels hebt of als u toepassingen die worden uitgevoerd op de SDK-versie ouder is dan 1.18 hebt.
+
+![Grote partitiesleutels met behulp van Azure portal maken](./media/large-partition-keys/large-partition-key-with-portal.png)
+ 
+## <a name="next-steps"></a>Volgende stappen
+
+* [Partitionering in Azure Cosmos DB](partitioning-overview.md)
+* [Aanvraageenheden in Azure Cosmos DB](request-units.md)
+* [Doorvoer voor containers en databases inrichten](set-throughput.md)
+* [Werken met Azure Cosmos-account](account-overview.md)
+
+

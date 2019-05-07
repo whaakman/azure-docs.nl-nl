@@ -13,184 +13,187 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761f3e6e72319a2e63d6b66f2893130ec5a82ebf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2f0956b44d6df64fb73e5eee7844574237d8755
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60352879"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067637"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Gewijzigde standaardregels in Azure AD Connect oplossen
 
-Azure AD Connect wordt geleverd met de standaardregels voor synchronisatie.  Helaas deze regels niet algemeen van toepassing op alle organisaties en is er mogelijk tijdstippen, op basis van uw vereisten, als u wilt wijzigen.
-
- Als u de standaardregels hebt gewijzigd of van plan bent te wijzigen, klikt u vervolgens Neem even de tijd om dit document te lezen.
-
-Dit document bevat weliswaar 2 voorbeelden van de meest voorkomende aanpassingen die zijn gemaakt door gebruikers en de juiste manier om deze aanpassingen uitgelegd.
+Azure Active Directory (Azure AD) Connect maakt gebruik van standaardregels voor synchronisatie.  Deze regels toepassing geen helaas universeel op alle organisaties. Op basis van uw behoeften, mogelijk moet u deze wijzigen. In dit artikel worden besproken twee voorbeelden van de meest voorkomende aanpassingen, en wordt uitgelegd van de juiste manier om deze aanpassingen uitvoeren.
 
 >[!NOTE] 
-> Wijzigen van bestaande standaard (s) voor het bereiken van een benodigde aanpassingen wordt niet ondersteund - zodoende wordt voorkomen dat deze regels bijwerken naar de nieuwste versie in toekomstige releases. Hiermee wordt voorkomen dat u aan de benodigde oplossingen voor problemen en nieuwe functies.  Dit document wordt uitgelegd hoe u hetzelfde resultaat bereiken zonder de bestaande standaardregels wijzigen. 
+> Wijzigen van bestaande standaardregels voor het bereiken van een benodigde aanpassingen wordt niet ondersteund. Als u dit doet, voorkomt u dat deze regels wordt bijgewerkt naar de nieuwste versie in toekomstige releases. U wordt niet moet u de oplossingen voor problemen of nieuwe functies ophalen. Dit document wordt uitgelegd hoe u hetzelfde resultaat bereiken zonder de bestaande standaardregels wijzigen. 
 
-## <a name="how-to-identify-modified-default-rules"></a>Het identificeren van gewijzigde standaardregels?
-Vanaf versie 1.3.7.0 van **Azure AD Connect**, het is nu eenvoudig om te identificeren van de standaardregel voor de gewijzigde. U kunt gaat u naar Apps op het bureaublad en klik op **Synchronization Rules Editor**.
+## <a name="how-to-identify-modified-default-rules"></a>Gewijzigde standaardregels identificeren
+Vanaf versie 1.3.7.0 van Azure AD Connect, is het eenvoudig om te identificeren van de standaardregel voor de gewijzigde. Ga naar **Apps op bureaublad**, en selecteer **Synchronization Rules Editor**.
 
-![editor](media/how-to-connect-fix-default-rules/default1.png)
+![Azure AD Connect, met de Synchronization Rules Editor gemarkeerd](media/how-to-connect-fix-default-rules/default1.png)
 
-In de Editor wordt een gewijzigde standaardregels weergegeven met een pictogram voor de naam, zoals hieronder weergegeven:
+In de Editor, worden alle gewijzigde standaardregels met een waarschuwingspictogram weergegeven in het zicht van de naam weergegeven.
 
-![Pictogram](media/how-to-connect-fix-default-rules/default2.png)
+![Waarschuwingspictogram](media/how-to-connect-fix-default-rules/default2.png)
 
- Ook ziet u een uitgeschakelde regel met dezelfde naam naast het dit de standaard-regel is:
+ Een uitgeschakelde regel met dezelfde naam naast het verschijnt ook (dit is de regel standaard).
 
-![Standaardregels](media/how-to-connect-fix-default-rules/default2a.png)
+![Synchronization Rules Editor, met standaard-regel en de standaardregel voor de gewijzigde](media/how-to-connect-fix-default-rules/default2a.png)
 
 ## <a name="common-customizations"></a>Algemene aanpassingen
 Hier volgen algemene aanpassingen aan de standaardregels:
 
-- [Wijzigen van de kenmerkstroom](#changing-attribute-flow)
-- [Bereikfilter wijzigen](#changing-scoping-filter)
-- [Join-voorwaarde wijzigen](#changing-join-condition)
+- Wijzigen van de kenmerkstroom
+- Bereikfilter wijzigen
+- Join-voorwaarde wijzigen
 
-## <a name="before-changing-any-rules"></a>Voordat u een van de regels wijzigen
-- De synchronisatieplanning uitschakelen.  De scheduler wordt standaard elke 30 minuten uitgevoerd. Zorg ervoor dat deze wordt niet gestart tijdens het aanbrengen van wijzigingen en het oplossen van uw nieuwe regels. Als u wilt de scheduler tijdelijk uitschakelen, start PowerShell en voer `Set-ADSyncScheduler -SyncCycleEnabled $false`.
- ![Standaardregels](media/how-to-connect-fix-default-rules/default3.png)
+Voordat u een van de regels wijzigen:
 
-- De wijziging in bereikfilter kan leiden tot het verwijderen van objecten in de doelmap. Houd er rekening zorgvuldig voordat u wijzigingen aanbrengt in het bereik van objecten. Het is raadzaam dat u wijzigingen aanbrengen in een staging-server voordat u wijzigingen op de actieve server.
-- Voer een Preview-versie op een enkel object zoals vermeld in [Synchronisatieregel valideren](#validate-sync-rule) sectie na het toevoegen van een nieuwe regel.
-- Voer een volledige synchronisatie na een nieuwe regel toevoegen of wijzigen van een aangepaste synchronisatieregel. Deze synchronisatie wordt nieuwe regels toepassen op alle objecten.
+- De synchronisatieplanning uitschakelen. De scheduler wordt standaard elke 30 minuten uitgevoerd. Zorg ervoor dat deze wordt niet gestart tijdens het aanbrengen van wijzigingen en het oplossen van uw nieuwe regels. Als u wilt de scheduler tijdelijk uitschakelen, start PowerShell en voer `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+ ![PowerShell-opdrachten om uit te schakelen van de synchronisatieplanning](media/how-to-connect-fix-default-rules/default3.png)
 
-## <a name="changing-attribute-flow"></a>Wijzigen van de kenmerkstroom
-Er zijn 3 verschillende scenario's voor de kenmerkstroom, laten we kijken hoe u om dit te bereiken zonder te wijzigen van standaard-regels.
-- Nieuw kenmerk toe te voegen
-- Waarde van bestaande kenmerk overschrijven
-- Bestaand kenmerk worden niet gesynchroniseerd
+- De wijziging in bereikfilter kan leiden tot het verwijderen van objecten in de doelmap. Wees voorzichtig voordat u wijzigingen aanbrengt in het bereik van objecten. Het is raadzaam dat u wijzigingen in een staging-server aanbrengt voordat u wijzigingen op de actieve server.
+- Een preview worden uitgevoerd op een enkel object, zoals vermeld in de [Synchronisatieregel valideren](#validate-sync-rule) sectie na het toevoegen van een nieuwe regel.
+- Een volledige synchronisatie uitvoeren nadat een nieuwe regel toevoegen of wijzigen van een aangepaste synchronisatieregel. Deze synchronisatie is nieuwe regels van toepassing op alle objecten.
 
-### <a name="adding-new-attribute"></a>Nieuw kenmerk toe te voegen:
-Als u vindt dat een kenmerk niet vanaf de bron-directory worden doorgestuurd naar de doelmap en kunt u de [Azure AD Connect-synchronisatie: Mapextensies](how-to-connect-sync-feature-directory-extensions.md) stromen van de nieuwe kenmerken.
+## <a name="change-attribute-flow"></a>Wijzigen van de kenmerkstroom
+Er zijn drie verschillende scenario's voor het wijzigen van de kenmerkstroom:
+- Een nieuw kenmerk toe te voegen.
+- De waarde van een bestaand kenmerk te overschrijven.
+- Als u niet een bestaand kenmerk synchroniseren.
 
-Houd er rekening mee dat de eerste keuze te gebruiken moet [Azure AD Connect-synchronisatie: Mapextensies](how-to-connect-sync-feature-directory-extensions.md), een buiten-vak-functie geleverd door Azure AD Connect. Echter, als dit niet voor u werkt vervolgens via de volgende stappen voor het doorlopen van een kenmerk zonder te wijzigen van bestaande standaard-synchronisatieregel, u kunt dit doen door twee nieuwe synchronisatieregels toe te voegen.
+U kunt doen dit zonder te wijzigen van standaard-regels.
+
+### <a name="add-a-new-attribute"></a>Een nieuw kenmerk toevoegen
+Als u vindt dat een kenmerk is stromen niet vanuit de bronmap naar de doelmap, gebruikt u de [Azure AD Connect-synchronisatie: Mapextensies](how-to-connect-sync-feature-directory-extensions.md) dit probleem oplossen.
+
+Als de extensies niet werkt, kunt u twee nieuwe synchronisatieregels, die worden beschreven in de volgende secties toe te voegen.
 
 
-#### <a name="add-an-inbound-sync-rule"></a>Voeg een regel voor inkomende synchronisatie:
-Regel voor inkomende synchronisatie betekent dat de bron voor het kenmerk is een connectorgebied en het doel is metaverse. Bijvoorbeeld als u wilt laten doorlopen een nieuw kenmerk uit on-premises Active Directory naar Azure Active Directory, een nieuwe regel voor inkomende synchronisatie maken door het starten van de **Synchronization Rule Editor**, selecteer vervolgens richting als **voorbinnenkomendverkeer** en klikt u op **nieuwe regel toevoegen**. 
+#### <a name="add-an-inbound-sync-rule"></a>Toevoegen van een regel voor inkomende synchronisatie
+Een regel voor inkomende synchronisatie betekent dat de bron voor het kenmerk is een connectorgebied en het doel is de metaverse. Bijvoorbeeld, om een nieuw kenmerk stromen van on-premises Active Directory aan Azure Active Directory, maakt u een nieuwe regel voor inkomende synchronisatie. Start de **Synchronization Rules Editor**, selecteer **inkomend** als de richting en selecteer **nieuwe regel toevoegen**. 
 
- ![Standaardregels](media/how-to-connect-fix-default-rules/default3a.png)
+ ! Synchronisatie regels Editor](media/how-to-connect-fix-default-rules/default3a.png)
 
-Uw eigen naamconventie om een naam van de regel te volgen, wordt hier gebruikt we **aangepaste In uit Active Directory - gebruiker**, dit betekent dat de regel een aangepaste regel is en een inkomende regel van de AD-connectorgebied naar de Metaverse is.   
+Uw eigen naamconventie om een naam van de regel te volgen. We gebruiken hier, **aangepaste In uit Active Directory - gebruiker**. Dit betekent dat de regel een aangepaste regel is en een inkomende regel van het Active Directory-connectorgebied overgebracht naar de metaverse is.   
 
- ![Standaardregels](media/how-to-connect-fix-default-rules/default3b.png)
+ ![Synchronisatieregel voor binnenkomende gegevens maken](media/how-to-connect-fix-default-rules/default3b.png)
 
-Geef uw eigen beschrijving van de regel zodat het toekomstig onderhoud van de regel is eenvoudig, zoals wat het doel van deze regel is en waarom het nodig is.
-Selecteer een verbonden systeem (het forest) - bron van het kenmerk. Selecteer het objecttype verbonden systeem en het Metaverse-objecttype.
+Geef uw eigen beschrijving van de regel zodat toekomstige onderhoud van de regel eenvoudig is. De beschrijving kan bijvoorbeeld worden gebaseerd op wat het doel van de regel is, en waarom dat nodig.
 
-Geef de prioriteitswaarde tussen 0 en 99 (lagere waarde, hoger de prioriteit). Houd andere velden, zoals 'Tag', 'Wachtwoordsynchronisatie inschakelen' en 'Uitgeschakeld' als standaard.
+Uw selecties hebt gemaakt voor de **verbonden systeem**, **verbonden systeem objecttype**, en **Metaverse-objecttype** velden.
 
-Houd Scoping 'filter' leeg, dit betekent dat de regel van toepassing op alle objecten gekoppeld tussen AD verbonden systeem- en Metaverse.
+Geef de prioriteit van 0 t/m 99 (des te lager het nummer, hoe hoger de prioriteit). Voor de **Tag**, **wachtwoordsynchronisatie inschakelen**, en **uitgeschakelde** velden, gebruikt u de standaardselecties.
 
-Houd de lege 'Regels Join', wat betekent deze regel dat wordt gemaakt op de join-voorwaarde die is gedefinieerd in de regel standaard. Dit is een andere reden niet aan de uitschakelen/verwijderen. de regel standaard omdat als er geen join-voorwaarde ontvangstbevestigingen vervolgens het kenmerk niet overgebracht. 
+Houd **Scoping filter** leeg zijn. Dit betekent dat de regel voor alle objecten geldt gekoppeld tussen het Active Directory verbonden systeem en de metaverse.
 
-Juiste transformatie toevoegen voor het kenmerk, kunt u constante stromen een constante waarde naar het doelkenmerk toewijzen of directe toewijzing tussen de bron- of doelentiteit kenmerk of een expressie voor het kenmerk. Hier volgen verschillende [functies](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) u kunt gebruiken.
+Houd **Join regels** leeg zijn. Dit betekent dat deze regel maakt gebruik van de join-voorwaarde die is gedefinieerd in de regel standaard. Dit is een andere reden niet uit te schakelen of te verwijderen van de regel standaard. Als er geen join-voorwaarde is, wordt niet het kenmerk stromen. 
 
-#### <a name="add-an-outbound-sync-rule"></a>Voeg een synchronisatieregel voor uitgaande:
-Tot nu toe door toe te voegen alleen een regel voor inkomende synchronisatie hebben we de helft het werk, omdat het kenmerk is nog niet gekoppeld aan de doelmap. Om te koppelen van het kenmerk aan de doel-directeur die u wilt maken van een uitgaande regel, wat betekent dat de bron is metaverse en het doel is verbonden systeem. Een uitgaande regel maken, starten **Synchronization Rule Editor**, wijzigen de **richting** naar **uitgaand** en klikt u op **nieuwe regel toevoegen**. 
+Juiste transformaties voor het kenmerk toevoegen. U kunt een constante, om te maken van een constante waarde van de stroom naar het doelkenmerk. U kunt direct toewijzing tussen de bron- of doelabonnements-kenmerk gebruiken. Of u kunt een expressie voor het kenmerk. Hier volgen verschillende [functies](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) u kunt gebruiken.
 
-![Standaardregels](media/how-to-connect-fix-default-rules/default3c.png)
+#### <a name="add-an-outbound-sync-rule"></a>Toevoegen van een synchronisatieregel voor uitgaande
+Als u wilt het kenmerk een koppeling naar de doelmap, moet u een uitgaande regel maken. Dit betekent dat de bron de metaverse is en het doel het verbonden systeem is. Een uitgaande regel maken, start de **Synchronization Rules Editor**, wijzigen de **richting** naar **uitgaand**, en selecteer **nieuwe regel toevoegen**. 
 
-Zoals in de binnenkomende regel, kunt u uw eigen naamgevingsconventie op toe **naam** de regel. Selecteer de **verbonden systeem** als Azure AD-tenant, selecteert u het verbonden systeem-object waarnaar u wilt ingesteld de kenmerkwaarde. Stel de prioriteit in tussen 0 - 99. 
+![Synchronization Rules Editor](media/how-to-connect-fix-default-rules/default3c.png)
 
-![Standaardregels](media/how-to-connect-fix-default-rules/default3d.png)
+Als kunt de binnenkomende regel, u uw eigen naamconventie gebruiken om de naam van de regel. Selecteer de **verbonden systeem** als de Azure AD-tenant, en selecteer het verbonden systeem-object waarnaar u wilt de kenmerkwaarde ingesteld. Stel de prioriteit van 0 t/m 99. 
 
-Houd **Scoping filter** leeg is, behouden **deelnemen aan regels** leeg, vult u de transformatie als constante, Direct of expressie. 
+![Regel voor uitgaande synchronisatie maken](media/how-to-connect-fix-default-rules/default3d.png)
 
-In dit voorbeeld is het nieuwe kenmerk voor een gebruikersobject in Active Directory naar Azure Active Directory flow gedemonstreerd. U kunt deze stappen gebruiken om toe te wijzen een kenmerk van een object op bron en doel.  Zie voor meer informatie [het maken van aangepaste synchronisatieregels](how-to-connect-create-custom-sync-rule.md) en [voorbereiding voor gebruikers inrichten](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
+Houd **Scoping filter** en **Join regels** leeg zijn. Vul in de transformatie als constante, direct of expressie. 
 
-### <a name="overriding-value-of-existing-attribute"></a>Waarde van bestaande kenmerk overschrijven
-Het is mogelijk dat u wilt overschrijven van de waarde van kenmerk al zijn toegewezen, zoals u wilt altijd Null-waarde met een kenmerk is ingesteld in Azure AD, kunt u dit doen door alleen een inkomende regel te maken zoals vermeld in de vorige stap en flow  **AuthoritativeNull** constante waarde voor het doelkenmerk. Houd er rekening mee dat we AuthoritativeNulll in dit geval in plaats van Null gebruikt hebben. Dit is omdat het niet-null-waarde wordt vervangen door een Null-waarde, zelfs als er een lagere prioriteit (hogere numerieke waarde in de regel). Echter, de AuthoritativeNull zullen worden behandeld als Null en worden niet vervangen met niet-null-waarde door andere regels. 
+U weet nu hoe u een nieuw kenmerk voor een gebruiker Objectstroom uit Active Directory in Azure Active Directory. U kunt deze stappen gebruiken om toe te wijzen een kenmerk van een object op bron en doel. Zie voor meer informatie, [het maken van aangepaste synchronisatieregels](how-to-connect-create-custom-sync-rule.md) en [voorbereiding voor gebruikers inrichten](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
+
+### <a name="override-the-value-of-an-existing-attribute"></a>De waarde van een bestaand kenmerk overschrijven
+Het is raadzaam voor de onderdrukking van de waarde van een kenmerk dat is al toegewezen. Maak bijvoorbeeld een inkomende regel alleen op als u altijd een null-waarde met een kenmerk is ingesteld in Azure AD wilt, gewoon. Geef de constante waarde `AuthoritativeNull`, stroom naar het doelkenmerk. 
+
+>[!NOTE] 
+> Gebruik `AuthoritativeNull` in plaats van `Null` in dit geval. Dit is omdat de niet-null-waarde wordt vervangen door de null-waarde, zelfs als er een lagere prioriteit (een hogere numerieke waarde in de regel). `AuthoritativeNull`, aan de andere kant de is niet wordt vervangen door een niet-null-waarde door andere regels. 
 
 ### <a name="dont-sync-existing-attribute"></a>Bestaand kenmerk worden niet gesynchroniseerd
-Als u uitsluiten van een kenmerk wilt kunnen worden gesynchroniseerd, kunt u het kenmerk filteren in Azure AD Connect-functie gebruiken. Start **Azure AD Connect** van pictogram op het bureaublad en selecteer vervolgens **aanpassen Synchronisatieopties**.
+Als u uitsluiten van een kenmerk wilt van het synchroniseren, gebruikt u het kenmerk filteren-functie in Azure AD Connect. Start **Azure AD Connect** van het pictogram op het bureaublad en selecteer vervolgens **aanpassen Synchronisatieopties**.
 
-![Standaardregels](media/how-to-connect-fix-default-rules/default4.png)
+![Opties voor Azure AD Connect extra taken](media/how-to-connect-fix-default-rules/default4.png)
 
- Zorg ervoor dat **Azure AD-app en kenmerkfilters** is geselecteerd en klik op **volgende**.
+ Zorg ervoor dat **Azure AD-app en kenmerkfilters** is geselecteerd en selecteer **volgende**.
 
-![Standaardregels](media/how-to-connect-fix-default-rules/default5.png)
+![Optionele functies van Azure AD Connect](media/how-to-connect-fix-default-rules/default5.png)
 
 Schakel de kenmerken die u uitsluiten wilt van synchronisatie.
 
-![Standaardregels](media/how-to-connect-fix-default-rules/default6a.png)
+![Azure AD Connect-kenmerken](media/how-to-connect-fix-default-rules/default6a.png)
 
-## <a name="changing-scoping-filter"></a>Bereikfilter wijzigen
-Azure AD Sync zorgt voor de meeste objecten, kunt u Verklein het bereik van objecten en minder objecten worden uitgevoerd in een ondersteunde manier zonder dat u wijzigt de standaard-synchronisatieregels verkleinen. Als u verhogen van het bereik van objecten wilt, kunt u **bewerken** de bestaande regel het klonen en de oorspronkelijke regel uitschakelen. Microsoft raadt u niet te verhogen van de scope is geconfigureerd door Azure AD Connect. Toename in het bereik van objecten maakt het moeilijk ondersteuningsteam om te begrijpen van de aanpassingen en ondersteuning voor het product.
+## <a name="change-scoping-filter"></a>Bereikfilter wijzigen
+Azure AD Sync zorgt dat de meeste objecten. U kunt Verklein het bereik van objecten en verminder het aantal objecten om te worden geëxporteerd, zonder dat u wijzigt de standaard synchronisatie-regels. 
 
-Hier ziet u hoe u het bereik van objecten die zijn gesynchroniseerd met Azure AD kunt verminderen. Houd er rekening mee dat als u Verklein het bereik van de **gebruikers** wordt gesynchroniseerd en vervolgens de wachtwoord-hash-synchronisatie ook voor de gebruikers gefilterd-out stoppen wordt. Als de objecten zijn al synchroniseert, klik na het verminderen van bereik, worden de objecten gefilterd-out wordt verwijderd uit de doelmap, werkt u samen op scoping zorgvuldig.
-Hier volgen de ondersteunde manieren om Verklein het bereik van de objecten die u synchroniseert.
+Gebruik een van de volgende methoden voor het verminderen van het bereik van de objecten die u synchroniseert:
 
-- [cloudFiltered kenmerk](#cloudfiltered-attribute)
-- [OE filteren](#ou-filtering)
+- cloudFiltered kenmerk
+- Organisatie-eenheid filteren
+
+Als u het bereik van de gebruikers gesynchroniseerd wordt verminderen, de wachtwoord-hash-synchronisatie ook geblokkeerd voor de gebruikers gefilterd-out. Als de objecten zijn al gesynchroniseerd nadat u het bereik beperken, worden de objecten gefilterd-out verwijderd uit de doelmap. Zorg ervoor dat u het bereik van zeer zorgvuldig om deze reden.
+
+>[!IMPORTANT] 
+> Vergroot het bereik van objecten die zijn geconfigureerd door Azure AD Connect wordt niet aanbevolen. In dat geval, waardoor het lastig is voor het ondersteuningsteam van Microsoft om te begrijpen van de aanpassingen. Als u het bereik van objecten verhogen moet, bewerk de bestaande regel, deze klonen en de oorspronkelijke regel uitschakelen. 
 
 ### <a name="cloudfiltered-attribute"></a>cloudFiltered kenmerk
-Houd er rekening mee dat dit is niet een kenmerk die kan worden ingesteld in Active Directory. U moet de waarde van dit kenmerk ingesteld door het toevoegen van een nieuwe regel voor binnenkomende verbindingen, zoals vermeld in **waarde van bestaande kenmerk overschrijven** sectie. Vervolgens kunt u de **transformatie** en gebruik **expressie** om in te stellen van dit kenmerk in de Metaverse. Hier volgt een voorbeeld dat u niet wilt synchroniseren alle van de gebruiker waarvan de naam van afdeling begint met hoofdlettergevoelig **HRD**:
+U kunt dit kenmerk in Active Directory niet instellen. Stel de waarde van dit kenmerk door een nieuwe regel voor binnenkomende verbindingen toe te voegen. Vervolgens kunt u **transformatie** en **expressie** om in te stellen van dit kenmerk in de metaverse. Het volgende voorbeeld ziet u dat u niet synchroniseren van alle gebruikers waarvan de naam van afdeling begint wilt met **HRD** (niet hoofdlettergevoelig):
 
 `cloudFiltered <= IIF(Left(LCase([department]), 3) = "hrd", True, NULL)`
 
-We hebben eerst de afdeling van bron (Active Directory) geconverteerd naar kleine letters. Maakt gebruik van de functie Left, we hebben alleen de eerste 3 tekens en tegenover hrd. Als het vergeleken, en vervolgens de waarde ingesteld op True null zijn. Houd er rekening mee dat we de waarde NULL, instelt zodat een andere regel met een lagere prioriteit (hoger getal) naar het met andere voorwaarde schrijven kunt. Voer de Preview-versie op een object voor het valideren van synchronisatieregel, zoals vermeld in [Synchronisatieregel valideren](#validate-sync-rule) sectie.
+We eerst de afdeling van bron (Active Directory) geconverteerd naar kleine letters. Klik vervolgens met behulp van de `Left` functie, we hebben alleen de eerste drie tekens en een vergeleken met `hrd`. Als deze overeenkomt, de waarde is ingesteld op `True`, anders `NULL`. In de waarde wordt ingesteld op null, kunt een andere regel met een lagere prioriteit (een hoger getal) erin schrijven met een andere voorwaarde. Voer Preview-versie van een object voor het valideren van synchronisatieregel, zoals vermeld in de [valideren synchronisatieregel](#validate-sync-rule) sectie.
 
-![Standaardregels](media/how-to-connect-fix-default-rules/default7a.png)
+![Opties voor de regel voor inkomende synchronisatie maken](media/how-to-connect-fix-default-rules/default7a.png)
 
+### <a name="organizational-unit-filtering"></a>Organisatie-eenheid filteren
+U kunt een of meer organisatie-eenheden (OU's) maken en verplaatsen van de objecten die u niet wilt synchroniseren met deze organisatie-eenheden. Configureer vervolgens de organisatie-eenheid filteren in Azure AD Connect. Start **Azure AD Connect** van het pictogram op het bureaublad en selecteer de volgende opties. U kunt ook de organisatie-eenheid op het moment van de installatie van Azure AD Connect-filtering configureren. 
 
+![Azure AD Connect extra taken](media/how-to-connect-fix-default-rules/default8.png)
 
-### <a name="ou-filtering"></a>OE filteren
-U kunt een of meer organisatie-eenheden maken en verplaatsen van de objecten die u niet wilt synchroniseren met deze organisatie-eenheden. Configureer vervolgens de organisatie-eenheid in Azure AD Connect te filteren op starten **Azure AD Connect** uit het pictogram op het bureaublad en selecteer de opties zoals hieronder wordt weergegeven. U kunt ook de organisatie-eenheid op het moment van de installatie van Azure AD Connect-filtering configureren. 
+Volg de wizard en schakelt u de organisatie-eenheden u niet wilt synchroniseren.
 
-![Standaardregels](media/how-to-connect-fix-default-rules/default8.png)
+![Azure AD Connect-domein en organisatie-eenheid filteropties](media/how-to-connect-fix-default-rules/default9.png)
 
-Volg de wizard en klikt u vervolgens Hef de selectie van de organisatie-eenheden u niet wilt synchroniseren.
-
-![Standaardregels](media/how-to-connect-fix-default-rules/default9.png)
-
-## <a name="changing-join-condition"></a>Join-voorwaarde wijzigen
-Microsoft raadt u dat u de standaard deelnemen aan bepalingen die zijn geconfigureerd door Azure AD Connect. Wijzigen van standaard join-voorwaarden maakt het moeilijk ondersteuningsteam om te begrijpen van de aanpassingen en ondersteuning voor het product.
+## <a name="change-join-condition"></a>Join-voorwaarde wijzigen
+Gebruik de join situaties die standaard door Azure AD Connect geconfigureerd. Wijzigen van standaard join-voorwaarden, waardoor het lastig voor ondersteuning van Microsoft om te begrijpen van de aanpassingen en ondersteuning voor het product.
 
 ## <a name="validate-sync-rule"></a>Valideren van synchronisatieregel
-U kunt de zojuist toegevoegde synchronisatieregel valideren met behulp van de preview-functie zonder dat volledige synchronisatiecyclus worden uitgevoerd. Start **Synchronization Service** gebruikersinterface.
+U kunt de zojuist toegevoegde synchronisatieregel valideren met behulp van de preview-functie, zonder dat de cyclus volledige synchronisatie worden uitgevoerd. Selecteer in Azure AD Connect, **Synchronization Service**.
 
-![Standaardregels](media/how-to-connect-fix-default-rules/default10.png)
+![Azure AD Connect, met de synchronisatieservice is gemarkeerd](media/how-to-connect-fix-default-rules/default10.png)
 
-Klik op de **Metaverse zoeken**, selecteer Bereikobject als **persoon**, **component toevoegen** en vermeld uw zoekcriteria. Klik op **zoeken** knop en dubbelklik op het object in de **zoekresultaten** Houd er rekening mee dat u het importeren en synchroniseren op het forest uitvoert voordat u deze stap uitvoert, dit is om te controleren of de gegevens in Azure AD Connect is bijgewerkt voor dat object.
+Selecteer **Metaverse zoeken**. Selecteer het Bereikobject als **persoon**, selecteer **component toevoegen**, en vermeld uw zoekcriteria. Selecteer vervolgens **zoeken**, en dubbelklik op het object in de lijst met zoekresultaten. Zorg ervoor dat uw gegevens in Azure AD Connect bijgewerkt voor dat object is door te voeren importeren en synchroniseren op het forest voordat u deze stap uitvoert.
 
-![Standaardregels](media/how-to-connect-fix-default-rules/default11.png)
+![Synchronization Service Manager](media/how-to-connect-fix-default-rules/default11.png)
 
+Op **eigenschappen van het Metaverseobject**, selecteer **Connectors**, selecteert u het object in de bijbehorende connector (forest) en selecteer **eigenschappen...** .
 
+![Eigenschappen van het Metaverse-Object](media/how-to-connect-fix-default-rules/default12.png)
 
-Selecteer **Connectors**, selecteert u het object in de bijbehorende connector(forest), klikt u op **eigenschappen...** .
+Selecteer **Preview...**
 
-![Standaardregels](media/how-to-connect-fix-default-rules/default12.png)
+![Eigenschappen van het Object Connectorgebied](media/how-to-connect-fix-default-rules/default13a.png)
 
-Klik op de **Preview...**
+Selecteer in het voorbeeldvenster **genereren Preview** en **importeren Kenmerkstroom** in het linkerdeelvenster.
 
-![Standaardregels](media/how-to-connect-fix-default-rules/default13a.png)
-
-Klik op **genereren Preview** en **importeren Kenmerkstroom** in het linkerdeelvenster.
-
-![Standaardregels](media/how-to-connect-fix-default-rules/default14.png)
+![Preview](media/how-to-connect-fix-default-rules/default14.png)
  
-Hier ziet u dat de zojuist toegevoegde regel wordt uitgevoerd op het object en het kenmerk cloudFiltered is ingesteld op True.
+U ziet hier dat de zojuist toegevoegde regel wordt uitgevoerd op het object en heeft de `cloudFiltered` kenmerk in op true.
 
-![Standaardregels](media/how-to-connect-fix-default-rules/default15a.png)
+![Preview](media/how-to-connect-fix-default-rules/default15a.png)
  
-Hoe kunt u het gewijzigde regel met de standaardregel vergelijken?
-U kunt zowel de regels afzonderlijk exporteren als tekstbestanden. Deze regels worden geëxporteerd als powershell-scriptbestand. U kunt vergelijken met behulp van een bestand vergelijken-hulpmiddel om te zien wat voor soort wijzigingen worden uitgevoerd. Hier in dit voorbeeld gebruikt ik windiff om te vergelijken twee bestanden.
+Als u wilt vergelijken van de gewijzigde regel met de standaardregel, exporteren met de regels afzonderlijk als tekstbestanden. Deze regels worden geëxporteerd als een PowerShell-scriptbestand. U kunt vergelijken met behulp van elk bestand vergelijking hulpprogramma (bijvoorbeeld windiff) om de wijzigingen te bekijken. 
  
-Ziet u dat in het dialoogvenster gebruiker gewijzigd regel, kenmerk msExchMailboxGuid wordt gewijzigd naar **expressie** typt u in plaats van **Direct** met als **NULL** en  **ExecuteOnce** optie. Identificatie en prioriteit verschillen, kunt u negeren. 
+U ziet dat in de gewijzigde regel, de `msExchMailboxGuid` kenmerk is gewijzigd in de **expressie** type, in plaats van **Direct**. Ook de waarde is gewijzigd in **NULL** en **ExecuteOnce** optie. Identificatie en prioriteit verschillen, kunt u negeren. 
 
-![Standaardregels](media/how-to-connect-fix-default-rules/default17.png)
+![de uitvoer van Windiff hulpprogramma](media/how-to-connect-fix-default-rules/default17.png)
  
-Over het oplossen van een gewijzigde standaardregel?
-U kunt met het oplossen van uw regels op de standaardinstellingen, u kunt de gewijzigde regel verwijderen en inschakelen van de standaardregel voor zoals hieronder wordt weergegeven en voer een **volledige synchronisatie**. Eerst die Neem even de corrigerende acties zoals hierboven vermeld, zodat u niet de aanpassing verliest u probeert te bereiken ## Vervolgstappen
+De gewijzigde regel verwijderen om op te lossen uw regels om ze te wijzigen op de standaardinstellingen, en de standaardregel inschakelen. Zorg ervoor dat u niet verloren gaan de aanpassingen die u probeert te bereiken. Wanneer u klaar bent, voert **volledige synchronisatie**.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Hardware en vereisten](how-to-connect-install-prerequisites.md) 
 - [Snelle instellingen](how-to-connect-install-express.md)
 - [Aangepaste instellingen](how-to-connect-install-custom.md)
+
+
 

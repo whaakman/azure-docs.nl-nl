@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ea3bb551a32fdfb7e4a378c36858860808e27419
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894454"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072777"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding Frequently Asked Questions (FAQ)
 
@@ -282,27 +282,19 @@ Gebruik het voorbeeld LUIS naar [regio zoeken](https://github.com/Azure-Samples/
 
 Ja, u kunt de LUIS [container](luis-container-howto.md) voor deze scenario's hebt u de benodigde verbindingen het gebruik kan meten. 
 
-### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Ik gehoord over een functie voor Language Understanding of een demo maar ik niet meer weet wat het werd aangeroepen op de Build-conferentie 2018?
+## <a name="migrating-to-the-next-version"></a>Migreren naar de volgende versie
 
-De volgende functies zijn uitgebracht op de Build 2018-conferentie:
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>Hoe Migreer ik preview van V3 API? 
 
-|Name|Inhoud|
-|--|--|
-|Verbeteringen|[Reguliere expressie](luis-concept-data-extraction.md##regular-expression-entity-data) entiteit en [sleutel woordgroep](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) entiteit
-|Patronen|Patronen [concept](luis-concept-patterns.md), [zelfstudie](luis-tutorial-pattern.md), [procedures](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) entiteit met inbegrip van concept [expliciete lijst](luis-concept-patterns.md#explicit-lists) voor uitzonderingen<br>[Rollen](luis-concept-roles.md) concept|
-|Integraties|[Tekstanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) integratie van [sentimentanalyse](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Spraak](https://docs.microsoft.com/azure/cognitive-services/speech) integratie van spraak voorbereiden in combinatie met [spraak SDK](https://aka.ms/SpeechSDK)|
-|Hulpprogramma voor verzending|Onderdeel van [BotBuilder-hulpprogramma's](https://github.com/Microsoft/botbuilder-tools), verzending vanaf de opdrachtregel [hulpprogramma](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) meerdere LUIS en QnA Maker apps combineren tot één LUIS-app voor betere intentieherkenning in een Bot
+Zie [-API v2 naar v3 migratie-handleiding voor LUIS-apps](luis-migration-api-v3.md)
 
-Aanvullende ontwerpen [API-routes](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) zijn opgenomen.
+## <a name="build-2019-conference-announcements"></a>Build-Conferentie voor 2019 aankondigingen
 
-Video's:
-* [Azure Friday Build 2018: Cognitive Services - taal (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [Build 2018 AI Show - wat is er nieuw met Language Understanding Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Build 2018-sessie - Bot-intelligentie, spraakmogelijkheden en aanbevolen NLU-procedures](https://channel9.msdn.com/events/Build/2018/BRK3208)
-* [Build 2018 - LUIS-Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player)
+De volgende functies zijn op de Build-conferentie 2019 vrijgegeven:
 
-Projecten:
-* [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo - broncode van GitHub
+* [Preview van V3 API-Migratiehandleiding](luis-migration-api-v3.md)
+* [Verbeterde analytics-dashboard](luis-how-to-use-dashboard.md)
+* [Verbeterde vooraf gemaakte domeinen](luis-reference-prebuilt-domains.md) werken met V2 en V3 API's
 
 ## <a name="next-steps"></a>Volgende stappen
 

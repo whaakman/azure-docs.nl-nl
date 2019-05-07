@@ -2,19 +2,20 @@
 title: Azure Storage analytics gebruiken om gegevens in Logboeken en metrische gegevens te verzamelen | Microsoft Docs
 description: Storage Analytics kunt u voor het bijhouden van metrische gegevens voor alle storage-services en het verzamelen van Logboeken voor Blob, Queue en Table storage.
 services: storage
-author: roygara
+author: normesta
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: rogarana
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: eb85f8c756e7373a8dedabbce362cfa534e56fd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b588ebe577e61014c6c2bbeaae751b2783dd6f80
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483533"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153927"
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 

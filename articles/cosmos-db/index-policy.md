@@ -4,14 +4,14 @@ description: Informatie over het configureren en wijzigen van de standaardbeleid
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: a089d8bd4f2197c93d43e70742743db29944b910
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: c7f2ccd2c074f2488c86b45a09859b308655df8d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872673"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068610"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexering in Azure Cosmos DB
 
@@ -72,6 +72,36 @@ Alle indexeringsbeleid heeft om op te nemen van pad naar de hoofdmap `/*` als ee
 - Voor paden met gewone tekens bevatten: alfanumerieke tekens en _ (onderstrepingstekens), moet u geen escape-tekenreeks voor het pad om dubbele aanhalingstekens (bijvoorbeeld: "/ path /?"). Voor paden met andere speciale tekens bevat, moet u escape-tekenreeks voor het pad om dubbele aanhalingstekens (bijvoorbeeld: "/\"pad abc\"/?"). Als u speciale tekens in het pad verwacht, kunt u elk pad voor de veiligheid druk op ESC. Functioneel niet dat u enig verschil merkt als escape voor elk pad Vs alleen de resources die speciale tekens bevatten.
 
 Zie [in deze sectie](how-to-manage-indexing-policy.md#indexing-policy-examples) voor indexering beleid voorbeelden.
+
+## <a name="composite-indexes"></a>Samengestelde indexen
+
+Query's die `ORDER BY` twee of meer eigenschappen vereist een samengestelde index. Op dit moment alleen samengestelde indexen worden gebruikt door meerdere `ORDER BY` query's. Standaard geen samengestelde indexen zijn gedefinieerd, moet u [samengestelde indexen toevoegen](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) indien nodig.
+
+Bij het definiëren van een samengestelde index, moet u het volgende opgeven:
+
+- Twee of meer eigenschappaden. De volgorde op waarin eigenschap paden zijn belangrijk is gedefinieerd.
+- De volgorde (oplopend of aflopend).
+
+De volgende overwegingen zijn gebruikt bij het gebruik van samengestelde indexen:
+
+- Als de paden samengestelde index komen niet overeen met de volgorde van de eigenschappen in de component ORDER BY, kan niet klikt u vervolgens de samengestelde index ondersteund door de query
+
+- De volgorde van samengestelde index paden (oplopend of aflopend) moet ook overeenkomen met de volgorde in de component ORDER BY.
+
+- De samengestelde index biedt ook ondersteuning voor een component ORDER BY met de omgekeerde volgorde op alle paden.
+
+Houd rekening met het volgende voorbeeld, waarbij een samengestelde index wordt gedefinieerd op eigenschappen a, b en c
+
+| **Samengestelde Index**     | **Voorbeeld `ORDER BY` Query**      | **Ondersteund door de Index?** |
+| ----------------------- | -------------------------------- | -------------- |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
+| ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
+
+U moet uw indexeringsbeleid aanpassen zodat u alle nodige kan dienen `ORDER BY` query's.
 
 ## <a name="modifying-the-indexing-policy"></a>Wijzigen van het indexeringsbeleid
 

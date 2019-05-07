@@ -1,19 +1,19 @@
 ---
-title: Overzicht van bedrijfscontinuïteit met Azure Database for PostgreSQL
+title: Overzicht van bedrijfscontinuïteit met Azure Database for PostgreSQL - één Server
 description: Overzicht van bedrijfscontinuïteit met Azure Database for PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: b1d566ac571ddd2b2be3aff160f669e277887209
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: a31112f3b6f7bd79785f89822e2881b152708254
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456271"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068919"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Overzicht van bedrijfscontinuïteit met Azure Database for PostgreSQL
+# <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Overzicht van bedrijfscontinuïteit met Azure Database for PostgreSQL - één Server
 
 Dit overzicht beschrijft de mogelijkheden die Azure Database voor PostgreSQL voor bedrijfscontinuïteit en herstel na noodgevallen biedt. Meer informatie over opties voor het herstellen van storingen die kunnen leiden tot gegevensverlies of ervoor zorgen dat uw databases en toepassingen niet meer beschikbaar zijn. Meer informatie over wat er gebeurt wanneer een gebruiker of toepassing-fout is van invloed op de integriteit van gegevens, een Azure-regio een storing heeft of uw toepassing onderhoud vereist.
 

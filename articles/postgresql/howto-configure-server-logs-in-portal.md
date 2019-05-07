@@ -1,21 +1,21 @@
 ---
-title: Configureren en toegang tot de serverlogboeken voor PostgreSQL in Azure Portal
-description: Dit artikel wordt beschreven hoe u configureert en toegang tot de serverlogboeken in Azure Database for PostgreSQL via de Azure-Portal.
+title: Configureren en logboeken van de access-server voor Azure Database voor PostgreSQL - één Server in Azure Portal
+description: Dit artikel wordt beschreven hoe u configureert en toegang krijgen tot de serverlogboeken in Azure Database voor PostgreSQL - servergegevens uit het Azure-Portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 509c3af66e8228f142126dae6938ad74daf1d7ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 13a8c1ee4b7ca114211f93245d74866e5aa5d52c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421849"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067452"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configureren en access-server beschikbaar zijn in Azure portal
+# <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-in-the-azure-portal"></a>Configureren en toegang tot Azure Database voor PostgreSQL - logboeken voor één Server in Azure portal
 
-U kunt configureren, weergeven en downloaden de [Azure Database for PostgreSQL-server-logboeken](concepts-server-logs.md) vanuit Azure portal.
+U kunt configureren, weergeven en downloaden de [Azure Database for PostgreSQL-logboeken](concepts-server-logs.md) vanuit Azure portal.
 
 ## <a name="prerequisites"></a>Vereisten
 Als u wilt in deze gebruiksaanwijzing kunt doorlopen, hebt u het volgende nodig:

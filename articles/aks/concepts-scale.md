@@ -2,18 +2,17 @@
 title: Concepten - Scale applications in Azure Kubernetes Services (AKS)
 description: Meer informatie over het schalen in Azure Kubernetes Service (AKS), met inbegrip van horizontale schillen automatisch schalen, cluster automatisch schalen en de Azure Container Instances-connector.
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: d7df4d2c7e824f143201e2c6af220730bcd38fb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/28/2019
+ms.author: zarhoads
+ms.openlocfilehash: 2070c79a6ce0627280b1793e412002783f385cc0
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466955"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074042"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Schaalopties voor toepassingen in Azure Kubernetes Service (AKS)
 
@@ -57,6 +56,8 @@ Kubernetes is om te reageren op veranderende vraag pod, een cluster automatisch 
 ![Kubernetes-cluster automatisch schalen](media/concepts-scale/cluster-autoscaler.png)
 
 Cluster automatisch schalen wordt meestal gebruikt samen met het horizontale schillen automatisch schalen. In combinatie, automatisch schalen horizontaal pod vergroot of verkleint u het aantal schillen op basis van de vraag van toepassing, en het aantal knooppunten van het cluster automatisch schalen wordt aangepast behoefte om uit te voeren die extra schillen dienovereenkomstig.
+
+Automatisch schalen van cluster moet alleen in Preview-versie van AKS-clusters met een groep met één knooppunt worden getest.
 
 Als u wilt beginnen met het cluster automatisch schalen in AKS, Zie [Cluster automatisch schalen in AKS][aks-cluster-autoscaler].
 

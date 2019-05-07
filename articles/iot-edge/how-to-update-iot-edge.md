@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a3dd7f78362b5f5c99dc4a74fe0a32c4d26be5b7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a3b6327b9e05b039696cc1743fc2d16c5e945e26
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125930"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152620"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>De IoT Edge security-daemon en runtime bijwerken
 
@@ -50,25 +50,15 @@ apt-get install libiothsm iotedge
 
 ### <a name="windows-devices"></a>Windows-apparaten
 
-Gebruik het PowerShell-script verwijderen en vervolgens de daemon van de beveiliging opnieuw te installeren op Windows-apparaten. Het script voor installatie automatisch de nieuwste versie van de security-daemon worden opgehaald. 
-
-Verwijder de daemon voor beveiliging in een PowerShell-sessie. 
+Gebruik het PowerShell-script om bij te werken van de security-daemon op Windows-apparaten. De nieuwste versie van de daemon beveiliging automatisch door het script worden opgehaald. 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Uninstall-SecurityDaemon
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
 ```
 
-Met de `Uninstall-SecurityDaemon` opdracht zonder parameters verwijdert alleen de daemon van de beveiliging van uw apparaat, samen met de twee runtime-containerinstallatiekopieën. Het bestand config.yaml wordt opgeslagen op het apparaat, evenals de gegevens van de container Moby engine. Bewaren van de configuratie-informatie betekent waarvoor u geen voor de verbindingsreeks of Device Provisioning Service-informatie voor uw apparaat opnieuw tijdens de installatie. 
+Met de opdracht Update IoTEdge Hiermee verwijdert u de daemon van de beveiliging van uw apparaat, samen met de twee runtime-containerinstallatiekopieën. Het bestand config.yaml wordt opgeslagen op het apparaat, evenals de gegevens van de container Moby engine (als u Windows-containers). De configuratie-informatie betekent waarvoor u geen voor de verbindingsreeks of Device Provisioning Service-informatie voor uw apparaat opnieuw tijdens het updateproces houden. 
 
-De daemon voor beveiliging, afhankelijk van of gebruikmaakt van Windows-containers of Linux-containers in uw IoT Edge-apparaat installeren. Vervang de woordgroep **\<Windows of Linux\>** met de juiste container-besturingssystemen. Gebruik de **- ExistingConfig** vlag om te verwijzen naar het bestaande bestand config.yaml op uw apparaat. 
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -ExistingConfig -ContainerOS <Windows or Linux>
-```
-
-Als u wilt voor het installeren van een specifieke versie van de daemon voor beveiliging, download u het juiste iotedged-windows.zip bestand [IoT Edge-versies](https://github.com/Azure/azure-iotedge/releases). Vervolgens gebruikt u de `-OfflineInstallationPath` parameter om te verwijzen naar de bestandslocatie. Zie voor meer informatie, [Offline-installatie](how-to-install-iot-edge-windows.md#offline-installation).
+Als u wilt voor het installeren van een specifieke versie van de daemon voor beveiliging, download u het juiste bestand voor Microsoft-Azure-IoTEdge.cab van [IoT Edge-versies](https://github.com/Azure/azure-iotedge/releases). Vervolgens gebruikt u de `-OfflineInstallationPath` parameter om te verwijzen naar de bestandslocatie. Zie voor meer informatie, [Offline-installatie](how-to-install-iot-edge-windows.md#offline-installation).
 
 ## <a name="update-the-runtime-containers"></a>Bijwerken van de runtimecontainers
 

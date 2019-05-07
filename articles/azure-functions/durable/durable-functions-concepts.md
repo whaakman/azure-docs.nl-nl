@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: aa9563266f6b43e3bc2f21fbc0b340c86c5895ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95ec6a863f951a8c26abd865041c68df333a4e38
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60862018"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071349"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Duurzame functies patronen en technische concepten (Azure Functions)
 
@@ -219,9 +219,6 @@ module.exports = async function (context, req) {
 };
 ```
 
-> [!WARNING]
-> Wanneer u lokaal ontwikkelen in JavaScript, gebruik van methoden op `DurableOrchestrationClient`, moet u de omgevingsvariabele instellen `WEBSITE_HOSTNAME` naar `localhost:<port>` (bijvoorbeeld `localhost:7071`). Zie voor meer informatie over deze vereiste [GitHub-probleem 28](https://github.com/Azure/azure-functions-durable-js/issues/28).
-
 In .NET, de [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parameter is een waarde van de `orchestrationClient` uitvoer verbinding maakt, deze maakt deel uit van de extensie duurzame functies. In JavaScript, dit object wordt geretourneerd door het aanroepen van `df.getClient(context)`. Deze objecten bieden methoden die u gebruiken kunt om te starten, gebeurtenissen te verzenden, beëindigen en query's uitvoeren voor nieuwe of bestaande orchestrator-functie-exemplaren.
 
 In de voorgaande voorbeelden een HTTP-geactiveerde functie omvat een `functionName` waarde van de binnenkomende URL en de waarde die moet worden doorgegeven [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). De [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_System_Net_Http_HttpRequestMessage_System_String_) vervolgens binden van de API retourneert een antwoord met een `Location` -header en aanvullende informatie over het exemplaar. U kunt de informatie later gebruiken om te controleren of de status van het exemplaar van de slag te gaan of de sessie is beëindigd.
@@ -377,6 +374,63 @@ module.exports = async function (context) {
 };
 ```
 
+## <a name="pattern-6-aggregator-preview"></a>Patroon #6: Aggregator (preview)
+
+Het zesde patroon is over het verzamelen van gebeurtenisgegevens gedurende een bepaalde periode in een enkele, adresseerbare *entiteit*. In dit patroon de gegevens worden geaggregeerd kunnen afkomstig zijn uit meerdere bronnen kunnen worden geleverd in batches gaat doen of gedurende lange perioden tijd kan worden verspreid. U moet de aggregator mogelijk actie ondernemen voor gebeurtenisgegevens als ze worden ontvangen en externe clients moeten mogelijk de samengevoegde gegevens op te vragen.
+
+![Diagram van de Aggregator](./media/durable-functions-concepts/aggregator.png)
+
+Het lastig wat over het implementeren van dit patroon met normale wilt stateless functies is dat gelijktijdigheidsbeheer verandert in een enorme uitdaging. Niet alleen moet u zorgen te maken over meerdere threads dezelfde gegevens op hetzelfde moment wijzigen, moet u ook zorgen maken over ervoor te zorgen dat de aggregator alleen wordt uitgevoerd op een enkele virtuele machine op een tijdstip.
+
+Met behulp van een [duurzame entiteit functie](durable-functions-preview.md#entity-functions), een dit patroon gemakkelijk als een enkele functie kunt implementeren.
+
+```csharp
+public static async Task Counter(
+    [EntityTrigger(EntityClassName = "Counter")] IDurableEntityContext ctx)
+{
+    int currentValue = ctx.GetState<int>();
+    int operand = ctx.GetInput<int>();
+
+    switch (ctx.OperationName)
+    {
+        case "add":
+            currentValue += operand;
+            break;
+        case "subtract":
+            currentValue -= operand;
+            break;
+        case "reset":
+            await SendResetNotificationAsync();
+            currentValue = 0;
+            break;
+    }
+
+    ctx.SetState(currentValue);
+}
+```
+
+Clients kunnen in de wachtrij plaatsen *operations* voor (ook wel bekend als 'signalering") een entiteit functie met de `orchestrationClient` binding.
+
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static async Task Run(
+    [EventHubTrigger("device-sensor-events")] EventData eventData,
+    [OrchestrationClient] IDurableOrchestrationClient entityClient)
+{
+    var metricType = (string)eventData.Properties["metric"];
+    var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
+
+    // The "Counter/{metricType}" entity is created on-demand.
+    var entityId = new EntityId("Counter", metricType);
+    await entityClient.SignalEntityAsync(entityId, "add", delta);
+}
+```
+
+Op deze manier clients kunnen opvragen voor de status van de functie van een entiteit met behulp van methoden op de `orchestrationClient` binding.
+
+> [!NOTE]
+> Entiteit-functies zijn momenteel alleen beschikbaar in de [duurzame functies 2.0 preview](durable-functions-preview.md).
+
 ## <a name="the-technology"></a>De technologie
 
 Achter de schermen, wordt de extensie duurzame functies gebouwd boven de [duurzame taak Framework](https://github.com/Azure/durabletask), een open-source-bibliotheek op GitHub die wordt gebruikt voor het bouwen van duurzame taak indelingen. Azure Functions is de serverloze ontwikkeling van Azure WebJobs, is duurzame functies de serverloze ontwikkeling van duurzame taak Framework. Microsoft en andere organisaties gebruiken de duurzame taak Framework uitgebreid om essentiële processen te automatiseren. Het is perfect voor de serverloze Azure Functions-omgeving.
@@ -423,7 +477,7 @@ Storage-blobs worden hoofdzakelijk gebruikt als een leasemechanisme voor de coö
 
 ![Een schermopname van Azure Storage Explorer](./media/durable-functions-concepts/storage-explorer.png)
 
-> [!WARNING]
+> [!NOTE]
 > Hoewel het is gemakkelijk en handig om te zien van de uitvoeringsgeschiedenis in de table storage, maak niet eventuele afhankelijkheden voor deze tabel. De tabel kan worden gewijzigd omdat de extensie duurzame functies zich verder ontwikkelt.
 
 ## <a name="known-issues"></a>Bekende problemen
