@@ -41,15 +41,15 @@
         - name: Accountbeheer
           href: cloudsimple-account.md
         - name: Activiteitsbeheer
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-activity/'
+          href: cloudsimple-activity.md
         - name: VMware in privécloud
-          href: 'https://docs.azure.cloudsimple.com/vmware-components/'
+          href: vmware-components.md
         - name: Beveiligingsoverzicht
           href: 'https://docs.azure.cloudsimple.com/cloudsimple-security/'
         - name: Knooppuntenquotum
-          href: 'https://docs.azure.cloudsimple.com/node-quota/'
+          href: node-quota.md
         - name: Onderhoud en updates
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-maintenance-updates/'
+          href: cloudsimple-maintenance-updates.md
         - name: Veelgestelde vragen
           href: 'https://docs.azure.cloudsimple.com/cloudsimple-faq/'
     - name: Zelfstudies

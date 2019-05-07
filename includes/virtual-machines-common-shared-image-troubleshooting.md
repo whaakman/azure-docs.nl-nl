@@ -5,15 +5,15 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418644"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149635"
 ---
 Als u problemen ondervindt tijdens het uitvoeren van bewerkingen op galerieën met gedeelde installatiekopieën, definities van installatiekopieën en versies van installatiekopieën, voert u de mislukte opdracht opnieuw uit in de foutopsporingsmodus. Foutopsporingsmodus is geactiveerd door door te geven de **-debug** overschakelen met CLI en de **-Debug** overschakelen met PowerShell. Nadat u de fout hebt gevonden, gaat u als volgt dit document om op te lossen de fouten.
 
@@ -24,7 +24,7 @@ Mogelijke oorzaken:
 
 *Naam van de galerie is ongeldig.*
 
-Toegestane tekens voor de naam van de galerie worden hoofdletters of kleine letters, cijfers, punten en perioden. Naam van de galerie geen streepjes erin. Wijzig de naam van de galerie en probeer het opnieuw. 
+Toegestane tekens voor de naam van de galerie worden hoofdletters of kleine letters, cijfers, punten en perioden. Naam van de galerie mag geen streepjes bevatten. Wijzig de naam van de galerie en probeer het opnieuw. 
 
 *Naam van de galerie is niet uniek binnen uw abonnement.*
 
@@ -62,20 +62,7 @@ Controleer of de installatiekopie van de bron bestaat en zich in dezelfde regio 
 
 Zorg ervoor dat de Inrichtingsstatus van de beheerde bronafbeelding is **geslaagd**.
 
-*De regio van de gegevensbron wordt nog niet ondersteund.*
-
-Gebruik de onderstaande tabel om te zien of de beoogde bronregio wordt ondersteund:
-<br>
-
-| Galerie in of 'bronregio' maken   | Versie of "doelregio" repliceren |
-|----------------------------------------|-------------------------------------------|
-| US - west-centraal                        | Alle openbare Azure-Cloud-regio 's            |
-| US - zuid-centraal                       |                                           |
-| US - oost 2                              |                                           |
-| Azië - zuidoost                         |                                           |
-| Europa -west                            |                                           |
-
-<br>
+*De lijst met doelservers regio bevat geen de bronregio.*
 
 De lijst met doelservers regio moet de regio van de gegevensbron van de versie van de installatiekopie bevatten. Zorg ervoor dat u hebt de bronregio opgenomen in de lijst met doelregio's waar u Azure voor het repliceren van uw versie van de installatiekopie aan.
 
@@ -101,7 +88,7 @@ Controleer de **OSType** van de installatiekopie heeft versie die u probeert te 
 
 ## <a name="unable-to-share-resources"></a>Kan geen resources delen
 
-Het delen van gedeelde afbeeldingengalerie, de definitie van installatiekopie en afbeelding versie resources tussen abonnementen is ingeschakeld met behulp van [rollen gebaseerd toegangsbeheer](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Het delen van gedeelde afbeeldingengalerie, de definitie van installatiekopie en afbeelding versie resources tussen abonnementen is ingeschakeld met behulp van [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
 
 ## <a name="replication-is-slow"></a>Replicatie is traag
 

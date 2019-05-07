@@ -1,20 +1,20 @@
 ---
-title: Verbinding maken met de Windows virtuele bureaublad Preview-webclient - Azure
-description: Klik hier voor meer informatie over het verbinding maken met de Windows virtuele bureaublad Preview HTML5-webclient.
+title: Verbinding maken met Windows Virtual Desktop Preview vanuit een webbrowser - Azure
+description: Klik hier voor meer informatie over het verbinding maken met de Preview voor virtuele bureaublad van Windows vanuit een webbrowser.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 231dc2b777ce7fa37f445215863a55e93562e411
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9696f3c32f8b903257e337191a5ce32645bfd198
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328864"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142454"
 ---
-# <a name="connect-with-the-web-client"></a>Verbinding maken met de webclient
+# <a name="connect-from-a-web-browser"></a>Verbinding maken via een webbrowser
 
 De webclient krijgt u toegang tot uw Windows Virtual Desktop Preview-resources via een webbrowser zonder langdurige tijdens het installatieproces.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 5ec38c510fedee7f489b3b100285eeb7c75f4561
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e4ff7dc97e3ee72336bd4c081caf1aa1a62bc56
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690977"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146558"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Quickstart: Een nieuwe app maken in de portal LUIS
 
@@ -56,7 +56,7 @@ De app de twee verschillende _bedoelingen_ uitgelijnd met de volgende intenties:
 |ApplyForJob|`I want to apply for the new software engineering position in Cairo.`|
 |FindForm|`Where is the job transfer form hrf-123456?`|
 
-Voer de volgende stappen uit voor het maken van intents:
+Voor het maken van intents, voert u de volgende stappen uit:
 
 1. Nadat de app is gemaakt, bent u op de **Intents** pagina van de **bouwen** sectie. Selecteer **Create new intent**.
 
@@ -71,6 +71,8 @@ Voer de volgende stappen uit voor het maken van intents:
 U toevoegen voorbeeld utterances nadat u intents hebt gemaakt. Voorbeeld-uitingen zijn tekst die een gebruiker moet in een chatbot of andere clienttoepassing invoeren. Ze de bedoeling van de tekst van de gebruiker worden toegewezen aan een LUIS-doel.
 
 Voor deze voorbeeldtoepassing `FindForm` intentie, voorbeeld-uitingen bevat het formuliernummer. De clienttoepassing moet het nummer van de vorm van de gebruiker om aanvraag te voldoen, dus is het belangrijk om deze in de utterance.
+
+[![Voorbeeld-uitingen voor het doel FindForm invoeren](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
 Voeg het volgende voorbeeld van 15-uitingen naar de `FindForm` intentie.
 
@@ -100,11 +102,11 @@ Standaard wordt deze voorbeeld-uitingen variëren in de volgende manieren:
 * term tegenwoordige (is, is, is)
 * de woordvolgorde
 
-[![Voorbeeld-uitingen voor het doel FindForm invoeren](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+
 
 ## <a name="create-a-regular-expression-entity"></a>Een entiteit reguliere expressie maken
 
-Als u het formulier dat wordt geretourneerd als onderdeel van het antwoord van de voorspellings-runtime, moet het formulier worden gemarkeerd als een entiteit. Omdat de tekst van het formulier is zeer gestructureerd, kan worden gemarkeerd met een reguliere expressie-entiteit. De entiteit is gemaakt met de volgende stappen uit:
+Als u wilt terugkeren het formuliernummer in het antwoord van de voorspellings-runtime, moet het formulier worden gemarkeerd als een entiteit. Omdat de tekst van het formulier is zeer gestructureerd, kunt u met behulp van een reguliere expressie entiteit kunt markeren. De entiteit is gemaakt met de volgende stappen uit:
 
 1. Selecteer **entiteiten** in het menu aan de linkerkant.
 

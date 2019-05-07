@@ -1,5 +1,5 @@
 ---
-title: Een OpenAPI-definitie voor een functie maken | Microsoft Docs
+title: Een OpenAPI-definitie voor een functie maken met Azure API Management
 description: Maak een definitie van een OpenAPI waarmee andere apps en services uw functie in Azure aanroepen.
 services: functions
 keywords: OpenAPI, Swagger, cloud-apps, cloud-services,
@@ -12,87 +12,95 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 6daa29b4e8f09a4f8a40c3b92d2e2e86a5dea6aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ad304bc8f038d4009352dae72d70079828c26ba
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61026572"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141566"
 ---
-# <a name="create-an-openapi-definition-for-a-function"></a>De OpenAPI-definitie maken voor een functie
+# <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Een OpenAPI-definitie voor een functie maken met Azure API Management
 
-REST-API's worden vaak beschreven met behulp van de definitie van een OpenAPI (voorheen bekend als een [Swagger](https://swagger.io/)-bestand). Deze definitie bevat informatie over welke bewerkingen beschikbaar zijn in een API en hoe de gegevens van de aanvraag en respons voor de API moeten worden opgebouwd.
+REST-API's worden vaak beschreven met behulp van een OpenAPI-definitie. Deze definitie bevat informatie over welke bewerkingen beschikbaar zijn in een API en hoe de gegevens van de aanvraag en respons voor de API moeten worden opgebouwd.
 
-In deze zelfstudie maakt u een functie waarmee wordt bepaald of een noodherstelproces op een windturbine rendabel is. Vervolgens maakt u een OpenAPI-definitie voor de functie-app zodat de functie kan worden aangeroepen vanuit andere apps en services.
+In deze zelfstudie maakt u een functie waarmee wordt bepaald of een noodherstelproces op een windturbine rendabel is. U maakt u een OpenAPI-definitie voor de functie-app via [Azure API Management](../api-management/api-management-key-concepts.md) zodat de functie kan worden aangeroepen vanuit andere apps en services.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een maken functie in Azure
-> * Een OpenAPI-definitie genereren met OpenAPI-hulpprogramma’s
-> * De definitie wijzigen voor het leveren van aanvullende metagegevens
+> * Genereren van een OpenAPI-definitie met Azure API Management
 > * De definitie testen door het aanroepen van de functie
-
-> [!IMPORTANT]
-> De OpenAPI-functie is momenteel in preview en is alleen beschikbaar voor versie 1.x van de Azure Functions-runtime.
 
 ## <a name="create-a-function-app"></a>Een functie-app maken
 
-U moet een functie-app hebben die als host fungeert voor de uitvoering van uw functies. Met een functie-app kunt u functies groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren schalen en delen. 
+U moet een functie-app hebben die als host fungeert voor de uitvoering van uw functies. Een functie-app kunt u functies groeperen in een logische eenheid voor eenvoudiger beheer, implementatie, schalen en delen van resources.
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="set-the-functions-runtime-version"></a>De runtime-versie van Functions instellen
-
-De functie-app die u maakt, gebruikt standaard versie 2.x van de runtime. U moet de runtime-versie terugzetten op 1.x voordat u uw functie maakt.
-
-[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
-
 ## <a name="create-the-function"></a>De functie maken
 
-Deze zelfstudie maakt gebruik van een HTTP-geactiveerde functie waarvoor twee parameters zijn vereist: de geschatte tijd voor het herstellen van een turbine (in uren); en de capaciteit van de turbine (in kilowatt). De functie berekend vervolgens hoeveel een reparatie kost en hoeveel omzet de turbine in een periode van 24 uur zou kunnen maken.
+In deze zelfstudie wordt een door HTTP geactiveerde functie waarvoor twee parameters nodig:
 
-1. Vouw de functie-app uit en klik op de knop **+** naast **Functies**. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen. 
+* De geschatte tijd voor het maken van een turbine herstellen, in uren.
+* De capaciteit van de turbine, in kilowatt. 
 
-    ![De Quick Start-pagina van Functions in Azure Portal](media/functions-openapi-definition/add-first-function.png)
+De functie berekend vervolgens hoeveel een reparatie kost en hoeveel omzet de turbine in een periode van 24 uur zou kunnen maken. HET maken van de HTTP geactiveerde functie in de [Azure-portal](https://portal.azure.com).
 
-1. Typ `http` in het zoekveld en kies vervolgens**C#** voor het HTTP-activatiesjabloon. 
+1. Vouw de functie-app uit en klik op de knop **+** naast **Functies**. Selecteer **portal** > **blijven**.
 
-    ![Kies de HTTP-trigger](./media/functions-openapi-definition/select-http-trigger-portal.png)
+1. Selecteer **meer sjablonen...** en selecteer vervolgens **voltooien en de weergave sjablonen**
 
-1. Type `TurbineRepair` voor de functie **Naam**, kies `Function` bij  **[Verificatieniveau](functions-bindings-http-webhook.md#http-auth)**, en selecteer vervolgens **Maken**.  
+1. Selecteer HTTP-trigger, type `TurbineRepair` voor de functie **naam**, kiest u `Function` voor  **[verificatieniveau](functions-bindings-http-webhook.md#http-auth)**, en selecteer vervolgens  **Maak**.  
 
-    ![De door HTTP geactiveerde functie maken](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
+    ![HTTP-functie maken voor OpenAPI](media/functions-openapi-definition/select-http-trigger-openapi.png)
 
-1. Vervang de inhoud van het bestand run.csx door de volgende code en klik vervolgens op **Opslaan**:
+1. Vervang de inhoud van de run.csx C# -scriptbestand met de volgende code, en kies vervolgens **opslaan**:
 
     ```csharp
+    #r "Newtonsoft.Json"
+    
     using System.Net;
-
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
+    using Newtonsoft.Json;
+    
     const double revenuePerkW = 0.12;
     const double technicianCost = 250;
     const double turbineCost = 100;
-
-    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     {
-        //Get request body
-        dynamic data = await req.Content.ReadAsAsync<object>();
-        int hours = data.hours;
-        int capacity = data.capacity;
-
-        //Formulas to calculate revenue and cost
-        double revenueOpportunity = capacity * revenuePerkW * 24;  
-        double costToFix = (hours * technicianCost) +  turbineCost;
+        // Get query strings if they exist
+        int tempVal;
+        int? hours = Int32.TryParse(req.Query["hours"], out tempVal) ? tempVal : (int?)null;
+        int? capacity = Int32.TryParse(req.Query["capacity"], out tempVal) ? tempVal : (int?)null;
+    
+        // Get request body
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+        dynamic data = JsonConvert.DeserializeObject(requestBody);
+    
+        // Use request body if a query was not sent
+        capacity = capacity ?? data?.capacity;
+        hours = hours ?? data?.hours;
+    
+        // Return bad request if capacity or hours are not passed in
+        if (capacity == null || hours == null){
+            return new BadRequestObjectResult("Please pass capacity and hours on the query string or in the request body");
+        }
+        // Formulas to calculate revenue and cost
+        double? revenueOpportunity = capacity * revenuePerkW * 24;  
+        double? costToFix = (hours * technicianCost) +  turbineCost;
         string repairTurbine;
-
+    
         if (revenueOpportunity > costToFix){
             repairTurbine = "Yes";
         }
         else {
             repairTurbine = "No";
-        }
-
-        return req.CreateResponse(HttpStatusCode.OK, new{
+        };
+    
+        return (ActionResult)new OkObjectResult(new{
             message = repairTurbine,
             revenueOpportunity = "$"+ revenueOpportunity,
             costToFix = "$"+ costToFix
@@ -100,7 +108,7 @@ Deze zelfstudie maakt gebruik van een HTTP-geactiveerde functie waarvoor twee pa
     }
     ```
 
-    Deze functiecode retourneert een bericht van `Yes` of `No` om aan te geven of een noodherstelproces rendabel is, evenals de kans op omzet die de turbine vertegenwoordigt en de kosten om de turbine te repareren. 
+    Deze functiecode retourneert een bericht van `Yes` of `No` om aan te geven of een noodherstelproces rendabel is, evenals de kans op omzet die de turbine vertegenwoordigt en de kosten om de turbine te repareren.
 
 1. Om de functie te testen, klikt u op **Testen** helemaal rechts op het tabblad om de testresultaten uit te breiden. Voer de volgende waarde in voor de **Aanvraagtekst**, en klik vervolgens op **Uitvoeren**.
 
@@ -119,182 +127,67 @@ Deze zelfstudie maakt gebruik van een HTTP-geactiveerde functie waarvoor twee pa
     {"message":"Yes","revenueOpportunity":"$7200","costToFix":"$1600"}
     ```
 
-U hebt nu een functie die de kosteneffectiviteit van noodreparaties bepaalt. Vervolgens genereert en wijzigt u de definitie van een OpenAPI voor de functie-app.
+U hebt nu een functie die de kosteneffectiviteit van noodreparaties bepaalt. Vervolgens genereert u een OpenAPI-definitie voor de functie-app.
 
 ## <a name="generate-the-openapi-definition"></a>De OpenAPI-definitie genereren
 
-U nu kunt de OpenAPI-definitie genereren. Deze definitie kan zowel worden gebruikt door andere Microsoft-technologieën, zoals API-Apps [PowerApps](functions-powerapps-scenario.md) en [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), als door hulpprogramma's voor ontwikkelaars door derden, zoals [Postman](https://www.getpostman.com/docs/importing_swagger) en [nog veel meer pakketten](https://swagger.io/tools/).
+U nu kunt de OpenAPI-definitie genereren.
 
-1. Selecteer alleen de *werkwoorden* die uw API ondersteunt (in dit geval POST). Hierdoor is de gegenereerde API-definitie schoner.
+1. Selecteer de functie-app en selecteer vervolgens **platformfuncties**, **alle instellingen**
 
-    1. Op het tabblad **Integreren** van uw nieuwe functie in de HTTP-Trigger wijzigt u **Toegestane HTTP-methoden** naar **Geselecteerde methoden**
+    ![Test de functie in de Azure Portal](media/functions-openapi-definition/select-all-settings-openapi.png)
 
-    1. In **Geselecteerde HTTP-methoden** schakelt u elke optie uit behalve **POST**, vervolgens klikt u op **Opslaan**.
+1. Schuif naar beneden en kies vervolgens **API Management** > **nieuw** te maken van een nieuw API Management-exemplaar.
 
-        ![Geselecteerde HTTP-methoden](media/functions-openapi-definition/selected-http-methods.png)
+    ![Functie](media/functions-openapi-definition/link-apim-openapi.png)
 
-1. Klik op uw de naam van uw functie app (zoals **function-demo-energy**) > **Platformfuncties** > **API-definitie**.
+1. Gebruik de API Management-instellingen zoals opgegeven in de tabel onder de afbeelding.
 
-    ![API-definitie](media/functions-openapi-definition/api-definition.png)
+    ![Nieuwe API Management-service maken](media/functions-openapi-definition/new-apim-service-openapi.png)
 
-1. Op het tabblad **API-definitie** klikt u op **Functie**.
+    | Instelling      | Voorgestelde waarde  | Description                                        |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Naam** | Wereldwijd unieke naam | Een naam is gegenereerd op basis van de naam van uw functie-app. |
+    | **Abonnement** | Uw abonnement | Het abonnement waaronder deze nieuwe resource wordt gemaakt. |  
+    | **[Resourcegroep](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Dezelfde resource als uw functie-app die u moet ophalen. |
+    | **Locatie** | US - west | Kies de locatie VS-West |
+    | **Naam van de organisatie** | Contoso | De naam van de organisatie in de portal voor ontwikkelaars en voor e-mailmeldingen gebruikt. |
+    | **E-mailadres van de beheerder** | uw e-mailadres | E-mailadres dat systeemmeldingen van API Management hebt ontvangen. |
+    | **Prijscategorie** | Verbruik (preview-versie) | Zie voor volledige informatie over prijsinformatie de [API Management-pagina met prijzen](https://azure.microsoft.com/pricing/details/api-management/) |
+    | **Application Insights** | Uw exemplaar | Gebruik de dezelfde Application Insights die wordt gebruikt door uw functie-app. |
 
-    ![Bron van API-definitie](media/functions-openapi-definition/api-definition-source.png)
+1. Kies **maken** te maken van de API Management-instantie kan enkele minuten duren.
 
-    Deze stap maakt een reeks OpenAPI-opties mogelijk voor uw functie-app, met inbegrip van een eindpunt voor het hosten van een OpenAPI-bestand uit het domein van uw functie app, een inline-kopie van de [OpenAPI Editor](https://editor.swagger.io), en een sjabloongenerator voor API-definities.
+1. Selecteer **Application Insights inschakelen** om Logboeken te zenden naar dezelfde locatie als de functie-toepassing, accepteer de overige standaardwaarden en selecteer **koppeling naar de API**.
 
-1. Klik op **Sjabloon voor API-definitie genereren** > **Opslaan**.
+1. De **importeren van Azure Functions** wordt geopend met de **TurbineRepair** functie gemarkeerd. Kies **Selecteer** om door te gaan.
 
-    ![Sjabloon voor API-definitie genereren](media/functions-openapi-definition/generate-template.png)
+    ![Importeren van Azure Functions in API Management](media/functions-openapi-definition/import-function-openapi.png)
 
-    Azure scant uw functie-app op HTTP-triggerfuncties en maakt gebruik van de gegevens in functions.json voor het genereren van de definitie van een OpenAPI. Hier volgt de definitie die wordt gegenereerd:
+1. In de **maken van de functie-App** pagina, accepteer de standaardwaarden en selecteer **maken**
 
-    ```yaml
-    swagger: '2.0'
-    info:
-    title: function-demo-energy.azurewebsites.net
-    version: 1.0.0
-    host: function-demo-energy.azurewebsites.net
-    basePath: /
-    schemes:
-    - https
-    - http
-    paths:
-    /api/TurbineRepair:
-        post:
-        operationId: /api/TurbineRepair/post
-        produces: []
-        consumes: []
-        parameters: []
-        description: >-
-            Replace with Operation Object
-            #https://swagger.io/specification/#operationObject
-        responses:
-            '200':
-            description: Success operation
-        security:
-            - apikeyQuery: []
-    definitions: {}
-    securityDefinitions:
-    apikeyQuery:
-        type: apiKey
-        name: code
-        in: query
-    ```
+    ![Maken op basis van functie-app](media/functions-openapi-definition/create-function-openapi.png)
 
-    Deze definitie wordt beschreven als een _sjabloon_ omdat hiervoor meer metagegevens voor de definitie van een volledige OpenAPI nodig zijn. U gaat de definitie in de volgende stap wijzigen.
-
-## <a name="modify-the-openapi-definition"></a>De OpenAPI-definitie bewerken
-
-Nu u een sjabloondefinitie hebt, wijzigt u deze om de aanvullende metagegevens over de API-bewerkingen en gegevensstructuren te leveren. In **API-definitie** verwijdert u de gegenereerde definitie uit `post` naar de onderkant van de definitie. Plak onderstaande content en klik op **Opslaan**.
-
-```yaml
-    post:
-      operationId: CalculateCosts
-      description: Determines if a technician should be sent for repair
-      summary: Calculates costs
-      x-ms-summary: Calculates costs
-      x-ms-visibility: important
-      produces:
-        - application/json
-      consumes:
-        - application/json
-      parameters:
-        - name: body
-          in: body
-          description: Hours and capacity used to calculate costs
-          x-ms-summary: Hours and capacity
-          x-ms-visibility: important
-          required: true
-          schema:
-            type: object
-            properties:
-              hours:
-                description: The amount of effort in hours required to conduct repair
-                type: number
-                x-ms-summary: Hours
-                x-ms-visibility: important
-              capacity:
-                description: The max output of a turbine in kilowatts
-                type: number
-                x-ms-summary: Capacity
-                x-ms-visibility: important
-      responses:
-        200:
-          description: Message with cost and revenue numbers
-          x-ms-summary: Message
-          schema:
-           type: object
-           properties:
-            message:
-              type: string
-              description: Returns Yes or No depending on calculations
-              x-ms-summary: Message 
-            revenueOpportunity:
-              type: string
-              description: The revenue opportunity cost
-              x-ms-summary: RevenueOpportunity 
-            costToFix:
-              type: string
-              description: The cost in $ to fix the turbine
-              x-ms-summary: CostToFix
-      security:
-        - apikeyQuery: []
-definitions: {}
-securityDefinitions:
-  apikeyQuery:
-    type: apiKey
-    name: code
-    in: query
-```
-
-In dit geval kunt u alleen bijgewerkte metagegevens plakken, maar het is belangrijk om de soorten wijzigingen te begrijpen die we in het standaardsjabloon hebben gemaakt:
-
-* Opgegeven dat de API gegevens produceert en consumeert in een JSON-indeling.
-
-* De vereiste parameters opgegeven met hun namen en gegevenstypen.
-
-* De retourwaarden opgeven voor een geslaagde respons met hun namen en gegevenstypen.
-
-* Beschrijvende samenvattingen en beschrijvingen geleverd voor de API en zijn bewerkingen en parameters. Dit is belangrijk voor mensen die deze functie zullen gebruiken.
-
-* x-ms-summary en x-ms-visibility toegevoegd, die worden gebruikt in de gebruikersinterface voor Microsoft Flow en Logic Apps. Zie voor meer informatie [OpenAPI-extensies voor aangepaste API's in Microsoft Flow](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
-
-> [!NOTE]
-> We hebben de definitie van de beveiliging laten staan met de standaardmethode voor verificatie van de API-sleutel. U moet deze sectie van de definitie wijzigen als u een ander type verificatie gebruikt.
-
-Zie voor meer informatie over het definiëren van de API-bewerkingen de [Open API-specificatie](https://swagger.io/specification/#operationObject).
+De API is nu gemaakt voor de functie.
 
 ## <a name="test-the-openapi-definition"></a>De OpenAPI-definitie testen
 
-Voordat u de API-definitie gebruikt, is het een goed idee om deze te testen in de gebruikersinterface van Azure Functions.
+Voordat u de API-definitie gebruiken, moet u controleren of deze werkt.
 
-1. Kopieer in het tabblad **Beheren** van de functie onder **Hostsleutels** de **standaard**-sleutel.
+1. Op de **Test** tabblad van de functie, selecteer **POST** bewerking
 
-    ![API-sleutel kopiëren](media/functions-openapi-definition/copy-api-key.png)
+1. Voer waarden in voor **uur** en **capaciteit**
 
-    > [!NOTE]
-    >U gebruikt deze sleutel voor het testen en u zult deze ook gebruiken wanneer u de API vanuit een app of service aanroept.
+```json
+{
+"hours": "6",
+"capacity": "2500"
+}
+```
 
-1. Ga terug naar de API-definitie: **function-demo-energy** > **Platformfuncties** > **API-definitie**.
+1. Klik op **verzenden**, bekijk vervolgens de HTTP-antwoord.
 
-1. Klik in het rechterdeelvenster op **Verifiëren**, voer de API-sleutel die u heeft gekopieerd en klik op **Verifiëren**.
-
-    ![Verificatie met de API-sleutel](media/functions-openapi-definition/authenticate-api-key.png)
-
-1. Scroll naar beneden en klik op **Probeer deze bewerking**.
-
-    ![Probeer deze bewerking](media/functions-openapi-definition/try-operation.png)
-
-1. Voer waarden in voor **uren** en **capaciteit**.
-
-    ![Parameters invoeren](media/functions-openapi-definition/parameters.png)
-
-    U ziet hoe de beschrijvingen van de API-definitie door de gebruikersinterface worden gebruikt.
-
-1. Klik op **Aanvraag Verzenden**, klik vervolgens op het tabblad **Pretty** voor een overzicht van de uitvoer.
-
-    ![Een aanvraag versturen](media/functions-openapi-definition/send-request.png)
+    ![Test function-API](media/functions-openapi-definition/test-function-api-openapi.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -302,11 +195,10 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Een maken functie in Azure
-> * Een OpenAPI-definitie genereren met OpenAPI-hulpprogramma’s
-> * De definitie wijzigen voor het leveren van aanvullende metagegevens
+> * Genereren van een OpenAPI-definitie met Azure API Management
 > * De definitie testen door het aanroepen van de functie
 
-Ga naar het volgende onderwerp voor informatie over het maken van een PowerApps-app die gebruikmaakt van de definitie van de OpenAPI die u hebt gemaakt.
+Ga naar het volgende onderwerp voor meer informatie over API Management.
 
 > [!div class="nextstepaction"]
-> [Een functie van PowerApps aanroepen](functions-powerapps-scenario.md)
+> [API Management](../api-management/api-management-key-concepts.md)

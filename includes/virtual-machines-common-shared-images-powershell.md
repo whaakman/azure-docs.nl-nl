@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 12/10/2018
+ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 91889971e1ab8a9ea8341f6bc57735d973ea0e89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d4be0bf52fd925e22e40e98258082304a25a111
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188308"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148760"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
 
@@ -21,17 +21,6 @@ Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit a
 
 Als u Cloud Shell wilt openen, selecteert u **Proberen** in de rechterbovenhoek van een codeblok. U kunt Cloud Shell ook openen in een afzonderlijk browsertabblad door naar [https://shell.azure.com/powershell](https://shell.azure.com/powershell) te gaan. Klik op **Kopiëren** om de codeblokken te kopiëren, plak deze in Cloud Shell en druk vervolgens op Enter om de code uit te voeren.
 
-
-## <a name="preview-register-the-feature"></a>Preview: De functie registreren
-
-Gedeelde Afbeeldingsgalerieën is in preview, maar u moet de functie registreren voordat u deze kunt gebruiken. De functie Gedeelde Afbeeldingsgalerieën registreren:
-
-```azurepowershell-interactive
-Register-AzProviderFeature `
-   -FeatureName GalleryPreview `
-   -ProviderNamespace Microsoft.Compute
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
 
 ## <a name="get-the-managed-image"></a>De installatiekopie van het beheerde ophalen
 
@@ -45,7 +34,9 @@ $managedImage = Get-AzImage `
 
 ## <a name="create-an-image-gallery"></a>Een galerie met installatiekopieën maken 
 
-Een galerie met installatiekopieën is de primaire bron die wordt gebruikt voor het inschakelen van de installatiekopie van het delen. Galerie-namen moeten uniek zijn binnen uw abonnement. Maak een installatiekopie galerie met [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). Het volgende voorbeeld wordt een galerie met de naam *myGallery* in de *myGalleryRG* resourcegroep.
+Een galerie met installatiekopieën is de primaire bron die wordt gebruikt voor het inschakelen van de installatiekopie van het delen. Toegestane tekens voor de naam van de galerie worden hoofdletters of kleine letters, cijfers, punten en perioden. Naam van de galerie mag geen streepjes bevatten. Galerie-namen moeten uniek zijn binnen uw abonnement. 
+
+Maak een installatiekopie galerie met [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). Het volgende voorbeeld wordt een galerie met de naam *myGallery* in de *myGalleryRG* resourcegroep.
 
 ```azurepowershell-interactive
 $resourceGroup = New-AzResourceGroup `
@@ -60,7 +51,9 @@ $gallery = New-AzGallery `
    
 ## <a name="create-an-image-definition"></a>De definitie van een installatiekopie maken 
 
-Maak de galerie installatiekopie definitie met [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In dit voorbeeld wordt de afbeelding met de naam *myGalleryImage*.
+Definities van de installatiekopie van maken een logische groepering van installatiekopieën. Ze worden gebruikt voor het beheren van informatie over de versies van een installatiekopie die in deze worden gemaakt. Namen van de definitie van afbeeldingen kunnen bestaan uit hoofdletters of kleine letters, cijfers, punten, streepjes en punten. Zie voor meer informatie over de waarden die u voor de definitie van een installatiekopie opgeven kunt [Image definities](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+
+Maken van de installatiekopie definitie met [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In dit voorbeeld wordt de afbeelding met de naam *myGalleryImage*.
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `
@@ -74,30 +67,15 @@ $galleryImage = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-### <a name="using-publisher-offer-and-sku"></a>Met behulp van de uitgever, aanbieding en SKU 
-Voor klanten over het implementeren van installatiekopieën van gedeelde planning **in een toekomstige release**, kunt u uw persoonlijke gedefinieerde **-uitgever**, **-bieden** en **- Sku** waarden zoeken en geef een definitie van een afbeelding en vervolgens een VM maken met de meest recente versie van de installatiekopie van het overeenkomende installatiekopie definitie. Dit zijn bijvoorbeeld drie definities die installatiekopie en de bijbehorende waarden:
 
-|Definitie van installatiekopie|Uitgever|Aanbieding|Sku|
-|---|---|---|---|
-|myImage1|myPublisher|myOffer|mySku|
-|myImage2|myPublisher|standardOffer|mySku|
-|myImage3|Testen|standardOffer|testSku|
-
-Alle drie deze hebben unieke sets waarden. U kunt de versies van een installatiekopie die delen van één of twee, maar niet alle drie waarden hebben. **In een toekomstige release**, kun je deze waarden combineren om een aanvraag van de meest recente versie van een specifieke installatiekopie. **Dit niet werkt in de huidige release**, maar in de toekomst beschikbaar zijn. Wanneer er uitgebracht, met de volgende syntaxis moet worden gebruikt om in te stellen van de installatiekopie van de bron als *myImage1* uit de bovenstaande tabel.
-
-```powershell
-$vmConfig = Set-AzVMSourceImage `
-   -VM $vmConfig `
-   -PublisherName myPublisher `
-   -Offer myOffer `
-   -Skus mySku 
-```
-
-Dit is vergelijkbaar met hoe u op dit moment opgeven Gebruik uitgever, aanbieding en SKU voor de kunt [Azure Marketplace-installatiekopieën](../articles/virtual-machines/windows/cli-ps-findimage.md) naar de meest recente versie van een Marketplace-installatiekopie. Met dat gegeven in gedachte moet elke definitie van de installatiekopie van een unieke set van deze waarden hebben.  
 
 ## <a name="create-an-image-version"></a>De versie van een installatiekopie maken
 
-De versie van een installatiekopie van het gebruik van een beheerde installatiekopie maken [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) . In dit voorbeeld de versie van de installatiekopie is *1.0.0* en deze worden gerepliceerd naar beide *West-Centraal VS* en *Zuid-centraal VS* datacenters.
+De versie van een installatiekopie van het gebruik van een beheerde installatiekopie maken [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+
+Toegestane tekens in voor de versie van installatiekopie zijn cijfers en punten. Cijfers moet binnen het bereik van een 32-bits geheel getal zijn. Indeling: *MajorVersion*.*MinorVersion*.*Patch*.
+
+In dit voorbeeld de versie van de installatiekopie is *1.0.0* en deze worden gerepliceerd naar beide *West-Centraal VS* en *Zuid-centraal VS* datacenters. Bij het kiezen van doelregio's voor replicatie, houd er rekening mee dat u ook hebt om op te nemen de *bron* regio bevinden als een doel voor replicatie.
 
 
 ```azurepowershell-interactive
@@ -122,3 +100,5 @@ Duurt het even voor het repliceren van de afbeelding op alle van de doelregio's,
 $job.State
 ```
 
+> [!NOTE]
+> U moet wachten tot de versie van de installatiekopie wordt gemaakt en gerepliceerd voordat u dezelfde beheerde installatiekopie kunt maken van een andere versie van de installatiekopie volledig te voltooien.
