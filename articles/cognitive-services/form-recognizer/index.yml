@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Form Recognizer
+metadata:
+  title: API-documentatie -  Form Recognizer - Azure Cognitive Services | Microsoft Docs
+  description: Informatie over hoe u Form Recognizer kunt gebruiken om op intelligente wijze sleutel-waardegegevens uit uw formulierdocumenten te extraheren.
+  services: cognitive-services
+  author: PatrickFarley
+  manager: cgronlun
+  ms.service: cognitive-services
+  ms.subservice: form-recognizer
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/16/2019
+  ms.author: pafarley
+ms.custom: seodec18
+abstract:
+  description: Azure Form Recognizer is een Cognitive Service-dienst die gebruikmaakt van machine learning-technologie om sleutel-waardeparen en tabelgegevens uit formulierdocumenten te identificeren en te extraheren. Vervolgens voert het gestructureerde gegevens uit die ook de relaties uit het oorspronkelijke bestand omvatten. Leerprocessen zonder supervisie stellen het model in staat om de lay-out en relaties tussen velden en items te begrijpen zonder handmatige labeling van gegevens of intensieve codering en onderhoud.
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/form-recognizer/overview
+            html: <p>Meer informatie over Form Recognizer.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Wat is Form Recognizer?
+          - href: /azure/cognitive-services/form-recognizer/form-recognizer-container-howto
+            html: <p>Meer informatie over het gebruik van de Form Recognizer-container voor het parseren van formulier- en tabelgegevens.</p>
+            image:
+              src: ../media/index/i_get-started.svg
+            title: Containers installeren en uitvoeren
+  - title: QuickStarts van vijf minuten
+    items:
+      - type: paragraph
+        text: 'Een Form Recognizer-model trainen en gegevens uit formulieren extraheren met behulp van:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/logos/logo-curl.svg
+            text: cURL
+            href: quickstarts/curl-train-extract.md
+          - image:
+              src: ./media/logos/logo-python.svg
+            text: Python
+            href: quickstarts/python-train-extract.md
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API's
+            html: '<p><a href="https://aka.ms/form-recognizer/api">Form Recognizer-API</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure-CLI</a></p>'

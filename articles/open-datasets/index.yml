@@ -1,0 +1,30 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Open Datasets (preview)
+metadata:
+  title: 'Documentatie voor Azure Open Datasets (preview) – zelfstudies, API-referentiemateriaal | Microsoft Docs'
+  description: 'Meer informatie over hoe u Azure Open Datasets kunt gebruiken, evenals gecureerde en opgeschoonde gegevens die u met minimale voorbereiding kunt verwerken. Open Datasets zijn openbare gegevens zoals het weer, bevolkingsaantallen en feestdagen, die de machine learning-modellen kunnen verrijken. Zelfstudies, voorbeelden en API-referentiemateriaal laten zien u hoe dit werkt.'
+  ms.service: open-datasets
+  ms.topic: landing-page
+  author: cjgronlund
+  ms.author: cgronlun
+  ms.date: 05/02/2019
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+abstract:
+  description: 'Meer informatie over hoe u Azure Open Datasets kunt gebruiken, evenals gecureerde en opgeschoonde gegevens die u met minimale voorbereiding kunt verwerken. Open Datasets omvatten openbare gegevens zoals het weer, bevolkingsaantallen en feestdagen, die de machine learning-modellen kunnen verrijken. Zelfstudies, voorbeelden en API-referentiemateriaal laten zien u hoe dit werkt.'
+sections:
+  - title: Stapsgewijze zelfstudie
+    items:
+      - type: paragraph
+        text: <a href="tutorial-opendatasets-automl">Een regressiemodel trainen met automatische machine learning</a>
+  - title: Voorbeelden
+    items:
+      - type: paragraph
+        text: <a href="samples">Notebooks voor het verrijken van gegevenssets</a>
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://aka.ms/open-datasets-api">API-naslaginformatie</a>'

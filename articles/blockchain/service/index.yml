@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Azure Blockchain Service
+metadata:
+  title: 'Documentatie voor Azure Blockchain Service - zelfstudies, API-referentiemateriaal'
+  description: 'Informatie over het maken van blockchain-toepassingen. Zelfstudies, API-referentiematerialen en andere documentatie beschrijven hoe u met Azure Blockchain Service blockchain-toepassingen in Azure kunt maken, ontwikkelen en beheren.'
+  services: azure-blockchain
+  author: patricka
+  manager: femila
+  ms.service: azure-blockchain
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/13/2019
+  ms.author: patricka
+abstract:
+  description: 'Informatie over het maken van blockchain-toepassingen. Zelfstudies, API-referentiematerialen en andere documentatie beschrijven hoe u met Azure Blockchain Service blockchain-toepassingen in Azure kunt maken, ontwikkelen en gebruiken.'
+sections:
+  - title: QuickStarts van vijf minuten
+    items:
+      - type: paragraph
+        text: Meer informatie over het maken van en verbinding maken met consortiumleden in Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/deploy.svg
+            text: Consortiumleden maken
+            href: /azure/blockchain/service/create-member
+          - image:
+              src: ./media/index/multi-connect.svg
+            text: Verbinding maken met behulp van MetaMask
+            href: /azure/blockchain/service/connect-metamask
+          - image:
+              src: ./media/index/cligeneric.svg
+            text: Verbinding maken met behulp van Geth
+            href: /azure/blockchain/service/connect-geth
+          - image:
+              src: ./media/index/code-blocks.svg
+            text: Verbinding maken met behulp van Truffle
+            href: /azure/blockchain/service/connect-truffle
+  - title: Zelfstudies met stapsgewijze instructies
+    items:
+      - type: paragraph
+        text: 'Meer informatie over het maken, configureren en ontwikkelen van blockchain-toepassingen in Azure.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/blockchain/service/send-transaction">Een Azure Blockchain Service-lid maken en een transactie verzenden</a>
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/blockchain">REST API</a></p>'

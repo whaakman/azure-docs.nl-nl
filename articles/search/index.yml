@@ -11,10 +11,10 @@ metadata:
   ms.service: search
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/18/2019
+  ms.date: 05/02/2019
   ms.author: heidist
 abstract:
-  description: 'Leer hoe u een bedrijfsoplossing voor zoekopdrachten in persoonlijke, heterogene inhoud maakt met behulp van Azure Search. In zelfstudies, API-referentiemateriaal en andere documenten kunt u zien hoe u doorzoekbare inhoud samenvoegt in één snelle index, waarin u kunt zoeken met behulp van eenvoudige-tot-geavanceerde syntaxis voor een grote verscheidenheid aan scenario’s. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Nieuwe Cognitief zoeken-preview.</b></a> Een voorlopige versie van een REST-API gebruiken om AI-algoritmen aan de pijplijn voor indexering te binden. Gegevens ophalen en natuurlijke taal en afbeeldingsverwerking activeren voor het transformeren van onbewerkte ongestructureerde inhoud naar doorzoekbare inhoud in een Index van Azure Search. <p/>Verken Cognitief zoeken met behulp van <a href="/azure/search/cognitive-search-quickstart-blob">resources en voorbeeldgegevens</a> of kijk voor meer informatie in <a href="/azure/search/cognitive-search-concept-intro">Concepten</a>.'
+  description: 'Leer hoe u een bedrijfsoplossing voor zoekopdrachten in persoonlijke, heterogene inhoud maakt met behulp van Azure Search. In zelfstudies, API-referentiemateriaal en andere documenten kunt u zien hoe u doorzoekbare inhoud samenvoegt in één snelle index, waarin u kunt zoeken met behulp van eenvoudige-tot-geavanceerde syntaxis voor een grote verscheidenheid aan scenario’s. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Cognitive Search</b></a> is nu algemeen beschikbaar, met AI-verrijkingen die worden ondersteund voor productiescenario''s.<p/><a href="/azure/search/knowledge-store-concept-intro"><b>Knowledge Store (preview)</b></a> is een uitbreiding van Cognitive Search. Sla AI-verrijkingen op naar de opslag waar u verrijkingen ook in andere apps dan Azure Search kunt bekijken, wijzigen en verbruiken. Ga vandaag nog <a href="/azure/search/knowledge-store-howto"><b>aan de slag</b></a>.'
   aside:
     image:
       alt: null
@@ -51,11 +51,11 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: <a href="/azure/search/cognitive-search-tutorial-blob">Indexeren met AI (Cognitive Services)</a>
-          - html: <a href="/azure/search/search-howto-dotnet-sdk">Azure Search gebruiken met .NET</a>
+          - html: <a href="/azure/search/search-get-started-portal">De portal gebruiken om te indexeren en query's te testen</a>
+          - html: <a href="/azure/search/search-howto-dotnet-sdk">Gebruik .NET om uw eerste zoekoplossing te schrijven</a>
+          - html: <a href="/azure/search/cognitive-search-tutorial-blob">Verrijken met AI (Cognitive Services)</a>
           - html: <a href="/azure/search/search-indexer-tutorial">Azure SQL Database-inhoud indexeren met .NET</a>
           - html: <a href="/azure/search/search-semi-structured-data">Semi-gestructureerde gegevens in Azure Blob Storage indexeren met REST</a>
-          - html: <a href="/azure/search/search-get-started-portal">De portal gebruiken om te indexeren en query's te testen</a>
   - title: Naslaginformatie
     items:
       - type: list
