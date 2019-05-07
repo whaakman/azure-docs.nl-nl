@@ -66,6 +66,10 @@
       items:
         - name: Voorbeeldgegevens opnemen
           href: ingest-sample-data.md
+    - name: Implementeren
+      items:
+        - name: DevOps-taak
+          href: devops.md
     - name: Querygegevens
       items:
         - name: Query's schrijven

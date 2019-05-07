@@ -112,6 +112,8 @@
           href: disk-scalability-targets.md
         - name: Back-up en herstel na noodgeval voor schijven
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Kortstondige besturingssysteemschijven
+          href: ephemeral-os-disks.md
     - name: Netwerken
       href: network-overview.md
     - name: Toepassingen automatisch schalen
@@ -253,16 +255,32 @@
           href: reserved-vm-instance-size-flexibility.md
     - name: Installatiekopieën gebruiken
       items:
-        - name: Galerieën met gedeelde installatiekopieën (preview)
+        - name: Gedeelde installatiekopiegalerieën
           items:
             - name: Overzicht
               href: shared-image-galleries.md
-            - name: Gedeelde installatiekopieën maken met behulp van de CLI
+            - name: CLI
               href: shared-images.md
             - name: Portal
               href: shared-images-portal.md
+            - name: Installatiekopieën tussen tenants delen
+              href: share-images-across-tenants.md
             - name: Problemen met gedeelde installatiekopieën oplossen
               href: troubleshooting-shared-images.md
+        - name: Functie voor het maken van installatiekopieën (preview)
+          items:
+            - name: Overzicht
+              href: image-builder-overview.md
+            - name: CLI gebruiken
+              href: image-builder.md
+            - name: Sjabloonverwijzing
+              href: image-builder-json.md
+            - name: Gebruiken met galerieën
+              href: image-builder-gallery.md
+            - name: De versie van een installatiekopie bijwerken
+              href: image-builder-gallery-update-image-version.md
+            - name: Problemen oplossen
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Installatiekopieën zoeken en gebruiken
           href: cli-ps-findimage.md
         - name: Aangepaste installatiekopie maken

@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Microsoft Identity Platform (Azure Active Directory voor ontwikkelaars)
+title: Microsoft Identity Platform (voorheen Azure Active Directory voor ontwikkelaars)
 metadata:
   title: Microsoft Identity Platform (Azure Active Directory voor ontwikkelaars)
   description: 'Leer hoe u met het Microsoft Identity Platform apps bouwt waarbij gebruikers zich veilig kunnen aanmelden met alle Microsoft-identiteiten en waarmee tokens worden opgehaald voor het aanroepen van Microsoft Graph, andere Microsoft-API''s of API''s die door ontwikkelaars zijn gemaakt.'
@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 05/07/2019
   ms.author: celested
 abstract:
   description: 'Het Microsoft Identity Platform bouwt voort op de identiteitsservice en het ontwikkelaarsplatform van Azure Active Directory (Azure AD). Met het Microsoft Identity Platform kunnen ontwikkelaars toepassingen maken waarbij gebruikers zich met alle Microsoft-identiteiten kunnen aanmelden en waarmee tokens worden opgehaald voor het aanroepen van Microsoft-API''s, zoals Microsoft Graph, of API''s die door ontwikkelaars zijn gemaakt. Het is een zeer uitgebreid platform, dat bestaat uit een verificatieservice die voldoet aan de normen voor OAuth 2.0 en OpenID Connect, open source-bibliotheken, registratie en configuratie van toepassingen, robuuste conceptuele en referentiedocumentatie, ''quickstart-voorbeelden'', codevoorbeelden, zelfstudies en handleidingen.'
@@ -36,81 +36,42 @@ sections:
             html: <p>Krijg een goed beeld van het Microsoft Identity Platform en de functies en mogelijkheden ervan.</p>
             image:
               src: ./media/index/i_get-started.svg
-            title: Over het Microsoft Identity Platform
+            title: Evolutie van het Microsoft Identity Platform
+          - href: /azure/active-directory/develop/v2-overview
+            html: '<p>Ontwikkel toepassingen waarbij gebruikers zich met alle Microsoft-identiteiten kunnen aanmelden en waarmee tokens worden opgehaald voor het aanroepen van Microsoft-API''s, zoals Microsoft Graph, of API''s die door ontwikkelaars zijn gemaakt.</p>'
+            image:
+              src: ./media/index/i_investigate.svg
+            title: v2.0
           - href: /azure/active-directory/develop/azure-ad-developers-guide/
             html: '<p>Verifieer Azure AD-identiteiten (werk- en schoolaccounts) door via het Azure AD v1.0-eindpunt tokens aan te vragen met behulp van Azure AD Authentication Library (ADAL), de Azure-portal of de Azure AD Graph API.</p>'
             image:
               src: ./media/index/i_advanced.svg
             title: v1.0
-          - href: /azure/active-directory/develop/v2-overview
-            html: '<p>Verifieer een uitgebreidere set Microsoft-identiteiten via het zogenoemde Azure AD v2.0-eindpunt met behulp van Microsoft Authentication Library (MSAL), de Azure-portal of de Microsoft Graph API.</p>'
-            image:
-              src: ./media/index/i_investigate.svg
-            title: v2.0
+  - title: Toepassingsscenario's
+    items:
+      - type: paragraph
+        text: 'Werken met identiteiten hoeft niet moeilijk te zijn. Kies een scenario dat voor u relevant is: elk scenario-pad omvat een overzicht, richtlijnen voor app-registratie en het configureren van app-code, codevoorbeelden voor het ophalen van een token en het aanroepen van een API en aanbevelingen voor het gereed maken van uw app voor productie.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/develop/scenario-spa-overview">Toepassing met één pagina</a>
+          - html: <a href="/azure/active-directory/develop/scenario-web-app-sign-user-overview">Web-app waarmee gebruikers worden aangemeld</a>
+          - html: <a href="/azure/active-directory/develop/scenario-web-app-call-api-overview">Web-app die web-API's aanroept</a>
+          - html: <a href="/azure/active-directory/develop/scenario-protected-web-api-overview">Beveiligde web-API</a>
+          - html: <a href="/azure/active-directory/develop/scenario-web-api-call-api-overview">Web-API die downstream web-API's aanroept</a>
+          - html: <a href="/azure/active-directory/develop/scenario-desktop-overview">Desktop-app die web-API's aanroept</a>
+          - html: <a href="/azure/active-directory/develop/scenario-daemon-overview">Daemon-toepassing</a>
+          - html: <a href="/azure/active-directory/develop/scenario-mobile-overview">Mobiele toepassing</a>
   - title: Snelstartgidsen
     items:
       - type: paragraph
-        text: 'Volg deze snelstarts om snel een app te bouwen en functionaliteit toe te voegen, zoals tokens ophalen, tokens vernieuwen, gebruikers aanmelden, bepaalde gebruikersgegevens weergeven enz.'
-      - type: paragraph
-        text: <b>Toepassingen met één pagina</b>
+        text: 'Volg deze quickstarts voor informatie over hoe u een codevoorbeeld kunt gebruiken dat laat zien hoe een app gebruikers kan aanmelden, een toegangstoken kan ophalen om de Microsoft Graph API of een web-API aan te roepen en meer.'
       - type: table
         style: dataMatrix
         columns:
-          - image:
-              src: ./media/index/angularjs-shield.svg
-            title: AngularJS
           - image:
               src: ./media/index/logo_js.svg
             title: Javascript
-        rows:
-          - title: v1.0
-            values:
-              - href: quickstart-v1-angularjs-spa.md
-              - href: 'https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi'
-          - title: v2.0
-            values:
-              - href: null
-              - href: quickstart-v2-javascript.md
-      - type: paragraph
-        text: <b>Web-apps</b>
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: ./media/index/logo_NET.svg
-            title: ASP.NET
-          - image:
-              src: ./media/index/logo_NETcore.svg
-            title: ASP.NET Core
-          - image:
-              src: ./media/index/logo_java.svg
-            title: Java
-          - image:
-              src: ./media/index/logo_nodejs.svg
-            title: Node.js
-          - image:
-              src: ./media/index/logo_python.svg
-            title: Python
-        rows:
-          - title: v1.0
-            values:
-              - href: quickstart-v1-aspnet-webapp.md
-              - href: null
-              - href: 'https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect'
-              - href: quickstart-v1-openid-connect-code.md
-              - href: 'https://github.com/Azure-Samples/active-directory-python-webapp-graphapi'
-          - title: v2.0
-            values:
-              - href: quickstart-v2-aspnet-webapp.md
-              - href: quickstart-v2-aspnet-core-webapp.md
-              - href: null
-              - href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
-              - href: null
-      - type: paragraph
-        text: <b>Web-API's</b>
-      - type: table
-        style: dataMatrix
-        columns:
           - image:
               src: ./media/index/logo_NET.svg
             title: ASP.NET
@@ -120,22 +81,6 @@ sections:
           - image:
               src: ./media/index/logo_nodejs.svg
             title: Node.js
-        rows:
-          - title: v1.0
-            values:
-              - href: quickstart-v1-dotnet-webapi.md
-              - href: null
-              - href: quickstart-v1-nodejs-webapi.md
-          - title: v2.0
-            values:
-              - href: 'https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet'
-              - href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
-              - href: null
-      - type: paragraph
-        text: <b>Mobiele en bureaubladapps</b>
-      - type: table
-        style: dataMatrix
-        columns:
           - image:
               src: ./media/index/logo_android.svg
             title: Android
@@ -149,77 +94,77 @@ sections:
               src: ./media/index/logo_Windows.svg
             title: .NET voor Windows Desktop
           - image:
-              src: ./media/index/logo_xamarin.svg
-            title: Xamarin
+              src: ./media/index/logo_NET.svg
+            title: .NET
         rows:
-          - title: v1.0
+          - title: App met één pagina
             values:
-              - href: quickstart-v1-android.md
-              - href: quickstart-v1-ios.md
+              - href: quickstart-v2-javascript.md
               - href: null
-              - href: quickstart-v1-dotnet.md
-              - href: quickstart-v1-xamarin.md
-          - title: v2.0
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: Web-app
             values:
+              - href: null
+              - href: quickstart-v2-aspnet-webapp.md
+              - href: quickstart-v2-aspnet-core-webapp.md
+              - href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: Web-API
+            values:
+              - href: null
+              - href: 'https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet'
+              - href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: Mobiele en bureaubladapp
+            values:
+              - href: null
+              - href: null
+              - href: null
+              - href: null
               - href: quickstart-v2-android.md
               - href: quickstart-v2-ios.md
               - href: quickstart-v2-uwp.md
               - href: quickstart-v2-windows-desktop.md
               - href: null
-      - type: paragraph
-        text: <b>Service-naar-service en daemon-apps</b>
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: ./media/index/logo_NET.svg
-            title: .NET
-        rows:
-          - title: v1.0
+          - title: Daemon-apps
             values:
-              - href: sample-v1-code.md
-          - title: v2.0
-            values:
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
               - href: quickstart-v2-netcore-daemon.md
-  - title: Zelfstudies met stapsgewijze instructies
+  - title: Zelfstudies
     items:
       - type: paragraph
-        text: 'Gebruik het Microsoft Identity Platform en volg gedetailleerde, op scenario''s gebaseerde procedures voor de belangrijkste verificatiegerelateerde ontwikkeltaken, zoals toegangstokens verkrijgen, aanmelding via Microsoft implementeren enz.'
-      - type: paragraph
-        text: <b>Toepassingen met één pagina</b>
+        text: 'Gebruik het Microsoft Identity Platform en volg diepgaande, op scenario''s gebaseerde procedures voor de belangrijkste ontwikkeltaken omtrent verificatie, zoals een gebruiker aanmelden, een toegangstoken ophalen om de Microsoft Graph API aan te roepen of een eenvoudige aanvraag te verzenden naar de Microsoft Graph API.'
       - type: table
         style: dataMatrix
         columns:
           - image:
               src: ./media/index/logo_js.svg
             title: Javascript
-        rows:
-          - title: v1.0
-            values:
-              - href: null
-          - title: v2.0
-            values:
-              - href: tutorial-v2-javascript-spa.md
-      - type: paragraph
-        text: <b>Web-apps</b>
-      - type: table
-        style: dataMatrix
-        columns:
           - image:
               src: ./media/index/logo_NET.svg
             title: ASP.NET
-        rows:
-          - title: v1.0
-            values:
-              - href: null
-          - title: v2.0
-            values:
-              - href: tutorial-v2-asp-webapp.md
-      - type: paragraph
-        text: <b>Mobiele en bureaubladapps</b>
-      - type: table
-        style: dataMatrix
-        columns:
           - image:
               src: ./media/index/logo_android.svg
             title: Android
@@ -233,14 +178,26 @@ sections:
               src: ./media/index/logo_Windows.svg
             title: .NET voor Windows Desktop
         rows:
-          - title: v1.0
+          - title: App met één pagina
+            values:
+              - href: tutorial-v2-javascript-spa.md
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: Web-app
+            values:
+              - href: null
+              - href: tutorial-v2-asp-webapp.md
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: Mobiele en bureaubladapp
             values:
               - href: null
               - href: null
-              - href: null
-              - href: null
-          - title: v2.0
-            values:
               - href: tutorial-v2-android.md
               - href: tutorial-v2-ios.md
               - href: tutorial-v2-windows-uwp.md
@@ -252,5 +209,5 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/develop/sample-v1-code">v1.0-codevoorbeelden per scenario</a>
           - html: <a href="/azure/active-directory/develop/sample-v2-code">v2.0-codevoorbeelden per scenario</a>
+          - html: <a href="/azure/active-directory/develop/sample-v1-code">v1.0-codevoorbeelden per scenario</a>

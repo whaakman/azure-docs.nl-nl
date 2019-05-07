@@ -555,6 +555,8 @@
                   href: app/usage-workbooks.md
             - name: Oplossing voor web-appanalyse
               href: insights/azure-web-apps-analytics.md
+            - name: Gehoste Kubernetes-apps
+              href: app/kubernetes.md
         - name: Containers bewaken
           items:
             - name: Azure Monitor voor containers
@@ -563,13 +565,19 @@
                   href: insights/container-insights-overview.md
                 - name: Veelgestelde vragen
                   href: insights/container-insights-faq.md
-                - name: Onboarding
-                  href: insights/container-insights-onboard.md
+                - name: Bewaking inschakelen
+                  items:
+                    - name: Bewakingsoverzicht inschakelen
+                      href: insights/container-insights-onboard.md
+                    - name: Inschakelen voor nieuw cluster
+                      href: insights/container-insights-enable-new-cluster.md
+                    - name: Inschakelen voor bestaand cluster
+                      href: insights/container-insights-enable-existing-clusters.md
                 - name: Analyseren
                   href: insights/container-insights-analyze.md
                 - name: Bewaking uitschakelen
                   href: insights/container-insights-optout.md
-                - name: Live containerlogboeken bekijken
+                - name: Live logboeken weergeven
                   href: insights/container-insights-live-logs.md
                 - name: Gegevens analyseren met logboekquery's
                   href: insights/container-insights-log-search.md
@@ -585,8 +593,6 @@
               href: insights/containers.md
             - name: Docker-toepassingen bewaken
               href: app/docker.md
-            - name: Application Insights voor Kubernetes
-              href: app/kubernetes.md
         - name: Resourcegroepen controleren
           href: insights/resource-group-insights.md
         - name: Databases bewaken

@@ -74,6 +74,8 @@
       href: powershell-samples.md
     - name: Azure-CLI
       href: cli-samples.md
+    - name: Azure Resource Manager
+      href: resource-manager-samples.md
 - name: Concepten
   items:
     - name: Wereldwijde distributie
@@ -203,6 +205,9 @@
           href: firewall-support.md
         - name: Toegang van virtuele netwerken
           href: vnet-service-endpoint.md
+        - name: Op rollen gebaseerd toegangsbeheer
+          displayName: rbac
+          href: role-based-access-control.md
     - name: Gereedheid voor bedrijven
       items:
         - name: Online back-ups maken en on-demand herstellen
@@ -266,6 +271,8 @@
                   href: cassandra-spark-aggregation-ops.md
                 - name: Tabelgegevens kopiëren
                   href: cassandra-spark-table-copy-ops.md
+            - name: Beheren met behulp van Resource Manager-sjablonen
+              href: manage-cassandra-with-resource-manager.md
     - name: MongoDB-API
       items:
         - name: Inleiding
@@ -343,6 +350,8 @@
             - name: Extensieopdrachten voor MongoDB
               href: mongodb-custom-commands.md
               displayName: custom commands
+            - name: Beheren met behulp van Resource Manager-sjablonen
+              href: manage-mongodb-with-resource-manager.md
     - name: Gremlin-API
       displayName: 'graph, graph database'
       items:
@@ -379,6 +388,8 @@
             - name: Spring-gegevens opslaan en beheren
               href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
               maintainContext: true
+            - name: Beheren met behulp van Resource Manager-sjablonen
+              href: manage-gremlin-with-resource-manager.md
     - name: Tabel-API
       items:
         - name: Inleiding
@@ -429,6 +440,8 @@
               href: table-support.md
             - name: Ontwerpoverzicht voor Table Storage
               href: table-storage-design-guide.md
+            - name: Beheren met behulp van Resource Manager-sjablonen
+              href: manage-table-with-resource-manager.md
         - name: Naslaginformatie
           items:
             - name: .NET
@@ -443,6 +456,16 @@
               href: table-sdk-python.md
             - name: REST-API's voor Table Storage
               href: /rest/api/storageservices/Table-Service-Concepts
+    - name: Etcd-API
+      items:
+        - name: Inleiding
+          href: etcd-api-introduction.md
+        - name: Azure Kubernetes met Azure Cosmos DB
+          href: bootstrap-kubernetes-cluster.md
+    - name: Spark-API
+      items:
+        - name: Inleiding
+          href: spark-api-introduction.md
 - name: Handleidingen
   items:
     - name: Een Azure Cosmos-account beheren
@@ -473,11 +496,15 @@
       items:
         - name: Een container maken
           href: how-to-create-container.md
+        - name: Een container maken met een grote partitiesleutel
+          href: large-partition-keys.md
         - name: Een query uitvoeren op een container
           href: how-to-query-container.md
         - name: Gegevensmodellering en -partitionering - een voorbeeld uit het dagelijks leven
           displayName: 'model, partition, example'
           href: how-to-model-partition-example.md
+        - name: Migreren naar gepartitioneerde containers
+          href: migrate-containers-partitioned-to-nonpartitioned.md
         - name: Time to Live configureren
           displayName: 'delete, delete data, ttl'
           href: how-to-time-to-live.md
@@ -521,9 +548,11 @@
     - name: Azure Cosmos DB-resources beheren
       items:
         - name: Beheren met PowerShell
-          href: manage-account-with-powershell.md
+          href: manage-with-powershell.md
         - name: Beheren met behulp van Azure CLI
           href: manage-with-cli.md
+        - name: Beheren met behulp van Resource Manager-sjablonen
+          href: manage-sql-with-resource-manager.md
     - name: Logboekregistratie
       items:
         - name: Diagnostische logboeken
@@ -652,7 +681,7 @@
     - name: REST-resourceprovider
       href: /rest/api/cosmos-db-resource-provider/
     - name: Resource Manager-sjabloon
-      href: /azure/templates/microsoft.documentdb/databaseaccounts
+      href: /templates/microsoft.documentdb/allversions
 - name: Resources
   items:
     - name: Uw vaardigheden ontwikkelen met Microsoft Learn

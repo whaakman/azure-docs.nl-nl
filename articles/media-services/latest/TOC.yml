@@ -26,8 +26,10 @@
     - name: Uw video analyseren - .NET
       displayName: 'job, transform'
       href: analyze-videos-tutorial-with-api.md
-    - name: Dynamische AES-128-versleuteling - .NET
+    - name: Dynamisch versleutelen met AES-128 - .NET
       href: protect-with-aes128.md
+    - name: Dynamisch versleutelen met DRM - .NET
+      href: protect-with-drm.md
 - name: Voorbeelden
   items:
     - name: Azure-codevoorbeelden
@@ -56,10 +58,9 @@
         - name: Automatisch gegenereerde adaptieve bitrateladder
           href: autogen-bitrate-ladder.md
         - name: Inhoudsafhankelijke codering
-          displayName: 'content, aware, cae'
           href: cae-experimental.md
         - name: Foutcodes in taak
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
     - name: Media-analyses
       items:
         - name: Overzicht
@@ -68,7 +69,7 @@
         - name: Transformaties en taken
           href: transforms-jobs-concept.md
         - name: Foutcodes in taak
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
     - name: 'Verpakking, levering, beveiliging'
       items:
         - name: Verpakking
@@ -150,7 +151,7 @@
             - name: Oorspronkelijke foutcodes
               href: origin-error-codes.md
             - name: Foutcodes in taak
-              href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+              href: job-error-codes.md
     - name: Hulp bij migratie van v2 naar v3
       href: migrate-from-v2-to-v3.md
 - name: Handleidingen
@@ -215,8 +216,6 @@
       items:
         - name: Beleid voor inhoudssleutels ophalen - .NET
           href: get-content-key-policy-dotnet-howto.md
-        - name: Dynamische DRM-versleuteling - .NET
-          href: protect-with-drm.md
         - name: Offline FairPlay voor iOS
           href: offline-fairplay-for-ios.md
         - name: Offline Widevine voor Android
@@ -258,7 +257,7 @@
         - name: Oorspronkelijke foutcodes
           href: origin-error-codes.md
         - name: Foutcodes in taak
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
 - name: Resources
   items:
     - name: Azure Media Services-community

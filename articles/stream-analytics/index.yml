@@ -12,7 +12,7 @@ metadata:
   ms.date: 12/06/2018
   ms.custom: seodec18
 abstract:
-  description: 'Leer hoe u IoT-analyses (Internet of Things) kunt uitvoeren in de cloud met Stream Analytics, een volledig beheerde engine voor gebeurtenisverwerking. Zelfstudies en andere documentatie laten zien hoe u in realtime gegevens van toepassingen, sensoren, apparaten, sociale media en meer kunt analyseren.'
+  description: 'Stream Analytics is een volledig beheerde, serverloze engine voor gebeurtenisverwerking waarmee u gegevensstromen van toepassingen en IoT-apparaten in realtime kunt analyseren. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Stream Analytics gebruikt.'
   aside:
     image:
       alt: null

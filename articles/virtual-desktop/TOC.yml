@@ -18,9 +18,9 @@
   items:
     - name: Verbinding maken met Windows Virtual Desktop-resources
       items:
-        - name: Verbinding maken met Windows 7 en Windows 10
+        - name: Verbinding maken vanaf Windows 10 of Windows 7
           href: connect-windows-7-and-10.md
-        - name: Verbinding maken met de webclient
+        - name: Verbinding maken via een webbrowser
           href: connect-web.md
     - name: Een hostpool maken met een Azure Resource Manager-sjabloon
       href: create-host-pools-arm-template.md
@@ -34,6 +34,8 @@
       href: diagnostics-role-service.md
     - name: Een VHD-hoofdinstallatiekopie voorbereiden en aanpassen
       href: set-up-customize-master-image.md
+    - name: Een GPU configureren voor Windows Virtual Desktop
+      href: configure-vm-gpu.md
     - name: Sessiehosts automatisch schalen
       href: set-up-scaling-script.md
 - name: Concepten

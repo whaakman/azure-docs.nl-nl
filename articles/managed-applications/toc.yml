@@ -17,6 +17,8 @@
       href: publish-service-catalog-app.md
     - name: Marketplace-toepassing publiceren
       href: publish-marketplace-app.md
+    - name: Een aangepaste resourceprovider maken
+      href: create-custom-provider.md
 - name: Voorbeelden
   items:
     - name: Azure-CLI
@@ -25,6 +27,10 @@
       href: powershell-samples.md
     - name: Beheerde toepassingsoplossingen
       href: sample-projects.md
+- name: Concepten
+  items:
+    - name: Aangepaste providers
+      href: custom-providers-overview.md
 - name: Handleidingen
   items:
     - name: Uitgevers

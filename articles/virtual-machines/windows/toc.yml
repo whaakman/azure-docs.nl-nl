@@ -112,6 +112,8 @@
           href: disk-scalability-targets.md
         - name: Back-up en herstel na noodgeval voor schijven
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Kortstondige besturingssysteemschijven
+          href: ephemeral-os-disks.md
     - name: Netwerken
       href: network-overview.md
     - name: Toepassingen automatisch schalen
@@ -243,18 +245,38 @@
           href: reserved-vm-instance-size-flexibility.md
     - name: Installatiekopieën gebruiken
       items:
-        - name: Gedeelde installatiekopieën (preview)
+        - name: Gedeelde installatiekopieën
           items:
             - name: Overzicht
               href: shared-image-galleries.md
-            - name: Gedeelde installatiekopieën maken met behulp van PowerShell
+            - name: PowerShell
               href: shared-images.md
-            - name: Gedeelde installatiekopieën maken met behulp van de CLI
+            - name: Portal
+              href: shared-images-portal.md
+            - name: CLI
               href: ../linux/shared-images.md
             - name: Portal
               href: shared-images-portal.md
+            - name: Installatiekopieën tussen tenants delen
+              href: share-images-across-tenants.md
             - name: Problemen met gedeelde installatiekopieën oplossen
               href: troubleshooting-shared-images.md
+        - name: Functie voor het maken van installatiekopieën (preview)
+          items:
+            - name: Overzicht
+              href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: CLI gebruiken
+              href: image-builder.md
+            - name: Gebruiken met galerieën
+              href: image-builder-gallery.md
+            - name: De versie van een installatiekopie bijwerken
+              href: image-builder-gallery-update-image-version.md
+            - name: Scripts gebruiken in Azure Storage
+              href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Sjabloonverwijzing
+              href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Problemen oplossen
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Installatiekopieën zoeken en gebruiken
           href: cli-ps-findimage.md
         - name: De virtuele machine voorbereiden voor de upload

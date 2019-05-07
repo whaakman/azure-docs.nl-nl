@@ -167,6 +167,8 @@
               href: azure-to-azure-how-to-enable-replication-ade-vms.md
             - name: Azure naar Azure-replicatie inschakelen voor S2D-VM's
               href: azure-to-azure-how-to-enable-replication-s2d-vms.md
+            - name: Replicatie inschakelen voor een toegevoegde schijf
+              href: azure-to-azure-enable-replication-added-disk.md
             - name: Schijven uitsluiten
               href: azure-to-azure-exclude-disks.md
             - name: Azure VM's opnieuw beveiligen na een failover

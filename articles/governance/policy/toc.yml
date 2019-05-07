@@ -118,7 +118,7 @@
           href: samples/enforce-data-lake-store-encryption.md
     - name: Gastconfiguratie
       items:
-        - name: Op Linux geïnstalleerde toepassingen controleren
+        - name: Toepassingen controleren die niet in Linux zijn geïnstalleerd
           displayName: 'audit, vm'
           href: samples/guest-configuration-applications-installed-linux.md
     - name: Sleutelkluizen

@@ -120,6 +120,8 @@
           href: sql-database-service-tiers-vcore.md
         - name: DTU-servicelagen
           href: sql-database-service-tiers-dtu.md
+        - name: Serverloze compute-laag
+          href: sql-database-serverless.md
         - name: Vooruitbetalen voor reservecapaciteit
           href: sql-database-reserved-capacity.md
         - name: Migreren vanaf de servicelaag Premium RS

@@ -99,7 +99,7 @@
       href: luis-concept-best-practices.md
       displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
     - name: Uw app plannen
-      displayName: 'simple, hierarchical, composite, prebuilt, list, regex, regular expression'
+      displayName: 'simple, composite, prebuilt, list, regex, regular expression'
       href: luis-how-plan-your-app.md
     - name: Author-app
       items:
@@ -116,7 +116,7 @@
         - name: Intents
           href: luis-concept-intent.md
         - name: Entiteiten
-          displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed, roles'
+          displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles'
           href: luis-concept-entity-types.md
         - name: Utterances
           href: luis-concept-utterance.md
@@ -218,12 +218,15 @@
                   href: luis-tutorial-bot-csharp-appinsights.md
     - name: Nauwkeurigheid van voorspelling verbeteren
       items:
-        - name: Eindpuntuitingen controleren
-          displayName: active learning
-          href: luis-how-to-review-endpoint-utterances.md
+        - name: Het dashboard gebruiken
+          displayName: 'dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage'
+          href: luis-how-to-use-dashboard.md
         - name: Frasenlijst toevoegen
           displayName: 'synonym, interchange'
           href: luis-how-to-add-features.md
+        - name: Eindpuntuitingen controleren
+          displayName: active learning
+          href: luis-how-to-review-endpoint-utterances.md
         - name: Patronen toevoegen
           displayName: 'syntax, template, roles'
           href: luis-how-to-model-intent-pattern.md
@@ -235,14 +238,11 @@
           href: luis-interactive-test.md
         - name: Batchgewijs testen
           href: luis-how-to-batch-test.md
-          displayName: import
+          displayName: 'import, export'
     - name: Publiceren
       href: luis-how-to-publish-app.md
     - name: Een app beheren
       items:
-        - name: Het dashboard gebruiken
-          displayName: 'analytics, usage'
-          href: luis-how-to-use-dashboard.md
         - name: Abonnementssleutels gebruiken met uw LUIS-app
           displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription'
           href: luis-how-to-azure-subscription.md
@@ -256,12 +256,17 @@
           href: luis-how-to-account-settings.md
         - name: Eindpuntquota over sleutels verdelen met Traffic Manager
           href: luis-traffic-manager.md
-    - name: Migreren naar V2 REST-API
-      href: luis-migration-api-v1-to-v2.md
+    - name: API migreren
+      items:
+        - name: Migreren naar V2 REST-API
+          href: luis-migration-api-v1-to-v2.md
+        - name: Migreren naar V3 REST-API
+          href: luis-migration-api-v3.md
+          displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference'
     - name: Containers gebruiken
       items:
         - name: Containers installeren en uitvoeren
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container'
           href: luis-container-howto.md
         - name: Containers configureren
           href: luis-container-configuration.md
@@ -269,7 +274,7 @@
   items:
     - name: Gebruikersprivacy
       href: luis-user-privacy.md
-    - name: Auteurs- en publicatieregio's
+    - name: Regio's
       href: luis-reference-regions.md
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: Grenzen
@@ -284,6 +289,7 @@
           href: luis-reference-prebuilt-currency.md
         - name: DatetimeV2-entiteit
           href: luis-reference-prebuilt-datetimev2.md
+          displayName: timex
         - name: Dimensie-entiteit
           href: luis-reference-prebuilt-dimension.md
         - name: Afgeschafte entiteiten
@@ -310,6 +316,7 @@
           href: luis-reference-prebuilt-url.md
     - name: Vooraf gemaakte domeinverwijzing
       href: luis-reference-prebuilt-domains.md
+      displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
     - name: Azure-CLI
       href: 'https://aka.ms/az-cli-cognitiveservices'
     - name: PowerShell voor Azure RM

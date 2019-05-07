@@ -62,7 +62,7 @@
           href: quickstart-scale-compute-tsql.md
     - name: Werklastbeheer
       items:
-        - name: Workloadclassificatie (preview)
+        - name: Workloadclassificatie maken
           items:
             - name: T-SQL
               href: quickstart-create-a-workload-classifier-tsql.md
@@ -72,28 +72,48 @@
       items:
         - name: Overzicht
           href: sql-data-warehouse-overview-manage-security.md
-        - name: Toegangsbeheer
-          href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Firewall-regels
-          href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Service-eindpunten voor virtueel netwerk
-          href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Verificatie
-          href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Azure AD
-          href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Aanmeldingen en gebruikers
-          href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Multi-Factor Authentication
-          href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Advanced Data Security
+          items:
+            - name: Overzicht
+              href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Gegevensdetectie en -classificatie
+              href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Beoordeling van beveiligingslekken
+              href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Advanced Threat Protection
+              href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Controleren
           href: ../sql-database/sql-database-auditing.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Gegevensdetectie en -classificatie
-          href: 'https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json'
-        - name: Beveiliging op kolomniveau
-          href: column-level-security.md
-        - name: Beveiliging op rijniveau
-          href: 'https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json'
+        - name: Netwerkbeveiliging
+          items:
+            - name: Firewall-regels
+              href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Service-eindpunten voor virtueel netwerk
+              href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Verificatie
+          items:
+            - name: Overzicht
+              href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Azure Active Directory
+              href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Aanmeldingen en gebruikers
+              href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Multi-Factor Authentication
+              href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Toegangsbeheer
+          items:
+            - name: Overzicht
+              href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Beveiliging op kolomniveau
+              href: column-level-security.md
+            - name: Beveiliging op rijniveau
+              href: 'https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json'
+        - name: Gegevensbeveiliging
+          items:
+            - name: Overzicht van Transparent Data Encryption (TDE)
+              href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: TDE met BYOK (Bring Your Own Key)
+              href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Gegevens laden
       items:
         - name: Overzicht
@@ -158,9 +178,9 @@
       items:
         - name: Resourceklassen en werklastbeheer
           href: resource-classes-for-workload-management.md
-        - name: Workloadclassificatie (preview)
+        - name: Workloadclassificatie
           href: sql-data-warehouse-workload-classification.md
-        - name: Workloadurgentie (preview)
+        - name: Workloadurgentie
           href: sql-data-warehouse-workload-importance.md
         - name: Limieten voor geheugen en gelijktijdigheid
           href: memory-and-concurrency-limits.md
@@ -198,14 +218,12 @@
           href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Voorwaardelijke toegang
           href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Regels voor virtueel netwerk met PowerShell
+        - name: Regels voor virtueel netwerk door PowerShell
           href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Versleuteling inschakelen - portal
           href: sql-data-warehouse-encryption-tde.md
         - name: Versleuteling inschakelen - T-SQL
           href: sql-data-warehouse-encryption-tde-tsql.md
-        - name: Detectie van bedreigingen
-          href: sql-data-warehouse-security-threat-detection.md
     - name: Gegevens laden
       items:
         - name: Gegevens over taxi's in New York

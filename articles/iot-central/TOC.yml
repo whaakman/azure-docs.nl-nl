@@ -47,6 +47,8 @@
           href: howto-connect-raspberry-pi-csharp.md
         - name: Een Windows-IoT Core-apparaat voorbereiden en aansluiten
           href: howto-connect-windowsiotcore.md
+        - name: Een SensorTile.box-apparaat voorbereiden en verbinden
+          href: howto-connect-sensortile.md
         - name: Apparaatconnectiviteit controleren met opdrachtregels
           href: howto-use-iotc-explorer.md
     - name: Apparaten beheren
