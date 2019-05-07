@@ -2,18 +2,18 @@
 title: Schijven zijn gekoppeld aan Azure-VM's oplossen | Microsoft Docs
 description: Vindt u koppelingen naar bronnen voor probleemoplossing voor de virtuele machine van Azure virtuele harde schijven (VHD's).
 services: storage
-author: WenJason
+author: roygara
 ms.service: storage
 ms.topic: article
-origin.date: 10/31/2018
-ms.date: 12/10/2018
-ms.author: v-jay
-ms.openlocfilehash: bf1aa75399f28b8dd1732bc9ec09c15e46132939
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 10/31/2018
+ms.author: rogarana
+ms.reviewer: wmgries
+ms.openlocfilehash: c00fdf3ad02edc1faf0d3257d3836a1c2f44d682
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098096"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150771"
 ---
 # <a name="troubleshoot-disks-attached-to-azure-vms"></a>Schijven zijn gekoppeld aan Azure-VM's oplossen 
 

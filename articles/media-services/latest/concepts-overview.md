@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: feba7d53f196f6675aca965218046df67bbef81d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 8a4ffdc09cb12f7a16173c86bd3d0e3aee78d46d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867066"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152649"
 ---
 # <a name="media-services-concepts"></a>Media Services-concepten
 
@@ -134,7 +134,7 @@ U kunt Azure Media Player gebruiken voor het afspelen van media-inhoud gestreamd
 
 - [Overzicht van Azure Media Player](use-azure-media-player.md)
 
-## <a name="provide-feedback"></a>Feedback geven
+## <a name="ask-questions-give-feedback-get-updates"></a>Stel vragen, feedback geven, updates ophalen
 
 Bekijk de [Azure Media Services-community](media-services-community.md) artikel om te zien van verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
 

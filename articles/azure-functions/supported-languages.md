@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 5f55122b3bf4bb7160459d524b20dd1303cc0fd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8839fc0fb9f19a1cfa95a4191213503dba7602c6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325455"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148832"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Ondersteunde talen in Azure Functions
 
@@ -37,7 +37,7 @@ Er zijn drie niveaus van ondersteuning:
 
 ### <a name="experimental-languages"></a>Experimentele talen
 
-De experimentele talen in versie 1.x niet goed worden geschaald en bieden geen ondersteuning voor alle bindingen. Experimentele ondersteuning voor PowerShell in 1.x is bijvoorbeeld beperkt tot versie 5.1, omdat dat is wat wordt standaard geïnstalleerd op de virtuele machines op welke functie-apps worden uitgevoerd. Als u uitvoeren van PowerShell-scripts wilt, kunt u overwegen [Azure Automation](https://azure.microsoft.com/services/automation/).
+De experimentele talen in versie 1.x niet goed worden geschaald en bieden geen ondersteuning voor alle bindingen.
 
 Gebruik geen experimentele functies voor alles wat u afhankelijk zijn, omdat er geen officiële ondersteuning voor hen is. Kwesties moeten niet worden geopend voor problemen met experimentele talen. 
 

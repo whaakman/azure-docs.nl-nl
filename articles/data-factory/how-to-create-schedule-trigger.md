@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 62c9a8e6375f6ac7db86ae81cdd4e5c9eb445770
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 09f80f69857ae17a0136229fe9bf13d4f63e7096
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432818"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151076"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Maken van een trigger die een pijplijn volgens een schema wordt uitgevoerd
 In dit artikel bevat informatie over schematriggers en de stappen voor het maken, starten en controleren van een planningstrigger. Zie voor andere soorten triggers, [pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md).
@@ -274,7 +274,7 @@ De volgende JSON-definitie wordt beschreven hoe u een planningstrigger maken met
         "timeZone": "UTC"
         "schedule": {                    // Optional (advanced scheduling specifics)
           "hours": [<<0-23>>],
-          "weekDays": : [<<Monday-Sunday>>],
+          "weekDays": [<<Monday-Sunday>>],
           "minutes": [<<0-59>>],
           "monthDays": [<<1-31>>],
           "monthlyOccurrences": [

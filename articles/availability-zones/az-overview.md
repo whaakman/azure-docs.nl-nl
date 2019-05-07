@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 04/18/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0c5a57ab6d84e1eeda62ab149a9aa7eb3ca71a7a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 302354484142619813ef58bf185c3556d4492de1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697119"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147788"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Wat zijn Beschikbaarheidszones in Azure?
 Beschikbaarheidszones is een aanbieding die uw toepassingen en gegevens beveiligt tegen storingen in datacenters hoge beschikbaarheid. Beschikbaarheidszones zijn unieke fysieke locaties binnen een Azure-regio. Elke zone bestaat uit een of meer datacenters die zijn uitgerust met onafhankelijke voeding, koeling en netwerken. Om voor tolerantie te zorgen, is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. De fysieke scheiding tussen beschikbaarheidszones binnen een Azure-regio beschermt toepassingen en gegevens tegen storingen op zoneniveau. Zone-redundante services repliceren uw toepassingen en gegevens in meerdere Beschikbaarheidszones om te beschermen tegen enkele punten van de fout. Met beschikbaarheidszones biedt Azure de beste uptime SLA voor VM’s van de branche, van 99,99%. In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
@@ -53,8 +53,8 @@ De combinaties van Azure-services en regio's die ondersteuning voor Beschikbaarh
 | Beheerde schijven                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Zone-redundant Storage          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | **Netwerken**                     |            |              |           |           |                |              |          |             |            |                |
-| Standaard IP-adres        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; &#42;| &#10003;    | &#10003;   | &#10003;       |
-| Standaardversie van Load Balancer     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; &#42;| &#10003;    | &#10003;   | &#10003;       |
+| Standaard IP-adres        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Standaardversie van Load Balancer     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | VPN Gateway                     | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
 | ExpressRoute                    | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
 | Application Gateway (Preview)   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
@@ -66,7 +66,6 @@ De combinaties van Azure-services en regio's die ondersteuning voor Beschikbaarh
 | Servicebus (alleen Premiumlaag) | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
 
 
-&#42;Resources die u vóór 25 maart 2019 binnenkort worden geconverteerd naar een zone-redundante worden gemaakt in UK-Zuid. Resources die zijn gemaakt na 25 maart 2019 worden onmiddellijk zone-redundante.
 
 ## <a name="services-resiliency"></a>Services tolerantie
 Alle Azure management-services zijn ontworpen om tolerantie van niveau regio fouten. In het spectrum van fouten hebben een of meer fouten binnen een Beschikbaarheidszone binnen een regio een kleinere fout radius in vergelijking met een hele regio-fout. Azure kunt herstellen vanuit een storing zone-niveau van van beheerservices binnen de regio of vanuit een andere Azure-regio. Azure voert één zone essentieel onderhoud op een tijdstip binnen een regio, om te voorkomen dat eventuele fouten die invloed hebben op de resources van de klant is geïmplementeerd in meerdere Beschikbaarheidszones binnen een regio.

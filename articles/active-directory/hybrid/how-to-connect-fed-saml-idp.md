@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Een SAML 2.0-id-Provider worden gebruikt voor eenmalige aanmelding op | Microsoft Docs'
+title: 'Azure AD Connect: Gebruik een SAML 2.0-id-Provider voor eenmalige aanmelding - Azure'
 description: Dit document beschrijft met behulp van een SAML 2.0 compatibele id-provider voor eenmalige aanmelding op.
 services: active-directory
 author: billmath
@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1870137505b3d00ee6ed31595050908c970c444
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e25060152577e7947a78aa0e8d78c85cc7fd2fad
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350905"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138341"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Een SAML 2.0-id-Provider (IdP) gebruiken voor eenmalige aanmelding op
 
@@ -41,7 +41,7 @@ Microsoft biedt ondersteuning voor deze aanmelding als de integratie van een Mic
 >     - E-mailclient van Windows 8 en Windows 8.1-e-mailclient
 >     - Windows 10 Mail Client
 
-Alle andere clients zijn niet beschikbaar in dit scenario aanmelding met uw SAML 2.0-id-Provider. Bijvoorbeeld, kan de bureaubladclient Lync 2010 niet aan te melden bij de service met uw SAML 2.0-identiteitsprovider geconfigureerd voor eenmalige aanmelding.
+Alle andere clients zijn niet beschikbaar in dit scenario aanmelding met uw SAML 2.0-id-Provider. De Lync 2010 bureaublad-client is bijvoorbeeld niet kunnen aanmelden bij de service met uw SAML 2.0-identiteitsprovider geconfigureerd voor eenmalige aanmelding.
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Vereisten voor Azure AD-SAML 2.0-protocol
 Dit document bevat gedetailleerde vereisten op het protocol en de berichtindeling dat uw SAML 2.0-id-provider implementeren moet om te federeren met Azure AD om eenmalige aanmelding in een of meer Microsoft cloud-services (zoals Office 365). De SAML 2.0 relying party (SP-STS) voor een Microsoft cloud-service die wordt gebruikt in dit scenario is Azure AD.
@@ -71,13 +71,13 @@ Knooppunt voor de handtekening bevat in het SAML-antwoord-bericht, informatie ov
 Bindingen zijn de communicatie met betrekking tot de transport-parameters die vereist zijn. De volgende vereisten van toepassing op de bindingen
 
 1. HTTPS is het vereist transport.
-2.  Azure AD is HTTP POST vereist voor het indienen van token tijdens het aanmelden
-3.  Azure AD gebruikt HTTP POST voor de verificatieaanvraag naar de id-provider en de OMLEIDINGS-voor het afmeldingsbericht met de id-provider.
+2.  Azure AD moet HTTP POST voor het indienen van token tijdens het aanmelden.
+3.  Azure AD gebruikt HTTP POST voor de verificatieaanvraag naar de id-provider en de OMLEIDINGS-voor de afmeldings-bericht met de id-provider.
 
 ## <a name="required-attributes"></a>Vereiste kenmerken
 Deze tabel bevat de vereisten voor specifieke kenmerken in het SAML 2.0-bericht.
  
-|Kenmerk|Beschrijving|
+|Kenmerk|Description|
 | ----- | ----- |
 |NameID|De waarde van deze verklaring moet gelijk zijn aan de ImmutableID van de Azure AD-gebruiker. Het kan maximaal 64 alfanumerieke tekens zijn. Alle niet-HTML-veilige tekens moeten worden gecodeerd, bijvoorbeeld een teken '+' wordt weergegeven als '.2B'.|
 |IDPEmail|De User Principal Name (UPN) in het SAML-antwoord wordt vermeld als een element met de naam IDPEmail van de gebruiker UserPrincipalName (UPN) in Azure AD/Office 365. De UPN is in de e-mailadres. UPN-waarde in Office 365 (Azure Active Directory) voor Windows.|
@@ -258,7 +258,7 @@ Microsoft is een hulpprogramma waarmee u gebruiken kunt voor het testen van uw o
 2.  Klik op Nu installeren om te beginnen met downloaden en installeren van het hulpprogramma.
 3.  Selecteer 'Ik kan geen instellen van Federatie met Office 365, Azure of andere services die gebruikmaken van Azure Active Directory'.
 4.  Wanneer het hulpprogramma gedownload en wordt uitgevoerd is, ziet u het venster diagnostische. Het hulpprogramma wordt u stapsgewijs door het testen van de federation-verbinding.
-5.  De Connectivity Analyzer wordt geopend uw SAML 2.0 IDP kunt aanmelden, voert u de referenties voor de gebruiker-principal die u wilt testen: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  De Connectivity Analyzer wordt geopend uw SAML 2.0 IDP kunt aanmelden, voert u de referenties voor de gebruiker-principal dat u wilt testen: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  Op de federatieve aanmelding ruit, moet u een accountnaam en wachtwoord invoeren voor de Azure AD-tenant die is geconfigureerd om te federeren met uw SAML 2.0-id-provider. Het hulpprogramma wordt geprobeerd om aan te melden met behulp van deze referenties en de gedetailleerde resultaten van tests die worden uitgevoerd tijdens de aanmeldingspoging worden geleverd als uitvoer.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. Dit venster toont een mislukte resultaten van de tests. Te klikken op controleren gedetailleerde resultaten ziet u informatie over de resultaten voor elke test die werd uitgevoerd. U kunt de resultaten naar de schijf om te kunnen delen ze ook opslaan.
@@ -271,7 +271,7 @@ Handmatige verificatie vindt u aanvullende stappen die u nemen kunt om ervoor te
 Om te controleren dat eenmalige aanmelding is ingesteld correct, voert u de volgende stappen uit:
 
 
-1. Op een computer domein aanmelden met uw cloudservice met behulp van dezelfde aanmeldingsnaam die u voor uw bedrijfsreferenties gebruiken.
+1. Op een computer domein aanmelden met uw cloudservice met behulp van dezelfde aanmelding naam die u voor uw bedrijfsreferenties gebruiken.
 2.  Klik in het wachtwoord. Als eenmalige aanmelding is ingesteld, het wachtwoord wordt grijs worden weergegeven en ziet u het volgende bericht: "U nu zijn vereist om aan te melden bij &lt;van uw bedrijf&gt;."
 3.  Klik op de aanmelding bij &lt;van uw bedrijf&gt; koppeling. Als u zich kunt is aanmelden, klikt u vervolgens één aanmelding ingesteld.
 

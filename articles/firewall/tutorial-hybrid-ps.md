@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 3/18/2019
+ms.date: 5/3/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 7beb3d986b016688c4ee0a512b9406dbf3dfbb40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 608674d6e049c71d22c7bf91f37fcb16ffccc581
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194249"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144922"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Zelfstudie: Azure Firewall implementeren en configureren in een hybride netwerk met Azure PowerShell
 
@@ -61,9 +61,9 @@ Er zijn drie belangrijke vereisten voor de correcte werking van dit scenario:
 Zie het gedeelte [Routes maken](#create-the-routes) in deze zelfstudie voor informatie over hoe deze routes worden gemaakt.
 
 >[!NOTE]
->Azure Firewall moeten directe verbinding met internet hebben. Standaard AzureFirewallSubnet Sta alleen een UDR 0.0.0.0/0 met de **NextHopType** waarde ingesteld als **Internet**.
+>Firewall van Azure moet directe verbinding met Internet hebben. Als uw AzureFirewallSubnet een standaardroute naar uw on-premises netwerk via BGP achterhaalt, moet u deze overschrijven met een UDR 0.0.0.0/0 met de **NextHopType** waarde ingesteld als **Internet** direct onderhouden Verbinding met Internet. Standaard, dienen de Firewall van Azure biedt geen ondersteuning voor een geforceerde tunneling naar een on-premises netwerk.
 >
->Als u geforceerde tunneling naar inschakelt on-premises via ExpressRoute of Application Gateway, moet u mogelijk expliciet een UDR 0.0.0.0/0 configureren met de waarde NextHopType als **Internet** en koppel deze aan uw AzureFirewallSubnet. Als uw organisatie geforceerde tunneling voor Azure-Firewall verkeer vereist, kunt u contact op met ondersteuning zodat we whitelist uw abonnement kunnen en zorg ervoor dat de internetverbinding vereist firewall wordt onderhouden.
+>Echter, als uw configuratie geforceerde tunneling naar een on-premises netwerk vereist, Microsoft wordt hiervoor ondersteuning bieden op basis van per geval. Neem contact op met ondersteuning voor zodat we uw aanvraag kunt controleren. Als geaccepteerd, we whitelist uw abonnement en zorg ervoor dat de internetverbinding vereist firewall wordt onderhouden.
 
 >[!NOTE]
 >Verkeer tussen rechtstreeks gepeerde VNets wordt rechtstreeks gerouteerd, zelfs als de UDR naar Azure Firewall als standaardgateway wijst. Als u in dit scenario subnet-naar-subnet-verkeer wilt verzenden, moet een UDR het voorvoegsel van het doelsubnetwerk expliciet op beide subnetten bevatten.
@@ -138,7 +138,7 @@ $VNetHub = New-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
 
-Vraag om de toewijzing van een openbaar IP-adres aan de VPN-gateway die u gaat maken voor het virtuele netwerk. De *AllocationMethod* is **Dynamisch**. U kunt het IP-adres dat u wilt gebruiken niet zelf opgeven. Het wordt dynamisch toegewezen aan uw VPN-gateway. 
+Vraag een openbaar IP-adres worden toegewezen aan de VPN-gateway u voor het virtuele netwerk maakt. De *AllocationMethod* is **Dynamisch**. U kunt het IP-adres dat u wilt gebruiken niet zelf opgeven. Het wordt dynamisch toegewezen aan uw VPN-gateway.
 
   ```azurepowershell
   $gwpip1 = New-AzPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
@@ -177,7 +177,7 @@ $VNetOnprem = New-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
 
-Vraag om de toewijzing van een openbaar IP-adres aan de gateway die u gaat maken voor het virtuele netwerk. De *AllocationMethod* is **Dynamisch**. U kunt het IP-adres dat u wilt gebruiken niet zelf opgeven. Het wordt dynamisch toegewezen aan uw gateway. 
+Vraag een openbaar IP-adres worden toegewezen aan de gateway u voor het virtuele netwerk maakt. De *AllocationMethod* is **Dynamisch**. U kunt het IP-adres dat u wilt gebruiken niet zelf opgeven. Het wordt dynamisch toegewezen aan uw gateway.
 
   ```azurepowershell
   $gwOnprempip = New-AzPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
@@ -471,7 +471,7 @@ Maak vanaf **VM-Onprem** met Extern bureaublad verbinding met **VM-spoke-01** op
 
 Deze verbinding moet worden gemaakt en u moet zich kunnen aanmelden met uw gekozen gebruikersnaam en wachtwoord.
 
-Nu u hebt geverifieerd dat de firewallregels werken:
+U hebt nu gecontroleerd of de firewall-regels zijn werken:
 
 <!---- You can ping the server on the spoke VNet.--->
 - U kunt de bladeren op de webserver in het virtuele spoke-netwerk.

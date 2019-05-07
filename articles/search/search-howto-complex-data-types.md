@@ -10,12 +10,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 397b3ea7fee67e25cd160f6b529a660e18c44046
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 00606ed5cbcd8681748241e9404c6e6e5aa95021
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024745"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147321"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Hoe u complexe gegevenstypen modelleren in Azure Search
 
@@ -28,7 +28,7 @@ Als u wilt beginnen, wordt aangeraden de [Hotels gegevensset](https://github.com
 > [!Note]
 > Ondersteuning voor complexe typen is algemeen beschikbaar in `api-version=2019-05-06`. 
 >
-> Als uw search-oplossing is gebouwd op eerdere oplossingen van platte gegevenssets in een verzameling, moet u uw index om op te nemen van complexe typen zoals ondersteund in de nieuwste versie van de API wijzigen. Zie voor meer informatie over het upgraden van API-versies [upgraden naar de nieuwste versie van de REST-API](search-api-migration.md) of [upgraden naar de nieuwste versie van .NET SDK](search-dotnet-sdk-migration.md).
+> Als uw search-oplossing is gebouwd op eerdere oplossingen van platte gegevenssets in een verzameling, moet u uw index om op te nemen van complexe typen zoals ondersteund in de nieuwste versie van de API wijzigen. Zie voor meer informatie over het upgraden van API-versies [upgraden naar de nieuwste versie van de REST-API](search-api-migration.md) of [upgraden naar de nieuwste versie van .NET SDK](search-dotnet-sdk-migration-version-9.md).
 
 ## <a name="example-of-a-complex-structure"></a>Voorbeeld van een complexe structuur
 

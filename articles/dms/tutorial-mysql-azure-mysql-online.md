@@ -10,15 +10,16 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/29/2019
-ms.openlocfilehash: 75241fe9922ac7ff8e2570c8f7bf7b114d5eb329
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.date: 05/01/2019
+ms.openlocfilehash: e92c0b5e02daf08100151e15314399722ffc8763
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872852"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148798"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Zelfstudie: MySQL online migreren naar Azure Database for MySQL met behulp van DMS
+
 U kunt de Azure Database Migration Service gebruiken om de databases met minimale downtime te migreren van een on-premises MySQL-exemplaar naar [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/). Met andere woorden, de migratie is mogelijk met minimale downtime van de toepassing. In deze studieles migreert u de voorbeelddatabase **Werknemers** van een on-premises exemplaar van MySQL 5.7 naar Azure Database for MySQL met behulp van een online migratieactiviteit in de Azure Database Migration Service.
 
 In deze zelfstudie leert u het volgende:
@@ -83,7 +84,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 Om alle databaseobjecten zoals tabelschema’s, indexen en opgeslagen procedures te voltooien, moeten we het schema uit de brondatabase extraheren en op de database toepassen. Om het schema te extraheren, kunt u mysqldump gebruiken met de parameter `--no-data`.
 
-Ervan uitgaande dat u MySQL werknemers-voorbeelddatabase in de on-premises systeem hebt, is de opdracht voor het doen van schemamigratie mysqldump gebruiken:
+Ervan uitgaande dat u hebt MySQL **werknemers** voorbeelddatabase in de on-premises systeem, de opdracht voor het schema-migratie met behulp van mysqldump is:
 
 ```
 mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
@@ -152,7 +153,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
 3. Zoek naar migratie en selecteer rechts van **Microsoft.DataMigration** de optie **Registreren**.
 
-    ![Resourceprovider registreren](media/tutorial-mysql-to-azure-mysql-online/portal-register-resource-provider.png)    
+    ![Resourceprovider registreren](media/tutorial-mysql-to-azure-mysql-online/portal-register-resource-provider.png)
 
 ## <a name="create-a-dms-instance"></a>Een DMS-exemplaar maken
 
@@ -176,9 +177,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
     Zie voor meer informatie over de kosten en prijscategorieën de [Pagina met prijzen](https://aka.ms/dms-pricing).
 
-    Als u hulp nodig bij het kiezen van de juiste laag van Azure Database Migration Service, raadpleegt u de aanbevelingen in het blogartikel bevat [kiezen van een Azure Database Migration Service (Azure DMS) laag](https://go.microsoft.com/fwlink/?linkid=861067). 
-
-     ![Instellingen configureren van een Azure Database Migration Service-exemplaar](media/tutorial-mysql-to-azure-mysql-online/dms-settings3.png)
+    ![Instellingen configureren van een Azure Database Migration Service-exemplaar](media/tutorial-mysql-to-azure-mysql-online/dms-settings3.png)
 
 6. Selecteer **Maken** om de dienst te maken.
 

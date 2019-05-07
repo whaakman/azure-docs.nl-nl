@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: d04bb965ddf9616aaa01f4c8822ac42aea6dab2d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 8f5a7d3f6300be100feffd23b98bd7dcd8f48148
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869574"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150883"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>De Kopieeractiviteit in Azure Data Factory
 
@@ -176,12 +176,14 @@ Details van uitvoering van activiteit kopiëren en prestatiekenmerken worden ook
 | DataRead | Grootte van de gegevens lezen van bron | Waarde voor Int64 in **bytes** |
 | Datawritten door | Grootte van gegevens naar een sink geschreven | Waarde voor Int64 in **bytes** |
 | filesRead | Het aantal bestanden die bij het kopiëren van gegevens uit de opslag van bestanden worden gekopieerd. | Waarde voor Int64 (geen unit) |
-| fileScanned | Het aantal bestanden worden gescand van de bron van file storage. | Waarde voor Int64 (geen unit) |
 | filesWritten | Het aantal bestanden die bij het kopiëren van gegevens met file storage worden gekopieerd. | Waarde voor Int64 (geen unit) |
-| rowsCopied | Het aantal rijen (niet van toepassing voor binaire kopie) wordt gekopieerd. | Waarde voor Int64 (geen unit) |
+| rowsRead | Het aantal rijen wordt gelezen van bron (niet van toepassing voor binaire kopie). | Waarde voor Int64 (geen unit) |
+| rowsCopied | Het aantal rijen wordt gekopieerd naar een sink (niet van toepassing voor binaire kopie). | Waarde voor Int64 (geen unit) |
 | rowsSkipped | Het aantal niet-compatibele rijen wordt overgeslagen. U kunt de functie inschakelen door de set 'enableSkipIncompatibleRow' op ' True '. | Waarde voor Int64 (geen unit) |
-| Doorvoer | Verhouding waarmee gegevens worden overgedragen | Drijvendekommagetal in **KB/s** |
-| copyDuration | De duur van de kopie | Int32-waarde in seconden |
+| Doorvoer | Verhouding tussen het waarmee gegevens worden overgedragen. | Drijvendekommagetal in **KB/s** |
+| copyDuration | De duur van de kopie. | Int32-waarde in seconden |
+| sourcePeakConnections | Hoogste aantal gelijktijdige verbindingen met de bron-gegevensopslag tijdens het kopiëren. | Int32-waarde |
+| sinkPeakConnections| Hoogste aantal gelijktijdige verbindingen tot stand gebracht met het sink-gegevensarchief tijdens het kopiëren.| Int32-waarde |
 | sqlDwPolyBase | Als u PolyBase is gebruikt bij het kopiëren van gegevens in SQL Data Warehouse. | Booleaans |
 | redshiftUnload | Als uit het geheugen laden wordt gebruikt bij het kopiëren van gegevens van Redshift. | Booleaans |
 | hdfsDistcp | Als DistCp wordt gebruikt bij het kopiëren van gegevens uit HDFS. | Booleaans |

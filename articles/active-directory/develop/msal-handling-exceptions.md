@@ -16,12 +16,12 @@ ms.date: 04/10/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 7c9a578cb3c3a59ae6bba13e585188020f35f03a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: 43c98181c926410bea2acf64bf1ed4d588c12616
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080938"
+ms.locfileid: "65138973"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Afhandeling van uitzonderingen en fouten met MSAL
 Uitzonderingen in de Microsoft Authentication Library (MSAL) zijn bedoeld voor app-ontwikkelaars om op te lossen en niet voor de weergave voor eindgebruikers. Uitzondering berichten zijn niet gelokaliseerd.
@@ -82,21 +82,18 @@ De volgende fouttypen zijn beschikbaar:
 
 * *InteractionRequiredAuthError:* Foutklasse ServerError om weer te geven van serverfouten waarvoor een aanroep van interactieve uitbreiden. Dit wordt veroorzaakt door `acquireTokenSilent` als de gebruiker is vereist om te communiceren met de referenties of of toestemming geven voor verificatie/autorisatie-server. Foutcodes zijn "interaction_required", "login_required", "consent_required".
 
-Voor foutafhandeling in verificatiestromen met omleidings-methoden (`loginRedirect`, `acquireTokenRedirect`), moet u voor het registreren van de callbacks slagen en mislukken na het gebruik van omleiding worden aangeroepen `handleRedirectCallbacks()` methode als volgt te werk:
+Voor foutafhandeling in verificatiestromen met omleidings-methoden (`loginRedirect`, `acquireTokenRedirect`), moet u de callback die wordt aangeroepen registreren bij slagen of mislukken na het gebruik van omleiding `handleRedirectCallback()` methode als volgt te werk:
 
 ```javascript
-function acquireTokenRedirectCallBack(response) {
-    // success response
+function authCallback(error, response) {
+    //handle redirect response
 }
 
-function  acquireTokenErrorRedirectCallBack(error) {
-    console.log(error);
-}
 
 var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 
 // Register Callbacks for redirect flow
-myMSALObj.handleRedirectCallbacks(acquireTokenRedirectCallBack, acquireTokenErrorRedirectCallBack);
+myMSALObj.handleRedirectCallback(authCallback);
 
 myMSALObj.acquireTokenRedirect(request);
 ```
@@ -143,7 +140,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 ```
 
 ## <a name="conditional-access-and-claims-challenges"></a>Voorwaardelijke toegang en claims uitdagingen
-Bij het ophalen van tokens op de achtergrond, uw toepassing kan er fouten optreden wanneer een [voorwaardelijke toegang claims challenge](conditional-access-dev-guide.md#scenario-single-page-app-spa-using-adaljs) zoals MFA-beleid is vereist voor een API u probeert te openen.
+Bij het ophalen van tokens op de achtergrond, uw toepassing kan er fouten optreden wanneer een [voorwaardelijke toegang claims challenge](conditional-access-dev-guide.md) zoals MFA-beleid is vereist voor een API u probeert te openen.
 
 Het patroon voor het afhandelen van deze fout is een token met MSAL interactief te verkrijgen. Interactief ophalen van een token wordt de gebruiker gevraagd en geeft u hen de mogelijkheid om te voldoen aan het beleid voor voorwaardelijke toegang vereist.
 
@@ -155,7 +152,7 @@ Bij het aanroepen van een API voor voorwaardelijke toegang van MSAL.NET vereisen
 Voor het afhandelen van de claim-uitdaging, moet u gebruiken de `.WithClaim()` -methode van de `PublicClientApplicationBuilder` klasse.
 
 ### <a name="javascript"></a>Javascript
-Bij het ophalen van tokens op de achtergrond (met behulp van `acquireTokenSilent`) met behulp van MSAL.js, kan uw toepassing er fouten optreden wanneer een [voorwaardelijke toegang claims challenge](conditional-access-dev-guide.md#scenario-single-page-app-spa-using-adaljs) zoals MFA-beleid is vereist voor een API u probeert te openen.
+Bij het ophalen van tokens op de achtergrond (met behulp van `acquireTokenSilent`) met behulp van MSAL.js, kan uw toepassing er fouten optreden wanneer een [voorwaardelijke toegang claims challenge](conditional-access-dev-guide.md) zoals MFA-beleid is vereist voor een API u probeert te openen.
 
 Het patroon voor het afhandelen van deze fout is een interactieve bellen om token te verkrijgen in MSAL.js zoals `acquireTokenPopup` of `acquireTokenRedirect` zoals in het volgende voorbeeld:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 26d677df81df6e10fae8d63362d49deee2cd0aca
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f8e057bf2e71d5a00c1e2a8ef72a5c9415a5a207
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870745"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145123"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>Status van probleemoplossing v2 bewaken
 
@@ -200,3 +200,9 @@ Als de controle werkt, moeten ten minste 12 dll's worden geladen.
 4. Probeer om te bladeren naar uw app.
 5. Nadat uw app geladen is, gaat u terug naar voorbeeld en klikt u op 'Verzameling stoppen'
 
+
+
+## <a name="next-steps"></a>Volgende stappen
+
+- Bekijk onze [API-verwijzing](status-monitor-v2-overview.md#powershell-api-reference) te vinden van een parameter die u hebt gemist.
+- Als u een probleem hier niet vermeld tegenkomt, u mogelijk contact met ons opnemen [hier](https://github.com/Microsoft/ApplicationInsights-Home/issues).

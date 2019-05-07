@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 04/08/2019
 ms.author: pafarley
-ms.openlocfilehash: df3db534550e709e40cc94d5f951056d93a1003e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2a120a59a58eb8d7a017cce0dd85c21038bdcf51
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027073"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143221"
 ---
 # <a name="what-is-form-recognizer"></a>Wat is een formulier-herkenning?
 
@@ -73,13 +73,7 @@ Verken de [REST-API-verwijzing document](https://aka.ms/form-recognizer/api).
 
 ## <a name="data-privacy-and-security"></a>Gegevensprivacy en -beveiliging
 
-De service wordt aangeboden als een [Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) van een Azure-Service onder de [voorwaarden voor Online-Service](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). U behoudt de eigendom van uw gegevens en we alleen gebruiken voor de Online Services, zoals wordt beschreven in de overeenkomst:
-
-### <a name="processing-of-customer-data-ownership"></a>Verwerking van gegevens van klanten; eigendom
-
-Gegevens van de klant worden gebruikt of anders verwerkt alleen gebruikt om toegang te bieden klanten de Online Services, met inbegrip van doeleinden die compatibel zijn met het leveren van die services. Microsoft zal niet gebruiken of anders klantgegevens verwerken of afleidt voor reclame- of vergelijkbare commerciële doeleinden. Tussen de partijen, wordt de klant behoudt alle rechten, titel en belangen in en op gegevens van de klant. Microsoft heeft geen rechten in klantgegevens, dan de klant naar Microsoft om de Online Services aanbieden aan klanten verleent rechten.
-
-Als met de Cognitive Services, moeten ontwikkelaars die gebruikmaken van de service formulier herkenning rekening houden met het beleid van Microsoft op gegevens van de klant. Zie de [pagina Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) (Engelstalig) in het Microsoft Trust Center voor meer informatie.
+De service wordt aangeboden als een [Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) van een Azure-Service onder de [voorwaarden voor Online-Service](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Als met de Cognitive Services, moeten ontwikkelaars die gebruikmaken van de service formulier herkenning rekening houden met het beleid van Microsoft op gegevens van de klant. Zie de [pagina Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) (Engelstalig) in het Microsoft Trust Center voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

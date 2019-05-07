@@ -4,14 +4,14 @@ description: Meer informatie over SQL-syntaxis, database-concepten en SQL-query'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054111"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148940"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-queryvoorbeelden voor Azure Cosmos DB
 
@@ -139,14 +139,14 @@ Resultaten van de query zijn:
     }]
 ```
 
-De volgende query retourneert alle opgegeven namen van kinderen in de familie waarvan `id` komt overeen met `WakefieldFamily`, geordende door geavanceerde.
+De volgende query retourneert alle opgegeven namen van kinderen in de familie waarvan `id` komt overeen met `WakefieldFamily`, geordende door de plaats van wonen.
 
 ```sql
     SELECT c.givenName
     FROM Families f
     JOIN c IN f.children
     WHERE f.id = 'WakefieldFamily'
-    ORDER BY f.grade ASC
+    ORDER BY f.address.city ASC
 ```
 
 De resultaten zijn:
@@ -314,6 +314,70 @@ De resultaten zijn:
     ]
 ```
 
+## <a id="DistinctKeyword"></a>Sleutelwoord DISTINCT
+
+Het sleutelwoord DISTINCT wordt voorkomen dat dubbele waarden in de projectie van de query.
+
+```sql
+SELECT DISTINCT VALUE f.lastName
+FROM Families f
+```
+
+De query projecteert in dit voorbeeld waarden voor elke achternaam op.
+
+De resultaten zijn:
+
+```json
+[
+    "Andersen"
+]
+```
+
+U kunt ook unieke objecten projecteren. In dit geval bestaat het veld lastName niet in een van de twee documenten, zodat de query een leeg object retourneert.
+
+```sql
+SELECT DISTINCT f.lastName
+FROM Families f
+```
+
+De resultaten zijn:
+
+```json
+[
+    {
+        "lastName": "Andersen"
+    },
+    {}
+]
+```
+
+DISTINCT kan ook worden gebruikt in de projectie in een subquery:
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
+```
+
+Deze query projecteert een matrix met elke kind givenName met dubbele waarden zijn verwijderd. Deze matrix heeft een alias als ChildNames en de geschatte in de buitenste query.
+
+De resultaten zijn:
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
+```
+
 ## <a name="aliasing"></a>Aliasing
 
 U kunt expliciet alias waarden in query's. Als een query twee eigenschappen met dezelfde naam heeft, gebruikt u aliasing een of beide van de eigenschappen wijzigen zodat ze in het verwachte resultaat bent disambiguated.
@@ -380,7 +444,7 @@ De resultaten zijn:
         }
       ],
       [
-        {
+       {
             "familyName": "Merriam",
             "givenName": "Jesse",
             "gender": "female",
@@ -599,7 +663,7 @@ Gebruik de? de operator op die efficiënt controleren voor een eigenschap van ee
 
 ## <a id="TopKeyword"></a>TOP-operator
 
-Het sleutelwoord TOP retourneert de eerste `N` van de resultaten van de query in een niet-gedefinieerde volgorde. Als een best practice, gebruikt u boven met de component ORDER BY te beperken tot de eerste `N` aantal geordende waarden. Deze twee componenten combineren, is de enige manier om aan te geven zoals verwacht welke bovenste is van invloed op rijen. 
+Het sleutelwoord TOP retourneert de eerste `N` van de resultaten van de query in een niet-gedefinieerde volgorde. Als een best practice, gebruikt u boven met de component ORDER BY te beperken tot de eerste `N` aantal geordende waarden. Deze twee componenten combineren, is de enige manier om aan te geven zoals verwacht welke bovenste is van invloed op rijen.
 
 U kunt boven gebruiken met een constante waarde, zoals in het volgende voorbeeld, of met de waarde van een variabele met geparameteriseerde query's. Zie voor meer informatie de [query's met parameters](#parameterized-queries) sectie.
 
@@ -679,6 +743,65 @@ De resultaten zijn:
       }
     ]
 ```
+
+U kunt ook sorteren op meerdere eigenschappen. Een query die door meerdere eigenschappen orders vereist een [samengestelde index](index-policy.md#composite-indexes). Houd rekening met de volgende query uit:
+
+```sql
+    SELECT f.id, f.creationDate
+    FROM Families f
+    ORDER BY f.address.city ASC, f.creationDate DESC
+```
+
+Deze query haalt de familie `id` in oplopende volgorde van de naam van de stad. Als meerdere items dezelfde naam hebben, de query worden gesorteerd door de `creationDate` in aflopende volgorde.
+
+## <a id="OffsetLimitClause"></a>De component OFFSET LIMIET
+
+LIMIET voor de OFFSET is een optionele component overslaan en vervolgens een aantal waarden van de query uitvoeren. Het aantal OFFSET en het maximum aantal zijn vereist in de component OFFSET LIMIET.
+
+Wanneer de LIMIET van OFFSET wordt gebruikt in combinatie met een component ORDER BY, wordt de resultatenset wordt geproduceerd door te doen overslaan en de geordende waarden ondernemen. Als er geen component ORDER BY wordt gebruikt, wordt deze resulteren in een deterministische volgorde van waarden.
+
+Bijvoorbeeld, als volgt een query die de eerste waarde overslaat en retourneert de tweede waarde (in volgorde van de naam van het residente stad):
+
+```sql
+    SELECT f.id, f.address.city
+    FROM Families f
+    ORDER BY f.address.city
+    OFFSET 1 LIMIT 1
+```
+
+De resultaten zijn:
+
+```json
+    [
+      {
+        "id": "AndersenFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+Hier volgt een query die de eerste waarde overslaat en de tweede waarde retourneert (zonder volgorde):
+
+```sql
+   SELECT f.id, f.address.city
+    FROM Families f
+    OFFSET 1 LIMIT 1
+```
+
+De resultaten zijn:
+
+```json
+    [
+      {
+        "id": "WakefieldFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+
+
+
 ## <a name="scalar-expressions"></a>Scalaire expressies
 
 De component SELECT biedt ondersteuning voor scalaire expressies zijn constanten, wiskundige expressies en logische expressies. Een scalaire expressie die u maakt gebruik van de volgende query uit:
@@ -1018,7 +1141,7 @@ Het volgende voorbeeld wordt een UDF onder de itemcontainer van een in de Cosmos
        {
            Id = "REGEX_MATCH",
            Body = @"function (input, pattern) {
-                       return input.match(pattern) !== null;
+                      return input.match(pattern) !== null;
                    };",
        };
 

@@ -2,18 +2,19 @@
 title: Hulpprogramma's voor het werken met Azure Storage | Microsoft Docs
 description: Een lijst met hulpprogramma's waarmee u kunt bekijken en hiermee werken met uw Azure Storage-gegevens.
 services: storage
-author: dineshmurthy
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 09/06/2017
-ms.author: dineshmurthy
+ms.author: tamram
+ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: ae6ceee33aa6d96c360782c33232e0c7561cf209
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d7debbc760e103046ce9bb1a8bdf25a954d9891c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483108"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138560"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage Client Tools
 Gebruikers van Azure Storage wilt vaak kunnen bekijken en hiermee werken met hun gegevens met behulp van een Azure Storage-clienthulpprogramma. In de onderstaande tabellen lijst we een aantal hulpprogramma's waarmee u kunt dit doen. We zetten een 'X' in elk blok als de mogelijkheid biedt tot een inventariseren en/of toegang tot de abstractie van de gegevens. De tabel ziet u ook de hulpprogramma's is gratis of niet. 'Proefversie' geeft aan dat er een gratis proefversie is, maar het volledige product niet gratis is. ' J/N' geeft aan dat een versie beschikbaar gratis, is terwijl een andere versie beschikbaar voor aankoop is.

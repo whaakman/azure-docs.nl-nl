@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: ed180563ea6138b3b4bab6092b39eeacf9dbf840
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097028"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148172"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Intents om te bepalen van de gebruiker de bedoeling uitingen toevoegen
 
@@ -42,16 +42,25 @@ Voorbeeld uitingen zijn voorbeelden van de tekst van de gebruiker vragen of opdr
 
     LUIS alle uitingen geconverteerd naar kleine letters en voegt spaties rond tokens zoals afbreekstreepjes bevatten.
 
-## <a name="intent-prediction-discrepancy-errors"></a>Voorspelling van intentie discrepantie fouten 
+<a name="#intent-prediction-discrepancy-errors"></a>
 
-Een utterance in een doel kan een voorspelling van intentie verschil tussen het geselecteerde doel en de voorspelling score hebben. LUIS geeft aan dat dit verschil met een rood kader rond de **met het label bedoeling** op de rij van de voorbeeld-utterance. 
+## <a name="intent-prediction-errors"></a>Voorspelling van intentie-fouten 
 
-![Schermafbeelding van de intenties pagina, met utterance voorspelling discrepantie fouten](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+Een voorbeeld utterance in een doel kan een voorspelling van intentie-fout tussen de bedoeling die de voorbeeld-utterance is momenteel in en de voorspelling intentie bepaald tijdens de training hebben. 
 
-Selecteer in de bovenste navigatiebalk **Train**. Het verschil voorspellen is nu verdwenen.
+Utterance voorspelling fouten gevonden en corrigeren, gebruikt u de **Filter** van optie **evaluatie** opties van onjuist en Unclear in combinatie met de **weergave** optie van **Gedetailleerde weergave**. 
 
-> [!Note]
-> Wanneer een rode lijn onder een woord of zinsdeel in de utterance voorbeeld is een [entiteit voorspelling fout](luis-how-to-add-example-utterances.md#entity-status-predictions) is opgetreden. U moet deze corrigeren. 
+![Als u wilt zoeken utterance voorspelling fouten en los ze, gebruik de filteroptie.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+
+Wanneer de filters en de weergave worden toegepast en er voorbeeld uitingen met fouten zijn, wordt de lijst van de utterance voorbeeld bevat de uitingen en de problemen.
+
+![! [Wanneer de filters en de weergave worden toegepast, en er voorbeeld uitingen met fouten, de lijst met voorbeelden utterance toont de uitingen en de problemen.] (. / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+
+Elke rij bevat de huidige training voorspelling score voor de voorbeeld-utterance, de dichtstbijzijnde rivaal score, die het verschil in deze twee scores is. 
+
+### <a name="fixing-intents"></a>Intents oplossen
+
+Voor meer informatie over het oplossen van fouten van de intentie voorspelling, gebruikt de [Dashboard samenvatting van](luis-how-to-use-dashboard.md). Het dashboard samenvatting bevat een analyse voor de actieve versie laatste training en biedt de hoogste suggesties om op te lossen van uw model.  
 
 ## <a name="add-a-custom-entity"></a>Een aangepaste entiteit toevoegen
 

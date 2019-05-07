@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2d56aba6d62d70c482ed1489a09276eeaa11f956
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6d602491c66669007ae220c3b8143ce3e805246f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025842"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147997"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Text to Speech uitvoer aanpassen
 
@@ -43,7 +43,7 @@ Voordat u de Text to Speech uitvoer met het hulpprogramma voor het afstemmen van
    * Zoek en selecteer **alle abonnementen**.  
    * Selecteer **verbinding maken met bestaande abonnement**.  
      ![Verbinding maken met een bestaand abonnement](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Geef uw abonnementssleutel Azure Speech Services vanuit de Azure-portal en selecteer vervolgens **toevoegen**. Uw abonnementssleutels zijn beschikbaar in de Azure-portal in het deelvenster Resource Management.  U kan de sleutels ook ophalen uit de lijst met abonnementen in de portal voor het afstemmen van spraak.
+   * Geef uw abonnementssleutel Azure Speech Services, en selecteer vervolgens **toevoegen**. Uw abonnementssleutels zijn beschikbaar in de portal van de spraakherkenning aanpassen van de [pagina abonnement](https://go.microsoft.com/fwlink/?linkid=2090458). U kunt de sleutels ook krijgen in het deelvenster Beheer van Resource in de [Azure-portal](https://portal.azure.com/). 
    * Hebt u meer dan één Speech Services-abonnement dat u wilt gebruiken, Herhaal deze stappen voor elk abonnement.
 
 ## <a name="customize-the-text-to-speech-output"></a>De Text to Speech uitvoer aanpassen

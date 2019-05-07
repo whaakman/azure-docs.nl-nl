@@ -13,14 +13,14 @@ ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: da2f9f8c8f9579d315f7df9e050ee07a5fb9cab4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03d4c269f76a89c43dec253367d07f3bf71a06d8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60872144"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141213"
 ---
 # <a name="what-is-azure-notification-hubs"></a>Wat is Azure Notification Hubs?
 
@@ -35,9 +35,9 @@ Azure Notification Hubs biedt een eenvoudig te gebruiken en uitgeschaalde push-e
 
 ## <a name="what-are-push-notifications"></a>Wat zijn pushmeldingen?
 
-Pushmeldingen zijn een vorm van app-naar-gebruiker communicatie waarbij gebruikers van mobiele apps op de hoogte worden gesteld van bepaalde gewenste informatie, meestal in een pop-upvenster of dialoogvenster. Gebruikers kunnen meestal kiezen of ze het bericht willen weergeven of verwijderen. In het eerste geval wordt de mobiele toepassing geopend die de melding heeft gecommuniceerd.
+Pushmeldingen is een vorm van communicatie van de app-naar-gebruiker waar gebruikers van mobiele apps van bepaalde gewenste gegevens, meestal in een pop-upvenster of dialoogvenster op een mobiel apparaat worden gewaarschuwd. Gebruikers kiezen in het algemeen te bekijken of te verwijderen van het bericht. het voormalige wordt geopend kiezen de mobiele App en dat de melding gecommuniceerd. Sommige meldingen worden op de achtergrond - geleverd achter de schermen voor de app achter de schermen worden verwerkt en bepaal wat te doen.
 
-Pushmeldingen zijn essentieel voor consumenten-apps om de betrokkenheid en het gebruik te vergroten. Voor zakelijke apps zijn ze belangrijk om actuele bedrijfsgegevens te communiceren. Het is de beste app-naar-gebruiker communicatie omdat het energie-efficiënt is voor mobiele apparaten, flexibel voor de afzenders en beschikbaar wanneer de bijbehorende toepassingen niet actief zijn.
+Pushmeldingen zijn essentieel voor consumenten-apps om de betrokkenheid en het gebruik te vergroten. Voor zakelijke apps zijn ze belangrijk om actuele bedrijfsgegevens te communiceren. Het is de communicatie voor de beste app-naar-gebruiker omdat het energie-efficiënte voor mobiele apparaten, flexibele voor de afzenders meldingen en beschikbaar is wanneer de bijbehorende toepassingen zijn niet actief.
 
 Zie de volgende onderwerpen voor meer informatie over pushmeldingen voor enkele populaire platforms:
 
@@ -47,13 +47,13 @@ Zie de volgende onderwerpen voor meer informatie over pushmeldingen voor enkele 
 
 ## <a name="how-push-notifications-work"></a>Hoe werken pushmeldingen?
 
-Pushmeldingen worden bezorgd via platformspecifieke infrastructuren, *PNS (Platform Notification System)* genoemd. Ze bieden essentiële pushfunctionaliteit voor het bezorgen van een bericht op een apparaat met een opgegeven ingang, en hebben geen algemene interface. Om een melding te verzenden naar alle klanten via de Android-, iOS- en Windows-versies van een app, moet de ontwikkelaar gebruikmaken van APNs (Apple Push Notification service), FCM (Firebase Cloud Messaging) en WNS (Windows Notification Service).
+Pushmeldingen worden bezorgd via platformspecifieke infrastructuren, *PNS (Platform Notification System)* genoemd. Ze bieden essentiële pushfunctionaliteit voor het bezorgen van een bericht op een apparaat met een opgegeven ingang, en hebben geen algemene interface. Als u wilt een melding verzonden naar alle klanten in de Android, iOS en Windows-versies van een app, moet de ontwikkelaar werken met Apple Push Notification Service(APNS) en Firebase Cloud Messaging(FCM) Windows Notification Service(WNS) afzonderlijk.
 
 Dit zijn de algemene stappen voor het verzenden van pushberichten:
 
-1. In de client-app wordt ingesteld dat er meldingen moeten worden verstuurd. Hiervoor wordt contact opgenomen met het bijbehorende PNS om een unieke en tijdelijke push-ingang op te vragen. Het type ingang is afhankelijk van het systeem (zo maakt WNS gebruik van URI's, terwijl APNs werkt met tokens).
-2. De client-app slaat deze ingang op in de back-end of provider van de app.
-3. Voor het verzenden van een pushmelding neemt de back-end van de app via de ingang contact op met het PNS om een bepaalde client-app te bereiken.
+1. Een toepassing besluit dat het bedrijf wil ontvangen meldingen, zodat deze PNS contactpersonen voor het doelplatform waar de app wordt uitgevoerd en aanvragen van een unieke en tijdelijke push-ingang. Het ingangstype is afhankelijk van het systeem (WNS gebruikt bijvoorbeeld URI's terwijl APNS worden tokens gebruikt).
+2. De clientapp slaat deze ingang op in de back-end app of de provider.
+3. Voor het verzenden van een pushmelding ontvangen, neemt de back-end contact op met de PNS met behulp van de ingang naar doel een specifieke client-app.
 4. De PNS stuurt de melding door naar het apparaat dat is opgegeven door de ingang.
 
 ![Werkstroom voor pushmeldingen](./media/notification-hubs-overview/registration-diagram.png)
@@ -65,16 +65,16 @@ Platform Notification System zijn krachtig. App-ontwikkelaars moeten echter zelf
 Pushmeldingen vereisen een complexe infrastructuur die geen verband houdt met de voornaamste bedrijfslogica van de toepassing. Enkele aandachtspunten voor de infrastructuur:
 
 - **Platformafhankelijkheid**
-  - Aangezien de Platform Notification Systems niet uniform zijn, moet de back-end bestaan uit complexe en moeilijk te onderhouden, platformafhankelijke logica om meldingen te kunnen verzenden naar apparaten op verschillende platforms.
+  - De back-end is complex en moeilijk te onderhouden afhankelijk zijn van het platform logica om meldingen te verzenden naar apparaten op verschillende platforms zoals PNSes gebundeld niet vereist.
 - **Schalen**
-  - Volgens de PNS-richtlijnen moeten apparaattokens steeds worden vernieuwd als de app wordt gestart. Dit betekent dat de back-end een grote hoeveelheid verkeer en databasetoegang moet verwerken, alleen al om de tokens bij te werken. Wanneer het aantal apparaten groeit tot misschien wel miljoenen, lopen de kosten voor het maken en bijwerken van deze infrastructuur enorm op.
+  - Volgens de PNS-richtlijnen moeten apparaattokens steeds worden vernieuwd als de app wordt gestart. De back-end omgaat met een grote hoeveelheid verkeer en database toegang alleen de tokens om up-to-date te houden. Wanneer het aantal apparaten naar honderden, duizenden of miljoenen groeit, is de kosten voor het maken en onderhouden van deze infrastructuur enorme.
   - De meeste Platform Notification Systems bieden geen ondersteuning voor broadcasten naar meerdere apparaten. Om één bericht te broadcasten naar een miljoen apparaten, zijn een miljoen aanroepen naar de Platform Notification Systems nodig. Het is zeer lastig om een dergelijke hoeveelheid verkeer met een minimale latentie te schalen.
 - **Routering**
   - Hoewel Platform Notification Systems een manier bieden om berichten naar apparaten te verzenden, worden de meeste app-meldingen gericht op bepaalde gebruikers of belangengroepen. In de back-end moet een register worden bijgehouden om apparaten te koppelen aan belangengroepen, gebruikers, eigenschappen, enzovoort. Deze overhead verlengt de implementatietijd en verhoogt de onderhoudskosten van een app.
 
 ## <a name="why-use-azure-notification-hubs"></a>Waarom kiezen voor Azure Notification Hubs?
 
-Met Notification Hubs wordt alle complexiteit weggenomen waarmee u te maken krijgt als u zelf pushmeldingen wilt versturen vanuit uw eigen back-end. De uitgeschaalde infrastructuur ondersteunt meerdere platforms, waardoor er minder push-gerelateerde code nodig is en de back-end kan worden vereenvoudigd. Met Notification Hubs hoeven apparaten alleen maar hun PNS-ingangen te registreren bij een hub, terwijl de back-end berichten verstuurt naar gebruikers of belangengroepen, zoals wordt weergegeven in de volgende afbeelding:
+Notification Hubs wordt voorkomen dat alle complexiteit die zijn gekoppeld aan het pushen van meldingen op uw eigen vanuit uw app back-end. De uitgeschaalde infrastructuur ondersteunt meerdere platforms, waardoor er minder push-gerelateerde code nodig is en de back-end kan worden vereenvoudigd. Met Notification Hubs hoeven apparaten alleen maar hun PNS-ingangen te registreren bij een hub, terwijl de back-end berichten verstuurt naar gebruikers of belangengroepen, zoals wordt weergegeven in de volgende afbeelding:
 
 ![Schema van Notification Hubs](./media/notification-hubs-overview/notification-hub-diagram.png)
 
@@ -105,28 +105,6 @@ Notification Hubs is een gebruiksklare push-engine met de volgende voordelen:
   - U kunt snel berichten versturen naar miljoenen apparaten zonder dat u de architectuur hoeft aan te passen of sharding hoeft toe te passen.
 - **Beveiliging**
   - Shared Access Secret (SAS) of federatieve verificatie.
-
-## <a name="integration-with-app-service-mobile-apps"></a>Integratie met App Service Mobile Apps
-
-Voor een naadloze werking van alle Azure-services biedt [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) ingebouwde ondersteuning voor pushmeldingen via Notification Hubs. Met [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) kunnen ontwikkelaars van ondernemingen en systeemintegrators gebruikmaken van een zeer schaalbaar, algemeen beschikbaar ontwikkelplatform voor mobiele toepassingen, dat uitgebreide mogelijkheden biedt voor ontwikkelaars van mobiele apps.
-
-Mobiele apps van ontwikkelaars kunnen gebruikmaken van Notification Hubs in de volgende werkstroom:
-
-1. PNS-ingang van het apparaat ophalen
-2. Apparaat registreren bij Notification Hubs via de handige registratie-API uit de Client-SDK van Mobile Apps
-
-    > [!NOTE]
-    > Om beveiligingsreden worden alle tags op registraties door mobiele apps verwijderd. Gebruik Notification Hubs om vanuit de back-end rechtstreeks tags aan apparaten koppelen.
-3. Meldingen verzenden vanuit de back-end van uw app met Notification Hubs
-
-Hier zijn een aantal voordelen voor ontwikkelaars:
-
-- **Client SDK's voor mobiele apps**: Deze SDK's voor meerdere platforms bieden eenvoudige API's voor de registratie en het contact met de Notification Hub die automatisch aan de mobiele app is gekoppeld. Ontwikkelaars hoeven niet op zoek naar de aanmeldgegevens voor Notification Hubs of met een extra service te werken.
-  - *Pushen naar gebruiker*: De SDK's coderen een apparaat automatisch met de geverifieerde gebruikers-id van de mobiele app om het verzenden van pushberichten mogelijk te maken.
-  - *Pushen naar apparaat*: De SDK's gebruiken de installatie-id van een mobiele app automatisch als GUID om te registreren bij Notification Hubs. Hierdoor hoeven ze niet meerdere service-GUID's meer bij te houden.
-- **Installatiemodel**: Mobiele apps werken met het meest recente pushmodel van Notification Hubs. Hierdoor zijn alle pusheigenschappen beschikbaar die aan een apparaat zijn gekoppeld in een JSON-installatie, die aansluit op de Push Notification Services en eenvoudig te gebruiken is.
-- **Flexibiliteit**: Ontwikkelaars kunnen altijd beslissen om rechtstreeks met Notification Hubs te werken, zelfs na integratie.
-- **Geïntegreerde ervaring in [Azure-portal](https://portal.azure.com)**: De pushfunctie in mobiele apps is zeer visueel en ontwikkelaars kunnen eenvoudig via mobiele apps met de bijbehorende Notification Hub werken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

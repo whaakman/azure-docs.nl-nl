@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 3cc4933ae70ad1d661835749dd23e7e634ab54f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68ca35590aaadba431d5f1dc06e0405162ebc69f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474433"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154485"
 ---
 # <a name="public-ip-address-prefix"></a>Openbare IP-adresvoorvoegsel
 
@@ -29,9 +29,6 @@ Een openbare IP-adresvoorvoegsel is een gereserveerd bereik met IP-adressen voor
 Openbare IP-adressen worden toegewezen uit een groep met de adressen in elke Azure-regio. U kunt [downloaden](https://www.microsoft.com/download/details.aspx?id=56519) de lijst met bereiken maakt gebruik van Azure voor elke regio. 40.121.0.0/16 is bijvoorbeeld een van meer dan 100 bereiken in die Azure wordt gebruikt in de regio VS-Oost. Bereik omvat ook de bruikbare adressen van 40.121.0.1 - 40.121.255.254.
 
 U een openbaar IP-adresvoorvoegsel dat in een Azure-regio en een abonnement maken door een naam op te geven en het aantal adressen wilt u het voorvoegsel om op te nemen. Bijvoorbeeld, als u een openbaar IP-adresvoorvoegsel van/28 maakt, toewijst Azure 16-adressen uit een van de bereiken ligt voor u. U weet niet welke bereik Azure wordt toegewezen wanneer u het bereik hebt gemaakt, maar de adressen aaneengesloten zijn. Openbare IP-adresvoorvoegsels hebben een betaling te doen. Zie voor meer informatie, [prijzen van openbare IP-adressen](https://azure.microsoft.com/pricing/details/ip-addresses).
-
-> [!IMPORTANT]
-> Openbare IP-voorvoegsel is in een openbare preview in beperkte regio's. U kunt [informatie over wat het betekent Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Openbaar IP-voorvoegsel is momenteel beschikbaar in: West-Centraal VS, VS-West, VS-West 2, VS-midden, Noord-Europa, West-Europa en Zuidoost-Azië. Ga voor een bijgewerkte lijst met regio's, [Azure-updates](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>Waarom een openbare IP-adresvoorvoegsel maken?
 
@@ -58,6 +55,7 @@ U kunt de volgende resources koppelen aan een statisch openbaar IP-adres uit een
 ## <a name="constraints"></a>Beperkingen
 
 - U kunt de IP-adressen voor het voorvoegsel niet opgeven. Azure wijst het IP-adressen voor het voorvoegsel, op basis van de grootte die u opgeeft.
+- De standaardgrootte van het voorvoegsel is/28 of 16 openbare IP-adressen.
 - U kunt het bereik niet wijzigen als u het voorvoegsel hebt gemaakt.
 - Het bereik is voor IPv4-adressen. Het bereik bevat geen IPv6-adressen.
 - Alleen statische openbare IP-adressen die zijn gemaakt met de standaard-SKU kunnen worden toegewezen uit het voorvoegsel van het bereik. Zie voor meer informatie over openbare IP-adres van SKU's [openbaar IP-adres](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).

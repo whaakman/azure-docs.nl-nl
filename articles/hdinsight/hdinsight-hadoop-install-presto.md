@@ -8,14 +8,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2bd5e1ae02ffbb62b9a5a95846aabeeab2b448b5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7ce2cf40dafc09d86d0c424a3954a334ae83143a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704819"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145482"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Installeren en gebruiken Presto op Hadoop-gebaseerde HDInsight-clusters
+
+> [!IMPORTANT]  
+> LEES: De onderstaande instructies zijn afgeschaft. Raadpleeg de meest recente richtlijnen van [stervorm gegevens](http://docs.starburstdata.com/latest/azure.html) installeren en Presto uitvoeren op Azure HDInsight.  
 
 In dit artikel wordt uitgelegd hoe u Presto installeren op Azure HDInsight Hadoop-gebaseerde clusters met behulp van scriptacties. U leert ook hoe u Airpal installeren op een bestaande Presto HDInsight-cluster.
 

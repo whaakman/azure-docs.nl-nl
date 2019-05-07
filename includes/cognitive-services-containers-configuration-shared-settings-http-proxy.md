@@ -1,23 +1,26 @@
 ---
 author: diberry
-ms.author: v-junlch
+ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-origin.date: 04/01/2019
-ms.date: 04/23/2019
-ms.openlocfilehash: 2d3d7b37721ca1b19f5d73133352cabdbffe6d68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/07/2019
+ms.openlocfilehash: fe1b4699a300831294c26b103d322fb83ad87d3b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599351"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151103"
 ---
 Als u nodig hebt voor het configureren van een HTTP-proxy voor uitgaande aanvragen, gebruikt u deze twee argumenten:
 
-| Name | Gegevenstype | Beschrijving |
+| Name | Gegevenstype | Description |
 |--|--|--|
-|HTTP_PROXY|string|de proxy moet worden gebruikt, bijvoorbeeld: `http://proxy:8888`|
+|HTTP_PROXY|string|de proxy moet worden gebruikt, bijvoorbeeld: `http://proxy:8888`<br><proxy-url>|
 |HTTP_PROXY_CREDS|string|de referenties die nodig zijn voor verificatie op basis van de proxy, bijvoorbeeld gebruikersnaam.|
+|`<proxy-user>`|string|De gebruiker voor de proxy.|
+|`proxy-password`|string|Het wachtwoord dat is gekoppeld aan `<proxy-user>` voor de proxy.|
+||||
+
 
 ```bash
 docker run --rm -it -p 5000:5000 \
@@ -27,7 +30,6 @@ docker run --rm -it -p 5000:5000 \
 Eula=accept \
 Billing=<billing-endpoint> \
 ApiKey=<api-key> \
-HTTP_PROXY=http://190.169.1.6:3128 \
-HTTP_PROXY_CREDS=jerry:123456 \
+HTTP_PROXY=<proxy-url> \
+HTTP_PROXY_CREDS=<proxy-user>:<proxy-password> \
 ```
-

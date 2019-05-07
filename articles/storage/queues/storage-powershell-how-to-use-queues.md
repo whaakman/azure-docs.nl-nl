@@ -1,19 +1,20 @@
 ---
-title: Bewerkingen uitvoeren op Azure Queue storage met PowerShell | Microsoft Docs
+title: Bewerkingen uitvoeren op Azure Queue storage met PowerShell - Azure Storage
 description: Het uitvoeren van bewerkingen op Azure Queue storage met PowerShell
 services: storage
-author: roygara
+author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/14/2017
-ms.author: rogarana
+ms.author: mhopkins
+ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 9992673ab36d5b4b2cc1ca18a5108107c14a1eb1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: db366fea96967559c65559864ff8e367fa12ad65
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59488948"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142592"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure Queue storage bewerkingen uitvoeren met Azure PowerShell
 
@@ -102,22 +103,22 @@ Get-AzStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>Een bericht toevoegen aan een wachtrij
 
-Bewerkingen die invloed hebben op de werkelijke berichten in de wachtrij gebruiken de .NET-opslagclientbibliotheek zoals weergegeven in PowerShell. Een bericht toevoegen aan een wachtrij, maak een nieuw exemplaar van het berichtobject [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](https://msdn.microsoft.com/library/azure/jj732474.aspx) klasse. Daarna roept u de methode [AddMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) aan. Een CloudQueueMessage kan worden gemaakt op basis van een tekenreeks (in UTF-8-indeling) of een bytematrix.
+Bewerkingen die invloed hebben op de werkelijke berichten in de wachtrij gebruiken de .NET-opslagclientbibliotheek zoals weergegeven in PowerShell. Een bericht toevoegen aan een wachtrij, maak een nieuw exemplaar van het berichtobject [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage.-ctor?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_WindowsAzure_Storage_Queue_CloudQueueMessage__ctor_System_Byte___) klasse. Daarna roept u de methode [AddMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) aan. Een CloudQueueMessage kan worden gemaakt op basis van een tekenreeks (in UTF-8-indeling) of een bytematrix.
 
 Het volgende voorbeeld ziet u hoe u een bericht toevoegen aan de wachtrij.
 
 ```powershell
 # Create a new message using a constructor of the CloudQueueMessage class
-$queueMessage = New-Object -TypeName "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
+$queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 1"
 # Add a new message to the queue
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
 # Add two more messages to the queue 
-$queueMessage = New-Object -TypeName "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
+$queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 2"
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
-$queueMessage = New-Object -TypeName "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
+$queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 3"
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
@@ -130,7 +131,7 @@ Berichten worden gelezen in volgorde van de beste probeer first in first out. Di
 
 Dit **de time-out voor onzichtbaarheid** wordt gedefinieerd hoe lang het bericht onzichtbaar blijft voordat deze beschikbaar zijn voor de verwerking van het opnieuw. De standaardwaarde is 30 seconden. 
 
-Uw code leest een bericht uit de wachtrij in twee stappen. Wanneer u aanroepen de [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) methode, krijgt u het volgende bericht in de wachtrij. Een bericht dat wordt geretourneerd door **GetMessage**, wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. Als u klaar bent met het bericht verwijderen uit de wachtrij, wilt u aanroepen de [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) methode. 
+Uw code leest een bericht uit de wachtrij in twee stappen. Wanneer u aanroepen de [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_WindowsAzure_Storage_Queue_CloudQueue_GetMessage_System_Nullable_System_TimeSpan__Microsoft_WindowsAzure_Storage_Queue_QueueRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) methode, krijgt u het volgende bericht in de wachtrij. Een bericht dat wordt geretourneerd door **GetMessage**, wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. Als u klaar bent met het bericht verwijderen uit de wachtrij, wilt u aanroepen de [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?redirectedfrom=MSDN&view=azure-dotnet#overloads) methode. 
 
 In het volgende voorbeeld wordt u via de drie Wachtrijberichten lezen en vervolgens wacht 10 seconden (de time-out voor onzichtbaarheid). En u opnieuw de drie berichten de berichten worden verwijderd lezen na het lezen van deze door aan te roepen **DeleteMessage**. Als u probeert te lezen van de wachtrij de berichten zijn verwijderd, wordt u $queueMessage als NULL geretourneerd.
 

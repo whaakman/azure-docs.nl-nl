@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80bf4718b63496c0b220aa79dcdd27f2711b70ce
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998452"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148103"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Voorbereidingen voor het implementeren van uw IoT Edge-oplossing in productie
 
@@ -186,7 +186,11 @@ Als uw apparaten worden geïmplementeerd op een netwerk dat gebruikmaakt van een
 
 ### <a name="set-up-logs-and-diagnostics"></a>Instellen van Logboeken en diagnostische gegevens
 
-Op Linux gebruikt de IoT Edge-daemon tijdschriften als de standaard logboekregistratie stuurprogramma. U kunt het opdrachtregelhulpprogramma `journalctl` query uitvoeren op de daemon-Logboeken. Op Windows gebruikt de IoT Edge-daemon PowerShell diagnostische gegevens. Gebruik `Get-WinEvent` naar Logboeken vanuit de daemon voor query's. IoT Edge-modules gebruiken de JSON-stuurprogramma voor logboekregistratie, dit is de standaardinstelling.  
+Op Linux gebruikt de IoT Edge-daemon tijdschriften als de standaard logboekregistratie stuurprogramma. U kunt het opdrachtregelhulpprogramma `journalctl` query uitvoeren op de daemon-Logboeken. Op Windows gebruikt de IoT Edge-daemon PowerShell diagnostische gegevens. Gebruik `Get-IoTEdgeLog` naar Logboeken vanuit de daemon voor query's. IoT Edge-modules gebruiken de JSON-stuurprogramma voor logboekregistratie, dit is de standaardinstelling.  
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
 
 Wanneer u een IoT Edge-implementatie test, kunt u uw apparaten op te halen van Logboeken en oplossen van meestal openen. In een implementatiescenario, hebt u mogelijk geen die optie. Houd rekening met hoe u gegevens verzamelen over uw apparaten in productie gaat. Een optie is het gebruik van een logboekregistratiemodule die u verzamelt gegevens van de andere modules en verzendt dit naar de cloud. Een voorbeeld van een logboekregistratiemodule is [logspout loganalytics](https://github.com/veyalla/logspout-loganalytics), of u kunt ze zelf kunt ontwerpen. 
 

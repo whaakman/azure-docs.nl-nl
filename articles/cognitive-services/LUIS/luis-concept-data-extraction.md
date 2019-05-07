@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867707"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150683"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Gegevens ophalen uit utterance tekst met intenties en entiteiten
 LUIS biedt u de mogelijkheid informatie ophalen van natuurlijke taal-uitingen van een gebruiker. De informatie wordt opgehaald op een manier dat deze kan worden gebruikt door een programma, toepassing of bot chatten om actie te ondernemen. In de volgende secties meer informatie over welke gegevens worden geretourneerd door intenties en entiteiten met voorbeelden van JSON.
@@ -172,34 +172,6 @@ De gegevens die worden geretourneerd van het eindpunt bevat de naam van de entit
 |--|--|--|
 |Eenvoudige entiteit|`Customer`|`bob jones`|
 
-## <a name="hierarchical-entity-data"></a>Hiërarchische entiteitsgegevens
-
-**Hiërarchische entiteiten worden uiteindelijk afgeschaft. Gebruik [entiteit rollen](luis-concept-roles.md) entiteit subtypen, in plaats van hiërarchische entiteiten bepalen.**
-
-[Hiërarchische](luis-concept-entity-types.md) entiteiten zijn machine geleerd en een woord of woordgroep kan bevatten. Onderliggende items worden aangeduid met context. Als u een bovenliggende / onderliggende relatie met exact overeenkomende tekst overeenkomst zoekt, gebruikt u een [lijst](#list-entity-data) entiteit.
-
-`book 2 tickets to paris`
-
-In de vorige utterance `paris` heet een `Location::ToLocation` onderliggende lid van de `Location` hiërarchische entiteit.
-
-De gegevens die worden geretourneerd van het eindpunt bevat de naam van de entiteit en naam van de onderliggende, de gedetecteerde tekst van de utterance, de locatie van de gedetecteerde tekst en de score is:
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Location::ToLocation",
-    "startIndex": 18,
-    "endIndex": 22,
-    "score": 0.6866132
-  }
-]
-```
-
-|Data-object|Bovenliggend item|Onderliggende|Waarde|
-|--|--|--|--|
-|Hiërarchische entiteit|Locatie|ToLocation|"Parijs"|
-
 ## <a name="composite-entity-data"></a>Samengestelde entiteitsgegevens
 [Samengestelde](luis-concept-entity-types.md) entiteiten zijn machine geleerd en een woord of woordgroep kan bevatten. Neem bijvoorbeeld een samengestelde entiteit van het vooraf gedefinieerde `number` en `Location::ToLocation` met de volgende utterance:
 
@@ -212,53 +184,54 @@ U ziet dat `2`, het aantal en `paris`, de ToLocation woorden tussen deze die gee
 Samengestelde entiteiten worden geretourneerd in een `compositeEntities` matrix en alle entiteiten in de samengestelde worden ook weergegeven in de `entities` matrix:
 
 ```JSON
-  "entities": [
+
+"entities": [
     {
-      "entity": "paris",
-      "type": "Location::ToLocation",
-      "startIndex": 18,
-      "endIndex": 22,
-      "score": 0.956998169
+    "entity": "2 tickets to cairo",
+    "type": "ticketInfo",
+    "startIndex": 0,
+    "endIndex": 17,
+    "score": 0.67200166
     },
     {
-      "entity": "2",
-      "type": "builtin.number",
-      "startIndex": 5,
-      "endIndex": 5,
-      "resolution": {
+    "entity": "2",
+    "type": "builtin.number",
+    "startIndex": 0,
+    "endIndex": 0,
+    "resolution": {
+        "subtype": "integer",
         "value": "2"
-      }
+    }
     },
     {
-      "entity": "2 tickets to paris",
-      "type": "Order",
-      "startIndex": 5,
-      "endIndex": 22,
-      "score": 0.7714499
+    "entity": "cairo",
+    "type": "builtin.geographyV2",
+    "startIndex": 13,
+    "endIndex": 17
     }
-  ],
-  "compositeEntities": [
+],
+"compositeEntities": [
     {
-      "parentType": "Order",
-      "value": "2 tickets to paris",
-      "children": [
+    "parentType": "ticketInfo",
+    "value": "2 tickets to cairo",
+    "children": [
         {
-          "type": "builtin.number",
-          "value": "2"
+        "type": "builtin.geographyV2",
+        "value": "cairo"
         },
         {
-          "type": "Location::ToLocation",
-          "value": "paris"
+        "type": "builtin.number",
+        "value": "2"
         }
-      ]
+    ]
     }
-  ]
+]
 ```    
 
 |Data-object|De naam van de entiteit|Waarde|
 |--|--|--|
 |Vooraf gedefinieerde entiteit - nummer|"builtin.number"|"2"|
-|Hiërarchische entiteit - locatie|"Location::ToLocation"|"Parijs"|
+|Vooraf gedefinieerde entiteit - GeographyV2|"Location::ToLocation"|"Parijs"|
 
 ## <a name="list-entity-data"></a>Lijst met entiteitsgegevens
 
@@ -268,8 +241,8 @@ Stel dat de app heeft een lijst met de naam `Cities`, zodat voor variaties in pl
 
 |Lijstitem|Item synoniemen|
 |---|---|
-|Seattle|zee tac, zee 98101, 206, + 1 |
-|Parijs|cdg, roissy, schiedenisitems, 75001, 1, +33|
+|`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
+|`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
 
 `book 2 tickets to paris`
 

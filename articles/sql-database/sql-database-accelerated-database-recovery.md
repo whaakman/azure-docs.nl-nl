@@ -11,14 +11,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb88da48f8961969176fd67bf6e5fa346655aeac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77bc33747964a5f4ee1a67aba777dc3ed76b9a51
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388716"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073453"
 ---
-# <a name="accelerated-database-recovery-preview"></a>Versneld databaseherstel (preview)
+# <a name="accelerated-database-recovery"></a>Versneld databaseherstel
 
 **Versnelde Database Recovery (ADR)** wordt een nieuwe SQL database-engine-functie maken die aanzienlijk verbetert de beschikbaarheid van de database, met name bij langlopende transacties, uitgevoerd door het herstelproces van SQL database-engine opnieuw. ADR is momenteel beschikbaar voor individuele databases en databases in pools in Azure SQL Database en -databases in Azure SQL Data Warehouse. De belangrijkste voordelen van ADR zijn:
 
@@ -128,6 +128,3 @@ De volgende typen klanten moeten rekening houden met ADR inschakelen:
 - Klanten die gevallen waarin actieve transacties wordt veroorzaakt door het transactielogboek te laten groeien aanzienlijk hebt gezien.  
 - Klanten die langere perioden van de database niet beschikbaar zijn vanwege een SQL Server langlopende recovery (zoals onverwachte SQL Server opnieuw opstarten of handmatige transactie wordt teruggedraaid) zijn opgetreden.
 
-## <a name="to-enable-adr-during-this-preview-period"></a>Om in te schakelen ADR tijdens deze preview-periode
-
-Tijdens de preview-periode voor deze functie, stuur een e-mail naar [ adr@microsoft.com ](mailto:adr@microsoft.com) voor meer informatie en probeer het uit versnelde Database Recovery (ADR). In het e-mailbericht, moet u de naam van uw SQL Database-server (voor individuele databases en gepoolde databases in SQL-Database en -databases in Azure Data Warehouse) bevatten. Omdat dit een preview-functie, moet uw testserver een niet-productie-server.

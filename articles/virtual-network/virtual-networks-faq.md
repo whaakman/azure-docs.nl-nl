@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 131d62fd2cea3ed76342f0fd179b7a9e0fd673e5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 25c71019227c52bf0c1530dcdf655fc7575d8032
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925268"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148526"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) over virtuele Azure-netwerk
 
@@ -170,7 +170,7 @@ Ja. U vindt meer informatie in de [verplaatsen van een rol of VM-exemplaar naar 
 Nee. Een MAC-adres kan niet statisch zijn geconfigureerd.
 
 ### <a name="will-the-mac-address-remain-the-same-for-my-vm-once-its-created"></a>Het MAC-adres blijven hetzelfde voor mijn virtuele machine nadat deze gemaakt?
-Ja, het MAC-adres blijft ongewijzigd, voor een virtuele machine geïmplementeerd via het resourcemanager en klassieke implementatiemodellen totdat deze wordt verwijderd. Het MAC-adres is eerder vrijgegeven als de virtuele machine is gestopt (toewijzing opgeheven), maar nu het MAC-adres worden bewaard, zelfs wanneer de virtuele machine in de status van de toewijzing ongedaan gemaakt.
+Ja, het MAC-adres blijft ongewijzigd, voor een virtuele machine geïmplementeerd via het resourcemanager en klassieke implementatiemodellen totdat deze wordt verwijderd. Het MAC-adres is eerder vrijgegeven als de virtuele machine is gestopt (toewijzing opgeheven), maar nu het MAC-adres worden bewaard, zelfs wanneer de virtuele machine in de status van de toewijzing ongedaan gemaakt. Het MAC-adres blijft toegewezen aan de netwerkinterface totdat de netwerkinterface wordt verwijderd of de privé IP-adres toegewezen aan de primaire IP-adresconfiguratie van de primaire netwerkinterface is gewijzigd. 
 
 ### <a name="can-i-connect-to-the-internet-from-a-vm-in-a-vnet"></a>Kan ik verbinding maken met het internet van een virtuele machine in een VNet?
 Ja. Alle virtuele machines en Cloud Services-rolexemplaren die binnen een VNet zijn geïmplementeerd, kunnen verbinding maken met Internet.

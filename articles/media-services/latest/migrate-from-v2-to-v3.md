@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/27/2019
 ms.author: juliako
-ms.openlocfilehash: 6ae094ddf1bfc55ce793995f60f1694be6eb19c1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 921d154226862d822802562442f59bf1c37c4745
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686803"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148911"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Hulp bij de migratie voor het verplaatsen van Media Services v2 naar v3
 
@@ -115,7 +115,7 @@ De volgende tabel bevat de codeverschillen tussen v2 en v3 voor algemene scenari
 > [!NOTE]
 > Deze pagina wordt onderhouden als het Media Services-team voortdurende verbeteringen in de v3 API's en adressen van de tussenruimte tussen de versies.
 
-## <a name="provide-feedback"></a>Feedback geven
+## <a name="ask-questions-give-feedback-get-updates"></a>Stel vragen, feedback geven, updates ophalen
 
 Bekijk de [Azure Media Services-community](media-services-community.md) artikel om te zien van verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
 

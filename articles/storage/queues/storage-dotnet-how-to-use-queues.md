@@ -1,20 +1,21 @@
 ---
-title: Aan de slag met Azure Queue Storage met .NET | Microsoft Docs
+title: Aan de slag met Azure Queue storage met .NET - Azure Storage
 description: Azure Queues biedt betrouwbare, asynchrone uitwisseling van berichten tussen toepassingsonderdelen. Met Cloud Messaging kunnen onderdelen van uw toepassing onafhankelijk van elkaar worden opgeschaald.
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.author: tamram
+ms.author: mhopkins
+ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 5e61d346aab55f9b3c6dd136d3255f2afe0b8534
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 8ae34f830f0d1373d97063e93a561cd38c7093ab
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109412"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152221"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Aan de slag met Azure Queue Storage met .NET
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

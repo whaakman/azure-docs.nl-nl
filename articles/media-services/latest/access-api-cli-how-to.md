@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8374e4c49012a2c49de41001be0fdb30f9151332
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a27f7597ddc934b925d63507a816ac5816b682d6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733501"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151049"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Toegang tot Azure mediaservices API met de Azure CLI
  
@@ -54,7 +54,11 @@ Vergeet niet de waarden die u hebt gebruikt voor de namen van de resourcegroep e
 - [EventGrid maken - CLI](./scripts/cli-create-event-grid.md)
 - [Een asset publiceren - CLI](./scripts/cli-publish-asset.md)
 - [Filteren - CLI](filters-dynamic-manifest-cli-howto.md)
+- [Azure-CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Azure-CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+De Streaming-eindpunt van waaruit u inhoud streamen wilt heeft zich in de status die wordt uitgevoerd. De volgende CLI-opdracht wordt het standaard Streaming-eindpunt gestart:
+
+
+`az ams streaming-endpoint start -n default -a <amsaccount> -g <amsResourceGroup>`

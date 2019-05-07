@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 22b03417495625ef70650a015530d6f56b32fd4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d874b9c8f14b1489ab5e5b8bbdddaff0669165e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626874"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145181"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Naslaginformatie voor Azure Cosmos DB SQL-taal 
 
@@ -31,7 +31,8 @@ Elke query bestaat uit een SELECT-component en optionele FROM- en WHERE-componen
 SELECT <select_specification>   
     [ FROM <from_specification>]   
     [ WHERE <filter_condition> ]  
-    [ ORDER BY <sort_specification> ]  
+    [ ORDER BY <sort_specification> ] 
+    [ OFFSET <offset_amount> LIMIT <limit_amount>]
 ```  
   
  **Opmerkingen**  
@@ -42,6 +43,8 @@ SELECT <select_specification>
 -   [FROM-component](#bk_from_clause)    
 -   [WHERE-component](#bk_where_clause)    
 -   [ORDER BY-component](#bk_orderby_clause)  
+-   [De component OFFSET LIMIET](#bk_offsetlimit_clause)
+
   
 De clausules in de SELECT-instructie moeten worden besteld, zoals hierboven. Een van de optionele componenten kan worden weggelaten. Maar als de optionele componenten zijn gebruikt, moeten ze worden weergegeven in de juiste volgorde.  
   
@@ -52,7 +55,8 @@ De volgorde waarin de EU worden verwerkt, is:
 1.  [FROM-component](#bk_from_clause)  
 2.  [WHERE-component](#bk_where_clause)  
 3.  [ORDER BY-component](#bk_orderby_clause)  
-4.  [SELECT-component](#bk_select_query)  
+4.  [SELECT-component](#bk_select_query)
+5.  [De component OFFSET LIMIET](#bk_offsetlimit_clause)
 
 Houd er rekening mee dat dit wijkt af van de volgorde waarin ze worden weergegeven in de syntaxis. De volgorde is dat alle nieuwe symbolen die door een verwerkte component zichtbaar zijn en kunnen worden gebruikt in de componenten die later worden verwerkt. Bijvoorbeeld, aliassen gedeclareerd in een FROM-component in, waarbij toegankelijk zijn en SELECT-component.  
 
@@ -76,8 +80,8 @@ SELECT <select_specification>
 
 <select_specification> ::=   
       '*'   
-      | <object_property_list>   
-      | VALUE <scalar_expression> [[ AS ] value_alias]  
+      | [DISTINCT] <object_property_list>   
+      | [DISTINCT] VALUE <scalar_expression> [[ AS ] value_alias]  
   
 <object_property_list> ::=   
 { <scalar_expression> [ [ AS ] property_alias ] } [ ,...n ]  
@@ -101,7 +105,11 @@ SELECT <select_specification>
 - `VALUE`  
 
   Hiermee geeft u op dat de JSON-waarde moet worden opgehaald in plaats van de volledige JSON-object. Dit, in tegenstelling tot `<property_list>` loopt niet de verwachte waarde in een object.  
+ 
+- `DISTINCT`
   
+  Hiermee geeft u op dat de kopieën van de verwachte eigenschappen moeten worden verwijderd.  
+
 - `<scalar_expression>`  
 
   Expressie voor de waarde die moet worden berekend. Zie [scalaire expressies](#bk_scalar_expressions) sectie voor meer informatie.  
@@ -341,23 +349,23 @@ WHERE <filter_condition>
 ```sql  
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
-<sort_expression> ::= <scalar_expression> [ASC | DESC]  
+<sort_expression> ::= {<scalar_expression> [ASC | DESC]} [ ,...n ]  
   
 ```  
-  
+
  **Argumenten**  
   
 - `<sort_specification>`  
   
-   Hiermee geeft u een eigenschap of een expressie waarop u wilt sorteren van de queryresultaatset. Een sorteerkolom kan worden opgegeven als een alias voor de naam of kolom.  
+   Hiermee geeft u een eigenschap of een expressie waarop u wilt sorteren van de queryresultaatset. Een sorteerkolom kan worden opgegeven als een alias voor de naam of de eigenschap.  
   
-   Meerdere kolommen voor sorteren kunnen worden opgegeven. Kolomnamen moeten uniek zijn. De volgorde van de kolommen sorteren in de component ORDER BY definieert de organisatie van de gesorteerde resultatenset. Dat wil zeggen, de resultatenset is gesorteerd op de eerste eigenschap en vervolgens die geordende lijst is gesorteerd op de tweede eigenschap, enzovoort.  
+   Meerdere eigenschappen kunnen worden opgegeven. Namen van eigenschappen moeten uniek zijn. De volgorde van de eigenschappen van de sortering in de component ORDER BY definieert de organisatie van de gesorteerde resultatenset. Dat wil zeggen, de resultatenset is gesorteerd op de eerste eigenschap en vervolgens die geordende lijst is gesorteerd op de tweede eigenschap, enzovoort.  
   
-   De namen van de kolommen waarnaar wordt verwezen in de component ORDER BY moeten overeenkomen met een kolom in de lijst selecteren of een kolom die is gedefinieerd in een tabel die is opgegeven in de component FROM zonder eventuele dubbelzinnigheden.  
+   De namen van eigenschappen waarnaar wordt verwezen in de component ORDER BY moeten overeenkomen met ofwel een eigenschap in de lijst selecteren of een eigenschap die is gedefinieerd in de verzameling die is opgegeven in de component FROM zonder eventuele dubbelzinnigheden.  
   
 - `<sort_expression>`  
   
-   Hiermee geeft u een één eigenschap of een expressie waarop u wilt sorteren van de queryresultaatset.  
+   Hiermee geeft u een of meer eigenschappen of expressies waarop u wilt sorteren van de queryresultaatset.  
   
 - `<scalar_expression>`  
   
@@ -369,8 +377,34 @@ ORDER BY <sort_specification>
   
   **Opmerkingen**  
   
-  Terwijl de querygrammatica biedt ondersteuning voor meerdere order met eigenschappen, ondersteunt de Cosmos DB-query-runtime sorteren alleen tegen één eigenschap, en alleen de namen van eigenschappen (niet tegen berekende eigenschappen). Sorteren is ook vereist dat het indexeringsbeleid een index van het bereik voor de eigenschap en het opgegeven type, met de maximale precisie bevat. Raadpleeg de indexering beleid-documentatie voor meer informatie.  
+   De component ORDER BY is vereist dat het indexeringsbeleid bevatten een index voor de velden worden gesorteerd. De runtime van de query Azure Cosmos DB biedt ondersteuning voor sorteren op basis van een eigenschapsnaam en niet op basis van de berekende eigenschappen. Azure Cosmos DB biedt ondersteuning voor meerdere ORDER BY-eigenschappen. Als u wilt een query uitvoert met meerdere ORDER BY-eigenschappen, moet u definiëren een [samengestelde index](index-policy.md#composite-indexes) op de velden worden gesorteerd.
+
+
+##  <a name=bk_offsetlimit_clause></a> De component OFFSET LIMIET
+
+Hiermee geeft u het aantal items overgeslagen en het aantal geretourneerde items. Zie voor voorbeelden van [OFFSET LIMIET component voorbeelden](how-to-sql-query.md#OffsetLimitClause)
   
+ **Syntaxis**  
+  
+```sql  
+OFFSET <offset_amount> LIMIT <limit_amount>
+```  
+  
+ **Argumenten**  
+ 
+- `<offset_amount>`
+
+   Hiermee geeft u het geheel getal van de items die de resultaten van de query moeten worden overgeslagen.
+
+
+- `<limit_amount>`
+  
+   Hiermee geeft u het geheel getal van de items die de queryresultaten bevatten
+
+  **Opmerkingen**  
+  
+  Zowel de verschuiving van het aantal en het maximum aantal zijn vereist in de component OFFSET LIMIET. Als een optionele `ORDER BY` component wordt gebruikt, wordt de resultatenset wordt geproduceerd door de overslaan doen via de geordende waarden. Anders retourneert de query een vaste volgorde van waarden.
+
 ##  <a name="bk_scalar_expressions"></a> Scalaire expressies  
  Een scalaire expressie die is een combinatie van tekens en operators die kunnen worden geëvalueerd om te verkrijgen van een enkele waarde. Eenvoudige expressies mag bestaan uit constanten, verwijzen naar eigenschappen, matrix-element verwijst naar, alias-verwijzingen of functieaanroepen. Eenvoudige expressies kunnen worden gecombineerd tot complexe expressies operators gebruiken. Zie voor voorbeelden van [scalaire expressies voorbeelden](how-to-sql-query.md#scalar-expressions)
   
@@ -681,7 +715,8 @@ ORDER BY <sort_specification>
 |[Wiskundige functies](#bk_mathematical_functions)|Wiskundige functies elke uitvoeren van een berekening, meestal op basis van de invoerwaarden die zijn opgegeven als argumenten en retourneert een numerieke waarde.|  
 |[Controle van functies van het type](#bk_type_checking_functions)|Met de typecontrolefuncties kunt u het type van een expressie in SQL-query's controleren.|  
 |[Tekenreeksfuncties](#bk_string_functions)|De tekenreeks-functies uitvoeren van een bewerking op een tekenreekswaarde voor invoer en retourneert een tekenreeks, een numerieke of Booleaanse waarde.|  
-|[Matrixfuncties](#bk_array_functions)|De matrixfuncties uitvoeren van een bewerking op een matrix invoerwaarde en retourneren numerieke, Booleaanse waarde of Matrixwaarde.|  
+|[Matrixfuncties](#bk_array_functions)|De matrixfuncties uitvoeren van een bewerking op een matrix invoerwaarde en retourneren numerieke, Booleaanse waarde of Matrixwaarde.|
+|[Datum- en tijdfuncties](#bk_date_and_time_functions)|De functies date en time kunnen u de huidige UTC-datum en tijd in twee vormen; een numerieke tijdstempel waarvan de waarde is de Unix-epoche in milliseconden of als een tekenreeks die aan de ISO 8601-notatie voldoet.|
 |[Ruimtelijke-functies](#bk_spatial_functions)|De ruimtelijke functies uitvoeren van een bewerking op een invoerwaarde ruimtelijke index en een numerieke of Booleaanse waarde retourneren.|  
   
 ###  <a name="bk_mathematical_functions"></a> Wiskundige functies  
@@ -2363,13 +2398,13 @@ SELECT
     StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
 ```
 
- Hier volgt de resultatenset.
+Hier volgt de resultatenset.
 
 ```
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
- Hier volgt een voorbeeld van ongeldige invoer. 
+Hier volgt een voorbeeld van ongeldige invoer. 
    
  Enkele aanhalingstekens binnen de matrix zijn geen geldige JSON.
 Hoewel ze geldig in een query zijn, worden ze niet parseren naar geldige matrices. Tekenreeksen in de matrix-tekenreeks moeten ofwel worden weergegeven "[\\"\\"] ' of de omringende offerte moet één ' [" "]'.
@@ -2379,13 +2414,13 @@ SELECT
     StringToArray("['5','6','7']")
 ```
 
- Hier volgt de resultatenset.
+Hier volgt de resultatenset.
 
 ```
 [{}]
 ```
 
- Hier volgen enkele voorbeelden van ongeldige invoer.
+Hier volgen enkele voorbeelden van ongeldige invoer.
    
  De expressie doorgegeven zal worden geparseerd als een JSON-matrix. het volgende doen niet evalueren voor het type matrix en dus retourneren niet gedefinieerd.
    
@@ -2398,7 +2433,7 @@ SELECT
     StringToArray(undefined)
 ```
 
- Hier volgt de resultatenset.
+Hier volgt de resultatenset.
 
 ```
 [{}]
@@ -2429,7 +2464,7 @@ StringToBoolean(<expr>)
  
  Hier volgen enkele voorbeelden met geldige invoer.
 
- Witruimte mag alleen vóór of na 'true '/ ' false'.
+Witruimte mag alleen vóór of na 'true '/ ' false'.
 
 ```  
 SELECT 
@@ -2444,8 +2479,8 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
- Hier volgen enkele voorbeelden met ongeldige invoer.
- 
+Hier volgen enkele voorbeelden met ongeldige invoer.
+
  Booleaanse waarden zijn hoofdlettergevoelig en moeten worden geschreven met alle kleine letters, dat wil zeggen 'true' en 'false'.
 
 ```  
@@ -2454,15 +2489,15 @@ SELECT
     StringToBoolean("False")
 ```  
 
- Hier volgt de resultatenset.  
+Hier volgt de resultatenset.  
   
 ```  
 [{}]
 ``` 
 
- De expressie doorgegeven zal worden geparseerd als een Booleaanse expressie; deze invoer niet geëvalueerd voor het type Boolean en dus retourneren niet gedefinieerd.
+De expressie doorgegeven zal worden geparseerd als een Booleaanse expressie; deze invoer niet geëvalueerd voor het type Boolean en dus retourneren niet gedefinieerd.
 
- ```  
+```  
 SELECT 
     StringToBoolean("null"),
     StringToBoolean(undefined),
@@ -2471,7 +2506,7 @@ SELECT
     StringToBoolean(true)
 ```  
 
- Hier volgt de resultatenset.  
+Hier volgt de resultatenset.  
   
 ```  
 [{}]
@@ -2500,8 +2535,8 @@ StringToNull(<expr>)
   
   Het volgende voorbeeld laat zien hoe StringToNull gedraagt zich op verschillende typen. 
 
- Hier volgen enkele voorbeelden met geldige invoer.
- 
+Hier volgen enkele voorbeelden met geldige invoer.
+
  Witruimte mag alleen vóór of na 'null'.
 
 ```  
@@ -2517,9 +2552,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
- Hier volgen enkele voorbeelden met ongeldige invoer.
+Hier volgen enkele voorbeelden met ongeldige invoer.
 
- Null is hoofdlettergevoelig en moet worden geschreven met alle kleine letters dat wil zeggen 'null'.
+Null is hoofdlettergevoelig en moet worden geschreven met alle kleine letters dat wil zeggen 'null'.
 
 ```  
 SELECT    
@@ -2533,7 +2568,7 @@ SELECT
 [{}]
 ```  
 
- De expressie doorgegeven zal worden geparseerd als een null-expressie. deze invoer niet geëvalueerd voor het type null en dus retourneren niet gedefinieerd.
+De expressie doorgegeven zal worden geparseerd als een null-expressie. deze invoer niet geëvalueerd voor het type null en dus retourneren niet gedefinieerd.
 
 ```  
 SELECT    
@@ -2572,8 +2607,8 @@ StringToNumber(<expr>)
   
   Het volgende voorbeeld laat zien hoe StringToNumber gedraagt zich op verschillende typen. 
 
- Witruimte mag alleen vóór of na het getal.
- 
+Witruimte mag alleen vóór of na het getal.
+
 ```  
 SELECT 
     StringToNumber("1.000000") AS num1, 
@@ -2588,8 +2623,8 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
- Worden in de JSON die een geldig getal ofwel moet een geheel getal of een drijvende-kommagetal zijn.
- 
+Worden in de JSON die een geldig getal ofwel moet een geheel getal of een drijvende-kommagetal zijn.
+
 ```  
 SELECT   
     StringToNumber("0xF")
@@ -2601,7 +2636,7 @@ SELECT
 {{}}
 ```  
 
- De expressie doorgegeven zal worden geparseerd als een numerieke expressie. deze invoer niet geëvalueerd typt nummer en dus terugkeren niet gedefinieerd. 
+De expressie doorgegeven zal worden geparseerd als een numerieke expressie. deze invoer niet geëvalueerd typt nummer en dus terugkeren niet gedefinieerd. 
 
 ```  
 SELECT 
@@ -2643,7 +2678,7 @@ StringToObject(<expr>)
   Het volgende voorbeeld laat zien hoe StringToObject gedraagt zich op verschillende typen. 
   
  Hier volgen enkele voorbeelden met geldige invoer.
- 
+
 ``` 
 SELECT 
     StringToObject("{}") AS obj1, 
@@ -2652,7 +2687,7 @@ SELECT
     StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
 ``` 
 
- Hier volgt de resultatenset.
+Hier volgt de resultatenset.
 
 ```
 [{"obj1": {}, 
@@ -2660,40 +2695,40 @@ SELECT
   "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
- 
+
  Hier volgen enkele voorbeelden met ongeldige invoer.
 Hoewel ze geldig in een query zijn, worden ze niet parseren naar geldige objecten. Tekenreeksen in de tekenreeks van object ofwel moeten worden weergegeven ' {\\"een\\":\\"str\\'} ' of de omringende offerte moet één ' {"a": 'str'}'.
 
- Enkele aanhalingstekens rond de namen van eigenschappen zijn niet geldig JSON.
+Enkele aanhalingstekens rond de namen van eigenschappen zijn niet geldig JSON.
 
 ``` 
 SELECT 
     StringToObject("{'a':[1,2,3]}")
 ```
 
- Hier volgt de resultatenset.
+Hier volgt de resultatenset.
 
 ```  
 [{}]
 ```  
 
- Eigenschapnamen zonder omringende aanhalingstekens zijn niet geldig JSON.
+Eigenschapnamen zonder omringende aanhalingstekens zijn niet geldig JSON.
 
 ``` 
 SELECT 
     StringToObject("{a:[1,2,3]}")
 ```
 
- Hier volgt de resultatenset.
+Hier volgt de resultatenset.
 
 ```  
 [{}]
 ``` 
 
- Hier volgen enkele voorbeelden met ongeldige invoer.
- 
+Hier volgen enkele voorbeelden met ongeldige invoer.
+
  De expressie doorgegeven zal worden geparseerd als een JSON-object. deze invoer niet geëvalueerd voor het type object en dus retourneren niet gedefinieerd.
- 
+
 ``` 
 SELECT 
     StringToObject("}"),
@@ -2798,20 +2833,20 @@ CONCAT(ToString(p.Weight), p.WeightUnits)
 FROM p in c.Products 
 ```  
 
- Hier volgt de resultatenset.  
+Hier volgt de resultatenset.  
   
 ```  
 [{"$1":"4lb" },
- {"$1":"32kg"},
- {"$1":"400g" },
- {"$1":"8999mg" }]
+{"$1":"32kg"},
+{"$1":"400g" },
+{"$1":"8999mg" }]
 
 ```  
 De volgende invoer wordt gegeven.
 ```
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
- Het volgende voorbeeld laat zien hoe ToString kan worden gebruikt met een andere tekenreeks-functies, zoals vervangen.   
+Het volgende voorbeeld laat zien hoe ToString kan worden gebruikt met een andere tekenreeks-functies, zoals vervangen.   
 ```
 SELECT 
     n.id AS nutrientID,
@@ -2819,14 +2854,14 @@ SELECT
 FROM food 
 JOIN n IN food.nutrients
 ```
- Hier volgt de resultatenset.  
+Hier volgt de resultatenset.  
  ```
 [{"nutrientID":"305"},
 {"nutrientID":"306","nutritionVal":"30"},
 {"nutrientID":"307","nutritionVal":"912"},
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
- ``` 
+``` 
  
 ####  <a name="bk_trim"></a> TRIM  
  Retourneert een tekenreeksexpressie na het verwijderen van voorloopspaties en volgspaties.  
@@ -2937,7 +2972,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
 Retourneert een Booleaanse waarde die aangeeft of de matrix de opgegeven waarde bevat. U kunt een gedeeltelijke of volledige overeenkomst van een object controleren met behulp van een Booleaanse expressie in de opdracht. 
 
- **Syntaxis**  
+**Syntaxis**  
   
 ```  
 ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
@@ -2977,7 +3012,7 @@ SELECT
 [{"b1": true, "b2": false}]  
 ```  
 
- Het volgende voorbeeld hoe om te controleren op een gedeeltelijke overeenkomst van een JSON-code in een matrix met behulp van ARRAY_CONTAINS.  
+Het volgende voorbeeld hoe om te controleren op een gedeeltelijke overeenkomst van een JSON-code in een matrix met behulp van ARRAY_CONTAINS.  
   
 ```  
 SELECT  
@@ -3085,7 +3120,100 @@ SELECT
            "s7": [] 
 }]  
 ```  
- 
+
+###  <a name="bk_date_and_time_functions"></a> Datum- en tijdfuncties
+ De volgende scalaire functies kunnen u de huidige UTC-datum en tijd in twee vormen; een numerieke tijdstempel waarvan de waarde is de Unix-epoche in milliseconden of als een tekenreeks die aan de ISO 8601-notatie voldoet. 
+
+|||
+|-|-|
+|[GetCurrentDateTime](#bk_get_current_date_time)|[GetCurrentTimestamp](#bk_get_current_timestamp)||
+
+####  <a name="bk_get_current_date_time"></a> GetCurrentDateTime
+ Retourneert de huidige UTC-datum en tijd als een ISO 8601-tekenreeks.
+  
+ **Syntaxis**
+  
+```
+GetCurrentDateTime ()
+```
+  
+  **Typen retourneren**
+  
+  Retourneert de huidige UTC datum en tijd ISO 8601 string-waarde. 
+
+  Dit wordt uitgedrukt in de indeling JJJJ-MM-DDThh:mm:ss.sssZ waar:
+  
+  |||
+  |-|-|
+  |JJJJ|jaar in vier cijfers|
+  |MM|maand in twee cijfers (01 = januari, enz.)|
+  |DD|twee cijfers dag van maand (01 tot en met 31)|
+  |T|signifier voor begin van de tijdselementen|
+  |hh|twee cijfers uur (00 en 23)|
+  |mm|twee cijfers minuten (00 en 59)|
+  |ss|twee cijfers seconden (00 en 59)|
+  |.sss|drie cijfers van decimalen van een seconde|
+  |Z|UTC (Coordinated Universal Time) designator||
+  
+  Zie voor meer informatie over de ISO 8601-notatie [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+
+  **Opmerkingen**
+
+  GetCurrentDateTime is een niet-deterministische functie. 
+  
+  Het resultaat wordt UTC (Coordinated Universal Time).
+
+  **Voorbeelden**  
+  
+  Het volgende voorbeeld ziet hoe u aan de huidige UTC-datum tijd met de ingebouwde functie GetCurrentDateTime.
+  
+```  
+SELECT GetCurrentDateTime() AS currentUtcDateTime
+```  
+  
+ Hier volgt een voorbeeld van de resultatenset.
+  
+```  
+[{
+  "currentUtcDateTime": "2019-05-03T20:36:17.784Z"
+}]  
+```  
+
+####  <a name="bk_get_current_timestamp"></a> GetCurrentTimestamp
+ Retourneert het aantal milliseconden dat is verstreken sinds 00:00:00 donderdag 1 januari 1970. 
+  
+ **Syntaxis**  
+  
+```  
+GetCurrentTimestamp ()  
+```  
+  
+  **Typen retourneren**  
+  
+  Retourneert een numerieke waarde, het huidige aantal milliseconden dat is verstreken sinds de Unix-epoche dat wil zeggen het aantal milliseconden dat is verstreken sinds 00:00:00 donderdag 1 januari 1970.
+
+  **Opmerkingen**
+
+  GetCurrentTimestamp is een niet-deterministische functie. 
+  
+  Het resultaat wordt UTC (Coordinated Universal Time).
+
+  **Voorbeelden**  
+  
+  Het volgende voorbeeld ziet hoe u aan de huidige tijdstempel met de ingebouwde functie GetCurrentTimestamp.
+  
+```  
+SELECT GetCurrentTimestamp() AS currentUtcTimestamp
+```  
+  
+ Hier volgt een voorbeeld van de resultatenset.
+  
+```  
+[{
+  "currentUtcTimestamp": 1556916469065
+}]  
+```  
+
 ###  <a name="bk_spatial_functions"></a> Ruimtelijke-functies  
  De volgende scalaire functies uitvoeren van een bewerking op een invoerwaarde ruimtelijke index en een numerieke of Booleaanse waarde retourneren.  
   
@@ -3292,7 +3420,7 @@ SELECT ST_ISVALIDDETAILED({
   }  
 }]  
 ```  
-  
+ 
 ## <a name="next-steps"></a>Volgende stappen  
 
 - [SQL-syntaxis en SQL-query voor Cosmos DB](how-to-sql-query.md)

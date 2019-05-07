@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 7497255dcad55cea86e0c640e2f1423d7d763a7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 096f39eeef54f3a4a1e3d8928dd13b7c22847c8d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60737970"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143196"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Over het beheren van een functie-app in Azure portal 
 
@@ -25,24 +25,6 @@ In Azure Functions biedt een functie-app de uitvoeringscontext voor de afzonderl
 Als u wilt beginnen, gaat u naar de [Azure-portal](https://portal.azure.com) en meld u aan bij uw Azure-account. Typ de naam van uw functie-app in de zoekbalk boven in de portal en selecteer deze in de lijst. Na het selecteren van uw functie-app, ziet u de volgende pagina:
 
 ![Overzicht van de functie-app in Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
-
-## <a name="favorite"></a>Favoriete functies in de portal 
-
-Kan worden soms moeilijk te vinden van uw resources in de [Azure Portal]. Als u wilt maken het gemakkelijker te vinden van de functie-apps die u hebt gemaakt, moet u functie-Apps toevoegen aan uw Favorieten in de portal. 
-
-1. Meld u aan bij [Azure Portal].
-
-2. Klik op de pijl linksonder om alle services uit te vouwen, typ `Functions` in het veld **Filter** en klik vervolgens op de ster naast **Functie-apps**.  
- 
-    ![Functie-app maken in Azure Portal](./media/functions-how-to-use-azure-function-app-settings/functions-favorite-function-apps.png)
-
-    Hiermee wordt het pictogram Functies toegevoegd aan het menu aan de linkerkant van de portal.
-
-3. Sluit het menu en scrol omlaag naar het pictogram Functies. Klik op dit pictogram om een lijst met al uw functie-apps weer te geven. Klik op uw functie-app om met functies in deze app te werken. 
- 
-    ![Functie-Apps in Favorieten](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
- 
-[Azure Portal]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>Tabblad instellingen van de functie-app
 

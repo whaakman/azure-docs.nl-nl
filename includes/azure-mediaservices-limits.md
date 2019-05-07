@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557139"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150339"
 ---
 >[!NOTE]
 >Open een ondersteuningsticket te vragen voor een verhoging van de quota voor resources die niet zijn opgelost. Maak geen aanvullende Azure Media Services-accounts in een poging om op te halen van hogere limieten.
@@ -50,12 +50,12 @@ Vanaf 1 April 2017, is elke taakrecord in uw account die ouder is dan 90 dagen a
 >[!NOTE]
 > Als u altijd dezelfde dagen gebruiken en kunt u toegangsmachtigingen, gebruikt u de dezelfde beleids-ID. Zie voor informatie en een voorbeeld [assets met Media Services .NET SDK beheren](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies).
 
-<sup>7</sup>als u inhoud naar een activum in Media Services uploadt te verwerken met een van de mediaprocessors van de service, let dan op de maximale bestandsgrootten die worden ondersteund. Activa zijn encoders zoals Media Encoder Standard en Media Encoder Premium Workflow of analyse-engines als Face Detector.
+<sup>7</sup>de maximale grootte voor één blob momenteel maximaal 5 TB in Azure Blob Storage wordt wordt ondersteund. Aanvullende beperkingen gelden in Media Services op basis van de VM-grootten die worden gebruikt door de service. De maximale grootte is van toepassing op de bestanden die u uploadt en de bestanden die worden gegenereerd als gevolg van Media Services verwerken (codering of analyseren). Als het bronbestand groter dan 260 GB is, wordt waarschijnlijk uw taak mislukt. 
 
-De maximale grootte die wordt ondersteund voor één blob wordt momenteel maximaal 5 TB in Azure Blob Storage. Aanvullende beperkingen gelden in Media Services op basis van de VM-grootten die worden gebruikt door de service. De volgende tabel bevat de limieten op de gereserveerde media-eenheden S1, S2 en S3. Als de bronbestand groter dan de limieten die zijn gedefinieerd in de tabel is, wordt uw coderingstaak mislukt. Als u 4K resolutie bronnen van lange duur van de codeert, moet u bent S3 gereserveerde media-eenheden gebruik voor de prestaties die nodig zijn. Hebt u 4K-inhoud die groter is dan de limiet van 260-GB op de S3 gereserveerde media-eenheden, contact met ons op amshelp@microsoft.com voor mogelijke oplossingen ter ondersteuning van uw scenario.
+De volgende tabel bevat de limieten op de gereserveerde media-eenheden S1, S2 en S3. Als de bronbestand groter dan de limieten die zijn gedefinieerd in de tabel is, wordt uw coderingstaak mislukt. Als u 4K resolutie bronnen van lange duur van de codeert, moet u bent S3 gereserveerde media-eenheden gebruik voor de prestaties die nodig zijn. Hebt u 4K-inhoud die groter is dan de limiet van 260-GB op de S3 gereserveerde media-eenheden, contact met ons op amshelp@microsoft.com voor mogelijke oplossingen ter ondersteuning van uw scenario.
 
-| Gereserveerde Media-eenheid | Maximale invoer grootte (GB)| 
-| --- | --- | 
-|S1 | 325|
-|S2 | 640|
-|S3 | 260|
+|Gereserveerde Media-eenheid   |Maximale invoer grootte (GB)|
+|---|---|
+|S1 |   26|
+|S2 | 60|
+|S3 |260|

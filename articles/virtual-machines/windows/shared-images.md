@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/11/2018
+ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 6ea98792e6a1b7fef32e3be1ddfbb29743f50c6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3c035715de736b816027b08a1e242e6a65d1f13
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250763"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148747"
 ---
-# <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>Preview: Een gedeelde afbeeldingengalerie maken met Azure PowerShell 
+# <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Een gedeelde afbeeldingengalerie maken met Azure PowerShell 
 
 Een [gedeelde afbeeldingengalerie](shared-image-galleries.md) vereenvoudigt de aangepaste installatiekopie voor uw organisatie te delen. Aangepaste installatiekopieën zijn soortgelijk aan Marketplace-installatiekopieën, maar u kunt deze zelf maken. Aangepaste installatiekopieën kunnen worden gebruikt om de bootstrap-implementatietaken zoals het vooraf laden van toepassingen, toepassingsconfiguraties en andere besturingssysteemconfiguraties. 
 
@@ -46,7 +46,7 @@ De galerie met installatiekopieën van gedeelde functie heeft meerdere resourcet
 
 Als u wilt het voorbeeld in dit artikel hebt voltooid, moet u een bestaande beheerde installatiekopie hebben. U kunt volgen [zelfstudie: Een aangepaste installatiekopie van een Azure-VM maken met Azure PowerShell](tutorial-custom-images.md) maken indien nodig. Wanneer het uitvoeren van dit artikel vervangen door de resourcegroep en VM-namen van waar nodig.
 
-[!INCLUDE [virtual-machines-common-shared-images-ps](../../../includes/virtual-machines-common-shared-images-powershell.md)]
+[!INCLUDE [virtual-machines-common-shared-images-powershell](../../../includes/virtual-machines-common-shared-images-powershell.md)]
  
 ## <a name="create-vms-from-an-image"></a>Virtuele machines maken van een installatiekopie
 
@@ -69,13 +69,7 @@ New-AzVm `
 
 [!INCLUDE [virtual-machines-common-gallery-list-ps](../../../includes/virtual-machines-common-gallery-list-ps.md)]
 
-## <a name="clean-up-resources"></a>Resources opschonen
-
-U kunt de cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myGalleryRG
-```
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

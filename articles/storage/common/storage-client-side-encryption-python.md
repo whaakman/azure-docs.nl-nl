@@ -2,19 +2,20 @@
 title: Client-Side-versleuteling voor Microsoft Azure Storage met Python | Microsoft Docs
 description: De Azure Storage-clientbibliotheek voor Python ondersteunt versleuteling aan clientzijde voor een maximale beveiliging voor uw Azure Storage-toepassingen.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ecfd86a7e4a8ef97663cc930906fd909b6f0fae8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d04c1e137a190b01554106c041853aa2fd6786d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011114"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146903"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Client-Side-versleuteling voor Microsoft Azure Storage met Python
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -138,7 +139,7 @@ De belangrijkste resolver moet ten minste een methode die gegeven van een sleute
   * De belangrijkste resolver wordt aangeroepen als voor het ophalen van de sleutel opgegeven. Als de conflictoplosser is opgegeven, maar beschikt niet over een toewijzing voor de sleutel-id, wordt er een fout opgetreden.
   * Als conflictoplosser niet is opgegeven, maar een sleutel is opgegeven, wordt de sleutel wordt gebruikt als de id overeenkomt met de vereiste sleutel-id. Als de id komt niet overeen met, wordt er een fout opgetreden.
 
-    De voorbeelden versleuteling in azure.storage.samples <fix URL>demonstreren een meer gedetailleerde end-to-end-scenario voor blobs, wachtrijen en tabellen.
+    De voorbeelden versleuteling in azure.storage.samples tonen een meer gedetailleerde end-to-end-scenario voor blobs, wachtrijen en tabellen.
       Voorbeeldimplementaties van de KEK-sleutel en de sleutel conflictoplosser vindt u in de voorbeeldbestanden KeyWrapper en KeyResolver respectievelijk.
 
 ### <a name="requireencryption-mode"></a>RequireEncryption modus

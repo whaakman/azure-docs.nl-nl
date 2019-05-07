@@ -5,23 +5,23 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: 86693e829ab08c3cb7befc6f0047472e8faa61fa
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 0506ef82a00b46bf9be14757f15195bcbf8ab432
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947223"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148891"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Automatisch schalen en Zone-redundante Application Gateway 
 
-Application Gateway en Web Application Firewall (WAF) zijn ook beschikbaar onder een Standard_v2 en WAF_v2-SKU die biedt verbeterde prestaties en voegt ondersteuning toe voor belangrijke nieuwe functies zoals automatisch schalen, zoneredundantie en ondersteuning voor statische VIP's. Bestaande functies onder de Standard- en WAF-Voorraadeenheid worden nog steeds ondersteund in de nieuwe v2-SKU, met een paar uitzonderingen die worden vermeld in de sectie van de vergelijking. 
+Application Gateway en Web Application Firewall (WAF) zijn ook beschikbaar onder een Standard_v2 en WAF_v2 SKU. De v2-SKU biedt verbeterde prestaties en voegt ondersteuning toe voor belangrijke nieuwe functies zoals automatisch schalen, zoneredundantie en ondersteuning voor statische VIP's. Bestaande functies onder de Standard- en WAF-Voorraadeenheid worden nog steeds ondersteund in de nieuwe v2-SKU, met een paar uitzonderingen die worden vermeld in [vergelijking](#differences-with-v1-sku) sectie.
 
 De nieuwe v2-SKU bevat de volgende verbeteringen:
 
 - **Automatische schaling**: Application Gateway of WAF-implementaties voor de automatische schaalaanpassing SKU kunnen omhoog of omlaag op basis van veranderende verkeerspatronen laden. Automatisch schalen heft ook de vereiste op om tijdens het inrichten een implementatiegrootte of het aantal instanties te kiezen. Deze SKU biedt de flexibiliteit van de waarde true. Application Gateway kan in de Standard_v2 en WAF_v2 SKU werken zowel in vaste capaciteit (automatisch schalen uitgeschakeld) en in de modus voor automatisch schalen ingeschakeld. Modus vaste capaciteit is handig voor scenario's met consistente en voorspelbare workloads. Modus voor automatisch schalen is het nuttig zijn in toepassingen die afwijking in het toepassingsverkeer te zien.
-- **Zone redundantie**: Een Application Gateway of een WAF-implementatie kan omvatten meerdere Beschikbaarheidszones, verwijderen van de noodzaak voor het inrichten van afzonderlijke Application Gateway-instanties in elke zone met een Traffic Manager. U kunt een enkele zone of meerdere zones waarop Application Gateway-instanties zijn geïmplementeerd, duidt dit erop toezien dat fout zoneflexibiliteit. De back-endpool voor toepassingen kan op dezelfde manier worden verdeeld in meerdere beschikbaarheidszones.
+- **Zone redundantie**: Een Application Gateway of een WAF-implementatie kan omvatten meerdere Beschikbaarheidszones, verwijderen van de noodzaak voor het inrichten van afzonderlijke Application Gateway-instanties in elke zone met een Traffic Manager. U kunt een enkele zone of meerdere zones waarop Application Gateway-instanties zijn geïmplementeerd, waardoor het beter bestand is tegen bij een storing van de zone. De back-endpool voor toepassingen kan op dezelfde manier worden verdeeld in meerdere beschikbaarheidszones.
 - **Statische VIP**: Application gateway v2 SKU ondersteunt de statische VIP Typ exclusief. Dit zorgt ervoor dat het VIP-adres dat is gekoppeld aan application-gateway niet voor de levenscyclus van de implementatie, zelfs na het opnieuw opstarten verandert.
 - **Koptekst herschrijven**: Application Gateway kunt u toevoegen, verwijderen of bijwerken van HTTP-aanvraag- en reactieheaders met v2-SKU. Zie voor meer informatie, [Herschrijf de HTTP-headers met Application Gateway](rewrite-http-headers.md)
 - **Key Vault-integratie (preview)**: Application Gateway v2 ondersteunt de integratie met Key Vault (in openbare preview) voor certificaten die zijn gekoppeld aan de HTTPS-functionaliteit listeners. Zie voor meer informatie, [SSL-beëindiging met Key Vault-certificaten](key-vault-certs.md).
@@ -33,7 +33,7 @@ De nieuwe v2-SKU bevat de volgende verbeteringen:
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
-De Standard_v2 en WAF_v2 SKU is beschikbaar in de volgende regio's: Noord-centraal VS, Zuid-centraal VS, VS-West, VS-West 2, VS-Oost, VS-Oost 2, VS-midden, Noord-Europa, West-Europa, Zuidoost-Azië, Frankrijk-centraal, VK West, Japan-Oost, Japan-West. Ondersteuning voor extra regio's is toekomstige.
+De Standard_v2 en WAF_v2 SKU is beschikbaar in de volgende regio's: Noord-centraal VS, Zuid-centraal VS, VS-West, VS-West 2, VS-Oost, VS-Oost 2, VS-midden, Noord-Europa, West-Europa, Zuidoost-Azië, Frankrijk-centraal, VK West, Japan-Oost, Japan-West. Extra regio's wordt in de toekomst worden toegevoegd.
 
 ## <a name="pricing"></a>Prijzen
 
@@ -42,12 +42,12 @@ Met de v2-SKU, het prijsmodel wordt aangedreven door verbruik en niet meer is ge
 - **Vaste prijs** -dit is per uur (of een gedeelte van het uur) prijs voor het inrichten van een Standard_v2 of WAF_v2-Gateway.
 - **Capaciteit eenheidsprijs** -dit is op basis van gebruik kosten in rekening naast de vaste kosten gebracht. Capaciteitseenheid kosten in rekening gebracht, wordt ook berekend per uur of gedeeltelijke per uur. Er zijn drie dimensies capaciteitseenheid - compute-eenheid, permanente verbindingen en doorvoer. COMPUTE-eenheid is een maateenheid voor de capaciteit van de processor is verbruikt. Factoren die invloed hebben op rekeneenheid zijn TLS-verbindingen per seconde, berekeningen herschrijven van URL's en verwerking van de WAF-regels. Permanente verbinding is een maateenheid tot stand gebrachte TCP-verbindingen met de application gateway in een bepaald interval van de facturering. Doorvoer is gemiddelde Megabits per seconde is verwerkt door het systeem in een bepaald interval van de facturering.
 
-Elke capaciteitseenheid bestaat uit maximaal: 1 compute-eenheid of 2500 permanente verbindingen of 2.22 Mbps doorvoer.
+Elke capaciteitseenheid bestaat uit maximaal: 1 compute-eenheid of 2500 permanente verbindingen of 2,22 Mbps doorvoer.
 
 COMPUTE-eenheid richtlijnen:
 
 - **Standard_v2** -elke rekeneenheid ongeveer 50 verbindingen per seconde met RSA 2048-bits sleutel TLS-certificaat geschikt is.
-- **WAF_v2** - elk compute-eenheid is geschikt voor ongeveer 10 gelijktijdige aanvragen per seconde voor 70 tot 30% combinatie van het verkeer met 70% kleiner is aanvragen dan 2 KB ophalen/plaatsen en resterende hoger. Prestaties van de WAF wordt niet beïnvloed door grootte van antwoorden op dit moment.
+- **WAF_v2** - elk compute-eenheid kan ongeveer 10 gelijktijdige aanvragen per seconde ondersteunen voor 70 tot 30% combinatie van het verkeer met 70% kleiner is aanvragen dan 2 KB ophalen/plaatsen en resterende hoger. Prestaties van de WAF wordt niet beïnvloed door grootte van antwoorden op dit moment.
 
 > [!NOTE]
 > Elke instantie kan op dit moment ongeveer 10 capaciteitseenheden ondersteunen.
@@ -73,7 +73,7 @@ Totale prijs = $148.8 + $297.6 $446.4 =
 
 **Voorbeeld 2**
 
-Een Application Gateway-standard_v2 gedurende een maand is ingericht en gedurende deze tijd ontvangt 25 nieuwe SSL-verbindingen/sec, gemiddelde van 8.88 Mbps voor de overdracht van gegevens. Ervan uitgaande dat verbindingen zijn korte heb gewoond, zou uw prijs zijn:
+Een Application Gateway-standard_v2 gedurende een maand is ingericht en gedurende deze tijd ontvangt 25 nieuwe SSL-verbindingen/sec, gemiddelde van de gegevensoverdracht 8.88 Mbps. Ervan uitgaande dat verbindingen zijn korte heb gewoond, zou uw prijs zijn:
 
 Vaste prijs 744(hours) = * $0.20 $148.8 =
 
@@ -83,7 +83,7 @@ Totale prijs = $148. 23.81 8 + = $172.61
 
 **Voorbeeld 3**
 
-Een Application Gateway WAF_v2 gedurende een maand is ingericht en gedurende deze tijd 25 nieuwe SSL-verbindingen/sec, gemiddelde van 8.88 Mbps voor de overdracht van gegevens ontvangt, en biedt 80 aanvragen per seconde. Ervan uitgaande dat de verbindingen zijn korte duur en dat berekening van de compute-eenheid voor de toepassing biedt ondersteuning voor 10 RPS per compute-eenheid, de prijs zou zijn:
+Een Application Gateway WAF_v2 wordt ingericht voor een maand. Gedurende deze tijd het 25 nieuwe SSL-verbindingen/sec, gemiddelde 8.88 Mbps gegevensoverdracht ontvangt en 80 aanvragen per seconde heeft. Ervan uitgaande dat de verbindingen zijn korte duur en dat berekening van de compute-eenheid voor de toepassing biedt ondersteuning voor 10 RPS per compute-eenheid, de prijs zou zijn:
 
 Vaste prijs 744(hours) = * $0.36 $267.84 =
 
@@ -97,8 +97,8 @@ De [pagina met prijzen](https://azure.microsoft.com/en-us/pricing/details/applic
 
 Application Gateway en WAF kan worden geconfigureerd om te schalen in twee modi:
 
-- **Automatisch schalen** - met automatisch schalen ingeschakeld de toepassingsgateway en de WAF v2-SKU's wordt omhoog of omlaag schalen op basis van verkeer toepassingsvereisten. In deze modus biedt betere flexibiliteit voor uw toepassing en elimineert de noodzaak om te raden de application gateway-grootte of exemplaar aantal. In deze modus kunt u kosten kunt besparen door het niet vereist om uit te voeren van gateways piek ingerichte capaciteit voor de verwachte maximale te verdelen. Klanten moeten een minimum- en eventueel exemplaren opgeven. Minimale capaciteit zorgt ervoor dat Application Gateway en WAF v2 niet onder het minimum aantal exemplaren opgegeven zelfs in afwezigheid van verkeer vallen. U wordt gefactureerd voor deze Minimumcapaciteit zelfs in afwezigheid van al het verkeer. U kunt eventueel ook maximum aantal exemplaren dat ervoor zorgt dat de toepassingsgateway niet omhoog voorbij het opgegeven aantal exemplaren schalen opgeven. U blijft kosten in rekening gebracht voor de hoeveelheid verkeer die worden geleverd door de Gateway. Het aantal instanties kunnen variëren van 0 tot 125. De standaardwaarde voor het maximum aantal exemplaren is 20 indien niet opgegeven.
-- **Handmatige** -u kunt ook handmatig modus waarbij de gateway wordt niet automatisch schalen. In deze modus als er meer verkeer wordt verzonden dan welke Application Gateway of WAF kan verwerken, is kan dit leiden tot verlies van verkeer. Met handmatige modus is opgeven exemplaren verplicht. Aantal instanties kan variëren van 1 tot 125 exemplaren.
+- **Automatisch schalen** - met automatisch schalen ingeschakeld, de toepassingsgateway en de WAF-v2 SKU's omhoog of omlaag op basis van verkeer toepassingsvereisten schalen. In deze modus biedt betere flexibiliteit voor uw toepassing en elimineert de noodzaak om te raden de application gateway-grootte of exemplaar aantal. In deze modus kunt u kosten kunt besparen door het niet vereist om uit te voeren van gateways piek ingerichte capaciteit voor de verwachte maximale te verdelen. Klanten moeten een minimum- en eventueel exemplaren opgeven. Minimale capaciteit zorgt ervoor dat Application Gateway en WAF v2 niet onder het minimum aantal exemplaren opgegeven vallen, zelfs in de afwezigheid van verkeer. U ontvangt een factuur voor deze Minimumcapaciteit zelfs in de afwezigheid van al het verkeer. U kunt eventueel ook een maximum aantal exemplaren, die zorgt ervoor dat de toepassingsgateway niet voorbij het opgegeven aantal exemplaren schalen opgeven. U gaat verder met de kosten in rekening gebracht voor de hoeveelheid verkeer die worden geleverd door de Gateway. Het aantal instanties kunnen variëren van 0 tot 125. De standaardwaarde voor het maximum aantal exemplaren is 20 indien niet opgegeven.
+- **Handmatige** -u kunt ook handmatig modus waarbij de gateway wordt niet automatisch schalen. In deze modus als er meer verkeer dan welke Application Gateway of WAF kan verwerken, is kan dit leiden tot verlies van verkeer. Met handmatige modus op te geven aantal exemplaren is verplicht. Aantal instanties kan variëren van 1 tot 125 exemplaren.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Vergelijking van functies tussen SKU v1 en v2-SKU
 
@@ -125,7 +125,7 @@ De volgende tabel vergelijkt de functies die beschikbaar zijn met elke SKU.
 | Verwerkingsstop voor verbindingen                               | &#x2713; | &#x2713; |
 
 > [!NOTE]
-> Het automatisch schalen en de zone-redundante application gateway SKU biedt nu ondersteuning voor [standaard statuscontroles](application-gateway-probe-overview.md#default-health-probe) automatisch de status van alle resources in de back-end-pool bewaken en markeer deze back-end-leden die worden beschouwd als niet in orde. De bewerking standaard health test wordt worden automatisch geconfigureerd voor alle deze back-ends waarvoor u de configuratie van een aangepaste test hebt ingesteld. Zie voor meer informatie, [statuscontroles in application gateway](application-gateway-probe-overview.md).
+> De SKU biedt nu ondersteuning voor automatisch schalen-v2 [standaard statuscontroles](application-gateway-probe-overview.md#default-health-probe) automatisch de status van alle resources in de back-end-pool bewaken en markeer deze back-end-leden die worden beschouwd als niet in orde. De standaard-statustest wordt automatisch geconfigureerd voor back-ends die geen een aangepaste test-configuratie hebben. Zie voor meer informatie, [statuscontroles in application gateway](application-gateway-probe-overview.md).
 
 ## <a name="differences-with-v1-sku"></a>Verschillen met v1-SKU
 
@@ -140,6 +140,7 @@ De volgende tabel vergelijkt de functies die beschikbaar zijn met elke SKU.
 |FIPS-modus|Deze worden momenteel niet ondersteund.|
 |Alleen ILB-modus|Dit wordt momenteel niet ondersteund. Openbare en samen ILB-modus wordt ondersteund.|
 |Integratie van het netwerk controleren|Wordt niet ondersteund.|
+|Integratie van Azure-ondersteuning|Nog niet beschikbaar.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: d9583f232a7afd6ab64421d57bbf14a45299e374
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995656"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138204"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Abonnement-activiteit controleren met de Azure-activiteitenlogboek
 
@@ -63,6 +63,7 @@ Hier volgen enkele dingen die u met het activiteitenlogboek kunt doen:
 * Analyseren in Power BI met behulp van de [ **Power BI-inhoudspakket**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Opslaan naar een **Opslagaccount** voor archivering of handmatige inspectie](../../azure-monitor/platform/archive-activity-log.md). U kunt opgeven de bewaartermijn (in dagen) met behulp van de **Logboekprofiel**.
 * Deze opvragen via PowerShell-Cmdlet, CLI of REST-API.
+* Weergave de [wijzigingsoverzicht](#view-change-history) voor bepaalde gebeurtenissen
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Query uitvoeren op het activiteitenlogboek in Azure portal
 
@@ -183,6 +184,20 @@ Zie voor de volledige documentatie voor het maken van een monitorprofiel met de 
 ```azurecli
 az monitor log-profiles delete --name <profile name>
 ```
+
+## <a name="view-change-history"></a>Geschiedenis van de wijziging weergeven
+
+Bij het beoordelen van het activiteitenlogboek, kan helpen om te zien welke wijzigingen is opgetreden tijdens de tijd van die gebeurtenis. U kunt deze informatie bij de wijzigingsgeschiedenis weergeven.
+
+Ga naar activiteitenlogboek via het menu aan de linkerkant van de portal. Selecteer een gebeurtenis in het activiteitenlogboek die u wilt zoeken naar meer. Selecteer de **wijzigingsoverzicht (Preview)** tabblad om alle wijzigingen aan de gebeurtenis is gekoppeld.
+
+![Lijst van de geschiedenis van een gebeurtenis wijzigen](./media/activity-logs-overview/change-history-event.png)
+
+Als er gerelateerde wijzigingen aan de gebeurtenis, ziet u een lijst met wijzigingen die u kunt selecteren. Hiermee opent u de **wijzigingsoverzicht (Preview)** pagina. Op deze pagina ziet u de wijzigingen in de resource. Zoals u in het volgende voorbeeld zien kunt, zijn we niet alleen zien dat de VM-grootten, maar de vorige VM-grootte is voordat de wijziging en wat het is gewijzigd in gewijzigd.
+
+![Geschiedenis-pagina wijzigen met verschillen](./media/activity-logs-overview/change-history-event-details.png)
+
+Zie voor meer informatie over de wijzigingsgeschiedenis, [wijzigingen van resources ophalen](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b35977061b7e5806d15f4b7b0087fcafa4f291ef
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497388"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141163"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Verbinding maken met on-premises gegevensbronnen met On-premises gegevensgateway
 De on-premises gegevensgateway biedt veilige gegevensoverdracht tussen uw Azure Analysis Services-servers in de cloud en on-premises gegevensbronnen. Naast het werken met meerdere Azure Analysis Services-servers in dezelfde regio bevinden, worden de meest recente versie van de gateway ook werkt met Azure Logic Apps, Power BI, Powerapps en Microsoft Flow. U kunt meerdere services in hetzelfde abonnement en dezelfde regio koppelen met een enkele gateway. 
@@ -176,30 +176,9 @@ Logboekbestanden zijn een belangrijke hulpbron bij het oplossen van problemen.
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
 
-
 #### <a name="event-logs"></a>Gebeurtenislogboeken
 
 U vindt de logboeken van de Data Management Gateway en PowerBIGateway onder **logboeken toepassingen en Services**.
-
-
-## <a name="telemetry"></a>Telemetry
-Telemetrie kan worden gebruikt voor controle en probleemoplossing. Standaard
-
-**Telemetrie inschakelen**
-
-1.  Controleer de On-premises data gateway clientmap op de computer. Dit is meestal **%systemdrive%\Program Files\On-premises gegevensgateway**. Of u kunt een servicesconsole opent en controleer het pad naar uitvoerbaar bestand: Een eigenschap van de On-premises data gateway-service.
-2.  In het bestand Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config van client-directory. Wijzig de instelling SendTelemetry op ' True '.
-        
-    ```
-        <setting name="SendTelemetry" serializeAs="String">
-                    <value>true</value>
-        </setting>
-    ```
-
-3.  Sla uw wijzigingen en de Windows-service opnieuw starten: On-premises data gateway-service.
-
-
-
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Installeren en configureren van on-premises gegevensgateway](analysis-services-gateway-install.md).   

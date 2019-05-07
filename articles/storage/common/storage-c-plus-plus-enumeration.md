@@ -2,18 +2,19 @@
 title: Lijst met Azure Storage-resources met de Storage-clientbibliotheek voor C++ | Microsoft Docs
 description: Informatie over het gebruik van de aanbieding API's in Microsoft Azure Storage-clientbibliotheek voor C++ wilt inventariseren containers, blobs, wachtrijen, tabellen en entiteiten.
 services: storage
-author: dineshmurthy
+author: mhopkins-msft
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dineshm
+ms.author: mhopkins
+ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 13ddb4d64908421e999174623003acd2fb24024d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: edf50b97ff25a67b41bad266df9236145f288409
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483448"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146882"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Azure Storage-resources in C++ weergeven
 Bewerkingen voor de aanbieding zijn sleutel te veel ontwikkelscenario's met Azure Storage. In dit artikel wordt beschreven hoe u zo efficiënt mogelijk het inventariseren van objecten in Azure Storage met behulp van de aanbieding beschikbaar in de Microsoft Azure Storage-clientbibliotheek voor C++ API's.

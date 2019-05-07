@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: cb1b8171dc45c286d3f87a3c33e366d818cfaad9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d28f6ed1957f8f6ae7ff7eb49f8ce4cbdec62266
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456791"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147410"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Gegevens kopiëren naar en van SQL Server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -144,7 +144,7 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde SQL Server-servi
 
 Zie het artikel gegevenssets voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door SQL Server-gegevensset.
 
-Om gegevens te kopiëren van/naar SQL Server-database, stel de eigenschap type van de gegevensset in **SqlServerTable**. De volgende eigenschappen worden ondersteund:
+Om gegevens te kopiëren van/naar SQL Server-database, worden de volgende eigenschappen ondersteund:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
@@ -163,6 +163,7 @@ Om gegevens te kopiëren van/naar SQL Server-database, stel de eigenschap type v
             "referenceName": "<SQL Server linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -284,7 +285,7 @@ Om gegevens te kopiëren naar SQL Server, stelt u het sink-type in de kopieeract
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op: **SqlSink** | Ja |
-| writeBatchSize |Aantal rijen dat moet worden ingevoegd in de SQL-tabel **per batch**.<br/>Toegestane waarden zijn: geheel getal (aantal rijen). |Nee (standaard: 10000) |
+| writeBatchSize |Aantal rijen dat moet worden ingevoegd in de SQL-tabel **per batch**.<br/>Toegestane waarden zijn: geheel getal (aantal rijen). Standaard bepalen Data Factory dynamisch van de juiste batchgrootte op basis van de rijgrootte. |Nee |
 | writeBatchTimeout |Wachttijd voor de batch insert bewerking is voltooid voordat er een optreedt time-out.<br/>Toegestane waarden zijn: timespan. Voorbeeld: "00: 30:00 ' (30 minuten). |Nee |
 | preCopyScript |Geef een SQL-query voor de Kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in SQL Server. Er wordt slechts één keer worden aangeroepen per exemplaar uitvoeren. U kunt deze eigenschap gebruiken voor het opschonen van de vooraf geladen gegevens. |Nee |
 | sqlWriterStoredProcedureName |De naam van de opgeslagen procedure waarmee wordt gedefinieerd hoe gegevens in doeltabel, bijvoorbeeld toepast op upsert-bewerking of transformeren met behulp van uw eigen bedrijfslogica. <br/><br/>Houd er rekening mee worden deze opgeslagen procedure **per batch aangeroepen**. Als u uitvoeren die alleen wordt eenmaal uitgevoerd en heeft niets wilt te doen met de brongegevens bijvoorbeeld verwijderen/afkappen, gebruikt u `preCopyScript` eigenschap. |Nee |

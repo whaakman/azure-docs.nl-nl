@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 03/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2e2b2c39cf9039c78a610e9b28065b972484123e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: a0ab928ef3b8551e3e20ff3c4b16533c80ee4b7d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069271"
+ms.locfileid: "65149247"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Zelfstudie: Contextueel gerelateerde gegevens ophalen uit een utterance
 
@@ -93,12 +93,8 @@ De vooraf gedefinieerde entiteit, geographyV2, haalt de locatie-informatie, waar
     ![Rollen toevoegen aan bestaande entiteit](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. Selecteer **Intents** in de navigatie aan de linkerkant, selecteert u vervolgens de **MoveEmployeeToCity** intentie. U ziet de plaatsnamen zijn gelabeld met de vooraf gedefinieerde entiteit **geogrpahyV2**.
 1. Selecteer in de eerste utterance van de lijst de verzendingslocatie. Een vervolgkeuzelijst wordt weergegeven. Selecteer **geographyV2** Volg het menu over meerdere te selecteren in de lijst **oorsprong**.
-
-    [![Schermopname van markering plaats als verzendingslocatie](media/tutorial-entity-roles/tag-origin-city-with-role.png "schermopname van markering plaats als de oorspronkelijke locatie")](media/tutorial-entity-roles/tag-origin-city-with-role.png#lightbox)
-
 1. Gebruik de methode van de vorige stap voor alle rollen van de locaties in alle uitingen markeren. 
 
-    [![Schermopname van de entiteit Locations die is gelabeld in utterances](media/tutorial-entity-roles/all-locations-marked-with-roles.png "Schermopname van de entiteit Locations die is gelabeld in utterances")](media/tutorial-entity-roles/all-locations-marked-with-roles.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Voorbeelduitingen toevoegen aan de intentie None 
 

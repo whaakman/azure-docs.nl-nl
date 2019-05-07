@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 05/02/2019
 ms.author: monhaber
-ms.openlocfilehash: c4b2ed1269ef669def2b6f2036d34a40fb181c5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 581db3ebe3ce1cad5c8db3702af179e141f334b4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910405"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143479"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Adaptieve toepassingsbesturingselementen in Azure Security Center
 Lees hoe u toepassingsbeheer configureert in Azure Security Center met behulp van dit stapsgewijze overzicht.
@@ -154,6 +154,22 @@ De lijst bevat:
 
 Azure Security Center kunt u een toepassing in de whitelist om beleid te definiëren op niet-aanbevolen VM-groepen ook. Volg dezelfde principes als eerder zijn beschreven, een toepassing in de whitelist om beleid te configureren op deze groepen ook.
 
+## <a name="move-a-vm-from-one-group-to-another"></a>Een virtuele machine van de ene groep verplaatsen naar een andere
+
+ Wanneer u een virtuele machine van de ene groep naar een andere verplaatst, het beleid voor toepassingsbeheer toegepast op deze wijzigingen in de instellingen van de groep die u verplaatst naar. U kunt ook een virtuele machine uit een geconfigureerde groep verplaatsen naar een groep niet-geconfigureerde, wat resulteert in een beleid voor toepassingsbeheer die eerder is toegepast op de virtuele machine verwijderen.
+
+ 1. Uit de **besturingselementen voor adaptieve toepassingen** pagina van de **geconfigureerd** en klik op de groep waartoe de virtuele machine op dit moment worden verplaatst behoort.
+1. Klik op **geconfigureerd voor virtuele machines en Computers**.
+1. Klik op de drie punten op de regel van de virtuele machine te verplaatsen en klikt u op **verplaatsen**. De **computer verplaatsen naar andere groep** venster wordt geopend.
+
+    ![Beveiliging](./media/security-center-adaptive-application/adaptive-application-move-group.png)
+
+ 1. Selecteer de groep te verplaatsen van de virtuele machine en klikt u op **Computer verplaatsen**, en klikt u op **opslaan**.
+
+    ![Beveiliging](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
+
+ > [!NOTE]
+> Klik op **opslaan** nadat u hebt geklikt **Computer verplaatsen**. Als u niet op **opslaan**, en vervolgens de computer niet worden verplaatst.
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit document hebt u geleerd hoe u adaptieve toepassingsbesturingselementen in Azure Security Center met geaccepteerde toepassingen die worden uitgevoerd in Azure en niet - Azure VM's. Zie de volgende onderwerpen voor meer informatie over het Azure Beveiligingscentrum:

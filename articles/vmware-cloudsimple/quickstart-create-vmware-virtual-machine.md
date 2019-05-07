@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 58edadb553730b646f23f4981d6cbf1bdbfe76d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3940adfaa42de8ac9c3f32a9eadc8f6d643ce3ce
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577718"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149559"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Snelstart: virtuele VMware-machines op Azure gebruiken
 
@@ -25,57 +25,62 @@ Een virtuele machine maken in uw privécloud van de vCenter-gebruikersinterface.
 
 ## <a name="create-a-virtual-machine-in-the-azure-portal"></a>Een virtuele machine maken in Azure portal
 
-1. Klik in het menu links op **+** of **een Resource maken**.
+1. Selecteer **Alle services**.
 
-2. Klik in het menu links op **Compute**, en klik vervolgens op **CloudSimple virtuele Machine**.
+2. Zoeken naar **CloudSimple virtuele Machines**.
 
-3. Klik op **bevestigen** om te controleren of dat u wilt maken van een nieuwe virtuele machine.
+3. Klik op **Add**.
 
-4. De basisconfiguratie hebt ingesteld zoals beschreven in de volgende tabel en klik vervolgens op **volgende: Grootte**.
+    ![CloudSimple virtuele machine maken](media/create-cloudsimple-virtual-machine.png)
+
+4. Voer basisinformatie Klik **Next: grootte**.
+
+    ![Maak CloudSimple virtuele machine - basisbeginselen](media/create-cloudsimple-virtual-machine-basic-info.png)
 
     | Veld | Description |
     | ------------ | ------------- |
-    | Abonnement | Azure-abonnement dat is gekoppeld aan de implementatie van uw privécloud.  |
-    | Resourcegroep | Implementatiegroep waaraan u de virtuele machine wordt toegewezen. U kunt een bestaande groep selecteren of een nieuwe maken. |
+    | Abonnement | Azure-abonnement dat is gekoppeld aan uw Privécloud.  |
+    | Resourcegroep | De resourcegroep waaraan de virtuele machine wordt toegewezen. U kunt een bestaande groep selecteren of een nieuwe maken. |
     | Name | Unieke naam in voor de virtuele machine.  |
     | Locatie | Azure-regio waarin deze virtuele machine wordt gehost.  |
-    | Resourcegroep | Fysieke resources voor de virtuele machine. Selecteer in de beschikbare resourcegroepen. |
-    | vSphere-sjabloon | Het type sjabloon dat besturingssysteem voor de virtuele machine.  |
-    | Gebruikersnaam | De gebruikersnaam van de beheerder van de virtuele machine. |
-    | Wachtwoord van wachtwoord bevestigen | Wachtwoord voor de beheerder van de virtuele machine.  |
+    | Private Cloud | CloudSimple Privécloud waar u wilt maken van de virtuele machine. |
+    | Resourcegroep | Toegewezen resourcegroep voor de virtuele machine. Selecteer in de beschikbare resourcegroepen. |
+    | vSphere-sjabloon | vSphere-sjabloon voor de virtuele machine.  |
+    | Gebruikersnaam | Gebruikersnaam van de beheerder van de virtuele machine (voor Windows-sjablonen)|
+    | Wachtwoord |  Wachtwoord voor de beheerder van de virtuele machine (voor Windows-sjablonen). |
+    | Wachtwoord bevestigen | Bevestig het wachtwoord |
 
-5. Selecteer het aantal kernen en capaciteit van het geheugen voor de virtuele machine.
+5. Selecteer het aantal kernen en capaciteit van het geheugen voor de virtuele machine en klik op **volgende configuraties:**. Selecteer het selectievakje in als u een volledige CPU-virtualisatie met bij het gastbesturingssysteem beschikbaar wilt maken. Toepassingen waarvoor hardware-virtualisatie kunnen uitvoeren op virtuele machines zonder binaire vertaling of paravirtualisatie. Zie voor meer informatie het artikel VMware <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html" target="_blank">blootstellen VMware Hardware ondersteunde virtualisatie</a>.
 
-6. (Optioneel) Als u weergeven van CPU-virtualisatie met volledige bij het gastbesturingssysteem wilt, selecteert u de **beschikbaar maakt voor Guest OS** selectievakje.
-Deze selectie kan toepassingen die hardwarevirtualisatie uit te voeren op virtuele machines zonder binaire vertaling of paravirtualisatie vereisen. Zie voor meer informatie het artikel VMware [blootstellen VMware Hardware ondersteunde virtualisatie](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html).
+    ![CloudSimple VM - grootte maken](media/create-cloudsimple-virtual-machine-size.png)
 
-7. Klik op **Next: Configuratie**.
+6. Configureren van netwerkinterfaces en schijven, zoals beschreven in de volgende tabellen en klik op **revisie + maken**.
 
-8. Configureer netwerkinterfaces en schijven, zoals beschreven in de volgende tabellen.
+    ![CloudSimple virtuele machine - configuraties maken](media/create-cloudsimple-virtual-machine-configurations.png)
 
     Voor netwerkinterfaces, klikt u op **netwerkinterface toevoegen** en configureer de volgende instellingen.
-
+    
     | Beheer | Description |
     | ------------ | ------------- |
     | Name | Voer een unieke naam voor de interface.  |
-    | Netwerk | Selecteer in de lijst met geconfigureerde netwerken in uw Privécloud vSphere.  |
-    | Netwerkadapter | Selecteer een vSphere-adapter uit de lijst met beschikbare typen die zijn geconfigureerd voor de virtuele machine. Zie voor meer informatie, VMware knowledge base-artikel [kiezen van een netwerkadapter voor uw virtuele machine](https://kb.vmware.com/s/article/1001805). |
+    | Netwerk | Selecteer in de lijst met geconfigureerde gedistribueerde poortgroep in uw Privécloud vSphere.  |
+    | Netwerkadapter | Selecteer een vSphere-adapter uit de lijst met beschikbare typen die zijn geconfigureerd voor de virtuele machine. Zie voor meer informatie, VMware knowledge base-artikel <a href="https://kb.vmware.com/s/article/1001805" target="_blank">kiezen van een netwerkadapter voor uw virtuele machine</a>. |
     | Tijdens het opstarten inschakelen | Kies of u wilt de NIC-hardware in te schakelen wanneer de virtuele machine wordt opgestart. De standaardwaarde is **inschakelen**. |
 
     Voor schijven, klikt u op **toevoegen schijf** en configureer de volgende instellingen.
 
-    | Item | Description |
-    | ------------ | ------------- |
-    | Name | Voer een unieke naam voor de schijf.  |
-    | Grootte | Selecteer een van de beschikbare grootten.  |
-    | SCSI-Controller | Selecteer een SCSI-controller. De beschikbare controllers verschillen voor verschillende besturingssystemen worden ondersteund.  |
-    | Modus | Bepaalt hoe de schijf maakt deel uit van momentopnamen. Kies een van de volgende opties: <br> -Onafhankelijke permanente: Alle gegevens die naar de schijf geschreven permanent wordt geschreven.<br> -Niet-permanente onafhankelijke: Wijzigingen die zijn geschreven naar de schijf worden verwijderd wanneer u uitschakelen of opnieuw instellen van de virtuele machine.  Onafhankelijke niet-permanente modus kunt u de virtuele machine wordt altijd opnieuw opgestart in dezelfde staat. Zie voor meer informatie de [VMware-documentatie.](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html)
+    | Item | Description | 
+    | ------------ | ------------- | 
+    | Name | Voer een unieke naam voor de schijf.  | 
+    | Grootte | Selecteer een van de beschikbare grootten.  | 
+    | SCSI-Controller | Selecteer een SCSI-controller voor de schijf.  |
+    | Modus | Bepaalt hoe de schijf maakt deel uit van momentopnamen. Kies een van de volgende opties: <br> -Onafhankelijke permanente: Alle gegevens die naar de schijf geschreven permanent wordt geschreven.<br> -Niet-permanente onafhankelijke: Wijzigingen die zijn geschreven naar de schijf worden verwijderd wanneer u uitschakelen of opnieuw instellen van de virtuele machine.  Onafhankelijke niet-permanente modus kunt u de virtuele machine wordt altijd opnieuw opgestart in dezelfde staat. Zie voor meer informatie de <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">VMware-documentatie</a>.
 
-9. Controleer de instellingen. Eventuele wijzigingen wilt aanbrengen, klikt u op de tabbladen aan de bovenkant.
+7. Nadat de validatie is voltooid, Controleer de instellingen en klik op **maken**. Eventuele wijzigingen wilt aanbrengen, klikt u op de tabbladen aan de bovenkant of klik op.
 
-10. Klik op **maken** en sla de instellingen op de virtuele machine maken.
+    ![CloudSimple virtuele machine maken - controleren](media/create-cloudsimple-virtual-machine-review.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Lijst met CloudSimple virtuele machines weergeven](https://docs.azure.cloudsimple.com/azurelistvms/)
-* [CloudSimple virtuele machine van Azure beheren](https://docs.azure.cloudsimple.com/azureoverviewpage/)
+* [Lijst met CloudSimple virtuele machines weergeven](https://docs.azure.cloudsimple.com/azure-manage-vm/)
+* [CloudSimple virtuele machine van Azure beheren](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)

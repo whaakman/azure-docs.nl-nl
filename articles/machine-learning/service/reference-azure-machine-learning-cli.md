@@ -11,16 +11,16 @@ ms.author: jordane
 author: jpe316
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cc6ad4f7b33de4d132efe63ff11c34f10b614af
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: be3cedc4b496f4f64a52217099f64092dfb49228
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023387"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149848"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Gebruik de CLI-extensie voor Azure Machine Learning-service
 
-De CLI van Azure Machine Learning is een uitbreiding van de [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), een platformoverschrijdende opdrachtregelinterface voor het Azure-platform. Deze extensie bevat opdrachten voor het werken met de Azure Machine Learning-service vanaf de opdrachtregel. Hiermee kunt u uw machine learning-werkstromen automatiseren. U kunt bijvoorbeeld de volgende acties uitvoeren:
+De CLI van Azure Machine Learning is een uitbreiding van de [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), een platformoverschrijdende opdrachtregelinterface voor het Azure-platform. Deze extensie bevat opdrachten voor het werken met de Azure Machine Learning-service. Hiermee kunt u uw machine learning-activiteiten automatiseren. De volgende lijst bevat enkele voorbeeld-acties die u met de CLI-extensie kunt doen:
 
 + Uitvoeren van experimenten voor het maken van machine learning-modellen
 
@@ -79,30 +79,49 @@ De volgende opdrachten laten zien hoe u de CLI gebruiken voor het beheren van re
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
 
+    Zie voor meer informatie, [az ml-werkruimte maken](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
+
 + Een configuratie van de werkruimte koppelen aan een map om in te schakelen contextuele awareness CLI.
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
+
+    Zie voor meer informatie, [az ml-map koppelen](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
 
 + Een Azure blob-container als gegevensopslag koppelen.
 
     ```azurecli-interactive
     az ml datastore attach-blob  -n datastorename -a accountname -c containername
     ```
+
+    Zie voor meer informatie, [az ml gegevensopslag koppelen-blob](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-attach-blob).
+
     
 + Een AKS-cluster koppelen als een Compute-doel.
 
     ```azurecli-interactive
-    az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
+    az ml computetarget attach aks -n myaks -i myaksresourceid -g myresourcegroup -w myworkspace
     ```
+
+    Zie voor meer informatie, [az ml computetarget aks koppelen](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
+
++ Maak een nieuwe AMLcompute doel.
+
+    ```azurecli-interactive
+    az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
+    ```
+
+    Zie voor meer informatie, [az ml computetarget maken amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
 
 ## <a id="experiments"></a>Voer experimenten
 
 * Start een uitvoering van uw experiment. Wanneer u deze opdracht gebruikt, geef de naam van het bestand runconfig (de tekst vóór \*.runconfig als u uw bestandssysteem wilt) op basis van de parameter - c.
 
     ```azurecli-interactive
-    az ml run submit-script -c local -e testexperiment train.py
+    az ml run submit-script -c sklearn -e testexperiment train.py
     ```
+
+    Zie voor meer informatie, [az ml verzenden-script uitvoeren](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
 * Een lijst van experimenten bekijken:
 
@@ -110,18 +129,36 @@ De volgende opdrachten laten zien hoe u de CLI gebruiken voor het beheren van re
     az ml experiment list
     ```
 
-## <a name="model-registration-profiling--deployment"></a>Registratie van modellen, profileren en implementatie
+    Zie voor meer informatie, [az ml experimenten lijst](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
+
+## <a name="model-registration-profiling-deployment"></a>Model-registratie, profilering, implementatie
 
 De volgende opdrachten laten zien hoe u een getraind model registreert en implementeert u deze vervolgens als een productieservice:
 
 + Registreer een model met Azure Machine Learning:
 
-  ```azurecli-interactive
-  az ml model register -n mymodel -p sklearn_regression_model.pkl
-  ```
+    ```azurecli-interactive
+    az ml model register -n mymodel -p sklearn_regression_model.pkl
+    ```
+
+    Zie voor meer informatie, [az ml-model registreren](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register).
+
++ **OPTIONELE** uw model voor een optimale CPU en geheugen waarden ophalen voor de implementatie van het profiel.
+    ```azurecli-interactive
+    az ml model profile -n myprofile -m mymodel:1 --ic inferenceconfig.json -d "{\"data\": [[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]]}" -t myprofileresult.json
+    ```
+
+    Zie voor meer informatie, [az ml-model profiel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
 
 + Uw model implementeert naar AKS
 
-  ```azurecli-interactive
-  az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
-  ```
+    ```azurecli-interactive
+    az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
+    ```
+
+    Zie voor meer informatie, [az ml-model implementeren](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
+
+
+## <a name="next-steps"></a>Volgende stappen
+
+* [Opdrachten voor de Machine Learning CLI-extensie](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest).

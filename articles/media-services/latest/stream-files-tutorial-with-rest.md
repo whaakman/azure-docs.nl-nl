@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 54e52cfc60c42cc48a5c2d33cc6b7e64e75cf27c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 15b2408113d8bd19d2e988643442ac5e3b305237
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707650"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149207"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Zelfstudie: Extern bestand coderen op basis van URL en video streamen - REST
 
@@ -364,7 +364,7 @@ Voer de volgende CLI-opdracht uit:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="provide-feedback"></a>Feedback geven
+## <a name="ask-questions-give-feedback-get-updates"></a>Stel vragen, feedback geven, updates ophalen
 
 Bekijk de [Azure Media Services-community](media-services-community.md) artikel om te zien van verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
 

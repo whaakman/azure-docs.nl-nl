@@ -2,19 +2,20 @@
 title: Ondersteuning voor cross-Origin Resource Sharing (CORS) | Microsoft Docs
 description: Informatie over het inschakelen van CORS-ondersteuning voor de Microsoft Azure Storage-Services.
 services: storage
-author: cbrooksmsft
+author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
-ms.author: cbrooks
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 5e65965678ed042081e4a406d3a207fb7ede299f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bb296db0d97382deac984369704777de5d5cb362
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483482"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147693"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Cross-Origin Resource Sharing (CORS) ondersteuning voor de Azure Storage-Services
 Vanaf versie 15-08-2013, ondersteuning de Azure storage-services Cross-Origin Resource Sharing (CORS) voor de services Blob, Table, Queue en bestand. CORS is een HTTP-functie waarmee een webtoepassing die wordt uitgevoerd in een bepaald domein te krijgen tot bronnen in een ander domein. Webbrowsers een beveiligingsbeperking wel geïmplementeerd [beleid voor zelfde oorsprong](https://www.w3.org/Security/wiki/Same_Origin_Policy) die voorkomt dat een webpagina van aanroepen van API's in een ander domein; CORS biedt een veilige manier om toe te staan van een domein (het domein van oorsprong) API's aanroepen in een ander domein. Zie de [CORS-specificatie](https://www.w3.org/TR/cors/) voor meer informatie over CORS.

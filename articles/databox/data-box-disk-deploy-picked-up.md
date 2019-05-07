@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e7d57b9d6a06f230835b53d5f6c8120b2a9b61ac
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924896"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150750"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Zelfstudie: Azure Data Box Disk terugsturen en de gegevensupload naar Azure controleren
 
@@ -54,7 +54,12 @@ De volgende stappen uitvoeren als het apparaat in de Verenigde Staten of Canada 
     - Brengt het label op het apparaat.
 
 2. Verzegel de verpakking en zorg ervoor dat het retourlabel zichtbaar is.
-3. Een ophalen met UPS plannen.
+3. Een ophalen met UPS plannen. Ophalen van objecten plannen:
+
+    - Aanroepen van de lokale Noodvoeding (landspecifieke gratis telefoonnummer).
+    - In uw aanroep citeren de omgekeerde verzending traceringsnummer zoals wordt weergegeven in het afgedrukte label.
+    - Als het volgnummer niet wordt vermeld, moet UPS u een extra kosten betalen tijdens het ophalen.
+    - In plaats van de planning van het ophalen, kunt u ook de Data Box-schijf op de dichtstbijzijnde afgiftelocatie teruglopen.
 
 
 ### <a name="pick-up-in-europe"></a>In Europa ophalen

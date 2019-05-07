@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8b1036128755a5218afc35648dfd16f09f559908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6f85b0088fac97f4b9f2dd2835e3052cb598a987
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611729"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142765"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Zelfstudie: Azure Machine Learning als een IoT Edge-module implementeren (preview)
+
+Azure-Notebooks gebruiken voor een machine learning-module ontwikkelen en implementeren op een Linux-apparaat met Azure IoT Edge. 
 
 U kunt IoT Edge-modules gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks op uw IoT Edge-apparaten implementeert. Deze zelfstudie laat u stapsgewijs zien hoe u een Azure Machine Learning-module kunt implementeren waarmee wordt voorspeld wanneer een apparaat mislukt op basis van gesimuleerde machinetemperatuurgegevens. Zie [Documentatie voor Azure Machine Learning](../machine-learning/service/how-to-deploy-to-iot.md) voor meer informatie over de service Azure Machine Learning op IoT Edge.
 
@@ -50,52 +52,6 @@ Cloudresources:
 * Een Azure Machine Learning-werkruimte. Volg de instructies in [gebruik van de Azure-portal aan de slag met Azure Machine Learning](../machine-learning/service/quickstart-get-started.md) een te maken en informatie over het gebruik van deze.
    * Noteer de naam van de werkruimte, resourcegroep en abonnements-ID. Deze waarden, allemaal verkrijgbaar in de werkruimte overzicht in Azure portal. U gebruikt deze waarden later in de zelfstudie een laptop met een Azure verbinden met de werkruimteresources van uw. 
 
-
-### <a name="disable-process-identification"></a>Procesidentificatie uitschakelen
-
->[!NOTE]
->
-> In de preview-fase biedt Azure Machine Learning geen ondersteuning voor de beveiligingsfunctie voor procesidentificatie die standaard is ingeschakeld voor IoT Edge.
-> Hieronder ziet u hoe u deze functie kunt uitschakelen. Dit is echter niet geschikt voor productieomgevingen. Deze stappen zijn alleen nodig op Linux-apparaten. 
-
-Als u wilt uitschakelen serverproces-id op uw IoT Edge-apparaat, moet u het IP-adres en poort voor **workload_uri** en **management_uri** in de **verbinding** sectie van de configuratie van de IoT Edge-daemon.
-
-Haal eerst het IP-adres op. Voer in de opdrachtregel `ifconfig` in en kopieer het IP-adres van de **docker0**-interface.
-
-Bewerk het configuratiebestand voor de IoT Edge-daemon:
-
-```cmd/sh
-sudo nano /etc/iotedge/config.yaml
-```
-
-Werk de sectie **verbinding maken** van de configuratie bij met uw IP-adres. Bijvoorbeeld:
-```yaml
-connect:
-  management_uri: "http://172.17.0.1:15580"
-  workload_uri: "http://172.17.0.1:15581"
-```
-
-Voer in de sectie **luisteren** van de configuratie dezelfde adressen in. Bijvoorbeeld:
-
-```yaml
-listen:
-  management_uri: "http://172.17.0.1:15580"
-  workload_uri: "http://172.17.0.1:15581"
-```
-
-Opslaan en sluiten van het configuratiebestand.
-
-Maken van een omgevingsvariabele IOTEDGE_HOST met het adres management_uri (om in te stellen deze permanent, toe te voegen aan `/etc/environment`). Bijvoorbeeld:
-
-```cmd/sh
-export IOTEDGE_HOST="http://172.17.0.1:15580"
-```
-
-Start de IoT Edge-service de wijzigingen van kracht te laten worden.
-
-```cmd/sh
-sudo systemctl restart iotedge
-```
 
 ## <a name="create-and-deploy-azure-machine-learning-module"></a>Maken en implementeren van Azure Machine Learning-module
 
@@ -131,11 +87,11 @@ In deze sectie maakt u getrainde machine learning modelbestanden converteren en 
     >[!TIP]
     >Sommige van de cellen in de anomaliedetectie-detectie zelfstudie notebook zijn optioneel, omdat ze resources dat sommige gebruikers mogelijk of kunnen niet nog hebt, zoals een IoT-Hub maken. Als u de resourcegegevens van een bestaande in de eerste cel, ontvangt u fouten als u de cellen die nieuwe resources niet maken omdat er dubbele resources niet gemaakt door Azure wordt uitgevoerd. Dit is prima, en u kunt de fouten negeren of volledig die optioneel gedeeltes overslaan. 
 
-Na het voltooien van de stappen in het notitieblok, hebt u een model voor afwijkingsdetectie, ingebouwde als een Docker-container-installatiekopie, getraind en die installatiekopie naar Azure Container Registry gepusht. Vervolgens het model getest en ten slotte deze geïmplementeerd naar uw IoT Edge-apparaat. 
+Via de stappen in het notitieblok, een model voor afwijkingsdetectie, ingebouwde als een Docker-container-installatiekopie, getraind en die installatiekopie naar Azure Container Registry gepusht. Vervolgens het model getest en ten slotte deze geïmplementeerd naar uw IoT Edge-apparaat. 
 
 ## <a name="view-container-repository"></a>Containeropslagplaats weergeven
 
-Controleer dat uw containerinstallatiekopie is gemaakt en opgeslagen in Azure container registry die is gekoppeld aan uw machine learning-omgeving. De notebook die u hebt gebruikt in de vorige sectie worden automatisch opgegeven installatiekopie van de container en de registerreferenties voor uw IoT Edge-apparaat, maar u moet weten waar ze zijn opgeslagen, zodat u kunt de gegevens zelf vinden later opnieuw. 
+Controleer dat uw containerinstallatiekopie is gemaakt en in Azure container registry die zijn gekoppeld aan uw machine learning-omgeving opgeslagen. De notebook die u hebt gebruikt in de vorige sectie worden automatisch opgegeven installatiekopie van de container en de registerreferenties voor uw IoT Edge-apparaat, maar u moet weten waar ze zijn opgeslagen, zodat u kunt de gegevens zelf vinden later opnieuw. 
 
 1. In de [Azure-portal](https://portal.azure.com), gaat u naar de service Machine Learning-werkruimte. 
 
@@ -151,7 +107,7 @@ Controleer dat uw containerinstallatiekopie is gemaakt en opgeslagen in Azure co
 
    Deze referenties kunnen worden opgenomen in het manifest van de implementatie van uw IoT-Edge Apparaattoegang geven tot pull-containerinstallatiekopieën uit het register. 
 
-Nu weet u waar de Machine Learning-container-installatiekopie is opgeslagen. De volgende sectie begeleid om te zien hoe deze wordt uitgevoerd als een geïmplementeerde module op uw IoT Edge-apparaat. 
+Nu weet u waar de Machine Learning-container-installatiekopie is opgeslagen. Het volgende gedeelte doorloopt samen met stappen voor het weergeven van de container uitgevoerd als een module op uw IoT Edge-apparaat. 
 
 ## <a name="view-generated-data"></a>Gegenereerde gegevens weergeven
 

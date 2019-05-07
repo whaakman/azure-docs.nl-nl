@@ -12,18 +12,20 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: cae806953721f3cedead023f013c7d1d585efeb6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fb628358c91d80a3117b065cadb284fd1665daa3
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573384"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073690"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL-Database verklarende woordenlijst
 
 |Context|Termijn|Meer informatie|
 |:---|:---|:---|
 |De naam van de Azure-service|Azure SQL Database of SQL-Database|[De service Azure SQL Database](sql-database-technical-overview.md)|
+|Rekenlaag|Zonder server (preview)|[serverloze compute-laag](sql-database-serverless.md)
+||Ingericht|[serverloze compute-laag](sql-database-serverless.md)
 |Implementatieopties |Individuele database|[Individuele databases](sql-database-single-database.md)|
 ||Elastische pool|[Elastische pool](sql-database-elastic-pool.md)|
 ||Beheerd exemplaar|[Beheerd exemplaar](sql-database-managed-instance.md)|

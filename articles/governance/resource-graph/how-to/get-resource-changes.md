@@ -8,12 +8,12 @@ ms.date: 04/20/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 0ae85b45dfcd80056316ed5f2099aab4057d24c8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 81cb5e62c8abc93aa5defb690628c7178fd2a869
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720345"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142540"
 ---
 # <a name="get-resource-changes"></a>Resourcewijzigingen ophalen
 
@@ -29,7 +29,7 @@ Wijziging detectie en gegevens zijn waardevol zijn bij de volgende voorbeeldscen
 - Houdt een Configuratiebeheer-Database, bekend als een CMDB is up-to-date. In plaats van de vernieuwing van alle resources en hun volledige eigenschap ingesteld op een geplande frequentie, moet u alleen krijgen wat is gewijzigd.
 - Inzicht in welke andere eigenschappen mogelijk zijn gewijzigd wanneer een resource nalevingsstatus gewijzigd. Evaluatie van de aanvullende eigenschappen kan inzicht geven in andere eigenschappen die mogelijk moeten worden beheerd via de definitie van een Azure Policy.
 
-In dit artikel laat zien hoe deze informatie via de SDK van de grafiek van de resources te verzamelen. Deze gegevens in Azure portal wilt bekijken, zien van Azure Policy [wijzigingsoverzicht](../../policy/how-to/determine-non-compliance.md#change-history-preview).
+In dit artikel laat zien hoe deze informatie via de SDK van de grafiek van de resources te verzamelen. Deze gegevens in Azure portal wilt bekijken, zien van Azure Policy [wijzigingsoverzicht](../../policy/how-to/determine-non-compliance.md#change-history-preview) of Azure-activiteitenlogboek [wijzigingsoverzicht](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history).
 
 > [!NOTE]
 > Details van de wijziging in de grafiek Resource zijn voor Resource Manager-eigenschappen. Zie voor het bijhouden van wijzigingen in een virtuele machine van Azure Automation [wijzigingen bijhouden](../../../automation/automation-change-tracking.md) of Azure-beleid [Gast-configuratie voor virtuele machines](../../policy/concepts/guest-configuration.md).

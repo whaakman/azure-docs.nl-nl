@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/30/2019
-ms.openlocfilehash: 3f5a69454356d16fd6f3c5dddb063fcf8e450014
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.date: 05/01/2019
+ms.openlocfilehash: 9aadfd1f3685466c8c0beb6dff3bb8d063f4bfd8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943676"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137407"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Zelfstudie: RDS MySQL migreren naar Azure Database for MySQL online met behulp van DMS
 
@@ -170,9 +170,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 6. Selecteer een prijscategorie; Zorg dat u selecteert u de Premium voor deze online migratie: 4vCores prijscategorie.
 
-    Zie voor meer informatie over de kosten en prijscategorieën de [Pagina met prijzen](https://aka.ms/dms-pricing). Als u hulp nodig met de juiste Azure Database Migration Service prijscategorie kiezen, raadpleegt u de aanbevelingen in de boeking [hier](https://go.microsoft.com/fwlink/?linkid=861067).
-
-     ![Instellingen configureren van een Azure Database Migration Service-exemplaar](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-settings3.png)
+    ![Instellingen configureren van een Azure Database Migration Service-exemplaar](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-settings3.png)
 
 7. Selecteer **Maken** om de dienst te maken.
 

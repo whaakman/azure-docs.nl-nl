@@ -12,31 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: da165634f5323183b633ee3c8a59e0d2607e8ef1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4b2506781df5572ddaff8dda34bf3edab8987be
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586511"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145205"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Aanbevolen beveiligingsprocedures voor IaaS-workloads in Azure
+Dit artikel wordt beschreven aanbevolen procedures voor beveiliging voor virtuele machines en besturingssystemen.
+
+De best practices zijn gebaseerd op een consensus van advies, en ze werken met de huidige mogelijkheden van Azure-platform en functie ingesteld. Omdat de meningen en technologieën na verloop van tijd wijzigen kunnen, wordt in dit artikel wordt bijgewerkt om deze wijzigingen weer te geven.
 
 In de meeste infrastructuur als een service (IaaS)-scenario's, [virtuele Azure-machines (VM's)](https://docs.microsoft.com/azure/virtual-machines/) zijn de belangrijkste werkbelasting voor organisaties die gebruikmaken van cloud computing. Dit is duidelijk in [hybride scenario's](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) waar organisaties willen langzaam workloads migreren naar de cloud. In dergelijke scenario's, voert u de [algemene beveiligingsoverwegingen voor IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), en aanbevolen procedures voor beveiliging van toepassing op alle virtuele machines.
 
+## <a name="shared-responsibility"></a>Gedeelde verantwoordelijkheid
 Uw eigen verantwoordelijkheid voor beveiliging is gebaseerd op het type van de service in de cloud. De volgende tabel geeft een overzicht van het saldo van de verantwoordelijkheid voor zowel Microsoft als u:
 
 ![Verantwoordelijkheidsgebieden ten opzichte van](./media/azure-security-iaas/sec-cloudstack-new.png)
 
 Vereisten voor beveiliging zijn afhankelijk van een aantal factoren, waaronder verschillende typen workloads. Niet een van deze aanbevolen procedures beveiligen op zichzelf uw systemen. Als iets anders in beveiliging, die u moet kiest u de gewenste opties en Zie hoe de oplossingen kunnen vullen elkaar door hiaten invullen.
 
-Dit artikel wordt beschreven aanbevolen procedures voor beveiliging voor virtuele machines en besturingssystemen.
-
-De best practices zijn gebaseerd op een consensus van advies, en ze werken met de huidige mogelijkheden van Azure-platform en functie ingesteld. Omdat de meningen en technologieën na verloop van tijd wijzigen kunnen, wordt in dit artikel wordt bijgewerkt om deze wijzigingen weer te geven.
-
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>Virtuele machines beveiligen met behulp van verificatie en toegangsbeheer
 De eerste stap bij het beschermen van uw virtuele machines is om ervoor te zorgen dat alleen gemachtigde gebruikers kunnen instellen van nieuwe virtuele machines en toegang tot virtuele machines.
+
+> [!NOTE]
+> Ter verbetering van de beveiliging van virtuele Linux-machines op Azure, kunt u integreren met Azure AD-verificatie. Bij het gebruik [Azure AD-verificatie voor virtuele Linux-machines](../virtual-machines/linux/login-using-aad.md), u centraal beheren en beleid afdwingen dat toestaan of weigeren van toegang tot de VM's.
+>
+>
 
 **Beste**: De VM-toegang beheren.   
 **Details**: Gebruik [Azure beleid](../azure-policy/azure-policy-introduction.md) conventies voor resources in uw organisatie vast te stellen en aangepaste beleidsregels maken. Dit beleid van toepassing op resources, zoals [resourcegroepen](../azure-resource-manager/resource-group-overview.md). Virtuele machines die deel uitmaken van een resourcegroep worden overgenomen voorgeschreven beleid.
@@ -102,6 +107,9 @@ Als u Windows Update gebruikt, laat u de instelling voor automatisch Windows Upd
 **Beste**: Periodiek opnieuw uw VM's om af te dwingen een nieuwe versie van het besturingssysteem implementeren.   
 **Details**: Definieer uw virtuele machine met een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) , zodat u eenvoudig kunt implementeren. Met behulp van een sjabloon biedt u een virtuele machine bijwerken en beveiligen wanneer u ze nodig hebt.
 
+**Beste**: Snel beveiligingsupdates toepassen op VM's.   
+**Details**: Gebruik Azure Security Center (laag gratis of Standard-laag) op [ontbrekende beveiligingsupdates bepalen en past deze toe](../security-center/security-center-apply-system-updates.md).
+
 **Beste**: Installeer de meest recente beveiligingsupdates.   
 **Details**: Sommige van de eerste werkbelastingen die klanten naar Azure verplaatsen zijn labs en externe systemen. Als uw Azure VM's hosten toepassingen of services die toegankelijk zijn met het internet moeten zijn, worden waakzaam over patches. Patch dan het besturingssysteem. Niet-gepatchte beveiligingsproblemen op partnertoepassingen kunnen ook leiden tot problemen die kunnen worden voorkomen als goed patchbeheer aanwezig is.
 
@@ -165,6 +173,18 @@ Wanneer u Azure Disk Encryption toepast, kunt u voldoen aan de volgende zaken da
 
 - IaaS-VM's worden beveiligd in rust via het industriestandaard versleutelingstechnologie om de organisatorische vereisten voor beveiliging en naleving.
 - IaaS-VM's starten onder de klant beheerde sleutels en beleidsregels en u kunt gebruik ervan controleren in uw key vault.
+
+## <a name="restrict-direct-internet-connectivity"></a>Directe verbinding met internet te beperken
+Bewaken en beperken van de virtuele machine directe verbinding met internet. Aanvallers scannen van de openbare cloud IP-bereiken voor open beheerpoorten voortdurend en "gemakkelijk" aanvallen, zoals algemene wachtwoorden en bekende beveiligingsproblemen van niet-gepatchte proberen. De volgende tabel bevat de aanbevolen procedures om u te helpen beschermen tegen deze aanvallen:
+
+**Beste**: Voorkomen dat onbedoelde openbaarmaking netwerk Routering en beveiliging.   
+**Details**: RBAC gebruiken om ervoor te zorgen dat alleen het centrale netwerk groep gemachtigd om te netwerkresources is.
+
+**Beste**: Identificeren en te verhelpen beschikbaar gemaakte VM's die toegankelijk is vanaf 'alle' bron-IP-adres.   
+**Details**: Gebruik Azure Security Center. Security Center wordt aanbevolen dat u de toegang via internetgerichte eindpunten beperken als een van uw netwerkbeveiligingsgroepen heeft een of meer binnenkomende regels waarmee toegang via 'een' bron-IP-adres. Security Center wordt aanbevolen dat u deze regels voor binnenkomende verbindingen te bewerken [toegang beperken](../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) op bron-IP-adressen die toegang nodig hebt.
+
+**Beste**: Beperken beheerpoorten (RDP, SSH).   
+**Details**: [Just-in-time (JIT) VM-toegang](../security-center/security-center-just-in-time.md) kan worden gebruikt om binnenkomend verkeer naar uw Azure VM's, blootstelling aan aanvallen te verminderen terwijl eenvoudige toegang tot het verbinding maken met virtuele machines wanneer dat nodig is. Wanneer JIT is ingeschakeld, wordt de status van Security Center vergrendelt binnenkomend verkeer naar uw Azure VM's door het maken van een regel voor netwerkbeveiligingsgroep. U selecteert de poorten op de VM waarop binnenkomend verkeer wordt vergrendeld. Deze poorten worden beheerd door de JIT-oplossing.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie [Azure-beveiliging aanbevolen procedures en patronen](security-best-practices-and-patterns.md) voor meer best practices voor beveiliging moeten worden gebruikt wanneer bent u het ontwerpen, implementeren en beheren van uw cloudoplossingen met behulp van Azure.
