@@ -107,7 +107,7 @@ De volgende eigenschappen worden ondersteund:
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap moet worden ingesteld op **AzureDataExplorerTable** | Ja |
-| tabel | De naam van de tabel waarnaar de gekoppelde service verwijst. | Ja voor sink; Nee voor bron |
+| table | De naam van de tabel waarnaar de gekoppelde service verwijst. | Ja voor sink; Nee voor bron |
 
 **Voorbeeld van de gegevensset-eigenschappen**
 
