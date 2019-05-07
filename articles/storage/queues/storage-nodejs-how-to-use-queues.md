@@ -1,22 +1,21 @@
 ---
-title: Hoe u Queue storage gebruiken met Node.js | Microsoft Docs
+title: Hoe u Queue storage gebruiken met Node.js - Azure Storage
 description: Informatie over het gebruik van de Azure Queue-service maken en verwijderen van wachtrijen, en invoegen, ophalen en verwijderen van berichten. Voorbeelden die zijn geschreven in Node.js.
 services: storage
-author: WenJason
+author: mhopkins-msft
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 12/08/2016
-ms.date: 12/10/2018
-ms.author: v-jay
-ms.component: queues
-ms.openlocfilehash: 31f0be804085643d048a35dd61da9156f291f7da
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 12/08/2016
+ms.author: mhopkins
+ms.reviewer: cbrooks
+ms.subservice: queues
+ms.openlocfilehash: 01afe1ab7b9028f3f77d52f7d6f8ced27f6a79c7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109590"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142699"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Queue Storage gebruiken met Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -336,14 +335,14 @@ Nu dat u de basisprincipes van queue storage hebt geleerd, volgt u deze koppelin
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 
-[using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+[using the REST API]: https://msdn.microsoft.com/library/azure/hh264518.aspx
 
-[Azure Portal]: https://portal.azure.cn
+[Azure Portal]: https://portal.azure.com
 
 [Een Node.js-web-app maken in Azure App Service](../../app-service/app-service-web-get-started-nodejs.md)
 
 [Een Node.js-toepassing maken en implementeren in een Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
 
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
 
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/

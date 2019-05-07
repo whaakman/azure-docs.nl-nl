@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: fac14281365ccf3c191684af8cfdebda69e734e0
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 77c2cd9e0eac6717d91a73a6fc033dcaa2390444
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870445"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145029"
 ---
 # <a name="status-monitor-v2"></a>Status Monitor v2
 
@@ -61,3 +61,19 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 - Het controleren van de activering is voltooid?
 
    Er zijn geen een cmdlet om te controleren dat activering is geslaagd. Wordt u aangeraden [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) snel in acht nemen als uw toepassing ons telemetriegegevens verzendt.
+
+## <a name="next-steps"></a>Volgende stappen
+
+Uw telemetrie weergeven:
+
+* [Verken de metrische gegevens](../../azure-monitor/app/metrics-explorer.md) om de prestaties en het gebruik te bewaken
+* [Doorzoek gebeurtenissen en logboeken](../../azure-monitor/app/diagnostic-search.md) om problemen te diagnosticeren
+* [Gebruik analyses](../../azure-monitor/app/analytics.md) voor meer geavanceerde query's
+* [Maak dashboards](../../azure-monitor/app/app-insights-dashboards.md)
+
+Meer telemetrie toevoegen:
+
+* [Maak webtests](monitor-web-app-availability.md) om ervoor te zorgen dat uw site actief blijft.
+* [Voeg telemetrie van de webclient](../../azure-monitor/app/javascript.md) zien welke uitzonderingen webpaginacode en traceringsaanroepen in te voegen.
+* [Application Insights SDK toevoegen aan uw code](../../azure-monitor/app/asp-net.md) zodat u kunt invoegen van trace en logboekaanroepen
+

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 4bd934c710d6300e95c60742d5873f5b71bdae59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: f2477a26bd9df9bcbde8ac184c3667f7dd32dba9
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466519"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074003"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configureren van Azure CNI netwerken in Azure Kubernetes Service (AKS)
 
@@ -41,6 +41,7 @@ IP-adressen voor het gehele product en de knooppunten van het cluster worden toe
 > Het aantal IP-adressen die zijn vereist, moet overwegingen voor bijwerken en schalen herverdelen bevatten. Als u het IP-adresbereik voor de ondersteuning van alleen een vast aantal knooppunten hebt ingesteld, kan u een upgrade uitvoert of het cluster wordt geschaald.
 >
 > - Wanneer u **upgrade** uw AKS-cluster, een nieuw knooppunt wordt geïmplementeerd in het cluster. Services en workloads beginnen om uit te voeren op het nieuwe knooppunt en een oudere knooppunt uit het cluster wordt verwijderd. Dit proces voor rolling upgrade vereist ten minste één extra blokkeren van IP-adressen moet beschikbaar zijn. Het aantal knooppunten wordt vervolgens `n + 1`.
+>   - Deze overweging is vooral belangrijk wanneer u groepen met Windows Server (momenteel in preview in AKS). Windows Server-knooppunten in AKS gelden Windows-Updates niet automatisch, in plaats daarvan u een upgrade uitvoeren voor de pool knooppunt. Deze upgrade implementeert nieuwe knooppunten met de meest recente venster Server 2019 basisknooppunt afbeeldings- en patches. Zie voor meer informatie over het bijwerken van een Windows Server-knooppuntgroep [een knooppuntgroep in AKS Upgrade][nodepool-upgrade].
 >
 > - Wanneer u **schaal** een AKS-cluster, een nieuw knooppunt wordt geïmplementeerd in het cluster. Services en werkbelastingen kunt u beginnen om uit te voeren op het nieuwe knooppunt. Uw IP-adresbereik moet rekening overwegingen met betrekking tot hoe kunt u het aantal knooppunten en schillen die kan worden ondersteund door het cluster kan worden uitgebreid. Een extra knooppunt voor upgrade bewerkingen moet ook worden opgenomen. Het aantal knooppunten wordt vervolgens `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
 
@@ -62,13 +63,13 @@ Het maximum aantal schillen per knooppunt in een AKS-cluster is 110. De *standaa
 
 | Implementatiemethode | Kubenet standaard | Azure CNI standaard | Kan worden geconfigureerd tijdens de implementatie |
 | -- | :--: | :--: | -- |
-| Azure-CLI | 110 | 30 | Ja (maximaal 110) |
-| Resource Manager-sjabloon | 110 | 30 | Ja (maximaal 110) |
+| Azure-CLI | 110 | 30 | Ja (tot 250) |
+| Resource Manager-sjabloon | 110 | 30 | Ja (tot 250) |
 | Portal | 110 | 30 | Nee |
 
 ### <a name="configure-maximum---new-clusters"></a>Maximum - nieuwe clusters configureren
 
-Het configureren van het maximum aantal schillen per knooppunt kunt u *alleen tijdens de cluster implementatie*. Als u met de Azure CLI of met een Resource Manager-sjabloon implementeert, kunt u de maximale schillen per knooppuntwaarde zo hoog 110 instellen.
+Het configureren van het maximum aantal schillen per knooppunt kunt u *alleen tijdens de cluster implementatie*. Als u met de Azure CLI of met een Resource Manager-sjabloon implementeert, kunt u de maximale schillen per knooppuntwaarde zo hoog 250 instellen.
 
 * **Azure CLI**: Geef de `--max-pods` argument bij het implementeren van een cluster met de [az aks maken] [ az-aks-create] opdracht. De maximumwaarde is 110.
 * **Resource Manager-sjabloon**: Geef de `maxPods` eigenschap in de [ManagedClusterAgentPoolProfile] object wanneer u een cluster met een Resource Manager-sjabloon implementeert. De maximumwaarde is 110.
@@ -105,7 +106,7 @@ Wanneer u een AKS-cluster met de Azure CLI maakt, kunt u ook Azure CNI netwerken
 
 Haal eerst de resource-ID van het subnet voor het bestaande subnet waarin het AKS-cluster wordt gekoppeld:
 
-```console
+```azurecli-interactive
 $ az network vnet subnet list \
     --resource-group myVnet \
     --vnet-name myVnet \
@@ -116,7 +117,7 @@ $ az network vnet subnet list \
 
 Gebruik de [az aks maken] [ az-aks-create] opdracht met de `--network-plugin azure` argument voor een cluster maken met geavanceerde netwerken. Update de `--vnet-subnet-id` waarde met de subnet-ID die worden verzameld in de vorige stap:
 
-```azurecli
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -143,7 +144,7 @@ De volgende vragen en antwoorden van toepassing op de **Azure CNI** netwerkconfi
 
 * *Kan ik per pod-netwerkbeleid configureren?*
 
-  Kubernetes-netwerkbeleid is momenteel beschikbaar als preview-functie in AKS. Als u wilt beginnen, Zie [beveiliging van verkeer tussen schillen met behulp van beleid voor netwerken in AKS][network-policy].
+  Ja, de Kubernetes-netwerkbeleid is beschikbaar in AKS. Als u wilt beginnen, Zie [beveiliging van verkeer tussen schillen met behulp van beleid voor netwerken in AKS][network-policy].
 
 * *Is het maximum aantal schillen kan worden geïmplementeerd naar een knooppunt kunnen worden geconfigureerd?*
 
@@ -202,3 +203,4 @@ Kubernetes-clusters die zijn gemaakt met AKS Engine ondersteunen zowel de [kuben
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
 [network-policy]: use-network-policies.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

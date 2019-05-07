@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/26/2019
-ms.openlocfilehash: 71610aa9916519338c564127616f4569aff70aaa
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/01/2019
+ms.openlocfilehash: 3f1ab5c2cb30dd4067c07833529e6a6a0c71e286
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925363"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136649"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Zelfstudie: PostgreSQL van extern bureaublad-services migreren naar Azure Database for PostgreSQL online met behulp van DMS
 
@@ -168,9 +168,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 6. Selecteer een prijscategorie; Zorg dat u selecteert u de Premium voor deze online migratie: 4vCores prijscategorie.
 
-    Zie voor meer informatie over de kosten en prijscategorieën de [Pagina met prijzen](https://aka.ms/dms-pricing). Als u hulp nodig met de juiste Azure Database Migration Service prijscategorie kiezen, raadpleegt u de aanbevelingen in de boeking [hier](https://go.microsoft.com/fwlink/?linkid=861067).
-
-     ![Instellingen configureren van een Azure Database Migration Service-exemplaar](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-settings4.png)
+    ![Instellingen configureren van een Azure Database Migration Service-exemplaar](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-settings4.png)
 
 7. Selecteer **Maken** om de dienst te maken.
 

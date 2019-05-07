@@ -8,18 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/11/2019
-ms.openlocfilehash: b53cd54afdf6243769602971ab77145cfa9ba9cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 0206fd2b2ea0a7cfaf79aaf19052e0174645780b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506816"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143110"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Toegang tot resources van Azure Virtual Network van Azure Logic Apps met behulp van de integratie van service-omgevingen (ISEs)
-
-> [!NOTE]
-> Deze mogelijkheid is in [ *openbare preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Soms uw logic apps en integratieaccounts toegang tot beveiligde bronnen, zoals virtuele machines (VM's) en andere systemen of -services, moeten een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md). Als u deze toegang instelt, kunt u [maken een *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) voor het uitvoeren van uw logic apps en integratieaccounts. Wanneer u een ISE maakt, wordt een privé- en geïsoleerde instantie van de Logic Apps-service in uw Azure-netwerk in Azure geïmplementeerd. Dit privé-exemplaar toegewezen resources, zoals opslag gebruikt en wordt afzonderlijk van de openbare 'global' Logic Apps-service wordt uitgevoerd. Het scheiden van uw geïsoleerde privé-instantie en de openbare globale exemplaar ook vermindert de invloed die andere Azure-tenants kunnen hebben op de prestaties van uw apps, die ook wel bekend als de ['luidruchtige buren'-effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
 
@@ -70,11 +67,6 @@ Het verschil tussen ISE en niet-ISE-connectors is op de locaties waar de trigger
 ## <a name="integration-accounts-with-ise"></a>Integratieaccounts met ISE
 
 Integratieaccounts kunt u met logic apps in een integratieserviceomgeving (ISE). Deze integratieaccounts moeten echter gebruiken de *dezelfde ISE* als de gekoppelde logische apps. Logische apps in een ISE kunnen verwijzen naar deze integratieaccounts die zich in de dezelfde ISE. Wanneer u een integratieaccount maakt, kunt u uw ISE selecteren als de locatie voor uw integratie-account.
-
-## <a name="get-support"></a>Ondersteuning krijgen
-
-* Ga naar het <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps forum</a> (Forum voor Azure Logic Apps) als u vragen hebt.
-* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de <a href="https://aka.ms/logicapps-wish" target="_blank">website voor feedback van Logic Apps-gebruikers</a>.
 
 ## <a name="next-steps"></a>Volgende stappen
 

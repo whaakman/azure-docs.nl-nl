@@ -9,12 +9,12 @@ ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728587"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143277"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Veelgestelde vragen over Service Fabric NET
 
@@ -28,7 +28,7 @@ Stel vragen, krijg antwoorden van Microsoft-technici en rapporteren van probleme
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Wat zijn de kosten die deel uitmaken van de Preview-versie?
 
-Er zijn momenteel geen kosten voor het implementeren van toepassingen of containers naar de Mesh-preview. Maar we raden u aan de resources die u implementeert en niet laten verwijderen, tenzij u ze actief test uitgevoerd.
+Er zijn momenteel geen kosten in rekening gebracht voor het implementeren van toepassingen of containers naar de Mesh-preview. Bekijk voor updates in mei voor activering voor facturering. Maar we raden u aan de resources die u implementeert en niet laten verwijderen, tenzij u ze actief test uitgevoerd.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>Is er een limiet van het aantal cores en RAM-geheugen?
 
@@ -88,10 +88,15 @@ Als u ontwikkelt op een Windows-10 April 2018 update (versie 1803) machine, kunt
 De volgende container OS-installatiekopieën kunnen worden gebruikt om services te implementeren:
 
 - Windows - windowsservercore en nanoserver
-    - Windows Server versie 1709
-    - Windows Server versie 1803
+    - Windows Server 1709
+    - WindowsServer 1803
+    - Windows Server 1809
+    - Windows Server 2019 LTSC
 - Linux
     - Er zijn geen bekende beperkingen
+
+> [!NOTE]
+> Visual Studio-tooling voor Mesh ondersteunt geen nog implementeren in Windows Server 2019 en 1809 containers.
 
 ### <a name="what-types-of-applications-can-i-deploy"></a>Welke typen toepassingen kan ik implementeren? 
 
@@ -138,6 +143,10 @@ U kunt tegenkomen beschikbaarheid van de CPU en limieten voor alle toepassingen 
 Meerdere toepassingen kunnen niet worden geïmplementeerd op een cluster met één knooppunt. Om te verhelpen:
 - Gebruik een cluster met vijf knooppunten bij het implementeren van meerdere apps in een lokaal cluster.
 - Alle apps die u momenteel geen test verwijderd.
+
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Visual Studio-hulpmiddelen heeft beperkte ondersteuning voor Windows-containers
+
+De Visual Studio-tooling biedt alleen ondersteuning voor Windows-Containers implementeren met een basis OS-versie van Windows Server 1709 en 1803 vandaag nog. 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>Functiehiaten en andere bekende problemen
 

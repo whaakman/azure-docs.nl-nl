@@ -1,37 +1,35 @@
 ---
-title: Toevoegen en aangepaste code wordt uitgevoerd in Azure Logic Apps met Azure Functions | Microsoft Docs
-description: Meer informatie over het toevoegen en aangepaste codefragmenten uitvoeren in Azure Logic Apps met Azure Functions
+title: Toevoegen en uitvoeren van code in Azure Logic Apps met Azure Functions
+description: Toevoegen en uitvoeren van code in Azure Logic Apps met Azure Functions
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e371a6abe32a1a41d3babeaa27aaec3e30bd3323
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60687596"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142309"
 ---
-# <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Toevoegen en aangepaste codefragmenten uitvoeren in Azure Logic Apps met Azure Functions
+# <a name="add-and-run-code-by-using-azure-functions-in-azure-logic-apps"></a>Toevoegen en code uitvoeren met behulp van Azure Functions in Azure Logic Apps
 
-Wanneer u wilt dat alleen voldoende code die een specifieke taak in uw logische apps uitvoert uit te voeren, kunt u uw eigen functies met [Azure Functions](../azure-functions/functions-overview.md). Deze service helpt u bij het maken van Node.js, C#, en F# codefragmenten, zodat u niet hoeft te maken van een volledige app of de infrastructuur voor het uitvoeren van uw code. Azure Functions biedt serverloze computing in de cloud en is handig voor het uitvoeren van taken, zoals deze voorbeelden:
+Als u uitvoeren van code dat een specifieke taak in uw logische apps wilt uitvoert, kunt u uw eigen functies met [Azure Functions](../azure-functions/functions-overview.md). Deze service helpt u bij het maken van Node.js, C#, en F# code, zodat u hoeft te maken van een volledige app of de infrastructuur voor het uitvoeren van uw code. U kunt ook [logische apps aanroepen in Azure functions](#call-logic-app).
+Azure Functions biedt serverloze computing in de cloud en is handig voor het uitvoeren van taken, zoals deze voorbeelden:
 
 * Breid uw logische app gedrag met Node.js of C#-functies.
 * Uitvoeren van berekeningen in uw werkstroom voor logische Apps.
 * Geavanceerde opmaak toepassen of compute-velden in uw logische apps.
 
-U kunt ook [logische apps aanroepen in Azure functions](#call-logic-app).
+Als u wilt codefragmenten uitvoeren zonder te maken van Azure functions, informatie over hoe u [toevoegen en uitvoeren van Inlinecode](../logic-apps/logic-apps-add-run-inline-code.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt in dit artikel volgen, moet u deze items:
-
-* Als u een Azure-abonnement nog geen <a href="https://azure.microsoft.com/free/" target="_blank">zich aanmelden voor een gratis Azure-account</a>. 
+* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, [registreer u dan nu voor een gratis Azure-account](https://azure.microsoft.com/free/).
 
 * Een Azure-functie-app, dat een container voor Azure functions en uw Azure-functie is. Als u een functie-app geen [maakt u eerst uw functie-app](../azure-functions/functions-create-first-azure-function.md). U kunt de functie vervolgens ofwel maken [afzonderlijk buiten uw logische app](#create-function-external), of [van binnen uw logische app](#create-function-designer) in Logic App Designer.
 
@@ -58,7 +56,7 @@ Als u wilt in dit artikel volgen, moet u deze items:
 
 ## <a name="create-functions-outside-logic-apps"></a>Functies buiten logische apps maken
 
-In de <a href="https://portal.azure.com" target="_blank">Azure-portal</a>, maken van uw Azure-functie-app, die moet zijn van hetzelfde Azure-abonnement als uw logische app en maak vervolgens uw Azure-functie.
+In de [Azure-portal](https://portal.azure.com), maken van uw Azure-functie-app, die moet zijn van hetzelfde Azure-abonnement als uw logische app en maak vervolgens uw Azure-functie.
 Als u geen ervaring hebt met het maken van Azure functions, krijgt u informatie over het [uw eerste functie maken in Azure portal](../azure-functions/functions-create-first-azure-function.md), maar houd er rekening mee deze vereisten voor het maken van functies die u vanuit logic apps aanroepen kunt:
 
 * Zorg ervoor dat u selecteert de **HTTP-trigger** functiesjabloon voor **JavaScript** of **C#**.
@@ -116,7 +114,7 @@ Nu dat u uw Azure-functie hebt gemaakt, volgt u de stappen voor het [functies to
 
 Voordat u een Azure-functie binnen uw logische app in de Logic App Designer vanaf maken kunt, moet u eerst een Azure-functie-app, dat een container voor uw functies is hebben. Als u een functie-app niet hebt, maakt u eerst die functie-app. Zie [uw eerste functie maken in Azure portal](../azure-functions/functions-create-first-azure-function.md). 
 
-1. In de <a href="https://portal.azure.com" target="_blank">Azure-portal</a>, opent u uw logische app in Logic App Designer. 
+1. In de [Azure-portal](https://portal.azure.com), opent u uw logische app in Logic App Designer. 
 
 2. Het maken en uw functie toevoegen, volg de stappen die van toepassing op uw scenario is:
 
@@ -176,7 +174,7 @@ Selecteer deze actie uit de lijst met acties: **Een Azure-functie kiezen - Azure
 
 U kunt voor het aanroepen van bestaande Azure-functies van uw logische apps, Azure functions, zoals een andere actie toevoegen in de Logic App Designer. 
 
-1. In de <a href="https://portal.azure.com" target="_blank">Azure-portal</a>, opent u uw logische app in Logic App Designer. 
+1. In de [Azure-portal](https://portal.azure.com), opent u uw logische app in Logic App Designer. 
 
 2. Kies onder de stap waarin u wilt toevoegen van de functie, **nieuwe stap** > **een actie toevoegen**. 
 

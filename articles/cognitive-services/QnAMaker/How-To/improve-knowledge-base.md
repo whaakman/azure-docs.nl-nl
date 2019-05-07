@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e54e8dcb6efa9251262c651730376a0d04edcf9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61372665"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144973"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Actief leren gebruiken voor het verbeteren van uw knowledge base
 
@@ -75,7 +75,7 @@ Actief leren is standaard uitgeschakeld. Inschakelen om te zien van de voorgeste
 
 ## <a name="add-active-learning-suggestion-to-knowledge-base"></a>Actief leren suggestie met knowledge base toevoegen
 
-1. Als u wilt bekijken van de voorgestelde vragen op de **bewerken** kennisdatabase weergeeft, schakelt **suggesties weergeven**. 
+1. Als u wilt bekijken van de voorgestelde vragen op de **bewerken** kennisdatabase weergeeft, schakelt **weergaveopties**en selecteer vervolgens **actief leren suggesties weergeven**. 
 
     [![Selecteer op de sectie bewerken van de portal voor suggesties weergeven om te zien van de actief leren nieuwe vraag alternatieven.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 

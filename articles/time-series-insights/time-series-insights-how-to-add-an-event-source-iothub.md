@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee52cde6feeb69f9140df497a9abee300c93fd71
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 258b603b8cd2e0cdfcc72ca17cd3cb0d034caf5b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692106"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143354"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Een IoT hub-gebeurtenisbron toevoegen aan uw Time Series Insights-omgeving
 
@@ -42,7 +42,7 @@ Een nieuwe consumergroep toevoegen aan uw IoT-hub:
 
 1. In het menu onder **instellingen**, selecteer **ingebouwde eindpunten**, en selecteer vervolgens de **gebeurtenissen** eindpunt.
 
-   ![Selecteer op de pagina eindpunten Build in de gebeurtenissen-knop][1]
+   [![Selecteer op de pagina eindpunten Build in de gebeurtenissen-knop](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png#lightbox)
 
 1. Onder **consumentengroepen**, voer een unieke naam voor de consumergroep. Wanneer u een nieuwe gebeurtenisbron maken, moet u deze dezelfde naam gebruiken in uw Time Series Insights-omgeving.
 
@@ -56,7 +56,7 @@ Een nieuwe consumergroep toevoegen aan uw IoT-hub:
 
 1. Onder **omgeving topologie**, selecteer **gebeurtenisbronnen**, en selecteer vervolgens **toevoegen**.
 
-   ![Selecteer gebeurtenisbronnen en selecteer vervolgens de knop toevoegen][2]
+   [![Selecteer gebeurtenisbronnen en selecteer vervolgens de knop toevoegen](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png#lightbox)
 
 1. In de **nieuwe gebeurtenisbron** in het deelvenster voor **naam van bron**, voer een naam die uniek is voor deze Time Series Insights-omgeving. Voer bijvoorbeeld **gebeurtenisstroom**.
 
@@ -67,11 +67,11 @@ Een nieuwe consumergroep toevoegen aan uw IoT-hub:
    * Als u al een IoT-hub in een van uw abonnementen hebt, selecteert u **gebruikt IoT-Hub in de beschikbare abonnementen**. Deze optie is de eenvoudigste oplossing.
    * Als de IoT-hub bevindt zich buiten uw abonnementen, of als u geavanceerde opties kiest, selecteert u **bieden IoT Hub-instellingen handmatig**.
 
-   ![Opties selecteren in het nieuwe deelvenster van de gebeurtenis-bron][3]
+   [![Opties selecteren in het nieuwe deelvenster van de gebeurtenis-bron](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png#lightbox)
 
 1. De volgende tabel beschrijft de eigenschappen die vereist zijn voor de **gebruikt IoT-Hub in de beschikbare abonnementen** optie:
 
-   ![Bron-deelvenster nieuwe gebeurtenis - eigenschappen instellen in de IoT-Hub gebruiken via de optie van de beschikbare abonnementen][4]
+   [![Bron-deelvenster nieuwe gebeurtenis - eigenschappen instellen in de IoT-Hub gebruiken via de optie van de beschikbare abonnementen](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png#lightbox)
 
    | Eigenschap | Description |
    | --- | --- |
@@ -100,7 +100,7 @@ Een nieuwe consumergroep toevoegen aan uw IoT-hub:
 
 1. Selecteer **Maken**.
 
-   ![De knop Maken][5]
+   [![De knop maken](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png#lightbox)
 
 1. Nadat u de gebeurtenisbron hebt gemaakt, begint Time Series Insights automatisch streaming-gegevens aan uw omgeving.
 
@@ -111,10 +111,3 @@ Een nieuwe consumergroep toevoegen aan uw IoT-hub:
 * [Gebeurtenissen verzenden](time-series-insights-send-events.md) naar de gebeurtenisbron.
 
 * Toegang tot uw omgeving in de [Verkenner van Time Series Insights](https://insights.timeseries.azure.com).
-
-<!-- Images -->
-[1]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png
-[2]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png
-[3]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png
-[4]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png
-[5]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png

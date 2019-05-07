@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 40e7ebcddb5cc215e071f1a34dfa8f3f4ea95141
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e13bcb7d4eeded691669277b64aba9048f3bbefa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684565"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150422"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Beveiliging van inhoud met dynamische versleuteling
 
@@ -206,7 +206,7 @@ Als u de `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` fout, zorg ervoor dat u
 
 Als er fouten optreden die met eindigen `_NOT_SPECIFIED_IN_URL`, zorg ervoor dat u de coderingsindeling in de URL opgeeft. Bijvoorbeeld `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Zie [Streaming-protocollen en versleutelingstypen](#streaming-protocols-and-encryption-types).
 
-## <a name="provide-feedback"></a>Feedback geven
+## <a name="ask-questions-give-feedback-get-updates"></a>Stel vragen, feedback geven, updates ophalen
 
 Bekijk de [Azure Media Services-community](media-services-community.md) artikel om te zien van verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
 

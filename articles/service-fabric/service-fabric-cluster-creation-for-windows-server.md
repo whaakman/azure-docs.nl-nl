@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 3e9e3afd5172783c6b5ed8e6342ce9927353d006
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed775bfca2db02b9bfddebb85bbd3f1f668cf3e0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386841"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142697"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Een zelfstandige cluster uitgevoerd op Windows Server maken
 Azure Service Fabric kunt u Service Fabric-clusters maken op elke virtuele machine of computers met Windows Server. Dit betekent dat u kunt implementeren en Service Fabric-toepassingen uitvoeren in een omgeving die een set met elkaar verbonden computers met Windows Server bevat, worden deze on-premises of met elke andere cloudprovider. Service Fabric biedt een installatiepakket voor het maken van het zelfstandige pakket voor Windows Server met de naam van Service Fabric-clusters.
@@ -27,7 +27,7 @@ Azure Service Fabric kunt u Service Fabric-clusters maken op elke virtuele machi
 In dit artikel leidt u door de stappen voor het maken van een zelfstandige Service Fabric-cluster.
 
 > [!NOTE]
-> Deze zelfstandige Windows Server-pakket is commercieel verkrijgbaar en kan worden gebruikt voor productie-implementaties. Dit pakket bevat nieuwe Service Fabric-functies die zich in 'Preview'. Schuif omlaag naar '[Preview-functies opgenomen in dit pakket](#previewfeatures_anchor). " sectie voor een lijst van de preview-functies. U kunt [download een exemplaar van de gebruiksrechtovereenkomst](https://go.microsoft.com/fwlink/?LinkID=733084) nu.
+> Deze zelfstandige Windows Server-pakket is commercieel verkrijgbaar is gratis en kan worden gebruikt voor productie-implementaties. Dit pakket bevat nieuwe Service Fabric-functies die zich in 'Preview'. Schuif omlaag naar '[Preview-functies opgenomen in dit pakket](#previewfeatures_anchor). " sectie voor een lijst van de preview-functies. U kunt [download een exemplaar van de gebruiksrechtovereenkomst](https://go.microsoft.com/fwlink/?LinkID=733084) nu.
 > 
 > 
 

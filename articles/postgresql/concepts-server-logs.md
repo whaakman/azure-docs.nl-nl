@@ -1,19 +1,19 @@
 ---
-title: Serverlogboeken in Azure Database for PostgreSQL
-description: Dit artikel wordt beschreven hoe Azure Database voor PostgreSQL logboeken-query en de fout genereert, en hoe melden bewaarperiode is geconfigureerd.
+title: Serverlogboeken in Azure Database for PostgreSQL - één Server
+description: Dit artikel wordt beschreven hoe Azure Database for PostgreSQL - Server één genereert query en foutenlogboeken en hoe bewaarduur logboek is geconfigureerd.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871524"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067395"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql"></a>Serverlogboeken in Azure Database for PostgreSQL 
+# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Serverlogboeken in Azure Database for PostgreSQL - één Server
 Azure Database voor PostgreSQL-query en de fout genereert logboeken. Query's en fout-logboeken kunnen worden gebruikt om te bepalen, oplossen en herstellen van fouten in de configuratie en optimale prestaties. (Toegang tot transactielogboeken is niet opgenomen). 
 
 ## <a name="configure-logging"></a>Logboekregistratie configureren 

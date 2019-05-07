@@ -4,14 +4,14 @@ description: Begrijp hoe indexering werkt in Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 3bb8913725acf04f71aba8b4c4350235f2c44dfb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44706e5ebe2442dcb45dfc45e2c322938cf7dca9
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61051873"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068660"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexeren in Azure Cosmos DB - overzicht
 
@@ -66,19 +66,41 @@ Azure Cosmos DB ondersteunt momenteel twee soorten indexen:
 
 De **bereik** index type wordt gebruikt voor:
 
-- gelijkheid query's: `SELECT * FROM container c WHERE c.property = 'value'`
-- bereik van query's: `SELECT * FROM container c WHERE c.property > 'value'` (werkt voor `>`, `<`, `>=`, `<=`, `!=`)
-- `ORDER BY` query's: `SELECT * FROM container c ORDER BY c.property`
-- `JOIN` query's: `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+- gelijkheid query's: 
+
+   ```sql SELECT * FROM container c WHERE c.property = 'value'```
+
+- Bereik-query's: 
+
+   ```sql SELECT * FROM container c WHERE c.property > 'value'``` (werkt voor `>`, `<`, `>=`, `<=`, `!=`)
+
+- `ORDER BY` query's:
+
+   ```sql SELECT * FROM container c ORDER BY c.property```
+
+- `JOIN` query's: 
+
+   ```sql SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'```
 
 Bereik indexen kunnen worden gebruikt voor scalaire waarden (tekenreeks of getal).
 
 De **ruimtelijke** index type wordt gebruikt voor:
 
-- georuimtelijke afstand query's: `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
-- georuimtelijke binnen query's: `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+- georuimtelijke afstand query's: 
+
+   ```sql SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40```
+
+- georuimtelijke binnen query's: 
+
+   ```sql SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })```
 
 Ruimtelijke indexen kunnen worden gebruikt op de juiste indeling [GeoJSON](geospatial.md) objecten. Punten, LineStrings en polygonen worden momenteel ondersteund.
+
+De **samengestelde** index type wordt gebruikt voor:
+
+- `ORDER BY` query's op meerdere eigenschappen: 
+
+   ```sql SELECT * FROM container c ORDER BY c.firstName, c.lastName```
 
 ## <a name="querying-with-indexes"></a>Query's uitvoeren met indexen
 
@@ -89,7 +111,7 @@ Neem bijvoorbeeld de volgende query: `SELECT location FROM location IN company.l
 ![Die overeenkomt met een specifiek pad binnen een structuur](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> Een `ORDER BY` component *altijd* moet een bereik te indexeren en zal mislukken als het pad wordt verwezen naar een niet heeft.
+> Een `ORDER BY` -component die door één eigenschap orders *altijd* moet een bereik te indexeren en zal mislukken als het pad wordt verwezen naar een niet heeft. Op deze manier een meervoudige `ORDER BY` query *altijd* moet een samengestelde index.
 
 ## <a name="next-steps"></a>Volgende stappen
 

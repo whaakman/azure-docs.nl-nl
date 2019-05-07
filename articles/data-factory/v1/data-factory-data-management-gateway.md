@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 00c8d7cefd7539cd53de8081f44fe861bd063bee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b9cc26b927f78598422575646c876d90954bed
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60489552"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143304"
 ---
 # <a name="data-management-gateway"></a>Gegevensbeheergateway
 > [!NOTE]
@@ -205,8 +205,8 @@ U kunt weergeven en bijwerken van HTTP-proxy met behulp van Configuration Manage
 ### <a name="configure-proxy-server-settings"></a>Proxyserverinstellingen configureren
 Als u selecteert **systeemproxy gebruiken** instellen voor de HTTP-proxy, gateway maakt gebruik van de proxy-instellingen in diahost.exe.config en diawp.exe.config. Als er geen proxy is opgegeven in de diahost.exe.config en diawp.exe.config, maakt gateway verbinding met de cloudservice rechtstreeks zonder tussenkomst van proxy. De volgende procedure bevat instructies voor het bijwerken van het bestand diahost.exe.config.
 
-1. Maak een veilige kopie van C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config back-up van het oorspronkelijke bestand in Verkenner.
-2. Start Notepad.exe uitvoert als beheerder, en opent u tekstbestand "C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config. U kunt de standaardtag voor system.net vinden zoals wordt weergegeven in de volgende code:
+1. In Windows Verkenner, maakt u een veilige kopie van *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\gedeelde\\diahost.exe.config* aan back-up van het oorspronkelijke bestand.
+2. Start Notepad.exe uitvoert als beheerder, en opent u tekstbestand *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\gedeelde\\ diahost.exe.config*. U kunt de standaardtag voor system.net vinden zoals wordt weergegeven in de volgende code:
 
     ```
     <system.net>
@@ -280,7 +280,7 @@ U kunt in-/ uitschakelen de functie voor automatisch bijwerken door de volgende 
 
 [Voor één knooppunt gateway]
 1. Start Windows PowerShell op de gatewaycomputer.
-2. Ga naar de map C:\Program Files\Microsoft integratie Runtime\3.0\PowerShellScript\.
+2. Schakel over naar de *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*  map.
 3. Voer de volgende opdracht om het automatisch bijwerken inschakelen functie uit te schakelen.
 
     ```powershell
@@ -293,7 +293,7 @@ U kunt in-/ uitschakelen de functie voor automatisch bijwerken door de volgende 
     ```
    [Voor de maximaal beschikbare en schaalbare gateway met meerdere knooppunten](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Start Windows PowerShell op de gatewaycomputer.
-2. Ga naar de map C:\Program Files\Microsoft integratie Runtime\3.0\PowerShellScript\.
+2. Schakel over naar de *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*  map.
 3. Voer de volgende opdracht om het automatisch bijwerken inschakelen functie uit te schakelen.
 
     Een extra AuthKey-parameter is vereist voor de gateway met hoge beschikbaarheid.
@@ -310,7 +310,7 @@ U kunt in-/ uitschakelen de functie voor automatisch bijwerken door de volgende 
 Nadat u de gateway hebt geïnstalleerd, kunt u Data Management Gateway Configuration Manager in een van de volgende manieren starten:
 
 1. In de **zoeken** venster, type **Data Management Gateway** voor toegang tot dit hulpprogramma.
-2. Voer het uitvoerbare bestand **ConfigManager.exe** in de map: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+2. Voer het uitvoerbare bestand *ConfigManager.exe* in de map: *C:\\\\programmabestanden\\Microsoft Data Management Gateway\\2.0\\gedeeld*.
 
 ### <a name="home-page"></a>Startpagina
 De startpagina kunt u de volgende acties uitvoeren:
@@ -511,7 +511,7 @@ In deze sectie wordt beschreven hoe u maken en registreren van een gateway met b
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Ga naar de map in Azure PowerShell: **C:\\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\\**. Voer **RegisterGateway.ps1** die zijn gekoppeld aan de lokale variabele **$Key** zoals wordt weergegeven in de volgende opdracht uit. Met dit script registreert de clientagent geïnstalleerd op uw computer met de logische gateway die u eerder hebt gemaakt.
+1. Ga naar de map in Azure PowerShell: *C:\\\\programmabestanden\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*. Voer *RegisterGateway.ps1* die zijn gekoppeld aan de lokale variabele **$Key** zoals wordt weergegeven in de volgende opdracht uit. Met dit script registreert de clientagent geïnstalleerd op uw computer met de logische gateway die u eerder hebt gemaakt.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

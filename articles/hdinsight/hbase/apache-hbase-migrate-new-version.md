@@ -6,26 +6,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 05/06/2019
 ms.author: ashishth
-ms.openlocfilehash: ac7984c50e6adec888c112cc260cf2e6af02fc97
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a152b815daeefa4c199af9b159eee8e5783971e2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695701"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143324"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Een Apache HBase-cluster migreren naar een nieuwe versie
 
-Clusters op basis van een taak, zoals [Apache Spark](https://spark.apache.org/) en [Apache Hadoop](https://hadoop.apache.org/), zijn simpel upgrade-Zie [Upgrade HDInsight-cluster naar een nieuwere versie](../hdinsight-upgrade-cluster.md):
-
-1. Back-up van gegevens voor tijdelijke (lokaal opgeslagen).
-2. Het bestaande cluster verwijderen.
-3. Maak een nieuw cluster in hetzelfde VNET-subnet.
-4. Tijdelijke gegevens importeren.
-5. Taken starten en gaan met de verwerking op het nieuwe cluster.
-
-Upgrade een [Apache HBase](https://hbase.apache.org/) cluster enkele extra stappen nodig zijn, zoals beschreven in dit artikel.
+Dit artikel worden de stappen die nodig zijn voor het bijwerken van de Apache HBase-cluster in Azure HDInsight naar een nieuwere versie.
 
 > [!NOTE]  
 > De uitvaltijd tijdens de upgrade moet minimaal orde van grootte minuten. Deze uitvaltijd wordt veroorzaakt door de stappen leegmaken van alle in-memory-gegevens en vervolgens de tijd voor het configureren en opnieuw starten van de services op het nieuwe cluster. De resultaten zullen verschillen, afhankelijk van het aantal knooppunten, de hoeveelheid gegevens en andere variabelen.
@@ -37,7 +29,7 @@ Vóór de upgrade van Apache HBase, zorg ervoor dat de HBase-versies in de bron-
 > [!NOTE]  
 > Is het raadzaam dat u de versie-compatibiliteitsmatrix in controleren de [HBase book](https://hbase.apache.org/book.html#upgrading).
 
-Hier volgt een voorbeeld van de versie compatibiliteitsmatrix, waar Y compatibiliteit aangeeft en N een mogelijke incompatibiliteit:
+Hier volgt een voorbeeld van de versie compatibiliteitsmatrix. Y geeft aan dat de compatibiliteit en N geeft aan dat een mogelijke incompatibiliteit:
 
 | Compatibiliteitstype | Hoofdversie| Secundaire versie | Patch |
 | --- | --- | --- | --- |
@@ -58,7 +50,7 @@ Hier volgt een voorbeeld van de versie compatibiliteitsmatrix, waar Y compatibil
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>Een upgrade uitvoert op dezelfde primaire versie van Apache HBase
 
-De volgende scenario is voor het upgraden van HDInsight 3.4 naar 3.6 (beide worden geleverd met Apache HBase 1.1.2) met de dezelfde primaire versie van HBase. Andere versie-upgrades zijn vergelijkbaar, zolang er geen compatibiliteitsproblemen tussen bron- en -versies zijn.
+Als u uw Apache HBase-cluster in Azure HDInsight bijwerken, voert u de volgende stappen uit:
 
 1. Zorg ervoor dat uw toepassing compatibel met de nieuwe versie, is zoals wordt weergegeven in de HBase-compatibiliteit matrix- en release-opmerkingen. Test uw toepassing in een cluster met de doelversie van HDInsight en HBase.
 
@@ -66,7 +58,7 @@ De volgende scenario is voor het upgraden van HDInsight 3.4 naar 3.6 (beide word
 
     ![Gebruik hetzelfde opslagaccount, maar een andere Container maken](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
 
-3. Leegmaken van de bron HBase-cluster. Dit is het cluster waaruit u een upgrade uitvoert. HBase schrijft binnenkomende gegevens naar een in-memory-opslag, met de naam een _setSize()_. Nadat de geheugenopslag een bepaalde grootte bereikt, moet de geheugenopslag worden leeggemaakt op schijf voor langdurige opslag in de storage-account van het cluster. Wanneer u het oude cluster verwijdert, worden de memstores gerecycled, mogelijk gegevens verloren gaan. Voer het volgende script als u wilt de geheugenopslag voor elke tabel handmatig leegmaken naar schijf. De meest recente versie van dit script wordt op de Azure [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh).
+3. Leegmaken uw bron HBase-cluster, dit is van het cluster dat u een upgrade uitvoert. HBase schrijft binnenkomende gegevens naar een in-memory-opslag, met de naam een _setSize()_. Nadat de geheugenopslag een bepaalde grootte bereikt, leegmaken HBase op de schijf voor langdurige opslag in de storage-account van het cluster. Wanneer u het oude cluster verwijdert, worden de memstores gerecycled, mogelijk gegevens verloren gaan. Voer het volgende script als u wilt de geheugenopslag voor elke tabel handmatig leegmaken naar schijf. De meest recente versie van dit script wordt op de Azure [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh).
 
     ```bash
     #!/bin/bash
@@ -186,27 +178,32 @@ De volgende scenario is voor het upgraden van HDInsight 3.4 naar 3.6 (beide word
     
 4. Stop de opname voor het oude HBase-cluster.
 5. Voer het vorige script opnieuw uit om ervoor te zorgen dat alle recente gegevens in de geheugenopslag is leeggemaakt.
-6. Meld u aan bij [Apache Ambari](https://ambari.apache.org/) op het oude cluster (https://OLDCLUSTERNAME.azurehdidnsight.net) en stop de HBase-services. Wanneer u wordt gevraagd om te bevestigen dat u wilt de services te stoppen, schakel het selectievakje inschakelen in de onderhoudsmodus voor HBase. Zie voor meer informatie over verbinding maken met en het gebruik van Ambari [beheren HDInsight-clusters met behulp van de Ambari-Webgebruikersinterface](../hdinsight-hadoop-manage-ambari.md).
+6. Aanmelden bij [Apache Ambari](https://ambari.apache.org/) op het oude cluster (https://OLDCLUSTERNAME.azurehdidnsight.net) en stop de HBase-services. Wanneer u hierom wordt gevraagd om te bevestigen dat wilt u stoppen van de services, schakel het selectievakje in om in te schakelen in de onderhoudsmodus voor HBase. Zie voor meer informatie over verbinding maken met en het gebruik van Ambari [beheren HDInsight-clusters met behulp van de Ambari-Webgebruikersinterface](../hdinsight-hadoop-manage-ambari.md).
 
-    ![In de Ambari, klikt u op het tabblad Services en vervolgens HBase in het menu links en Stop vervolgens onder serviceacties](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
+    ![In de Ambari, klikt u op Services > HBase > onder acties van de Service stoppen](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 
     ![Controleren van de onderhoudsmodus inschakelen voor HBase selectievakje, en vervolgens bevestigen](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 
-7. Meld u aan bij de Ambari aan op de nieuwe HDInsight-cluster. Wijzig de `fs.defaultFS` HDFS-instelling om te verwijzen naar de containernaam die wordt gebruikt door het oorspronkelijke cluster. Deze instelling is onder **HDFS > configuraties > Geavanceerd > Geavanceerde core-site**.
+7. Meld u bij de Ambari op het nieuwe HDInsight-cluster. Wijzig de `fs.defaultFS` HDFS-instelling om te verwijzen naar de containernaam die wordt gebruikt door het oorspronkelijke cluster. Deze instelling is onder **HDFS > configuraties > Geavanceerd > Geavanceerde core-site**.
 
-    ![In de Ambari, klikt u op het tabblad Services en vervolgens HDFS in het menu links, klikt u vervolgens het tabblad configuraties, klikt u vervolgens het tabblad Geavanceerd onder](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
+    ![In Ambari, click Services > HDFS > Configs > Advanced](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
 
     ![In de Ambari, wijzigt u de containernaam](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-8. **Als u niet van HBase-clusters met de functie uitgebreide schrijft gebruikmaakt, kunt u deze stap overslaan. Dit alleen nodig voor HBase-clusters met functie uitgebreid schrijft.**
+8. **Als u met de functie voor uitgebreide schrijft HBase-clusters worden niet gebruikt, moet u deze stap overslaan. Dit alleen nodig voor HBase-clusters met functie uitgebreid schrijft.**
    
-   Wijzig het pad hbase.rootdir om te verwijzen naar de container van het oorspronkelijke cluster.
+   Wijzig de `hbase.rootdir` pad om te verwijzen naar de container van het oorspronkelijke cluster.
 
-    ![In de Ambari, wijzigt u de containernaam voor hbase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
-    
-9. Sla uw wijzigingen op.
-10. Alle benodigde services opnieuw starten zoals aangegeven door Ambari.
-11. Wijs de toepassing naar het nieuwe cluster.
+    ![In de Ambari, wijzigt u de containernaam voor HBase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+1. Als u een upgrade uitvoert HDInsight 3.6 4.0, volg de onderstaande stappen, anders gaat u naar stap 10:
+    1. Alle benodigde services opnieuw starten in Ambari door te selecteren **Services** > **start opnieuw alle vereiste**.
+    1. Stop de HBase-service.
+    1. SSH naar de Zookeeper-knooppunt en voer de [zkCli](https://github.com/go-zkcli/zkcli) opdracht `rmr /hbase-unsecure` de HBase-hoofdmap znode verwijderen uit Zookeeper.
+    1. Start opnieuw op HBase.
+1. Als u een naar een andere HDInsight-versie dan 4.0 upgrade uitvoert, volgt u deze stappen:
+    1. Sla uw wijzigingen op.
+    1. Alle benodigde services opnieuw starten zoals aangegeven door Ambari.
+1. Wijs de toepassing naar het nieuwe cluster.
 
     > [!NOTE]  
     > De statische DNS-server voor uw wijzigingen in de toepassing bij een upgrade. In plaats van hard-coding DNS, kunt u een CNAME in DNS-instellingen voor uw domeinnaam die verwijst naar de naam van het cluster configureren. Een andere optie is het gebruik van een configuratiebestand voor uw toepassing die u zonder opnieuw te implementeren bijwerken kunt.

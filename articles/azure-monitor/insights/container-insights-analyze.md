@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 05/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 8fb1d0083796671119de2b4d7feefe738b602fe2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed387f7038c5dee1a1685c918abcae49942cd55d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497221"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148848"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Inzicht in prestaties in een AKS-cluster met Azure Monitor voor containers 
 Met Azure Monitor voor containers, kunt u de van prestatiegrafieken en de status voor het bewaken van de werkbelasting van uw Azure Kubernetes Service (AKS)-clusters vanuit twee perspectieven, rechtstreeks vanuit een AKS-cluster of alle AKS-clusters in een abonnement van Azure Monitor. Weergeven van Azure Container Instances (ACI) is ook mogelijk wanneer u een specifieke AKS-cluster bewaken.
@@ -27,7 +27,19 @@ Dit artikel krijgt u inzicht in de ervaring tussen de twee perspectieven en hoe 
 
 Zie voor meer informatie over het inschakelen van Azure Monitor voor containers [ingebouwde Azure-Monitor voor containers](container-insights-onboard.md).
 
-Azure Monitor biedt een cluster met meerdere weergave voor de status van alle bewaakte AKS clusters die zijn geïmplementeerd op verschillende resourcegroepen in uw abonnementen.  Hier ziet u AKS clusters gedetecteerd die niet worden bewaakt door de oplossing. U kunt onmiddellijk clusterstatus begrijpen en hier kunt u inzoomen op de pagina van de prestaties knooppunt en de domeincontroller of Ga om te zien worden prestatiegrafieken weergegeven voor het cluster.  Voor clusters met AKS gedetecteerd en geïdentificeerd als niet-bewaakt, kunt u de bewaking voor dat cluster op elk gewenst moment inschakelen.  
+> [!IMPORTANT]
+> Azure Monitor voor containers-ondersteuning voor het bewaken van een AKS-cluster met Windows Server 2019 is momenteel in openbare preview.
+> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+
+Azure Monitor biedt een cluster met meerdere weergave voor de status van alle bewaakte AKS-clusters met Linux en Windows Server 2019 geïmplementeerd op verschillende resourcegroepen in uw abonnementen.  Hier ziet u AKS clusters gedetecteerd die niet worden bewaakt door de oplossing. U kunt onmiddellijk clusterstatus begrijpen en hier kunt u inzoomen op de pagina van de prestaties knooppunt en de domeincontroller of Ga om te zien worden prestatiegrafieken weergegeven voor het cluster.  Voor clusters met AKS gedetecteerd en geïdentificeerd als niet-bewaakt, kunt u de bewaking voor dat cluster op elk gewenst moment inschakelen.  
+
+De belangrijkste verschillen controleren van een Windows Server-cluster met Azure Monitor voor containers in vergelijking met een Linux-cluster zijn als volgt:
+
+- Geheugen RSS-metriek is niet beschikbaar voor Windows-knooppunt en containers 
+- Informatie over de capaciteit van de schijf opslag is niet beschikbaar voor Windows-knooppunten
+- Logboeken voor live-ondersteuning is beschikbaar met uitzondering van Windows-Logboeken voor containers.
+- Alleen pod omgevingen worden bewaakt, geen Docker-omgeving.
+- Met de preview-versie een maximum van 30 Windows Server-containers worden ondersteund. Deze beperking geldt niet voor Linux-containers.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 Meld u aan bij [Azure Portal](https://portal.azure.com). 
@@ -35,7 +47,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Weergave van meerdere cluster van Azure Monitor 
 Als u wilt weergeven van de status van alle AKS clusters die zijn geïmplementeerd, selecteert u **Monitor** in het linkervenster in Azure portal.  Onder de **Insights** sectie, selecteer **Containers**.  
 
-![Voorbeeld van meerdere clusterdashboard met Azure Monitor](./media/container-insights-analyze/azmon-containers-multiview-1018.png)
+![Voorbeeld van meerdere clusterdashboard met Azure Monitor](./media/container-insights-analyze/azmon-containers-multiview.png)
 
 Op de **bewaakt clusters** tabblad, kunt u de volgende informatie:
 
@@ -128,11 +140,11 @@ U kunt toepassen [splitsen](../platform/metrics-charts.md#apply-splitting-to-a-c
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Analyseer knooppunten, domeincontrollers en containerstatus
 
-Als u overschakelt naar **knooppunten**, **Controllers**, en **Containers** tabblad automatisch weergegeven aan de rechterkant van de pagina is het deelvenster met de eigenschap.  Het bevat de eigenschappen van het item geselecteerd, met inbegrip van de labels die u definieert om te organiseren van Kubernetes-objecten. Klik op de **>>** koppelen in het deelvenster aan view\hide het deelvenster.  
+Als u overschakelt naar **knooppunten**, **Controllers**, en **Containers** tabblad automatisch weergegeven aan de rechterkant van de pagina is het deelvenster met de eigenschap. Het bevat de eigenschappen van het item geselecteerd, met inbegrip van de labels die u definieert om te organiseren van Kubernetes-objecten. Wanneer een Linux-knooppunt is geselecteerd, ook wordt getoond in de sectie **lokale schijfcapaciteit** beschikbare ruimte op schijf en het percentage gebruikt voor elke schijf die wordt gepresenteerd aan het knooppunt. Klik op de **>>** koppelen in het deelvenster aan view\hide het deelvenster. 
 
 ![Voorbeeld van Kubernetes perspectieven het deelvenster met eigenschappen](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-Als u de objecten in de hiërarchie wilt uitbreiden, de eigenschappen van deelvenster updates op basis van het geselecteerde object. In het deelvenster kunt u de Kubernetes-gebeurtenissen met vooraf gedefinieerde zoekopdrachten ook weergeven door te klikken op de **weergave Kubernetes gebeurtenislogboeken** koppelen aan de bovenkant van het deelvenster. Zie voor meer informatie over het weergeven van Kubernetes-logboekgegevens [zoeken in Logboeken om gegevens te analyseren](container-insights-log-search.md). Wanneer u uw containers in de **Containers** weergave ziet u container-Logboeken in realtime. Zie voor meer informatie over deze functie en de vereiste configuratie voor het verlenen en beheren van toegang, [container logboeken realtime met Azure Monitor voor containers weergeven](container-insights-live-logs.md). 
+Als u de objecten in de hiërarchie wilt uitbreiden, de eigenschappen van deelvenster updates op basis van het geselecteerde object. In het deelvenster kunt u de Kubernetes-gebeurtenissen met vooraf gedefinieerde zoekopdrachten ook weergeven door te klikken op de **weergave Kubernetes gebeurtenislogboeken** koppelen aan de bovenkant van het deelvenster. Zie voor meer informatie over het weergeven van Kubernetes-logboekgegevens [zoeken in Logboeken om gegevens te analyseren](container-insights-log-search.md). Tijdens het bekijken van clusterbronnen, ziet u Logboeken voor containers en gebeurtenissen in realtime. Zie voor meer informatie over deze functie en de vereiste configuratie voor het verlenen en beheren van toegang, [weergeven realtime met Azure Monitor-logboeken voor containers](container-insights-live-logs.md). 
 
 Gebruik de **+ Filter toevoegen** optie vanaf de bovenkant van de pagina voor het filteren van de resultaten voor de weergave door **Service**, **knooppunt**, **Namespace**, of  **Knooppuntgroep** en na het selecteren van het filterbereik, selecteer u vervolgens in een van de waarden in de **waard(en) selecteren** veld.  Nadat het filter is geconfigureerd, wordt deze wereldwijd toegepast tijdens het bekijken van een perspectief van het AKS-cluster.  De formule ondersteunt alleen het gelijkteken.  U kunt extra filters op de eerste verder beperken van de resultaten kunt toevoegen.  Bijvoorbeeld, als u een filter door opgegeven **knooppunt**, het tweede filter zou alleen kunt u selecteren **Service** of **Namespace**.  
 
@@ -143,6 +155,10 @@ Een filter op te geven op een tabblad blijft te worden toegepast wanneer u een a
 Schakel over naar de **knooppunten** tabblad en de hiërarchie rij volgt het Kubernetes-objectmodel, beginnen met een knooppunt in het cluster. Vouw het knooppunt en vindt u een of meer schillen die worden uitgevoerd op het knooppunt. Als meer dan één container is gegroepeerd op een schil, worden ze weergegeven als de laatste rij in de hiërarchie. U kunt ook bekijken hoeveel niet-schil gerelateerde workloads worden uitgevoerd op de host als de host processor of geheugen.
 
 ![Voorbeeld van de Kubernetes-knooppunt-hiërarchie in de weergave van agentprestaties](./media/container-insights-analyze/containers-nodes-view.png)
+
+Windows Server-containers met de Windows Server 2019 OS worden weergegeven nadat u alle van de knooppunten op basis van Linux in de lijst. Wanneer u een Windows Server-knooppunt uitvouwt, kunt u een of meer schillen en containers die worden uitgevoerd op het knooppunt weergeven. Wanneer een knooppunt is geselecteerd, bevat het deelvenster met eigenschappen versie-informatie, met uitzondering van agentgegevens sinds Windows Server-knooppunten nog geen een agent is geïnstalleerd.  
+
+![Voorbeeld van knooppunt-hiërarchie met Windows Server-knooppunten die worden vermeld](./media/container-insights-analyze/nodes-view-windows.png) 
 
 Azure Container Instances virtuele knooppunten met het Linux-besturingssysteem worden weergegeven na de laatste AKS-cluster-knooppunt in de lijst.  Wanneer u een virtuele-ACI-knooppunt uitvouwt, kunt u een of meer pods in ACI en containers die worden uitgevoerd op het knooppunt weergeven.  Metrische gegevens zijn niet verzameld en gerapporteerd voor knooppunten, alleen schillen.
 

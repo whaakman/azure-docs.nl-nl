@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78f54e9e86de7a8b1b80300e0ed79a5e54f29282
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690471"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074184"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor geavanceerde scheduler-functies in Azure Kubernetes Service (AKS)
 
@@ -30,6 +30,8 @@ Deze aanbevolen procedures voor richt zich op geavanceerde Kubernetes planningsf
 **Aanbevolen procedurerichtlijn** -toegang voor resource-intensieve toepassingen, zoals controllers voor inkomend verkeer, om specifieke knooppunten te beperken. Houd knooppunt bronnen beschikbaar zijn voor workloads die ze nodig hebben en planning van andere werkbelastingen op de knooppunten niet toestaan.
 
 Wanneer u uw AKS-cluster maakt, kunt u knooppunten met GPU-ondersteuning of een groot aantal krachtige CPU's kunt implementeren. Deze knooppunten worden vaak gebruikt voor workloads met grote gegevensverwerking zoals machine learning-(ML) of kunstmatige intelligentie (AI). Als dit type hardware doorgaans een dure knooppunt bron om te implementeren is, beperken van de werklasten die kunnen worden gepland op deze knooppunten. U kunt in plaats daarvan desgewenst besteden aan het aantal knooppunten in het cluster uit te voeren van ingress-services en te voorkomen dat andere werkbelastingen.
+
+Dit biedt ondersteuning voor verschillende knooppunten wordt opgegeven met behulp van meerdere groepen. Een AKS-cluster bevat een of meer groepen. Ondersteuning voor meerdere knooppuntgroepen in AKS is momenteel in preview.
 
 De scheduler Kubernetes kunt taints en tolerations gebruiken om te beperken welke workloads kunnen uitvoeren op de knooppunten.
 
@@ -53,13 +55,13 @@ spec:
   containers:
   - name: tf-mnist
     image: microsoft/samples-tf-mnist-demo:gpu
-  resources:
-    requests:
-      cpu: 0.5
-      memory: 2Gi
-    limits:
-      cpu: 4.0
-      memory: 16Gi
+    resources:
+      requests:
+        cpu: 0.5
+        memory: 2Gi
+      limits:
+        cpu: 4.0
+        memory: 16Gi
   tolerations:
   - key: "sku"
     operator: "Equal"
@@ -72,6 +74,8 @@ Wanneer deze pod wordt geïmplementeerd, zoals het gebruik van `kubectl apply -f
 Wanneer u taints toepast, kunt u werken met uw ontwikkelaars van toepassingen en eigenaren zodat ze voor het definiëren van de vereiste tolerations in hun implementaties.
 
 Zie voor meer informatie over taints en tolerations [toe te passen taints en tolerations][k8s-taints-tolerations].
+
+Zie voor meer informatie over het gebruik van meerdere knooppuntgroepen in AKS [maken en beheren van meerdere knooppuntgroepen voor een cluster in AKS][use-multiple-node-pools].
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Gedrag van taints en tolerations in AKS
 
@@ -195,3 +199,4 @@ In dit artikel is gericht op geavanceerde functies van Kubernetes scheduler. Zie
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

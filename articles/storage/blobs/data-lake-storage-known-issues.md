@@ -6,91 +6,69 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 04/26/2019
 ms.author: normesta
-ms.openlocfilehash: 51230fe050c67253dd5b2bb3f23d03512df64ef6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 61d168a5f501923812db5945fa6df439ae7e70f9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939259"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145109"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Bekende problemen met Azure Data Lake Storage Gen2
 
-In dit artikel bevat bekende problemen en tijdelijke beperkingen met Data Lake Storage Gen2.
+In dit artikel bevat de functies en hulpprogramma's die nog niet ondersteund of slechts gedeeltelijk ondersteund voor opslagaccounts waarvoor een hiërarchische naamruimte (Azure Data Lake Storage Gen2).
 
-## <a name="sdk-support-for-data-lake-storage-gen2-accounts"></a>SDK-ondersteuning voor Data Lake Storage Gen2 accounts
-
-Er zijn SDK's beschikbaar die met Data Lake Storage Gen2 accounts werkt niet.
+<a id="blob-apis-disabled" />
 
 ## <a name="blob-storage-apis"></a>BLOB storage-API 's
 
-BLOB storage-API's zijn nog niet beschikbaar voor accounts van Data Lake Storage Gen2.
+BLOB storage-API's zijn uitgeschakeld om te voorkomen dat onbedoelde gegevens toegangsproblemen die optreden kunnen omdat Blob Storage-API's nog niet compatibel met Azure Data Lake Gen2 API's.
 
-Deze API's zijn uitgeschakeld om te voorkomen dat onbedoelde gegevens toegangsproblemen die optreden kunnen omdat Blob Storage-API's nog niet compatibel met Azure Data Lake Gen2 API's.
+### <a name="what-to-do-with-existing-tools-applications-and-services"></a>Wat te doen met bestaande hulpprogramma's, toepassingen en services
+
+Als een van deze gebruik van Blob-API's, en u wilt gebruiken voor het werken met alle inhoud die u naar uw account uploadt, klikt u vervolgens niet inschakelt een hiërarchische naamruimte op uw Blob storage-account tot de Blob-API's worden gebruikt in combinatie met Azure Data Lake Gen2 API's.
+
+Met behulp van een storage-account zonder een hiërarchische naamruimte betekent dat u geen toegang tot specifieke functies van Data Lake Storage Gen2, zoals map- en systeemtoegangscontrolelijsten vervolgens hebt.
+
+### <a name="what-to-do-with-unmanaged-virtual-machine-vm-disks"></a>Wat te doen met niet-beheerde schijven van de virtuele Machine (VM)
+
+Dit is afhankelijk van het uitgeschakelde Blob Storage-API's, dus als u wilt inschakelen, een hiërarchische naamruimte op een storage-account kunt u overwegen ze worden geplaatst in een storage-account dat beschikt niet over de hiërarchische naamruimte functie is ingeschakeld.
+
+### <a name="what-to-do-if-you-used-blob-apis-to-load-data-before-blob-apis-were-disabled"></a>Wat te doen als u Blob-API's gebruikt voor het laden van gegevens voor Blob-API's zijn uitgeschakeld
 
 Als u deze API's gebruikt om gegevens te laden voordat ze zijn uitgeschakeld en u een productie-vereiste hebt voor toegang tot die gegevens, klikt u vervolgens Neem contact op met Microsoft Support met de volgende informatie:
 
-* Abonnements-ID (de GUID, niet de naam)
-
-* Opslagaccounts
-
-* Of u actief in productie wordt beïnvloed, en zo ja, voor welke storage-accounts?
-
-* Zelfs als u niet actief beïnvloed in productie, laat ons weten of moet u deze gegevens moeten worden gekopieerd naar een ander opslagaccount om een bepaalde reden, en indien dit het geval is, waarom?
+> [!div class="checklist"]
+> * Abonnements-ID (de GUID, niet de naam).
+> * Namen van Storage-account.
+> * Of u actief in productie wordt beïnvloed, en zo ja, voor welke storage-accounts?
+> * Zelfs als u niet actief beïnvloed in productie, laat ons weten of moet u deze gegevens moeten worden gekopieerd naar een ander opslagaccount om een bepaalde reden, en indien dit het geval is, waarom?
 
 In de volgende situaties, kunnen we herstellen toegang tot de Blob-API voor een beperkte periode zodat u deze gegevens kunt kopiëren naar een opslagaccount dat u beschikt niet over de hiërarchische naamruimte functie is ingeschakeld.
 
-Niet-beheerde schijven van de virtuele Machine (VM) is afhankelijk van het uitgeschakelde Blob Storage-API's, dus als u wilt inschakelen, een hiërarchische naamruimte op een storage-account, houd rekening met het plaatsen van niet-beheerde VM-schijven in een storage-account dat beschikt niet over de functie voor hiërarchische naamruimte ingeschakeld.
+## <a name="all-other-features-and-tools"></a>Alle andere functies en hulpprogramma 's
 
-## <a name="api-interoperability"></a>API-interoperabiliteit
+De volgende tabel geeft een lijst van alle andere functies en hulpprogramma's die nog niet ondersteund of slechts gedeeltelijk ondersteund voor opslagaccounts waarvoor een hiërarchische naamruimte (Azure Data Lake Storage Gen2).
 
-BLOB Storage-API's en Azure Data Lake Gen2 API's zijn niet compatibel met elkaar uit.
+| Functie / hulpprogramma    | Meer informatie    |
+|--------|-----------|
+| **API's voor Data Lake Storage Gen2 storage-accounts** | Gedeeltelijk ondersteund <br><br>U kunt Data Lake Storage Gen2 **REST** API's, maar in andere Blob-SDK's, zoals de SDK's voor .NET, Java, Python-API's zijn nog niet beschikbaar.|
+| **AzCopy** | Ondersteuning voor specifieke versies <br><br>Alleen de meest recente versie van AzCopy gebruiken ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Eerdere versies van AzCopy zoals AzCopy v8.1, worden niet ondersteund.|
+| **Azure Blob storage Lifecycle management-beleid** | Nog niet ondersteund |
+| **Azure Content Delivery Network (CDN)** | Nog niet ondersteund|
+| **Azure search** |Nog niet ondersteund|
+| **Azure-opslagverkenner** | Ondersteuning voor specifieke versies <br><br>Gebruik alleen versie `1.6.0` of hoger. <br>Versie `1.6.0` is beschikbaar als een [gratis download](https://azure.microsoft.com/features/storage-explorer/).|
+| **BLOB-container ACL 's** |Nog niet ondersteund|
+| **Blobfuse** |Nog niet ondersteund|
+| **Aangepaste domeinen** |Nog niet ondersteund|
+| **Diagnostische logboeken** |Nog niet ondersteund|
+| **File System Explorer** | Beperkte ondersteuning |
+| **Onveranderbare opslag** |Nog niet ondersteund <br><br>Onveranderbare-opslag biedt de mogelijkheid voor het opslaan van gegevens in een [WORM (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) staat.|
+| **Op objectniveau lagen** |Nog niet ondersteund <br><br>Bijvoorbeeld: Premium-, warm, koud en archief lagen.|
+| **Ondersteuning voor PowerShell en CLI** | Beperkte functionaliteit <br><br>U kunt een account maken met behulp van Powershell of CLI. U kan geen bewerkingen uitvoeren of instellen van toegangsbeheerlijsten voor bestandssystemen, mappen en bestanden.|
+| **Statische websites** |Nog niet ondersteund <br><br>Met name de mogelijkheid om bestanden naar [statische websites](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
+| **Toepassingen van derden** | Beperkte ondersteuning <br><br>Toepassingen van derden die REST-API's gebruiken om te werken blijft werken als u deze met Data Lake Storage Gen2 gebruiken. <br>Als u een toepassing die gebruikmaakt van de Blob-API's hebt, wordt die toepassing zeer waarschijnlijk problemen hebben als u deze toepassing met Data Lake Storage Gen2 gebruiken. Zie voor meer informatie, de [Blob storage-API's zijn uitgeschakeld voor Data Lake Storage Gen2 storage-accounts](#blob-apis-disabled) sectie van dit artikel.|
+| **Versiebeheer functies** |Nog niet ondersteund <br><br>Dit omvat [momentopnamen](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) en [voorlopig verwijderen](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete).|
+|
 
-Als u hulpprogramma's, toepassingen, services of scripts die gebruikmaken van Blob-API's hebt en u wilt gebruiken voor het werken met alle inhoud die u naar uw account uploadt, klikt u vervolgens niet inschakelt een hiërarchische naamruimte op uw Blob storage-account tot de Blob-API's worden compatibel met Azure Data Lake Gen2 API's. Met behulp van een storage-account zonder een hiërarchische naamruimte betekent dat u geen toegang tot specifieke functies van Data Lake Storage Gen2, zoals map- en systeemtoegangscontrolelijsten vervolgens hebt.
-
-## <a name="azure-storage-explorer"></a>Azure Opslagverkenner
-
-Als u wilt weergeven of Data Lake Storage Gen2 accounts beheren met behulp van Azure Storage Explorer, hebt u ten minste versie `1.6.0` van het hulpprogramma die beschikbaar is als een [gratis download](https://azure.microsoft.com/features/storage-explorer/).
-
-Houd er rekening mee dat de versie van Storage Explorer die is ingesloten in de Azure-portal biedt momenteel geen ondersteuning voor bekijken of beheren van Data Lake Storage Gen2 accounts met de functie voor hiërarchische naamruimte ingeschakeld.
-
-## <a name="blob-viewing-tool"></a>Hulpprogramma voor BLOB weergeven
-
-BLOB hulpprogramma bekijken in Azure portal is de enige beperking is ondersteuning voor Data Lake Storage Gen2.
-
-## <a name="third-party-applications"></a>Toepassingen van derden
-
-Data Lake Storage Gen2 mogelijk geen ondersteuning voor toepassingen van derden.
-
-Ondersteuning is bij de keuze van de provider van elke toepassing van derden. Op dit moment Blob storage-API's en Data Lake Storage Gen2 API's voor het beheren van dezelfde inhoud kan niet worden gebruikt. Als we werken om in te schakelen dat interoperabiliteit, is het mogelijk dat veel hulpprogramma's van derden Data Lake Storage Gen2 automatisch ondersteunen.
-
-## <a name="azcopy-support"></a>AzCopy-ondersteuning
-
-AzCopy versie 8 biedt geen ondersteuning voor Data Lake Storage Gen2.
-
-In plaats daarvan gebruikt u de meest recente preview-versie van AzCopy ( [AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json) ) als het Data Lake Storage Gen2 eindpunten ondersteunt.
-
-## <a name="azure-event-grid"></a>Azure Event Grid
-
-[Azure Event Grid](https://azure.microsoft.com/services/event-grid/) niet ontvangen van gebeurtenissen van Azure Data Lake Gen2 accounts omdat ze geen nog door deze accounts genereren.  
-
-## <a name="soft-delete-and-snapshots"></a>Voorlopig verwijderen en momentopnamen
-
-Zijn niet beschikbaar voor accounts van Data Lake Storage Gen2 voorlopig verwijderen en momentopnamen.
-
-Alle versiebeheer functies, waaronder [momentopnamen](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) en [voorlopig verwijderen](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) zijn nog niet beschikbaar voor opslagaccounts waarvoor de hiërarchische naamruimte functie is ingeschakeld.
-
-## <a name="object-level-storage-tiers"></a>Object niveau opslaglagen
-
-Object niveau opslaglagen (warm, koud en archief) zijn nog niet beschikbaar voor Azure Data Lake Storage Gen 2-accounts, maar ze zijn beschikbaar voor opslagaccounts waarvoor geen de hiërarchische naamruimte functie is ingeschakeld.
-
-## <a name="azure-blob-storage-lifecycle-management-policies"></a>Azure Blob-opslag lifecycle management-beleid
-
-Azure Blob-opslag lifecycle management-beleid zijn nog niet beschikbaar voor accounts van Data Lake Storage Gen2.
-
-Deze beleidsregels zijn beschikbaar voor opslagaccounts waarvoor geen de hiërarchische naamruimte functie is ingeschakeld.
-
-## <a name="diagnostic-logs"></a>Diagnostische logboeken
-
-Logboeken met diagnostische gegevens zijn niet beschikbaar voor accounts van Data Lake Storage Gen2.

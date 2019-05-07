@@ -1,7 +1,7 @@
 ---
 title: Container - formulier herkenning configureren
 titleSuffix: Azure Cognitive Services
-description: Informatie over het gebruik van de container formulier herkenning formulier-en tabelgegevens parseren.
+description: Informatie over het configureren van de container herkenning van formulier voor het parseren van formulier-en tabelgegevens.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 6066e7856ddf8ef757afc2072218c87420a37c10
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 3f6cc32f6fb2a9fb11220ac1a3134fb3ae4d2f84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027178"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147468"
 ---
 # <a name="configure-form-recognizer-containers"></a>Formulier herkenning containers configureren
 
@@ -70,7 +70,7 @@ Deze instelling kan worden gevonden in de volgende plaats:
 
 Gebruik bind koppelt om te lezen en schrijven van gegevens naar en van de container. U kunt opgeven van een koppelpunt invoer of uitvoer koppelen door op te geven de `--mount` optie in de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht.
 
-De containers formulier herkenning vereist een koppelpunt invoer en uitvoer. De invoer koppeling kan alleen-lezen en is vereist voor toegang tot de gegevens die worden gebruikt voor training en scoren. De uitvoer-koppeling moet beschrijfbaar en wordt gebruikt voor het opslaan van de modellen en tijdelijke gegevens.
+De container formulier herkenning vereist een koppelpunt invoer en uitvoer. De invoer koppeling kan alleen-lezen en is vereist voor toegang tot de gegevens die worden gebruikt voor training en scoren. De uitvoer-koppeling moet beschrijfbaar en wordt gebruikt voor het opslaan van de modellen en tijdelijke gegevens.
 
 De exacte syntaxis van de locatie van de host koppelen, is afhankelijk van het hostbesturingssysteem. Bovendien de [hostcomputer](form-recognizer-container-howto.md#the-host-computer)van koppelpunten locatie is mogelijk niet toegankelijk is vanwege een conflict tussen de machtigingen die wordt gebruikt door de Docker-service-account en de host koppelen locatie machtigingen.
 

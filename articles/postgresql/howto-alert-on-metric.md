@@ -1,19 +1,19 @@
 ---
-title: Waarschuwingen voor metrische gegevens voor Azure Database voor PostgreSQL configureren in Azure portal
-description: Dit artikel wordt beschreven hoe u configureert en toegang tot metrische waarschuwingen voor Azure Database for PostgreSQL vanuit Azure portal.
+title: Waarschuwingen voor metrische gegevens voor Azure Database voor PostgreSQL - één Server in Azure portal configureren
+description: Dit artikel beschrijft hoe u configureert en toegang tot metrische waarschuwingen voor Azure Database voor PostgreSQL - één Server van de Azure-portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/11/2019
-ms.openlocfilehash: 7211ffddf82b38ca27b776ecfd12bca25ebbb0f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 000dfe2d3e594c71f9c7ebbff7bce7141243668a
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421956"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067303"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>De Azure portal gebruiken voor het instellen van waarschuwingen over metrische gegevens voor Azure Database for PostgreSQL 
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>De Azure portal gebruiken voor het instellen van waarschuwingen over metrische gegevens voor Azure Database voor PostgreSQL - één Server
 
 Dit artikel leest u hoe het instellen van Azure Database voor PostgreSQL-meldingen met behulp van de Azure portal. U kunt een waarschuwing op basis van metrische gegevens voor uw Azure-services controleren ontvangen.
 

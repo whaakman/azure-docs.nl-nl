@@ -9,19 +9,17 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e82c842ec8fce703c48c98eaf09ea5c8d91be9be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74d2601c2319ccad9cc980b83894a3242705aa46
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998512"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148123"
 ---
-# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Meer informatie over uitgebreide offline mogelijkheden voor IoT Edge-apparaten, modules en onderliggende apparaten (preview)
+# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Meer informatie over uitgebreide offline mogelijkheden voor IoT Edge-apparaten, modules en onderliggende apparaten
 
 Azure IoT Edge biedt ondersteuning voor uitgebreide offline bewerkingen op uw IoT Edge-apparaten en offline-bewerkingen op onderliggende van niet-Microsoft Edge-apparaten te kunnen. Als een IoT Edge-apparaat een mogelijkheid om te verbinden met IoT Hub heeft, kunnen het en eventuele onderliggende-apparaten blijven functie met onregelmatige of geen verbinding met internet. 
 
->[!NOTE]
->Offline ondersteuning voor IoT Edge is [preview-versie](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
@@ -61,24 +59,49 @@ Voor een IoT Edge-apparaat uit te breiden zijn uitgebreide offline mogelijkheden
 
 ### <a name="assign-child-devices"></a>Onderliggende apparaten toewijzen
 
-Onderliggende apparaten mag niet-Edge-apparaat dat is geregistreerd bij dezelfde IoT Hub. U kunt de bovenliggende / onderliggende relatie voor het maken van een nieuw apparaat of vanuit de detailpagina van het apparaat van de bovenliggende IoT Edge-apparaat of de onderliggende IoT-apparaat kunt beheren. 
+Onderliggende apparaten mag niet-Edge-apparaat dat is geregistreerd bij dezelfde IoT Hub. Bovenliggende apparaten kunnen meerdere onderliggende apparaten hebben, maar een onderliggend apparaat kan slechts één bovenliggend object hebben. Er zijn drie opties voor het onderliggende apparaten ingesteld op een edge-apparaat:
+
+#### <a name="option-1-iot-hub-portal"></a>Optie 1: IoT Hub-Portal
+
+ U kunt de bovenliggende / onderliggende relatie voor het maken van een nieuw apparaat of vanuit de detailpagina van het apparaat van de bovenliggende IoT Edge-apparaat of de onderliggende IoT-apparaat kunt beheren. 
 
    ![Onderliggende apparaten beheren vanaf de pagina met details van IoT Edge-apparaat](./media/offline-capabilities/manage-child-devices.png)
 
-Bovenliggende apparaten kunnen meerdere onderliggende apparaten hebben, maar een onderliggend apparaat kan slechts één bovenliggend object hebben.
+
+#### <a name="option-2-use-the-az-command-line-tool"></a>Optie 2: Gebruik de `az` opdrachtregel-hulpprogramma
+
+Met behulp van de [Azure-opdrachtregelinterface](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) met [IoT-extensie](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 of hoger), kunt u relaties tussen bovenliggende-onderliggende met beheren de [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) onderliggende opdrachten. In het onderstaande voorbeeld wordt een query voor het toewijzen van alle niet-IoT-Edge-apparaten in de hub als onderliggende apparaten van een IoT Edge-apparaat uitvoeren. 
+
+```shell
+# Set IoT Edge parent device
+egde_device="edge-device1"
+
+# Get All IoT Devices
+device_list=$(az iot hub query \
+        --hub-name replace-with-hub-name \
+        --subscription replace-with-sub-name \
+        --resource-group replace-with-rg-name \
+        -q "SELECT * FROM devices WHERE capabilities.iotEdge = false" \
+        --query 'join(`, `, [].deviceId)' -o tsv)
+
+# Add all IoT devices to IoT Edge (as child)
+az iot hub device-identity add-children \
+  --device-id $egde_device \
+  --child-list $device_list \
+  --hub-name replace-with-hub-name \
+  --resource-group replace-with-rg-name \
+  --subscription replace-with-sub-name 
+```
+
+U kunt de [query](../iot-hub/iot-hub-devguide-query-language.md) om een andere subset van apparaten te selecteren. De opdracht kan enkele seconden duren als u een groot aantal apparaten opgeven.
+
+#### <a name="option-3-use-iot-hub-service-sdk"></a>Optie 3: IoT Hub-Service SDK gebruiken 
+
+Ten slotte kunt u beheren via een programma met behulp van relaties tussen bovenliggende onderliggende C#, Java of Service-SDK voor Node.js IoT-Hub. Hier volgt een [voorbeeld van het toewijzen van een onderliggend apparaat](https://aka.ms/set-child-iot-device-c-sharp) met behulp van de C# SDK.
 
 ### <a name="specifying-dns-servers"></a>DNS-servers op te geven 
 
-Het verdient ter verbetering van robuustheid biedt u de adressen van de DNS-server in uw omgeving gebruikt. Bijvoorbeeld: in Linux, werken **/etc/docker/daemon.json** (mogelijk moet u het bestand maken) om op te nemen:
-
-```json
-{
-    "dns": ["1.1.1.1"]
-}
-```
-
-Als u een lokale DNS-server gebruikt, vervangt u de 1.1.1.1 met het IP-adres van de lokale DNS-server. Start de docker-service de wijzigingen van kracht te laten worden.
-
+Voor een betere stabiliteit, is het raadzaam opgeven van de adressen van de DNS-server in uw omgeving gebruikt. Raadpleeg de [twee opties om dit te doen in het artikel over probleemoplossing](troubleshoot.md#resolution-7).
 
 ## <a name="optional-offline-settings"></a>Optionele offline-instellingen
 
@@ -86,7 +109,7 @@ Als u verwacht voor het verzamelen van alle berichten die uw apparaten tijdens l
 
 ### <a name="time-to-live"></a>Time To Live
 
-Time to live-instelling is de hoeveelheid tijd (in seconden) die een bericht wachten kunt moet worden geleverd voordat deze verloopt. De standaardwaarde is 7200 seconden (twee uur). 
+Time to live-instelling is de hoeveelheid tijd (in seconden) die een bericht wachten kunt moet worden geleverd voordat deze verloopt. De standaardwaarde is 7200 seconden (twee uur). De maximale waarde wordt alleen beperkt door de maximale waarde van een geheel getal variabele ongeveer 2 miljard is. 
 
 Deze instelling is een gewenste eigenschap van de IoT Edge-hub die is opgeslagen in de moduledubbel. U kunt deze configureren in Azure portal, in de **geavanceerde instellingen voor Edge-Runtime configureren** sectie of rechtstreeks in de implementatie van het manifest. 
 

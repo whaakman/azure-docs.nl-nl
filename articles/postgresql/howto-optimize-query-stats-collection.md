@@ -1,20 +1,19 @@
 ---
-title: Query statistieken verzameling op een Azure Database for PostgreSQL-server te optimaliseren
-description: Dit artikel wordt beschreven hoe u query statistieken verzameling op een Azure Database for PostgreSQL-server kunt optimaliseren.
-author: WenJason
-ms.author: v-jay
+title: Query statistieken verzameling op een Azure Database voor PostgreSQL - Server één optimaliseren
+description: Dit artikel wordt beschreven hoe u query statistieken verzameling op een Azure Database voor PostgreSQL - Server één kunt optimaliseren
+author: dianaputnam
+ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/25/2018
-ms.date: 02/18/2019
-ms.openlocfilehash: 428a22f79008130448bef65f14322d6880b1b367
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 7425ee7916fd71625f336a7af35f6481d1ed2474
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422697"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068964"
 ---
-# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql-server"></a>Verzamelen van queryuitvoeringsstatistieken query op een Azure Database for PostgreSQL-server te optimaliseren 
+# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Query verzamelen van queryuitvoeringsstatistieken op een Azure Database voor PostgreSQL - Server één optimaliseren
 Dit artikel wordt beschreven hoe u kunt verzamelen van queryuitvoeringsstatistieken query op een Azure Database for PostgreSQL-server te optimaliseren.
 
 ## <a name="use-pgstatsstatements"></a>Gebruik pg_stats_statements

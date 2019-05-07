@@ -1,18 +1,18 @@
 ---
-title: Configureren en serverlogboeken openen voor PostgreSQL met behulp van Azure CLI
-description: Dit artikel wordt beschreven hoe u configureert en toegang krijgen tot de serverlogboeken in Azure Database voor PostgreSQL met behulp van de Azure CLI-opdrachtregel.
+title: Configureren en toegang tot de serverlogboeken voor PostgreSQL - één Server met behulp van Azure CLI
+description: Dit artikel wordt beschreven hoe u configureert en toegang krijgen tot de serverlogboeken in Azure Database voor PostgreSQL - één Server met behulp van de Azure CLI-opdrachtregel.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 3ca77c1ffa5f5a3f384009299701f4aa674baf59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4702db31ffeb15481584b9638f5be1aa640ff39e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421183"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067212"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configureren en serverlogboeken openen met behulp van Azure CLI
 U kunt de foutenlogboeken van de PostgreSQL-server downloaden via de opdrachtregelinterface (Azure CLI). Echter, toegang tot de transactielogboeken wordt niet ondersteund. 
@@ -22,7 +22,7 @@ Als u wilt in deze gebruiksaanwijzing kunt doorlopen, hebt u het volgende nodig:
 - [Azure Database for PostgreSQL-server](quickstart-create-server-database-azure-cli.md)
 - De [Azure CLI](/cli/azure/install-azure-cli) opdrachtregelprogramma of Azure Cloud Shell in de browser
 
-## <a name="configure-logging-for-azure-database-for-postgresql"></a>Logboekregistratie voor Azure Database voor PostgreSQL configureren
+## <a name="configure-logging"></a>Logboekregistratie configureren
 U kunt de server voor toegang tot logboeken voor query's en foutenlogboeken configureren. Foutenlogboeken kunnen automatisch onderdruk-, verbindings-en controlepunt hebben.
 1. Logboekregistratie inschakelen.
 2. U schakelt de logboekregistratie voor query bijwerken **log\_instructie** en **log\_min\_duur\_instructie**.
@@ -30,7 +30,7 @@ U kunt de server voor toegang tot logboeken voor query's en foutenlogboeken conf
 
 Zie voor meer informatie, [parameters voor serverconfiguratie aanpassen](howto-configure-server-parameters-using-cli.md).
 
-## <a name="list-logs-for-azure-database-for-postgresql-server"></a>Lijst met Logboeken voor Azure Database for PostgreSQL-server
+## <a name="list-logs"></a>Lijst met Logboeken
 Uitvoeren als u de beschikbare logboekbestanden voor uw server, de [az postgres server-logs list](/cli/azure/postgres/server-logs) opdracht.
 
 U kunt een lijst de logboekbestanden voor server **mydemoserver.postgres.database.azure.com** onder de resourcegroep **myresourcegroup**. De lijst met logboekbestanden naar een tekstbestand met de naam vervolgens direct **log\_bestanden\_lijst.txt**.

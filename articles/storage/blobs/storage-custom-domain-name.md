@@ -2,22 +2,23 @@
 title: Een aangepaste domeinnaam voor uw Azure storage-account configureren | Microsoft Docs
 description: De Azure portal gebruiken voor uw eigen canonieke naam (CNAME) toewijzen aan het eindpunt van Blob storage- of website in Azure storage-account.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: e40b6fe115d6b6dea38ead9f0b2550d96bd04c7a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4f6776a5f15cf391f3a65aceb6e9e783d87a2078
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112633"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148937"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Een aangepaste domeinnaam voor uw Azure storage-account configureren
 
-U kunt een aangepast domein voor toegang tot blobgegevens in uw Azure storage-account configureren. Het standaardeindpunt voor Azure Blob-opslag is  *\<storage-account-name >. blob.core.windows.net*. U kunt ook het eindpunt op het web die wordt gegenereerd als onderdeel van de [statische websites-functie (preview)](storage-blob-static-website.md). Als u een aangepast domein en subdomein, zoals toewijst *www\.contoso.com*, naar het blob of web-eindpunt voor uw opslagaccount, uw gebruikers dat domein toegang tot blob-gegevens in uw storage-account kunnen gebruiken.
+U kunt een aangepast domein voor toegang tot blobgegevens in uw Azure storage-account configureren. Het standaardeindpunt voor Azure Blob-opslag is  *\<storage-account-name >. blob.core.windows.net*. U kunt ook het eindpunt op het web die wordt gegenereerd als onderdeel van de [statische websites functie](storage-blob-static-website.md). Als u een aangepast domein en subdomein, zoals toewijst *www\.contoso.com*, naar het blob of web-eindpunt voor uw opslagaccount, uw gebruikers dat domein toegang tot blob-gegevens in uw storage-account kunnen gebruiken.
 
 > [!IMPORTANT]
 > Azure Storage biedt niet nog systeemeigen ondersteuning voor HTTPS met aangepaste domeinen. U kunt op dit moment [Azure CDN gebruiken voor toegang tot blobs met behulp van aangepaste domeinen via HTTPS](storage-https-custom-domain-cdn.md).

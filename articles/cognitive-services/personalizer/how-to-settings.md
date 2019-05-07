@@ -10,28 +10,34 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 0cd08e1191c68c57975d3e68648134925155e7f2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bce260d2a6b897d3e45b231df4eecd7ecb31ba31
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027220"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143243"
 ---
 # <a name="personalizer-settings"></a>Instellingen voor personalizer
 
 Configuratie van de service omvat hoe beloningen in de service wordt behandeld, hoe vaak de service worden verkend, hoe vaak het model is retrained en hoeveel gegevens worden opgeslagen.
 
+## <a name="create-personalizer-resource"></a>Personalizer resource maken
+
 Maak een resource Personalizer voor elke feedback-lus. 
+
+1. Meld u aan bij de [Azure-portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). De vorige koppeling gaat u naar de **maken** pagina voor de service Personlizer. 
+1. Voer de servicenaam van uw, selecteert u een abonnement, locatie, dat is prijscategorie, en resourcegroep.
+1. Selecteer de bevestiging en selecteer **maken**.
 
 ## <a name="configure-service-settings-in-the-azure-portal"></a>Service-instellingen configureren in Azure portal
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
 1. Uw Personalizer bron vinden. 
 1. In de **resourcebeheer** sectie, selecteer **instellingen**.
 
-    ![Meld u aan bij Azure Portal. Uw Personalizer bron vinden. Selecteer de instellingen in de sectie Resource management.](media/settings/how-to-configure.png)
+    Voordat u de Azure-portal te verlaten, Kopieer een van de resource-sleutels van de **sleutels** pagina. U moet deze optie om te gebruiken de [Personalizer SDK](https://aka.ms/personalizer-dotnet-sdk-docs).
 
-### <a name="reward-settings-for-the-feedback-loop"></a>Instellingen van derden voor de feedback-lus
+### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Instellingen voor de feedback-lus op basis van de use-case beloning configureren
 
 Configureer instellingen voor uw feedback-lus gebruik van de voordelen van de service. Wijzigingen in de volgende instellingen worden opnieuw instellen van het huidige Personalizer-model en het opnieuw trainen met gegevens van de afgelopen 2 dagen:
 
@@ -81,4 +87,4 @@ In de sectie het resourcebeheer voor **Model en het beleid**, een nieuwe learnin
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Bekrachtigingen](concepts-reinforcement-learning.md) 
+[Het gebruik van de container Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)

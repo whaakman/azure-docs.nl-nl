@@ -1,21 +1,21 @@
 ---
-title: Query Store in Azure Database for PostgreSQL
-description: Dit artikel beschrijft de functie voor Query Store in Azure Database voor PostgreSQL.
+title: Query Store in Azure Database for PostgreSQL - één Server
+description: Dit artikel beschrijft de functie voor Query Store in Azure Database voor PostgreSQL - één Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.openlocfilehash: c904b6e6cd7a4dc0f9d5a442e20738e43595b369
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564001"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067187"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Prestaties bijhouden met de Query Store
 
-**Van toepassing op:** Azure Database for PostgreSQL 9.6 en 10
+**Van toepassing op:** Azure Database for PostgreSQL - servergegevens 9.6 en 10
 
 De functie voor Query Store in Azure Database for PostgreSQL biedt een manier voor het bijhouden van prestaties van query's na verloop van tijd. Query Store vereenvoudigt het door u te helpen snel problemen met prestaties vinden het langst lopende en meest resource-intensieve query's. Query Store automatisch een geschiedenis van query's en runtime-statistieken worden vastgelegd en behoudt hij ze controleren. Deze scheidt gegevens door tijdvensters zodat u databasegebruikspatronen kunt zien. Gegevens voor alle gebruikers, databases en query's worden opgeslagen in een database met de naam **azure_sys** in de Azure Database for PostgreSQL-exemplaar.
 

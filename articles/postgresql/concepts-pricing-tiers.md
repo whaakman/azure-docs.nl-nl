@@ -1,19 +1,19 @@
 ---
-title: Prijscategorieën voor Azure Database for PostgreSQL
-description: Dit artikel beschrijft de Prijscategorieën voor Azure Database voor PostgreSQL.
+title: Prijscategorieën voor Azure Database for PostgreSQL - één Server
+description: Dit artikel beschrijft de Prijscategorieën voor Azure Database voor PostgreSQL - één Server.
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 4109679c03b13303c16cef8edd92ecddb6ca5e5f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 5/6/2019
+ms.openlocfilehash: e2580a57f943ad8da16cfbaeda2ee35d0f4bb691
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712362"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073185"
 ---
-# <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database voor PostgreSQL Prijscategorieën
+# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Prijscategorieën in Azure Database voor PostgreSQL - één Server
 
 U kunt een Azure Database for PostgreSQL-server maken in een van drie verschillende Prijscategorieën: Basic, Algemeen gebruik en Geoptimaliseerd voor geheugen. De Prijscategorieën worden onderscheiden op basis van de hoeveelheid Computing in vCores die kunnen worden ingericht, het geheugen per vCore en de technologie voor gegevensopslag gebruikt voor het opslaan van de gegevens. Alle resources zijn ingericht op het niveau van de PostgreSQL-server. Een server kan een of meer databases bevatten.
 

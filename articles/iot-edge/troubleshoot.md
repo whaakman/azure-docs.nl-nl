@@ -4,27 +4,53 @@ description: Gebruik dit artikel voor meer informatie over standard diagnostisch
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 83595bf045de412954c176028babc4f94fcb21e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02d50b81cb91a74e2cdb039c56195e2a15858ca1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612281"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142865"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT Edge
 
-Als u problemen hebt met het uitvoeren van Azure IoT Edge in uw omgeving, kunt u dit artikel als richtlijn gebruiken voor het oplossen van problemen. 
+Als u problemen hebt met het uitvoeren van Azure IoT Edge in uw omgeving, kunt u dit artikel als richtlijn gebruiken voor het oplossen van problemen.
 
-## <a name="standard-diagnostic-steps"></a>Standaard diagnostische stappen 
+## <a name="run-the-iotedge-check-command"></a>Voer de opdracht ' controleren' iotedge
 
-Wanneer u een probleem ondervindt, Leer meer over de status van uw IoT Edge-apparaat aan de hand van de containerlogboeken van de en de berichten die doorgeven naar en van het apparaat. Gebruik de opdrachten en hulpprogramma's in deze sectie om informatie te verzamelen. 
+Uw eerste stap bij het oplossen van IoT Edge moet gebruiken de `check` opdracht, waarbij een verzameling van configuratie en connectiviteit tests voor veelvoorkomende problemen uitvoert. De `check` opdracht is beschikbaar in [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) en hoger.
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Controleer de status van de IoT Edge Security Manager en de logboeken:
+U kunt uitvoeren de `check` opdracht als volgt en bevatten de `--help` vlag voor een volledige lijst met opties:
+
+* Op Linux:
+
+  ```bash
+  sudo iotedge check
+  ```
+
+* In Windows:
+
+  ```powershell
+  iotedge check
+  ```
+
+De typen controles uitvoeren door het hulpprogramma kunnen worden geclassificeerd als:
+
+* Configuratie controleert: Details die u voorkomen Edge-apparaten verbinden met de cloud dat kunnen, met inbegrip van problemen met onderzoekt *config.yaml* en de container-engine.
+* Controles van de verbinding: Controleert of de IoT Edge-runtime toegang hebben tot poorten op de hostapparaat en alle onderdelen van de IoT Edge kunnen verbinding maken met de IoT-Hub.
+* Productie-gereedheidscontroles: Aanbevolen procedures voor aanbevolen productie, zoals de status van apparaatcertificaten van certificeringsinstanties (CA) en configuratie van het logboekbestand module zoekt.
+
+Zie voor een volledige lijst van diagnostische controles, [ingebouwde functionaliteit voor probleemoplossing](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+
+## <a name="standard-diagnostic-steps"></a>Standaard diagnostische stappen
+
+Als u een probleem ondervindt, kunt u meer informatie over de status van uw IoT Edge-apparaat aan de hand van de containerlogboeken van de en de berichten die doorgeven naar en van het apparaat. Gebruik de opdrachten en hulpprogramma's in deze sectie om informatie te verzamelen.
+
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Controleer de status van de IoT Edge Security Manager en de logboeken
 
 Op Linux:
 - De status van de IoT Edge Security Manager weergeven:
@@ -72,14 +98,7 @@ In Windows:
 - De logboeken van de IoT Edge Security Manager weergeven:
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
- 
-   Get-WinEvent -ea SilentlyContinue `
-   -FilterHashtable @{ProviderName= "iotedged";
-     LogName = "application"; StartTime = [datetime]::Today} |
-   select TimeCreated, Message |
-   sort-object @{Expression="TimeCreated";Descending=$false} |
-   format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Als de IoT Edge Security Manager wordt niet uitgevoerd, controleert u of uw yaml-configuratiebestand

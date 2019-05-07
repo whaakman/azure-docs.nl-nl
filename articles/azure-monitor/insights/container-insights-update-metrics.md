@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2019
+ms.date: 05/06/2019
 ms.author: magoedte
-ms.openlocfilehash: f0c9b84f31810a4b0cec93738f7ce327bc24d8d0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f4e15c4fc7bd7b786c5204153fe64f010e5ffe85
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685621"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148855"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Het bijwerken van Azure Monitor voor containers om in te schakelen van metrische gegevens
 Azure Monitor voor containers introduceert ondersteuning voor het verzamelen van metrische gegevens van Azure Kubernetes-Services (AKS) clusters knooppunten en schillen en aan het archief van de metrische gegevens over Azure Monitor worden geschreven. Deze wijziging is bedoeld om verbeterde tijdigheid te leveren bij het weergeven van statistische berekeningen (Avg, Count, Max, Min, Sum) in de prestatiegrafieken vastmaken prestatiegrafieken weergegeven in Azure portal-dashboards, ondersteuning en ondersteuning voor metrische waarschuwingen.
@@ -55,7 +55,7 @@ Voer de volgende stappen uit om bij te werken van alle clusters in uw abonnement
     ```azurecli
     az login
     az account set --subscription "Subscription Name"
-    curl -sL https://git.io/aks-mdm-onboarding-atscale | bash -s subscriptionId   
+    curl -sL https://aka.ms/ci-md-onboard-atscale | bash -s subscriptionId   
     ```
 
     Wijzigen van de configuratie kan een paar seconden duren. Wanneer deze voltooid, wordt er een bericht weergegeven dat vergelijkbaar is met het volgende en het resultaat bevat:
