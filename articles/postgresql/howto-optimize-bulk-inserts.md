@@ -1,20 +1,19 @@
 ---
-title: Bulksgewijs invoegen in een Azure Database for PostgreSQL-server te optimaliseren
-description: Dit artikel wordt beschreven hoe u bulk insert-bewerkingen op een Azure Database for PostgreSQL-server kunt optimaliseren.
-author: WenJason
-ms.author: v-jay
+title: Bulksgewijs invoegen in een Azure Database voor PostgreSQL - Server één optimaliseren
+description: Dit artikel wordt beschreven hoe u bulk insert-bewerkingen op een Azure Database voor PostgreSQL - Server één kunt optimaliseren.
+author: dianaputnam
+ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/22/2018
-ms.date: 03/04/2019
-ms.openlocfilehash: a82984ce4c2a2e44306abaa63265e0c25cc6ace4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: c1ae29f7c498a79af09aaaf6d7aeae29561aa500
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422114"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067032"
 ---
-# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>Bulksgewijs invoegen te optimaliseren en gebruik van tijdelijke gegevens op een Azure Database voor PostgreSQL-server 
+# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Bulksgewijs invoegen te optimaliseren en tijdelijke gegevens op een Azure Database voor PostgreSQL - Server één gebruiken 
 Dit artikel wordt beschreven hoe u bulk insert-bewerkingen optimaliseren en gebruik van tijdelijke gegevens op een Azure Database voor PostgreSQL-server.
 
 ## <a name="use-unlogged-tables"></a>Niet-geregistreerde tabellen gebruiken

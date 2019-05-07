@@ -1,20 +1,19 @@
 ---
-title: Azure Database for PostgreSQL-Server vnet services eindpunt overzicht van
-description: Meer informatie over de werking van VNET-service-eindpunten voor uw Azure Database for PostgreSQL-server.
-author: WenJason
-ms.author: v-jay
+title: Virtueel netwerk (VNet) services eindpunt overzicht in Azure Database voor PostgreSQL - Server één
+description: Meer informatie over hoe service-eindpunten voor Virtueelnetwerk (VNet) werken voor Azure Database voor PostgreSQL - één Server.
+author: bolzmj
+ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 08/20/2018
-ms.date: 04/22/2019
-ms.openlocfilehash: c6549ad170a0fc3b4387d5bc5163ca0548b92119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: c873abcdf3c64f8357c584c8e24809270946bf74
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560114"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073482"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure Database for PostgreSQL
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure Database voor PostgreSQL - één Server
 
 *Regels voor virtueel netwerk* één firewall beveiligingsfunctie die bepaalt of uw Azure Database for PostgreSQL-server accepteert berichten die worden verzonden op basis van specifieke subnetten in virtuele netwerken zijn. In dit artikel wordt uitgelegd waarom de functie van de regel virtueel netwerk is het soms de beste optie voor het veilig toestaan van communicatie met uw Azure Database for PostgreSQL-server.
 

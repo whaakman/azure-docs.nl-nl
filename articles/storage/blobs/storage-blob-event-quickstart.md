@@ -2,19 +2,20 @@
 title: Azure Blob Storage-gebeurtenissen verzenden naar een webeindpunt - Azure CLI | Microsoft Docs
 description: Gebruik Azure Event Grid om u te abonneren op gebeurtenissen van Blob Storage. De gebeurtenissen naar een webhook verzenden. De gebeurtenissen in een webtoepassing verwerken.
 services: storage,event-grid
-author: cbrooksmsft
-ms.author: cbrooks
+author: normesta
+ms.author: normesta
+ms.reviewer: cbrooks
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
 ms.custom: seodec18
-ms.openlocfilehash: f38c6fec7ff98e7d5c46661741ff036edb791673
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 7d92614556fdc6822f749002d2e5a8fc92946d0a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756373"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141129"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Snelstartgids: Opslaggebeurtenissen routeren naar een webeindpunt met Azure CLI
 

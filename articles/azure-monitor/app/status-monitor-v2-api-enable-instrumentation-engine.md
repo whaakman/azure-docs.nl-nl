@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 7d337c9b6b22f3abfcb4aea1c47127706ed9e9d7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: d886aa364ca928d32100c570689f13beb0c682c9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870505"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143419"
 ---
 # <a name="status-monitor-v2-api-enable-instrumentationengine-v021-alpha"></a>Status Monitor v2 API: Enable-InstrumentationEngine (v0.2.1-alfa)
 
@@ -72,3 +72,21 @@ PS C:\> Enable-InstrumentationEngine
 Configuring IIS Environment for instrumentation engine...
 Configuring registry for instrumentation engine...
 ```
+
+## <a name="next-steps"></a>Volgende stappen
+
+  Uw telemetrie weergeven:
+ - [Verken de metrische gegevens](../../azure-monitor/app/metrics-explorer.md) om de prestaties en het gebruik te bewaken
+- [Doorzoek gebeurtenissen en logboeken](../../azure-monitor/app/diagnostic-search.md) om problemen te diagnosticeren
+- [Gebruik analyses](../../azure-monitor/app/analytics.md) voor meer geavanceerde query's
+- [Maak dashboards](../../azure-monitor/app/app-insights-dashboards.md)
+ 
+ Meer telemetrie toevoegen:
+ - [Maak webtests](monitor-web-app-availability.md) om ervoor te zorgen dat uw site actief blijft.
+- [Voeg telemetrie van de webclient](../../azure-monitor/app/javascript.md) zien welke uitzonderingen webpaginacode en traceringsaanroepen in te voegen.
+- [Application Insights SDK toevoegen aan uw code](../../azure-monitor/app/asp-net.md) zodat u kunt invoegen van trace en logboekaanroepen
+ 
+ Doe meer met Status Monitor v2:
+ - Gebruik onze handleiding voor [oplossen](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+ - [Ophalen van de configuratie](status-monitor-v2-api-get-config.md) om te bevestigen dat de instellingen correct zijn vastgelegd.
+ - [De status ophalen](status-monitor-v2-api-get-status.md) te inspecteren bewaking.

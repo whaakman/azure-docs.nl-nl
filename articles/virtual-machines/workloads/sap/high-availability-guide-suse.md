@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 328aa4c80c830014de8ee8b573d13ae56af73efc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 44f99ed1af65eb1e487295c11077fd558ce4285c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925804"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142959"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server voor SAP-toepassingen
 
@@ -87,6 +87,9 @@ SAP NetWeaver vereist voor het bereiken van hoge beschikbaarheid, een NFS-server
 
 De NFS-server, SAP NetWeaver ASCS, SAP NetWeaver SCS, INGEN voor SAP NetWeaver en SAP HANA-database gebruiken virtuele hostnaam en virtuele IP-adressen. In Azure, wordt een load balancer overstappen naar een virtueel IP-adres. De volgende lijst bevat de configuratie van de (A) SCS en INGEN load balancer.
 
+> [!IMPORTANT]
+> Multi-SID clustering van SAP ASCS/INGEN met SUSE Linux als gastbesturingssysteem in Azure VM's wordt **niet ondersteund**. Multi-SID clustering beschrijft de installatie van meerdere SAP ASCS/INGEN exemplaren met verschillende SID's in één Pacemaker cluster
+
 ### <a name="ascs"></a>(A)SCS
 
 * Front-end-configuratie
@@ -113,7 +116,8 @@ De NFS-server, SAP NetWeaver ASCS, SAP NetWeaver SCS, INGEN voor SAP NetWeaver e
   * Verbonden met primaire netwerkinterfaces van alle virtuele machines die deel van de (A uitmaken) SCS/INGEN cluster
 * Testpoort
   * Poort 621<strong>&lt;nr&gt;</strong>
-* Taakverdelingsregels
+* Regels voor taakverdeling
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -200,9 +204,9 @@ U moet eerst de virtuele machines voor dit cluster NFS maken. Daarna wordt u een
          1. Klik op OK
       1. Poort 621**02** voor ASCS INGEN
          * Herhaal de stappen hierboven om te maken van een statustest voor de gebruikers (bijvoorbeeld 621**02** en **nw1-aers-hp**)
-   1. Taakverdelingsregels
+   1. Regels voor taakverdeling
       1. 32**00** TCP voor ASCS
-         1. De load balancer openen, selecteert u load balancer-regels en klikt u op toevoegen
+         1. De load balancer openen, taakverdeling regels selecteren en klik op toevoegen
          1. Voer de naam van de nieuwe load balancer-regel (bijvoorbeeld **nw1-lb-3200**)
          1. Selecteer de front-end-IP-adres, de back-endpool en de statustest die u eerder hebt gemaakt (bijvoorbeeld **nw1-ascs-frontend**)
          1. Houd protocol **TCP**, voer poort **3200**
@@ -587,7 +591,7 @@ Als in de wachtrij plaatsen server 2-architectuur ([ENSA2](https://help.sap.com/
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  Als u een upgrade uitvoert van een oudere versie en overschakelen naar de server in de wachtrij plaatsen 2, Zie sap-notitie [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+  Als u een upgrade uitvoert van een oudere versie en overschakelen naar de server in de wachtrij plaatsen 2, raadpleegt u SAP Opmerking [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Zorg ervoor dat de clusterstatus ok is en dat alle resources worden gestart. Het is niet belangrijk op welk knooppunt de resources die worden uitgevoerd.
 

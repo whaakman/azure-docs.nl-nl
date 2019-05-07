@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 50f3ecf69561313a5bda67827cfb02d2f61d461f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e62d106a42dfbec897e5e14cf68fd3d7fd823c4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653658"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070818"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Handmatig stoppen en starten van containers in Azure Container Instances
 
@@ -24,7 +24,7 @@ Stop de toepassing een actieve containergroep - bijvoorbeeld met behulp van de [
 
 *Wanneer u een containergroep in de status gestopt, wordt beëindigd en de containers in de groep wordt gerecycled. Deze behoudt niet de containerstatus.*
 
-Hoewel de containers in een containergroep gestopt gerecycled, zijn de [resources](container-instances-container-groups.md#resource-allocation) blijven toegewezen voor het gebruik. Daarom, blijft de facturering voor een containergroep gestopt.
+Wanneer de containers gerecycled zijn, de [resources](container-instances-container-groups.md#resource-allocation) ongedaan wordt gemaakt en facturering wordt gestopt voor de containergroep.
 
 De actie bij stoppen heeft geen effect als de containergroep is al beëindigd (is een geslaagd of mislukt). Bijvoorbeeld, beëindigt een containergroep met eenmalig worden uitgevoerd-container-taken die zijn uitgevoerd in de status geslaagd. Probeert te stoppen van de groep in deze status kan de status niet wijzigen. 
 

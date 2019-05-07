@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/015/2019
+ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: cd2479aed1e348a27c5cba56c6d809ffb24e4fc0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3bd8600d0839c31a17221bb5421dc36165deb434
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925775"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142987"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server met Azure NetApp-bestanden voor SAP-toepassingen
 
@@ -99,6 +99,10 @@ Het is nu mogelijk om te bereiken SAP Netweaver hoge beschikbaarheid met behulp 
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS INGEN voor SAP NetWeaver en SAP HANA-database gebruiken virtuele hostnaam en virtuele IP-adressen. In Azure, een [netwerktaakverdeler](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) is vereist voor het gebruik van een virtueel IP-adres. De volgende lijst bevat de configuratie van de (A) SCS en INGEN load balancer.
 
+> [!IMPORTANT]
+> Multi-SID clustering van SAP ASCS/INGEN met SUSE Linux als gastbesturingssysteem in Azure VM's wordt **niet ondersteund**. Multi-SID clustering beschrijft de installatie van meerdere SAP ASCS/INGEN exemplaren met verschillende SID's in één Pacemaker cluster
+
+
 ### <a name="ascs"></a>(A)SCS
 
 * Front-end-configuratie
@@ -107,7 +111,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS INGEN voor SAP NetWeaver en SAP HANA-datab
   * Verbonden met primaire netwerkinterfaces van alle virtuele machines die deel van de (A uitmaken) SCS/INGEN cluster
 * Testpoort
   * Poort 620<strong>&lt;nr&gt;</strong>
-* Taakverdelingsregels
+* Regels voor taakverdeling
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
@@ -124,7 +128,8 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS INGEN voor SAP NetWeaver en SAP HANA-datab
   * Verbonden met primaire netwerkinterfaces van alle virtuele machines die deel van de (A uitmaken) SCS/INGEN cluster
 * Testpoort
   * Poort 621<strong>&lt;nr&gt;</strong>
-* Taakverdelingsregels
+* Regels voor taakverdeling
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -228,9 +233,9 @@ U moet eerst de volumes Azure NetApp bestanden maken. Implementeer de virtuele m
          1. Klik op OK
       1. Poort 621**01** voor ASCS INGEN
             * Herhaal de stappen hierboven onder 'c' te maken van een statustest voor de gebruikers (bijvoorbeeld 621**01** en **health. QAS. INGEN**)
-   1. Taakverdelingsregels
+   1. Regels voor taakverdeling
       1. 32**00** TCP voor ASCS
-         1. De load balancer openen, selecteert u Load Balancer-regels en klikt u op toevoegen
+         1. De load balancer openen, Load-balancing regels selecteren en klik op toevoegen
          1. Voer de naam van de nieuwe load balancer-regel (bijvoorbeeld **lb. QAS. ASCS.3200**)
          1. Selecteer de front-end-IP-adres voor ASCS, back-endpool en statustest die u eerder hebt gemaakt (bijvoorbeeld **frontend. QAS. ASCS**)
          1. Houd protocol **TCP**, voer poort **3200**
@@ -626,7 +631,7 @@ Als in de wachtrij plaatsen server 2-architectuur ([ENSA2](https://help.sap.com/
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-   Als u een upgrade uitvoert van een oudere versie en overschakelen naar de server in de wachtrij plaatsen 2, Zie sap-notitie [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+   Als u een upgrade uitvoert van een oudere versie en overschakelen naar de server in de wachtrij plaatsen 2, raadpleegt u SAP Opmerking [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Zorg ervoor dat de clusterstatus ok is en dat alle resources worden gestart. Het is niet belangrijk op welk knooppunt de resources die worden uitgevoerd.
 

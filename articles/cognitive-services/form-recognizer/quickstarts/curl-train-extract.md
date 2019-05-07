@@ -9,16 +9,16 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: cc6e8cdb7cd1719a8cd14cbfe6e576e07c34b32c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1afe9239dcc3f5a24d2e950ec7b563bf53d1f04c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027262"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143241"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Quickstart: Een formulier herkenning-model te trainen en extraheren van gegevens met behulp van REST-API met cURL
 
-In deze snelstartgids gebruikt u formulier herkenning van REST API gebruiken met cURL te trainen en te beoordelen van formulieren om op te halen van sleutel / waarde-paren en tabellen.
+In deze snelstartgids gebruikt u het formulier-herkenning REST-API met cURL te trainen en te beoordelen van formulieren om uit te pakken sleutel / waarde-paren en tabellen.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -90,7 +90,7 @@ Noteer de `"modelId"` waarde; u deze nodig heeft voor de volgende stappen uit.
 
 Vervolgens maakt u een document analyseert en sleutel / waarde-paren en tabellen ophalen uit deze. Roep de **Model - analyseren** API door het uitvoeren van de volgende cURL-opdracht. Voordat u de opdracht uitvoert, moet u de volgende wijzigingen aanbrengen:
 
-* Vervang `<Endpoint>` met het eindpunt u uw formulier herkenning-abonnementssleutel hebt verkregen. U vindt deze op het overzichtstabblad van formulier herkenning resource.
+* Vervang `<Endpoint>` met het eindpunt dat u hebt verkregen via uw abonnementssleutel formulier herkenning. U vindt deze in uw formulier herkenning resource **overzicht** tabblad.
 * Vervang `<modelID>` met de model-ID die u hebt ontvangen in de vorige stap van het model te trainen.
 * Vervang `<path to your form>` met het pad naar het formulier.
 * Vervang `<subscription key>` door uw abonnementssleutel.

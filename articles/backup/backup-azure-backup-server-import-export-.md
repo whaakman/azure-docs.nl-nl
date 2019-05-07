@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05e7dd11274bb120e40df4a63d428ac6b6d7489f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60647950"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143338"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Werkstroom voor offline back-ups voor DPM en Azure Backup-Server
 Azure Backup heeft diverse ingebouwde efficiëntie die netwerk- en kosten tijdens de eerste volledige back-ups van gegevens naar Azure besparen. Initiële volledige back-ups wordt gewoonlijk grote hoeveelheden gegevens overdragen en meer netwerkbandbreedte in vergelijking met de volgende back-ups waarbij alleen de delta's / plaatsvindt worden overgedragen. Azure Backup wordt de eerste back-ups gecomprimeerd. Door het proces van het offline-seeding, kunt Azure Backup gebruiken schijven voor de gecomprimeerde eerste back-upgegevens offline uploaden naar Azure.
@@ -98,7 +98,7 @@ De informatie in deze sectie helpt u de werkstroom voor offline back-ups uitvoer
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>SATA-schijven voorbereiden en verzenden naar Azure
 De *AzureOfflineBackupDiskPrep* hulpprogramma wordt gebruikt voor het voorbereiden de SATA-schijven die worden verzonden naar de dichtstbijzijnde Azure-Datacenter. Dit hulpprogramma is beschikbaar in de installatiemap van de Recovery Services-agent in het volgende pad:
 
-   *\Microsoft* *Azure* *Recovery* *Services* *Agent\Utils\*
+*\\Microsoft Azure Recovery Services-Agent\\Utils\\*
 
 1. Ga naar de map en kopieer de **AzureOfflineBackupDiskPrep** map naar een kopie-computer waarop de SATA-schijven worden voorbereid zijn verbonden. Zorg ervoor dat de volgende met betrekking tot de computer kopiëren:
 

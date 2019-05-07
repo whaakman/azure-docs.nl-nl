@@ -1,19 +1,19 @@
 ---
-title: Verbinding maken met Azure Kubernetes Service (AKS) met Azure Database for PostgreSQL
-description: Meer informatie over Azure Kubernetes Service te verbinden met Azure Database for PostgreSQL
+title: Verbinding maken met Azure Kubernetes Service (AKS) met Azure Database voor PostgreSQL - één Server
+description: Meer informatie over Azure Kubernetes Service te verbinden met Azure Database voor PostgreSQL - één Server
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.date: 11/27/2018
+ms.date: 5/6/2019
 ms.topic: conceptual
-ms.openlocfilehash: f25d87c7c557404071d777f4efcf22e53886d96d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a98d9b89db0406d67d1b067c3e53eb5c3dae7957
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456186"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068940"
 ---
-# <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql"></a>Verbinden van Azure Kubernetes Service en Azure Database for PostgreSQL
+# <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Azure Kubernetes Service en Azure Database voor PostgreSQL - Server met één verbinding te maken
 
 Azure Kubernetes Service (AKS) biedt een beheerde Kubernetes-cluster die kunt u in Azure. Hieronder vindt u enkele opties om te overwegen bij het gebruik van AKS en Azure Database for PostgreSQL samen om een toepassing te maken.
 

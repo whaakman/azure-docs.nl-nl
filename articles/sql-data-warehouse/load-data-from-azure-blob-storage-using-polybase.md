@@ -2,20 +2,20 @@
 title: "Zelfstudie: Laden van gegevens over taxi's in New York met Azure SQL Data Warehouse | Microsoft Docs"
 description: Zelfstudie wordt gebruikgemaakt van Azure portal en SQL Server Management Studio om het laden van gegevens over taxi's in New York vanuit een openbare Azure-blob naar Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: mlee3gsd
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/27/2019
-ms.author: mlee3gsd
+ms.date: 04/26/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca4084fb271320eb4cdfdeb6cb9026367761be0a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61078873"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143661"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Zelfstudie: Gegevens over taxi's in New York met Azure SQL Data Warehouse laden
 
@@ -561,6 +561,49 @@ Het script gebruikt de T-SQL-instructie [CREATE TABLE AS SELECT (CTAS)](/sql/t-s
 
     ![Geladen tabellen weergeven](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
+## <a name="authenticate-using-managed-identities-to-load-optional"></a>Verifiëren met behulp van beheerde identiteiten laden (optioneel)
+Laden met PolyBase en verifiëren via beheerde identiteiten is de veiligste manier en kunt u gebruikmaken van VNet-Service-eindpunten met Azure storage. 
+
+### <a name="prerequisites"></a>Vereisten
+1.  Installeer Azure PowerShell volgens dit [handleiding](https://docs.microsoft.com/powershell/azure/install-az-ps).
+2.  Als u een voor algemeen gebruik v1- of blob storage-account hebt, moet u eerst upgraden naar algemeen gebruik v2 met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+3.  U moet hebben **vertrouwde Microsoft-services voor toegang tot dit storage-account toestaan** onder Azure Storage-account ingeschakeld **Firewalls en virtuele netwerken** instellingenmenu. Verwijzen naar dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) voor meer informatie.
+
+#### <a name="steps"></a>Stappen
+1. In PowerShell **registreren van uw SQL Database-server** met Azure Active Directory (AAD):
+
+   ```powershell
+   Connect-AzAccount
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
+    
+   1. Maak een **voor algemeen gebruik v2-Opslagaccount** met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+
+   > [!NOTE]
+   > - Als u een voor algemeen gebruik v1- of blob storage-account hebt, moet u **eerst upgraden naar v2** met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+    
+1. Onder uw storage-account, gaat u naar **Access Control (IAM)**, en klikt u op **roltoewijzing toevoegen**. Toewijzen **Gegevensbijdrager voor Blob** RBAC-rol met uw SQL Database-server.
+
+   > [!NOTE] 
+   > Alleen leden met de eigenaar van bevoegdheden kunnen deze stap uitvoeren. Voor de verschillende ingebouwde rollen voor Azure-resources, verwijzen naar dit [handleiding](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+  
+1. **Polybase-verbinding met de Azure Storage-account:**
+    
+   1. Maken van uw database-scoped referentie met **id = 'Beheerde Service-identiteit'**:
+
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - Er is niet nodig om op te geven van GEHEIM met de Azure Storage-toegangssleutel omdat dit mechanisme gebruikt [beheerde identiteit](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) op de achtergrond.
+       > - Identiteitsnaam van de moet **'Beheerde Service-identiteit'** voor PolyBase-verbinding met het werken met Azure Storage-account.
+    
+   1. Maak de externe gegevensbron op te geven van de Database Scoped Credential met de beheerde Service-identiteit.
+        
+   1. Query als normale [externe tabellen](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+
+Raadpleeg de volgende [documentatie] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) als u wilt instellen van virtual network-service-eindpunten voor SQL Data Warehouse. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

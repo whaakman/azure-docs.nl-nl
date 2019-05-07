@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5467711f06380ca61b4a9d5150b66c3f945c08c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657557"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141081"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Een API beveiligen met behulp van OAuth 2.0 met Azure Active Directory en API Management
 
@@ -44,7 +44,7 @@ Hier volgt een kort overzicht van de stappen uit:
 
 Ter bescherming van een API met Azure AD, wordt de eerste stap is het registreren van een toepassing in Azure AD die staat voor de API. 
 
-1. Blader naar uw Azure AD-tenant en blader vervolgens naar **App-registraties**.
+1. Blader naar uw Azure AD-tenant en blader vervolgens naar **App-registraties (verouderd)**.
 
 2. Selecteer **Nieuwe toepassing registreren**. 
 
@@ -62,7 +62,7 @@ Wanneer de toepassing wordt gemaakt, neem notitie van de **toepassings-ID**, voo
 
 Elke clienttoepassing die de API-aanroepen moet worden geregistreerd als een toepassing in Azure AD ook. In dit voorbeeld is de voorbeeldtoepassing van de client de Developer-Console in de API Management-portal voor ontwikkelaars. Hier volgt een andere toepassing registreren in Azure AD om weer te geven van de Developer-Console.
 
-1. Selecteer **Nieuwe toepassing registreren**. 
+1. Terwijl de **App-registraties (verouderd)**, selecteer **nieuwe toepassing registreren**. 
 
 2. Geef een naam op van de toepassing. (Voor dit voorbeeld is de naam `client-app`.)
 
@@ -86,7 +86,7 @@ Noteer de sleutelwaarde.
 
 Nu u twee toepassingen voor de Developer-Console en de API hebt geregistreerd, moet u machtigingen om de client-app voor het aanroepen van de back-end-app.  
 
-1. Blader naar **toepassingsregistraties**. 
+1. Blader naar **toepassingsregistraties (verouderd)**. 
 
 2. Selecteer `client-app`, en Ga naar **instellingen**.
 

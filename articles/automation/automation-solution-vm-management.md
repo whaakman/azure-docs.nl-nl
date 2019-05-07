@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/31/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eaff996f5d0ad9c2eac00c9306ef8808b43e25c2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61306448"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146046"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -46,6 +46,50 @@ De volgende zijn beperkingen aan de huidige oplossing:
 De runbooks voor deze oplossing werkt met een [uitvoeren als-account](automation-create-runas-account.md). Uitvoeren als-account is de aanbevolen verificatiemethode omdat deze verificatie via certificaten gebruikt in plaats van een wachtwoord dat mogelijk verlopen of regelmatig wordt gewijzigd.
 
 Het verdient aanbeveling een afzonderlijk Automation-Account gebruiken voor het starten/stoppen van VM-oplossing. Dit is omdat de versies van de Azure-module worden regelmatig bijgewerkt en de bijbehorende parameters kunnen worden gewijzigd. De oplossing starten/stoppen van VM is niet bijgewerkt op de frequentie die dezelfde zodat deze werkt niet met een nieuwere versie van de cmdlets die worden gebruikt. Het verdient aanbeveling voor het testen van module-updates in een test Automation-Account voordat u ze importeert in uw productieomgeving Automation-Account.
+
+### <a name="permissions-needed-to-deploy"></a>Machtigingen die nodig zijn om te implementeren
+
+Er zijn bepaalde machtigingen die een gebruiker hebben moet tot het starten/stoppen van VM's uit uur oplossing implementeren. Deze machtigingen zijn verschillend als een vooraf gemaakte Automation-Account en de Log Analytics-werkruimte gebruiken of nieuwe maken tijdens de implementatie.
+
+#### <a name="pre-existing-automation-account-and-log-analytics-account"></a>Bestaande Automation-Account en de Log Analytics-account
+
+Het starten/stoppen van VM's uit uur oplossing implementeren in een Automation-Account en de Log Analytics is de gebruiker die de oplossing implementeren op de volgende machtigingen vereist de **resourcegroep**. Zie voor meer informatie over rollen, [aangepaste rollen voor Azure-resources](../role-based-access-control/custom-roles.md).
+
+| Machtiging | Bereik|
+| --- | --- |
+| Microsoft.Automation/automationAccounts/read | Resourcegroep |
+| Microsoft.Automation/automationAccounts/variables/write | Resourcegroep |
+| Microsoft.Automation/automationAccounts/schedules/write | Resourcegroep |
+| Microsoft.Automation/automationAccounts/runbooks/write | Resourcegroep |
+| Microsoft.Automation/automationAccounts/connections/write | Resourcegroep |
+| Microsoft.Automation/automationAccounts/certificates/write | Resourcegroep |
+| Microsoft.Automation/automationAccounts/modules/write | Resourcegroep |
+| Microsoft.Automation/automationAccounts/modules/read | Resourcegroep |
+| Microsoft.automation/automationAccounts/jobSchedules/write | Resourcegroep |
+| Microsoft.Automation/automationAccounts/jobs/write | Resourcegroep |
+| Microsoft.Automation/automationAccounts/jobs/read | Resourcegroep |
+| Microsoft.OperationsManagement/solutions/write | Resourcegroep |
+| Microsoft.OperationalInsights/workspaces/* | Resourcegroep |
+| Microsoft.Insights/diagnosticSettings/write | Resourcegroep |
+| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | Resourcegroep |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Resourcegroep |
+| Microsoft.Resources/deployments/* | Resourcegroep |
+
+### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nieuw Automation-Account en een nieuwe Log Analytics-werkruimte
+
+Als u wilt implementeren, het starten/stoppen van VM's buiten kantooruren moet oplossing voor een nieuwe Automation-Account en de Log Analytics-werkruimte de gebruiker die de oplossing implementeert de machtigingen die zijn gedefinieerd in de vorige sectie, evenals de volgende machtigingen:
+
+- CO-beheerder van abonnement: dit is nodig om het klassieke uitvoeren als-Account maken
+- Deel uitmaken van de **toepassingsontwikkelaar** rol. Zie voor meer informatie over het configureren van uitvoeren als-Accounts [machtigingen voor het configureren van uitvoeren als-accounts](manage-runas-account.md#permissions).
+
+| Machtiging |Bereik|
+| --- | --- |
+| Microsoft.Authorization/roleAssignments/read | Abonnement |
+| Microsoft.Authorization/roleAssignments/write | Abonnement |
+| Microsoft.Automation/automationAccounts/connections/read | Resourcegroep |
+| Microsoft.Automation/automationAccounts/certificates/read | Resourcegroep |
+| Microsoft.Automation/automationAccounts/write | Resourcegroep |
+| Microsoft.OperationalInsights/workspaces/write | Resourcegroep |
 
 ## <a name="deploy-the-solution"></a>De oplossing implementeren
 
@@ -292,8 +336,8 @@ De volgende tabel bevat voorbeeldzoekopdrachten in logboeken voor taakrecords di
 
 |Query’s uitvoeren | Description|
 |----------|----------|
-|Taken zoeken voor runbook ScheduledStartStop_Parent die met succes voltooid | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
-|Taken zoeken voor runbook SequencedStartStop_Parent die met succes voltooid | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc```|
+|Taken zoeken voor runbook ScheduledStartStop_Parent die met succes voltooid | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Taken zoeken voor runbook SequencedStartStop_Parent die met succes voltooid | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 
 ## <a name="viewing-the-solution"></a>De oplossing bekijken
 

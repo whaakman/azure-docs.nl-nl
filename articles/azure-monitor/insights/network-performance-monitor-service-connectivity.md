@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 3eb53fa88a0757d22fc4575e9d9f402d6eebee13
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 01410fb59135e9b1f54e4a3c75b206c7d30abeed
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719303"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145022"
 ---
 # <a name="service-connectivity-monitor"></a>Bewaking van serviceverbinding
 
@@ -64,6 +64,7 @@ Beginnen met het maken van de tests uitgevoerd voor het controleren van de netwe
 
     * Selecteer **Web** voor het bewaken van de verbinding met een service die op HTTP/S-aanvragen, zoals outlook.office365.com of bing.com reageert.<br>
     * Selecteer **netwerk** voor het bewaken van de verbinding met een service die reageert op aanvragen voor TCP, maar niet reageert op HTTP/S-aanvragen, zoals een SQL server, de FTP-server of de SSH-poort. 
+    * Bijvoorbeeld: Voor het maken van een WebTest voor een blob storage-account selecteert **Web** en voer doel als <your storageaccount>. blob.core.windows.net. Op deze manier kunt u tests voor andere table storage, queue-opslag en met behulp van Azure Files [deze koppeling.](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview#storage-account-endpoints)
 4. Als u niet wilt netwerkmetingen, zoals netwerklatentie en pakketverlies topologie-detectie, schakelt u de **Netwerkmetingen** selectievakje. Het geselecteerd om op te halen van maximaal profiteren van de mogelijkheid houden. 
 5. In **doel**, voer de URL/FQDN-naam/IP-adres waarnaar u wilt bewaken van de verbinding met het netwerk.
 6. In **poortnummer**, voer het poortnummer van de doelservice. 

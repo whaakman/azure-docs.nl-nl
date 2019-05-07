@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 8fd5b726c01b056d38e7e187cec8270ee4e127a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466731"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074021"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Beveiligingsconcepten voor toepassingen en -clusters in Azure Kubernetes Service (AKS)
 
@@ -34,9 +34,11 @@ Standaard is de Kubernetes API-server maakt gebruik van een openbaar IP-adres, e
 
 ## <a name="node-security"></a>Beveiliging van knooppunt
 
-AKS-knooppunten zijn Azure virtuele machines die u beheren en onderhouden. Een geoptimaliseerde Ubuntu Linux-distributie met behulp van de runtime van de container Moby op de knooppunten uitgevoerd. Wanneer een AKS-cluster wordt gemaakt of uitgebreid, worden automatisch de knooppunten geïmplementeerd met de meest recente beveiligingsupdates OS en configuraties.
+AKS-knooppunten zijn Azure virtuele machines die u beheren en onderhouden. Linux-knooppunten een geoptimaliseerde Ubuntu-distributie met behulp van de container Moby runtime worden uitgevoerd. Windows Server-knooppunten (momenteel in preview in AKS) een geoptimaliseerde 2019 van Windows Server worden uitgevoerd vrijgeven en ook de Moby container-runtime gebruiken. Wanneer een AKS-cluster wordt gemaakt of uitgebreid, worden automatisch de knooppunten geïmplementeerd met de meest recente beveiligingsupdates OS en configuraties.
 
-OS-beveiligingspatches het Azure-platform automatisch toegepast op de knooppunten op basis van elke nacht. Als een update van het besturingssysteem beveiliging een host opnieuw worden opgestart vereist, wordt dat opnieuw opstarten niet automatisch uitgevoerd. U kunt handmatig opnieuw opstarten de knooppunten of een algemene aanpak is het gebruik [Kured][kured], een open-source opnieuw opstarten-daemon voor Kubernetes. Kured wordt uitgevoerd als een [DaemonSet] [ aks-daemonsets] en bewaakt elk knooppunt op de aanwezigheid van een bestand dat aangeeft dat een herstart vereist is. Opnieuw opstarten worden beheerd in het cluster met behulp van dezelfde [cordon en proces leegmaken](#cordon-and-drain) als de clusterupgrade van een.
+Het Azure-platform wordt automatisch OS beveiligingspatches geldt voor Linux-knooppunten op basis van elke nacht. Als een beveiligingsupdate voor Linux-besturingssysteem een host opnieuw worden opgestart vereist, wordt dat opnieuw opstarten niet automatisch uitgevoerd. U kunt handmatig opnieuw opstarten met het Linux-knooppunten of een algemene aanpak is het gebruik [Kured][kured], een open-source opnieuw opstarten-daemon voor Kubernetes. Kured wordt uitgevoerd als een [DaemonSet] [ aks-daemonsets] en bewaakt elk knooppunt op de aanwezigheid van een bestand dat aangeeft dat een herstart vereist is. Opnieuw opstarten worden beheerd in het cluster met behulp van dezelfde [cordon en proces leegmaken](#cordon-and-drain) als de clusterupgrade van een.
+
+Windows Update niet automatisch voor Windows Server-knooppunten (momenteel in preview in AKS), uitvoeren en de meest recente updates toepassen. Een regelmatige rond de releasecyclus van Windows Update en uw eigen validatieproces, moet u een upgrade op de Windows Server-knooppunt pool(s) uitvoeren in uw AKS-cluster. Met dit upgradeproces knooppunten met de meest recente Windows Server-installatiekopie en patches maakt en vervolgens verwijdert u de oudere knooppunten. Zie voor meer informatie over dit proces [een knooppuntgroep in AKS Upgrade][nodepool-upgrade].
 
 Knooppunten worden geïmplementeerd in een subnet privé virtueel netwerk met geen openbare IP-adressen die zijn toegewezen. SSH is standaard ingeschakeld voor probleemoplossing en management-toepassing. Deze SSH-toegang is alleen beschikbaar via het interne IP-adres.
 
@@ -50,12 +52,12 @@ Voor beveiliging en naleving, of de nieuwste functies te gebruiken, biedt Azure 
 
 ### <a name="cordon-and-drain"></a>Cordon en clusterbesturingssysteem
 
-Tijdens het upgradeproces worden AKS-knooppunten afzonderlijk afgebakend uit het cluster, zodat nieuwe pods niet op deze worden gepland. De knooppunten zijn vervolgens geleegd en bijgewerkt als volgt:
+Tijdens het upgradeproces worden AKS-knooppunten afzonderlijk afgebakend uit het cluster, zodat nieuwe pods op deze worden niet gepland. De knooppunten zijn vervolgens geleegd en bijgewerkt als volgt:
 
-- Bestaande schillen zijn zonder problemen beëindigd en gepland voor de resterende knooppunten.
-- Het knooppunt opnieuw wordt opgestart, het upgradeproces is voltooid en wordt terug naar het AKS-cluster.
-- Schillen zijn gepland om uit te voeren op deze opnieuw.
-- Het volgende knooppunt in het cluster wordt afgebakend en geleegd hetzelfde proces gebruiken totdat alle knooppunten worden bijgewerkt.
+- Een nieuw knooppunt wordt geïmplementeerd in de knooppuntgroep. Dit knooppunt wordt uitgevoerd voor de meest recente installatiekopie van het besturingssysteem en patches.
+- Een van de bestaande knooppunten wordt geïdentificeerd voor de upgrade. Schillen op dit knooppunt zijn zonder problemen beëindigd en gepland voor de andere knooppunten in het knooppunt van toepassingen.
+- Deze bestaand knooppunt wordt verwijderd uit het AKS-cluster.
+- Het volgende knooppunt in het cluster wordt afgebakend en geleegd hetzelfde proces gebruiken totdat alle knooppunten worden vervangen als onderdeel van het upgradeproces.
 
 Zie voor meer informatie, [een AKS-cluster upgraden][aks-upgrade-cluster].
 
@@ -102,3 +104,4 @@ Zie de volgende artikelen voor meer informatie over core Kubernetes en concepten
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

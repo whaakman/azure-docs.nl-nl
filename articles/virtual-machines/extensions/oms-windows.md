@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 7c56b54f2d5be2bd47644e07369120468bb6015e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2287a0c39a82509e21ff35d8c3786cf1c85b1b24
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61468377"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142881"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Azure Monitor-virtuele machine-extensie voor Windows
 
@@ -32,7 +32,10 @@ Logboeken in Azure Monitor biedt mogelijkheden voor bewaking voor cloud en on-pr
 
 ### <a name="operating-system"></a>Besturingssysteem
 
-De Log Analytics-agent-extensie versies voor Windows kan worden uitgevoerd op basis van Windows Server 2008 R2, 2012, 2012 R2 en 2016.
+De Log Analytics-agent-extensie voor Windows ondersteunt de volgende versies van het Windows-besturingssysteem:
+
+- Windows Server 2019
+- Windows Server 2008 R2, 2012, 2012 R2, 2016, versie 1709 en 1803
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
@@ -43,7 +46,7 @@ De Log Analytics-agent-extensie voor Windows is vereist dat de virtuele doelmach
 
 ## <a name="extension-schema"></a>Extensieschema
 
-De volgende JSON ziet u het schema voor de Log Analytics-agent-extensie. De extensie is vereist voor de werkruimte-Id en werkruimtesleutel van de doel-Log Analytics-werkruimte. Deze kunnen worden gevonden in de instellingen voor de werkruimte in de Azure-portal. Omdat de sleutel van de werkruimte moet worden behandeld als gevoelige gegevens, moet deze worden opgeslagen in de instellingsconfiguratie van een beveiligde. Azure-VM-extensie beveiligde instellingsgegevens versleuteld en alleen op de virtuele doelmachine worden ontsleuteld. Houd er rekening mee dat **workspaceId** en **workspaceKey** zijn hoofdlettergevoelig.
+De volgende JSON ziet u het schema voor de Log Analytics-agent-extensie. De extensie is vereist voor de werkruimte-ID en werkruimtesleutel van de doel-Log Analytics-werkruimte. Deze kunnen worden gevonden in de instellingen voor de werkruimte in de Azure-portal. Omdat de sleutel van de werkruimte moet worden behandeld als gevoelige gegevens, moet deze worden opgeslagen in de instellingsconfiguratie van een beveiligde. Azure-VM-extensie beveiligde instellingsgegevens versleuteld en alleen op de virtuele doelmachine worden ontsleuteld. Houd er rekening mee dat **workspaceId** en **workspaceKey** zijn hoofdlettergevoelig.
 
 ```json
 {
@@ -84,6 +87,9 @@ De volgende JSON ziet u het schema voor de Log Analytics-agent-extensie. De exte
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 
 Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. De JSON-schema in de vorige sectie beschreven kan worden gebruikt in een Azure Resource Manager-sjabloon om uit te voeren van de Log Analytics-agent-extensie tijdens de sjabloonimplementatie van een Azure Resource Manager. Een voorbeeldsjabloon met de Log Analytics-agent VM-extensie kunt u vinden op de [Azure Quick Start-galerie](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+
+>[!NOTE]
+>De sjabloon biedt geen ondersteuning voor het opgeven van meer dan één werkruimte-ID en werkruimtesleutel als u wilt de agent configureren om te rapporteren aan meerdere werkruimten. Zie configureren van de agent om te rapporteren aan meerdere werkruimten [toevoegen of verwijderen van een werkruimte](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
 
 De JSON voor de extensie van een virtuele machine kan worden genest in de bron van de virtuele machine of geplaatst op de hoofdmap of het hoogste niveau van een Resource Manager JSON-sjabloon. De plaatsing van de JSON is van invloed op de waarde van de resourcenaam en het type. Zie voor meer informatie, [naam en type voor de onderliggende resources instellen](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
 

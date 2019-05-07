@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 93803a7d885bb68c1d5d6637eaf90fb090dabeb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598740"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073008"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -337,19 +337,28 @@ De LUIS container verzendt factuurgegevens naar Azure, met behulp van een _Cogni
 
 Zie voor meer informatie over deze opties [containers configureren](luis-container-configuration.md).
 
-## <a name="unsupported-dependencies"></a>Niet-ondersteunde afhankelijkheden
+## <a name="supported-dependencies-for-latest-container"></a>Afhankelijkheden voor ondersteund `latest` container
+
+De meest recente container, die zijn uitgebracht op 2019 / / bouwen, biedt ondersteuning voor:
+
+* Spellingcontrole voor Bing: aanvragen naar het eindpunt van de voorspelling query met de `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` tekenreeks queryparameters. Gebruik de [Bing spellingcontrole versie 7 zelfstudie](luis-tutorial-bing-spellcheck.md) voor meer informatie. Als deze functie wordt gebruikt, wordt in de container de utterance verzendt naar uw resource Bing spellingcontrole controleren versie 7.
+* [Nieuwe vooraf gemaakte domeinen](luis-reference-prebuilt-domains.md): deze domeinen zeer sterk gericht op enterprise-entiteiten, voorbeeld uitingen en patronen bevatten. Breid deze domeinen voor eigen gebruik. 
+
+<a name="unsupported-dependencies"></a>
+
+## <a name="unsupported-dependencies-for-latest-container"></a>Afhankelijkheden voor een niet-ondersteunde `latest` container
+
+Als uw LUIS-app niet-afhankelijkheden ondersteunde bevat, kunt u zich niet op [exporteren voor container](#export-packaged-app-from-luis) totdat u de niet-ondersteunde functies verwijdert. Wanneer u probeert te exporteren voor container, rapporteert de LUIS-portal de niet-ondersteunde functies die u wilt verwijderen.
 
 U kunt een LUIS-toepassing gebruiken als het **bevat geen** een van de volgende afhankelijkheden:
 
 Niet-ondersteunde app-configuraties|Details|
 |--|--|
-|Niet-ondersteunde container culturen| Duits (nl-nl)<br>Nederlands (nl-NL)<br>Japans (ja-JP)<br>|
-|Niet-ondersteunde domeinen|Vooraf gemaakte domeinen, met inbegrip van vooraf gedefinieerde domein intenties en entiteiten|
+|Niet-ondersteunde container culturen| Nederlands (nl-NL)<br>Japans (ja-JP)<br>Duits wordt alleen ondersteund met de [1.0.1 tokenizer of hoger](luis-language-support.md#custom-tokenizer-versions).|
 |Niet-ondersteunde entiteiten voor alle culturen|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) vooraf gemaakte entiteiten voor alle culturen|
 |Niet-ondersteunde entiteiten voor de cultuur Engels (en-US)|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) vooraf gemaakte entiteiten|
 |Spraak voorbereiden|Externe afhankelijkheden worden niet ondersteund in de container.|
 |Sentimentanalyse|Externe afhankelijkheden worden niet ondersteund in de container.|
-|Bing spellingcontrole|Externe afhankelijkheden worden niet ondersteund in de container.|
 
 ## <a name="summary"></a>Samenvatting
 

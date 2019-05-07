@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: f4f54273262f60dc01f78f4bb5828c8fdd2b97a9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 79ba86fd32248da240706fda2d8b5fcf8323263d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707247"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143208"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Een Standard load balancer maken om taken van VM's te verdelen via Azure Portal
 
@@ -44,7 +44,7 @@ In deze sectie maakt u een Standard Load Balancer die helpt bij het laden van ve
     | Abonnement               | Selecteer uw abonnement.    |    
     | Resourcegroep         | Selecteer **nieuw** en het type *myResourceGroupSLB* in het tekstvak in.|
     | Name                   | *myLoadBalancer*                                   |
-    | Regio         | Selecteer **US - oost**.                                        |
+    | Regio         | Selecteer **Europa - west**.                                        |
     | Type          | Selecteer **Openbaar**.                                        |
     | SKU           | selecteer **Standaard**.                          |
     | Openbaar IP-adres | Selecteer **Nieuw maken**. |
@@ -154,10 +154,10 @@ Standard Load Balancer biedt alleen ondersteuning voor VM's met standaard IP-adr
 
     | Instelling | VM 2| VM 3|
     | ------- | ----- |---|
-    | Name |  *myVM1* |*myVM3*|
+    | Name |  *myVM2* |*myVM3*|
     | Beschikbaarheidszone | 2 |3|
     |Openbare IP| **Standard** SKU|**Standard** SKU|
-    | Openbare IP - beschikbaarheidszone| Zone-redundant |
+    | Openbare IP - beschikbaarheidszone| **Zone-redundant** |**Zone-redundant**|
     | Netwerkbeveiligingsgroep | Selecteer de bestaande *myNetworkSecurity groep*| Selecteer de bestaande *myNetworkSecurity groep*|
 
  ### <a name="create-nsg-rule"></a>Een NSG-regel maken

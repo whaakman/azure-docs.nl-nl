@@ -1,19 +1,19 @@
 ---
-title: Het herstellen van een Server in Azure Database for PostgreSQL
-description: In dit artikel wordt beschreven hoe u het herstellen van een server in Azure Database for PostgreSQL via de Azure-portal.
+title: Het herstellen van een Server in Azure Database voor PostgreSQL - één Server
+description: In dit artikel wordt beschreven hoe u het herstellen van een server in Azure Database voor PostgreSQL - één Server met behulp van de Azure portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.openlocfilehash: 60489e3fc7fc6482a14a241e777066b3805a4d5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 1950b43e0922eebe34463c06db9a5d67dce76f56
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420412"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068887"
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Het back-up en herstellen van een server in Azure Database for PostgreSQL via Azure portal
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Het back-up en herstellen van een server in Azure Database voor PostgreSQL - één Server met behulp van de Azure portal
 
 ## <a name="backup-happens-automatically"></a>Back-up wordt automatisch uitgevoerd
 Azure Database for PostgreSQL-servers voor back-ups regelmatig Restore-functies inschakelen. Met deze functie kan u de server en alle bijbehorende databases herstellen naar een eerder punt-in-time, op een nieuwe server.

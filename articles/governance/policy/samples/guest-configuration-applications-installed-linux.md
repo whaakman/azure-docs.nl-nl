@@ -5,18 +5,18 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8ee73da16f4f3de2378e38d273051355c5c624c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60545092"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142848"
 ---
-# <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>Voorbeeld - Audit als opgegeven toepassingen zijn niet geïnstalleerd in virtuele Linux-machines
+# <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Voorbeeld - Audit als opgegeven toepassingen niet zijn geïnstalleerd in virtuele Linux-machines
 
-Dit initiatief beleidsconfiguratie Gast voert een controle uit dat de opgegeven toepassing is geïnstalleerd in virtuele Linux-machines. De ID van deze ingebouwde initiatief is `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
+Dit initiatief Gast beleidsconfiguratie maakt een controlegebeurtenis wanneer de opgegeven toepassingen in virtuele Linux-machines zijn niet geïnstalleerd. De ID van deze ingebouwde initiatief is `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
 
 > [!IMPORTANT]
 > Alle configuratie van de Gast-initiatieven worden samengesteld uit **controleren** en **deployIfNotExists** beleidsdefinities. Het toekennen van alleen een van de beleidsdefinities ertoe leiden dat de configuratie van de Gast niet correct te laten werken.
@@ -32,9 +32,9 @@ In dit voorbeeld met, kunt u toewijzen:
 
 Dit [Gast configuratie](../concepts/guest-configuration.md) initiatief is afhankelijk van het volgende beleid:
 
-- [audit](#audit-definition) -controleren dat een toepassing in Linux-VM's is geïnstalleerd
+- [audit](#audit-definition) -controleren wanneer toepassingen zijn niet geïnstalleerd in virtuele Linux-machines
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
-- [deployIfNotExists](#deployIfNotExists-definition) -implementatie van VM-extensie om te controleren dat een toepassing in Linux-VM's is geïnstalleerd
+- [deployIfNotExists](#deployIfNotExists-definition) -implementatie van VM-extensie om te controleren wanneer toepassingen zijn niet geïnstalleerd in virtuele Linux-machines
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### <a name="initiative-definition"></a>Initiatiefdefinitie
@@ -45,7 +45,9 @@ Het initiatief is gemaakt door de **controleren** en **deployIfNotExists** defin
 
 ### <a name="initiative-parameters"></a>Initiatiefparameters
 
-|Name |Type ||Description | |---|---||---| |applicationName |String |Application names. Voorbeeld: 'python', 'powershell' of een door komma's gescheiden lijst, zoals 'python, powershell'. Gebruik \* voor jokertekens, zoals ' power\*'. |
+|Name |Type |Description |
+|---|---|---|
+|applicationName |String |De toepassingsnamen van de. Voorbeeld: 'python', 'powershell' of een door komma's gescheiden lijst, zoals 'python, powershell'. Gebruik \* voor jokertekens, zoals ' power\*'. |
 
 Bij het maken van een toewijzing via PowerShell of Azure CLI kunnen de parameterwaarden worden doorgegeven als JSON in een tekenreeks of via een bestand met `-PolicyParameter` (PowerShell) of `--params` (Azure CLI).
 PowerShell ondersteunt ook `-PolicyParameterObject`, waarvoor de cmdlet een hashtabel met naam/waardeparen moet ontvangen waarin **Name** de parameternaam is en **Value** is de enkelvoudige waarde of matrix met waarden die tijdens toewijzing wordt doorgegeven.

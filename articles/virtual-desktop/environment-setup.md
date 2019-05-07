@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6aa6c7326759e480235df5fe9d4b0878cd11024d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870316"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142387"
 ---
 # <a name="windows-virtual-desktop-preview-environment"></a>Windows virtuele bureaublad Preview-omgeving
 
@@ -63,5 +63,5 @@ Zie voor meer informatie over het instellen van uw tenant virtuele Windows-burea
 
 Als u wilt weten hoe u verbinding maken met virtuele Windows-bureaublad, ziet u een van de volgende artikelen:
 
-- [Verbinding maken met de extern bureaublad-client op Windows 7 en Windows 10](connect-windows-7-and-10.md)
-- [Verbinding maken met de webclient Windows Virtual Desktop Preview](connect-web.md)
+- [Verbinding maken vanaf Windows 10 of Windows 7](connect-windows-7-and-10.md)
+- [Verbinding maken via een webbrowser](connect-web.md)
