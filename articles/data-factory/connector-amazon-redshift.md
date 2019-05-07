@@ -55,9 +55,9 @@ De volgende eigenschappen worden ondersteund voor Amazon Redshift gekoppelde ser
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **AmazonRedshift** | Ja |
 | server |IP-adres of de hostnaam de naam van de Amazon Redshift-server. |Ja |
-| poort |Het nummer van de TCP-poort die gebruikmaakt van de Amazon Redshift-server om te luisteren naar clientverbindingen. |Nee, de standaardwaarde is 5439 |
+| port |Het nummer van de TCP-poort die gebruikmaakt van de Amazon Redshift-server om te luisteren naar clientverbindingen. |Nee, de standaardwaarde is 5439 |
 | database |De naam van de Amazon Redshift-database. |Ja |
-| gebruikersnaam |De naam van de gebruiker die toegang tot de database heeft. |Ja |
+| username |De naam van de gebruiker die toegang tot de database heeft. |Ja |
 | password |Wachtwoord voor het gebruikersaccount. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt Azure Integration Runtime of zelfgehoste Cloudintegratieruntime gebruiken (als het gegevensarchief bevindt zich in een particulier netwerk). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
@@ -210,15 +210,15 @@ Het kopiëren van gegevens van Amazon Redshift, worden de volgende toewijzingen 
 | Amazon Redshift-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAANSE WAARDE |String |
+| BOOLEAN |String |
 | CHAR |String |
 | DATE |DateTime |
 | DECIMAL |Decimal |
-| DUBBELE PRECISIE |Double |
-| GEHEEL GETAL ZIJN |Int32 |
-| ECHTE |Single |
+| DOUBLE PRECISION |Double |
+| INTEGER |Int32 |
+| REAL |Single |
 | SMALLINT |Int16 |
-| TEKST |String |
+| TEXT |String |
 | TIMESTAMP |DateTime |
 | VARCHAR |String |
 
