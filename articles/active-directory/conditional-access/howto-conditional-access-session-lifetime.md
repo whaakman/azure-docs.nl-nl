@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 884b3c2d3f4414427df87ee5f04138416f363b1c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0ff9ad850b111cf080447b699d35b4ef8205e006
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577223"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190226"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Sessiebeheer voor verificatie met voorwaardelijke toegang configureren
 
@@ -53,7 +53,7 @@ De standaard Azure AD voor sessiepersistentie browser kan gebruikers op persoonl
 Voorwaardelijke toegang is een Azure AD Premium-capaciteit en is een premium-licentie vereist. Als u meer informatie over voorwaardelijke toegang wilt, raadpleegt u [wat is voorwaardelijke toegang in Azure Active Directory?](overview.md#license-requirements-for-using-conditional-access)
 
 > [!WARNING]
-> Als u de [configureerbare levensduur van vernieuwingstoken](../develop/active-directory-configurable-token-lifetimes.md) functie momenteel in openbare preview, houd er rekening mee dat we bieden geen ondersteuning voor het maken van twee verschillende beleidsregels voor dezelfde gebruiker of app combinatie: met deze functie en een ander subnet met de functie configureerbare levensduur van tokens. Microsoft wil buiten gebruik stellen van de functie configureerbare levensduur van vernieuwingstoken op 1 November en vervang deze door de functie voor beheer van voorwaardelijke toegang verificatie-sessie.  
+> Als u de [configureerbare levensduur van vernieuwingstoken](../develop/active-directory-configurable-token-lifetimes.md) functie momenteel in openbare preview, houd er rekening mee dat we bieden geen ondersteuning voor het maken van twee verschillende beleidsregels voor dezelfde gebruiker of app combinatie: met deze functie en een ander subnet met de functie configureerbare levensduur van tokens. Microsoft wil buiten gebruik stellen van de functie configureerbare levensduur van vernieuwingstoken op 15 oktober en vervang deze door de functie voor beheer van voorwaardelijke toegang verificatie-sessie.  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Beleid 1: Frequentie-aanmelden-besturingselement
 

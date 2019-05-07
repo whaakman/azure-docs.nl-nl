@@ -15,12 +15,12 @@ ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c9db6babff3ae0c91f730e6ec2e6e2a41d55b0bf
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712864"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191516"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kenmerktoewijzingen voor Gebruikersinrichting voor SaaS-toepassingen in Azure Active Directory aanpassen
 Microsoft Azure AD biedt ondersteuning voor het inrichten van gebruikers voor SaaS-toepassingen van derden zoals Salesforce, G Suite en anderen. Als u het inrichten van gebruikers voor een SaaS-toepassing van derden hebt ingeschakeld, bepaalt de Azure-portal de kenmerkwaarden via kenmerktoewijzingen.
@@ -149,6 +149,8 @@ Deze optie selecteert, wordt een hersynchronisatie van alle gebruikers effectief
 * Kenmerk-toewijzingen bijwerken, heeft een invloed op de prestaties van een synchronisatiecyclus. Een update voor de configuratie van de kenmerk-toewijzing is vereist voor alle beheerde objecten om te worden opnieuw geëvalueerd. 
 
 * Een aanbevolen procedure is het aantal opeenvolgende wijzigingen aan uw kenmerktoewijzingen ten minste houden.
+
+* Een foto-kenmerk moet worden ingericht op een app toe te voegen momenteel niet ondersteund als u de indeling voor het synchroniseren van de foto niet opgeven. U kunt de functie aanvragen op [Uservoice](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
 ## <a name="next-steps"></a>Volgende stappen

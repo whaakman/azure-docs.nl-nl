@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8827a51a23b2ea274d8096a154e630c9cecbba7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0d8f1024ba660bc0e879940f20db70d547eea40e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351988"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190496"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedure: Uw hybride Azure Active Directory join-implementatie plannen
 
@@ -41,7 +41,7 @@ Als u een on-premises Active Directory-omgeving hebt en u uw domein-gekoppelde a
 In dit artikel wordt ervan uitgegaan dat u bekend met bent de [Inleiding tot Apparaatbeheer in Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> De minimaal vereiste functionele domein en forest functionele niveaus voor Windows 10 hybride Azure AD join Windows Server 2008 R2 is. Op de lagere versies, de gebruiker kan niet een primaire vernieuwen-Token ophalen tijdens het aanmelden vanwege problemen met de LSA Windows.
+> De minimaal vereiste functionele domein en forest functionele niveaus voor Windows 10 hybride Azure AD join Windows Server 2008 R2 is.
 
 ## <a name="plan-your-implementation"></a>Uw implementatie plannen
 
@@ -121,6 +121,9 @@ Als uw omgeving heeft beheerde domeinen, ondersteunt hybride Azure AD join:
 
 - Doorgeven van verificatie (PTA)
 - Synchronisatie van Wachtwoordhashes (WHS)
+
+> [!NOTE]
+> Azure AD biedt geen ondersteuning voor smartcards of certificaten in beheerde domeinen.
 
 Vanaf versie 1.1.819.0 bevat Azure AD Connect een wizard om hybride Azure AD-koppeling te configureren. Met de wizard kunt u het configuratieproces aanzienlijk vereenvoudigen. Zie voor meer informatie:
 

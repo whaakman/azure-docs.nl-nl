@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1150e68167ad4e932acce744cdd5eba88e49a8c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e51437a99217316ead50d4075be52f089225e618
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302360"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190859"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snelstart: aanmelding met Microsoft toevoegen aan een ASP.NET Core-web-app
 
@@ -73,13 +73,13 @@ In deze snelstart leert u hoe een ASP.NET Core-web-app persoonlijke accounts (ho
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>Stap 2: uw ASP.NET Core-project downloaden
 
-- [De Visual Studio 2017-oplossing downloaden](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+- [Download de 2019 van Visual Studio-oplossing](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Stap 3: uw Visual Studio-project configureren
 
 1. Pak het zip-bestand uit in een lokale map in de hoofdmap (bijvoorbeeld **C:\Azure-Samples**)
-1. Als u Visual Studio 2017 gebruikt, opent u de oplossing in Visual Studio (optioneel).
-1. Bewerk het bestand **appsettings.json**. Zoek `ClientId` en werk de waarde van `ClientId` met de **(client) toepassings-ID** waarde van de toepassing die u zojuist hebt geregistreerd. 
+1. Als u Visual Studio 2019 gebruikt, opent u de oplossing in Visual Studio (optioneel).
+1. Bewerk het bestand **appsettings.json**. Zoek `ClientId` en werk de waarde van `ClientId` met de **(client) toepassings-ID** waarde van de toepassing die u hebt geregistreerd. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
@@ -99,7 +99,7 @@ In deze snelstart leert u hoe een ASP.NET Core-web-app persoonlijke accounts (ho
 
 ## <a name="more-information"></a>Meer informatie
 
-Deze sectie bevat een overzicht van de code die vereist is voor het aanmelden van gebruikers. Dit kan handig zijn om te begrijpen hoe de code werkt, wat de belangrijkste argumenten zijn en ook als u aanmelding wilt toevoegen aan een bestaande ASP.NET Core-toepassing.
+In deze sectie biedt een overzicht van de code die is vereist voor aanmelding bij gebruikers. In dit overzicht is handig om te begrijpen hoe de code werkt, belangrijkste argumenten, en ook als u wilt aanmelden toevoegen aan een bestaande ASP.NET Core-toepassing.
 
 ### <a name="startup-class"></a>Opstartklasse
 
@@ -136,9 +136,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Met de methode `AddAuthentication` wordt de service geconfigureerd voor het toevoegen van verificatie op basis van cookies. Deze verificatie wordt gebruikt in browserscenario's én om vragen te sturen naar OpenID Connect. 
+De methode `AddAuthentication` configureert u de service toe te voegen van verificatie op basis van cookies, die wordt gebruikt in scenario's voor browser en in te stellen de controle op het OpenID Connect. 
 
-De regel die `.AddAzureAd` wordt de verificatie van Microsoft identity-platform wordt toegevoegd aan uw toepassing. Er wordt dan geconfigureerd voor aanmelding met behulp van het eindpunt van de Microsoft identity-platform.
+De regel die `.AddAzureAd` wordt de verificatie van Microsoft identity-platform wordt toegevoegd aan uw toepassing. Vervolgens wordt deze geconfigureerd om aan te melden met behulp van het eindpunt van de Microsoft identity-platform.
 
 > |Waar  |  |
 > |---------|---------|
@@ -153,13 +153,13 @@ De regel die `.AddAzureAd` wordt de verificatie van Microsoft identity-platform 
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Een controller of de methode van een controller beveiligen
 
-U kunt een controller of controllermethoden beveiligen met behulp van het kenmerk `[Authorize]`. Met dit kenmerk wordt toegang tot de controller of methoden beperkt door alleen geverifieerde gebruikers toe te staan. Dit betekent dat de verificatiecontrole kan worden gestart om de controller te benaderen als de gebruiker niet is geverifieerd.
+U kunt een controller of controllermethoden beveiligen met behulp van het kenmerk `[Authorize]`. Dit kenmerk wordt beperkt tot de controller of methoden doordat alleen geverifieerde gebruikers, wat betekent dat verificatiecontrole voor toegang tot de controller als de gebruiker is niet geverifieerd kan worden gestart.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de GitHub-opslagplaats voor deze zelfstudie voor ASP.NET Core voor meer informatie en instructies over hoe u verificatie toevoegen aan een nieuwe ASP.NET Core Web-toepassing, over het aanroepen van Microsoft Graph en andere Microsoft-APIs, over het aanroepen van uw eigen API's toevoegen autorisatie, hoe u om aan te melden gebruikers in nationale clouds, of met sociale identiteiten en meer:
+Bekijk de GitHub-opslagplaats voor deze zelfstudie voor ASP.NET Core voor meer informatie en instructies over hoe u verificatie toevoegen aan een nieuwe ASP.NET Core Web-toepassing, over het aanroepen van Microsoft Graph en andere Microsoft-APIs, over het aanroepen van uw eigen API's toevoegen autorisatie, hoe u aan te melden bij gebruikers in nationale clouds, of met sociale identiteiten en meer:
 
 > [!div class="nextstepaction"]
 > [Zelfstudie voor ASP.NET Core Web-App](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

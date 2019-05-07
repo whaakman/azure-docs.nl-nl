@@ -16,12 +16,12 @@ ms.date: 12/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2746775c72976159cdcdb6bdd86e39a5dbe3a4fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4bf8df2374d373ad36eada8a7de08be76396a76
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348821"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190808"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Vereisten voor Azure AD Connect
 Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor Azure AD Connect.
@@ -76,8 +76,8 @@ Voor meer informatie zie:
 * [De Active Directory kwetsbaarheid voor aanvallen verminderen](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL-Server die wordt gebruikt door Azure AD Connect
-* Azure AD Connect vereist een SQL Server-database voor het opslaan van identiteitsgegevens. Een SQL Server 2012 Express LocalDB (een eenvoudige versie van SQL Server Express) wordt standaard geïnstalleerd. SQL Server Express heeft een limiet van 10GB waarmee u voor het beheren van ongeveer 100.000 objecten. Als u nodig hebt voor het beheren van een hoger aantal directory-objecten, moet u de installatiewizard verwijzen naar een andere installatie van SQL Server.
-* Als u een afzonderlijke SQL Server gebruikt, klikt u vervolgens deze vereisten zijn van toepassing:
+* Azure AD Connect vereist een SQL Server-database voor het opslaan van identiteitsgegevens. Een SQL Server 2012 Express LocalDB (een eenvoudige versie van SQL Server Express) wordt standaard geïnstalleerd. SQL Server Express heeft een limiet van 10GB waarmee u voor het beheren van ongeveer 100.000 objecten. Als u nodig hebt voor het beheren van een hoger aantal directory-objecten, moet u de installatiewizard verwijzen naar een andere installatie van SQL Server. Het type van de installatie van SQL Server kan invloed hebben op de [prestaties van Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
+* Als u een andere installatie van SQL Server gebruikt, klikt u vervolgens deze vereisten zijn van toepassing:
   * Azure AD Connect biedt ondersteuning voor alle versies van Microsoft SQL Server van 2008 R2 (met de meest recente servicepack) naar SQL Server 2019. Microsoft Azure SQL Database is **niet ondersteund** als een database.
   * U moet een niet-hoofdlettergevoelige SQL-sortering gebruiken. Deze sorteringen worden aangeduid met een \_CI_ in hun naam. Het is **niet ondersteund** voor het gebruik van een hoofdlettergevoelige sortering, geïdentificeerd door \_CS_ in hun naam.
   * U kunt slechts één synchronisatie-engine per SQL-exemplaar hebben. Het is **niet ondersteund** voor het delen van een SQL-exemplaar met FIM/MIM Sync, DirSync of Azure AD Sync.

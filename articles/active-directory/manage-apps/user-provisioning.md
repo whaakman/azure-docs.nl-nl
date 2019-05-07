@@ -15,12 +15,12 @@ ms.date: 04/02/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 516faed0f41ae36079d0f26f0311b35d5582d57a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 67956b3369394f68d067fc4753a859c066428aea
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708296"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191496"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Gebruiker-inrichting en ongedaan maken van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren
 
@@ -274,6 +274,10 @@ Nee. Wanneer geconfigureerd voor 'sync alleen toegewezen gebruikers en groepen',
 Dit is een beperking van '-groep op basis van toewijzingen voor toepassingen', die ook van invloed is op eenmalige aanmelding en wordt beschreven in [met behulp van een groep voor het beheren van toegang tot SaaS-toepassingen](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 
 Als tijdelijke oplossing, moet u expliciet toewijzen (of anderszins [in het bereik van](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) de groepen met de gebruikers die moeten worden ingericht.
+
+### <a name="is-provisioning-between-azure-ad-and-a-target-application-using-an-encrypted-channel"></a>Tussen Azure AD wordt ingericht en een doeltoepassing met behulp van een versleuteld kanaal?
+
+Ja. We gebruiken HTTPS SSL-versleuteling voor de doel-server. 
 
 ## <a name="related-articles"></a>Verwante artikelen:
 

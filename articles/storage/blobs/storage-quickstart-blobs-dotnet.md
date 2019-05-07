@@ -2,18 +2,19 @@
 title: 'Quickstart: .NET gebruiken om te een blob maken in objectopslag - Azure Storage'
 description: In deze snelstart leert u hoe u de Azure Storage-clientbibliotheek voor .NET kunt gebruiken om een container te maken en een blob-in-blob-opslag (object). Hierna leert u hoe u de blob naar uw lokale computer downloadt en hoe u alle blobs in een container kunt weergeven.
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: tamram
-ms.openlocfilehash: 2708efc22d373db6ee55dfee6b8adfa35bd450ef
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: 0b7a7ac7b8a71f33871247a1117c16609bbbcd88
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924320"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191057"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Quickstart: .NET gebruiken om te een blob maken in objectopslag
 
@@ -152,7 +153,7 @@ We gaan nu de voorbeeldcode verkennen, zodat u begrijpt hoe deze werkt.
 
 ### <a name="try-parsing-the-connection-string"></a>Probeer de verbindingsreeks te parseren
 
-Het eerste wat het voorbeeld doet, is controleren of de omgevingsvariabele een verbindingsreeks bevat die kan worden geparseerd om een [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount)-object te maken dat naar het opslagaccount wijst. Gebruik de [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse)-methode om te controleren of de verbindingsreeks geldig is. Als **TryParse** lukt, wordt de variabele *storageAccount* geïnitialiseerd en **true** geretourneerd.
+Het eerste wat het voorbeeld doet, is controleren of de omgevingsvariabele een verbindingsreeks bevat die kan worden geparseerd om een [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)-object te maken dat naar het opslagaccount wijst. Gebruik de [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse)-methode om te controleren of de verbindingsreeks geldig is. Als **TryParse** lukt, wordt de variabele *storageAccount* geïnitialiseerd en **true** geretourneerd.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -184,9 +185,9 @@ else
 
 Vervolgens wordt een container gemaakt, en de machtigingen ervan worden zo ingesteld dat alle blobs in de container openbaar zijn. Als een blob openbaar is, is deze anoniem toegankelijk voor elke client.
 
-Maak om de container te maken eerst een instantie van het object [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient), dat naar de Blob-opslag in uw opslagaccount wijst. Maak vervolgens een instantie van het object [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer) en maak de container.
+Maak om de container te maken eerst een instantie van het object [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient), dat naar de Blob-opslag in uw opslagaccount wijst. Maak vervolgens een instantie van het object [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) en maak de container.
 
-In dit geval roept het voorbeeld de methode [CreateAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createasync) aan om de container te maken. Er wordt een GUID-waarde toegevoegd aan de containernaam om ervoor te zorgen dat deze uniek is. In een productieomgeving is het vaak beter de methode [CreateIfNotExistsAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexistsasync) te gebruiken om alleen een container te maken als deze nog niet bestaat en naamconflicten voorkomen.
+In dit geval roept het voorbeeld de methode [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync) aan om de container te maken. Er wordt een GUID-waarde toegevoegd aan de containernaam om ervoor te zorgen dat deze uniek is. In een productieomgeving is het vaak beter de methode [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync) te gebruiken om alleen een container te maken als deze nog niet bestaat en naamconflicten voorkomen.
 
 > [!IMPORTANT]
 > Containernamen moeten uit kleine letters bestaan. Zie [Containers, blobs en metagegevens een naam geven en hiernaar verwijderen](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) voor meer informatie over de naamgeving van containers en blobs.
@@ -209,7 +210,7 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 ### <a name="upload-blobs-to-the-container"></a>Blobs uploaden naar de container
 
-Vervolgens wordt een lokaal bestand geüpload naar een blok-blob. Het codevoorbeeld haalt een verwijzing naar een **CloudBlockBlob**-object op door de [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference)-methode aan te roepen op de container die in de vorige sectie is gemaakt. Vervolgens wordt het geselecteerde bestand naar de blob geüpload door de [UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync)-methode aan te roepen. Met deze methode wordt de blob gemaakt als deze nog niet bestaat, of overschreven als dat wel het geval is.
+Vervolgens wordt een lokaal bestand geüpload naar een blok-blob. Het codevoorbeeld haalt een verwijzing naar een **CloudBlockBlob**-object op door de [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference)-methode aan te roepen op de container die in de vorige sectie is gemaakt. Vervolgens wordt het geselecteerde bestand naar de blob geüpload door de [UploadFromFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromfileasync)-methode aan te roepen. Met deze methode wordt de blob gemaakt als deze nog niet bestaat, of overschreven als dat wel het geval is.
 
 ```csharp
 // Create a file in your local MyDocuments folder to upload to a blob.
@@ -230,7 +231,7 @@ await cloudBlockBlob.UploadFromFileAsync(sourceFile);
 
 ### <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
-Het voorbeeld maakt een lijst de blobs in de container met behulp van de [ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync)-methode. In het geval van het voorbeeld is slechts één blob aan de container toegevoegd, zodat de lijstbewerking alleen die ene blob retourneert.
+Het voorbeeld maakt een lijst de blobs in de container met behulp van de [ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync)-methode. In het geval van het voorbeeld is slechts één blob aan de container toegevoegd, zodat de lijstbewerking alleen die ene blob retourneert.
 
 Als er te veel blobs zijn om met één aanroep te retourneren (standaard meer dan 5000), retourneert de **ListBlobsSegmentedAsync**-methode een segment van de totale resultatenset en een vervolgtoken. Om het volgende segment met blobs op te halen, geeft u het vervolgtoken op dat door de vorige aanroep is geretourneerd, enzovoort, totdat het vervolgtoken null is. Een null-vervolgtoken geeft aan dat alle blobs zijn opgehaald. De voorbeeldcode laat aanbevolen procedures zien voor het op de beste manier gebruiken van het vervolgtoken.
 
@@ -253,7 +254,7 @@ do
 
 ### <a name="download-blobs"></a>Blobs downloaden
 
-Vervolgens downloadt het voorbeeld de eerder gemaakte blob naar uw lokale bestandssysteem met behulp van de [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync)-methode. De voorbeeldcode voegt het achtervoegsel "_DOWNLOADED" toe aan de naam van de blob, zodat u beide bestanden in het lokale bestandssysteem kunt zien.
+Vervolgens downloadt het voorbeeld de eerder gemaakte blob naar uw lokale bestandssysteem met behulp van de [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync)-methode. De voorbeeldcode voegt het achtervoegsel "_DOWNLOADED" toe aan de naam van de blob, zodat u beide bestanden in het lokale bestandssysteem kunt zien.
 
 ```csharp
 // Download the blob to a local file, using the reference created earlier.
@@ -265,7 +266,7 @@ await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
 
 ### <a name="clean-up-resources"></a>Resources opschonen
 
-Het voorbeeld ruimt de gemaakte resources op door de hele container te verwijderen met behulp van[CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). U kunt ook de lokale bestanden verwijderen als u dat wilt.
+Het voorbeeld ruimt de gemaakte resources op door de hele container te verwijderen met behulp van[CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). U kunt ook de lokale bestanden verwijderen als u dat wilt.
 
 ```csharp
 Console.WriteLine("Press the 'Enter' key to delete the sample files, example container, and exit the application.");

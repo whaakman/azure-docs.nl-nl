@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 87599b05a3569bf6f28880352185a131f48a7f52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f284fea701220906a994cf108ed58cb6998aef9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61436168"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187658"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Informatie over gebeurtenis voor Event Grid-abonnementen filteren
 
@@ -43,7 +43,7 @@ Eenvoudig filteren op onderwerp, Geef een begin- of -waarde voor het onderwerp. 
 
 Bij het publiceren van gebeurtenissen naar aangepaste onderwerpen, maken van onderwerpen voor de gebeurtenissen die het gemakkelijk voor abonnees om te weten of ze geïnteresseerd zijn in de gebeurtenis. Abonnees gebruiken de eigenschap subject gebeurtenissen filteren en route. U kunt het pad voor waar de gebeurtenis heeft plaatsgevonden, toevoegen, zodat abonnees op segmenten van het opgegeven pad filteren kunnen. Het pad kan abonnees nauwkeurig of ruim om gebeurtenissen te filteren. Als u een pad op drie segment zoals `/A/B/C` in het onderwerp, abonnees kunnen filteren op het eerste segment `/A` om op te halen van een breed scala aan gebeurtenissen. Abonnees die aan de gebeurtenissen met onderwerpen zoals `/A/B/C` of `/A/D/E`. Andere abonnees kunnen filteren op `/A/B` om op te halen van een smaller reeks gebeurtenissen.
 
-De JSON-syntaxis voor het filteren op gebeurtenistype is:
+De JSON-syntaxis voor het filteren op onderwerp is:
 
 ```json
 "filter": {

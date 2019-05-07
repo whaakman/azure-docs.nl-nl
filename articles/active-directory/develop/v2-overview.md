@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6aa0af1ff5a8600f43ab92a5f2534a8e3ff253c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: 414200462d3575aa576b5ef2268a3ac0b01063ba
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067671"
+ms.locfileid: "65190762"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Overzicht van Microsoft identity-platform (v2.0)
 
@@ -54,13 +54,9 @@ Werken met identiteit beschikt niet over moeten worden, moeilijk. Kies een scena
 - [Een daemon-app bouwen](scenario-daemon-overview.md)
 - [Bouw een mobiele app](scenario-mobile-overview.md)
 
-<!--- We are making updates to the application scenarios chart. This is placeholder text for it.
+De volgende tabel geeft een overzicht van de algemene verificatie-app-scenario's: gebruik als referentie bij het integreren van de Microsoft identity-platform met uw app.
 
-The following chart outlines the full set of authentication scenarios and best practices – use it as a reference when integrating the Microsoft identity platform before shipping your app.
-
-[![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
-
---->
+[![Toepassingsscenario's in Microsoft identity-platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.png#lightbox)
 
 ## <a name="next-steps"></a>Volgende stappen
 

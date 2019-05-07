@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6aed38c8c670c751ee51de95e6622685caea1ce
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 3073d34a6ffeadd1c1c0022b5c1636f06cc6210a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112195"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190839"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft identity-platform en de OAuth 2.0-clientreferentiestroom
 
@@ -249,6 +249,10 @@ Reactie op een fout ziet er als volgt:
 | `timestamp` | De tijd waarop de fout is opgetreden. |
 | `trace_id` | Een unieke id voor de aanvraag om te helpen met diagnostische gegevens. |
 | `correlation_id` | Een unieke id voor de aanvraag om te helpen met diagnostische gegevens voor onderdelen. |
+
+> [!NOTE]
+> U kunt het manifestbestand van de toepassing in azure portal bijwerken in volgorde voor uw toepassing kunnen zijn voor het ontvangen van de v2-token. U kunt het kenmerk toevoegen `accessTokenAcceptedVersion` en stel de waarde op 2 als `"accessTokenAcceptedVersion": 2`. Controleer of het artikel [toepassingsmanifest](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest#manifest-reference) voor meer informatie over hetzelfde. Standaard de toepassing op dit moment krijgen een v1-token. Als dit niet is gedefinieerd in het manifest toepassing/Web-API, wordt de waarde voor dit kenmerk in het manifest standaard ingesteld op 1 en kan daarom de toepassing v1-token ontvangt.  
+
 
 ## <a name="use-a-token"></a>Een token gebruiken
 

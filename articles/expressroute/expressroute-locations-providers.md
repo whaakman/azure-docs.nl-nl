@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/26/2019
+ms.date: 05/06/2019
 ms.author: pareshmu
-ms.openlocfilehash: 61a6608a4b498cf47ece194e8cee4ea19a0333fd
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: af8927ddaac4295a49d46f57a48225435dd59b29
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869090"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191160"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
@@ -43,7 +43,7 @@ In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-l
 | **Geopolitieke regio** | **Zone** | **Azure-regio's** | **ExpressRoute-locaties** |
 | --- | --- | --- | --- |
 | **Australië - overheid** | 1 | Australië Centraal, Australië Centraal 2 |Canberra, Canberra2 |
-| **Europa** | 1 |Frankrijk - centraal, Frankrijk - zuid, Europa - noord, Europa - west, VK - west, VK - zuid |Amsterdam, Amsterdam2, Dublin, Londen, London2, Marseille, Newport(Wales), Parijs, Zürich |
+| **Europa** | 1 |Frankrijk - centraal, Frankrijk - zuid, Europa - noord, Europa - west, VK - west, VK - zuid |Amsterdam, Amsterdam2, Dublin, Frankfurt, Londen, London2, Marseille, Newport(Wales), Parijs, Zürich |
 | **Noord-Amerika** | 1 |US - oost, US - west, US - oost 2, US - west 2, US - centraal, US - zuid-centraal, US - noord-centraal, US - west-centraal, Canada Centraal, Canada Oost |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
 | **Azië** | 2 |Azië - oost, Azië - zuidoost |Hong Kong SAR, Kuala Lumpur, Singapore, Singapore2, Taipei |
 | **Australië** | 2 |Australië - zuidoost, Australië - oost |Melbourne, Perth, Sydney | 
@@ -88,6 +88,7 @@ De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor e
 | **Denver** | CoreSite | CoreSite, Megaport, Zayo |
 | **Dubai** | Etisalat VAE | Etisalat VAE |
 | **Dublin** | Equinix | Colt, eir, Equinix, Interxion, Megaport |
+| **Frankfurt** | Interxion | Interxion |
 | **Hongkong SAR** | Equinix | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Johannesburg** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Kuala Lumpur** | TIME dotCom | TIME dotCom |
@@ -116,7 +117,7 @@ De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor e
 | **Singapore** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
 | **Singapore2** | Global Switch | Colt, Epsilon Global Communications, Megaport, SingTel |
 | **Sydney** | Equinix | AARNet, AT&T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, TPG Telecom, Verizon |
-| **Taipei** | Chief Telecom | Chief Telecom |
+| **Taipei** | Chief Telecom | Chief Telecom, FarEasTone |
 | **Tokio** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
 | **Toronto** | Cologix | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, Megaport, Telus, Zayo |
 | **Washington DC** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, PacketFabric, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
@@ -134,7 +135,7 @@ De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor e
 | **Dallas** |Equinix, Megaport, Verizon |
 | **New York** |Equinix, CenturyLink Cloud Connect, Verizon |
 | **Phoenix** | AT&T NetBond, CenturyLink Cloud Connect |
-| **San Antonio** | Megaport |
+| **San Antonio** | CenturyLink Cloud Connect, Megaport |
 | **Silicon Valley** | Equinix, Level 3 Communications, Verizon |
 | **Seattle** | Equinix, Megaport |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Megaport, Verizon |

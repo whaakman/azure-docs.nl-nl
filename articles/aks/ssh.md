@@ -2,18 +2,17 @@
 title: Voeg SSH toe aan de clusterknooppunten Azure Kubernetes Service (AKS)
 description: Informatie over het maken van een SSH-verbinding met de clusterknooppunten Azure Kubernetes Service (AKS) voor het oplossen van problemen en onderhoudstaken.
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-origin.date: 03/05/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 03/05/2019
+ms.author: iainfou
 ms.openlocfilehash: 680e087e80d3e9891e201e7cb474ccfcf7fcc70b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031644"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072638"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Verbinding maken met SSH naar Azure Kubernetes Service (AKS) clusterknooppunten voor onderhoud of probleemoplossing
 
@@ -35,14 +34,14 @@ Als u wilt uw SSH-sleutel toevoegen aan een AKS-knooppunt, voert u de volgende s
 
 1. De naam van de resource voor de resources van uw AKS-cluster met behulp van [az aks show][az-aks-show]. Geef uw eigen resourcegroep core en de naam van de AKS-cluster:
 
-    ```azurecli
+    ```azurecli-interactive
     az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
     ```
 
 1. Lijst van de virtuele machines in de AKS-cluster resource groep met de [az vm list] [ az-vm-list] opdracht. Deze virtuele machines zijn uw AKS-knooppunten:
 
-    ```azurecli
-    az vm list --resource-group MC_myResourceGroup_myAKSCluster_chinaeast -o table
+    ```azurecli-interactive
+    az vm list --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
     ```
 
     De volgende voorbeelduitvoer ziet u de AKS-knooppunten:
@@ -50,14 +49,14 @@ Als u wilt uw SSH-sleutel toevoegen aan een AKS-knooppunt, voert u de volgende s
     ```
     Name                      ResourceGroup                                  Location
     ------------------------  ---------------------------------------------  ----------
-    aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_chinaeast  chinaeast
+    aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_eastus  eastus
     ```
 
 1. U kunt uw SSH-sleutels toevoegen aan het knooppunt met de [az vm gebruikersupdate] [ az-vm-user-update] opdracht. Geef de naam van de resourcegroep en vervolgens een van de AKS-knooppunten in de vorige stap hebt verkregen. De gebruikersnaam voor de AKS-knooppunten is standaard *azureuser*. Geef de locatie van uw eigen SSH public key locatie, zoals *~/.ssh/id_rsa.pub*, of plak de inhoud van uw openbare SSH-sleutel:
 
-    ```azurecli
+    ```azurecli-interactive
     az vm user update \
-      --resource-group MC_myResourceGroup_myAKSCluster_chinaeast \
+      --resource-group MC_myResourceGroup_myAKSCluster_eastus \
       --name aks-nodepool1-79590246-0 \
       --username azureuser \
       --ssh-key-value ~/.ssh/id_rsa.pub
@@ -69,8 +68,8 @@ De AKS-knooppunten zijn niet openbaar blootgesteld aan internet. SSH met de AKS-
 
 Bekijk het privé IP-adres van een AKS-cluster knooppunt met de [az vm list-ip-adressen] [ az-vm-list-ip-addresses] opdracht. Geef uw eigen AKS-cluster groepsnaam voor accountresources hebt verkregen in een vorige [az-aks-show] [ az-aks-show] stap:
 
-```azurecli
-az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_chinaeast -o table
+```azurecli-interactive
+az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
 ```
 
 De volgende voorbeelduitvoer ziet u het particuliere IP-adressen van de AKS-knooppunten:
@@ -101,7 +100,7 @@ Voor het maken van een SSH-verbinding naar een AKS-knooppunt, kunt u een helper-
 
     ```
     $ kubectl get pods
-
+    
     NAME                       READY     STATUS    RESTARTS   AGE
     aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
     ```
@@ -124,22 +123,22 @@ Voor het maken van een SSH-verbinding naar een AKS-knooppunt, kunt u een helper-
 
     ```console
     $ ssh -i id_rsa azureuser@10.240.0.4
-
+    
     ECDSA key fingerprint is SHA256:A6rnRkfpG21TaZ8XmQCCgdi9G/MYIMc+gFAuY9RUY70.
     Are you sure you want to continue connecting (yes/no)? yes
     Warning: Permanently added '10.240.0.4' (ECDSA) to the list of known hosts.
-
+    
     Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.15.0-1018-azure x86_64)
-
+    
      * Documentation:  https://help.ubuntu.com
      * Management:     https://landscape.canonical.com
      * Support:        https://ubuntu.com/advantage
-
+    
       Get cloud support with Ubuntu Advantage Cloud Guest:
         https://www.ubuntu.com/business/services/cloud
-
+    
     [...]
-
+    
     azureuser@aks-nodepool1-79590246-0:~$
     ```
 
@@ -155,12 +154,12 @@ Als u meer gegevens nodig hebt, kunt u [Bekijk de logboeken kubelet] [ view-kube
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
-[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
-[az-vm-list]: https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list
-[az-vm-user-update]: https://docs.azure.cn/zh-cn/cli/vm/user?view=azure-cli-latest#az-vm-user-update
-[az-vm-list-ip-addresses]: https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-ip-addresses
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-vm-list]: /cli/azure/vm#az-vm-list
+[az-vm-user-update]: /cli/azure/vm/user#az-vm-user-update
+[az-vm-list-ip-addresses]: /cli/azure/vm#az-vm-list-ip-addresses
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: view-master-logs.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[install-azure-cli]: /cli/azure/install-azure-cli

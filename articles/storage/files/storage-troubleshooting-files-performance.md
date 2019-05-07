@@ -2,22 +2,22 @@
 title: Azure bestanden prestaties, problemen oplossen met
 description: Bekende problemen met prestaties met Azure premium-bestandsshares (preview) en de bijbehorende tijdelijke oplossingen.
 services: storage
-author: jeffpatt24
+author: gunjanj
 ms.service: storage
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: jeffpatt
+ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 767473a037bf890756df68719698c3872fed6a9c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577913"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190051"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Azure Files-prestatieproblemen oplossen
 
-Dit artikel worden enkele veelvoorkomende problemen met betrekking tot Microsoft Azure premium-bestandsshares (preview). Het biedt mogelijke oorzaken en oplossingen als deze problemen zijn opgetreden.
+Dit artikel worden enkele veelvoorkomende problemen met betrekking tot premium-Azure-bestandsshares (preview). Het biedt mogelijke oorzaken en oplossingen als deze problemen zijn opgetreden.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Hoge latentie en lage doorvoer algemene prestatieproblemen
 
@@ -80,7 +80,7 @@ De client virtuele machine is gevonden in een andere regio dan de premium-bestan
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Client niet kan bereiken van maximale doorvoer die worden ondersteund door het netwerk
 
-Een mogelijke oorzaak van deze onvoldoende is voor SMB meerdere kanalen ondersteuning. Op dit moment ondersteuning premium-bestanden alleen voor één kanaal, zodat er slechts één verbinding van de client virtuele machine met de server. Deze één verbinding is vastgemaakt aan een enkele kern op de client virtuele machine, zodat de maximale doorvoer van een virtuele machine haalbare is gebonden aan een enkele kern.
+Een mogelijke oorzaak van deze onvoldoende is voor SMB meerdere kanalen ondersteuning. Azure-bestandsshares ondersteunen momenteel alleen één kanaal, zodat er slechts één verbinding van de client virtuele machine met de server. Deze één verbinding is vastgemaakt aan een enkele kern op de client virtuele machine, zodat de maximale doorvoer van een virtuele machine haalbare is gebonden aan een enkele kern.
 
 ### <a name="workaround"></a>Tijdelijke oplossing
 
@@ -137,7 +137,7 @@ Clienttoepassing overschrijdt consistent basislijn IOPS. Er is momenteel geen se
 
 ### <a name="cause"></a>Oorzaak
 
-Als het aantal aanroepen DirectoryOpen/DirectoryClose tot de belangrijkste API-aanroepen behoort en u niet verwacht de client dat te zijn dat veel aanroepen mogelijk een probleem met de antivirus is geïnstalleerd op de client terwijl Azure zorgt VM.
+Als het aantal aanroepen DirectoryOpen/DirectoryClose tot de belangrijkste API-aanroepen behoort en u niet verwacht de client dat te zijn dat veel aanroepen mogelijk een probleem met de antivirussoftware op de Azure VM-client is geïnstalleerd.
 
 ### <a name="workaround"></a>Tijdelijke oplossing
 

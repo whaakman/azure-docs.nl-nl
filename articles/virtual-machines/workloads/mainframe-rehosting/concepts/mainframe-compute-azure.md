@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 8aea4a74ba84855f011dada70ea75ec0d5fb64fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 335a056a34412a7ed148613bfff59ecb30053e09
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485504"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190322"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Mainframe-compute verplaatsen naar Azure
 
@@ -47,7 +47,7 @@ IBM-mainframes bieden de mogelijkheid om te schalen tot 240 kernen (de huidige z
 
 Een CF kunt de rekenclusters gegevens kunnen delen met directe toegang. Het wordt gebruikt voor het vergrendelen van informatie, cache-informatie en de lijst met resources van gedeelde gegevens. Een parallelle Sysplex met behulp van een of meer CFs kunnen worden beschouwd als een 'gedeeld alles' scale-out rekencluster. Zie voor meer informatie over deze functies [parallelle Sysplex op IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) op de website van IBM.
 
-Toepassingen kunnen deze functies gebruiken om prestaties uitschalen en de hoge beschikbaarheid. Voor informatie over hoe CICS parallelle Sysplex met CF gebruiken kunt, downloaden de [IBM CICS en de faciliteit koppeling: Een stapje verder](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) redbook.
+Toepassingen kunnen deze functies gebruiken om prestaties uitschalen en de hoge beschikbaarheid. Voor informatie over hoe CICS parallelle Sysplex met CF gebruiken kunt, downloaden de [IBM CICS en de faciliteit koppeling: Een stapje verder](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) redbook.
 
 ## <a name="azure-compute-at-a-glance"></a>Azure-rekenen in een oogopslag
 
@@ -121,10 +121,10 @@ Elke laag kan ook juiste disaster recovery services bieden. Bijvoorbeeld, produc
 ### <a name="ibm-resources"></a>IBM-resources
 
 - [Parallelle Sysplex op IBM-Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
-- [IBM CICS en de faciliteit koppeling: Een stapje verder](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
+- [IBM CICS en de faciliteit koppeling: Een stapje verder](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
 - [Het maken van de vereiste gebruikers voor een Db2-pureScale-functie installeren](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 - [Db2icrt - exemplaar-opdracht maken](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [Db2 pureScale geclusterde Database-oplossing](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [Db2 pureScale geclusterde Database-oplossing](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government

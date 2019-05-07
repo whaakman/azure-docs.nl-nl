@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d90af62c8d6267001ede567c71b7e1204f6ce74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 73d3c2846ed97b725d745cc76714738ac34ed1a0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917219"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190207"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Procedure: SSO voor cross-app voor iOS met behulp van ADAL inschakelen
 
@@ -165,7 +165,7 @@ Niet-broker assisted eenmalige aanmelding voor verschillende toepassingen behere
 
 Eenmalige aanmelding inschakelen voor toepassingen die u bezit, moet u het volgende doen:
 
-1. Zorg ervoor dat alle gebruikers in uw toepassingen op dezelfde Client-ID of toepassings-ID.
+1. Zorg ervoor dat al uw toepassingen gebruiken dezelfde Client-ID of toepassings-ID.
 2. Zorg ervoor dat al uw toepassingen de dezelfde handtekeningcertificaat van Apple, delen zodat u van sleutelhangers delen kunt.
 3. Aanvragen van hetzelfde recht sleutelhanger voor elk van uw toepassingen.
 4. De SDK's Vertel over de gedeelde sleutelketen dat u wenst te gebruiken.

@@ -1,6 +1,6 @@
 ---
 title: Aanmelding met Microsoft toevoegen aan een ASP.NET-app | Microsoft Docs
-description: Leer hoe u aanmelding met Microsoft toevoegt in een ASP.NET-oplossing met een traditionele toepassing op basis van een webbrowser via de OpenID Connect-standaard.
+description: Informatie over het toevoegen van Microsoft-aanmelding op een ASP.NET-oplossing met een traditionele web browser-gebaseerde toepassing met behulp van standaard OpenID Connect.
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -16,18 +16,18 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299316"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191029"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snelstartgids: Aanmelding met Microsoft toevoegen aan een ASP.NET-web-app
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Quickstart: Aanmelding met Microsoft toevoegen aan een ASP.NET-web-app
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-In deze quickstart leert u hoe u aanmelding met Microsoft implementeert met behulp van een ASP.NET MVC-oplossing met een traditionele toepassing op basis van een webbrowser via OpenID Connect. U leert hoe u aanmeldingen vanaf werk- en schoolaccounts mogelijk maakt in de ASP.NET-toepassing.
+In deze snelstartgids leert u hoe u voor het implementeren van aanmelden met Microsoft met behulp van een ASP.NET Model View-Controller (MVC)-oplossing met een traditionele web browser-gebaseerde toepassing met behulp van OpenID Connect. U leert hoe u aanmeldingen vanaf werk- en schoolaccounts mogelijk maakt in de ASP.NET-toepassing.
 
 Aan het einde van deze quickstart worden via de toepassing aanmeldingen van werk- en schoolaccounts geaccepteerd van organisaties die zijn geïntegreerd met Azure AD (Azure Active Directory).
 
@@ -38,15 +38,15 @@ Aan het einde van deze quickstart worden via de toepassing aanmeldingen van werk
 
 Controleer voor u aan de slag gaat of u voldoet aan deze vereisten:
 
-* Visual Studio 2015 Update 3 of Visual Studio 2017 moet zijn geïnstalleerd. Is dit niet het geval? U kunt [Visual Studio 2017 gratis downloaden](https://www.visualstudio.com/downloads/)
+* Visual Studio 2015 Update 3 of Visual Studio 2019 zijn geïnstalleerd. Is dit niet het geval? [Visual Studio 2019 gratis downloaden](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Scenario: Gebruikers aanmelden vanaf werk- en schoolaccounts in de ASP.NET-app
 
 ![De werking van deze handleiding](./media/quickstart-v1-aspnet-webapp/aspnet-intro.png)
 
-In dit scenario krijgt een browser toegang tot een ASP.NET-website en wordt een gebruiker gevraagd om zich te verifiëren met behulp van een aanmeldknop. In dit scenario vindt het grootste gedeelte van het werk om de webpagina weer te geven plaats aan de serverzijde.
+Een browser toegang heeft tot een ASP.NET-website en aanvragen van een gebruiker zich verifiëren met behulp van een knop in dit scenario. In dit scenario vindt het grootste gedeelte van het werk om de webpagina weer te geven plaats aan de serverzijde.
 
-In deze quickstart wordt gedemonstreerd hoe u gebruikers kunt aanmelden in een ASP.NET-webtoepassing, beginnend met een lege sjabloon. De quickstart bevat stappen zoals het toevoegen van een aanmeldknop en alle controllers en methoden, en bespreekt de concepten achter deze taken. U kunt er ook voor kiezen om een project te maken om Azure AD-gebruikers aan te melden (via werk- en schoolaccounts) door de [Visual Studio-websjabloon](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) te gebruiken en **Organisatieaccounts** te selecteren, en vervolgens een van de cloudopties te kiezen. Deze optie maakt gebruik van een sjabloon met meer opmaak, met extra controllers, methoden en weergaven.
+De Quick Start ziet u hoe u aan te melden bij gebruikers in een ASP.NET-webtoepassing vanaf een lege sjabloon. Ook bevat stappen zoals het toevoegen van een knop aanmelden en elke domeincontroller en de methoden en worden de concepten achter deze taken besproken. U kunt ook maken met een project aan te melden bij Azure AD-gebruikers (werk en school-accounts) met behulp van de [Visual Studio websjabloon](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) en selecteren **Organisatieaccounts** en vervolgens een van de cloudopties voor - dit optie maakt gebruik van een sjabloon voor uitgebreidere, met extra domeincontrollers, methoden en weergaven.
 
 ## <a name="libraries"></a>Bibliotheken
 
@@ -158,7 +158,7 @@ Deze controller demonstreert het gebruik van het kenmerk `[Authorize]` om een co
 1. Selecteer **MVC-controller {versie} – Leeg**.
 1. Selecteer **Toevoegen**.
 1. Noem deze **ClaimsController**.
-1. Vervang de code van de controllerklasse door de volgende code, zodat het kenmerk `[Authorize]` wordt toegevoegd aan de klasse:
+1. Vervang de code van de controllerklasse met de volgende code - in dit voorbeeld wordt de `[Authorize]` kenmerk aan de klasse:
 
     [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
@@ -196,29 +196,29 @@ Maak in Visual Studio een nieuwe weergave om de claims van de gebruiker weer te 
 4. Kopieer de SSL-URL van het project naar het klembord:<br/><br/>![Projecteigenschappen](./media/quickstart-v1-aspnet-webapp/visual-studio-project-properties.png)<br />
 5. Vervang <code>Enter_the_Redirect_URL_here</code> in <code>web.config</code> door de SSL-URL van het project.
 
-### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Registreer de toepassing in de Azure-portal. Voeg vervolgens de gegevens van de toepassing toe aan *web.config*
+### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Uw toepassing registreren in Azure portal en vervolgens de informatie toevoegen *web.config*
 
 1. Ga naar [Microsoft Azure-portal - app-registratie](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) om een toepassing te registreren.
 2. Selecteer **Nieuwe toepassing registreren**.
 3. Voer een naam in voor de toepassing.
-4. Plak de *SSL-URL* van het Visual Studio-project in **Aanmeldings-URL**. Deze URL wordt ook automatisch toegevoegd aan de lijst met Antwoord-URL's voor de toepassing die u registreert.
+4. Plak de *SSL-URL* van het Visual Studio-project in **Aanmeldings-URL**. Deze URL wordt ook automatisch toegevoegd aan de lijst met antwoord-URL's voor de toepassing die u wilt registreren.
 5. Selecteer **Maken** om de toepassing te registreren. Hierdoor keert u terug naar de lijst met toepassingen.
 6. Zoek en/of selecteer nu de toepassing die u zojuist hebt gemaakt, om de bijbehorende eigenschappen te openen.
 7. Kopieer de GUID bij **Toepassings-id** naar het klembord.
-8. Ga terug naar Visual Studio en vervang `Enter_the_Application_Id_here` in `web.config` door de toepassings-id van de toepassing die u zojuist hebt geregistreerd.
+8. Ga terug naar Visual Studio en, in `web.config`, Vervang `Enter_the_Application_Id_here` met toepassings-ID van de toepassing die u hebt geregistreerd.
 
 > [!TIP]
 > Als uw account is geconfigureerd voor toegang tot meerdere mappen, moet u ervoor zorgen dat de juiste map is geselecteerd voor de organisatie waar u de map wilt registreren. Dit doet u door in de rechterbovenhoek in de Azure-portal op uw accountnaam te klikken en vervolgens de geselecteerde map te verifiëren zoals aangegeven:<br/>![De juiste map selecteren](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
 
 ## <a name="step-10-configure-sign-in-options"></a>Stap 10: Aanmeldingsopties configureren
 
-U kunt de toepassing zo configureren dat alleen gebruikers die behoren tot het Azure AD-exemplaar van één bepaalde organisatie, zich kunnen aanmelden, of dat aanmeldingen van gebruikers van elke willekeurige organisatie worden geaccepteerd. Volg de instructies voor één van de volgende keuzen:
+U kunt uw toepassing configureren voor het toestaan dat alleen gebruikers die deel uitmaken van een organisatie Azure AD-exemplaar aan te melden bij of accepteer aanmeldingen van gebruikers die deel uitmaken van elke organisatie. Volg de instructies van een van de volgende opties:
 
 ### <a name="configure-your-application-to-allow-sign-ins-of-work-and-school-accounts-from-any-company-or-organization-multi-tenant"></a>De toepassing zo configureren dat aanmeldingen vanaf werk- en schoolaccounts in elk bedrijf en elke organisatie zijn toegestaan (multitenant)
 
-Volg deze stappen als u aanmeldingen wilt accepteren vanaf werk- en schoolaccounts in elk bedrijf of elke organisatie die is geïntegreerd met Azure AD. Dit is een veelvoorkomend scenario voor *SaaS-toepassingen*:
+Volg deze stappen als u aanmeldingen wilt accepteren vanaf werk- en schoolaccounts in elk bedrijf of elke organisatie die is geïntegreerd met Azure AD. In dit scenario is gebruikelijk voor *SaaS-toepassingen*:
 
-1. Ga terug naar [Microsoft Azure-portal - app-registratie](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) en ga naar de toepassing die u zojuist hebt geregistreerd.
+1. Ga terug naar [Microsoft Azure portal - App-registraties](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) en zoekt u de toepassing die u hebt geregistreerd.
 2. Selecteer onder **Alle instellingen** de optie **Eigenschappen**.
 3. Wijzig de eigenschap **Met meerdere tenants** in **Ja** en selecteer vervolgens **Opslaan**.
 
@@ -238,7 +238,7 @@ Als u alleen gebruikers van een lijst met specifieke organisaties wilt toestaan,
 1. Stel `ValidateIssuer` in op Waar.
 1. Gebruik de parameter `ValidIssuers` om een lijst met organisaties op te geven.
 
-Een ander optie is om een aangepaste methode te implementeren om de uitgevers te valideren met behulp van de parameter *IssuerValidator*. Raadpleeg [dit MSDN-artikel](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters MSDN-artikel") voor meer informatie over `TokenValidationParameters`.
+Een ander optie is om een aangepaste methode te implementeren om de uitgevers te valideren met behulp van de parameter *IssuerValidator*. Voor meer informatie over `TokenValidationParameters`, Zie [dit MSDN-artikel](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters MSDN-artikel").
 
 <!--end-configure-->
 
@@ -278,7 +278,7 @@ Als u klaar bent om te testen, gebruikt u een werkaccount (Azure AD) om u aan te
 
 #### <a name="expected-results"></a>Verwachte resultaten
 
-Na het aanmelden wordt de gebruiker naar de startpagina van uw website geleid. Dit is de HTTP-URL die in de Microsoft-portal voor app-registratie is opgegeven in de registratiegegevens van de toepassing. Op deze pagina verschijnt nu *Hallo {gebruiker}* en een koppeling om u af te melden. Er wordt ook een koppeling weergegeven om de claims van de gebruiker te zien. Dit is een koppeling naar de autorisatiecontroller die eerder is gemaakt.
+Nadat de gebruiker zich aanmeldt, wordt de gebruiker wordt omgeleid naar de startpagina van uw website, die de HTTPS-URL opgegeven in de registratiegegevens van uw toepassing in de Portal voor App-registratie van Microsoft. Op deze pagina verschijnt nu *Hallo {gebruiker}* en een koppeling om u af te melden. Er wordt ook een koppeling weergegeven om de claims van de gebruiker te zien. Dit is een koppeling naar de autorisatiecontroller die eerder is gemaakt.
 
 ### <a name="see-users-claims"></a>Claims van gebruiker weergeven
 
@@ -292,7 +292,7 @@ Selecteer de hyperlink om de claims van de gebruiker te zien. Hiermee gaat u naa
 |---|---|---|
 | Naam | {Volledige naam van gebruiker} | Voor- en achternaam van de gebruiker |
 | Gebruikersnaam | <span>user@domain.com</span> | De gebruikersnaam die is gebruikt om de aangemelde gebruiker te identificeren |
-| Onderwerp| {Onderwerp} |Een tekenreeks om de aanmelding van de gebruiker uniek te identificeren op het web |
+| Onderwerp| {Onderwerp} |Een tekenreeks voor het aanduiden van de gebruiker zich aanmelden op het web |
 | Tenant-id | {GUID} | Een *GUID* om de Azure AD-organisatie van de gebruiker uniek te vertegenwoordigen |
 
 Daarnaast ziet u een tabel met alle gebruikersclaims uit de verificatieaanvraag. Zie [Lijst met claims in id-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) voor een lijst met alle claims in een id-token en de bijbehorende uitleg.

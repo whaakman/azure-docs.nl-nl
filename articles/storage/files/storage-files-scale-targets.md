@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bd60d6453b71387578b880ad580fb1741e6e512b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c4928050f945ac88dd1f86e2a13b5d26d385e55a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697911"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190011"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure bestanden schaalbaarheids- en prestatiedoelen
 
@@ -34,15 +34,15 @@ De bovenliggende resource voor een Azure-bestandsshare is een Azure storage-acco
 
 ## <a name="azure-files-scale-targets"></a>Azure bestanden schaal doelen
 
-### <a name="premium-files-scale-targets"></a>Premium-bestanden schalen doelen
+### <a name="premium-scale-targets"></a>Premium schaal doelen
 
-Er zijn drie soorten beperkingen van premium-bestanden: storage-accounts, bestandsshares en bestanden.
+Er zijn drie soorten beperkingen van premium-bestandsshares: storage-accounts, bestandsshares en bestanden.
 
 Bijvoorbeeld: Een afzonderlijke share kan maar liefst 100.000 IOPS en maximaal 5000 IOP's in een enkel bestand kan worden geschaald. Dus als u drie bestanden in één share hebt, is de maximale IOPS die u uit de share ophalen kunt bijvoorbeeld 15.000.
 
-### <a name="premium-filestorage-account-limits"></a>Limieten voor Premium filestorage-account
+### <a name="premium-filestorage-account-limits"></a>Limieten voor Premium FileStorage-account
 
-Premium-bestanden gebruiken een unieke storage-account met de naam **filestorage (preview)**, dit account heeft enigszins schaal doelen dan het opslagaccount die wordt gebruikt door de standaard-bestanden. Raadpleeg voor de prestatiedoelen van storage-account schalen aan de tabel in de [prestatiedoelen voor Azure storage-account schalen](#azure-storage-account-scale-targets) sectie.
+Premium-bestandsshares zijn ingericht in een speciale storage-account met de naam **filestorage (preview)**. Dit account heeft enigszins schaal doelen dan de storage-account gebruikt voor de standard-bestandsshares. Raadpleeg voor de prestatiedoelen van storage-account schalen aan de tabel in de [prestatiedoelen voor Azure storage-account schalen](#azure-storage-account-scale-targets) sectie.
 
 > [!IMPORTANT]
 > Storage-accountlimieten gelden voor alle shares. Schalen tot de maximale waarde voor storage-accounts is alleen mogelijk als er slechts één share per opslagaccount.

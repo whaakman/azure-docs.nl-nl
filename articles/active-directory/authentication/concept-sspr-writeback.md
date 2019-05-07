@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/16/2019
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78889cb3c04b9854a4cebb27c35488d5142ad3a7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 491545aabd3415850eb1b1d712a46401b73ad845
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694846"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190731"
 ---
 # <a name="what-is-password-writeback"></a>Wat is wachtwoord terugschrijven?
 
@@ -165,6 +165,9 @@ Wachtwoorden zijn *niet* teruggeschreven in een van de volgende situaties:
 * **Niet-ondersteunde bewerkingen**
    * Een eindgebruiker door de beheerder voor wachtwoord opnieuw instellen van de [Office-beheerportal](https://portal.office.com)
    * Een eindgebruiker door de beheerder voor wachtwoord opnieuw instellen van de PowerShell-versie 1, versie 2 of de Azure AD Graph API
+
+> [!WARNING]
+> Gebruik van het selectievakje 'gebruiker moet wachtwoord wijzigen bij volgende aanmelding' in de on-premises Active Directory-beheerprogramma's, zoals Active Directory: gebruikers en Computers of Active Directory Administrative Center wordt niet ondersteund. Bij het wijzigen van een wachtwoord controleren on-premises met deze optie niet. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

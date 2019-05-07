@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
-ms.author: ryanwi
+ms.date: 05/06/2019
+ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 350cb3fec4d325d6cf5848733c0bae18d5efacca
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: d6e13ec3d822ba8a8cd2484f42ea81e615bae268
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076838"
+ms.locfileid: "65190990"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Met behulp van webbrowsers in MSAL.NET
 Webbrowsers zijn vereist voor interactieve verificatie. Standaard MSAL.NET ondersteunt de [system-webbrowser](#system-web-browser-on-xamarinios-and-xamarinandroid) op Xamarin.iOS en [Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser). Maar [kunt u ook de ingesloten webbrowser](#enable-embedded-webviews) afhankelijk van uw vereisten (UX, eenmalige aanmelding (SSO), beveiliging nodig) in [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) en [Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) Apps. En u kunt zelfs [dynamisch Kies](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) webbrowser te gebruiken op basis van de aanwezigheid van Chrome of een browser Chrome aangepaste tabbladen in Android ondersteunen.
@@ -40,7 +40,7 @@ Het is belangrijk om te begrijpen dat interactief te werk om een token te verkri
 
 ## <a name="system-web-browser-on-xamarinios-and-xamarinandroid"></a>Systeem-webbrowser op Xamarin.iOS en Xamarin.Android
 
-MSAL.NET biedt standaard ondersteuning voor de webbrowser van het systeem op Xamarin.iOS en Xamarin.Android. Voor het hosten van de interactie met de STS ADAL.NET maakt alleen gebruik van de **ingesloten** webbrowser. Voor alle platforms waarmee u de gebruikersinterface (dat wil zeggen, niet .NET Core), wordt een dialoogvenster geboden door de bibliotheek voor het insluiten van een browser-besturingselement. Een ingesloten webweergave MSAL.NET ook gebruikt voor de .NET-Desktop- en Windows-Adresboek voor het platform UWP. Echter, wordt standaard gebruikgemaakt van de **system-webbrowser** voor Xamarin iOS- en Xamarin Android-toepassingen. Voor iOS geldt dat ook gekozen de webweergave te gebruiken, afhankelijk van de versie van het besturingssysteem (iOS12, iOS11, en eerder).
+MSAL.NET biedt standaard ondersteuning voor de webbrowser van het systeem op Xamarin.iOS en Xamarin.Android. Voor alle platforms waarmee u de gebruikersinterface (dat wil zeggen, niet .NET Core), wordt een dialoogvenster geboden door de bibliotheek voor het insluiten van een browser-besturingselement. Een ingesloten webweergave MSAL.NET ook gebruikt voor de .NET-Desktop- en Windows-Adresboek voor het platform UWP. Echter, wordt standaard gebruikgemaakt van de **system-webbrowser** voor Xamarin iOS- en Xamarin Android-toepassingen. Voor iOS geldt dat ook gekozen de webweergave te gebruiken, afhankelijk van de versie van het besturingssysteem (iOS12, iOS11, en eerder).
 
 Met behulp van de browser van het systeem is het belangrijk voordeel van het delen van de status voor eenmalige aanmelding met andere toepassingen en webtoepassingen zonder een broker (bedrijfsportal / Authenticator). De browser system is gebruikt, in de MSAL.NET voor de Xamarin iOS- en Xamarin Android-platformen wordt standaard omdat op deze platforms, het hele scherm in beslag neemt de webbrowser van het systeem en de gebruikerservaring is beter. De webweergave van het systeem is niet in een dialoogvenster te onderscheiden. Op iOS-, maar de gebruiker mogelijk toestemming geven voor de browser naar de toepassing, die irritant zijn worden kan voor de terugbelfunctie.
 
@@ -70,49 +70,55 @@ Er zijn enkele visuele verschillen tussen ingesloten webview en systeem browser 
 
 Als een ontwikkelaar met behulp van MSAL.NET, hebt u verschillende mogelijkheden voor het weergeven van de interactieve dialoogvenster van de STS:
 
-- **Systeem-browser.** De browser van het systeem is standaard ingesteld in de bibliotheek. Als u Android, leest u [system browsers](msal-net-system-browser-android-considerations.md) voor specifieke informatie over welke browsers worden ondersteund voor verificatie. Wanneer u de browser systeem in Android, wordt u aangeraden dat een browser die ondersteuning biedt voor aangepaste tabbladen Chrome is op het apparaat.  Anders, verificatie kan mislukken. 
-- **Ingesloten webweergave.** Voor het gebruik van alleen de webweergave ingesloten in MSAL.NET, er zijn overloads van de `UIParent()` constructor beschikbaar voor Android en iOS.
+- **Systeem-browser.** De browser van het systeem is standaard ingesteld in de bibliotheek. Als u Android, leest u [system browsers](msal-net-system-browser-android-considerations.md) voor specifieke informatie over welke browsers worden ondersteund voor verificatie. Wanneer u de browser systeem in Android, wordt u aangeraden dat een browser die ondersteuning biedt voor aangepaste tabbladen Chrome is op het apparaat.  Anders, verificatie kan mislukken.
+- **Ingesloten webweergave.** Gebruik alleen de webweergave ingesloten in MSAL.NET, de `AcquireTokenInteractively` parameters builder bevat een `WithUseEmbeddedWebView()` methode.
 
-    iOS:
+    iOS
 
     ```csharp
-    public UIParent(bool useEmbeddedWebview)
+    AuthenticationResult authResult;
+    authResult = app.AcquireTokenInteractively(scopes)
+                    .WithUseEmbeddedWebView(useEmbeddedWebview)
+                    .ExecuteAsync();
     ```
 
     Android:
 
     ```csharp
-    public UIParent(Activity activity, bool useEmbeddedWebview)
+    authResult = app.AcquireTokenInteractively(scopes)
+                .WithParentActivityOrWindow(activity)
+                .WithUseEmbeddedWebView(useEmbeddedWebview)
+                .ExecuteAsync();
     ```
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinios"></a>Kiezen tussen ingesloten webbrowser of systeem in een browser op Xamarin.iOS
 
-In uw iOS-app in `AppDelegate.cs` kunt u system browser of ingesloten webweergave.
+In uw iOS-app in `AppDelegate.cs` kunt u kunt initialiseren de `ParentWindow` naar `null`. Het wordt niet gebruikt in iOS
 
 ```csharp
-// Use only embedded webview
-App.UIParent = new UIParent(true);
-
-// Use only system browser
-App.UIParent = new UIParent();
+App.ParentWindow = null; // no UI parent on iOS
 ```
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid"></a>Kiezen tussen ingesloten webbrowser of systeem in een browser op Xamarin.Android
 
-In uw Android-app in `MainActivity.cs` kunt u bepalen hoe voor het implementeren van de webview-opties.
+In uw Android-app in `MainActivity.cs` u kunt de bovenliggende activiteit, zo instellen dat de resultaten van de verificatie wordt in toe:
 
 ```csharp
-// Use only embedded webview
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, true);
+ App.ParentWindow = this;
+```
 
-// or
-// Use only system browser
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
+Klik in de `MainPage.xaml.cs`:
+
+```csharp
+authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
+                      .WithParentActivityOrWindow(App.ParentWindow)
+                      .WithUseEmbeddedWebView(true)
+                      .ExecuteAsync();
 ```
 
 #### <a name="detecting-the-presence-of-custom-tabs-on-xamarinandroid"></a>Detecteren van de aanwezigheid van aangepaste tabbladen aan Xamarin.Android
 
-Als u gebruiken de webbrowser van het systeem wilt voor het inschakelen van eenmalige aanmelding met de apps die worden uitgevoerd in de browser, maar zijn vastgesteld over de gebruikerservaring voor Android-apparaten niet met een browser met ondersteuning voor aangepast tabblad, hebt u de optie om te bepalen door het aanroepen van de `IsSystemWebViewAvailable()` methode in < c 2 > `UIParent` . Deze methode retourneert `true` als de PackageManager aangepaste tabbladen detecteert en `false` als ze niet op het apparaat worden gedetecteerd.
+Als u gebruiken de webbrowser van het systeem wilt voor het inschakelen van eenmalige aanmelding met de apps die worden uitgevoerd in de browser, maar zijn vastgesteld over de gebruikerservaring voor Android-apparaten niet met een browser met ondersteuning voor aangepast tabblad, hebt u de optie om te bepalen door het aanroepen van de `IsSystemWebViewAvailable()` methode in < c 2 > `IPublicClientApplication` . Deze methode retourneert `true` als de PackageManager aangepaste tabbladen detecteert en `false` als ze niet op het apparaat worden gedetecteerd.
 
 Op basis van de waarde die wordt geretourneerd door deze methode, en uw behoeften, kunt u een beslissing nemen:
 
@@ -122,23 +128,16 @@ Op basis van de waarde die wordt geretourneerd door deze methode, en uw behoefte
 De volgende code toont de ingesloten webview-optie:
 
 ```csharp
-bool useSystemBrowser = UIParent.IsSystemWebviewAvailable();
-if (useSystemBrowser)
-{
-    // A browser with custom tabs is present on device, use system browser
-    App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
-}
-else
-{
-    // A browser with custom tabs is not present on device, use embedded webview
-    App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, true);
-}
+bool useSystemBrowser = app.IsSystemWebviewAvailable();
 
-// Alternative:
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, !useSystemBrowser);
-
+authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
+                      .WithParentActivityOrWindow(App.ParentWindow)
+                      .WithUseEmbeddedWebView(!useSystemBrowser)
+                      .ExecuteAsync();
 ```
 
-## <a name="net-core-does-not-support-interactive-authentication"></a>.NET core biedt geen ondersteuning voor interactieve verificatie
+## <a name="net-core-does-not-support-interactive-authentication-out-of-the-box"></a>Interactieve verificatie gebruiksklaar biedt geen ondersteuning voor .NET core
 
 Voor .NET Core is aanschaf van tokens interactief niet beschikbaar. Inderdaad, .NET Core biedt geen gebruikersinterface nog. Als u wilt dat voor interactief aanmelden voor een .NET Core-toepassing, kunt u op de toepassing aanwezig voor de gebruiker een code en een URL naar interactief aanmelden (Zie [apparaat Code Flow](msal-authentication-flows.md#device-code)).
+
+U kunt ook implementeren de [IWithCustomUI](scenario-desktop-acquire-token.md#withcustomwebui) interface en geef uw eigen browser

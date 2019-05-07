@@ -1,9 +1,9 @@
 ---
-title: Aanbevolen beveiligingsprocedures voor Azure-database | Microsoft Docs
+title: Aanbevolen procedures voor beveiliging - Microsoft Azure-database
 description: Dit artikel bevat een set van aanbevolen procedures voor beveiliging van de Azure-database.
 services: security
 documentationcenter: na
-author: unifycloud
+author: TerryLanfear
 manager: barbkess
 editor: tomsh
 ms.assetid: ''
@@ -13,27 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
-ms.author: tomsh
-ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: terrylan
+ms.openlocfilehash: f59d349da023f9a1b21477a05750d4f8e9aef500
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587514"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187766"
 ---
 # <a name="azure-database-security-best-practices"></a>Aanbevolen beveiligingsprocedures voor Azure-database
+Dit artikel wordt beschreven aanbevolen procedures voor beveiliging van de database.
+
+De best practices zijn gebaseerd op een consensus van advies, en ze werken met de huidige mogelijkheden van Azure-platform en functie ingesteld. Adviezen en technologieën verloop van tijd veranderen en in dit artikel wordt bijgewerkt op gezette tijden op basis van deze wijzigingen.
+
+## <a name="secure-databases"></a>Beveiligde databases
 De beveiliging is een belangrijkste aandachtspunt voor het beheren van databases en het is altijd een prioriteit voor [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Uw databases kunnen nauw worden beveiligd om te voldoen aan meest regelgevingsbehoeften of beveiligingsvereisten, zoals HIPAA, ISO 27001/27002 en PCI DSS Level 1. Een huidige lijst van nalevingscertificeringen voor beveiliging is beschikbaar op de [Microsoft Trust Center site](https://azure.microsoft.com/support/trust-center/services/). U kunt ook uw databases in specifieke Azure-datacenters op basis van wettelijke eisen die plaatsen.
-
-In dit artikel wordt besproken hoe een verzameling van aanbevolen beveiligingsprocedures voor Azure-database. Deze aanbevolen procedures zijn afgeleid van onze ervaring met beveiliging van de Azure database en de ervaringen van klanten zoals zelf.
-
-Voor elke best practice wordt we het volgende uitgelegd:
-
--   Wat de beste manier is
--   Waarom u deze wilt inschakelen, die best practices
--   Wat kan het resultaat zijn als u een failover naar de aanbevolen procedure inschakelen
--   Hoe u meer informatie kunt krijgen om in te schakelen van de aanbevolen procedure
-
-In dit artikel aanbevolen procedures voor beveiliging op Azure-Database is gebaseerd op een consensus advies en mogelijkheden van Azure-platform en functie wordt ingesteld als deze bestaan op het moment dat dit artikel is geschreven. Adviezen en -technologieën na verloop van tijd worden gewijzigd en regelmatig op basis van deze wijzigingen in dit artikel wordt bijgewerkt.
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>Firewall-regels gebruiken om te beperken van toegang tot de database
 Microsoft Azure SQL Database is een relationele databaseservice voor Azure en andere toepassingen op basis van internet. Om toegang te beveiligen, beheert SQL Database de toegang met:

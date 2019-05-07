@@ -1,10 +1,10 @@
 ---
-title: Aanbevolen procedures voor beveiliging van gegevens en versleuteling | Microsoft Docs
+title: Gegevensbeveiliging en -versleuteling aanbevolen procedures - Microsoft Azure
 description: In dit artikel biedt een set van aanbevolen procedures voor beveiliging van gegevens en ingebouwde mogelijkheden van Azure met behulp van versleuteling.
 services: security
 documentationcenter: na
-author: barclayn
-manager: mbalwin
+author: TerryLanfear
+manager: barbkess
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,33 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
-ms.author: barclayn
-ms.openlocfilehash: 686d4a8ac5239af12206b57072cc00aa10114d79
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/06/2019
+ms.author: terrylan
+ms.openlocfilehash: 9955450b468ef38ba456d7ee73d9681de677494d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125116"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190714"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Aanbevolen procedures voor Azure-gegevensbeveiliging en -versleuteling
+Dit artikel wordt beschreven aanbevolen procedures voor beveiliging van gegevens en versleuteling.
 
+De best practices zijn gebaseerd op een consensus van advies, en ze werken met de huidige mogelijkheden van Azure-platform en functie ingesteld. Adviezen en technologieën verloop van tijd veranderen en in dit artikel wordt bijgewerkt op gezette tijden op basis van deze wijzigingen.
+
+## <a name="protect-data"></a>Gegevens beveiligen
 Ter bescherming van gegevens in de cloud, moet u rekening voor de mogelijke statussen in die uw gegevens zich kunnen voordoen en welke besturingselementen beschikbaar zijn voor die status zijn. Aanbevolen procedures voor Azure-gegevensbeveiliging en -versleuteling betrekking op de volgende gegevens statussen:
 
 - AT-rest: Dit omvat alle informatie opslagobjecten, containers, en typen die statisch bestaat op de fysieke media of magnetische of optische schijven.
 - Tijdens de overdracht: Wanneer gegevens worden overgebracht tussen onderdelen, locaties of programma's, is het in-transit. Voorbeelden zijn overdracht via het netwerk via een servicebus (van on-premises naar cloud en vice versa, met inbegrip van hybride verbindingen, zoals ExpressRoute), of tijdens een i/o-proces.
-
-In dit artikel bespreken we een aantal Azure-gegevens en encryption best practices. Deze aanbevolen procedures zijn afgeleid van onze ervaring met Azure-gegevensbeveiliging en -versleuteling en de ervaringen van klanten zoals zelf.
-
-Voor elke best practice wordt uitgelegd:
-
-* Wat de beste manier is
-* Waarom u deze wilt inschakelen, die best practices
-* Wat kan het resultaat zijn als u een failover naar de aanbevolen procedure inschakelen
-* Mogelijke alternatieven voor de aanbevolen procedure
-* Hoe u meer informatie kunt krijgen om in te schakelen van de aanbevolen procedure
-
-In dit artikel Azure-gegevensbeveiliging en aanbevolen procedures voor versleuteling is gebaseerd op een advies consensus en mogelijkheden van Azure-platform en functiesets, zoals ze bestaan op het moment dat dit artikel is geschreven. Adviezen en -technologieën na verloop van tijd worden gewijzigd en regelmatig op basis van deze wijzigingen in dit artikel wordt bijgewerkt.
 
 ## <a name="choose-a-key-management-solution"></a>Kies een oplossing voor sleutelbeheer
 
@@ -95,7 +87,7 @@ Omdat de meeste aanvallen zijn gericht de eindgebruiker, wordt het eindpunt een 
 
 Azure Storage en Azure SQL Database versleutelen van data-at-rest standaard, en veel services bieden versleuteling als een optie. Azure Key Vault kunt u sleutels die u kunt openen en versleutelen van uw gegevens beheren. Zie [ondersteuning voor Azure-resource providers codering model voor meer informatie](azure-security-encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
-**Aanbevolen procedures**: Versleuteling gebruiken om te beperken van risico's met betrekking tot onbevoegde toegang tot gegevens.
+**Aanbevolen procedures**: Versleuteling gebruiken om te beperken van risico's met betrekking tot onbevoegde toegang tot gegevens.   
 **Details**: Uw schijven versleutelen voordat u gevoelige gegevens naar die stations wegschrijven.
 
 Organisaties die geen gegevensversleuteling afdwingen worden meer blootgesteld aan problemen met de vertrouwelijkheid van gegevens. Onbevoegde of rogue gebruikers kunnen bijvoorbeeld gegevens in de accounts waarmee is geknoeid stelen of ongeoorloofde toegang verlenen tot gegevens gecodeerd in duidelijke indeling. Bedrijven moeten ook bewijzen dat ze toegewijd en met juiste beveiligingsmaatregelen zijn voor het verbeteren van de beveiliging van hun gegevens om te voldoen aan regelgeving vanuit de sector.
@@ -118,7 +110,7 @@ Hieronder vindt u aanbevolen procedures die specifiek zijn voor het gebruik van 
 **Details**: Gebruik [ExpressRoute](../expressroute/expressroute-introduction.md). Als u gebruiken van ExpressRoute wilt, kunt u ook de gegevens op het toepassingsniveau van de versleutelen met behulp van [SSL/TLS](https://support.microsoft.com/kb/257591) of andere protocollen voor extra beveiliging.
 
 **Beste**: Werken met Azure Storage via Azure portal.   
-**Details**: Alle transacties plaatsvinden via HTTPS. U kunt ook [REST API voor Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx) via HTTPS om te communiceren met [Azure Storage](https://azure.microsoft.com/services/storage/) en [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
+**Details**: Alle transacties plaatsvinden via HTTPS. U kunt ook [REST API voor Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx) via HTTPS om te communiceren met [Azure Storage](https://azure.microsoft.com/services/storage/).
 
 Organisaties die niet voldoen aan het beveiligen van gegevens die onderweg zijn, zijn vatbaar voor [man-in-the-middle-aanvallen](https://technet.microsoft.com/library/gg195821.aspx), [niet kan worden afgeluisterd](https://technet.microsoft.com/library/gg195641.aspx), en sessiehijacking. Deze aanvallen mag de eerste stap bij het toegang krijgen tot vertrouwelijke gegevens.
 

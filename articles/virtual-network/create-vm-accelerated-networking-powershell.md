@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: c4567919490c8bc9094dea3dddbe22550d9eebb2
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ef6086afa17f1ab864d70678a6da6df2a78e0c16
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192902"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190268"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Een Windows-machine maken met versnelde netwerken
 
@@ -77,7 +77,7 @@ Installeer [Azure PowerShell](/powershell/azure/install-az-ps) versie 1.0.0 of h
 
 In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld van de parameternamen opgenomen *myResourceGroup*, *myNic*, en *myVM*.
 
-Maak een resourcegroep met [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *centralus* locatie:
+Maak een resourcegroep met behulp van de opdracht [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *centralus* locatie:
 
 ```powershell
 New-AzResourceGroup -Name "myResourceGroup" -Location "centralus"
@@ -230,7 +230,7 @@ Als u een virtuele machine zonder versnelde netwerken hebt gemaakt, is het mogel
 Eerst stoppen/toewijzing ongedaan maken de virtuele machine of, als een Beschikbaarheidsset, alle virtuele machines in de Set:
 
 ```azurepowershell
-Stop-AzVM -ResourceGroup "myResourceGroup" `
+Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 
@@ -239,18 +239,18 @@ Belangrijk Let op: als uw virtuele machine afzonderlijk, is gemaakt zonder een b
 Nadat gestopt, schakelt u versnelde netwerken op de NIC van de virtuele machine:
 
 ```azurepowershell
-$nic = Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
+$nic = Get-AzureRMNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic"
 
 $nic.EnableAcceleratedNetworking = $true
 
-$nic | Set-AzNetworkInterface
+$nic | Set-AzureRMNetworkInterface
 ```
 
 Opnieuw opstarten van uw virtuele machine of als in een beschikbaarheidsset, alle virtuele machines in de set en Bevestig dat versnelde netwerken is ingeschakeld:
 
 ```azurepowershell
-Start-AzVM -ResourceGroup "myResourceGroup" `
+Start-AzureRmVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 

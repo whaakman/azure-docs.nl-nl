@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e988d03b60469940d8750cc07188a61fc7ab8b3a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709612"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191531"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Azure Active Directory Identity Protection risicogebeurtenissen verwijzen naar
 
@@ -80,7 +80,9 @@ Dit type risicogebeurtenis geeft aanmeldingen vanaf IP-adressen die zijn geïnfe
 
 ## <a name="unfamiliar-sign-in-properties"></a>Onbekende aanmeldingseigenschappen
 
-**Detectietype:** Realtime **oude naam:** Aanmeldingen vanaf onbekende locaties
+**Detectietype:** Realtime  
+**Oude naam:** Aanmeldingen vanaf onbekende locaties
+
 
 Dit type risicogebeurtenis rekening gehouden met na aanmelding geschiedenis (IP, breedtegraad / lengtegraad en ASN) om te zoeken naar afwijkende aanmeldingen. Het systeem wordt informatie opgeslagen over de voorgaande locaties die worden gebruikt door een gebruiker en deze 'vertrouwde' locaties overweegt. De risicogebeurtenis wordt geactiveerd wanneer de aanmelding plaatsvindt vanaf een locatie die nog niet in de lijst met vertrouwde sites. Nieuwe gebruikers bevindt zich in 'learning modus' voor een bepaalde periode in welke eigenschappen voor onbekende aanmelden risicogebeurtenissen wordt uitgeschakeld terwijl het gedrag van de gebruiker door onze algoritmen voor meer informatie. De learning dynamisch is de duur van de modus en is afhankelijk van de op hoe lang het duurt voordat het algoritme voor het verzamelen van voldoende gegevens over van de gebruiker aanmelden patronen. De minimale duur is vijf dagen. Een gebruiker kunt teruggaan naar het learning-modus na een lange periode van inactiviteit. Aanmeldingen vanaf bekende apparaten en de locaties die geografisch dicht bij een vertrouwde locatie wordt ook negeert door het systeem. 
 

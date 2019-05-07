@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a04dfd7009028197bee2602394a34803b1f8c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09c5bd217f852f7130888d03e3368278af8abce5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298470"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190881"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Codevoorbeelden voor Microsoft identity-platform (v2.0-eindpunt)
 
@@ -74,12 +74,12 @@ De volgende voorbeelden tonen openbare client toepassingen (desktop/mobiele toep
 
 | Clienttoepassing | Platform | Stroom/verlenen | Aanroepen van Microsoft Graph | Een ASP.NET Core 2.0-Web-API-aanroepen |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
-| Desktop (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Interactieve | [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
-| Bureaublad (Console)   | ![.NET / C# (Desktop)](media/sample-v2-code/logo_NET.png) | Geïntegreerde Windows-verificatie | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
-| Bureaublad (Console)   | ![.NET / C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | Gebruikersnaam en wachtwoord |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
-| Mobile (Android, iOS, UWP)   | ![.NET / C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interactieve |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
-| Mobile (iOS)       | ![iOS / Objective-C of swift.](media/sample-v2-code/logo_iOS.png) | Interactieve |[ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  |
-| Mobile (Android)   | ![Android / Java](media/sample-v2-code/logo_Android.png) | Interactieve |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |  |
+| Desktop (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | [interactief](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
+| Bureaublad (Console)   | ![.NET / C# (Desktop)](media/sample-v2-code/logo_NET.png) | [Geïntegreerde Windows-verificatie](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
+| Bureaublad (Console)   | ![.NET / C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | [Gebruikersnaam en wachtwoord](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
+| Mobile (Android, iOS, UWP)   | ![.NET / C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | [interactief](msal-authentication-flows.md#interactive) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
+| Mobile (iOS)       | ![iOS / Objective-C of swift.](media/sample-v2-code/logo_iOS.png) | [interactief](msal-authentication-flows.md#interactive) |[ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  |
+| Mobile (Android)   | ![Android / Java](media/sample-v2-code/logo_Android.png) | [interactief](msal-authentication-flows.md#interactive) |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |  |
 
 ## <a name="daemon-applications"></a>Daemon-toepassingen
 
@@ -87,8 +87,8 @@ De volgende voorbeelden ziet een toepassing die toegang heeft tot de Microsoft G
 
 | Clienttoepassing | Platform | Stroom/verlenen | Aanroepen van Microsoft Graph |
 | ------------------ | -------- | ---------- | -------------------- |
-| Console | ![.NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | Clientreferenties | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
-| Web-app | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | Clientreferenties | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
+| Console | ![.NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Clientreferenties](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
+| Web-app | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [Clientreferenties](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
 
 ## <a name="headless-applications"></a>' Headless '-toepassingen
 
@@ -96,7 +96,7 @@ Het volgende voorbeeld toont een openbare client-toepassing die wordt uitgevoerd
 
 | Clienttoepassing | Platform | Stroom/verlenen | Aanroepen van Microsoft Graph |
 | ------------------ | -------- |  ----------| ---------- |
-| Bureaublad (Console)   | ![.NET / C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | Stroom voor apparaatcode |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) |
+| Bureaublad (Console)   | ![.NET / C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | [De stroom van apparaat](msal-authentication-flows.md#device-code) |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) |
 
 ## <a name="web-apis"></a>Web-API's
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26178066b2f5353cba99c5965bb2f3055556784c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1736b120b60ab6583a3c38bb13c985d312c021b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60246535"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190943"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Wat zijn de standaardmachtigingen van de gebruiker in Azure Active Directory?
 In Azure Active Directory (Azure AD) wordt aan alle gebruikers een reeks standaardmachtigingen verleend. De toegang van gebruikers bestaat uit het type van de gebruiker, hun [roltoewijzingen](active-directory-users-assign-role-azure-portal.md), en het eigendom van de afzonderlijke objecten. Dit artikel beschrijft deze standaardmachtigingen en bevat een vergelijking van de standaardinstellingen voor lid- en gastgebruikers. De standaardmachtigingen van de gebruiker kunnen alleen in de gebruikersinstellingen worden gewijzigd in Azure AD.
@@ -49,6 +49,8 @@ Standaardmachtigingen voor lidgebruikers kunnen op de volgende manieren worden b
 
 Machtiging | Uitleg van de instelling
 ---------- | ------------
+Gebruikers kunnen toepassingen registreren | Deze optie instelt op Nee, wordt voorkomen dat gebruikers toepassingsregistraties maken. De mogelijkheid kan vervolgens terug naar specifieke personen worden verleend door ze toe te voegen aan de rol van ontwikkelaar van toepassingen.
+Gebruikers toestaan om hun werk- of schoolaccounts te verbinden met LinkedIn | Deze optie instelt op Nee, wordt voorkomen dat gebruikers hun werk- of school-account koppelen aan hun LinkedIn-account.  Zie [LinkedIn-account verbindingen het delen van gegevens en toestemming](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/linkedin-user-consent) voor meer informatie.
 De mogelijkheid beveiligingsgroepen te maken | Als u deze optie op Nee instelt, kunnen gebruikers geen beveiligingsgroepen maken. Globale beheerders en beheerders van gebruikers kunnen nog steeds beveiligingsgroepen maken. Zie [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](../users-groups-roles/groups-settings-cmdlets.md) voor meer informatie.
 De mogelijkheid Office 365-groepen te maken | Als u deze optie op Nee instelt, kunnen gebruikers geen Office 365-groepen maken. Als u deze optie op Sommige instelt, kan een beperkte selectie van gebruikers Office 365-groepen maken. Globale beheerders en Gebruikerbeheerders is nog steeds mogelijk om Office 365-groepen te maken. Zie [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](../users-groups-roles/groups-settings-cmdlets.md) voor meer informatie.
 De toegang tot de Azure AD-beheerportal beperken | Deze optie instelt op Nee, wordt voorkomen dat gebruikers toegang tot Azure Active Directory.

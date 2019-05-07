@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357989"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190380"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Selfservice voor wachtwoordherstel implementeren
 
@@ -32,6 +32,10 @@ De meeste klanten voeren de volgende stappen uit voor een goede implementatie va
    * Hebt u opgegeven ze de URL's voor registratie en opnieuw instellen?
       * Registratie:  https://aka.ms/ssprsetup
       * Opnieuw instellen: https://aka.ms/sspr
+
+   > [!WARNING]
+   > Gebruik van het selectievakje 'gebruiker moet wachtwoord wijzigen bij volgende aanmelding' in de on-premises Active Directory-beheerprogramma's, zoals Active Directory: gebruikers en Computers of Active Directory Administrative Center wordt niet ondersteund. Bij het wijzigen van een wachtwoord controleren on-premises met deze optie niet. 
+
 1. Leer uw gebruikers.
    * De volgende secties van dit document gaat over de voorbeeld-communicatie, wachtwoord portals, het afdwingen van inschrijving en vullen met gegevens van de verificatie.
    * De Azure Active Directory-productgroep heeft een [stapsgewijs implementatieplan](https://aka.ms/SSPRDeploymentPlan) gemaakt, dat organisaties in combinatie met de documentatie kunnen gebruiken die te vinden is op deze site om een bedrijfsscenario te maken en de implementatie te plannen van selfservice voor wachtwoordherstel.

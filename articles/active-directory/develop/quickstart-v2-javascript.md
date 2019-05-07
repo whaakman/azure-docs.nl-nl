@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f242afb717557a35b81515ab718971bdc398b5a
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 605206682cb70d430773cdbf9ff746eabf594103
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64992778"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190850"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Quickstart: Meld u aan gebruikers en het verkrijgen van een toegangstoken van een toepassing in JavaScript één pagina (SPA)
 
@@ -37,7 +37,7 @@ Voor deze snelstart moet u de volgende instellingen:
 * Het project wilt uitvoeren met een node.js-server
     * [Node.js](https://nodejs.org/en/download/) installeren
     * Installeer [Visual Studio Code](https://code.visualstudio.com/download) de projectbestanden bewerken
-* Installeren voor het project als een Visual Studio-oplossing uitvoeren, [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
+* Installeren voor het project als een Visual Studio-oplossing uitvoeren, [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>De quickstart-toepassing registreren en downloaden
@@ -147,16 +147,16 @@ Nadat de toepassing in de browser geladen, klikt u op **aanmelden**.  De eerste 
 MSAL is de library gebruikt voor aanmelding bij gebruikers en tokens gebruikt voor toegang tot een API die wordt beveiligd door Microsoft identity-platform-aanvraag. De *index.html* van de quickstart bevat een referentie naar de bibliotheek:
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.4/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.min.js"></script>
 ```
 > [!TIP]
 > U kunt de versie hierboven vervangen door de meest recente releaseversie onder [MSAL.js releases](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
 
-Als u een knooppunt geïnstalleerd hebt, kunt u ook de meest recente preview-versie via npm downloaden:
+Als u een knooppunt geïnstalleerd hebt, kunt u ook de meest recente versie via npm downloaden:
 
 ```batch
-npm install msal@preview
+npm install msal
 ```
 
 ### <a name="msal-initialization"></a>MSAL initialiseren
@@ -192,11 +192,11 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 In het volgende codefragment wordt weergegeven hoe u gebruikers kunt aanmelden:
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.loginPopup(request).then(function (loginResponse) {
+myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
     //Login Success callback code here
 }).catch(function (error) {
     console.log(error);
@@ -219,11 +219,11 @@ MSAL biedt drie methoden om tokens te verkrijgen: `acquireTokenRedirect`, `acqui
 Met de methode `acquireTokenSilent` wordt het verkrijgen en vernieuwen van tokens verwerkt zonder tussenkomst van de gebruiker. Nadat de methode `loginRedirect` of `loginPopup` de eerste keer is uitgevoerd, wordt voor volgende aanroepen meestal de methode `acquireTokenSilent` gebruikt om tokens te verkrijgen die worden gebruikt voor toegang tot beveiligde resources. Aanroepen voor het aanvragen of vernieuwen van tokens worden op de achtergrond uitgevoerd.
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {
@@ -247,11 +247,11 @@ Het patroon dat gewoonlijk wordt aanbevolen voor de meeste toepassingen: eerst `
 Aanroepen van de `acquireTokenPopup` resulteert in een pop-upvenster aan te melden bij (of `acquireTokenRedirect` leidt gebruikers omleiden naar het eindpunt van de Microsoft identity-platform) wanneer gebruikers door een van beide na hun referenties te communiceren moeten, de toestemming verlenen aan de vereiste resource of voltooien van de verificatie met twee factoren.
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenPopup(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {

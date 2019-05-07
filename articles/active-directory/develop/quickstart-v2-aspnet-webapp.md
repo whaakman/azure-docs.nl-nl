@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 064c3e5fb7a65a7495c393db893e784548075daf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d63ff648f89a231f0077363c88709a17d157ae8c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708214"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190899"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snelstart: Aanmelding met Microsoft toevoegen aan een ASP.NET-web-app
 
@@ -68,13 +68,13 @@ Selecteer **Verificatie**, stel **ID-tokens** in onder **Impliciete toekenning**
 
 #### <a name="step-2-download-your-project"></a>Stap 2: uw project downloaden
 
-[De Visual Studio 2017-oplossing downloaden](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[Download de 2019 van Visual Studio-oplossing](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Stap 3: uw Visual Studio-project configureren
 
 1. Pak het zip-bestand uit in een lokale map dichter bij de hoofdmap (bijvoorbeeld **C:\Azure-Samples**)
 1. Open de oplossing in Visual Studio (AppModelv2-Web-App-OpenIDConnect-DotNet.sln)
-1. Afhankelijk van de versie van Visual Studio moet u mogelijk Klik met de rechtermuisknop op het project `AppModelv2-WebApp-OpenIDConnect-DotNet` en **herstellen NuGet-pakketten**
+1. Afhankelijk van de versie van Visual Studio, moet u mogelijk Klik met de rechtermuisknop op het project `AppModelv2-WebApp-OpenIDConnect-DotNet` en **herstellen NuGet-pakketten**
 1. Open de Package Manager Console (andere Windows-weergave > Package Manager Console ->) en uit te voeren `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 1. Bewerk **Web.config** en vervang de parameters `ClientId` en `Tenant` door:
 
@@ -96,7 +96,7 @@ Selecteer **Verificatie**, stel **ID-tokens** in onder **Impliciete toekenning**
 
 ## <a name="more-information"></a>Meer informatie
 
-Deze sectie bevat een overzicht van de code die vereist is voor het aanmelden van gebruikers. Dit kan handig zijn om te begrijpen hoe de code werkt, wat de belangrijkste argumenten zijn en ook als u aanmelding wilt toevoegen aan een bestaande ASP.NET-toepassing.
+Deze sectie bevat een overzicht van de code die vereist is voor het aanmelden van gebruikers. In dit overzicht is handig om te begrijpen hoe de code werkt, belangrijkste argumenten, en ook als u wilt aanmelden toevoegen aan een bestaande ASP.NET-toepassing.
 
 ### <a name="owin-middleware-nuget-packages"></a>OWIN Middleware NuGet-pakketten
 
@@ -110,7 +110,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="owin-startup-class"></a>OWIN-opstartklasse
 
-De OWIN-middleware maakt gebruik van een *opstartklasse* die wordt uitgevoerd wanneer het hostproces wordt geïnitialiseerd (in het geval van deze snelstart het bestand *startup.cs* dat zich in de hoofdmap bevindt). De volgende code toont de parameter die wordt gebruikt door deze snelstart:
+Maakt gebruik van de OWIN-middleware een *Opstartklasse* die wordt uitgevoerd wanneer het hostproces wordt geïnitialiseerd. In deze snelstartgids de *startup.cs* bestand zich bevindt in de hoofdmap. De volgende code toont de parameter die wordt gebruikt door deze snelstart:
 
 ```csharp
 public void Configuration(IAppBuilder app)

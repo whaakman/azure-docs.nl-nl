@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 4186af31e17acea09e6b3c1a0121d2fcbe63f800
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917616"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190072"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
@@ -145,7 +145,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
 * <a id="afs-os-support"></a>
   **Kan ik Azure File Sync gebruiken met Windows Server 2008 R2, Linux of mijn apparaat network-attached storage (NAS)?**  
-    Azure File Sync ondersteunt momenteel alleen Windows Server 2016 en Windows Server 2012 R2. Op dit moment is er geen andere plannen die we kunt delen, maar we zijn open op de ondersteuning van extra platforms op basis van vraag van klanten. Laat het ons weten op [Azure bestanden UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) welke platforms u graag voor de ondersteuning.
+    Azure File Sync ondersteunt momenteel alleen 2019 van Windows Server, Windows Server 2016 en Windows Server 2012 R2. Op dit moment is er geen andere plannen die we kunt delen, maar we zijn open op de ondersteuning van extra platforms op basis van vraag van klanten. Laat het ons weten op [Azure bestanden UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) welke platforms u graag voor de ondersteuning.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **Waarom bestaan er gelaagde bestanden buiten de server eindpunt-naamruimte?**  
@@ -222,7 +222,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 * <a id="encryption-at-rest"></a>
 **Hoe kan ik ervoor zorgen dat mijn Azure-bestandsshare in rust worden versleuteld?**  
 
-    Azure Storage-Serviceversleuteling wordt momenteel wordt standaard ingeschakeld in alle regio's. Voor deze regio's moet u niet alle acties ondernemen voor het inschakelen van versleuteling. Zie voor andere regio's, [serverzijde versleuteling](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    Ja. Zie voor meer informatie [Azure Storage-Serviceversleuteling](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="access-via-browser"></a>
 **Hoe kan ik toegang bieden tot een specifiek bestand via een webbrowser?**  
