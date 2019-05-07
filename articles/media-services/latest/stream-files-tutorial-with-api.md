@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 53f69b6b8eb6cbbb8082ea0777af9dbceb7bdba1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 66ee2c110edfdbd0e33c69d45dee8040654d421a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699697"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149151"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Zelfstudie: Video’s uploaden, coderen en streamen met behulp van .NET
 
@@ -198,7 +198,7 @@ az group delete --name amsResourceGroup
 
 De SDK's van Azure Media Services v3 zijn niet thread-safe. Als u een multi-threaded toepassing ontwikkelt, moet u per thread een nieuw AzureMediaServicesClient-object genereren en gebruiken.
 
-## <a name="provide-feedback"></a>Feedback geven
+## <a name="ask-questions-give-feedback-get-updates"></a>Stel vragen, feedback geven, updates ophalen
 
 Bekijk de [Azure Media Services-community](media-services-community.md) artikel om te zien van verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
 

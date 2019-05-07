@@ -3,8 +3,7 @@ title: Netwerkdoorvoer van virtuele Azure-machine | Microsoft Docs
 description: Meer informatie over de netwerkdoorvoer van virtuele machine van Azure.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: steveesp
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: kumud
-ms.openlocfilehash: 182b3b7dad828e67d006391e00986406729c959d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 4/26/2019
+ms.author: kumud,steveesp, mareat
+ms.openlocfilehash: 9d74e53c754367ecfa63642514db93354fcadf25
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689251"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153735"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Virtuele machine netwerkbandbreedte
 
@@ -43,6 +42,30 @@ De maximale doorvoer is van toepassing op de virtuele machine. Doorvoer wordt ni
 - **Versnelde netwerken**: Hoewel de functie handig is bij het bereiken van de gepubliceerde limiet, verandert de limiet niet meer.
 - **Het doel van verkeer**: Alle bestemmingen tellen mee voor de limiet voor uitgaande.
 - **Protocol**: Al het uitgaande verkeer via alle protocollen telt voor de limiet.
+
+## <a name="network-flow-limits"></a>Limieten voor netwerk-stroom
+
+Naast de bandbreedte, het aantal netwerkverbindingen aanwezig zijn op een virtuele machine op een bepaald moment kan invloed hebben op de prestaties van het netwerk. De Azure-netwerkstack status voor elke richting van een TCP/UDP-verbinding in met de naam 'stromen' gegevensstructuren bijgehouden. Een typische TCP/UDP-verbinding heeft 2 stromen die worden gemaakt, een voor het inkomende en een voor de uitgaande richting. 
+
+Gegevensoverdracht tussen de eindpunten is vereist voor het maken van verschillende stromen naast die de gegevensoverdracht. Enkele voorbeelden zijn stromen die worden gemaakt voor DNS-omzetting en stromen die worden gemaakt voor de load balancer-tests. Houd er rekening mee dat virtuele netwerkapparaten (NVA's), zoals gateways, proxy's, firewalls, zien ook stromen voor verbindingen op het apparaat beëindigd en afkomstig is van het apparaat wordt gemaakt. 
+
+![Aantal van de stroom voor TCP-conversatie via een apparaat doorsturen](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
+
+## <a name="flow-limits-and-recommendations"></a>Stroom limieten en aanbevelingen
+
+Vandaag de dag ondersteunt de Azure-netwerkstack 250 kB totale netwerk stromen met goede prestaties voor virtuele machines met meer dan 8 CPU-kernen en 100 k totaal aantal stromen met goede prestaties voor virtuele machines met minder dan 8 CPU-kernen. Na dit netwerk limiet prestaties minder probleemloos voor extra stromen tot een vaste limiet van 1 miljoen totale stromen, 500 K binnenkomend en 500 K uitgaande na welke extra stromen worden verwijderd.
+
+||Virtuele machines met < 8 CPU-kernen|Virtuele machines met 8 + CPU-kernen|
+|---|---|---|
+|<b>Goede prestaties</b>|100K stromen |250K stromen|
+|<b>Verminderde prestaties</b>|100 k stromen|Hierboven 250 kB stromen|
+|<b>Limiet voor stroom</b>|1M stromen|1M stromen|
+
+Metrische gegevens zijn beschikbaar in [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) voor het bijhouden van het aantal stromen netwerk en de stroom maken op uw virtuele machine of VMSS-instanties.
+
+![Azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+
+Verbinding tot stand brengen en beëindiging tarieven kunnen ook van invloed op de prestaties van het netwerk als de verbinding tot stand brengen en beëindiging CPU met deelt pakket verwerking routines. Het is raadzaam dat u workloads op de verwachte verkeerspatronen en scale-out werkbelastingen op de juiste wijze benchmark zodat deze overeenkomt met uw prestatiebehoeften. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

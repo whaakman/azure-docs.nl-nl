@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3f939154d2b34e6dc043e505ab89897221bcfe23
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867617"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149235"
 ---
 # <a name="streaming-endpoints-origin"></a>Streaming-eindpunten (oorsprong)
 
@@ -156,7 +156,7 @@ CDN-integratie is ingeschakeld in de Azure-datacenters met uitzondering van Chin
 
 U kunt bepalen of DNS-wijziging is aangebracht op een Streaming-eindpunt (het verkeer wordt omgeleid naar het Azure CDN) met behulp van https://www.digwebinterface.com. Als de resultaten heeft azureedge.net domeinnamen in de resultaten, is het verkeer nu naar het CDN wordt verwezen.
 
-## <a name="provide-feedback"></a>Feedback geven
+## <a name="ask-questions-give-feedback-get-updates"></a>Stel vragen, feedback geven, updates ophalen
 
 Bekijk de [Azure Media Services-community](media-services-community.md) artikel om te zien van verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
 

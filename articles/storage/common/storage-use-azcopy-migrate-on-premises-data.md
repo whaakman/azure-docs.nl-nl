@@ -2,18 +2,19 @@
 title: 'Zelfstudie: On-premises gegevens migreren naar Azure Storage met behulp van AzCopy | Microsoft Docs'
 description: In deze zelfstudie gebruikt u AzCopy om gegevens te migreren of gegevens te kopiëren naar of vanuit een blob, tabel en bestandsinhoud. Eenvoudig gegevens migreren vanuit uw lokale opslag naar Azure Storage.
 services: storage
-author: roygara
+author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 12/14/2017
-ms.author: rogarana
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 40138a69baf9cd621b2f287b2fe035225bfd9bec
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5c10edc4f11aad23801045011b67592b6cc537e4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125488"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149065"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Zelfstudie: On-premises gegevens migreren naar cloudopslag met behulp van AzCopy
 

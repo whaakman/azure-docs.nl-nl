@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: c23c13969fd4e2814fdc1894a98a3f876da7315b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 2a218a48223c81e009b83cb1f129601a8035e18e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574307"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138409"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Active Directory integreren met Azure Kubernetes Service
 
@@ -23,7 +23,7 @@ Dit artikel leest u over het implementeren van de vereisten voor AKS en Azure AD
 Er gelden de volgende beperkingen:
 
 - Azure AD kan alleen worden ingeschakeld wanneer u een nieuwe, RBAC-functionaliteit cluster maakt. U kunt Azure AD op een bestaand AKS-cluster niet inschakelen.
-- *Gast* gebruikers in Azure AD, bijvoorbeeld als u van een federatieve aanmelding vanuit een andere map gebruikmaakt, worden niet ondersteund.
+- *Gast* gebruikers in Azure AD, bijvoorbeeld als u van een federatieve aanmelding vanaf een andere directory gebruikmaakt, worden niet ondersteund.
 
 ## <a name="authentication-details"></a>Verificatiegegevens
 
@@ -31,92 +31,99 @@ Azure AD-verificatie wordt geleverd met AKS-clusters met OpenID Connect. OpenID 
 
 Uit binnen het Kubernetes-cluster, wordt Webhook-tokenverificatie gebruikt om te controleren of de verificatietokens. Webhook-tokenverificatie is geconfigureerd en beheerd als onderdeel van het AKS-cluster. Zie voor meer informatie over Webhook-tokenverificatie de [webhook verificatie documentatie][kubernetes-webhook].
 
+Voor Azure AD-verificatie voor een AKS-cluster, worden twee Azure AD-toepassingen gemaakt. De eerste toepassing is een serveronderdeel waarmee de verificatie van de gebruiker. De tweede toepassing is een clientonderdeel dat wordt gebruikt wanneer u wordt gevraagd door de CLI voor verificatie. Deze clienttoepassing maakt gebruik van de servertoepassing voor de werkelijke verificatie van de referenties die zijn opgegeven door de client.
+
 > [!NOTE]
-> Wanneer u Azure AD voor de AKS-verificatie configureert, worden twee Azure AD-toepassing geconfigureerd. Deze bewerking moet worden voltooid door de beheerder van de Azure-tenant.
+> Wanneer u Azure AD voor de AKS-verificatie configureert, worden twee Azure AD-toepassing geconfigureerd. De stappen voor het overdragen van machtigingen voor elk van de toepassingen die moeten worden uitgevoerd door een Azure-tenant-beheerder.
 
 ## <a name="create-server-application"></a>Server-toepassing maken
 
-De eerste Azure AD-toepassing wordt gebruikt om op te halen van een groepslidmaatschap voor Azure AD van gebruikers.
+De eerste Azure AD-toepassing wordt gebruikt om op te halen van een groepslidmaatschap voor Azure AD van gebruikers. Deze toepassing maken in Azure portal.
 
-1. Selecteer achtereenvolgens **Azure Active Directory** > **App-registraties** > **Registratie van nieuwe toepassing**.
+1. Selecteer **Azure Active Directory** > **App-registraties** > **registratie van nieuwe**.
 
-   Geef de toepassing een naam, selecteer **Web-app / API** voor het toepassingstype, en voer een waarde van de URI-indeling voor **aanmeldings-URL**. Selecteer **maken** wanneer u klaar bent.
+    * Geef de toepassing een naam, zoals *AKSAzureADServer*.
+    * Voor **ondersteund accounttypen**, kiest u *Accounts in deze organisatie-map alleen*.
+    * Kies *Web* voor de **omleidings-URI** typt, en voer een opgemaakte URI-waarde, zoals *https://aksazureadserver*.
+    * Selecteer **registreren** wanneer u klaar bent.
 
-   ![Maken van Azure AD-registratie](media/aad-integration/app-registration.png)
+1. Selecteer **Manifest** en bewerk de `groupMembershipClaims` waarde die moet worden `"All"`.
 
-2. Selecteer **Manifest** en bewerk de `groupMembershipClaims` waarde die moet worden `"All"`.
+    ![Groepslidmaatschap op Alles bijwerken](media/aad-integration/edit-manifest.png)
 
-   **Sla** de updates als u klaar bent.
+    **Sla** de updates als u klaar bent.
 
-   ![Groepslidmaatschap op Alles bijwerken](media/aad-integration/edit-manifest.png)
+1. Selecteer op de navigatiebalk links van de Azure AD-toepassing, **certificaten en geheimen**.
 
-3. Selecteer terug op de Azure AD-toepassing **instellingen** > **sleutels**.
+    * Kies **+ nieuwe clientgeheim**.
+    * Een beschrijving van de sleutel, zoals toevoegen *AKS Azure AD server*. Kies een verlooptijd, en selecteer vervolgens **toevoegen**.
+    * Noteer de sleutelwaarde. Dit is alleen deze initiële tijd weergegeven. Wanneer u een Azure AD-functionaliteit AKS-cluster implementeert, deze waarde wordt aangeduid als de `Server application secret`.
 
-   Een beschrijving van de sleutel toevoegen, schakelt u een vervaldatum en selecteer **opslaan**. Noteer de sleutelwaarde. Wanneer de AKS-cluster implementeren van een Azure AD worden ingeschakeld, deze waarde wordt aangeduid als de `Server application secret`.
+1. Selecteer op de navigatiebalk links van de Azure AD-toepassing, **API-machtigingen**, kiest u voor **+ toevoegen van een machtiging**.
 
-   ![De persoonlijke sleutel van de toepassing ophalen](media/aad-integration/application-key.png)
+    * Onder **Microsoft APIs**, kiest u *Microsoft Graph*.
+    * Kies **overgedragen machtigingen**, schakel het selectievakje naast **Directory > Directory.Read.All (directory-gegevens lezen)**.
+        * Als een standaard de machtiging voor gedelegeerd **gebruiker > User.Read (aanmelden en gebruikersprofiel lezen)** niet bestaat, schakel het selectievakje Deze machtiging.
+    * Kies **Toepassingsmachtigingen**, schakel het selectievakje naast **Directory > Directory.Read.All (directory-gegevens lezen)**.
 
-4. Ga terug naar de Azure AD-toepassing, selecteer **instellingen** > **vereiste machtigingen** > **toevoegen**  >   **Een API selecteren** > **Microsoft Graph** > **Selecteer**.
+        ![Graph-machtigingen instellen](media/aad-integration/graph-permissions.png)
 
-   ![Graph API selecteren](media/aad-integration/graph-api.png)
+    * Kies **machtigingen toevoegen** om op te slaan van de updates.
 
-5. Onder **TOEPASSINGSMACHTIGINGEN** zet een vinkje naast **mapgegevens lezen**.
+    * Onder de **toestemming verlenen** sectie, ervoor kiezen om te **verlenen van toestemming van een beheerder**. Deze knop wordt grijs is en is niet beschikbaar als het huidige account niet een tenantbeheerder is.
 
-   ![Graph-machtigingen van de toepassing instellen](media/aad-integration/read-directory.png)
+        Wanneer de machtigingen hebt verleend, wordt het volgende bericht weergegeven in de portal:
 
-6. Onder **GEDELEGEERDE MACHTIGINGEN**, schakel het selectievakje naast **aanmelden en gebruikersprofiel lezen** en **mapgegevens lezen**. Kies **Selecteer** om op te slaan van de updates.
+        ![Kennisgeving van geslaagde machtigingen](media/aad-integration/permissions-granted.png)
 
-   ![Graph-machtigingen van de toepassing instellen](media/aad-integration/delegated-permissions.png)
+1. Selecteer op de navigatiebalk links van de Azure AD-toepassing, **beschikbaar maken van een API**, kiest u voor **+ toevoegen van een scope**.
+    
+    * Stel een *scopenaam*, *beheerder toestemming weergavenaam*, en *beschrijving van de beheerderstoestemming*, zoals *AKSAzureADServer*.
+    * Zorg ervoor dat de **status** is ingesteld op *ingeschakeld*.
 
-   Selecteer **gedaan**.
+        ![De serverapp als een API voor gebruik met andere services beschikbaar](media/aad-integration/expose-api.png)
 
-7. Kies *Microsoft Graph* uit de lijst met API's, selecteert u vervolgens **machtigingen verlenen**. Deze stap mislukt als het huidige account niet een tenantbeheerder is.
+    * Kies **bereik toevoegen**.
 
-   ![Graph-machtigingen van de toepassing instellen](media/aad-integration/grant-permissions.png)
-
-   Wanneer de machtigingen hebt verleend, wordt het volgende bericht weergegeven in de portal:
-
-   ![Kennisgeving van geslaagde machtigingen](media/aad-integration/permissions-granted.png)
-
-8. Ga terug naar de toepassing en noteer de **toepassings-ID**. Wanneer u een Azure AD-functionaliteit AKS-cluster implementeert, deze waarde wordt aangeduid als de `Server application ID`.
+1. Ga terug naar de toepassing **overzicht** pagina en noteer de **(client) toepassings-ID**. Wanneer u een Azure AD-functionaliteit AKS-cluster implementeert, deze waarde wordt aangeduid als de `Server application ID`.
 
    ![Toepassings-ID ophalen](media/aad-integration/application-id.png)
 
 ## <a name="create-client-application"></a>Client-toepassing maken
 
-De tweede Azure AD-toepassing wordt gebruikt wanneer u zich aan met de Kubernetes-CLI (kubectl).
+De tweede Azure AD-toepassing wordt gebruikt wanneer u zich aan met de Kubernetes-CLI (`kubectl`).
 
-1. Selecteer achtereenvolgens **Azure Active Directory** > **App-registraties** > **Registratie van nieuwe toepassing**.
+1. Selecteer **Azure Active Directory** > **App-registraties** > **registratie van nieuwe**.
 
-   Geef de toepassing een naam, selecteer **systeemeigen** voor het toepassingstype, en voer een opgemaakte URI-waarde voor **omleidings-URI**. Selecteer **maken** wanneer u klaar bent.
+    * Geef de toepassing een naam, zoals *AKSAzureADClient*.
+    * Voor **ondersteund accounttypen**, kiest u *Accounts in deze organisatie-map alleen*.
+    * Kies *Web* voor de **omleidings-URI** typt, en voer een opgemaakte URI-waarde, zoals *https://aksazureadclient*.
+    * Selecteer **registreren** wanneer u klaar bent.
 
-   ![AAD-registratie maken](media/aad-integration/app-registration-client.png)
+1. Selecteer op de navigatiebalk links van de Azure AD-toepassing, **API-machtigingen**, kiest u voor **+ toevoegen van een machtiging**.
 
-2. Selecteer in de Azure AD-toepassing **instellingen** > **vereiste machtigingen** > **toevoegen** > **selecteert u een API** en zoek de naam van de server-toepassing in de laatste stap van dit document hebt gemaakt.
+    * Selecteer **mijn API's**, kiest u uw Azure AD-server-toepassing in de vorige stap hebt gemaakt zoals *AKSAzureADServer*.
+    * Kies **overgedragen machtigingen**, klikt u vervolgens zet een vinkje naast uw Azure AD server-app.
 
-   ![Machtigingen van de toepassing configureren](media/aad-integration/select-api.png)
+        ![Machtigingen van de toepassing configureren](media/aad-integration/select-api.png)
 
-    Selecteer uw servertoepassing, en kies vervolgens **Selecteer**.
+    * Selecteer **machtigingen toevoegen**.
 
-3. Terug op de *API-toegang toevoegen* venster, kiest u **machtigingen selecteren**. Geef een vinkje onder de *overgedragen machtigingen* voor toegang tot uw toepassing, kiest u vervolgens **Selecteer**.
+    * Onder de **toestemming verlenen** sectie, ervoor kiezen om te **verlenen van toestemming van een beheerder**. Deze knop wordt grijs is en is niet beschikbaar als het huidige account niet een tenantbeheerder is.
 
-   ![AKS AAD-servereindpunt toepassing selecteren](media/aad-integration/select-server-app.png)
+        Wanneer de machtigingen hebt verleend, wordt het volgende bericht weergegeven in de portal:
 
-   Terug op de *API-toegang toevoegen* venster **gedaan**.
+        ![Kennisgeving van geslaagde machtigingen](media/aad-integration/permissions-granted.png)
 
-4. Selecteer uw API-server in de lijst en kies vervolgens **machtigingen verlenen**:
-
-   ![Machtigingen verlenen](media/aad-integration/grant-permissions-client.png)
-
-5. Terug op de AD-toepassing en noteer de **toepassings-ID**. Wanneer u een Azure AD-functionaliteit AKS-cluster implementeert, deze waarde wordt aangeduid als de `Client application ID`.
+1. Op de navigatiebalk links van de Azure AD-toepassing, noteer de **toepassings-ID**. Wanneer u een Azure AD-functionaliteit AKS-cluster implementeert, deze waarde wordt aangeduid als de `Client application ID`.
 
    ![De toepassings-ID ophalen](media/aad-integration/application-id-client.png)
 
 ## <a name="get-tenant-id"></a>Tenant-id ophalen
 
-Ten slotte, haal de ID van uw Azure-tenant. Deze waarde wordt ook gebruikt bij het implementeren van het AKS-cluster.
+Ten slotte, haal de ID van uw Azure-tenant. Deze waarde wordt gebruikt bij het maken van het AKS-cluster.
 
-Selecteer in de Azure-portal **Azure Active Directory** > **eigenschappen** en noteer de **map-ID**. Wanneer u een Azure AD-functionaliteit AKS-cluster implementeert, deze waarde wordt aangeduid als de `Tenant ID`.
+Selecteer in de Azure-portal **Azure Active Directory** > **eigenschappen** en noteer de **map-ID**. Wanneer u een Azure AD-functionaliteit AKS-cluster maakt, deze waarde wordt aangeduid als de `Tenant ID`.
 
 ![De Azure-tenant-ID ophalen](media/aad-integration/tenant-id.png)
 
@@ -128,7 +135,7 @@ Gebruik de [az-groep maken] [ az-group-create] opdracht om een resourcegroep voo
 az group create --name myResourceGroup --location eastus
 ```
 
-Implementeer het cluster met de [az aks maken] [ az-aks-create] opdracht. Vervang de waarden in de voorbeeldopdracht hieronder door de waarden die worden verzameld bij het maken van de Azure AD-toepassingen.
+Implementeer het cluster met de [az aks maken] [ az-aks-create] opdracht. Vervang de waarden in de voorbeeldopdracht hieronder door de waarden die worden verzameld bij het maken van de Azure AD-toepassingen voor de server app-ID en geheim, client-app-ID en tenant-ID:
 
 ```azurecli
 az aks create \
@@ -140,6 +147,8 @@ az aks create \
   --aad-client-app-id 8aaf8bd5-1bdd-4822-99ad-02bfaa63eea7 \
   --aad-tenant-id 72f988bf-0000-0000-0000-2d7cd011db47
 ```
+
+Het duurt een paar minuten om de AKS-cluster te maken.
 
 ## <a name="create-rbac-binding"></a>RBAC-binding maken
 
@@ -217,7 +226,7 @@ Vervolgens halen de context voor de niet-beheerder-gebruiker met de [az aks get-
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Nadat een kubectl-opdracht is uitgevoerd, wordt u gevraagd om te verifiëren met Azure. Volg de aanwijzingen op het scherm instructies.
+Nadat u een `kubectl` opdracht, wordt u gevraagd om u te verifiëren met Azure. Volg de aanwijzingen op het scherm instructies voor het voltooien van het proces, zoals weergegeven in het volgende voorbeeld:
 
 ```console
 $ kubectl get nodes
@@ -225,15 +234,15 @@ $ kubectl get nodes
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BUJHWDGNL to authenticate.
 
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-nodepool1-79590246-0   Ready     agent     1h        v1.9.9
-aks-nodepool1-79590246-1   Ready     agent     1h        v1.9.9
-aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.9
+aks-nodepool1-79590246-0   Ready     agent     1h        v1.13.5
+aks-nodepool1-79590246-1   Ready     agent     1h        v1.13.5
+aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 ```
 
 Als u klaar bent, wordt het verificatietoken in cache opgeslagen. U wordt alleen reprompted aan te melden wanneer het token is verlopen of het Kubernetes-configuratiebestand opnieuw wordt gemaakt.
 
 Als u een autorisatiefoutbericht ziet na de aanmelding is, controleert u of:
-1. De gebruiker u zich aanmeldt is niet een gast in de Azure AD-exemplaar (dit is vaak het geval als u van een federatieve aanmelding vanuit een andere map gebruikmaakt).
+1. De gebruiker u zich aanmeldt is niet een gast in de Azure AD-exemplaar (in dit scenario is vaak het geval als u een federatieve account maakt vanuit een andere map).
 2. De gebruiker is geen lid van meer dan 200 groepen.
 
 ```console

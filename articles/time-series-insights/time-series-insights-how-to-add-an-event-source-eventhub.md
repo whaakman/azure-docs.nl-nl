@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: f2b307f662c0c9b94edc6bb8eb3ca299f5ad4620
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41d3e72d978a210c2d68365ade5d8cb42c24aad5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702641"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147609"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Een event hub-gebeurtenisbron toevoegen aan uw Time Series Insights-omgeving
 
@@ -27,9 +27,9 @@ In dit artikel wordt beschreven hoe u de Azure portal gebruiken voor het toevoeg
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Maak een Time Series Insights-omgeving. Zie voor meer informatie, [maken van een Azure Time Series Insights-omgeving](./time-series-insights-update-create-environment.md).
-- Maak een Event Hub. Zie voor meer informatie over Event Hubs [een Event Hubs-naamruimte en een event hub maken met behulp van de Azure-portal](../event-hubs/event-hubs-create.md).
-- De event hub moet actieve berichtgebeurtenissen verzonden naar deze hebben. Zie voor meer informatie, [gebeurtenissen verzenden naar Azure Event Hubs met behulp van .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
+- Maak een Time Series Insights-omgeving, zoals beschreven in [maken van een Azure Time Series Insights-omgeving](./time-series-insights-update-create-environment.md).
+- Maak een Event Hub. Zie [een Event Hubs-naamruimte en een event hub maken met behulp van de Azure-portal](../event-hubs/event-hubs-create.md).
+- De event hub moet actieve berichtgebeurtenissen verzonden naar deze hebben. Meer informatie over het [gebeurtenissen verzenden naar Azure Event Hubs met behulp van .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Maak een speciale klantengroep in de event hub die de Time Series Insights-omgeving kan verbruiken. Elke Time Series Insights-gebeurtenisbron beschikken over een eigen speciale klantengroep die niet worden gedeeld met alle andere consumenten. Als meerdere lezers gebruiken van gebeurtenissen uit de dezelfde consumergroep, worden alle lezers waarschijnlijk mislukte tests ziet. Er is een limiet van 20 consumergroepen per event hub. Zie voor meer informatie, de [Programmeerhandleiding voor Event Hubs](../event-hubs/event-hubs-programming-guide.md).
 
 ### <a name="add-a-consumer-group-to-your-event-hub"></a>Een consumentengroep toevoegen aan uw event hub
@@ -42,7 +42,7 @@ Om toe te voegen een nieuwe consumentengroep in uw event hub:
 
 1. Onder **entiteiten**, selecteer **consumentengroepen**, en selecteer vervolgens **Consumergroep**.
 
-   ![Event hub - toevoegen van een consumentengroep](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+   [![Event hub - toevoegen van een consumentengroep](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png#lightbox)
 
 1. Op de **consumentengroepen** pagina, voert u een nieuwe unieke waarde voor **naam**.  Gebruik deze dezelfde naam als u een nieuwe gebeurtenisbron in de Time Series Insights-omgeving maken.
 
@@ -56,7 +56,7 @@ Om toe te voegen een nieuwe consumentengroep in uw event hub:
 
 1. Onder **omgeving topologie**, selecteer **gebeurtenisbronnen**, en selecteer vervolgens **toevoegen**.
 
-   ![Bronnen van gebeurtenissen, selecteer de knop toevoegen](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
+   [![Bronnen van gebeurtenissen, selecteer de knop toevoegen](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png#lightbox)
 
 1. Voer een waarde voor **naam van bron** die uniek is voor deze Time Series Insights-omgeving, zoals **gebeurtenisstroom**.
 
@@ -66,11 +66,11 @@ Om toe te voegen een nieuwe consumentengroep in uw event hub:
    - Als u een bestaande event hub in een van uw abonnementen hebt, selecteert u **gebruik Event Hub uit de beschikbare abonnementen**. Deze optie is de eenvoudigste oplossing.
    - Als de event hub bevindt zich buiten uw abonnementen of als u wilt geavanceerde opties selecteert, selecteert u **bieden Event Hub-instellingen handmatig**.
 
-   ![Voer in het deelvenster nieuwe gebeurtenis bron waarden voor de eerste drie parameters](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)
+   [![Voer in het deelvenster nieuwe gebeurtenis bron waarden voor de eerste drie parameters](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
 
 1. De volgende tabel beschrijft de vereiste eigenschappen voor de **gebruik Event Hub uit de beschikbare abonnementen** optie:
 
-   ![Details van abonnement en de event hub](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
+   [![Details van abonnement en de event hub](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
    | Eigenschap | Description |
    | --- | --- |
@@ -101,7 +101,7 @@ Om toe te voegen een nieuwe consumentengroep in uw event hub:
 
 1. Selecteer **Maken**.
 
-   ![Selecteer Maken](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
+   [![Selecteer maken](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png#lightbox)
 
    Nadat de gebeurtenisbron is gemaakt, begint Time Series Insights automatisch streaming-gegevens aan uw omgeving.
 

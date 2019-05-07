@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 1bdf73dc6a4edf0c170b51e70fca2128d22e0eb8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803811"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150349"
 ---
 De volgende tabel bevat de limieten die zijn gekoppeld aan de verschillende Servicelagen, S1, S2, S3 en F1. Voor informatie over de kosten van elk *eenheid* in elke laag, Zie [prijzen van Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -40,9 +40,9 @@ De volgende tabel bevat de limieten die betrekking hebben op IoT Hub-resources.
 | Maximumaantal leveringen voor cloud-naar-apparaat <br/> berichten |100 |
 | Maximumaantal leveringen voor feedbackberichten <br/> als antwoord op een cloud-naar-apparaat bericht |100 |
 | Maximale TTL voor feedbackberichten <br/> als antwoord op een cloud-naar-apparaat bericht |2 dagen |
-| Maximale grootte van apparaatdubbel <br/> (tags, gerapporteerde eigenschappen en gewenste eigenschappen) | 8 kB |
+| [Maximale grootte van apparaatdubbel](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (tags, gerapporteerde eigenschappen en gewenste eigenschappen) | 8 kB |
 | Maximale grootte van tekenreekswaarde van apparaatdubbel | 4 KB |
-| Maximale diepte van object in apparaatdubbel | 5 |
+| [Maximale diepte van object in apparaatdubbel](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 5 |
 | Maximale grootte van de nettolading van directe methode | 128 KB |
 | Maximale bewaartermijn van taakgeschiedenis | 30 dagen |
 | Maximum aantal gelijktijdige taken | 10 (voor S3), 5 voor (S2), 1 (voor S1) |
@@ -51,10 +51,8 @@ De volgende tabel bevat de limieten die betrekking hebben op IoT Hub-resources.
 | Maximum aantal gelijktijdig verbonden apparaat stromen | 50 (voor S1, S2, S3 en alleen F1) |
 | Maximaal stream-gegevensoverdracht | 300 MB per dag (voor S1, S2, S3 en alleen F1) |
 
-
 > [!NOTE]
 > Als u meer dan 50 betaalde IoT-hubs in een Azure-abonnement nodig hebt, neem dan contact op met Microsoft Support.
-
 
 > [!NOTE]
 > Op dit moment is het maximum aantal apparaten dat u verbinding met een enkele IoT-hub maken kunt 1.000.000. Als u wilt om deze limiet te verhogen, neem dan contact op met [Microsoft Support](https://azure.microsoft.com/support/options/).

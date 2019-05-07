@@ -10,15 +10,15 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 173343677d6c44135037978e1c5b60313251ba43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: af1e9df2e9afbd3b51736806fcd4bd8101d583df
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60688134"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153414"
 ---
-# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>Zelfstudie: MongoDB migreren naar Azure Cosmos DB's API voor online MongoDB met behulp van DMS (preview-versie)
+# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Zelfstudie: MongoDB migreren naar Azure Cosmos DB-API voor MongoDB online met behulp van DMS
 Met Azure Database Migration Service kunt u een online migratie (met minimale downtime) van databases uitvoeren vanaf een on-premises of in de cloud aanwezig MongoDB -exemplaar naar Azure Cosmos DB's API voor MongoDB.
 
 In deze zelfstudie leert u het volgende:
@@ -96,9 +96,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
     > [!NOTE]
     > Onlinemigraties worden alleen ondersteund bij gebruik van deze categorie. Zie voor meer informatie over de kosten en prijscategorieën de [Pagina met prijzen](https://aka.ms/dms-pricing).
 
-    Als u hulp nodig hebt bij het kiezen van de juiste Azure Database Migration Service-laag, raadpleegt u de aanbevelingen in de blogpost [hier](https://go.microsoft.com/fwlink/?linkid=861067).  
-
-     ![Instellingen configureren van een Azure Database Migration Service-exemplaar](media/tutorial-mongodb-to-cosmosdb-online/dms-settings3.png)
+    ![Instellingen configureren van een Azure Database Migration Service-exemplaar](media/tutorial-mongodb-to-cosmosdb-online/dms-settings3.png)
 
 7.  Selecteer **Maken** om de dienst te maken.
 

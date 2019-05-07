@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 01a64345285149a50c226ebb344982425a813156
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/01/2019
+ms.openlocfilehash: 862592ed142da0c2f7bf753716fe6604da9a8fb0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60463377"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153326"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Zelfstudie: MongoDB migreren naar Azure Cosmos DB's API voor offline MongoDB met behulp van DMS
 Met Azure Database Migration Service kunt u een offline (eenmalige) migratie van databases uitvoeren van MongoDB on-premises of in de cloud naar Azure Cosmos DB's API voor MongoDB.
@@ -84,9 +84,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
     Zie voor meer informatie over de kosten en prijscategorieën de [Pagina met prijzen](https://aka.ms/dms-pricing).
 
-    Als u hulp nodig hebt bij het kiezen van de juiste Azure Database Migration Service-laag, raadpleegt u de aanbevelingen in de blogpost [hier](https://go.microsoft.com/fwlink/?linkid=861067).  
-
-     ![Instellingen configureren van een Azure Database Migration Service-exemplaar](media/tutorial-mongodb-to-cosmosdb/dms-settings2.png)
+    ![Instellingen configureren van een Azure Database Migration Service-exemplaar](media/tutorial-mongodb-to-cosmosdb/dms-settings2.png)
 
 7.  Selecteer **Maken** om de dienst te maken.
 

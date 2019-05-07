@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266202"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137879"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Faseringsomgevingen in Azure App Service instellen
 <a name="Overview"></a>
@@ -265,6 +265,8 @@ Als gebruikers wilt laten deelnemen aan uw app Bèta, stelt u dezelfde querypara
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
+
+Nieuwe sleuven krijgen standaard een regel voor het doorsturen van `0%`, zoals weergegeven in grijs. Door de waarde expliciet instelt op `0%` (weergegeven in zwarte tekst), uw gebruikers hebben toegang tot de staging-site handmatig met behulp van de `x-ms-routing-name` queryparameter, maar ze niet worden doorgestuurd naar de site automatisch omdat de routering percentage is ingesteld op 0. Dit is een geavanceerd scenario waar u "' de staging-site van het publiek verbergen kunt terwijl interne teams om wijzigingen op de site te testen.
 
 <a name="Delete"></a>
 

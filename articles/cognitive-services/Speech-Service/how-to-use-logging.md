@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
-ms.openlocfilehash: 75eaea22c4809eda78e54514961d13113b4a5f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f470647c218188705cfa65cba7077e62d1b2ac
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60696848"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148031"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Logboekregistratie inschakelen in de spraak-SDK
 
-Logboekregistratie naar bestand is een optionele functie van de spraak-SDK. Tijdens het ontwikkelen van biedt logboekregistratie aanvullende informatie en diagnostische gegevens van de kernonderdelen van de Speeck SDK. Kan worden ingeschakeld door de eigenschap `Speech_LogFilename` op een spraak-configuratieobject naar de locatie en naam van het logboekbestand. Logboekregistratie wereldwijd worden geactiveerd wanneer een kenmerk van die configuratie is gemaakt en daarna kan niet worden uitgeschakeld. U kunt de naam van een logbestand niet wijzigen tijdens een sessie logboekregistratie uitvoeren.
+Logboekregistratie naar bestand is een optionele functie van de spraak-SDK. Tijdens het ontwikkelen van biedt logboekregistratie aanvullende informatie en diagnostische gegevens van de belangrijkste onderdelen die de spraak-SDK. Kan worden ingeschakeld door de eigenschap `Speech_LogFilename` op een spraak-configuratieobject naar de locatie en naam van het logboekbestand. Logboekregistratie wereldwijd worden geactiveerd wanneer een kenmerk van die configuratie is gemaakt en daarna kan niet worden uitgeschakeld. U kunt de naam van een logbestand niet wijzigen tijdens een sessie logboekregistratie uitvoeren.
 
 > [!NOTE]
 > Logboekregistratie is beschikbaar in alle ondersteunde spraak SDK programmeertalen, met uitzondering van JavaScript.

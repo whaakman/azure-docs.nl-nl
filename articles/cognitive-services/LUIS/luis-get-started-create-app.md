@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 347de9b575e3b47ee795026115fd2452c28b866b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 6d3b4d23ae1ad04142b0dec01a1abccbd2f81942
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877334"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150173"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Snelstartgids: Een vooraf gemaakte app voor huisautomatisering gebruiken
 
@@ -57,6 +57,8 @@ Wanneer het vooraf gemaakte domein is toegevoegd, wordt in het vak met vooraf ge
 ## <a name="intents-and-entities"></a>Intenties en entiteiten
 
 Selecteer **Intents** in het navigatiedeelvenster aan de linkerkant om de intenties van het domein 'Home Automation' te controleren. Elke intentie bevat voorbeelden van utterances.
+
+![Schermafbeelding van HomeAutomation intents lijst](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot van HomeAutomation intents lijst")]
 
 > [!NOTE]
 > **None** is een intentie die door alle LUIS-apps wordt geboden. U kunt deze gebruiken voor het afhandelen van utterances die niet overeenkomen met de functionaliteit die uw app biedt. 

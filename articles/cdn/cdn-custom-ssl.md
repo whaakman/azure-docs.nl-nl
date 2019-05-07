@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 1ebac5476c90b3cb49fccbb95ef8dedf413a6127
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: dc43e2ad2668a7d3a808e398857cbf1d28c9aa1c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200290"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150856"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Zelfstudie: HTTPS op een aangepast domein van Azure CDN configureren
 
@@ -90,10 +90,10 @@ Volg deze stappen om HTTPS in te schakelen in een aangepast domein:
 # <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[Optie 2: HTTPS met uw eigen certificaat inschakelen](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> Deze optie is alleen beschikbaar met profielen van het type **Azure CDN Standard van Microsoft**. 
+> Deze optie is alleen beschikbaar bij **Azure CDN van Microsoft** en **Azure CDN van Verizon** profielen. 
 >
  
-U kunt uw eigen certificaat gebruiken voor het inschakelen van de HTTPS-functie. Dit proces verloopt via een integratie met Azure Key Vault, waarmee u uw certificaten veilig kunt opslaan. Azure CDN maakt gebruik van dit beveiligde mechanisme om uw certificaat op te vragen en er zijn maar een paar extra stappen nodig. Wanneer u uw SSL-certificaat maakt, moet u deze maken met een toegestane certificeringsinstantie (CA). Als u een niet-toegestane CA gebruikt, wordt uw aanvraag geweigerd. Zie [Toegestane certificeringsinstanties voor het inschakelen van aangepaste HTTPS op Azure CDN](cdn-troubleshoot-allowed-ca.md) voor een lijst met toegestane certificeringsinstanties.
+U kunt uw eigen certificaat gebruiken voor het inschakelen van de HTTPS-functie. Dit proces verloopt via een integratie met Azure Key Vault, waarmee u uw certificaten veilig kunt opslaan. Azure CDN maakt gebruik van dit beveiligde mechanisme om uw certificaat op te vragen en er zijn maar een paar extra stappen nodig. Wanneer u uw SSL-certificaat maakt, moet u deze maken met een toegestane certificeringsinstantie (CA). Als u een niet-toegestane CA gebruikt, wordt uw aanvraag geweigerd. Zie voor een lijst van toegestane CA's, [certificeringsinstanties toegestaan voor het inschakelen van de aangepaste HTTPS voor Azure CDN](cdn-troubleshoot-allowed-ca.md). Voor **Azure CDN van Verizon**, een geldige CA worden geaccepteerd. 
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Voorbereiden van uw Azure Key Vault-account en -certificaat
  

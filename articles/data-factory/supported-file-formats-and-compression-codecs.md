@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: f117e02a063b93b8b1badbd9868f78da95c3c671
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6af5c8cdad00802052f08be844f77d36420da3c9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925140"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142370"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Ondersteunde indelingen en codecs voor de compressie in Azure Data Factory
 
@@ -412,7 +412,7 @@ De uitvoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: 
 ## <a name="parquet-format"></a>Parquet-indeling
 
 >[!NOTE]
->Data Factory nieuwe Parquet-indeling DataSet geïntroduceerd, Zie [Parquet-indeling](format-delimited-text.md) artikel met informatie. De volgende configuraties op bestanden gebaseerde gegevens store gegevensset wordt nog steeds ondersteund als-is voor achterwaartse compabitility. U worden gebruik van het nieuwe model voortaan voorgesteld.
+>Data Factory nieuwe Parquet-indeling DataSet geïntroduceerd, Zie [Parquet-indeling](format-parquet.md) artikel met informatie. De volgende configuraties op bestanden gebaseerde gegevens store gegevensset wordt nog steeds ondersteund als-is voor achterwaartse compabitility. U worden gebruik van het nieuwe model voortaan voorgesteld.
 
 Als u de Parquet-bestanden wilt parseren of de gegevens in Parquet-indeling wilt schrijven, stelt u de eigenschap `format` `type` in op **ParquetFormat**. U hoeft geen eigenschappen op te geven in het gedeelte Indeling binnen het gedeelte typeProperties. Voorbeeld:
 

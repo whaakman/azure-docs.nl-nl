@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 04ed95317311b81af49f5d96addb203b7cfeb74a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f365fcd61944fbae131ab79a1c3660aaf02fa8d7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725651"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073935"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Veelgestelde vragen over Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,9 @@ Zie voor een volledige lijst van beschikbare regio's, [AKS regio's en beschikbaa
 
 ## <a name="does-aks-support-node-autoscaling"></a>Biedt ondersteuning voor AKS knooppunt automatisch schalen?
 
-Ja, automatisch schalen is beschikbaar via de [Kubernetes automatisch schalen] [ auto-scaler] vanaf Kubernetes 1.10. Zie voor meer informatie over het configureren en gebruiken van het cluster automatisch schalen [Cluster automatisch schalen in AKS][aks-cluster-autoscale].
+Ja, automatisch schalen is beschikbaar via de [Kubernetes automatisch schalen] [ auto-scaler] vanaf Kubernetes 1.10. Zie voor meer informatie over het handmatig configureren en gebruiken van het cluster automatisch schalen [Cluster automatisch schalen in AKS][aks-cluster-autoscale].
+
+U kunt ook de ingebouwde cluster automatisch schalen (momenteel in preview in AKS) gebruiken voor het beheren van de schaal van de knooppunten. Zie voor meer informatie, [automatisch schalen van een cluster om te voldoen aan de eisen van de toepassing in AKS][aks-cluster-autoscaler].
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>Biedt ondersteuning voor AKS Kubernetes-op rollen gebaseerd toegangsbeheer (RBAC)?
 
@@ -41,13 +43,17 @@ Momenteel niet. De Kubernetes API-server wordt weergegeven als een openbare voll
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Gelden er beveiligingsupdates voor AKS agentknooppunten?
 
-Ja, geldt Azure automatisch beveiligingspatches voor de knooppunten in uw cluster volgens een schema 's nachts. Echter, u bent verantwoordelijk om ervoor te zorgen dat de knooppunten opnieuw zijn opgestart zoals vereist. U hebt verschillende mogelijkheden voor het uitvoeren van knooppunt opnieuw wordt opgestart:
+Azure wordt automatisch beveiligingspatches geldt voor de Linux-knooppunten in uw cluster volgens een schema 's nachts. U bent echter verantwoordelijk om ervoor te zorgen dat deze knooppunten worden opnieuw opgestart als Linux vereist. U hebt verschillende mogelijkheden voor het uitvoeren van knooppunt opnieuw wordt opgestart:
 
 - Handmatig via de Azure portal of de Azure CLI.
 - Voer een upgrade uw AKS-cluster. Cluster-upgrades automatisch [cordon en leegmaken van knooppunten][cordon-drain], vervolgens elk knooppunt een back-up te brengen met de meest recente Ubuntu-installatiekopie en een nieuwe patchversie of een secundaire versie van Kubernetes. Zie voor meer informatie, [een AKS-cluster upgraden][aks-upgrade].
 - Met behulp van [Kured](https://github.com/weaveworks/kured), een open-source opnieuw opstarten-daemon voor Kubernetes. Kured wordt uitgevoerd als een [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) en bewaakt elk knooppunt op de aanwezigheid van een bestand dat aangeeft dat een herstart vereist is. Besturingssysteem opnieuw wordt opgestart worden beheerd in het cluster met behulp van dezelfde [cordon en proces leegmaken] [ cordon-drain] als de clusterupgrade van een.
 
 Zie voor meer informatie over het gebruik van kured [beveiligings- en -kernel-updates toepassen op knooppunten in AKS][node-updates-kured].
+
+### <a name="windows-server-nodes"></a>Windows Server-knooppunten
+
+Windows Update niet automatisch voor Windows Server-knooppunten (momenteel in preview in AKS), uitvoeren en de meest recente updates toepassen. Een regelmatige rond de releasecyclus van Windows Update en uw eigen validatieproces, moet u een upgrade op de Windows Server-knooppunt pool(s) uitvoeren in uw AKS-cluster. Met dit upgradeproces knooppunten met de meest recente Windows Server-installatiekopie en patches maakt en vervolgens verwijdert u de oudere knooppunten. Zie voor meer informatie over dit proces [een knooppuntgroep in AKS Upgrade][nodepool-upgrade].
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Waarom zijn er twee resourcegroepen gemaakt met AKS?
 
@@ -102,7 +108,9 @@ AKS is momenteel systeemeigen niet geïntegreerd met Azure Key Vault. Echter, de
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Kan ik Windows Server-containers in AKS uitvoeren?
 
-Als u wilt uitvoeren in Windows Server-containers, die u wilt uitvoeren op basis van Windows Server-knooppunten. Windows Server-gebaseerde knooppunten zijn op dit moment niet beschikbaar in AKS. U kunt echter Virtual Kubelet gebruiken voor het plannen van Windows-containers in Azure Container Instances en ze als onderdeel van uw AKS-cluster te beheren. Zie voor meer informatie, [Virtual Kubelet gebruiken met AKS][virtual-kubelet].
+Ja, Windows Server-containers zijn beschikbaar in preview. Voor Windows Server-containers in AKS uitvoert, moet u een knooppuntgroep waarop Windows Server wordt uitgevoerd als het gastbesturingssysteem maken. Windows Server-containers kunnen alleen gebruiken voor Windows Server 2019. Aan de slag [een AKS-cluster maken met een Windows Server-knooppuntgroep][aks-windows-cli].
+
+Ondersteuning voor Windows Server-knooppunt groep bevat enkele beperkingen die deel van de upstream-Windows-Server in een Kubernetes-project uitmaken. Zie voor meer informatie over deze beperkingen [Windows Server-containers in AKS beperkingen][aks-windows-limitations].
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>Biedt AKS een service level agreement?
 
@@ -120,6 +128,10 @@ In een serviceovereenkomst (SLA) stemt de provider in met het betalen van de kla
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
+[aks-cluster-autoscaler]: cluster-autoscaler.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[aks-windows-cli]: windows-container-cli.md
+[aks-windows-limitations]: windows-node-limitations.md
 
 <!-- LINKS - external -->
 

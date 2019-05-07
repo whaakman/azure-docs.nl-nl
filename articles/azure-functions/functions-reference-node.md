@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 37d00abbbf726dc1b92bdcc5f39b16301de9b93d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2eea1a1d30558765a2f8320b0b23efdbe3368807
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697846"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140960"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
@@ -204,7 +204,9 @@ module.exports = function(ctx) {
 context.bindings
 ```
 
-Retourneert een benoemde object dat al uw invoer- en gegevens bevat. Bijvoorbeeld, de volgende bindingsdefinities in uw function.json kunnen u toegang tot de inhoud van een wachtrij van `context.bindings.myInput` en uitvoer toewijzen aan een wachtrij met `context.bindings.myOutput`.
+Retourneert een benoemde object dat wordt gebruikt om te lezen of gegevens van de binding toe te wijzen. Invoer- en trigger binden van gegevens kunnen worden geopend door het lezen van de eigenschappen op `context.bindings`. Binding uitvoergegevens kunnen worden toegewezen door de gegevens aan toe te voegen `context.bindings`
+
+Bijvoorbeeld, de volgende bindingsdefinities in uw function.json kunnen u toegang tot de inhoud van een wachtrij van `context.bindings.myInput` en uitvoer toewijzen aan een wachtrij met `context.bindings.myOutput`.
 
 ```json
 {
@@ -273,10 +275,10 @@ Kunt u schrijven naar de streaminglogboeken functie op het standaardniveau voor 
 
 | Methode                 | Description                                |
 | ---------------------- | ------------------------------------------ |
-| **error(_bericht_)**   | Schrijft naar foutniveau logboekregistratie of lager.   |
-| **warn(_bericht_)**    | Schrijft naar waarschuwingsniveau logboekregistratie of lager. |
-| **info(_bericht_)**    | Schrijft naar info-niveau logboekregistratie of lager.    |
-| **verbose(_bericht_)** | Schrijft gegevens naar uitgebreide logboekregistratie op.           |
+| **fout (_bericht_)**   | Schrijft naar foutniveau logboekregistratie of lager.   |
+| **waarschuwing (_bericht_)**    | Schrijft naar waarschuwingsniveau logboekregistratie of lager. |
+| **Info (_bericht_)**    | Schrijft naar info-niveau logboekregistratie of lager.    |
+| **uitgebreide (_bericht_)** | Schrijft gegevens naar uitgebreide logboekregistratie op.           |
 
 Het volgende voorbeeld schrijft u een logboek tijdens het traceerniveau waarschuwing:
 
@@ -290,7 +292,7 @@ Lezen [controlefuncties van Azure](functions-monitoring.md) voor meer informatie
 
 ## <a name="writing-trace-output-to-the-console"></a>Trace-uitvoer schrijven naar de console 
 
-In de functies, gebruikt u de `context.log` methoden trace-uitvoer schrijven naar de console. In de Functions-v2.x trace uitvoer met behulp van `console.log` zijn vastgelegd op het niveau van de functie-App. Dit betekent dat de uitvoer van `console.log` zijn niet gekoppeld aan een specifieke functieaanroepen en kan daarom niet worden weergegeven in een specifieke functie Logboeken. Ze doen, echter doorgeven naar Application Insights. In functies v1.x, u niet gebruiken `console.log` te schrijven naar de console.
+In de functies, gebruikt u de `context.log` methoden trace-uitvoer schrijven naar de console. In de Functions-v2.x trace uitvoer met behulp van `console.log` zijn vastgelegd op het niveau van de functie-App. Dit betekent dat de uitvoer van `console.log` zijn niet gekoppeld aan een specifieke functieaanroepen en worden niet weergegeven in een specifieke functie Logboeken. Ze doen, echter doorgeven naar Application Insights. In functies v1.x, u niet gebruiken `console.log` te schrijven naar de console.
 
 Als u aanroept `context.log()`, het bericht is geschreven naar de console op het standaardniveau van trace die is de _info_ traceerniveau. De volgende code schrijft naar de console op het traceerniveau informatie:
 
@@ -352,7 +354,7 @@ De `context.req` (aanvraag)-object heeft de volgende eigenschappen:
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Een object dat de hoofdtekst van de aanvraag bevat.               |
 | _headers_     | Een object dat de aanvraagheaders bevat.                   |
-| _method_      | De HTTP-methode van de aanvraag.                                |
+| _Methode_      | De HTTP-methode van de aanvraag.                                |
 | _originalUrl_ | De URL van de aanvraag.                                        |
 | _params_      | Een object dat de routering parameters van de aanvraag bevat. |
 | _query_       | Een object met de queryparameters.                  |

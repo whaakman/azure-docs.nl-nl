@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 12/04/2018
+ms.date: 4/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dc78fbc93d625b39379e07f240eef7fbad10d194
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02591185914f3b04a70af3b7c5d607f4a2865806
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474841"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154254"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Oplossen van problemen met Azure SQL datawarehouse
 In dit artikel geeft een lijst met veelgestelde vragen voor het oplossen van problemen.
@@ -57,8 +57,9 @@ In dit artikel geeft een lijst met veelgestelde vragen voor het oplossen van pro
 ## <a name="polybase"></a>PolyBase
 | Probleem                                           | Oplossing                                                   |
 | :---------------------------------------------- | :----------------------------------------------------------- |
-| Laden is mislukt vanwege de grote rijen                | Ondersteuning voor grote rij is momenteel niet beschikbaar voor Polybase.  Dit betekent dat als uw tabel VARCHAR(MAX), NVARCHAR(MAX) of VARBINARY(MAX) bevat, externe tabellen kunnen niet worden gebruikt om uw gegevens te laden.  Het laden van grote rijen is momenteel alleen ondersteund via Azure Data Factory (met BCP), Azure Stream Analytics, SSIS, BCP of de klasse .NET SqlBulkCopy uitvoert. PolyBase-ondersteuning voor grote rijen wordt toegevoegd in een toekomstige release. |
-| BCP belasting van de tabel met maximale-gegevenstype is mislukt | Er is een bekend probleem waarvoor is vereist dat VARCHAR(MAX), NVARCHAR(MAX) of VARBINARY(MAX) aan het einde van de tabel in sommige scenario's worden geplaatst.  Verplaats uw maximum aantal kolommen aan het einde van de tabel. |
+| Uitvoer mislukken met typen TINYINT en datum             | Voor Parquet en ORC-bestandsindeling, type datumwaarden moeten liggen tussen 01-01-1970 00:00:01 UTC en 2038-01-19 03:14:07. Waarden voor TINYINT moet tussen 0-127.    |
+| Probleem met Parquet decimaal: schrijven van Spark DecimalType(18,4) typt en importeren in een kolom van het type double of echte biedt ' fout: java.base/java.lang.Long kan niet worden geconverteerd naar java.base/java.lang.Float '. | U moet importeren in bigint en delen door 10000 liggen, of gebruik de [Databricks] SQL DW connector. |
+| Probleem met Parquet-datumtype: schrijven van Spark type datum en importeren in een kolom van het type datum of datum/tijd biedt ' fout: java.base/java.lang.Integer kan niet worden geconverteerd naar parquet.io.api.Binary '. | U moet een ander type met Spark (int) en compute van de datum of de [Databricks] SQL DW connector. |
 
 ## <a name="differences-from-sql-database"></a>Verschillen met SQL-Database
 | Probleem                                 | Oplossing                                                   |
@@ -132,3 +133,4 @@ Voor meer hulp bij het vinden van oplossing voor uw probleem volgen hier enkele 
 [Stack Overflow-forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Video's]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[Databricks]: https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse

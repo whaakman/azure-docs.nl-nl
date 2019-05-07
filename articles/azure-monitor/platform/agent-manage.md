@@ -1,6 +1,6 @@
 ---
 title: Beheren van de Azure Log Analytics-Agent | Microsoft Docs
-description: Dit artikel beschrijft de verschillende beheertaken die u doorgaans tijdens de levenscyclus van de Microsoft Monitoring Agent (MMA) geïmplementeerd op een virtuele machine wordt uitgevoerd.
+description: Dit artikel beschrijft de verschillende beheertaken die u normaal gesproken wordt uitvoert tijdens de levenscyclus van de Log Analytics Windows of Linux-agent op een virtuele machine is geïmplementeerd.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 19530aa676e681f9a6ec50d2cacf77711dcb0110
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1809cc50f3ad3c285e0b69bc6e383a2c7c398238
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730289"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139250"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Beheer en onderhoud van de Log Analytics-agent voor Windows en Linux
 
-Na de initiële implementatie van de Log Analytics Windows of Linux-agent in Azure Monitor moet u mogelijk opnieuw configureren van de agent, bijwerken of verwijderen van de computer als de fase buiten gebruik stellen in de levenscyclus is bereikt. U kunt deze taken dagelijks onderhoud gemakkelijk beheren handmatig of via automatisering, waardoor zowel operationele fout en kosten.
+Na de initiële implementatie van de Log Analytics Windows of Linux-agent in Azure Monitor moet u mogelijk opnieuw configureren van de agent, bijwerken of verwijderen van de computer als het de fase buiten gebruik stellen in de levenscyclus is bereikt. U kunt deze taken dagelijks onderhoud gemakkelijk beheren handmatig of via automatisering, waardoor zowel operationele fout en kosten.
 
 ## <a name="upgrading-agent"></a>Agent upgraden
 
@@ -40,7 +40,7 @@ Voor het bijwerken van de agent op een Windows-VM naar de meest recente versie n
 
 U kunt de meest recente versie van de Windows-agent downloaden van uw Log Analytics-werkruimte door de volgende stappen uit te voeren.
 
-1. Meld u aan bij Azure Portal.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 2. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics-werkruimten**.
 
@@ -91,6 +91,7 @@ Voer de volgende opdracht de agent bij te werken.
 ## <a name="adding-or-removing-a-workspace"></a>Toevoegen of verwijderen van een werkruimte
 
 ### <a name="windows-agent"></a>Windows-agent
+De stappen in deze sectie zijn nodig als u wilt configureren niet alleen de Windows-agent om te rapporteren aan een andere werkruimte of een werkruimte verwijderen uit de configuratie, maar ook als u wilt configureren van de agent om te rapporteren aan (doorgaans meer dan één werkruimte wel multihoming). Configuratie van de Windows-agent om te rapporteren aan meerdere werkruimten kan alleen worden uitgevoerd na de initiële installatie van de agent en de methoden die hieronder worden beschreven.    
 
 #### <a name="update-settings-from-control-panel"></a>Update-instellingen van het Configuratiescherm
 
@@ -140,7 +141,7 @@ $mma.ReloadConfiguration()
 >
 
 ### <a name="linux-agent"></a>Linux-agent
-De volgende stappen laten zien hoe u de Linux-agent opnieuw te configureren als u besluit te registreren bij een andere werkruimte of een werkruimte verwijderen uit de configuratie ervan.
+De volgende stappen laten zien hoe u de Linux-agent opnieuw te configureren als u besluit om u te registreren bij een andere werkruimte of een werkruimte verwijderen uit de configuratie ervan.
 
 1. Als u wilt controleren of dat deze aan een werkruimte is geregistreerd, moet u de volgende opdracht uitvoeren:
 
@@ -160,7 +161,7 @@ De volgende stappen laten zien hoe u de Linux-agent opnieuw te configureren als 
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`
     
-4. Als u wilt controleren of dat uw wijzigingen hebben invloed op heeft, moet u de volgende opdracht uitvoeren:
+4. Als u wilt controleren of dat uw wijzigingen van kracht, voer de volgende opdracht:
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
 
@@ -231,7 +232,7 @@ Voer de volgende stappen uit als uw Linux-computers nodig hebt om te communicere
     ```
 
 ## <a name="uninstall-agent"></a>Agent verwijderen
-Gebruik een van de volgende procedures voor het verwijderen van de Windows- of Linux-agent met de opdrachtregel of setup-wizard.
+Gebruik een van de volgende procedures voor het verwijderen van de Windows- of Linux-agent met behulp van de opdrachtregel of de wizard setup.
 
 ### <a name="windows-agent"></a>Windows-agent
 

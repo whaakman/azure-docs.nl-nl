@@ -2,19 +2,20 @@
 title: Client-Side-versleuteling voor Microsoft Azure Storage met behulp van Java | Microsoft Docs
 description: De Azure Storage-clientbibliotheek voor Java biedt ondersteuning voor versleuteling op de client en de integratie met Azure Key Vault voor een maximale beveiliging voor uw Azure Storage-toepassingen.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0a2088e603828a7850cb250c1874008d63fe9c89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 058dc97054aad310135ccc1f51d765f0af3f571b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992457"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147033"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Client-Side-versleuteling en Azure Key Vault met behulp van Java voor Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -118,7 +119,7 @@ Er zijn drie Key Vault-pakketten:
 1. Een geheim offline maken en uploaden naar de Key Vault.  
 2. Gebruik van het geheim base-id als parameter kunt oplossen door de huidige versie van het geheim voor het versleutelen en deze informatie lokaal in de cache. CachingKeyResolver gebruiken voor het opslaan in cache; gebruikers wordt niet verwacht voor het implementeren van hun eigen logica caching.  
 3. De cachebewerkingen conflictoplosser gebruiken als invoer tijdens het maken van het versleutelingsbeleid voor.
-   Meer informatie over het gebruik van Key Vault vindt u in de codevoorbeelden voor versleuteling. <fix URL>  
+   Meer informatie over het gebruik van Key Vault vindt u in de codevoorbeelden voor versleuteling.
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 Ondersteuning voor versleuteling is alleen beschikbaar in de storage-clientbibliotheek voor Java.
@@ -142,7 +143,7 @@ Tijdens het maken van een object EncryptionPolicy, kunnen gebruikers alleen een 
   * De belangrijkste resolver wordt aangeroepen als voor het ophalen van de sleutel opgegeven. Als de conflictoplosser is opgegeven, maar beschikt niet over een toewijzing voor de sleutel-id, wordt er een fout opgetreden.  
   * Als conflictoplosser niet is opgegeven, maar een sleutel is opgegeven, wordt de sleutel wordt gebruikt als de id overeenkomt met de vereiste sleutel-id. Als de id komt niet overeen met, wordt er een fout opgetreden.  
     
-    De [versleuteling voorbeelden](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>demonstreren een meer gedetailleerde end-to-end-scenario voor blobs, wachtrijen en tabellen, samen met Key Vault-integratie.
+    De [versleuteling voorbeelden](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) demonstreren een meer gedetailleerde end-to-end-scenario voor blobs, wachtrijen en tabellen, samen met Key Vault-integratie.
 
 ### <a name="requireencryption-mode"></a>RequireEncryption modus
 Gebruikers kunnen eventueel inschakelen voor een modus waarin alle uploaden en downloaden moeten worden versleuteld. In deze modus mislukken pogingen tot gegevens zonder een versleutelingsbeleid uploaden of downloaden van gegevens die niet worden versleuteld op de service op de client. De **requireEncryption** vlag van de aanvraag options-object bepaalt dit gedrag. Als uw toepassing u alle objecten die zijn opgeslagen in Azure Storage versleutelt, dan kunt u instellen de **requireEncryption** eigenschap op de standaardopties voor de aanvraag voor het service-client-object.   

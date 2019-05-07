@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bd57b3d41ad7c670b5423f10a9c93b55e87d757
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 448858efeaae4c3e2a41d41181e9ec74b03223f6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252217"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138255"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph API aanroepen vanuit een Universal Windows Platform-toepassing (XAML)
 
@@ -45,7 +45,7 @@ In deze handleiding wordt gemaakt voor een UWP-voorbeeldtoepassing die query's v
 
 Deze handleiding maakt gebruik van de volgende NuGet-pakketten:
 
-|Bibliotheek|Beschrijving|
+|Bibliotheek|Description|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library|
 
@@ -333,8 +333,10 @@ Nu moet u uw toepassing registreren in de Portal voor Appregistratie Microsoft:
    - In de **ondersteund accounttypen** sectie, selecteer **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts (zoals Skype, Xbox, Outlook.com)**.
    - Selecteer **Registreren** om de toepassing te maken.
 1. Op de app **overzicht** pagina, zoek de **(client) toepassings-ID** waarde en leg deze vast voor later. Ga terug naar Visual Studio, open **MainPage.xaml.cs**, en vervang de waarde van ClientId met de toepassings-ID die u zojuist hebt geregistreerd:
-1. Selecteer in de lijst van pagina's voor de app, **verificatie**:
-   - In de **omleidings-URI's** | **voorgesteld omleidings-URI's voor de openbare clients (mobiel, desktops)** sectie selectievakje **urn: ietf:wg:oauth:2.0:oob**
+1. Selecteer in de lijst met pagina’s voor de app de optie **Verificatie**.
+   1. In de **omleidings-URI's** sectie in de lijst van de omleidings-URI's:
+   1. In de **TYPE** kolomselectie **openbare client (mobiele en desktop)**.
+   1. Voer `urn:ietf:wg:oauth:2.0:oob` in de **OMLEIDINGS-URI** kolom.
 1. Selecteer **Opslaan**.
 1. Selecteer in de lijst van pagina's voor de app **API-machtigingen**
    - Klik op de **toevoegen van een machtiging** knop en klikt u vervolgens

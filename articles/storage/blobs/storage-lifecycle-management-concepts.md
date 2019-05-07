@@ -1,21 +1,22 @@
 ---
-title: Beheer van de levenscyclus van de Azure-opslag
+title: Beheer van de levenscyclus van de Azure Storage
 description: Informatie over het maken lifecycle beleidsregels overgang ouderdom gegevens van warm naar koud en archief lagen.
 services: storage
-author: yzheng-msft
+author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.author: yzheng
+ms.author: mhopkins
+ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: f1fdd1b239301a5340716e1d5d098487afe27f9f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 130eb9cc8bec4681f5c0d165735c6c3b2357576c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938572"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148322"
 ---
-# <a name="manage-the-azure-blob-storage-lifecycle"></a>De levenscyclus van de Azure Blob-opslag beheren
+# <a name="manage-the-azure-blob-storage-lifecycle"></a>De levenscyclus van de Azure Blob storage beheren
 
 Gegevenssets hebben unieke Lifecycle-beleid. Vroeg in de levenscyclus, mensen toegang tot bepaalde gegevens vaak. Maar hebt u aanzienlijk als de gegevens van de leeftijd door de noodzaak voor toegang wordt geweigerd. Sommige gegevens in de cloud blijft niet-actieve en zelden worden gebruikt wanneer deze zijn opgeslagen. Sommige gegevens verlopen dagen of maanden na het maken, terwijl andere gegevenssets actief worden gelezen en gewijzigd gedurende hun levensduur. Azure Blob storage-levenscyclusbeheer biedt een uitgebreide, op regels gebaseerde beleid voor GPv2- en Blob storage-accounts. Gebruik het beleid aan uw gegevens naar de juiste laag overgang of verloopt aan het einde van de levenscyclus van de gegevens.
 
@@ -156,7 +157,7 @@ Elke regel in het beleid heeft verschillende parameters:
 | Parameternaam | Parametertype | Opmerkingen | Vereist |
 |----------------|----------------|-------|----------|
 | naam           | String |Een de regelnaam mag maximaal 256 alfanumerieke tekens bestaan. De naam van regel is hoofdlettergevoelig.  Deze moet uniek zijn binnen een beleid. | True |
-| ingeschakeld | Boolean | Een optionele Booleaanse waarde waarmee een regel voor het tijdelijk worden uitgeschakeld. Standaardwaarde is ' True ' als deze optie niet is ingesteld. | False | 
+| enabled | Boolean | Een optionele Booleaanse waarde waarmee een regel voor het tijdelijk worden uitgeschakeld. Standaardwaarde is ' True ' als deze optie niet is ingesteld. | False | 
 | type           | Een enum-waarde | De huidige geldig type is `Lifecycle`. | True |
 | definitie     | Een object dat de levenscyclus van regel definieert | Elke definitie bestaat uit een filter en een actie. | True |
 

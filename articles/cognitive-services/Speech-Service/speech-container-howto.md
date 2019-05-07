@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e000c034d10efc652f328fa8d1db8d1902fac693
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2adcbad55236917685ddcdbabe4809f36ab5a730
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026115"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153054"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installeren en uitvoeren van containers voor spraak-Service
 
@@ -178,7 +178,7 @@ Als de container op de [hostcomputer](#the-host-computer), de volgende procedure
 
 Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht uit te voeren op een van de drie containers. De opdracht maakt gebruik van de volgende parameters:
 
-**Tijdens de private preview**, de facturering instellingen moeten geldig voor het starten van de container, maar u niet wordt gefactureerd.
+**Tijdens de Preview-versie**, de facturering instellingen moeten geldig voor het starten van de container, maar worden niet in rekening gebracht voor gebruik.
 
 | Tijdelijke aanduiding | Value |
 |-------------|-------|
@@ -226,7 +226,7 @@ Met deze opdracht:
 
 ### <a name="speech-to-text"></a>Spraak-naar-tekst
 
-De container biedt eindpunt van de query op basis van websocket API's, die toegankelijk zijn via [Speech services SDK-documentatie](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+De container biedt eindpunt van de query op basis van websocket API's, die toegankelijk zijn via de [spraak SDK](index.yml).
 
 De spraak-SDK gebruikt standaard online spraakservices. Voor het gebruik van de container, moet u de van de initialisatiemethode wijzigen. Zie de onderstaande voorbeelden.
 

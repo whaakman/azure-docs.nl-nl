@@ -2,18 +2,17 @@
 title: Hadoop Oozie-werkstromen in Azure HDInsight op basis van Linux gebruiken
 description: Gebruik Oozie met Hadoop in HDInsight op basis van Linux. Informatie over het definiëren van een Oozie-workflow en het verzenden van een Oozie-taak.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: 97e1836952020723c1043617d74a96471ae07aad
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 55db43bf3037fcba59e7ad783c6d8c06f1886bdb
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724164"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142829"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Oozie gebruiken met Apache Hadoop voor het definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux
 
@@ -38,13 +37,8 @@ U kunt ook Oozie gebruiken voor het plannen van taken die specifiek voor een sys
 
 * **Een Azure SQL-Database**.  Zie [maken van een Azure SQL database in Azure portal](../sql-database/sql-database-get-started.md).  In dit artikel wordt een database met de naam `oozietest`.
 
-* **Mogelijke wijziging in de opslagconfiguratie.**  Zie [opslagconfiguratie](#storage-configuration) als type opslagaccount `BlobStorage`.
+* De [URI-schema](./hdinsight-hadoop-linux-information.md#URI-and-scheme) voor uw clusters primaire opslag. Dit zou zijn `wasb://` voor Azure Storage, `abfs://` voor Azure Data Lake Storage Gen2 of `adl://` voor Azure Data Lake Storage Gen1. Als veilige overdracht is ingeschakeld voor Azure Storage of Data Lake Storage Gen2, de URI zou worden `wasbs://` of `abfss://`respectievelijk Zie ook [veilige overdracht](../storage/common/storage-require-secure-transfer.md).
 
-## <a name="storage-configuration"></a>Opslagconfiguratie
-Er is geen actie is vereist als het opslagaccount dat wordt gebruikt van het type `Storage (general purpose v1)` of `StorageV2 (general purpose v2)`.  Het proces in het artikel produceren uitvoer naar ten minste `/mapreducestaging`.  Een standaard hadoop-configuratie bevat `/mapreducestaging` in de `fs.azure.page.blob.dir` configuratievariabele van de in `core-site.xml` voor service `HDFS`.  Deze configuratie zorgt ervoor dat de uitvoer naar de map worden pagina-blobs, wat niet wordt ondersteund voor het type opslagaccount `BlobStorage`.  Gebruik `BlobStorage` voor dit artikel, verwijdert u `/mapreducestaging` uit de `fs.azure.page.blob.dir` configuratievariabele.  De configuratie is toegankelijk vanuit de [Ambari UI](hdinsight-hadoop-manage-ambari.md).  Anders ontvangt u het foutbericht weergegeven: `Page blob is not supported for this account type.`
-
-> [!NOTE]  
-> Het opslagaccount dat wordt gebruikt in dit artikel heeft [veilige overdracht](../storage/common/storage-require-secure-transfer.md) ingeschakeld en dus `wasbs` in plaats van `wasb` wordt gebruikt in het artikel.
 
 ## <a name="example-workflow"></a>Van de voorbeeldwerkstroom
 
@@ -451,7 +445,7 @@ De volgende stappen gebruikt de opdracht Oozie indienen en beheren van Oozie-wer
 5. De code hieronder om te vervangen bewerken `<JOBID>` met de ID die eerder zijn geretourneerd.  Gebruik de volgende opdracht voor het starten van de taak:
 
     ```bash
-    oozie job -start JOBID
+    oozie job -start <JOBID>
     ```
 
     Als u de status na deze opdracht controleren, deel uitmaakt van een actieve status en gegevens worden geretourneerd voor de acties in de taak.  De taak duurt enkele minuten om te voltooien.

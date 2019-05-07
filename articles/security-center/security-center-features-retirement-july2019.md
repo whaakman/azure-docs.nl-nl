@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 392782310d8bc3b38a3dd1349cb1760ca287acd1
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875590"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147931"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Buiten gebruik stellen van Security Center-functies (2019 juli)
 
@@ -155,7 +155,7 @@ Deze functie is in preview en wordt beëindigd.
 
 ### <a name="edit-security-configurations---new-experience"></a>Beveiligingsconfiguraties - nieuwe ervaring bewerken
 
-Security Center biedt ondersteuning voor de [agent in Gast](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) in de nabije toekomst, zodat een veel uitgebreider functieset - inclusief ondersteuning voor aanvullende besturingssystemen en integratie met de configuratie van de Gast met Azure-beleid (in de Gast -beleid genoemd). Dit biedt ook de mogelijkheid om te bepalen op schaal en het automatisch toepassen op nieuwe resources.
+Security Center biedt ondersteuning voor de [configuratie gastagent](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) in de nabije toekomst, zodat een veel uitgebreider functieset - ondersteuning voor aanvullende besturingssystemen en integratie met gast-configuratie met de Azure-beleid (inclusief in de Gast-beleid genoemd). Dit biedt ook de mogelijkheid om te bepalen op schaal en het automatisch toepassen op nieuwe resources.
 
 ## Beveiliging en audit dashboard (oorspronkelijk hebt gebruikt in OMS-portal) voor Log Analytics-werkruimten<a name="menu_securityomsdashboard"></a>
 

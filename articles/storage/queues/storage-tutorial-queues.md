@@ -1,21 +1,22 @@
 ---
-title: 'Zelfstudie: werken met Azure storage-wachtrijen'
+title: 'Zelfstudie: werken met Azure storage-wachtrijen - Azure Storage'
 description: Voor meer informatie over de Azure Queue-service gebruiken om te maken van wachtrijen en invoegen, ophalen en verwijderen van berichten.
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
+ms.reviewer: cbrooks
 ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 5aa12c39b951ce65c4ef0a3f44de381c8961ed7f
-ms.sourcegitcommit: 1aab8b764d767d86fbf262bda34996189d00c7bb
+ms.openlocfilehash: 81d7572f800f191791158f2c1f99e1f072980116
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "64406166"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151069"
 ---
-# <a name="tutorial-work-with-azure-storage-queues"></a>Zelfstudie: Werken met Azure storage-wachtrijen
+# <a name="tutorial-work-with-azure-storage-queues"></a>Zelfstudie: Werken met Azure-opslagwachtrijen
 
 Azure Queue storage implementeert cloud-gebaseerde wachtrijen voor het inschakelen van communicatie tussen onderdelen van een gedistribueerde toepassing. Elke wachtrij houdt een lijst met berichten die kunnen worden toegevoegd door een onderdeel van de afzender en verwerkt door een onderdeel van de ontvanger. Uw toepassing kunt met een wachtrij, onmiddellijk schalen om te voldoen aan de vraag. In dit artikel bevat de basisstappen voor het werken met een Azure storage-wachtrij.
 

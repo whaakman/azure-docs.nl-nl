@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/16/2018
-ms.openlocfilehash: f371376a7c801eecb6231d551546b13dbc68dd26
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/06/2019
+ms.openlocfilehash: 634f3948f9a5e28454e9b2b29f950c3fb00f6c19
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916815"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147733"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
 
@@ -48,20 +48,20 @@ Hier zijn de limieten voor een definitie van één logische app:
 
 Hier zijn de limieten voor een enkele logische app:
 
-| Name | Limiet | Opmerkingen |
-|------|-------|-------|
-| Uitvoeringsduur | 90 dagen | Deze limiet, Zie [wijziging uitvoeringsduur](#change-duration). |
-| Minimale vernieuwingsfrequentie | 1 seconde | |
-| Maximale terugkeerpatroon | 500 dagen | |
-| Bewaarperiode | Begintijd van 90 dagen na het uitvoeren van | Zie voor informatie over het wijzigen van deze limiet op een waarde tussen 7 dagen en 90 dagen [opslag retentie wijzigen](#change-retention). |
-||||
+| Name | Limiet voor meerdere tenants | Integratie van service-omgeving beperken | Opmerkingen |
+|------|--------------------|---------------------------------------|-------|
+| Uitvoeringsduur | 90 dagen | 365 dagen | De standaardlimiet Zie [wijziging uitvoeringsduur](#change-duration). |
+| Bewaarperiode | Begintijd van 90 dagen na het uitvoeren van | 365 dagen | De standaardlimiet Zie [opslag retentie wijzigen](#change-retention). |
+| Minimale vernieuwingsfrequentie | 1 seconde | 1 seconde ||
+| Maximale terugkeerpatroon | 500 dagen | 500 dagen ||
+|||||
 
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
 ### <a name="change-run-duration-and-storage-retention"></a>Voer de duur en opslag retentie wijzigen
 
-Als u wilt wijzigen van de standaardlimiet voor het tussen 7 dagen en 90 dagen, volg deze stappen. Als u nodig hebt om te gaan dan de maximale limiet [contact op met de Logic Apps-team](mailto://logicappsemail@microsoft.com) voor hulp bij uw vereisten.
+Als u wilt de standaardlimiet voor uitvoeringsduur en bewaarperiode wijzigen, de volgende stappen uit. Als u nodig hebt om te gaan dan de maximale limiet [contact op met de Logic Apps-team](mailto://logicappsemail@microsoft.com) voor hulp bij uw vereisten.
 
 1. Kies in de Azure-portal, in het menu van uw logische app **Werkstroominstellingen**.
 
@@ -91,7 +91,7 @@ Hier zijn de limieten voor een enkele logische app:
 
 Hier zijn de limieten voor een enkele logische app:
 
-### <a name="global-logic-apps-service"></a>Globale Logic Apps-service
+### <a name="multi-tenant-logic-apps-service"></a>Service met meerdere tenants Logic Apps
 
 | Name | Limiet | Opmerkingen |
 | ---- | ----- | ----- |
@@ -107,9 +107,9 @@ Hier zijn de limieten voor een enkele logische app:
 
 | Name | Limiet | Opmerkingen |
 |------|-------|-------|
-| Limiet voor basiseenheid voor uitvoering | 10.000 actie-uitvoeringen per vijf minuten <br>Dit is ongeveer 80 miljoen actie-uitvoeringen per maand | |
-| Schaallimiet eenheid worden uitgevoerd | 5000 uitvoeringsacties per vijf minuten <br>~ 40 miljoen actie-uitvoeringen per maand is | |
-| Maximale schaaleenheden die u kunt toevoegen | 3 | |
+| Limiet voor basiseenheid voor uitvoering | Systeem beperkt wanneer infrastructuurcapaciteit 80% bereikt | Biedt ~ 4.000 actie-uitvoeringen per minuut, dit is van ~ 160 miljoen actie-uitvoeringen per maand | |
+| Schaallimiet eenheid worden uitgevoerd | Systeem beperkt wanneer infrastructuurcapaciteit 80% bereikt | Elke schaaleenheid kan ~ 2.000 aanvullende actie-uitvoeringen per minuut, die ongeveer 80 miljoen bieden meer actie-uitvoeringen per maand | |
+| Maximale schaaleenheden die u kunt toevoegen | 10 | |
 ||||
 
 Hoger dan deze limieten in de normale verwerking of voer belastingtests uitvoeren die mogelijk verder gaan dan deze limieten [contact op met de Logic Apps-team](mailto://logicappsemail@microsoft.com) voor hulp bij uw vereisten.
@@ -124,20 +124,20 @@ Hier zijn de limieten voor een afzonderlijke HTTP-aanvraag of een aanroep van sy
 
 Bepaalde bewerkingen connector asynchrone aanroepen of luisteren naar aanvragen van de webhook, zodat de time-out voor deze bewerkingen mogelijk niet langer zijn dan deze limieten. Zie voor meer informatie, de technische details voor de specifieke connector en ook [werkstroomtriggers en acties](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Name | Limiet | Opmerkingen |
-| ---- | ----- | ----- |
-| Uitgaande aanvraag | 120 seconden | Voor meer actieve bewerkingen, gebruikt u een [asynchrone polling patroon](../logic-apps/logic-apps-create-api-app.md#async-pattern) of een [totdat-lus](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
-| Synchrone reactie | 120 seconden | Alle stappen in het antwoord moeten voltooien binnen de limiet voor de oorspronkelijke aanvraag voor het ophalen van het antwoord, tenzij u een andere logische app als een geneste werkstroom aanroepen. Zie voor meer informatie, [aanroepen, trigger of nesten van logische apps](../logic-apps/logic-apps-http-endpoint.md). |
-|||| 
+| Name | Limiet voor meerdere tenants | Integratie van service-omgeving beperken | Opmerkingen |
+|------|--------------------|---------------------------------------|-------|
+| Uitgaande aanvraag | 120 seconden | 240 seconden | Voor meer actieve bewerkingen, gebruikt u een [asynchrone polling patroon](../logic-apps/logic-apps-create-api-app.md#async-pattern) of een [totdat-lus](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
+| Synchrone reactie | 120 seconden | 240 seconden | Alle stappen in het antwoord moeten voltooien binnen de limiet voor de oorspronkelijke aanvraag voor het ophalen van het antwoord, tenzij u een andere logische app als een geneste werkstroom aanroepen. Zie voor meer informatie, [aanroepen, trigger of nesten van logische apps](../logic-apps/logic-apps-http-endpoint.md). |
+|||||
 
 #### <a name="message-size"></a>Berichtgrootte
 
-| Name | Limiet | Opmerkingen |
-| ---- | ----- | ----- |
-| Berichtgrootte | 100 MB | Als tijdelijke oplossing voor deze limiet, Zie [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). Echter sommige connectors en API's mogelijk geen ondersteuning voor logische groepen te verdelen of zelfs de standaardlimiet. |
-| Grootte van het bericht met logische groepen te verdelen | 1 GB | Deze limiet geldt voor acties die systeemeigen ondersteuning voor logische groepen te verdelen of kunnen u inschakelen opdelen in hun runtime-configuratie. Zie voor meer informatie, [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). |
-| Limiet voor evaluatie van expressie | 131.072 tekens | De `@concat()`, `@base64()`, `@string()` expressies mag niet langer zijn dan deze limiet. |
-||||
+| Name | Limiet voor meerdere tenants | Integratie van service-omgeving beperken | Opmerkingen |
+|------|--------------------|---------------------------------------|-------|
+| Berichtgrootte | 100 MB | 200 MB | Als tijdelijke oplossing voor deze limiet, Zie [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). Echter sommige connectors en API's mogelijk geen ondersteuning voor logische groepen te verdelen of zelfs de standaardlimiet. |
+| Grootte van het bericht met logische groepen te verdelen | 1 GB | 5 GB | Deze limiet geldt voor acties die systeemeigen ondersteuning voor logische groepen te verdelen of kunnen u inschakelen opdelen in hun runtime-configuratie. <p>Voor de integratie van service-omgeving, de Logic Apps-engine ondersteunt deze limiet, maar connectors hebben hun eigen chunking beperkt tot de engine is bereikt, bijvoorbeeld, Zie [Azure Blob Storage-connector](/connectors/azureblob/). Zie voor meer informatie logische groepen te verdelen, [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). |
+| Limiet voor evaluatie van expressie | 131.072 tekens | 131.072 tekens | De `@concat()`, `@base64()`, `@string()` expressies mag niet langer zijn dan deze limiet. |
+|||||
 
 #### <a name="retry-policy"></a>Beleid voor opnieuw proberen
 
@@ -154,10 +154,10 @@ Bepaalde bewerkingen connector asynchrone aanroepen of luisteren naar aanvragen 
 
 Hier zijn de limieten voor aangepaste connectors die u van web-API's maken kunt.
 
-| Name | Limiet |
-| ---- | ----- |
-| Aantal aangepaste connectors | 1000 per Azure-abonnement |
-| Het aantal aanvragen per minuut voor elke verbinding die tot stand is gebracht door een aangepaste connector | 500 aanvragen per verbinding |
+| Name | Limiet voor meerdere tenants | Integratie van service-omgeving beperken | Opmerkingen |
+|------|--------------------|---------------------------------------|-------|
+| Aantal aangepaste connectors | 1000 per Azure-abonnement | 1000 per Azure-abonnement ||
+| Aantal aanvragen per minuut voor een aangepaste connector | 500 aanvragen per minuut per verbinding | 2000 aanvragen per minuut per *aangepaste connector* ||
 |||
 
 <a name="managed-identity"></a>
@@ -218,11 +218,11 @@ Hier zijn de limieten voor het aantal artefacten voor elke integratie-account. Z
 
 Dit zijn de limieten die voor B2B-protocollen gelden:
 
-| Name | Limiet | Opmerkingen |
-| ---- | ----- | ----- |
-| AS2 | 50 MB | Is van toepassing op decoderen en coderen |
-| X12 | 50 MB | Is van toepassing op decoderen en coderen |
-| EDIFACT | 50 MB | Is van toepassing op decoderen en coderen |
+| Name | Limiet voor meerdere tenants | Integratie van service-omgeving beperken | Opmerkingen |
+|------|--------------------|---------------------------------------|-------|
+| AS2 | v2 - 100 MB<br>v1 - 50 MB | v2 - 200 MB <br>v1 - 50 MB | Is van toepassing op decoderen en coderen |
+| X12 | 50 MB | 50 MB | Is van toepassing op decoderen en coderen |
+| EDIFACT | 50 MB | 50 MB | Is van toepassing op decoderen en coderen |
 ||||
 
 <a name="disable-delete"></a>

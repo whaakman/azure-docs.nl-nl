@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: eaafee304f606ae4d511a6cea1824c26db838635
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119126"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145153"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Problemen oplossen bij het onboarding-oplossingen
 
@@ -78,6 +78,36 @@ De oplossing implementeren, moet u rekening houden met het wijzigen van het opge
   * Wijzigen van de set van resources dat beleid is geconfigureerd om te weigeren.
 
 Controleer de meldingen in de rechterbovenhoek van de Azure-portal of Ga naar de resourcegroep waarin uw automation-account en selecteer **implementaties** onder **instellingen** om de mislukte weer te geven de implementatie. Voor meer informatie over Azure Policy gaat u naar: [Overzicht van Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+
+### <a name="unlink"></a>Scenario: Fouten opgetreden bij het ontkoppelen van een werkruimte
+
+#### <a name="issue"></a>Probleem
+
+U ontvangt de volgende fout bij het ontkoppelen van een werkruimte:
+
+```error
+The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
+```
+
+#### <a name="cause"></a>Oorzaak
+
+Deze fout treedt op wanneer u hebt nog steeds oplossingen active in uw Log Analytics-werkruimte die afhankelijk zijn van uw Automation-Account en Log Analytics-werkruimte wordt gekoppeld.
+
+### <a name="resolution"></a>Oplossing
+
+U kunt dit oplossen moet u de volgende oplossingen verwijderen uit uw werkruimte als u deze gebruikt:
+
+* Updatebeheer
+* Tracering wijzigen
+* VM's starten/stoppen buiten kantooruren
+
+Wanneer u de oplossingen verwijdert kunt u uw werkruimte ontkoppelen. Het is belangrijk om alle bestaande artefacten van deze oplossingen ook vanuit uw werkruimte en het Automation-Account op te schonen.  
+
+* Updatebeheer
+  * Update-implementaties (schema's) van uw Automation-Account verwijderen
+* VM's starten/stoppen buiten kantooruren
+  * Verwijderen van alle vergrendelingen op oplossingsonderdelen in uw Automation-Account onder **instellingen** > **vergrendelingen**.
+  * Voor extra stappen voor het verwijderen van de VM's starten/stoppen buiten kantooruren oplossing ziet, [verwijderen van de VM starten/stoppen buiten kantooruren oplossing](../automation-solution-vm-management.md##remove-the-solution).
 
 ## <a name="mma-extension-failures"></a>MMA-extensies oplossen
 

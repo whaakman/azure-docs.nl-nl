@@ -1,44 +1,41 @@
 ---
-title: Zelfstudie - Webverkeer beheren - Azure CLI
+title: Webverkeer beheren - Azure CLI
 description: Informatie over het maken van een toepassingsgateway met een virtuele-machineschaalset om webverkeer te beheren met de Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.topic: article
+ms.date: 5/1/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 264e1050e74c64c003e08bc6a8ba1c115b83032c
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: d60c756fcf0b527731b8a1f31a8d93f108c91665
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749067"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146233"
 ---
-# <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Zelfstudie: Webverkeer met een toepassingsgateway beheren met behulp van Azure CLI
+# <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Webverkeer met een toepassingsgateway beheren met behulp van Azure CLI
 
-De toepassingsgateway wordt gebruikt voor het beheren en beveiligen van webverkeer naar servers die door u worden onderhouden. U kunt de Azure CLI gebruiken om een ​​[toepassingsgateway](overview.md) te maken die gebruikmaakt van een [virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) voor back-endservers om webverkeer te beheren. In dit voorbeeld bevat de schaalset twee virtuele-machine-instanties die zijn toegevoegd aan de standaard back-endpool van de toepassingsgateway.
+De toepassingsgateway wordt gebruikt voor het beheren en beveiligen van webverkeer naar servers die door u worden onderhouden. U kunt de Azure CLI gebruiken om te maken een [toepassingsgateway](overview.md) die gebruikmaakt van een [virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) voor back-endservers. In dit voorbeeld bevat de schaalset twee exemplaren van de virtuele machine. De schaalset wordt toegevoegd aan de standaardgroep voor back-end van de toepassingsgateway.
 
-In deze zelfstudie leert u het volgende:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Het netwerk instellen
 > * Een toepassingsgateway maken
 > * Een virtuele-machineschaalset maken met de standaard back-endpool
 
-U kunt deze zelfstudie desgewenst volgen met behulp van [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
+Als u liever, kunt u het gebruik van deze procedure te voltooien [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, deze snelstartgids moet u uitvoeren van de Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#az-group-create). 
+Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#az-group-create).
 
 In het volgende voorbeeld wordt de resourcegroep *myResourceGroupAG* gemaakt op de locatie *eastus*.
 
@@ -90,7 +87,7 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress
 ```
 
- Het kan enkele minuten duren voordat de toepassingsgateway is gemaakt. Nadat de toepassingsgateway is gemaakt, ziet u de volgende nieuwe functies:
+ Het kan enkele minuten duren voordat de toepassingsgateway is gemaakt. Nadat de toepassingsgateway is gemaakt, ziet u deze nieuwe functies:
 
 - *appGatewayBackendPool*: een toepassingsgateway moet ten minste één back-endadresgroep hebben.
 - *appGatewayBackendHttpSettings*: hiermee wordt aangegeven dat voor de communicatie poort 80 en een HTTP-protocol worden gebruikt.
@@ -136,7 +133,7 @@ az vmss extension set \
 
 Gebruik [az network public-ip show](/cli/azure/network/public-ip) om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -156,12 +153,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie heeft u het volgende geleerd:
-
-> [!div class="checklist"]
-> * Het netwerk instellen
-> * Een toepassingsgateway maken
-> * Een virtuele-machineschaalset maken met de standaard back-endpool
-
-> [!div class="nextstepaction"]
-> [Webverkeer beperken met een firewall voor webtoepassingen](./tutorial-restrict-web-traffic-cli.md)
+[Webverkeer beperken met een firewall voor webtoepassingen](./tutorial-restrict-web-traffic-cli.md)

@@ -1,6 +1,6 @@
 ---
-title: Een toegangscontrole voor Azure AD-rollen in PIM - Azure Active Directory voltooien | Microsoft Docs
-description: Meer informatie over het voltooien van een toegangscontrole voor Azure AD-rollen in Azure AD Privileged Identity Management (PIM) en de resultaten bekijken
+title: Een toegangscontrole van Azure AD-rollen in PIM - Azure Active Directory voltooien | Microsoft Docs
+description: Meer informatie over het voltooien van een toegangscontrole van Azure AD-rollen in Azure AD Privileged Identity Management (PIM) en de resultaten bekijken
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed53c8bb3cb735822fc40aab86ca40bef7b9607a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: decba8f46432891a44a2b231890da4214bd5b1bb
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288290"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140996"
 ---
-# <a name="complete-an-access-review-for-azure-ad-roles-in-pim"></a>Een toegangscontrole voor Azure AD-rollen in PIM voltooien
+# <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>Een toegangscontrole van Azure AD-rollen in PIM voltooien
 Beheerders met bevoegdheid kunnen eenmaal bevoegde toegang beoordelen een [toegangsbeoordeling is gestart](pim-how-to-start-security-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) ontvangt automatisch een e-mailbericht waarin wordt gevraagd de gebruikers kunnen hun toegang beoordelen. Als een gebruiker niet een e-mailbericht ontvangt is, kunt u ze de instructies in verzenden [hoe u een toegangscontrole uitvoeren](pim-how-to-perform-security-review.md).
 
 Nadat de periode van de toegangsbeoordeling verlopen is of alle gebruikers hun zelf bekijken hebt, volgt u de stappen in dit artikel voor het beheren van de beoordeling en bekijkt de resultaten.

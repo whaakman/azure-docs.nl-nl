@@ -8,18 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 8809a2fed5a44910e3a353d9dc5bc41ea964a1ce
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511321"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150545"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps met behulp van een integratie van service-omgeving (ISE)
-
-> [!NOTE]
-> Deze mogelijkheid is in [ *openbare preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Voor scenario's waar uw logic apps en de integratieaccounts toegang hebben tot moeten een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md), maak een [ *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Een ISE is een privé- en geïsoleerde omgeving die gebruikmaakt van opslagruimte en andere bronnen die zijn geïsoleerd van de openbare of 'global' Logic Apps-service. Dankzij deze scheiding vermindert ook eventuele gevolgen die andere Azure-tenants op de prestaties van uw apps hebben kunnen. Is voor uw ISE *geïnjecteerd* in met uw Azure-netwerk, die vervolgens implementeert u de Logic Apps-service in uw virtuele netwerk. Wanneer u een logische app of integratie-account maakt, selecteert u deze ISE als hun locatie. Uw logische app of integratie-account kan vervolgens rechtstreeks toegang tot resources, zoals virtuele machines (VM's), servers, systemen en services in uw virtuele netwerk.
 
@@ -101,13 +98,11 @@ Voor het beheren van het verkeer tussen subnetten van het virtuele netwerk waari
 Volg deze stappen voor het maken van de integratie van service-omgeving (ISE):
 
 1. In de [Azure-portal](https://portal.azure.com), selecteer in het hoofdmenu van Azure **een resource maken**.
+Typ 'integratieserviceomgeving' als filter in het zoekvak.
 
    ![Nieuwe resource maken](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
-1. Typ 'integratieserviceomgeving' als filter in het zoekvak.
-Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en kies vervolgens **maken**.
-
-   ![Selecteer 'Integratieserviceomgeving'](./media/connect-virtual-network-vnet-isolated-environment/select-integration-service-environment.png)
+1. Kies in het deelvenster van het maken van Integratieserviceomgeving **maken**.
 
    ![Kies 'Maken'](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
 
@@ -115,14 +110,14 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
 
    ![Geef details van de omgeving](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Eigenschap | Vereist | Value | Beschrijving |
+   | Eigenschap | Vereist | Value | Description |
    |----------|----------|-------|-------------|
    | **Abonnement** | Ja | <*Azure-subscription-name*> | Het Azure-abonnement moet worden gebruikt voor uw omgeving |
    | **Resourcegroep** | Ja | <*Azure-resource-group-name*> | De Azure-resourcegroep waar u om uw omgeving te maken |
    | **Naam van integratieserviceomgeving** | Ja | <*naam van omgeving*> | De naam te geven van uw omgeving |
    | **Locatie** | Ja | <*Azure-datacenter-region*> | De Azure-datacenter-regio waar u om uw omgeving te implementeren |
-   | **Extra capaciteit** | Ja | 0, 1, 2, 3 | Het aantal verwerkingseenheden moet worden gebruikt voor deze resource ISE. Zie voor informatie over het toevoegen van capaciteit na het maken van [toevoegen van capaciteit](#add-capacity). |
-   | **Virtueel netwerk** | Ja | <*Azure-virtual-network-name*> | De Azure-netwerk waarin u invoeren van uw omgeving wilt, zodat logic apps in die omgeving krijgen uw virtuele netwerk tot toegang. Als u een netwerk hebt, kunt u een maken hier. <p>**Belangrijke**: U kunt *alleen* deze injectie uitvoeren bij het maken van uw ISE. Voordat u deze relatie maken kunt, moet u er echter zeker dat u al ingesteld op rollen gebaseerd toegangsbeheer in uw virtuele netwerk voor Azure Logic Apps. |
+   | **Extra capaciteit** | Ja | 0 tot en met 10 | Het aantal eenheden van de extra verwerking moet worden gebruikt voor deze resource ISE. Zie voor informatie over het toevoegen van capaciteit na het maken van [toevoegen ISE capaciteit](#add-capacity). |
+   | **Virtueel netwerk** | Ja | <*Azure-virtual-network-name*> | De Azure-netwerk waarin u invoeren van uw omgeving wilt, zodat logic apps in die omgeving krijgen uw virtuele netwerk tot toegang. Als u een netwerk, geen [maakt u eerst een Azure virtual network](../virtual-network/quick-create-portal.md). <p>**Belangrijke**: U kunt *alleen* deze injectie uitvoeren bij het maken van uw ISE. |
    | **Subnets** | Ja | <*subnet-resource-list*> | Een ISE vereist is vier *leeg* subnetten voor het maken van resources in uw omgeving. Elk subnet maken [Volg de stappen onder deze tabel](#create-subnet).  |
    |||||
 
@@ -172,6 +167,9 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
 
    1. Herhaal deze stappen voor drie meer subnetten.
 
+      > [!NOTE]
+      > Als de subnetten die u probeert te maken, niet geldig, worden de Azure-portal ziet u een bericht, maar uw voortgang niet blokkeert.
+
 1. Nadat Azure uw ISE-gegevens met succes worden gevalideerd, kiest u **maken**, bijvoorbeeld:
 
    ![Nadat de validatie is geslaagd, kiest u 'Maken'](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
@@ -185,34 +183,17 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
 
    ![Implementatie is voltooid](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
+   Anders gaat u als volgt de instructies voor Azure portal voor problemen met implementatie oplossen.
+
    > [!NOTE]
-   > Als implementatie mislukt of als u uw ISE, Azure verwijderen *mogelijk* duren een uur voordat de subnetten zijn vrijgegeven. U moet dus gewacht voordat opnieuw gebruiken van deze subnetten in een andere ISE.
+   > Als implementatie mislukt of als u uw ISE, verwijdert Azure kan een uur duren voordat uw subnetten zijn vrijgegeven. Deze vertraging betekent dat betekent dat die u mogelijk moet worden gewacht voordat opnieuw gebruiken van deze subnetten in een andere ISE. 
+   >
+   > Als u uw virtuele netwerk verwijdert, wordt in het algemeen duurt maximaal twee uur voordat het vrijgeven van de subnetten van het Azure, maar met deze bewerking kan het langer duren. 
+   > Bij het verwijderen van virtuele netwerken, zorg ervoor dat er nog steeds geen resources zijn aangesloten. Zie [virtueel netwerk verwijderen](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
 1. Als u uw omgeving, kiest u **naar de resource gaan** als Azure niet automatisch naar uw omgeving gaat na de implementatie is voltooid.  
 
-<a name="add-capacity"></a>
-
-### <a name="add-capacity"></a>Toevoegen van capaciteit
-
-De basiseenheid voor uw ISE-capaciteit, is opgelost, zodat als u meer doorvoer nodig hebt, kunt u meer schaaleenheden toevoegen. U kunt automatisch schalen op basis van metrische gegevens voor prestaties of op basis van een aantal verwerkingseenheden. Als u automatisch schalen op basis van metrische gegevens, kunt u kiezen uit verschillende criteria en geef de voorwaarden van de drempelwaarde voor het voldoen aan deze criteria.
-
-1. In de Azure-portal zoeken uw ISE.
-
-1. Als u wilt weergeven van metrische gegevens voor prestaties voor uw ISE, in het hoofdmenu van uw ISE, kies **overzicht**.
-
-1. Voor het instellen van automatisch schalen, onder **instellingen**, selecteer **uitschalen**. Op de **configureren** tabblad **automatisch schalen inschakelen**.
-
-1. In de **standaard** sectie, kiest u **schalen op basis van een metrische waarde** of **schalen naar een specifiek aantal instanties**.
-
-1. Als u ervoor op basis van het exemplaar kiest, voert u het aantal verwerkingseenheden tussen 0 en 3 liggen. Anders wordt voor follow-up op basis van metrische gegevens als volgt:
-
-   1. In de **standaard** sectie **toevoegen van een regel**.
-
-   1. Op de **schaalregel** deelvenster, instellen van uw criteria en de actie moet worden uitgevoerd wanneer de regel wordt geactiveerd.
-
-   1. Wanneer u klaar bent, kiest u **toevoegen**.
-
-1. Wanneer u klaar bent, moet u uw wijzigingen op te slaan.
+Zie voor meer informatie over het maken van subnets, [toevoegen van een virtueel netwerksubnet](../virtual-network/virtual-network-manage-subnet.md).
 
 <a name="create-logic-apps-environment"></a>
 
@@ -248,10 +229,37 @@ Volg de stappen in voor het maken van een integratieaccount dat gebruikmaakt van
 
 ![Integratie van service-omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 
-## <a name="get-support"></a>Ondersteuning krijgen
+<a name="add-capacity"></a>
 
-* Ga naar het <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps forum</a> (Forum voor Azure Logic Apps) als u vragen hebt.
-* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de <a href="https://aka.ms/logicapps-wish" target="_blank">website voor feedback van Logic Apps-gebruikers</a>.
+## <a name="add-ise-capacity"></a>ISE-capaciteit toevoegen
+
+De basiseenheid voor uw ISE-capaciteit, is opgelost, zodat als u meer doorvoer nodig hebt, kunt u meer schaaleenheden toevoegen. U kunt automatisch schalen op basis van metrische gegevens voor prestaties of op basis van een aantal extra verwerkingseenheden. Als u automatisch schalen op basis van metrische gegevens, kunt u kiezen uit verschillende criteria en geef de voorwaarden van de drempelwaarde voor het voldoen aan deze criteria.
+
+1. In de Azure-portal zoeken uw ISE.
+
+1. Als u wilt controleren van metrische gegevens over gebruik en prestaties voor uw ISE, in het hoofdmenu van uw ISE, selecteer **overzicht**.
+
+   ![Gebruik voor ISE weergeven](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
+
+1. Voor het instellen van automatisch schalen, onder **instellingen**, selecteer **uitschalen**. Op de **configureren** tabblad **automatisch schalen inschakelen**.
+
+   ![Automatisch schalen inschakelen](./media/connect-virtual-network-vnet-isolated-environment/scale-out.png)
+
+1. Voor **naam van de instelling voor automatisch schalen**, Geef een naam op voor de instelling.
+
+1. In de **standaard** sectie, kiest u **schalen op basis van een metrische waarde** of **schalen naar een specifiek aantal instanties**.
+
+   * Als u ervoor op basis van het exemplaar kiest, voert u het aantal verwerkingseenheden tussen 0 en 10 liggen.
+
+   * Als u ervoor op basis van metrische gegevens kiest, volgt u deze stappen:
+
+     1. In de **regels** sectie **toevoegen van een regel**.
+
+     1. Op de **schaalregel** deelvenster, instellen van uw criteria en de actie moet worden uitgevoerd wanneer de regel wordt geactiveerd.
+
+     1. Wanneer u klaar bent, kiest u **toevoegen**.
+
+1. Wanneer u klaar met de instellingen voor automatisch schalen bent, moet u de wijzigingen opslaan.
 
 ## <a name="next-steps"></a>Volgende stappen
 

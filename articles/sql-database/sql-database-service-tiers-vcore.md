@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 981198063b8e0951d4a4a4c4627d4b7966f34154
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572678"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148985"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Kies een van de vCore-servicelaag en het migreren van DTU-Servicelagen
 
@@ -38,14 +38,16 @@ Het vCore-model biedt drie Servicelagen voor algemeen gebruik, flexibele en bedr
 
 De volgende tabel kunt u weten wat de verschillen tussen de drie lagen:
 
-||**Algemeen gebruik**|**Bedrijfskritiek**|**Zeer grootschalige (preview)**|
+||**Algemeen gebruik**|**Bedrijfskritiek**|**Zeer grootschalige**|
 |---|---|---|---|
 |Ideaal voor|Meeste zakelijke workloads. Aanbiedingen budget documentgeoriënteerde uitgebalanceerde en schaalbare Computing- en opslagopties.|Zakelijke toepassingen die snelle I/O vereisen. Maakt gebruik van verschillende geïsoleerde replica's voor de hoogste mate van flexibiliteit wat storingen betreft.|De meeste zakelijke workloads met uiterst schaalbare opslag en leesschaal vereisten|
-|CPU|**Compute ingericht**:<br/>Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore<br/>**Serverless Computing**<br/>Gen5: 0,5 - 4 vCore|**Compute ingericht**:<br/>Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore|**Compute ingericht**:<br/>Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore|
-|Geheugen|**Compute ingericht**:<br/>Gen4: 7 GB per kern<br/>Gen5: 5.1 GB per kern<br/>**Serverless Computing**<br/>Gen5: 3 GB per kern|**Compute ingericht**:<br/>Gen4: 7 GB per kern<br/>Gen5: 5.1 GB per kern |**Compute ingericht**:<br/>Gen4: 7 GB per kern<br/>Gen5: 5.1 GB per kern|
+|Compute|**Compute ingericht**:<br/>Gen4: 1-24 vCore<br/>Gen5: 2 tot 80 vCore<br/>**Serverless Computing**<br/>Gen5: 0,5 - 4 vCore|**Compute ingericht**:<br/>Gen4: 1-24 vCore<br/>Gen5: 2 tot 80 vCore|**Compute ingericht**:<br/>Gen4: 1-24 vCore<br/>Gen5: 2 tot 80 vCore|
+|Geheugen|**Compute ingericht**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore<br/>**Serverless Computing**<br/>Gen5: 3 GB per vCore|**Compute ingericht**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore |**Compute ingericht**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore|
 |Storage|Maakt gebruik van externe opslag:<br/>**Individuele database ingericht compute**:<br/>5 GB – 4 TB<br/>**Individuele database serverless Computing**:<br/>5 GB - 1 TB<br/>**Beheerd exemplaar**: 32 GB - 8 TB |Maakt gebruik van lokale SSD-opslag:<br/>**Individuele database ingericht compute**:<br/>5 GB – 4 TB<br/>**Beheerd exemplaar**:<br/>32 GB - 4 TB |Flexibele, automatische groei van de opslag naar behoefte. Ondersteunt maximaal 100 TB aan opslag en daarbuiten. Lokale SSD-opslag voor het lokale cachegeheugen van toepassingen en opslag van lokale gegevens. Externe opslag in Azure als laatste gegevensopslag op lange termijn. |
+|Geheugen|Gen4: 7 GB per kern<br>Gen5: 5.1 GB per kern | Gen4: 7 GB per kern<br>Gen5: 5.1 GB per kern |Gen5: 5.1 GB per kern|
+|Storage|Maakt gebruik van externe opslag:<br/>Individuele database: 5 GB – 4 TB<br/>Beheerd exemplaar: 32 GB - 8 TB |Maakt gebruik van lokale SSD-opslag:<br/>Individuele database: 5 GB – 4 TB<br/>Beheerd exemplaar: 32 GB - 4 TB |Flexibele, automatische groei van de opslag naar behoefte. Ondersteunt maximaal 100 TB aan opslag en daarbuiten. Lokale SSD-opslag voor het lokale cachegeheugen van toepassingen en opslag van lokale gegevens. Externe opslag in Azure als laatste gegevensopslag op lange termijn. |
 |I/o-doorvoer (bij benadering)|Individuele database: 500 IOP's per vCore met 7000 maximale IOPS</br>Beheerd exemplaar: Afhankelijk van [bestandsgrootte](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOP's per kern met 200.000 maximale IOPS|NOG TE BEPALEN|
-|Beschikbaarheid|1 replica, geen lees-schaal|3 replica's, 1 [leesschaal replica](sql-database-read-scale-out.md),<br/>zone-redundante HA|?|
+|Beschikbaarheid|1 replica, geen lees-schaal|3 replica's, 1 [leesschaal replica](sql-database-read-scale-out.md),<br/>zone-redundante HA|1 lezen/schrijven-replica plus 0-4 [leesschaal replica's](sql-database-read-scale-out.md)|
 |Back-ups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 en 35 dagen (7 dagen standaard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 en 35 dagen (7 dagen standaard)|back-up op basis van een momentopname in Azure, externe opslag en herstelt u deze momentopnamen gebruiken voor snel herstel. Back-ups zijn onmiddellijk en niet van invloed op de i/o-prestaties van de rekencapaciteit. Herstelbewerkingen zijn zeer snel en niet een grootte van gegevensbewerking (waarbij minuten in plaats van uren of dagen).|
 |In het geheugen|Niet ondersteund|Ondersteund|Niet ondersteund|
 |||
@@ -56,8 +58,6 @@ De volgende tabel kunt u weten wat de verschillen tussen de drie lagen:
 - Zie voor meer informatie, [vCore resourcelimieten in één database](sql-database-vcore-resource-limits-single-databases.md) en [resourcelimieten vCore in het beheerde exemplaar](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - Zie voor meer informatie over de Servicelagen voor algemeen gebruik en bedrijfskritiek [Servicelagen voor algemeen gebruik en bedrijfskritiek](sql-database-service-tiers-general-purpose-business-critical.md).
 - Zie voor meer informatie over de servicelaag grootschalige in het op vCore gebaseerde aankoopmodel [grootschalige servicelaag](sql-database-service-tier-hyperscale.md).  
-
-
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 

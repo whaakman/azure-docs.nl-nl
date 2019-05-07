@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3f29db5786c682188b4eadec12275df46ae3b547
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61093944"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153339"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Gegevens kopiëren naar en van Azure SQL Database Managed Instance met behulp van Azure Data Factory
 
@@ -142,7 +142,7 @@ De volgende eigenschappen worden ondersteund voor de service Azure SQL Database 
 
 Zie het artikel gegevenssets voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor gebruik voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de Azure SQL Database Managed Instance-gegevensset.
 
-Om gegevens te kopiëren naar en van Azure SQL Database Managed Instance, stel de eigenschap type van de gegevensset in **SqlServerTable**. De volgende eigenschappen worden ondersteund:
+Om gegevens te kopiëren naar en van Azure SQL Database Managed Instance, worden de volgende eigenschappen ondersteund:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
@@ -161,6 +161,7 @@ Om gegevens te kopiëren naar en van Azure SQL Database Managed Instance, stel d
             "referenceName": "<Managed Instance linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -282,7 +283,7 @@ Om gegevens te kopiëren naar Azure SQL Database Managed Instance, stelt u het s
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op **SqlSink**. | Ja. |
-| writeBatchSize |Aantal rijen dat moet worden ingevoegd in de SQL-tabel **per batch**.<br/>Toegestane waarden zijn gehele getallen voor het aantal rijen. |Nee (standaard: 10,000). |
+| writeBatchSize |Aantal rijen dat moet worden ingevoegd in de SQL-tabel **per batch**.<br/>Toegestane waarden zijn gehele getallen voor het aantal rijen. Standaard bepalen Data Factory dynamisch van de juiste batchgrootte op basis van de rijgrootte.  |Nee |
 | writeBatchTimeout |Deze eigenschap geeft u de wachttijd voor de batch insert bewerking is voltooid voordat er een optreedt time-out.<br/>Toegestane waarden zijn voor de tijdsduur. Een voorbeeld hiervan is "00: 30:00, ' die is 30 minuten. |Nee. |
 | preCopyScript |Deze eigenschap geeft u een SQL-query voor de kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in het beheerde exemplaar. De toepassing wordt aangeroepen slechts één keer per exemplaar uitvoeren. U kunt deze eigenschap gebruiken om vooraf geladen gegevens op te schonen. |Nee. |
 | sqlWriterStoredProcedureName |Deze naam is voor de opgeslagen procedure waarmee wordt gedefinieerd hoe gegevens in de doeltabel van toepassing. Voorbeelden van procedures zijn upsert-bewerking of transformaties doen met behulp van uw eigen bedrijfslogica. <br/><br/>Deze opgeslagen procedure is *per batch aangeroepen*. Een bewerking die wordt slechts één keer worden uitgevoerd en heeft niets te met brongegevens, bijvoorbeeld verwijderen of afbreken, gebruikt u de `preCopyScript` eigenschap. |Nee. |

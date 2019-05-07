@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d4127226037bf28ba677a49f6444ca987118cb9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023882"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149832"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Quickstart: Een cloud-gebaseerde notebookserver aan de slag met Azure Machine Learning gebruiken
 
@@ -25,11 +25,11 @@ Deze quickstart laat zien hoe u een cloudresource maken in uw Azure Machine Lear
  
 In deze snelstart voert u de volgende acties uit:
 
-* Maak een nieuwe cloud-gebaseerde notebookserver in uw werkruimte
-* Start de Jupyter-webinterface
+* Maak een nieuwe cloud-gebaseerde notebookserver in uw werkruimte.
+* Start de Jupyter-webinterface.
 * Open een laptop met code voor een schatting van pi en logboeken voor fouten bij elke iteratie.
 * Uitvoeren van het notitieblok.
-* Bekijk de geregistreerde foutwaarden in uw werkruimte.  Dit is een voorbeeld van hoe de werkruimte u kan helpen bij het bijhouden van informatie die in een script wordt gegenereerd. 
+* Bekijk de geregistreerde foutwaarden in uw werkruimte. Dit is een voorbeeld van hoe de werkruimte u kan helpen bij het bijhouden van informatie die in een script wordt gegenereerd. 
 
 Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
@@ -49,13 +49,15 @@ Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begin
 
      ![Nieuwe virtuele machine selecteren](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
-1. Geef een naam voor uw virtuele machine. Selecteer vervolgens **Maken**. 
+1. Geef een naam voor uw virtuele machine. Selecteer vervolgens **Maken**.
+
+    > [!NOTE]
+    > De naam van uw laptop VM moet tussen 2 tot 16 tekens. Geldige tekens zijn letters, cijfers en -teken.  De naam moet ook uniek zijn in uw Azure-abonnement.
 
     ![Een nieuwe virtuele machine maken](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
-1. Wacht u ongeveer 4 en 5 minuten, en selecteer vervolgens **vernieuwen**.  Probeer te vernieuwen elke 30 seconden of zo totdat de status **met**.
+1. Wacht u ongeveer 4 en 5 minuten, totdat de status gewijzigd in **met**.
 
-    ![Vernieuwen](media/quickstart-run-cloud-notebook/refresh.png)
 
 ## <a name="launch-jupyter-web-interface"></a>Jupyter-webinterface starten
 
@@ -67,7 +69,11 @@ Nadat de virtuele machine wordt uitgevoerd, gebruikt u de **Notebook VMs** secti
 
     De koppeling wordt de notebook-server wordt gestart en wordt de Jupyter-notebook webpagina in een nieuw browsertabblad geopend.  Deze koppeling werkt alleen voor de persoon die de virtuele machine maakt.
 
-1. Selecteer op de webpagina Jupyter-notebook de **samples/quickstart** map om te zien van de Quick Start-notebook.
+1. De bovenste mapnaam is op de webpagina Jupyter-notebook uw gebruikersnaam.  Selecteer deze map.
+
+1. De mapnaam voorbeelden bevat een versienummer, bijvoorbeeld **voorbeelden 1.0.33.1**.  Selecteer de map met voorbeelden.
+
+1. Selecteer de **snelstartgids** notebook.
 
 ## <a name="run-the-notebook"></a>Het notitieblok uitvoeren
 
@@ -75,15 +81,7 @@ Voer een laptop die u maakt een schatting van pi en de fout vastgelegd in uw wer
 
 1. Selecteer **01.run experiment.ipynb** om het notebook te openen.
 
-1. Mogelijk ziet u een bericht dat de kernel is niet ingesteld.  Selecteer **Python 3.6 - AzureML**en selecteer vervolgens **ingesteld Kernel**.
-
-   ![De kernel instellen](./media/quickstart-run-cloud-notebook/set-kernel.png)
-
-1. In het statusgebied ziet u een melding dat u moet wachten tot de kernel is gestart. Zodra de kernel gereed is, verdwijnt het bericht.
-
-    ![Wachten tot de kernel is gestart](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
-
-1.  Klik in de eerste codecel en selecteer **uitvoeren**.
+1. Klik in de eerste codecel en selecteer **uitvoeren**.
 
     > [!NOTE]
     > Code cellen hebben vierkante haken voordat ze. Als de vierkante haken leeg zijn (__[]__), de code niet is uitgevoerd. Terwijl de code wordt uitgevoerd, ziet u een sterretje (__[*]__). Nadat de code is voltooid, wordt een getal **[1]** wordt weergegeven.  Het aantal ziet u de volgorde waarin de cellen is uitgevoerd.
@@ -94,16 +92,15 @@ Voer een laptop die u maakt een schatting van pi en de fout vastgelegd in uw wer
 
 1. De tweede codecel uitvoert. Als er instructies om te verifiëren, kopieert u de code en volg de koppeling aan te melden. Als u zich aanmeldt, wordt deze instelling in uw browser onthouden.  
 
-    > [!TIP]
-    > Zorg ervoor dat u niet de ruimte na de code te kopiëren.  
-
     ![Verifiëren](media/quickstart-run-cloud-notebook/authenticate.png)
 
 1. Wanneer u klaar bent, het aantal cellen __[2]__ wordt weergegeven.  Als u zich aanmeldt, ziet u een statusbericht verificatie is geslaagd.   Als u niet aanmelden, geen uitvoer voor deze cel niet zichtbaar is voor u, alleen het nummer wordt weergegeven om weer te geven dat de cel is uitgevoerd.
 
     ![Geslaagd](media/quickstart-run-cloud-notebook/success.png)
 
-1. De rest van de cellen met code worden uitgevoerd.  Omdat elke cel is voltooid, ziet u het aantal cellen worden weergegeven. Alleen de laatste cel eventuele andere uitvoer wordt weergegeven.  In de grootste codecel, ziet u `run.log` gebruikt op meerdere plaatsen. Elke `run.log` wordt de waarde toegevoegd aan uw werkruimte.
+1. De rest van de cellen met code worden uitgevoerd.  Omdat elke cel is voltooid, ziet u het aantal cellen worden weergegeven. Alleen de laatste cel eventuele andere uitvoer wordt weergegeven.  
+
+    In de grootste codecel, ziet u `run.log` gebruikt op meerdere plaatsen. Elke `run.log` wordt de waarde toegevoegd aan uw werkruimte.
 
 
 ## <a name="view-logged-values"></a>Logboekwaarden weergeven
@@ -146,11 +143,13 @@ U kunt de resourcegroep ook bewaren en slechts één werkruimte verwijderen. Bek
 
 In deze Quick Start, moet u deze taken uitgevoerd:
 
-* Een VM-notebook maken
-* Een Jupyter-Notebook-server op uw laptop VM starten
+* Een VM-notebook maken.
+* Start de Jupyter-webinterface.
 * Open een laptop met code voor een schatting van pi en logboeken voor fouten bij elke iteratie.
 * Uitvoeren van het notitieblok.
 * Bekijk de geregistreerde foutwaarden in uw werkruimte.  Dit is een voorbeeld van hoe de werkruimte u kan helpen bij het bijhouden van informatie die in een script wordt gegenereerd. 
+
+Blader door de andere notebooks onder in de map met voorbeelden voor meer informatie over Azure Machine Learning-service op de webpagina Jupyter-Notebook.
 
 Voor een diepgaande werkstroomervaring volgt u de zelfstudies over Machine Learning om een ​​model te trainen en te implementeren:  
 

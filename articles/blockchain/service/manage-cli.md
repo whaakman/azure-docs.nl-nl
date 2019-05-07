@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: 100d50443c7ed839e57d80ceea3b8b86904e4ba7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d078ca181b2eed4b80d4f12f1c03b42f4e242194
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027868"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154443"
 ---
 # <a name="manage-azure-blockchain-service-with-azure-cli"></a>Azure Blockchain-Service met Azure CLI beheren
 
@@ -30,15 +30,15 @@ Vervang in de volgende voorbeelden, voorbeeld `<parameter names>` door uw eigen 
 In het voorbeeld wordt een blockchain-lid gemaakt in Azure Blockchain-Service die het Quorum grootboek-protocol in een nieuwe consortium wordt uitgevoerd.
 
 ```azurecli
-az resource create --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties '{ "location": "<myBlockchainLocation>", "properties": {"password": "<myStrongPassword>", "protocol": "Quorum", "consortium": "<myConsortiumName>", "consortiumManagementAccountPassword": "<myConsortiumManagementAccountPassword>", "firewallRules": [ { "ruleName": "<myRuleName>", "startIpAddress": "<myStartIpAddress>", "endIpAddress": "<myEndIpAddress>" } ] }, "sku": { "name": "<skuName>" } }'
+az resource create --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"<myBlockchainLocation>\", \"properties\": {\"password\": \"<myStrongPassword>\", \"protocol\": \"Quorum\", \"consortium\": \"<myConsortiumName>\", \"consortiumManagementAccountPassword\": \"<myConsortiumManagementAccountPassword>\", \"firewallRules\": [ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ] }, \"sku\": { \"name\": \"<skuName>\" } }"
 ```
 
 | Parameter | Description |
 |---------|-------------|
 | **resource-group** | Resourcegroepnaam waar Azure Blockchain-serviceresources worden gemaakt. |
-| **De naam** | Een unieke naam ter identificatie van uw Azure Blockchain Service blockchain-lid. De naam wordt gebruikt voor het adres van het openbare eindpunt. Bijvoorbeeld `myblockchainmember.blockchain.azure.com`. |
+| **name** | Een unieke naam ter identificatie van uw Azure Blockchain Service blockchain-lid. De naam wordt gebruikt voor het adres van het openbare eindpunt. Bijvoorbeeld `myblockchainmember.blockchain.azure.com`. |
 | **location** | Azure-regio waar het lid van de blockchain wordt gemaakt. Bijvoorbeeld `eastus`. Kies de locatie die zich het dichtst bij uw gebruikers of uw andere Azure-toepassingen bevindt. |
-| **Wachtwoord** | Het wachtwoord voor het lid. Het wachtwoord voor het lid wordt gebruikt voor verificatie met de blockchain-lid van de openbare eindpunt basisverificatie wordt gebruikt. Het wachtwoord moet voldoen aan drie van de volgende vier voldoen: de lengte moet tussen 12 en 72 tekens, 1 kleine letter, 1 hoofdletter, 1 cijfer en 1 speciaal teken dat geen getal sign(#), percentage (%), komma (,), star(*), back-dubbel aanhalingsteken () \`), dubbele quote("), daarom enkele aanhalingstekens, koppeltekens en puntkomma (;). |
+| **Wachtwoord** | Het wachtwoord voor het lid. Het wachtwoord voor het lid wordt gebruikt voor verificatie met de blockchain-lid van de openbare eindpunt basisverificatie wordt gebruikt. Het wachtwoord moet drie van de volgende vier vereisten voldoen: de lengte moet tussen 12 en 72 tekens, 1 kleine letter, 1 hoofdletter, 1 cijfer en 1 speciaal teken dat geen getal sign(#), percentage (%), komma (,), star(*), back-offerte (\`), dubbele quote("), daarom enkele aanhalingstekens, koppeltekens en semicolumn(;)|
 | **protocol** | Openbare preview-versie biedt ondersteuning voor Quorum. |
 | **consortium** | De naam van het consortium te koppelen of te maken. |
 | **consortiumManagementAccountPassword** | Het wachtwoord van het management consortium. Het wachtwoord wordt gebruikt voor het lidmaatschap van een consortium. |
@@ -57,8 +57,8 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 | Parameter | Description |
 |---------|-------------|
 | **resource-group** | Resourcegroepnaam waar Azure Blockchain-serviceresources worden gemaakt. |
-| **De naam** | Naam ter identificatie van uw Azure Blockchain Service lid. |
-| **Wachtwoord** | Het wachtwoord voor het lid. Het wachtwoord moet voldoen aan drie van de volgende vier voldoen: de lengte moet tussen 12 en 72 tekens, 1 kleine letter, 1 hoofdletter, 1 cijfer en 1 speciaal teken dat geen getal sign(#), percentage (%), komma (,), star(*), back-dubbel aanhalingsteken () \`), dubbele quote("), daarom enkele aanhalingstekens, koppeltekens en puntkomma (;). |
+| **name** | Naam ter identificatie van uw Azure Blockchain Service lid. |
+| **Wachtwoord** | Het wachtwoord voor het lid. Het wachtwoord moet drie van de volgende vier vereisten voldoen: de lengte moet tussen 12 en 72 tekens, 1 kleine letter, 1 hoofdletter, 1 cijfer en 1 speciaal teken dat geen getal sign(#), percentage (%), komma (,), star(*), back-offerte (\`), dubbele quote("), daarom enkele aanhalingstekens, koppeltekens en puntkomma (;). |
 
 
 ## <a name="create-transaction-node"></a>Transactie-knooppunt maken
@@ -66,15 +66,15 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 Maak een transactie-knooppunt in een bestaand blockchain-lid. U kunt door toe te voegen knooppunten transactie, isolatie verhogen en verdelen. Bijvoorbeeld, kan er een eindpunt van het knooppunt transactie voor verschillende toepassingen.
 
 ```azurecli
-az resource create --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers  --is-full-object --properties '{ "location": "<myRegion>", "properties": { "password": "<myStrongPassword>", "firewallRules": [ { "ruleName": "<myRuleName>", "startIpAddress": "<myStartIpAddress>", "endIpAddress": "<myEndIpAddress>" } ] } }'
+az resource create --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers  --is-full-object --properties "{ \"location\": \"<myRegion>\", \"properties\": { \"password\": \"<myStrongPassword>\", \"firewallRules\": [ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ] } }"
 ```
 
 | Parameter | Description |
 |---------|-------------|
 | **resource-group** | Resourcegroepnaam waar Azure Blockchain-serviceresources worden gemaakt. |
-| **De naam** | De naam van het lid van de Service van Azure Blockchain blockchain die ook de naam van het nieuwe transactie-knooppunt. |
+| **name** | De naam van het lid van de Service van Azure Blockchain blockchain die ook de naam van het nieuwe transactie-knooppunt. |
 | **location** | Azure-regio waar het lid van de blockchain wordt gemaakt. Bijvoorbeeld `eastus`. Kies de locatie die zich het dichtst bij uw gebruikers of uw andere Azure-toepassingen bevindt. |
-| **Wachtwoord** | Het wachtwoord van het knooppunt transactie. Het wachtwoord moet voldoen aan drie van de volgende vier voldoen: de lengte moet tussen 12 en 72 tekens, 1 kleine letter, 1 hoofdletter, 1 cijfer en 1 speciaal teken dat geen getal sign(#), percentage (%), komma (,), star(*), back-dubbel aanhalingsteken () \`), dubbele quote("), daarom enkele aanhalingstekens, koppeltekens en puntkomma (;). |
+| **Wachtwoord** | Het wachtwoord van het knooppunt transactie. Het wachtwoord moet drie van de volgende vier vereisten voldoen: de lengte moet tussen 12 en 72 tekens, 1 kleine letter, 1 hoofdletter, 1 cijfer en 1 speciaal teken dat geen getal sign(#), percentage (%), komma (,), star(*), back-offerte (\`), dubbele quote("), daarom enkele aanhalingstekens, koppeltekens en puntkomma (;). |
 | **RuleName** | De naam van de regel voor opname in een IP-adresbereik. Optionele parameter voor de firewall-regels. |
 | **startIpAddress** | Begin van het IP-adresbereik voor opname in de whitelist. Optionele parameter voor de firewall-regels. |
 | **endIpAddress** | Einde van het IP-adresbereik voor opname in de whitelist. Optionele parameter voor de firewall-regels.|
@@ -90,8 +90,8 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName>/tran
 | Parameter | Description |
 |---------|-------------|
 | **resource-group** | Resourcegroepnaam waar Azure Blockchain-serviceresources bestaan. |
-| **De naam** | De naam van het lid van de Service van Azure Blockchain blockchain die ook de naam van het nieuwe transactie-knooppunt. |
-| **Wachtwoord** | Het wachtwoord van het knooppunt transactie. Het wachtwoord moet voldoen aan drie van de volgende vier voldoen: de lengte moet tussen 12 en 72 tekens, 1 kleine letter, 1 hoofdletter, 1 cijfer en 1 speciaal teken dat geen getal sign(#), percentage (%), komma (,), star(*), back-dubbel aanhalingsteken () \`), dubbele quote("), daarom enkele aanhalingstekens, koppeltekens en puntkomma (;). |
+| **name** | De naam van het lid van de Service van Azure Blockchain blockchain die ook de naam van het nieuwe transactie-knooppunt. |
+| **Wachtwoord** | Het wachtwoord van het knooppunt transactie. Het wachtwoord moet drie van de volgende vier vereisten voldoen: de lengte moet tussen 12 en 72 tekens, 1 kleine letter, 1 hoofdletter, 1 cijfer en 1 speciaal teken dat geen getal sign(#), percentage (%), komma (,), star(*), back-offerte (\`), dubbele quote("), daarom enkele aanhalingstekens, koppeltekens en puntkomma (;). |
 
 ## <a name="change-consortium-management-account-password"></a>Wachtwoord wijzigen consortium management-account
 
@@ -104,19 +104,19 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 | Parameter | Description |
 |---------|-------------|
 | **resource-group** | Resourcegroepnaam waar Azure Blockchain-serviceresources worden gemaakt. |
-| **De naam** | Naam ter identificatie van uw Azure Blockchain Service lid. |
-| **consortiumManagementAccountPassword** | Het accountwachtwoord consortium voor beheer. Het wachtwoord moet voldoen aan drie van de volgende vier voldoen: de lengte moet tussen 12 en 72 tekens, 1 kleine letter, 1 hoofdletter, 1 cijfer en 1 speciaal teken dat geen getal sign(#), percentage (%), komma (,), star(*), back-dubbel aanhalingsteken () \`), dubbele quote("), daarom enkele aanhalingstekens, koppeltekens en puntkomma (;). |
+| **name** | Naam ter identificatie van uw Azure Blockchain Service lid. |
+| **consortiumManagementAccountPassword** | Het accountwachtwoord consortium voor beheer. Het wachtwoord moet drie van de volgende vier vereisten voldoen: de lengte moet tussen 12 en 72 tekens, 1 kleine letter, 1 hoofdletter, 1 cijfer en 1 speciaal teken dat geen getal sign(#), percentage (%), komma (,), star(*), back-offerte (\`), dubbele quote("), daarom enkele aanhalingstekens, koppeltekens en puntkomma (;). |
   
 ## <a name="update-firewall-rules"></a>Firewallregels bijwerken
 
 ```azurecli
-az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.firewallRules='[ { "ruleName": "<myRuleName>", "startIpAddress": "<myStartIpAddress>", "endIpAddress": "<myEndIpAddress>" } ]' --remove properties.consortiumManagementAccountAddress
+az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.firewallRules="[ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ]" --remove properties.consortiumManagementAccountAddress
 ```
 
 | Parameter | Description |
 |---------|-------------|
 | **resource-group** | Resourcegroepnaam waar Azure Blockchain-serviceresources bestaan. |
-| **De naam** | Naam van het lid van de blockchain Azure Blockchain-Service. |
+| **name** | Naam van het lid van de blockchain Azure Blockchain-Service. |
 | **RuleName** | De naam van de regel voor opname in een IP-adresbereik. Optionele parameter voor de firewall-regels.|
 | **startIpAddress** | Begin van het IP-adresbereik voor opname in de whitelist. Optionele parameter voor de firewall-regels.|
 | **endIpAddress** | Einde van het IP-adresbereik voor opname in de whitelist. Optionele parameter voor de firewall-regels.|
@@ -132,7 +132,7 @@ az resource invoke-action --resource-group <myResourceGroup> --name <myMemberNam
 | Parameter | Description |
 |---------|-------------|
 | **resource-group** | Resourcegroepnaam waar Azure Blockchain-serviceresources bestaan. |
-| **De naam** | De naam van het lid van de Service van Azure Blockchain blockchain die ook de naam van het nieuwe transactie-knooppunt. |
+| **name** | De naam van het lid van de Service van Azure Blockchain blockchain die ook de naam van het nieuwe transactie-knooppunt. |
 
 ## <a name="regenerate-api-keys"></a>API-sleutels opnieuw genereren
 
@@ -146,7 +146,7 @@ az resource invoke-action --resource-group <myResourceGroup> --name <myMemberNam
 | Parameter | Description |
 |---------|-------------|
 | **resource-group** | Resourcegroepnaam waar Azure Blockchain-serviceresources bestaan. |
-| **De naam** | De naam van het lid van de Service van Azure Blockchain blockchain die ook de naam van het nieuwe transactie-knooppunt. |
+| **name** | De naam van het lid van de Service van Azure Blockchain blockchain die ook de naam van het nieuwe transactie-knooppunt. |
 | **keyName** | Vervang \<met sleutel-waardeparen\> met key1 of key2. |
 
 ## <a name="delete-a-transaction-node"></a>Een transactie-knooppunt verwijderen
@@ -160,7 +160,7 @@ az resource delete --resource-group <myResourceGroup> --name <myMemberName>/tran
 | Parameter | Description |
 |---------|-------------|
 | **resource-group** | Resourcegroepnaam waar Azure Blockchain-serviceresources bestaan. |
-| **De naam** | De naam van het lid van de Service van Azure Blockchain blockchain die ook de naam van het nieuwe transactie knooppunt moet worden verwijderd. |
+| **name** | De naam van het lid van de Service van Azure Blockchain blockchain die ook de naam van het nieuwe transactie knooppunt moet worden verwijderd. |
 
 ## <a name="delete-a-blockchain-member"></a>Een blockchain-lid verwijderen
 
@@ -173,7 +173,7 @@ az resource delete --resource-group <myResourceGroup> --name <myMemberName> --re
 | Parameter | Description |
 |---------|-------------|
 | **resource-group** | Resourcegroepnaam waar Azure Blockchain-serviceresources bestaan. |
-| **De naam** | Naam van het lid van de blockchain Azure Blockchain-Service moet worden verwijderd. |
+| **name** | Naam van het lid van de blockchain Azure Blockchain-Service moet worden verwijderd. |
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 

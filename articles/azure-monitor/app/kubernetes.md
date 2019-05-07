@@ -1,24 +1,24 @@
 ---
-title: Azure Monitor - Application Insights voor Kubernetes met service Net Istio | Microsoft Docs
-description: Application Insights voor Kubernetes is een oplossing voor prestatiecontrole waarmee u voor het verzamelen van telemetrie van Application Insights die betrekking hebben op binnenkomende en uitgaande aanvragen naar en van schillen uitgevoerd in uw Kubernetes-cluster met behulp van service mesh-technologie met de naam Istio.
+title: Azure Monitor - nul instrumentation toepassingsbewaking voor Kubernetes gehoste apps | Microsoft Docs
+description: Nul instrumentation voor toepassingsbewaking voor apps die worden gehost Kubernetes is een oplossing voor prestatiecontrole waarmee u voor het verzamelen van telemetrie van Application Insights die betrekking hebben op binnenkomende en uitgaande aanvragen naar en van schillen uitgevoerd in het Kubernetes-cluster door met behulp van technologie voor service-mesh Istio genoemd.
 services: application-insights
-author: tokaplan
+author: rishabjolly
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: alkaplan
-ms.openlocfilehash: f3b278c2678542ec127c1c644cc0267622ca39fa
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.author: rijolly
+ms.openlocfilehash: 73f95ab75b49fb8ec5b61f6e30080f8f6d474c16
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870685"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149883"
 ---
-# <a name="application-insights-for-kubernetes-with-service-mesh"></a>Application Insights voor Kubernetes met service mesh
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Nul instrumentatie-toepassingsbewaking voor Kubernetes apps die worden gehost
 
 > [!IMPORTANT]
-> Application Insights voor Kubernetes via service Net is momenteel in openbare preview.
+> Deze functionaliteit is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
 > Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
@@ -36,7 +36,7 @@ Azure Monitor maakt nu gebruik van service mesh tech op uw Kubernetes-cluster vo
 
 ## <a name="capabilities"></a>Functionaliteit
 
-Met behulp van Application Insights voor uw gehoste Kubernetes-app, zich kunt u kunt gebruiken:
+Met behulp van nul instrumentation toepassingsbewaking voor Kubernetes gehoste apps, zich kunt u kunt gebruiken:
 
 - [Toepassingskaart](../../azure-monitor/app/app-map.md)
 - [Live Metrics Stream](../../azure-monitor/app/live-stream.md)
@@ -71,9 +71,9 @@ Toepassingen die worden uitgevoerd buiten het NET service worden niet beïnvloed
 - De toepassing implementeren naar *mijn-app-naamruimte* naamruimte. Als de toepassing al is geïmplementeerd en u de automatische sidecar injectie methode hierboven hebt gevolgd, moet u opnieuw maken schillen om ervoor te zorgen dat istio injects de sidecar; een rolling update starten of afzonderlijke schillen verwijderen en wachten tot deze opnieuw worden gemaakt.
 - Zorg ervoor dat uw toepassing voldoet aan de [Istio vereisten](https://istio.io/docs/setup/kubernetes/prepare/requirements/).
 
-### <a name="deploy-application-insights-for-kubernetes"></a>Application Insights voor Kubernetes implementeren
+### <a name="deploy-zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Nul instrumentation toepassingsbewaking voor Kubernetes gehoste apps implementeren
 
-1. Downloaden en uitpakken van een [ *Application Insights voor Kubernetes* release](https://github.com/Microsoft/Application-Insights-Istio-Adapter/releases/).
+1. Downloaden en uitpakken van een [ *Application Insights-adapter* release](https://github.com/Microsoft/Application-Insights-Istio-Adapter/releases/).
 2. Navigeer naar */src/kubernetes/* in de releasemap.
 3. Edit *application-insights-istio-mixer-adapter-deployment.yaml*
     - Bewerk de waarde van *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* omgevingsvariabele bevat de instrumentatiesleutel van de Application Insights-resource in Azure portal om de telemetrie bevatten.
@@ -84,9 +84,9 @@ Toepassingen die worden uitgevoerd buiten het NET service worden niet beïnvloed
    kubectl apply -f .
    ```
 
-### <a name="verify-application-insights-for-kubernetes-deployment"></a>Controleren of de Application Insights voor Kubernetes-implementatie
+### <a name="verify-deployment"></a>Implementatie verifiëren
 
-- Zorg ervoor dat de dat Application Insights voor Kubernetes-adapter is geïmplementeerd:
+- Zorg ervoor dat de Application Insights-adapter is geïmplementeerd:
 
   ```console
   kubectl get pods -n istio-system -l "app=application-insights-istio-mixer-adapter"
@@ -113,7 +113,7 @@ Hieronder wordt het oplossen van problemen met flow moet worden gebruikt als tel
    ```
    Controleer of er een container met de naam *istio-proxy* die worden uitgevoerd op de schil.
 
-5. Weergave *Application Insights voor Kubernetes* traceringen van de adapter.
+5. Weergeven van de Application Insights-adapter traceringen.
 
    ```console
    kubectl get pods -n istio-system -l "app=application-insights-istio-mixer-adapter"

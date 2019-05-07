@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc03db268ab05c6718fb323bc30574a36d0ca092
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460300"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138156"
 ---
 # <a name="support-and-help-options"></a>Opties voor ondersteuning en hulp
 
@@ -71,6 +71,7 @@ Als u een antwoord op uw probleem via zoekopdrachten niet vinden, verzendt u een
 |Spraakomzetting |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Bedoeling van spraak |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |General Speech SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+| Stem op de eerste virtuele assistenten (Preview) | [[microsoft-cognitieve + virtuele-assistent + botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) | 
 
 > [!TIP]
 > De volgende posts in Stack Overflow tips over het formulier vragen bevatten en broncode toevoegen. Deze richtlijnen volgt, kan u helpen verhogen van de kans dat leden van de community beoordelen en snel reageren op uw vraag:  

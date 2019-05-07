@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: f40e53c67f099fea739e45f6bdc6963ee1e235cb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c9ed6f898f4bcf8a5d4b2548cc1f3cf51f71bb2a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026102"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138166"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Over aangepaste spraak op de eerste virtuele assistenten Preview-versie
 
-Aangepaste virtuele assistenten met behulp van Azure Speech Services meer mogelijkheden bieden ontwikkelaars voor het maken van de natuurlijke, menselijke conversatie-interfaces voor hun toepassingen en ervaringen. De Bot Framework directe regel spraak kanaal verbetert deze mogelijkheden door te geven van een gecoördineerde, gecoördineerd toegangspunt een compatibel bot waarmee spraak in spraak van interactie met lage latentie en hoge betrouwbaarheid. Deze bots kunt van Microsoft Language Understanding (LUIS) gebruiken voor interactie met de natuurlijke taal. Directe regel spraak is toegankelijk voor apparaten met behulp van de Speech Services Software Development Kit (SDK).
+Aangepaste virtuele assistenten met behulp van Azure Speech Services meer mogelijkheden bieden ontwikkelaars voor het maken van de natuurlijke, menselijke conversatie-interfaces voor hun toepassingen en ervaringen. De Bot Framework directe regel spraak kanaal verbetert deze mogelijkheden door te geven van een gecoördineerde, gecoördineerd toegangspunt een compatibel bot waarmee spraak in spraak van interactie met lage latentie en hoge betrouwbaarheid. Deze bots kunt van Microsoft Language Understanding (LUIS) gebruiken voor interactie met de natuurlijke taal. Directe regel spraak is toegankelijk voor apparaten met behulp van de spraakherkenning Software Development Kit (SDK).
 
    ![Conceptueel diagram van de service-stroom van rechtstreekse regel spraak orchestration](media/voice-first-virtual-assistants/overview.png "stroom van de spraak-kanaal")
 
@@ -32,8 +32,8 @@ Directe regel spraak- en de bijbehorende functionaliteit voor aangepaste gesprok
 |----------|----------|
 |[Aangepaste wake word](speech-devices-sdk-create-kws.md) | U kunt gebruikers om te beginnen met gesprekken met bots met behulp van een aangepaste trefwoord, zoals "Hallo Contoso." Deze taak wordt uitgevoerd met een aangepaste wake word-engine in de SDK-spraak, die kan worden geconfigureerd met een aangepaste wake-woord [die u hier kunt genereren](speech-devices-sdk-create-kws.md). Het kanaal directe regel spraak bevat servicezijde wake word verificatie waarmee de nauwkeurigheid van de activering wake word ten opzichte van het apparaat alleen worden verbeterd.
 |[Spraak naar tekst](speech-to-text.md) | Het kanaal directe regel spraak bevat realtime transcriptie van audio in de herkende tekst met [spraak-naar-tekst](speech-to-text.md) van Azure Speech Services. Deze tekst is beschikbaar voor zowel uw bot als uw clienttoepassing zoals deze wordt omgezet.
-|[Tekst naar spraak](text-to-speech.md) | Tekstuele reacties van uw bot worden gemaakt met behulp van [tekst naar spraak](text-to-speech.md) van Azure Speech Services. Deze synthese wordt vervolgens naar uw clienttoepassing als een audiostream beschikbaar worden gemaakt. Microsoft biedt de mogelijkheid voor het bouwen van uw eigen [aangepaste, hoogwaardige Neurale TTS-stem](https://aka.ms/customneuraltts) die een stem geeft tot uw merk.
-|[Rechtstreekse regel spraak](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md) | Als een kanaal binnen de Bot Framework kunt directe regel spraak een probleemloze verbinding tussen de clienttoepassing, een compatibel bot en de mogelijkheden van Azure Speech Services. Zie voor meer informatie over het configureren van uw bot voor het gebruik van het kanaal directe regel spraak [een pagina in de documentatie van Bot Framework](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
+|[Tekst naar spraak](text-to-speech.md) | Tekstuele reacties van uw bot worden gemaakt met behulp van [tekst naar spraak](text-to-speech.md) van Azure Speech Services. Deze synthese wordt vervolgens naar uw clienttoepassing als een audiostream beschikbaar worden gemaakt. Microsoft biedt de mogelijkheid voor het bouwen van uw eigen aangepaste, hoogwaardige Neurale TTS stem waarmee een stem zijn voor uw merk, voor meer informatie [contact met ons opnemen](mailto:mstts@microsoft.com).
+|[Rechtstreekse regel spraak](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | Als een kanaal binnen de Bot Framework kunt directe regel spraak een probleemloze verbinding tussen de clienttoepassing, een compatibel bot en de mogelijkheden van Azure Speech Services. Zie voor meer informatie over het configureren van uw bot voor het gebruik van het kanaal directe regel spraak [een pagina in de documentatie van Bot Framework](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## <a name="sample-code"></a>Voorbeeldcode
 

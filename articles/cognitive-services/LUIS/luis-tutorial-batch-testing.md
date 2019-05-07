@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: 391a5386a5ecc144b15c35a85d501dfb5ce2d172
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af04ca19961abcfc7ee218824a4a1a804f7ad79c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597407"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146160"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Zelfstudie: Gegevenssets voor batch-test
 
@@ -28,7 +28,7 @@ Vereisten voor het testen van batch:
 
 * Maximaal 1000 uitingen per test. 
 * Geen dubbele waarden. 
-* Entiteitstypen toegestaan: alleen veilig geleerde entiteiten van eenvoudige, hiërarchische (bovenliggende alleen-), en samengesteld. Testen van de batch is alleen nuttig voor het veilig geleerd intenties en entiteiten.
+* Entiteitstypen toegestaan: alleen veilig geleerd entiteiten van eenvoudige en samengesteld. Testen van de batch is alleen nuttig voor het veilig geleerd intenties en entiteiten.
 
 Wanneer u een app dan in deze zelfstudie gebruikt, doen *niet* gebruikt u de voorbeeld-uitingen al toegevoegd aan een doel. 
 
@@ -95,7 +95,7 @@ Voer de volgende stappen uit:
 
 ## <a name="review-batch-results"></a>Bekijk de resultaten van batch
 
-De batch worden vier kwadranten van de resultaten weergegeven. Aan de rechterkant van de grafiek is een filter. Het filter is standaard ingesteld op het eerste doel in de lijst. Het filter bevat alle intents en alleen eenvoudige, hiërarchische (bovenliggende alleen-), en samengestelde entiteiten. Wanneer u selecteert een [sectie van de grafiek](luis-concept-batch-test.md#batch-test-results) of een punt in de grafiek, de bijbehorende utterance(s) weer te geven onder de grafiek. 
+De batch worden vier kwadranten van de resultaten weergegeven. Aan de rechterkant van de grafiek is een filter. Het filter is standaard ingesteld op het eerste doel in de lijst. Het filter bevat alle intenties en entiteiten alleen eenvoudige en samengesteld. Wanneer u selecteert een [sectie van de grafiek](luis-concept-batch-test.md#batch-test-results) of een punt in de grafiek, de bijbehorende utterance(s) weer te geven onder de grafiek. 
 
 Bij het aanwijzen van de grafiek, kan muiswiel vergroten of verkleinen van de weergave in de grafiek. Dit is handig wanneer er veel punten op de grafiek geclusterde nauw samen. 
 
@@ -169,7 +169,7 @@ Om te controleren dat de uitingen in de batch-test correct worden voorspeld, moe
 
 ## <a name="create-batch-file-with-entities"></a>Batch-bestand met entiteiten maken 
 
-Als u wilt controleren of entiteiten in een batch-test, moeten de entiteiten worden met het label in de batch-JSON-bestand. Alleen de machine geleerde entiteiten worden gebruikt: eenvoudig, hiërarchische (bovenliggende alleen-), en samengestelde entiteiten. Voeg geen niet-machine-geleerde entiteiten doordat ze via reguliere expressies altijd worden gevonden, of expliciete tekst komt overeen met.
+Als u wilt controleren of entiteiten in een batch-test, moeten de entiteiten worden met het label in de batch-JSON-bestand. Alleen de machine geleerde entiteiten worden gebruikt: eenvoudige en samengestelde entiteiten. Voeg geen niet-machine-geleerde entiteiten doordat ze via reguliere expressies altijd worden gevonden, of expliciete tekst komt overeen met.
 
 De variatie van entiteiten voor het totale aantal woord ([token](luis-glossary.md#token)) aantal kan gevolgen hebben voor de voorspelling kwaliteit. Zorg ervoor dat de opgegeven met de intent met gelabelde uitingen trainingsgegevens bevat verschillende lengtes van entiteit. 
 
@@ -205,11 +205,11 @@ De waarde van een **taak** entiteit, opgegeven in de test-uitingen is meestal ee
 
 ## <a name="review-entity-batch-results"></a>Bekijk de resultaten van de entiteit-batch
 
-De grafiek wordt geopend met alle intents correct voorspeld. Schuif omlaag in het filter aan de rechterkant de nummerwaarden entiteit voorspellingen vinden. 
+De grafiek wordt geopend met alle intents correct voorspeld. Schuif omlaag in het filter aan de rechterkant te vinden van de entiteit voorspellingen met fouten. 
 
 1. Selecteer de **taak** entiteit in het filter.
 
-    ![Nummerwaarden entiteit voorspellingen in filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![Fout entiteit voorspellingen in filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     De wijzigingen van de grafiek om de voorspellingen van de entiteit weer te geven. 
 

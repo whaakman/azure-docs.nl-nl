@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2019
+ms.date: 04/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 1a4bfae22477e345176971bd40b0afa91c8867fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bdabef4001b5f43095e4f127d6203c6ec2c48e40
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401551"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137902"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Azure Monitor implementeren voor virtuele machines (preview)
 
@@ -158,8 +158,8 @@ De agent voor afhankelijkheden kan worden gedownload van de volgende locaties:
 
 | File | OS | Versie | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
 
 ## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 Als u wilt inschakelen en toegang tot de functies in Azure Monitor voor virtuele machines, moet u de volgende rollen voor toegang worden toegewezen:
@@ -712,12 +712,12 @@ Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lo
 
 1. Sla dit bestand als *installsolutionsforvminsights.json* naar een lokale map.
 
-1. Bewerk de waarden voor *WorkspaceName*, *ResourceGroupName*, en *WorkspaceLocation*. De waarde voor *WorkspaceName* is de volledige resource-ID van uw Log Analytics-werkruimte, waaronder de naam van de werkruimte. De waarde voor *WorkspaceLocation* is de regio in de werkruimte is gedefinieerd.
+1. Vastleggen van de waarden voor *WorkspaceName*, *ResourceGroupName*, en *WorkspaceLocation*. De waarde voor *WorkspaceName* is de naam van uw Log Analytics-werkruimte. De waarde voor *WorkspaceLocation* is de regio in de werkruimte is gedefinieerd.
 
 1. Bent u klaar voor het implementeren van deze sjabloon met behulp van de volgende PowerShell-opdracht:
 
     ```powershell
-    New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+    New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
     ```
 
     Wijzigen van de configuratie kan een paar minuten duren. Wanneer deze voltooid is, wordt er een bericht weergegeven dat vergelijkbaar is met het volgende en het resultaat bevat:

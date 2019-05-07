@@ -2,19 +2,19 @@
 title: Azure Storage metrics-migratie | Microsoft Docs
 description: Informatie over het oude metrische gegevens migreren naar nieuwe metrische gegevens die worden beheerd door Azure Monitor.
 services: storage
-author: WenJason
+author: normesta
 ms.service: storage
 ms.topic: article
-origin.date: 03/30/2018
-ms.date: 02/25/2019
-ms.author: v-jay
+ms.date: 03/30/2018
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: f8a73bb6e86a187a504c2d36098001cfd90015f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58ac15c1aba715c9a5b67e723401b531e76608b2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477278"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153602"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure Storage-metrische gegevens over migratie
 

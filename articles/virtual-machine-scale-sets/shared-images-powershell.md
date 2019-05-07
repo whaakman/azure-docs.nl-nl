@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 3e6baedc28805117962aa8dda8edc6ff3419280e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 44cb068f1aa40169e728fc28787990b161e148ae
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188336"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150080"
 ---
-# <a name="preview-create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Preview: Maken en gebruiken van gedeelde-installatiekopieën voor virtuele-machineschaalsets met de Azure PowerShell
+# <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Maken en gebruiken van gedeelde-installatiekopieën voor virtuele-machineschaalsets met de Azure PowerShell
 
 Wanneer u een schaalset maakt, geeft u een installatiekopie op die moet worden gebruikt wanneer de VM-exemplaren zijn geïmplementeerd. De galerie met installatiekopieën van gedeelde-service vereenvoudigt aangepaste installatiekopie voor uw organisatie te delen. Aangepaste installatiekopieën zijn soortgelijk aan Marketplace-installatiekopieën, maar u kunt deze zelf maken. Aangepaste installatiekopieën kunnen worden gebruikt voor het opstarten van configuraties, zoals het vooraf laden van toepassingen, toepassingsconfiguraties en andere besturingssysteemconfiguraties. 
 
@@ -74,15 +74,7 @@ Het duurt enkele minuten om alle schaalsetresources en VM's te maken en te confi
 
 [!INCLUDE [virtual-machines-common-gallery-list-ps](../../includes/virtual-machines-common-gallery-list-ps.md)]
 
-
-## <a name="clean-up-resources"></a>Resources opschonen
-
-U kunt de cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myGalleryRG
-Remove-AzResourceGroup -Name myVMSSRG
-```
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: d107a9dae29f18b90ba7c23198c0cc1f97d83c70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b46e9ee8fc3e14981a01cc2425a8ce55d06c5a9a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309817"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150738"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Gegevens van de StorSimple 5000-7000-serie migreren naar Azure File Sync
 
@@ -87,7 +87,7 @@ Voer de volgende stappen uit voor het migreren van de Windows-bestandsshare die 
     Sla deze stap over en gaat u naar de volgende stap als u een andere Windows Server-host. Als u de dezelfde Windows-bestandsserver voor AFS, wordt u nu een paar minuten uitvaltijd ondervindt. 
     - **Downtime Start** -verwijderen van het eindpunt van de server die u hebt gemaakt in *1F stap*. 
     - Maak een nieuw servereindpunt met het pad waar u de gegevens zich bevinden vooruit gaan.
-    - Wanneer het servereindpunt wordt weergegeven als in orde (dit kan enkele minuten duren), ziet u de gegevens in deze nieuwe locatie. U kunt nu uw Windows Server-host om van dienst van bestanden van dit nieuwe locatie te configureren. - **Downtime eindigt**.
+    - Wanneer het servereindpunt wordt weergegeven als in orde (dit kan enkele minuten duren), ziet u de gegevens in deze nieuwe locatie. U kunt nu uw Windows Server-host om van dienst van bestanden van dit nieuwe locatie te configureren. -  **Downtime eindigt**.
 5.  Als u een andere Windows-bestandsserver voor Azure File Sync gebruikt, wordt u niet uitvaltijd ondervindt. 
     - Een andere servereindpunt met het pad van de lokale opslag die u bereid bent te gebruiken als een cache in plaats van het StorSimple-apparaat toevoegen. 
     - U kunt zich de bestanden in de nieuwe server te zien in enkele minuten. U bent om de overschakeling van uw StorSimple-apparaat naar deze nieuwe locatie op de host op elk gewenst moment.

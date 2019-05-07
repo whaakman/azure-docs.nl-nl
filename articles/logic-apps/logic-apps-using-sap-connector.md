@@ -8,29 +8,34 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 04/19/2019
 tags: connectors
-ms.openlocfilehash: 468e73c64037a76da612cba8d6c2e9507dd3ac87
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0ee8b164aa46c4fe2f66f27d9a41d0282c676907
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120150"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136722"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Verbinding maken met SAP-systemen in Azure Logic Apps
 
-Dit artikel wordt beschreven hoe u kunt toegang tot uw on-premises SAP-bronnen uit in een logische app met behulp van de connector SAP ERP centraal onderdeel (ECC). De connector werkt met ECC- en s/4 HANA-systemen on-premises. De connector SAP ECC biedt ondersteuning voor integratie van bericht of gegevens naar en van SAP Netweaver-systemen via tussenliggende Document (IDoc) of Business Application Programming Interface (BAPI) of externe functie aanroepen (RFC).
+Dit artikel wordt beschreven hoe u kunt toegang tot uw on-premises SAP-bronnen uit in een logische app met behulp van de SAP-connector. De connector werkt met SAP van klassieke versies dergelijke R/3, ECC systemen on-premises. De connector maakt ook integratie met de SAP de nieuwere HANA op basis van SAP-systemen, zoals s/4 HANA, waar ze worden gehost - on-premises of in de cloud.
+De SAP-connector biedt ondersteuning voor integratie van bericht of gegevens naar en van SAP Netweaver-systemen via tussenliggende Document (IDoc) of Business Application Programming Interface (BAPI) of externe functie aanroepen (RFC).
 
-De connector SAP ECC gebruikt de <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .NET Connector (NCo)-bibliotheek</a> en biedt deze bewerkingen of acties:
+De SAP-connector gebruikt de <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .NET Connector (NCo)-bibliotheek</a> en biedt deze bewerkingen of acties:
 
 - **Verzenden naar SAP**: IDoc verzenden of BAPI functies aanroepen via tRFC in SAP-systemen.
 - **Ontvangen van SAP**: IDoc of BAPI functieaanroepen ontvangen via tRFC van SAP-systemen.
 - **Schema's genereren**: Schema's voor de SAP-artefacten voor IDoc of BAPI of RFC genereren.
 
+SAP-connector biedt ondersteuning voor eenvoudige verificatie via gebruikersnaam en wachtwoord voor de bovenstaande bewerkingen. De connector ondersteunt ook <a href="https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true"> Secure Network Communications (SNC)</a>, die kan worden gebruikt voor SAP Netweaver Single Sign-On of voor aanvullende beveiligingsmogelijkheden geleverd door een externe beveiliging-product. 
+
 De SAP-connector kan worden geïntegreerd met on-premises SAP-systemen via de [on-premises gegevensgateway](https://www.microsoft.com/download/details.aspx?id=53127). In scenario's verzenden, bijvoorbeeld wanneer een bericht verzenden vanuit logische Apps met een SAP-systeem, de data gateway fungeert als een RFC-client en stuurt de aanvragen van Logic Apps ontvangen naar SAP.
 Ook in scenario's ontvangen fungeert de data gateway als een RFC-server ontvangt verzoeken van SAP en doorgestuurd naar de logische App. 
 
 In dit artikel laat zien hoe voorbeeld logica om apps te maken die kunnen worden geïntegreerd met SAP terwijl die betrekking hebben op de eerder beschreven integratiescenario's.
+
+<a name="pre-reqs"></a>
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -43,6 +48,12 @@ Als u wilt volgen, samen met dit artikel, moet u deze items:
 * Uw <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP-toepassingsserver</a> of <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP-berichtenserver</a>
 
 * Download en installeer de meest recente [on-premises gegevensgateway](https://www.microsoft.com/download/details.aspx?id=53127) op een on-premises computer. Zorg ervoor dat u uw gateway in Azure portal hebt ingesteld, voordat u doorgaat. De gateway kunt u veilig toegang tot gegevens en resources zijn on-premises. Zie voor meer informatie, [installeren on-premises gegevensgateway voor Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+
+* Als u van SNC met eenmalige aanmelding (SSO gebruikmaakt) en zorg ervoor dat de gateway wordt uitgevoerd als een gebruiker die toegewezen op basis van de SAP-gebruiker. De standaard-serviceaccount wilt wijzigen, selecteert u **account wijzigen** en voer de referenties van de gebruiker.
+
+   ![Gateway-account wijzigen](./media/logic-apps-using-sap-connector/gateway-account.png)
+
+* Als u de SNC met een product externe beveiliging inschakelt, kopieert u de SNC-bibliotheek of de bestanden op dezelfde computer waarop de gateway is geïnstalleerd. Enkele voorbeelden van SNC-producten zijn <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, enzovoort.
 
 * Download en installeer de meest recente SAP-clientbibliotheek, dat zich momenteel <a href="https://softwaredownloads.sap.com/file/0020000001865512018" target="_blank">SAP-Connector (NCo) 3.0.21.0 voor Microsoft .NET Framework 4.0 en Windows 64-bits (x64)</a>, op dezelfde computer als de on-premises gegevensgateway. Deze versie installeren of hoger om volgende redenen:
 
@@ -114,7 +125,7 @@ In Azure Logic Apps, een [actie](../logic-apps/logic-apps-overview.md#logic-app-
       Als de **aanmeldingstype** eigenschap is ingesteld op **groep**, deze eigenschappen, die doorgaans optioneel verschijnen, zijn vereist: 
 
       ![SAP bericht serververbinding maken](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
-
+      
    2. Wanneer u klaar bent, kiest u **Maken**. 
    
       Logic Apps wordt ingesteld en test de verbinding, ervoor te zorgen dat de verbinding naar behoren werkt.
@@ -375,23 +386,45 @@ Desgewenst kunt u downloaden of de gegenereerde schema's opslaan in opslagplaats
 
 2. Na een geslaagde uitvoeren, gaat u naar het integratieaccount en controleer of de gegenereerde schema's die worden gegenereerd bestaan.
 
+## <a name="enable-secure-network-communications-snc"></a>Schakel netwerkcommunicatie in beveiligde (SNC)
+
+Voordat u begint, zorg ervoor dat u hebt voldaan als de eerder vermelde [vereisten](#pre-reqs):
+
+* De on-premises gegevensgateway is geïnstalleerd op een computer die zich in hetzelfde netwerk bevinden als uw SAP-systeem.
+
+* Voor Single Sign-On, wordt gateway uitgevoerd als een gebruiker die toegewezen aan SAP-gebruiker.
+
+* SNC-bibliotheek met de functies voor extra beveiliging is geïnstalleerd op dezelfde computer als de gegevensgateway. Enkele voorbeelden hiervan zijn <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, enzovoort.
+
+Om in te schakelen SNC voor uw aanvragen naar of van SAP-systeem, selecteert u de **gebruik SNC** selectievakje in SAP-verbinding en geef deze eigenschappen:
+
+   ![SAP SNC in verbinding configureren](media/logic-apps-using-sap-connector/configure-sapsnc.png) 
+
+   | Eigenschap   | Description |
+   |------------| ------------|
+   | **SNC-bibliotheek** | Naam van SNC-bibliotheek of pad ten opzichte van de installatielocatie NCo of absoluut pad zijn. Als een voorbeeld sapsnc.dll of.\security\sapsnc.dll of c:\security\sapsnc.dll  | 
+   | **SNC EENMALIGE AANMELDING** | Wanneer u verbinding maakt via SNC, wordt de identiteit van de SNC wordt doorgaans gebruikt voor het verifiëren van de oproepende functie. Een andere optie is om op te heffen, zodat informatie van de gebruiker en wachtwoord kan worden gebruikt voor het verifiëren van de oproepende functie, maar de regel is nog steeds versleuteld.|
+   | **SNC mijn naam** | In de meeste gevallen kan deze worden weggelaten. De geïnstalleerde SNC-oplossing kent doorgaans een eigen SNC-naam. Alleen voor oplossingen 'meerdere identiteiten' ondersteunen, moet u mogelijk de identiteit moet worden gebruikt voor deze specifieke doelserver opgeven |
+   | **Naam van SNC-Partner** | Naam van de back-end SNC |
+   | **SNC-kwaliteit van beveiliging** | Quality of Service die moet worden gebruikt voor SNC-communicatie van deze specifieke doel/server-combinatie. Standaardwaarde is gedefinieerd door het systeem back-end. Maximale waarde wordt gedefinieerd door de security-producten gebruikt voor de SNC |
+   |||
+
+   > [!NOTE]
+   > Omgevingsvariabelen SNC_LIB en SNC_LIB_64 mag niet worden ingesteld op de computer waar u een gegevensgateway en SNC-bibliotheek hebt. Als stelt ze voorrang op de SNC-bibliotheek-waarde doorgegeven via de connector hebben zouden.
+   >
+
 ## <a name="known-issues-and-limitations"></a>Bekende problemen en beperkingen
 
 Hier worden de bekende problemen en beperkingen voor de SAP-connector:
+
+* Alleen een enkel verzenden naar SAP-oproep of een bericht werkt met tRFC. Het patroon Business Application Programming Interface (BAPI) doorvoeren, zoals meerdere tRFC aanroepen in dezelfde sessie, wordt niet ondersteund.
 
 * De trigger SAP biedt geen ondersteuning voor batch idoc's ontvangen van SAP. Deze actie kan leiden tot fout voor RFC-verbinding tussen uw SAP-systeem en de data gateway.
 
 * De trigger SAP biedt geen ondersteuning voor gatewayclusters met gegevens. In sommige gevallen failover kan op het gegevensknooppunt voor gateway die met de SAP-systeem communiceert verschillen van het actieve knooppunt, wat resulteert in onverwacht gedrag. Voor scenario's verzenden, worden data gatewayclusters ondersteund.
 
-* In scenario's ontvangen, wordt niet een niet-null-antwoord wordt geretourneerd ondersteund. Een logische app met een trigger en een reactie leidt tot onverwacht gedrag. 
-
-* Alleen een enkel verzenden naar SAP-oproep of een bericht werkt met tRFC. Het patroon Business Application Programming Interface (BAPI) doorvoeren, zoals meerdere tRFC aanroepen in dezelfde sessie, wordt niet ondersteund.
-
-* RFC's met bijlagen worden niet ondersteund voor zowel de verzenden naar SAP- en schema's acties te genereren.
-
 * De SAP-connector op dit moment biedt geen ondersteuning voor SAP-router tekenreeksen. De on-premises gegevensgateway moet bestaan in hetzelfde LAN bevinden als de SAP-systeem dat u verbinding wilt maken.
 
-* De conversie van ontbreekt (null), leeg, minimale en maximale waarden voor velden DATS en TIM SAP wordt mogelijk gewijzigd in latere updates voor de on-premises gegevensgateway.
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 

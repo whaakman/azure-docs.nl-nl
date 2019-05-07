@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196096"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148731"
 ---
 # <a name="create-entities-without-utterances"></a>Entiteiten zonder uitingen maken
 
@@ -66,29 +66,6 @@ Een entiteit reguliere expressie wordt gebruikt voor het ophalen van gegevens ui
 
     Deze reguliere expressie komt overeen met letterlijke tekens `hrf-`, klikt u vervolgens 6 cijfers om weer te geven van een formulier nummer voor een formulier Human resources.
 
-## <a name="add-hierarchical-entities"></a>Hiërarchische entiteiten toevoegen
-
-Een hiërarchische entiteit is een soort contextueel geleerde en gerelateerde entiteiten. In het volgende voorbeeld bevat de entiteit bron en doel-locaties. 
-
-In de utterance `Move John Smith from Seattle to Cairo`, Seattle, is de verzendingslocatie en Cairo is de doellocatie. Elke locatie is contextueel verschillende en geleerde van woordvolgorde en word keuze in de utterance.
-
-Hiërarchische entiteiten toevoegen, voert u de volgende stappen uit: 
-
-1. Selecteer in uw app **entiteiten** uit de navigatiebalk aan de linkerkant en selecteer vervolgens **nieuwe entiteit maken**.
-
-1. Typ in het pop-updialoogvenster `Location` in de **entiteitnaam** vak en selecteer vervolgens **hiërarchisch** uit de **entiteitstype** lijst.
-
-    ![Een hiërarchische entiteit toevoegen](./media/add-entities/hier-location-entity-creation.png)
-
-1. Selecteer **onderliggende toevoegen**, en voer vervolgens `Origin` in **onderliggende #1** vak. 
-
-1. Selecteer **onderliggende toevoegen**, en voer vervolgens `Destination` in **onderliggende 2** vak. Selecteer **Done**.
-
-    >[!CAUTION]
-    >Namen van de onderliggende entiteiten moeten uniek zijn in alle entiteiten in een enkele app. Twee entiteiten met verschillende hiërarchische mag geen onderliggende entiteiten met dezelfde naam bevatten. 
-
-    Zodra deze entiteit is gemaakt, gaat u naar alle intents waarvoor de voorbeeld-uitingen die de entiteit bevatten. Selecteer de tekst in het voorbeeld utterance en de tekst markeren als de entiteit. 
-
 <a name="add-composite-entities"></a>
 
 ## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Samengestelde entiteiten te groeperen in een bovenliggende / onderliggende relatie toevoegen
@@ -137,9 +114,7 @@ In de utterance `Where is Request relocation from employee new to the company on
 
 Een rol is een benoemde subtype op basis van context. Het is beschikbaar in alle entiteiten met inbegrip van vooraf gedefinieerde en niet-machine-geleerde entiteiten. 
 
-Met behulp van hetzelfde voorbeeld als de hiërarchische entiteit van oorsprong en bestemming steden, het verschil is dat een rol met de naam origin in plaats van een hiërarchische onderliggend element. 
-
-De syntaxis voor een rol is **{Entityname:Rolename}** waar de naam van de entiteit wordt gevolgd door een dubbele punt, gevolgd door de rolnaam. Bijvoorbeeld `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+De syntaxis voor een rol is **`{Entityname:Rolename}`** waar de naam van de entiteit wordt gevolgd door een dubbele punt, gevolgd door de rolnaam. Bijvoorbeeld `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
 
 1. Uit de **bouwen** sectie, selecteer **entiteiten** in het linkerpaneel.
 

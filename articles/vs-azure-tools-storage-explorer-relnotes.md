@@ -14,18 +14,113 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 68d16a7e25e6f9a294dee1f077d53aa4551cda5e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c6416e36d7d2723577ca0d2009fb7bbad24f3b6a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924801"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154702"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Storage Explorer
 
 In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 release, evenals de opmerkingen bij de release voor eerdere versies.
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is een zelfstandige app waarmee u eenvoudig met Azure Storage-gegevens kunt werken via Windows, macOS en Linux.
+
+## <a name="version-180"></a>Versie 1.8.0
+5/1/2019
+
+### <a name="download-azure-storage-explorer-180"></a>Azure Storage Explorer 1.8.0 downloaden
+- [Azure Storage Explorer 1.8.0 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.8.0 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.8.0 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nieuw
+
+* De geïntegreerde AzCopy-versie is bijgewerkt naar versie 10.1.0.
+* CTRL / Cmd + R kan nu worden gebruikt voor het vernieuwen van de momenteel gerichte editor. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* De API van Azure Stack-Storage-versie is gewijzigd in 17-04-2017.
+* Het dialoogvenster toegang beheren voor ADLS Gen2 wordt nu het masker synchroon houden op een manier die vergelijkbaar is met andere hulpprogramma's voor POSIX-machtigingen. De gebruikersinterface, waarschuwt u als een wijziging wordt doorgevoerd waarmee zorgt ervoor dat de machtigingen van een gebruiker of groep overschrijdt de grenzen van het masker. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* De vlag voor het berekenen en instellen van de MD5-hash is nu ingeschakeld voor de AzCopy-uploads. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+
+
+### <a name="preview-features"></a>Preview-functies
+
+* Apparaat code flow aanmelden is nu beschikbaar om te bekijken. Als u wilt inschakelen, gaat u naar 'Preview' → 'Gebruik apparaat Code Flow aanmelden'. U wordt aangeraden alle gebruikers die hebben gehad problemen met lege aanmelding bij windows om te proberen deze functie, zoals het blijken te zijn van een meer betrouwbare vorm van aanmelding.
+* Storage Explorer is geïntegreerd met AzCopy is momenteel beschikbaar voor preview. Als u wilt inschakelen, gaat u naar 'Preview' → 'Met AzCopy voor verbeterde Blob uploaden en downloaden'. BLOB-overdracht is voltooid met AzCopy moeten worden snellere en beter.
+
+### <a name="fixes"></a>Oplossingen
+
+* Het dialoogvenster toegangsbeleid stelt u een vervaldatum niet meer op toegang-beleid voor opslag die nog geen een vervaldatum. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* Sommige wijzigingen zijn aangebracht aan het genereren van SAS-dialoogvenster om te controleren of dat opgeslagen toegangsbeleid correct worden gebruikt bij het genereren van een SAS. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* Wanneer u probeert te uploaden van een niet - 512 byte uitgelijnd bestand naar een pagina-Blob, wordt nu een meer relevante fout weergegeven in Storage Explorer. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* Kopiëren van een Blob-container die u een weergavenaam gebruikt, mislukken. Nu wordt de werkelijke naam van de Blob-container gebruikt. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* Er wordt geprobeerd bepaalde acties uitvoeren op een ADLS-Gen2 map waarin het unicode-tekens in de naam, mislukken. Alle bewerkingen moeten nu worden uitgevoerd. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+
+### <a name="known-issues"></a>Bekende problemen
+
+* Bij het uitvoeren van een niet - AzCopy Blob downloaden, wordt de MD5 voor grote bestanden niet wordt gecontroleerd. Dit is vanwege een fout in de Storage-SDK. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* Als u met RBAC kunt moet Storage Explorer enkele management layer-machtigingen voor toegang tot uw opslagresources. Zie de [problemen oplossen met](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) voor meer informatie.
+* Probeert te krijgen tot ADLS Gen2 Blobs wanneer u zich achter een proxy mislukken.
+* Loskoppelen van een resource koppelen via SAS-URI, zoals een blob-container kan een fout veroorzaken waarmee wordt voorkomen dat andere bijlagen correct weergegeven. U kunt dit probleem omzeilen, vernieuwt u het knooppunt voor de. Zie #537 voor meer informatie.
+* Als u Visual Studio voor Mac en ooit een aangepaste AAD-configuratie hebt gemaakt, is het wellicht niet mogelijk om aan te melden. Verwijder de inhoud van het probleem te omzeilen, ~ /. IdentityService/AadConfigurations. Als u in dat geval heeft niet de blokkering opheffen u, als opmerking bij dit probleem.
+* Azurite is nog niet volledig geïmplementeerd alle Storage-API's. Als gevolg hiervan kunnen er onverwachte fouten of problemen bij het gebruik van Azurite voor opslag.
+* In zeldzame gevallen kan de focus structuur ophalen vastgelopen op Snelweergavetoegang. Registreer de focus, kunt u Alles vernieuwen.
+* Uploaden vanaf uw OneDrive-map werkt niet vanwege een fout in NodeJS. De fout is opgelost, maar nog niet is geïntegreerd in Electron. Als tijdelijke oplossing voor dit probleem tijdens het uploaden naar of downloaden van een blob-container, kunt u de experimentele functie voor AzCopy.
+* Wanneer die gericht is op Azure Stack, mislukken bepaalde bestanden als toevoeg-blobs uploaden.
+* Na het klikken op 'Annuleren' voor een taak, duren het even voor die taak annuleren. Dit is omdat we de annuleren filter omzeilen hier beschreven.
+* Als u de verkeerde PINCODE/Smartcard-certificaat kiest, moet u opnieuw opstarten om Opslagverkenner besluit vergeet.
+* Naam wijzigen van blobs (afzonderlijk of in een nieuwe naam blob-container) behoudt niet momentopnamen. Alle andere eigenschappen en metagegevens voor blobs, bestanden en entiteiten blijven behouden tijdens een naam.
+* Azure Stack biedt geen ondersteuning voor de volgende functies. Poging tot het gebruiken van deze functies tijdens het werken met Azure Stack kunnen resources leiden tot onverwachte fouten.
+   * Bestandsshares
+   * Toegangslagen
+   * Voorlopig verwijderen
+   * ADLS Gen2
+* De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Storage Explorer op Linux uitgevoerd, moet bepaalde afhankelijkheden moeten eerst worden geïnstalleerd. Controleer de Storage Explorer [problemen oplossen met](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) voor meer informatie.
+
+## <a name="previous-releases"></a>Vorige versies
+
+* [Versie 1.7.0](#version-170)
+* [Versie 1.6.2](#version-162)
+* [Versie 1.6.1](#version-161)
+* [Versie 1.6.0](#version-160)
+* [Versie 1.5.0](#version-150)
+* [Versie 1.4.4](#version-144)
+* [Versie 1.4.3](#version-143)
+* [Versie 1.4.2](#version-142)
+* [Versie 1.4.1](#version-141)
+* [Versie 1.3.0](#version-130)
+* [Versie 1.2.0](#version-120)
+* [Versie 1.1.0](#version-110)
+* [Versie 1.0.0](#version-100)
+* [Versie 0.9.6](#version-096)
+* [Versie 0.9.5](#version-095)
+* [Versie 0.9.4 en 0.9.3](#version-094-and-093)
+* [Versie 0.9.2](#version-092)
+* [Versie 0.9.1 tot en en 0.9.0](#version-091-and-090)
+* [Versie 0.8.16](#version-0816)
+* [Versie 0.8.14](#version-0814)
+* [Versie 0.8.13](#version-0813)
+* [Versie 0.8.12 en 0.8.11 en 0.8.10](#version-0812-and-0811-and-0810)
+* [Versie 0.8.9 en 0.8.8](#version-089-and-088)
+* [Versie 0.8.7](#version-087)
+* [Versie 0.8.6](#version-086)
+* [Versie 0.8.5](#version-085)
+* [Versie 0.8.4](#version-084)
+* [Versie 0.8.3](#version-083)
+* [Versie 0.8.2](#version-082)
+* [Versie 0.8.0](#version-080)
+* [Versie 0.7.20160509.0](#version-07201605090)
+* [Versie 0.7.20160325.0](#version-07201603250)
+* [Versie 0.7.20160129.1](#version-07201601291)
+* [Versie 0.7.20160105.0](#version-07201601050)
+* [Versie 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-170"></a>Versie 1.7.0
 3/5/2019
@@ -96,43 +191,6 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Vorige versies
-
-* [Versie 1.6.2](#version-162)
-* [Versie 1.6.1](#version-161)
-* [Versie 1.6.0](#version-160)
-* [Versie 1.5.0](#version-150)
-* [Versie 1.4.4](#version-144)
-* [Versie 1.4.3](#version-143)
-* [Versie 1.4.2](#version-142)
-* [Versie 1.4.1](#version-141)
-* [Versie 1.3.0](#version-130)
-* [Versie 1.2.0](#version-120)
-* [Versie 1.1.0](#version-110)
-* [Versie 1.0.0](#version-100)
-* [Versie 0.9.6](#version-096)
-* [Versie 0.9.5](#version-095)
-* [Versie 0.9.4 en 0.9.3](#version-094-and-093)
-* [Versie 0.9.2](#version-092)
-* [Versie 0.9.1 tot en en 0.9.0](#version-091-and-090)
-* [Versie 0.8.16](#version-0816)
-* [Versie 0.8.14](#version-0814)
-* [Versie 0.8.13](#version-0813)
-* [Versie 0.8.12 en 0.8.11 en 0.8.10](#version-0812-and-0811-and-0810)
-* [Versie 0.8.9 en 0.8.8](#version-089-and-088)
-* [Versie 0.8.7](#version-087)
-* [Versie 0.8.6](#version-086)
-* [Versie 0.8.5](#version-085)
-* [Versie 0.8.4](#version-084)
-* [Versie 0.8.3](#version-083)
-* [Versie 0.8.2](#version-082)
-* [Versie 0.8.0](#version-080)
-* [Versie 0.7.20160509.0](#version-07201605090)
-* [Versie 0.7.20160325.0](#version-07201603250)
-* [Versie 0.7.20160129.1](#version-07201601291)
-* [Versie 0.7.20160105.0](#version-07201601050)
-* [Versie 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-162"></a>Versie 1.6.2
 1/9/2019

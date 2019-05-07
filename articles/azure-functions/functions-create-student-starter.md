@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: 5fd9f51185b8461269d498b254d9e9d9f4118270
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 860fedb13e84054e8ba264116be4e452445b7e9b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107139"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143100"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Een functie maken met Azure for Students Starter
 
@@ -49,7 +49,7 @@ U moet een functie-app hebben die als host fungeert voor de uitvoering van uw fu
 
     <img src="./media/functions-create-student-starter/Function-create-start.png" width="315">
 
-    | Instelling      | Voorgestelde waarde  | Beschrijving                                        |
+    | Instelling      | Voorgestelde waarde  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Naam van app** | Wereldwijd unieke naam | Naam waarmee uw nieuwe functie-app wordt aangeduid. Geldige tekens zijn `a-z`, `0-9` en `-`.  | 
     | **Abonnement** | Uw abonnement | Het abonnement waarmee deze nieuwe functie-app is gemaakt. | 
@@ -76,8 +76,6 @@ U moet een functie-app hebben die als host fungeert voor de uitvoering van uw fu
 
 8. Selecteer **Naar de resource gaan** om uw nieuwe functie-app te bekijken.
 
-> [!TIP]
-> Als u problemen ondervindt bij het vinden van de functie-app in de portal, [voegt u functie-apps toe aan uw favorieten in Azure Portal](./functions-how-to-use-azure-function-app-settings.md#favorite).
 Vervolgens maakt u een functie in de nieuwe functie-app.
 
 ## <a name="create-function"></a>Een door HTTP geactiveerde functie maken

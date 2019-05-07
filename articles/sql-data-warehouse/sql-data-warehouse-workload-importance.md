@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12e7d9bc22eff14bbf302aed50080412d04a40d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c26bca66b0f82ea58d01d0eb8358f521168a799
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474699"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154141"
 ---
-# <a name="sql-data-warehouse-workload-importance-preview"></a>SQL Data Warehouse workload belang (Preview)
+# <a name="sql-data-warehouse-workload-importance"></a>SQL Data Warehouse workload urgentie
 
 In dit artikel wordt uitgelegd hoe belang van de werkbelasting van invloed zijn op de volgorde van de uitvoering voor SQL Data Warehouse aanvragen.
-
-> [!Note]
-> Classificatie van de werkbelasting is beschikbaar voor Preview-versie van SQL Data Warehouse Gen2. Preview van werkbelasting Management classificatie en belang is voor builds met een releasedatum van 9 April 2019 of hoger.  Gebruikers Vermijd het gebruik van builds vóór deze datum voor het testen van de workload-beheer.  Uitvoeren om te bepalen of uw build beheer van de werkbelasting die geschikt is, selecteer @@version wanneer verbonden met uw SQL Data Warehouse-exemplaar.
 
 ## <a name="importance"></a>Urgentie
 
@@ -64,4 +61,4 @@ Omdat vraag 5 mediumrc is, worden hiervoor twee gelijktijdigheidssleuven in besl
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over SQL Data Warehouse workload classificatie [SQL Data Warehouse Workload classificatie](sql-data-warehouse-workload-classification.md) en [maken van een classificatie van de werkbelasting](quickstart-create-a-workload-classifier-tsql.md). Zie [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) om query's en het belang toegewezen weer te geven.
+Om te beginnen met het maken van een classificatie, Zie de [WERKBELASTING classificatie maken (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  Zie voor meer informatie over SQL Data Warehouse workload classificatie [SQL Data Warehouse Workload classificatie](sql-data-warehouse-workload-classification.md).  Zie de Quick Start voor het maken van een classificatie van de werkbelasting [maken van een classificatie van de werkbelasting](quickstart-create-a-workload-classifier-tsql.md). Zie [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) om query's en het belang toegewezen weer te geven.

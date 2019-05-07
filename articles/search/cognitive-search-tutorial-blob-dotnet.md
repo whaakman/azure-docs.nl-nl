@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 4e6f0317df2f0f631d2c8d3f8e5cefba06e154fd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1b3353cae73bb5710dc9343f1d211266d15743a2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026835"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153214"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C#Zelfstudie: Cognitive Services API's aanroepen in een Azure Search indexeren van pijplijn
 
@@ -94,9 +94,9 @@ Beginnen met Visual Studio te openen en een nieuwe Console-App-project maken dat
 
 De [Azure Search .NET SDK](https://aka.ms/search-sdk) bestaat uit een aantal clientbibliotheken waarmee u voor het beheren van uw indexen, gegevensbronnen, Indexeerfuncties en kennis en vaardigheden, ook als uploaden en beheren van documenten en het uitvoeren van query's, allemaal zonder dat u hoeft te bekommeren om de de details van HTTP en JSON. Deze clientbibliotheken worden gedistribueerd als een NuGet-pakketten.
 
-Voor dit project, moet u voor het installeren van de 7.x.x-preview-versie van de `Microsoft.Azure.Search` NuGet-pakket en de meest recente `Microsoft.Extensions.Configuration.Json` NuGet-pakket.
+Voor dit project, moet u voor het installeren van versie 9 van de `Microsoft.Azure.Search` NuGet-pakket en de meest recente `Microsoft.Extensions.Configuration.Json` NuGet-pakket.
 
-Installeer de `Microsoft.Azure.Search` NuGet-pakket met behulp van de Package Manager console in Visual Studio. Openen van de Package Manager console Selecteer **extra** > **NuGet Package Manager** > **Package Manager Console**. Als u de opdracht uit te voeren, gaat u naar de [Microsoft.Azure.Search NuGet-pakketpagina](https://www.nuget.org/packages/Microsoft.Azure.Search), 7.x.x preview-schemaversie Selecteer en kopieer de Package Manager-opdracht. In de Package Manager-console, moet u deze opdracht uitvoeren.
+Installeer de `Microsoft.Azure.Search` NuGet-pakket met behulp van de Package Manager console in Visual Studio. Openen van de Package Manager console Selecteer **extra** > **NuGet Package Manager** > **Package Manager Console**. Als u de opdracht uit te voeren, gaat u naar de [Microsoft.Azure.Search NuGet-pakketpagina](https://www.nuget.org/packages/Microsoft.Azure.Search)versie 9, en selecteer de Package Manager-opdracht kopiëren. In de Package Manager-console, moet u deze opdracht uitvoeren.
 
 Voor het installeren van de `Microsoft.Extensions.Configuration.Json` NuGet-pakket in Visual Studio, selecteer **extra** > **NuGet Package Manager** > **NuGet-pakketten beheren voor oplossing...** . Selecteer Bladeren en zoeken naar de `Microsoft.Extensions.Configuration.Json` NuGet-pakket. Als u deze hebt gevonden, selecteert u het pakket, selecteert u uw project, Controleer of dat de versie is de laatste stabiele versie, en selecteer vervolgens installeren.
 
@@ -137,13 +137,25 @@ using Microsoft.Extensions.Configuration;
 
 ## <a name="create-a-client"></a>Een client maken
 
-Maak een instantie van de `SearchServiceClient` klasse met behulp van de gegevens die u hebt toegevoegd aan `appsettings.json`.
+Maak een instantie van de `SearchServiceClient` klasse.
 
 ```csharp
 IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
 IConfigurationRoot configuration = builder.Build();
-
 SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
+```
+
+`CreateSearchServiceClient` maakt u een nieuwe `SearchServiceClient` met waarden die zijn opgeslagen in het configuratiebestand van de toepassing (appsettings.json).
+
+```csharp
+private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
+{
+   string searchServiceName = configuration["SearchServiceName"];
+   string adminApiKey = configuration["SearchServiceAdminApiKey"];
+
+   SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+   return serviceClient;
+}
 ```
 
 > [!NOTE]
@@ -197,9 +209,9 @@ In deze sectie maakt definiëren u een reeks verrijking stappen die u wilt toepa
 
 + [Taaldetectie](cognitive-search-skill-language-detection.md) om de taal van de inhoud vast te stellen.
 
-+ [Tekst splitsen](cognitive-search-skill-textsplit.md) grote inhoud opsplitsen in kleinere chunks voordat u de kwalificatie van de extractie sleuteluitdrukkingen en de kwalificatie van de herkenning van benoemde entiteiten. Extractie van cruciale frasen en herkenning van named entity's accepteren invoer van 50.000 tekens of minder. Enkele voorbeeldbestanden moeten worden opgesplitst om aan deze limiet te voldoen.
++ [Tekst splitsen](cognitive-search-skill-textsplit.md) grote inhoud opsplitsen in kleinere chunks voordat u de kwalificatie van de extractie sleuteluitdrukkingen en de entiteit opname-kwalificatie. Extractie van cruciale frasen en herkenning entiteit accepteren invoer van 50.000 tekens of minder. Enkele voorbeeldbestanden moeten worden opgesplitst om aan deze limiet te voldoen.
 
-+ [Herkenning van benoemde entiteiten](cognitive-search-skill-named-entity-recognition.md) voor het extraheren van de namen van organisaties uit inhoud van de blobcontainer.
++ [Herkenning van entiteit](cognitive-search-skill-entity-recognition.md) voor het uitpakken van de namen van organisaties van de inhoud in de blob-container.
 
 + [Sleuteltermextractie](cognitive-search-skill-keyphrases.md) voor het ophalen van de belangrijkste sleuteltermen.
 
@@ -225,7 +237,7 @@ outputMappings.Add(new OutputFieldMappingEntry(
     targetName: "text"));
 
 OcrSkill ocrSkill = new OcrSkill(
-    description: "Extract text (plain and structured) from image).",
+    description: "Extract text (plain and structured) from image",
     context: "/document/normalized_images/*",
     inputs: inputMappings,
     outputs: outputMappings,
@@ -279,7 +291,7 @@ outputMappings.Add(new OutputFieldMappingEntry(
     targetName: "languageCode"));
 
 LanguageDetectionSkill languageDetectionSkill = new LanguageDetectionSkill(
-    description: "Language detection skill",
+    description: "Detect the language used in the document",
     context: "/document",
     inputs: inputMappings,
     outputs: outputMappings);
@@ -312,9 +324,9 @@ SplitSkill splitSkill = new SplitSkill(
     maximumPageLength: 4000);
 ```
 
-### <a name="named-entity-recognition-skill"></a>Vraagstukken voor herkenning van benoemde entiteiten
+### <a name="entity-recognition-skill"></a>Entiteit erkenning vaardigheid
 
-Dit `NamedEntityRecognitionSkill` instantie is ingesteld voor het herkennen van categorietype `organization`. De **herkenning van entiteit met de naam** vaardigheid herkent ook categorietypen `person` en `location`.
+Dit `EntityRecognitionSkill` instantie is ingesteld voor het herkennen van categorietype `organization`. De **entiteit erkenning** vaardigheid herkent ook categorietypen `person` en `location`.
 
 U ziet dat het veld 'context' is ingesteld op ```"/document/pages/*"``` met een sterretje, wat betekent dat de stap verrijking wordt aangeroepen voor elke pagina onder ```"/document/pages"```.
 
@@ -329,21 +341,21 @@ outputMappings.Add(new OutputFieldMappingEntry(
     name: "organizations",
     targetName: "organizations"));
 
-List<NamedEntityCategory> namedEntityCategory = new List<NamedEntityCategory>();
-namedEntityCategory.Add(NamedEntityCategory.Organization);
+List<EntityCategory> entityCategory = new List<EntityCategory>();
+entityCategory.Add(EntityCategory.Organization);
     
-NamedEntityRecognitionSkill namedEntityRecognition = new NamedEntityRecognitionSkill(
+EntityRecognitionSkill entityRecognitionSkill = new EntityRecognitionSkill(
     description: "Recognize organizations",
     context: "/document/pages/*",
     inputs: inputMappings,
     outputs: outputMappings,
-    categories: namedEntityCategory,
-    defaultLanguageCode: NamedEntityRecognitionSkillLanguage.En);
+    categories: entityCategory,
+    defaultLanguageCode: EntityRecognitionSkillLanguage.En);
 ```
 
 ### <a name="key-phrase-extraction-skill"></a>Sleuteluitdrukkingen extraheren vaardigheid
 
-Net als de `NamedEntityRecognitionSkill` -exemplaar dat zojuist is gemaakt, de **sleutel vindt er sleuteltermextractie plaats** kwalificatie voor elke pagina van het document wordt genoemd.
+Net als de `EntityRecognitionSkill` -exemplaar dat zojuist is gemaakt, de **sleutel vindt er sleuteltermextractie plaats** kwalificatie voor elke pagina van het document wordt genoemd.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -368,7 +380,7 @@ KeyPhraseExtractionSkill keyPhraseExtractionSkill = new KeyPhraseExtractionSkill
 
 ### <a name="build-and-create-the-skillset"></a>Maken van de vaardigheden
 
-Bouw de `SkillSet` met behulp van de vaardigheden die u hebt gemaakt.
+Bouw de `Skillset` met behulp van de vaardigheden die u hebt gemaakt.
 
 ```csharp
 List<Skill> skills = new List<Skill>();
@@ -376,12 +388,12 @@ skills.Add(ocrSkill);
 skills.Add(mergeSkill);
 skills.Add(languageDetectionSkill);
 skills.Add(splitSkill);
-skills.Add(namedEntityRecognition);
+skills.Add(entityRecognitionSkill);
 skills.Add(keyPhraseExtractionSkill);
 
-Skillset skillSet = new Skillset(
+Skillset skillset = new Skillset(
     name: "demoskillset",
-    description: "Demo Skillset",
+    description: "Demo skillset",
     skills: skills);
 ```
 
@@ -390,7 +402,7 @@ Maak de vaardigheden in uw search-service.
 ```csharp
 try
 {
-    serviceClient.Skillsets.CreateOrUpdate(skillSet);
+    serviceClient.Skillsets.CreateOrUpdate(skillset);
 }
 catch (Exception e)
 {
@@ -459,16 +471,24 @@ var index = new Index()
 };
 ```
 
-Tijdens het testen merkt u misschien dat u probeert te maken van de index meer dan één keer. Als gevolg hiervan, controleert u of de index die u gaat maken al bestaat voordat wordt geprobeerd om deze te maken. 
+Tijdens het testen merkt u misschien dat u probeert te maken van de index meer dan één keer. Als gevolg hiervan, controleert u of de index die u gaat maken al bestaat voordat wordt geprobeerd om deze te maken.
 
 ```csharp
-bool exists = serviceClient.Indexes.Exists(index.Name);
-if (exists)
+try
 {
-    serviceClient.Indexes.Delete(index.Name);
-}
+    bool exists = serviceClient.Indexes.Exists(index.Name);
 
-serviceClient.Indexes.Create(index);
+    if (exists)
+    {
+        serviceClient.Indexes.Delete(index.Name);
+    }
+
+    serviceClient.Indexes.Create(index);
+}
+catch (Exception e)
+{
+    // Handle exception
+}
 ```
 
 Zie [Create Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) (Index maken (Azure Search REST API)) voor meer informatie over het definiëren van een index.
@@ -526,14 +546,15 @@ Indexer indexer = new Indexer(
     fieldMappings: fieldMappings,
     outputFieldMappings: outputMappings);
 
-bool exists = serviceClient.Indexers.Exists(indexer.Name);
-if (exists)
-{
-    serviceClient.Indexers.Delete(indexer.Name);
-}
-
 try
 {
+    bool exists = serviceClient.Indexers.Exists(indexer.Name);
+
+    if (exists)
+    {
+        serviceClient.Indexers.Delete(indexer.Name);
+    }
+
     serviceClient.Indexers.Create(indexer);
 }
 catch (Exception e)
@@ -560,21 +581,29 @@ Wanneer inhoud wordt uitgepakt, kunt u instellen dat `imageAction` tekst ophaalt
 Nadat de indexeerfunctie is gedefinieerd, wordt deze automatisch uitgevoerd wanneer u de aanvraag verzendt. Afhankelijk van welke cognitieve vaardigheden u hebt gedefinieerd, kan het indexeren langer duren dan verwacht. Als u wilt weten of de indexeerfunctie nog steeds wordt uitgevoerd, gebruikt u de `GetStatus` methode.
 
 ```csharp
-IndexerExecutionInfo demoIndexerExecutionInfo = serviceClient.Indexers.GetStatus(indexer.Name);
-switch (demoIndexerExecutionInfo.Status)
+try
 {
-    case IndexerStatus.Error:
-        Console.WriteLine("Indexer has error status");
-        break;
-    case IndexerStatus.Running:
-        Console.WriteLine("Indexer is running");
-        break;
-    case IndexerStatus.Unknown:
-        Console.WriteLine("Indexer status is unknown");
-        break;
-    default:
-        Console.WriteLine("No indexer status information");
-        break;
+    IndexerExecutionInfo demoIndexerExecutionInfo = serviceClient.Indexers.GetStatus(indexer.Name);
+
+    switch (demoIndexerExecutionInfo.Status)
+    {
+        case IndexerStatus.Error:
+            Console.WriteLine("Indexer has error status");
+            break;
+        case IndexerStatus.Running:
+            Console.WriteLine("Indexer is running");
+            break;
+        case IndexerStatus.Unknown:
+            Console.WriteLine("Indexer status is unknown");
+            break;
+        default:
+            Console.WriteLine("No indexer information");
+            break;
+    }
+}
+catch (Exception e)
+{
+    // Handle exception
 }
 ```
 
@@ -603,6 +632,19 @@ catch (Exception e)
 }
 ```
 
+`CreateSearchIndexClient` maakt u een nieuwe `SearchIndexClient` met waarden die zijn opgeslagen in het configuratiebestand van de toepassing (appsettings.json). Houd er rekening mee dat de search service API-query-sleutel wordt gebruikt en niet de Administrator-code.
+
+```csharp
+private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
+{
+   string searchServiceName = configuration["SearchServiceName"];
+   string queryApiKey = configuration["SearchServiceQueryApiKey"];
+
+   SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "demoindex", new SearchCredentials(queryApiKey));
+   return indexClient;
+}
+```
+
 De uitvoer is het schema van de index met de naam, het type en de kenmerken van elk veld.
 
 Verzend een tweede query voor `"*"` om alle inhoud te retourneren van één veld, zoals `organizations`.
@@ -626,52 +668,11 @@ catch (Exception e)
 
 Herhaal dit voor aanvullende velden: inhoud, languageCode Sleutelzinnen en organisaties in deze oefening. U kunt meerdere velden retourneren via `$select` met behulp van een door komma's gescheiden lijst.
 
-<a name="access-enriched-document"></a>
-
-## <a name="accessing-the-enriched-document"></a>Het verrijkte document openen
-
-Met cognitief zoeken kunt u de structuur van het verrijkte document bekijken. Verrijkte documenten zijn tijdelijke structuren die tijdens het verrijken worden gemaakt en weer worden verwijderd wanneer het proces is voltooid.
-
-Als u een momentopname van het verrijkte document wilt vastleggen tijdens het indexeren, voegt u een veld met de naam ```enriched``` toe aan uw index. De indexeerfunctie dumpt automatisch een tekenreeksrepresentatie van de verrijkingen voor het document in het veld.
-
-Het veld ```enriched``` bevat dan een tekenreeks die een logische representatie vormt van het verrijkte document in het geheugen in JSON.  De veldwaarde is echter een geldig JSON-document. Aanhalingstekens worden geïdentificeerd met een escape-teken, waardoor u `\"` met `"` moet vervangen als u het document als geformatteerde JSON wilt weergeven.  
-
-Het veld ```enriched``` is bedoeld voor foutopsporing, alleen om u inzicht te geven in de logische vorm van de inhoud op basis waarvan expressies worden geëvalueerd. Het kan een handig hulpmiddel zijn om uw set vaardigheden te begrijpen en er fouten in op te sporen.
-
-Herhaal de vorige oefening en voeg een veld `enriched` toe om de inhoud van een verrijkt document vast te leggen:
-
-### <a name="request-body-syntax"></a>Syntaxis van de aanvraag hoofdtekst
-```csharp
-// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
-// It ensures that Pascal-case property names in the model class are mapped to camel-case
-// field names in the index.
-[SerializePropertyNamesAsCamelCase]
-public class DemoIndex
-{
-    [System.ComponentModel.DataAnnotations.Key]
-    [IsSearchable, IsSortable]
-    public string Id { get; set; }
-
-    [IsSearchable]
-    public string Content { get; set; }
-
-    [IsSearchable]
-    public string LanguageCode { get; set; }
-
-    [IsSearchable]
-    public string[] KeyPhrases { get; set; }
-
-    [IsSearchable]
-    public string[] Organizations { get; set; }
-
-    public string Enriched { get; set; }
-}
-```
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Opnieuw instellen en uitvoeren
 
-In de eerste experimentele fasen van de ontwikkeling is de meest praktische aanpak voor ontwerp iteraties verwijderen van de objecten uit Azure Search en ervoor zorgen dat uw code opnieuw opbouwen. Resourcenamen zijn uniek. Na het verwijderen van een object kunt u het opnieuw maken met dezelfde naam. 
+In de eerste experimentele fasen van de ontwikkeling is de meest praktische aanpak voor ontwerp iteraties verwijderen van de objecten uit Azure Search en ervoor zorgen dat uw code opnieuw opbouwen. Resourcenamen zijn uniek. Na het verwijderen van een object kunt u het opnieuw maken met dezelfde naam.
 
 In deze zelfstudie zorgt duurde controleren op bestaande Indexeerfuncties en indexen en deze worden verwijderd als ze al bestond, zodat u uw code opnieuw kunt uitvoeren.
 
@@ -681,11 +682,11 @@ Naarmate uw code meer vormt krijgt, is het raadzaam om uw herbouwstrategie te ve
 
 ## <a name="takeaways"></a>Opgedane kennis
 
-In deze zelfstudie zijn de basisstappen voor het bouwen van een pijplijn voor verrijkte indexering gedemonstreerd via het maken van onderdelen: een gegevensbron, een set vaardigheden, een index en een indexeerfunctie.
+De basisstappen voor het bouwen van een verrijkt indexeren pijplijn het maken van onderdelen in deze zelfstudie wordt gedemonstreerd: een gegevensbron, vaardigheden, index en indexeerfunctie.
 
 [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md) zijn geïntroduceerd, samen met de definitie van de set vaardigheden en het mechanisme voor het koppelen van vaardigheden via in- en uitvoeren. U hebt ook geleerd dat `outputFieldMappings` vereist is in de definitie van de indexeerfunctie voor de routering van verrijkte waarden uit de pijplijn naar een doorzoekbare index op een Azure Search-service.
 
-Tot slot hebt u geleerd hoe u resultaten kunt testen en het systeem opnieuw kunt instellen voor verdere iteraties. U hebt geleerd dat het uitvoeren van query's op de index de uitvoer retourneert die is gemaakt door de pijplijn voor verrijkte indexering. Deze release bevat een mechanisme voor het weergeven van interne constructies (verrijkte documenten die zijn gemaakt door het systeem). U hebt ook geleerd hoe u de status van de indexeerfunctie kunt controleren en welke objecten u moet verwijderen voordat u een pijplijn opnieuw uitvoert.
+Tot slot hebt u geleerd hoe u resultaten kunt testen en het systeem opnieuw kunt instellen voor verdere iteraties. U hebt geleerd dat het uitvoeren van query's op de index de uitvoer retourneert die is gemaakt door de pijplijn voor verrijkte indexering. U hebt ook geleerd hoe u de status van de indexeerfunctie kunt controleren en welke objecten u moet verwijderen voordat u een pijplijn opnieuw uitvoert.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

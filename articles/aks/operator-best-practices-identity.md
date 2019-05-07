@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 1c20e7796d152c9198786c491f9a61752d88ea6f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f98e38556458b8d8a675d1e3f985aacfca022082
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726623"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074133"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor verificatie en autorisatie in Azure Kubernetes Service (AKS)
 
@@ -88,7 +88,7 @@ Zie voor meer informatie over Azure AD-groepen gebruiken voor het beheren van to
 
 ## <a name="use-pod-identities"></a>Pod-identiteiten gebruiken
 
-**Aanbevolen procedurerichtlijn** -vaste referenties binnen schillen of containerinstallatiekopieën niet gebruiken omdat ze zich op risico's van blootstelling of misbruik. Gebruik in plaats daarvan pod-id's automatisch om toegang te vragen met behulp van een centraal oplossing voor Azure AD-identiteit.
+**Aanbevolen procedurerichtlijn** -vaste referenties binnen schillen of containerinstallatiekopieën niet gebruiken omdat ze zich op risico's van blootstelling of misbruik. Gebruik in plaats daarvan pod-id's automatisch om toegang te vragen met behulp van een centraal oplossing voor Azure AD-identiteit. Pod identiteiten is bedoeld voor gebruik met Linux-schillen en alleen installatiekopieën van de container.
 
 Wanneer schillen toegang hebben tot andere Azure-services, zoals Cosmos DB, Key Vault of Blob Storage moeten, moet de schil referenties voor toegang. Deze referenties voor toegang kunnen worden gedefinieerd met behulp van de containerinstallatiekopie of ingevoerd als een Kubernetes-geheim, maar moeten handmatig worden gemaakt en toegewezen. Vaak de referenties worden hergebruikt voor schillen en zijn niet regelmatig worden gedraaid.
 

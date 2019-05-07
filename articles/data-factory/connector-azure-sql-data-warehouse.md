@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 319ea3eaac2fcaa3c8e29680e125b7e29018ecc3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cf5713fecd354f1e1d2c0ce7d28439b5b8b785ec
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926608"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153428"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -229,7 +229,7 @@ Volg deze stappen voor het gebruik van beheerde verificatie:
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de Azure SQL Data Warehouse-gegevensset.
 
-Om gegevens te kopiëren van of naar Azure SQL Data Warehouse, stel de **type** eigenschap van de gegevensset in **AzureSqlDWTable**. De volgende eigenschappen worden ondersteund:
+Om gegevens te kopiëren van of naar Azure SQL Data Warehouse, zijn de volgende eigenschappen worden ondersteund:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
@@ -248,6 +248,7 @@ Om gegevens te kopiëren van of naar Azure SQL Data Warehouse, stel de **type** 
             "referenceName": "<Azure SQL Data Warehouse linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -375,7 +376,7 @@ Om gegevens te kopiëren naar Azure SQL Data Warehouse, stelt u het sink-type in
 | rejectType | Hiermee geeft u op of de **rejectValue** optie is een letterlijke waarde of een percentage.<br/><br/>Toegestane waarden zijn **waarde** (standaard) en **Percentage**. | Nee |
 | rejectSampleValue | Bepaalt het aantal rijen om op te halen voordat PolyBase berekent het percentage van geweigerde rijen opnieuw.<br/><br/>Toegestane waarden zijn 1, 2, enzovoort. | Ja, als de **rejectType** is **percentage**. |
 | useTypeDefault | Hiermee geeft u ontbrekende waarden in de tekstbestanden verwerken als PolyBase worden gegevens opgehaald uit het tekstbestand.<br/><br/>Meer informatie over deze eigenschap in de sectie argumenten [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Toegestane waarden zijn **waar** en **False** (standaard). | Nee |
-| writeBatchSize | Voegt de gegevens in de SQL-tabel wanneer de buffergrootte bereikt **writeBatchSize**. Geldt alleen wanneer PolyBase wordt niet gebruikt.<br/><br/>De toegestane waarde is **geheel getal** (aantal rijen). | Nee. De standaardwaarde is 10000. |
+| writeBatchSize | Aantal rijen dat moet worden ingevoegd in de SQL-tabel **per batch**. Geldt alleen wanneer PolyBase wordt niet gebruikt.<br/><br/>De toegestane waarde is **geheel getal** (aantal rijen). Standaard bepalen Data Factory dynamisch van de juiste batchgrootte op basis van de rijgrootte. | Nee |
 | writeBatchTimeout | Wachttijd voor de bewerking voor het invoegen van batch worden voltooid voordat er een optreedt time-out. Geldt alleen wanneer PolyBase wordt niet gebruikt.<br/><br/>De toegestane waarde is **timespan**. Voorbeeld: "00: 30:00 ' (30 minuten). | Nee |
 | preCopyScript | Geef een SQL-query voor de Kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in Azure SQL Data Warehouse in elke uitvoering. Gebruik deze eigenschap voor het opschonen van de vooraf geladen gegevens. | Nee |
 
@@ -423,12 +424,13 @@ Als aan de vereisten zijn niet voldaan, wordt Azure Data Factory controleert of 
 
 2. De **Brongegevensindeling** is van het **Parquet**, **ORC**, of **tekst met scheidingstekens**, met de volgende configuraties:
 
-   1. `folderPath` en `fileName` niet filteren op jokerteken bevatten.
-   2. `rowDelimiter` moet **\n**.
-   3. `nullValue` is een ingesteld op **lege tekenreeks** ("") of als standaard, links en `treatEmptyAsNull` als standaard links of ingesteld op true.
-   4. `encodingName` is ingesteld op **utf-8**, dit is de standaardwaarde.
-   5. `escapeChar`, `quoteChar` en `skipLineCount` zijn niet opgegeven. Ondersteuning voor PolyBase overslaan rij met koppen die kan worden geconfigureerd als `firstRowAsHeader` in ADF.
-   6. `compression` kan **geen compressie**, **GZip**, of **Deflate**.
+   1. Het pad naar map niet filteren op jokerteken bevatten.
+   2. Bestandsnaam van het verwijst naar een enkel bestand of is `*` of `*.*`.
+   3. `rowDelimiter` moet **\n**.
+   4. `nullValue` is een ingesteld op **lege tekenreeks** ("") of als standaard, links en `treatEmptyAsNull` als standaard links of ingesteld op true.
+   5. `encodingName` is ingesteld op **utf-8**, dit is de standaardwaarde.
+   6. `quoteChar`, `escapeChar`, en `skipLineCount` zijn niet opgegeven. Ondersteuning voor PolyBase overslaan rij met koppen die kan worden geconfigureerd als `firstRowAsHeader` in ADF.
+   7. `compression` kan **geen compressie**, **GZip**, of **Deflate**.
 
 ```json
 "activities":[

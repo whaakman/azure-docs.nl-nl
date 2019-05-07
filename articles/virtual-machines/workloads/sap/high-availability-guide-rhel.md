@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: c6746dc4bd5732a13c25793ed572a85acfca82d4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4e224a1abf72bfa068bebaf971e34c492b15d7c0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925789"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142995"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure virtuele Machines hoge beschikbaarheid voor SAP NetWeaver op Red Hat Enterprise Linux
 
@@ -87,6 +87,9 @@ SAP NetWeaver vereist voor het bereiken van hoge beschikbaarheid gedeelde opslag
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS INGEN voor SAP NetWeaver en SAP HANA-database gebruiken virtuele hostnaam en virtuele IP-adressen. In Azure, wordt een load balancer overstappen naar een virtueel IP-adres. De volgende lijst bevat de configuratie van de (A) SCS en INGEN load balancer.
 
+> [!IMPORTANT]
+> Multi-SID clustering van SAP ASCS/INGEN met Red Hat Linux als gastbesturingssysteem in Azure VM's wordt **niet ondersteund**. Multi-SID clustering beschrijft de installatie van meerdere SAP ASCS/INGEN exemplaren met verschillende SID's in één Pacemaker-cluster.
+
 ### <a name="ascs"></a>(A)SCS
 
 * Front-end-configuratie
@@ -95,7 +98,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS INGEN voor SAP NetWeaver en SAP HANA-datab
   * Verbonden met primaire netwerkinterfaces van alle virtuele machines die deel van de (A uitmaken) SCS/INGEN cluster
 * Testpoort
   * Poort 620<strong>&lt;nr&gt;</strong>
-* Regels van loadbalancing in Plbscheduler
+* Regels voor taakverdeling
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
@@ -112,7 +115,8 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS INGEN voor SAP NetWeaver en SAP HANA-datab
   * Verbonden met primaire netwerkinterfaces van alle virtuele machines die deel van de (A uitmaken) SCS/INGEN cluster
 * Testpoort
   * Poort 621<strong>&lt;nr&gt;</strong>
-* Regels van loadbalancing in Plbscheduler
+* Regels voor taakverdeling
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -128,7 +132,7 @@ U kunt een Azure-sjabloon gebruiken voor het implementeren van alle vereiste Azu
 
 ### <a name="deploy-linux-via-azure-template"></a>Linux via Azure-sjabloon implementeren
 
-De Azure Marketplace bevat een afbeelding voor Red Hat Enterprise Linux die u gebruiken kunt om nieuwe virtuele machines te implementeren. U kunt een van de snelstartsjablonen van op github gebruiken om alle vereiste resources te implementeren. De sjabloon implementeert de virtuele machines, load balancer, beschikbaarheidsset enzovoort. Volg deze stappen om de sjabloon te implementeren:
+De Azure Marketplace bevat een afbeelding voor Red Hat Enterprise Linux die u gebruiken kunt om nieuwe virtuele machines te implementeren. U kunt een van de snelstartsjablonen van op GitHub gebruiken om alle vereiste resources te implementeren. De sjabloon implementeert de virtuele machines, load balancer, beschikbaarheidsset enzovoort. Volg deze stappen om de sjabloon te implementeren:
 
 1. Open de [ASCS/SCS sjabloon] [ template-multisid-xscs] in Azure portal  
 1. Voer de volgende parameters
@@ -192,9 +196,9 @@ U moet eerst de virtuele machines voor dit cluster te maken. Daarna wordt u een 
          1. Klik op OK
       1. Poort 621**02** voor ASCS INGEN
          * Herhaal de stappen hierboven om te maken van een statustest voor de gebruikers (bijvoorbeeld 621**02** en **nw1-aers-hp**)
-   1. Regels van loadbalancing in Plbscheduler
+   1. Regels voor taakverdeling
       1. 32**00** TCP voor ASCS
-         1. De load balancer openen, selecteert u load balancer-regels en klikt u op toevoegen
+         1. De load balancer openen, taakverdeling regels selecteren en klik op toevoegen
          1. Voer de naam van de nieuwe load balancer-regel (bijvoorbeeld **nw1-lb-3200**)
          1. Selecteer de front-end-IP-adres, de back-endpool en de statustest die u eerder hebt gemaakt (bijvoorbeeld **nw1-ascs-frontend**)
          1. Houd protocol **TCP**, voer poort **3200**
@@ -457,7 +461,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
 
 1. **[A]**  Keep Alive configureren
 
-   De communicatie tussen de SAP NetWeaver-toepassingsserver en in de ASCS/SCS wordt doorgestuurd via een software load balancer. De load balancer wordt niet-actieve verbindingen verbroken na een configureerbare time-out. Om dit te voorkomen, moet u een parameter in de SAP NetWeaver ASCS/SCS-profiel instellen en wijzig de instellingen van het Linux-systeem. Lezen [SAP-notitie 1410736] [ 1410736] voor meer informatie.
+   De communicatie tussen de SAP NetWeaver-toepassingsserver en in de ASCS/SCS wordt doorgestuurd via een software load balancer. De load balancer wordt niet-actieve verbindingen verbroken na een configureerbare time-out. Om dit te voorkomen, moet u een parameter in de SAP NetWeaver ASCS/SCS-profiel instellen en wijzigen van de instellingen van het Linux-systeem. Lezen [SAP-notitie 1410736] [ 1410736] voor meer informatie.
 
    De ASCS/SCS profiel parameter enque/encni/set_so_keepalive is al toegevoegd in de vorige stap.
 
@@ -527,7 +531,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   Als u een upgrade uitvoert van een oudere versie en overschakelen naar de server in de wachtrij plaatsen 2, Zie sap-notitie [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
+   Als u een upgrade uitvoert van een oudere versie en overschakelen naar de server in de wachtrij plaatsen 2, raadpleegt u SAP Opmerking [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Zorg ervoor dat de clusterstatus ok is en dat alle resources worden gestart. Het is niet belangrijk op welk knooppunt de resources die worden uitgevoerd.
 

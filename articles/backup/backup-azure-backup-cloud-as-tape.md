@@ -1,20 +1,18 @@
 ---
 title: Azure Backup gebruiken om uw tape-infrastructuur te vervangen
 description: Informatie over hoe Azure Backup biedt tape-achtige semantiek waarmee u back-up en herstellen van gegevens in Azure
-services: backup
-author: trinadhk
-manager: vijayts
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/10/2017
-ms.author: saurse
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/30/2017
+ms.author: dacurwin
+ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646917"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146025"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Uw langdurige opslag van tape verplaatsen naar de Azure-cloud
 Azure Backup en System Center Data Protection Manager-klanten kunnen:
@@ -59,8 +57,7 @@ Het totale aantal 'bewaarpunten' (punt van waaruit een klant kunt gegevens herst
 Het totale aantal herstelpunten is 56.
 
 > [!NOTE]
-> Azure backup geen beperking op aantal herstelpunten.
->
+> U kunt maximaal 9999 herstelpunten per beveiligd exemplaar met behulp van Azure Backup maken. Een beveiligd exemplaar is een computer, server (fysiek of virtueel) of werkbelasting waarvan een back-ups van Azure.
 >
 
 ## <a name="advanced-configuration"></a>Geavanceerde configuratie
