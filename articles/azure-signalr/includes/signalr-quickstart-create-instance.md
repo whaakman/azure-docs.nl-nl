@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 15eded28e38279ea01bf019566d4fda5e7ac6c3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e8bdc63daa7450a88c2fcf4b7e878e18cea260d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325288"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198974"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Een exemplaar van de Azure SignalR Service maken
 
@@ -39,6 +39,4 @@ Uw toepassing maakt verbinding met een SignalR-Service-exemplaar in Azure.
 
 1. Selecteer **Maken** om te beginnen met het implementeren van het SignalR-Service-exemplaar.
 
-1. Nadat het exemplaar is geïmplementeerd, opent u het in de portal en zoek de pagina instellingen. Wijzig de modus van Service-instelling in *zonder*.
-
-    ![SignalR-servicemodus](../media/signalr-concept-azure-functions/signalr-service-mode.png)
+1. Nadat het exemplaar is geïmplementeerd, opent u het in de portal en zoek de pagina instellingen. Wijzig de modus van Service-instelling in *zonder* alleen als u Azure SignalR Service gebruikt via Azure Functions-binding of REST-API. Laat in *klassieke* of *standaard* anders.

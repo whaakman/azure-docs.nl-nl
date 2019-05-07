@@ -79,11 +79,11 @@ De `on-error` beleidssectie kan worden gebruikt op een bereik. API-uitgevers kun
   
 | Name     | Type   | Description                                                                                               | Vereist |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Bron   | string | De naam van het element waar de fout is opgetreden. Mogelijk beleid of de naam van een ingebouwde pijplijn-stap.     | Ja      |
-| Reden   | string | Machine-vriendelijk foutcode die kan worden gebruikt in foutafhandeling.                                       | Nee       |
-| Bericht  | string | Leesbare foutbeschrijving.                                                                         | Ja      |
-| Bereik    | string | Naam van het bereik waarin de fout is opgetreden en een van de 'global', 'product', "api" of 'bewerking' | Nee       |
-| Sectie  | string | De naam van sectie waarin fout is opgetreden. Mogelijke waarden: "inkomende", 'back-end', "uitgaande" of "on error".       | Nee       |
+| Source   | string | De naam van het element waar de fout is opgetreden. Mogelijk beleid of de naam van een ingebouwde pijplijn-stap.     | Ja      |
+| Reason   | string | Machine-vriendelijk foutcode die kan worden gebruikt in foutafhandeling.                                       | Nee       |
+| Message  | string | Leesbare foutbeschrijving.                                                                         | Ja      |
+| Scope    | string | Naam van het bereik waarin de fout is opgetreden en een van de 'global', 'product', "api" of 'bewerking' | Nee       |
+| Section  | string | De naam van sectie waarin fout is opgetreden. Mogelijke waarden: "inkomende", 'back-end', "uitgaande" of "on error".       | Nee       |
 | `Path`     | string | Hiermee geeft u geneste beleid, bijvoorbeeld ' kiezen [3] / wanneer [2] '.                                                        | Nee       |
 | `PolicyId` | string | De waarde van de `id` kenmerk als opgegeven door de klant, in het beleid dat is waar de fout is opgetreden             | Nee       |
 
@@ -96,7 +96,7 @@ De `on-error` beleidssectie kan worden gebruikt op een bereik. API-uitgevers kun
 ## <a name="predefined-errors-for-built-in-steps"></a>Vooraf gedefinieerde fouten voor de ingebouwde stappen  
  De volgende fouten zijn vooraf gedefinieerd voor fouten die zich tijdens de evaluatie van de verwerkingsstappen die worden ingebouwd voordoen kunnen.  
   
-| Bron        | Voorwaarde                                 | Reden                  | Bericht                                                                                                                |
+| Source        | Voorwaarde                                 | Reason                  | Message                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
 | configuratie | URI komt niet overeen met elke API of bewerking | OperationNotFound       | Kan niet overeen met de binnenkomende aanvraag voor een bewerking.                                                                      |
 | Autorisatie | De abonnementssleutel is niet opgegeven             | SubscriptionKeyNotFound | Toegang is geweigerd vanwege een ontbrekende abonnementssleutel. Zorg ervoor dat de abonnementssleutel bij aanvragen voor deze API. |
@@ -105,7 +105,7 @@ De `on-error` beleidssectie kan worden gebruikt op een bereik. API-uitgevers kun
 ## <a name="predefined-errors-for-policies"></a>Vooraf gedefinieerde fouten voor beleid  
  De volgende fouten zijn vooraf gedefinieerd voor fouten die zich tijdens de evaluatie van het beleid voordoen kunnen.  
   
-| Bron       | Voorwaarde                                                       | Reden                    | Bericht                                                                                                                              |
+| Source       | Voorwaarde                                                       | Reason                    | Message                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | Frequentielimiet   | Limiet overschreden                                             | RateLimitExceeded         | Limiet wordt overschreden                                                                                                               |
 | quota        | Quotum overschreden                                                  | QuotaExceeded             | Volumequotum buiten bereik. Quotum wordt aangevuld in xx:xx:xx. - of - Out van quota voor bandbreedte. Quotum wordt aangevuld in xx:xx:xx. |

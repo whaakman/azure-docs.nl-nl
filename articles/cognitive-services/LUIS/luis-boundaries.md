@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 58f6d6cf8bf16f7c35bab35a69cfcdf8759f66ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60814033"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154561"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Grenzen voor uw LUIS-model en de sleutels
 LUIS heeft verschillende gebieden van de grens. De eerste is de [model grens](#model-boundaries), welke besturingselementen intents, entiteiten en functies van LUIS. Het tweede gedeelte [quotalimieten](#key-limits) op basis van het type sleutel. Is van een derde deel van de grenzen van de [combinatie op het toetsenbord](#keyboard-controls) voor het beheren van de website van LUIS. Een vierde gebied is de [world regiotoewijzing](luis-reference-regions.md) tussen de LUIS website ontwerpen en de LUIS [eindpunt](luis-glossary.md#endpoint) API's. 
@@ -31,9 +31,11 @@ Als uw app de grenzen van LUIS-model en de grenzen overschrijdt, kunt u overwege
 | [App-naam][luis-get-started-create-app] | * Standaard teken max |
 | [Batch testen][batch-testing]| 10 gegevenssets, 1000 uitingen per gegevensset|
 | Expliciete lijst | 50 per toepassing|
+| Externe entiteiten | Er zijn geen limieten |
 | [Intents][intents]|500 per toepassing: 499 aangepaste intents en de vereiste _geen_ intentie.<br>[Op basis van verzending](https://aka.ms/dispatch-tool) toepassing heeft een bijbehorende 500 verzending bronnen.|
 | [Lijst met entiteiten](./luis-concept-entity-types.md) | Bovenliggend item: 50, onderliggende: maximaal 20.000 items. Canonieke naam is * standaard teken max. Synoniem waarden hebben geen lengtebeperking. |
-| [Entiteiten machine geleerd](./luis-concept-entity-types.md):<br> Composite,<br>  Hiërarchische<br> Eenvoudig|Een limiet van 100 bovenliggende entiteiten (dit is exclusief hiërarchische kinderen) of 330 entiteiten (inclusief hiërarchische kinderen), afhankelijk van wat beperken de treffers van de gebruiker eerst.<br><br>Een voorbeeld van met hiërarchie is 30 hiërarchieën met 10 kinderen.  De onderliggende objecten Totaal 300 verbruiken en de hiërarchie-elementen de resterende 30 verbruiken. |
+| [Entiteiten machine geleerd + rollen](./luis-concept-entity-types.md):<br> composite,<br>eenvoudige,<br>De entiteitsrol van de|Een limiet van 100 entiteiten van de bovenliggende of 330 entiteiten, afhankelijk van wat beperken de treffers van de gebruiker eerst. Een rol telt als een entiteit ten behoeve van deze grens. Een voorbeeld is een samengestelde met een enkele entiteit die 2-rollen: 1 eenvoudige voor samengestelde + 1 + 2 rollen = 4 van de 330 entiteiten.|
+| [Preview - lijst met dynamische entiteiten](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 lijsten met ~ 1 kB per query-voorspellingsaanvraag-eindpunt|
 | [Patronen](luis-concept-patterns.md)|500 patronen per toepassing.<br>Maximale lengte van het patroon is 400 tekens.<br>3 Pattern.any entiteiten per patroon<br>Maximaal 2 geneste optionele tekst in het patroon|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per toepassing, 3 pattern.any entiteiten per patroon |
 | [Woordgroepenlijst met][phrase-list]|10 woordgroep lijsten, 5000 items per lijst|

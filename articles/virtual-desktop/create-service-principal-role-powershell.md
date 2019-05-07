@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1bbe89484d72a21c4432d452d4ddae83ea2d2553
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870469"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146147"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Zelfstudie: Service-principals en roltoewijzingen maken met PowerShell
 
@@ -111,5 +111,5 @@ Dit zijn de drie referenties die te noteren en de cmdlets die u moet uitvoeren o
 
 In deze zelfstudie hebt u geleerd hoe u een service-principal maken en bij het aanmelden bij virtuele Windows-bureaublad. Voor meer informatie over hoe u zich aanmeldt bij Windows virtueel bureaublad, blijven het verbinding maken met Windows virtuele bureaublad uitleg.
 
-- [Verbinding maken met de extern bureaublad-client op Windows 7 en Windows 10](connect-windows-7-and-10.md)
-- [Verbinding maken met de webclient Windows Virtual Desktop Preview](connect-web.md)
+- [Verbinding maken vanaf Windows 10 of Windows 7](connect-windows-7-and-10.md)
+- [Verbinding maken via een webbrowser](connect-web.md)
