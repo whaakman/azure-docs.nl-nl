@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 29f98e334b0d2527b5159e1a5394109c5041024a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03c5eb2e32a0a8ec51844511276d9efba5651068
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465361"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073763"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Controleren op aanbevolen procedures voor Kubernetes in uw cluster
 
@@ -21,6 +21,8 @@ Er zijn enkele aanbevolen procedures die u voor uw Kubernetes-implementaties vol
 ## <a name="about-kube-advisor"></a>Over kube-advisor
 
 De [kube-advieshulpprogramma] [ kube-advisor-github] is van een enkele container ontworpen om te worden uitgevoerd op uw cluster. Deze query's van de Kubernetes API-server voor informatie over uw implementaties en retourneert een set met voorgestelde verbeteringen.
+
+Het hulpprogramma kube-advisor kunt rapporteren resourceaanvraag en limieten ontbreekt in de PodSpecs voor Windows-toepassingen, evenals de Linux-toepassingen, maar het hulpprogramma kube-advisor zelf moet worden gepland op een Linux-schil. U kunt plannen dat een schil om uit te voeren op een knooppunt van toepassingen met een specifiek besturingssysteem met een [knooppunt selector] [ k8s-node-selector] in de configuratie van de schil.
 
 > [!NOTE]
 > Het hulpprogramma kube-advisor wordt ondersteund door Microsoft op basis van best-effort. Problemen en suggesties moeten worden opgeslagen op GitHub.
@@ -73,3 +75,4 @@ Als u het hulpprogramma voor een cluster waarvoor geen RBAC is ingeschakeld uitv
 
 [kube-cpumem]: https://github.com/Azure/azure-quickstart-templates
 [kube-advisor-github]: https://github.com/azure/kube-advisor
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

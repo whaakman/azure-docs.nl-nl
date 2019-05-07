@@ -1,23 +1,23 @@
 ---
-title: Concepten van de server in Azure Database for PostgreSQL
-description: In dit artikel vindt u overwegingen en richtlijnen voor het configureren en beheren van Azure Database voor PostgreSQL-servers.
+title: Concepten in Azure Database for PostgreSQL - Server met één server
+description: In dit artikel vindt u overwegingen en richtlijnen voor het configureren en beheren van Azure Database voor PostgreSQL - één Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/07/2018
-ms.openlocfilehash: a5b6db9f4bfbe9a11119270e9236580b41fae8c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: bc135e58d0fbabc809f3718915e9f4e35b8ed875
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422096"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067160"
 ---
-# <a name="azure-database-for-postgresql-servers"></a>Azure Database for PostgreSQL-servers
-In dit artikel vindt u overwegingen en richtlijnen voor het werken met Azure Database for PostgreSQL-servers.
+# <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - één Server
+In dit artikel vindt u overwegingen en richtlijnen voor het werken met Azure Database voor PostgreSQL - één Server.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Wat is een Azure Database for PostgreSQL-server?
-Een Azure Database for PostgreSQL-server is een centraal beheerpunt voor meerdere databases. Dit is dezelfde PostgreSQL-server om voor te bereiden die u al bekend mee in de on-premises wereld wellicht. Met name de PostgreSQL-service wordt beheerd, biedt prestaties, toegang en-functies op het niveau van de server.
+Een server in de Azure Database for PostgreSQL - optie voor implementatie van één Server is een centraal beheerpunt voor meerdere databases. Dit is dezelfde PostgreSQL-server om voor te bereiden die u al bekend mee in de on-premises wereld wellicht. Met name de PostgreSQL-service wordt beheerd, biedt prestaties, toegang en-functies op het niveau van de server.
 
 Een Azure Database for PostgreSQL-server:
 

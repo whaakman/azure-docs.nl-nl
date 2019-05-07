@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bf2ded7a98d608780bc447c5944e7d1f4d9b698b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 95e4e3f3acc52c230405f0c0cc4a05b03b21a386
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926408"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153794"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Failover en Azure VM's tussen regio's opnieuw beveiligen
 
@@ -27,8 +27,10 @@ Deze zelfstudie wordt beschreven hoe u een failover uitgevoerd voor een Azure vi
 > [!NOTE]
 > In deze zelfstudie bevat de meest eenvoudige pad met standaardinstellingen en minimale aanpassing. Voor complexere scenario's, gebruikt u de artikelen in 'How To' voor virtuele Azure-machines.
 
+
 ## <a name="prerequisites"></a>Vereisten
 
+- Voordat u begint, controleert u [Veelgestelde vragen over](site-recovery-faq.md#failover) over failover.
 - Zorg dat u een [herstelanalyse](azure-to-azure-tutorial-dr-drill.md) hebt uitgevoerd om te controleren of alles werkt zoals verwacht.
 - Controleer de eigenschappen van de virtuele machine voordat u de testfailover uitvoert. De virtuele machine moet voldoen aan [Azure-vereisten](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 

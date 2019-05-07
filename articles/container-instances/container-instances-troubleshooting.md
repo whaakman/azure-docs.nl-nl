@@ -6,19 +6,19 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bf783c988c0163fe562669a8331c332dbf8d535e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61067322"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070855"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Algemene problemen in Azure Container Instances oplossen
 
-In dit artikel laat zien hoe algemene problemen voor het beheren of containers implementeren in Azure Container Instances oplossen.
+In dit artikel laat zien hoe algemene problemen voor het beheren of containers implementeren in Azure Container Instances oplossen. Zie ook [Veelgestelde vragen over](container-instances-faq.md).
 
 ## <a name="naming-conventions"></a>Naamconventies
 
@@ -46,11 +46,7 @@ Als u een installatiekopie die biedt geen ondersteuning voor Azure Container Ins
 }
 ```
 
-Deze fout wordt meestal veroorzaakt als implementatie Windows-installatiekopieën die zijn gebaseerd op een semi-Annual-kanaal (SAC). Bijvoorbeeld Windows versie 1709 en 1803 SAC releases zijn en deze fout bij de implementatie wordt gegenereerd.
-
-Azure Container Instances biedt momenteel ondersteuning voor Windows-installatiekopieën op basis van alleen de **Windows Server 2016 Long-Term Servicing Channel (LTSC)** release. Voor het oplossen van dit probleem bij het implementeren van Windows-containers implementeert u altijd op basis van Windows Server 2016 LTSC afbeeldingen. Installatiekopieën die zijn gebaseerd op Windows Server 2019 (LTSC) worden niet ondersteund.
-
-Zie voor meer informatie over de versies van Windows voor LTSC en SAC [overzicht van Windows Server semi-Annual-kanaal][windows-sac-overview].
+Deze fout wordt meestal veroorzaakt wanneer implementatie Windows-installatiekopieën die zijn gebaseerd op semi-Annual-kanaal versie 1709 of 1803, die niet worden ondersteund. Zie voor ondersteunde Windows-installatiekopieën in Azure Container Instances, [Veelgestelde vragen over](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ## <a name="unable-to-pull-image"></a>Kan geen pull-afbeelding
 
@@ -102,7 +98,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2019
  --command-line "ping -t localhost"
 ```
 
@@ -156,7 +152,7 @@ De twee primaire factoren die aan de opstarttijd container in Azure Container In
 * [De grootte van installatiekopie](#image-size)
 * [Installatiekopie-locatie](#image-location)
 
-Windows-installatiekopieën hebben [aanvullende overwegingen](#cached-windows-images).
+Windows-installatiekopieën hebben [aanvullende overwegingen](#cached-images).
 
 ### <a name="image-size"></a>De grootte van installatiekopie
 
@@ -176,14 +172,12 @@ De sleutel voor de grootte klein te houden is ervoor te zorgen dat uw uiteindeli
 
 Een andere manier om te beperken de gevolgen voor de pull-installatiekopie op de opstarttijd van de container is voor het hosten van de containerinstallatiekopie in [Azure Container Registry](/azure/container-registry/) in dezelfde regio waar u van plan bent om te containerinstanties implementeren. Dit verkort de netwerkpad dat de container-installatiekopie moet worden verzonden, aanzienlijk verkorten van de downloadtijd.
 
-### <a name="cached-windows-images"></a>Windows-installatiekopieën in de cache
+### <a name="cached-images"></a>In de cache opgeslagen afbeeldingen
 
-Azure Container Instances gebruikt een cachemechanisme om te snelheid container opstarttijd voor installatiekopieën op basis van algemene Windows- en Linux-installatiekopieën. Voor een gedetailleerde lijst in de cache installatiekopieën en tags, gebruikt u de [in de cache installatiekopieën vermelden] [ list-cached-images] API.
+Azure Container Instances gebruikt een cachemechanisme om te helpen snelheid container opstarttijd voor afbeeldingen die is gebouwd op common [Windows baseren installatiekopieën](container-instances-faq.md#what-windows-base-os-images-are-supported), waaronder `nanoserver:1809`, `servercore:ltsc2019`, en `servercore:1809`. Gebruikte Linux-installatiekopieën, zoals `ubuntu:1604` en `alpine:3.6` worden ook in de cache opgeslagen. Voor een bijgewerkte lijst van in de cache installatiekopieën en tags, gebruikt u de [in de cache installatiekopieën vermelden] [ list-cached-images] API.
 
-Om te controleren of de snelste opstarttijd van de Windows-container, gebruikt u een van de **drie meest recente** versies van de volgende **twee installatiekopieën** als de basisinstallatiekopie:
-
-* [Windows Server Core 2016] [ docker-hub-windows-core] (alleen LTSC)
-* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+> [!NOTE]
+> Gebruik van Windows Server 2019-installatiekopieën in Azure Container Instances is in preview.
 
 ### <a name="windows-containers-slow-network-readiness"></a>Gereedheid voor Windows-containers langzaam netwerk
 

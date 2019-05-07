@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/02/2018
+ms.date: 05/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381437"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137790"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Veelgestelde vragen over Azure Active Directory Connect
 
@@ -78,6 +78,47 @@ De eenvoudigste manier om dit te doen is met SQL Server Management Studio is ge�
 
 Dingen om eenvoudig te houden, is het raadzaam dat gebruikers die Azure AD Connect installeert systeembeheerders in SQL zijn. Echter met recente builds kunt u nu gebruikt u een SQL-beheerders gedelegeerde, zoals beschreven in [Installeer Azure AD Connect met behulp van SQL-gedelegeerde beheerdersmachtigingen](how-to-connect-install-sql-delegation.md).
 
+**V: Wat zijn enkele aanbevolen procedures van het veld?**  
+
+Hier volgt een informatieve document waarin enkele van de aanbevolen procedures die ondersteuning bieden voor engineering, en de consultants van Microsoft zijn ontwikkeld die in de afgelopen jaren.  Dit wordt weergegeven in een lijst met opsommingstekens die snel kan worden verwezen.  Hoewel deze lijst probeert om veelomvattend te zijn, kunnen er aanvullende aanbevolen procedures die mogelijk niet hebben gemaakt in de lijst nog.
+
+- Als met behulp van volledige SQL en vervolgens het apparaat, lokale blijven moet en externe
+    - Minder hops
+    - Gemakkelijker om op te lossen
+    - Minder complexiteit
+    - Moet ze resources naar SQL opgeven en overhead voor Azure AD Connect en OS toestaan
+- Indien mogelijk Proxy overslaan, als u niet de proxy overslaan, moet u ervoor te zorgen dat de time-outwaarde is groter dan 5 minuten.
+- Als de proxy is vereist en u de proxy aan het bestand machine.config toevoegen moet
+- Houd rekening met het lokale SQL-taken en het onderhoud en hoe ze is van invloed op Azure AD Connect - met name opnieuw indexeren
+- Zorg ervoor dat DNS extern kunt oplossen
+- Zorg ervoor dat [Serverspecificaties](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect) gelden per aanbeveling of u gebruikmaakt van fysieke of virtuele servers
+- Zorg ervoor dat als u een virtuele server dat resources die vereist zijn toegewezen
+- Zorg ervoor dat u hebt de schijf en de configuratie van de schijf is te voldoen aan aanbevolen procedures voor SQL Server
+- Installeren en configureren van Azure AD Connect Health voor bewaking
+- Gebruik de drempelwaarde voor verwijderen die is ingebouwd in Azure AD Connect.
+- Zorgvuldig controleren LDR-updates moeten worden voorbereid voor alle wijzigingen en nieuwe kenmerken die kunnen worden toegevoegd
+- Back-up van alles
+    - Back-sleutels
+    - Back-synchronisatieregels
+    - Back-upserver van configuratie
+    - Backup SQL Database
+- Zorg ervoor dat er geen 3e Backup-agents voor leveranciers, die een back-up SQL zonder dat de SQL VSS-schrijver (Algemeen in virtuele servers met 3e partij momentopnamen)
+- De hoeveelheid aangepaste synchronisatieregels die worden gebruikt als ze complexiteit toevoegen beperken
+- Behandelen van Azure AD Connect Servers als laag 0-Servers
+- Worden leery synchronisatieregels cloud zonder goed begrip van de impact en de juiste zakelijke stuurprogramma's te wijzigen
+- Zorg ervoor dat de juiste URL's en Firewall-poorten geopend voor ondersteuning van Azure AD Connect en Azure AD Connect Health zijn
+- Maak gebruik van de cloud kenmerk voor het oplossen en voorkomen van dummy objecten gefilterd
+- Zorg ervoor dat u van de Azure AD Connect-configuratie-documentatie voor consistentie tussen servers gebruikmaakt met de Staging-Server
+- Staging-Servers moeten zich in verschillende datacenters (fysieke locaties
+- Staging-servers zijn niet bedoeld om te worden van een oplossing voor hoge beschikbaarheid kunt, maar u meerdere faserings-servers
+- Maak kennis met een "Lag" Staging-Servers kan beperken sommige mogelijke downtime in het geval van fout
+- Testen en valideren van alle upgrades op de Server fasering eerst
+- Altijd valideren uitvoer voordat u naar de staging serverLeverage de staging-server voor volledige invoer en volledige synchronisaties te verminderen van de impact op bedrijf
+- Versie consistentie tussen Azure AD Connect-Servers zo veel mogelijk te houden 
+
+**V: Kan ik Azure AD Connect om u te maken van de Azure AD-Connector-account op de werkgroepcomputer toestaan?**
+Nee.  Als u wilt toestaan dat Azure AD Connect auto-Azure AD-Connector-account wilt maken, moet de machine domein.  
+
 ## <a name="network"></a>Netwerk
 **V: Ik heb een firewall, netwerkapparaat of iets anders dat de tijd die verbindingen geopend op mijn netwerk blijven kunnen beperkt. Wat moet mijn drempel voor time-out van client-side wanneer ik Azure AD Connect gebruiken?**  
 Alle netwerksoftware, fysieke apparaten of iets anders waardoor de maximumtijd die verbindingen kunnen open blijven moet een drempel van ten minste vijf minuten (300 seconden) gebruiken voor verbinding tussen de server waarop de Azure AD Connect-client is geïnstalleerd en Azure Active Directory. Deze aanbeveling geldt ook voor alle eerder uitgebrachte Microsoft Identity synchronisatie-hulpprogramma's.
@@ -107,6 +148,9 @@ Gebruik de richtlijnen die wordt beschreven in het artikel [certificaten vernieu
 ## <a name="environment"></a>Omgeving
 **V: Is dit dan ondersteund als u wilt wijzigen van de server nadat Azure AD Connect is geïnstalleerd?**  
 Nee. De synchronisatie-engine kan geen verbinding met de SQL database-instantie wijzigen van de servernaam wordt weergegeven en de service niet starten.
+
+**V: Worden de synchronisatieregels volgende generatie cryptografische (NGC) ondersteund op een machine FIPS is ingeschakeld?**  
+Nee.  Ze worden niet ondersteund.
 
 ## <a name="identity-data"></a>Identiteitsgegevens
 **V: Waarom niet het kenmerk userPrincipalName (UPN) in Azure AD overeenkomt met de on-premises UPN?**  

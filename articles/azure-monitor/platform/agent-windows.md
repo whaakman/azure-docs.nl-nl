@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/29/2019
 ms.author: magoedte
-ms.openlocfilehash: c7031e54c354392379fee83dbf2a777ba726c5e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34f02b1d72f08ef5da6b8a5740243b6e557bfb4a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777350"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138127"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Windows-computers verbinden met Azure Monitor
 
@@ -31,16 +31,18 @@ De agent kan worden geïnstalleerd met behulp van een van de volgende methoden. 
 * Handmatige installatie. Setup handmatig op de computer met de wizard setup vanaf de opdrachtregel wordt uitgevoerd of geïmplementeerd met behulp van een bestaand hulpprogramma voor softwaredistributie.
 * Azure Automation Desired State Configuration (DSC). Met behulp van DSC in Azure Automation met een script voor Windows-computers die al zijn geïmplementeerd in uw omgeving.  
 * PowerShell-script.
-* Resource Manager-sjabloon voor virtuele machines waarop Windows wordt uitgevoerd on-premises beschikken in Azure Stack.  
+* Resource Manager-sjabloon voor virtuele machines waarop Windows wordt uitgevoerd on-premises beschikken in Azure Stack. 
 
 >[!NOTE]
 >Azure Security Center (ASC) is afhankelijk van de Microsoft Monitoring Agent (ook wel de Log Analytics-Windows-agent genoemd) en installeert en configureert om te rapporteren aan een Log Analytics-werkruimte als onderdeel van de implementatie. ASC bevat een automatische inrichting optie dat automatische installatie van de Log Analytics-Windows-agent op alle virtuele machines in uw abonnement en configureert deze om te rapporteren aan een specifieke werkruimte. Zie voor meer informatie over deze optie [automatische inrichting van Log Analytics-agent inschakelen](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-microsoft-monitoring-agent-).
 >
 
+Als u configureren van de agent om te rapporteren aan meer dan één werkruimte wilt, dit kan niet worden uitgevoerd tijdens de eerste configuratie, de instellingen van het Configuratiescherm of PowerShell alleen daarna door bijwerken zoals beschreven in [toevoegen of verwijderen van een werkruimte](agent-manage.md#adding-or-removing-a-workspace).  
+
 Als u meer wilt weten over de ondersteunde configuratie, kunt u de informatie over [ondersteunde Windows-besturingssystemen](log-analytics-agent.md#supported-windows-operating-systems) en de [ netwerkconfiguratie voor de firewall](log-analytics-agent.md#network-firewall-requirements) raadplegen.
 
 ## <a name="obtain-workspace-id-and-key"></a>Werkruimte-ID en -sleutel ophalen
-Voordat u de Log Analytics-agent voor Windows installeert, moet u de werkruimte-ID en sleutel voor uw Log Analytics-werkruimte.  Deze informatie is vereist tijdens de installatie van elke installatiemethode correct configureren van de agent en ervoor zorgen dat deze kan communiceren met Azure Monitor in Azure commerciële en US Government-cloud.  
+Voordat u de Log Analytics-agent voor Windows installeert, moet u de werkruimte-ID en sleutel voor uw Log Analytics-werkruimte.  Deze informatie is vereist tijdens de installatie van elke installatiemethode correct configureren van de agent en ervoor zorgen dat deze kan communiceren met Azure Monitor in Azure commerciële en US Government-cloud. 
 
 1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 2. In de lijst met Log Analytics-werkruimten, selecteer de werkruimte die u van plan bent over het configureren van de agent om te rapporteren aan.

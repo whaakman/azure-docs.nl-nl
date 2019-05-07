@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: cc99bc4345c388f22e72957590f3917a85e214e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: f7fa1d58c21ea0ed457cc5987d7823fad68d554f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126618"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153818"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Een functie-app in Linux maken in een Azure App Service-plan
 
@@ -62,9 +62,6 @@ U moet beschikken over een functie-app om de uitvoering van uw functies in Linux
     ![Instellingen voor nieuwe functie-apps definiëren](./media/create-function-app-linux-app-service-plan/function-app-create-notification.png)
 
 5. Selecteer **Naar de resource gaan** om uw nieuwe functie-app te bekijken.
-
-> [!TIP]
-> Als u problemen ondervindt bij het vinden van de functie-app in de portal, [voegt u functie-apps toe aan uw favorieten in Azure Portal](functions-how-to-use-azure-function-app-settings.md#favorite).
 
 Vervolgens maakt u een functie in de nieuwe functie-app. Zelfs nadat de functie-app beschikbaar is, is het duurt een paar minuten volledig is geïnitialiseerd.
 

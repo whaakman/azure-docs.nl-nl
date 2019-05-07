@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 06/13/2018
+ms.date: 05/01/2019
 ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: 8922d4399f52937710f111c3c8ad4c9af91b6bb7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1144115ad349879d097062e44226dd2ffcf9b48e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309885"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154177"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>T-SQL-instructies ondersteund in Azure SQL Data Warehouse
 Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL Data Warehouse.
@@ -40,7 +40,7 @@ Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL
 * [CREATE TABLE](https://msdn.microsoft.com/library/mt203953.aspx)
 * [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx)
 * [WEERGAVE MAKEN](https://msdn.microsoft.com/library/ms187956.aspx)
-* [MAKEN van de WERKBELASTING classificatie](/sql/t-sql/statements/create-workload-classifier-transact-sql) (Preview)
+* [WORKLOAD CLASSIFICATIE MAKEN](/sql/t-sql/statements/create-workload-classifier-transact-sql)
 * [EXTERNE GEGEVENSBRON VERWIJDEREN](https://msdn.microsoft.com/library/mt146367.aspx)
 * [VERWIJDEREN VAN DE EXTERNE BESTANDSINDELING](https://msdn.microsoft.com/library/mt146379.aspx)
 * [EXTERNE TABEL VERWIJDEREN](https://msdn.microsoft.com/library/mt130698.aspx)
@@ -50,7 +50,7 @@ Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL
 * [TABEL VERWIJDEREN](https://msdn.microsoft.com/library/ms173790.aspx)
 * [SCHEMA VERWIJDEREN](https://msdn.microsoft.com/library/ms186751.aspx)
 * [WEERGAVE VERWIJDEREN](https://msdn.microsoft.com/library/ms173492.aspx)
-* [VERVOLGKEUZELIJST WERKBELASTING classificatie](/sql/t-sql/statements/drop-workload-classifier-transact-sql) (Preview)
+* [WORKLOAD-CLASSIFICATIE VERWIJDEREN](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
 * [WIJZIG DE NAAM](https://msdn.microsoft.com/library/mt631611.aspx)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)

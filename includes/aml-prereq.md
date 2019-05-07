@@ -10,11 +10,11 @@ ms.custom: include file
 ms.topic: include
 ms.date: 03/28/2019
 ms.openlocfilehash: 92ba6c6e875026d67c7ac7572d35a674659d0f1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819830"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072948"
 ---
 - Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 

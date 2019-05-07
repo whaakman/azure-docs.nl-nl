@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: c260273c647dd5dd6050f1fd543ebd5a5aa47b89
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922777"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137999"
 ---
 # <a name="action-rules-preview"></a>Actieregels (preview)
 
@@ -184,8 +184,8 @@ Aanbevolen gebruik te maken van naar waarschuwingen voor aan de actieregels van 
 
 * V. Wat gebeurt er als ik een resource in twee afzonderlijke actieregels worden bewaakt? Krijg ik een of twee meldingen? Bijvoorbeeld 'VM2' in dit scenario:
 
-      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' 
-      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1' 
+      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1'
+      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1'
 
     A. Voor elke waarschuwing voor 'VM1' en 'VM3', zou de actiegroep 'AG1' één keer worden geactiveerd. Voor elke waarschuwing op 'VM2' actiegroep 'AG1' tweemaal zou worden geactiveerd (**actieregels acties niet ongedaan maken dupliceren**). 
 
@@ -198,9 +198,10 @@ Aanbevolen gebruik te maken van naar waarschuwingen voor aan de actieregels van 
 
 * V. Wat gebeurt er als ik een waarschuwingsregel en een een actieregel gedefinieerd voor dezelfde resource verschillende actiegroepen aanroepen? Bijvoorbeeld, 'VM1' in dit scenario:
 
-     waarschuwingsregel 'rule1' op 'VM1' met de actie 'AG2' actieregel 'AR1' voor 'VM1' met actiegroep 'AG1' gedefinieerd.  
+      alert rule  'rule1' on          'VM1' with action group 'AG2'
+      action rule 'AR1'   defined for 'VM1' with action group 'AG1' 
  
-    A. Voor elke waarschuwing voor 'VM1', zou de actiegroep 'AG1' één keer worden geactiveerd. Wanneer de regel 'rule1' van de waarschuwing wordt geactiveerd, wordt het 'AG2' daarnaast ook activeren. (**actie groepen die zijn gedefinieerd in actieregels en regels voor waarschuwingen onafhankelijk van elkaar, met geen deduplicatie werken**) 
+    A. Voor elke waarschuwing voor 'VM1', zou de actiegroep 'AG1' één keer worden geactiveerd. Wanneer de regel 'rule1' van de waarschuwing wordt geactiveerd, wordt het 'AG2' daarnaast ook activeren. **Actiegroepen gedefinieerd in actieregels en regels voor waarschuwingen werken onafhankelijk van elkaar, met geen deduplicatie**. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

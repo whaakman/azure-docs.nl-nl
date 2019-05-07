@@ -2,18 +2,19 @@
 title: 'Azure-quickstart: Een wachtrij maken in Azure Storage met de Azure-portal | Microsoft Docs'
 description: In deze quickstart gebruikt u de Azure-portal voor het maken van een wachtrij. Vervolgens gebruikt u de Azure-portal een bericht toevoegen, de eigenschappen van het bericht weergeven en het bericht uit wachtrij verwijderen.
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 03/06/2019
-ms.author: tamram
-ms.openlocfilehash: 8a5dba5f949d5c20e0fbf752caac4125b8aecd52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: mhopkins
+ms.reviewer: cbrooks
+ms.openlocfilehash: 3b355aa2f3fd5e381ca922ada1444dd281fe74ec
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60460807"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138276"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Quickstart: Een wachtrij maken en een bericht toevoegen met de Azure-portal
 

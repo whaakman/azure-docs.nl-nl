@@ -7,12 +7,12 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 729e9fe749212942c6dc18fc7d6301934e7dd184
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775894"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137861"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Werken met grote Azure-resource-gegevenssets
 
@@ -67,8 +67,18 @@ Wanneer het nodig zijn aan het einde van een resultatenset in kleinere groepen v
 
 Wanneer **resultTruncated** is **waar**, wordt de **$skipToken** eigenschap is ingesteld in het antwoord. Deze waarde wordt gebruikt door de dezelfde waarden voor query's en -abonnement om op te halen van de volgende set met records die overeenkomen met de query.
 
+De volgende voorbeelden ziet u hoe u **overslaan** het eerste 3000 records en geretourneerd de **eerste** 1000 records na die zijn overgeslagen met Azure CLI en Azure PowerShell:
+
+```azurecli-interactive
+az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+```
+
 > [!IMPORTANT]
-> De query moet **project** de **id** veld in de volgorde voor paginering om te werken. Als deze ontbreekt uit de query, wordt de REST-API-reactie worden niet opgenomen de **$skipToken**.
+> De query moet **project** de **id** veld in de volgorde voor paginering om te werken. Als deze ontbreekt uit de query, wordt het antwoord niet opgenomen de **$skipToken**.
 
 Zie voor een voorbeeld [volgende pagina query](/rest/api/azureresourcegraph/resources/resources#next_page_query) in de REST-API-documenten.
 

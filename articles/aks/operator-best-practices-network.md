@@ -2,18 +2,17 @@
 title: Operator aanbevolen procedures - verbinding met het netwerk in Azure Kubernetes Services (AKS)
 description: Meer over de best practices uit de cluster-operator voor virtuele-netwerkbronnen en connectiviteit in Azure Kubernetes Service (AKS)
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 12/10/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: aaa16245fada7fbccdd0865d973de2fa19970989
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 12/10/2018
+ms.author: iainfou
+ms.openlocfilehash: 2bdc18ba4dc77178d5fcc5d2ba6d89aa109d923c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464002"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074146"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor verbinding met het netwerk en beveiliging in Azure Kubernetes Service (AKS)
 
@@ -48,7 +47,7 @@ Wanneer u Azure CNI netwerken gebruikt, is de VM-resource in een afzonderlijke r
 
 Zie voor meer informatie over AKS-service-principal overdracht [toegang tot andere Azure-resources delegeren][sp-delegation].
 
-Als elk knooppunt en een schil ontvangt een eigen IP-adres, plant de adresbereiken voor de AKS-subnetten. Het subnet moet groot genoeg is voor IP-adressen voor elk knooppunt, schillen en netwerkbronnen die u implementeert. Een AKS-cluster moet worden geplaatst in een eigen subnet. Als u wilt toestaan dat de verbinding met on-premises of gekoppelde netwerken in Azure, gebruik geen IP-adresbereiken die overlappen met bestaande netwerkbronnen. Er gelden standaard beperkingen voor het aantal schillen dat elk knooppunt wordt uitgevoerd met kubenet zowel Azure CNI netwerken. Voor het afhandelen van schaal van gebeurtenissen of upgraden van clusters, moet u ook extra IP-adressen beschikbaar voor gebruik in het toegewezen subnet.
+Als elk knooppunt en een schil ontvangt een eigen IP-adres, plant de adresbereiken voor de AKS-subnetten. Het subnet moet groot genoeg is voor IP-adressen voor elk knooppunt, schillen en netwerkbronnen die u implementeert. Een AKS-cluster moet worden geplaatst in een eigen subnet. Als u wilt toestaan dat de verbinding met on-premises of gekoppelde netwerken in Azure, gebruik geen IP-adresbereiken die overlappen met bestaande netwerkbronnen. Er gelden standaard beperkingen voor het aantal schillen dat elk knooppunt wordt uitgevoerd met kubenet zowel Azure CNI netwerken. Voor het afhandelen van schaal van gebeurtenissen of upgraden van clusters, moet u ook extra IP-adressen beschikbaar voor gebruik in het toegewezen subnet. Deze aanvullende adresruimte is vooral belangrijk als u Windows Server-containers (momenteel in preview in AKS), gebruiken zoals deze knooppuntgroepen een upgrade vereist naar de meest recente beveiligingspatches van toepassing. Zie voor meer informatie over Windows Server-knooppunten [een knooppuntgroep in AKS Upgrade][nodepool-upgrade].
 
 Voor het berekenen van het IP-adres vereist, Zie [netwerken van Azure CNI configureren in AKS][advanced-networking].
 
@@ -102,6 +101,8 @@ spec:
 
 Een controller voor binnenkomend verkeer is een daemon uit die wordt uitgevoerd op een AKS-knooppunt en controleert op binnenkomende aanvragen. Verkeer wordt dan gedistribueerd op basis van de regels die zijn gedefinieerd in de resource met inkomend verkeer. De meest voorkomende controller voor binnenkomend verkeer is gebaseerd op [NGINX]. AKS niet beperkt u naar een specifieke domeincontroller, zodat u andere domeincontrollers, zoals kunt [Contour][contour], [HAProxy][haproxy], of [ Traefik][traefik].
 
+Inkomend verkeer controllers moeten worden gepland op een Linux-knooppunt. Windows Server-knooppunten (momenteel in preview in AKS) mag niet de controller voor binnenkomend verkeer uitvoeren. Een knooppunt selector in uw manifest YAML of de implementatie van de Helm-grafiek gebruiken om aan te geven dat de resource moet worden uitgevoerd op een knooppunt op basis van Linux. Zie voor meer informatie, [gebruiken knooppunt selectoren om te bepalen, waarbij schillen zijn gepland in AKS][concepts-node-selectors].
+
 Er zijn veel scenario's voor inkomend verkeer, met inbegrip van de volgende handleidingen:
 
 * [Een eenvoudige ingangscontroller met verbinding met het externe netwerk maken][aks-ingress-basic]
@@ -125,9 +126,9 @@ Load balancer of ingress resources blijven om uit te voeren in uw AKS-cluster om
 
 **Aanbevolen procedurerichtlijn** -netwerkbeleid wilt toestaan of weigeren van verkeer naar schillen gebruiken. Standaard wordt al het verkeer toegestaan tussen schillen binnen een cluster. Definieert de regels die pod communicatie beperken voor verbeterde beveiliging.
 
-Netwerkbeleid (momenteel in preview in AKS) is een Kubernetes-functie waarmee u kunt de verkeersstroom tussen schillen beheren. U kunt toestaan of weigeren van verkeer op basis van de labels van de instellingen zoals die zijn toegewezen, naamruimte of verkeer poort. Het gebruik van netwerkbeleid profiteert van een cloud-eigen methode voor het beheren van de stroom van het verkeer. Nadat er schillen zijn dynamisch gemaakt in een AKS-cluster, kunnen het vereiste netwerkbeleid automatisch worden toegepast. Gebruik geen beveiligingsgroepen van Azure-netwerk wilt pod-pod-verkeer beheren, gebruikt u netwerkbeleid.
+Beleid voor netwerken is een Kubernetes-functie waarmee u kunt de verkeersstroom tussen schillen beheren. U kunt toestaan of weigeren van verkeer op basis van de labels van de instellingen zoals die zijn toegewezen, naamruimte of verkeer poort. Het gebruik van netwerkbeleid profiteert van een cloud-eigen methode voor het beheren van de stroom van het verkeer. Nadat er schillen zijn dynamisch gemaakt in een AKS-cluster, kunnen het vereiste netwerkbeleid automatisch worden toegepast. Gebruik geen beveiligingsgroepen van Azure-netwerk wilt pod-pod-verkeer beheren, gebruikt u netwerkbeleid.
 
-Als u wilt gebruiken, kan de functie moet worden ingeschakeld wanneer u een AKS-cluster maakt. U kunt beleid voor netwerken in een bestaand AKS-cluster niet inschakelen. Plan vooruit om ervoor te zorgen dat u netwerkbeleid op clusters inschakelen en deze indien nodig kunt gebruiken.
+Als u wilt gebruiken, kan de functie moet worden ingeschakeld wanneer u een AKS-cluster maakt. U kunt beleid voor netwerken in een bestaand AKS-cluster niet inschakelen. Plan vooruit om ervoor te zorgen dat u netwerkbeleid op clusters inschakelen en deze indien nodig kunt gebruiken. Netwerkbeleid moet alleen worden gebruikt voor knooppunten op basis van Linux en schillen in AKS.
 
 Een beleid voor netwerken wordt gemaakt als een Kubernetes-resource met behulp van een YAML-manifest. Het beleid wordt toegepast op de gedefinieerde schillen en vervolgens regels voor binnenkomende of uitgaande bepalen hoe het verkeer kan stromen. Het volgende voorbeeld wordt een beleid voor netwerken voor schillen met de *app: back-end* label toegepast. De regel voor inkomend verkeer vervolgens alleen verkeer toestaat van schillen met de *app: frontend* label:
 
@@ -187,3 +188,5 @@ In dit artikel gericht op de verbinding met het netwerk en beveiliging. Zie voor
 [use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
+[concepts-node-selectors]: concepts-clusters-workloads.md#node-selectors
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

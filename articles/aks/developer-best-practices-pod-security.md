@@ -2,18 +2,17 @@
 title: Aanbevolen procedures Developer - Pod-beveiliging in Azure Kubernetes Services (AKS)
 description: Informatie over de ontwikkelaar van aanbevolen procedures voor het beveiligen van pods in Azure Kubernetes Service (AKS)
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 1c2c5cbee91ddaee5f1f6af8ec17c48326f68e84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/06/2018
+ms.author: zarhoads
+ms.openlocfilehash: f9d49d143b31b0b9e73d8a147605935cd88d412b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466858"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073973"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Best practices voor beveiliging van de schil in Azure Kubernetes Service (AKS)
 
@@ -32,7 +31,9 @@ U kunt ook de aanbevolen procedures voor lezen [cluster security] [ best-practic
 
 **Aanbevolen procedurerichtlijn** : als u wilt uitvoeren als een andere gebruiker of groep en de limiet voor toegang tot het onderliggende knooppunt processen en services, het definiëren van de schil context beveiligingsinstellingen. Toewijzen van de minste aantal bevoegdheden die zijn vereist.
 
-Voor uw toepassingen goed te laten werken, schillen mag worden uitgevoerd als een opgegeven gebruiker of groep en niet als *hoofdmap*. De `securityContext` voor een pod of container kunt u definiëren van instellingen zoals *uitvoerenals* of *fsGroup* aan wordt ervan uitgegaan dat de juiste machtigingen. Alleen de gebruiker of groepsmachtigingen toewijzen, en de beveiligingscontext niet gebruiken als een manier om u te wordt ervan uitgegaan dat aanvullende machtigingen. Wanneer u als een niet-hoofdgebruiker uitvoert, containers kunnen geen binding met de bevoorrechte poorten onder 1024. In dit scenario kan vervalsen van het feit dat een app wordt uitgevoerd op een bepaalde poort Kubernetes-Services worden gebruikt.
+Voor uw toepassingen goed te laten werken, schillen mag worden uitgevoerd als een opgegeven gebruiker of groep en niet als *hoofdmap*. De `securityContext` voor een pod of container kunt u definiëren van instellingen zoals *uitvoerenals* of *fsGroup* aan wordt ervan uitgegaan dat de juiste machtigingen. Alleen de gebruiker of groepsmachtigingen toewijzen, en de beveiligingscontext niet gebruiken als een manier om u te wordt ervan uitgegaan dat aanvullende machtigingen. De *uitvoerenals*, uitbreiding van bevoegdheden en andere Linux-instellingen voor apparaatmogelijkheden zijn alleen beschikbaar op Linux-knooppunten en schillen.
+
+Wanneer u als een niet-hoofdgebruiker uitvoert, containers kunnen geen binding met de bevoorrechte poorten onder 1024. In dit scenario kan vervalsen van het feit dat een app wordt uitgevoerd op een bepaalde poort Kubernetes-Services worden gebruikt.
 
 Een beveiligingscontext schil kunt ook aanvullende mogelijkheden of machtigingen voor toegang tot processen en services definiëren. De volgende definities voor algemene beveiliging context kunnen worden ingesteld:
 
@@ -54,7 +55,7 @@ metadata:
 spec:
   containers:
     - name: security-context-demo
-      image: dockerhub.azk8s.cn/nginx:1.15.5
+      image: nginx:1.15.5
     securityContext:
       runAsUser: 1000
       fsGroup: 2000
@@ -67,7 +68,7 @@ Met uw cluster operator om te bepalen welke beveiliging context-instellingen die
 
 ## <a name="limit-credential-exposure"></a>Referentieblootstelling limiet
 
-**Aanbevolen procedurerichtlijn** -referenties niet definiëren in de code van uw toepassing. Gebruik beheerde identiteiten voor Azure-resources om te laten uw schil aanvraag voor toegang tot andere resources. Een digitale kluis, zoals Azure Key Vault, moet ook worden gebruikt voor het opslaan en ophalen van digitale sleutels en referenties.
+**Aanbevolen procedurerichtlijn** -referenties niet definiëren in de code van uw toepassing. Gebruik beheerde identiteiten voor Azure-resources om te laten uw schil aanvraag voor toegang tot andere resources. Een digitale kluis, zoals Azure Key Vault, moet ook worden gebruikt voor het opslaan en ophalen van digitale sleutels en referenties. Pod beheerde identiteiten is bedoeld voor gebruik met Linux-schillen en alleen installatiekopieën van de container.
 
 Als u wilt beperken het risico van referenties die worden weergegeven in de code van uw toepassing, te voorkomen dat het gebruik van vaste of gedeelde referenties. Referenties of sleutels mag niet rechtstreeks in uw code worden opgenomen. Als deze referenties worden weergegeven, wordt de toepassing moet worden bijgewerkt en opnieuw geïmplementeerd. Er is een betere benadering schillen geven hun eigen identiteit en de manier om te verifiëren zelf of referenties automatisch worden opgehaald uit een digitale-kluis.
 
@@ -97,6 +98,8 @@ Wanneer toepassingen moeten een referentie ze communiceren met de digitale kluis
 ![Vereenvoudigde werkstroom voor het ophalen van een referentie uit Key Vault met behulp van een schil beheerde identiteit](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
 
 Met Key Vault opslaan en regelmatig draaien geheimen zoals referenties, opslagaccountsleutels of certificaten. U kunt Azure Key Vault integreren met een AKS-cluster met behulp van een FlexVolume. Het stuurprogramma FlexVolume kunt het AKS-cluster systeemeigen referenties ophalen uit Key Vault en bieden ze veilig alleen aan de aanvragende schil. Werken met uw cluster-operator op die de Key Vault FlexVol-stuurprogramma op de AKS-knooppunten implementeren. Toegang aanvragen tot Key Vault en ophalen van de referenties die u nodig hebt door het stuurprogramma FlexVolume kunt u de identiteit van een pod beheerd.
+
+Azure Key Vault met FlexVol is bedoeld voor gebruik met toepassingen en services die worden uitgevoerd op Linux-schillen en knooppunten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

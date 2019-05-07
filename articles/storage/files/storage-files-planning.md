@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574469"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073358"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 
@@ -111,20 +111,16 @@ Het is mogelijk te verminderen van de grootte van uw ingerichte share hieronder 
 
 De volgende tabel ziet u enkele voorbeelden van deze formules voor de ingerichte share-grootten:
 
-(Grootten aangeduid met een * zijn in de beperkte openbare preview-versie)
-
 |Capaciteit (GiB) | Basislijn IOPS | Burst-IOP 's | Egress (MiB/s) | Inkomend (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Maximaal 300     | 66   | 44   |
 |500         | 500     | Maximaal 1500   | 90   | 60   |
 |1,024       | 1,024   | Maximaal 3,072   | 122   | 81   |
 |5,120       | 5,120   | Maximaal 15,360  | 368   | 245   |
-|10,240 *     | 10,240  | Maximaal 30,720  | 675 | 450   |
-|33,792 *     | 33,792  | Maximaal 100.000 | 2,088 | 1,392   |
-|51,200 *     | 51,200  | Maximaal 100.000 | 3,132 | 2,088   |
-|102,400 *    | 100.000 | Maximaal 100.000 | 6,204 | 4,136   |
-
-Op dit moment een share bestandsgrootten maximaal 5 TiB zijn in openbare preview, terwijl tot 100 TiB beperkte openbare preview-versie voor het aanvragen van toegang tot de beperkte openbare preview voltooid [deze enquête.](https://aka.ms/azurefilesatscalesurvey)
+|10,240      | 10,240  | Maximaal 30,720  | 675 | 450   |
+|33,792      | 33,792  | Maximaal 100.000 | 2,088 | 1,392   |
+|51,200      | 51,200  | Maximaal 100.000 | 3,132 | 2,088   |
+|102,400     | 100.000 | Maximaal 100.000 | 6,204 | 4,136   |
 
 ### <a name="bursting"></a>Bursting
 
@@ -184,7 +180,7 @@ Houd er rekening mee bij het bepalen van welke replicatieoptie te gebruiken:
 
 ## <a name="data-growth-pattern"></a>Patroon van de groei van gegevens
 
-Vandaag de dag de maximale grootte voor een Azure-bestandsshare is 5 TiB (100 TiB voor premium-bestand delen beperkte openbare preview-versie). Vanwege deze huidige beperking, u moet rekening houden met groei van de verwachte gegevens bij het implementeren van een Azure-bestandsshare.
+Vandaag de dag de maximale grootte voor een Azure-bestandsshare is 5 TiB (100 TiB voor premium-bestandsshares, die nu in openbare preview). Vanwege deze huidige beperking, u moet rekening houden met groei van de verwachte gegevens bij het implementeren van een Azure-bestandsshare.
 
 Het is mogelijk om te synchroniseren die meerdere Azure-bestandsshares op een enkele Windows-bestandsserver met Azure File Sync. Hiermee kunt u om ervoor te zorgen dat oudere, grote bestandsshares dat er on-premises naar Azure File Sync kunnen worden gebracht. Zie voor meer informatie, [plannen voor een implementatie van Azure File Sync](storage-files-planning.md).
 
