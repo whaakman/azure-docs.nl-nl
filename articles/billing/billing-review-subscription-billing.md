@@ -48,7 +48,7 @@ De volgende headers zijn vereist:
 |Aanvraagheader|Beschrijving|
 |--------------------|-----------------|
 |*Content-Type:*|Vereist. Ingesteld op `application/json`.|
-|*Autorisatie:*|Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+|*Authorization:*|Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 ## <a name="response"></a>Antwoord
 
