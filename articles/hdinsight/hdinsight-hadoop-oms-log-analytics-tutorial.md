@@ -1,6 +1,6 @@
 ---
 title: Gebruik Azure Monitor-logboeken voor het bewaken van Azure HDInsight-clusters
-description: Informatie over het gebruik van Azure Azure Monitor-logboeken voor het bewaken van taken die worden uitgevoerd in een HDInsight-cluster.
+description: Informatie over het gebruik van Azure Monitor-logboeken voor het bewaken van taken die worden uitgevoerd in een HDInsight-cluster.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0c37ff3c62817d238a94d5bbeae90c67663a6029
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 610843d325744aec8ad944075f06c63c90b6fe4d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689848"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203681"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Gebruik Azure Monitor-logboeken voor het controleren van HDInsight-clusters
 

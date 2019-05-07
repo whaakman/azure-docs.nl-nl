@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60487562"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204027"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Grootschalige gegevenssets verwerken met behulp van Data Factory en Batch
 > [!NOTE]
@@ -409,7 +409,7 @@ De methode heeft enkele belangrijke onderdelen die u nodig hebt om te begrijpen:
 #### <a name="execute-method"></a>De methode Execute
 Deze sectie bevat meer informatie over de code in de Execute-methode.
 
-1. De leden voor de invoerverzameling doorlopen vindt u in de [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) naamruimte. Als u wilt de blob-collectie doorlopen, bent u vereist om te gebruiken de **BlobContinuationToken** klasse. In wezen, moet u een do-while-lus met het token als het mechanisme voor het afsluiten van de lus. Zie voor meer informatie, [gebruik Blob storage vanuit .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). Een basic-lus wordt hier weergegeven:
+1. De leden voor de invoerverzameling doorlopen vindt u in de [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob) naamruimte. Als u wilt de blob-collectie doorlopen, bent u vereist om te gebruiken de **BlobContinuationToken** klasse. In wezen, moet u een do-while-lus met het token als het mechanisme voor het afsluiten van de lus. Zie voor meer informatie, [gebruik Blob storage vanuit .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). Een basic-lus wordt hier weergegeven:
 
     ```csharp
     // Initialize the continuation token.
@@ -432,7 +432,7 @@ Deze sectie bevat meer informatie over de code in de Execute-methode.
     } while (continuationToken != null);
 
     ```
-   Zie voor meer informatie de documentatie voor de [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx) methode.
+   Zie voor meer informatie de documentatie voor de [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobssegmented) methode.
 
 1. De code voor het werken met de reeks blobs logisch gaat binnen de do-while-lus. In de **Execute** methode, de-terwijl de lus wordt de lijst met blobs doorgegeven aan een methode met de naam **berekenen**. De methode retourneert een string-variabele met de naam **uitvoer** dat wil zeggen het resultaat van die via alle blobs in het segment herhaald.
 

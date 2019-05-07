@@ -1,19 +1,19 @@
 ---
-title: SSL-connectiviteit configureren in Azure Database for PostgreSQL
-description: Instructies en informatie voor het configureren van Azure Database for PostgreSQL en gekoppelde toepassingen gebruiken SSL-verbindingen.
+title: SSL-connectiviteit configureren in Azure Database voor PostgreSQL - één Server
+description: Instructies en informatie voor het configureren van Azure-Database voor PostgreSQL - één Server en de bijbehorende toepassingen correct gebruik van SSL-verbindingen.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/12/2019
-ms.openlocfilehash: 5a0fc99052b18dc1fa837147aa914a473d27d832
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 56611267872ca79d7d2fe3a08c9b9f49a9b1840b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871404"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067413"
 ---
-# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>SSL-connectiviteit configureren in Azure Database for PostgreSQL
+# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>SSL-connectiviteit configureren in Azure Database voor PostgreSQL - één Server
 Azure Database voor PostgreSQL verkiest het verbinden van uw clienttoepassingen met de PostgreSQL-service met Secure Sockets Layer (SSL). Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld.
 
 De PostgreSQL-databaseservice is standaard geconfigureerd om te vereisen dat SSL-verbinding. Desgewenst kunt u uitschakelen dat SSL verbinding maken met uw databaseservice als uw clienttoepassing geen ondersteuning biedt voor SSL-connectiviteit is vereist. 

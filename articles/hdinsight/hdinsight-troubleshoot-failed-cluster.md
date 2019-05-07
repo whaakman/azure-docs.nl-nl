@@ -1,5 +1,5 @@
 ---
-title: Oplossen van een traag of niet werkend HDInsight-cluster - Azure HDInsight
+title: Problemen met een traag of niet werkend taak op een HDInsight-cluster - Azure HDInsight oplossen
 description: Problemen vaststellen en oplossen van een traag of niet werkend HDInsight-cluster.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 785eac065e10c64b99839ab8667e9b613f62aeb9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0f405f542a8408c290704f1707ca10a24b08f861
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708915"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203630"
 ---
-# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Problemen met een traag of niet werkend HDInsight-cluster oplossen
+# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Problemen met een traag of niet werkend taak op een HDInsight-cluster oplossen
 
-Als een HDInsight-cluster is traag of waarbij een foutcode, hebt u verschillende opties voor het oplossen van problemen. Als uw taken langer duurt dan verwacht, of er trage reactietijden in het algemeen, kunnen er fouten upstream van uw cluster, zoals de services waarop het cluster wordt uitgevoerd. De meest voorkomende oorzaak van deze vertragingen is echter ontoereikend schalen. Wanneer u een nieuw HDInsight-cluster maakt, selecteert u de juiste [grootten van virtuele machines](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
+Als een toepassing verwerken van gegevens in een HDInsight-cluster is traag of waarbij een foutcode, hebt u verschillende opties voor het oplossen van problemen. Als uw taken langer duurt dan verwacht, of er trage reactietijden in het algemeen, kunnen er fouten upstream van uw cluster, zoals de services waarop het cluster wordt uitgevoerd. De meest voorkomende oorzaak van deze vertragingen is echter ontoereikend schalen. Wanneer u een nieuw HDInsight-cluster maakt, selecteert u de juiste [grootten van virtuele machines](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
 
 Verzamel informatie over alle aspecten van de omgeving, zoals de bijbehorende Azure-Services, configuratie van het cluster en informatie over het uitvoeren van taak voor het bepalen van een traag of niet werkend cluster. Een diagnose handig is om te proberen om het te reproduceren van de foutstatus in een ander cluster.
 

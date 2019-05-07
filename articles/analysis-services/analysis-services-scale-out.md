@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/06/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 42cdf230379665c596761f9846e52454a3d99680
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 5524645153db0468076cc9b567965bff79d915cb
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939675"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192329"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-uitschalen
 
@@ -51,7 +51,7 @@ Wanneer u de volgende scale-out-bewerking uitvoert, bijvoorbeeld zijn het aantal
 
 ### <a name="separate-processing-from-query-pool"></a>Afzonderlijk te verwerken van de querypool
 
-Voor maximale prestaties voor verwerking en querybewerkingen, kunt u kiezen voor het scheiden van de verwerkingsserver van de querypool. Wanneer gescheiden, worden bestaande en nieuwe clientverbindingen zijn toegewezen aan de query-replica's in de groep van de query alleen. Als een korte periode alleen bewerkingen voor de verwerking nemen, kunt u voor het scheiden van uw verwerkingsserver van de querypool alleen voor de hoeveelheid tijd die nodig is het uitvoeren van bewerkingen voor verwerking en synchronisatie en neemt u deze terug naar de querypool. 
+Voor maximale prestaties voor verwerking en querybewerkingen, kunt u kiezen voor het scheiden van de verwerkingsserver van de querypool. Wanneer gescheiden, worden nieuwe clientverbindingen zijn toegewezen aan de query-replica's in de groep van de query alleen. Als een korte periode alleen bewerkingen voor de verwerking nemen, kunt u voor het scheiden van uw verwerkingsserver van de querypool alleen voor de hoeveelheid tijd die nodig is het uitvoeren van bewerkingen voor verwerking en synchronisatie en neemt u deze terug naar de querypool. Wanneer het scheiden van de verwerkingsserver van de querypool, of het toevoegen van deze waarde weer terug naar de querypool kunnen maximaal vijf minuten voor de bewerking is voltooid.
 
 ## <a name="monitor-qpu-usage"></a>QPU-gebruik bewaken
 

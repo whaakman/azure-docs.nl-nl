@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 30d18e1e23767ce3a179221714e001574f8e9778
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 6c7fcb1429438ee024cb226b63cfcdcab05ed9f8
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075488"
+ms.locfileid: "65205810"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Inleiding tot de Azure Cosmos DB-etcd API (preview)
 
@@ -23,7 +23,7 @@ Azure Cosmos DB is wereldwijd gedistribueerde, multi-model database-service van 
 De etcd API in Azure Cosmos DB kunt u Azure Cosmos DB gebruiken als het archief met back-end voor [Azure Kubernetes](../aks/index.yml). etcd API in Azure Cosmos DB is momenteel in preview. Azure Cosmos DB implementeert de etcd wire-protocol. Met etcd API in Azure Cosmos DB, ontwikkelaars krijgen automatisch zeer betrouwbare [beschikbaar](high-availability.md), [wereldwijd gedistribueerde](distribute-data-globally.md) Kubernetes. Deze API kan ontwikkelaars Kubernetes statusbeheer schalen op een volledig beheerde cloud-native PaaS-service. 
 
 > [!NOTE]
-> In tegenstelling tot andere API's in Azure Cosmos DB, kunt u een etcd API-account via Azure portal, CLI of SDK's niet inrichten. U kunt een etcd API-account inrichten door het implementeren van de Resource Manager-sjabloon. Zie voor gedetailleerde stappen [inrichten Azure Kubernetes met Azure Cosmos DB](bootstrap-kubernetes-cluster.md) artikel.  
+> In tegenstelling tot andere API's in Azure Cosmos DB, kunt u een etcd API-account via Azure portal, CLI of SDK's niet inrichten. U kunt een etcd API-account inrichten door het implementeren van de Resource Manager-sjabloon. Zie voor gedetailleerde stappen [inrichten Azure Kubernetes met Azure Cosmos DB](bootstrap-kubernetes-cluster.md) artikel. Azure Cosmos DB etcd API is momenteel in de beperkte Preview-versie. U kunt [Meld u aan voor de Preview-versie](https://aka.ms/cosmosetcdapi-signup), door het invullen van het aanmeldingsformulier hebt ingevuld.
 
 ## <a name="wire-level-compatibility"></a>Wire-level compatibiliteit
 

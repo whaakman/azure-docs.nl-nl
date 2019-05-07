@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2019
+ms.date: 06/06/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 688bcc02b14d101008afc76662fd6548446cb329
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870280"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205706"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Instellen en configureren van AWS-kosten en gebruik rapport-integratie
 
 U kunt met Amazon Web Services-kosten en gebruik rapport-integratie, controleren en beheren van uw AWS-uitgaven in Azure Cost Management. Dankzij de integratie kunt één locatie in de Azure-portal waar u kunt controleren en de controle voor de uitgavelimiet voor zowel Azure als AWS. In dit artikel wordt uitgelegd hoe u de integratie instellen en configureren zodat u functies van Cost Management gebruiken om kosten te analyseren en controleren van budgetten.
 
-Kostenbeheer leest het AWS-kosten en gebruik rapport opgeslagen in een S3-bucket met behulp van uw AWS-referenties voor toegang te krijgen rapportdefinities en GZIP CSV-bestanden te downloaden.
+Kosten processen voor het AWS-kosten en gebruik rapport opgeslagen in een S3-bucket met behulp van uw AWS-referenties voor toegang te krijgen rapportdefinities en GZIP CSV-bestanden te downloaden.
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>Maken van een rapport kosten en gebruik in AWS
 
@@ -45,13 +45,15 @@ Gebruik de **rapporten** pagina van de facturering en Cost Management console in
 14. Nadat u de instellingen voor het rapport, klikt u op hebt bekeken **controleren en voltooien**.
     Houd er rekening mee de **rapportnaam**. U gebruikt dit in latere stappen.
 
-Het kan tot 24 uur voor AWS om te beginnen met het leveren van rapporten aan uw Amazon S3-bucket duren. Na levering wordt gestart, werkt AWS de AWS-kosten en gebruik rapportbestanden ten minste één keer per dag.
+Het kan tot 24 uur voor AWS om te beginnen met het leveren van rapporten aan uw Amazon S3-bucket duren. Na levering wordt gestart, werkt AWS de AWS-kosten en gebruik rapportbestanden ten minste één keer per dag. U kunt doorgaan met het configureren van uw AWS-omgeving zonder te wachten op voor de levering om te starten.
 
 ## <a name="create-a-role-and-policy-in-aws"></a>Maken van een rol en het beleid in AWS
 
 Azure Cost Management heeft toegang tot de S3-bucket waar de kosten en gebruik rapport zich meerdere keren per dag bevindt. Kostenbeheer moet toegang hebben tot de referenties te controleren of er nieuwe gegevens. U maakt een rol en het beleid in AWS waarmee toegang op basis van Cost Management.
 
 Als u wilt inschakelen op rollen gebaseerde toegang tot een AWS-account in Azure Cost Management, is de rol gemaakt in de AWS-console. U moet beschikken over de _rol informatie_ en _externe ID_ vanuit de AWS-console. Later kunt u ze in de maken een AWS-connector-pagina in Azure Cost Management.
+
+Gebruik de wizard nieuwe rol maken:
 
 1. Aanmelden bij uw AWS-console en selecteer **Services**.
 2. Selecteer in de lijst met services, **IAM**.
@@ -64,30 +66,42 @@ Als u wilt inschakelen op rollen gebaseerde toegang tot een AWS-account in Azure
 8. Klik op **Next: Permissions**.
 9. Klik op **beleid maken**. Een nieuw browsertabblad geopend waarin u een nieuw beleid maken.
 10. Klik op **kiest u een service**.
-11. Type **kosten en gebruiksrapport**.
-12. Selecteer **toegangsniveau**, **lezen** > **DescribeReportDefinitions**. Hiermee wordt dat Cost Management lezen huidige rapporten zijn gedefinieerd en bepalen als ze overeenkomen met de vereiste van de definitie van rapport.
-13. Klik op **aanvullende machtigingen**.
-14. Klik op **kiest u een service**.
-15. Type _S3_.
-16. Selecteer **toegangsniveau**, **lijst** > **ListBucket**. Deze actie wordt een lijst van objecten in de S3-Bucket opgehaald.
-17. Selecteer **toegangsniveau**, **lezen** > **GetObject**. Met deze actie kunt downloaden van bestanden facturering.
-18. Selecteer **Resources**.
-19. Selecteer **bucket – informatie toevoegen**.
-20. In **Bucketnaam**, voer de bucket gebruikt voor het opslaan van de huidige bestanden.
-21. Selecteer **object – informatie toevoegen**.
-22. In **Bucketnaam**, voer de bucket gebruikt voor het opslaan van de huidige bestanden.
-23. In **objectnaam**, selecteer **eventuele**.
-24. Klik op **aanvullende machtigingen**.
-25. Klik op **kiest u een service**.
-26. Type _kosten Explorer-Service_.
-27. Selecteer **acties voor alle kosten Explorer-Service (ce:\*)**. Deze actie wordt gecontroleerd of de verzameling juist is.
-28. Klik op **aanvullende machtigingen**.
-29. Type **organisaties**.
-30. Selecteer **toegangsniveau, lijst** > **ListAccounts**. Deze actie worden de namen van de accounts opgehaald.
-31. In **Review Policy**, voer een naam in voor het nieuwe beleid. Controleer of u de juiste gegevens hebt ingevoerd en klik vervolgens op **beleid maken**.
-32. Ga terug naar het vorige tabblad en vernieuw de webpagina van uw browser. In de zoekbalk typt, zoekt u het nieuwe beleid.
-33. Selecteer **Next: revisie**.
-34. Voer een naam voor de nieuwe rol. Controleer of u de juiste gegevens hebt ingevoerd en klik vervolgens op **rol maken**.
+
+Kosten en gebruiksrapport machtiging configureren:
+
+1. Type **kosten en gebruiksrapport**.
+2. Selecteer **toegangsniveau**, **lezen** > **DescribeReportDefinitions**. Hiermee wordt dat Cost Management lezen huidige rapporten zijn gedefinieerd en bepalen als ze overeenkomen met de vereiste van de definitie van rapport.
+3. Klik op **aanvullende machtigingen**.
+
+Configureer uw S3-bucket en objecten-machtiging:
+
+1. Klik op **kiest u een service**.
+2. Type _S3_.
+3. Selecteer **toegangsniveau**, **lijst** > **ListBucket**. Deze actie wordt een lijst van objecten in de S3-Bucket opgehaald.
+4. Selecteer **toegangsniveau**, **lezen** > **GetObject**. Met deze actie kunt downloaden van bestanden facturering.
+5. Selecteer **Resources**.
+6. Selecteer **bucket – informatie toevoegen**.
+7. In **Bucketnaam**, voer de bucket gebruikt voor het opslaan van de huidige bestanden.
+8. Selecteer **object – informatie toevoegen**.
+9. In **Bucketnaam**, voer de bucket gebruikt voor het opslaan van de huidige bestanden.
+10. In **objectnaam**, selecteer **eventuele**.
+11. Klik op **aanvullende machtigingen**.
+
+Kosten Explorer machtiging configureren:
+
+1. Klik op **kiest u een service**.
+2. Type _kosten Explorer-Service_.
+3. Selecteer **acties voor alle kosten Explorer-Service (ce:\*)**. Deze actie wordt gecontroleerd of de verzameling juist is.
+4. Klik op **aanvullende machtigingen**.
+
+Organisaties machtiging toevoegen:
+
+1. Type **organisaties**.
+2. Selecteer **toegangsniveau, lijst** > **ListAccounts**. Deze actie worden de namen van de accounts opgehaald.
+3. In **Review Policy**, voer een naam in voor het nieuwe beleid. Controleer of u de juiste gegevens hebt ingevoerd en klik vervolgens op **beleid maken**.
+4. Ga terug naar het vorige tabblad en vernieuw de webpagina van uw browser. In de zoekbalk typt, zoekt u het nieuwe beleid.
+5. Selecteer **Next: revisie**.
+6. Voer een naam voor de nieuwe rol. Controleer of u de juiste gegevens hebt ingevoerd en klik vervolgens op **rol maken**.
     Houd er rekening mee de **rol informatie** en de **externe ID** gebruikt in de voorgaande stappen bij het maken van de rol. U gebruikt deze later bij het instellen van de Azure Cost Management-connector.
 
 De JSON van het beleid moet lijken op het volgende voorbeeld. Vervang _bucketname_ met de naam van de S3-bucket.

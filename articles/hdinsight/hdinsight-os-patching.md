@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: a887d6c69b9fa80f3144434e72a097e80d123a1b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5b8ed75863087e077d483c792ac4134a0c3e1eb0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722302"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203641"
 ---
 # <a name="os-patching-for-hdinsight"></a>OS-patches voor HDInsight 
 
@@ -23,29 +23,25 @@ ms.locfileid: "64722302"
 De virtuele machines in een HDInsight-cluster moet opnieuw worden opgestart af en toe zodat belangrijke beveiligingspatches kunnen worden geïnstalleerd. 
 
 Met behulp van de scriptactie die wordt beschreven in dit artikel, kunt u de OS-patches schema als volgt wijzigen:
-1. In- of uitschakelen van automatisch opnieuw wordt opgestart
-2. Stel de frequentie van opnieuw wordt opgestart (dagen tussen het opnieuw opstarten)
-3. Stelt u de dag van de week wanneer opnieuw worden opgestart plaatsvindt
+1. Volledige updates van het besturingssysteem te installeren of alleen beveiligingsupdates installeren
+2. De virtuele machine opnieuw opstarten
 
 > [!NOTE]  
-> Deze scriptactie werkt alleen met HDInsight op basis van Linux-clusters die zijn gemaakt na 1 augustus 2016. Patches worden van kracht wanneer virtuele machines opnieuw zijn opgestart. 
+> Deze scriptactie werkt alleen met HDInsight op basis van Linux-clusters die zijn gemaakt na 1 augustus 2016. Patches worden van kracht wanneer virtuele machines opnieuw zijn opgestart. Met dit script worden de updates voor alle toekomstige update cycli niet automatisch toegepast. Voer het script dat elke wanneer er nieuwe updates worden toegepast moeten om de updates installeren en opnieuw opstarten van de virtuele machine.
 
 ## <a name="how-to-use-the-script"></a>Het gebruik van het script 
 
 Met dit script vereist wanneer de volgende gegevens:
-1. Locatie van het script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.  HDInsight maakt gebruik van deze URI om te zoeken en voer het script uit op alle virtuele machines in het cluster.
+1. Locatie van het script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/os-patching-reboot-config.sh.  HDInsight maakt gebruik van deze URI om te zoeken en voer het script uit op alle virtuele machines in het cluster.
   
-2. Knooppunt met de clustertypen waarmee het script wordt toegepast op: het hoofdknooppunt, workernode, zookeeper. Met dit script moet worden toegepast op alle typen in het cluster. Als deze niet op een knooppunttype toegepast wordt, wordt de virtuele machines voor dat knooppunttype blijven om de vorige patch schema te gebruiken.
+2. Knooppunt met de clustertypen waarmee het script wordt toegepast op: het hoofdknooppunt, workernode, zookeeper. Met dit script moet worden toegepast op alle typen in het cluster. Als deze niet op een knooppunttype toegepast wordt, wordt klikt u vervolgens de virtuele machines voor dat knooppunttype niet bijgewerkt.
 
 
-3.  Parameter: Met dit script worden drie parameters die numerieke geaccepteerd:
+3.  Parameter: Met dit script accepteert één numerieke parameter:
 
     | Parameter | Definitie |
     | --- | --- |
-    | Automatisch opnieuw wordt opgestart in-of uitschakelen |0 of 1. De waarde 0 wordt automatisch opnieuw wordt opgestart uitgeschakeld terwijl 1 schakelt u automatisch opnieuw wordt opgestart. |
-    | Frequentie |7 tot 90 (inclusief). Het aantal dagen moet worden gewacht voordat opnieuw opstarten van de virtuele machines voor patches die worden opgestart moeten. |
-    | Dag van week |1 tot en met 7 (inclusief). Een waarde van 1 geeft aan dat het opnieuw opstarten moet worden uitgevoerd op een maandag en 7 geeft een voorbeeld van Sunday.For, met behulp van parameters van 1 60 2 resulteert in een automatisch opnieuw wordt opgestart elke 60 dagen (maximaal) op dinsdag. |
-    | Persistentie |Bij het toepassen van een scriptactie aan een bestaand cluster, kunt u het script als persistent markeren. Persistente scripts worden toegepast wanneer nieuwe workernodes worden toegevoegd aan het cluster via het schalen herverdelen. |
+    | Volledige OS-updates/installatie alleen beveiligingsupdates installeren |0 of 1. De waarde 0 wordt beveiligingsupdates geïnstalleerd alleen vast als 1 volledige updates van het besturingssysteem wordt geïnstalleerd. Als er geen parameter is opgegeven op dat de standaardwaarde is 0. |
 
 > [!NOTE]  
 > U kunt dit script moet markeren als behouden bij het toepassen van aan een bestaand cluster. Nieuwe knooppunten die zijn gemaakt via vergroten / verkleinen Gebruik anders de standaardwaarde toepassen van patches planning.  Als u het script als onderdeel van het proces voor het maken van cluster toepast, worden deze automatisch opgeslagen.

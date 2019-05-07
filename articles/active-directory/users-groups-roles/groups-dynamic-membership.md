@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eebb68218fd6f9cbda229aae3d9e544e87441562
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471639"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192438"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regels voor dynamisch lidmaatschap voor groepen in Azure Active Directory
 
@@ -346,8 +346,8 @@ De volgende apparaatkenmerken kunnen worden gebruikt.
  Apparaatkenmerk  | Waarden | Voorbeeld
  ----- | ----- | ----------------
  accountEnabled | waar onwaar | (device.accountEnabled - eq true)
- displayName | een string-waarde |(device.displayName -eq "Rob Iphone”)
- deviceOSType | een string-waarde | (of device.deviceOSType - eq "iPad")- of (of device.deviceOSType - eq "iPhone")
+ displayName | een string-waarde |(device.displayName -eq "Rob iPhone")
+ deviceOSType | een string-waarde | (of device.deviceOSType - eq "iPad")- of (of device.deviceOSType - eq "iPhone")<br>(of device.deviceOSType-bevat "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | een string-waarde | (device.deviceOSVersion - eq "9.1")
  deviceCategory | een geldige naam van de apparaatcategorie | (device.deviceCategory - eq "BYOD")
  deviceManufacturer | een string-waarde | (device.deviceManufacturer -eq "Samsung")

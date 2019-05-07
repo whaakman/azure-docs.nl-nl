@@ -1,5 +1,5 @@
 ---
-title: Het ontwerpen van maximaal beschikbare Aaplications met behulp van geo-redundante opslag met leestoegang (RA-GRS) | Microsoft Docs
+title: Het ontwerpen van maximaal beschikbare toepassingen met behulp van geo-redundante opslag met leestoegang (RA-GRS) | Microsoft Docs
 description: Het gebruik van Azure RA-GRS-opslag te ontwerpen van een maximaal beschikbare toepassing flexibel genoeg is voor het afhandelen van storingen.
 services: storage
 author: tamram
@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6dc497ac2afd54965485ff553bb25f47d7cf0491
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c4d213a7c08162ef0b107572cfb79b6e96e271d6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139348"
+ms.locfileid: "65205499"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Maximaal beschikbare toepassingen met RA-GRS ontwerpen
 
@@ -148,7 +148,7 @@ Een andere overweging is hoe u voor het afhandelen van meerdere exemplaren van e
 
 U hebt drie belangrijkste opties voor het bewaken van de frequentie van nieuwe pogingen in de primaire regio om te bepalen wanneer Schakel over naar de secundaire regio en het wijzigen van de toepassing worden uitgevoerd in de modus alleen-lezen.
 
-*   Toevoegen van een handler voor de [ **opnieuw proberen** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) gebeurtenis op de [ **OperationContext** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) object die u doorgeeft aan uw opslag aanvragen: dit is de methode in dit artikel wordt weergegeven en gebruikt in het bijbehorende voorbeeld. Deze gebeurtenissen worden geactiveerd wanneer de client probeert om opnieuw een aanvraag, zodat u kunt om bij te houden hoe vaak de client op een primaire eindpunt herstelbare fouten tegenkomt.
+*   Toevoegen van een handler voor de [ **opnieuw proberen** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) gebeurtenis op de [ **OperationContext** ](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) object die u doorgeeft aan uw opslag aanvragen: dit is de methode in dit artikel wordt weergegeven en gebruikt in het bijbehorende voorbeeld. Deze gebeurtenissen worden geactiveerd wanneer de client probeert om opnieuw een aanvraag, zodat u kunt om bij te houden hoe vaak de client op een primaire eindpunt herstelbare fouten tegenkomt.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -159,7 +159,7 @@ U hebt drie belangrijkste opties voor het bewaken van de frequentie van nieuwe p
     };
     ```
 
-*   In de [ **evalueren** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) methode in een beleid voor aangepaste opnieuw proberen, kunt u aangepaste code uitgevoerd wanneer een nieuwe poging plaatsvindt. Naast het op te nemen wanneer een nieuwe poging gebeurt, dit biedt u ook de mogelijkheid om te wijzigen van het gedrag voor opnieuw proberen.
+*   In de [ **evalueren** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) methode in een beleid voor aangepaste opnieuw proberen, kunt u aangepaste code uitgevoerd wanneer een nieuwe poging plaatsvindt. Naast het op te nemen wanneer een nieuwe poging gebeurt, dit biedt u ook de mogelijkheid om te wijzigen van het gedrag voor opnieuw proberen.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,

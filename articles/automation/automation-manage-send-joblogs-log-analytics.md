@@ -1,6 +1,6 @@
 ---
 title: Azure Automation-taakgegevens doorsturen naar Azure Monitor-logboeken
-description: In dit artikel laat zien hoe u met het verzenden van taakstatus en runbook-taakstromen naar Logboeken van Azure Azure Monitor om meer inzicht en beheer te bieden.
+description: In dit artikel laat zien hoe u met het verzenden van taakstatus en runbook-taakstromen naar Logboeken van Azure Monitor om meer inzicht en beheer te bieden.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8672bc28ea5e8562472408810a38ea0de6778cfd
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739104"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65200622"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Taakstatus en taakstromen van Automation doorsturen naar de logboeken van Azure Monitor
 

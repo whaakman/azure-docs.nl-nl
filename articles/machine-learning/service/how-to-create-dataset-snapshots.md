@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.date: 05/02/2019
-ms.openlocfilehash: ed10cb259802321769605bc0399a610131ddb174
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 51d0dcfc543834e9a8725d11fa82b566a5132a6b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029143"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204998"
 ---
 # <a name="compare-data-and-ensure-reproducibility-with-snapshots-preview"></a>Gegevens vergelijken en zorg ervoor dat reproduceerbaarheid met momentopnamen (preview)
 
-In dit artikel hebt u meer informatie over het maken en beheren van momentopnamen van uw [Azure Machine Learning gegevenssets](how-to-create-register-datasets.md) (gegevenssets) zodat u kunt vastleggen of gegevens na verloop van tijd vergelijken. Gegevenssets wordt het eenvoudiger voor toegang tot en met uw gegevens in de cloud in verschillende scenario's werken. 
+In dit artikel hebt u meer informatie over het maken en beheren van momentopnamen van uw [Azure Machine Learning gegevenssets](how-to-create-register-datasets.md) (gegevenssets) zodat u kunt vastleggen of gegevens na verloop van tijd vergelijken. Gegevenssets wordt het eenvoudiger voor toegang tot en met uw gegevens in de cloud in verschillende scenario's werken.
 
-**Momentopnamen van de gegevensset** een profiel (samenvattende statistieken) van de gegevens opslaan op het moment dat deze gemaakt. U kunt ook een kopie van de gegevens opslaan in de momentopname voor reproduceerbaarheid. 
+**Momentopnamen van de gegevensset** een profiel (samenvattende statistieken) van de gegevens opslaan op het moment dat deze gemaakt. U kunt ook een kopie van de gegevens opslaan in de momentopname voor reproduceerbaarheid.
 
 >[!Important]
 > Momentopnamen worden kosten voor opslag. Opslaan van een kopie van gegevens in de momentopname, moet nog meer opslag. Gebruik [ `dataset.delete_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#delete-snapshot-snapshot-name-) wanneer ze zijn niet meer nodig zijn.
@@ -29,9 +29,9 @@ In dit artikel hebt u meer informatie over het maken en beheren van momentopname
 
 Er zijn drie hoofddoelen voor momentopnamen van:
 
-+ **Validatie van het model**: Vergelijk het gegevensprofiel van verschillende momentopnamen tussen trainingsuitvoeringen of op basis van productiegegevens. 
++ **Validatie van het model**: Vergelijk het gegevensprofiel van verschillende momentopnamen tussen trainingsuitvoeringen of op basis van productiegegevens.
 
-+ **Model reproduceerbaarheid**: De resultaten door het aanroepen van een momentopname met gegevens tijdens de training reproduceren. 
++ **Model reproduceerbaarheid**: De resultaten door het aanroepen van een momentopname met gegevens tijdens de training reproduceren.
 
 + **Gegevens gedurende een periode bijhouden**: Zie hoe de gegevensset zich heeft ontwikkeld door [profielen vergelijken](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#compare-profiles-rhs-dataset-snapshot--include-columns-none--exclude-columns-none--histogram-compare-method--histogramcomparemethod-wasserstein--0--)
   
@@ -41,16 +41,17 @@ Voor het maken van momentopnamen van de gegevensset, moet u een geregistreerde A
 
 ## <a name="create-dataset-snapshots"></a>Maken van een momentopname van de gegevensset
 
-Gebruik voor het maken van een momentopname van een gegevensset [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) van de Azure Machine Learning-SDK. 
+Gebruik voor het maken van een momentopname van een gegevensset [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) van de Azure Machine Learning-SDK.
 
 De momentopname slaat het profiel (samenvattende statistieken) van de gegevens met de meest recente [gegevenssetdefinitie](how-to-manage-dataset-definitions.md) toegepast. De gegevenssetdefinitie van een bevat een overzicht van alle stappen voor gegevenstransformatie gedefinieerd voor de gegevens. Het is een uitstekende manier om uw gegevensvoorbereiding werken reproduceerbare maken.
 
-(Optioneel) u kunt ook een kopie van de gegevens in uw momentopname door toe te voegen `create_data_snapshot = True`.  Deze gegevens kan nuttig zijn voor reproduceerbaarheid. 
+(Optioneel) u kunt ook een kopie van de gegevens in uw momentopname door toe te voegen `create_data_snapshot = True`.  Deze gegevens kan nuttig zijn voor reproduceerbaarheid.
 
 In dit voorbeeld wordt [criminaliteit voorbeeldgegevens](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) en een gegevensset met de naam `dataset_crime` gemaakt met behulp van het artikel ['gegevenssets maken en registreren'](how-to-create-register-datasets.md).
 
 ```Python
-from azureml.core.dataset import Workspace, Dataset
+from azureml.core.workspace import Workspace
+from azureml.core.dataset import Dataset
 from azureml.data.dataset_snapshot import DatasetSnapshot
 import datetime
 
@@ -58,7 +59,7 @@ import datetime
 workspace = Workspace.from_config()
 
 # get existing, named dataset:
-dataset = workspace.Dataset['dataset_crime']
+dataset = workspace.datasets['dataset_crime']
 
 # assign name to snapshot
 snapshot_name = 'snapshot_' + datetime.datetime.today().strftime('%Y%m%d%H%M%S')
@@ -69,11 +70,10 @@ snapshot = dataset.create_snapshot(snapshot_name = snapshot_name,
                                    compute_target = remote_compute_target,
                                    create_data_snapshot = True)
 ```
- 
 
 Omdat momentopnamen asynchroon worden gemaakt, gebruikt u de [ `wait_for_completion()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#wait-for-completion-show-output-true--status-update-frequency-10-) methode voor het bewaken van het proces.
 
-```python
+```Python
 # monitor process every 10 seconds
 snapshot.wait_for_completion(show_output=True, status_update_frequency=10)
 
@@ -102,7 +102,7 @@ Gebruik [ `dataset.delete_snapshot()` ](https://docs.microsoft.com/python/api/az
 
 Gebruiken om op te halen van een momentopname van een bestaande, [ `get_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-snapshot-snapshot-name-).
 
-Als u een lijst met uw opgeslagen momentopnamen van een bepaalde gegevensset, gebruikt [ `get_all_snapshots()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-all-snapshots--). 
+Als u een lijst met uw opgeslagen momentopnamen van een bepaalde gegevensset, gebruikt [ `get_all_snapshots()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-all-snapshots--).
 
 ```Python
 # Get named snapshot for this dataset
@@ -141,12 +141,11 @@ Regio|FieldType.INTEGER|5|24|10.0|0,0|10.0|0,0|0,0|0,0|5|5|5|6|13|19|24|24|24|13
 Ward|FieldType.INTEGER|1|48|10.0|0,0|10.0|0,0|0,0|0,0|1|5|1|9|22.5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
 Community-gebied|FieldType.INTEGER|4|77|10.0|0,0|10.0|0,0|0,0|0,0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
 
-
 ### <a name="get-the-data-from-the-snapshot"></a>De gegevens ophalen uit de momentopname
 
 Als u een kopie van de gegevens die zijn opgeslagen in een momentopname van een gegevensset, genereert u een pandas DataFrame met de [ `to_pandas_dataframe()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#to-pandas-dataframe--) methode.
 
-Deze methode mislukt als een kopie van de gegevens niet tijdens het maken van de momentopname is aangevraagd. 
+Deze methode mislukt als een kopie van de gegevens niet tijdens het maken van de momentopname is aangevraagd.
 
 ```Python
 snapshot.to_pandas_dataframe().head(3)
@@ -157,7 +156,6 @@ snapshot.to_pandas_dataframe().head(3)
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|1153|MISLEIDENDE PRAKTIJK|DIEFSTAL VAN FINANCIËLE IDENTITEITEN VIA $ 300|ANDERE|False|False|...|9|50|11|1183356.0|1831503.0|2016|2016-05-11 15:48:00|41.692834|-87.604319|(41.692833841, -87.60431945)
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD OPSLAAN|890|DIEFSTAL|VANAF HET OPSTELLEN|WOONPLAATS|False|False|...|21|71|6|1166776.0|1850053.0|2016|2016-05-12 15:48:00|41.744107|-87.664494|(41.744106973, -87.664494285)
 2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO OPSLAAN|1154|MISLEIDENDE PRAKTIJK|DIEFSTAL VAN FINANCIËLE IDENTITEITEN $300 EN KLIKT U ONDER|WOONPLAATS|False|False|...|19|74|11|NaN|NaN|2016|2016-05-12 15:50:00|NaN|NaN|
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

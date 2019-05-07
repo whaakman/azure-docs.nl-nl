@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 683f916596b4c77ec1dbc2acf1f91876c0752c08
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f9087d1fda7574043879983e31d7b608dbe58798
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028828"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204978"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Verken en voorbereiden van gegevens met de gegevensset-klasse (Preview)
 
@@ -44,7 +44,7 @@ Om te verkennen en uw gegevens voorbereiden, hebt u het volgende nodig:
 Nemen een voorbeeld van uw gegevens om op te halen van een eerste inzicht in uw data-architectuur en de inhoud. Op dit moment de [ `sample()` ](https://docs.microsoft.com//python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#sample-sample-strategy--arguments-) methode van de klasse van de gegevensset ondersteunt de populairste N, eenvoudige willekeurige en Stratified steekproeven strategieën.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import random
 
 # create an in-memory Dataset from a local file
@@ -109,7 +109,6 @@ sample_dataset.to_pandas_dataframe()
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE OPSLAAN|890|DIEFSTAL|...
 2|10535059|HZ278872|4/15/2016 4:30|004XX S KILBOURN OPSLAAN|810|DIEFSTAL|...
 
-
 ## <a name="explore-with-summary-statistics"></a>Verkennen met samenvattende statistieken
 
  Detecteer afwijkingen, waarden, ontbreken of fout telt met de [ `get_profile()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-) methode. Deze functie haalt het profiel en samenvattende statistieken over uw gegevens, die op zijn beurt helpt bepalen welke bewerkingen voor het voorbereiden van de benodigde gegevens om toe te passen.
@@ -152,7 +151,7 @@ Van het profiel voor een gegevensset gegenereerd in de vorige sectie, zien we da
 Haal eerst de meest recente definitie van de gegevensset met [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) en de gegevens met verkleinen [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow), zodat we alleen de kolommen die we adres willen weergeven.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import azureml.dataprep as dprep
 
 # get the latest definition of Dataset
@@ -222,7 +221,6 @@ Zoals u in de volgende uitvoertabel, de ontbrekende breedtegraad is toegerekende
 1|10516598|False|41.744107|-87.664494
 2|10519196|False|41.780049|-87.000000
 
-
 Bijwerken van de definitie van de gegevensset, [ `update_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-) te houden van de transformatiestappen uitgevoerd.
 
 ```Python
@@ -240,12 +238,13 @@ dataset.head(3)
 
 Vaak de gegevens met werken tijdens het opschonen en voorbereiden van gegevens is slechts een subset van de totale hoeveelheid gegevens die we nodig hebben voor productie. Als gevolg hiervan enkele van de veronderstellingen die we als onderdeel van onze reinigen maken kan het zo zijn ingesteld op false. Bijvoorbeeld, in een gegevensset die voortdurend wordt bijgewerkt, kan bevatten een kolom die oorspronkelijk alleen uit cijfers binnen een bepaald bereik een groot aantal waarden in latere uitvoeringen. Deze fouten leiden vaak tot verbroken pijplijnen of beschadigde gegevens.
 
-Gegevenssets ondersteunt het maken van asserties op gegevens die worden geëvalueerd omdat de pijplijn wordt uitgevoerd. Deze asserties zodat we verifiëren dat onze aannames over de gegevens blijven wel correct en, indien dit niet het geval is, voor het afhandelen van fouten dienovereenkomstig.
+Gegevenssets ondersteuning voor het maken van asserties op gegevens die worden geëvalueerd omdat de pijplijn wordt uitgevoerd. Deze asserties zodat we verifiëren dat onze aannames over de gegevens blijven wel correct en, indien dit niet het geval is, voor het afhandelen van fouten dienovereenkomstig.
 
 Bijvoorbeeld, als u wilt beperken `Latitude` en `Longitude` waarden in uw gegevensset op specifieke numerieke bereiken, de [ `assert_value()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#assert-value-columns--multicolumnselection--expression--azureml-dataprep-api-expressions-expression--policy--azureml-dataprep-api-engineapi-typedefinitions-assertpolicy----assertpolicy-errorvalue--1---error-code--str----assertionfailed------azureml-dataprep-api-dataflow-dataflow) methode zorgt ervoor dat dit is altijd het geval is.
 
 ```Python
 from azureml.dataprep import value
+from azureml.core.dataset import Dataset
 
 # get the latest definition of the Dataset
 ds_def = dataset.get_definition()
@@ -282,7 +281,7 @@ print(error.originalValue)
 Een van de meer geavanceerde hulpprogramma's voor gegevenssets is de mogelijkheid voor het afleiden van kolommen met behulp van voorbeelden van de gewenste resultaten. Hiermee kunt u de SDK een voorbeeld geven, zodat deze code voor het bereiken van de beoogde transformaties kunt genereren.
 
 ```Python
-from azureml.dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local file
 dataset = Dataset.auto_read_files('./data/crime.csv')
@@ -302,8 +301,8 @@ De volgende code ziet u twee voorbeelden van de gewenste uitvoer. (' 2016-04-04 
 ```Python
 ds_def = dataset.get_definition()
 ds_def = ds_def.derive_column_by_example(
-        source_columns = "Date", 
-        new_column_name = "Date_Time_Range", 
+        source_columns = "Date",
+        new_column_name = "Date_Time_Range",
         example_data = [("2016-04-04 23:56:00", "2016-04-04 10PM-12AM"), ("2016-04-15 17:00:00", "2016-04-15 4PM-6PM")]
     )
 ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
@@ -329,7 +328,7 @@ U kunt variaties faciliteren voor de spellingcontrole, hoofdletters of afkorting
 Bijvoorbeeld, de kolom `inspections.business.city` bevat verschillende vormen van de stad naam "San Francisco'.
 
 ```Python
-from azureml.Dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local json file
 dataset = Dataset.auto_read_files('./data/city.json')

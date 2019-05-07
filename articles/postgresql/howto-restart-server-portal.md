@@ -1,19 +1,19 @@
 ---
-title: Opnieuw opstarten van Azure Database for PostgreSQL-server met behulp van Azure portal
-description: Dit artikel wordt beschreven hoe u een Azure Database for PostgreSQL-server met behulp van de Azure portal opnieuw kunt starten.
+title: Opnieuw opstarten van Azure Database voor PostgreSQL - één Server met behulp van Azure portal
+description: Dit artikel wordt beschreven hoe u een Azure Database voor PostgreSQL - één Server met behulp van de Azure portal kunt opnieuw.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 3/18/2019
-ms.openlocfilehash: bf73120e462b740de5d2245f8a647896ac61f2c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: fd92e27f53f52de3e9a7fd65d577c9dfea44991b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420409"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65066838"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>Opnieuw opstarten van Azure Database for PostgreSQL-server met behulp van de Azure portal
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Opnieuw opstarten van Azure Database voor PostgreSQL - één Server met behulp van de Azure portal
 In dit onderwerp wordt beschreven hoe u een Azure Database for PostgreSQL-server opnieuw kunt starten. Mogelijk moet u de server voor onderhoudsredenen, waardoor een korte onderbreking als de server de bewerking voert opnieuw.
 
 De server opnieuw opstarten wordt geblokkeerd als de service bezet is. De service kan bijvoorbeeld een eerder gevraagde bewerking, zoals schalen vCores verwerkt.

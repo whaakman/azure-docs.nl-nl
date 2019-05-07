@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: a0fc9a8356f4a322ae81a668515a6a60c6001011
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: c0d5108ee235be74f6188bfc8b590069a4e790b5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141246"
+ms.locfileid: "65192645"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Overzicht van Azure-pagina-blobs
 
@@ -43,7 +43,7 @@ Het volgende overzicht beschrijft de algehele relaties tussen de account, contai
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
 
 #### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>Het maken van een lege pagina-blob van een opgegeven grootte
-Voor het maken van een pagina-blob, maken we eerst een **CloudBlobClient** object met de basis-URI voor de toegang tot de blob-opslag voor uw storage-account (*pbaccount* in afbeelding 1) samen met de  **StorageCredentialsAccountAndKey** -object, zoals wordt weergegeven in het volgende voorbeeld. In het voorbeeld wordt vervolgens het maken van een verwijzing naar een **CloudBlobContainer** object en klikt u vervolgens het maken van de container (*testvhds*) als deze nog niet bestaat. Vervolgens met behulp van de **CloudBlobContainer** object, maakt u een verwijzing naar een **CloudPageBlob** object met de naam van de pagina-blob (os4.vhd) om toegang te geven. Aanroepen voor het maken van de pagina-blob, [CloudPageBlob.Create](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) doorgeven in de maximale grootte voor de blob te maken. De *blobSize* moet een meervoud van 512 bytes.
+Voor het maken van een pagina-blob, maken we eerst een **CloudBlobClient** object met de basis-URI voor de toegang tot de blob-opslag voor uw storage-account (*pbaccount* in afbeelding 1) samen met de  **StorageCredentialsAccountAndKey** -object, zoals wordt weergegeven in het volgende voorbeeld. In het voorbeeld wordt vervolgens het maken van een verwijzing naar een **CloudBlobContainer** object en klikt u vervolgens het maken van de container (*testvhds*) als deze nog niet bestaat. Vervolgens met behulp van de **CloudBlobContainer** object, maakt u een verwijzing naar een **CloudPageBlob** object met de naam van de pagina-blob (os4.vhd) om toegang te geven. Aanroepen voor het maken van de pagina-blob, [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) doorgeven in de maximale grootte voor de blob te maken. De *blobSize* moet een meervoud van 512 bytes.
 
 ```csharp
 using Microsoft.WindowsAzure.StorageClient;
@@ -66,13 +66,13 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 ```
 
 #### <a name="resizing-a-page-blob"></a>Formaat van een pagina-blob
-Als u wilt het formaat van een pagina-blob na het maken, gebruikt u de [vergroten of verkleinen](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.resize?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Resize_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) API. De aangevraagde grootte moet een meervoud zijn van 512 bytes.
+Als u wilt het formaat van een pagina-blob na het maken, gebruikt u de [vergroten of verkleinen](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Resize_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) API. De aangevraagde grootte moet een meervoud zijn van 512 bytes.
 ```csharp
 pageBlob.Resize(32 * OneGigabyteAsBytes); 
 ```
 
 #### <a name="writing-pages-to-a-page-blob"></a>Pagina's schrijven naar een pagina-blob
-Voor het schrijven van pagina's, gebruikt u de [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_) methode.  Hiermee kunt u een opeenvolgende reeks's tot 4MBs schrijven. De verschuiving naar worden geschreven moet starten op een grens van een 512-byte (startingOffset % 512 == 0), en eindigen op een 512 grens - 1.  Het volgende codevoorbeeld laat zien hoe u aan te roepen **WritePages** voor een blob:
+Voor het schrijven van pagina's, gebruikt u de [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_) methode.  Hiermee kunt u een opeenvolgende reeks's tot 4MBs schrijven. De verschuiving naar worden geschreven moet starten op een grens van een 512-byte (startingOffset % 512 == 0), en eindigen op een 512 grens - 1.  Het volgende codevoorbeeld laat zien hoe u aan te roepen **WritePages** voor een blob:
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
@@ -88,7 +88,7 @@ Het onderstaande diagram laat zien 2 afzonderlijke schrijfbewerkingen:
 2.  Een schrijfbewerking beginnen bij verschuiving 4096 van de lengte van 1024 
 
 #### <a name="reading-pages-from-a-page-blob"></a>Gelezen pagina's van een pagina-blob
-Gelezen pagina's, gebruikt u de [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.icloudblob.downloadrangetobytearray?view=azure-dotnet) methode voor het lezen van een bereik van bytes van de pagina-blob. Hiermee kunt u de volledige blob of een bereik van bytes vanaf de verschuiving in de blob te downloaden. Bij het lezen, heeft de verschuiving niet starten op een veelvoud van 512 bytes. Bij het lezen van bytes van een pagina met NUL, retourneert de service nul bytes.
+Gelezen pagina's, gebruikt u de [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray?view=azure-dotnet) methode voor het lezen van een bereik van bytes van de pagina-blob. Hiermee kunt u de volledige blob of een bereik van bytes vanaf de verschuiving in de blob te downloaden. Bij het lezen, heeft de verschuiving niet starten op een veelvoud van 512 bytes. Bij het lezen van bytes van een pagina met NUL, retourneert de service nul bytes.
 ```csharp
 byte[] buffer = new byte[rangeSize];
 pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSize); 
@@ -97,7 +97,7 @@ De volgende afbeelding toont een leesbewerking met BlobOffSet van 256 en rangeSi
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
-Als u een facturatiemodel ingevuld blob hebt, kunt u alleen de regio geldige pagina's om te voorkomen dat betaalt voor egressing van nul bytes en verminder de latentie van de download te downloaden.  Gebruiken om te bepalen welke pagina's worden ondersteund door de gegevens, [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.getpageranges?view=azure-dotnet). U kunt vervolgens het inventariseren van de geretourneerde bereiken en downloaden van de gegevens in elk bereik. 
+Als u een facturatiemodel ingevuld blob hebt, kunt u alleen de regio geldige pagina's om te voorkomen dat betaalt voor egressing van nul bytes en verminder de latentie van de download te downloaden.  Gebruiken om te bepalen welke pagina's worden ondersteund door de gegevens, [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges?view=azure-dotnet). U kunt vervolgens het inventariseren van de geretourneerde bereiken en downloaden van de gegevens in elk bereik. 
 ```csharp
 IEnumerable<PageRange> pageRanges = pageBlob.GetPageRanges();
 

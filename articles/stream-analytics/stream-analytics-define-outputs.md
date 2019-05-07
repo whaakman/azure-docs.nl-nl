@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3fab76613bb992b29ceeef12cf5f410c5c3b208d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926066"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205535"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 Dit artikel wordt beschreven welke typen beschikbaar zijn voor een Azure Stream Analytics-taak uitvoer. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. U kunt doen met behulp van de uitvoergegevens, meer business analytics en datawarehousing van uw gegevens.
@@ -228,7 +228,7 @@ De volgende tabel bevat de namen van eigenschappen en de bijbehorende beschrijvi
 | Tabelnaam |De naam van de tabel. De tabel wordt gemaakt als deze niet bestaat. |
 | Partitiesleutel |De naam van de uitvoerkolom die de partitiesleutel bevat. De partitiesleutel is een unieke id voor de partitie in een tabel die het eerste deel van de primaire sleutel van een entiteit vormen. Het is een tekenreekswaarde die maximaal 1 KB groot kan zijn. |
 | Rijsleutel |De naam van de uitvoerkolom die de rijsleutel bevat. De rijsleutel is een unieke id voor een entiteit binnen een partitie. Deze bestaat uit het tweede gedeelte van de primaire sleutel van een entiteit. De rijsleutel is een tekenreekswaarde die maximaal 1 KB groot kan zijn. |
-| Batchgrootte |Het aantal records voor een batchbewerking. De standaardwaarde (100) is voldoende voor de meeste taken. Zie de [tabel batchbewerking spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) voor meer informatie over het aanpassen van deze instelling. |
+| Batchgrootte |Het aantal records voor een batchbewerking. De standaardwaarde (100) is voldoende voor de meeste taken. Zie de [tabel batchbewerking spec](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) voor meer informatie over het aanpassen van deze instelling. |
 
 ## <a name="service-bus-queues"></a>Service Bus-wachtrijen
 [Service Bus-wachtrijen](https://msdn.microsoft.com/library/azure/hh367516.aspx) bieden een FIFO-berichtbezorging naar een of meer concurrerende consumenten. Normaal gesproken worden berichten ontvangen en verwerkt door de ontvangers in de tijdsvolgorde waarin ze zijn toegevoegd aan de wachtrij. Elk bericht wordt ontvangen en verwerkt door slechts één berichtconsument.

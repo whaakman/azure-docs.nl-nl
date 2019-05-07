@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 25c71019227c52bf0c1530dcdf655fc7575d8032
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148526"
+ms.locfileid: "65205720"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) over virtuele Azure-netwerk
 
@@ -67,7 +67,7 @@ Ja. Zie voor meer informatie over het openbare IP-adresbereiken [maken van een v
 Ja. Zie [Azure-limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) voor meer informatie. Subnet-adresruimten elkaar niet overlappen elkaar.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Zijn er beperkingen voor het gebruik van IP-adressen binnen deze subnetten?
-Ja. Azure reserveert bepaalde IP-adressen binnen elk subnet. De eerste en laatste IP-adressen van elk subnet zijn gereserveerd voor protocolconformiteit en de x.x.x.1 x.x.x.3-adressen van elk subnet, die worden gebruikt voor Azure-services.
+Ja. In Azure worden vijf IP-adressen gereserveerd in elk subnet. De eerste en laatste IP-adressen van elk subnet zijn gereserveerd voor protocolconformiteit en de x.x.x.1 x.x.x.3-adressen van elk subnet, die worden gebruikt voor Azure-services.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Hoe klein en hoe groot kunnen zijn VNets en subnetten?
 Het kleinste ondersteunde subnet /29 en de grootste/8 die is (met behulp van definities van de CIDR-subnetmasker).
@@ -231,7 +231,7 @@ Ja. Meer informatie over het gebruik van:
 VNet-peering (of peering op virtueel netwerk), kunt u virtuele netwerken verbinden. Een VNet-peeringverbinding tussen virtuele netwerken kunt u het routeren van verkeer tussen privé via IPv4-adressen. Virtuele machines in gekoppelde VNets kunnen met elkaar communiceren, alsof ze zich in hetzelfde netwerk. Deze virtuele netwerken kunnen zich in dezelfde regio of in verschillende regio's (ook wel bekend als wereldwijde VNet-Peering). VNet-peeringverbindingen kunnen ook worden gemaakt voor Azure-abonnementen.
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Kan ik een peering verbinding met een VNet maken in een andere regio?
-Ja. Wereldwijde VNet-peering, kunt u peer-VNets in verschillende regio's. Wereldwijde VNet-peering is beschikbaar in alle Azure-openbare regio's en regio's China-cloud. U kan niet uit Azure openbare regio's wereldwijd koppelen aan nationale cloud-regio's. Wereldwijde peering is momenteel niet beschikbaar in Government-cloud.
+Ja. Wereldwijde VNet-peering, kunt u peer-VNets in verschillende regio's. Wereldwijde VNet-peering is beschikbaar in alle Azure-openbare regio's, China-cloud-regio's en Government cloud-regio's. U kan niet uit Azure openbare regio's wereldwijd koppelen aan nationale cloud-regio's.
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Wat zijn de beperkingen met betrekking tot wereldwijde VNet-Peering en Load Balancers?
 Als de twee virtuele netwerken zich in verschillende regio's (wereldwijde VNet-Peering), kunt u geen verbinding maken met bronnen die gebruikmaken van de basisversie van Load Balancer. U kunt verbinding maken met bronnen die gebruikmaken van Standard Load Balancer.
@@ -241,7 +241,6 @@ De volgende bronnen gebruiken Basic Load Balancers, wat betekent dat u aan hen k
 - Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
-- SQL Always on
 - SQL MI
 - API-Managemenet
 - Active Directory Domain Services (ADDS)

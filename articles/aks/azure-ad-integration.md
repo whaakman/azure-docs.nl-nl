@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 2a218a48223c81e009b83cb1f129601a8035e18e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: 026c0eefc0c4fe31e72ecad91a4a7b558f367487
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138409"
+ms.locfileid: "65192108"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Active Directory integreren met Azure Kubernetes Service
 
@@ -244,6 +244,7 @@ Als u klaar bent, wordt het verificatietoken in cache opgeslagen. U wordt alleen
 Als u een autorisatiefoutbericht ziet na de aanmelding is, controleert u of:
 1. De gebruiker u zich aanmeldt is niet een gast in de Azure AD-exemplaar (in dit scenario is vaak het geval als u een federatieve account maakt vanuit een andere map).
 2. De gebruiker is geen lid van meer dan 200 groepen.
+3. Geheim dat is gedefinieerd in de registratie van de toepassing voor de server komt niet overeen met de waarde die is geconfigureerd met behulp van--aad-server-app-geheim
 
 ```console
 error: You must be logged in to the server (Unauthorized)

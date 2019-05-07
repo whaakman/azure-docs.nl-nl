@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: c13a01b392b9bbc93fff2e997cb6d168a441ad07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c332861bcaf228e4c1e0a619cf4f84e3be0ba15
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616881"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204161"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Quickstart: Uw eerste Azure Batch-taak uitvoeren met de .NET API
 
@@ -113,7 +113,7 @@ Bekijk het bestand `Program.cs` en de volgende secties voor de details.
 
 ### <a name="preliminaries"></a>Voorbereidingen
 
-De app gebruikt de Azure Storage-clientbibliotheek voor .NET om te kunnen werken met een opslagaccount. Er wordt een verwijzing naar het account gemaakt met [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) en van hieruit wordt een [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient) gemaakt.
+De app gebruikt de Azure Storage-clientbibliotheek voor .NET om te kunnen werken met een opslagaccount. Er wordt een verwijzing naar het account gemaakt met [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) en van hieruit wordt een [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient) gemaakt.
 
 ```csharp
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();

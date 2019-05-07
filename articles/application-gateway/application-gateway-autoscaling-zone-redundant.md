@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: 0506ef82a00b46bf9be14757f15195bcbf8ab432
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b1cdcfc9e81938f3f562046b971407b31a593525
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148891"
+ms.locfileid: "65202913"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Automatisch schalen en Zone-redundante Application Gateway 
 
@@ -22,6 +22,8 @@ De nieuwe v2-SKU bevat de volgende verbeteringen:
 
 - **Automatische schaling**: Application Gateway of WAF-implementaties voor de automatische schaalaanpassing SKU kunnen omhoog of omlaag op basis van veranderende verkeerspatronen laden. Automatisch schalen heft ook de vereiste op om tijdens het inrichten een implementatiegrootte of het aantal instanties te kiezen. Deze SKU biedt de flexibiliteit van de waarde true. Application Gateway kan in de Standard_v2 en WAF_v2 SKU werken zowel in vaste capaciteit (automatisch schalen uitgeschakeld) en in de modus voor automatisch schalen ingeschakeld. Modus vaste capaciteit is handig voor scenario's met consistente en voorspelbare workloads. Modus voor automatisch schalen is het nuttig zijn in toepassingen die afwijking in het toepassingsverkeer te zien.
 - **Zone redundantie**: Een Application Gateway of een WAF-implementatie kan omvatten meerdere Beschikbaarheidszones, verwijderen van de noodzaak voor het inrichten van afzonderlijke Application Gateway-instanties in elke zone met een Traffic Manager. U kunt een enkele zone of meerdere zones waarop Application Gateway-instanties zijn geïmplementeerd, waardoor het beter bestand is tegen bij een storing van de zone. De back-endpool voor toepassingen kan op dezelfde manier worden verdeeld in meerdere beschikbaarheidszones.
+
+  Zoneredundantie is beschikbaar alleen waar Zones van Azure beschikbaar zijn. In andere regio's, worden alle andere functies ondersteund. Zie voor meer informatie, [wat zijn Beschikbaarheidszones in Azure?](../availability-zones/az-overview.md#services-support-by-region)
 - **Statische VIP**: Application gateway v2 SKU ondersteunt de statische VIP Typ exclusief. Dit zorgt ervoor dat het VIP-adres dat is gekoppeld aan application-gateway niet voor de levenscyclus van de implementatie, zelfs na het opnieuw opstarten verandert.
 - **Koptekst herschrijven**: Application Gateway kunt u toevoegen, verwijderen of bijwerken van HTTP-aanvraag- en reactieheaders met v2-SKU. Zie voor meer informatie, [Herschrijf de HTTP-headers met Application Gateway](rewrite-http-headers.md)
 - **Key Vault-integratie (preview)**: Application Gateway v2 ondersteunt de integratie met Key Vault (in openbare preview) voor certificaten die zijn gekoppeld aan de HTTPS-functionaliteit listeners. Zie voor meer informatie, [SSL-beëindiging met Key Vault-certificaten](key-vault-certs.md).

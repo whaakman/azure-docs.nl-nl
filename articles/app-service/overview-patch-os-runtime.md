@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 576627c96b19dd3563ab21a5d478b779e4a3ed64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 086f5773a8ae4085a8e5bc0637bdebe5f2df4fb0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838991"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203336"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>OS- en runtime patching uit handen in Azure App Service
 
@@ -37,7 +37,7 @@ Uit veiligheidsoverwegingen zijn bepaalde specifieke instellingen van de beveili
 
 Azure beheert patchen van het besturingssysteem op twee niveaus, de fysieke servers en de Gast virtuele machines (VM's) die de App Service-resources worden uitgevoerd. Beide per maand, worden bijgewerkt die overeenstemt met de maandelijkse [Patch-dinsdag](https://technet.microsoft.com/security/bulletins.aspx) planning. Deze updates worden automatisch toegepast op een manier die de SLA van Azure services met hoge beschikbaarheid garandeert. 
 
-Zie voor gedetailleerde informatie over hoe updates worden toegepast, [ontrafelen van de kracht achter de updates van het besturingssysteem van App Service](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/).
+Zie voor gedetailleerde informatie over hoe updates worden toegepast, [ontrafelen van de kracht achter de updates van het besturingssysteem van App Service](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html).
 
 ## <a name="how-does-azure-deal-with-significant-vulnerabilities"></a>Hoe Azure omgaan met aanzienlijke beveiligingsproblemen?
 

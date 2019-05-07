@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 44cb068f1aa40169e728fc28787990b161e148ae
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: ff8d94213e4e07b6597f6195126116a607c18bf7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150080"
+ms.locfileid: "65191721"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Maken en gebruiken van gedeelde-installatiekopieën voor virtuele-machineschaalsets met de Azure PowerShell
 
@@ -48,7 +48,9 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 In de onderstaande stappen wordt gedetailleerd beschreven hoe u van een bestaande virtuele machine een herbruikbare aangepaste installatiekopie maakt die u kunt gebruiken om nieuwe virtuele machines te maken.
 
-Als u wilt het voorbeeld in dit artikel hebt voltooid, moet u een bestaande beheerde installatiekopie hebben. U kunt volgen [zelfstudie: Maken en gebruiken van een aangepaste installatiekopie voor virtuele-machineschaalsets met Azure PowerShell](tutorial-use-custom-image-powershell.md) maken indien nodig. Wanneer het uitvoeren van het artikel vervangen door de resourcegroep en VM-namen van waar nodig.
+Als u wilt het voorbeeld in dit artikel hebt voltooid, moet u een bestaande beheerde installatiekopie hebben. U kunt volgen [zelfstudie: Maken en gebruiken van een aangepaste installatiekopie voor virtuele-machineschaalsets met Azure PowerShell](tutorial-use-custom-image-powershell.md) maken indien nodig. Als de beheerde installatiekopie een gegevensschijf bevat, mag de grootte van de gegevensschijf niet meer dan 1 TB.
+
+Wanneer het uitvoeren van het artikel vervangen door de resourcegroep en VM-namen van waar nodig.
 
 
 [!INCLUDE [virtual-machines-common-shared-images-ps](../../includes/virtual-machines-common-shared-images-powershell.md)]

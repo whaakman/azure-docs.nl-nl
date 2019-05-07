@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 9157765afaa610d207a47e19b73f80ae3898fd68
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 57fbab4194f6cd232e1462ecea9a07d104c6cb51
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977555"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205736"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Een virtuele machine van een beheerde installatiekopie maken
 
 U kunt meerdere virtuele machines (VM's) maken van een virtuele machine van Azure beheerde installatiekopieën, met behulp van de Azure portal of PowerShell. Een beheerde VM-installatiekopie bevat de informatie die nodig zijn voor het maken van een virtuele machine, met inbegrip van het besturingssysteem en gegevensschijven. De virtuele harde schijven (VHD's) die gezamenlijk de afbeelding, met inbegrip van zowel de besturingssysteemschijven en eventuele gegevensschijven worden opgeslagen als beheerde schijven. 
 
-Voordat u een nieuwe virtuele machine maakt, moet u [maken van een beheerde VM-installatiekopie](capture-image-resource.md) om te gebruiken als de bronafbeelding. 
+Voordat u een nieuwe virtuele machine maakt, moet u [maken van een beheerde VM-installatiekopie](capture-image-resource.md) te gebruiken als de bronafbeelding leestoegang op de afbeelding aan elke gebruiker die toegang tot de installatiekopie hebben moet. 
 
 
 ## <a name="use-the-portal"></a>Gebruik de portal
@@ -44,7 +44,7 @@ Voordat u een nieuwe virtuele machine maakt, moet u [maken van een beheerde VM-i
 
 U kunt PowerShell gebruiken op een virtuele machine maken van een installatiekopie met behulp van de vereenvoudigde parameter is ingesteld voor de [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. De installatiekopie moet zich in dezelfde resourcegroep bevinden waar u de virtuele machine kunt maken.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 De vereenvoudigde parameterset voor [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) alleen is vereist dat u een naam, resourcegroep en de naam van installatiekopie naar een virtuele machine maken van een installatiekopie opgeven. Nieuwe-AzVm gebruikt de waarde van de **-naam** parameter als de naam van alle resources die deze automatisch worden gemaakt. In dit voorbeeld wordt er meer gedetailleerde namen voor elk van de resources, maar laat de cmdlet deze automatisch worden gemaakt. U kunt ook resources vooraf, zoals het virtuele netwerk maken en de naam van de resource doorgeven aan de cmdlet. Nieuwe-AzVm gebruikt de bestaande resources als het vindt deze door hun naam.
 

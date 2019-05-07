@@ -1,21 +1,21 @@
 ---
-title: Query Performance Insight in Azure Database for PostgreSQL
-description: Dit artikel beschrijft de Query Performance Insight-functie in Azure Database voor PostgreSQL.
+title: Query Performance Insight in Azure Database for PostgreSQL - één Server
+description: Dit artikel beschrijft de Query Performance Insight-functie in Azure Database voor PostgreSQL - één Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/28/2019
-ms.openlocfilehash: 56abdd819e78312e64209078c3966826385df7bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: d45b79e2ca3b3d478102bebdcff3c8892bef2cb5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564381"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067545"
 ---
 # <a name="query-performance-insight"></a>Inzicht in queryprestaties 
 
-**Van toepassing op:** Azure Database for PostgreSQL 9.6 en 10
+**Van toepassing op:** Azure Database for PostgreSQL - servergegevens 9.6 en 10
 
 Query Performance Insight kunt u snel vinden wat uw langst lopende query's zijn, hoe ze na verloop van tijd veranderen en welke wacht van invloed zijn op deze.
 

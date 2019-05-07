@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 93f47529e3be44ff1db4e089bdcdca3eb1b4dea3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363293"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205756"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Windows en Linux-gegevensbronnen van de prestaties die u in Azure Monitor
 In Windows en Linux-prestatiemeteritems geven inzicht in de prestaties van de hardware-onderdelen, besturingssystemen en toepassingen.  Azure Monitor kunt verzamelen van prestatiemeteritems op regelmatige intervallen voor analyse in de buurt van real-time (NRT) naast het verzamelen van prestatiegegevens voor langere termijn analyse en rapportage.
@@ -211,10 +211,10 @@ De volgende tabel bevat voorbeelden van Logboeken-query's die prestatierecords o
 | Prestaties |Alle prestatiegegevens |
 | Perf &#124; where Computer == "MyComputer" |Alle prestatiegegevens van een bepaalde computer |
 | Perf &#124; waar CounterName == "Huidige wachtrijlengte" |Alle prestatiegegevens voor een bepaald meteritem |
-| Perf &#124; waarbij ObjectName == 'Processor' en CounterName == "% processortijd" en InstanceName == "_Totaal" &#124; AVGCPU samenvatten = avg(Average) door Computer |Gemiddeld CPU-gebruik op alle computers |
-| Perf &#124; waar CounterName == "% processortijd" &#124; summarize AggregatedValue = max(Max) door Computer |Maximale CPU-gebruik op alle computers |
-| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(Average) by InstanceName |Gemiddelde van huidige wachtrijlengte voor schijf over alle exemplaren van een bepaalde computer |
-| Perf &#124; waar CounterName == "DiskTransfers per seconde" &#124; summarize AggregatedValue = percentiel (gemiddelde, 95) per Computer |95e percentiel van Schijfoverdrachten per seconde op alle computers |
+| Perf &#124; waarbij ObjectName == 'Processor' en CounterName == "% processortijd" en InstanceName == "_Totaal" &#124; AVGCPU samenvatten = avg(CounterValue) door Computer |Gemiddeld CPU-gebruik op alle computers |
+| Perf &#124; waar CounterName == "% processortijd" &#124; summarize AggregatedValue = max(CounterValue) door Computer |Maximale CPU-gebruik op alle computers |
+| Perf &#124; waarbij ObjectName == "Logische" en CounterName == 'Huidige wachtrijlengte' en Computer == "MijnComputernaam" &#124; summarize AggregatedValue avg(CounterValue) door InstanceName = |Gemiddelde van huidige wachtrijlengte voor schijf over alle exemplaren van een bepaalde computer |
+| Perf &#124; waar CounterName == "Schijfoverdrachten per seconde" &#124; summarize AggregatedValue = percentiel (CounterValue, 95) per Computer |95e percentiel van Schijfoverdrachten per seconde op alle computers |
 | Perf &#124; waar CounterName == "% processortijd" en InstanceName == "_Totaal" &#124; summarize AggregatedValue = avg(CounterValue) door bin (TimeGenerated, 1 uur), Computer |Per uur gemiddelde CPU-gebruik op alle computers |
 | Perf &#124; waarbij Computer == 'Computer' en CounterName startswith_cs '%' en InstanceName == "_Totaal" &#124; summarize AggregatedValue = percentiel (CounterValue, 70) door bin (TimeGenerated, 1 uur), CounterName | Per uur 70 percentiel van elke % percentage item voor een bepaalde computer |
 | Perf &#124; waar CounterName == "% processortijd" en InstanceName == '_Totaal' en de Computer == 'Computer' &#124; samenvatten ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] percentiel (CounterValue, 75), = ["max(CounterValue)"] = max(CounterValue) door bin (TimeGenerated, 1 uur), Computer |Per uur gemiddelde, minimum, maximum en 75 percentiel CPU-gebruik voor een specifieke computer |

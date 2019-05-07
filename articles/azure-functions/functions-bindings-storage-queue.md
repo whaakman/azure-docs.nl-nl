@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 8b9cc112f51840a6bf2cf659863f61ab5962f6e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72e51deb31ad2894ccfc0fc71884c99863184f5b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306846"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203660"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindingen voor Azure Functions
 
@@ -273,7 +273,7 @@ Gebruik in JavaScript, `context.bindings.<name>` voor toegang tot de nettolading
 
 ## <a name="trigger---message-metadata"></a>Trigger - bericht-metagegevens
 
-De wachtrijtrigger bevat diverse [metagegevenseigenschappen](./functions-bindings-expressions-patterns.md#trigger-metadata). Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies in andere bindingen voor gegevensbinding of als parameters in uw code. Dit zijn de eigenschappen van de [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) klasse.
+De wachtrijtrigger bevat diverse [metagegevenseigenschappen](./functions-bindings-expressions-patterns.md#trigger-metadata). Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies in andere bindingen voor gegevensbinding of als parameters in uw code. Dit zijn de eigenschappen van de [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) klasse.
 
 |Eigenschap|Type|Description|
 |--------|----|-----------|
@@ -526,7 +526,7 @@ Als u probeert te binden aan `CloudQueueMessage` en een foutmelding krijgt, zorg
 Schrijven in C# en C#-script, meerdere berichten in wachtrij plaatsen met behulp van een van de volgende typen: 
 
 * `ICollector<T>` of `IAsyncCollector<T>`
-* [CloudQueue](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
+* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
 Gebruik in JavaScript-functies, `context.bindings.<name>` voor toegang tot het wachtrijbericht uitvoer. U kunt een tekenreeks of een JSON-geserialiseerd object gebruiken voor de nettolading van de wachtrij-item.
 
@@ -586,4 +586,4 @@ In deze sectie beschrijft de globale configuratie-instellingen beschikbaar voor 
 
 <!-- LINKS -->
 
-[CloudQueueMessage]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+[CloudQueueMessage]: /dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage

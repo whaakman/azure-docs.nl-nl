@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: ee2820d78e95924e09a0219753f87d6910c0e736
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5ceeb2e6419cab7945454087edd4c821db28343
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782953"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204224"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Oplossen van problemen met betrekking tot Azure Data Box-Blob-opslag
 
@@ -55,7 +55,7 @@ In deze sectie worden enkele van de meest voorkomende problemen tijdens de imple
 |Foutbericht  |Aanbevolen actie |
 |---------|---------|
 |De waarde voor een van de HTTP-headers is niet de juiste indeling. |De geïnstalleerde versie van de Microsoft Azure Storage-bibliotheek voor Python wordt niet ondersteund door Data Box. Zie vereisten voor Azure Data Box-Blob-opslag voor ondersteunde versies.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED]...|Voordat u Python uitvoert, stelt u de omgevingsvariabele requests_ca_bundle naar het pad van de met Base64 gecodeerde SSL-certificaatbestand (Zie hoe u [downloaden van het certificaat]()). <br>Bijvoorbeeld:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>U kunt ook het certificaat toevoegen aan het certificaatarchief van het systeem en vervolgens deze omgevingsvariabele instellen op het pad van dat archief. <br> Bijvoorbeeld op Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|… [SSL: CERTIFICATE_VERIFY_FAILED]...|Voordat u Python uitvoert, stelt u de omgevingsvariabele requests_ca_bundle naar het pad van de met Base64 gecodeerde SSL-certificaatbestand (Zie hoe u [downloaden van het certificaat](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Bijvoorbeeld:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>U kunt ook het certificaat toevoegen aan het certificaatarchief van het systeem en vervolgens deze omgevingsvariabele instellen op het pad van dat archief. <br> Bijvoorbeeld op Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
 ## <a name="common-errors"></a>Algemene fouten

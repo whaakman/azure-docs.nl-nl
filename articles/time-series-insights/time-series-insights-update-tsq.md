@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b1c43cb82d6dc2b7f0708dee8471f077befe349
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d28cb35b1e8e4eaa86418da632c6fcabb636e643
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722157"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205018"
 ---
 # <a name="data-querying"></a>Query's uitvoeren op gegevens
 
@@ -35,9 +35,9 @@ De [Time Series-expressie (TSX) taal](https://docs.microsoft.com/rest/api/time-s
 
 De volgende core die API 's worden ondersteund.
 
-![tsq][1]
+[![Time Series-Query-overzicht](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
-### <a name="environment-apis"></a>Omgeving-API 's
+## <a name="environment-apis"></a>Omgeving-API 's
 
 De volgende omgeving-API's zijn beschikbaar:
 
@@ -45,7 +45,7 @@ De volgende omgeving-API's zijn beschikbaar:
 * [Profiteer van omgeving beschikbaarheid API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): De distributie van het aantal gebeurtenissen geretourneerd via de tijdstempel van de gebeurtenis `$ts`. Deze API kunt u bepalen of er geen gebeurtenissen in het tijdstempel zijn door te retourneren van het aantal gebeurtenissen, indien aanwezig.
 * [Gebeurtenisschema in het API ophalen](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): Retourneert de metagegevens van de gebeurtenis schema voor een reeks opgegeven zoekopdracht. Deze API helpt bij het ophalen van alle metagegevens en eigenschappen die beschikbaar zijn in het schema voor de opgegeven zoekopdracht-reeks.
 
-### <a name="time-series-model-query-tsm-q-apis"></a>Time Series Model-Query (TSM-Q) API 's
+## <a name="time-series-model-query-tsm-q-apis"></a>Time Series Model-Query (TSM-Q) API 's
 
 De volgende keer reeks Model-Query-API's zijn beschikbaar:
 
@@ -54,7 +54,7 @@ De volgende keer reeks Model-Query-API's zijn beschikbaar:
 * [Hiërarchieën API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): Hiermee kunt u CRUD voor Time Series-hiërarchieën en hun bijbehorende veld paden.
 * [API-exemplaren](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Hiermee kunt u CRUD voor Time Series-exemplaren en de bijbehorende velden bijbehorende exemplaar.
 
-### <a name="time-series-query-tsq-apis"></a>Time Series Query (TSQ) API 's
+## <a name="time-series-query-tsq-apis"></a>Time Series Query (TSQ) API 's
 
 De volgende keer reeks Query-API's zijn beschikbaar:
 
@@ -80,6 +80,3 @@ De volgende keer reeks Query-API's zijn beschikbaar:
 - Lezen van de Preview van Time Series Insights [gegevensmodellering](./time-series-insights-update-tsm.md) artikel.
 
 - Ontdek [aanbevolen procedures bij het kiezen van een Time Series-ID](./time-series-insights-update-how-to-id.md).
-
-<!-- Images -->
-[1]: media/v2-update-tsq/tsq.png

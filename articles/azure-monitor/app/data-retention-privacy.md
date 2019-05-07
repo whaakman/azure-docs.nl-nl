@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0f8f1c5585eb13506baea1e5ddbe611cc931758e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6a5ec8685de53d7a611328025d5da8e5ce698a3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60899236"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204878"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
 
@@ -87,7 +87,7 @@ Onbewerkte gegevenspunten (dat wil zeggen, items die u kunt query's uitvoeren in
 
 Cumulatieve gegevens (dat wil zeggen, aantal, gemiddelde en andere statistische gegevens die u in Metric Explorer ziet) worden bewaard in een interval van 1 minuut gedurende 90 dagen.
 
-[Fouten opsporen in momentopnamen](../../azure-monitor/app/snapshot-debugger.md) gedurende zeven dagen worden opgeslagen. Deze bewaarbeleid is ingesteld op basis van de per toepassing. Als u nodig hebt om deze waarde te verhogen, kunt u een toename van aanvragen door een ondersteuningsaanvraag opent in de Azure-portal.
+[Fouten opsporen in momentopnamen](../../azure-monitor/app/snapshot-debugger.md) vijftien dagen worden bewaard. Deze bewaarbeleid is ingesteld op basis van de per toepassing. Als u nodig hebt om deze waarde te verhogen, kunt u een toename van aanvragen door een ondersteuningsaanvraag opent in de Azure-portal.
 
 ## <a name="who-can-access-the-data"></a>Wie heeft er toegang tot de gegevens?
 De gegevens zijn zichtbaar voor u en hebt u een organisatieaccount, leden van uw team. 

@@ -5,22 +5,21 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: fd1dd1f8af8fee9b1fecb05405381dba879facde
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0fe1de9bb674c66d1b665de25ee579bc86e42c75
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149819"
+ms.locfileid: "65192363"
 ---
 Gedeelde afbeeldingengalerie is een service waarmee u structuur en de organisatie om uw aangepaste beheerde VM-installatiekopieën maken. Gedeelde Afbeeldingsgalerieën bieden:
 
 - Beheerde globale replicatie van afbeeldingen.
 - Versiebeheer en groepering van beelden voor eenvoudiger beheer.
-- Hogere limieten voor schalen. Aangepaste installatiekopieën kunnen 600 gelijktijdige VM's, terwijl voor 1000 gelijktijdige VM's Afbeeldingsgalerieën gedeeld.
-- Maximaal beschikbare installatiekopieën met behulp van de Zone-redundante opslag. Zelfs als een datacenter uitvalt, hebt u toegang tot de afbeeldingen in deze regio.
+- Uw installatiekopieën maximaal beschikbaar met Zone-redundante opslag (ZRS)-accounts maken in regio's die ondersteuning voor Beschikbaarheidszones. ZRS biedt betere tolerantie tegen fouten in de zonegebonden.
 - Delen tussen abonnementen en zelfs tussen tenants, met RBAC.
 
 U kunt met behulp van de galerie met installatiekopieën van een gedeelde afbeeldingen aan andere gebruikers, service-principals of AD-groepen delen binnen uw organisatie. Gedeelde afbeeldingen kunnen worden gerepliceerd naar meerdere regio's voor het sneller schalen van uw implementaties.
@@ -92,12 +91,10 @@ Bron-regio's worden weergegeven in de onderstaande tabel. Alle openbare regio's 
 
 ## <a name="limits"></a>Limits 
 
-U kunt alleen 600 gelijktijdige VM's per afbeelding met gedeelde Afbeeldingsgalerieën hebben, dit wordt verhoogd tot 1000 gelijktijdige VM's per installatiekopieversie met beheerde installatiekopieën.
-
 Er zijn limieten per abonnement, voor het implementeren van resources met behulp van gedeelde Afbeeldingsgalerieën:
-- 10 gedeelde afbeeldingsgalerieën per abonnement per regio
-- 200 definities van de installatiekopie, per abonnement per regio
-- 2000 versies van een installatiekopie, per abonnement per regio
+- 100 gedeelde afbeeldingsgalerieën per abonnement per regio
+- 1000 definities van de installatiekopie, per abonnement per regio
+- 10.000 versies van een installatiekopie, per abonnement per regio
 
 Zie voor meer informatie, [brongebruik op basis van limieten controleren](https://docs.microsoft.com/azure/networking/check-usage-against-limits) voor voorbeelden over het controleren van uw huidige gebruik.
  

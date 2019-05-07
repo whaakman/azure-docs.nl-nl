@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: be5719d2c383c838ef70c6862c1055c3374e05e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362444"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204255"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Webproxy voor uw StorSimple-apparaat configureren
 
@@ -68,7 +68,7 @@ De wizard setup gebruiken om u te begeleiden door de stappen voor de configurati
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
     Standaard is TCP-poortnummer 8080 opgegeven.
-4. Kies het verificatietype als **NTLM**, **Basic**, of **geen**. Standaard is de minst veilige verificatie voor de proxyserver-configuratie. NT LAN Manager (NTLM) is een zeer veilige en complexe verificatieprotocol die gebruikmaakt van een berichtensysteem drie richtingen (soms vier als extra integriteit vereist is) om een gebruiker te verifiëren. De standaardverificatie is NTLM. Zie voor meer informatie, [Basic](http://hc.apache.org/httpclient-3.x/authentication.html) en [NTLM-verificatie](http://hc.apache.org/httpclient-3.x/authentication.html). 
+4. Kies het verificatietype als **NTLM**, **Basic**, of **geen**. Standaard is de minst veilige verificatie voor de proxyserver-configuratie. NT LAN Manager (NTLM) is een zeer veilige en complexe verificatieprotocol die gebruikmaakt van een berichtensysteem drie richtingen (soms vier als extra integriteit vereist is) om een gebruiker te verifiëren. De standaardverificatie is NTLM. Zie voor meer informatie, [Basic](https://hc.apache.org/httpclient-3.x/authentication.html) en [NTLM-verificatie](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
    > **In de StorSimple Device Manager-service de bewakingsgrafieken apparaat werken niet als basis of NTLM-verificatie is ingeschakeld in de proxyserver-configuratie voor het apparaat. Voor de bewakingsgrafieken om te werken, moet u ervoor zorgen dat de verificatie is ingesteld op NONE.**

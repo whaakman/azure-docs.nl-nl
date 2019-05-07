@@ -1,19 +1,19 @@
 ---
-title: Back-up en herstel in Azure Database voor PostgreSQL
-description: Meer informatie over automatische back-ups en herstellen van uw Azure Database for PostgreSQL-server.
+title: Back-up en herstel in Azure Database voor PostgreSQL - één Server
+description: Meer informatie over automatische back-ups en herstellen van uw Azure Database voor PostgreSQL-server - één Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: b4086497375bb651f4c88411e3237b27740dfd07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 08a061a76f1532441817e61d423533bcc0850227
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456254"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068861"
 ---
-# <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Back-up en herstel in Azure Database voor PostgreSQL
+# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Back-up en herstel in Azure Database voor PostgreSQL - één Server
 
 Azure Database voor PostgreSQL automatisch server back-ups gemaakt en opgeslagen in lokaal redundante of geografisch redundante opslag van gebruiker die is geconfigureerd. Back-ups kunnen worden gebruikt om uw server te herstellen naar een punt-in-time. Back-up en herstel zijn een essentieel onderdeel van een strategie voor bedrijfscontinuïteit omdat ze uw gegevens tegen per ongeluk beschadigd of verwijderd beschermen.
 

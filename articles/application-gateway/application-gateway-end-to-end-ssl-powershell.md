@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 258113f5201ad3d09df6119dec738d528e640c40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a4ce1ad347742886e7d89a32bbeb60c2e0281409
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269347"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198561"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>End-to-end SSL configureren met behulp van Application Gateway met PowerShell
 
@@ -174,7 +174,7 @@ Alle configuratie-items zijn ingesteld voordat u de toepassingsgateway maakt. Vo
    ```
 
    > [!NOTE]
-   > Het certificaat dat is opgegeven in deze stap moet de openbare sleutel van het pfx-certificaat aanwezig zijn op de back-end. Exporteer het certificaat (niet het basiscertificaat) geïnstalleerd op de server back-end in de Claim, bewijs en redeneren (CER)-indeling en worden gebruikt in deze stap. Deze stap accounttoewijzing de back-end met de application gateway.
+   > Het certificaat dat is opgegeven in de vorige stap, moet de openbare sleutel van het pfx-certificaat aanwezig zijn op de back-end. Exporteer het certificaat (niet het basiscertificaat) geïnstalleerd op de server back-end in de Claim, bewijs en redeneren (CER)-indeling en worden gebruikt in deze stap. Deze stap accounttoewijzing de back-end met de application gateway.
 
    Als u van de v2-SKU van Application Gateway gebruikmaakt, maakt u een vertrouwd basiscertificaat in plaats van een certificaat voor clientverificatie. Zie voor meer informatie, [overzicht van end-to-end SSL met Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku):
 

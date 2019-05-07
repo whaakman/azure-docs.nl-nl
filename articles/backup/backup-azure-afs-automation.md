@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 46719d3f72c57a44fb48489891e2348bb418da1e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 986414d0bac24d0c7e37b34df473346742fa97fd
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918956"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204183"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Back-up en herstellen van Azure Files met PowerShell
 
@@ -108,7 +108,7 @@ Volg deze stappen voor het maken van een Recovery Services-kluis.
 3. Geef het type redundantie om te gebruiken voor de opslag van de kluis.
 
    - U kunt [lokaal redundante opslag](../storage/common/storage-redundancy-lrs.md) of [geografisch redundante opslag](../storage/common/storage-redundancy-grs.md).
-   - Het volgende voorbeeld wordt de **- BackupStorageRedundancy** optie voor de[Set AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties?view=azps-1.4.0) cmd voor **testvault** ingesteld op  **GeoRedundant**.
+   - Het volgende voorbeeld wordt de **- BackupStorageRedundancy** optie voor de[Set AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd voor **testvault** ingesteld op  **GeoRedundant**.
 
      ```powershell
      $vault1 = Get-AzRecoveryServicesVault -Name "testvault"

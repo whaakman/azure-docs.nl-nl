@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: kumud
-ms.openlocfilehash: 6b1d62f4cedb7add843a5ddae24125019130d58f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a053beb121e1b3c0db020094c29a9a1e0117da87
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728341"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203537"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS Protection Standard met behulp van de Azure-portal beheren
 
@@ -33,7 +33,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="create-a-ddos-protection-plan"></a>Een DDoS-beschermingsplan maken
 
-Een DDoS-beschermingsplan definieert een set van virtuele netwerken waarvoor DDoS-bescherming standaard ingeschakeld voor abonnementen. U kunt één DDoS-beschermingsplan voor uw organisatie en de koppeling virtuele netwerken van meerdere abonnementen naar hetzelfde abonnement. DDoS-beschermingsplan zelf is ook gekoppeld aan een abonnement, die u hebt geselecteerd tijdens het maken van het plan. Het abonnement dat het abonnement is gekoppeld aan de maandelijkse terugkerende factuur voor het abonnement, evenals de overschrijdingskosten, worden in rekening gebracht als het aantal beveiligde openbare IP-adressen meer dan 100. Zie voor meer informatie over prijzen voor DDoS [prijsinformatie](https://azure.microsoft.com/pricing/details/ddos-protection/).
+Een DDoS-beschermingsplan definieert een set van virtuele netwerken waarvoor DDoS-bescherming standaard ingeschakeld voor abonnementen. U kunt één DDoS-beschermingsplan voor uw organisatie en de koppeling virtuele netwerken van meerdere abonnementen naar hetzelfde abonnement. DDoS-beschermingsplan zelf is ook gekoppeld aan een abonnement, die u hebt geselecteerd tijdens het maken van het plan. De DDoS Protection-Plan werkt in regio's en abonnementen. Voorbeeld: u kunt het plan maken in de regio Oost-VS en koppelen aan abonnement #1 in uw tenant. Hetzelfde abonnement kan worden gekoppeld aan virtuele netwerken van andere abonnementen in verschillende regio's binnen uw tenant. Het abonnement dat het abonnement is gekoppeld aan de maandelijkse terugkerende factuur voor het abonnement, evenals de overschrijdingskosten, worden in rekening gebracht als het aantal beveiligde openbare IP-adressen meer dan 100. Zie voor meer informatie over prijzen voor DDoS [prijsinformatie](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
 Het maken van meer dan één abonnement is niet vereist voor de meeste organisaties. Een abonnement kan niet worden verplaatst tussen abonnementen. Als u wijzigen van het abonnement een serviceabonnement is wilt, hebt u [verwijderen van het bestaande plan](#work-with-ddos-protection-plans) en een nieuw wachtwoord maken.
 
@@ -127,6 +127,7 @@ Telemetrie voor een aanval wordt geboden via Azure Monitor in realtime. De telem
 4. Selecteer de **abonnement** en **resourcegroep** die het openbare IP-adres dat u wilt dat telemetrie voor bevatten.
 5. Selecteer **openbaar IP-adres** voor **resourcetype**, selecteer vervolgens de specifieke openbare IP-adres u telemetrie voor wilt.
 6. Een reeks **beschikbare metrische gegevens** aan de linkerkant van het scherm wordt weergegeven. Deze metrische gegevens, als u selecteert, diagram worden weergegeven aan de **Azure Monitor grafiek met metrische gegevens** op het overzichtsscherm.
+7. Selecteer de **aggregatie** typt als **Max.**
 
 De namen van de metrische gegevens te presenteren typen pakketten, en het aantal bytes versus pakketten, met een eenvoudige constructie van de tagnamen van de op elke metrische gegevens als volgt:
 
@@ -138,7 +139,7 @@ Zie voor het simuleren van een DDoS-aanval voor het valideren van telemetrie, [v
 
 ## <a name="view-ddos-mitigation-policies"></a>Weergeven van beleidsregels voor DDoS-risicobeperking
 
-DDoS Protection Standard geldt drie automatisch zijn afgestemd risicobeperking-beleidsregels (TCP SYN, TCP en UDP) voor elke openbaar IP-adres van de beveiligde bron, in het virtuele netwerk waarvoor DDoS ingeschakeld. U kunt de drempels beleid weergeven door de **binnenkomende TCP-pakketten voor het activeren van DDoS-risicobeperking** en **binnenkomend UDP-pakketten voor het activeren van DDoS-risicobeperking** metrische gegevens, zoals wordt weergegeven in de volgende afbeelding:
+DDoS Protection Standard geldt drie automatisch zijn afgestemd risicobeperking-beleidsregels (TCP SYN, TCP en UDP) voor elke openbaar IP-adres van de beveiligde bron, in het virtuele netwerk waarvoor DDoS ingeschakeld. U kunt de drempels beleid weergeven door de **binnenkomende TCP-pakketten voor het activeren van DDoS-risicobeperking** en **binnenkomend UDP-pakketten voor het activeren van DDoS-risicobeperking** metrische gegevens met **aggregatie** typt als 'Max', zoals wordt weergegeven in de volgende afbeelding:
 
 ![Risicobeperking-beleid weergeven](./media/manage-ddos-protection/view-mitigation-policies.png)
 

@@ -1,19 +1,19 @@
 ---
-title: Maken en beheren van firewall-regels in Azure Database for PostgreSQL
-description: Maken en beheren van Azure Database voor PostgreSQL-firewallregels met behulp van de Azure portal
+title: Maken en beheren van firewall-regels in Azure Database voor PostgreSQL - één Server
+description: Maken en beheren van de firewallregels voor Azure Database voor PostgreSQL - één Server met behulp van de Azure portal
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/09/2019
-ms.openlocfilehash: cb142e01009efbeaabd5d4e56dbedfe6384c5fc6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 7eed2e81c6781ca660cffa909f27962a7c5112cb
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420976"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069012"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Maken en beheren van Azure Database voor PostgreSQL-firewallregels met behulp van de Azure portal
+# <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Maken en beheren van de firewallregels voor Azure Database voor PostgreSQL - één Server met behulp van de Azure portal
 Firewallregels op serverniveau kunnen worden gebruikt om toegang tot een Azure Database for PostgreSQL-Server beheren vanaf een opgegeven IP-adres of IP-adresbereik.
 
 Regels voor virtueel netwerk (VNet) kunnen ook worden gebruikt voor het beveiligen van toegang tot uw server. Meer informatie over [maken en beheren van Virtual Network-service-eindpunten en regels met behulp van de Azure-portal](howto-manage-vnet-using-portal.md).

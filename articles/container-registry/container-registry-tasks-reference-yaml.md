@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: b2398e7db7ed91dee8d85c0c50058bb15b9f4c7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d50d5bc91fbb86e5c0c3d2acc3b55c7d02c71723
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827252"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192270"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR-taken naar te verwijzen: YAML
 
@@ -452,8 +452,10 @@ ACR taken bevat een reeks variabelen die beschikbaar voor taakstappen zijn wanne
 * `Run.ID`
 * `Run.Registry`
 * `Run.Date`
+* `Run.Commit`
+* `Run.Branch`
 
-### <a name="run46id"></a>Voer&#46;ID
+### <a name="runid"></a>Run.ID
 
 Elk uitgevoerd via `az acr run`, of op basis van de uitvoering van taken die zijn gemaakt via trigger `az acr task create` een unieke id hebben. De ID vertegenwoordigt de uitvoering die momenteel wordt uitgevoerd.
 
@@ -478,6 +480,14 @@ steps:
 ### <a name="rundate"></a>Run.Date
 
 De huidige UTC-tijd de uitvoering is begonnen.
+
+### <a name="runcommit"></a>Run.Commit
+
+Voor een taak die wordt geactiveerd door een wijziging naar GitHub-opslagplaats, de commit-id.
+
+### <a name="runbranch"></a>Run.Branch
+
+Voor een taak die wordt geactiveerd door een wijziging naar GitHub-opslagplaats, de naam van de vertakking.
 
 ## <a name="next-steps"></a>Volgende stappen
 

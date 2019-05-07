@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031402"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192276"
 ---
 # <a name="aks-troubleshooting"></a>Het oplossen van AKS
 
@@ -94,3 +94,27 @@ Bewerkingen voor een cluster worden beperkt wanneer actieve upgrade bewerkingen 
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Kan ik mijn cluster verplaatsen naar een ander abonnement of mijn abonnement met mijn cluster naar een nieuwe tenant?
 
 Als u uw AKS-cluster hebt verplaatst naar een ander abonnement of het cluster abonnement naar een nieuwe tenant die eigenaar is, wordt het cluster functionaliteit vanwege verloren gaat roltoewijzingen en service-principals rechten verbroken. **AKS biedt geen ondersteuning voor clusters verplaatsen over abonnementen of tenants** vanwege deze beperking.
+
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Ik krijg fouten opgetreden bij het gebruik van functies waarvoor de virtuele-machineschaalsets
+
+*Deze hulp bij probleemoplossing is van aka.ms/aks-vmss-activering gericht*
+
+U mag ontvangen ze foutberichten die aangeven dat uw AKS-cluster niet op een virtuele-machineschaalset, zoals in het volgende voorbeeld:
+
+**AgentPool 'agentpool' automatisch schalen ingeschakeld is ingesteld, maar is niet op de Virtual Machine Scale Sets**
+
+Groepen van het gebruik van functies, zoals het cluster automatisch schalen of met meerdere knooppunten, AKS clusters moeten worden gemaakt die gebruikmaken van virtuele-machineschaalsets. Fouten worden geretourneerd als u probeert het gebruik van functies die afhankelijk van de virtuele-machineschaalsets zijn en u richten op een reguliere, virtual machine scale set AKS-cluster. Ondersteuning voor Virtual machine scale set is momenteel in preview in AKS.
+
+Ga als volgt de *voordat u begint met* stappen in de juiste doc-bestand correct registreren voor de virtuele-functie machineschaalset bekijken en maken van een AKS-cluster:
+
+* [Het cluster automatisch schalen gebruiken](cluster-autoscaler.md)
+* [Maken en gebruiken van meerdere groepen](use-multiple-node-pools.md)
+ 
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>Welke beperkingen voor naamgeving voor AKS resources en parameters worden toegepast?
+
+*Deze hulp bij probleemoplossing is van aka.ms/aks-naming-regels gericht*
+
+Beperkingen voor naamgeving worden geïmplementeerd door de Azure-platform en de AKS. Als een resourcenaam of de parameter niet aan een van deze beperkingen, is een fout geretourneerd die vraagt dat u een andere invoer opgeven. De volgende richtlijnen voor de algemene naamgeving van toepassing:
+
+* De AKS *MC_* groepsnaam voor accountresources combineert de naam van resourcegroep en de resourcenaam van de. De syntaxis van de automatisch gegenereerde van `MC_resourceGroupName_resourceName_AzureRegion` mag niet langer zijn dan 80 tekens. Indien nodig, Reduceer de lengte van de naam van de resourcegroep of de naam van de AKS-cluster.
+* De *dnsPrefix* moet beginnen en eindigen met alfanumerieke waarden. Geldige tekens zijn alfanumerieke waarden en afbreekstreepjes (-). De *dnsPrefix* mag geen speciale tekens zoals een punt (.) bevatten.

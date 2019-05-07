@@ -1,6 +1,6 @@
 ---
-title: Gebruikers met een afzonderlijke licentie migreren naar het Groepslicenties - Azure Active Directory | Microsoft Docs
-description: Overstappen van afzonderlijke gebruikerslicenties aan op basis van een groep met behulp van Azure Active Directory-licentieverlening
+title: Afzonderlijk gelicentieerde gebruikers toevoegen aan de groep op basis van licentieverlening - Azure Active Directory | Microsoft Docs
+description: Over het migreren van afzonderlijke gebruikerslicenties aan op basis van een groep met behulp van Azure Active Directory-licentieverlening
 services: active-directory
 keywords: Azure AD-licenties
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6fd2eb51c7178421b0656e3b1d0e0ea36176c16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 333f0ae0153073b57740446ecf47e36a1f9ce590
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471027"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192459"
 ---
-# <a name="how-to-add-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Het toevoegen van gebruikers met afzonderlijke licenties aan groepen migreren voor licentieverlening
+# <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Het migreren van gebruikers met afzonderlijke licenties aan groepen voor licentieverlening
 
 Mogelijk hebt u bestaande licenties die zijn geïmplementeerd naar gebruikers in de organisaties via 'directe toewijzing'; dat wil zeggen, gebruik van PowerShell-scripts of andere hulpprogramma's voor afzonderlijke gebruikerslicenties toewijzen. Voordat u met behulp van Groepslicenties begint voor het beheren van licenties in uw organisatie, kunt u dit migratieplan naadloos vervangen bestaande oplossingen met Groepslicenties.
 

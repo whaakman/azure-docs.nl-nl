@@ -1,20 +1,19 @@
 ---
-title: Leesreplica's in Azure Database for PostgreSQL
-description: Dit artikel beschrijft de functie lezen replica in Azure Database voor PostgreSQL.
-author: WenJason
-ms.author: v-jay
+title: Lezen-replica's in Azure Database for PostgreSQL - één Server
+description: Dit artikel beschrijft de functie lezen replica in Azure Database voor PostgreSQL - één Server.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 04/01/2019
-ms.date: 04/22/2019
-ms.openlocfilehash: f340f1e42b6993a1f834ab05570c669d4241222b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 1d75d01df74a239ba865d9a4e2b216a410e6069c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564354"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067416"
 ---
-# <a name="read-replicas-in-azure-database-for-postgresql"></a>Leesreplica's in Azure Database for PostgreSQL
+# <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Lezen-replica's in Azure Database for PostgreSQL - één Server
 
 De functie lezen replica kunt u voor het repliceren van gegevens uit een Azure Database for PostgreSQL-server met een alleen-lezen-server. U kunt naar maximaal vijf replica's binnen dezelfde Azure-regio repliceren van de hoofd-server. Replica's worden asynchroon bijgewerkt met de systeemeigen Replicatietechnologie van de PostgreSQL-engine.
 
@@ -51,7 +50,7 @@ De replica neemt het beheerdersaccount van de hoofd-server. Alle gebruikersaccou
 U kunt verbinding maken met de replica met behulp van de hostnaam en een geldig gebruikersaccount, zoals u zou voor een gewone Azure Database voor PostgreSQL-server doen. Voor een server met de naam **myreplica** met de gebruikersnaam van beheerder **myadmin**, u kunt verbinding maken met de replica met behulp van psql:
 
 ```
-psql -h myreplica.postgres.database.chinacloudapi.cn -U myadmin@myreplica -d postgres
+psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 ```
 
 Voer het wachtwoord voor het gebruikersaccount dat bij de prompt.

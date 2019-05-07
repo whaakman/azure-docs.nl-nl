@@ -1,5 +1,5 @@
 ---
-title: Een pijplijn maken met de API van Azure Azure Monitor Data Collector | Microsoft Docs
+title: Een pijplijn maken met de API van Azure Monitor Data Collector | Microsoft Docs
 description: U kunt de API van Azure Monitor HTTP Data Collector POST-JSON-gegevens toevoegen aan de Log Analytics-werkruimte van een willekeurige client die de REST-API kunt aanroepen. Dit artikel wordt beschreven hoe u het uploaden van gegevens in bestanden opgeslagen in een automatische manier.
 services: log-analytics
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: d2736e397827373949da1634a99056420dc13b8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 961ce4427c509142077c95a6569ad2c444ec0a52
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60200002"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205951"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Een pijplijn maken met de Collector-API
 

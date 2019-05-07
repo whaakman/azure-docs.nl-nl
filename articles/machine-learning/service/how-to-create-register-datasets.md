@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 4b3fa69156146037ff59a41eab8c8373f6e01dc4
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 65a861c647c2dc92e416fa356075821aa5060042
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029113"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205042"
 ---
 # <a name="create-and-register-azure-machine-learning-datasets-preview"></a>Maken en registreren van Azure Machine Learning-gegevenssets (Preview)
 
@@ -44,7 +44,7 @@ Bestanden laden vanaf uw lokale computer door op te geven het pad van het bestan
 * Voorbeeldgrootte en het converteren van kolom-gegevenstypen.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 
 dataset = Dataset.auto_read_files('./data/crime.csv')
 ```
@@ -60,7 +60,9 @@ Voor het maken van gegevenssets uit een Azure-gegevensarchief, moet u:
 * Importeren van de [ `Workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) en [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition) en `Dataset` pakketten van de SDK.
 
 ```Python
-from azureml.core import Workspace, Datastore, Dataset
+from azureml.core.workspace import Workspace
+from azureml.core.datastore import Datastore
+from azureml.core.dataset import Dataset
 
 datastore_name = 'your datastore name'
 
@@ -74,7 +76,7 @@ workspace = Workspace.from_config()
 dstore = Datastore.get(workspace, datastore_name)
 ```
 
-Gebruik de `from_delimited_files()` methode om te lezen in bestanden met scheidingstekens en in-memory gegevenssets maken.
+Gebruik de `from_delimited_files()` methode om te lezen in bestanden met scheidingstekens en een niet-geregistreerde gegevensset maken.
 
 ```Python
 # create an in-memory Dataset on your local machine
@@ -98,23 +100,22 @@ dataset.head(5)
 Gebruik de [ `register()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) methode voor het registreren van gegevenssets aan uw werkruimte voor het delen en opnieuw te gebruiken binnen uw organisatie en tussen verschillende experimenten.
 
 ```Python
-dataset = dataset.register(workspace = 'workspace_name',
-                           name = "dataset_crime",
+dataset = dataset.register(workspace = workspace,
+                           name = 'dataset_crime',
+
                            description = 'Training data',
                            exist_ok = False
                            )
 ```
 
 >[!NOTE]
-> De standaardinstelling voor de parameter voor `register()` is ' exist_ok = False'. Als u probeert te registreren van een gegevensset met dezelfde naam zonder deze instelling wordt een fout resulteert.
+> De standaardinstelling voor de parameter voor `register()` is `exist_ok = False`. Als u probeert te registreren van een gegevensset met dezelfde naam zonder deze instelling wordt een fout resulteert.
 
-De `register()` methode werkt de definitie van een reeds geregistreerde gegevensset met de parameterinstelling van de `exist_ok = True`.
+De `register()` methode retourneert de reeds geregistreerde gegevensset met de parameterinstelling van de `exist_ok = True`.
 
 ```Python
-dataset = dataset.register(workspace = workspace_name,
-                           name = "dataset_crime",
-                           description = 'Training data',
-                           exist_ok = True)
+dataset = dataset.register(workspace = workspace,
+                           name = 'dataset_crime',
 ```
 
 Gebruik `list()` om alle van de geregistreerde gegevenssets in uw werkruimte te bekijken.
@@ -137,7 +138,7 @@ Geregistreerde gegevenssets zijn toegankelijk en analyserapporten lokaal, extern
 ```Python
 workspace = Workspace.from_config()
 
-dataset = workspace.Datasets['dataset_crime']
+dataset = workspace.datasets['dataset_crime']
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

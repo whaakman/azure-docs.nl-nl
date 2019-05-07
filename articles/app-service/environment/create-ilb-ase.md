@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7e4364a06a3d20edc7aafd54a4dcd86dfd039043
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8508dbecceb9984f53a133d9634882603549cdd1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573571"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199647"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Een interne load balancer maken en gebruiken met een App Service-omgeving #
 
@@ -133,8 +133,8 @@ Nadat u de AS-omgeving hebt gemaakt, wordt in de domeinnaam het domein weergegev
 
 Voor uw ILB AS-omgeving is een geldig SSL-certificaat vereist. Gebruik interne certificeringsinstanties, koop een certificaat van een externe gebruiker of gebruik een zelfondertekend certificaat. De volgende certificaatkenmerken moeten juist zijn geconfigureerd, ongeacht wat de bron van het SSL-certificaat is:
 
-* **Onderwerp**: Dit kenmerk moet zijn ingesteld op *.hier-uw-hoofddomein.
-* **Alternatieve naam voor onderwerp**: Dit kenmerk moet zowel **.hier-uw-hoofddomein* als **.scm.hier-uw-hoofddomein* bevatten. SSL-verbindingen met de SCM/Kudu-site die zijn gekoppeld aan elke app, gebruiken een adres met de notatie *uw-app-naam.scm.hier-uw-hoofddomein*.
+* **Onderwerp**: Dit kenmerk moet worden ingesteld op *\.uw-root-domein-hier.
+* **Alternatieve naam voor onderwerp**: Dit kenmerk moet zijn beide *.uw-root-domein-here* en *.Hier-root-domein-hier*. SSL-verbindingen met de SCM/Kudu-site die zijn gekoppeld aan elke app, gebruiken een adres met de notatie *uw-app-naam.scm.hier-uw-hoofddomein*.
 
 Converteer het SSL-certificaat naar een .pfx-bestand of sla het certificaat in deze indeling op. Het pfx-bestand moet alle tussenliggende certificaten en basiscertificaten bevatten. Beveilig het bestand met een wachtwoord.
 

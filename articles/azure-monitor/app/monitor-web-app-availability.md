@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: fe8549027bb7fcf9fcfc2db26816c0b6646c9da6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6cd5413d64be2117cc5f64202ecdaaf40f35db4b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916389"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205381"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
@@ -274,7 +274,7 @@ Als uw test moet aanmelden met OAuth, is de algemene benadering:
 
 ## <a name="performance-tests"></a>Prestatietests
 > [!NOTE]  
-> De service voor belastingtests cloud-gebaseerde is afgeschaft. Meer informatie over de afschaffing, de beschikbaarheid van services en andere services kan worden gevonden [hier](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops).
+> De service voor belastingtests cloud-gebaseerde is afgeschaft. Meer informatie over de afschaffing, de beschikbaarheid van services en andere services kan worden gevonden [hier](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
 
 U kunt een belastingtest op uw website uitvoeren. Zoals de beschikbaarheidstest kunt enkel- of meervoudige aanvragen sturen vanuit onze punten over de hele wereld verspreid. In tegenstelling tot een beschikbaarheidstest worden vele verzoeken verzonden, waarmee meerdere gelijktijdige gebruikers worden gesimuleerd.
 

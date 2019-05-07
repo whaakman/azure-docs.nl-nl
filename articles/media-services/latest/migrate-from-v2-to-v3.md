@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 921d154226862d822802562442f59bf1c37c4745
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e64b18cef44a5fa6d63137f57fcada27adcd0299
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148911"
+ms.locfileid: "65205471"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Hulp bij de migratie voor het verplaatsen van Media Services v2 naar v3
 
@@ -71,7 +71,7 @@ Als u een videoservice ontwikkeld vandaag nog hebt op de [oudere Media Services 
     * Streaming-Locator vervangt Locator.
     * Live gebeurtenis vervangt kanaal.<br/>Live gebeurtenissen facturering is gebaseerd op Livekanaal meters. Zie voor meer informatie, [facturering](live-event-states-billing.md) en [prijzen](https://azure.microsoft.com/pricing/details/media-services/).
     * Live uitvoer vervangt programma.
-* Live uitvoer hoeft niet expliciet worden gestart, ze bij het maken van starten en stoppen wanneer verwijderd. Programma's anders gewerkt in de v2-API's, ze moest worden gestart na het maken.
+* Live-uitvoer starten zodra ze zijn gemaakt en stoppen wanneer ze worden verwijderd. Programma's anders gewerkt in de v2-API's, ze moest worden gestart na het maken.
 *  Voor informatie over een taak, moet u weten de naam van de transformatie waarmee de taak is gemaakt. 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Functiehiaten met betrekking tot v2-API 's

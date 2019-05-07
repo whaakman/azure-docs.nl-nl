@@ -1,19 +1,19 @@
 ---
-title: Opnieuw opstarten van Azure Database for PostgreSQL-server met behulp van Azure CLI
-description: Dit artikel wordt beschreven hoe u een Azure Database for PostgreSQL-server met de Azure CLI opnieuw kunt starten
+title: Opnieuw opstarten van Azure Database voor PostgreSQL - één Server met behulp van Azure CLI
+description: Dit artikel wordt beschreven hoe u een Azure Database voor PostgreSQL - één Server met de Azure CLI kunt opnieuw
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 3/28/2019
-ms.openlocfilehash: 51b3011c040db8576c13868f9fac26cb1e431515
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 0a7cd815724fcebd6311860576e620eb9273523b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420288"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068983"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-the-azure-cli"></a>Opnieuw opstarten van Azure Database for PostgreSQL-server met de Azure CLI
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Opnieuw opstarten van Azure Database voor PostgreSQL - één Server met de Azure CLI
 In dit onderwerp wordt beschreven hoe u een Azure Database for PostgreSQL-server opnieuw kunt starten. Mogelijk moet u de server voor onderhoudsredenen, waardoor een korte onderbreking als de server de bewerking voert opnieuw.
 
 De server opnieuw opstarten wordt geblokkeerd als de service bezet is. De service kan bijvoorbeeld een eerder gevraagde bewerking, zoals schalen vCores verwerkt.

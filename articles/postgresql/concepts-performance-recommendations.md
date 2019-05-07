@@ -1,21 +1,21 @@
 ---
-title: Aanbevelingen in Azure Database for PostgreSQL voor prestaties
-description: Dit artikel beschrijft de functie prestaties aanbeveling in Azure Database voor PostgreSQL.
+title: Aanbevelingen voor prestaties in Azure Database voor PostgreSQL - één Server
+description: Dit artikel beschrijft de functie prestaties aanbeveling in Azure Database voor PostgreSQL - één Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/28/2018
-ms.openlocfilehash: c5324618eeda90b4ef1a512385fb2f14bf391215
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 31d8c0fdf1b4df3ee00f3652c933b4b738384bea
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564432"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068850"
 ---
-# <a name="performance-recommendations-in-azure-database-for-postgresql"></a>Aanbevelingen in Azure Database for PostgreSQL voor prestaties
+# <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Aanbevelingen voor prestaties in Azure Database voor PostgreSQL - één Server
 
-**Van toepassing op:** Azure Database for PostgreSQL 9.6 en 10
+**Van toepassing op:** Azure Database for PostgreSQL - servergegevens 9.6 en 10
 
 De functie voor aanbevelingen voor prestaties analyseert uw databases voor het maken van aangepaste suggesties voor betere prestaties. Voor het produceren van de aanbevelingen voor kijkt de analyse naar verschillende database-kenmerken, met inbegrip van schema. Schakel [Query Store](concepts-query-store.md) op uw server volledig gebruikmaken van de functie voor aanbevelingen voor prestaties. Na de implementatie van elke aanbeveling prestaties, moet u de prestaties voor het evalueren van de impact van deze wijzigingen testen. 
 

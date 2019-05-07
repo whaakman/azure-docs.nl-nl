@@ -14,23 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2573ad64830247d232bbd6d156fac7f50d65f410
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a5deee4209001d8c2212033c2d547d7c4199bd25
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925093"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192625"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regels voor aangepaste waarschuwingen in Azure Security Center (Preview)
 In dit document leest u hoe u regels voor aangepaste waarschuwingen maakt in Azure Security Center.
 
 > [!NOTE]
-> Aangepaste waarschuwingen wordt binnenkort beëindigd meer aan andere services die hieronder worden gelezen.
+> Aangepaste waarschuwingen wordt buiten gebruik gesteld op 30 juni 2019.
 
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Buiten gebruik stellen van waarschuwing aangepaste regels in Azure Security Center
 
 En met 30 juni 2019, wordt de ervaring voor aangepaste waarschuwingen beëindigd vanwege buiten gebruik stellen van de onderliggende infrastructuur die is gebaseerd op. In de periode totdat afschaffing gebruikers kunnen bestaande regels voor aangepaste waarschuwingen bewerken, maar is niet mogelijk om toe te voegen nieuwe labels.
-Gebruikers wordt aangeraden om in te schakelen [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) waarschuwingen voor activiteitenlogboeken met één muisklik onboarding om automatisch te migreren van hun bestaande waarschuwingen en nieuwe te maken, of hun waarschuwingen met Azure Monitor ook opnieuw maken.
+Gebruikers wordt aangeraden om:
+- Schakel [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) met één muisklik onboarding automatisch migreren van hun bestaande waarschuwingen en nieuwe te maken
+- De waarschuwingen met waarschuwingen voor Azure Monitor opnieuw maken
                                      
 Als u wilt behouden van uw bestaande waarschuwingen en migreren naar Azure Sentinel, kunt u [start Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Selecteer de werkruimte waar uw aangepaste waarschuwingen worden opgeslagen als eerste stap en selecteer vervolgens het menu-item 'Analytics' voor het migreren van uw waarschuwingen automatisch.
 

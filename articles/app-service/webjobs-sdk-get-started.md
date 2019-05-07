@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: b824c99a015cfa2c1d1c75e2a1257eff482e8dd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a9e902a13071abefff71dc4db089380979c8d459
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60833202"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198621"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Aan de slag met de Azure WebJobs-SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
@@ -195,7 +195,7 @@ Vanaf versie 3.x, moet u expliciet de bindingsuitbreiding opslag is vereist door
 
    De `QueueTrigger` kenmerk geeft aan dat de runtime voor het aanroepen van deze functie wanneer een nieuw bericht is geschreven in een Azure Storage-wachtrij met de naam `queue`. De inhoud van het bericht uit de wachtrij worden geleverd aan de methode code in de `message` parameter. De hoofdtekst van de methode is waar u de triggergegevens te verwerken. In dit voorbeeld registreert de code alleen het bericht.
 
-   De `message` parameter hoeft te zijn van een tekenreeks. U kunt ook verbinden met een JSON-object, een bytematrix of een [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) object. [Zie wachtrij trigger gebruik](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Elk bindingstype (zoals wachtrijen, blobs en tabellen) heeft een andere set parametertypen die u kunt koppelen aan.
+   De `message` parameter hoeft te zijn van een tekenreeks. U kunt ook verbinden met een JSON-object, een bytematrix of een [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) object. [Zie wachtrij trigger gebruik](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Elk bindingstype (zoals wachtrijen, blobs en tabellen) heeft een andere set parametertypen die u kunt koppelen aan.
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 

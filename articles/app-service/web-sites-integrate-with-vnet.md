@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b97fe5d638b5967f533e489a67d4235bbc5a3db1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128412"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198583"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uw app integreren met een Azure-netwerk
 Dit document beschrijft de functie voor integratie met virtueel netwerk Azure App Service en laat zien hoe u om in te stellen met apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Virtuele netwerken van Azure] [ VNETOverview] (VNets) kunt u veel van uw Azure-resources in een niet-routeerbare internetnetwerk plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van VPN-technologieën. 
@@ -271,9 +271,9 @@ De nieuwe versie is in Preview en heeft de volgende kenmerken.
 * U kunt toegang tot resources via ExpressRoute-verbindingen zonder extra configuratie dan integreren met de ExpressRoute VNet aangesloten.
 * De app en het VNet moet zich in dezelfde regio
 * De nieuwe functie moet een niet-gebruikte in uw Resource Manager-VNet-subnet.
+* Uw app moet zich in een Azure App Service-implementatie waarmee naar Premium v2 omhoog te schalen.
 * Uw App Service-plan moet een plan Standard, Premium of PremiumV2
 * Productieworkloads worden niet ondersteund op de nieuwe functie in Preview-versie
-* Uw app moet zich in een Azure App Service-implementatie waarmee naar Premium v2 omhoog te schalen.
 * De nieuwe functie voor VNet-integratie werkt niet voor apps in een App Service Environment.
 * U kunt een VNet met een geïntegreerde app niet verwijderen.  
 * Routetabellen en wereldwijde peering zijn nog niet beschikbaar met de nieuwe VNet-integratie.  

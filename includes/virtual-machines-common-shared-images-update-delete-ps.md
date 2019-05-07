@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 10b95a92f36ad6eb340ae864cbfd9fcbeac371a8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d2a85f3947e9993e5d1853e45c6d03586a074cf6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148735"
+ms.locfileid: "65191728"
 ---
 ## <a name="update-resources"></a>Resources bijwerken
 
@@ -34,7 +34,7 @@ Installatiekopieversie:
 - Uitsluiting van de meest recente
 - Einde van de levensduur van datum
 
-
+Als u van plan bent over het toevoegen van replica-regio's, een beheerde installatiekopie van de bron niet verwijderen. Een beheerde installatiekopie van de bron nodig is voor de versie van de installatiekopie die wordt gerepliceerd naar extra regio's. 
 
 Gebruiken voor het bijwerken van de beschrijving van een galerie, [Update AzGallery](https://docs.microsoft.com/powershell/module/az.compute/update-azgallery).
 
