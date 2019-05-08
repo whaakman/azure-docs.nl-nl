@@ -56,9 +56,9 @@ De volgende eigenschappen worden ondersteund voor Cassandra gekoppelde service:
 |:--- |:--- |:--- |
 | type |De eigenschap type moet worden ingesteld op: **Cassandra** |Ja |
 | host |Een of meer IP-adressen of hostnamen van de Cassandra-servers.<br/>Geef een door komma's gescheiden lijst met IP-adressen of hostnamen gelijktijdig verbinding maken met alle servers. |Ja |
-| poort |De TCP-poort die gebruikmaakt van de Cassandra-server om te luisteren naar clientverbindingen. |Nee (de standaardinstelling is 9042) |
+| port |De TCP-poort die gebruikmaakt van de Cassandra-server om te luisteren naar clientverbindingen. |Nee (de standaardinstelling is 9042) |
 | authenticationType | Het type verificatie gebruikt voor verbinding met de Cassandra-database.<br/>Toegestane waarden zijn: **Basic**, en **anonieme**. |Ja |
-| gebruikersnaam |Geef de gebruikersnaam op voor het gebruikersaccount. |Ja, als authenticationType is ingesteld op het Basislidmaatschap. |
+| username |Geef de gebruikersnaam op voor het gebruikersaccount. |Ja, als authenticationType is ingesteld op het Basislidmaatschap. |
 | password |Wachtwoord voor het gebruikersaccount opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja, als authenticationType is ingesteld op het Basislidmaatschap. |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
@@ -176,13 +176,13 @@ Het kopiëren van gegevens van Cassandra, worden de volgende toewijzingen van Ca
 | ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLEAANSE WAARDE |Boolean |
+| BOOLEAN |Boolean |
 | DECIMAL |Decimal |
 | DOUBLE |Double |
 | FLOAT |Single |
 | INET |String |
 | INT |Int32 |
-| TEKST |String |
+| TEXT |String |
 | TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
