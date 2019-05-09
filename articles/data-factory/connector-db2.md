@@ -65,7 +65,7 @@ De volgende eigenschappen worden ondersteund voor DB2 gekoppelde service:
 | server |Naam van de DB2-server. U kunt het volgende op de naam van de server gescheiden door puntkomma's, bijvoorbeeld poortnummer opgeven `server:port`. |Ja |
 | database |De naam van de DB2-database. |Ja |
 | authenticationType |Het type verificatie gebruikt voor verbinding met de DB2-database.<br/>Toegestane waarde is: **Basic**. |Ja |
-| gebruikersnaam |Geef de naam van de gebruiker verbinding maakt met de DB2-database. |Ja |
+| username |Geef de naam van de gebruiker verbinding maakt met de DB2-database. |Ja |
 | password |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
@@ -174,19 +174,19 @@ Bij het kopiëren van gegevens uit een DB2, worden de volgende toewijzingen van 
 | Type van de DB2-Database | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | BigInt |Int64 |
-| Binair bestand |Byte[] |
+| Binary |Byte[] |
 | Blob |Byte[] |
-| char |String |
-| CLOB |String |
-| Date |DateTime |
+| Char |String |
+| Clob |String |
+| Date |Datetime |
 | DB2DynArray |String |
 | DbClob |String |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| Afbeelding |String |
-| Geheel getal |Int32 |
+| Graphic |String |
+| Integer |Int32 |
 | LongVarBinary |Byte[] |
 | LongVarChar |String |
 | LongVarGraphic |String |
@@ -194,7 +194,7 @@ Bij het kopiëren van gegevens uit een DB2, worden de volgende toewijzingen van 
 | Real |Single |
 | SmallInt |Int16 |
 | Time |TimeSpan |
-| Tijdstempel |DateTime |
+| Timestamp |DateTime |
 | VarBinary |Byte[] |
 | VarChar |String |
 | VarGraphic |String |
