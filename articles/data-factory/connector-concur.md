@@ -48,9 +48,9 @@ De volgende eigenschappen worden ondersteund voor Concur gekoppelde service:
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Concur** | Ja |
-| ClientId | Toepassing client_id geleverd door App-beheer Concur.  | Ja |
-| gebruikersnaam | De gebruikersnaam die u gebruikt voor toegang tot Service Concur.  | Ja |
-| wachtwoord | Het wachtwoord dat overeenkomt met de naam van de gebruiker die u hebt opgegeven in het gebruikersnaamveld. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| clientId | Toepassing client_id geleverd door App-beheer Concur.  | Ja |
+| username | De gebruikersnaam die u gebruikt voor toegang tot Service Concur.  | Ja |
+| password | Het wachtwoord dat overeenkomt met de naam van de gebruiker die u hebt opgegeven in het gebruikersnaamveld. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Hiermee geeft u op of de eindpunten van de gegevensbron zijn versleuteld met behulp van HTTPS. De standaardwaarde is true.  | Nee |
 | useHostVerification | Hiermee geeft u op of de hostnaam van de in het certificaat van de server zodat deze overeenkomen met de hostnaam van de server wanneer u verbinding maakt via SSL vereist. De standaardwaarde is true.  | Nee |
 | usePeerVerification | Hiermee geeft u op of u wilt controleren of de identiteit van de server wanneer u verbinding maakt via SSL. De standaardwaarde is true.  | Nee |
