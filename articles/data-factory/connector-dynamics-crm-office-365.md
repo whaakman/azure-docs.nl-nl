@@ -65,7 +65,7 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde service van Dyna
 | deploymentType | Het implementatietype van de Dynamics-instantie. Het moet **'Online'** voor Dynamics online. | Ja |
 | serviceUri | De service-URL van uw Dynamics-exemplaar, bijvoorbeeld `https://adfdynamics.crm.dynamics.com`. | Ja |
 | authenticationType | Het verificatietype voor verbinding met een Dynamics-server. Geef **'Office 365'** voor Dynamics online. | Ja |
-| gebruikersnaam | Geef de naam van de gebruiker verbinding maken met Dynamics. | Ja |
+| username | Geef de naam van de gebruiker verbinding maken met Dynamics. | Ja |
 | password | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Als niet is opgegeven, wordt de standaard Azure Integration Runtime. | Niet voor bron, Ja voor sink als de bron gekoppelde service beschikt niet over een integratieruntime |
 
@@ -107,10 +107,10 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde service van Dyna
 | type | De eigenschap type moet worden ingesteld op **Dynamics**. | Ja |
 | deploymentType | Het implementatietype van de Dynamics-instantie. Het moet **"OnPremisesWithIfd"** voor Dynamics on-premises met IFD.| Ja |
 | hostName | De hostnaam van de on-premises Dynamics-server. | Ja |
-| poort | De poort van de on-premises Dynamics-server. | Nee, standaard is dit 443 |
-| Organisatienaam | De naam van de organisatie van de Dynamics-instantie. | Ja |
+| port | De poort van de on-premises Dynamics-server. | Nee, standaard is dit 443 |
+| organizationName | De naam van de organisatie van de Dynamics-instantie. | Ja |
 | authenticationType | Het verificatietype voor verbinding met de Dynamics-server. Geef **"Ifd"** voor Dynamics on-premises met IFD. | Ja |
-| gebruikersnaam | Geef de naam van de gebruiker verbinding maken met Dynamics. | Ja |
+| username | Geef de naam van de gebruiker verbinding maken met Dynamics. | Ja |
 | password | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord opslaan in Azure Key Vault en laat de copy-activiteit ophalen van daaruit bij het uitvoeren van het kopiëren van gegevens: meer informatie [referenties Store in Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Als niet is opgegeven, wordt de standaard Azure Integration Runtime. | Nee voor bron, Ja voor sink |
 
