@@ -101,7 +101,7 @@ Om gegevens te kopiëren van Dynamics AX, stel de **type** eigenschap van de geg
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de gegevensset moet worden ingesteld op **DynamicsAXResource**. | Ja |
-| pad | Het pad naar de Dynamics AX OData-entiteit. | Ja |
+| path | Het pad naar de Dynamics AX OData-entiteit. | Ja |
 
 **Voorbeeld**
 
