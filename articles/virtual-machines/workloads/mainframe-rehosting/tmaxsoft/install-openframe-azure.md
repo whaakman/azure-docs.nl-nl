@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: c7e6e7e2023c333207a3a17c3b6711d92de7d044
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b69ded2591478a477cd142decb39218841c9ac62
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187792"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410112"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>TmaxSoft OpenFrame installeren op Azure
 
@@ -116,13 +116,13 @@ U kunt de OpenFrame-omgeving met behulp van verschillende implementaties instell
 
 **Een virtuele machine maken**
 
-1. Ga naar de Azure portal op <http://portal.azure.com> en meld u aan bij uw account.
+1. Ga naar de Azure portal op <https://portal.azure.com> en meld u aan bij uw account.
 
 2. Klik op **virtuele machines**.
 
     ![Lijst met resources in Azure portal](media/vm-01.png)
 
-3. Klik op **Add**.
+3. Klik op **Toevoegen**.
 
     ![De optie toevoegen in Azure portal](media/vm-02.png)
 

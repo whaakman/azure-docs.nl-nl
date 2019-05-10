@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: a323cbe4188207fa77525648297b366c9c57121b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd818135f289c430416909d16c8568208936a9f8
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466898"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205407"
 ---
 # <a name="quickstart-stream-video-files---cli"></a>Quickstart: Videobestanden streamen - CLI
 
@@ -83,7 +83,7 @@ U krijgt een reactie als volgt:
 
 ## <a name="start-the-streaming-endpoint"></a>Het streaming-eindpunt starten
 
-De volgende Azure CLI-opdracht start de standaardwaarde **Sstreaming eindpunt**.
+De volgende Azure CLI-opdracht start de standaardwaarde **Streaming-eindpunt**.
 
 ```azurecli
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
@@ -356,4 +356,4 @@ Zie [Foutcodes in taak](https://docs.microsoft.com/rest/api/media/jobs/get#jober
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [CLI-voorbeelden](cli-samples.md)
+[Overzicht van Media Services](media-services-overview.md)

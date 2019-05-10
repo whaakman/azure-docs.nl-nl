@@ -5,47 +5,33 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61027965"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230009"
 ---
-# <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Preview - beveiligd verkeer tussen schillen met behulp van beleid voor netwerken in Azure Kubernetes Service (AKS)
+# <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Beveiliging van verkeer tussen schillen met behulp van beleid voor netwerken in Azure Kubernetes Service (AKS)
 
 Wanneer u een moderne, op basis van microservices-toepassingen in Kubernetes uitvoeren, wilt u meestal om te bepalen welke onderdelen met elkaar kunnen communiceren. Het principe van minimale bevoegdheden moet worden toegepast op hoe verkeer tussen de schillen in een cluster Azure Kubernetes Service (AKS stromen kan). Stel dat u waarschijnlijk wilt blokkeren van verkeer rechtstreeks naar de back-end-toepassingen. De *netwerkbeleid* functie in Kubernetes kunt u regels definiëren voor inkomend en uitgaand verkeer tussen de schillen in een cluster.
 
-Dit artikel leest u hoe de beleidsengine netwerk installeren en Kubernetes netwerk beleid om te bepalen van de verkeersstroom tussen de schillen in AKS. Deze functie is momenteel beschikbaar als preview-product.
-
-> [!IMPORTANT]
-> AKS-preview-functies zijn selfservice en aanmelden. Previews worden opgegeven voor het verzamelen van fouten en feedback van onze community. Ze worden echter niet ondersteund door Azure technische ondersteuning. Als u een cluster maken of deze functies aan bestaande clusters toevoegen, is dat cluster wordt niet ondersteund totdat de functie niet langer in preview is en is geslaagd voor algemene beschikbaarheid (GA).
->
-> Als u problemen met de preview-functies ondervindt, [opent u een probleem op de AKS-GitHub-opslagplaats] [ aks-github] met de naam van de preview-functie in de titel van fout.
+Dit artikel leest u hoe de beleidsengine netwerk installeren en Kubernetes netwerk beleid om te bepalen van de verkeersstroom tussen de schillen in AKS. Netwerkbeleid moet alleen worden gebruikt voor knooppunten op basis van Linux en schillen in AKS.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 U moet de Azure CLI versie 2.0.61 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
 
-Voor het maken van een AKS-cluster die netwerkbeleid kunt gebruiken, moet u eerst een functievlag voor uw abonnement inschakelen. Om u te registreren de *EnableNetworkPolicy* vlag functie, gebruikt u de [az functie registreren] [ az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
-
-```azurecli-interactive
-az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
-```
-
-Het duurt enkele minuten duren voordat de status om weer te geven *geregistreerde*. U kunt de registratiestatus controleren met behulp van de [az Functielijst] [ az-feature-list] opdracht:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableNetworkPolicy')].{Name:name,State:properties.state}"
-```
-
-Wanneer u klaar bent, vernieuwt u de registratie van de *Microsoft.ContainerService* resourceprovider met behulp van de [az provider register] [ az-provider-register] opdracht:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+> [!TIP]
+> Als u de functie voor netwerk beleid tijdens de Preview-versie gebruikt, raden we u [Maak een nieuw cluster](#create-an-aks-cluster-and-enable-network-policy).
+> 
+> Als u doorgaan met behulp van bestaande testclusters die netwerkbeleid tijdens de Preview-versie gebruikt wilt, uw cluster upgraden naar een nieuwe Kubernetes-versies voor de nieuwste GA-versie en vervolgens implementeert u het volgende YAML-manifest om op te lossen de vastgelopen server metrische gegevens en Kubernetes dashboard. Deze oplossing is alleen vereist voor clusters die de beleidsengine Calico netwerk gebruikt.
+>
+> Als een aanbevolen beveiligingsprocedure, [bekijkt u de inhoud van deze YAML-manifest] [ calico-aks-cleanup] om te begrijpen wat wordt geïmplementeerd in het AKS-cluster.
+>
+> `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
 ## <a name="overview-of-network-policy"></a>Overzicht van beleid voor netwerken
 
@@ -78,6 +64,7 @@ Netwerkbeleid werkt alleen met de optie Azure CNI (Geavanceerd). Implementatie v
 | Naleving van Kubernetes-specificatie | Alle beleidstypen ondersteund |  Alle beleidstypen ondersteund |
 | Aanvullende functies                      | Geen                       | Uitgebreid beleid model die bestaat uit een beleid voor globale netwerken, Global Network instellen en Host-eindpunt. Voor meer informatie over het gebruik van de `calicoctl` CLI voor het beheren van deze uitgebreide functies, Zie [calicoctl gebruiker verwijzing][calicoctl]. |
 | Ondersteuning                                  | Ondersteund door Azure-ondersteuning en de Engineering-team | Calico communityondersteuning. Zie voor meer informatie over de ondersteuning van aanvullende betaalde [Project Calico ondersteuningsopties][calico-support]. |
+| Logboekregistratie                                  | Regels toegevoegd / verwijderd in IPTables zijn aangemeld op elke host onder */var/log/azure-npm.log* | Zie voor meer informatie, [Calico onderdeel Logboeken][calico-logs] |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Een AKS-cluster maken en inschakelen van beleid voor netwerken
 
@@ -140,7 +127,6 @@ az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --kubernetes-version 1.12.6 \
     --generate-ssh-keys \
     --network-plugin azure \
     --service-cidr 10.0.0.0/16 \
@@ -478,12 +464,13 @@ Zie voor meer informatie over het beleid, [Kubernetes netwerkbeleidsregels][kube
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
+[calicoctl]: https://docs.projectcalico.org/v3.6/reference/calicoctl/
 [calico-support]: https://www.projectcalico.org/support
+[calico-logs]: https://docs.projectcalico.org/v3.6/maintenance/component-logs
+[calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

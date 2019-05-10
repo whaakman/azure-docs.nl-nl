@@ -2,19 +2,19 @@
 title: 'Zelfstudie: Een machine learning-model met de visuele interface implementeren'
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over het bouwen van een predictive analytics-oplossing in de visuele interface voor Azure Machine Learning-service. Trainen, beoordelen, en implementeren van een machine learning-model met behulp van slepen en neerzetten van modules. In deze zelfstudie is deel twee van een tweedelige reeks over lineaire regressie gebruiken prijzen van auto's voorspellen.
-author: peterlu
-ms.author: peterlu
+author: peterclu
+ms.author: peterclu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: e9ece81b1f663910fb3c051bd94c13c54ffa8470
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5f29e3820416686b42167fa278c4b7d0f9a58f1f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026863"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190920"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Zelfstudie: Een machine learning-model met de visuele interface implementeren
 
@@ -40,16 +40,16 @@ U hebt tot nu toe is experimenteren met het trainen van uw model. Nu is het tijd
 Voorbereiding voor de implementatie is een proces in twee stappen:  
 
 1. Converteer de *trainingsexperiment* die u hebt gemaakt in een *Voorspellend experiment*
-1. Het voorspellende experiment implementeren als webservice
+1. De Voorspellend experiment implementeren als een webservice
 
 U wilt mogelijk maakt u eerst een kopie van het experiment hiervoor **OpslaanAls** aan de onderkant van het experimentcanvas.
 
-### <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Het trainingsexperiment converteren naar een voorspellend experiment
+### <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Het trainingsexperiment converteren naar een Voorspellend experiment
 
 Om dit model klaar is voor implementatie, deze trainingsexperiment te converteren naar een Voorspellend experiment. Dit betekent meestal dat drie stappen:
 
 1. Sla het model dat u hebt getraind en uw trainingsmodules vervangen
-1. Werk het experiment bij door modules te verwijderen die alleen voor de training nodig waren
+1. Verwijder het experiment als u wilt verwijderen van modules die zijn alleen nodig voor training
 1. Bepalen waar de webservice invoergegevens accepteert en waarin de uitvoer wordt gegenereerd
 
 U kunt deze stappen handmatig uitvoeren of u kunt selecteren **webservice ingesteld** onder aan het experimentcanvas om deze automatisch uitgevoerd.
@@ -59,14 +59,14 @@ U kunt deze stappen handmatig uitvoeren of u kunt selecteren **webservice ingest
 Wanneer u selecteert **webservice ingesteld**, op verschillende manieren gebeuren:
 
 * Het getrainde model wordt geconverteerd naar een enkele **getrainde Model** module. Deze wordt opgeslagen in het modulepalet links van het experimentcanvas. U vindt deze onder **getrainde modellen**.
-* Modules die zijn gebruikt voor de training, worden verwijderd. Specifieker gezegd:
-  * Train Model
-  * Split Data
+* Modules die zijn gebruikt voor trainingen, worden verwijderd; met name:
+  * Model trainen
+  * Gegevens splitsen
   * Model evalueren
-* Het opgeslagen getrainde model wordt weer toegevoegd aan het experiment
+* Het opgeslagen getrainde model wordt toegevoegd in het experiment
 * **Web service invoer** en **Web service uitvoer** modules worden toegevoegd. Deze modules identificeren waarin gegevens van de gebruiker het model wordt invoeren en waarin gegevens worden geretourneerd.
 
-U kunt zien dat het experiment wordt opgeslagen in twee onderdelen op de nieuwe tabbladen boven aan het experimentcanvas. Het oorspronkelijke trainingsexperiment staat op het tabblad **Trainingsexperiment** en het zojuist gemaakte voorspellende experiment staat bij **Voorspellend experiment**. U gaat het voorspellende experiment implementeren als webservice.
+U kunt zien dat het experiment wordt opgeslagen in twee onderdelen op de nieuwe tabbladen boven aan het experimentcanvas. De oorspronkelijke trainingsexperiment is op het tabblad **trainingsexperiment**, en wordt de zojuist gemaakte Voorspellend experiment **Voorspellend experiment**. U gaat het voorspellende experiment implementeren als webservice.
 
 Uw experiment moet er nu als volgt uitzien:  
 

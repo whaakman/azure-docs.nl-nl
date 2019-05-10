@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 04/26/2019
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cbd40f2ab91f854f46dc3e62bccbc8a3264f97f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bdf19d2001f84fab6978bfc34ef14a361b89edea
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291276"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441418"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Gebruikers en groepen toewijzen aan een toepassing in Azure Active Directory
 Dit artikel leest u hoe gebruikers of groepen toewijzen aan een toepassing in Azure Active Directory (Azure AD). Gebruikers moeten eerst worden toegewezen aan een toepassing voordat u een beheerder kan hun toegang wordt verleend om het volgende doen:
@@ -31,6 +31,8 @@ Dit artikel leest u hoe gebruikers of groepen toewijzen aan een toepassing in Az
 -   Zie een toepassing worden weergegeven op hun [Toegangsvenster](https://myapps.microsoft.com/) of mobiele toepassing.
 
 -   Zie een toepassing worden weergegeven op hun [startprogramma voor toepassingen van Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
+
+De beschikbaarheid van toewijzing op basis van een groep wordt bepaald door uw licentieovereenkomst. Toewijzing op basis van een groep wordt ondersteund voor alleen beveiligingsgroepen en genest groepslidmaatschap worden momenteel niet ondersteund.
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u gebruikers en groepen aan een toepassing toewijzen kunt, moet u de Gebruikerstoewijzing vereisen. Gebruikerstoewijzing vereist:

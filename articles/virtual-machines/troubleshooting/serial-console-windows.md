@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: harijay
-ms.openlocfilehash: c6611c75e61f7e381efd2e437b8281cc70601215
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 31811d3d48f791e11bd6b709f59f5f6aaa18be0e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141062"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442113"
 ---
 # <a name="azure-serial-console-for-windows"></a>Azure-seriële Console voor Windows
 
-Seriële Console van het in Azure portal biedt toegang tot een op tekst gebaseerde console voor Windows-machines (VM's) en virtuele-machineschaalset (virtuele-machineschaalset)-exemplaren. Deze seriële verbinding maken met de seriële poort COM1 van de virtuele machine of virtuele machine scale set exemplaar, toegang tot deze onafhankelijk van de status van de netwerk- of -besturingssysteem. Seriële console van het alleen kan worden geopend met behulp van Azure portal en is alleen voor gebruikers die een access-rol van inzender zijn toegestaan of hoger als u wilt de schaalset voor virtuele machine of virtuele machine.
+Seriële Console van het in Azure portal biedt toegang tot een op tekst gebaseerde console voor Windows-machines (VM's) en virtuele-machineschaalset exemplaren. Deze seriële verbinding maken met de seriële poort COM1 van de virtuele machine of virtuele machine scale set exemplaar, toegang tot deze onafhankelijk van de status van de netwerk- of -besturingssysteem. Seriële console van het alleen kan worden geopend met behulp van Azure portal en is alleen voor gebruikers die een access-rol van inzender zijn toegestaan of hoger als u wilt de schaalset voor virtuele machine of virtuele machine.
 
 Seriële Console werkt op dezelfde manier voor virtuele machines en virtuele-machineschaalset exemplaren. In dit document bevat alle vermeldingen op virtuele machines impliciet schaalsetinstanties virtuele machine, tenzij anders vermeld.
 

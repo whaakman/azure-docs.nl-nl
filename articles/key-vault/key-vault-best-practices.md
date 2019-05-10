@@ -2,19 +2,19 @@
 title: Aanbevolen procedures voor het gebruik van Key Vault - Azure Key Vault | Microsoft Docs
 description: Dit document wordt uitgelegd in enkele van de aanbevolen procedures voor het gebruik van Key Vault
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: barbkess
 tags: azure-key-vault
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 27881758175ab698e4b713c0215383878272382f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: eb7150d0b1c3a4a312b0c05ba7612960aaf640f6
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700773"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227929"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Aanbevolen procedures voor het gebruik van Key Vault
 
@@ -32,7 +32,7 @@ Suggesties tijdens het beheren van toegang tot de kluis zijn als volgt:
 
 Onze aanbeveling is het gebruik van een sleutelkluis per toepassing per omgeving (ontwikkeling, Pre-productie en productie). Dit kunt u geen geheimen delen tussen omgevingen en verlaagt u ook de bedreiging in het geval van een inbreuk.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Back-up
 
 Zorg ervoor dat u ondernemen regelmatig terug ups van uw [kluis](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) op update/delete/maken van objecten in een kluis.
 

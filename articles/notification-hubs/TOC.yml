@@ -16,16 +16,24 @@
   items:
     - name: Android
       items:
-        - name: Pushmeldingen verzenden met Firebase Cloud Messaging
-          href: notification-hubs-android-push-notification-google-fcm-get-started.md
-        - name: Pushmeldingen verzenden met Google Cloud Messaging
-          href: notification-hubs-android-push-notification-google-gcm-get-started.md
-        - name: Pushmeldingen verzenden naar specifieke apparaten
-          href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-        - name: Pushmeldingen verzenden naar specifieke gebruikers
-          href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-        - name: Pushmeldingen verzenden naar Xamarin Android-apps
-          href: xamarin-notification-hubs-push-notifications-android-gcm.md
+        - name: Firebase Cloud Messaging
+          items:
+            - name: Pushmeldingen verzenden naar alle geregistreerde apparaten
+              href: notification-hubs-android-push-notification-google-fcm-get-started.md
+            - name: Pushmeldingen verzenden naar specifieke apparaten
+              href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
+            - name: Pushmeldingen verzenden naar specifieke gebruikers
+              href: push-notifications-android-specific-users-firebase-cloud-messaging.md
+            - name: Pushmeldingen verzenden naar Xamarin Android-apps
+              href: xamarin-notification-hubs-push-notifications-android-gcm.md
+        - name: Google Cloud Message (afgeschaft)
+          items:
+            - name: Pushmeldingen verzenden naar alle geregistreerde apparaten
+              href: notification-hubs-android-push-notification-google-gcm-get-started.md
+            - name: Pushmeldingen verzenden naar specifieke apparaten
+              href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+            - name: Pushmeldingen verzenden naar specifieke gebruikers
+              href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
     - name: Baidu
       items:
         - name: Pushmeldingen verzenden met behulp van Baidu Cloud Push

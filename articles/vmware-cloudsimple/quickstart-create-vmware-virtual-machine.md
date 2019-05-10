@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3940adfaa42de8ac9c3f32a9eadc8f6d643ce3ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c0bb8d7a5a1ea30b704b44c9337cd28043597ff7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149559"
+ms.locfileid: "65209524"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Snelstart: virtuele VMware-machines op Azure gebruiken
 
@@ -29,7 +29,7 @@ Een virtuele machine maken in uw privécloud van de vCenter-gebruikersinterface.
 
 2. Zoeken naar **CloudSimple virtuele Machines**.
 
-3. Klik op **Add**.
+3. Klik op **Toevoegen**.
 
     ![CloudSimple virtuele machine maken](media/create-cloudsimple-virtual-machine.png)
 
@@ -60,7 +60,7 @@ Een virtuele machine maken in uw privécloud van de vCenter-gebruikersinterface.
 
     Voor netwerkinterfaces, klikt u op **netwerkinterface toevoegen** en configureer de volgende instellingen.
     
-    | Beheer | Description |
+    | Besturingselement | Description |
     | ------------ | ------------- |
     | Name | Voer een unieke naam voor de interface.  |
     | Netwerk | Selecteer in de lijst met geconfigureerde gedistribueerde poortgroep in uw Privécloud vSphere.  |
@@ -74,7 +74,7 @@ Een virtuele machine maken in uw privécloud van de vCenter-gebruikersinterface.
     | Name | Voer een unieke naam voor de schijf.  | 
     | Grootte | Selecteer een van de beschikbare grootten.  | 
     | SCSI-Controller | Selecteer een SCSI-controller voor de schijf.  |
-    | Modus | Bepaalt hoe de schijf maakt deel uit van momentopnamen. Kies een van de volgende opties: <br> -Onafhankelijke permanente: Alle gegevens die naar de schijf geschreven permanent wordt geschreven.<br> -Niet-permanente onafhankelijke: Wijzigingen die zijn geschreven naar de schijf worden verwijderd wanneer u uitschakelen of opnieuw instellen van de virtuele machine.  Onafhankelijke niet-permanente modus kunt u de virtuele machine wordt altijd opnieuw opgestart in dezelfde staat. Zie voor meer informatie de <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">VMware-documentatie</a>.
+    | modus | Bepaalt hoe de schijf maakt deel uit van momentopnamen. Kies een van de volgende opties: <br> -Onafhankelijke permanente: Alle gegevens die naar de schijf geschreven permanent wordt geschreven.<br> -Niet-permanente onafhankelijke: Wijzigingen die zijn geschreven naar de schijf worden verwijderd wanneer u uitschakelen of opnieuw instellen van de virtuele machine.  Onafhankelijke niet-permanente modus kunt u de virtuele machine wordt altijd opnieuw opgestart in dezelfde staat. Zie voor meer informatie de <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">VMware-documentatie</a>.
 
 7. Nadat de validatie is voltooid, Controleer de instellingen en klik op **maken**. Eventuele wijzigingen wilt aanbrengen, klikt u op de tabbladen aan de bovenkant of klik op.
 
@@ -82,5 +82,5 @@ Een virtuele machine maken in uw privécloud van de vCenter-gebruikersinterface.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Lijst met CloudSimple virtuele machines weergeven](https://docs.azure.cloudsimple.com/azure-manage-vm/)
-* [CloudSimple virtuele machine van Azure beheren](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [Lijst met CloudSimple virtuele machines weergeven](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [CloudSimple virtuele machine van Azure beheren](https://docs.azure.cloudsimple.com/azure-manage-vm/)

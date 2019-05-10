@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 614dabe842c7fe99da3ddb486c27003c79382ea1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147931"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231390"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Buiten gebruik stellen van Security Center-functies (2019 juli)
 
@@ -81,6 +81,7 @@ Klik in de werkruimte 'Identiteit en toegang' log analytics wordt het dashboard 
 ![Pagina van de id - dashboard][8]
 
 Alle bovenstaande drie schermen voortaan wordt beëindigd. Uw gegevens worden blijven beschikbaar in de log analytics-beveiligingsoplossing en niet gewijzigd of verwijderd.
+De oorspronkelijke Log Analytics-query's gebruikt voor het vullen van het dashboard identiteit en toegang zijn beschikbaar in Security Center [GitHub-opslagplaats](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### <a name="classic-identity--access-preview---new-experience"></a>Klassieke Identity & Access (Preview) - nieuwe ervaring
 Terwijl de Log analytics-dashboard insights op een opgegeven werkruimte alleen opgegeven heeft, de systeemeigen mogelijkheden van Security Center bieden inzicht in alle abonnementen en alle werkruimten die zijn gekoppeld aan deze in een eenvoudig-werken met weergave waarmee u zich richten op wat van belangrijk, op basis van de beveiligde score van uw Identity & access aanbeveling(en) zijn.
@@ -103,6 +104,7 @@ Als u een werkruimte om hiervoor het dashboard bedreigingsinformatie weer te gev
 ![Kaart van de beveiliging waarschuwingen in Log Analytics][12]
 
 Uw bestaande gegevens zal blijven beschikbaar in de log analytics-beveiligingsoplossing en niet worden gewijzigd of verwijderd.
+De oorspronkelijke Log Analytics-query's gebruikt voor het vullen van het dashboard Bedreigingsinformatie zijn beschikbaar in Security Center [GitHub-opslagplaats](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### <a name="security-events-map---new-experience"></a>Beveiliging-kaart voor gebeurtenissen - nieuwe ervaring
 We raden onze klanten gebruiken de waarschuwingsfunctie van de kaart die is ingebouwd in Security Center - "beveiligingswaarschuwingen toewijzen (Preview)". Dit biedt een optimale ervaring en werkt met alle abonnementen en bijbehorende werkruimten, zodat een macro weergeven in uw omgeving, en niet gericht op één werkruimte.
@@ -165,6 +167,8 @@ De Security-dashboard in Log analytics biedt een overzicht van de per-werkruimte
 
 ### <a name="security--audit-dashboard---new-experience"></a>Dashboard beveiliging en audit - nieuwe ervaring
 Onze klanten wordt aangeraden gebruik van Azure Security Center, waarmee u de dezelfde beveiligingsoverzicht voor meerdere abonnementen en werkruimten die zijn gekoppeld, samen met een uitgebreidere reeks functies.
+
+De oorspronkelijke Log Analytics-query's gebruikt voor het vullen van de beveiliging en controle uitvoeren op dashboard beschikbaar zijn in Security Center [GitHub-opslagplaats](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [Azure Security Center](https://docs.microsoft.com/azure/security-center/)

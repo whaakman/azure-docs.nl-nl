@@ -113,7 +113,7 @@
         - name: Een AKS-cluster verwijderen
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: Virtuele knooppunten maken (preview)
+        - name: Virtuele knooppunten maken
           items:
             - name: Azure-CLI
               href: virtual-nodes-cli.md
@@ -123,9 +123,13 @@
           href: virtual-kubelet.md
         - name: Cluster Autoscaler (preview) gebruiken
           href: cluster-autoscaler.md
+        - name: Meerdere knooppuntpools (preview) gebruiken
+          href: use-multiple-node-pools.md
         - name: AKS met Terraform implementeren
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
+        - name: Het Kubernetes-dashboard gebruiken
+          href: kubernetes-dashboard.md
     - name: Gegevensvolumes configureren
       items:
         - name: Azure Disk - dynamisch
@@ -173,12 +177,16 @@
           href: kubernetes-service-principal.md
         - name: Toegang tot clusterconfiguratiebestand beperken
           href: control-kubeconfig-access.md
-        - name: Pod-verkeer beveiligen met netwerkbeleid (preview)
+        - name: Pod-verkeer beveiligen met netwerkbeleid
           href: use-network-policies.md
         - name: Pod-beveiligingsbeleid (preview) gebruiken
           href: use-pod-security-policies.md
+        - name: Gemachtigde IP-bereiken voor de API-server definiëren (preview)
+          href: api-server-authorized-ip-ranges.md
         - name: Principalreferenties voor clusterservice bijwerken
           href: update-credentials.md
+        - name: Uitgaand clusterverkeer beheren en beperken
+          href: limit-egress-traffic.md
         - name: Integratie van Azure Active Directory inschakelen
           items:
             - name: Azure CLI gebruiken
@@ -285,10 +293,6 @@
         - name: Azure DevOps Project
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
-    - name: Basisbeginselen voor Kubernetes
-      items:
-        - name: Kubernetes-dashboard gebruiken
-          href: kubernetes-dashboard.md
     - name: Problemen oplossen
       items:
         - name: Algemene problemen

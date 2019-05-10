@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: bababa723e70cdc5268fb04f1104cca9e254984d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467428"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230149"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes-belangrijkste concepten voor Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ Als de ontwikkeling van toepassingen wordt verplaatst naar een benadering op bas
 
 Dit artikel bevat de basisonderdelen van de Kubernetes-infrastructuur, zoals de *cluster master*, *knooppunten*, en *knooppuntgroepen*. Workload-resources zoals *schillen*, *implementaties*, en *ingesteld* ook geïntroduceerd, samen met het om resources te groeperen in *naamruimten*.
 
-## <a name="what-is-kubernetes"></a>Wat is er Kubernetes?
+## <a name="what-is-kubernetes"></a>Wat is Kubernetes?
 
 Kubernetes is een snel groeiende platform dat wordt beheerd op containers gebaseerde toepassingen en hun bijbehorende netwerk- en opslagonderdelen. De focus ligt op de werkbelastingen van toepassingen, niet op de onderliggende infrastructuuronderdelen. Kubernetes biedt een declaratieve benadering voor implementaties, ondersteund door een krachtige reeks API's voor beheerbewerkingen.
 
@@ -99,9 +99,11 @@ Zie voor de bijbehorende best practices, [aanbevolen procedures voor basic sched
 
 ### <a name="node-pools"></a>Knooppuntgroepen
 
-Knooppunten met dezelfde configuratie zijn gegroepeerd tot *knooppuntgroepen*. Een Kubernetes-cluster bevat een of meer groepen. Het oorspronkelijke aantal knooppunten en de grootte worden gedefinieerd bij het maken van een AKS-cluster maakt een *knooppuntgroep standaard*. Deze standaardgroep knooppunt in AKS bevat de onderliggende VM's waarop de agent knooppunten.
+Knooppunten met dezelfde configuratie zijn gegroepeerd tot *knooppuntgroepen*. Een Kubernetes-cluster bevat een of meer groepen. Het oorspronkelijke aantal knooppunten en de grootte worden gedefinieerd bij het maken van een AKS-cluster maakt een *knooppuntgroep standaard*. Deze standaardgroep knooppunt in AKS bevat de onderliggende VM's waarop de agent knooppunten. Ondersteuning voor meerdere knooppunt pool is momenteel in preview in AKS.
 
-Wanneer u een AKS-cluster upgraden of schalen, wordt de actie wordt uitgevoerd op basis van de standaardgroep voor het knooppunt. Actieve containers worden gepland op andere knooppunten in het knooppunt van toepassingen voor upgrade-bewerkingen, totdat alle knooppunten worden bijgewerkt.
+Wanneer u een AKS-cluster upgraden of schalen, wordt de actie wordt uitgevoerd op basis van de standaardgroep voor het knooppunt. U kunt ook om te schalen of upgrade van een specifiek knooppunt-groep. Actieve containers worden gepland op andere knooppunten in het knooppunt van toepassingen voor upgrade-bewerkingen, totdat alle knooppunten worden bijgewerkt.
+
+Zie voor meer informatie over het gebruik van meerdere knooppuntgroepen in AKS [maken en beheren van meerdere knooppuntgroepen voor een cluster in AKS][use-multiple-node-pools].
 
 ## <a name="pods"></a>Pods
 
@@ -245,3 +247,4 @@ Dit artikel vindt u enkele van de belangrijkste onderdelen die Kubernetes en hoe
 [aks-helm]: kubernetes-helm.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

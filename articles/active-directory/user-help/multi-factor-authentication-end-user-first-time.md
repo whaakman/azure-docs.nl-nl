@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0749e1acba9f13f9e0e95dfc66f9cf818c752cff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2df72d03bae8987de4998276a0be0f3ce1ec0333
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334715"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230043"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Mijn account voor verificatie in twee stappen instellen
 Verificatie in twee stappen is een extra beveiligingsstap waarmee de beveiliging van uw account door waardoor het moeilijker is voor anderen in breken. Als u dit artikel leest, hebt u waarschijnlijk een e-mailbericht van uw werk- of schoolaccount-beheerder over multi-factor Authentication. Of misschien heeft geprobeerd aan te melden bij en krijg een bericht waarin u wordt gevraagd voor het instellen van aanvullende beveiligingsverificatie. Als dat het geval is, **u niet aanmelden totdat het proces van automatische inschrijving is voltooid**.
@@ -30,7 +30,7 @@ Dit artikel helpt u bij het instellen van uw **werk- of schoolaccount**. Als u i
 
 Wanneer het ondersteuningsteam van uw bedrijf vereist dat u aan de slag met verificatie in twee stappen, ziet u een scherm waarin wordt gemeld **uw beheerder heeft ingesteld dat u dit account voor aanvullende beveiligingsverificatie instellen**:
 
-![Instellen](./media/multi-factor-authentication-end-user-first-time/first.png)
+![Installatie](./media/multi-factor-authentication-end-user-first-time/first.png)
 
 Selecteer om te beginnen, **nu instellen.**
 
@@ -69,7 +69,7 @@ Met deze methode is vereist dat u een verificator-app op uw telefoon of tablet i
    ![Vak voor het invoeren van een PINCODE](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. Nadat de pincode is voltooid, schakelt u **sluiten**. Op dit moment is uw verificatie voltooid.
-9. Het is raadzaam dat u uw mobiele telefoonnummer invoeren in het geval u geen toegang meer tot uw mobiele app. Geef uw land op in de vervolgkeuzelijst en voer uw mobiele telefoonnummer in het vak naast de naam van het land/regio. Selecteer **Volgende**.
+9. Het is raadzaam dat u uw mobiele telefoonnummer invoeren in het geval u geen toegang meer tot uw mobiele app. Geef uw land/regio in de vervolgkeuzelijst en voer uw mobiele telefoonnummer in het vak naast de naam van het land/regio. Selecteer **Volgende**.
 10. Op dit moment wordt u gevraagd voor het instellen van app-wachtwoorden voor niet-browsertoepassingen zoals Outlook 2010 of ouder bent, of de systeemeigen e-mail-app voor Apple-apparaten. Dit is omdat sommige apps bieden geen ondersteuning voor verificatie in twee stappen. Als u deze apps niet gebruikt, klikt u op **gedaan** en de rest van de stappen overslaan.
 11. Als u deze apps gebruikt, wordt het app-wachtwoord kopiëren opgegeven en plak deze in uw toepassing in plaats van uw normale wachtwoord. U kunt hetzelfde appwachtwoord voor meerdere apps gebruiken. Voor meer informatie [hulp bij app-wachtwoorden].
 12. Klik op **Gereed**.
@@ -80,14 +80,14 @@ Volg deze stappen als u een account handmatig toevoegen aan de mobiele app wilt,
 1. Selecteer de **account handmatig invoeren** knop.  
 2. Voer de code en de URL die beschikbaar zijn op de pagina die leest u de streepjescode. Deze informatie wordt de **Code** en **URL** vakken op de mobiele app.
 
-    ![Instellen](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
+    ![Installatie](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
 3. Wanneer de activering is voltooid, selecteert u **Contact me**. Deze stap wordt een melding of een verificatiecode naar uw telefoon verzonden. Selecteer **controleren**.
 
 ## <a name="use-your-mobile-phone-as-the-contact-method"></a>Uw mobiele telefoon gebruiken als de primaire contactmethode
 1. Selecteer **telefoon voor authenticatie** uit de vervolgkeuzelijst.  
 
-    ![Instellen](./media/multi-factor-authentication-end-user-first-time/phone.png)  
-2. Kies uw land of regio in de vervolgkeuzelijst en voer uw mobiele telefoonnummer.
+    ![Installatie](./media/multi-factor-authentication-end-user-first-time/phone.png)  
+2. Kies uw land/regio in de vervolgkeuzelijst en voer uw mobiele telefoonnummer.
 3. Selecteer de methode die u wilt gebruiken met uw mobiele telefoon: tekst of gesprek.
 4. Selecteer **Contact me** om te controleren of uw telefoonnummer. Afhankelijk van de door u geselecteerde modus we sturen u een SMS-bericht of aanroep die u hebt. Volg de instructies op het scherm en selecteer vervolgens **controleren**.
 5. Op dit moment wordt u gevraagd voor het instellen van app-wachtwoorden voor niet-browsertoepassingen zoals Outlook 2010 of ouder bent, of de systeemeigen e-mail-app voor Apple-apparaten. Dit is omdat sommige apps bieden geen ondersteuning voor verificatie in twee stappen. Als u deze apps niet gebruikt, klikt u op **gedaan** en de rest van de stappen overslaan.
@@ -97,7 +97,7 @@ Volg deze stappen als u een account handmatig toevoegen aan de mobiele app wilt,
 ## <a name="use-your-office-phone-as-the-contact-method"></a>Uw zakelijke telefoon gebruiken als de primaire contactmethode
 1. Selecteer **telefoon (werk)** in de vervolgkeuzelijst  
 
-    ![Instellen](./media/multi-factor-authentication-end-user-first-time/office.png)  
+    ![Installatie](./media/multi-factor-authentication-end-user-first-time/office.png)  
 2. Het vak telefoonnummer wordt automatisch gevuld met de contactgegevens van uw bedrijf. Als het nummer onjuist of ontbreekt is, vraag uw beheerder te wijzigen.
 3. Selecteer **Contact me** om te controleren of uw telefoon-nummer en we het nummer van uw worden gebeld. Volg de instructies op het scherm en selecteer vervolgens **controleren**.
 4. Op dit moment wordt u gevraagd voor het instellen van app-wachtwoorden voor niet-browsertoepassingen zoals Outlook 2010 of ouder bent, of de systeemeigen e-mail-app voor Apple-apparaten. Dit is omdat sommige apps bieden geen ondersteuning voor verificatie in twee stappen. Als u deze apps niet gebruikt, klikt u op **gedaan** en de rest van de stappen overslaan.

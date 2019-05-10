@@ -4,7 +4,7 @@ description: In dit artikel wordt beschreven hoe u een playbook uitvoeren in Azu
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: e4afc5c8-ffad-4169-8b73-98d00155fa5a
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5ce409b984ab9110a8ca44f47675045e4d80aed5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5f055ce337cb43e0813bc9ff295d0958e06f561
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614625"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205448"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Zelfstudie: Instellen van geautomatiseerde threat antwoorden in Azure Sentinel Preview
 
@@ -62,7 +62,7 @@ Volg deze stappen voor het maken van een nieuwe beveiligingsplaybook in Azure Se
 1. Open de **Azure Sentinel** dashboard.
 2. Onder **Management**, selecteer **Playbooks**.
 
-   ![Logische apps](./media/tutorial-respond-threats-playbook/playbookimg.png)
+   ![Logische app](./media/tutorial-respond-threats-playbook/playbookimg.png)
 
 3. In de **Azure Sentinel - Playbooks (Preview)** pagina, klikt u op **toevoegen** knop.
 

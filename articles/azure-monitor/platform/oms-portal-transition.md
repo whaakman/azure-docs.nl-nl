@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: 1496bf21ed1a81eedb44ca9cc9db777632e2a5cd
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: b4d67b64d8fc7c5063e96ed2a2502e9cbecd6065
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876013"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65229879"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portal naar Azure verplaatsen
 
 > [!NOTE]
 > In dit artikel is van toepassing op zowel de openbare cloud van Azure en de government-cloud behalve indien anders vermeld.
 
-**De OMS-portal voor de openbare cloud van Azure is officieel gebruik is gesteld. De OMS-portal voor Azure Azure US Government-cloud wordt officieel beëindigd op 15 mei 2019.** We zijn trots te verplaatsen naar de Azure portal en de overgang naar eenvoudig worden verwacht. Maar we begrijpen dat wijzigingen zijn moeilijk en kunnen worden ervaren. Verzenden van eventuele vragen, feedback of opmerkingen aan **LAUpgradeFeedback\@microsoft.com**. De rest van dit artikel gaat over de belangrijkste scenario's en het schema voor deze overgang.
+**De OMS-portal voor de openbare cloud van Azure is officieel gebruik is gesteld. De OMS-portal voor het Azure US Government-cloud wordt officieel beëindigd op 15 mei 2019.** We zijn trots te verplaatsen naar de Azure portal en de overgang naar eenvoudig worden verwacht. Maar we begrijpen dat wijzigingen zijn moeilijk en kunnen worden ervaren. Verzenden van eventuele vragen, feedback of opmerkingen aan **LAUpgradeFeedback\@microsoft.com**. De rest van dit artikel gaat over de belangrijkste scenario's en het schema voor deze overgang.
 
 De Azure-portal is de hub voor alle Azure-services en biedt een uitgebreide beheerervaring, met mogelijkheden zoals dashboards om vast te zetten resources, intelligent zoeken naar resources zoeken en labels voor resourcebeheer. Om te consolideren en de controle en beheer de werkstroom te stroomlijnen, begonnen we met het toevoegen van de OMS-portal-mogelijkheden in Azure portal. Alle functies van de OMS-portal zijn nu onderdeel van de Azure-portal. Enkele van de nieuwe functies zoals Traffic Analytics zijn in feite alleen beschikbaar in Azure portal. U wordt mogelijk zijn om uit te voeren van alles wat die je mee bezig was in de OMS-portal met de Azure-portal en meer. Als u dit nog niet hebt gedaan, leest u eerst met behulp van de Azure-portal vandaag nog!
 

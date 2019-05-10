@@ -194,7 +194,7 @@ Bij het kopiëren van gegevens uit een DB2, worden de volgende toewijzingen van 
 | Real |Single |
 | SmallInt |Int16 |
 | Time |TimeSpan |
-| Timestamp |DateTime |
+| Timestamp |Datetime |
 | VarBinary |Byte[] |
 | VarChar |String |
 | VarGraphic |String |

@@ -58,6 +58,8 @@
       items:
         - name: Gegevensverzameling
           href: security-center-enable-data-collection.md
+        - name: Geavanceerde gegevensbeveiliging voor IaaS
+          href: security-center-iaas-advanced-data.md
         - name: Ingebouwd beveiligingsbeleid
           href: security-center-policy-definitions.md
         - name: E-mailmeldingen
@@ -168,6 +170,8 @@
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
     - name: Service-updates
       href: 'https://azure.microsoft.com/updates/?product=security-center'
+    - name: Buitengebruikstelling van functies en API (juli 2019)
+      href: security-center-features-retirement-july2019.md
 - name: Resources
   items:
     - name: Uw vaardigheden ontwikkelen met Microsoft Learn

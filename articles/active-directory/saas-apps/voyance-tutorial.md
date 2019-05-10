@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/07/2019
 ms.author: jeedes
-ms.openlocfilehash: b7eb2ad568886b0dd4a476850c34d276d4caec8a
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 75570d9d06cbbb08feba418f0bab229dca1c8b53
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876272"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192250"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-voyance"></a>Zelfstudie: Azure Active Directory-integratie met Voyance
 
@@ -29,7 +29,7 @@ Voyance integreren met Azure AD biedt u de volgende voordelen:
 
 * U kunt beheren in Azure AD die toegang tot Voyance heeft.
 * U kunt uw gebruikers worden automatisch aangemeld Voyance (Single Sign-On) met hun Azure AD-accounts inschakelen.
-* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -63,27 +63,27 @@ Voor het configureren van de integratie van Voyance in Azure AD, moet u Voyance 
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+    ![De knop nieuwe toepassing](common/add-new-app.png)
 
 4. Typ in het zoekvak **Voyance**, selecteer **Voyance** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
      ![Voyance in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
 In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Voyance op basis van een testgebruiker met de naam **Britta Simon**.
 Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Voyance tot stand worden gebracht.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Voyance, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 2. **[Configureren van eenmalige aanmelding Voyance](#configure-voyance-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
 5. **[Maken van de testgebruiker Voyance](#create-voyance-test-user)**  : als u wilt een equivalent van Britta Simon in Voyance die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -93,7 +93,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Voyance, moet u de v
 
 1. In de [Azure-portal](https://portal.azure.com/)op de **Voyance** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
+    ![Koppeling voor eenmalige aanmelding configureren](common/select-sso.png)
 
 2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
@@ -122,7 +122,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Voyance, moet u de v
 
 6. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![De link om het certificaat te downloaden](common/certificatebase64.png)
+    ![De downloadkoppeling certificaat](common/certificatebase64.png)
 
 7. Op de **Voyance instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
 
@@ -132,7 +132,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Voyance, moet u de v
 
     b. Azure AD-id
 
-    c. Afmeldings-URL
+    c. URL voor afmelden
 
 ### <a name="configure-voyance-single-sign-on"></a>Voyance voor eenmalige aanmelding configureren
 
@@ -166,7 +166,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Voyance, moet u de v
     
     d. Klik op **Opslaan**.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD 
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -231,9 +231,9 @@ Wanneer u op de tegel Voyance in het toegangsvenster, moet u worden automatisch 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

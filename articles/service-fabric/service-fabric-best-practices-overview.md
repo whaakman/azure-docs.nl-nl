@@ -12,24 +12,24 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/23/2019
+ms.date: 04/24/2019
 ms.author: pepogors
-ms.openlocfilehash: a0174a5442de7a10e45e9dc2a2f43f5f401d1a69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051d6b1129724ce4e8a67bde4e56ebe61cd832f3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803164"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231381"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Aanbevolen procedures voor Azure Service Fabric-toepassing en cluster
 
-Voor het beheren van Azure Service Fabric-toepassingen en -clusters is, zijn er bewerkingen die we dat u uitvoert raden, om te optimaliseren voor de betrouwbaarheid van uw productieomgeving; uitvoeren van bewerkingen die zijn gedefinieerd in dit document en selecteer een van onze [Azure voorbeelden van Service Fabric-Cluster sjablonen](https://github.com/Azure-Samples/service-fabric-cluster-templates) begint met het ontwerpen van uw productie-oplossing of de bestaande sjabloon om deze procedures wijzigen.
+Voor het beheren van Azure Service Fabric-toepassingen en -clusters is, zijn er bewerkingen die we raden dat u uitvoeren om te optimaliseren voor de betrouwbaarheid van uw productieomgeving; Neem uitvoeren van bewerkingen die zijn gedefinieerd in dit document en selecteer een van onze [Azure voorbeelden van Service Fabric-Cluster sjablonen](https://github.com/Azure-Samples/service-fabric-cluster-templates) begint met het ontwerpen van uw oplossing voor productie of wijzigen van de bestaande sjabloon om deze procedures.
 
 ## <a name="security"></a>Beveiliging 
 
 * [Best practices voor beveiliging](service-fabric-best-practices-security.md)
 
-## <a name="networking"></a>Netwerken
+## <a name="networking"></a>Netwerk
 
 * [Aanbevolen procedures voor netwerken](service-fabric-best-practices-networking.md)
 
@@ -45,6 +45,10 @@ Voor het beheren van Azure Service Fabric-toepassingen en -clusters is, zijn er 
 ## <a name="monitoring-and-diagnostics"></a>Controle en diagnose
 
 * [Aanbevolen procedures voor het clustercontrole en diagnose](service-fabric-best-practices-monitoring.md)
+
+## <a name="application-design"></a>Toepassingsontwerp
+
+* [Aanbevolen procedures voor het ontwerp van toepassingen](service-fabric-best-practices-applications.md)
 
 ## <a name="checklist"></a>Controlelijst
 

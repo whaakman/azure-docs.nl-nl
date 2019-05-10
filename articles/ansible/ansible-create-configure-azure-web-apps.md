@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/22/2019
-ms.openlocfilehash: 357dfd9c840b0235ab9576a6448e2b5a3b89abee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 04/30/2019
+ms.openlocfilehash: aed09baf410ce25f2e5383aa746344a440e2a052
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727216"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231237"
 ---
 # <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>Zelfstudie: Apps in Azure App Service met behulp van Ansible configureren
 
@@ -31,8 +31,8 @@ ms.locfileid: "64727216"
 
 ## <a name="prerequisites"></a>Vereisten
 
-- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-basic-app-service"></a>Een eenvoudige appservice maken
 
@@ -110,7 +110,7 @@ In App Service wordt een app uitgevoerd in een [App Service-plan](/azure/app-ser
 De code van de playbook in deze sectie definieert de volgende bronnen:
 
 * Azure-resourcegroep waarin de App Service-plan is geïmplementeerd
-* App Service-plan
+* App Service-abonnement
 * Azure-resourcegroep waarin de app is geïmplementeerd
 * Appservice op Linux met Java 8 en de Tomcat-container-runtime
 * Traffic Manager-profiel

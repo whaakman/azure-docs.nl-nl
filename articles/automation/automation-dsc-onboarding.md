@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: f9f15c558e507742a641239ed25ba136dca0671a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8a505e88ff92c5227d3b42da2adaf1dce58e6fbb
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919998"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441501"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding van machines voor beheer met Azure Automation State Configuration
 
@@ -75,95 +75,13 @@ De beste manier om het registreren van virtuele machines vanuit andere Azure-abo
 Voorbeelden zijn beschikbaar in de [Desired State Configuration-extensie met Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template).
 De registratiesleutel en de registratie-URL als parameters in de sjabloon wilt gebruiken, Zie de volgende [ **beveiligde registratie** ](#secure-registration) sectie.
 
-## <a name="azure-virtual-machines-classic"></a>Virtuele Azure-machines (klassiek)
-
-Met Azure Automation State Configuration kunt u eenvoudig Azure-machines vrij (klassiek) voor beheer van de configuratie met behulp van de Azure portal of PowerShell. Achter de schermen en zonder dat een beheerder die op afstand verbinding met de virtuele machine, registreert de Desired State Configuration van Azure VM-extensie de virtuele machine met Azure Automation State Configuration.
-Stappen om de voortgang bijhouden of oplossen van dit probleem vindt u in de volgende [ **onboarding voor probleemoplossing voor Azure-virtuele machine** ](#troubleshooting-azure-virtual-machine-onboarding) sectie.
-
-### <a name="azure-portal-classic-virtual-machines"></a>Azure-portal (klassieke virtuele machines)
-
-In de [Azure-portal](https://portal.azure.com/), klikt u op **Bladeren** -> **virtuele machines (klassiek)**. Selecteer de Windows-VM die u vrijgeven wilt. Klik op de blade voor het dashboard van de virtuele machine **alle instellingen** -> **extensies** -> **toevoegen** -> **Azure Automation DSC** -> **maken**.
-Voer de [PowerShell DSC Local Configuration Manager-waarden](/powershell/dsc/metaconfig4) voor registratiesleutel van uw Automation-account en registratie-URL, en desgewenst een knooppuntconfiguratie toewijzen aan de virtuele machine.
-
-![Azure VM-extensies voor DSC](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
-
-Te vinden van de registratie-URL en de sleutel voor het Automation-account voor de Onboarding van de machine als u wilt, Zie de volgende [ **beveiligde registratie** ](#secure-registration) sectie:
-
-### <a name="powershell-classic-virtual-machines"></a>PowerShell (klassieke virtuele machines)
-
-```powershell
-# log in to both Azure Service Management and Azure Resource Manager
-Add-AzureAccount
-Connect-AzureRmAccount
-
-# fill in correct values for your VM/Automation account here
-$VMName = ''
-$ServiceName = ''
-$AutomationAccountName = ''
-$AutomationAccountResourceGroup = ''
-
-# fill in the name of a Node Configuration in Azure Automation State Configuration, for this VM to conform to
-# NOTE: DSC Node Configuration names are case sensitive in the portal.
-$NodeConfigName = ''
-
-# get Azure Automation State Configuration registration info
-$Account = Get-AzureRmAutomationAccount -ResourceGroupName $AutomationAccountResourceGroup -Name $AutomationAccountName
-$RegistrationInfo = $Account | Get-AzureRmAutomationRegistrationInfo
-
-# use the DSC extension to onboard the VM for management with Azure Automation State Configuration
-$VM = Get-AzureVM -Name $VMName -ServiceName $ServiceName
-
-$PublicConfiguration = ConvertTo-Json -Depth 8 @{
-    SasToken = ''
-    ModulesUrl = 'https://eus2oaasibizamarketprod1.blob.core.windows.net/automationdscpreview/RegistrationMetaConfigV2.zip'
-    ConfigurationFunction = 'RegistrationMetaConfigV2.ps1\RegistrationMetaConfigV2'
-
-# update these PowerShell DSC Local Configuration Manager defaults if they do not match your use case.
-# See https://docs.microsoft.com/powershell/dsc/metaConfig for more details
-    Properties = @{
-        RegistrationKey = @{
-            UserName = 'notused'
-            Password = 'PrivateSettingsRef:RegistrationKey'
-        }
-        RegistrationUrl = $RegistrationInfo.Endpoint
-        NodeConfigurationName = $NodeConfigName
-        ConfigurationMode = 'ApplyAndMonitor'
-        ConfigurationModeFrequencyMins = 15
-        RefreshFrequencyMins = 30
-        RebootNodeIfNeeded = $False
-        ActionAfterReboot = 'ContinueConfiguration'
-        AllowModuleOverwrite = $False
-    }
-}
-
-$PrivateConfiguration = ConvertTo-Json -Depth 8 @{
-    Items = @{
-        RegistrationKey = $RegistrationInfo.PrimaryKey
-    }
-}
-
-$VM = Set-AzureVMExtension `
-    -VM $vm `
-    -Publisher Microsoft.Powershell `
-    -ExtensionName DSC `
-    -Version 2.76 `
-    -PublicConfiguration $PublicConfiguration `
-    -PrivateConfiguration $PrivateConfiguration `
-    -ForceUpdate
-
-$VM | Update-AzureVM
-```
-
-> [!NOTE]
-> Status configuratie-knooppuntconfiguratie namen zijn hoofdlettergevoelig in de portal. Als de aanvraag niet overeen komt het knooppunt wordt niet weergegeven op de **knooppunten** tabblad.
-
 ## <a name="amazon-web-services-aws-virtual-machines"></a>Amazon Web Services (AWS) virtuele machines
 
 U kunt eenvoudig onboarding Amazon Web Services virtuele machines voor Configuratiebeheer van Azure Automation State Configuration met behulp van de DSC-Toolkit van AWS. U kunt meer informatie over de toolkit [hier](https://blogs.msdn.microsoft.com/powershell/2016/04/20/aws-dsc-toolkit/).
 
 ## <a name="physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws"></a>Fysieke/virtuele Windows-machines on-premises of in een andere cloud dan Azure/AWS
 
-Windows-servers met on-premises of in andere cloudomgevingen kan ook worden toegevoegd aan Azure Automation State Configuration, zolang ze uitgaande toegang tot Azure hebben:
+Windows-servers met on-premises of in andere cloudomgevingen kan ook worden toegevoegd aan Azure Automation State Configuration, zolang ze hebben [uitgaande toegang tot Azure](automation-dsc-overview.md#network-planning):
 
 1. Zorg ervoor dat de nieuwste versie van [WMF 5](https://aka.ms/wmf5latest) is geïnstalleerd op de machines die u voorbereiden voor Azure Automation State Configuration wilt.
 1. Volg de aanwijzingen in de volgende sectie [ **genereren DSC metaconfigurations** ](#generating-dsc-metaconfigurations) voor het genereren van een map met de benodigde DSC-metaconfigurations.
@@ -178,7 +96,7 @@ Windows-servers met on-premises of in andere cloudomgevingen kan ook worden toeg
 
 ## <a name="physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure"></a>Fysieke/virtuele Linux-machines on-premises of in een andere cloud dan Azure
 
-Linux-servers met on-premises of in andere cloudomgevingen kan ook worden toegevoegd aan Azure Automation State Configuration, zolang ze uitgaande toegang tot Azure hebben:
+Linux-servers met on-premises of in andere cloudomgevingen kan ook worden toegevoegd aan Azure Automation State Configuration, zolang ze hebben [uitgaande toegang tot Azure](automation-dsc-overview.md#network-planning):
 
 1. Zorg ervoor dat de nieuwste versie van [PowerShell Desired State Configuration voor Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) is geïnstalleerd op de machines die u voorbereiden voor Azure Automation State Configuration wilt.
 1. Als de [standaardinstellingen voor PowerShell DSC Local Configuration Manager](/powershell/dsc/metaconfig4) overeenkomen met uw situatie, en u wilt vrijgeven machines zodanig dat ze **beide** ophalen uit en te rapporteren aan de configuratie van Azure Automation-status:

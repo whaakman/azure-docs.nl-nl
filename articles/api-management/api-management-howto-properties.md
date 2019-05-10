@@ -27,16 +27,16 @@ Elk exemplaar van API Management-service heeft een verzameling eigenschappen van
 
 | Kenmerk | Type | Description |
 | --- | --- | --- |
-| Weergavenaam |string |Een alfanumerieke tekenreeks die wordt gebruikt om naar de eigenschap te verwijzen in de beleidsregels. |
-| Value |string |De waarde van de eigenschap. Het kan niet leeg zijn of alleen uit witruimte bestaan. |
-|Geheim|booleaans|Bepaalt of de waarde is van een geheim en moet worden versleuteld of niet.|
+| `Display name` |string |Een alfanumerieke tekenreeks die wordt gebruikt om naar de eigenschap te verwijzen in de beleidsregels. |
+| `Value` |string |De waarde van de eigenschap. Het kan niet leeg zijn of alleen uit witruimte bestaan. |
+|`Secret`|booleaans|Bepaalt of de waarde is van een geheim en moet worden versleuteld of niet.|
 | Tags |tekenreeksmatrix |Optioneel tags die de opgegeven kan worden gebruikt voor het filteren van de lijst met eigenschappen. |
 
 ![Benoemde waarden](./media/api-management-howto-properties/named-values.png)
 
 Eigenschapswaarden letterlijke tekenreeksen kunnen bevatten en [beleidsexpressies](/azure/api-management/api-management-policy-expressions). Bijvoorbeeld, de waarde van `ExpressionProperty` is een beleidsexpressie die retourneert een tekenreeks met de huidige datum en tijd. De eigenschap `ContosoHeaderValue` is gemarkeerd als een geheim, zodat de waarde wordt niet weergegeven.
 
-| Name | Value | Geheim | Tags |
+| Name | `Value` | `Secret` | Tags |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |

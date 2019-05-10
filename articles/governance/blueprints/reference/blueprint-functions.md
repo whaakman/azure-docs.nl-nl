@@ -7,12 +7,12 @@ ms.date: 04/15/2019
 ms.topic: reference
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 0de3e0add804290cdfe27e2e97d8b1a0f240e0a6
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63769299"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209408"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Functies voor gebruik met Azure blauwdrukken
 
@@ -41,11 +41,11 @@ Retourneert dat een object van de eigenschappen van gevuld met die blauwdrukarte
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een object van output-eigenschappen. De uitvoereigenschappen zijn afhankelijk van het type van de blauwdruk artefact waarnaar wordt verwezen. Alle typen als volgt de indeling:
+Een object van output-eigenschappen. De **levert** eigenschappen zijn afhankelijk van het type van de blauwdruk artefact waarnaar wordt verwezen. Alle typen als volgt de indeling:
 
 ```json
 {
-  "output": {collectionOfOutputProperties}
+  "outputs": {collectionOfOutputProperties}
 }
 ```
 
@@ -53,7 +53,7 @@ Een object van output-eigenschappen. De uitvoereigenschappen zijn afhankelijk va
 
 ```json
 {
-    "output": {
+    "outputs": {
         "policyAssignmentId": "{resourceId-of-policy-assignment}",
         "policyAssignmentName": "{name-of-policy-assignment}",
         "policyDefinitionId": "{resourceId-of-policy-definition}",
@@ -63,13 +63,13 @@ Een object van output-eigenschappen. De uitvoereigenschappen zijn afhankelijk va
 
 #### <a name="resource-manager-template-artifact"></a>Artefact van Resource Manager-sjabloon
 
-De **uitvoer** eigenschappen van het geretourneerde object wordt gedefinieerd in het Resource Manager-sjabloon en geretourneerd door de implementatie.
+De **levert** eigenschappen van het geretourneerde object wordt gedefinieerd in het Resource Manager-sjabloon en geretourneerd door de implementatie.
 
 #### <a name="role-assignment-artifact"></a>Roltoewijzingsartefact
 
 ```json
 {
-    "output": {
+    "outputs": {
         "roleAssignmentId": "{resourceId-of-role-assignment}",
         "roleDefinitionId": "{resourceId-of-role-definition}",
         "principalId": "{principalId-role-is-being-assigned-to}",
@@ -109,12 +109,12 @@ Enkele voorbeelden van het ophalen van gegevens uit de _myTemplateArtifact_ voor
 
 | Expressie | Type | Value |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").output.myArray]` | Matrix | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").output.myArray[0]]` | String | "first" |
-|`[artifacts("myTemplateArtifact").output.myString]` | String | "de tekenreekswaarde" |
-|`[artifacts("myTemplateArtifact").output.myObject]` | Object | {"myproperty": "Mijn value", "anotherProperty": true} |
-|`[artifacts("myTemplateArtifact").output.myObject.myProperty]` | String | "de waarde" |
-|`[artifacts("myTemplateArtifact").output.myObject.anotherProperty]` | Bool | True |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Matrix | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "de tekenreekswaarde" |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {"myproperty": "Mijn value", "anotherProperty": true} |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "de waarde" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
 

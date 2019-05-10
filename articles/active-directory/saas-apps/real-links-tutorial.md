@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16ba9a510489eb552b2f8c380817000b0b48b855
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d1a250b8deba3d12b968c593ddec7ad9f052ae7d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927070"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191176"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-real-links"></a>Zelfstudie: Azure Active Directory-integratie met echte koppelingen
 
@@ -30,7 +30,7 @@ Echte koppelingen integreren met Azure AD biedt u de volgende voordelen:
 
 * U kunt beheren in Azure AD die toegang tot echte koppelingen heeft.
 * U kunt uw gebruikers worden automatisch aangemeld echte koppelingen (Single Sign-On) inschakelen met hun Azure AD-accounts.
-* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -62,27 +62,27 @@ Voor het configureren van de integratie van echte koppelingen in Azure AD, moet 
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+    ![De knop nieuwe toepassing](common/add-new-app.png)
 
 4. Typ in het zoekvak **echte koppelingen**, selecteer **echte koppelingen** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Echte koppelingen in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
 In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met echte koppelingen op basis van een testgebruiker met de naam **Britta Simon**.
 Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in de echte koppelingen tot stand worden gebracht.
 
 Als u wilt configureren en testen van Azure AD eenmalige aanmelding met echte koppelingen, u nodig hebt voor de volgende bouwstenen:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 2. **[Configureren van echte koppelingen Single Sign-On](#configure-real-links-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
 5. **[Maak echte koppelingen testgebruiker](#create-real-links-test-user)**  : als u wilt een equivalent van Britta Simon in echte koppelingen die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -92,7 +92,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met echte koppelingen, m
 
 1. In de [Azure-portal](https://portal.azure.com/)op de **echte koppelingen** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
+    ![Koppeling voor eenmalige aanmelding configureren](common/select-sso.png)
 
 2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
@@ -115,13 +115,13 @@ Voor het configureren van Azure AD eenmalige aanmelding met echte koppelingen, m
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op de kopieerknop om de **URL voor federatieve metagegevens van de app** te kopiëren en slaat u deze op uw computer op.
 
-    ![De link om het certificaat te downloaden](common/copy-metadataurl.png)
+    ![De downloadkoppeling certificaat](common/copy-metadataurl.png)
 
 ### <a name="configure-real-links-single-sign-on"></a>Configureren van echte koppelingen Single Sign-On
 
-Het configureren van eenmalige aanmelding op **echte koppelingen** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens** naar [echte koppelingen ondersteuningsteam](mailto:support@reallinks.io). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Het configureren van eenmalige aanmelding op **echte koppelingen** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens** naar [echte koppelingen ondersteuningsteam](mailto:support@reallinks.io). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD 
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -173,7 +173,7 @@ In deze sectie maakt inschakelen u Britta Simon verleent toegang tot echte koppe
 
 ### <a name="create-real-links-test-user"></a>Echte koppelingen testgebruiker maken
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in echte koppelingen. Werken met [echte koppelingen ondersteuningsteam](mailto:support@reallinks.io) om toe te voegen de gebruikers in de echte koppelingen-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in echte koppelingen. Werken met [echte koppelingen ondersteuningsteam](mailto:support@reallinks.io) om toe te voegen de gebruikers in de echte koppelingen-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
@@ -183,7 +183,7 @@ Wanneer u op de tegel echte koppelingen in het toegangsvenster, moet u worden au
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 

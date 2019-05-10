@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 267b6afd7cd3131dcd138dfb631335f58cec833a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60385324"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407928"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor het automatisch inrichten van gebruikers configureren
 
@@ -368,7 +368,7 @@ Om in te richten voor on-premises Active Directory, moet een agent worden geïns
 
 Wanneer u .NET 4.7.1+ hebt geïmplementeerd, kunt u downloaden de **[on-premises hier inrichtingsagent](https://go.microsoft.com/fwlink/?linkid=847801)** en volg de stappen hieronder om de agentconfiguratie te voltooien.
 
-1. Meld u aan bij de Windows-Server waar u de nieuwe agent te installeren.
+1. Aanmelden bij de Windows-Server waar u de nieuwe agent te installeren.
 2. Start het installatieprogramma van Agent ingericht, ga akkoord met de voorwaarden en klik op de **installeren** knop.
 
    ![Installatie van scherm](./media/workday-inbound-tutorial/pa_install_screen_1.png "scherm installeren")
@@ -530,8 +530,8 @@ In deze sectie configureert u hoe gegevens stromen van Workday naar Active Direc
 | **Voornaam**   | givenName       |     |    Maken en bijwerken |
 | **LastName**   |   SN   |     |  Maken en bijwerken |
 | **PreferredNameData**  |  displayName |     |   Maken en bijwerken |
-| **Bedrijf**         | bedrijf   |     |  Maken en bijwerken |
-| **SupervisoryOrganization**  | department  |     |  Maken en bijwerken |
+| **Bedrijf**         | Bedrijf   |     |  Maken en bijwerken |
+| **SupervisoryOrganization**  | Afdeling  |     |  Maken en bijwerken |
 | **ManagerReference**   | beheerder  |     |  Maken en bijwerken |
 | **BusinessTitle**   |  titel     |     |  Maken en bijwerken | 
 | **AddressLineData**    |  streetAddress  |     |   Maken en bijwerken |
@@ -816,7 +816,7 @@ Wanneer een nieuwe idee voorstellen, controleer dan om te zien als iemand anders
 
 #### <a name="how-do-i-know-the-version-of-my-provisioning-agent"></a>Hoe weet ik de versie van mijn Agent inrichten?
 
-* Meld u aan bij de Windows-server waarop de Provisioning-Agent is geïnstalleerd.
+* Aanmelden bij de Windows-server waarop de Provisioning-Agent is geïnstalleerd.
 * Ga naar **Configuratiescherm** -> **verwijderen of wijzigen van een programma** menu
 * Zoekt u de versie die overeenkomt met de vermelding **Microsoft Azure AD Connect inrichten van Agent**
 
@@ -867,8 +867,8 @@ Ja, een door de inrichting Agent kan worden geconfigureerd voor het afhandelen v
 #### <a name="how-do-i-de-register-the-domain-associated-with-my-provisioning-agent"></a>Hoe kan ik het domein dat is gekoppeld aan mijn Agent inrichting ongedaan maken registreren?
 
 * Ophalen van de Azure-portal de *tenant-ID* van uw Azure AD-tenant.
-* Meld u aan bij de Windows-server waarop de Agent inrichting wordt uitgevoerd.
-* Open powershell als beheerder van Windows.
+* Aanmelden bij de Windows-server waarop de Agent inrichting wordt uitgevoerd.
+* Open PowerShell als beheerder van Windows.
 * Ga naar de map met de registratie-scripts en voer de volgende opdrachten vervangen de \[tenant-ID\] parameter met de waarde van uw tenant-ID.
 
   ```powershell
@@ -878,7 +878,7 @@ Ja, een door de inrichting Agent kan worden geconfigureerd voor het afhandelen v
   ```
 
 * In de lijst met agents die worden weergegeven: Kopieer de waarde van de "id" veld van die resource waarvan *resourceName* gelijk aan de naam van uw AD-domein.
-* De id in deze opdracht te plakken en uitvoeren in Powershell.
+* Plak de id-waarde in deze opdracht en geeft u de opdracht in PowerShell.
 
   ```powershell
   Remove-PublishedResource -ResourceId "[resource ID]" -TenantId "[tenant ID]"
@@ -889,7 +889,7 @@ Ja, een door de inrichting Agent kan worden geconfigureerd voor het afhandelen v
 
 #### <a name="how-do-i-uninstall-the-provisioning-agent"></a>Hoe kan ik de Provisioning-Agent verwijderen?
 
-* Meld u aan bij de Windows-server waarop de Provisioning-Agent is geïnstalleerd.
+* Aanmelden bij de Windows-server waarop de Provisioning-Agent is geïnstalleerd.
 * Ga naar **Configuratiescherm** -> **verwijderen of wijzigen van een programma** menu
 * De volgende programma's verwijderen:
   * Microsoft Azure AD Connect-Inrichtingsagent
@@ -946,7 +946,7 @@ De oplossing op dit moment biedt geen ondersteuning voor binaire kenmerken zoals
 
 #### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>Hoe maak ik weergavenamen in AD op basis van de kenmerken van de afdeling/land/plaats en regionale verschillen ingang van de gebruiker?
 
-Het is een algemene vereiste voor het configureren van de *displayName* kenmerk in AD, zodat het bevat ook informatie over de afdeling en het land van de gebruiker. Voor bijvoorbeeld als John Smith in de marketingafdeling in Verenigde Staten werkt, kunt u zijn *displayName* als *Smith, John (Marketing-US)*.
+Het is een algemene vereiste voor het configureren van de *displayName* kenmerk in AD, zodat het bevat ook informatie over de afdeling en het land/de regio van de gebruiker. Voor bijvoorbeeld als John Smith in de marketingafdeling in Verenigde Staten werkt, kunt u zijn *displayName* als *Smith, John (Marketing-US)*.
 
 Hier volgt hoe kunt u deze vereisten voor het maken van verwerken *CN* of *displayName* om op te nemen van kenmerken, zoals het bedrijf, bedrijfseenheid, plaats of land/regio.
 
@@ -976,7 +976,7 @@ Hier volgt hoe kunt u deze vereisten voor het maken van verwerken *CN* of *displ
 
   Controleer of met uw Workday-team dat de bovenstaande API-expressies geldig voor de configuratie van uw Workday-tenant zijn. Indien nodig, u deze bewerken kunt zoals beschreven in de sectie [aanpassen van de lijst met gebruikerskenmerken Workday](#customizing-the-list-of-workday-user-attributes).
 
-* Voor het bouwen van de expressie van de toewijzing van juiste kenmerk identificeren welke Workday-kenmerk 'bindend' vertegenwoordigt van de gebruiker de naam van de eerste, laatste naam, land en afdeling. Stel dat de kenmerken zijn *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* en *SupervisoryOrganization* respectievelijk. U kunt dit gebruiken om te maken van een expressie voor de AD *displayName* kenmerk als volgt om een weergavenaam, zoals *Smith, John (Marketing-US)*.
+* Voor het bouwen van de expressie van de toewijzing van juiste kenmerk identificeren welke Workday-kenmerk 'bindend' vertegenwoordigt van de gebruiker de voornaam, laatste naam land/regio en afdeling. Stel dat de kenmerken zijn *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* en *SupervisoryOrganization* respectievelijk. U kunt dit gebruiken om te maken van een expressie voor de AD *displayName* kenmerk als volgt om een weergavenaam, zoals *Smith, John (Marketing-US)*.
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
@@ -1038,7 +1038,7 @@ In deze sectie worden de volgende aspecten van het oplossen van problemen:
 
 ### <a name="setting-up-windows-event-viewer-for-agent-troubleshooting"></a>Windows-Logboeken in te stellen voor het oplossen van agent
 
-* Meld u aan bij de Windows Server-machine waarop de Agent inrichting wordt geïmplementeerd
+* Meld u aan met de Windows Server-computer waarop de Agent inrichting wordt geïmplementeerd
 * Open **logboeken van Windows Server** desktop-app.
 * Selecteer **Windows Logboeken > toepassing**.
 * Gebruik de **Huidig logboek filteren...** optie voor het weergeven van alle gebeurtenissen vastgelegd onder de bron **AAD. Connect.ProvisioningAgent** en gebeurtenissen met gebeurtenis-ID '5', uitsluiten door het filter '-5' op te geven, zoals hieronder weergegeven.
@@ -1087,7 +1087,7 @@ Wanneer u een van de records in auditlogboeken, op de **activiteitendetails** pa
 
   Agent ingericht logboekrecords overeenkomt met deze importbewerking AD vindt de Windows-Logboeken openen en gebruiken de **zoeken...** menu-optie te vinden van vermeldingen in het logboek met de ID/toevoegen-eigenschap die overeenkomt met kenmerk-waarde (in dit geval *21023*).
 
-  ![Find](media/workday-inbound-tutorial/wd_event_viewer_02.png)
+  ![Zoeken](media/workday-inbound-tutorial/wd_event_viewer_02.png)
 
   Zoek de vermelding met *gebeurtenis-ID = 9*, die wordt bieden u de LDAP filter gebruikt door de agent voor het ophalen van de AD-account zoeken. U kunt controleren als dit is de juiste zoekfilter om op te halen van unieke gebruikersvermeldingen.
 
@@ -1236,7 +1236,7 @@ Als u wilt deze wijziging doet, moet u [Workday Studio](https://community.workda
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="https://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
@@ -1349,7 +1349,7 @@ Uitvoeren in Microsoft Graph Explorer, de volgende GET-query [servicePrincipalId
 
 U ontvangt een antwoord, zoals hieronder weergegeven. Kopieer het kenmerk' id' aanwezig in het antwoord. Deze waarde is de **ProvisioningJobId** en wordt gebruikt om op te halen de metagegevens van het onderliggende schema.
 
-   [![Inrichting van taak-Id](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
+   [![Inrichting van taak-ID](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
 
 #### <a name="step-4-download-the-provisioning-schema"></a>Stap 4: Het inrichtingsproces Schema downloaden
 

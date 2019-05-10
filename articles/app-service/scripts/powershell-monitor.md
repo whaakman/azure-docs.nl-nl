@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: becec6881ccc5c061a0f0e93e697852645f9388f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ac503c4408432da4e2c0c9281ee5cdd6e5d9e984
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115960"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198591"
 ---
 # <a name="monitor-a-web-appwith-web-server-logs"></a>Een web-app bewaken met webserverlogboeken
 
@@ -49,11 +49,11 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Hiermee maakt u een App Service-plan. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Hiermee maakt u een App Service-abonnement. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Hiermee maakt u een webtoepassing. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Hiermee wijzigt u de configuratie van een web-app. |
-| [Get-AzWebAppMetrics](/powershell/module/az.websites/get-azwebappmetrics) | Hiermee haalt u metrische gegevens van een web-app. |
+| [Get-AzWebAppMetric](/powershell/module/az.websites/get-azwebappmetric) | Hiermee haalt u metrische gegevens van een web-app. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

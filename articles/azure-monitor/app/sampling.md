@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: b35b0c66c29805d9cd7ecd00ffaad4fc1cfe253b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d88de2bf660165022b39aaa0321ff5c62ea81cd3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653798"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231842"
 ---
 # <a name="sampling-in-application-insights"></a>Steekproeven in Application Insights
 
@@ -61,7 +61,7 @@ Metrische gegevens telt, zoals snelheid van aanvragen en aantal uitzonderingen w
 
 ## <a name="configuring-adaptive-sampling-for-aspnet-applications"></a>Adaptieve steekproeven voor ASP.NET-toepassingen configureren
 
-[Informatie over](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) over het configureren van adaptieve steekproeven voor voor ASP.NET Core-toepassingen. 
+[Informatie over](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) over het configureren van adaptieve steekproeven voor ASP.NET Core-toepassingen. 
 
 In [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), kunt u meerdere parameters op in de `AdaptiveSamplingTelemetryProcessor` knooppunt. De cijfers die worden weergegeven, zijn de standaardwaarden:
 

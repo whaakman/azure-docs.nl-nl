@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ee8891eae108256875660cc3f2256b65703a1aa
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440817"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406789"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Stoppen met het gebruik van de virtuele machine beheerde identiteiten-extensie en start met behulp van Azure Instance Metadata Service
 
@@ -35,7 +35,7 @@ Door verschillende beperkingen die worden beschreven in de volgende sectie, is d
 
 ### <a name="provision-the-extension"></a>De extensie inrichten 
 
-Wanneer u een virtuele machine of virtuele-machineschaalset om een beheerde identiteit configureert, kunt u optioneel wilt, kunt u besluiten (optioneel) voor het inrichten van de beheerde identiteiten voor het gebruik van Azure-resources VM extension de `-Type` parameter op de [ Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. U kunt een doorgeven `ManagedIdentityExtensionForWindows` of `ManagedIdentityExtensionForLinux`, afhankelijk van het type van de virtuele machine en de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens:
+Wanneer u een virtuele machine of virtuele-machineschaalset om een beheerde identiteit configureert, kunt u eventueel voor het inrichten van de beheerde identiteiten voor het gebruik van Azure-resources VM extension de `-Type` parameter op de [ Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. U kunt een doorgeven `ManagedIdentityExtensionForWindows` of `ManagedIdentityExtensionForLinux`, afhankelijk van het type van de virtuele machine en de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens:
 
 ```powershell
    $settings = @{ "port" = 50342 }
@@ -95,7 +95,7 @@ Voor het inrichten van de virtuele-machineschaalset extensie met de sjabloon van
 
 Inrichting van de extensie van de virtuele machine kan mislukken vanwege DNS-lookup-fouten. Als dit het geval is, start de virtuele machine en probeer het opnieuw. 
 
-### <a name="remove-the-extension"></a>De extensie verwijderen 
+### <a name="remove-the-extension"></a>Verwijder de extensie 
 U kunt de extensie verwijderen `-n ManagedIdentityExtensionForWindows` of `-n ManagedIdentityExtensionForLinux` overschakelen (afhankelijk van het type virtuele machine) met [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/), of [az vmss extension delete](https://docs.microsoft.com/cli/azure/vmss) voor virtuele-machineschaalsets Hiermee stelt u met behulp van Azure CLI, of `Remove-AzVMExtension` voor Powershell:
 
 ```azurecli-interactive

@@ -4,6 +4,8 @@
   items:
     - name: Wat is een Stream Analytics?
       href: stream-analytics-introduction.md
+    - name: End-to-end-oplossingspatronen
+      href: stream-analytics-solution-patterns.md
 - name: Snelstartgidsen
   items:
     - name: Een taak maken - Azure Portal
@@ -12,6 +14,8 @@
       href: stream-analytics-quick-create-powershell.md
     - name: Een taak maken - Visual Studio
       href: stream-analytics-quick-create-vs.md
+    - name: Een taak maken - Visual Studio Code
+      href: quick-create-vs-code.md
 - name: Zelfstudies
   items:
     - name: 1 - Een taak maken/beheren
@@ -143,7 +147,7 @@
           href: 'https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick'
         - name: De API voor IoT Edge-taken gebruiken
           href: stream-analytics-cicd-api.md
-    - name: Visual Studio-hulpprogramma's
+    - name: Visual Studio en VS Code
       items:
         - name: Hulpprogramma's installeren
           href: stream-analytics-tools-for-visual-studio-install.md
@@ -159,6 +163,8 @@
           href: stream-analytics-tools-for-visual-studio-cicd.md
         - name: .NET-UDF schrijven voor Edge
           href: stream-analytics-edge-csharp-udf-methods.md
+        - name: Stream Analytics verkennen in VS Code
+          href: vs-code-how-to.md
     - name: Problemen oplossen
       items:
         - name: Invoer
@@ -435,6 +441,9 @@
               maintainContext: true
             - name: Tumblingvenster
               href: /stream-analytics-query/tumbling-window-azure-stream-analytics
+              maintainContext: true
+            - name: Vensterfuncties combineren
+              href: /stream-analytics-query/windows-azure-stream-analytics
               maintainContext: true
     - name: Gegevenstypen
       items:

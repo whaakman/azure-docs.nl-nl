@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: yushwang
-ms.openlocfilehash: f0367a360de97d3935c7fa8de9f3dafa6555811e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51402196c8429797b644357822a1e3c08982b384
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390654"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209505"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>BGP op een Azure VPN-gateway configureren met behulp van CLI
 
@@ -131,7 +131,7 @@ Als u wilt een cross-premises-verbinding tot stand brengen, moet u een lokale ne
 In deze oefening blijft het bouwen van de configuratie weergegeven in het diagram. Zorg ervoor dat u de waarden vervangt door de waarden die u voor uw configuratie wilt gebruiken. Wanneer u met lokale netwerkgateways werkt, houd rekening met de volgende zaken:
 
 * De lokale netwerkgateway kan zich in dezelfde locatie en resourcegroep als de VPN-gateway of kan het zijn in een andere locatie en resourcegroep. Dit voorbeeld toont de gateways in verschillende resourcegroepen bevinden in verschillende locaties.
-* Het minimale voorvoegsel die u nodig hebt om aan te geven voor de lokale netwerkgateway is het hostadres van uw BGP-peer-IP-adres op uw VPN-apparaat. In dit geval is het een/32 adverteren voorvoegsel van 10.52.255.254/32.
+* Het minimale voorvoegsel die u nodig hebt om aan te geven voor de lokale netwerkgateway is het hostadres van uw BGP-peer-IP-adres op uw VPN-apparaat. In dit geval is het een/32 adverteren voorvoegsel van 10.51.255.254/32.
 * Als een herinnering, moet u verschillende ASN's van BGP tussen uw on-premises netwerken en de Azure-netwerk. Als ze hetzelfde zijn, moet u uw VNet-ASN wijzigen als het ASN in uw on-premises VPN-apparaten al worden gebruikt om te koppelen aan andere BGP-neighbors.
 
 Voordat u doorgaat, zorgt u ervoor dat u hebt voltooid de [BGP inschakelen voor uw VPN-gateway](#enablebgp) sectie van deze oefening en dat u nog met abonnement 1 verbonden bent. U ziet dat in dit voorbeeld, maakt u een nieuwe resourcegroep. U ziet ook de twee extra parameters voor de lokale netwerkgateway: `Asn` en `BgpPeerAddress`.

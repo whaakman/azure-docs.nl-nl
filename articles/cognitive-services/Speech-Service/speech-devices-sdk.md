@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: ca3f537ed52da547f64aa1fb98eb82c4ea73d81d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5f3b0094834b1ca547ba5ddf9726068c9ea36079
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021426"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409089"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Informatie over de apparaten van de spraak-SDK
 
@@ -32,7 +32,7 @@ De SDK van de apparaten spraak verbruikt de [spraak SDK](speech-sdk.md). De spra
 
 U kunt ook de spraak-apparaten-SDK gebruiken voor het bouwen van de apparaten waarop uw eigen [aangepast wake word](speech-devices-sdk-create-kws.md) , zodat de hint die een tussenkomst van de gebruiker initieert uniek is voor uw merk is.
 
-De SDK van de apparaten spraak vereenvoudigt het uitvoeren van een verscheidenheid aan scenario's voor het stem-functionaliteit, zoals [aangepaste spraak op de eerste virtuele assistenten](https://aka.ms/sdsdk-assistant), schijf-t/m-systemen, bestellen [conversatie transcriptie](conversation-transcription-service.md), en slimme sprekers. U kunt reageren op gebruikers met tekst, spreken terug naar deze in een standaard of [aangepaste gesproken](how-to-customize-voice-font.md), zoekresultaten, bieden [vertalen](speech-translation.md) in andere talen en meer. We kijken ernaar uit om te zien wat u bouwen!
+De SDK van de apparaten spraak vereenvoudigt het uitvoeren van een verscheidenheid aan scenario's voor het stem-functionaliteit, zoals [aangepaste spraak op de eerste virtuele assistenten](https://aka.ms/bots/speech/va), schijf-t/m-systemen, bestellen [conversatie transcriptie](conversation-transcription-service.md), en slimme sprekers. U kunt reageren op gebruikers met tekst, spreken terug naar deze in een standaard of [aangepaste gesproken](how-to-customize-voice-font.md), zoekresultaten, bieden [vertalen](speech-translation.md) in andere talen en meer. We kijken ernaar uit om te zien wat u bouwen!
 
 ## <a name="next-steps"></a>Volgende stappen
 

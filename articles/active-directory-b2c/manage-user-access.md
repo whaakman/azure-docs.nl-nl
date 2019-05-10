@@ -1,6 +1,6 @@
 ---
 title: Gebruikers beheren in Azure Active Directory B2C | Microsoft Docs
-description: Informatie over het identificeren van minderjarigen, datum van geboortedatum en land-gegevens verzamelen en acceptatie van gebruiksvoorwaarden ophalen in uw toepassing met behulp van Azure AD B2C.
+description: Informatie over het identificeren van minderjarigen, datum van de geboortedatum en land/regio gegevens verzamelen en acceptatie van gebruiksvoorwaarden ophalen in uw toepassing met behulp van Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: cddaf59a1202c9c19018427c06639686e905bb64
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 88123cc24359daaf1c6fc7e3ceeed8f77f717c9a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691092"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228018"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gebruikers beheren in Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ In dit artikel wordt beschreven hoe u toegang tot uw toepassingen beheren met be
 
 - Minderjarigen identificeren en beheren van gebruikerstoegang tot uw toepassing.
 - Vereist dat er is ouderlijke toestemming voor minderjarigen uw toepassingen te gebruiken.
-- Gegevensverzameling geboortedatum en land van gebruikers.
+- Geboortedatum en land/regio gegevens verzamelen van gebruikers.
 - Vastleggen van een overeenkomst gebruiksvoorwaarden van en toegang te beperken.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -58,11 +58,11 @@ Hier volgt een voorbeeld van een beleid voor het verzamelen van ouderlijke toest
 
 Voor meer informatie over **legalAgeGroupClassification**, **consentProvidedForMinor**, en **ageGroup**, Zie [resourcetype van gebruiker](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Zie voor meer informatie over aangepaste kenmerken [aangepaste kenmerken gebruiken voor het verzamelen van informatie over uw consumenten](active-directory-b2c-reference-custom-attr.md). Als u uitgebreide kenmerken kunt oplossen met behulp van de Azure AD Graph-API, moet u de lange versie van het kenmerk, zoals *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
-## <a name="gather-date-of-birth-and-country-data"></a>Datum van geboortedatum en land-gegevens verzamelen
+## <a name="gather-date-of-birth-and-countryregion-data"></a>Datum van de geboortedatum en land/regio gegevens verzamelen
 
-Toepassingen mogelijk afhankelijk van de Azure AD B2C voor het verzamelen van de datum van de geboortedatum (geboortedatum) en het land van alle gebruikers tijdens de registratie. Als deze informatie nog niet bestaat, de toepassing kan aanvragen het van de gebruiker tijdens de volgende reis van verificatie (aanmelden). Gebruikers kunnen niet worden voortgezet zonder op te geven hun geboortedatum en land. Azure AD B2C gebruikt de informatie om te bepalen of de afzonderlijke wordt beschouwd als een minderjarige op basis van het wettelijk verplichte standaarden van dat land. 
+Toepassingen mogelijk afhankelijk van de Azure AD B2C voor het verzamelen van de datum van (geboortedatum) Geboortedatum en land/regio informatie van alle gebruikers tijdens de registratie. Als deze informatie nog niet bestaat, de toepassing kan aanvragen het van de gebruiker tijdens de volgende reis van verificatie (aanmelden). Gebruikers kunnen niet doorgaan zonder op te geven hun eigen informatie geboortedatum en land/regio. Azure AD B2C gebruikt de informatie om te bepalen of de afzonderlijke wordt beschouwd als een minderjarige op basis van het wettelijk verplichte standaarden van dat land/regio. 
 
-Een aangepaste gebruikersstroom kunt verzamelen geboortedatum en landinformatie en gebruik Azure AD B2C claims transformatie om te bepalen de **ageGroup** en het resultaat blijven (of blijven de geboortedatum en landinformatie rechtstreeks) in de map.
+Een aangepaste gebruikersstroom kunt verzamelen geboortedatum en land/regio informatie en gebruik Azure AD B2C claims transformatie om te bepalen de **ageGroup** en behouden het resultaat (of de geboortedatum en land/regio informatie rechtstreeks behouden) in de de map.
 
 De volgende stappen laten zien dat de logica die wordt gebruikt voor het berekenen van **ageGroup** uit de geboortedatum van de gebruiker:
 
@@ -78,7 +78,7 @@ De volgende stappen laten zien dat de logica die wordt gebruikt voor het bereken
 
 4. De berekening wordt geretourneerd als geen van beide berekening true retourneert, **volwassenen**.
 
-Als een toepassing op betrouwbare wijze verzamelde geboortedatum of land/regio gegevens via andere methoden heeft, kan de toepassing de Graph API gebruiken om bij te werken van de record van de gebruiker met deze informatie. Bijvoorbeeld:
+Als een toepassing is op betrouwbare wijze geboortedatum of land/regio gegevens verzameld door andere methoden, kan de toepassing de Graph API gebruiken om bij te werken van de record van de gebruiker met deze informatie. Bijvoorbeeld:
 
 - Als een gebruiker bekend is dat een volwassene, werkt u de directory-kenmerk **ageGroup** met een waarde van **volwassenen**.
 - Als een gebruiker bekend is dat een minderjarige, werkt u het directory-kenmerk **ageGroup** met een waarde van **kleine** en stel **consentProvidedForMinor**, indien van toepassing.

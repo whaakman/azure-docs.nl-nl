@@ -14,17 +14,17 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7287616dbad1aa77a6e4aaa110ade39dcea4f195
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb48d37e1cf552f9ad375906d8cd05301ac2dd0c
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60470052"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407871"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory-cmdlets van versie 2 voor groepsbeheer
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+> * [Azure Portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 > * [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
@@ -233,13 +233,13 @@ Eigenaren toevoegen aan een groep, gebruikt u de cmdlet Add-AzureADGroupOwner:
 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
-De parameter - object-id is de object-id van de groep waarop we willen een eigenaar toevoegen en de RefObjectId - is de object-id van de gebruiker die we willen toevoegen als een eigenaar van de groep.
+De parameter - object-id is de object-id van de groep waarop we willen een eigenaar toevoegen en de RefObjectId - is de object-id van de gebruiker of service-principal dat we willen toevoegen als een eigenaar van de groep.
 
 Als u wilt ophalen van de eigenaren van een groep, gebruikt u de cmdlet Get-AzureADGroupOwner:
 
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 
-De cmdlet retourneert de lijst met eigenaren voor de opgegeven groep:
+De cmdlet retourneert de lijst met eigenaren (gebruikers en service-principals) voor de opgegeven groep:
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------
@@ -260,7 +260,7 @@ Wanneer een groep is gemaakt, bepaalde-eindpunten kunt de eindgebruiker een mail
 * postbeheerder 
 * hoofdmap 
 * beveiligen 
-* security 
+* beveiliging 
 * ssl-admin 
 * beheerder 
 

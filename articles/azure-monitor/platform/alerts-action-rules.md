@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137999"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227991"
 ---
 # <a name="action-rules-preview"></a>Actieregels (preview)
 
@@ -46,7 +46,7 @@ U ziet nu de actie regel voor het maken van stroom openen. Configureer de volgen
 
 ![Nieuwe actie regel voor het maken van stroom](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>Bereik
+### <a name="scope"></a>Scope
 
 Kies eerst het bereik, dat wil zeggen, doelresource, resourcegroep of abonnement. U hebt ook de mogelijkheid voor meervoudige selectie een combinatie van een van de bovenstaande (binnen één abonnement). 
 
@@ -142,11 +142,11 @@ Hier kunt u inschakelen/uitschakelen/verwijderen actieregels op schaal door het 
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 
-Meld u waarschuwingen die zijn gemaakt met de ['aantal resultaten'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) optie genereren **slechts één exemplaar van de waarschuwing** met behulp van de hele zoekresultaat (dit kan bijvoorbeeld op meerdere computers). In dit scenario, als een actieregel maakt gebruik van het filter Waarschuwingscontext (payload), fungeert de op het exemplaar van de waarschuwing, zolang er een overeenkomst is. In scenario 2 zoals eerder beschreven als de zoekresultaten de waarschuwing gegenereerd voor zowel 'Computer-01' en 'Computer-02', bevatten de volledige melding is onderdrukt (dat wil zeggen, er is geen melding helemaal gegenereerd voor Computer-02).
+Meld u waarschuwingen die zijn gemaakt met de ['aantal resultaten'](alerts-unified-log.md) optie genereren **slechts één exemplaar van de waarschuwing** met behulp van de hele zoekresultaat (dit kan bijvoorbeeld op meerdere computers). In dit scenario, als een actieregel maakt gebruik van het filter Waarschuwingscontext (payload), fungeert de op het exemplaar van de waarschuwing, zolang er een overeenkomst is. In scenario 2 zoals eerder beschreven als de zoekresultaten de waarschuwing gegenereerd voor zowel 'Computer-01' en 'Computer-02', bevatten de volledige melding is onderdrukt (dat wil zeggen, er is geen melding helemaal gegenereerd voor Computer-02).
 
 ![Actieregels en waarschuwingen (aantal resultaten)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-Aanbevolen gebruik te maken van naar waarschuwingen voor aan de actieregels van de, we adviseren u om te maken van waarschuwingen met de ['meting van metrische gegevens'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) optie. Deze optie gebruikt, zijn afzonderlijke exemplaren van de waarschuwing gegenereerd op basis van het veld groep is gedefinieerd. In scenario 2, klikt u vervolgens afzonderlijke exemplaren van de waarschuwing gegenereerd voor Computer-01 en Computer-02. Met de actieregel in het scenario beschreven, wordt alleen de melding voor Computer-01 worden onderdrukt terwijl de melding voor Computer-02 nu doorgaan met het normale manier worden geactiveerd.
+Aanbevolen gebruik te maken van naar waarschuwingen voor aan de actieregels van de, we adviseren u om te maken van waarschuwingen met de ['meting van metrische gegevens'](alerts-unified-log.md) optie. Deze optie gebruikt, zijn afzonderlijke exemplaren van de waarschuwing gegenereerd op basis van het veld groep is gedefinieerd. In scenario 2, klikt u vervolgens afzonderlijke exemplaren van de waarschuwing gegenereerd voor Computer-01 en Computer-02. Met de actieregel in het scenario beschreven, wordt alleen de melding voor Computer-01 worden onderdrukt terwijl de melding voor Computer-02 nu doorgaan met het normale manier worden geactiveerd.
 
 ![Actieregels en waarschuwingen (aantal resultaten)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 

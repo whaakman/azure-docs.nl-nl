@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 5eaee4f932c4e42f6fed3d839314346b3a93f360
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c4dc3d422e18d9ee41bf16ac3e6f22c3d7e466d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297632"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198981"
 ---
 ## <a name="register-your-application"></a>Uw toepassing registreren
 
@@ -43,7 +43,9 @@ Ga als volgt te werk om de toepassing te registreren en de registratiegegevens v
    - Selecteer in de sectie **Ondersteunde accounttypen** de optie **Accounts in alle organisatiemappen en persoonlijke Microsoft-accounts (bijvoorbeeld Skype, Xbox, Outlook.com**.
    - Selecteer **Registreren** om de toepassing te maken.
 1. Selecteer in de lijst met pagina’s voor de app de optie **Verificatie**.
-1. Ga in de sectie **Omleidings-URI's** naar de sectie **Voorgestelde omleidings-URI's voor openbare clients (mobiel, desktop)**, en selecteer **"urn:ietf:wg:oauth:2.0:oob**.
+   1. In de **omleidings-URI's** sectie in de lijst van de omleidings-URI's:
+   1. In de **TYPE** kolomselectie **openbare client (mobiele en desktop)**.
+   1. Voer `urn:ietf:wg:oauth:2.0:oob` in de **OMLEIDINGS-URI** kolom.
 1. Selecteer **Opslaan**.
 1. Ga naar Visual Studio, open de *App.xaml.cs* bestand en vervang `Enter_the_Application_Id_here` met toepassings-ID die u zojuist hebt geregistreerd en gekopieerd.
 

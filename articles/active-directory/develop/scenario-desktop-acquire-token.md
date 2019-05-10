@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d4389af86e27ddb04f5a3e5f53c5509eeede005
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: e1fe9594471c6e8f723afff2def940bb675e04fb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075338"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407009"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Desktop-app die web-API's - roept een token verkrijgen
 
@@ -502,7 +502,7 @@ static async Task GetATokenForGraph()
   catch (MsalClientException ex) when (ex.ErrorCode == "unknown_user")
   {
    // the username was probably empty
-   // ex.Message = "Could not identify the user logged into the OS. See http://aka.ms/msal-net-iwa for details."
+   // ex.Message = "Could not identify the user logged into the OS. See https://aka.ms/msal-net-iwa for details."
    throw new ArgumentException("U/P: Wrong username", ex);
   }
   catch (MsalClientException ex) when (ex.ErrorCode == "parsing_wstrust_response_failed")
@@ -529,7 +529,7 @@ Als u bij het schrijven van een opdrachtregelprogramma (die geen webbesturingsel
 
 Interactieve verificatie met Azure AD is een webbrowser vereist (Zie voor meer informatie [gebruik van webbrowsers](https://aka.ms/msal-net-uses-web-browser)). Echter om gebruikers te verifiëren op apparaten of besturingssystemen die geen een webbrowser, kan de stroom van apparaat de gebruiker gebruikt een ander apparaat (bijvoorbeeld een andere computer of een mobiele telefoon) aan te melden interactief. Met behulp van de stroom van het apparaat, krijgt de toepassing tokens via een proces in twee stappen is speciaal ontworpen voor deze apparaten/OS. Voorbeelden van dergelijke toepassingen worden toepassingen die worden uitgevoerd op iOT, of met opdrachtregelprogramma's (CLI). Het idee is dat:
 
-1. Wanneer de verificatie van de gebruiker is vereist, de app biedt een code en vraag de gebruiker om een ander apparaat (zoals een smartphone internetverbinding) gebruiken om te navigeren naar een URL (bijvoorbeeld `http://microsoft.com/devicelogin`), waarbij de gebruiker wordt gevraagd de code op te geven. Dat klaar, de webpagina de gebruiker via een normale verificatie-ervaring leidt, met inbegrip van toestemming wordt gevraagd en meervoudige verificatie, indien nodig.
+1. Wanneer de verificatie van de gebruiker is vereist, de app biedt een code en vraag de gebruiker om een ander apparaat (zoals een smartphone internetverbinding) gebruiken om te navigeren naar een URL (bijvoorbeeld `https://microsoft.com/devicelogin`), waarbij de gebruiker wordt gevraagd de code op te geven. Dat klaar, de webpagina de gebruiker via een normale verificatie-ervaring leidt, met inbegrip van toestemming wordt gevraagd en meervoudige verificatie, indien nodig.
 
 2. Bij een geslaagde verificatie, de opdrachtregel-app ontvangt de vereiste tokens via een back-kanaal en gebruikt voor het uitvoeren van de web-API-aanroepen nodig is.
 

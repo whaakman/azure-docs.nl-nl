@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 04/22/2019
-ms.openlocfilehash: 604603a145ab360af18ce74748707da9f5f93427
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dbdbfc797d37ed38936d6cfd354383d412c6b52d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726392"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205826"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Snelstart: De demo-omgeving van Azure Time Series Insights (preview) verkennen
 
@@ -43,49 +43,49 @@ De Verkenner van Time Series Insights Preview ziet u historische gegevens en ana
     * Bijwerken van het weergavebereik tot **1/1/17 20:00 tot en met 3/10/17 20:00 uur (UTC)**.
     * Selecteer de **Contoso-fabriek 1** > **W7** > **Generator System** > **GeneratorSpeed** de sensor. Bekijk de resulterende waarden.
 
-      [![Snelstartgids een](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
+      [![W7 in Contoso-fabriek 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
 1. Onlangs heeft Contoso brand geconstateerd in windturbine **W7**. Adviezen variëren over wat de oorzaak in de buurt van de brand was. Bij dichter bij controle zien we dat de waarschuwing fire-sensor tijdens de brand is geactiveerd.
 
     * Bijwerken van het weergavebereik tot **3/9/17 20:00 tot en met 3/10/17 20:00 uur (UTC)**.
     * Selecteer de **veiligheid System** > **FireAlert** sensor.
 
-      [![Snelstartgids twee](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
+      [![Contoso brand in windturbine W7 gevonden](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
 
 1. Bekijk andere gebeurtenissen die rond dezelfde tijd van de brand om te begrijpen wat er is gebeurd. Olie druk te verlichten en actieve waarschuwingen verrijkt net vóór de brand.
 
     * Selecteer de **inspiratie System** > **HydraulicOilPressure** sensor.
     * Selecteer de **inspiratie System** > **ActiveWarning** sensor.
 
-      [![Snelstartgids drie](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
+      [![Andere gebeurtenissen die rond dezelfde tijd controleren](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
 
 1. De olie druk te verlichten en actieve waarschuwing sensoren verrijkt precies vóór de brand. Vouw de weergegeven tijd serie als u wilt zien van de andere zich aanwezig aanloop naar de brand. Beide sensoren schommelde consistent na verloop van tijd een permanente en eng patroon waarmee wordt aangegeven.
 
     * Bijwerken van het weergavebereik tot **2/24/17 20:00 tot en met 3/10/17 20:00 uur (UTC)**.
 
-      [![Snelstartgids vier](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
+      [![Oliedruk in de- en actieve waarschuwing sensoren ook verrijkt](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
-1. Twee jaar van historische onderzoek blijkt dat een andere fire-gebeurtenis met de dezelfde sensor fluctuaties.
+1. Onderzoek van twee jaar van historische gegevens blijkt dat een andere fire-gebeurtenis met de dezelfde sensor fluctuaties.
 
     * Bijwerken van het weergavebereik tot **1/1/16 tot en met 31-12/17** (alle gegevens).
 
-      [![Snelstartgids vijf](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
+      [![Historische patronen zoeken](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-Met behulp van Azure Time Series Insights en onze telemetrie sensor, hebben we een problematische en lange termijn trend verborgen in onze historische gegevens gedetecteerd. Met deze nieuwe inzichten, kunnen we wordt uitgelegd:
+Met behulp van Azure Time Series Insights en onze telemetrie sensor, hebben we een problematische en lange termijn trend verborgen in onze historische gegevens gedetecteerd. Met deze nieuwe inzichten kunt we het volgende doen:
 
 > [!div class="checklist"]
-> * Wat daadwerkelijk optrad
-> * Dit probleem oplossen
+> * Leg uit wat er in feite is opgetreden.
+> * Los het probleem.
 > * Superieure waarschuwingsmeldingen systemen in locatie plaatsen.
 
 ## <a name="root-cause-analysis"></a>Hoofdoorzaakanalyses
 
 1. Sommige scenario's voor geavanceerde analyse om subtiele of er aanwijzingen in de gegevens bloot te nodig hebben. Selecteer de Zwart gat **W6** op datum **6/25**
 
-    * Bijwerken van het weergavebereik tot **6/1/17 20:00 tot en met 7/1/17 20:00 uur (UTC)**
+    * Bijwerken van het weergavebereik tot **6/1/17 20:00 tot en met 7/1/17 20:00 uur (UTC)**.
     * Selecteer vervolgens de **Contoso-fabriek 1** > **W6** > **veiligheid System** > **VoltageActuatorSwitchWarning**  sensor.
 
-      [![Snelstartgids zes](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
+      [![Bijwerken van het weergavebereik, en selecteer W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
 
 1. De waarschuwing geeft aan dat er een probleem is met de spanning die wordt geleverd door de generator. De algemene power-uitvoer van de generator wordt uitgevoerd in de normale parameters onze Huidig interval opgegeven. Door onze interval, een ander patroon ontstaat: Er is een goede inleverbibliotheek.
 
@@ -93,20 +93,20 @@ Met behulp van Azure Time Series Insights en onze telemetrie sensor, hebben we e
     * Selecteer de **Generator System** > **ActivePower** sensor.
     * Het interval om te werken **3d**.
 
-      [![Snelstartgids zeven](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
+      [![Het interval bijwerken naar 3d](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
 
 1. Door het tijdsbereik vergroot, kunnen we bepalen of het probleem is gestopt of of blijft.
 
     * Breid de tijdsspanne tot 60 dagen.
 
-      [![Snelstartgids acht](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
+      [![De tijdsduur tot 60 dagen verlengen](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
 
 1. Andere gegevenspunten sensor kunnen worden toegevoegd aan het leveren van uitmuntende context. Meer sensoren te kunnen weergeven, de uitgebreidere ons een beeld vormen van het probleem is. We verwijderen een markering om de werkelijke waarden te bekijken. 
 
     * Selecteer de **Generator System** > **GridVoltagePhase1**, **GridVoltagePhase2**, en **GridVoltagePhase3** sensoren .
     * Verwijder een markering van het laatste gegevenspunt in het zichtbare gedeelte.
 
-      [![Snelstartgids negen](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
+      [![Een markering verwijderen](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
 
     De drie spanningssensors werkt neemt en binnen het normale parameters. Het ziet eruit als de **GridVoltagePhase3** sensor is het overmatig.
 
@@ -114,7 +114,7 @@ Met behulp van Azure Time Series Insights en onze telemetrie sensor, hebben we e
 
     * De weergave voor alle overlay bijwerken **Generator System** sensoren op dezelfde grafiek schaal.
 
-       [![Snelstartgids tien](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+       [![De weergave zodanig dat alles bijwerken](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -122,3 +122,8 @@ U kunt nu uw eigen Time Series Insights-omgeving (preview) gaan maken:
 
 > [!div class="nextstepaction"]
 > [Een Time Series Insights-omgeving (preview) plannen](time-series-insights-update-plan.md)
+
+Meer informatie over de demo en de bijbehorende functies gaan:
+
+> [!div class="nextstepaction"]
+> [De Verkenner van Time Series Insights Preview](time-series-insights-update-explorer.md)

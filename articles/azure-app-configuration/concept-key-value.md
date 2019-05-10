@@ -12,14 +12,14 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 39367cbe6c001fc782fd899ee3a99b37ece70a77
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699921"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408744"
 ---
-# <a name="key-value-store"></a>Sleutel-waardearchief
+# <a name="keys-and-values"></a>Sleutels en waarden
 
 Azure App-configuratie worden configuratiegegevens opgeslagen als sleutel / waarde-paren. Sleutel-waardeparen zijn een eenvoudige maar flexibele manier om weer te geven van verschillende soorten toepassingsinstellingen die ontwikkelaars bekend met bent.
 
@@ -104,5 +104,5 @@ Configuratiegegevens zijn opgeslagen in een app-configuratiearchief, dat alle sl
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Point-in-time-momentopname](./concept-point-time-snapshot.md)  
+* [Point-in-time-momentopname](./concept-point-time-snapshot.md)  
+* [Functie-management](./concept-feature-management.md)  

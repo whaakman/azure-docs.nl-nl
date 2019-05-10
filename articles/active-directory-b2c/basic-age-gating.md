@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 083ed7209efd88d3d221b55cfb53fe3998dd2987
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b594dc6eadce5093c58d693492f8e86eb92ae4e3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703274"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228001"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Leeftijdsbeperking in Azure Active Directory B2C inschakelen
 
@@ -25,14 +25,14 @@ ms.locfileid: "64703274"
 
 Leeftijdsbeperking in Azure Active Directory (Azure AD) B2C, kunt u identificeren minderjarigen die uw toepassing gebruiken. U kunt de secundaire zich in de toepassing blokkeren. Gebruikers kunnen ook gaat u terug naar de toepassing en hun leeftijdsgroep en hun status ouderlijke toestemming te identificeren. Azure AD B2C kunt minderjarigen zonder toestemming van ouders blokkeren. Azure AD B2C kan ook worden ingesteld zodat de toepassing om te bepalen wat er moet gebeuren met minderjarigen.
 
-Nadat u hebt ingeschakeld leeftijdsbeperking uw [gebruikersstroom](active-directory-b2c-reference-policies.md), gebruikers wordt gevraagd wanneer ze zijn voortgekomen en welk land ze bevinden zich in. Als een gebruiker zich die de informatie nog niet eerder zijn ingevoerd, moet ze voert u deze de volgende keer dat ze zich aanmelden. De regels worden toegepast wanneer een gebruiker zich aanmeldt.
+Nadat u hebt ingeschakeld leeftijdsbeperking uw [gebruikersstroom](active-directory-b2c-reference-policies.md), gebruikers wordt gevraagd wanneer ze zijn geboren en welke land/regio ze bevinden zich in. Als een gebruiker zich die de informatie nog niet eerder zijn ingevoerd, moet ze voert u deze de volgende keer dat ze zich aanmelden. De regels worden toegepast wanneer een gebruiker zich aanmeldt.
 
 Azure AD B2C gebruikt de informatie die de gebruiker moet invoeren om te bepalen of ze een minderjarige. De **ageGroup** veld wordt vervolgens bijgewerkt in hun account. De waarde kan zijn `null`, `Undefined`, `Minor`, `Adult`, en `NotAdult`.  De **ageGroup** en **consentProvidedForMinor** velden worden vervolgens gebruikt voor het berekenen van de waarde van **legalAgeGroupClassification**.
 
 Leeftijdsbeperking bestaat uit twee waarden van de leeftijd: de leeftijd die iemand anders niet meer beschouwd als een minderjarige en de leeftijd waarmee een kleine ouderlijke toestemming moet hebben. De volgende tabel bevat de leeftijd regels die worden gebruikt voor het definiëren van een klein en de toestemming van een secundaire vereisen.
 
-| Land/regio | Naam van land/regio | Secundaire toestemming leeftijd | Secundaire leeftijd |
-| ------- | ------------ | ----------------- | --------- |
+| Land/regio | De naam van het land/regio | Secundaire toestemming leeftijd | Secundaire leeftijd |
+| -------------- | ------------------- | ----------------- | --------- |
 | Standaard | Geen | Geen | 18 |
 | AE | Verenigde Arabische Emiraten | Geen | 21 |
 | AT | Oostenrijk | 14 | 18 |
@@ -41,7 +41,7 @@ Leeftijdsbeperking bestaat uit twee waarden van de leeftijd: de leeftijd die iem
 | BH | Bahrein | Geen | 21 |
 | CM | Kameroen | Geen | 21 |
 | CY | Cyprus | 16 | 18 |
-| CZ | Tsjechië | 16 | 18 |
+| CZ | Tsjechische Republiek | 16 | 18 |
 | DE | Duitsland | 16 | 18 |
 | DK | Denemarken | 16 | 18 |
 | EE | Estland | 16 | 18 |
@@ -50,16 +50,16 @@ Leeftijdsbeperking bestaat uit twee waarden van de leeftijd: de leeftijd die iem
 | FR | Frankrijk | 16 | 18 |
 | GB | Verenigd Koninkrijk | 13 | 18 |
 | GR | Griekenland | 16 | 18 |
-| HR | Kroatië | 16 | 18 |
+| HR | Kroatië (Hrvatska) | 16 | 18 |
 | HU | Hongarije | 16 | 18 |
 | IE | Ierland | 13 | 18 |
-| IT | Italië | 16 | 18 |
+| it | Italië | 16 | 18 |
 | KR | Zuid-Korea | 14 | 18 |
 | LT | Litouwen | 16 | 18 |
 | LU | Luxemburg | 16 | 18 |
 | LV | Letland | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| N.v.t. | Namibië | Geen | 21 |
+| N.V.T. | Namibië | Geen | 21 |
 | NL | Nederland | 16 | 18 |
 | PL | Polen | 13 | 18 |
 | PT | Portugal | 16 | 18 |

@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: b24e3d7fd71ef60cf8ebe5ba2c33889ff518580c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e51ef9afd0e49b690a4f9cab09fdfbd3e86eee66
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027108"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441050"
 ---
-# <a name="where-can-you-use-personalizer"></a>Waar gebruikt u Personalizer?
+# <a name="where-can-you-use-personalizer"></a>Waar kunt u Personalizer gebruiken?
 
 Gebruik Personalizer in een situatie waarin de toepassing nodig heeft om de juiste item, actie of product om weer te geven - om de ervaring verbeteren bereiken van betere bedrijfsresultaten te verbeteren, of de productiviteit te verbeteren. 
 
@@ -58,7 +58,7 @@ U kunt de effectiviteit van Personalizer periodiek controleren door te voeren [o
 
 Veel bedrijven gebruiken aanbevelingsengines, hulpprogramma's voor marketing en campaigning doelgroep Segmentatie en clustering, gezamenlijke filterfuncties en andere manier om aan te bevelen producten uit een grote catalogus aan klanten.
 
-De [Microsoft Recommenders GitHub-opslagplaats ](https://github.com/Microsoft/Recommenders) bevat voorbeelden en aanbevolen procedures voor het bouwen van aanbevelingssystemen, opgegeven als Jupyter-notebooks. Het biedt werkende voorbeelden voor het voorbereiden van gegevens, het ontwikkelen van modellen, evalueren, afstemmen en tot het operationaliseren van de aanbevelingsengines, voor veel algemene benaderingen xDeepFM, inclusief SAR, ALS, RBM, DKN.
+De [Microsoft Recommenders GitHub-opslagplaats](https://github.com/Microsoft/Recommenders) bevat voorbeelden en aanbevolen procedures voor het bouwen van aanbevelingssystemen, opgegeven als Jupyter-notebooks. Het biedt werkende voorbeelden voor het voorbereiden van gegevens, het ontwikkelen van modellen, evalueren, afstemmen en tot het operationaliseren van de aanbevelingsengines, voor veel algemene benaderingen xDeepFM, inclusief SAR, ALS, RBM, DKN.
 
 Personalizer kunt werken met een engine voor aanbevelingen als deze aanwezig is.
 
