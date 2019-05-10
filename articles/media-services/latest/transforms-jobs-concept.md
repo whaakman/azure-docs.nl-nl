@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 05/08/2019
 ms.author: juliako
-ms.openlocfilehash: 3c3687ceff10baec028435d1e6c513e72ca5da86
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e64e980d42086603c9eb8ce39a96a9766a78afcb
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149090"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472468"
 ---
 # <a name="transforms-and-jobs"></a>Transformaties en taken
 
@@ -53,19 +53,21 @@ Een **transformeren** helpt u bij het maken van één keer het recept (stap 1) e
 
 ## <a name="transforms"></a>Transformaties
 
+Gebruik **transformeert** het configureren van algemene taken voor het coderen of video's analyseren. Elke **transformeren** beschrijft een recept of een workflow van taken voor het verwerken van uw video- of audio-bestanden. Een enkele transformatie kunt meer dan één regel toepassen. Een transformatie kan bijvoorbeeld opgeven dat elke video worden gecodeerd naar een MP4-bestand op een bepaalde bitrate en dat een miniatuurafbeelding van het eerste frame van de video worden gegenereerd. U zou een TransformOutput-vermelding voor elke regel die u wilt opnemen in uw transformatie toevoegen. Voorinstellingen kunt u de transformatie vertellen hoe de invoer media-bestanden moeten worden verwerkt.
+
+Voorinstellingen zijn in Media Services v3, sterk getypeerde entiteiten in de API zelf. U vindt de definitie van de 'schema' voor deze objecten in [Open API-specificatie (of Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). U kunt ook de vooraf ingestelde definities weergeven (zoals **StandardEncoderPreset**) in de [REST-API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (of andere SDK-referentiedocumentatie voor Media Services v3).
+
+U kunt maken van transformaties met behulp van REST, CLI, of gebruik een van de gepubliceerde SDK's. De Media Services v3 die API van Azure Resource Manager wordt gestuurd, zodat u ook Resource Manager-sjablonen kunt maken en implementeren voor gegevensstromen in Media Services-account. Op rollen gebaseerd toegangsbeheer kan worden gebruikt om toegang tot transformaties vergrendelen.
+
+Als u nodig hebt om bij te werken uw [transformeren](https://docs.microsoft.com/rest/api/media/transforms), gebruikt u de **bijwerken** bewerking. Het is bedoeld voor het aanbrengen van wijzigingen in de beschrijving of de prioriteiten van de onderliggende TransformOutputs. Het verdient aanbeveling dat dergelijke updates worden uitgevoerd wanneer alle lopende taken zijn voltooid. Als u van plan bent te herschrijven het recept, moet u een nieuwe transformatie te maken.
+
+### <a name="transform-object-diagram"></a>Diagram van object transformeren
+
 Het volgende diagram toont de **transformeren** object en de objecten hierin wordt verwezen naar de relaties afleiding inclusief. De grijze pijlen geven een type dat de verwijzingen van de taak en de groene pijl klasse afleiding relaties weergeven.<br/>Klik op de afbeelding om deze in volledig formaat weer te geven.  
 
 <a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a> 
 
-Gebruik **transformeert** het configureren van algemene taken voor het coderen of video's analyseren. Elke **transformeren** beschrijft een recept of een workflow van taken voor het verwerken van uw video- of audio-bestanden. Een enkele transformatie kunt meer dan één regel toepassen. Een transformatie kan bijvoorbeeld opgeven dat elke video worden gecodeerd naar een MP4-bestand op een bepaalde bitrate en dat een miniatuurafbeelding van het eerste frame van de video worden gegenereerd. U zou een TransformOutput-vermelding voor elke regel die u wilt opnemen in uw transformatie toevoegen. In Media Services-account met behulp van de Media Services v3-API, of een van de gepubliceerde SDK's kunt u transformaties maken. De Media Services v3 die API van Azure Resource Manager wordt gestuurd, zodat u ook Resource Manager-sjablonen kunt maken en implementeren voor gegevensstromen in Media Services-account. Op rollen gebaseerd toegangsbeheer kan worden gebruikt om toegang tot transformaties vergrendelen.
-
-De Update-bewerking op de [transformeren](https://docs.microsoft.com/rest/api/media/transforms) entiteit bestemd is voor aanbrengen in de beschrijving of de prioriteiten van de onderliggende TransformOutputs wijzigingen. Het verdient aanbeveling dat dergelijke updates worden uitgevoerd wanneer alle lopende taken zijn voltooid. Als u van plan bent te herschrijven het recept, moet u een nieuwe transformatie te maken.
-
 ## <a name="jobs"></a>Taken
-
-Het volgende diagram toont de **taak** object en de objecten hierin wordt verwezen naar de relaties afleiding inclusief.<br/>Klik op de afbeelding om deze in volledig formaat weer te geven.  
-
-<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a> 
 
 Een **taak** is van de werkelijke aanvraag voor Azure Media Services om toe te passen de **transformeren** aan een bepaalde invoer video of audio-inhoud. Zodra de transformatie is gemaakt, kunt u taken met behulp van Media Services-API's of een van de gepubliceerde SDK's kunt indienen. De **taak** bevat informatie zoals de locatie van de video-invoer en de locatie voor de uitvoer. U kunt de locatie van uw video met invoer opgeven: HTTPS-URL's, SAS-URL's of [activa](https://docs.microsoft.com/rest/api/media/assets).  
 
@@ -76,6 +78,12 @@ Gebruik [Asset als Taakinvoer](job-input-from-local-file-how-to.md) als de inhou
 De voortgang en status van taken kunnen worden verkregen door de bewaking van gebeurtenissen met Event Grid. Zie voor meer informatie, [bewaken van gebeurtenissen via EventGrid](job-state-events-cli-how-to.md).
 
 De Update-bewerking op de [taak](https://docs.microsoft.com/rest/api/media/jobs) entiteit kan worden gebruikt om te wijzigen de *beschrijving*, en de *prioriteit* eigenschappen nadat de taak is verzonden. Een wijziging in de *prioriteit* eigenschap werkt alleen als de taak nog steeds in een in de wachtrij staat is. Als de taak verwerking is gestart of is voltooid, heeft prioriteit wijzigen geen effect.
+
+### <a name="job-object-diagram"></a>Taakdiagram-object
+
+Het volgende diagram toont de **taak** object en de objecten hierin wordt verwezen naar de relaties afleiding inclusief.<br/>Klik op de afbeelding om deze in volledig formaat weer te geven.  
+
+<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a> 
 
 ## <a name="configure-media-reserved-units"></a>Configureren van gereserveerde Media-eenheden
 
@@ -94,5 +102,8 @@ Bekijk de [Azure Media Services-community](media-services-community.md) artikel 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zelfstudie: Video’s uploaden, coderen en streamen met behulp van .NET](stream-files-tutorial-with-api.md)
-- [Zelfstudie: Analyseren van video's met Media Services v3 met behulp van .NET](analyze-videos-tutorial-with-api.md)
+- Controleer voordat u begint met het ontwikkelen, [ontwikkelen met Media Services v3 API's](media-services-apis-overview.md) (bevat informatie over het verkrijgen van toegang tot API's voor naamgeving, enz.)
+- Bekijk deze zelfstudies:
+
+    - [Zelfstudie: Video’s uploaden, coderen en streamen met behulp van .NET](stream-files-tutorial-with-api.md)
+    - [Zelfstudie: Analyseren van video's met Media Services v3 met behulp van .NET](analyze-videos-tutorial-with-api.md)

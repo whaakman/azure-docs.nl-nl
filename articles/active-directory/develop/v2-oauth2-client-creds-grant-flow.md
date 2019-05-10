@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3073d34a6ffeadd1c1c0022b5c1636f06cc6210a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: df75d692bc61d155b35f5ce4e2bf08da6e4cbcc3
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190839"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507107"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft identity-platform en de OAuth 2.0-clientreferentiestroom
 
@@ -251,7 +251,7 @@ Reactie op een fout ziet er als volgt:
 | `correlation_id` | Een unieke id voor de aanvraag om te helpen met diagnostische gegevens voor onderdelen. |
 
 > [!NOTE]
-> U kunt het manifestbestand van de toepassing in azure portal bijwerken in volgorde voor uw toepassing kunnen zijn voor het ontvangen van de v2-token. U kunt het kenmerk toevoegen `accessTokenAcceptedVersion` en stel de waarde op 2 als `"accessTokenAcceptedVersion": 2`. Controleer of het artikel [toepassingsmanifest](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest#manifest-reference) voor meer informatie over hetzelfde. Standaard de toepassing op dit moment krijgen een v1-token. Als dit niet is gedefinieerd in het manifest toepassing/Web-API, wordt de waarde voor dit kenmerk in het manifest standaard ingesteld op 1 en kan daarom de toepassing v1-token ontvangt.  
+> U kunt het manifestbestand van de toepassing in azure portal bijwerken in volgorde voor uw toepassing kunnen zijn voor het ontvangen van de v2-token. U kunt het kenmerk toevoegen `accessTokenAcceptedVersion` en stel de waarde op 2 als `"accessTokenAcceptedVersion": 2`. Controleer of het artikel [toepassingsmanifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-reference) voor meer informatie over hetzelfde. Standaard de toepassing op dit moment krijgen een v1-token. Als dit niet is gedefinieerd in het manifest toepassing/Web-API, wordt de waarde voor dit kenmerk in het manifest standaard ingesteld op 1 en kan daarom de toepassing v1-token ontvangt.  
 
 
 ## <a name="use-a-token"></a>Een token gebruiken

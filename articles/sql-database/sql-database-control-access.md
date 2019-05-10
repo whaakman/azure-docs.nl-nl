@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 8cb044397cf439e97f3630b5c1c3f53fbf3f356d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/08/2019
+ms.openlocfilehash: 783a8f0bc25717f1c2bf78a9c0d40b209a07939b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61468394"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473345"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Toegangsbeheer voor Azure SQL Database en SQL Data Warehouse
 
@@ -43,7 +43,7 @@ SQL Database ondersteunt twee typen verificatie:
   Deze verificatiemethode maakt gebruik van een gebruikersnaam en wachtwoord. Wanneer u de SQL Database-server voor uw database hebt gemaakt, kunt u een aanmelding 'serverbeheerder' opgegeven met een gebruikersnaam en wachtwoord. Met deze aanmeldingsgegevens kunt u zich bij elke database op die server als de database-eigenaar of 'dbo' verifiëren. 
 - **Azure Active Directory-verificatie**:
 
-  Deze verificatiemethode maakt gebruik van identiteiten die worden beheerd door Azure Active Directory en wordt ondersteund voor beheerde en geïntegreerde domeinen. Gebruik [waar mogelijk](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode) Active Directory-verificatie (geïntegreerde beveiliging). Als u Azure Active Directory-verificatie wilt gebruiken, moet u een andere serverbeheerder maken, de 'Azure AD-beheerder' genaamd, die Azure AD-gebruikers en -groepen kan beheren. Deze beheerder kan ook alle bewerkingen uitvoeren die reguliere serverbeheerders kunnen uitvoeren. Zie [Verbinding maken met SQL Database met behulp van Azure Active Directory-verificatie](sql-database-aad-authentication.md) voor een overzicht van het maken van een Azure AD-beheerder om Azure Active Directory-verificatie in te schakelen.
+  Deze verificatiemethode maakt gebruik van identiteiten die worden beheerd door Azure Active Directory en wordt ondersteund voor beheerde en geïntegreerde domeinen. Als u Azure Active Directory-verificatie wilt gebruiken, moet u een andere serverbeheerder maken, de 'Azure AD-beheerder' genaamd, die Azure AD-gebruikers en -groepen kan beheren. Deze beheerder kan ook alle bewerkingen uitvoeren die reguliere serverbeheerders kunnen uitvoeren. Zie [Verbinding maken met SQL Database met behulp van Azure Active Directory-verificatie](sql-database-aad-authentication.md) voor een overzicht van het maken van een Azure AD-beheerder om Azure Active Directory-verificatie in te schakelen.
 
 De Database-engine sluit verbindingen die gedurende meer dan 30 minuten inactief zijn. De verbinding moet zich opnieuw aanmelden voordat deze kan worden gebruikt. Continu actieve verbindingen met SQL Database moeten ten minste elke 10 uur opnieuw worden geautoriseerd (uitgevoerd door de database-engine). De database-engine probeert opnieuw te autoriseren met het oorspronkelijk opgegeven wachtwoord en er is geen gebruikersinvoer vereist. Voor betere prestaties wanneer een wachtwoord opnieuw wordt ingesteld in SQL-Database, is de verbinding niet geverifieerd, zelfs als de verbinding wordt hersteld vanwege een Groepsgewijze verbinding. Dit wijkt af van het gedrag van een lokale SQL Server. Als het wachtwoord is gewijzigd sinds de verbinding de eerste keer is geautoriseerd, moet de verbinding worden beëindigd en wordt er een nieuwe verbinding gemaakt met het nieuwe wachtwoord. Een gebruiker met de `KILL DATABASE CONNECTION`-machtiging kan een verbinding met SQL Database expliciet afsluiten met behulp van de opdracht [KILL](https://docs.microsoft.com/sql/t-sql/language-elements/kill-transact-sql).
 

@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a8512e128d757e2faf4c3f63c5ad113b1d67b4ee
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ad285d71c2bb90f4b5a59eba25c6cc6a6d8588d6
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204899"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501854"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Capaciteitslimieten voor SQL Data Warehouse
 Maximale waarden voor verschillende onderdelen van Azure SQL Data Warehouse is toegestaan.
@@ -45,30 +45,30 @@ Maximale waarden voor verschillende onderdelen van Azure SQL Data Warehouse is t
 | Index |Geclusterde indexen per tabel. |1<br><br/>Van toepassing op zowel rowstore en columnstore-tabellen. |
 | Index |De grootte van de index. |900 bytes.<br/><br/>Van toepassing op alleen rowstore-indexen.<br/><br/>Indexen op varchar-kolommen met een maximale grootte van meer dan 900 bytes kunnen worden gemaakt als de bestaande gegevens in de kolommen niet groter is dan 900 bytes wanneer de index is gemaakt. Echter later invoegen of UPDATE-acties in de kolommen die ertoe leiden dat de totale grootte meer dan 900 bytes mislukken. |
 | Index |De sleutelkolommen per index. |16<br/><br/>Van toepassing op alleen rowstore-indexen. Geclusterde columnstore-indexen bevatten alle kolommen. |
-| statistieken |Grootte van de gecombineerde kolomwaarden. |900 bytes. |
-| statistieken |Kolommen per statistieken-object. |32 |
-| statistieken |Statistieken maken voor kolommen per tabel. |30,000 |
+| Statistieken |Grootte van de gecombineerde kolomwaarden. |900 bytes. |
+| Statistieken |Kolommen per statistieken-object. |32 |
+| Statistieken |Statistieken maken voor kolommen per tabel. |30,000 |
 | Opgeslagen procedures |Maximum aantal geneste niveaus. |8 |
-| Weergave |Kolommen per weergeven |1,024 |
+| Weergeven |Kolommen per weergeven |1,024 |
 
 ## <a name="loads"></a>Loads
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| Polybase-Loads |MB per rij |1<br/><br/>Polybase laadt rijen die kleiner dan 1 MB zijn.<br/><br/> |
+| Polybase-Loads |MB per rij |1<br/><br/>Polybase laadt rijen die kleiner dan 1 MB zijn. Het laden van LOB-typen voor gegevens in tabellen met een geclusterde Columnstore Index (CCI) wordt niet ondersteund.<br/><br/> |
 
 ## <a name="queries"></a>Query's
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| Query’s uitvoeren |In de wachtrij query's voor gebruikerstabellen. |1000 |
-| Query’s uitvoeren |Gelijktijdige query's op systeemweergaven. |100 |
-| Query’s uitvoeren |In de wachtrij-query's op systeemweergaven |1000 |
-| Query’s uitvoeren |Maximum aantal parameters |2098 |
+| Query |In de wachtrij query's voor gebruikerstabellen. |1000 |
+| Query |Gelijktijdige query's op systeemweergaven. |100 |
+| Query |In de wachtrij-query's op systeemweergaven |1000 |
+| Query |Maximum aantal parameters |2098 |
 | Batch |Maximale grootte |65,536*4096 |
 | Selecteer resultaten |Kolommen per rij |4096<br/><br/>U kunt nooit meer dan 4096 kolommen per rij hebben in het resultaat selecteren. Er is geen garantie dat u kunt altijd 4096 hebben. Als het queryplan is een tijdelijke tabel vereist, kunnen de 1024 kolommen per tabel maximale toepassen. |
-| SELECT |Geneste subquery 's |32<br/><br/>U kunt nooit meer dan 32 geneste subquery's hebben in een instructie SELECT. Er is geen garantie dat u kunt altijd 32 hebben. Bijvoorbeeld, kunt een JOIN een subquery in het queryplan introduceren. Het aantal subquery's kan ook worden beperkt door het beschikbare geheugen. |
-| SELECT |Kolommen per JOIN |1024 kolommen<br/><br/>U kunt nooit meer dan 1024 kolommen hebben in de JOIN. Er is geen garantie dat u kunt altijd 1024 hebben. Als het JOIN-plan een tijdelijke tabel met meer kolommen dan de JOIN-resultaten vereist, is de 1024-limiet van toepassing op de tijdelijke tabel. |
-| SELECT |Aantal bytes per GROEPEREN op kolommen. |8060<br/><br/>De kolommen in de component GROUP BY kunnen een maximum van 8060 bytes hebben. |
-| SELECT |Bytes per ORDER BY kolommen |8060 bytes<br/><br/>De kolommen in de component ORDER BY mag maximaal van 8060 bytes hebben. |
+| SELECTEREN |Geneste subquery 's |32<br/><br/>U kunt nooit meer dan 32 geneste subquery's hebben in een instructie SELECT. Er is geen garantie dat u kunt altijd 32 hebben. Bijvoorbeeld, kunt een JOIN een subquery in het queryplan introduceren. Het aantal subquery's kan ook worden beperkt door het beschikbare geheugen. |
+| SELECTEREN |Kolommen per JOIN |1024 kolommen<br/><br/>U kunt nooit meer dan 1024 kolommen hebben in de JOIN. Er is geen garantie dat u kunt altijd 1024 hebben. Als het JOIN-plan een tijdelijke tabel met meer kolommen dan de JOIN-resultaten vereist, is de 1024-limiet van toepassing op de tijdelijke tabel. |
+| SELECTEREN |Aantal bytes per GROEPEREN op kolommen. |8060<br/><br/>De kolommen in de component GROUP BY kunnen een maximum van 8060 bytes hebben. |
+| SELECTEREN |Bytes per ORDER BY kolommen |8060 bytes<br/><br/>De kolommen in de component ORDER BY mag maximaal van 8060 bytes hebben. |
 | Id's per instructie |Aantal waarnaar wordt verwezen, id 's |65,535<br/><br/>SQL Data Warehouse, beperkt het aantal id's die kunnen worden opgenomen in één expressie van een query. Meer dan dit aantal resultaten in SQL Server-fout 8632. Zie voor meer informatie, [interne fout: Een expressie services limiet is bereikt](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Letterlijke tekenreeks | Nummer van de letterlijke tekenreeks in een instructie | 20,000 <br/><br/>SQL Data Warehouse, beperkt het aantal tekenreeksconstanten in één expressie van een query. Meer dan dit aantal resultaten in SQL Server-fout 8632.|
 

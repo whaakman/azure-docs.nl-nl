@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ce6fc0a90ad093a6bba5a4720777e409202c73ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 43dd8be998e0f8f3b5a2b783c6a01d5b5ef3da12
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479332"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506926"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informatie over Stream Analytics-taak controleren en bewaken van query 's
 
@@ -38,8 +38,8 @@ Het venster wordt weergegeven, zoals wordt weergegeven:
 | Functieaanvragen      | Het aantal aanroepen naar de Azure Machine Learning-functie (indien aanwezig). |
 | Fouten in invoerdeserialisatie       | Het aantal invoer-gebeurtenissen die kunnen niet worden gedeserialiseerd.  |
 | Invoergebeurtenisbytes      | Hoeveelheid gegevens die zijn ontvangen door de Stream Analytics-taak gemaakt in bytes. Dit kan worden gebruikt om te valideren dat gebeurtenissen worden verzonden naar de invoerbron. |
-| Invoergebeurtenissen           | Aantal records van de invoer gebeurtenissen gedeserialiseerd. |
-| Ontvangen invoerbronnen       | Het aantal gebeurtenissen die worden ontvangen door de taak. Dit kan worden gebruikt om te valideren dat gebeurtenissen worden verzonden naar de invoerbron. |
+| Invoergebeurtenissen           | Aantal records van de invoer gebeurtenissen gedeserialiseerd. Dit aantal bevat geen binnenkomende gebeurtenissen die in fouten deserialisatie resulteren. |
+| Ontvangen invoerbronnen       | Het aantal berichten dat is ontvangen door de taak. Een bericht is voor Event Hub, een enkel EventData. Een bericht is voor de Blob, één blob. Houd er rekening mee dat invoer bronnen worden geteld voor deserialisatie. Als er deserialisatie fouten zijn, kunnen invoerbronnen groter is dan invoergebeurtenissen zijn. Anders kan het zijn kleiner dan of gelijk zijn voor het invoeren van gebeurtenissen, omdat elk bericht meerdere gebeurtenissen kan bevatten. |
 | Late invoergebeurtenissen      | Gebeurtenissen die hoger is dan de geconfigureerde laat aankomst tolerantie venster is aangekomen. Meer informatie over [overwegingen bij de volgorde van de Azure Stream Analytics gebeurtenis](stream-analytics-out-of-order-and-late-events.md) . |
 | Out-van-Order gebeurtenissen    | Het aantal gebeurtenissen ontvangen buiten de volgorde die zijn verwijderd of een gecorrigeerde timestamp, op basis van het beleid voor het bestellen van gebeurtenis gegeven. Dit kan worden beïnvloed door de configuratie van de instelling van de kant van tolerantie venster. |
 | Uitvoergebeurtenis          | De hoeveelheid gegevens die door de Stream Analytics-taak wordt verzonden naar de bestemming voor uitvoer, in aantal gebeurtenissen. |
