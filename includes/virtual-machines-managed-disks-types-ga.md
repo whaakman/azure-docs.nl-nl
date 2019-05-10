@@ -2,18 +2,18 @@
 title: bestand opnemen
 description: bestand opnemen
 services: virtual-machines
-author: rockboyfor
+author: roygara
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/13/2019
-ms.author: v-yeche
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88a4110d68dc8aa921d647f90de654d2ebb4e17d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 885bc1c627626ee7ba4f391be31131b18fa1ab39
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618025"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65211951"
 ---
 ## <a name="premium-ssd"></a>Premium SSD
 
@@ -22,6 +22,8 @@ Azure premium SSD's bieden ondersteuning voor hoge prestaties en lage latentie s
 ### <a name="disk-size"></a>Schijfgrootte
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
+Wanneer u een premium-opslagschijf, in tegenstelling tot standaard opslag inrichten kunt u de capaciteit, IOPS en doorvoer van die schijf worden gegarandeerd. Als u een P50 schijf maakt, richt Azure bijvoorbeeld 4.095 GB opslagcapaciteit, 7.500 IOPS en doorvoer van 250 MB/s voor de schijf. Uw toepassing kunt gebruiken of een deel van de capaciteit en prestaties. Premium-SSD-schijven zijn ontworpen om het doel prestaties 99,9% van de tijd.
+
 ## <a name="standard-ssd"></a>Standard - SSD
 
 Azure standard-SSD's zijn een optie voor rendabele opslag geoptimaliseerd voor workloads die consistente prestaties op lagere niveaus van IOP's nodig. Standard-SSD biedt een goede op instapniveau voor diegenen die u verplaatsen naar de cloud, wilt met name als u problemen ondervindt met de variantie van workloads die on-premises worden uitgevoerd op uw harde schijf-oplossingen. Standard-SSD's voorzien in betere beschikbaarheid, consistentie, betrouwbaarheid en latentie in vergelijking met harde schijven. Standard-SSD's zijn geschikt voor webservers, toepassingsservers met lage IOPS, weinig wordt gebruikt zakelijke toepassingen en werkbelastingen voor ontwikkelen/testen.
@@ -29,14 +31,16 @@ Azure standard-SSD's zijn een optie voor rendabele opslag geoptimaliseerd voor w
 ### <a name="disk-size"></a>Schijfgrootte
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-## <a name="standard-hdd"></a>Standard HDD
+Standard-SSD's zijn ontworpen om latentie in milliseconden voor de meeste i/o-bewerkingen, en om u te bieden de IOPS en doorvoer van maximaal de limieten die worden beschreven in de voorgaande tabel 99% van de tijd. Werkelijke IOPS en doorvoer kunnen soms variëren, afhankelijk van de patronen in het netwerkverkeer. Standard-SSD's biedt consistente prestaties dan de HDD-schijven met een lagere latentie.
+
+## <a name="standard-hdd"></a>Standard - HDD
 
 Azure standard HDD's leveren betrouwbare, voordelige schijfondersteuning voor virtuele machines waarop niet gevoelig werkbelastingen worden uitgevoerd. Het ondersteunt ook blobs, tabellen, wachtrijen en bestanden. Met de standard-opslag, worden de gegevens worden opgeslagen op hardeschijfstations (HDD's). Als u werkt met virtuele machines, kunt u standaard SSD en HDD-schijven kunt gebruiken voor scenario's voor ontwikkelen/testen en minder kritieke werkbelastingen. Standard-opslag is beschikbaar in alle Azure-regio's.
 
 ### <a name="disk-size"></a>Schijfgrootte
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
-## <a name="billing"></a>Billing
+## <a name="billing"></a>Facturering
 
 Als u beheerde schijven gebruikt, zijn de volgende factureringsvoorwaarden van toepassing:
 
