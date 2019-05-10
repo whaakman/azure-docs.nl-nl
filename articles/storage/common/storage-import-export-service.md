@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4850dd82ca52a060c921569433035256f5b74cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478763"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413908"
 ---
 # <a name="what-is-azure-importexport-service"></a>Wat is Azure Import/Export-service?
 
@@ -112,7 +112,7 @@ Op hoog niveau omvat een exporttaak bekijken in de volgende stappen:
 
 Ga voor stapsgewijze instructies voor het exporteren van gegevens naar [gegevens exporteren uit Azure Blobs](storage-import-export-data-from-blobs.md).
 
-## <a name="region-availability"></a>Beschikbaarheid in regio’s 
+## <a name="region-availability"></a>Beschikbaarheid voor de regio 
 
 De Azure Import/Export-service ondersteunt kopiëren van gegevens naar en van alle Azure storage-accounts. U kunt schijven naar een van de vermelde locaties verzenden. Als uw storage-account zich in een Azure-locatie die hier niet is opgegeven, wordt de locatie van een alternatieve verzending volgen bij het maken van de taak.
 
@@ -122,13 +122,13 @@ De Azure Import/Export-service ondersteunt kopiëren van gegevens naar en van al
 |Land/regio  |Land/regio  |Land/regio  |Land/regio  |
 |---------|---------|---------|---------|
 |US - oost    | Europa - noord        | India - centraal        |US Gov - Iowa         |
-|US - west     |Europa -west         | India - zuid        | US DoD - oost        |
-|US - oost 2    | Azië - oost        |  India - west        | US DoD - centraal        |
-|US - west 2     | Azië - zuidoost        | Canada - midden        | China East         |
-|US - centraal     | Australië - oost        | Canada - oost        | China - noord        |
-|US - noord-centraal     |  Australië - zuidoost       | Brazilië - zuid        | Verenigd Koninkrijk Zuid        |
-|US - zuid-centraal     | Japan - west        |Korea - centraal         | Duitsland - centraal        |
-|US - west-centraal     |  Japan - oost       | VS (overheid) - Virginia        | Duitsland - noordoost        |
+|US - west     |Europa -west         | India - zuid        | VS DoD Oost        |
+|US - oost 2    | Azië - oost        |  India - west        | VS DoD Centraal        |
+|US - west 2     | Azië - zuidoost        | Canada - midden        | China - oost         |
+|US - centraal     | Australië - oost        | Canada Oost        | China - noord        |
+|US - noord-centraal     |  Australië - zuidoost       | Brazilië - zuid        | VK Zuid        |
+|US - zuid-centraal     | Japan - west        |Korea Centraal         | Duitsland - centraal        |
+|US - west-centraal     |  Japan - oost       | US Gov - Virginia        | Duitsland - noordoost        |
 
 
 ## <a name="security-considerations"></a>Beveiligingsoverwegingen
@@ -148,7 +148,7 @@ Nadat uw gegevens worden gekopieerd naar de stations, versleutelt de service voo
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 
-### <a name="pricing"></a>Prijzen
+### <a name="pricing"></a>Prijs
 
 **Station verzendkosten**
 
@@ -160,7 +160,7 @@ Wanneer u schijven naar Azure verzenden, moet u de verzendkosten aan de vervoerd
 
 **Transactiekosten**
 
-Er gelden geen transactiekosten naast transactiekosten voor standard-opslag bij het importeren van gegevens in Azure Storage. De kosten voor standaard uitgaand verkeer zijn van toepassing wanneer gegevens worden geëxporteerd uit de Blob-opslag. Zie voor meer informatie over transactiekosten [prijzen voor gegevensoverdracht.](https://azure.microsoft.com/pricing/details/data-transfers/)
+[Standard-opslag transactie kosten in rekening gebracht](https://azure.microsoft.com/pricing/details/storage/) toepassen tijdens het importeren als exporteren van gegevens. Kosten voor standaard uitgaand verkeer zijn ook van toepassing is samen met de kosten voor opslagtransacties berekend wanneer gegevens worden geëxporteerd uit Azure Storage. Zie voor meer informatie over kosten voor uitgaand [prijzen voor gegevensoverdracht.](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 
 

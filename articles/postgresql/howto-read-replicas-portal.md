@@ -1,22 +1,24 @@
 ---
-title: Meer replica's voor Azure Database voor PostgreSQL beheren vanuit Azure portal
-description: Informatie over het beheren van Azure Database for PostgreSQL lezen replica's van de Azure-portal.
-author: WenJason
-ms.author: v-jay
+title: Meer replica's voor Azure Database voor PostgreSQL - één Server van de Azure-portal beheren
+description: Informatie over het beheren van meer replica's Azure Database voor PostgreSQL - één Server van de Azure-portal.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 04/01/2019
-ms.date: 04/22/2019
-ms.openlocfilehash: bf1fb1c1343173949ecb6348284cb537282b277b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 87371f91d9ea1f556d0f78beebd73b8a28977b71
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420664"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510398"
 ---
-# <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>Maken en beheren van meer replica's van de Azure-portal
+# <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Maken en beheren van lezen-replica's in Azure Database voor PostgreSQL - één Server van de Azure-portal
 
 In dit artikel leert u hoe u maken en beheren van lezen-replica's in Azure Database for PostgreSQL via Azure portal. Zie voor meer informatie over meer replica's, de [overzicht](concepts-read-replicas.md).
+
+> [!IMPORTANT]
+> U kunt een lezen replica maken in dezelfde regio als de hoofd-server of in een andere Azure-regio van uw keuze. Regio-overschrijdende replicatie is momenteel in openbare preview.
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -59,9 +61,15 @@ Volg deze stappen voor het maken van een replica lezen:
 
    ![Toevoegen van een replica](./media/howto-read-replicas-portal/add-replica.png)
 
-4. Voer een naam voor de replica voor lezen. Selecteer **OK** om te bevestigen van het maken van de replica.
+4. Voer een naam voor de replica voor lezen. 
 
-   ![De naam van de replica](./media/howto-read-replicas-portal/name-replica.png) 
+    ![De naam van de replica](./media/howto-read-replicas-portal/name-replica.png)
+
+5. Selecteer een locatie voor de replica. U kunt een replica maken in een Azure-regio. De standaardlocatie is hetzelfde als van de hoofd-server.
+
+    ![Een locatie selecteren](./media/howto-read-replicas-portal/location-replica.png)
+
+6. Selecteer **OK** om te bevestigen van het maken van de replica.
 
 Een replica wordt gemaakt met behulp van de configuratie van de dezelfde server als het model. Nadat een replica is gemaakt, verschillende instellingen van de hoofdserver onafhankelijk van elkaar kunnen worden gewijzigd: compute genereren, vCores, opslag en back-up maken van bewaarperiode. De prijscategorie kan ook afzonderlijk worden gewijzigd met uitzondering van of naar de Basic-laag.
 

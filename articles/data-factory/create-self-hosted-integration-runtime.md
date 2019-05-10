@@ -272,7 +272,7 @@ Nadat de zelf-hostende integratieruntime is geregistreerd, als u wilt weergeven 
 1. Open **Microsoft Integration Runtime Configuration Manager**.
 2. Schakel over naar het tabblad **Instellingen**.
 3. Selecteer de **wijziging** herstelkoppeling in de **HTTP-Proxy** sectie om te openen de **HTTP-Proxy instellen** in het dialoogvenster.
-4. Selecteer **Volgende**. U gaat vervolgens een waarschuwing wordt weergegeven waarin u wordt gevraagd om uw toestemming om op te slaan van de proxy-instellingen en start de hostservice van integratieruntime opnieuw.
+4. Selecteer **Next**. U gaat vervolgens een waarschuwing wordt weergegeven waarin u wordt gevraagd om uw toestemming om op te slaan van de proxy-instellingen en start de hostservice van integratieruntime opnieuw.
 
 U kunt weergeven en bijwerken van de HTTP-proxy met behulp van de Configuration Manager-hulpprogramma.
 

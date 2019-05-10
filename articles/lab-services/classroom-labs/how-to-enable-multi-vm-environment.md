@@ -54,7 +54,7 @@ De volgende procedure kunt u de gedetailleerde stappen:
 4. Voer op de pagina **Specificaties van virtuele machines selecteren** de volgende stappen uit:
     1. Selecteer **grote** voor de grootte van virtuele machines (VM's) in het lab worden gemaakt. Op dit moment alleen de grote omvang biedt ondersteuning voor geneste virtualisatie.
     2. Kies een installatiekopie van virtuele machine die is een **Windows image**. Geneste virtualization is alleen beschikbaar op Windows-machines. 
-    3. Selecteer **Volgende**.
+    3. Selecteer **Next**.
 
         ![VM-specificaties opgeven](../media/how-to-enable-multi-vm-environment/large-windows-vm.png)    
 5. Geef op de pagina **Referenties instellen** de standaardreferenties voor alle virtuele machines in het lab op. 

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: 6b617ff99b9183c6b5008292dd3e5d11f2e69da9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b3c967cd43745a4ae87fefc578282f5427a5f79
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776861"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405701"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Waarschuwingen voor activiteitenlogboek maken voor servicemeldingen
 ## <a name="overview"></a>Overzicht
@@ -36,6 +36,10 @@ Ook kunt u configureren die de waarschuwing moet worden verzonden naar:
 Raadpleeg [Actiegroepen maken en beheren](../../azure-monitor/platform/action-groups.md) voor meer informatie over actiegroepen.
 
 Zie voor meer informatie over het configureren van de statusmeldingen notification service met behulp van Azure Resource Manager-sjablonen [Resource Manager-sjablonen](alerts-activity-log.md).
+
+### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>Bekijk een video over het instellen van uw eerste Azure Service Health-waarschuwing
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
 ## <a name="alert-and-new-action-group-using-azure-portal"></a>Waarschuwing en nieuwe actiegroep met behulp van Azure portal
 1. In de [portal](https://portal.azure.com), selecteer **servicestatus**.
@@ -195,6 +199,8 @@ Nadat u een waarschuwing gemaakt, wordt het weergegeven in de **waarschuwingen**
 * - Of uitschakelen, als u wilt tijdelijk stoppen of doorgaan met het ontvangen van meldingen voor de waarschuwing.
 
 ## <a name="next-steps"></a>Volgende stappen
+- Meer informatie over [aanbevolen procedures voor het instellen van waarschuwingen van Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa).
+- Meer informatie over het [mobiele pushmeldingen te verzenden voor Azure Service Health instellen](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Meer informatie over het [configureren van de webhook-meldingen voor bestaande beheersystemen voor probleem](../../service-health/service-health-alert-webhook-guide.md).
 - Meer informatie over [health servicemeldingen](../../azure-monitor/platform/service-notifications.md).
 - Meer informatie over [melding gelden enkele beperkingen](../../azure-monitor/platform/alerts-rate-limiting.md).

@@ -16,12 +16,12 @@ ms.date: 04/26/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2bcb7d93361ccf3d83947222ab6a3937a7eedc4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 2914d6b1f4a6c94d7e3d4456c8255c1563a71b3e
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935965"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406641"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Meld u aan gebruikers en de Microsoft Graph aanroepen vanuit een Android-app
 
@@ -50,13 +50,13 @@ In dit voorbeeld maakt gebruik van de Microsoft Authentication library voor Andr
 * Android Studio maakt gebruik van deze Begeleide installatie.
 * Android 16 of hoger is vereist (19 + wordt aanbevolen).
 
-## <a name="library"></a>Bibliotheek
+## <a name="library"></a>Tapewisselaar
 
 Deze handleiding worden de volgende verificatiebibliotheek gebruikt:
 
-|Bibliotheek|Description|
+|Tapewisselaar|Description|
 |---|---|
-|[com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft Authentication Library (MSAL)|
+|[com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft Authentication Library (MSAL)|
 
 ## <a name="set-up-your-project"></a>Uw project instellen
 

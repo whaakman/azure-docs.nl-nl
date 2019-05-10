@@ -10,12 +10,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 201ee251b195845e33ed3829be8540664811f2ab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c9ebacd8caf992874969106df58531538ea399ed
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025294"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510435"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Wat is de Azure Machine Learning-service?
 
@@ -38,7 +38,7 @@ Verkennen en gegevens voorbereiden, trainen en testen van modellen en deze imple
 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Wat kan ik doen met de Azure Machine Learning-service?
 
-Met behulp van de <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> met open-source Python-pakketten of met behulp van de [visuele interface (preview)](ui-quickstart-run-experiment.md), u kunt bouwen en uiterst nauwkeurige machine learning en deep learning te trainen zelf-modellen in de werkruimte van een Azure Machine Learning-service.
+Gebruik de <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> met open-source Python-pakketten of gebruik de [visuele interface (preview)](ui-quickstart-run-experiment.md) te bouwen en uiterst nauwkeurige machine learning en deep learning-modellen trainen uzelf in de werkruimte van een Azure Machine Learning-service.
 
 U kunt kiezen uit veel machine learning onderdelen beschikbaar in open-source Python-pakketten, zoals <a href="https://scikit-learn.org/stable/" target="_blank">Scikit meer</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>, en <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
@@ -106,8 +106,6 @@ U ontvangt tegoed wat u kunt uitgeven aan Azure-services. Als uw tegoed op is, k
 - Volg de volledige zelfstudies: 
   + [Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md) 
   + [Gegevens voorbereiden en geautomatiseerde machine learning gebruiken om een regressiemodel automatisch te trainen](tutorial-data-prep.md)
-
-- Gebruik de [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) om uw gegevens voor te bereiden.
 
 - Leer meer over [Machine Learning-pijplijnen](/azure/machine-learning/service/concept-ml-pipelines) om uw Machine Learning-scenario’s te bouwen, te optimaliseren en te beheren.
 

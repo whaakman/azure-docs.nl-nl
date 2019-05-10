@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 04/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd7044276a806c23785df4d15f86b8e03f32a767
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8c7a24c4c4e071271d16de036ef6896e9d172913
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575393"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406337"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Wat is Azure Time Series Insights?
 
@@ -42,7 +42,7 @@ Echter, Azure Time Series Insights legt vast en slaat u elke nieuwe gebeurtenis 
 
 ### <a name="learn-more-about-azure-time-series-insights-the-cloud-based-iot-analytics-platformbr"></a>Meer informatie over Azure Time Series Insights, het cloud-gebaseerde IoT analytics-platform.</br>
 
-> [!VIDEO https://youtube.com/embed/GaARrFfjoss]
+[![VIDEO](https://img.youtube.com/vi/GaARrFfjoss/0.jpg)](https://www.youtube.com/watch?v=GaARrFfjoss)
 
 ## <a name="primary-scenarios"></a>Primaire scenario's
 
@@ -61,7 +61,7 @@ Echter, Azure Time Series Insights legt vast en slaat u elke nieuwe gebeurtenis 
 - Klanttoepassing bouwen op basis van Time Series Insights. 
   - Time Series Insights beschikt over REST-query-API's, zodat u toepassingen kunt ontwikkelen die gebruikmaken van tijdreeksgegevens.
 
-## <a name="capabilities"></a>Functionaliteit
+## <a name="capabilities"></a>Mogelijkheden
 
 - **Snel aan de slag:** Voor Azure Time Series Insights is geen gegevensvoorbereiding vooraf vereist. U maakt in slechts enkele minuten verbinding met miljarden gebeurtenissen in Azure IoT Hub of Event Hub. Na het tot stand brengen van de verbinding kunt u sensorgegevens visualiseren en bewerken om uw IoT-oplossingen snel te valideren. U kunt werken met uw gegevens zonder dat u code hoeft te schrijven.
 Bovendien hoeft u geen nieuwe taal te leren, omdat Time Series een gedetailleerde queryruimte voor vrije tekst biedt voor ervaren gebruikers, evenals een wijs-en-klik-mogelijkheid.

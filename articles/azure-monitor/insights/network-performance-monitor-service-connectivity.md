@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 01410fb59135e9b1f54e4a3c75b206c7d30abeed
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 85a35207293f5afda40c78d105fc58732f06b626
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145022"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509801"
 ---
 # <a name="service-connectivity-monitor"></a>Bewaking van serviceverbinding
 
@@ -64,7 +64,7 @@ Beginnen met het maken van de tests uitgevoerd voor het controleren van de netwe
 
     * Selecteer **Web** voor het bewaken van de verbinding met een service die op HTTP/S-aanvragen, zoals outlook.office365.com of bing.com reageert.<br>
     * Selecteer **netwerk** voor het bewaken van de verbinding met een service die reageert op aanvragen voor TCP, maar niet reageert op HTTP/S-aanvragen, zoals een SQL server, de FTP-server of de SSH-poort. 
-    * Bijvoorbeeld: Voor het maken van een WebTest voor een blob storage-account selecteert **Web** en voer doel als <your storageaccount>. blob.core.windows.net. Op deze manier kunt u tests voor andere table storage, queue-opslag en met behulp van Azure Files [deze koppeling.](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * Bijvoorbeeld: Voor het maken van een WebTest voor een blob storage-account selecteert **Web** en voer doel als *yourstorageaccount*. blob.core.windows.net. Op deze manier kunt u tests voor andere table storage, queue-opslag en met behulp van Azure Files [deze koppeling.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
 4. Als u niet wilt netwerkmetingen, zoals netwerklatentie en pakketverlies topologie-detectie, schakelt u de **Netwerkmetingen** selectievakje. Het geselecteerd om op te halen van maximaal profiteren van de mogelijkheid houden. 
 5. In **doel**, voer de URL/FQDN-naam/IP-adres waarnaar u wilt bewaken van de verbinding met het netwerk.
 6. In **poortnummer**, voer het poortnummer van de doelservice. 
@@ -108,7 +108,7 @@ Nadat u hebt vastgesteld dat het probleem vanwege het netwerk is, selecteert u d
 
 ![Connectiviteitsmonitor voor service-tests](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
-## <a name="diagnostics"></a>Diagnostiek 
+## <a name="diagnostics"></a>Diagnostische gegevens 
 
 Als u een afwijking ziet, volgt u deze stappen:
 
@@ -128,6 +128,16 @@ Als u een afwijking ziet, volgt u deze stappen:
 
 * Als de toepassing wordt traag uitgevoerd, moet u bepalen of de prestaties slecht presteert vanwege een probleem aan het uiteinde van de provider van de toepassing of het netwerk.
 
+## <a name="gcc-office-urls-for-us-government-customers"></a>GCC Office-URL's voor Amerikaanse overheidsklanten
+Alleen Amerikaanse ministerie van defensie-URL's zijn voor US Government Virginia regio, ingebouwde NPM. Klanten die gebruikmaken van GCC-URL's moeten maken van aangepaste tests en elke URL inidividually toevoegen.
+
+| Veld | GCC |
+|:---   |:--- |
+| Office 365-Portal en gedeelde | portal.apps.mil |
+| Office 365-verificatie en identiteit | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
+| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www. office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
+| Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
+| MS Teams | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>Volgende stappen
 [Zoeken in logboeken](../../azure-monitor/log-query/log-query-overview.md) om gedetailleerde gegevens prestatierecords weer te geven.

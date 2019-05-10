@@ -60,7 +60,7 @@ Lees het artikel [verbinding maken met Windows-computers naar Azure Monitor in A
 ## <a name="add-a-log-analytics-connection-to-configuration-manager"></a>Een verbinding met Log Analytics toevoegen aan Configuration Manager
 Als u wilt toevoegen van Log Analytics-verbinding, uw Configuration Manager-omgeving moet hebben een [serviceaansluitpunt](https://technet.microsoft.com/library/mt627781.aspx) geconfigureerd voor de onlinemodus bevindt.
 
-1. In de **beheer** werkruimte van Configuration Manager, selecteer **OMS-Connector**. Hiermee opent u de **Log Analytics Verbindingswizard toevoegen**. Selecteer **Volgende**.
+1. In de **beheer** werkruimte van Configuration Manager, selecteer **OMS-Connector**. Hiermee opent u de **Log Analytics Verbindingswizard toevoegen**. Selecteer **Next**.
 
    >[!NOTE]
    >OMS wordt nu aangeduid als Log Analytics is een functie van Azure Monitor.

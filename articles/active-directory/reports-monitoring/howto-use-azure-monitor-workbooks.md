@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor werkmappen gebruiken voor Azure Active Directory-rapporten | Microsoft Docs
-description: Informatie over het gebruik van de Azure Monitor-werkmappen voor Azure Active Directory-rapporten
+description: Informatie over het gebruik van Azure Monitor werkmappen voor Azure Active Directory-rapporten.
 services: active-directory
 author: MarkusVi
 manager: daveba
@@ -14,62 +14,61 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2c9b3d0ef110fea0629af345a71d0d7b7cce7313
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ae14ec152975717af5d55780bcc39aa87c4b01a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287223"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406597"
 ---
-# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Procedure: Azure Monitor werkmappen gebruiken voor Azure Active Directory-rapporten
+# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Het gebruik van Azure Monitor werkmappen voor Azure Active Directory-rapporten
 
 U wilt doen:
 
-- Begrijp de gevolgen van uw [beleid voor voorwaardelijke toegang](../conditional-access/overview.md) op uw gebruikers aanmelden?
+- Het effect van uw [beleid voor voorwaardelijke toegang](../conditional-access/overview.md) op uw gebruikers aanmelden ervaring?
 
-- Problemen met aanmelden voor een beter overzicht van uw organisatie aanmelden status evenals snel problemen oplossen?
+- Problemen met aanmelden oplossen om een beter beeld van uw organisatie aanmelden status en het oplossen van problemen snel?
 
-- Weten wie verouderde verificaties aan te melden op uw omgeving gebruikt? Door [blokkeren van verouderde](../conditional-access/block-legacy-authentication.md), kunt u de beveiliging van uw tenant te verbeteren.
+- Weten wie verouderde verificaties te melden bij uw omgeving gebruikt? (Door [blokkeren van verouderde](../conditional-access/block-legacy-authentication.md), kunt u de beveiliging van uw tenant te verbeteren.)
 
-
-[Azure Monitor werkmappen](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combineren van tekst, Analytics-query's, Azure metrische gegevens en parameters in uitgebreide interactieve rapporten. Azure Active Directory biedt u werkmappen voor het bewaken van die u helpen bij het vinden van antwoorden op de bovenstaande vragen.
+Om te helpen om deze vragen, biedt Active Directory werkmappen voor bewaking. [Azure Monitor werkmappen](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combineren van tekst, analytics-query's, metrische gegevens en parameters in uitgebreide interactieve rapporten. 
 
 Dit artikel:
 
-- Wordt ervan uitgegaan dat u bekend bent met het [interactieve rapporten maken met Azure Monitor werkmappen](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+- Wordt ervan uitgegaan dat u bekend bent met het [interactieve rapporten maken met behulp van de Monitor werkmappen](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
 
-- Wordt uitgelegd hoe u kunt de Azure Monitor-werkmappen over het controleren van de bovenstaande vragen beantwoorden.
+- Wordt uitgelegd hoe Monitor werkmappen gebruiken om het effect van uw beleid voor voorwaardelijke toegang om op te lossen aanmeldingen te identificeren, en verouderde verificaties te begrijpen.
  
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt het volgende nodig om deze functie te gebruiken:
+Voor Monitor werkmappen, hebt u het volgende nodig:
 
-- Een Azure Active Directory-tenant met een licentie premium (P1/P2). Meer informatie over het [een premium-licentie nodig](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- Een Active Directory-tenant met een premium-licentie voor (P1 of P2). Meer informatie over het [een premium-licentie nodig](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - Een [Log Analytics-werkruimte](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-## <a name="access-workbooks"></a>Toegang tot werkmappen 
+## <a name="workbook-access"></a>Werkmap-toegang 
 
 Voor toegang tot werkmappen:
 
-1. Aanmelden bij uw [Azure-portal](https://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Klik op de navigatiebalk links **Azure Active Directory**.
+2. Selecteer in het navigatiedeelvenster links **Azure Active Directory**.
 
-3. In de **bewaking** sectie, klikt u op **Insights**. 
+3. In de **bewaking** sectie, selecteer **Insights**. 
 
-    ![Inzichten](./media/howto-use-azure-monitor-workbooks/41.png)
+    ![Selecteer Insights](./media/howto-use-azure-monitor-workbooks/41.png)
 
-4. Klik op een rapport of een sjabloon of **Open** in de werkbalk. 
+4. Selecteer een rapport of een sjabloon of Selecteer op de werkbalk **Open**. 
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/42.png)
+    ![Selecteer openen](./media/howto-use-azure-monitor-workbooks/42.png)
 
 
 ## <a name="sign-in-analysis"></a>Analyse van aanmelden
 
-Voor toegang tot de werkmap aanmelden analyse, klikt u op **aanmeldingen** in de **gebruik** sectie. 
+Voor toegang tot de werkmap aanmelden analyse de **gebruik** sectie, selecteer **aanmeldingen**. 
 
 Deze werkmap bevat de volgende aanmelding trends in de:
 
@@ -81,7 +80,7 @@ Deze werkmap bevat de volgende aanmelding trends in de:
 
 - Fout
 
-U kunt elke trend door te filteren:
+U kunt elke trend filteren op de volgende categorieën:
 
 - Tijdsbereik
 
@@ -89,24 +88,24 @@ U kunt elke trend door te filteren:
 
 - Gebruikers
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/43.png)
+![Analyse van aanmelden](./media/howto-use-azure-monitor-workbooks/43.png)
 
 
-Voor elke trend krijgt u een uitsplitsing van:
+Voor elke trend krijgt u een uitsplitsing van de volgende categorieën:
 
-- Location
+- Locatie
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/45.png)
+    ![Aanmeldingen per locatie](./media/howto-use-azure-monitor-workbooks/45.png)
 
 - Apparaat
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/46.png)
+    ![Aanmeldingen per apparaat](./media/howto-use-azure-monitor-workbooks/46.png)
 
 
 ## <a name="sign-ins-using-legacy-authentication"></a>Aanmeldingen met behulp van verouderde verificatie 
 
 
-Voor het gebruik van de toegang tot de aanmeldingen [verouderde](../conditional-access/block-legacy-authentication.md) werkmap, klikt u op **-aanmeldingen met behulp van verouderde verificatie** in de **gebruik** sectie. 
+Voor toegang tot de werkmap voor aanmeldingen die gebruikmaken van [verouderde](../conditional-access/block-legacy-authentication.md), in de **gebruik** sectie, selecteer **-aanmeldingen met behulp van verouderde verificatie**. 
 
 Deze werkmap bevat de volgende aanmelding trends in de:
 
@@ -115,7 +114,7 @@ Deze werkmap bevat de volgende aanmelding trends in de:
 - Geslaagd
 
 
-U kunt elke trend door te filteren:
+U kunt elke trend filteren op de volgende categorieën:
 
 - Tijdsbereik
 
@@ -123,25 +122,23 @@ U kunt elke trend door te filteren:
 
 - Gebruikers
 
-- Protocollen 
+- Protocollen
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/47.png)
+![-Aanmeldingen door verouderde-verificatie](./media/howto-use-azure-monitor-workbooks/47.png)
 
 
 Voor elke trend krijgt u een uitsplitsing per-app en -protocol.
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/48.png)
+![Legacy-verificatie-aanmeldingen door de app en het protocol](./media/howto-use-azure-monitor-workbooks/48.png)
 
 
 
 ## <a name="sign-ins-by-conditional-access"></a>Aanmeldingen voor voorwaardelijke toegang 
 
 
-Voor toegang tot de aanmeldingen per [beleid voor voorwaardelijke toegang](../conditional-access/overview.md) werkmap, klikt u op **aanmeldingen voor voorwaardelijke toegang** in de **voorwaardelijke toegang** sectie. 
+Voor toegang tot de werkmap voor aanmeldingen per [beleid voor voorwaardelijke toegang](../conditional-access/overview.md), in de **voorwaardelijke toegang** sectie, selecteer **aanmeldingen voor voorwaardelijke toegang**. 
 
-Deze werkmap wordt de trend voor uitgeschakelde aanmeldingen.
-
-U kunt elke trend door te filteren:
+Deze werkmap bevat de trends voor uitgeschakelde aanmeldingen. U kunt elke trend filteren op de volgende categorieën:
 
 - Tijdsbereik
 
@@ -149,10 +146,10 @@ U kunt elke trend door te filteren:
 
 - Gebruikers
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/49.png)
+![Aanmeldingen met behulp van voorwaardelijke toegang](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
-Voor de uitgeschakelde aanmeldingen krijgt u een uitsplitsing van de status voor voorwaardelijke toegang.
+Voor uitgeschakelde aanmeldingen krijgt u een uitsplitsing van de status voor voorwaardelijke toegang.
 
 ![Status voor voorwaardelijke toegang](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
@@ -165,7 +162,7 @@ Voor de uitgeschakelde aanmeldingen krijgt u een uitsplitsing van de status voor
 
 ## <a name="sign-ins-by-grant-controls"></a>-Aanmeldingen door besturingselementen verlenen
 
-Voor toegang tot de aanmeldingen per [verlenen besturingselementen](../conditional-access/controls.md) werkmap, klikt u op **-aanmeldingen door besturingselementen verlenen** in de **voorwaardelijke toegang** sectie. 
+Voor toegang tot de werkmap voor aanmeldingen per [verlenen besturingselementen](../conditional-access/controls.md), in de **voorwaardelijke toegang** sectie, selecteer **-aanmeldingen door besturingselementen verlenen**. 
 
 Deze werkmap bevat de volgende uitgeschakelde aanmelden trends in:
 
@@ -178,7 +175,7 @@ Deze werkmap bevat de volgende uitgeschakelde aanmelden trends in:
 - Overige
 
 
-U kunt elke trend door te filteren:
+U kunt elke trend filteren op de volgende categorieën:
 
 - Tijdsbereik
 
@@ -186,26 +183,26 @@ U kunt elke trend door te filteren:
 
 - Gebruikers
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/50.png)
+![-Aanmeldingen door besturingselementen verlenen](./media/howto-use-azure-monitor-workbooks/50.png)
 
 
 Voor elke trend krijgt u een uitsplitsing per-app en -protocol.
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/51.png)
+![Uitsplitsing van recente aanmeldingen](./media/howto-use-azure-monitor-workbooks/51.png)
 
 
 
 
 ## <a name="sign-ins-failure-analysis"></a>Analyse van storingen in aanmeldingen
 
-Gebruik de **foutanalyses voor aanmeldingen** werkmap oplossen met:
+Gebruik de **foutanalyses voor aanmeldingen** werkmap oplossen door het volgende:
 
 - Aanmeldingen
 - Voorwaardelijk toegangsbeleid
-- Verouderde verificatie. 
+- Verouderde verificatie 
 
 
-Voor toegang tot de aanmeldingen van voorwaardelijke toegang tot gegevens, klikt u op **-aanmeldingen met behulp van verificatie van de oude** in de **oplossen** sectie. 
+Toegang krijgen tot de aanmeldingen van voorwaardelijke toegang tot gegevens, in de **oplossen** sectie, selecteer **-aanmeldingen met behulp van verificatie van de oude**. 
 
 Deze werkmap bevat de volgende aanmelding trends in de:
 
@@ -218,7 +215,7 @@ Deze werkmap bevat de volgende aanmelding trends in de:
 - Fout
 
 
-U kunt elke trend door te filteren:
+U kunt elke trend filteren op de volgende categorieën:
 
 - Tijdsbereik
 
@@ -226,18 +223,18 @@ U kunt elke trend door te filteren:
 
 - Gebruikers
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/52.png)
+![Probleemoplossing-aanmeldingen](./media/howto-use-azure-monitor-workbooks/52.png)
 
 
-Voor het oplossen van aanmeldingen, krijgt u een uitsplitsing van:
+Voor hulp bij het oplossen van aanmeldingen, Azure Monitor biedt u een uitsplitsing van de door de volgende categorieën:
 
 - Meestvoorkomende fouten
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/53.png)
+    ![Overzicht van de meestvoorkomende fouten](./media/howto-use-azure-monitor-workbooks/53.png)
 
 - Aanmeldingen die wachten op actie van de gebruiker
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/54.png)
+    ![Overzicht van aanmeldingen die wachten op actie van de gebruiker](./media/howto-use-azure-monitor-workbooks/54.png)
 
 
 
@@ -246,4 +243,4 @@ Voor het oplossen van aanmeldingen, krijgt u een uitsplitsing van:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Interactieve rapporten maken met Azure Monitor-werkmappen](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)
+[Interactieve rapporten maken met behulp van de Monitor werkmappen](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).

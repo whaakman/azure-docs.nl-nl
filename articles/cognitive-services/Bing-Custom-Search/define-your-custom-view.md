@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c4cb93e39a67e13646a339af6ac999a8fd96b383
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 83ae5f923130ecb46b7b94cd8112ee45ae13e3f4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129636"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236253"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>De ervaring van uw Bing Custom Search configureren
 
@@ -27,7 +27,7 @@ Bij het definiëren van de segmenten van de web-, gebruikt u de volgende:
 
 | De segmentnaam van het | Description                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain     | Een segment van het domein bevat alle inhoud binnen een internetdomein gevonden. Bijvoorbeeld `www.microsoft.com`. Als u weglaat `www.` zorgt ervoor dat de Bing zoeken ook subdomeinen van het domein. Als u bijvoorbeeld `microsoft.com`, Bing retourneert ook resultaten van `support.microsoft.com` of `technet.microsoft.com`. |
+| Domein     | Een segment van het domein bevat alle inhoud binnen een internetdomein gevonden. Bijvoorbeeld `www.microsoft.com`. Als u weglaat `www.` zorgt ervoor dat de Bing zoeken ook subdomeinen van het domein. Als u bijvoorbeeld `microsoft.com`, Bing retourneert ook resultaten van `support.microsoft.com` of `technet.microsoft.com`. |
 | (Sub)    | Een segment subpagina bevat alle inhoud gevonden in de (sub) en paden eronder. U kunt maximaal twee subpagina's in het pad opgeven. Bijvoorbeeld: `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Webpagina    | Een segment webpagina kunt u alleen die webpagina opnemen in een aangepast zoeken. U kunt eventueel opgeven of u wilt opnemen subpagina's.                                                                                                                                                                                  |
 
@@ -40,7 +40,7 @@ Wanneer u uw aangepaste zoekinstantie maakt, kunt u het delen van het web: domei
 
 Als u weet dat de segmenten die u wilt opnemen in uw exemplaar voor aangepast zoeken, deze toevoegen aan uw exemplaar van **Active** lijst. 
 
-Als u niet zeker weet welke segmenten om op te nemen, kunt u zoekquery's verzenden naar Bing in de **Preview** deelvenster en selecteer de segmenten die u wilt. Om dit te doen: 
+Als u niet zeker weet welke segmenten om op te nemen, kunt u zoekquery's verzenden naar Bing in de **Preview** deelvenster en selecteer de segmenten die u wilt. Dit kunt u op de volgende manier doen: 
 
 1. Selecteer 'Bing' in de vervolgkeuzelijst in het voorbeeldvenster en voer een zoekopdracht
 
@@ -118,9 +118,9 @@ De portal kunt u ook vastmaken URL's naar de bovenkant van zoekresultaten voor s
 
 U kunt een webpagina aan het begin vastmaken op twee manieren:
 
-* In de **vastgehouden** tabblad, voer de URL van de webpagina als u wilt vastmaken aan de bovenkant en de bijbehorende query.
+* In de **vastgehouden** tabblad, voer de URL van de webpagina als u wilt vastmaken aan de bovenkant en de bijbehorende query.
 
-* In de **Preview** deelvenster, voer een zoekopdracht en klik op zoeken. De webpagina die u wilt vastmaken voor uw query en klikt u op zoek **vastmaken aan de bovenkant**. de webpagina en de query wordt toegevoegd aan de **vastgehouden** lijst.
+* In de **Preview** deelvenster, voer een zoekopdracht en klik op zoeken. De webpagina die u wilt vastmaken voor uw query en klikt u op zoek **vastmaken aan de bovenkant**. de webpagina en de query wordt toegevoegd aan de **vastgehouden** lijst.
 
 ### <a name="specify-the-pins-match-condition"></a>Voorwaarde voor overeenkomst van de pincode opgeven
 
@@ -133,7 +133,7 @@ Standaard webpagina's zijn alleen vastgemaakt aan het begin van zoekresultaten w
 |---------------|----------------------------------------------------------------------------------|
 | Begint met | De pincode is een overeenkomst als de queryreeks van de gebruiker met de querytekenreeks van de pincode begint |
 | Eindigt op   | De pincode is een overeenkomst als queryreeks van de gebruiker met de pincode van de query-tekenreeks eindigt.  |
-| Contains    | De pincode is een overeenkomst als de query-tekenreeks van de gebruiker de pincode queryreeks bevat.   |
+| Bevat    | De pincode is een overeenkomst als de query-tekenreeks van de gebruiker de pincode queryreeks bevat.   |
 
 
 Als u wilt wijzigen van de pincode-voorwaarde voor overeenkomst, klikt u op het speldpictogram bewerken. In de **Query-voorwaarde voor overeenkomst** kolom, klikt u op de vervolgkeuzelijst en selecteert u de nieuwe voorwaarde te gebruiken. Klik vervolgens op de opslagbewerking pictogram van de wijziging op te slaan.

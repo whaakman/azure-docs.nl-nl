@@ -79,14 +79,14 @@ Houd rekening met de volgende beperkingen voor livemigratie:
 U kunt aanvragen livemigratie via de [ondersteuning van Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Selecteer het opslagaccount dat u wilt converteren naar ZRS vanuit de portal.
 1. Selecteer **nieuwe ondersteuningsaanvraag**
 2. Voltooi de **basisbeginselen** op basis van gegevens over uw account. In de **Service** sectie, selecteer **Opslagaccountbeheer** en de resource die u wilt converteren naar ZRS. 
-3. Selecteer **Volgende**. 
+3. Selecteer **Next**. 
 4. Geef de volgende waarden de **probleem** sectie: 
     - **Ernst**: Laat de standaardwaarde als-is.
     - **Probleemtype**: Selecteer **gegevensmigratie**.
     - **Categorie**: Selecteer **migreren naar ZRS binnen een regio**.
     - **Title**: Typ een beschrijvende titel, bijvoorbeeld **ZRS-account migratie**.
     - **Details**: Geef aanvullende informatie in de **Details** vak, bijvoorbeeld: ik wil graag om te migreren naar ZRS van [LRS, GRS] in de \_ \_ regio. 
-5. Selecteer **Volgende**.
+5. Selecteer **Next**.
 6. Controleer of de gegevens juist zijn op de **contactgegevens** blade.
 7. Selecteer **Maken**.
 

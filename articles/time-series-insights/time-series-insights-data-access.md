@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd4c5e1652eb4dbff66591aa4bbe74e51be3e6c0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: adb30cc3af50b71cdc03e41d847bd4d824cffea6
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716711"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236389"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Gegevenstoegang verlenen tot een omgeving
 
@@ -34,11 +34,11 @@ Volg deze stappen voor het verlenen van toegang tot gegevens voor een gebruiker-
 
 1. Selecteer **beleid voor gegevenstoegang**, en selecteer vervolgens **+ toevoegen**.
 
-    ![Data-access-one][1]
+    [![Data-access-one](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
 1. Kies **gebruiker selecteren**. Zoeken naar de gebruiker de naam of e-mailadres om te vinden van de gebruiker die u wilt toevoegen. Klik op **Selecteer** de selectie te bevestigen.
 
-    ![Data-access-two][2]
+    [![Data-access-two](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
 1. Kies **rol selecteren**. Kies de juiste rol voor de gebruiker:
 
@@ -48,15 +48,15 @@ Volg deze stappen voor het verlenen van toegang tot gegevens voor een gebruiker-
 
    Selecteer **OK** de keuze van de rol te bevestigen.
 
-    ![data access-3][3]
+    [![Data-access-three](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
 
 1. Selecteer **OK** op de **gebruikersrol selecteren** pagina.
 
-    ![data access-vier][4]
+    [![Data-access-four](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
 
 1. Bevestig dat de **beleid voor gegevenstoegang** pagina vindt u de gebruikers en de rollen voor elke gebruiker.
 
-    ![Data-access-five][5]
+    [![Data-access-five](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
 
 ## <a name="provide-guest-access-from-another-aad-tenant"></a>Toegang voor gasten bieden van een andere AAD-tenant
 
@@ -66,19 +66,19 @@ Volg deze stappen voor het verlenen van toegang voor gasten met een Time Series 
 
 1. Selecteer **beleid voor gegevenstoegang**, en selecteer vervolgens **+ uitnodigen**.
 
-    ![Data-access-six][6]
+    [![Data-access-six](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
 
 1. Voer het e-mailadres voor de gebruiker die u wilt uitnodigen. Dit e-mailadres moet worden gekoppeld aan Azure AD. U kunt desgewenst een persoonlijk bericht invoegen bij de uitnodiging opnemen.
 
-    ![Data-access-seven][7]
+    [![Data-access-seven](media/data-access/data-access-seven.png)](media/data-access/data-access-seven.png#lightbox)
 
 1. Zoek naar de bevestiging bel die wordt weergegeven op het scherm.
 
-    ![Data-access-eight][8]
+    [![Data-access-eight](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
 1. Kies **gebruiker selecteren**. Zoeken naar het e-mailadres van de gastgebruiker die u uitgenodigd om te vinden van de gebruiker die u wilt toevoegen. Klik op **Selecteer** de selectie te bevestigen.
 
-    ![Data-access-nine][9]
+    [![Data-access-nine](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 
 1. Kies **rol selecteren**. Kies de juiste rol voor de gastgebruiker:
 
@@ -88,29 +88,29 @@ Volg deze stappen voor het verlenen van toegang voor gasten met een Time Series 
 
    Selecteer **OK** de keuze van de rol te bevestigen.
 
-    ![Data-access-ten][10]
+    [![Data-access-ten](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
 
 1. Selecteer **OK** op de **gebruikersrol selecteren** pagina.
 
 1. Bevestig dat de **beleid voor gegevenstoegang** pagina geeft een lijst van de gastgebruiker en de functies voor elke gastgebruiker.
 
-    ![gegevens-access-11][11]
+    [![Data-access-eleven](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
 
 1. Nu de gastgebruiker moet de stappen voor toegang tot de omgeving zich in de Azure-tenant waaraan u deze hebt uitgenodigd. Ze accepteren eerst de uitnodiging die u ze hebt verzonden. Deze uitnodiging is verzonden via e-mail naar het e-mailadres dat u in stap 5 hebt gebruikt. Ze selecteren **aan de slag** te accepteren.
 
-    ![Data-access-twelve][12]
+    [![Data-access-twelve](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
 
 1. De gastgebruiker accepteert vervolgens de machtigingen die zijn gekoppeld aan de organisatie van de beheerder.
 
-    ![gegevens-access-13][13]
+    [![Data-access-thirteen](media/data-access/data-access-thirteen.png)](media/data-access/data-access-thirteen.png#lightbox)
 
 1. Nadat de gastgebruiker wordt ondertekend in naar het e-mailadres dat u hebt gebruikt om uit te nodigen, en ze de uitnodiging accepteren, ze naar insights.azure.com. Zodra er, ze selecteren de avatar naast het e-mailadres in de rechterbovenhoek van het scherm.
 
-    ![gegevens-access-14][14]
+    [![gegevens-access-14](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
 
 1. Volgende, de Gast gebruiker selecteert de Azure-tenant van de directory in het menu. Deze tenant is de waaraan u deze hebt uitgenodigd.
 
-    ![gegevens-access-vijftien][15]
+    [![Data-access-fifteen](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
 
 Nadat de gastgebruiker selecteert uw tenant, zien ze de Time Series Insights-omgeving waarnaar u hebt opgegeven ze toegang. Ze hebben nu de mogelijkheden die zijn gekoppeld aan de rol die u hebt opgegeven dat ze met in **stap 5**.
 
@@ -121,20 +121,3 @@ Nadat de gastgebruiker selecteert uw tenant, zien ze de Time Series Insights-omg
 * Verzenden [gebeurtenissen naar de gebeurtenisbron](./time-series-insights-send-events.md).
 
 * Weergave [uw omgeving in de Verkenner van Time Series Insights Preview](./time-series-insights-update-explorer.md).
-
-<!-- Images -->
-[1]: media/data-access/data-access-one.png
-[2]: media/data-access/data-access-two.png
-[3]: media/data-access/data-access-three.png
-[4]: media/data-access/data-access-four.png
-[5]: media/data-access/data-access-five.png
-[6]: media/data-access/data-access-six.png
-[7]: media/data-access/data-access-seven.png
-[8]: media/data-access/data-access-eight.png
-[9]: media/data-access/data-access-nine.png
-[10]: media/data-access/data-access-ten.png
-[11]: media/data-access/data-access-eleven.png
-[12]: media/data-access/data-access-twelve.png
-[13]: media/data-access/data-access-thirteen.png
-[14]: media/data-access/data-access-fourteen.png
-[15]: media/data-access/data-access-fifteen.png

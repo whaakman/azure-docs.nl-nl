@@ -2,18 +2,18 @@
 title: Azure Monitor - nul instrumentation toepassingsbewaking voor Kubernetes gehoste apps | Microsoft Docs
 description: Nul instrumentation voor toepassingsbewaking voor apps die worden gehost Kubernetes is een oplossing voor prestatiecontrole waarmee u voor het verzamelen van telemetrie van Application Insights die betrekking hebben op binnenkomende en uitgaande aanvragen naar en van schillen uitgevoerd in het Kubernetes-cluster door met behulp van technologie voor service-mesh Istio genoemd.
 services: application-insights
-author: rishabjolly
+author: tokaplan
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: rijolly
-ms.openlocfilehash: 73f95ab75b49fb8ec5b61f6e30080f8f6d474c16
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.author: alkaplan
+ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149883"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408216"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Nul instrumentatie-toepassingsbewaking voor Kubernetes apps die worden gehost
 
@@ -34,7 +34,7 @@ Azure Monitor maakt nu gebruik van service mesh tech op uw Kubernetes-cluster vo
 - Een [Application Insights-resource](create-new-resource.md)
 - Een service-net hebben. Als uw cluster geen Istio geïmplementeerd, leert u hoe u [installeren en gebruiken van Istio in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/istio-install).
 
-## <a name="capabilities"></a>Functionaliteit
+## <a name="capabilities"></a>Mogelijkheden
 
 Met behulp van nul instrumentation toepassingsbewaking voor Kubernetes gehoste apps, zich kunt u kunt gebruiken:
 
@@ -99,7 +99,7 @@ Toepassingen die worden uitgevoerd buiten het NET service worden niet beïnvloed
 - Genereer een voorbeeld van een aanvraag voor uw toepassing om te bevestigen dat bewaking correct werkt.
 - Binnen 3 tot 5 minuten, moet u beginnen te zien van de telemetrie weergegeven in de Azure portal. Zorg ervoor dat u uitchecken de *Toepassingsoverzicht* sectie van uw Application Insights-resource in de Portal.
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 
 Hieronder wordt het oplossen van problemen met flow moet worden gebruikt als telemetrie niet wordt weergegeven in de Azure portal als verwacht.
 

@@ -162,7 +162,7 @@ Als u wilt publiceren commerciële aanbiedingen voor aankoop, moet u payout toev
     >
     >Wijzigen van uw betalings-account, kan uw betalingen door maximaal één betalingscyclus uitstellen. Deze vertraging treedt op omdat we nodig hebt om te controleren of het account wijzigen, net zoals we hebben gedaan wanneer u eerst de betalings-account instellen. U hebt nog steeds te verkopen het volledige bedrag nadat uw account is geverifieerd; alle betalingen vervaldatum voor de huidige betaling cyclus wordt toegevoegd aan de volgende uit.
 
-4.  Selecteer **Volgende**.
+4.  Selecteer **Next**.
 
 **Voor de btw-gegevens**
 
@@ -171,7 +171,7 @@ Als u wilt publiceren commerciële aanbiedingen voor aankoop, moet u payout toev
 3.  Op de **instellen van uw BTW-formulier** pagina:
     - Selecteer het land of regio waarin u werkt met permanente gegevensopslag.
     - Selecteer het land of regio waarin u de primaire citizenship houdt.
-    - Selecteer **Volgende**.
+    - Selecteer **Next**.
 4.  Voer uw btw-gegevens, en selecteer vervolgens **volgende**.
 
 >[!WARNING]

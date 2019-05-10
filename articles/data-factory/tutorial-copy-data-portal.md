@@ -280,7 +280,7 @@ In dit schema maakt u een planningstrigger voor de pijplijn. De trigger voert de
 
     g. Selecteer de optie **Geactiveerd**. U kunt deze deactiveren en deze later activeren met behulp van dit selectievakje.
 
-    h. Selecteer **Volgende**.
+    h. Selecteer **Next**.
 
     ![Knop Geactiveerd](./media/tutorial-copy-data-portal/trigger-activiated-next.png)
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93fae0babdee5eac87d50679fdd5b2b938c4df2e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648785"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236857"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP-werkbelasting op Azure controlelijst voor planning en implementatie 
 
@@ -109,7 +109,7 @@ De test kunt uitvoeren voordat u parallel aan het project plannen en voorbereide
       5.  Voor SAP HANA, meer details worden gedocumenteerd in [configuraties van SAP HANA-infrastructuur en bewerkingen op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
       6.  Nooit gegevensschijven koppelen van Azure met een Azure Linux-VM met behulp van de apparaat-ID. Gebruik in plaats daarvan de universally unique identifier (UUID). Wees voorzichtig wanneer u grafische hulpprogramma's te koppelen van een Azure-gegevensschijven, bijvoorbeeld. Controleer de vermeldingen in/etc/fstab om ervoor te zorgen dat de schijven zijn gekoppeld met behulp van de UUID
           1.  Meer informatie vindt [hier](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk)
-   3. Netwerken
+   3. Netwerk
       1.  Test en evalueer uw VNet-infrastructuur en de distributie van uw SAP-toepassingen in of in de verschillende virtuele netwerken
           1.  De benadering van de hub en spoke-architectuur voor virtueel netwerk of microsegmentation binnen een enkel Azure-netwerk op basis van evalueren
               1.  Kosten vanwege het uitwisselen van gegevens tussen [Azure VNets gekoppeld](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Controleer voor de kosten van [prijzen voor Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network/)
@@ -140,9 +140,10 @@ De test kunt uitvoeren voordat u parallel aan het project plannen en voorbereide
       2. Om te voorkomen dat GUI time-outs tussen 1-premises SAP-GUI-interfaces en lagen van SAP-toepassing geïmplementeerd in Azure geïmplementeerd, moet u controleren of de volgende parameters zijn ingesteld in de default.pfl of het exemplaar van het profiel:
          1.   rdisp/keepalive_timeout = 3600
          2.   rdisp/keepalive = 20
-      3. Als u een Windows-failovercluster-configuratie gebruikt, zorg ervoor dat de tijd om te reageren op niet-reagerend knooppunten correct is ingesteld voor Azure. Het Microsoft-artikel [afstemmen Failover Cluster netwerk drempelwaarden](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/) een lijst met parameters en hoe die invloed hebben op failover gevoeligheid. Van de parameters moeten deze twee parameters worden ingesteld door de waarden:
-         1.   SameSubNetDelay = 2
+      3. Als u een Windows-failovercluster-configuratie gebruikt, zorg ervoor dat de tijd om te reageren op niet-reagerend knooppunten correct is ingesteld voor Azure. Het Microsoft-artikel [afstemmen Failover Cluster netwerk drempelwaarden](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) een lijst met parameters en hoe die invloed hebben op failover gevoeligheid. Ervan uitgaande dat de clusterknooppunten zich in hetzelfde subnet bevinden, moeten de volgende parameters worden gewijzigd:
+         1.   SameSubNetDelay = 2000
          2.   SameSubNetThreshold = 15
+         3.   RoutingHistorylength = 30
 4. Testen van herstelprocedures van de hoge beschikbaarheid en herstel na noodgeval
    1. Failover-situaties simuleren door virtuele machines (Windows Gast-OS) wordt afgesloten of het plaatsen van besturingssystemen in paniek modus (Linux Gast-OS) om te kunnen beoordelen of uw failoverconfiguraties werkt zoals ontworpen. 
    2. Meet de tijden die nodig is voor het uitvoeren van een failover. Als de tijdstippen te lang duren, kunt u overwegen:

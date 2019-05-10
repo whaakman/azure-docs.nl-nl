@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2019
+ms.date: 05/08/2019
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86c90f05734f793842cf506721db9c4fd5b2b1a3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 271fe45082749afc310e8f217e8119d3931c3cac
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918553"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413741"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Quickstart: Een toepassing die is geregistreerd bij de Microsoft identity-platform verwijderen
 
@@ -35,10 +35,7 @@ In deze snelstart leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Zorg ervoor dat u, voordat u aan de slag gaat, aan deze vereisten voldoet:
-
-* U beschikt over een tenant waarvoor toepassingen zijn geregistreerd. Zie [Een toepassing registreren met het Microsoft Identity Platform](quickstart-register-app.md) voor informatie over het toevoegen en registeren van apps.
-* U hebben aangemeld voor de preview-versie voor app-registraties in de Azure-portal. De stappen in deze snelstart komen overeen met de nieuwe gebruikersinterface en werken alleen als zich hebt aangemeld voor de Preview-versie.
+U moet een tenant die geregistreerd te toepassingen hebben. Zie [Een toepassing registreren met het Microsoft Identity Platform](quickstart-register-app.md) voor informatie over het toevoegen en registeren van apps.
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Een toepassing verwijderen die is geschreven door u of uw organisatie
 
@@ -47,8 +44,8 @@ Toepassingen die u of uw organisatie hebben geregistreerd, worden vertegenwoordi
 ### <a name="to-remove-an-application"></a>Toepassing verwijderen
 
 1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
-2. Als u via uw account toegang tot meer dan één tenant hebt, selecteert u uw account in de rechterbovenhoek en stelt u uw portalsessie in op de gewenste Azure Active Directory-tenant.
-3. Selecteer in het navigatiedeelvenster aan de linkerkant de **Azure Active Directory**-service en selecteer vervolgens **App-registraties (preview)**. Zoek en selecteer de toepassing die u wilt configureren. Wanneer u de app hebt geselecteerd, ziet u de pagina **Overzicht**.
+2. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
+3. Selecteer in het navigatiedeelvenster links het **Azure Active Directory** service en selecteer **App-registraties**. Zoek en selecteer de toepassing die u wilt configureren. Wanneer u de app hebt geselecteerd, ziet u de pagina **Overzicht**.
 4. Selecteer **Verwijderen** op de pagina **Overzicht**.
 5. Selecteer **Ja** om te bevestigen dat u de app wilt verwijderen.
 

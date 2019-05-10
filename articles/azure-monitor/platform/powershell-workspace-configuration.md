@@ -2,18 +2,18 @@
 title: PowerShell gebruiken om te maken en configureren van een Log Analytics-werkruimte | Microsoft Docs
 description: Log Analytics-werkruimten in Azure Monitor opslaan van gegevens van servers in uw on-premises of in de cloud-infrastructuur. U kunt gegevens van de machine verzamelen uit Azure storage wanneer die worden gegenereerd door Azure diagnostics.
 services: log-analytics
-author: richrundmsft
+author: bwren
 ms.service: log-analytics
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: richrund
-ms.openlocfilehash: 5c348adea0847929b37d1b61f024859b1d634fe7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: bwren
+ms.openlocfilehash: 2d3f1ab6704a0f5ecd15190fd08b10485cdf1ee9
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452735"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510109"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Log Analytics-werkruimte in Azure Monitor met behulp van PowerShell beheren
 
@@ -180,7 +180,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 In het bovenstaande voorbeeld regexDelimiter is gedefinieerd als '\\n "voor nieuwe regel. Het scheidingsteken log mogelijk ook een tijdstempel.  Dit zijn de ondersteunde indelingen:
 
-| Indeling | JSON RegEx-indeling gebruikt twee \\ voor elke \ in een standard reguliere expressie als testen in een reguliere expressie-app verminderen \\ naar \ | | |
+| Notatie | JSON RegEx-indeling gebruikt twee \\ voor elke \ in een standard reguliere expressie als testen in een reguliere expressie-app verminderen \\ naar \ | | |
 | --- | --- | --- | --- |
 | `YYYY-MM-DD HH:MM:SS` | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 | `M/D/YYYY HH:MM:SS AM/PM` | `(([0-1]\\\\d)\|[0-9])/(([0-3]\\\\d)\|(\\\\d))/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\\\s(AM\|PM\|am\|pm)` | | |

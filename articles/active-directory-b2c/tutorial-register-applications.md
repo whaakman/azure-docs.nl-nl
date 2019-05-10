@@ -35,7 +35,7 @@ Als u dit nog niet hebt gemaakt uw eigen [Azure AD B2C-Tenant](tutorial-create-t
 
 ## <a name="register-a-web-application"></a>Een web-app registreren
 
-1. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
+1. Zorg ervoor dat u de adreslijst gebruikt die uw Azure AD B2C-tenant bevat door te klikken op het **filter voor adreslijsten en abonnementen** in het bovenste menu en de adreslijst te kiezen waarin uw tenant zich bevindt.
 2. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 3. Selecteer **Toepassingen** en vervolgens **Toevoegen**.
 4. Voer een naam in voor de toepassing. Bijvoorbeeld, *webapp1*.

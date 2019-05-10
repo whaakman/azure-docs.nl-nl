@@ -165,7 +165,7 @@ In deze sectie maakt u twee gekoppelde services:
    
    j. Voer het **clusterwachtwoord** voor de gebruiker in. 
    
-   k. Selecteer **Voltooien**. 
+   k. Selecteer **Finish**. 
 
    ![Instellingen gekoppelde HDInsight-service](./media/tutorial-transform-data-spark-portal/azure-hdinsight-linked-service-settings.png)
 

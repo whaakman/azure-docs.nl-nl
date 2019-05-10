@@ -81,7 +81,7 @@ Dit artikel ziet u hoe u het hulpprogramma Data Factory Copy Data gebruiken om t
    1. Geef de **toegangssleutel-ID** waarde.
    2. Geef de **geheime toegangssleutel** waarde.
    3. Klik op **verbinding testen** voor het valideren van de instellingen, selecteer **voltooien**.
-   4. U ziet dat een nieuwe verbinding wordt gemaakt. Selecteer **Volgende**.
+   4. U ziet dat een nieuwe verbinding wordt gemaakt. Selecteer **Next**.
    
       ![Amazon S3-account opgeven](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
       

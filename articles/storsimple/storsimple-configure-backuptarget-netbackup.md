@@ -328,7 +328,7 @@ De volgende procedure wordt ervan uitgegaan dat NetBackup en de doelhost in over
 
    ![NetBackup-beheerconsole, selecteer beleidstype](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5. Selecteer de host, selecteer de **client-besturingssysteem detecteren** selectievakje en selecteer vervolgens **toevoegen**. Selecteer **Volgende**.
+5. Selecteer de host, selecteer de **client-besturingssysteem detecteren** selectievakje en selecteer vervolgens **toevoegen**. Selecteer **Next**.
 
    ![NetBackup-beheerconsole, lijst met clients in een nieuw beleid](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 

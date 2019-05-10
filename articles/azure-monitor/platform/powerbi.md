@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2018
+ms.date: 05/01/219
 ms.author: bwren
-ms.openlocfilehash: 53e24a6874a1e43b0de07893a6ace3a44b81d373
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454053"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234195"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Azure Monitor log-gegevens importeren in Power BI
 
@@ -60,7 +60,9 @@ Power BI Desktop is een bureaubladtoepassing die u kunt gegevenssets en rapporte
 ## <a name="publish-to-power-bi"></a>Publiceren naar Power BI
 Wanneer u naar Power BI publiceert, wordt een gegevensset en een rapport worden gemaakt.  Als u een rapport in Power BI Desktop maakt, zal klikt u vervolgens dit worden gepubliceerd met uw gegevens.  Als dat niet het geval is, klikt u vervolgens een leeg rapport wordt gemaakt.  U kunt het rapport in Power BI wijzigen of een nieuwe maken op basis van de gegevensset.
 
-1. Een rapport op basis van uw gegevens maken.  Gebruik [Power BI Desktop-documentatie](https://docs.microsoft.com/power-bi/desktop-report-view) als u niet bekend met het bent.  Wanneer u klaar bent om dit te verzenden naar Power BI, klikt u op **publiceren**.  Wanneer u hierom wordt gevraagd, moet u een doel selecteren in uw Power BI-account.  Tenzij u een specifieke bestemming in gedachten hebt, gebruikt u **mijn werkruimte**.
+1. Een rapport op basis van uw gegevens maken.  Gebruik [Power BI Desktop-documentatie](https://docs.microsoft.com/power-bi/desktop-report-view) als u niet bekend met het bent.  
+1. Wanneer u klaar bent om dit te verzenden naar Power BI, klikt u op **publiceren**.  
+1. Wanneer u hierom wordt gevraagd, moet u een doel selecteren in uw Power BI-account.  Tenzij u een specifieke bestemming in gedachten hebt, gebruikt u **mijn werkruimte**.
 
     ![Power BI Desktop publiceren](media/powerbi/desktop-publish.png)
 
@@ -70,7 +72,10 @@ Wanneer u naar Power BI publiceert, wordt een gegevensset en een rapport worden 
 ### <a name="configure-scheduled-refresh"></a>Geplande vernieuwing configureren
 De gegevensset gemaakt in Power BI heeft dezelfde gegevens die u eerder hebt gezien in Power BI Desktop.  U moet de gegevensset om de query opnieuw uitvoeren en deze vullen met de meest recente gegevens uit Azure Monitor periodiek te vernieuwen.  
 
-1. Klik op de werkruimte waar u uw rapport en selecteer geüpload de **gegevenssets** menu. Selecteer het snelmenu naast uw nieuwe gegevensset en selecteer **instellingen**. Onder **gegevensbronreferenties** hebt u een bericht dat de referenties ongeldig zijn.  Dit is omdat u referenties voor de gegevensset moet worden gebruikt wanneer het wordt vernieuwd met de gegevens nog niet hebt opgegeven.  Klik op **referenties bewerken** en geef de referenties die toegang hebben tot de Log Analytics-werkruimte in Azure Monitor.
+1. Klik op de werkruimte waar u uw rapport en selecteer geüpload de **gegevenssets** menu. 
+1. Selecteer het snelmenu naast uw nieuwe gegevensset en selecteer **instellingen**. 
+1. Onder **gegevensbronreferenties** hebt u een bericht dat de referenties ongeldig zijn.  Dit is omdat u referenties voor de gegevensset moet worden gebruikt wanneer het wordt vernieuwd met de gegevens nog niet hebt opgegeven.  
+1. Klik op **referenties bewerken** en geef de referenties die toegang hebben tot de Log Analytics-werkruimte in Azure Monitor. Als u tweeledige verificatie vereist, selecteert u **OAuth2** voor de **verificatiemethode** aan te melden met uw referenties wordt gevraagd.
 
     ![Power BI-schema](media/powerbi/powerbi-schedule.png)
 

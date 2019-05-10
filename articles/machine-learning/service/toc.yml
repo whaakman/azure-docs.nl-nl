@@ -6,9 +6,6 @@
     - name: Wat is de Azure Machine Learning-service?
       displayName: AML services overview
       href: overview-what-is-azure-ml.md
-    - name: Wat is er gebeurd met Workbench?
-      displayName: desktop ui Workbench upgrade update transfer
-      href: overview-what-happened-to-workbench.md
 - name: Instellen
   items:
     - name: Een werkruimte maken
@@ -92,6 +89,8 @@
     - name: Interpreteerbaarheid van modellen
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
+    - name: Versnellen met GPU's
+      href: concept-accelerate-inferencing-with-gpus.md
     - name: Versnellen met FPGA's
       href: concept-accelerate-with-fpgas.md
     - name: Optimaliseren met ONNX en ONNX Runtime
@@ -117,6 +116,7 @@
         - name: De portal voor werkruimten gebruiken
           href: how-to-manage-workspace.md
         - name: Een Resource Manager-sjabloon gebruiken
+          displayName: arm
           href: how-to-create-workspace-template.md
     - name: "De ontwikkelomgeving instellen\_"
       items:
@@ -224,6 +224,9 @@
       items:
         - name: ML-pijplijn maken
           href: how-to-create-your-first-pipeline.md
+        - name: ML-modellen trainen en implementeren met Azure-pijplijnen
+          href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
+          mainContext: true
     - name: Resourcequota beheren
       displayName: limits
       href: how-to-manage-quotas.md
@@ -352,3 +355,6 @@
     - name: Onze ML-producten vergelijken
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
       maintainContext: true
+    - name: Wat is er gebeurd met Workbench?
+      displayName: desktop ui Workbench upgrade update transfer
+      href: overview-what-happened-to-workbench.md

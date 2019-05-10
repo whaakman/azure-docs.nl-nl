@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 8fd73b1e0fcde6bcd69c7ce76b888d1adda37de4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939551"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233993"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Toegangsbeheer in Azure Data Lake Storage Gen2
 
@@ -22,7 +22,7 @@ Azure Data Lake Storage Gen2 implementeert een model voor toegangsbeheer die ond
 
 <a id="azure-role-based-access-control-rbac" />
 
-## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
+## <a name="role-based-access-control"></a>Role-based access control
 
 RBAC gebruik roltoewijzingen voor het effectief sets van machtigingen aan *beveiligings-principals*. Een *beveiligings-principal* is een object dat staat voor een gebruiker, groep, service-principal of beheerde identiteit die is gedefinieerd in Azure Active Directory (AD) die toegang tot Azure-resources aanvraagt.
 
@@ -37,7 +37,7 @@ Tijdens het gebruik van RBAC-roltoewijzingen een krachtig mechanisme voor het be
 Wanneer een beveiligings-principal machtigingen worden toegekend RBAC gegevens via een [ingebouwde rol](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), of via een aangepaste rol deze machtigingen worden eerst geëvalueerd bij verificatie van een aanvraag. Als de aangevraagde bewerking is geautoriseerd door de beveiligings-principal RBAC-toewijzingen en autorisatie onmiddellijk afgesloten en er geen aanvullende wordt worden ACL-controles uitgevoerd. U kunt ook als de beveiligings-principal heeft geen een RBAC-toewijzing, of de bewerking van de aanvraag komt niet overeen met de toegewezen machtiging, klikt u vervolgens ACL controles uitgevoerd om te bepalen of de beveiligings-principal is gemachtigd om uit te voeren van de aangevraagde bewerking.
 
 > [!NOTE]
-> Als de beveiligings-principal is toegewezen de [Storage Blob-gegevens]() eigenaar ingebouwde rol toewijzen en vervolgens de beveiligings-principal wordt beschouwd als een *supergebruiker* en volledige toegang hebben tot alle mutating bewerkingen, inclusief het instellen van de eigenaar van een map of bestand, evenals ACL's voor mappen en bestanden waarvoor ze niet de eigenaar zijn. Supergebruiker toegang is de enige geautoriseerde manier om te wijzigen van de eigenaar van een resource.
+> Als de beveiligings-principal de ingebouwde roltoewijzing van de eigenaar van de gegevens-Blob-opslag is toegewezen, wordt de beveiligings-principal wordt beschouwd als een *supergebruiker* en volledige toegang hebben tot alle mutating bewerkingen, met inbegrip van de instelling van de de eigenaar van een map of bestand, evenals ACL's voor mappen en bestanden waarvoor ze niet de eigenaar zijn. Supergebruiker toegang is de enige geautoriseerde manier om te wijzigen van de eigenaar van een resource.
 
 ## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Gedeelde sleutel en Shared Access Signature (SAS)-verificatie
 
@@ -281,7 +281,7 @@ Gebruik altijd de Azure AD-beveiligingsgroepen als de toegewezen principal in de
 
 - De oproepende functie supergebruikersmachtigingen '',
 
-of
+Of
 
 - De bovenliggende map moet schrijven + uitvoeren van machtigingen.
 - De map moet worden verwijderd en elke map erin moeten lezen + schrijven + uitvoeren van machtigingen.

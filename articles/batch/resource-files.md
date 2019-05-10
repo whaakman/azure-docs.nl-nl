@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 113faffb0ebac50a67c96ce21e0ee2c1564bb4fc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616548"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405644"
 ---
 # <a name="creating-and-using-resource-files"></a>Het maken en gebruiken van bestanden
 
@@ -38,7 +38,7 @@ Opties voor het maken van een bronbestand:
 
 ### <a name="storage-container-url"></a>De URL van de opslag-container
 
-Met behulp van een storage-container-URL, betekent dat u toegang hebt tot bestanden in een storage-container in Azure. Met de juiste machtigingen
+Met behulp van een storage-container-URL, betekent dat u toegang hebt tot bestanden in een storage-container in Azure met de juiste machtigingen.
 
 In deze C# bijvoorbeeld de bestanden al zijn geüpload naar een Azure storage-container als blob-opslag. Voor toegang tot de gegevens die nodig zijn om een resourcebestand te maken, moeten we eerst toegang krijgen tot de storage-container.
 

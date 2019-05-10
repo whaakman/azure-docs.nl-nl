@@ -40,7 +40,7 @@ Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **L
     1. Selecteer een **grootte** voor virtuele machines (VM's) die in het lab worden gemaakt. Op dit moment **kleine**, **gemiddeld**, **grote**, en **GPU** grootten zijn toegestaan.
     2. Selecteer de **regio** waarin de virtuele machines moeten worden gemaakt. 
     3. Selecteer de **VM-installatiekopie** die moet worden gebruikt voor het maken van virtuele machines in het lab. Als u een installatiekopie van Linux selecteert, ziet u een optie voor het inschakelen van de verbinding met extern bureaublad voor. Zie voor meer informatie, [verbinding met extern bureaublad voor Linux inschakelen](how-to-enable-remote-desktop-linux.md).
-    4. Selecteer **Volgende**.
+    4. Selecteer **Next**.
 
         ![VM-specificaties opgeven](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
 5. Geef op de pagina **Referenties instellen** de standaardreferenties voor alle virtuele machines in het lab op. 

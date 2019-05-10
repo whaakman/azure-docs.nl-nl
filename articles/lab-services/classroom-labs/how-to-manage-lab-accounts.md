@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: f1194d8385d1e7ddcb906d0c8c3a2b56648e2547
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f283ce007e96547e01a01a3753ddcb60574bfc3
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60696298"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412806"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Lab-accounts in Azure Lab Services beheren 
 Een lab-account is in Azure Lab-Services, een container voor beheerde labtypen zoals leslokaallabs. Een beheerder stelt u een lab-account met Azure Lab-Services en biedt toegang tot een lab-eigenaren die labs in het account maken kunnen. In dit artikel wordt beschreven hoe u een lab-account maken, alle lab-accounts weergeven of verwijderen van een lab-account.
@@ -38,9 +38,11 @@ In de volgende stappen ziet u hoe u Azure Portal kunt gebruiken om een lab te ma
     2. Selecteer het **Azure-abonnement** waarin u het lab-account wilt maken.
     3. Selecteer voor **Resourcegroep** de optie **Nieuwe maken** en voer een naam in voor de resourcegroep.
     4. Selecteer voor **Locatie** een locatie/regio waarin het lab-account moet worden gemaakt. 
-    5. Voor **virtuele peernetwerk**, selecteert u een peer-netwerk (VNet voor het testlabnetwerk). Labs gemaakt in dit account zijn verbonden met het geselecteerde VNet en hebben toegang tot de resources in het geselecteerde VNet. 
-    7. Voor het veld **Labmaker toestaan om lablocatie te kiezen** geeft u op of u wilt dat labmakers een locatie voor het lab kunnen selecteren. De optie is standaard uitgeschakeld. Wanneer deze is uitgeschakeld, kunnen labmakers geen locatie opgeven voor het lab dat ze maken. De labs worden gemaakt in de dichtstbijzijnde geografische locatie in het labaccount. Wanneer deze is ingeschakeld, kan de labmaker een locatie selecteren wanneer hij een lab maakt.      
-    8. Selecteer **Maken**. 
+    5. Selecteer een bestaande **gedeelde afbeeldingengalerie** of er een maken. U kunt de VM-sjabloon opslaan in de galerie met installatiekopieën van de gedeelde voor het opnieuw door anderen worden gebruikt. Zie voor gedetailleerde informatie over gedeelde afbeeldingsgalerieën [een galerie met gedeelde installatiekopieën in Azure Lab Services gebruikt](how-to-use-shared-image-gallery.md).
+    6. Voor **virtuele peernetwerk**, selecteert u een peer-netwerk (VNet voor het testlabnetwerk). Labs gemaakt in dit account zijn verbonden met het geselecteerde VNet en hebben toegang tot de resources in het geselecteerde VNet. 
+    7. Geef een **adresbereik** voor virtuele machines in het lab. Het adresbereik moet zich in de notatie klasseloze routing tussen domeinen (CIDR) (voorbeeld: 10.20.0.0/23). Virtuele machines in de testomgeving wordt in dit adresbereik worden gemaakt. Zie voor meer informatie, [Geef een adresbereik voor virtuele machines in het lab](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab).    
+    8. Voor het veld **Labmaker toestaan om lablocatie te kiezen** geeft u op of u wilt dat labmakers een locatie voor het lab kunnen selecteren. De optie is standaard uitgeschakeld. Wanneer deze is uitgeschakeld, kunnen labmakers geen locatie opgeven voor het lab dat ze maken. De labs worden gemaakt in de dichtstbijzijnde geografische locatie in het labaccount. Wanneer deze is ingeschakeld, kan de labmaker een locatie selecteren wanneer hij een lab maakt.      
+    9. Selecteer **Maken**. 
 
         ![Venster Een lab-account maken](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Selecteer het **Klokpictogram** op de werkbalk (**Meldingen**), controleer of de implementatie is voltooid en selecteer vervolgens **Naar de resource gaan**. 
@@ -51,54 +53,6 @@ In de volgende stappen ziet u hoe u Azure Portal kunt gebruiken om een lab te ma
 6. U ziet de volgende pagina **lab-account**:
 
     ![Pagina lab-account](../media/tutorial-setup-lab-account/lab-account-page.png)
-
-## <a name="add-a-user-to-the-lab-creator-role"></a>Een gebruiker toevoegen aan de rol Labmaker
-Om een leslokaallab in een labaccount in te kunnen stellen, moet de gebruiker lid zijn van de rol **Labmaker** in het labaccount. Het account dat u hebt gebruikt voor het maken van het lab-account wordt automatisch toegevoegd aan deze rol. Als u van plan bent een leslokaallab te maken met hetzelfde gebruikersaccount, kunt u deze stap overslaan. Als u een ander gebruikersaccount wilt gebruiken om een leslokaallab te maken, voert u de volgende stappen uit: 
-
-Als u machtigingen wilt toekennen aan docenten om labs te maken voor hun lessen, voegt u hen toe aan de rol **Labmaker**:
-
-1. Selecteer op de pagina **Lab-account** de optie **Toegangsbeheer (IAM)** en klik op **+ Roltoewijzing toevoegen** in de werkbalk. 
-
-    ![Access Control -> Knop Roltoewijzing toevoegen](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
-1. Selecteer op de pagina **Roltoewijzing toevoegen** de optie **Labmaker** als **Rol**. Selecteer de gebruiker die u wilt toevoegen aan de rol Labmaker en selecteer **Opslaan**. 
-
-    ![Labmaker toevoegen](../media/tutorial-setup-lab-account/add-lab-creator.png)
-
-
-## <a name="specify-marketplace-images-available-to-lab-creators"></a>Microsoft Azure Marketplace-installatiekopieën opgeven die beschikbaar zijn voor labmakers
-Als eigenaar van een labaccount kunt u de Marketplace-installatiekopieën opgeven die labmakers kunnen gebruiken in het labaccount. 
-
-1. Selecteer **Marketplace-installatiekopieën** in het menu aan de linkerkant. Standaard ziet u de volledige lijst met installatiekopieën (zowel ingeschakelde als uitgeschakelde). U kunt de lijst filteren om alleen ingeschakelde/uitgeschakelde installatiekopieën te bekijken door de optie **Alleen ingeschakeld**/**Alleen uitgeschakeld** in de vervolgkeuzelijst bovenaan te selecteren. 
-    
-    ![Pagina Microsoft Azure Marketplace-installatiekopieën](../media/tutorial-setup-lab-account/marketplace-images-page.png)
-
-    De Marketplace-installatiekopieën die worden weergegeven in de lijst, zijn de enige die voldoen aan de volgende voorwaarden:
-        
-    - Hiermee wordt een enkele VM gemaakt.
-    - Maakt gebruik van Azure Resource Manager om VM’s in te richten
-    - Hiervoor hoeft u geen extra licentieabonnement aan te schaffen
-2. Als u een Microsoft Azure Marketplace-installatiekopie die is ingeschakeld wilt **uitschakelen**, voert u een van de volgende acties uit: 
-    1. Selecteer **... (beletselteken)**  in de laatste kolom en selecteer **Installatiekopie uitschakelen**. 
-
-        ![Een installatiekopie uitschakelen](../media/tutorial-setup-lab-account/disable-one-image.png) 
-    2. Selecteer een of meer installatiekopieën in de lijst door de selectievakjes bij de namen van de installatiekopieën in de lijst te selecteren en **Geselecteerde installatiekopieën uitschakelen** te selecteren. 
-
-        ![Meerdere installatiekopieën uitschakelen](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
-1. Als u een Microsoft Azure Marketplace-installatiekopie wilt **inschakelen**, voert u een van de volgende acties uit: 
-    1. Selecteer **... (beletselteken)**  in de laatste kolom en selecteer **Installatiekopie inschakelen**. 
-    2. Selecteer een of meer installatiekopieën in de lijst door de selectievakjes bij de namen van de installatiekopieën in de lijst te selecteren en **Geselecteerde installatiekopieën inschakelen** te selecteren. 
-
-## <a name="configure-the-lab-account"></a>Configureer het lab-account
-1. Op de **Lab-Account** weergeeft, schakelt **Labs configuratie** in het menu links.
-
-    ![Configuratiepagina voor Labs](../media/how-to-manage-lab-accounts/labs-configuration-page.png) 
-1. Voor **virtuele peernetwerk**, selecteer **ingeschakeld** of **uitgeschakelde**. De standaardwaarde is **uitgeschakelde**. Om in te schakelen op het virtuele peernetwerk, voer de volgende stappen uit: 
-    1. Selecteer **ingeschakeld**.
-    2. Selecteer de **VNet** uit de vervolgkeuzelijst. 
-    3. Selecteer **Opslaan** op de werkbalk. 
-    
-        Labs gemaakt in dit account zijn verbonden met het geselecteerde virtuele netwerk. Ze hebben toegang tot de bronnen in de geselecteerde virtuele netwerk. 
-3. Voor de **labmaker toestaan om te kiezen lab locatie**, selecteer **ingeschakeld** als u wilt dat de labmaker kunnen een locatie voor de testomgeving te selecteren. Als deze uitgeschakeld, worden de labs automatisch gemaakt op dezelfde locatie waarin de lab-account bestaat. 
 
 ## <a name="view-lab-accounts"></a>Lab-accounts weergeven
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -119,8 +73,6 @@ Als eigenaar van een labaccount kunt u de Marketplace-installatiekopieën opgeve
     3. E-mailadres van de gebruiker die het lab gemaakt. 
     4. Maximum aantal gebruikers dat is toegestaan in het lab. 
     5. De status van het testlab. 
-
-
 
 ## <a name="delete-a-lab-in-the-lab-account"></a>Een lab in het lab-account verwijderen
 Volg de instructies in de vorige sectie voor een overzicht van de labs in het lab-account.
@@ -145,11 +97,5 @@ Volg de instructies uit de vorige sectie die lab-accounts in een lijst weergegev
     ![Lab-account - bevestiging verwijderen](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
 
 
-
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende artikelen:
-
-- [Labs maken en beheren als labeigenaar](how-to-manage-classroom-labs.md)
-- [Sjablonen instellen en publiceren als labeigenaar](how-to-create-manage-template.md)
-- [Het gebruik van een lab configureren en beheren als labeigenaar](how-to-configure-student-usage.md)
-- [Als een lab-gebruiker toegang krijgen tot leslokaallabs](how-to-use-classroom-lab.md)
+Zie het volgende artikel: [Lab-accounts configureren](how-to-configure-lab-accounts.md).

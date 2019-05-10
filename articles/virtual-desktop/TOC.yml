@@ -8,12 +8,12 @@
   items:
     - name: 1. Een tenant maken in Windows Virtual Desktop
       href: tenant-setup-azure-active-directory.md
-    - name: 2. Een hostpool maken met Azure Marketplace
-      href: create-host-pools-azure-marketplace.md
-    - name: 3. Appgroepen beheren
-      href: manage-app-groups.md
-    - name: 4. Service-principals en roltoewijzingen maken met PowerShell
+    - name: 2. Service-principals en roltoewijzingen maken met PowerShell
       href: create-service-principal-role-powershell.md
+    - name: 3. Een hostpool maken met Azure Marketplace
+      href: create-host-pools-azure-marketplace.md
+    - name: 4. Appgroepen beheren
+      href: manage-app-groups.md
 - name: Uitleg
   items:
     - name: Verbinding maken met Windows Virtual Desktop-resources

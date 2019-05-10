@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8d3e3257f16fe4e0f846c2268bfefc2771387de6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809065"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236449"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup bewakingsworkloads
 
@@ -49,7 +49,7 @@ Waarschuwingen zijn voornamelijk scenario's waarin gebruikers worden gewaarschuw
 De volgende scenario's worden gedefinieerd door de service als Signaleerbare scenario's.
 
   - Back-up/herstel fouten
-  - Back-up is geslaagd met waarschuwingen
+  - Back-up is voltooid met waarschuwingen voor Azure Backup-Agent (MAB)
   - Stop de beveiliging met gegevens/Stop de beveiliging en verwijder gegevens behouden
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Uitzonderingen wanneer een waarschuwing wordt gegenereerd
@@ -92,7 +92,7 @@ Wanneer de melding is geconfigureerd, ontvangt u een e-mail Welkom of inleidende
 Als de frequentie is ingesteld op een samenvatting per uur en een waarschuwing is gegenereerd en opgelost binnen een uur, wordt het niet een deel van de toekomstige samenvatting per uur zijn.
 
 > [!NOTE]
-> 
+>
 > * Als een destructieve bewerking zoals **stop de beveiliging en verwijder gegevens** is uitgevoerd, wordt een waarschuwing gegenereerd en wordt een e-mailbericht verzonden naar abonnementseigenaren, beheerders en co-beheerders, zelfs als meldingen zijn niet geconfigureerd voor de Service herstellen kluis.
 > * Melding configureren voor gebruik van geslaagde taken [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 

@@ -2,20 +2,20 @@
 title: Azure Files Sync oplossen | Microsoft Docs
 description: Oplossen van veelvoorkomende problemen met Azure File Sync.
 services: storage
-author: roygara
+author: jeffpatt24
 ms.service: storage
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: rogarana
+ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e399566a67161219e1d778ba1c6f874f7cede251
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190087"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510841"
 ---
-# <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
+# <a name="troubleshoot-azure-file-sync"></a>Problemen oplossen met Azure File Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
 
 In dit artikel is ontworpen om u te helpen u problemen op te lossen die met uw Azure File Sync-implementatie optreden mogelijk. Er wordt ook beschreven hoe u belangrijk om Logboeken te verzamelen uit het systeem als een nadere analyse van het probleem vereist is. Als u het antwoord op uw vraag niet ziet, u kunt contact met ons opnemen via de volgende kanalen (in steeds sneller groeiende volgorde):
@@ -91,7 +91,7 @@ Voor het maken van een cloudeindpunt, moet uw gebruikersaccount de volgende Micr
 
 De volgende ingebouwde rollen hebben de vereiste machtigingen voor Microsoft Authorization:  
 * Eigenaar
-* Beheerder van gebruikerstoegang
+* Administrator voor gebruikerstoegang
 
 Om te bepalen of uw gebruikersrol van het account de vereiste machtigingen heeft:  
 1. Selecteer in de Azure portal, **resourcegroepen**.
@@ -730,7 +730,7 @@ if ($fileShare -eq $null) {
 
     Als **hybride File Sync-Service** niet wordt weergegeven in de lijst, voer de volgende stappen uit:
 
-    - Klik op **Add**.
+    - Klik op **Toevoegen**.
     - In de **rol** veld **Reader en toegang tot gegevens**.
     - In de **Selecteer** veld, typt u **hybride File Sync-Service**, selecteer de rol en klikt u op **opslaan**.
 

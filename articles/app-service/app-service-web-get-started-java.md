@@ -74,7 +74,7 @@ Klik met de rechtermuisknop op **WebContent** en selecteer vervolgens **Nieuw** 
 In het dialoogvenster **Nieuw JSP-bestand**:
 
 * Noem het bestand **index.jsp**.
-* Selecteer **Voltooien**.
+* Selecteer **Finish**.
 
   ![Het dialoogvenster Nieuw JSP-bestand](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
 

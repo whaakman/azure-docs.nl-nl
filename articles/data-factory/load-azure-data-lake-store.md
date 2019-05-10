@@ -84,11 +84,11 @@ Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van 
 4. In de **opgeven Amazon S3 verbinding** pagina, de volgende stappen uit: 
    1. Geef de **toegangssleutel-ID** waarde.
    2. Geef de **geheime toegangssleutel** waarde.
-   3. Selecteer **Voltooien**.
+   3. Selecteer **Finish**.
    
       ![Amazon S3-account opgeven](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
    
-   4. Hier ziet u een nieuwe verbinding. Selecteer **Volgende**.
+   4. Hier ziet u een nieuwe verbinding. Selecteer **Next**.
    
    ![Amazon S3-account opgeven](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
    
@@ -108,7 +108,7 @@ Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van 
 
    1. Selecteer uw Gen1 van Data Lake Storage-account voor de **Data Lake Store-accountnaam**.
    2. Geef de **Tenant**, en selecteer voltooien.
-   3. Selecteer **Volgende**.
+   3. Selecteer **Next**.
    
    > [!IMPORTANT]
    > In dit scenario maakt u een beheerde identiteit voor Azure-resources gebruiken om uw Gen1 van Data Lake Storage-account te verifiëren. Zorg ervoor dat u het MSI-bestand de juiste machtigingen in Data Lake Storage Gen1 verlenen door [deze instructies](connector-azure-data-lake-store.md#managed-identity).

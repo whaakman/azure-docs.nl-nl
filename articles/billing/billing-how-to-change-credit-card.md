@@ -51,7 +51,7 @@ In de Azure-portal, kunt u een nieuwe creditcard toevoegen, een bestaande credit
 
 1. Deze kaart van de actieve betalingswijze, schakel het selectievakje in naast **hiervan Mijn actieve betalingswijze** boven het formulier. Deze kaart wordt de actieve betalingswijze voor alle abonnementen waarvoor de kaart wordt hetzelfde als het geselecteerde abonnement.
 
-1. Selecteer **Volgende**.
+1. Selecteer **Next**.
 
 Als u een foutmelding krijgt nadat u de creditcard hebt toegevoegd, Zie [creditcard is geregistreerd bij Azure aanmelden geweigerd](billing-credit-card-fails-during-azure-sign-up.md).
 
