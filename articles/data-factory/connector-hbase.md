@@ -43,11 +43,11 @@ De volgende eigenschappen worden ondersteund voor HBase gekoppelde service:
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **HBase** | Ja |
 | host | Het IP-adres of de hostnaam naam van de HBase-server. (d.w.z.)  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Ja |
-| poort | De TCP-poort die de HBase-exemplaar gebruikt om te luisteren naar clientverbindingen. De standaardwaarde is 9090. Als u verbinding met Azure HDInsights maken, geeft u poort 443. | Nee |
+| port | De TCP-poort die de HBase-exemplaar gebruikt om te luisteren naar clientverbindingen. De standaardwaarde is 9090. Als u verbinding met Azure HDInsights maken, geeft u poort 443. | Nee |
 | httpPath | De gedeeltelijke URL overeenkomt met de HBase-server, bijvoorbeeld `/hbaserest0` bij het gebruik van HDInsights cluster. | Nee |
 | authenticationType | De verificatiemethode om toegang te gebruiken voor verbinding met de HBase-server. <br/>Toegestane waarden zijn: **Anonieme**, **Basic** | Ja |
-| gebruikersnaam | De gebruikersnaam die wordt gebruikt voor verbinding met de HBase-exemplaar.  | Nee |
-| wachtwoord | Het wachtwoord dat overeenkomt met de naam van de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
+| username | De gebruikersnaam die wordt gebruikt voor verbinding met de HBase-exemplaar.  | Nee |
+| password | Het wachtwoord dat overeenkomt met de naam van de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | enableSsl | Hiermee geeft u op of de verbindingen met de server zijn versleuteld met behulp van SSL. De standaardwaarde is false.  | Nee |
 | trustedCertPath | Het volledige pad van het .pem-bestand met de vertrouwde CA-certificaten voor het controleren van de server wanneer u verbinding maakt via SSL. Deze eigenschap kan alleen worden ingesteld wanneer u SSL op zelf-hostende IR De standaardwaarde is het bestand cacerts.pem is geïnstalleerd met de IR.  | Nee |
 | allowHostNameCNMismatch | Hiermee geeft u op of de naam van een Certificeringsinstantie uitgegeven SSL-certificaat zodat deze overeenkomen met de hostnaam van de server wanneer u verbinding maakt via SSL vereist. De standaardwaarde is false.  | Nee |
