@@ -57,8 +57,8 @@ Stel de eigenschap 'authenticationType' in op **UserAuthentication**, en geeft u
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| ClientId | ID van de toepassing die wordt gebruikt voor het genereren van het vernieuwingstoken. | Nee |
-| ClientSecret | Geheim van de toepassing die wordt gebruikt voor het genereren van het vernieuwingstoken. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
+| clientId | ID van de toepassing die wordt gebruikt voor het genereren van het vernieuwingstoken. | Nee |
+| clientSecret | Geheim van de toepassing die wordt gebruikt voor het genereren van het vernieuwingstoken. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | refreshToken | Het vernieuwingstoken dat is verkregen van Google gebruikt voor de autorisatie van toegang tot BigQuery. Informatie over het verkrijgen van [het verkrijgen van OAuth 2.0-toegangstokens](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) en [deze communityblog](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 
 **Voorbeeld:**
@@ -93,7 +93,7 @@ Stel de eigenschap 'authenticationType' in op **ServiceAuthentication**, en geef
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| e-mail | De service-account e-mail-ID die wordt gebruikt voor ServiceAuthentication. Het kan alleen worden gebruikt voor zelfgehoste Cloudintegratieruntime.  | Nee |
+| email | De service-account e-mail-ID die wordt gebruikt voor ServiceAuthentication. Het kan alleen worden gebruikt voor zelfgehoste Cloudintegratieruntime.  | Nee |
 | keyFilePath | Het volledige pad naar het .p12-sleutelbestand die wordt gebruikt voor verificatie van het e-mailadres van de service-account. | Nee |
 | trustedCertPath | Het volledige pad van het .pem-bestand met vertrouwde CA-certificaten gebruikt om te controleren of de server wanneer u verbinding via SSL maakt. Deze eigenschap kan alleen worden ingesteld als u SSL op zelfgehoste Cloudintegratieruntime. De standaardwaarde is de cacerts.pem-bestand met de integratieruntime geïnstalleerd.  | Nee |
 | useSystemTrustStore | Hiermee geeft u op of u wilt gebruiken van een CA-certificaat uit het archief van de vertrouwensrelatie system of vanuit een opgegeven .pem-bestand. De standaardwaarde is **false**.  | Nee |
